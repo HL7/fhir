@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -130,19 +130,31 @@ public class Identifier extends Type {
       super();
     }
 
+    /**
+     * @return {@link #use} (usual | official | temp | secondary (If known).)
+     */
     public Enumeration<IdentifierUse> getUse() { 
       return this.use;
     }
 
+    /**
+     * @param value {@link #use} (usual | official | temp | secondary (If known).)
+     */
     public Identifier setUse(Enumeration<IdentifierUse> value) { 
       this.use = value;
       return this;
     }
 
+    /**
+     * @return usual | official | temp | secondary (If known).
+     */
     public IdentifierUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
+    /**
+     * @param value usual | official | temp | secondary (If known).
+     */
     public Identifier setUseSimple(IdentifierUse value) { 
       if (value == null)
         this.use = null;
@@ -154,19 +166,31 @@ public class Identifier extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #label} (A label for the identifier that can be displayed to a human so they can recognize the identifier.)
+     */
     public String_ getLabel() { 
       return this.label;
     }
 
+    /**
+     * @param value {@link #label} (A label for the identifier that can be displayed to a human so they can recognize the identifier.)
+     */
     public Identifier setLabel(String_ value) { 
       this.label = value;
       return this;
     }
 
+    /**
+     * @return A label for the identifier that can be displayed to a human so they can recognize the identifier.
+     */
     public String getLabelSimple() { 
       return this.label == null ? null : this.label.getValue();
     }
 
+    /**
+     * @param value A label for the identifier that can be displayed to a human so they can recognize the identifier.
+     */
     public Identifier setLabelSimple(String value) { 
       if (value == null)
         this.label = null;
@@ -178,19 +202,31 @@ public class Identifier extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #system} (Establishes the namespace in which set of possible id values is unique.)
+     */
     public Uri getSystem() { 
       return this.system;
     }
 
+    /**
+     * @param value {@link #system} (Establishes the namespace in which set of possible id values is unique.)
+     */
     public Identifier setSystem(Uri value) { 
       this.system = value;
       return this;
     }
 
+    /**
+     * @return Establishes the namespace in which set of possible id values is unique.
+     */
     public String getSystemSimple() { 
       return this.system == null ? null : this.system.getValue();
     }
 
+    /**
+     * @param value Establishes the namespace in which set of possible id values is unique.
+     */
     public Identifier setSystemSimple(String value) { 
       if (value == null)
         this.system = null;
@@ -202,19 +238,31 @@ public class Identifier extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.)
+     */
     public String_ getValue() { 
       return this.value;
     }
 
+    /**
+     * @param value {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.)
+     */
     public Identifier setValue(String_ value) { 
       this.value = value;
       return this;
     }
 
+    /**
+     * @return The portion of the identifier typically displayed to the user and which is unique within the context of the system.
+     */
     public String getValueSimple() { 
       return this.value == null ? null : this.value.getValue();
     }
 
+    /**
+     * @param value The portion of the identifier typically displayed to the user and which is unique within the context of the system.
+     */
     public Identifier setValueSimple(String value) { 
       if (value == null)
         this.value = null;
@@ -226,19 +274,31 @@ public class Identifier extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #period} (Time period during which identifier was valid for use.)
+     */
     public Period getPeriod() { 
       return this.period;
     }
 
+    /**
+     * @param value {@link #period} (Time period during which identifier was valid for use.)
+     */
     public Identifier setPeriod(Period value) { 
       this.period = value;
       return this;
     }
 
+    /**
+     * @return {@link #assigner} (Organization that issued/manages the identifier.)
+     */
     public ResourceReference getAssigner() { 
       return this.assigner;
     }
 
+    /**
+     * @param value {@link #assigner} (Organization that issued/manages the identifier.)
+     */
     public Identifier setAssigner(ResourceReference value) { 
       this.assigner = value;
       return this;

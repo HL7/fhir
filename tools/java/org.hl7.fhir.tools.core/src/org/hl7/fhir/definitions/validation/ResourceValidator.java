@@ -312,7 +312,8 @@ public class ResourceValidator extends BaseValidator {
   private String stripPunctuation(String s) {
     StringBuilder b = new StringBuilder();
     for (char c : s.toCharArray()) {
-      if (Character.isAlphabetic(c) || c == ' ')
+      int t = Character.getType(c);
+      if (t == Character.UPPERCASE_LETTER || t == Character.LOWERCASE_LETTER || t == Character.TITLECASE_LETTER || t == Character.MODIFIER_LETTER || t == Character.OTHER_LETTER || t == Character.LETTER_NUMBER || c == ' ')
         b.append(c);
     }
     return b.toString();

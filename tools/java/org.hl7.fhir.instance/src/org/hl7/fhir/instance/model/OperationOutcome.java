@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -126,19 +126,31 @@ public class OperationOutcome extends Resource {
         this.severity = severity;
       }
 
+        /**
+         * @return {@link #severity} (Indicates whether the issue indicates a variation from successful processing.)
+         */
         public Enumeration<IssueSeverity> getSeverity() { 
           return this.severity;
         }
 
+        /**
+         * @param value {@link #severity} (Indicates whether the issue indicates a variation from successful processing.)
+         */
         public OperationOutcomeIssueComponent setSeverity(Enumeration<IssueSeverity> value) { 
           this.severity = value;
           return this;
         }
 
+        /**
+         * @return Indicates whether the issue indicates a variation from successful processing.
+         */
         public IssueSeverity getSeveritySimple() { 
           return this.severity == null ? null : this.severity.getValue();
         }
 
+        /**
+         * @param value Indicates whether the issue indicates a variation from successful processing.
+         */
         public OperationOutcomeIssueComponent setSeveritySimple(IssueSeverity value) { 
             if (this.severity == null)
               this.severity = new Enumeration<IssueSeverity>();
@@ -146,28 +158,46 @@ public class OperationOutcome extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #type} (A code indicating the type of error, warning or information message.)
+         */
         public Coding getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (A code indicating the type of error, warning or information message.)
+         */
         public OperationOutcomeIssueComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #details} (Additional description of the issue.)
+         */
         public String_ getDetails() { 
           return this.details;
         }
 
+        /**
+         * @param value {@link #details} (Additional description of the issue.)
+         */
         public OperationOutcomeIssueComponent setDetails(String_ value) { 
           this.details = value;
           return this;
         }
 
+        /**
+         * @return Additional description of the issue.
+         */
         public String getDetailsSimple() { 
           return this.details == null ? null : this.details.getValue();
         }
 
+        /**
+         * @param value Additional description of the issue.
+         */
         public OperationOutcomeIssueComponent setDetailsSimple(String value) { 
           if (value == null)
             this.details = null;
@@ -179,17 +209,26 @@ public class OperationOutcome extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
+         */
         public List<String_> getLocation() { 
           return this.location;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
+         */
         public String_ addLocation() { 
           String_ t = new String_();
           this.location.add(t);
           return t;
         }
 
+        /**
+         * @param value {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
+         */
         public String_ addLocationSimple(String value) { 
           String_ t = new String_();
           t.setValue(value);
@@ -227,11 +266,17 @@ public class OperationOutcome extends Resource {
       super();
     }
 
+    /**
+     * @return {@link #issue} (An error, warning or information message that results from a system action.)
+     */
     public List<OperationOutcomeIssueComponent> getIssue() { 
       return this.issue;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #issue} (An error, warning or information message that results from a system action.)
+     */
     public OperationOutcomeIssueComponent addIssue() { 
       OperationOutcomeIssueComponent t = new OperationOutcomeIssueComponent();
       this.issue.add(t);

@@ -198,8 +198,7 @@
 
   <goal id="g1">
     <!-- An extension that specifies the minimum peak flow target for this person. Its coded so that UI's can display this in charts for example-->
-    <extension>
-      <url value='www.moh.govt.nz/fhir/asthma#minimumPF'></url>
+    <extension url='www.moh.govt.nz/fhir/asthma#minimumPF'></ur>
       <valueInteger value="500"></valueInteger>
     </extension>
     <description value="Maintain Peak flow above 500"/>
@@ -248,23 +247,20 @@
       </actionResulting>
       <notes value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
     <simple>
-      <extension>
-        <extension>
-          <url value="www.moh.govt.nz/fhir/trigger#code"/>
+      <extension url="www.moh.govt.nz/fhir/trigger">
+        <extension url="www.moh.govt.nz/fhir/trigger#code">
           <valueCoding>
             <system value="http://snomed.info/id"/>
             <code value="313193502"/>
             <display value="Respiratory flow rate (observable entity)"></display>
           </valueCoding>
         </extension>
-        <extension>
-          <url value="www.moh.govt.nz/fhir/trigger#value"/>
+        <extension url="www.moh.govt.nz/fhir/trigger#value">
           <valueQuantity>
             <value value="350"/>
             <comparator value="&lt;"/>
           </valueQuantity>
         </extension>
-        <url value="www.moh.govt.nz/fhir/trigger"/>
         <isModifier value="true"/>
       </extension>
       <category value="drug"/>
@@ -278,25 +274,21 @@
     <notes value="In response to a peakflow below 250, seek urgent Medical Assistance. This can be life threatening."/>
     <!-- Specifies that this activity (get medical help) is only triggered when the peak flow drops below 250-->
     <simple>
-      <extension>
-        <extension>
-          <url value="www.moh.govt.nz/fhir/trigger#code"/>
+      <modifierExtension url="www.moh.govt.nz/fhir/trigger">
+        <extension url="www.moh.govt.nz/fhir/trigger#code">
           <valueCoding>
             <system value="http://snomed.info/id"/>
             <code value="313193502"/>
             <display value="Respiratory flow rate (observable entity)"></display>
           </valueCoding>
         </extension>
-        <extension>
-          <url value="www.moh.govt.nz/fhir/trigger#value"/>
+        <modifierExtension url="www.moh.govt.nz/fhir/trigger#value">
           <valueQuantity>
             <value value="250"/>
             <comparator value="&lt;"/>
           </valueQuantity>
         </extension>
-        <url value="www.moh.govt.nz/fhir/trigger"/>
-        <isModifier value="true"/>
-      </extension>
+      </modifierExtension>
       <category value="encounter"/>
       <details value="Get Medical assistance immediately"/>
     </simple>

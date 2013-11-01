@@ -58,7 +58,8 @@ public class ElementDefn {
 	private boolean modifier;
 	private boolean mustSupport;
 	private boolean summaryItem; // whether this is included in a summary
-	private String regex; 
+	private String regex;
+	private boolean xmlAttribute;
 
 	private Map<String, String> mappings = new HashMap<String, String>();
 	// private String id;
@@ -766,6 +767,14 @@ public class ElementDefn {
 
   public boolean isMandatory() {
     return (minCardinality != null && maxCardinality != null && minCardinality == 1 && maxCardinality == 1);    
+  }
+
+  public boolean isXmlAttribute() {
+    return xmlAttribute;
+  }
+
+  public void setXmlAttribute(boolean xmlAttribute) {
+    this.xmlAttribute = xmlAttribute;
   }
 	
 	

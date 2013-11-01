@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -113,28 +113,46 @@ public class DocumentReference extends Resource {
         this.type = type;
       }
 
+        /**
+         * @return {@link #type} (The type of the service that can be used to access the documents.)
+         */
         public CodeableConcept getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (The type of the service that can be used to access the documents.)
+         */
         public DocumentReferenceServiceComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #address} (Where the service end-point is located.)
+         */
         public String_ getAddress() { 
           return this.address;
         }
 
+        /**
+         * @param value {@link #address} (Where the service end-point is located.)
+         */
         public DocumentReferenceServiceComponent setAddress(String_ value) { 
           this.address = value;
           return this;
         }
 
+        /**
+         * @return Where the service end-point is located.
+         */
         public String getAddressSimple() { 
           return this.address == null ? null : this.address.getValue();
         }
 
+        /**
+         * @param value Where the service end-point is located.
+         */
         public DocumentReferenceServiceComponent setAddressSimple(String value) { 
           if (value == null)
             this.address = null;
@@ -146,11 +164,17 @@ public class DocumentReference extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #parameter} (A list of named parameters that is used in the service call.)
+         */
         public List<DocumentReferenceServiceParameterComponent> getParameter() { 
           return this.parameter;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #parameter} (A list of named parameters that is used in the service call.)
+         */
         public DocumentReferenceServiceParameterComponent addParameter() { 
           DocumentReferenceServiceParameterComponent t = new DocumentReferenceServiceParameterComponent();
           this.parameter.add(t);
@@ -196,19 +220,31 @@ public class DocumentReference extends Resource {
         this.name = name;
       }
 
+        /**
+         * @return {@link #name} (The name of a parameter.)
+         */
         public String_ getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (The name of a parameter.)
+         */
         public DocumentReferenceServiceParameterComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return The name of a parameter.
+         */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
+        /**
+         * @param value The name of a parameter.
+         */
         public DocumentReferenceServiceParameterComponent setNameSimple(String value) { 
             if (this.name == null)
               this.name = new String_();
@@ -216,19 +252,31 @@ public class DocumentReference extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #value} (The value of the named parameter.)
+         */
         public String_ getValue() { 
           return this.value;
         }
 
+        /**
+         * @param value {@link #value} (The value of the named parameter.)
+         */
         public DocumentReferenceServiceParameterComponent setValue(String_ value) { 
           this.value = value;
           return this;
         }
 
+        /**
+         * @return The value of the named parameter.
+         */
         public String getValueSimple() { 
           return this.value == null ? null : this.value.getValue();
         }
 
+        /**
+         * @param value The value of the named parameter.
+         */
         public DocumentReferenceServiceParameterComponent setValueSimple(String value) { 
           if (value == null)
             this.value = null;
@@ -275,30 +323,48 @@ public class DocumentReference extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (The type of clinical context, such as a kind of surgery, or a kind of speciality, or a clinical type.)
+         */
         public List<CodeableConcept> getCode() { 
           return this.code;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #code} (The type of clinical context, such as a kind of surgery, or a kind of speciality, or a clinical type.)
+         */
         public CodeableConcept addCode() { 
           CodeableConcept t = new CodeableConcept();
           this.code.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #period} (The time period over which the service that is described by the document was provided.)
+         */
         public Period getPeriod() { 
           return this.period;
         }
 
+        /**
+         * @param value {@link #period} (The time period over which the service that is described by the document was provided.)
+         */
         public DocumentReferenceContextComponent setPeriod(Period value) { 
           this.period = value;
           return this;
         }
 
+        /**
+         * @return {@link #facilityType} (The kind of facility where the patient was seen.)
+         */
         public CodeableConcept getFacilityType() { 
           return this.facilityType;
         }
 
+        /**
+         * @param value {@link #facilityType} (The kind of facility where the patient was seen.)
+         */
         public DocumentReferenceContextComponent setFacilityType(CodeableConcept value) { 
           this.facilityType = value;
           return this;
@@ -457,86 +523,140 @@ public class DocumentReference extends Resource {
       this.mimeType = mimeType;
     }
 
+    /**
+     * @return {@link #masterIdentifier} (Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.)
+     */
     public Identifier getMasterIdentifier() { 
       return this.masterIdentifier;
     }
 
+    /**
+     * @param value {@link #masterIdentifier} (Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.)
+     */
     public DocumentReference setMasterIdentifier(Identifier value) { 
       this.masterIdentifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #identifier} (Other identifiers associated with the document, including version independent identifiers and source record identifiers.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (Other identifiers associated with the document, including version independent identifiers and source record identifiers.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #subject} (Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
+     */
     public DocumentReference setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #type} (Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
+     */
     public CodeableConcept getType() { 
       return this.type;
     }
 
+    /**
+     * @param value {@link #type} (Specifies the particular kind of document (e.g. Patient Summary, Discharge Summary, Prescription, etc.).)
+     */
     public DocumentReference setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
 
+    /**
+     * @return {@link #subtype} (More detailed information about the document type.)
+     */
     public CodeableConcept getSubtype() { 
       return this.subtype;
     }
 
+    /**
+     * @param value {@link #subtype} (More detailed information about the document type.)
+     */
     public DocumentReference setSubtype(CodeableConcept value) { 
       this.subtype = value;
       return this;
     }
 
+    /**
+     * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
+     */
     public List<ResourceReference> getAuthor() { 
       return this.author;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
+     */
     public ResourceReference addAuthor() { 
       ResourceReference t = new ResourceReference();
       this.author.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.)
+     */
     public ResourceReference getCustodian() { 
       return this.custodian;
     }
 
+    /**
+     * @param value {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.)
+     */
     public DocumentReference setCustodian(ResourceReference value) { 
       this.custodian = value;
       return this;
     }
 
+    /**
+     * @return {@link #policyManager} (A reference to a domain or server that manages policies under which the document is accessed and/or made available.)
+     */
     public Uri getPolicyManager() { 
       return this.policyManager;
     }
 
+    /**
+     * @param value {@link #policyManager} (A reference to a domain or server that manages policies under which the document is accessed and/or made available.)
+     */
     public DocumentReference setPolicyManager(Uri value) { 
       this.policyManager = value;
       return this;
     }
 
+    /**
+     * @return A reference to a domain or server that manages policies under which the document is accessed and/or made available.
+     */
     public String getPolicyManagerSimple() { 
       return this.policyManager == null ? null : this.policyManager.getValue();
     }
 
+    /**
+     * @param value A reference to a domain or server that manages policies under which the document is accessed and/or made available.
+     */
     public DocumentReference setPolicyManagerSimple(String value) { 
       if (value == null)
         this.policyManager = null;
@@ -548,28 +668,46 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #authenticator} (Which person or organization authenticates that this document is valid.)
+     */
     public ResourceReference getAuthenticator() { 
       return this.authenticator;
     }
 
+    /**
+     * @param value {@link #authenticator} (Which person or organization authenticates that this document is valid.)
+     */
     public DocumentReference setAuthenticator(ResourceReference value) { 
       this.authenticator = value;
       return this;
     }
 
+    /**
+     * @return {@link #created} (When the document was created.)
+     */
     public DateTime getCreated() { 
       return this.created;
     }
 
+    /**
+     * @param value {@link #created} (When the document was created.)
+     */
     public DocumentReference setCreated(DateTime value) { 
       this.created = value;
       return this;
     }
 
+    /**
+     * @return When the document was created.
+     */
     public String getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
+    /**
+     * @param value When the document was created.
+     */
     public DocumentReference setCreatedSimple(String value) { 
       if (value == null)
         this.created = null;
@@ -581,19 +719,31 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #indexed} (When the document reference was created.)
+     */
     public Instant getIndexed() { 
       return this.indexed;
     }
 
+    /**
+     * @param value {@link #indexed} (When the document reference was created.)
+     */
     public DocumentReference setIndexed(Instant value) { 
       this.indexed = value;
       return this;
     }
 
+    /**
+     * @return When the document reference was created.
+     */
     public Calendar getIndexedSimple() { 
       return this.indexed == null ? null : this.indexed.getValue();
     }
 
+    /**
+     * @param value When the document reference was created.
+     */
     public DocumentReference setIndexedSimple(Calendar value) { 
         if (this.indexed == null)
           this.indexed = new Instant();
@@ -601,19 +751,31 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #status} (The status of this document reference.)
+     */
     public Enumeration<DocumentReferenceStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The status of this document reference.)
+     */
     public DocumentReference setStatus(Enumeration<DocumentReferenceStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The status of this document reference.
+     */
     public DocumentReferenceStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The status of this document reference.
+     */
     public DocumentReference setStatusSimple(DocumentReferenceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<DocumentReferenceStatus>();
@@ -621,37 +783,61 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #docStatus} (The status of the underlying document.)
+     */
     public CodeableConcept getDocStatus() { 
       return this.docStatus;
     }
 
+    /**
+     * @param value {@link #docStatus} (The status of the underlying document.)
+     */
     public DocumentReference setDocStatus(CodeableConcept value) { 
       this.docStatus = value;
       return this;
     }
 
+    /**
+     * @return {@link #supercedes} (If this document replaces another.)
+     */
     public ResourceReference getSupercedes() { 
       return this.supercedes;
     }
 
+    /**
+     * @param value {@link #supercedes} (If this document replaces another.)
+     */
     public DocumentReference setSupercedes(ResourceReference value) { 
       this.supercedes = value;
       return this;
     }
 
+    /**
+     * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".)
+     */
     public String_ getDescription() { 
       return this.description;
     }
 
+    /**
+     * @param value {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".)
+     */
     public DocumentReference setDescription(String_ value) { 
       this.description = value;
       return this;
     }
 
+    /**
+     * @return Human-readable description of the source document. This is sometimes known as the "title".
+     */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
+    /**
+     * @param value Human-readable description of the source document. This is sometimes known as the "title".
+     */
     public DocumentReference setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
@@ -663,30 +849,48 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #confidentiality} (A code specifying the level of confidentiality of the XDS Document.)
+     */
     public List<CodeableConcept> getConfidentiality() { 
       return this.confidentiality;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #confidentiality} (A code specifying the level of confidentiality of the XDS Document.)
+     */
     public CodeableConcept addConfidentiality() { 
       CodeableConcept t = new CodeableConcept();
       this.confidentiality.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #primaryLanguage} (The primary language in which the source document is written.)
+     */
     public Code getPrimaryLanguage() { 
       return this.primaryLanguage;
     }
 
+    /**
+     * @param value {@link #primaryLanguage} (The primary language in which the source document is written.)
+     */
     public DocumentReference setPrimaryLanguage(Code value) { 
       this.primaryLanguage = value;
       return this;
     }
 
+    /**
+     * @return The primary language in which the source document is written.
+     */
     public String getPrimaryLanguageSimple() { 
       return this.primaryLanguage == null ? null : this.primaryLanguage.getValue();
     }
 
+    /**
+     * @param value The primary language in which the source document is written.
+     */
     public DocumentReference setPrimaryLanguageSimple(String value) { 
       if (value == null)
         this.primaryLanguage = null;
@@ -698,19 +902,31 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #mimeType} (The mime type of the source document.)
+     */
     public Code getMimeType() { 
       return this.mimeType;
     }
 
+    /**
+     * @param value {@link #mimeType} (The mime type of the source document.)
+     */
     public DocumentReference setMimeType(Code value) { 
       this.mimeType = value;
       return this;
     }
 
+    /**
+     * @return The mime type of the source document.
+     */
     public String getMimeTypeSimple() { 
       return this.mimeType == null ? null : this.mimeType.getValue();
     }
 
+    /**
+     * @param value The mime type of the source document.
+     */
     public DocumentReference setMimeTypeSimple(String value) { 
         if (this.mimeType == null)
           this.mimeType = new Code();
@@ -718,28 +934,46 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #format} (The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml).)
+     */
     public CodeableConcept getFormat() { 
       return this.format;
     }
 
+    /**
+     * @param value {@link #format} (The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml).)
+     */
     public DocumentReference setFormat(CodeableConcept value) { 
       this.format = value;
       return this;
     }
 
+    /**
+     * @return {@link #size} (The size of the source document this reference refers to in bytes.)
+     */
     public Integer getSize() { 
       return this.size;
     }
 
+    /**
+     * @param value {@link #size} (The size of the source document this reference refers to in bytes.)
+     */
     public DocumentReference setSize(Integer value) { 
       this.size = value;
       return this;
     }
 
+    /**
+     * @return The size of the source document this reference refers to in bytes.
+     */
     public int getSizeSimple() { 
       return this.size == null ? null : this.size.getValue();
     }
 
+    /**
+     * @param value The size of the source document this reference refers to in bytes.
+     */
     public DocumentReference setSizeSimple(int value) { 
       if (value == -1)
         this.size = null;
@@ -751,19 +985,31 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #hash} (A hash of the source document to ensure that changes have not occurred.)
+     */
     public String_ getHash() { 
       return this.hash;
     }
 
+    /**
+     * @param value {@link #hash} (A hash of the source document to ensure that changes have not occurred.)
+     */
     public DocumentReference setHash(String_ value) { 
       this.hash = value;
       return this;
     }
 
+    /**
+     * @return A hash of the source document to ensure that changes have not occurred.
+     */
     public String getHashSimple() { 
       return this.hash == null ? null : this.hash.getValue();
     }
 
+    /**
+     * @param value A hash of the source document to ensure that changes have not occurred.
+     */
     public DocumentReference setHashSimple(String value) { 
       if (value == null)
         this.hash = null;
@@ -775,19 +1021,31 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #location} (A url at which the document can be accessed.)
+     */
     public Uri getLocation() { 
       return this.location;
     }
 
+    /**
+     * @param value {@link #location} (A url at which the document can be accessed.)
+     */
     public DocumentReference setLocation(Uri value) { 
       this.location = value;
       return this;
     }
 
+    /**
+     * @return A url at which the document can be accessed.
+     */
     public String getLocationSimple() { 
       return this.location == null ? null : this.location.getValue();
     }
 
+    /**
+     * @param value A url at which the document can be accessed.
+     */
     public DocumentReference setLocationSimple(String value) { 
       if (value == null)
         this.location = null;
@@ -799,19 +1057,31 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #service} (A description of a service call that can be used to retrieve the document.)
+     */
     public DocumentReferenceServiceComponent getService() { 
       return this.service;
     }
 
+    /**
+     * @param value {@link #service} (A description of a service call that can be used to retrieve the document.)
+     */
     public DocumentReference setService(DocumentReferenceServiceComponent value) { 
       this.service = value;
       return this;
     }
 
+    /**
+     * @return {@link #context} (The clinical context in which the document was prepared.)
+     */
     public DocumentReferenceContextComponent getContext() { 
       return this.context;
     }
 
+    /**
+     * @param value {@link #context} (The clinical context in which the document was prepared.)
+     */
     public DocumentReference setContext(DocumentReferenceContextComponent value) { 
       this.context = value;
       return this;

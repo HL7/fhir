@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -52,19 +52,31 @@ public class Ratio extends Type {
       super();
     }
 
+    /**
+     * @return {@link #numerator} (The numerator.)
+     */
     public Quantity getNumerator() { 
       return this.numerator;
     }
 
+    /**
+     * @param value {@link #numerator} (The numerator.)
+     */
     public Ratio setNumerator(Quantity value) { 
       this.numerator = value;
       return this;
     }
 
+    /**
+     * @return {@link #denominator} (The denominator.)
+     */
     public Quantity getDenominator() { 
       return this.denominator;
     }
 
+    /**
+     * @param value {@link #denominator} (The denominator.)
+     */
     public Ratio setDenominator(Quantity value) { 
       this.denominator = value;
       return this;

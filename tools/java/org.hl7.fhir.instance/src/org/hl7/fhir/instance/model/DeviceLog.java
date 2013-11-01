@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -193,19 +193,31 @@ public class DeviceLog extends Resource {
         this.key = key;
       }
 
+        /**
+         * @return {@link #key} (Reference to a device capabilities declaration.)
+         */
         public String_ getKey() { 
           return this.key;
         }
 
+        /**
+         * @param value {@link #key} (Reference to a device capabilities declaration.)
+         */
         public DeviceLogItemComponent setKey(String_ value) { 
           this.key = value;
           return this;
         }
 
+        /**
+         * @return Reference to a device capabilities declaration.
+         */
         public String getKeySimple() { 
           return this.key == null ? null : this.key.getValue();
         }
 
+        /**
+         * @param value Reference to a device capabilities declaration.
+         */
         public DeviceLogItemComponent setKeySimple(String value) { 
             if (this.key == null)
               this.key = new String_();
@@ -213,19 +225,31 @@ public class DeviceLog extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #value} (The value of the data item, if available. Irrespective of the logical format of the data item, the value is always represented as a string.)
+         */
         public String_ getValue() { 
           return this.value;
         }
 
+        /**
+         * @param value {@link #value} (The value of the data item, if available. Irrespective of the logical format of the data item, the value is always represented as a string.)
+         */
         public DeviceLogItemComponent setValue(String_ value) { 
           this.value = value;
           return this;
         }
 
+        /**
+         * @return The value of the data item, if available. Irrespective of the logical format of the data item, the value is always represented as a string.
+         */
         public String getValueSimple() { 
           return this.value == null ? null : this.value.getValue();
         }
 
+        /**
+         * @param value The value of the data item, if available. Irrespective of the logical format of the data item, the value is always represented as a string.
+         */
         public DeviceLogItemComponent setValueSimple(String value) { 
           if (value == null)
             this.value = null;
@@ -237,17 +261,26 @@ public class DeviceLog extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #flag} (Information about the quality of the data etc.)
+         */
         public List<Enumeration<DeviceValueFlag>> getFlag() { 
           return this.flag;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #flag} (Information about the quality of the data etc.)
+         */
         public Enumeration<DeviceValueFlag> addFlag() { 
           Enumeration<DeviceValueFlag> t = new Enumeration<DeviceValueFlag>();
           this.flag.add(t);
           return t;
         }
 
+        /**
+         * @param value {@link #flag} (Information about the quality of the data etc.)
+         */
         public Enumeration<DeviceValueFlag> addFlagSimple(DeviceValueFlag value) { 
           Enumeration<DeviceValueFlag> t = new Enumeration<DeviceValueFlag>();
           t.setValue(value);
@@ -298,19 +331,31 @@ public class DeviceLog extends Resource {
       super();
     }
 
+    /**
+     * @return {@link #instant} (The point in time that the values are reported.)
+     */
     public Instant getInstant() { 
       return this.instant;
     }
 
+    /**
+     * @param value {@link #instant} (The point in time that the values are reported.)
+     */
     public DeviceLog setInstant(Instant value) { 
       this.instant = value;
       return this;
     }
 
+    /**
+     * @return The point in time that the values are reported.
+     */
     public Calendar getInstantSimple() { 
       return this.instant == null ? null : this.instant.getValue();
     }
 
+    /**
+     * @param value The point in time that the values are reported.
+     */
     public DeviceLog setInstantSimple(Calendar value) { 
       if (value == null)
         this.instant = null;
@@ -322,29 +367,47 @@ public class DeviceLog extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #capabilities} (An explicit reference  to the capabilities.)
+     */
     public ResourceReference getCapabilities() { 
       return this.capabilities;
     }
 
+    /**
+     * @param value {@link #capabilities} (An explicit reference  to the capabilities.)
+     */
     public DeviceLog setCapabilities(ResourceReference value) { 
       this.capabilities = value;
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The subject of the measurement.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The subject of the measurement.)
+     */
     public DeviceLog setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #item} (An item of data that the device produces.)
+     */
     public List<DeviceLogItemComponent> getItem() { 
       return this.item;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #item} (An item of data that the device produces.)
+     */
     public DeviceLogItemComponent addItem() { 
       DeviceLogItemComponent t = new DeviceLogItemComponent();
       this.item.add(t);

@@ -4,8 +4,7 @@
     this is added to demonstrate the use of extensions.
     0002,0010 is the DICOM transfer syntax of the referenced image
    -->
-  <extension>
-    <url value="http://nema.org/fhir/extensions#0002-0010"/>
+  <extension url="http://nema.org/fhir/extensions#0002-0010">
     <valueUri value="urn:oid:1.2.840.10008.1.2.1"/>
   </extension>  
 

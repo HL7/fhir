@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -158,70 +158,112 @@ public class DocumentManifest extends Resource {
       this.status = status;
     }
 
+    /**
+     * @return {@link #identifier} (A single identifier that identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
+     */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (A single identifier that identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
+     */
     public DocumentManifest setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).)
+     */
     public List<ResourceReference> getSubject() { 
       return this.subject;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).)
+     */
     public ResourceReference addSubject() { 
       ResourceReference t = new ResourceReference();
       this.subject.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #recipient} (A patient, practitioner, or organization that this set of documents is intended for.)
+     */
     public List<ResourceReference> getRecipient() { 
       return this.recipient;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #recipient} (A patient, practitioner, or organization that this set of documents is intended for.)
+     */
     public ResourceReference addRecipient() { 
       ResourceReference t = new ResourceReference();
       this.recipient.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there's only one - but it may be wider.)
+     */
     public CodeableConcept getType() { 
       return this.type;
     }
 
+    /**
+     * @param value {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there's only one - but it may be wider.)
+     */
     public DocumentManifest setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
 
+    /**
+     * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
+     */
     public List<ResourceReference> getAuthor() { 
       return this.author;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #author} (Identifies who is responsible for adding the information to the document.)
+     */
     public ResourceReference addAuthor() { 
       ResourceReference t = new ResourceReference();
       this.author.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).)
+     */
     public DateTime getCreated() { 
       return this.created;
     }
 
+    /**
+     * @param value {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).)
+     */
     public DocumentManifest setCreated(DateTime value) { 
       this.created = value;
       return this;
     }
 
+    /**
+     * @return When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
+     */
     public String getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
+    /**
+     * @param value When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
+     */
     public DocumentManifest setCreatedSimple(String value) { 
       if (value == null)
         this.created = null;
@@ -233,19 +275,31 @@ public class DocumentManifest extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #source} (Identifies the source system, application, or software that produced the document manifest.)
+     */
     public Uri getSource() { 
       return this.source;
     }
 
+    /**
+     * @param value {@link #source} (Identifies the source system, application, or software that produced the document manifest.)
+     */
     public DocumentManifest setSource(Uri value) { 
       this.source = value;
       return this;
     }
 
+    /**
+     * @return Identifies the source system, application, or software that produced the document manifest.
+     */
     public String getSourceSimple() { 
       return this.source == null ? null : this.source.getValue();
     }
 
+    /**
+     * @param value Identifies the source system, application, or software that produced the document manifest.
+     */
     public DocumentManifest setSourceSimple(String value) { 
       if (value == null)
         this.source = null;
@@ -257,19 +311,31 @@ public class DocumentManifest extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #status} (The status of this document manifest.)
+     */
     public Enumeration<DocumentReferenceStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The status of this document manifest.)
+     */
     public DocumentManifest setStatus(Enumeration<DocumentReferenceStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The status of this document manifest.
+     */
     public DocumentReferenceStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The status of this document manifest.
+     */
     public DocumentManifest setStatusSimple(DocumentReferenceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<DocumentReferenceStatus>();
@@ -277,28 +343,46 @@ public class DocumentManifest extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #supercedes} (If this document manifest replaces another.)
+     */
     public ResourceReference getSupercedes() { 
       return this.supercedes;
     }
 
+    /**
+     * @param value {@link #supercedes} (If this document manifest replaces another.)
+     */
     public DocumentManifest setSupercedes(ResourceReference value) { 
       this.supercedes = value;
       return this;
     }
 
+    /**
+     * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".)
+     */
     public String_ getDescription() { 
       return this.description;
     }
 
+    /**
+     * @param value {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".)
+     */
     public DocumentManifest setDescription(String_ value) { 
       this.description = value;
       return this;
     }
 
+    /**
+     * @return Human-readable description of the source document. This is sometimes known as the "title".
+     */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
+    /**
+     * @param value Human-readable description of the source document. This is sometimes known as the "title".
+     */
     public DocumentManifest setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
@@ -310,20 +394,32 @@ public class DocumentManifest extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #confidentiality} (A code specifying the level of confidentiality of this set of Documents.)
+     */
     public CodeableConcept getConfidentiality() { 
       return this.confidentiality;
     }
 
+    /**
+     * @param value {@link #confidentiality} (A code specifying the level of confidentiality of this set of Documents.)
+     */
     public DocumentManifest setConfidentiality(CodeableConcept value) { 
       this.confidentiality = value;
       return this;
     }
 
+    /**
+     * @return {@link #content} (The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
+     */
     public List<ResourceReference> getContent() { 
       return this.content;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #content} (The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.)
+     */
     public ResourceReference addContent() { 
       ResourceReference t = new ResourceReference();
       this.content.add(t);

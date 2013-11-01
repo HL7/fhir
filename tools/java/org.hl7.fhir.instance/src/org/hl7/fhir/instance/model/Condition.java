@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -153,20 +153,32 @@ public class Condition extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #summary} (A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.)
+         */
         public CodeableConcept getSummary() { 
           return this.summary;
         }
 
+        /**
+         * @param value {@link #summary} (A simple summary of the stage such as "Stage 3". The determination of the stage is disease-specific.)
+         */
         public ConditionStageComponent setSummary(CodeableConcept value) { 
           this.summary = value;
           return this;
         }
 
+        /**
+         * @return {@link #assessment} (Reference to a formal record of the evidence on which the staging assessment is based.)
+         */
         public List<ResourceReference> getAssessment() { 
           return this.assessment;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #assessment} (Reference to a formal record of the evidence on which the staging assessment is based.)
+         */
         public ResourceReference addAssessment() { 
           ResourceReference t = new ResourceReference();
           this.assessment.add(t);
@@ -205,20 +217,32 @@ public class Condition extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (A manifestation or symptom that led to the recording of this condition.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (A manifestation or symptom that led to the recording of this condition.)
+         */
         public ConditionEvidenceComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #detail} (Links to other relevant information, including pathology reports.)
+         */
         public List<ResourceReference> getDetail() { 
           return this.detail;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #detail} (Links to other relevant information, including pathology reports.)
+         */
         public ResourceReference addDetail() { 
           ResourceReference t = new ResourceReference();
           this.detail.add(t);
@@ -257,28 +281,46 @@ public class Condition extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (Code that identifies the structural location.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Code that identifies the structural location.)
+         */
         public ConditionLocationComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #detail} (Detailed anatomical location information.)
+         */
         public String_ getDetail() { 
           return this.detail;
         }
 
+        /**
+         * @param value {@link #detail} (Detailed anatomical location information.)
+         */
         public ConditionLocationComponent setDetail(String_ value) { 
           this.detail = value;
           return this;
         }
 
+        /**
+         * @return Detailed anatomical location information.
+         */
         public String getDetailSimple() { 
           return this.detail == null ? null : this.detail.getValue();
         }
 
+        /**
+         * @param value Detailed anatomical location information.
+         */
         public ConditionLocationComponent setDetailSimple(String value) { 
           if (value == null)
             this.detail = null;
@@ -330,19 +372,31 @@ public class Condition extends Resource {
         this.type = type;
       }
 
+        /**
+         * @return {@link #type} (The type of relationship that this condition has to the related item.)
+         */
         public Enumeration<ConditionRelationshipType> getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (The type of relationship that this condition has to the related item.)
+         */
         public ConditionRelatedItemComponent setType(Enumeration<ConditionRelationshipType> value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return The type of relationship that this condition has to the related item.
+         */
         public ConditionRelationshipType getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
+        /**
+         * @param value The type of relationship that this condition has to the related item.
+         */
         public ConditionRelatedItemComponent setTypeSimple(ConditionRelationshipType value) { 
             if (this.type == null)
               this.type = new Enumeration<ConditionRelationshipType>();
@@ -350,19 +404,31 @@ public class Condition extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Code that identifies the target of this relationship. The code takes the place of a detailed instance target.)
+         */
         public ConditionRelatedItemComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #target} (Target of the relationship.)
+         */
         public ResourceReference getTarget() { 
           return this.target;
         }
 
+        /**
+         * @param value {@link #target} (Target of the relationship.)
+         */
         public ConditionRelatedItemComponent setTarget(ResourceReference value) { 
           this.target = value;
           return this;
@@ -481,57 +547,93 @@ public class Condition extends Resource {
       this.status = status;
     }
 
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #subject} (Subject of this condition.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (Subject of this condition.)
+     */
     public Condition setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #encounter} (Encounter during which the condition was first asserted.)
+     */
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
+    /**
+     * @param value {@link #encounter} (Encounter during which the condition was first asserted.)
+     */
     public Condition setEncounter(ResourceReference value) { 
       this.encounter = value;
       return this;
     }
 
+    /**
+     * @return {@link #asserter} (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     */
     public ResourceReference getAsserter() { 
       return this.asserter;
     }
 
+    /**
+     * @param value {@link #asserter} (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     */
     public Condition setAsserter(ResourceReference value) { 
       this.asserter = value;
       return this;
     }
 
+    /**
+     * @return {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.)
+     */
     public Date getDateAsserted() { 
       return this.dateAsserted;
     }
 
+    /**
+     * @param value {@link #dateAsserted} (Estimated or actual date the condition/problem/diagnosis was first detected/suspected.)
+     */
     public Condition setDateAsserted(Date value) { 
       this.dateAsserted = value;
       return this;
     }
 
+    /**
+     * @return Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
+     */
     public String getDateAssertedSimple() { 
       return this.dateAsserted == null ? null : this.dateAsserted.getValue();
     }
 
+    /**
+     * @param value Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
+     */
     public Condition setDateAssertedSimple(String value) { 
       if (value == null)
         this.dateAsserted = null;
@@ -543,37 +645,61 @@ public class Condition extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #code} (Identification of the condition, problem or diagnosis.)
+     */
     public CodeableConcept getCode() { 
       return this.code;
     }
 
+    /**
+     * @param value {@link #code} (Identification of the condition, problem or diagnosis.)
+     */
     public Condition setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
 
+    /**
+     * @return {@link #category} (A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition.)
+     */
     public CodeableConcept getCategory() { 
       return this.category;
     }
 
+    /**
+     * @param value {@link #category} (A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition.)
+     */
     public Condition setCategory(CodeableConcept value) { 
       this.category = value;
       return this;
     }
 
+    /**
+     * @return {@link #status} (The clinical status of the condition.)
+     */
     public Enumeration<ConditionStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The clinical status of the condition.)
+     */
     public Condition setStatus(Enumeration<ConditionStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The clinical status of the condition.
+     */
     public ConditionStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The clinical status of the condition.
+     */
     public Condition setStatusSimple(ConditionStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConditionStatus>();
@@ -581,97 +707,157 @@ public class Condition extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #certainty} (The degree of confidence that this condition is correct.)
+     */
     public CodeableConcept getCertainty() { 
       return this.certainty;
     }
 
+    /**
+     * @param value {@link #certainty} (The degree of confidence that this condition is correct.)
+     */
     public Condition setCertainty(CodeableConcept value) { 
       this.certainty = value;
       return this;
     }
 
+    /**
+     * @return {@link #severity} (A subjective assessment of the severity of the condition as evaluated by the clinician.)
+     */
     public CodeableConcept getSeverity() { 
       return this.severity;
     }
 
+    /**
+     * @param value {@link #severity} (A subjective assessment of the severity of the condition as evaluated by the clinician.)
+     */
     public Condition setSeverity(CodeableConcept value) { 
       this.severity = value;
       return this;
     }
 
+    /**
+     * @return {@link #onset} (Estimated or actual date the condition began, in the opinion of the clinician.)
+     */
     public Type getOnset() { 
       return this.onset;
     }
 
+    /**
+     * @param value {@link #onset} (Estimated or actual date the condition began, in the opinion of the clinician.)
+     */
     public Condition setOnset(Type value) { 
       this.onset = value;
       return this;
     }
 
+    /**
+     * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
+     */
     public Type getAbatement() { 
       return this.abatement;
     }
 
+    /**
+     * @param value {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
+     */
     public Condition setAbatement(Type value) { 
       this.abatement = value;
       return this;
     }
 
+    /**
+     * @return {@link #stage} (Clinical stage or grade of a condition. May include formal severity assessments.)
+     */
     public ConditionStageComponent getStage() { 
       return this.stage;
     }
 
+    /**
+     * @param value {@link #stage} (Clinical stage or grade of a condition. May include formal severity assessments.)
+     */
     public Condition setStage(ConditionStageComponent value) { 
       this.stage = value;
       return this;
     }
 
+    /**
+     * @return {@link #evidence} (Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.)
+     */
     public List<ConditionEvidenceComponent> getEvidence() { 
       return this.evidence;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #evidence} (Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.)
+     */
     public ConditionEvidenceComponent addEvidence() { 
       ConditionEvidenceComponent t = new ConditionEvidenceComponent();
       this.evidence.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #location} (The anatomical location where this condition manifests itself.)
+     */
     public List<ConditionLocationComponent> getLocation() { 
       return this.location;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #location} (The anatomical location where this condition manifests itself.)
+     */
     public ConditionLocationComponent addLocation() { 
       ConditionLocationComponent t = new ConditionLocationComponent();
       this.location.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #relatedItem} (Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.)
+     */
     public List<ConditionRelatedItemComponent> getRelatedItem() { 
       return this.relatedItem;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #relatedItem} (Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition.)
+     */
     public ConditionRelatedItemComponent addRelatedItem() { 
       ConditionRelatedItemComponent t = new ConditionRelatedItemComponent();
       this.relatedItem.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.)
+     */
     public String_ getNotes() { 
       return this.notes;
     }
 
+    /**
+     * @param value {@link #notes} (Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.)
+     */
     public Condition setNotes(String_ value) { 
       this.notes = value;
       return this;
     }
 
+    /**
+     * @return Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
+     */
     public String getNotesSimple() { 
       return this.notes == null ? null : this.notes.getValue();
     }
 
+    /**
+     * @param value Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis.
+     */
     public Condition setNotesSimple(String value) { 
       if (value == null)
         this.notes = null;

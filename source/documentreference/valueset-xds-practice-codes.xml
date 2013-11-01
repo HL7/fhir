@@ -195,21 +195,18 @@
     <include>
       <system value="http://snomed.info/id"/>
       <code value="394802001">
-        <extension>
-          <!-- just to hook in the snomed display name, until build issues with snomed are resolved -->
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <!-- just to hook in the snomed display name, until build issues with snomed are resolved -->
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="General Medicine"/>
         </extension>
       </code>
       <code value="408478003">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Critical Care Medicine"/>
         </extension>
       </code>
       <code value="410001006">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Military Medicine"/>
         </extension>
       </code>

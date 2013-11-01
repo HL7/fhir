@@ -54,7 +54,7 @@ that must be met as part of theie use and definition.
 <h2>Extension Element</h2>
 <p>
 Every element in a resource includes an optional "extension" child element that may 
-be present any number of times. The extension elements appears as 
+be present any number of times. The extension elements appear as 
 the first set of children, prior to any other defined child elements. 
 This is the content model of the extension as it appears in each resource:
 </p>
@@ -63,9 +63,9 @@ This is the content model of the extension as it appears in each resource:
 Notes:
 </p>
 <ul>
- <li>The <i>url</i> is a mandatory field, and identifies an extension definition in a <a href="profile.html">resource profile</a> that defines the content and meaning of the extension.</li>
+ <li>The <i>url</i> is a mandatory attribute / property, and identifies an extension definition in a <a href="profile.html">resource profile</a> that defines the content and meaning of the extension.</li>
  <li>The actual content of the extension consists of either a single value in the <i>value[x]</i> element, or it can can contain additional extensions, each with their own defining url and content</li>
- <li>The <i>url</i> element cannot have extensions themselves</li>
+ <li>The <i>url</i> cannot have itself have any extension</li>
  <li>An extension SHALL have either a value (i.e. a value[x] element) or child extensions. The value[x] element SHALL have content, and/or an id attribute that is the target of a reference from the Narrative</li>
  <li>When an extension is the target of an internal reference, the reference is always to the value of the extension. An extension is only allowed to be the target of a reference when it has no value[x]</li>
  <li>It must be safe for an application processing the content of the resource to ignore an extension. Specifically, this should be understand to mean that the content of the extension does not alter the meaning of the element that contains it. See below for further discussion</li>
@@ -110,8 +110,7 @@ Here is an example of a name with a simple extension for a tribal name:
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;extension&gt;
-    &lt;url value=&quot;http://hl7.org/fhir/Profileiso-21090#name-use&quot; /&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/Profileiso-21090#name-use&quot; &gt;
     &lt;valueCode value=&quot;I&quot; /&gt;
   &lt;/extension&gt;
   &lt;text value=&quot;Chief Red Cloud&quot;/&gt;
@@ -139,22 +138,18 @@ Extending a patient with an opt-in status for a clinical trial, with
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
-  &lt;extension&gt;
-    &lt;extension&gt;
-      &lt;url value=&quot;http://acme.org/fhir/profiles/@main#trial-status-code&quot; /&gt;	  
+  &lt;extension url=&quot;http://acme.org/fhir/profiles/@main#trial-status&quot; &gt;
+    &lt;extension url=&quot;http://acme.org/fhir/profiles/@main#trial-status-code&quot; &gt;	  
       &lt;valueCode value=&quot;unsure&quot; /&gt;	  
     &lt;/extension&gt;
-    &lt;extension&gt;
-      &lt;url value=&quot;http://acme.org/fhir/profiles/@main#trial-status-date&quot; /&gt;	  
+    &lt;extension url=&quot;http://acme.org/fhir/profiles/@main#trial-status-date&quot; &gt;	  
       &lt;valueDate value=&quot;2009-03-14&quot; /&gt;	  
     &lt;/extension&gt;
-    &lt;extension&gt;
-      &lt;url value=&quot;http://acme.org/fhir/profiles/@main#trial-status-who&quot; /&gt;	  
+    &lt;extension url=&quot;http://acme.org/fhir/profiles/@main#trial-status-who&quot; &gt;	  
       &lt;valueResource&gt;	  
         &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
       &lt;/valueResource&gt;	  
     &lt;/extension&gt;
-    &lt;url value=&quot;http://acme.org/fhir/profiles/@main#trial-status&quot; /&gt;
   &lt;/extension&gt;
   &lt;!-- other data for patient --&gt;
 &lt;/Patient&gt;
@@ -189,9 +184,6 @@ or in JSON:
   ... other data for patient... 
 }
 </pre>
-<p>
-Note that extensions come first in the extension, prior to the <i>url</i> element.
-</p>
 
 </div>
 

@@ -32,27 +32,47 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.model;
 
 /**
+ * Primitive type "integer" in FHIR: A signed 32-bit integer 
  * @author Grahame
  *
  */
 public class Integer extends Type {
 
+	/**
+	 * the actual value of the number
+	 */
 	private int value;
+	/**
+	 * The exact representation of the number on the wire. i.e. does it have leading zeros. 
+	 * This SHOULD not be used, but is provided in case it's absolutely needed
+	 */
 	private String original;
 	
+	/**
+	 * @return the integer value
+	 */
 	public int getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value the integer value
+	 */
 	public void setValue(int value) {
 		this.value = value;
 		this.original = null;
 	}
 
+	/**
+	 * @return The exact representation of the number on the wire
+	 */
   public String getOriginal() {
     return original;
   }
 
+  /**
+   * @param original The exact representation of the number on the wire
+   */
   public void setOriginal(String original) {
     this.original = original;
   } 

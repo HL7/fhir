@@ -16,18 +16,18 @@
   <name value="John's herd"/>
   <quantity value="25"/>
   <characteristic>
-    <type>
+    <code>
       <text value="gender"/>
-    </type>
+    </code>
     <valueCodeableConcept>
       <text value="mixed"/>
     </valueCodeableConcept>
     <exclude value="false"/>
   </characteristic>
   <characteristic>
-    <type>
+    <code>
       <text value="owner"/>
-    </type>
+    </code>
     <valueCodeableConcept>
       <text value="John Smith"/>
     </valueCodeableConcept>

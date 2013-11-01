@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -120,20 +120,32 @@ public class DeviceCapabilities extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (Describes the compartment.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Describes the compartment.)
+         */
         public DeviceCapabilitiesVirtualDeviceComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #channel} (Groups together physiological measurement data and derived data.)
+         */
         public List<DeviceCapabilitiesVirtualDeviceChannelComponent> getChannel() { 
           return this.channel;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #channel} (Groups together physiological measurement data and derived data.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelComponent addChannel() { 
           DeviceCapabilitiesVirtualDeviceChannelComponent t = new DeviceCapabilitiesVirtualDeviceChannelComponent();
           this.channel.add(t);
@@ -172,20 +184,32 @@ public class DeviceCapabilities extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (Describes the channel.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Describes the channel.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #metric} (A piece of measured or derived data that will be reported by the machine.)
+         */
         public List<DeviceCapabilitiesVirtualDeviceChannelMetricComponent> getMetric() { 
           return this.metric;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #metric} (A piece of measured or derived data that will be reported by the machine.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricComponent addMetric() { 
           DeviceCapabilitiesVirtualDeviceChannelMetricComponent t = new DeviceCapabilitiesVirtualDeviceChannelMetricComponent();
           this.metric.add(t);
@@ -241,28 +265,46 @@ public class DeviceCapabilities extends Resource {
         this.info = info;
       }
 
+        /**
+         * @return {@link #code} (Describes the metrics.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Describes the metrics.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #key} (Used to link to data in device log.)
+         */
         public String_ getKey() { 
           return this.key;
         }
 
+        /**
+         * @param value {@link #key} (Used to link to data in device log.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricComponent setKey(String_ value) { 
           this.key = value;
           return this;
         }
 
+        /**
+         * @return Used to link to data in device log.
+         */
         public String getKeySimple() { 
           return this.key == null ? null : this.key.getValue();
         }
 
+        /**
+         * @param value Used to link to data in device log.
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricComponent setKeySimple(String value) { 
             if (this.key == null)
               this.key = new String_();
@@ -270,20 +312,32 @@ public class DeviceCapabilities extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #info} (How to interpret this metric value.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent getInfo() { 
           return this.info;
         }
 
+        /**
+         * @param value {@link #info} (How to interpret this metric value.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricComponent setInfo(DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent value) { 
           this.info = value;
           return this;
         }
 
+        /**
+         * @return {@link #facet} (Additional data that qualifies the metric, or contributes to its assessment.)
+         */
         public List<DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent> getFacet() { 
           return this.facet;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #facet} (Additional data that qualifies the metric, or contributes to its assessment.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent addFacet() { 
           DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent t = new DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent();
           this.facet.add(t);
@@ -346,19 +400,31 @@ public class DeviceCapabilities extends Resource {
         this.type = type;
       }
 
+        /**
+         * @return {@link #type} (Type of data for this metric.)
+         */
         public Enumeration<DeviceDataType> getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (Type of data for this metric.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setType(Enumeration<DeviceDataType> value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return Type of data for this metric.
+         */
         public DeviceDataType getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
+        /**
+         * @param value Type of data for this metric.
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setTypeSimple(DeviceDataType value) { 
             if (this.type == null)
               this.type = new Enumeration<DeviceDataType>();
@@ -366,19 +432,31 @@ public class DeviceCapabilities extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #units} (Units for this data item (if a quantity or a range).)
+         */
         public String_ getUnits() { 
           return this.units;
         }
 
+        /**
+         * @param value {@link #units} (Units for this data item (if a quantity or a range).)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setUnits(String_ value) { 
           this.units = value;
           return this;
         }
 
+        /**
+         * @return Units for this data item (if a quantity or a range).
+         */
         public String getUnitsSimple() { 
           return this.units == null ? null : this.units.getValue();
         }
 
+        /**
+         * @param value Units for this data item (if a quantity or a range).
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setUnitsSimple(String value) { 
           if (value == null)
             this.units = null;
@@ -390,19 +468,31 @@ public class DeviceCapabilities extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #ucum} (UCUM units (if a quantity or a range).)
+         */
         public Code getUcum() { 
           return this.ucum;
         }
 
+        /**
+         * @param value {@link #ucum} (UCUM units (if a quantity or a range).)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setUcum(Code value) { 
           this.ucum = value;
           return this;
         }
 
+        /**
+         * @return UCUM units (if a quantity or a range).
+         */
         public String getUcumSimple() { 
           return this.ucum == null ? null : this.ucum.getValue();
         }
 
+        /**
+         * @param value UCUM units (if a quantity or a range).
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setUcumSimple(String value) { 
           if (value == null)
             this.ucum = null;
@@ -414,28 +504,46 @@ public class DeviceCapabilities extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #template} (A template containing the fixed values for an array output (all the values but the data).)
+         */
         public SampledData getTemplate() { 
           return this.template;
         }
 
+        /**
+         * @param value {@link #template} (A template containing the fixed values for an array output (all the values but the data).)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setTemplate(SampledData value) { 
           this.template = value;
           return this;
         }
 
+        /**
+         * @return {@link #system} (System of the codes, if the type is a Coding.)
+         */
         public Uri getSystem() { 
           return this.system;
         }
 
+        /**
+         * @param value {@link #system} (System of the codes, if the type is a Coding.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setSystem(Uri value) { 
           this.system = value;
           return this;
         }
 
+        /**
+         * @return System of the codes, if the type is a Coding.
+         */
         public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
+        /**
+         * @param value System of the codes, if the type is a Coding.
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent setSystemSimple(String value) { 
           if (value == null)
             this.system = null;
@@ -500,28 +608,46 @@ public class DeviceCapabilities extends Resource {
         this.info = info;
       }
 
+        /**
+         * @return {@link #code} (Describes the facet.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Describes the facet.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #scale} (The factor to apply to the raw values to get the correct value.)
+         */
         public Decimal getScale() { 
           return this.scale;
         }
 
+        /**
+         * @param value {@link #scale} (The factor to apply to the raw values to get the correct value.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setScale(Decimal value) { 
           this.scale = value;
           return this;
         }
 
+        /**
+         * @return The factor to apply to the raw values to get the correct value.
+         */
         public BigDecimal getScaleSimple() { 
           return this.scale == null ? null : this.scale.getValue();
         }
 
+        /**
+         * @param value The factor to apply to the raw values to get the correct value.
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setScaleSimple(BigDecimal value) { 
           if (value == null)
             this.scale = null;
@@ -533,19 +659,31 @@ public class DeviceCapabilities extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #key} (Used to link to data in device log.)
+         */
         public String_ getKey() { 
           return this.key;
         }
 
+        /**
+         * @param value {@link #key} (Used to link to data in device log.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setKey(String_ value) { 
           this.key = value;
           return this;
         }
 
+        /**
+         * @return Used to link to data in device log.
+         */
         public String getKeySimple() { 
           return this.key == null ? null : this.key.getValue();
         }
 
+        /**
+         * @param value Used to link to data in device log.
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setKeySimple(String value) { 
             if (this.key == null)
               this.key = new String_();
@@ -553,10 +691,16 @@ public class DeviceCapabilities extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #info} (How to interpret this facet value.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent getInfo() { 
           return this.info;
         }
 
+        /**
+         * @param value {@link #info} (How to interpret this facet value.)
+         */
         public DeviceCapabilitiesVirtualDeviceChannelMetricFacetComponent setInfo(DeviceCapabilitiesVirtualDeviceChannelMetricInfoComponent value) { 
           this.info = value;
           return this;
@@ -610,19 +754,31 @@ public class DeviceCapabilities extends Resource {
       super();
     }
 
+    /**
+     * @return {@link #name} (The name of this device.)
+     */
     public String_ getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (The name of this device.)
+     */
     public DeviceCapabilities setName(String_ value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return The name of this device.
+     */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
+    /**
+     * @param value The name of this device.
+     */
     public DeviceCapabilities setNameSimple(String value) { 
       if (value == null)
         this.name = null;
@@ -634,28 +790,46 @@ public class DeviceCapabilities extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #type} (The kind of device - what kind of functionality it provides.)
+     */
     public CodeableConcept getType() { 
       return this.type;
     }
 
+    /**
+     * @param value {@link #type} (The kind of device - what kind of functionality it provides.)
+     */
     public DeviceCapabilities setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
 
+    /**
+     * @return {@link #manufacturer} (The company that built this device.)
+     */
     public String_ getManufacturer() { 
       return this.manufacturer;
     }
 
+    /**
+     * @param value {@link #manufacturer} (The company that built this device.)
+     */
     public DeviceCapabilities setManufacturer(String_ value) { 
       this.manufacturer = value;
       return this;
     }
 
+    /**
+     * @return The company that built this device.
+     */
     public String getManufacturerSimple() { 
       return this.manufacturer == null ? null : this.manufacturer.getValue();
     }
 
+    /**
+     * @param value The company that built this device.
+     */
     public DeviceCapabilities setManufacturerSimple(String value) { 
       if (value == null)
         this.manufacturer = null;
@@ -667,20 +841,32 @@ public class DeviceCapabilities extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #identity} (Identifies this particular device uniquely.)
+     */
     public ResourceReference getIdentity() { 
       return this.identity;
     }
 
+    /**
+     * @param value {@link #identity} (Identifies this particular device uniquely.)
+     */
     public DeviceCapabilities setIdentity(ResourceReference value) { 
       this.identity = value;
       return this;
     }
 
+    /**
+     * @return {@link #virtualDevice} (A medical-related subsystem of a medical device.)
+     */
     public List<DeviceCapabilitiesVirtualDeviceComponent> getVirtualDevice() { 
       return this.virtualDevice;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #virtualDevice} (A medical-related subsystem of a medical device.)
+     */
     public DeviceCapabilitiesVirtualDeviceComponent addVirtualDevice() { 
       DeviceCapabilitiesVirtualDeviceComponent t = new DeviceCapabilitiesVirtualDeviceComponent();
       this.virtualDevice.add(t);

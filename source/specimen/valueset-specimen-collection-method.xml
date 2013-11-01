@@ -12,80 +12,67 @@
     <include>
       <system value="http://snomed.info/id"/>
       <code value="119295008">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Specimen obtained by aspiration"/>
         </extension>
       </code>
       <code value="413651001">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Bioptics"/>
         </extension>
       </code>
       <code value="360020006">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Extirpation - action"/>
         </extension>
       </code>
       <code value="430823004">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Examination of midstream urine specimen"/>
         </extension>
       </code>
       <code value="16404004">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Induced"/>
         </extension>
       </code>
       <code value="67889009">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Irrigation"/>
         </extension>
       </code>
       <code value="29240004">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Autopsy examination"/>
         </extension>
       </code>
       <code value="45710003">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Sputum"/>
         </extension>
       </code>
       <code value="7800008">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Punctate"/>
         </extension>
       </code>
       <code value="258431006">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Scrapings"/>
         </extension>
       </code>
       <code value="20255002">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Blushing"/>
         </extension>
       </code>
       <code value="386147002">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Smear procedure"/>
         </extension>
       </code>
       <code value="278450005">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Finger stick"/>
         </extension>
       </code>      

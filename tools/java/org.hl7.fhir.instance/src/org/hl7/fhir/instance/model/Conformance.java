@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -461,19 +461,31 @@ public class Conformance extends Resource {
         this.name = name;
       }
 
+        /**
+         * @return {@link #name} (Name software is known by.)
+         */
         public String_ getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (Name software is known by.)
+         */
         public ConformanceSoftwareComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return Name software is known by.
+         */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
+        /**
+         * @param value Name software is known by.
+         */
         public ConformanceSoftwareComponent setNameSimple(String value) { 
             if (this.name == null)
               this.name = new String_();
@@ -481,19 +493,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #version} (Version covered by this statement.)
+         */
         public String_ getVersion() { 
           return this.version;
         }
 
+        /**
+         * @param value {@link #version} (Version covered by this statement.)
+         */
         public ConformanceSoftwareComponent setVersion(String_ value) { 
           this.version = value;
           return this;
         }
 
+        /**
+         * @return Version covered by this statement.
+         */
         public String getVersionSimple() { 
           return this.version == null ? null : this.version.getValue();
         }
 
+        /**
+         * @param value Version covered by this statement.
+         */
         public ConformanceSoftwareComponent setVersionSimple(String value) { 
           if (value == null)
             this.version = null;
@@ -505,19 +529,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #releaseDate} (Date this version of the software released.)
+         */
         public DateTime getReleaseDate() { 
           return this.releaseDate;
         }
 
+        /**
+         * @param value {@link #releaseDate} (Date this version of the software released.)
+         */
         public ConformanceSoftwareComponent setReleaseDate(DateTime value) { 
           this.releaseDate = value;
           return this;
         }
 
+        /**
+         * @return Date this version of the software released.
+         */
         public String getReleaseDateSimple() { 
           return this.releaseDate == null ? null : this.releaseDate.getValue();
         }
 
+        /**
+         * @param value Date this version of the software released.
+         */
         public ConformanceSoftwareComponent setReleaseDateSimple(String value) { 
           if (value == null)
             this.releaseDate = null;
@@ -566,19 +602,31 @@ public class Conformance extends Resource {
         this.description = description;
       }
 
+        /**
+         * @return {@link #description} (Information about the specific installation that this conformance statement relates to.)
+         */
         public String_ getDescription() { 
           return this.description;
         }
 
+        /**
+         * @param value {@link #description} (Information about the specific installation that this conformance statement relates to.)
+         */
         public ConformanceImplementationComponent setDescription(String_ value) { 
           this.description = value;
           return this;
         }
 
+        /**
+         * @return Information about the specific installation that this conformance statement relates to.
+         */
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
+        /**
+         * @param value Information about the specific installation that this conformance statement relates to.
+         */
         public ConformanceImplementationComponent setDescriptionSimple(String value) { 
             if (this.description == null)
               this.description = new String_();
@@ -586,19 +634,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #url} (The base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.)
+         */
         public Uri getUrl() { 
           return this.url;
         }
 
+        /**
+         * @param value {@link #url} (The base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.)
+         */
         public ConformanceImplementationComponent setUrl(Uri value) { 
           this.url = value;
           return this;
         }
 
+        /**
+         * @return The base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
+         */
         public String getUrlSimple() { 
           return this.url == null ? null : this.url.getValue();
         }
 
+        /**
+         * @param value The base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
+         */
         public ConformanceImplementationComponent setUrlSimple(String value) { 
           if (value == null)
             this.url = null;
@@ -665,19 +725,31 @@ public class Conformance extends Resource {
         this.mode = mode;
       }
 
+        /**
+         * @return {@link #mode} (Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.)
+         */
         public Enumeration<RestfulConformanceMode> getMode() { 
           return this.mode;
         }
 
+        /**
+         * @param value {@link #mode} (Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.)
+         */
         public ConformanceRestComponent setMode(Enumeration<RestfulConformanceMode> value) { 
           this.mode = value;
           return this;
         }
 
+        /**
+         * @return Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
+         */
         public RestfulConformanceMode getModeSimple() { 
           return this.mode == null ? null : this.mode.getValue();
         }
 
+        /**
+         * @param value Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.
+         */
         public ConformanceRestComponent setModeSimple(RestfulConformanceMode value) { 
             if (this.mode == null)
               this.mode = new Enumeration<RestfulConformanceMode>();
@@ -685,19 +757,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (Provides documentation about the system's restful capabilities that apply across all applications, such as security.)
+         */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
+        /**
+         * @param value {@link #documentation} (Provides documentation about the system's restful capabilities that apply across all applications, such as security.)
+         */
         public ConformanceRestComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
 
+        /**
+         * @return Provides documentation about the system's restful capabilities that apply across all applications, such as security.
+         */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
+        /**
+         * @param value Provides documentation about the system's restful capabilities that apply across all applications, such as security.
+         */
         public ConformanceRestComponent setDocumentationSimple(String value) { 
           if (value == null)
             this.documentation = null;
@@ -709,42 +793,66 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #security} (Information about security of implementation.)
+         */
         public ConformanceRestSecurityComponent getSecurity() { 
           return this.security;
         }
 
+        /**
+         * @param value {@link #security} (Information about security of implementation.)
+         */
         public ConformanceRestComponent setSecurity(ConformanceRestSecurityComponent value) { 
           this.security = value;
           return this;
         }
 
+        /**
+         * @return {@link #resource} (Identifies the restful capabilities of the solution for a specific resource type.)
+         */
         public List<ConformanceRestResourceComponent> getResource() { 
           return this.resource;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #resource} (Identifies the restful capabilities of the solution for a specific resource type.)
+         */
         public ConformanceRestResourceComponent addResource() { 
           ConformanceRestResourceComponent t = new ConformanceRestResourceComponent();
           this.resource.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #operation} (Identifies a restful operation supported by the solution.)
+         */
         public List<ConformanceRestOperationComponent> getOperation() { 
           return this.operation;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #operation} (Identifies a restful operation supported by the solution.)
+         */
         public ConformanceRestOperationComponent addOperation() { 
           ConformanceRestOperationComponent t = new ConformanceRestOperationComponent();
           this.operation.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #query} (Definition of a named query and its parameters and their meaning.)
+         */
         public List<ConformanceRestQueryComponent> getQuery() { 
           return this.query;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #query} (Definition of a named query and its parameters and their meaning.)
+         */
         public ConformanceRestQueryComponent addQuery() { 
           ConformanceRestQueryComponent t = new ConformanceRestQueryComponent();
           this.query.add(t);
@@ -805,19 +913,31 @@ public class Conformance extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #cors} (Server adds CORS headers when responding to reuqests - this enables javascript applications to yuse the server.)
+         */
         public Boolean getCors() { 
           return this.cors;
         }
 
+        /**
+         * @param value {@link #cors} (Server adds CORS headers when responding to reuqests - this enables javascript applications to yuse the server.)
+         */
         public ConformanceRestSecurityComponent setCors(Boolean value) { 
           this.cors = value;
           return this;
         }
 
+        /**
+         * @return Server adds CORS headers when responding to reuqests - this enables javascript applications to yuse the server.
+         */
         public boolean getCorsSimple() { 
           return this.cors == null ? null : this.cors.getValue();
         }
 
+        /**
+         * @param value Server adds CORS headers when responding to reuqests - this enables javascript applications to yuse the server.
+         */
         public ConformanceRestSecurityComponent setCorsSimple(boolean value) { 
           if (value == false)
             this.cors = null;
@@ -829,30 +949,48 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #service} (What type of security services are supported/required.)
+         */
         public List<CodeableConcept> getService() { 
           return this.service;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #service} (What type of security services are supported/required.)
+         */
         public CodeableConcept addService() { 
           CodeableConcept t = new CodeableConcept();
           this.service.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #description} (General description of how security works.)
+         */
         public String_ getDescription() { 
           return this.description;
         }
 
+        /**
+         * @param value {@link #description} (General description of how security works.)
+         */
         public ConformanceRestSecurityComponent setDescription(String_ value) { 
           this.description = value;
           return this;
         }
 
+        /**
+         * @return General description of how security works.
+         */
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
+        /**
+         * @param value General description of how security works.
+         */
         public ConformanceRestSecurityComponent setDescriptionSimple(String value) { 
           if (value == null)
             this.description = null;
@@ -864,11 +1002,17 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #certificate} (Certificates associated with security profiles.)
+         */
         public List<ConformanceRestSecurityCertificateComponent> getCertificate() { 
           return this.certificate;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #certificate} (Certificates associated with security profiles.)
+         */
         public ConformanceRestSecurityCertificateComponent addCertificate() { 
           ConformanceRestSecurityCertificateComponent t = new ConformanceRestSecurityCertificateComponent();
           this.certificate.add(t);
@@ -913,19 +1057,31 @@ public class Conformance extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #type} (Mime type for certificate.)
+         */
         public Code getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (Mime type for certificate.)
+         */
         public ConformanceRestSecurityCertificateComponent setType(Code value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return Mime type for certificate.
+         */
         public String getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
+        /**
+         * @param value Mime type for certificate.
+         */
         public ConformanceRestSecurityCertificateComponent setTypeSimple(String value) { 
           if (value == null)
             this.type = null;
@@ -937,19 +1093,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #blob} (Actual certificate.)
+         */
         public Base64Binary getBlob() { 
           return this.blob;
         }
 
+        /**
+         * @param value {@link #blob} (Actual certificate.)
+         */
         public ConformanceRestSecurityCertificateComponent setBlob(Base64Binary value) { 
           this.blob = value;
           return this;
         }
 
+        /**
+         * @return Actual certificate.
+         */
         public byte[] getBlobSimple() { 
           return this.blob == null ? null : this.blob.getValue();
         }
 
+        /**
+         * @param value Actual certificate.
+         */
         public ConformanceRestSecurityCertificateComponent setBlobSimple(byte[] value) { 
           if (value == null)
             this.blob = null;
@@ -1021,19 +1189,31 @@ public class Conformance extends Resource {
         this.type = type;
       }
 
+        /**
+         * @return {@link #type} (Identifies the resource exposed via the restful interface.)
+         */
         public Code getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (Identifies the resource exposed via the restful interface.)
+         */
         public ConformanceRestResourceComponent setType(Code value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return Identifies the resource exposed via the restful interface.
+         */
         public String getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
+        /**
+         * @param value Identifies the resource exposed via the restful interface.
+         */
         public ConformanceRestResourceComponent setTypeSimple(String value) { 
             if (this.type == null)
               this.type = new Code();
@@ -1041,39 +1221,63 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #profile} (Identifies the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
+         */
         public ResourceReference getProfile() { 
           return this.profile;
         }
 
+        /**
+         * @param value {@link #profile} (Identifies the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
+         */
         public ConformanceRestResourceComponent setProfile(ResourceReference value) { 
           this.profile = value;
           return this;
         }
 
+        /**
+         * @return {@link #operation} (Identifies a restful operation supported by the solution.)
+         */
         public List<ConformanceRestResourceOperationComponent> getOperation() { 
           return this.operation;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #operation} (Identifies a restful operation supported by the solution.)
+         */
         public ConformanceRestResourceOperationComponent addOperation() { 
           ConformanceRestResourceOperationComponent t = new ConformanceRestResourceOperationComponent();
           this.operation.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #readHistory} (A flag for whether the server is able to return past versions as part of the vRead operation.)
+         */
         public Boolean getReadHistory() { 
           return this.readHistory;
         }
 
+        /**
+         * @param value {@link #readHistory} (A flag for whether the server is able to return past versions as part of the vRead operation.)
+         */
         public ConformanceRestResourceComponent setReadHistory(Boolean value) { 
           this.readHistory = value;
           return this;
         }
 
+        /**
+         * @return A flag for whether the server is able to return past versions as part of the vRead operation.
+         */
         public boolean getReadHistorySimple() { 
           return this.readHistory == null ? null : this.readHistory.getValue();
         }
 
+        /**
+         * @param value A flag for whether the server is able to return past versions as part of the vRead operation.
+         */
         public ConformanceRestResourceComponent setReadHistorySimple(boolean value) { 
           if (value == false)
             this.readHistory = null;
@@ -1085,19 +1289,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #updateCreate} (If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.)
+         */
         public Boolean getUpdateCreate() { 
           return this.updateCreate;
         }
 
+        /**
+         * @param value {@link #updateCreate} (If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.)
+         */
         public ConformanceRestResourceComponent setUpdateCreate(Boolean value) { 
           this.updateCreate = value;
           return this;
         }
 
+        /**
+         * @return If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
+         */
         public boolean getUpdateCreateSimple() { 
           return this.updateCreate == null ? null : this.updateCreate.getValue();
         }
 
+        /**
+         * @param value If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
+         */
         public ConformanceRestResourceComponent setUpdateCreateSimple(boolean value) { 
           if (value == false)
             this.updateCreate = null;
@@ -1109,17 +1325,26 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #searchInclude} (_include values supported by the server.)
+         */
         public List<String_> getSearchInclude() { 
           return this.searchInclude;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #searchInclude} (_include values supported by the server.)
+         */
         public String_ addSearchInclude() { 
           String_ t = new String_();
           this.searchInclude.add(t);
           return t;
         }
 
+        /**
+         * @param value {@link #searchInclude} (_include values supported by the server.)
+         */
         public String_ addSearchIncludeSimple(String value) { 
           String_ t = new String_();
           t.setValue(value);
@@ -1127,11 +1352,17 @@ public class Conformance extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #searchParam} (Defines additional search parameters for implementations to support and/or make use of.)
+         */
         public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
           return this.searchParam;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #searchParam} (Defines additional search parameters for implementations to support and/or make use of.)
+         */
         public ConformanceRestResourceSearchParamComponent addSearchParam() { 
           ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
           this.searchParam.add(t);
@@ -1189,19 +1420,31 @@ public class Conformance extends Resource {
         this.code = code;
       }
 
+        /**
+         * @return {@link #code} (Identifies which operation is supported.)
+         */
         public Enumeration<TypeRestfulOperation> getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Identifies which operation is supported.)
+         */
         public ConformanceRestResourceOperationComponent setCode(Enumeration<TypeRestfulOperation> value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return Identifies which operation is supported.
+         */
         public TypeRestfulOperation getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
+        /**
+         * @param value Identifies which operation is supported.
+         */
         public ConformanceRestResourceOperationComponent setCodeSimple(TypeRestfulOperation value) { 
             if (this.code == null)
               this.code = new Enumeration<TypeRestfulOperation>();
@@ -1209,19 +1452,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (Provides guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.)
+         */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
+        /**
+         * @param value {@link #documentation} (Provides guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.)
+         */
         public ConformanceRestResourceOperationComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
 
+        /**
+         * @return Provides guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
+         */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
+        /**
+         * @param value Provides guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
+         */
         public ConformanceRestResourceOperationComponent setDocumentationSimple(String value) { 
           if (value == null)
             this.documentation = null;
@@ -1295,19 +1550,31 @@ public class Conformance extends Resource {
         this.documentation = documentation;
       }
 
+        /**
+         * @return {@link #name} (Corresponds to the name of the standard or custom search parameter.)
+         */
         public String_ getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (Corresponds to the name of the standard or custom search parameter.)
+         */
         public ConformanceRestResourceSearchParamComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return Corresponds to the name of the standard or custom search parameter.
+         */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
+        /**
+         * @param value Corresponds to the name of the standard or custom search parameter.
+         */
         public ConformanceRestResourceSearchParamComponent setNameSimple(String value) { 
             if (this.name == null)
               this.name = new String_();
@@ -1315,19 +1582,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #source} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.)
+         */
         public Uri getSource() { 
           return this.source;
         }
 
+        /**
+         * @param value {@link #source} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.)
+         */
         public ConformanceRestResourceSearchParamComponent setSource(Uri value) { 
           this.source = value;
           return this;
         }
 
+        /**
+         * @return A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
+         */
         public String getSourceSimple() { 
           return this.source == null ? null : this.source.getValue();
         }
 
+        /**
+         * @param value A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
+         */
         public ConformanceRestResourceSearchParamComponent setSourceSimple(String value) { 
           if (value == null)
             this.source = null;
@@ -1339,19 +1618,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.)
+         */
         public Enumeration<SearchParamType> getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.)
+         */
         public ConformanceRestResourceSearchParamComponent setType(Enumeration<SearchParamType> value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return The type of value a search parameter refers to, and how the content is interpreted.
+         */
         public SearchParamType getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
+        /**
+         * @param value The type of value a search parameter refers to, and how the content is interpreted.
+         */
         public ConformanceRestResourceSearchParamComponent setTypeSimple(SearchParamType value) { 
             if (this.type == null)
               this.type = new Enumeration<SearchParamType>();
@@ -1359,19 +1650,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.)
+         */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
+        /**
+         * @param value {@link #documentation} (For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.)
+         */
         public ConformanceRestResourceSearchParamComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
 
+        /**
+         * @return For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
+         */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
+        /**
+         * @param value For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
+         */
         public ConformanceRestResourceSearchParamComponent setDocumentationSimple(String value) { 
             if (this.documentation == null)
               this.documentation = new String_();
@@ -1379,19 +1682,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #xpath} (An XPath expression that extracts the set of elements that contain values that a search parameter matches.)
+         */
         public String_ getXpath() { 
           return this.xpath;
         }
 
+        /**
+         * @param value {@link #xpath} (An XPath expression that extracts the set of elements that contain values that a search parameter matches.)
+         */
         public ConformanceRestResourceSearchParamComponent setXpath(String_ value) { 
           this.xpath = value;
           return this;
         }
 
+        /**
+         * @return An XPath expression that extracts the set of elements that contain values that a search parameter matches.
+         */
         public String getXpathSimple() { 
           return this.xpath == null ? null : this.xpath.getValue();
         }
 
+        /**
+         * @param value An XPath expression that extracts the set of elements that contain values that a search parameter matches.
+         */
         public ConformanceRestResourceSearchParamComponent setXpathSimple(String value) { 
           if (value == null)
             this.xpath = null;
@@ -1403,17 +1718,26 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #target} (Types of resource (if a resource reference).)
+         */
         public List<Code> getTarget() { 
           return this.target;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #target} (Types of resource (if a resource reference).)
+         */
         public Code addTarget() { 
           Code t = new Code();
           this.target.add(t);
           return t;
         }
 
+        /**
+         * @param value {@link #target} (Types of resource (if a resource reference).)
+         */
         public Code addTargetSimple(String value) { 
           Code t = new Code();
           t.setValue(value);
@@ -1421,17 +1745,26 @@ public class Conformance extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #chain} (Chained names supported.)
+         */
         public List<String_> getChain() { 
           return this.chain;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #chain} (Chained names supported.)
+         */
         public String_ addChain() { 
           String_ t = new String_();
           this.chain.add(t);
           return t;
         }
 
+        /**
+         * @param value {@link #chain} (Chained names supported.)
+         */
         public String_ addChainSimple(String value) { 
           String_ t = new String_();
           t.setValue(value);
@@ -1488,19 +1821,31 @@ public class Conformance extends Resource {
         this.code = code;
       }
 
+        /**
+         * @return {@link #code} (Identifies which system operation is supported.)
+         */
         public Enumeration<SystemRestfulOperation> getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Identifies which system operation is supported.)
+         */
         public ConformanceRestOperationComponent setCode(Enumeration<SystemRestfulOperation> value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return Identifies which system operation is supported.
+         */
         public SystemRestfulOperation getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
+        /**
+         * @param value Identifies which system operation is supported.
+         */
         public ConformanceRestOperationComponent setCodeSimple(SystemRestfulOperation value) { 
             if (this.code == null)
               this.code = new Enumeration<SystemRestfulOperation>();
@@ -1508,19 +1853,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (Provides guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.)
+         */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
+        /**
+         * @param value {@link #documentation} (Provides guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.)
+         */
         public ConformanceRestOperationComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
 
+        /**
+         * @return Provides guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
+         */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
+        /**
+         * @param value Provides guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
+         */
         public ConformanceRestOperationComponent setDocumentationSimple(String value) { 
           if (value == null)
             this.documentation = null;
@@ -1573,19 +1930,31 @@ public class Conformance extends Resource {
         this.documentation = documentation;
       }
 
+        /**
+         * @return {@link #name} (The name of this query, which is used in the _query parameter when the query is used.)
+         */
         public String_ getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (The name of this query, which is used in the _query parameter when the query is used.)
+         */
         public ConformanceRestQueryComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return The name of this query, which is used in the _query parameter when the query is used.
+         */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
+        /**
+         * @param value The name of this query, which is used in the _query parameter when the query is used.
+         */
         public ConformanceRestQueryComponent setNameSimple(String value) { 
             if (this.name == null)
               this.name = new String_();
@@ -1593,19 +1962,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (Description of the query - the functionality it offers, and considerations about how it functions and to use it.)
+         */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
+        /**
+         * @param value {@link #documentation} (Description of the query - the functionality it offers, and considerations about how it functions and to use it.)
+         */
         public ConformanceRestQueryComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
 
+        /**
+         * @return Description of the query - the functionality it offers, and considerations about how it functions and to use it.
+         */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
+        /**
+         * @param value Description of the query - the functionality it offers, and considerations about how it functions and to use it.
+         */
         public ConformanceRestQueryComponent setDocumentationSimple(String value) { 
             if (this.documentation == null)
               this.documentation = new String_();
@@ -1613,11 +1994,17 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #parameter} (Parameter for the named query.)
+         */
         public List<ConformanceRestResourceSearchParamComponent> getParameter() { 
           return this.parameter;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #parameter} (Parameter for the named query.)
+         */
         public ConformanceRestResourceSearchParamComponent addParameter() { 
           ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
           this.parameter.add(t);
@@ -1668,19 +2055,31 @@ public class Conformance extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #endpoint} (The address to which messages and/or replies are to be sent.)
+         */
         public Uri getEndpoint() { 
           return this.endpoint;
         }
 
+        /**
+         * @param value {@link #endpoint} (The address to which messages and/or replies are to be sent.)
+         */
         public ConformanceMessagingComponent setEndpoint(Uri value) { 
           this.endpoint = value;
           return this;
         }
 
+        /**
+         * @return The address to which messages and/or replies are to be sent.
+         */
         public String getEndpointSimple() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
+        /**
+         * @param value The address to which messages and/or replies are to be sent.
+         */
         public ConformanceMessagingComponent setEndpointSimple(String value) { 
           if (value == null)
             this.endpoint = null;
@@ -1692,19 +2091,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #reliableCache} (The length if the receiver's reliable messaging cache length (if a receiver) or how long the cache length on the receiver should be (if a sender).)
+         */
         public Integer getReliableCache() { 
           return this.reliableCache;
         }
 
+        /**
+         * @param value {@link #reliableCache} (The length if the receiver's reliable messaging cache length (if a receiver) or how long the cache length on the receiver should be (if a sender).)
+         */
         public ConformanceMessagingComponent setReliableCache(Integer value) { 
           this.reliableCache = value;
           return this;
         }
 
+        /**
+         * @return The length if the receiver's reliable messaging cache length (if a receiver) or how long the cache length on the receiver should be (if a sender).
+         */
         public int getReliableCacheSimple() { 
           return this.reliableCache == null ? null : this.reliableCache.getValue();
         }
 
+        /**
+         * @param value The length if the receiver's reliable messaging cache length (if a receiver) or how long the cache length on the receiver should be (if a sender).
+         */
         public ConformanceMessagingComponent setReliableCacheSimple(int value) { 
           if (value == -1)
             this.reliableCache = null;
@@ -1716,19 +2127,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (Provides documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.)
+         */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
+        /**
+         * @param value {@link #documentation} (Provides documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.)
+         */
         public ConformanceMessagingComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
 
+        /**
+         * @return Provides documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
+         */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
+        /**
+         * @param value Provides documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.
+         */
         public ConformanceMessagingComponent setDocumentationSimple(String value) { 
           if (value == null)
             this.documentation = null;
@@ -1740,11 +2163,17 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #event} (Describes the solution's support for an event at this end point.)
+         */
         public List<ConformanceMessagingEventComponent> getEvent() { 
           return this.event;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #event} (Describes the solution's support for an event at this end point.)
+         */
         public ConformanceMessagingEventComponent addEvent() { 
           ConformanceMessagingEventComponent t = new ConformanceMessagingEventComponent();
           this.event.add(t);
@@ -1821,28 +2250,46 @@ public class Conformance extends Resource {
         this.response = response;
       }
 
+        /**
+         * @return {@link #code} (Identifies the supported messaging event.)
+         */
         public Coding getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Identifies the supported messaging event.)
+         */
         public ConformanceMessagingEventComponent setCode(Coding value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #mode} (The mode of this event declaration - whether application is sender or receiver.)
+         */
         public Enumeration<MessageConformanceEventMode> getMode() { 
           return this.mode;
         }
 
+        /**
+         * @param value {@link #mode} (The mode of this event declaration - whether application is sender or receiver.)
+         */
         public ConformanceMessagingEventComponent setMode(Enumeration<MessageConformanceEventMode> value) { 
           this.mode = value;
           return this;
         }
 
+        /**
+         * @return The mode of this event declaration - whether application is sender or receiver.
+         */
         public MessageConformanceEventMode getModeSimple() { 
           return this.mode == null ? null : this.mode.getValue();
         }
 
+        /**
+         * @param value The mode of this event declaration - whether application is sender or receiver.
+         */
         public ConformanceMessagingEventComponent setModeSimple(MessageConformanceEventMode value) { 
             if (this.mode == null)
               this.mode = new Enumeration<MessageConformanceEventMode>();
@@ -1850,30 +2297,48 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #protocol} (Identifies the messaging transport protocol(s) supported by this endpoint.)
+         */
         public List<Coding> getProtocol() { 
           return this.protocol;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #protocol} (Identifies the messaging transport protocol(s) supported by this endpoint.)
+         */
         public Coding addProtocol() { 
           Coding t = new Coding();
           this.protocol.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #focus} (Identifies the resource associated with the event.  This is the resource that defines the event.)
+         */
         public Code getFocus() { 
           return this.focus;
         }
 
+        /**
+         * @param value {@link #focus} (Identifies the resource associated with the event.  This is the resource that defines the event.)
+         */
         public ConformanceMessagingEventComponent setFocus(Code value) { 
           this.focus = value;
           return this;
         }
 
+        /**
+         * @return Identifies the resource associated with the event.  This is the resource that defines the event.
+         */
         public String getFocusSimple() { 
           return this.focus == null ? null : this.focus.getValue();
         }
 
+        /**
+         * @param value Identifies the resource associated with the event.  This is the resource that defines the event.
+         */
         public ConformanceMessagingEventComponent setFocusSimple(String value) { 
             if (this.focus == null)
               this.focus = new Code();
@@ -1881,37 +2346,61 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #request} (Information about the request for this event.)
+         */
         public ResourceReference getRequest() { 
           return this.request;
         }
 
+        /**
+         * @param value {@link #request} (Information about the request for this event.)
+         */
         public ConformanceMessagingEventComponent setRequest(ResourceReference value) { 
           this.request = value;
           return this;
         }
 
+        /**
+         * @return {@link #response} (Information about the response for this event.)
+         */
         public ResourceReference getResponse() { 
           return this.response;
         }
 
+        /**
+         * @param value {@link #response} (Information about the response for this event.)
+         */
         public ConformanceMessagingEventComponent setResponse(ResourceReference value) { 
           this.response = value;
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (Guidance on how this event is handled, such as internal system trigger points, business rules, etc.)
+         */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
+        /**
+         * @param value {@link #documentation} (Guidance on how this event is handled, such as internal system trigger points, business rules, etc.)
+         */
         public ConformanceMessagingEventComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
 
+        /**
+         * @return Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
+         */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
+        /**
+         * @param value Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
+         */
         public ConformanceMessagingEventComponent setDocumentationSimple(String value) { 
           if (value == null)
             this.documentation = null;
@@ -1976,19 +2465,31 @@ public class Conformance extends Resource {
         this.profile = profile;
       }
 
+        /**
+         * @return {@link #mode} (The mode of this event declaration - whether application is sender or receiver.)
+         */
         public Enumeration<DocumentMode> getMode() { 
           return this.mode;
         }
 
+        /**
+         * @param value {@link #mode} (The mode of this event declaration - whether application is sender or receiver.)
+         */
         public ConformanceDocumentComponent setMode(Enumeration<DocumentMode> value) { 
           this.mode = value;
           return this;
         }
 
+        /**
+         * @return The mode of this event declaration - whether application is sender or receiver.
+         */
         public DocumentMode getModeSimple() { 
           return this.mode == null ? null : this.mode.getValue();
         }
 
+        /**
+         * @param value The mode of this event declaration - whether application is sender or receiver.
+         */
         public ConformanceDocumentComponent setModeSimple(DocumentMode value) { 
             if (this.mode == null)
               this.mode = new Enumeration<DocumentMode>();
@@ -1996,19 +2497,31 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (Describes how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.)
+         */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
+        /**
+         * @param value {@link #documentation} (Describes how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.)
+         */
         public ConformanceDocumentComponent setDocumentation(String_ value) { 
           this.documentation = value;
           return this;
         }
 
+        /**
+         * @return Describes how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
+         */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
+        /**
+         * @param value Describes how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
+         */
         public ConformanceDocumentComponent setDocumentationSimple(String value) { 
           if (value == null)
             this.documentation = null;
@@ -2020,10 +2533,16 @@ public class Conformance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #profile} (Constraint on a resource used in the document.)
+         */
         public ResourceReference getProfile() { 
           return this.profile;
         }
 
+        /**
+         * @param value {@link #profile} (Constraint on a resource used in the document.)
+         */
         public ConformanceDocumentComponent setProfile(ResourceReference value) { 
           this.profile = value;
           return this;
@@ -2148,19 +2667,31 @@ public class Conformance extends Resource {
       this.acceptUnknown = acceptUnknown;
     }
 
+    /**
+     * @return {@link #identifier} (The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
+     */
     public String_ getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).)
+     */
     public Conformance setIdentifier(String_ value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     */
     public String getIdentifierSimple() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
+    /**
+     * @param value The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).
+     */
     public Conformance setIdentifierSimple(String value) { 
       if (value == null)
         this.identifier = null;
@@ -2172,19 +2703,31 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #version} (The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
+     */
     public String_ getVersion() { 
       return this.version;
     }
 
+    /**
+     * @param value {@link #version} (The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.)
+     */
     public Conformance setVersion(String_ value) { 
       this.version = value;
       return this;
     }
 
+    /**
+     * @return The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+     */
     public String getVersionSimple() { 
       return this.version == null ? null : this.version.getValue();
     }
 
+    /**
+     * @param value The identifier that is used to identify this version of the conformance statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
+     */
     public Conformance setVersionSimple(String value) { 
       if (value == null)
         this.version = null;
@@ -2196,19 +2739,31 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #name} (A free text natural language name identifying the conformance statement.)
+     */
     public String_ getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (A free text natural language name identifying the conformance statement.)
+     */
     public Conformance setName(String_ value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return A free text natural language name identifying the conformance statement.
+     */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
+    /**
+     * @param value A free text natural language name identifying the conformance statement.
+     */
     public Conformance setNameSimple(String value) { 
       if (value == null)
         this.name = null;
@@ -2220,19 +2775,31 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #publisher} (Name of Organization.)
+     */
     public String_ getPublisher() { 
       return this.publisher;
     }
 
+    /**
+     * @param value {@link #publisher} (Name of Organization.)
+     */
     public Conformance setPublisher(String_ value) { 
       this.publisher = value;
       return this;
     }
 
+    /**
+     * @return Name of Organization.
+     */
     public String getPublisherSimple() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
+    /**
+     * @param value Name of Organization.
+     */
     public Conformance setPublisherSimple(String value) { 
         if (this.publisher == null)
           this.publisher = new String_();
@@ -2240,30 +2807,48 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #telecom} (Contacts for Organization relevant to this conformance statement.  May be website, email, phone numbers, etc.)
+     */
     public List<Contact> getTelecom() { 
       return this.telecom;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #telecom} (Contacts for Organization relevant to this conformance statement.  May be website, email, phone numbers, etc.)
+     */
     public Contact addTelecom() { 
       Contact t = new Contact();
       this.telecom.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.)
+     */
     public String_ getDescription() { 
       return this.description;
     }
 
+    /**
+     * @param value {@link #description} (A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.)
+     */
     public Conformance setDescription(String_ value) { 
       this.description = value;
       return this;
     }
 
+    /**
+     * @return A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
+     */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
+    /**
+     * @param value A free text natural language description of the conformance statement and its use. Typically, this is used when the profile describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.
+     */
     public Conformance setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
@@ -2275,19 +2860,31 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #status} (The status of this conformance statement.)
+     */
     public Enumeration<ConformanceStatementStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The status of this conformance statement.)
+     */
     public Conformance setStatus(Enumeration<ConformanceStatementStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The status of this conformance statement.
+     */
     public ConformanceStatementStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The status of this conformance statement.
+     */
     public Conformance setStatusSimple(ConformanceStatementStatus value) { 
       if (value == null)
         this.status = null;
@@ -2299,19 +2896,31 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #experimental} (This conformance statement was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
+     */
     public Boolean getExperimental() { 
       return this.experimental;
     }
 
+    /**
+     * @param value {@link #experimental} (This conformance statement was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.)
+     */
     public Conformance setExperimental(Boolean value) { 
       this.experimental = value;
       return this;
     }
 
+    /**
+     * @return This conformance statement was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
     public boolean getExperimentalSimple() { 
       return this.experimental == null ? null : this.experimental.getValue();
     }
 
+    /**
+     * @param value This conformance statement was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     */
     public Conformance setExperimentalSimple(boolean value) { 
       if (value == false)
         this.experimental = null;
@@ -2323,19 +2932,31 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #date} (Date that the conformance statement is published.)
+     */
     public DateTime getDate() { 
       return this.date;
     }
 
+    /**
+     * @param value {@link #date} (Date that the conformance statement is published.)
+     */
     public Conformance setDate(DateTime value) { 
       this.date = value;
       return this;
     }
 
+    /**
+     * @return Date that the conformance statement is published.
+     */
     public String getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
+    /**
+     * @param value Date that the conformance statement is published.
+     */
     public Conformance setDateSimple(String value) { 
         if (this.date == null)
           this.date = new DateTime();
@@ -2343,37 +2964,61 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #software} (Describes the software that is covered by this conformance statement.  Used when the profile describes the capabilities of a particular software version, independent of an installation.)
+     */
     public ConformanceSoftwareComponent getSoftware() { 
       return this.software;
     }
 
+    /**
+     * @param value {@link #software} (Describes the software that is covered by this conformance statement.  Used when the profile describes the capabilities of a particular software version, independent of an installation.)
+     */
     public Conformance setSoftware(ConformanceSoftwareComponent value) { 
       this.software = value;
       return this;
     }
 
+    /**
+     * @return {@link #implementation} (Used when the statement describes the capabilities of a specific implementation instance - i.e. a particular installation, rather than the capabilities of a software program.)
+     */
     public ConformanceImplementationComponent getImplementation() { 
       return this.implementation;
     }
 
+    /**
+     * @param value {@link #implementation} (Used when the statement describes the capabilities of a specific implementation instance - i.e. a particular installation, rather than the capabilities of a software program.)
+     */
     public Conformance setImplementation(ConformanceImplementationComponent value) { 
       this.implementation = value;
       return this;
     }
 
+    /**
+     * @return {@link #fhirVersion} (The version of the FHIR specification on which this conformance statement is based.)
+     */
     public Id getFhirVersion() { 
       return this.fhirVersion;
     }
 
+    /**
+     * @param value {@link #fhirVersion} (The version of the FHIR specification on which this conformance statement is based.)
+     */
     public Conformance setFhirVersion(Id value) { 
       this.fhirVersion = value;
       return this;
     }
 
+    /**
+     * @return The version of the FHIR specification on which this conformance statement is based.
+     */
     public String getFhirVersionSimple() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
+    /**
+     * @param value The version of the FHIR specification on which this conformance statement is based.
+     */
     public Conformance setFhirVersionSimple(String value) { 
         if (this.fhirVersion == null)
           this.fhirVersion = new Id();
@@ -2381,19 +3026,31 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #acceptUnknown} (Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.)
+     */
     public Boolean getAcceptUnknown() { 
       return this.acceptUnknown;
     }
 
+    /**
+     * @param value {@link #acceptUnknown} (Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.)
+     */
     public Conformance setAcceptUnknown(Boolean value) { 
       this.acceptUnknown = value;
       return this;
     }
 
+    /**
+     * @return Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.
+     */
     public boolean getAcceptUnknownSimple() { 
       return this.acceptUnknown == null ? null : this.acceptUnknown.getValue();
     }
 
+    /**
+     * @param value Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.
+     */
     public Conformance setAcceptUnknownSimple(boolean value) { 
         if (this.acceptUnknown == null)
           this.acceptUnknown = new Boolean();
@@ -2401,17 +3058,26 @@ public class Conformance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #format} (The formats supported by this implementation.)
+     */
     public List<Code> getFormat() { 
       return this.format;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #format} (The formats supported by this implementation.)
+     */
     public Code addFormat() { 
       Code t = new Code();
       this.format.add(t);
       return t;
     }
 
+    /**
+     * @param value {@link #format} (The formats supported by this implementation.)
+     */
     public Code addFormatSimple(String value) { 
       Code t = new Code();
       t.setValue(value);
@@ -2419,44 +3085,68 @@ public class Conformance extends Resource {
       return t;
     }
 
+    /**
+     * @return {@link #profile} (A list of profiles supported by the system. Supported by the system means for a server, that the system hosts/produces a set of resources that conform to a particular profile, that it allows clients to search by this profile, and that these will find the appropriate data. For a client, it means that the client will search by this profile, and process the data following the guidance implicit in the profile.)
+     */
     public List<ResourceReference> getProfile() { 
       return this.profile;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #profile} (A list of profiles supported by the system. Supported by the system means for a server, that the system hosts/produces a set of resources that conform to a particular profile, that it allows clients to search by this profile, and that these will find the appropriate data. For a client, it means that the client will search by this profile, and process the data following the guidance implicit in the profile.)
+     */
     public ResourceReference addProfile() { 
       ResourceReference t = new ResourceReference();
       this.profile.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #rest} (Defines the restful capabilities of the solution, if any.)
+     */
     public List<ConformanceRestComponent> getRest() { 
       return this.rest;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #rest} (Defines the restful capabilities of the solution, if any.)
+     */
     public ConformanceRestComponent addRest() { 
       ConformanceRestComponent t = new ConformanceRestComponent();
       this.rest.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #messaging} (Describes the messaging capabilities of the solution.)
+     */
     public List<ConformanceMessagingComponent> getMessaging() { 
       return this.messaging;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #messaging} (Describes the messaging capabilities of the solution.)
+     */
     public ConformanceMessagingComponent addMessaging() { 
       ConformanceMessagingComponent t = new ConformanceMessagingComponent();
       this.messaging.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #document} (A document definition.)
+     */
     public List<ConformanceDocumentComponent> getDocument() { 
       return this.document;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #document} (A document definition.)
+     */
     public ConformanceDocumentComponent addDocument() { 
       ConformanceDocumentComponent t = new ConformanceDocumentComponent();
       this.document.add(t);

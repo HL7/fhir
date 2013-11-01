@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -126,19 +126,31 @@ public class Quantity extends Type {
       super();
     }
 
+    /**
+     * @return {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.)
+     */
     public Decimal getValue() { 
       return this.value;
     }
 
+    /**
+     * @param value {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.)
+     */
     public Quantity setValue(Decimal value) { 
       this.value = value;
       return this;
     }
 
+    /**
+     * @return The value of the measured amount. The value includes an implicit precision in the presentation of the value.
+     */
     public BigDecimal getValueSimple() { 
       return this.value == null ? null : this.value.getValue();
     }
 
+    /**
+     * @param value The value of the measured amount. The value includes an implicit precision in the presentation of the value.
+     */
     public Quantity setValueSimple(BigDecimal value) { 
       if (value == null)
         this.value = null;
@@ -150,19 +162,31 @@ public class Quantity extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.)
+     */
     public Enumeration<QuantityComparator> getComparator() { 
       return this.comparator;
     }
 
+    /**
+     * @param value {@link #comparator} (How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.)
+     */
     public Quantity setComparator(Enumeration<QuantityComparator> value) { 
       this.comparator = value;
       return this;
     }
 
+    /**
+     * @return How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.
+     */
     public QuantityComparator getComparatorSimple() { 
       return this.comparator == null ? null : this.comparator.getValue();
     }
 
+    /**
+     * @param value How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues. E.g. if the comparator is "<" , then the real value is < stated value.
+     */
     public Quantity setComparatorSimple(QuantityComparator value) { 
       if (value == null)
         this.comparator = null;
@@ -174,19 +198,31 @@ public class Quantity extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #units} (A human-readable form of the units.)
+     */
     public String_ getUnits() { 
       return this.units;
     }
 
+    /**
+     * @param value {@link #units} (A human-readable form of the units.)
+     */
     public Quantity setUnits(String_ value) { 
       this.units = value;
       return this;
     }
 
+    /**
+     * @return A human-readable form of the units.
+     */
     public String getUnitsSimple() { 
       return this.units == null ? null : this.units.getValue();
     }
 
+    /**
+     * @param value A human-readable form of the units.
+     */
     public Quantity setUnitsSimple(String value) { 
       if (value == null)
         this.units = null;
@@ -198,19 +234,31 @@ public class Quantity extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #system} (The identification of the system that provides the coded form of the unit.)
+     */
     public Uri getSystem() { 
       return this.system;
     }
 
+    /**
+     * @param value {@link #system} (The identification of the system that provides the coded form of the unit.)
+     */
     public Quantity setSystem(Uri value) { 
       this.system = value;
       return this;
     }
 
+    /**
+     * @return The identification of the system that provides the coded form of the unit.
+     */
     public String getSystemSimple() { 
       return this.system == null ? null : this.system.getValue();
     }
 
+    /**
+     * @param value The identification of the system that provides the coded form of the unit.
+     */
     public Quantity setSystemSimple(String value) { 
       if (value == null)
         this.system = null;
@@ -222,19 +270,31 @@ public class Quantity extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #code} (A computer processable form of the units in some unit representation system.)
+     */
     public Code getCode() { 
       return this.code;
     }
 
+    /**
+     * @param value {@link #code} (A computer processable form of the units in some unit representation system.)
+     */
     public Quantity setCode(Code value) { 
       this.code = value;
       return this;
     }
 
+    /**
+     * @return A computer processable form of the units in some unit representation system.
+     */
     public String getCodeSimple() { 
       return this.code == null ? null : this.code.getValue();
     }
 
+    /**
+     * @param value A computer processable form of the units in some unit representation system.
+     */
     public Quantity setCodeSimple(String value) { 
       if (value == null)
         this.code = null;

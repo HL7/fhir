@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -224,28 +224,46 @@ public class AdverseReaction extends Resource {
         this.code = code;
       }
 
+        /**
+         * @return {@link #code} (Indicates the specific sign or symptom that was observed.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Indicates the specific sign or symptom that was observed.)
+         */
         public AdverseReactionSymptomComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #severity} (The severity of the sign or symptom.)
+         */
         public Enumeration<ReactionSeverity> getSeverity() { 
           return this.severity;
         }
 
+        /**
+         * @param value {@link #severity} (The severity of the sign or symptom.)
+         */
         public AdverseReactionSymptomComponent setSeverity(Enumeration<ReactionSeverity> value) { 
           this.severity = value;
           return this;
         }
 
+        /**
+         * @return The severity of the sign or symptom.
+         */
         public ReactionSeverity getSeveritySimple() { 
           return this.severity == null ? null : this.severity.getValue();
         }
 
+        /**
+         * @param value The severity of the sign or symptom.
+         */
         public AdverseReactionSymptomComponent setSeveritySimple(ReactionSeverity value) { 
           if (value == null)
             this.severity = null;
@@ -297,19 +315,31 @@ public class AdverseReaction extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #exposureDate} (When the exposure occurred.)
+         */
         public DateTime getExposureDate() { 
           return this.exposureDate;
         }
 
+        /**
+         * @param value {@link #exposureDate} (When the exposure occurred.)
+         */
         public AdverseReactionExposureComponent setExposureDate(DateTime value) { 
           this.exposureDate = value;
           return this;
         }
 
+        /**
+         * @return When the exposure occurred.
+         */
         public String getExposureDateSimple() { 
           return this.exposureDate == null ? null : this.exposureDate.getValue();
         }
 
+        /**
+         * @param value When the exposure occurred.
+         */
         public AdverseReactionExposureComponent setExposureDateSimple(String value) { 
           if (value == null)
             this.exposureDate = null;
@@ -321,19 +351,31 @@ public class AdverseReaction extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #exposureType} (Drug Administration, Immunization, Coincidental.)
+         */
         public Enumeration<ExposureType> getExposureType() { 
           return this.exposureType;
         }
 
+        /**
+         * @param value {@link #exposureType} (Drug Administration, Immunization, Coincidental.)
+         */
         public AdverseReactionExposureComponent setExposureType(Enumeration<ExposureType> value) { 
           this.exposureType = value;
           return this;
         }
 
+        /**
+         * @return Drug Administration, Immunization, Coincidental.
+         */
         public ExposureType getExposureTypeSimple() { 
           return this.exposureType == null ? null : this.exposureType.getValue();
         }
 
+        /**
+         * @param value Drug Administration, Immunization, Coincidental.
+         */
         public AdverseReactionExposureComponent setExposureTypeSimple(ExposureType value) { 
           if (value == null)
             this.exposureType = null;
@@ -345,19 +387,31 @@ public class AdverseReaction extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #causalityExpectation} (A statement of how confident that the recorder was that this exposure caused the reaction.)
+         */
         public Enumeration<CausalityExpectation> getCausalityExpectation() { 
           return this.causalityExpectation;
         }
 
+        /**
+         * @param value {@link #causalityExpectation} (A statement of how confident that the recorder was that this exposure caused the reaction.)
+         */
         public AdverseReactionExposureComponent setCausalityExpectation(Enumeration<CausalityExpectation> value) { 
           this.causalityExpectation = value;
           return this;
         }
 
+        /**
+         * @return A statement of how confident that the recorder was that this exposure caused the reaction.
+         */
         public CausalityExpectation getCausalityExpectationSimple() { 
           return this.causalityExpectation == null ? null : this.causalityExpectation.getValue();
         }
 
+        /**
+         * @param value A statement of how confident that the recorder was that this exposure caused the reaction.
+         */
         public AdverseReactionExposureComponent setCausalityExpectationSimple(CausalityExpectation value) { 
           if (value == null)
             this.causalityExpectation = null;
@@ -369,10 +423,16 @@ public class AdverseReaction extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #substance} (Substance(s) that is presumed to have caused the adverse reaction.)
+         */
         public ResourceReference getSubstance() { 
           return this.substance;
         }
 
+        /**
+         * @param value {@link #substance} (Substance(s) that is presumed to have caused the adverse reaction.)
+         */
         public AdverseReactionExposureComponent setSubstance(ResourceReference value) { 
           this.substance = value;
           return this;
@@ -442,30 +502,48 @@ public class AdverseReaction extends Resource {
       this.didNotOccurFlag = didNotOccurFlag;
     }
 
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #reactionDate} (When the reaction occurred.)
+     */
     public DateTime getReactionDate() { 
       return this.reactionDate;
     }
 
+    /**
+     * @param value {@link #reactionDate} (When the reaction occurred.)
+     */
     public AdverseReaction setReactionDate(DateTime value) { 
       this.reactionDate = value;
       return this;
     }
 
+    /**
+     * @return When the reaction occurred.
+     */
     public String getReactionDateSimple() { 
       return this.reactionDate == null ? null : this.reactionDate.getValue();
     }
 
+    /**
+     * @param value When the reaction occurred.
+     */
     public AdverseReaction setReactionDateSimple(String value) { 
       if (value == null)
         this.reactionDate = null;
@@ -477,28 +555,46 @@ public class AdverseReaction extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The subject of the adverse reaction.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The subject of the adverse reaction.)
+     */
     public AdverseReaction setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #didNotOccurFlag} (To say that a reaction to substance did not occur.)
+     */
     public Boolean getDidNotOccurFlag() { 
       return this.didNotOccurFlag;
     }
 
+    /**
+     * @param value {@link #didNotOccurFlag} (To say that a reaction to substance did not occur.)
+     */
     public AdverseReaction setDidNotOccurFlag(Boolean value) { 
       this.didNotOccurFlag = value;
       return this;
     }
 
+    /**
+     * @return To say that a reaction to substance did not occur.
+     */
     public boolean getDidNotOccurFlagSimple() { 
       return this.didNotOccurFlag == null ? null : this.didNotOccurFlag.getValue();
     }
 
+    /**
+     * @param value To say that a reaction to substance did not occur.
+     */
     public AdverseReaction setDidNotOccurFlagSimple(boolean value) { 
         if (this.didNotOccurFlag == null)
           this.didNotOccurFlag = new Boolean();
@@ -506,31 +602,49 @@ public class AdverseReaction extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #recorder} (Who recorded the reaction.)
+     */
     public ResourceReference getRecorder() { 
       return this.recorder;
     }
 
+    /**
+     * @param value {@link #recorder} (Who recorded the reaction.)
+     */
     public AdverseReaction setRecorder(ResourceReference value) { 
       this.recorder = value;
       return this;
     }
 
+    /**
+     * @return {@link #symptom} (The signs and symptoms that were observed as part of the reaction.)
+     */
     public List<AdverseReactionSymptomComponent> getSymptom() { 
       return this.symptom;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #symptom} (The signs and symptoms that were observed as part of the reaction.)
+     */
     public AdverseReactionSymptomComponent addSymptom() { 
       AdverseReactionSymptomComponent t = new AdverseReactionSymptomComponent();
       this.symptom.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #exposure} (An exposure to a substance that preceded a reaction occurrence.)
+     */
     public List<AdverseReactionExposureComponent> getExposure() { 
       return this.exposure;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #exposure} (An exposure to a substance that preceded a reaction occurrence.)
+     */
     public AdverseReactionExposureComponent addExposure() { 
       AdverseReactionExposureComponent t = new AdverseReactionExposureComponent();
       this.exposure.add(t);

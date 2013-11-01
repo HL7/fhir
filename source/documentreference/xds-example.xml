@@ -15,8 +15,7 @@
     <updated>2013-07-01T13:11:33Z</updated>
     <content type="text/xml">
       <DocumentReference xmlns="http://hl7.org/fhir">
-        <extension>
-          <url value="http://hl7.org/fhir/xds#practiceSettingCode"/>
+        <extension url="http://hl7.org/fhir/xds#practiceSettingCode">
           <valueCodeableConcept>
             <coding>
               <system value="http://ihe.net/connectathon/practiceSettingCodes"/>
@@ -114,9 +113,7 @@
     <updated>2013-07-01T13:11:33Z</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
-        <extension>
-          <url
-            value="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats"/>
+        <extension url="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats">
           <valueResource>
             <display value="Parma Community"/>
           </valueResource>
@@ -160,9 +157,7 @@
     <updated>2013-07-01T13:11:33Z</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
-        <extension>
-          <url
-            value="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats"/>
+        <extension url="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats">
           <valueResource>
             <display value="Berea Community"/>
           </valueResource>

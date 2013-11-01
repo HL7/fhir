@@ -14,9 +14,8 @@
     </display>
   </subject>
   <relation id="1">
-    <extension>
-      <extension>
-        <url value="&pedigree;relationParent.type"/>
+    <extension url="&pedigree;relationParent">
+      <extension url="&pedigree;relationParent.type">
         <valueCodeableConcept>
           <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -25,11 +24,9 @@
           </coding>
         </valueCodeableConcept>
       </extension>
-      <extension>
-        <url value="&pedigree;relationParent.identifier"/>
+      <extension url="&pedigree;relationParent.identifier">
         <valueUri value="#2"/>
       </extension>
-      <url value="&pedigree;relationParent"/>
     </extension>
     <name value="Dave"/>
     <relationship>
@@ -50,9 +47,8 @@
     </relationship>
   </relation>
   <relation id="3">
-    <extension>
-      <extension>
-        <url value="&pedigree;relationParent.type"/>
+    <extension url="&pedigree;relationParent">
+      <extension url="&pedigree;relationParent.type">
         <valueCodeableConcept>
           <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -61,11 +57,9 @@
           </coding>
         </valueCodeableConcept>
       </extension>
-      <extension>
-        <url value="&pedigree;relationParent.identifier"/>
+      <extension url="&pedigree;relationParent.identifier">
         <valueUri value="#2"/>
       </extension>
-      <url value="&pedigree;relationParent"/>
     </extension>
     <relationship>
       <coding>
@@ -76,9 +70,8 @@
     </relationship>
   </relation>
   <relation id="4">
-    <extension>
-      <extension>
-        <url value="&pedigree;relationParent.type"/>
+    <extension url="&pedigree;relationParent">
+      <extension url="&pedigree;relationParent.type">
         <valueCodeableConcept>
           <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -87,11 +80,9 @@
           </coding>
         </valueCodeableConcept>
       </extension>
-      <extension>
-        <url value="&pedigree;relationParent.identifier"/>
+      <extension url="&pedigree;relationParent.identifier">
         <valueUri value="#2"/>
       </extension>
-      <url value="&pedigree;relationParent"/>
     </extension>
     <relationship>
       <coding>
@@ -102,9 +93,8 @@
     </relationship>
   </relation>
   <relation id="5">
-    <extension>
-      <extension>
-        <url value="&pedigree;relationParent.type"/>
+    <extension url="&pedigree;relationParent">
+      <extension url="&pedigree;relationParent.type">
         <valueCodeableConcept>
           <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -113,11 +103,9 @@
           </coding>
         </valueCodeableConcept>
       </extension>
-      <extension>
-        <url value="&pedigree;relationParent.identifier"/>
+      <extension url="&pedigree;relationParent.identifier">
         <valueUri value="#2"/>
       </extension>
-      <url value="&pedigree;relationParent"/>
     </extension>
     <name value="Eve"/>
     <relationship>
@@ -129,9 +117,8 @@
     </relationship>
   </relation>
   <relation id="6">
-    <extension>
-      <extension>
-        <url value="&pedigree;relationParent.type"/>
+    <extension url="&pedigree;relationParent">
+      <extension url="&pedigree;relationParent.type">
         <valueCodeableConcept>
           <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -140,11 +127,9 @@
           </coding>
         </valueCodeableConcept>
       </extension>
-      <extension>
-        <url value="&pedigree;relationParent.identifier"/>
+      <extension url="&pedigree;relationParent.identifier">
         <valueUri value="#2"/>
       </extension>
-      <url value="&pedigree;relationParent"/>
     </extension>
     <relationship>
       <coding>
@@ -155,9 +140,8 @@
     </relationship>
   </relation>
   <relation id="7">
-    <extension>
-      <extension>
-        <url value="&pedigree;relationParent.type"/>
+    <extension url="&pedigree;relationParent">
+      <extension url="&pedigree;relationParent.type">
         <valueCodeableConcept>
           <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -166,11 +150,9 @@
           </coding>
         </valueCodeableConcept>
       </extension>
-      <extension>
-        <url value="&pedigree;relationParent.identifier"/>
+      <extension url="&pedigree;relationParent.identifier">
         <valueUri value="#2"/>
       </extension>
-      <url value="&pedigree;relationParent"/>
     </extension>
     <relationship>
       <coding>
@@ -181,9 +163,8 @@
     </relationship>
   </relation>
   <relation id="8">
-    <extension>
-      <extension>
-        <url value="&pedigree;relationParent.type"/>
+    <extension url="&pedigree;relationParent">
+      <extension url="&pedigree;relationParent.type">
         <valueCodeableConcept>
           <coding>
             <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -192,11 +173,9 @@
           </coding>
         </valueCodeableConcept>
       </extension>
-      <extension>
-        <url value="&pedigree;relationParent.identifier"/>
+      <extension url="&pedigree;relationParent.identifier">
         <valueUri value="#5"/>
       </extension>
-      <url value="&pedigree;relationParent"/>
     </extension>
     <name value="Alice"/>
     <relationship>

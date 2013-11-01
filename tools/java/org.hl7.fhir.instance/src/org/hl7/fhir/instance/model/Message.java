@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -114,19 +114,31 @@ public class Message extends Resource {
         this.code = code;
       }
 
+        /**
+         * @return {@link #identifier} (The id of the message that this a response to.)
+         */
         public Id getIdentifier() { 
           return this.identifier;
         }
 
+        /**
+         * @param value {@link #identifier} (The id of the message that this a response to.)
+         */
         public MessageResponseComponent setIdentifier(Id value) { 
           this.identifier = value;
           return this;
         }
 
+        /**
+         * @return The id of the message that this a response to.
+         */
         public String getIdentifierSimple() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
+        /**
+         * @param value The id of the message that this a response to.
+         */
         public MessageResponseComponent setIdentifierSimple(String value) { 
             if (this.identifier == null)
               this.identifier = new Id();
@@ -134,19 +146,31 @@ public class Message extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.)
+         */
         public Enumeration<ResponseCode> getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.)
+         */
         public MessageResponseComponent setCode(Enumeration<ResponseCode> value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
+         */
         public ResponseCode getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
+        /**
+         * @param value Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
+         */
         public MessageResponseComponent setCodeSimple(ResponseCode value) { 
             if (this.code == null)
               this.code = new Enumeration<ResponseCode>();
@@ -154,10 +178,16 @@ public class Message extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #details} (Full details of any issues found in the message.)
+         */
         public ResourceReference getDetails() { 
           return this.details;
         }
 
+        /**
+         * @param value {@link #details} (Full details of any issues found in the message.)
+         */
         public MessageResponseComponent setDetails(ResourceReference value) { 
           this.details = value;
           return this;
@@ -216,19 +246,31 @@ public class Message extends Resource {
         this.endpoint = endpoint;
       }
 
+        /**
+         * @return {@link #name} (Human-readable name for the target system.)
+         */
         public String_ getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (Human-readable name for the target system.)
+         */
         public MessageSourceComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return Human-readable name for the target system.
+         */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
+        /**
+         * @param value Human-readable name for the target system.
+         */
         public MessageSourceComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
@@ -240,19 +282,31 @@ public class Message extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #software} (May include configuration or other information useful in debugging.)
+         */
         public String_ getSoftware() { 
           return this.software;
         }
 
+        /**
+         * @param value {@link #software} (May include configuration or other information useful in debugging.)
+         */
         public MessageSourceComponent setSoftware(String_ value) { 
           this.software = value;
           return this;
         }
 
+        /**
+         * @return May include configuration or other information useful in debugging.
+         */
         public String getSoftwareSimple() { 
           return this.software == null ? null : this.software.getValue();
         }
 
+        /**
+         * @param value May include configuration or other information useful in debugging.
+         */
         public MessageSourceComponent setSoftwareSimple(String value) { 
             if (this.software == null)
               this.software = new String_();
@@ -260,19 +314,31 @@ public class Message extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.)
+         */
         public String_ getVersion() { 
           return this.version;
         }
 
+        /**
+         * @param value {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.)
+         */
         public MessageSourceComponent setVersion(String_ value) { 
           this.version = value;
           return this;
         }
 
+        /**
+         * @return Can convey versions of multiple systems in situations where a message passes through multiple hands.
+         */
         public String getVersionSimple() { 
           return this.version == null ? null : this.version.getValue();
         }
 
+        /**
+         * @param value Can convey versions of multiple systems in situations where a message passes through multiple hands.
+         */
         public MessageSourceComponent setVersionSimple(String value) { 
           if (value == null)
             this.version = null;
@@ -284,28 +350,46 @@ public class Message extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #contact} (An e-mail, phone, website or other contact point to use to resolve issues with message communications.)
+         */
         public Contact getContact() { 
           return this.contact;
         }
 
+        /**
+         * @param value {@link #contact} (An e-mail, phone, website or other contact point to use to resolve issues with message communications.)
+         */
         public MessageSourceComponent setContact(Contact value) { 
           this.contact = value;
           return this;
         }
 
+        /**
+         * @return {@link #endpoint} (Identifies the routing target to send acknowledgements to.)
+         */
         public Uri getEndpoint() { 
           return this.endpoint;
         }
 
+        /**
+         * @param value {@link #endpoint} (Identifies the routing target to send acknowledgements to.)
+         */
         public MessageSourceComponent setEndpoint(Uri value) { 
           this.endpoint = value;
           return this;
         }
 
+        /**
+         * @return Identifies the routing target to send acknowledgements to.
+         */
         public String getEndpointSimple() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
+        /**
+         * @param value Identifies the routing target to send acknowledgements to.
+         */
         public MessageSourceComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
@@ -359,19 +443,31 @@ public class Message extends Resource {
         this.endpoint = endpoint;
       }
 
+        /**
+         * @return {@link #name} (Human-readable name for the source system.)
+         */
         public String_ getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (Human-readable name for the source system.)
+         */
         public MessageDestinationComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return Human-readable name for the source system.
+         */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
+        /**
+         * @param value Human-readable name for the source system.
+         */
         public MessageDestinationComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
@@ -383,28 +479,46 @@ public class Message extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #target} (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
+         */
         public ResourceReference getTarget() { 
           return this.target;
         }
 
+        /**
+         * @param value {@link #target} (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
+         */
         public MessageDestinationComponent setTarget(ResourceReference value) { 
           this.target = value;
           return this;
         }
 
+        /**
+         * @return {@link #endpoint} (Indicates where the message should be routed to.)
+         */
         public Uri getEndpoint() { 
           return this.endpoint;
         }
 
+        /**
+         * @param value {@link #endpoint} (Indicates where the message should be routed to.)
+         */
         public MessageDestinationComponent setEndpoint(Uri value) { 
           this.endpoint = value;
           return this;
         }
 
+        /**
+         * @return Indicates where the message should be routed to.
+         */
         public String getEndpointSimple() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
+        /**
+         * @param value Indicates where the message should be routed to.
+         */
         public MessageDestinationComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
@@ -501,19 +615,31 @@ public class Message extends Resource {
       this.source = source;
     }
 
+    /**
+     * @return {@link #identifier} (The identifier of this message.)
+     */
     public Id getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (The identifier of this message.)
+     */
     public Message setIdentifier(Id value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return The identifier of this message.
+     */
     public String getIdentifierSimple() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
+    /**
+     * @param value The identifier of this message.
+     */
     public Message setIdentifierSimple(String value) { 
         if (this.identifier == null)
           this.identifier = new Id();
@@ -521,19 +647,31 @@ public class Message extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #timestamp} (The time that the message was sent.)
+     */
     public Instant getTimestamp() { 
       return this.timestamp;
     }
 
+    /**
+     * @param value {@link #timestamp} (The time that the message was sent.)
+     */
     public Message setTimestamp(Instant value) { 
       this.timestamp = value;
       return this;
     }
 
+    /**
+     * @return The time that the message was sent.
+     */
     public Calendar getTimestampSimple() { 
       return this.timestamp == null ? null : this.timestamp.getValue();
     }
 
+    /**
+     * @param value The time that the message was sent.
+     */
     public Message setTimestampSimple(Calendar value) { 
         if (this.timestamp == null)
           this.timestamp = new Instant();
@@ -541,94 +679,154 @@ public class Message extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #event} (Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".)
+     */
     public Coding getEvent() { 
       return this.event;
     }
 
+    /**
+     * @param value {@link #event} (Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".)
+     */
     public Message setEvent(Coding value) { 
       this.event = value;
       return this;
     }
 
+    /**
+     * @return {@link #response} (Information about the message that this message is a response to.  Only present if this message is a response.)
+     */
     public MessageResponseComponent getResponse() { 
       return this.response;
     }
 
+    /**
+     * @param value {@link #response} (Information about the message that this message is a response to.  Only present if this message is a response.)
+     */
     public Message setResponse(MessageResponseComponent value) { 
       this.response = value;
       return this;
     }
 
+    /**
+     * @return {@link #source} (The source application from which this message originated.)
+     */
     public MessageSourceComponent getSource() { 
       return this.source;
     }
 
+    /**
+     * @param value {@link #source} (The source application from which this message originated.)
+     */
     public Message setSource(MessageSourceComponent value) { 
       this.source = value;
       return this;
     }
 
+    /**
+     * @return {@link #destination} (The destination application which the message is intended for.)
+     */
     public List<MessageDestinationComponent> getDestination() { 
       return this.destination;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #destination} (The destination application which the message is intended for.)
+     */
     public MessageDestinationComponent addDestination() { 
       MessageDestinationComponent t = new MessageDestinationComponent();
       this.destination.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #enterer} (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
+     */
     public ResourceReference getEnterer() { 
       return this.enterer;
     }
 
+    /**
+     * @param value {@link #enterer} (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
+     */
     public Message setEnterer(ResourceReference value) { 
       this.enterer = value;
       return this;
     }
 
+    /**
+     * @return {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions.)
+     */
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
+    /**
+     * @param value {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions.)
+     */
     public Message setAuthor(ResourceReference value) { 
       this.author = value;
       return this;
     }
 
+    /**
+     * @return {@link #receiver} (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
+     */
     public ResourceReference getReceiver() { 
       return this.receiver;
     }
 
+    /**
+     * @param value {@link #receiver} (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
+     */
     public Message setReceiver(ResourceReference value) { 
       this.receiver = value;
       return this;
     }
 
+    /**
+     * @return {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.)
+     */
     public ResourceReference getResponsible() { 
       return this.responsible;
     }
 
+    /**
+     * @param value {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.)
+     */
     public Message setResponsible(ResourceReference value) { 
       this.responsible = value;
       return this;
     }
 
+    /**
+     * @return {@link #reason} (Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.)
+     */
     public CodeableConcept getReason() { 
       return this.reason;
     }
 
+    /**
+     * @param value {@link #reason} (Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.)
+     */
     public Message setReason(CodeableConcept value) { 
       this.reason = value;
       return this;
     }
 
+    /**
+     * @return {@link #data} (The actual data of the message - a reference to the root/focus class of the event.)
+     */
     public List<ResourceReference> getData() { 
       return this.data;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #data} (The actual data of the message - a reference to the root/focus class of the event.)
+     */
     public ResourceReference addData() { 
       ResourceReference t = new ResourceReference();
       this.data.add(t);

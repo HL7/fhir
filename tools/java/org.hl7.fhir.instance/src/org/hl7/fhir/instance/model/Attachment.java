@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -82,19 +82,31 @@ public class Attachment extends Type {
       this.contentType = contentType;
     }
 
+    /**
+     * @return {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.)
+     */
     public Code getContentType() { 
       return this.contentType;
     }
 
+    /**
+     * @param value {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.)
+     */
     public Attachment setContentType(Code value) { 
       this.contentType = value;
       return this;
     }
 
+    /**
+     * @return Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+     */
     public String getContentTypeSimple() { 
       return this.contentType == null ? null : this.contentType.getValue();
     }
 
+    /**
+     * @param value Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+     */
     public Attachment setContentTypeSimple(String value) { 
         if (this.contentType == null)
           this.contentType = new Code();
@@ -102,19 +114,31 @@ public class Attachment extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.)
+     */
     public Code getLanguage() { 
       return this.language;
     }
 
+    /**
+     * @param value {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.)
+     */
     public Attachment setLanguage(Code value) { 
       this.language = value;
       return this;
     }
 
+    /**
+     * @return The human language of the content. The value can be any valid value according to BCP 47.
+     */
     public String getLanguageSimple() { 
       return this.language == null ? null : this.language.getValue();
     }
 
+    /**
+     * @param value The human language of the content. The value can be any valid value according to BCP 47.
+     */
     public Attachment setLanguageSimple(String value) { 
       if (value == null)
         this.language = null;
@@ -126,19 +150,31 @@ public class Attachment extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.)
+     */
     public Base64Binary getData() { 
       return this.data;
     }
 
+    /**
+     * @param value {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.)
+     */
     public Attachment setData(Base64Binary value) { 
       this.data = value;
       return this;
     }
 
+    /**
+     * @return The actual data of the attachment - a sequence of bytes. In XML, represented using base64.
+     */
     public byte[] getDataSimple() { 
       return this.data == null ? null : this.data.getValue();
     }
 
+    /**
+     * @param value The actual data of the attachment - a sequence of bytes. In XML, represented using base64.
+     */
     public Attachment setDataSimple(byte[] value) { 
       if (value == null)
         this.data = null;
@@ -150,19 +186,31 @@ public class Attachment extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #url} (An alternative location where the data can be accessed.)
+     */
     public Uri getUrl() { 
       return this.url;
     }
 
+    /**
+     * @param value {@link #url} (An alternative location where the data can be accessed.)
+     */
     public Attachment setUrl(Uri value) { 
       this.url = value;
       return this;
     }
 
+    /**
+     * @return An alternative location where the data can be accessed.
+     */
     public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
+    /**
+     * @param value An alternative location where the data can be accessed.
+     */
     public Attachment setUrlSimple(String value) { 
       if (value == null)
         this.url = null;
@@ -174,19 +222,31 @@ public class Attachment extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #size} (The number of bytes of data that make up this attachment.)
+     */
     public Integer getSize() { 
       return this.size;
     }
 
+    /**
+     * @param value {@link #size} (The number of bytes of data that make up this attachment.)
+     */
     public Attachment setSize(Integer value) { 
       this.size = value;
       return this;
     }
 
+    /**
+     * @return The number of bytes of data that make up this attachment.
+     */
     public int getSizeSimple() { 
       return this.size == null ? null : this.size.getValue();
     }
 
+    /**
+     * @param value The number of bytes of data that make up this attachment.
+     */
     public Attachment setSizeSimple(int value) { 
       if (value == -1)
         this.size = null;
@@ -198,19 +258,31 @@ public class Attachment extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.)
+     */
     public Base64Binary getHash() { 
       return this.hash;
     }
 
+    /**
+     * @param value {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.)
+     */
     public Attachment setHash(Base64Binary value) { 
       this.hash = value;
       return this;
     }
 
+    /**
+     * @return The calculated hash of the data using SHA-1. Represented using base64.
+     */
     public byte[] getHashSimple() { 
       return this.hash == null ? null : this.hash.getValue();
     }
 
+    /**
+     * @param value The calculated hash of the data using SHA-1. Represented using base64.
+     */
     public Attachment setHashSimple(byte[] value) { 
       if (value == null)
         this.hash = null;
@@ -222,19 +294,31 @@ public class Attachment extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #title} (A label or set of text to display in place of the data.)
+     */
     public String_ getTitle() { 
       return this.title;
     }
 
+    /**
+     * @param value {@link #title} (A label or set of text to display in place of the data.)
+     */
     public Attachment setTitle(String_ value) { 
       this.title = value;
       return this;
     }
 
+    /**
+     * @return A label or set of text to display in place of the data.
+     */
     public String getTitleSimple() { 
       return this.title == null ? null : this.title.getValue();
     }
 
+    /**
+     * @param value A label or set of text to display in place of the data.
+     */
     public Attachment setTitleSimple(String value) { 
       if (value == null)
         this.title = null;

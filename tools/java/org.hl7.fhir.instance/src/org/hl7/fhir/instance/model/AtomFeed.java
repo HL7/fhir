@@ -31,20 +31,40 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A FHIR bundle, as represented in XML (e.g. Atom) or JSON
+ */
 public class AtomFeed extends AtomBase {
+	
+	/**
+	 * When searching, the total number of resources in the search (>= the number of resources found in the search, but this may be < the number of resources in this bundle, if included resources are also present)
+	 */
 	private java.lang.Integer totalResults;
 
+	/**
+	 * The resources in this bundle
+	 */
 	private List<AtomEntry<? extends Resource>> entryList = new ArrayList<AtomEntry<? extends Resource>>();
 
+	/**
+	 * @return The resources in this bundle
+	 */
 	public List<AtomEntry<? extends Resource>> getEntryList() {
 		return entryList;
 	}
 
+	/**
+	 * @return When searching, the total number of resources in the search
+	 */
+	public java.lang.Integer getTotalResults() {
+		return this.totalResults;
+	}
+	
+	/** 
+	 * @param totalResults When searching, the total number of resources in the search
+	 */
 	public void setTotalResults(java.lang.Integer totalResults) {
 		this.totalResults = totalResults;
 	}
 
-	public java.lang.Integer getTotalResults() {
-		return this.totalResults;
-	}
 }

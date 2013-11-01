@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -186,19 +186,31 @@ public class Contact extends Type {
       super();
     }
 
+    /**
+     * @return {@link #system} (Telecommunications form for contact - what communications system is required to make use of the contact.)
+     */
     public Enumeration<ContactSystem> getSystem() { 
       return this.system;
     }
 
+    /**
+     * @param value {@link #system} (Telecommunications form for contact - what communications system is required to make use of the contact.)
+     */
     public Contact setSystem(Enumeration<ContactSystem> value) { 
       this.system = value;
       return this;
     }
 
+    /**
+     * @return Telecommunications form for contact - what communications system is required to make use of the contact.
+     */
     public ContactSystem getSystemSimple() { 
       return this.system == null ? null : this.system.getValue();
     }
 
+    /**
+     * @param value Telecommunications form for contact - what communications system is required to make use of the contact.
+     */
     public Contact setSystemSimple(ContactSystem value) { 
       if (value == null)
         this.system = null;
@@ -210,19 +222,31 @@ public class Contact extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #value} (The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).)
+     */
     public String_ getValue() { 
       return this.value;
     }
 
+    /**
+     * @param value {@link #value} (The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).)
+     */
     public Contact setValue(String_ value) { 
       this.value = value;
       return this;
     }
 
+    /**
+     * @return The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
+     */
     public String getValueSimple() { 
       return this.value == null ? null : this.value.getValue();
     }
 
+    /**
+     * @param value The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
+     */
     public Contact setValueSimple(String value) { 
       if (value == null)
         this.value = null;
@@ -234,19 +258,31 @@ public class Contact extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #use} (Identifies the context for the address.)
+     */
     public Enumeration<ContactUse> getUse() { 
       return this.use;
     }
 
+    /**
+     * @param value {@link #use} (Identifies the context for the address.)
+     */
     public Contact setUse(Enumeration<ContactUse> value) { 
       this.use = value;
       return this;
     }
 
+    /**
+     * @return Identifies the context for the address.
+     */
     public ContactUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
+    /**
+     * @param value Identifies the context for the address.
+     */
     public Contact setUseSimple(ContactUse value) { 
       if (value == null)
         this.use = null;
@@ -258,10 +294,16 @@ public class Contact extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #period} (Time period when the contact was/is in use.)
+     */
     public Period getPeriod() { 
       return this.period;
     }
 
+    /**
+     * @param value {@link #period} (Time period when the contact was/is in use.)
+     */
     public Contact setPeriod(Period value) { 
       this.period = value;
       return this;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -187,19 +187,31 @@ public class Document extends Resource {
         this.mode = mode;
       }
 
+        /**
+         * @return {@link #mode} (The type of attestation the authenticator offers.)
+         */
         public Enumeration<DocumentAttestationMode> getMode() { 
           return this.mode;
         }
 
+        /**
+         * @param value {@link #mode} (The type of attestation the authenticator offers.)
+         */
         public DocumentAttesterComponent setMode(Enumeration<DocumentAttestationMode> value) { 
           this.mode = value;
           return this;
         }
 
+        /**
+         * @return The type of attestation the authenticator offers.
+         */
         public DocumentAttestationMode getModeSimple() { 
           return this.mode == null ? null : this.mode.getValue();
         }
 
+        /**
+         * @param value The type of attestation the authenticator offers.
+         */
         public DocumentAttesterComponent setModeSimple(DocumentAttestationMode value) { 
             if (this.mode == null)
               this.mode = new Enumeration<DocumentAttestationMode>();
@@ -207,19 +219,31 @@ public class Document extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #time} (When document was attested by the party.)
+         */
         public DateTime getTime() { 
           return this.time;
         }
 
+        /**
+         * @param value {@link #time} (When document was attested by the party.)
+         */
         public DocumentAttesterComponent setTime(DateTime value) { 
           this.time = value;
           return this;
         }
 
+        /**
+         * @return When document was attested by the party.
+         */
         public String getTimeSimple() { 
           return this.time == null ? null : this.time.getValue();
         }
 
+        /**
+         * @param value When document was attested by the party.
+         */
         public DocumentAttesterComponent setTimeSimple(String value) { 
           if (value == null)
             this.time = null;
@@ -231,10 +255,16 @@ public class Document extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #party} (Who attested the document in the specified way.)
+         */
         public ResourceReference getParty() { 
           return this.party;
         }
 
+        /**
+         * @param value {@link #party} (Who attested the document in the specified way.)
+         */
         public DocumentAttesterComponent setParty(ResourceReference value) { 
           this.party = value;
           return this;
@@ -277,31 +307,49 @@ public class Document extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
+         */
         public List<CodeableConcept> getCode() { 
           return this.code;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #code} (This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a "History and Physical Report" in which the procedure being documented is necessarily a "History and Physical" act.)
+         */
         public CodeableConcept addCode() { 
           CodeableConcept t = new CodeableConcept();
           this.code.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #period} (The period of time covered by the document. There is no assertion that the document is a complete representation for this period, only that it documents events during this time.)
+         */
         public Period getPeriod() { 
           return this.period;
         }
 
+        /**
+         * @param value {@link #period} (The period of time covered by the document. There is no assertion that the document is a complete representation for this period, only that it documents events during this time.)
+         */
         public DocumentEventComponent setPeriod(Period value) { 
           this.period = value;
           return this;
         }
 
+        /**
+         * @return {@link #detail} (Full details for the event(s) the document concents.)
+         */
         public List<ResourceReference> getDetail() { 
           return this.detail;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #detail} (Full details for the event(s) the document concents.)
+         */
         public ResourceReference addDetail() { 
           ResourceReference t = new ResourceReference();
           this.detail.add(t);
@@ -354,38 +402,62 @@ public class Document extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (A code identifying the kind of content contained within the section.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (A code identifying the kind of content contained within the section.)
+         */
         public SectionComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #subject} (Identifies the primary subject of the section.)
+         */
         public ResourceReference getSubject() { 
           return this.subject;
         }
 
+        /**
+         * @param value {@link #subject} (Identifies the primary subject of the section.)
+         */
         public SectionComponent setSubject(ResourceReference value) { 
           this.subject = value;
           return this;
         }
 
+        /**
+         * @return {@link #content} (Identifies the discrete data that provides the content for the section.)
+         */
         public ResourceReference getContent() { 
           return this.content;
         }
 
+        /**
+         * @param value {@link #content} (Identifies the discrete data that provides the content for the section.)
+         */
         public SectionComponent setContent(ResourceReference value) { 
           this.content = value;
           return this;
         }
 
+        /**
+         * @return {@link #section} (Identifies a subtopic within the section as part of the document's table of contents.)
+         */
         public List<SectionComponent> getSection() { 
           return this.section;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #section} (Identifies a subtopic within the section as part of the document's table of contents.)
+         */
         public SectionComponent addSection() { 
           SectionComponent t = new SectionComponent();
           this.section.add(t);
@@ -521,37 +593,61 @@ public class Document extends Resource {
       this.subject = subject;
     }
 
+    /**
+     * @return {@link #identifier} (Logical Identifier for the document, assigned when created. This identifier stays constant when subsequent versions of the document are created.)
+     */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (Logical Identifier for the document, assigned when created. This identifier stays constant when subsequent versions of the document are created.)
+     */
     public Document setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #versionIdentifier} (Version specific identifier for the document, assigned when created. This identifier changes when subsequent versions of the document are created.)
+     */
     public Identifier getVersionIdentifier() { 
       return this.versionIdentifier;
     }
 
+    /**
+     * @param value {@link #versionIdentifier} (Version specific identifier for the document, assigned when created. This identifier changes when subsequent versions of the document are created.)
+     */
     public Document setVersionIdentifier(Identifier value) { 
       this.versionIdentifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #created} (The document creation time, when the document first came into being. Where the document is a transform from an original document in some other format, the ClinicalDocument.effectiveTime is the time the original document is created.)
+     */
     public Instant getCreated() { 
       return this.created;
     }
 
+    /**
+     * @param value {@link #created} (The document creation time, when the document first came into being. Where the document is a transform from an original document in some other format, the ClinicalDocument.effectiveTime is the time the original document is created.)
+     */
     public Document setCreated(Instant value) { 
       this.created = value;
       return this;
     }
 
+    /**
+     * @return The document creation time, when the document first came into being. Where the document is a transform from an original document in some other format, the ClinicalDocument.effectiveTime is the time the original document is created.
+     */
     public Calendar getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
+    /**
+     * @param value The document creation time, when the document first came into being. Where the document is a transform from an original document in some other format, the ClinicalDocument.effectiveTime is the time the original document is created.
+     */
     public Document setCreatedSimple(Calendar value) { 
         if (this.created == null)
           this.created = new Instant();
@@ -559,37 +655,61 @@ public class Document extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #type} (Specifies the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note).)
+     */
     public CodeableConcept getType() { 
       return this.type;
     }
 
+    /**
+     * @param value {@link #type} (Specifies the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note).)
+     */
     public Document setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
 
+    /**
+     * @return {@link #subtype} (Additional detailed type for the document.)
+     */
     public CodeableConcept getSubtype() { 
       return this.subtype;
     }
 
+    /**
+     * @param value {@link #subtype} (Additional detailed type for the document.)
+     */
     public Document setSubtype(CodeableConcept value) { 
       this.subtype = value;
       return this;
     }
 
+    /**
+     * @return {@link #title} (Official human-readable label for the document.)
+     */
     public String_ getTitle() { 
       return this.title;
     }
 
+    /**
+     * @param value {@link #title} (Official human-readable label for the document.)
+     */
     public Document setTitle(String_ value) { 
       this.title = value;
       return this;
     }
 
+    /**
+     * @return Official human-readable label for the document.
+     */
     public String getTitleSimple() { 
       return this.title == null ? null : this.title.getValue();
     }
 
+    /**
+     * @param value Official human-readable label for the document.
+     */
     public Document setTitleSimple(String value) { 
       if (value == null)
         this.title = null;
@@ -601,19 +721,31 @@ public class Document extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #status} (The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document.)
+     */
     public Enumeration<DocumentStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document.)
+     */
     public Document setStatus(Enumeration<DocumentStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document.
+     */
     public DocumentStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document.
+     */
     public Document setStatusSimple(DocumentStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<DocumentStatus>();
@@ -621,86 +753,140 @@ public class Document extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #confidentiality} (The code specifying the level of confidentiality of the XDS Document. These codes are specific to an XDS Affinity Domain.)
+     */
     public Coding getConfidentiality() { 
       return this.confidentiality;
     }
 
+    /**
+     * @param value {@link #confidentiality} (The code specifying the level of confidentiality of the XDS Document. These codes are specific to an XDS Affinity Domain.)
+     */
     public Document setConfidentiality(Coding value) { 
       this.confidentiality = value;
       return this;
     }
 
+    /**
+     * @return {@link #subject} (Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
+     */
     public Document setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #author} (Identifies who is responsible for the information in the document.  (Not necessarily who typed it in.).)
+     */
     public List<ResourceReference> getAuthor() { 
       return this.author;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #author} (Identifies who is responsible for the information in the document.  (Not necessarily who typed it in.).)
+     */
     public ResourceReference addAuthor() { 
       ResourceReference t = new ResourceReference();
       this.author.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #attester} (A participant who has attested to the accuracy of the document.)
+     */
     public List<DocumentAttesterComponent> getAttester() { 
       return this.attester;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #attester} (A participant who has attested to the accuracy of the document.)
+     */
     public DocumentAttesterComponent addAttester() { 
       DocumentAttesterComponent t = new DocumentAttesterComponent();
       this.attester.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.)
+     */
     public ResourceReference getCustodian() { 
       return this.custodian;
     }
 
+    /**
+     * @param value {@link #custodian} (Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.)
+     */
     public Document setCustodian(ResourceReference value) { 
       this.custodian = value;
       return this;
     }
 
+    /**
+     * @return {@link #event} (The main event/act/item, such as a colonoscopy or an appendectomy, being documented.)
+     */
     public DocumentEventComponent getEvent() { 
       return this.event;
     }
 
+    /**
+     * @param value {@link #event} (The main event/act/item, such as a colonoscopy or an appendectomy, being documented.)
+     */
     public Document setEvent(DocumentEventComponent value) { 
       this.event = value;
       return this;
     }
 
+    /**
+     * @return {@link #encounter} (Describes the clinical encounter or type of care this document is associated with.)
+     */
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
+    /**
+     * @param value {@link #encounter} (Describes the clinical encounter or type of care this document is associated with.)
+     */
     public Document setEncounter(ResourceReference value) { 
       this.encounter = value;
       return this;
     }
 
+    /**
+     * @return {@link #replaces} (Identifies the document this document supersedes, if any.)
+     */
     public Id getReplaces() { 
       return this.replaces;
     }
 
+    /**
+     * @param value {@link #replaces} (Identifies the document this document supersedes, if any.)
+     */
     public Document setReplaces(Id value) { 
       this.replaces = value;
       return this;
     }
 
+    /**
+     * @return Identifies the document this document supersedes, if any.
+     */
     public String getReplacesSimple() { 
       return this.replaces == null ? null : this.replaces.getValue();
     }
 
+    /**
+     * @param value Identifies the document this document supersedes, if any.
+     */
     public Document setReplacesSimple(String value) { 
       if (value == null)
         this.replaces = null;
@@ -712,40 +898,64 @@ public class Document extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #provenance} (Additional provenance about the document and the resources that are the sections.)
+     */
     public List<ResourceReference> getProvenance() { 
       return this.provenance;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #provenance} (Additional provenance about the document and the resources that are the sections.)
+     */
     public ResourceReference addProvenance() { 
       ResourceReference t = new ResourceReference();
       this.provenance.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #stylesheet} (A fixed CSS stylesheet to use when rendering the documents.)
+     */
     public Attachment getStylesheet() { 
       return this.stylesheet;
     }
 
+    /**
+     * @param value {@link #stylesheet} (A fixed CSS stylesheet to use when rendering the documents.)
+     */
     public Document setStylesheet(Attachment value) { 
       this.stylesheet = value;
       return this;
     }
 
+    /**
+     * @return {@link #representation} (An alternative representation of the document that can be used in place of the html based rendering.)
+     */
     public Attachment getRepresentation() { 
       return this.representation;
     }
 
+    /**
+     * @param value {@link #representation} (An alternative representation of the document that can be used in place of the html based rendering.)
+     */
     public Document setRepresentation(Attachment value) { 
       this.representation = value;
       return this;
     }
 
+    /**
+     * @return {@link #section} (Identifies a main topic within the document's table of contents.)
+     */
     public List<SectionComponent> getSection() { 
       return this.section;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #section} (Identifies a main topic within the document's table of contents.)
+     */
     public SectionComponent addSection() { 
       SectionComponent t = new SectionComponent();
       this.section.add(t);

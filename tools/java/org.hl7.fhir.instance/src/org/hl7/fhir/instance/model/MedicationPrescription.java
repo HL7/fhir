@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -164,19 +164,31 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         super();
       }
 
+        /**
+         * @return {@link #dosageInstructionsText} (Free text dosage instructions for cases where the instructions are too complex to code.)
+         */
         public String_ getDosageInstructionsText() { 
           return this.dosageInstructionsText;
         }
 
+        /**
+         * @param value {@link #dosageInstructionsText} (Free text dosage instructions for cases where the instructions are too complex to code.)
+         */
         public MedicationPrescriptionDosageInstructionComponent setDosageInstructionsText(String_ value) { 
           this.dosageInstructionsText = value;
           return this;
         }
 
+        /**
+         * @return Free text dosage instructions for cases where the instructions are too complex to code.
+         */
         public String getDosageInstructionsTextSimple() { 
           return this.dosageInstructionsText == null ? null : this.dosageInstructionsText.getValue();
         }
 
+        /**
+         * @param value Free text dosage instructions for cases where the instructions are too complex to code.
+         */
         public MedicationPrescriptionDosageInstructionComponent setDosageInstructionsTextSimple(String value) { 
           if (value == null)
             this.dosageInstructionsText = null;
@@ -188,73 +200,125 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this;
         }
 
+        /**
+         * @return {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
+         */
         public CodeableConcept getAdditionalInstructions() { 
           return this.additionalInstructions;
         }
 
+        /**
+         * @param value {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
+         */
         public MedicationPrescriptionDosageInstructionComponent setAdditionalInstructions(CodeableConcept value) { 
           this.additionalInstructions = value;
           return this;
         }
 
+        /**
+         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         */
         public Type getTiming() { 
           return this.timing;
         }
 
+        /**
+         * @param value {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         */
         public MedicationPrescriptionDosageInstructionComponent setTiming(Type value) { 
           this.timing = value;
           return this;
         }
 
+        /**
+         * @return {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
+         */
         public CodeableConcept getSite() { 
           return this.site;
         }
 
+        /**
+         * @param value {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
+         */
         public MedicationPrescriptionDosageInstructionComponent setSite(CodeableConcept value) { 
           this.site = value;
           return this;
         }
 
+        /**
+         * @return {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient.)
+         */
         public CodeableConcept getRoute() { 
           return this.route;
         }
 
+        /**
+         * @param value {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient.)
+         */
         public MedicationPrescriptionDosageInstructionComponent setRoute(CodeableConcept value) { 
           this.route = value;
           return this;
         }
 
+        /**
+         * @return {@link #method} (A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
+
+Terminologies used often pre-coordinate this term with the route and or form of administration.)
+         */
         public CodeableConcept getMethod() { 
           return this.method;
         }
 
+        /**
+         * @param value {@link #method} (A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
+
+Terminologies used often pre-coordinate this term with the route and or form of administration.)
+         */
         public MedicationPrescriptionDosageInstructionComponent setMethod(CodeableConcept value) { 
           this.method = value;
           return this;
         }
 
+        /**
+         * @return {@link #doseQuantity} (The amount of the therapeutic or other substance given at one administration event.)
+         */
         public Quantity getDoseQuantity() { 
           return this.doseQuantity;
         }
 
+        /**
+         * @param value {@link #doseQuantity} (The amount of the therapeutic or other substance given at one administration event.)
+         */
         public MedicationPrescriptionDosageInstructionComponent setDoseQuantity(Quantity value) { 
           this.doseQuantity = value;
           return this;
         }
 
+        /**
+         * @return {@link #rate} (Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.)
+         */
         public Ratio getRate() { 
           return this.rate;
         }
 
+        /**
+         * @param value {@link #rate} (Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.)
+         */
         public MedicationPrescriptionDosageInstructionComponent setRate(Ratio value) { 
           this.rate = value;
           return this;
         }
 
+        /**
+         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         */
         public Ratio getMaxDosePerPeriod() { 
           return this.maxDosePerPeriod;
         }
 
+        /**
+         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         */
         public MedicationPrescriptionDosageInstructionComponent setMaxDosePerPeriod(Ratio value) { 
           this.maxDosePerPeriod = value;
           return this;
@@ -323,37 +387,69 @@ In some situations, this attribute may be used instead of quantity to identify t
         super();
       }
 
+        /**
+         * @return {@link #medication} (Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
         public ResourceReference getMedication() { 
           return this.medication;
         }
 
+        /**
+         * @param value {@link #medication} (Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
         public MedicationPrescriptionDispenseComponent setMedication(ResourceReference value) { 
           this.medication = value;
           return this;
         }
 
+        /**
+         * @return {@link #validityPeriod} (Design Comments: This indicates the validity period of a prescription (stale dating the Prescription) 
+It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. 
+Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.)
+         */
         public Period getValidityPeriod() { 
           return this.validityPeriod;
         }
 
+        /**
+         * @param value {@link #validityPeriod} (Design Comments: This indicates the validity period of a prescription (stale dating the Prescription) 
+It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. 
+Rationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.)
+         */
         public MedicationPrescriptionDispenseComponent setValidityPeriod(Period value) { 
           this.validityPeriod = value;
           return this;
         }
 
+        /**
+         * @return {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. 
+UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.)
+         */
         public Integer getNumberOfRepeatsAllowed() { 
           return this.numberOfRepeatsAllowed;
         }
 
+        /**
+         * @param value {@link #numberOfRepeatsAllowed} (An integer indicating the number of repeats of the Dispense. 
+UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.)
+         */
         public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowed(Integer value) { 
           this.numberOfRepeatsAllowed = value;
           return this;
         }
 
+        /**
+         * @return An integer indicating the number of repeats of the Dispense. 
+UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
+         */
         public int getNumberOfRepeatsAllowedSimple() { 
           return this.numberOfRepeatsAllowed == null ? null : this.numberOfRepeatsAllowed.getValue();
         }
 
+        /**
+         * @param value An integer indicating the number of repeats of the Dispense. 
+UsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.
+         */
         public MedicationPrescriptionDispenseComponent setNumberOfRepeatsAllowedSimple(int value) { 
           if (value == -1)
             this.numberOfRepeatsAllowed = null;
@@ -365,19 +461,33 @@ In some situations, this attribute may be used instead of quantity to identify t
           return this;
         }
 
+        /**
+         * @return {@link #quantity} (The amount that is to be dispensed.)
+         */
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
+        /**
+         * @param value {@link #quantity} (The amount that is to be dispensed.)
+         */
         public MedicationPrescriptionDispenseComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
 
+        /**
+         * @return {@link #expectedSupplyDuration} (Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. 
+In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.)
+         */
         public Duration getExpectedSupplyDuration() { 
           return this.expectedSupplyDuration;
         }
 
+        /**
+         * @param value {@link #expectedSupplyDuration} (Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. 
+In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.)
+         */
         public MedicationPrescriptionDispenseComponent setExpectedSupplyDuration(Duration value) { 
           this.expectedSupplyDuration = value;
           return this;
@@ -424,19 +534,31 @@ In some situations, this attribute may be used instead of quantity to identify t
         this.type = type;
       }
 
+        /**
+         * @return {@link #type} (A code signifying whether a different drug should be dispensed from what was prescribed.)
+         */
         public CodeableConcept getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (A code signifying whether a different drug should be dispensed from what was prescribed.)
+         */
         public MedicationPrescriptionSubstitutionComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #reason} (Indicates the reason for the substitution why substitution must or must not be performed.)
+         */
         public CodeableConcept getReason() { 
           return this.reason;
         }
 
+        /**
+         * @param value {@link #reason} (Indicates the reason for the substitution why substitution must or must not be performed.)
+         */
         public MedicationPrescriptionSubstitutionComponent setReason(CodeableConcept value) { 
           this.reason = value;
           return this;
@@ -516,30 +638,48 @@ In some situations, this attribute may be used instead of quantity to identify t
       super();
     }
 
+    /**
+     * @return {@link #identifier} (External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #dateWritten} (The date (and perhaps time) when the prescription was written.)
+     */
     public DateTime getDateWritten() { 
       return this.dateWritten;
     }
 
+    /**
+     * @param value {@link #dateWritten} (The date (and perhaps time) when the prescription was written.)
+     */
     public MedicationPrescription setDateWritten(DateTime value) { 
       this.dateWritten = value;
       return this;
     }
 
+    /**
+     * @return The date (and perhaps time) when the prescription was written.
+     */
     public String getDateWrittenSimple() { 
       return this.dateWritten == null ? null : this.dateWritten.getValue();
     }
 
+    /**
+     * @param value The date (and perhaps time) when the prescription was written.
+     */
     public MedicationPrescription setDateWrittenSimple(String value) { 
       if (value == null)
         this.dateWritten = null;
@@ -551,19 +691,31 @@ In some situations, this attribute may be used instead of quantity to identify t
       return this;
     }
 
+    /**
+     * @return {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.)
+     */
     public Enumeration<MedicationPrescriptionStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (A code specifying the state of the order.  Generally this will be active or completed state.)
+     */
     public MedicationPrescription setStatus(Enumeration<MedicationPrescriptionStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return A code specifying the state of the order.  Generally this will be active or completed state.
+     */
     public MedicationPrescriptionStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value A code specifying the state of the order.  Generally this will be active or completed state.
+     */
     public MedicationPrescription setStatusSimple(MedicationPrescriptionStatus value) { 
       if (value == null)
         this.status = null;
@@ -575,75 +727,123 @@ In some situations, this attribute may be used instead of quantity to identify t
       return this;
     }
 
+    /**
+     * @return {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     */
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
+    /**
+     * @param value {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     */
     public MedicationPrescription setPatient(ResourceReference value) { 
       this.patient = value;
       return this;
     }
 
+    /**
+     * @return {@link #prescriber} (The healthcare professional responsible for authorising the prescription.)
+     */
     public ResourceReference getPrescriber() { 
       return this.prescriber;
     }
 
+    /**
+     * @param value {@link #prescriber} (The healthcare professional responsible for authorising the prescription.)
+     */
     public MedicationPrescription setPrescriber(ResourceReference value) { 
       this.prescriber = value;
       return this;
     }
 
+    /**
+     * @return {@link #encounter} (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     */
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
+    /**
+     * @param value {@link #encounter} (A link to a resource that identifies the particular occurrence of contact between patient and health care provider.)
+     */
     public MedicationPrescription setEncounter(ResourceReference value) { 
       this.encounter = value;
       return this;
     }
 
+    /**
+     * @return {@link #reasonForPrescribing} (Can be the reason or the indication for writing the prescription.)
+     */
     public CodeableConcept getReasonForPrescribing() { 
       return this.reasonForPrescribing;
     }
 
+    /**
+     * @param value {@link #reasonForPrescribing} (Can be the reason or the indication for writing the prescription.)
+     */
     public MedicationPrescription setReasonForPrescribing(CodeableConcept value) { 
       this.reasonForPrescribing = value;
       return this;
     }
 
+    /**
+     * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     */
     public ResourceReference getMedication() { 
       return this.medication;
     }
 
+    /**
+     * @param value {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     */
     public MedicationPrescription setMedication(ResourceReference value) { 
       this.medication = value;
       return this;
     }
 
+    /**
+     * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.)
+     */
     public List<MedicationPrescriptionDosageInstructionComponent> getDosageInstruction() { 
       return this.dosageInstruction;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.)
+     */
     public MedicationPrescriptionDosageInstructionComponent addDosageInstruction() { 
       MedicationPrescriptionDosageInstructionComponent t = new MedicationPrescriptionDosageInstructionComponent();
       this.dosageInstruction.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #dispense} (Deals with details of the dispense part of the order.)
+     */
     public MedicationPrescriptionDispenseComponent getDispense() { 
       return this.dispense;
     }
 
+    /**
+     * @param value {@link #dispense} (Deals with details of the dispense part of the order.)
+     */
     public MedicationPrescription setDispense(MedicationPrescriptionDispenseComponent value) { 
       this.dispense = value;
       return this;
     }
 
+    /**
+     * @return {@link #substitution} (Indicates whether or not substitution can or should as part of the dispense.  In some cases substitution must  happen, in other cases substitution must not happen, and in others it does not matter.  This block explains the prescribers intent.  If nothing is specified substitution may be done.)
+     */
     public MedicationPrescriptionSubstitutionComponent getSubstitution() { 
       return this.substitution;
     }
 
+    /**
+     * @param value {@link #substitution} (Indicates whether or not substitution can or should as part of the dispense.  In some cases substitution must  happen, in other cases substitution must not happen, and in others it does not matter.  This block explains the prescribers intent.  If nothing is specified substitution may be done.)
+     */
     public MedicationPrescription setSubstitution(MedicationPrescriptionSubstitutionComponent value) { 
       this.substitution = value;
       return this;

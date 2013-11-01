@@ -619,9 +619,11 @@ public class NarrativeGenerator {
     for (ConformanceRestResourceComponent r : rest.getResource()) {
       tr = t.addTag("tr");
       tr.addTag("td").addText(r.getTypeSimple());
-      XhtmlNode a = tr.addTag("td").addTag("a");
-      a.addText(r.getProfile().getReferenceSimple());
-      a.setAttribute("href", prefix+r.getProfile().getReferenceSimple());
+      if (r.getProfile() != null) {
+      	XhtmlNode a = tr.addTag("td").addTag("a");
+      	a.addText(r.getProfile().getReferenceSimple());
+      	a.setAttribute("href", prefix+r.getProfile().getReferenceSimple());
+      }
       tr.addTag("td").addText(showOp(r, TypeRestfulOperation.read));
       tr.addTag("td").addText(showOp(r, TypeRestfulOperation.vread));
       tr.addTag("td").addText(showOp(r, TypeRestfulOperation.searchtype));

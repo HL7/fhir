@@ -87,428 +87,367 @@
       <system value="urn:ietf:rfc:3986"/>
       
       <code value="http://snomed.info/id">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="SNOMED CT: (http://ihtsdo.org)"/>
         </extension>
       </code>
 
       <code value="http://loinc.org">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="LOINC (http://loinc.org)"/>
         </extension>
       </code>
 
       <code value="http://unitsofmeasure.org">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="UCUM: (http://unitsofmeasure.org) Case Sensitive Codes)"/>
         </extension>
       </code>
 
       <code value="http://hl7.org/fhir/sid/icd-10">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="ICD-10 International (http://www.who.int/classifications/icd/en/)"/>
         </extension>
       </code>
 
       <code value="http://hl7.org/fhir/sid/icd-9">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="ICD-9 USA (http://www.cdc.gov/nchs/icd/icd9.htm)"/>
         </extension>
       </code>
 
       <code value="http://www.whocc.no/atc">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Anatomical Therapeutic Chemical Classification System (http://www.whocc.no/atc/structure_and_principles/)"/>
         </extension>
       </code>
 
       <code value="urn:std:iso:11073:10101">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Medical Device Codes defined in ISO 11073-10101 (http://hit-testing.nist.gov:13110/rtmms/index.htm#rosetta)"/>
         </extension>
       </code>
 
       <code value="http://nema.org/dicom/dicm">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="DICOM Code Definitions (http://nema.org/dicom/dicm)"/>
         </extension>
       </code>
 
       <code value="urn:ietf:rfc:3986">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="URIs (As defined by http://www.ietf.org/rfc/rfc3986.txt)"/>
         </extension>
       </code>
 
       <code value="http://hl7.org/fhir/sid/us-ssn">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="SSN (http://www.ssa.gov/ssnumber/)"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.2	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Alaska Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.1	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Alabama Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.5	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Arkansas Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.4	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Arizona Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.6	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="California Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.8	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Colorado Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.9	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Connecticut Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.11	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="DC Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.10	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Delaware Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.12	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Florida Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.13	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Georgia Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.15	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Hawaii Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.19	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Iowa Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.16	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Idaho Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.17	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Illinois Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.20	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Kansas Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.21	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Kentucky Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.22	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Louisiana Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.25	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Massachusetts Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.24	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Maryland Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.23	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Maine Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.26	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Michigan Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.27	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Minnesota Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.29	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Missouri Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.28	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Mississippi Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.30	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Montana Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.36	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="NewYork Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.37	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="NorthCarolina Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.38	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="NorthDakota Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.31	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Nebraska Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.33	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="NewHampshire Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.34	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="NewJersey Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.35	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="NewMexico Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.32	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Nevada Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.39	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Ohio Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.40	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Oklahoma Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.41	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Oregon Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.42	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Pennsylvania Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.44	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="RhodeIsland Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.45	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="SouthCarolina Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.46	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="SouthDakota Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.47	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Tennessee Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.48	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Texas Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.49	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Utah Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.51	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Virginia Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.50	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Vermont Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.53	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Washington Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.55	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Wisconsin Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.54	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="WestVirginia Driver's License"/>
         </extension>
       </code>
 
       <code value="urn:oid:2.16.840.1.113883.4.3.56	">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Wyoming Driver's License"/>
         </extension>
       </code>
 
       <code value="http://hl7.org/fhir/drivers-license">
-        <extension>
-          <url value="http://hl7.org/fhir/tools/extensions#display"/>
+        <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="Driver's licenses with no known issuing authority"/>
         </extension>
       </code>

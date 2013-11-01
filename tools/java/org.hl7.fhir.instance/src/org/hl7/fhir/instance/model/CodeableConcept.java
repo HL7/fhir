@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -52,30 +52,48 @@ public class CodeableConcept extends Type {
       super();
     }
 
+    /**
+     * @return {@link #coding} (A reference to a code defined by a terminology system.)
+     */
     public List<Coding> getCoding() { 
       return this.coding;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #coding} (A reference to a code defined by a terminology system.)
+     */
     public Coding addCoding() { 
       Coding t = new Coding();
       this.coding.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept.)
+     */
     public String_ getText() { 
       return this.text;
     }
 
+    /**
+     * @param value {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept.)
+     */
     public CodeableConcept setText(String_ value) { 
       this.text = value;
       return this;
     }
 
+    /**
+     * @return A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept.
+     */
     public String getTextSimple() { 
       return this.text == null ? null : this.text.getValue();
     }
 
+    /**
+     * @param value A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept.
+     */
     public CodeableConcept setTextSimple(String value) { 
       if (value == null)
         this.text = null;

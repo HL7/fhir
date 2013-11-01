@@ -28,14 +28,26 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
+/**
+ * Primitive type "id" in FHIR: a string from 1 to 36 characters, only containing letters, digits, "-" and "."
+ */
 public class Id extends Type {
 
+	/**
+	 * The value of the id
+	 */
 	protected String value;
 
+	/**
+	 * @return the id
+	 */
 	public String getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value the id
+	 */
 	public void setValue(String value) {
 		this.value = value;
 	}

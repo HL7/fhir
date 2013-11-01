@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -57,19 +57,31 @@ public class Extension extends Element {
       this.url = url;
     }
 
+    /**
+     * @return {@link #url} (Source of the definition for the extension code - a logical name or a URL.)
+     */
     public Uri getUrl() { 
       return this.url;
     }
 
+    /**
+     * @param value {@link #url} (Source of the definition for the extension code - a logical name or a URL.)
+     */
     public Extension setUrl(Uri value) { 
       this.url = value;
       return this;
     }
 
+    /**
+     * @return Source of the definition for the extension code - a logical name or a URL.
+     */
     public String getUrlSimple() { 
       return this.url == null ? null : this.url.getValue();
     }
 
+    /**
+     * @param value Source of the definition for the extension code - a logical name or a URL.
+     */
     public Extension setUrlSimple(String value) { 
         if (this.url == null)
           this.url = new Uri();
@@ -77,10 +89,16 @@ public class Extension extends Element {
       return this;
     }
 
+    /**
+     * @return {@link #value} (Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).)
+     */
     public org.hl7.fhir.instance.model.Type getValue() { 
       return this.value;
     }
 
+    /**
+     * @param value {@link #value} (Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).)
+     */
     public Extension setValue(org.hl7.fhir.instance.model.Type value) { 
       this.value = value;
       return this;

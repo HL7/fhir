@@ -684,6 +684,10 @@ public class SpreadsheetParser {
 			e = makeFromPath(root.getRoot(), path, row, profileName, true);
 		}
 
+		if (e.getName().startsWith("@")) {
+		  e.setName(e.getName().substring(1));
+		  e.setXmlAttribute(true);
+		}
 		String c = sheet.getColumn(row, "Card.");
 		if (c == null || c.equals("")) {
 			if (!isRoot)

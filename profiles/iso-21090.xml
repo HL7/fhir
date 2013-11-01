@@ -9,18 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
-  <LastSaved>2012-06-23T22:12:20Z</LastSaved>
+  <LastSaved>2013-10-31T08:43:50Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7395</WindowHeight>
+  <WindowHeight>7335</WindowHeight>
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
-  <WindowTopY>150</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <WindowTopY>210</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -77,7 +77,22 @@
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -150,8 +165,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s68" ss:HRef="http://hl7connect.healthintersections.com.au/svc/fhir/profile/@iso-21090"><Data
-      ss:Type="String">http://hl7connect.healthintersections.com.au/svc/fhir/profile/@iso-21090</Data></Cell>
+    <Cell ss:StyleID="s68" ss:HRef="http://hl7.org/fhir/Profile/iso-21090"><Data
+      ss:Type="String">http://hl7.org/fhir/Profile/iso-21090</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -164,7 +179,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>23</ActiveRow>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -173,29 +188,28 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="21" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="99"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="192.75"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="150.75"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="73.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="56.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="73.5"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="105.75"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="61.5"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="159"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="213.75"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:Index="12" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s71">
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Context Type</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
-    <Cell><Data ss:Type="String">DAR?</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">Binding</Data></Cell>
-    <Cell><Data ss:Type="String">Must Understand</Data></Cell>
+    <Cell><Data ss:Type="String">Is Modifier</Data></Cell>
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
@@ -210,71 +224,277 @@
     <Cell><Data ss:Type="String">Data Type</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">HumanName.part</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">EntityNamePartQualifier</Data></Cell>
     <Cell><Data ss:Type="String">N</Data></Cell>
     <Cell><Data ss:Type="String">AD | SP | BR | CL | IN | LS | MID | PFX | SFX</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s72"><Data ss:Type="String">Used to indicate additional information about the name part and how it should be used</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s72"><Data ss:Type="String">Used to indicate additional information about the name part and how it should be used</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">ENXP.qualifier</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">uncertainty</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">decimal</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Standard Deviation (same units as the quantity)</Data></Cell>
+    <Cell><Data ss:Type="String">The primary measure of variance/uncertainty of the value (the square root of the sum of the squares of the differences between all data points and the mean).</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">standardDeviation has the same units as the quantity. It is used to normalize the data for computing the distribution function. Applications that cannot deal with probability distributions can still get an idea about the confidence level by looking at standardDeviation</Data></Cell>
+    <Cell><Data ss:Type="String">PPD.standardDeviation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">uncertaintyType</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ProbabilityDistributionType</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Probability Distribution Type for uncertainty</Data></Cell>
+    <Cell><Data ss:Type="String">A code specifying the type of probability distribution for the uncertainty</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">This is only meaningful if there is also an uncertainty extension. If there is and uncertainty extension with no type, this means  that the probability distribution type is unknown. In that case, the uncertainty has the meaning of an informal guess</Data></Cell>
+    <Cell><Data ss:Type="String">PPD.distributionType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">address-use</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">PostalAddressUse</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">BAD | CONF | HP | HV | DIR | PUB | PHYS | PST</Data></Cell>
+    <Cell><Data ss:Type="String">Uses of Addresses - codes not defined as part of Address.use</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">AD.use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-additionalLocator</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">additionalLocator</Data></Cell>
+    <Cell><Data ss:Type="String">This can be a unit designator, such as apartment number, suite number, or floor. There may be several unit designators in an address (e.g., &quot;3rd floor, Appt. 342&quot;). This can also be a designator pointing away from the location, rather than specifying a smaller location within some larger one (e.g., Dutch &quot;t.o.&quot; means &quot;opposite to&quot; for house boats located across the street facing houses).</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=ADL]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-unitID</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">unitID</Data></Cell>
+    <Cell><Data ss:Type="String">The number or name of a specific unit contained within a building or complex, as assigned by that building or complex.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=UNID]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-unitType</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">unitType</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of specific unit contained within a building or complex. E.g. Appartment, Floor</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=UNIT]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-deliveryAddressLine</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryAddressLine</Data></Cell>
+    <Cell><Data ss:Type="String">A delivery address line is frequently used instead of breaking out delivery mode, delivery installation, etc. An address generally has only a delivery address line or a street address line, but not both.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DAL]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-deliveryInstallationType</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryInstallationType</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of delivery installation (the facility to which the mail will be delivered prior to final shipping via the delivery mode.) Example: post office, letter carrier depot, community mail center, station, etc.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DINST]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-deliveryInstallationArea</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryInstallationArea</Data></Cell>
+    <Cell><Data ss:Type="String">The location of the delivery installation, usually a town or city, and is only required if the area is different from the municipality. Area to which mail delivery service is provided from any postal facility or service such as an individual letter carrier, rural route, or postal route.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DINSTA]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-deliveryInstallationQualifier</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryInstallationQualifier</Data></Cell>
+    <Cell><Data ss:Type="String">A number, letter or name identifying a delivery installation. E.g., for Station A, the delivery installation qualifier would be 'A'.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DINSTQ]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-deliveryMode</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryMode</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of service offered, method of delivery. For example: post office box, rural route, general delivery, etc.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DMOD]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-deliveryModeIdentifier</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryModeIdentifier</Data></Cell>
+    <Cell><Data ss:Type="String">Represents the routing information such as a letter carrier route number. It is the identifying number of the designator (the box number or rural route number).</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DMODID]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-streetAddressLine</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">streetAddressLine</Data></Cell>
+    <Cell><Data ss:Type="String">Description: A street address line is frequently used instead of breaking out build number, street name, street type, etc. An address generally has only a delivery address line or a street address line, but not both.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=SAL]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-houseNumber</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">houseNumber</Data></Cell>
+    <Cell><Data ss:Type="String">The number of a building, house or lot alongside the street. Also known as &quot;primary street number&quot;. This does not number the street but rather the building.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=BNR]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18.75">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-buildingNumberSuffix</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">buildingNumberSuffix</Data></Cell>
+    <Cell><Data ss:Type="String">Any alphabetic character, fraction or other text that may appear after the numeric portion of a building number</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=BNS]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="23.25">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-postBox</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">postBox</Data></Cell>
+    <Cell><Data ss:Type="String">A numbered box located in a post station.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=POB]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="26.25">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-houseNumberNumeric</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">houseNumberNumeric</Data></Cell>
+    <Cell><Data ss:Type="String">The numeric portion of a building number</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=BNN]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="52.5">
-    <Cell ss:Index="3" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">address-part-streetName</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">streetName</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=STR]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-streetNameBase</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">streetNameBase</Data></Cell>
+    <Cell><Data ss:Type="String">The base name of a roadway or artery recognized by a municipality (excluding street type and direction)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=STB]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-streetNameType</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">streetNameType</Data></Cell>
+    <Cell><Data ss:Type="String">The designation given to the street. (e.g. Street, Avenue, Crescent, etc.)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=STTYP]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-direction</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">direction</Data></Cell>
+    <Cell><Data ss:Type="String">Direction (e.g., N, S, W, E)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=DIR]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-careOf</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">careOf</Data></Cell>
+    <Cell><Data ss:Type="String">The name of the party who will take receipt at the specified address, and will take on responsibility for ensuring delivery to the target recipient</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=CAR]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-censusTract</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">censusTract</Data></Cell>
+    <Cell><Data ss:Type="String">A geographic sub-unit delineated for demographic purposes.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=CEN]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-county</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">county</Data></Cell>
+    <Cell><Data ss:Type="String">A sub-unit of a state or province. (49 of the United States of America use the term &quot;county;&quot; Louisiana uses the term &quot;parish&quot;.)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=CPA]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-delimiter</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">delimiter</Data></Cell>
+    <Cell><Data ss:Type="String">Delimiters are printed without framing white space. If no value component is provided, the delimiter appears as a line break.</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">This really has no rationale use in FHIR</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=DEL]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-precinct</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">precinct</Data></Cell>
+    <Cell><Data ss:Type="String">A subsection of a municipality</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=PRE]</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -288,13 +508,13 @@
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
+    <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -302,30 +522,42 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="209.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="61.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="99" ss:Span="1"/>
-   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="168"/>
+   <Column ss:AutoFitWidth="0" ss:Width="99"/>
+   <Column ss:AutoFitWidth="0" ss:Width="168"/>
    <Column ss:AutoFitWidth="0" ss:Width="158.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s71"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Binding</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Binding Strength</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Management</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">EntityNamePartQualifier</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">alterable</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">#name-part-qualifier</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">EntityNamePartQualifier</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#name-part-qualifier</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Codes specifying the type of probability distribution</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#probability-distribution-type</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PostalAddressUse</Data></Cell>
+    <Cell><Data ss:Type="String">Uses of an address not included in Address.use</Data></Cell>
+    <Cell><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#postal-address-use</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -335,10 +567,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -348,10 +581,10 @@
  </Worksheet>
  <Worksheet ss:Name="name-part-qualifier">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="12" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s72" ss:DefaultColumnWidth="78"
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="78"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="153.75"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="576.75"/>
+   <Column ss:Index="3" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="153.75"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="576.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">display</Data></Cell>
@@ -442,12 +675,194 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="probability-distribution-type">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="43.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="105"/>
+   <Column ss:AutoFitWidth="0" ss:Width="264.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="395.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">display</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">definition</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell><Data ss:Type="String">B</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">beta</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The beta-distribution is used for data that is bounded on both sides and may or may not be skewed (e.g., occurs when probabilities are estimated.) Two parameters a and b are available to adjust the curve. The mean m and variance s2 relate as follows: m = a/ (a + b) and s2 = ab/((a + b)2 (a + b + 1)).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">E</Data></Cell>
+    <Cell><Data ss:Type="String">exponential</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Used for data that describes extinction. The exponential distribution is a special form of g-distribution where a = 1, hence, the relationship to mean m and variance s2 are m = b and s2 = b2.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">F</Data></Cell>
+    <Cell><Data ss:Type="String">F</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Used to describe the quotient of two c2 random variables. The F-distribution has two parameters n1 and n2, which are the numbers of degrees of freedom of the numerator and denominator variable respectively. The relationship to mean m and variance s2 are: m = n2 / (n2 - 2) and s2 = (2 n2 (n2 + n1 - 2)) / (n1 (n2 - 2)2 (n2 - 4)).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">G</Data></Cell>
+    <Cell><Data ss:Type="String">(gamma)</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The gamma-distribution used for data that is skewed and bounded to the right, i.e. where the maximum of the distribution curve is located near the origin. The g-distribution has a two parameters a and b. The relationship to mean m and variance s2 is m = a b and s2 = a b2.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">LN</Data></Cell>
+    <Cell><Data ss:Type="String">log-normal</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The logarithmic normal distribution is used to transform skewed random variable X into a normally distributed random variable U = log X. The log-normal distribution can be specified with the properties mean m and standard deviation s. Note however that mean m and standard deviation s are the parameters of the raw value distribution, not the transformed parameters of the lognormal distribution that are conventionally referred to by the same letters. Those log-normal parameters mlog and slog relate to the mean m and standard deviation s of the data value through slog2 = log (s2/m2 + 1) and mlog = log m - slog2/2.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">normal (Gaussian)</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">This is the well-known bell-shaped normal distribution. Because of the central limit theorem, the normal distribution is the distribution of choice for an unbounded random variable that is an outcome of a combination of many stochastic processes. Even for values bounded on a single side (i.e. greater than 0) the normal distribution may be accurate enough if the mean is &quot;far away&quot; from the bound of the scale measured in terms of standard deviations.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">T</Data></Cell>
+    <Cell><Data ss:Type="String">T</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Used to describe the quotient of a normal random variable and the square root of a c2 random variable. The t-distribution has one parameter n, the number of degrees of freedom. The relationship to mean m and variance s2 are: m = 0 and s2 = n / (n - 2)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">U</Data></Cell>
+    <Cell><Data ss:Type="String">uniform</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The uniform distribution assigns a constant probability over the entire interval of possible outcomes, while all outcomes outside this interval are assumed to have zero probability. The width of this interval is 2s sqrt(3). Thus, the uniform distribution assigns the probability densities f(x) = sqrt(2 s sqrt(3)) to values m - s sqrt(3) &gt;= x &lt;= m + s sqrt(3) and f(x) = 0 otherwise.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">X2</Data></Cell>
+    <Cell><Data ss:Type="String">chi square</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Used to describe the sum of squares of random variables which occurs when a variance is estimated (rather than presumed) from the sample. The only parameter of the c2-distribution is n, so called the number of degrees of freedom (which is the number of independent parts in the sum). The c2-distribution is a special type of g-distribution with parameter a = n /2 and b = 2. Hence, m = n and s2 = 2 n.</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>3</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="postal-address-use">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="15" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="105.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="84"/>
+   <Column ss:AutoFitWidth="0" ss:Width="141.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">display</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">definition</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">BAD</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">bad address</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: A flag indicating that the address is bad, in fact, useless.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CONF</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">confidential address</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses. Lloyd to supply more complete description.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HP</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">primary home</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: The primary home, to reach a person after business hours.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HV</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">vacation home</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: A vacation home, to reach a person while on vacation.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DIR</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">direct</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PUB</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">public</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PHYS</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">physical visit address</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Used primarily to visit an address.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PST</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">postal address</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Used to send mail.</Data></Cell>
+   </Row>
+   <Row ss:Index="15" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

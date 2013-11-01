@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -93,28 +93,46 @@ public class Supply extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #identifier} (Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.)
+         */
         public Identifier getIdentifier() { 
           return this.identifier;
         }
 
+        /**
+         * @param value {@link #identifier} (Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.)
+         */
         public SupplyDispenseComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
 
+        /**
+         * @return {@link #status} (A code specifying the state of the dispense event.)
+         */
         public Code getStatus() { 
           return this.status;
         }
 
+        /**
+         * @param value {@link #status} (A code specifying the state of the dispense event.)
+         */
         public SupplyDispenseComponent setStatus(Code value) { 
           this.status = value;
           return this;
         }
 
+        /**
+         * @return A code specifying the state of the dispense event.
+         */
         public String getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
+        /**
+         * @param value A code specifying the state of the dispense event.
+         */
         public SupplyDispenseComponent setStatusSimple(String value) { 
           if (value == null)
             this.status = null;
@@ -126,74 +144,122 @@ public class Supply extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #type} (Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.)
+         */
         public CodeableConcept getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.)
+         */
         public SupplyDispenseComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #quantity} (The amount of supply that has been dispensed. Includes unit of measure.)
+         */
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
+        /**
+         * @param value {@link #quantity} (The amount of supply that has been dispensed. Includes unit of measure.)
+         */
         public SupplyDispenseComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
 
+        /**
+         * @return {@link #suppliedItem} (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
         public ResourceReference getSuppliedItem() { 
           return this.suppliedItem;
         }
 
+        /**
+         * @param value {@link #suppliedItem} (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
         public SupplyDispenseComponent setSuppliedItem(ResourceReference value) { 
           this.suppliedItem = value;
           return this;
         }
 
+        /**
+         * @return {@link #supplier} (The individual reponsible for dispensing the medication.)
+         */
         public ResourceReference getSupplier() { 
           return this.supplier;
         }
 
+        /**
+         * @param value {@link #supplier} (The individual reponsible for dispensing the medication.)
+         */
         public SupplyDispenseComponent setSupplier(ResourceReference value) { 
           this.supplier = value;
           return this;
         }
 
+        /**
+         * @return {@link #whenPrepared} (The time the dispense event occurred.)
+         */
         public Period getWhenPrepared() { 
           return this.whenPrepared;
         }
 
+        /**
+         * @param value {@link #whenPrepared} (The time the dispense event occurred.)
+         */
         public SupplyDispenseComponent setWhenPrepared(Period value) { 
           this.whenPrepared = value;
           return this;
         }
 
+        /**
+         * @return {@link #whenHandedOver} (The time the dispense event occurred.)
+         */
         public Period getWhenHandedOver() { 
           return this.whenHandedOver;
         }
 
+        /**
+         * @param value {@link #whenHandedOver} (The time the dispense event occurred.)
+         */
         public SupplyDispenseComponent setWhenHandedOver(Period value) { 
           this.whenHandedOver = value;
           return this;
         }
 
+        /**
+         * @return {@link #destination} (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
+         */
         public ResourceReference getDestination() { 
           return this.destination;
         }
 
+        /**
+         * @param value {@link #destination} (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
+         */
         public SupplyDispenseComponent setDestination(ResourceReference value) { 
           this.destination = value;
           return this;
         }
 
+        /**
+         * @return {@link #receiver} (Identifies the person who picked up the Supply.)
+         */
         public List<ResourceReference> getReceiver() { 
           return this.receiver;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #receiver} (Identifies the person who picked up the Supply.)
+         */
         public ResourceReference addReceiver() { 
           ResourceReference t = new ResourceReference();
           this.receiver.add(t);
@@ -267,37 +333,61 @@ public class Supply extends Resource {
       super();
     }
 
+    /**
+     * @return {@link #name} (Category of supply.)
+     */
     public CodeableConcept getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (Category of supply.)
+     */
     public Supply setName(CodeableConcept value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return {@link #identifier} (Unique identifier for this kind of supply.)
+     */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (Unique identifier for this kind of supply.)
+     */
     public Supply setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #status} (Status of the supply.)
+     */
     public Code getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (Status of the supply.)
+     */
     public Supply setStatus(Code value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return Status of the supply.
+     */
     public String getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value Status of the supply.
+     */
     public Supply setStatusSimple(String value) { 
       if (value == null)
         this.status = null;
@@ -309,29 +399,47 @@ public class Supply extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #orderedItem} (The item which was ordered.)
+     */
     public ResourceReference getOrderedItem() { 
       return this.orderedItem;
     }
 
+    /**
+     * @param value {@link #orderedItem} (The item which was ordered.)
+     */
     public Supply setOrderedItem(ResourceReference value) { 
       this.orderedItem = value;
       return this;
     }
 
+    /**
+     * @return {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     */
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
+    /**
+     * @param value {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     */
     public Supply setPatient(ResourceReference value) { 
       this.patient = value;
       return this;
     }
 
+    /**
+     * @return {@link #dispense} (Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.)
+     */
     public List<SupplyDispenseComponent> getDispense() { 
       return this.dispense;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #dispense} (Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.)
+     */
     public SupplyDispenseComponent addDispense() { 
       SupplyDispenseComponent t = new SupplyDispenseComponent();
       this.dispense.add(t);

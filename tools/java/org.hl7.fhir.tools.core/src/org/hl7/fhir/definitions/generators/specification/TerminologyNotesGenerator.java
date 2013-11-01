@@ -40,6 +40,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
@@ -150,7 +151,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       else {
         if (cd.isExample())
           write("<td><a href=\"terminologies.html#example\">Example</a></td>");
-        else if (cd.getBinding() == Binding.CodeList)
+        else if (cd.getBinding() == Binding.CodeList || (cd.getBinding() == Binding.ValueSet && cd.getBindingStrength() == BindingStrength.Required))
           write("<td><a href=\"terminologies.html#code\">Fixed</a></td>");
         else
           write("<td><a href=\"terminologies.html#incomplete\">Incomplete</a></td>");

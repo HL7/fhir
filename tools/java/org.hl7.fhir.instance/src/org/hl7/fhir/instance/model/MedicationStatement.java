@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -80,64 +80,110 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         super();
       }
 
+        /**
+         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         */
         public Schedule getTiming() { 
           return this.timing;
         }
 
+        /**
+         * @param value {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         */
         public MedicationStatementDosageComponent setTiming(Schedule value) { 
           this.timing = value;
           return this;
         }
 
+        /**
+         * @return {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
+         */
         public CodeableConcept getSite() { 
           return this.site;
         }
 
+        /**
+         * @param value {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
+         */
         public MedicationStatementDosageComponent setSite(CodeableConcept value) { 
           this.site = value;
           return this;
         }
 
+        /**
+         * @return {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.)
+         */
         public CodeableConcept getRoute() { 
           return this.route;
         }
 
+        /**
+         * @param value {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.)
+         */
         public MedicationStatementDosageComponent setRoute(CodeableConcept value) { 
           this.route = value;
           return this;
         }
 
+        /**
+         * @return {@link #method} (A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
+
+Terminologies used often pre-coordinate this term with the route and or form of administration.)
+         */
         public CodeableConcept getMethod() { 
           return this.method;
         }
 
+        /**
+         * @param value {@link #method} (A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
+
+Terminologies used often pre-coordinate this term with the route and or form of administration.)
+         */
         public MedicationStatementDosageComponent setMethod(CodeableConcept value) { 
           this.method = value;
           return this;
         }
 
+        /**
+         * @return {@link #quantity} (The amount of the therapeutic or other substance given at one administration event.)
+         */
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
+        /**
+         * @param value {@link #quantity} (The amount of the therapeutic or other substance given at one administration event.)
+         */
         public MedicationStatementDosageComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
 
+        /**
+         * @return {@link #rate} (Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.)
+         */
         public Ratio getRate() { 
           return this.rate;
         }
 
+        /**
+         * @param value {@link #rate} (Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.)
+         */
         public MedicationStatementDosageComponent setRate(Ratio value) { 
           this.rate = value;
           return this;
         }
 
+        /**
+         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         */
         public Ratio getMaxDosePerPeriod() { 
           return this.maxDosePerPeriod;
         }
 
+        /**
+         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         */
         public MedicationStatementDosageComponent setMaxDosePerPeriod(Ratio value) { 
           this.maxDosePerPeriod = value;
           return this;
@@ -214,39 +260,63 @@ Use only if isNegated is set to TRUE.
       super();
     }
 
+    /**
+     * @return {@link #identifier} (External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #patient} (A link to a resource representing the person to whom the medication was given.)
+     */
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
+    /**
+     * @param value {@link #patient} (A link to a resource representing the person to whom the medication was given.)
+     */
     public MedicationStatement setPatient(ResourceReference value) { 
       this.patient = value;
       return this;
     }
 
+    /**
+     * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.)
+     */
     public Boolean getWasNotGiven() { 
       return this.wasNotGiven;
     }
 
+    /**
+     * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.)
+     */
     public MedicationStatement setWasNotGiven(Boolean value) { 
       this.wasNotGiven = value;
       return this;
     }
 
+    /**
+     * @return Set this to true if the record is saying that the medication was NOT administered.
+     */
     public boolean getWasNotGivenSimple() { 
       return this.wasNotGiven == null ? null : this.wasNotGiven.getValue();
     }
 
+    /**
+     * @param value Set this to true if the record is saying that the medication was NOT administered.
+     */
     public MedicationStatement setWasNotGivenSimple(boolean value) { 
       if (value == false)
         this.wasNotGiven = null;
@@ -258,51 +328,85 @@ Use only if isNegated is set to TRUE.
       return this;
     }
 
+    /**
+     * @return {@link #reasonNotGiven} (A code indicating why the administration has been negated.
+
+Use only if isNegated is set to TRUE.)
+     */
     public List<CodeableConcept> getReasonNotGiven() { 
       return this.reasonNotGiven;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #reasonNotGiven} (A code indicating why the administration has been negated.
+
+Use only if isNegated is set to TRUE.)
+     */
     public CodeableConcept addReasonNotGiven() { 
       CodeableConcept t = new CodeableConcept();
       this.reasonNotGiven.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #whenGiven} (An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     */
     public Period getWhenGiven() { 
       return this.whenGiven;
     }
 
+    /**
+     * @param value {@link #whenGiven} (An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     */
     public MedicationStatement setWhenGiven(Period value) { 
       this.whenGiven = value;
       return this;
     }
 
+    /**
+     * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     */
     public ResourceReference getMedication() { 
       return this.medication;
     }
 
+    /**
+     * @param value {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     */
     public MedicationStatement setMedication(ResourceReference value) { 
       this.medication = value;
       return this;
     }
 
+    /**
+     * @return {@link #administrationDevice} (An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
+     */
     public List<ResourceReference> getAdministrationDevice() { 
       return this.administrationDevice;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #administrationDevice} (An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
+     */
     public ResourceReference addAdministrationDevice() { 
       ResourceReference t = new ResourceReference();
       this.administrationDevice.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #dosage} (Indicates how the medication is to be used by the patient.)
+     */
     public List<MedicationStatementDosageComponent> getDosage() { 
       return this.dosage;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #dosage} (Indicates how the medication is to be used by the patient.)
+     */
     public MedicationStatementDosageComponent addDosage() { 
       MedicationStatementDosageComponent t = new MedicationStatementDosageComponent();
       this.dosage.add(t);

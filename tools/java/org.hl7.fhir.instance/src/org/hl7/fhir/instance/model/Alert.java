@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -124,28 +124,46 @@ public class Alert extends Resource {
       this.note = note;
     }
 
+    /**
+     * @return {@link #category} (Allows an alert to be divided into different categories like clinical, administrative etc.)
+     */
     public CodeableConcept getCategory() { 
       return this.category;
     }
 
+    /**
+     * @param value {@link #category} (Allows an alert to be divided into different categories like clinical, administrative etc.)
+     */
     public Alert setCategory(CodeableConcept value) { 
       this.category = value;
       return this;
     }
 
+    /**
+     * @return {@link #status} (Supports basic workflow.)
+     */
     public Enumeration<AlertStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (Supports basic workflow.)
+     */
     public Alert setStatus(Enumeration<AlertStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return Supports basic workflow.
+     */
     public AlertStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value Supports basic workflow.
+     */
     public Alert setStatusSimple(AlertStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<AlertStatus>();
@@ -153,37 +171,61 @@ public class Alert extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The person who this alert concerns.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The person who this alert concerns.)
+     */
     public Alert setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #author} (The person or device that created the alert.)
+     */
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
+    /**
+     * @param value {@link #author} (The person or device that created the alert.)
+     */
     public Alert setAuthor(ResourceReference value) { 
       this.author = value;
       return this;
     }
 
+    /**
+     * @return {@link #note} (The textual component of the alert to display to the user.)
+     */
     public String_ getNote() { 
       return this.note;
     }
 
+    /**
+     * @param value {@link #note} (The textual component of the alert to display to the user.)
+     */
     public Alert setNote(String_ value) { 
       this.note = value;
       return this;
     }
 
+    /**
+     * @return The textual component of the alert to display to the user.
+     */
     public String getNoteSimple() { 
       return this.note == null ? null : this.note.getValue();
     }
 
+    /**
+     * @param value The textual component of the alert to display to the user.
+     */
     public Alert setNoteSimple(String value) { 
         if (this.note == null)
           this.note = new String_();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -163,19 +163,31 @@ public class Media extends Resource {
       this.content = content;
     }
 
+    /**
+     * @return {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.)
+     */
     public Enumeration<MediaType> getType() { 
       return this.type;
     }
 
+    /**
+     * @param value {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.)
+     */
     public Media setType(Enumeration<MediaType> value) { 
       this.type = value;
       return this;
     }
 
+    /**
+     * @return Whether the media is a photo (still image), an audio recording, or a video recording.
+     */
     public MediaType getTypeSimple() { 
       return this.type == null ? null : this.type.getValue();
     }
 
+    /**
+     * @param value Whether the media is a photo (still image), an audio recording, or a video recording.
+     */
     public Media setTypeSimple(MediaType value) { 
         if (this.type == null)
           this.type = new Enumeration<MediaType>();
@@ -183,39 +195,63 @@ public class Media extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subtype} (Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.)
+     */
     public CodeableConcept getSubtype() { 
       return this.subtype;
     }
 
+    /**
+     * @param value {@link #subtype} (Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.)
+     */
     public Media setSubtype(CodeableConcept value) { 
       this.subtype = value;
       return this;
     }
 
+    /**
+     * @return {@link #identifier} (Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.)
+     */
     public DateTime getDateTime() { 
       return this.dateTime;
     }
 
+    /**
+     * @param value {@link #dateTime} (When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.)
+     */
     public Media setDateTime(DateTime value) { 
       this.dateTime = value;
       return this;
     }
 
+    /**
+     * @return When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
+     */
     public String getDateTimeSimple() { 
       return this.dateTime == null ? null : this.dateTime.getValue();
     }
 
+    /**
+     * @param value When the media was originally recorded. For video and audio, if the length of the recording is not insignificant, this is the end of the recording.
+     */
     public Media setDateTimeSimple(String value) { 
       if (value == null)
         this.dateTime = null;
@@ -227,46 +263,76 @@ public class Media extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subject} (Who/What this Media is a record of.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (Who/What this Media is a record of.)
+     */
     public Media setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #operator} (The person who administered the collection of the image.)
+     */
     public ResourceReference getOperator() { 
       return this.operator;
     }
 
+    /**
+     * @param value {@link #operator} (The person who administered the collection of the image.)
+     */
     public Media setOperator(ResourceReference value) { 
       this.operator = value;
       return this;
     }
 
+    /**
+     * @return {@link #view} (The name of the imaging view e.g Lateral or Antero-posterior (AP).)
+     */
     public CodeableConcept getView() { 
       return this.view;
     }
 
+    /**
+     * @param value {@link #view} (The name of the imaging view e.g Lateral or Antero-posterior (AP).)
+     */
     public Media setView(CodeableConcept value) { 
       this.view = value;
       return this;
     }
 
+    /**
+     * @return {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.)
+     */
     public String_ getDeviceName() { 
       return this.deviceName;
     }
 
+    /**
+     * @param value {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.)
+     */
     public Media setDeviceName(String_ value) { 
       this.deviceName = value;
       return this;
     }
 
+    /**
+     * @return The name of the device / manufacturer of the device  that was used to make the recording.
+     */
     public String getDeviceNameSimple() { 
       return this.deviceName == null ? null : this.deviceName.getValue();
     }
 
+    /**
+     * @param value The name of the device / manufacturer of the device  that was used to make the recording.
+     */
     public Media setDeviceNameSimple(String value) { 
       if (value == null)
         this.deviceName = null;
@@ -278,19 +344,31 @@ public class Media extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #height} (Height of the image in pixels(photo/video).)
+     */
     public Integer getHeight() { 
       return this.height;
     }
 
+    /**
+     * @param value {@link #height} (Height of the image in pixels(photo/video).)
+     */
     public Media setHeight(Integer value) { 
       this.height = value;
       return this;
     }
 
+    /**
+     * @return Height of the image in pixels(photo/video).
+     */
     public int getHeightSimple() { 
       return this.height == null ? null : this.height.getValue();
     }
 
+    /**
+     * @param value Height of the image in pixels(photo/video).
+     */
     public Media setHeightSimple(int value) { 
       if (value == -1)
         this.height = null;
@@ -302,19 +380,31 @@ public class Media extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #width} (Width of the image in pixels (photo/video).)
+     */
     public Integer getWidth() { 
       return this.width;
     }
 
+    /**
+     * @param value {@link #width} (Width of the image in pixels (photo/video).)
+     */
     public Media setWidth(Integer value) { 
       this.width = value;
       return this;
     }
 
+    /**
+     * @return Width of the image in pixels (photo/video).
+     */
     public int getWidthSimple() { 
       return this.width == null ? null : this.width.getValue();
     }
 
+    /**
+     * @param value Width of the image in pixels (photo/video).
+     */
     public Media setWidthSimple(int value) { 
       if (value == -1)
         this.width = null;
@@ -326,19 +416,31 @@ public class Media extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.)
+     */
     public Integer getFrames() { 
       return this.frames;
     }
 
+    /**
+     * @param value {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.)
+     */
     public Media setFrames(Integer value) { 
       this.frames = value;
       return this;
     }
 
+    /**
+     * @return The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
+     */
     public int getFramesSimple() { 
       return this.frames == null ? null : this.frames.getValue();
     }
 
+    /**
+     * @param value The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single iamge, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
+     */
     public Media setFramesSimple(int value) { 
       if (value == -1)
         this.frames = null;
@@ -350,19 +452,31 @@ public class Media extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #length} (The length of the recording in seconds - for audio and video.)
+     */
     public Integer getLength() { 
       return this.length;
     }
 
+    /**
+     * @param value {@link #length} (The length of the recording in seconds - for audio and video.)
+     */
     public Media setLength(Integer value) { 
       this.length = value;
       return this;
     }
 
+    /**
+     * @return The length of the recording in seconds - for audio and video.
+     */
     public int getLengthSimple() { 
       return this.length == null ? null : this.length.getValue();
     }
 
+    /**
+     * @param value The length of the recording in seconds - for audio and video.
+     */
     public Media setLengthSimple(int value) { 
       if (value == -1)
         this.length = null;
@@ -374,10 +488,16 @@ public class Media extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #content} (The actual content of the media - inline or by direct reference to the media source file.)
+     */
     public Attachment getContent() { 
       return this.content;
     }
 
+    /**
+     * @param value {@link #content} (The actual content of the media - inline or by direct reference to the media source file.)
+     */
     public Media setContent(Attachment value) { 
       this.content = value;
       return this;

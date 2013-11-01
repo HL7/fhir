@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -129,19 +129,31 @@ public class ImmunizationRecommendation extends Resource {
         this.forecastStatus = forecastStatus;
       }
 
+        /**
+         * @return {@link #recommendationDate} (The date of the immunization recommendation.)
+         */
         public DateTime getRecommendationDate() { 
           return this.recommendationDate;
         }
 
+        /**
+         * @param value {@link #recommendationDate} (The date of the immunization recommendation.)
+         */
         public ImmunizationRecommendationRecommendationComponent setRecommendationDate(DateTime value) { 
           this.recommendationDate = value;
           return this;
         }
 
+        /**
+         * @return The date of the immunization recommendation.
+         */
         public String getRecommendationDateSimple() { 
           return this.recommendationDate == null ? null : this.recommendationDate.getValue();
         }
 
+        /**
+         * @param value The date of the immunization recommendation.
+         */
         public ImmunizationRecommendationRecommendationComponent setRecommendationDateSimple(String value) { 
             if (this.recommendationDate == null)
               this.recommendationDate = new DateTime();
@@ -149,28 +161,46 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #vaccineType} (Vaccine that pertains to the recommendation.)
+         */
         public CodeableConcept getVaccineType() { 
           return this.vaccineType;
         }
 
+        /**
+         * @param value {@link #vaccineType} (Vaccine that pertains to the recommendation.)
+         */
         public ImmunizationRecommendationRecommendationComponent setVaccineType(CodeableConcept value) { 
           this.vaccineType = value;
           return this;
         }
 
+        /**
+         * @return {@link #doseNumber} (Recommended dose number.)
+         */
         public Integer getDoseNumber() { 
           return this.doseNumber;
         }
 
+        /**
+         * @param value {@link #doseNumber} (Recommended dose number.)
+         */
         public ImmunizationRecommendationRecommendationComponent setDoseNumber(Integer value) { 
           this.doseNumber = value;
           return this;
         }
 
+        /**
+         * @return Recommended dose number.
+         */
         public int getDoseNumberSimple() { 
           return this.doseNumber == null ? null : this.doseNumber.getValue();
         }
 
+        /**
+         * @param value Recommended dose number.
+         */
         public ImmunizationRecommendationRecommendationComponent setDoseNumberSimple(int value) { 
           if (value == -1)
             this.doseNumber = null;
@@ -182,19 +212,31 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #forecastStatus} (Vaccine administration status.)
+         */
         public Enumeration<ImmunizationForecastStatus> getForecastStatus() { 
           return this.forecastStatus;
         }
 
+        /**
+         * @param value {@link #forecastStatus} (Vaccine administration status.)
+         */
         public ImmunizationRecommendationRecommendationComponent setForecastStatus(Enumeration<ImmunizationForecastStatus> value) { 
           this.forecastStatus = value;
           return this;
         }
 
+        /**
+         * @return Vaccine administration status.
+         */
         public ImmunizationForecastStatus getForecastStatusSimple() { 
           return this.forecastStatus == null ? null : this.forecastStatus.getValue();
         }
 
+        /**
+         * @param value Vaccine administration status.
+         */
         public ImmunizationRecommendationRecommendationComponent setForecastStatusSimple(ImmunizationForecastStatus value) { 
             if (this.forecastStatus == null)
               this.forecastStatus = new Enumeration<ImmunizationForecastStatus>();
@@ -202,53 +244,83 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #dateCriterion} (Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.)
+         */
         public List<ImmunizationRecommendationRecommendationDateCriterionComponent> getDateCriterion() { 
           return this.dateCriterion;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #dateCriterion} (Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.)
+         */
         public ImmunizationRecommendationRecommendationDateCriterionComponent addDateCriterion() { 
           ImmunizationRecommendationRecommendationDateCriterionComponent t = new ImmunizationRecommendationRecommendationDateCriterionComponent();
           this.dateCriterion.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #protocol} (Contains information about the protocol under which the vaccine was administered.)
+         */
         public ImmunizationRecommendationRecommendationProtocolComponent getProtocol() { 
           return this.protocol;
         }
 
+        /**
+         * @param value {@link #protocol} (Contains information about the protocol under which the vaccine was administered.)
+         */
         public ImmunizationRecommendationRecommendationComponent setProtocol(ImmunizationRecommendationRecommendationProtocolComponent value) { 
           this.protocol = value;
           return this;
         }
 
+        /**
+         * @return {@link #supportingImmunization} (Immunization event history that supports the status and recommendation.)
+         */
         public List<ResourceReference> getSupportingImmunization() { 
           return this.supportingImmunization;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #supportingImmunization} (Immunization event history that supports the status and recommendation.)
+         */
         public ResourceReference addSupportingImmunization() { 
           ResourceReference t = new ResourceReference();
           this.supportingImmunization.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #supportingAdverseEventReport} (Adverse event report information that supports the status and recommendation.)
+         */
         public List<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent> getSupportingAdverseEventReport() { 
           return this.supportingAdverseEventReport;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #supportingAdverseEventReport} (Adverse event report information that supports the status and recommendation.)
+         */
         public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent addSupportingAdverseEventReport() { 
           ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent t = new ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent();
           this.supportingAdverseEventReport.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #supportingPatientObservation} (Patient observation that supports the status and recommendation.)
+         */
         public List<ResourceReference> getSupportingPatientObservation() { 
           return this.supportingPatientObservation;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #supportingPatientObservation} (Patient observation that supports the status and recommendation.)
+         */
         public ResourceReference addSupportingPatientObservation() { 
           ResourceReference t = new ResourceReference();
           this.supportingPatientObservation.add(t);
@@ -313,28 +385,46 @@ public class ImmunizationRecommendation extends Resource {
         this.value = value;
       }
 
+        /**
+         * @return {@link #code} (Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.)
+         */
         public ImmunizationRecommendationRecommendationDateCriterionComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #value} (Date recommendation.)
+         */
         public DateTime getValue() { 
           return this.value;
         }
 
+        /**
+         * @param value {@link #value} (Date recommendation.)
+         */
         public ImmunizationRecommendationRecommendationDateCriterionComponent setValue(DateTime value) { 
           this.value = value;
           return this;
         }
 
+        /**
+         * @return Date recommendation.
+         */
         public String getValueSimple() { 
           return this.value == null ? null : this.value.getValue();
         }
 
+        /**
+         * @param value Date recommendation.
+         */
         public ImmunizationRecommendationRecommendationDateCriterionComponent setValueSimple(String value) { 
             if (this.value == null)
               this.value = new DateTime();
@@ -382,19 +472,31 @@ public class ImmunizationRecommendation extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #doseSequence} (Nominal position in a series.)
+         */
         public Integer getDoseSequence() { 
           return this.doseSequence;
         }
 
+        /**
+         * @param value {@link #doseSequence} (Nominal position in a series.)
+         */
         public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequence(Integer value) { 
           this.doseSequence = value;
           return this;
         }
 
+        /**
+         * @return Nominal position in a series.
+         */
         public int getDoseSequenceSimple() { 
           return this.doseSequence == null ? null : this.doseSequence.getValue();
         }
 
+        /**
+         * @param value Nominal position in a series.
+         */
         public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequenceSimple(int value) { 
           if (value == -1)
             this.doseSequence = null;
@@ -406,19 +508,31 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #description} (Contains the description about the protocol under which the vaccine was administered.)
+         */
         public String_ getDescription() { 
           return this.description;
         }
 
+        /**
+         * @param value {@link #description} (Contains the description about the protocol under which the vaccine was administered.)
+         */
         public ImmunizationRecommendationRecommendationProtocolComponent setDescription(String_ value) { 
           this.description = value;
           return this;
         }
 
+        /**
+         * @return Contains the description about the protocol under which the vaccine was administered.
+         */
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
+        /**
+         * @param value Contains the description about the protocol under which the vaccine was administered.
+         */
         public ImmunizationRecommendationRecommendationProtocolComponent setDescriptionSimple(String value) { 
           if (value == null)
             this.description = null;
@@ -430,28 +544,46 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
         public ResourceReference getAuthority() { 
           return this.authority;
         }
 
+        /**
+         * @param value {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
         public ImmunizationRecommendationRecommendationProtocolComponent setAuthority(ResourceReference value) { 
           this.authority = value;
           return this;
         }
 
+        /**
+         * @return {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.)
+         */
         public String_ getSeries() { 
           return this.series;
         }
 
+        /**
+         * @param value {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.)
+         */
         public ImmunizationRecommendationRecommendationProtocolComponent setSeries(String_ value) { 
           this.series = value;
           return this;
         }
 
+        /**
+         * @return One possible path to achieve presumed immunity against a disease - within the context of an authority.
+         */
         public String getSeriesSimple() { 
           return this.series == null ? null : this.series.getValue();
         }
 
+        /**
+         * @param value One possible path to achieve presumed immunity against a disease - within the context of an authority.
+         */
         public ImmunizationRecommendationRecommendationProtocolComponent setSeriesSimple(String value) { 
           if (value == null)
             this.series = null;
@@ -512,17 +644,26 @@ public class ImmunizationRecommendation extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #identifier} (Unique identifier of the adverse event report.)
+         */
         public List<Id> getIdentifier() { 
           return this.identifier;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #identifier} (Unique identifier of the adverse event report.)
+         */
         public Id addIdentifier() { 
           Id t = new Id();
           this.identifier.add(t);
           return t;
         }
 
+        /**
+         * @param value {@link #identifier} (Unique identifier of the adverse event report.)
+         */
         public Id addIdentifierSimple(String value) { 
           Id t = new Id();
           t.setValue(value);
@@ -530,28 +671,46 @@ public class ImmunizationRecommendation extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #reportType} (Advers event report classification.)
+         */
         public CodeableConcept getReportType() { 
           return this.reportType;
         }
 
+        /**
+         * @param value {@link #reportType} (Advers event report classification.)
+         */
         public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setReportType(CodeableConcept value) { 
           this.reportType = value;
           return this;
         }
 
+        /**
+         * @return {@link #reportDate} (The date of the adverse event report.)
+         */
         public DateTime getReportDate() { 
           return this.reportDate;
         }
 
+        /**
+         * @param value {@link #reportDate} (The date of the adverse event report.)
+         */
         public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setReportDate(DateTime value) { 
           this.reportDate = value;
           return this;
         }
 
+        /**
+         * @return The date of the adverse event report.
+         */
         public String getReportDateSimple() { 
           return this.reportDate == null ? null : this.reportDate.getValue();
         }
 
+        /**
+         * @param value The date of the adverse event report.
+         */
         public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setReportDateSimple(String value) { 
           if (value == null)
             this.reportDate = null;
@@ -563,19 +722,31 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #text} (The content of the adverse event report.)
+         */
         public String_ getText() { 
           return this.text;
         }
 
+        /**
+         * @param value {@link #text} (The content of the adverse event report.)
+         */
         public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setText(String_ value) { 
           this.text = value;
           return this;
         }
 
+        /**
+         * @return The content of the adverse event report.
+         */
         public String getTextSimple() { 
           return this.text == null ? null : this.text.getValue();
         }
 
+        /**
+         * @param value The content of the adverse event report.
+         */
         public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setTextSimple(String value) { 
           if (value == null)
             this.text = null;
@@ -587,11 +758,17 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #reaction} (The documented reaction described in the adverse event report.)
+         */
         public List<ResourceReference> getReaction() { 
           return this.reaction;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #reaction} (The documented reaction described in the adverse event report.)
+         */
         public ResourceReference addReaction() { 
           ResourceReference t = new ResourceReference();
           this.reaction.add(t);
@@ -642,20 +819,32 @@ public class ImmunizationRecommendation extends Resource {
       this.subject = subject;
     }
 
+    /**
+     * @return {@link #subject} (The patient who is the subject of the profile.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The patient who is the subject of the profile.)
+     */
     public ImmunizationRecommendation setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #recommendation} (Vaccine administration recommendations.)
+     */
     public List<ImmunizationRecommendationRecommendationComponent> getRecommendation() { 
       return this.recommendation;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #recommendation} (Vaccine administration recommendations.)
+     */
     public ImmunizationRecommendationRecommendationComponent addRecommendation() { 
       ImmunizationRecommendationRecommendationComponent t = new ImmunizationRecommendationRecommendationComponent();
       this.recommendation.add(t);

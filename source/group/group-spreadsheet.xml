@@ -290,15 +290,15 @@
     <Cell ss:Index="18" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Group.characteristic.type</Data></Cell>
+    <Cell><Data ss:Type="String">Group.characteristic.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GroupCharacteristicType</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">GroupCharacteristicKind</Data></Cell>
     <Cell><Data ss:Type="String">Kind of characteristic</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the kind of trait being asserted</Data></Cell>
+    <Cell><Data ss:Type="String">A code that identifies the kind of trait being asserted</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">Need a formal way of identifying the characteristic being described</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s67"><Data ss:Type="String">./code</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -372,7 +372,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -385,12 +385,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -554,7 +553,7 @@
     <Cell><Data ss:Type="String">Todo</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">group-type</Data></Cell>
+    <Cell><Data ss:Type="String">type</Data></Cell>
     <Cell><Data ss:Type="String">The type of resources the group contains</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Group.type</Data></Cell>
@@ -582,9 +581,9 @@
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">type</Data></Cell>
+    <Cell><Data ss:Type="String">characteristic</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Group.characteristic.type</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Group.characteristic.code</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -600,10 +599,10 @@
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">type-value</Data></Cell>
-    <Cell><Data ss:Type="String">A composite of both type and value</Data></Cell>
+    <Cell><Data ss:Type="String">characteristic-value</Data></Cell>
+    <Cell><Data ss:Type="String">A composite of both characteristic and value</Data></Cell>
     <Cell><Data ss:Type="String">composite</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">type &amp; value</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">characteristic &amp; value</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -737,8 +736,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -767,7 +765,7 @@
     <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">GroupCharacteristicType</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">GroupCharacteristicKind</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">List of characteristics used to describe group members.  E.g. gender, age, owner, location, etc.</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s73"/>
@@ -814,7 +812,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

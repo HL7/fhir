@@ -25,23 +25,26 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 package org.hl7.fhir.instance.model;
 
+/**
+ * An element that is a type. Used when the element type in FHIR is a choice of more than one data type
+ */
 public abstract class Type extends Element {
-	 private String namedConstraint;
+//	private String namedConstraint;
+//
+//	public String getNamedConstraint() {
+//		return namedConstraint;
+//	}
+//
+//	public void setNamedConstraint(String namedConstraint) {
+//		this.namedConstraint = namedConstraint;
+//	}
 
-	  public String getNamedConstraint() {
-	    return namedConstraint;
-	  }
+	public Type copy() {
+		return typedCopy();
+	}
 
-	  public void setNamedConstraint(String namedConstraint) {
-	    this.namedConstraint = namedConstraint;
-	  }
-	  
-	  public Type copy() {
-	  	return typedCopy();
-	  }
-
-		protected abstract Type typedCopy();
+	protected abstract Type typedCopy();
 }

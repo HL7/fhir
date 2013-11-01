@@ -340,7 +340,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
   private void genElement(ElementDefn root, ElementDefn e, JavaGenClass clss) throws Exception {
     String name = e.getName();
     if (name.endsWith("[x]") || name.equals("[type]")) {
-      String en = name.endsWith("[x]") ? name.replace("[x]", "") : "value";
+      String en = name.endsWith("[x]") & !name.equals("[x]") ? name.replace("[x]", "") : "value";
       String pfx = name.endsWith("[x]") ? name.replace("[x]", "") : "";
       write("      composeType(\""+pfx+"\", element.get"+upFirst(en)+"());\r\n");
     } else {

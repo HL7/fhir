@@ -45,11 +45,20 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xml.IXMLWriter;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 
+/**
+ * General composer for XML content. You instantiate an XmlComposer object, but you 
+ * actually use compose defined on this class
+ * 
+ * The two classes are separated to keep generated and manually maintained code apart.
+ */
 public abstract class XmlComposerBase extends XmlBase implements Composer {
 
 	protected IXMLWriter xml;
 	protected boolean htmlPretty;
 
+	/**
+	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+	 */
 	public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
@@ -58,6 +67,9 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 		writer.close();
 	}
 
+	/**
+	 * Compose a resource to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
+	 */
 	public void compose(OutputStream stream, Resource resource, boolean pretty, boolean htmlPretty) throws Exception {
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
@@ -66,6 +78,9 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 		writer.close();
 	}
 
+	/**
+	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+	 */
 	public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
@@ -74,6 +89,9 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 		writer.close();
 	}
 
+	/**
+	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
+	 */
 	public void compose(OutputStream stream, AtomFeed feed, boolean pretty, boolean htmlPretty) throws Exception {
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);

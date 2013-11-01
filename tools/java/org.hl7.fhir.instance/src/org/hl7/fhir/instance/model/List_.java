@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -118,30 +118,48 @@ public class List_ extends Resource {
         this.item = item;
       }
 
+        /**
+         * @return {@link #flag} (The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.)
+         */
         public List<CodeableConcept> getFlag() { 
           return this.flag;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #flag} (The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.)
+         */
         public CodeableConcept addFlag() { 
           CodeableConcept t = new CodeableConcept();
           this.flag.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #deleted} (True if this item is marked as deleted in the list.)
+         */
         public Boolean getDeleted() { 
           return this.deleted;
         }
 
+        /**
+         * @param value {@link #deleted} (True if this item is marked as deleted in the list.)
+         */
         public ListEntryComponent setDeleted(Boolean value) { 
           this.deleted = value;
           return this;
         }
 
+        /**
+         * @return True if this item is marked as deleted in the list.
+         */
         public boolean getDeletedSimple() { 
           return this.deleted == null ? null : this.deleted.getValue();
         }
 
+        /**
+         * @param value True if this item is marked as deleted in the list.
+         */
         public ListEntryComponent setDeletedSimple(boolean value) { 
           if (value == false)
             this.deleted = null;
@@ -153,19 +171,31 @@ public class List_ extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #date} (When this item was added to the list.)
+         */
         public DateTime getDate() { 
           return this.date;
         }
 
+        /**
+         * @param value {@link #date} (When this item was added to the list.)
+         */
         public ListEntryComponent setDate(DateTime value) { 
           this.date = value;
           return this;
         }
 
+        /**
+         * @return When this item was added to the list.
+         */
         public String getDateSimple() { 
           return this.date == null ? null : this.date.getValue();
         }
 
+        /**
+         * @param value When this item was added to the list.
+         */
         public ListEntryComponent setDateSimple(String value) { 
           if (value == null)
             this.date = null;
@@ -177,10 +207,16 @@ public class List_ extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #item} (A reference to the actual resource from which data was derived.)
+         */
         public ResourceReference getItem() { 
           return this.item;
         }
 
+        /**
+         * @param value {@link #item} (A reference to the actual resource from which data was derived.)
+         */
         public ListEntryComponent setItem(ResourceReference value) { 
           this.item = value;
           return this;
@@ -256,46 +292,76 @@ public class List_ extends Resource {
       this.mode = mode;
     }
 
+    /**
+     * @return {@link #code} (This code defines the purpose of the list - why it was created.)
+     */
     public CodeableConcept getCode() { 
       return this.code;
     }
 
+    /**
+     * @param value {@link #code} (This code defines the purpose of the list - why it was created.)
+     */
     public List_ setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The common subject (or patient) of the resources that are in the list, if there is one.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The common subject (or patient) of the resources that are in the list, if there is one.)
+     */
     public List_ setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #source} (The entity responsible for deciding what the contents of the list were.)
+     */
     public ResourceReference getSource() { 
       return this.source;
     }
 
+    /**
+     * @param value {@link #source} (The entity responsible for deciding what the contents of the list were.)
+     */
     public List_ setSource(ResourceReference value) { 
       this.source = value;
       return this;
     }
 
+    /**
+     * @return {@link #date} (The date that the list was prepared.)
+     */
     public DateTime getDate() { 
       return this.date;
     }
 
+    /**
+     * @param value {@link #date} (The date that the list was prepared.)
+     */
     public List_ setDate(DateTime value) { 
       this.date = value;
       return this;
     }
 
+    /**
+     * @return The date that the list was prepared.
+     */
     public String getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
+    /**
+     * @param value The date that the list was prepared.
+     */
     public List_ setDateSimple(String value) { 
       if (value == null)
         this.date = null;
@@ -307,19 +373,31 @@ public class List_ extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #ordered} (Whether items in the list have a meaningful order.)
+     */
     public Boolean getOrdered() { 
       return this.ordered;
     }
 
+    /**
+     * @param value {@link #ordered} (Whether items in the list have a meaningful order.)
+     */
     public List_ setOrdered(Boolean value) { 
       this.ordered = value;
       return this;
     }
 
+    /**
+     * @return Whether items in the list have a meaningful order.
+     */
     public boolean getOrderedSimple() { 
       return this.ordered == null ? null : this.ordered.getValue();
     }
 
+    /**
+     * @param value Whether items in the list have a meaningful order.
+     */
     public List_ setOrderedSimple(boolean value) { 
       if (value == false)
         this.ordered = null;
@@ -331,19 +409,31 @@ public class List_ extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.)
+     */
     public Enumeration<ListMode> getMode() { 
       return this.mode;
     }
 
+    /**
+     * @param value {@link #mode} (How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.)
+     */
     public List_ setMode(Enumeration<ListMode> value) { 
       this.mode = value;
       return this;
     }
 
+    /**
+     * @return How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
+     */
     public ListMode getModeSimple() { 
       return this.mode == null ? null : this.mode.getValue();
     }
 
+    /**
+     * @param value How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.
+     */
     public List_ setModeSimple(ListMode value) { 
         if (this.mode == null)
           this.mode = new Enumeration<ListMode>();
@@ -351,21 +441,33 @@ public class List_ extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #entry} (Entries in this list.)
+     */
     public List<ListEntryComponent> getEntry() { 
       return this.entry;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #entry} (Entries in this list.)
+     */
     public ListEntryComponent addEntry() { 
       ListEntryComponent t = new ListEntryComponent();
       this.entry.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #emptyReason} (If the list is empty, why the list is empty.)
+     */
     public CodeableConcept getEmptyReason() { 
       return this.emptyReason;
     }
 
+    /**
+     * @param value {@link #emptyReason} (If the list is empty, why the list is empty.)
+     */
     public List_ setEmptyReason(CodeableConcept value) { 
       this.emptyReason = value;
       return this;

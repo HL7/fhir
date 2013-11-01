@@ -243,7 +243,8 @@ public class ProfileGenerator {
     for (String mu : ElementDefn.getAllMappingUris()) {
       if (dSrc.hasMapping(mu)) {
         ElementDefinitionMappingComponent m = new Profile.ElementDefinitionMappingComponent();
-        m.setTargetSimple(mu);
+        m.setUriSimple(mu);
+        m.setNameSimple(MappingsGenerator.titleFor(mu));
         m.setMapSimple(dSrc.getMapping(mu));
         dDst.getMapping().add(m);
       }
@@ -408,7 +409,8 @@ public class ProfileGenerator {
   private void addMapping(Profile p, ElementDefinitionComponent definition, String target, String map) {
     if (!Utilities.noString(map)) {
       ElementDefinitionMappingComponent m = new Profile.ElementDefinitionMappingComponent();
-      m.setTargetSimple(target);
+      m.setUriSimple(target);
+      m.setNameSimple(MappingsGenerator.titleFor(target));
       m.setMapSimple(map);
       definition.getMapping().add(m);
     }

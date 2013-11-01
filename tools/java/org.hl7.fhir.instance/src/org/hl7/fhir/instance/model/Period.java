@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -52,19 +52,31 @@ public class Period extends Type {
       super();
     }
 
+    /**
+     * @return {@link #start} (The start of the period. The boundary is inclusive.)
+     */
     public DateTime getStart() { 
       return this.start;
     }
 
+    /**
+     * @param value {@link #start} (The start of the period. The boundary is inclusive.)
+     */
     public Period setStart(DateTime value) { 
       this.start = value;
       return this;
     }
 
+    /**
+     * @return The start of the period. The boundary is inclusive.
+     */
     public String getStartSimple() { 
       return this.start == null ? null : this.start.getValue();
     }
 
+    /**
+     * @param value The start of the period. The boundary is inclusive.
+     */
     public Period setStartSimple(String value) { 
       if (value == null)
         this.start = null;
@@ -76,19 +88,31 @@ public class Period extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #end} (The end of the period. If the high is missing, it means that the period is ongoing.)
+     */
     public DateTime getEnd() { 
       return this.end;
     }
 
+    /**
+     * @param value {@link #end} (The end of the period. If the high is missing, it means that the period is ongoing.)
+     */
     public Period setEnd(DateTime value) { 
       this.end = value;
       return this;
     }
 
+    /**
+     * @return The end of the period. If the high is missing, it means that the period is ongoing.
+     */
     public String getEndSimple() { 
       return this.end == null ? null : this.end.getValue();
     }
 
+    /**
+     * @param value The end of the period. If the high is missing, it means that the period is ongoing.
+     */
     public Period setEndSimple(String value) { 
       if (value == null)
         this.end = null;

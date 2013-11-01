@@ -73,12 +73,10 @@
         <identifier value="urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519"/>
 
         <!-- the parameters that the server received -->
-        <parameter>
-          <url value="http://hl7.org/fhir/query#_type"/>
+        <parameter url="http://hl7.org/fhir/query#_type">
           <valueString value="patient"/>
         </parameter>
-        <parameter>
-          <url value="http://hl7.org/fhir/query#gender"/>
+        <parameter url="http://hl7.org/fhir/query#gender">
           <valueString value="m"/>
         </parameter>
 
@@ -89,51 +87,40 @@
           <!-- the total number of matching records -->
 
           <!-- the parameters that the server processed -->
-          <parameter>
-            <url value="http://hl7.org/fhir/query#_type"/>
+          <parameter url="http://hl7.org/fhir/query#_type">
             <valueString value="patient"/>
           </parameter>
-          <parameter>
-            <url value="http://hl7.org/fhir/query#gender"/>
+          <parameter url="http://hl7.org/fhir/query#gender">
             <valueString value="m"/>
           </parameter>
 
           <!-- now, first, next, and last links. Because this is the first page, there's no previous link -->
           <!-- note that this server tracks the query internally after the first execution -->
-          <first>
-            <url value="http://hl7.org/fhir/query#search-id"/>
+          <first url="http://hl7.org/fhir/query#search-id">
             <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
           </first>
-          <first>
-            <url value="http://hl7.org/fhir/query#search-offset"/>
+          <first url="http://hl7.org/fhir/query#search-offset">
             <valueString value="0"/>
           </first>
-          <first>
-            <url value="http://hl7.org/fhir/query#_count"/>
+          <first url="http://hl7.org/fhir/query#_count">
             <valueString value="50"/>
           </first>
-          <next>
-            <url value="http://hl7.org/fhir/query#search-id"/>
+          <next url="http://hl7.org/fhir/query#search-id">
             <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
           </next>
-          <next>
-            <url value="http://hl7.org/fhir/query#search-offset"/>
+          <next url="http://hl7.org/fhir/query#search-offset">
             <valueString value="50"/>
           </next>
-          <next>
-            <url value="http://hl7.org/fhir/query#_count"/>
+          <next url="http://hl7.org/fhir/query#_count">
             <valueString value="50"/>
           </next>
-          <last>
-            <url value="http://hl7.org/fhir/query#search-id"/>
+          <last url="http://hl7.org/fhir/query#search-id">
             <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
           </last>
-          <last>
-            <url value="http://hl7.org/fhir/query#search-offset"/>
+          <last url="http://hl7.org/fhir/query#search-offset">
             <valueString value="603"/>
           </last>
-          <last>
-            <url value="http://hl7.org/fhir/query#_count"/>
+          <last url="http://hl7.org/fhir/query#_count">
             <valueString value="50"/>
           </last>
           <!-- now, a list of all the patients in this page of the search. 

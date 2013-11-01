@@ -7,8 +7,7 @@
 
   <!-- this is an extermely simple query - a request to execute the query 'example' on the responder -->
   <identifier value="urn:uuid:42b253f5-fa17-40d0-8da5-44aeb4230376"/>
-  <parameter>
-    <url value="http://hl7.org/fhir/query#_query"/>
+  <parameter url="http://hl7.org/fhir/query#_query">
     <valueString value="example"/>
   </parameter>
 </Query>

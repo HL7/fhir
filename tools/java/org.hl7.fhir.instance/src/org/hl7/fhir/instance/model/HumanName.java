@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -159,19 +159,31 @@ public class HumanName extends Type {
       super();
     }
 
+    /**
+     * @return {@link #use} (Identifies the purpose for this name.)
+     */
     public Enumeration<NameUse> getUse() { 
       return this.use;
     }
 
+    /**
+     * @param value {@link #use} (Identifies the purpose for this name.)
+     */
     public HumanName setUse(Enumeration<NameUse> value) { 
       this.use = value;
       return this;
     }
 
+    /**
+     * @return Identifies the purpose for this name.
+     */
     public NameUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
+    /**
+     * @param value Identifies the purpose for this name.
+     */
     public HumanName setUseSimple(NameUse value) { 
       if (value == null)
         this.use = null;
@@ -183,19 +195,31 @@ public class HumanName extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #text} (A full text representation of the name.)
+     */
     public String_ getText() { 
       return this.text;
     }
 
+    /**
+     * @param value {@link #text} (A full text representation of the name.)
+     */
     public HumanName setText(String_ value) { 
       this.text = value;
       return this;
     }
 
+    /**
+     * @return A full text representation of the name.
+     */
     public String getTextSimple() { 
       return this.text == null ? null : this.text.getValue();
     }
 
+    /**
+     * @param value A full text representation of the name.
+     */
     public HumanName setTextSimple(String value) { 
       if (value == null)
         this.text = null;
@@ -207,17 +231,26 @@ public class HumanName extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #family} (Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
+     */
     public List<String_> getFamily() { 
       return this.family;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #family} (Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
+     */
     public String_ addFamily() { 
       String_ t = new String_();
       this.family.add(t);
       return t;
     }
 
+    /**
+     * @param value {@link #family} (Family name, this is the name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
+     */
     public String_ addFamilySimple(String value) { 
       String_ t = new String_();
       t.setValue(value);
@@ -225,17 +258,26 @@ public class HumanName extends Type {
       return t;
     }
 
+    /**
+     * @return {@link #given} (Given name. NOTE: Not to be called "first name" since given names do not always come first.)
+     */
     public List<String_> getGiven() { 
       return this.given;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #given} (Given name. NOTE: Not to be called "first name" since given names do not always come first.)
+     */
     public String_ addGiven() { 
       String_ t = new String_();
       this.given.add(t);
       return t;
     }
 
+    /**
+     * @param value {@link #given} (Given name. NOTE: Not to be called "first name" since given names do not always come first.)
+     */
     public String_ addGivenSimple(String value) { 
       String_ t = new String_();
       t.setValue(value);
@@ -243,17 +285,26 @@ public class HumanName extends Type {
       return t;
     }
 
+    /**
+     * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name.)
+     */
     public List<String_> getPrefix() { 
       return this.prefix;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name.)
+     */
     public String_ addPrefix() { 
       String_ t = new String_();
       this.prefix.add(t);
       return t;
     }
 
+    /**
+     * @param value {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name.)
+     */
     public String_ addPrefixSimple(String value) { 
       String_ t = new String_();
       t.setValue(value);
@@ -261,17 +312,26 @@ public class HumanName extends Type {
       return t;
     }
 
+    /**
+     * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name.)
+     */
     public List<String_> getSuffix() { 
       return this.suffix;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name.)
+     */
     public String_ addSuffix() { 
       String_ t = new String_();
       this.suffix.add(t);
       return t;
     }
 
+    /**
+     * @param value {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name.)
+     */
     public String_ addSuffixSimple(String value) { 
       String_ t = new String_();
       t.setValue(value);
@@ -279,10 +339,16 @@ public class HumanName extends Type {
       return t;
     }
 
+    /**
+     * @return {@link #period} (Indicates the period of time when this name was valid for the named person.)
+     */
     public Period getPeriod() { 
       return this.period;
     }
 
+    /**
+     * @param value {@link #period} (Indicates the period of time when this name was valid for the named person.)
+     */
     public HumanName setPeriod(Period value) { 
       this.period = value;
       return this;

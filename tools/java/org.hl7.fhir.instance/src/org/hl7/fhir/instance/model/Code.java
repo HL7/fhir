@@ -28,14 +28,26 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
+/**
+ * Primitive type "code" in FHIR, when not bound to an enumerated list of codes
+ */
 public class Code extends Type {
 
+	/**
+	 * The value of the code
+	 */
 	private String value;
 
+	/**
+	 * @return The value of the code
+	 */
 	public String getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value The value of the code
+	 */
 	public void setValue(String value) {
 		this.value = value;
 	}

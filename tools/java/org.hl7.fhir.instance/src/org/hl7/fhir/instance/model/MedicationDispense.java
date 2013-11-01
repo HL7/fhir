@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -159,28 +159,46 @@ public class MedicationDispense extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #identifier} (Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.)
+         */
         public Identifier getIdentifier() { 
           return this.identifier;
         }
 
+        /**
+         * @param value {@link #identifier} (Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.)
+         */
         public MedicationDispenseDispenseComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
 
+        /**
+         * @return {@link #status} (A code specifying the state of the dispense event.)
+         */
         public Enumeration<MedicationDispenseStatus> getStatus() { 
           return this.status;
         }
 
+        /**
+         * @param value {@link #status} (A code specifying the state of the dispense event.)
+         */
         public MedicationDispenseDispenseComponent setStatus(Enumeration<MedicationDispenseStatus> value) { 
           this.status = value;
           return this;
         }
 
+        /**
+         * @return A code specifying the state of the dispense event.
+         */
         public MedicationDispenseStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
+        /**
+         * @param value A code specifying the state of the dispense event.
+         */
         public MedicationDispenseDispenseComponent setStatusSimple(MedicationDispenseStatus value) { 
           if (value == null)
             this.status = null;
@@ -192,76 +210,124 @@ public class MedicationDispense extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #type} (Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.)
+         */
         public CodeableConcept getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.)
+         */
         public MedicationDispenseDispenseComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #quantity} (The amount of medication that has been dispensed. Includes unit of measure.)
+         */
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
+        /**
+         * @param value {@link #quantity} (The amount of medication that has been dispensed. Includes unit of measure.)
+         */
         public MedicationDispenseDispenseComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
 
+        /**
+         * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
         public ResourceReference getMedication() { 
           return this.medication;
         }
 
+        /**
+         * @param value {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
         public MedicationDispenseDispenseComponent setMedication(ResourceReference value) { 
           this.medication = value;
           return this;
         }
 
+        /**
+         * @return {@link #whenPrepared} (The time the dispense event occurred.)
+         */
         public Period getWhenPrepared() { 
           return this.whenPrepared;
         }
 
+        /**
+         * @param value {@link #whenPrepared} (The time the dispense event occurred.)
+         */
         public MedicationDispenseDispenseComponent setWhenPrepared(Period value) { 
           this.whenPrepared = value;
           return this;
         }
 
+        /**
+         * @return {@link #whenHandedOver} (The time the dispense event occurred.)
+         */
         public Period getWhenHandedOver() { 
           return this.whenHandedOver;
         }
 
+        /**
+         * @param value {@link #whenHandedOver} (The time the dispense event occurred.)
+         */
         public MedicationDispenseDispenseComponent setWhenHandedOver(Period value) { 
           this.whenHandedOver = value;
           return this;
         }
 
+        /**
+         * @return {@link #destination} (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
+         */
         public ResourceReference getDestination() { 
           return this.destination;
         }
 
+        /**
+         * @param value {@link #destination} (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
+         */
         public MedicationDispenseDispenseComponent setDestination(ResourceReference value) { 
           this.destination = value;
           return this;
         }
 
+        /**
+         * @return {@link #receiver} (Identifies the person who picked up the medication.)
+         */
         public List<ResourceReference> getReceiver() { 
           return this.receiver;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #receiver} (Identifies the person who picked up the medication.)
+         */
         public ResourceReference addReceiver() { 
           ResourceReference t = new ResourceReference();
           this.receiver.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #dosage} (Indicates how the medication is to be used by the patient.)
+         */
         public List<MedicationDispenseDispenseDosageComponent> getDosage() { 
           return this.dosage;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #dosage} (Indicates how the medication is to be used by the patient.)
+         */
         public MedicationDispenseDispenseDosageComponent addDosage() { 
           MedicationDispenseDispenseDosageComponent t = new MedicationDispenseDispenseDosageComponent();
           this.dosage.add(t);
@@ -350,73 +416,125 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         super();
       }
 
+        /**
+         * @return {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
+         */
         public CodeableConcept getAdditionalInstructions() { 
           return this.additionalInstructions;
         }
 
+        /**
+         * @param value {@link #additionalInstructions} (Additional instructions such as "Swallow with plenty of water" which may or may not be coded.)
+         */
         public MedicationDispenseDispenseDosageComponent setAdditionalInstructions(CodeableConcept value) { 
           this.additionalInstructions = value;
           return this;
         }
 
+        /**
+         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         */
         public Type getTiming() { 
           return this.timing;
         }
 
+        /**
+         * @param value {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         */
         public MedicationDispenseDispenseDosageComponent setTiming(Type value) { 
           this.timing = value;
           return this;
         }
 
+        /**
+         * @return {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
+         */
         public CodeableConcept getSite() { 
           return this.site;
         }
 
+        /**
+         * @param value {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
+         */
         public MedicationDispenseDispenseDosageComponent setSite(CodeableConcept value) { 
           this.site = value;
           return this;
         }
 
+        /**
+         * @return {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.)
+         */
         public CodeableConcept getRoute() { 
           return this.route;
         }
 
+        /**
+         * @param value {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.)
+         */
         public MedicationDispenseDispenseDosageComponent setRoute(CodeableConcept value) { 
           this.route = value;
           return this;
         }
 
+        /**
+         * @return {@link #method} (A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
+
+Terminologies used often pre-coordinate this term with the route and or form of administration.)
+         */
         public CodeableConcept getMethod() { 
           return this.method;
         }
 
+        /**
+         * @param value {@link #method} (A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.
+
+Terminologies used often pre-coordinate this term with the route and or form of administration.)
+         */
         public MedicationDispenseDispenseDosageComponent setMethod(CodeableConcept value) { 
           this.method = value;
           return this;
         }
 
+        /**
+         * @return {@link #quantity} (The amount of the therapeutic or other substance given at one administration event.)
+         */
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
+        /**
+         * @param value {@link #quantity} (The amount of the therapeutic or other substance given at one administration event.)
+         */
         public MedicationDispenseDispenseDosageComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
 
+        /**
+         * @return {@link #rate} (Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.)
+         */
         public Ratio getRate() { 
           return this.rate;
         }
 
+        /**
+         * @param value {@link #rate} (Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.)
+         */
         public MedicationDispenseDispenseDosageComponent setRate(Ratio value) { 
           this.rate = value;
           return this;
         }
 
+        /**
+         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         */
         public Ratio getMaxDosePerPeriod() { 
           return this.maxDosePerPeriod;
         }
 
+        /**
+         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         */
         public MedicationDispenseDispenseDosageComponent setMaxDosePerPeriod(Ratio value) { 
           this.maxDosePerPeriod = value;
           return this;
@@ -474,31 +592,49 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         this.type = type;
       }
 
+        /**
+         * @return {@link #type} (A code signifying whether a different drug was dispensed from what was prescribed.)
+         */
         public CodeableConcept getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (A code signifying whether a different drug was dispensed from what was prescribed.)
+         */
         public MedicationDispenseSubstitutionComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #reason} (Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.)
+         */
         public List<CodeableConcept> getReason() { 
           return this.reason;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #reason} (Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.)
+         */
         public CodeableConcept addReason() { 
           CodeableConcept t = new CodeableConcept();
           this.reason.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
+         */
         public List<ResourceReference> getResponsibleParty() { 
           return this.responsibleParty;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
+         */
         public ResourceReference addResponsibleParty() { 
           ResourceReference t = new ResourceReference();
           this.responsibleParty.add(t);
@@ -565,28 +701,46 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       super();
     }
 
+    /**
+     * @return {@link #identifier} (Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.)
+     */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.)
+     */
     public MedicationDispense setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #status} (A code specifying the state of the set of dispense events.)
+     */
     public Enumeration<MedicationDispenseStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (A code specifying the state of the set of dispense events.)
+     */
     public MedicationDispense setStatus(Enumeration<MedicationDispenseStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return A code specifying the state of the set of dispense events.
+     */
     public MedicationDispenseStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value A code specifying the state of the set of dispense events.
+     */
     public MedicationDispense setStatusSimple(MedicationDispenseStatus value) { 
       if (value == null)
         this.status = null;
@@ -598,50 +752,80 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this;
     }
 
+    /**
+     * @return {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     */
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
+    /**
+     * @param value {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     */
     public MedicationDispense setPatient(ResourceReference value) { 
       this.patient = value;
       return this;
     }
 
+    /**
+     * @return {@link #dispenser} (The individual reponsible for dispensing the medication.)
+     */
     public ResourceReference getDispenser() { 
       return this.dispenser;
     }
 
+    /**
+     * @param value {@link #dispenser} (The individual reponsible for dispensing the medication.)
+     */
     public MedicationDispense setDispenser(ResourceReference value) { 
       this.dispenser = value;
       return this;
     }
 
+    /**
+     * @return {@link #authorizingPrescription} (Indicates the medication order that is being dispensed against.)
+     */
     public List<ResourceReference> getAuthorizingPrescription() { 
       return this.authorizingPrescription;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #authorizingPrescription} (Indicates the medication order that is being dispensed against.)
+     */
     public ResourceReference addAuthorizingPrescription() { 
       ResourceReference t = new ResourceReference();
       this.authorizingPrescription.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #dispense} (Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.)
+     */
     public List<MedicationDispenseDispenseComponent> getDispense() { 
       return this.dispense;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #dispense} (Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.)
+     */
     public MedicationDispenseDispenseComponent addDispense() { 
       MedicationDispenseDispenseComponent t = new MedicationDispenseDispenseComponent();
       this.dispense.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #substitution} (Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.)
+     */
     public MedicationDispenseSubstitutionComponent getSubstitution() { 
       return this.substitution;
     }
 
+    /**
+     * @param value {@link #substitution} (Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.)
+     */
     public MedicationDispense setSubstitution(MedicationDispenseSubstitutionComponent value) { 
       this.substitution = value;
       return this;

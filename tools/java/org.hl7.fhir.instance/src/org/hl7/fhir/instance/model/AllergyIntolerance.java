@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -266,30 +266,48 @@ public class AllergyIntolerance extends Resource {
       this.substance = substance;
     }
 
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #criticality} (Criticality of the sensitivity.)
+     */
     public Enumeration<Criticality> getCriticality() { 
       return this.criticality;
     }
 
+    /**
+     * @param value {@link #criticality} (Criticality of the sensitivity.)
+     */
     public AllergyIntolerance setCriticality(Enumeration<Criticality> value) { 
       this.criticality = value;
       return this;
     }
 
+    /**
+     * @return Criticality of the sensitivity.
+     */
     public Criticality getCriticalitySimple() { 
       return this.criticality == null ? null : this.criticality.getValue();
     }
 
+    /**
+     * @param value Criticality of the sensitivity.
+     */
     public AllergyIntolerance setCriticalitySimple(Criticality value) { 
       if (value == null)
         this.criticality = null;
@@ -301,19 +319,31 @@ public class AllergyIntolerance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #sensitivityType} (Type of the sensitivity.)
+     */
     public Enumeration<Sensitivitytype> getSensitivityType() { 
       return this.sensitivityType;
     }
 
+    /**
+     * @param value {@link #sensitivityType} (Type of the sensitivity.)
+     */
     public AllergyIntolerance setSensitivityType(Enumeration<Sensitivitytype> value) { 
       this.sensitivityType = value;
       return this;
     }
 
+    /**
+     * @return Type of the sensitivity.
+     */
     public Sensitivitytype getSensitivityTypeSimple() { 
       return this.sensitivityType == null ? null : this.sensitivityType.getValue();
     }
 
+    /**
+     * @param value Type of the sensitivity.
+     */
     public AllergyIntolerance setSensitivityTypeSimple(Sensitivitytype value) { 
         if (this.sensitivityType == null)
           this.sensitivityType = new Enumeration<Sensitivitytype>();
@@ -321,19 +351,31 @@ public class AllergyIntolerance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #recordedDate} (Date when the sensitivity was recorded.)
+     */
     public DateTime getRecordedDate() { 
       return this.recordedDate;
     }
 
+    /**
+     * @param value {@link #recordedDate} (Date when the sensitivity was recorded.)
+     */
     public AllergyIntolerance setRecordedDate(DateTime value) { 
       this.recordedDate = value;
       return this;
     }
 
+    /**
+     * @return Date when the sensitivity was recorded.
+     */
     public String getRecordedDateSimple() { 
       return this.recordedDate == null ? null : this.recordedDate.getValue();
     }
 
+    /**
+     * @param value Date when the sensitivity was recorded.
+     */
     public AllergyIntolerance setRecordedDateSimple(String value) { 
       if (value == null)
         this.recordedDate = null;
@@ -345,19 +387,31 @@ public class AllergyIntolerance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #status} (Suspected, Confirmed, Refuted, Resolved.)
+     */
     public Enumeration<Sensitivitystatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (Suspected, Confirmed, Refuted, Resolved.)
+     */
     public AllergyIntolerance setStatus(Enumeration<Sensitivitystatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return Suspected, Confirmed, Refuted, Resolved.
+     */
     public Sensitivitystatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value Suspected, Confirmed, Refuted, Resolved.
+     */
     public AllergyIntolerance setStatusSimple(Sensitivitystatus value) { 
         if (this.status == null)
           this.status = new Enumeration<Sensitivitystatus>();
@@ -365,49 +419,79 @@ public class AllergyIntolerance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subject} (Who the sensitivity is for.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (Who the sensitivity is for.)
+     */
     public AllergyIntolerance setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #recorder} (Who recorded the sensitivity.)
+     */
     public ResourceReference getRecorder() { 
       return this.recorder;
     }
 
+    /**
+     * @param value {@link #recorder} (Who recorded the sensitivity.)
+     */
     public AllergyIntolerance setRecorder(ResourceReference value) { 
       this.recorder = value;
       return this;
     }
 
+    /**
+     * @return {@link #substance} (The substance that causes the sensitivity.)
+     */
     public ResourceReference getSubstance() { 
       return this.substance;
     }
 
+    /**
+     * @param value {@link #substance} (The substance that causes the sensitivity.)
+     */
     public AllergyIntolerance setSubstance(ResourceReference value) { 
       this.substance = value;
       return this;
     }
 
+    /**
+     * @return {@link #reaction} (Reactions associated with the sensitivity.)
+     */
     public List<ResourceReference> getReaction() { 
       return this.reaction;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #reaction} (Reactions associated with the sensitivity.)
+     */
     public ResourceReference addReaction() { 
       ResourceReference t = new ResourceReference();
       this.reaction.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #sensitivityTest} (Observations that confirm or refute the sensitivity.)
+     */
     public List<ResourceReference> getSensitivityTest() { 
       return this.sensitivityTest;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #sensitivityTest} (Observations that confirm or refute the sensitivity.)
+     */
     public ResourceReference addSensitivityTest() { 
       ResourceReference t = new ResourceReference();
       this.sensitivityTest.add(t);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -152,75 +152,123 @@ public class DiagnosticReport extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #encounter} (The encounter that this diagnostic investigation is associated with.)
+         */
         public ResourceReference getEncounter() { 
           return this.encounter;
         }
 
+        /**
+         * @param value {@link #encounter} (The encounter that this diagnostic investigation is associated with.)
+         */
         public DiagnosticReportRequestDetailComponent setEncounter(ResourceReference value) { 
           this.encounter = value;
           return this;
         }
 
+        /**
+         * @return {@link #requestOrderId} (The local ID assigned to the order by the order requester.)
+         */
         public Identifier getRequestOrderId() { 
           return this.requestOrderId;
         }
 
+        /**
+         * @param value {@link #requestOrderId} (The local ID assigned to the order by the order requester.)
+         */
         public DiagnosticReportRequestDetailComponent setRequestOrderId(Identifier value) { 
           this.requestOrderId = value;
           return this;
         }
 
+        /**
+         * @return {@link #receiverOrderId} (The local ID assigned to the test order by the diagnostic service provider.)
+         */
         public Identifier getReceiverOrderId() { 
           return this.receiverOrderId;
         }
 
+        /**
+         * @param value {@link #receiverOrderId} (The local ID assigned to the test order by the diagnostic service provider.)
+         */
         public DiagnosticReportRequestDetailComponent setReceiverOrderId(Identifier value) { 
           this.receiverOrderId = value;
           return this;
         }
 
+        /**
+         * @return {@link #requestTest} (Identification of pathology test requested,.)
+         */
         public List<CodeableConcept> getRequestTest() { 
           return this.requestTest;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #requestTest} (Identification of pathology test requested,.)
+         */
         public CodeableConcept addRequestTest() { 
           CodeableConcept t = new CodeableConcept();
           this.requestTest.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #bodySite} (Anatomical location where the request test should be performed.)
+         */
         public CodeableConcept getBodySite() { 
           return this.bodySite;
         }
 
+        /**
+         * @param value {@link #bodySite} (Anatomical location where the request test should be performed.)
+         */
         public DiagnosticReportRequestDetailComponent setBodySite(CodeableConcept value) { 
           this.bodySite = value;
           return this;
         }
 
+        /**
+         * @return {@link #requester} (Details of the clinician or organization requesting the diagnostic service.)
+         */
         public ResourceReference getRequester() { 
           return this.requester;
         }
 
+        /**
+         * @param value {@link #requester} (Details of the clinician or organization requesting the diagnostic service.)
+         */
         public DiagnosticReportRequestDetailComponent setRequester(ResourceReference value) { 
           this.requester = value;
           return this;
         }
 
+        /**
+         * @return {@link #clinicalInfo} (Details of the clinical information provided to the diagnostic service along with the original request.)
+         */
         public String_ getClinicalInfo() { 
           return this.clinicalInfo;
         }
 
+        /**
+         * @param value {@link #clinicalInfo} (Details of the clinical information provided to the diagnostic service along with the original request.)
+         */
         public DiagnosticReportRequestDetailComponent setClinicalInfo(String_ value) { 
           this.clinicalInfo = value;
           return this;
         }
 
+        /**
+         * @return Details of the clinical information provided to the diagnostic service along with the original request.
+         */
         public String getClinicalInfoSimple() { 
           return this.clinicalInfo == null ? null : this.clinicalInfo.getValue();
         }
 
+        /**
+         * @param value Details of the clinical information provided to the diagnostic service along with the original request.
+         */
         public DiagnosticReportRequestDetailComponent setClinicalInfoSimple(String value) { 
           if (value == null)
             this.clinicalInfo = null;
@@ -289,40 +337,64 @@ public class DiagnosticReport extends Resource {
         this.name = name;
       }
 
+        /**
+         * @return {@link #name} (A code or name that describes this group of results. For the base group, this is the report name.)
+         */
         public CodeableConcept getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (A code or name that describes this group of results. For the base group, this is the report name.)
+         */
         public ResultGroupComponent setName(CodeableConcept value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return {@link #specimen} (Details about the individual specimen to which these 'Result group' test results refer.)
+         */
         public ResourceReference getSpecimen() { 
           return this.specimen;
         }
 
+        /**
+         * @param value {@link #specimen} (Details about the individual specimen to which these 'Result group' test results refer.)
+         */
         public ResultGroupComponent setSpecimen(ResourceReference value) { 
           this.specimen = value;
           return this;
         }
 
+        /**
+         * @return {@link #group} (A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.)
+         */
         public List<ResultGroupComponent> getGroup() { 
           return this.group;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #group} (A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.)
+         */
         public ResultGroupComponent addGroup() { 
           ResultGroupComponent t = new ResultGroupComponent();
           this.group.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #result} (Specific detailed result, including both the value of the result item and additional information that may be useful for clinical interpretation. Results include whatever specific data items pathology labs report as part of the clinical service; it is not confined to measurements.)
+         */
         public List<ResourceReference> getResult() { 
           return this.result;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #result} (Specific detailed result, including both the value of the result item and additional information that may be useful for clinical interpretation. Results include whatever specific data items pathology labs report as part of the clinical service; it is not confined to measurements.)
+         */
         public ResourceReference addResult() { 
           ResourceReference t = new ResourceReference();
           this.result.add(t);
@@ -431,19 +503,31 @@ public class DiagnosticReport extends Resource {
       this.results = results;
     }
 
+    /**
+     * @return {@link #status} (The status of the diagnostic report as a whole.)
+     */
     public Enumeration<ObservationStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The status of the diagnostic report as a whole.)
+     */
     public DiagnosticReport setStatus(Enumeration<ObservationStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The status of the diagnostic report as a whole.
+     */
     public ObservationStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The status of the diagnostic report as a whole.
+     */
     public DiagnosticReport setStatusSimple(ObservationStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ObservationStatus>();
@@ -451,19 +535,31 @@ public class DiagnosticReport extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.)
+     */
     public DateTime getIssued() { 
       return this.issued;
     }
 
+    /**
+     * @param value {@link #issued} (The date and/or time that this version of the report was released from the source diagnostic service.)
+     */
     public DiagnosticReport setIssued(DateTime value) { 
       this.issued = value;
       return this;
     }
 
+    /**
+     * @return The date and/or time that this version of the report was released from the source diagnostic service.
+     */
     public String getIssuedSimple() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
+    /**
+     * @param value The date and/or time that this version of the report was released from the source diagnostic service.
+     */
     public DiagnosticReport setIssuedSimple(String value) { 
         if (this.issued == null)
           this.issued = new DateTime();
@@ -471,95 +567,155 @@ public class DiagnosticReport extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.)
+     */
     public DiagnosticReport setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #performer} (The diagnostic service that is responsible for issuing the report.)
+     */
     public ResourceReference getPerformer() { 
       return this.performer;
     }
 
+    /**
+     * @param value {@link #performer} (The diagnostic service that is responsible for issuing the report.)
+     */
     public DiagnosticReport setPerformer(ResourceReference value) { 
       this.performer = value;
       return this;
     }
 
+    /**
+     * @return {@link #reportId} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
+     */
     public Identifier getReportId() { 
       return this.reportId;
     }
 
+    /**
+     * @param value {@link #reportId} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
+     */
     public DiagnosticReport setReportId(Identifier value) { 
       this.reportId = value;
       return this;
     }
 
+    /**
+     * @return {@link #requestDetail} (Details concerning a single pathology test requested.)
+     */
     public List<DiagnosticReportRequestDetailComponent> getRequestDetail() { 
       return this.requestDetail;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #requestDetail} (Details concerning a single pathology test requested.)
+     */
     public DiagnosticReportRequestDetailComponent addRequestDetail() { 
       DiagnosticReportRequestDetailComponent t = new DiagnosticReportRequestDetailComponent();
       this.requestDetail.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #serviceCategory} (The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI.)
+     */
     public CodeableConcept getServiceCategory() { 
       return this.serviceCategory;
     }
 
+    /**
+     * @param value {@link #serviceCategory} (The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI.)
+     */
     public DiagnosticReport setServiceCategory(CodeableConcept value) { 
       this.serviceCategory = value;
       return this;
     }
 
+    /**
+     * @return {@link #diagnostic} (The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient.)
+     */
     public Type getDiagnostic() { 
       return this.diagnostic;
     }
 
+    /**
+     * @param value {@link #diagnostic} (The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient.)
+     */
     public DiagnosticReport setDiagnostic(Type value) { 
       this.diagnostic = value;
       return this;
     }
 
+    /**
+     * @return {@link #results} (A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.)
+     */
     public ResultGroupComponent getResults() { 
       return this.results;
     }
 
+    /**
+     * @param value {@link #results} (A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.)
+     */
     public DiagnosticReport setResults(ResultGroupComponent value) { 
       this.results = value;
       return this;
     }
 
+    /**
+     * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest).)
+     */
     public List<ResourceReference> getImage() { 
       return this.image;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest).)
+     */
     public ResourceReference addImage() { 
       ResourceReference t = new ResourceReference();
       this.image.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #conclusion} (Concise and clinically contextualised narrative interpretation of the diagnostic report.)
+     */
     public String_ getConclusion() { 
       return this.conclusion;
     }
 
+    /**
+     * @param value {@link #conclusion} (Concise and clinically contextualised narrative interpretation of the diagnostic report.)
+     */
     public DiagnosticReport setConclusion(String_ value) { 
       this.conclusion = value;
       return this;
     }
 
+    /**
+     * @return Concise and clinically contextualised narrative interpretation of the diagnostic report.
+     */
     public String getConclusionSimple() { 
       return this.conclusion == null ? null : this.conclusion.getValue();
     }
 
+    /**
+     * @param value Concise and clinically contextualised narrative interpretation of the diagnostic report.
+     */
     public DiagnosticReport setConclusionSimple(String value) { 
       if (value == null)
         this.conclusion = null;
@@ -571,22 +727,34 @@ public class DiagnosticReport extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #codedDiagnosis} (Codes for the conclusion.)
+     */
     public List<CodeableConcept> getCodedDiagnosis() { 
       return this.codedDiagnosis;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #codedDiagnosis} (Codes for the conclusion.)
+     */
     public CodeableConcept addCodedDiagnosis() { 
       CodeableConcept t = new CodeableConcept();
       this.codedDiagnosis.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #representation} (Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.)
+     */
     public List<Attachment> getRepresentation() { 
       return this.representation;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #representation} (Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.)
+     */
     public Attachment addRepresentation() { 
       Attachment t = new Attachment();
       this.representation.add(t);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -106,9 +106,9 @@ public class Group extends Resource {
 
     public static class GroupCharacteristicComponent extends BackboneElement {
         /**
-         * Identifies the kind of trait being asserted.
+         * A code that identifies the kind of trait being asserted.
          */
-        protected CodeableConcept type;
+        protected CodeableConcept code;
 
         /**
          * The value of the trait that holds (or does not hold - see 'exclude') for members of the group.
@@ -124,44 +124,68 @@ public class Group extends Resource {
         super();
       }
 
-      public GroupCharacteristicComponent(CodeableConcept type, Type value, Boolean exclude) {
+      public GroupCharacteristicComponent(CodeableConcept code, Type value, Boolean exclude) {
         super();
-        this.type = type;
+        this.code = code;
         this.value = value;
         this.exclude = exclude;
       }
 
-        public CodeableConcept getType() { 
-          return this.type;
+        /**
+         * @return {@link #code} (A code that identifies the kind of trait being asserted.)
+         */
+        public CodeableConcept getCode() { 
+          return this.code;
         }
 
-        public GroupCharacteristicComponent setType(CodeableConcept value) { 
-          this.type = value;
+        /**
+         * @param value {@link #code} (A code that identifies the kind of trait being asserted.)
+         */
+        public GroupCharacteristicComponent setCode(CodeableConcept value) { 
+          this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
+         */
         public Type getValue() { 
           return this.value;
         }
 
+        /**
+         * @param value {@link #value} (The value of the trait that holds (or does not hold - see 'exclude') for members of the group.)
+         */
         public GroupCharacteristicComponent setValue(Type value) { 
           this.value = value;
           return this;
         }
 
+        /**
+         * @return {@link #exclude} (If true, indicates the characteristic is one that is NOT held by members of the group.)
+         */
         public Boolean getExclude() { 
           return this.exclude;
         }
 
+        /**
+         * @param value {@link #exclude} (If true, indicates the characteristic is one that is NOT held by members of the group.)
+         */
         public GroupCharacteristicComponent setExclude(Boolean value) { 
           this.exclude = value;
           return this;
         }
 
+        /**
+         * @return If true, indicates the characteristic is one that is NOT held by members of the group.
+         */
         public boolean getExcludeSimple() { 
           return this.exclude == null ? null : this.exclude.getValue();
         }
 
+        /**
+         * @param value If true, indicates the characteristic is one that is NOT held by members of the group.
+         */
         public GroupCharacteristicComponent setExcludeSimple(boolean value) { 
             if (this.exclude == null)
               this.exclude = new Boolean();
@@ -171,14 +195,14 @@ public class Group extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("type", "CodeableConcept", "Identifies the kind of trait being asserted.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("code", "CodeableConcept", "A code that identifies the kind of trait being asserted.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("value[x]", "CodeableConcept|boolean|Quantity|Range", "The value of the trait that holds (or does not hold - see 'exclude') for members of the group.", 0, java.lang.Integer.MAX_VALUE, value));
           childrenList.add(new Property("exclude", "boolean", "If true, indicates the characteristic is one that is NOT held by members of the group.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
 
       public GroupCharacteristicComponent copy(Group e) {
         GroupCharacteristicComponent dst = new GroupCharacteristicComponent();
-        dst.type = type == null ? null : type.copy();
+        dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
         dst.exclude = exclude == null ? null : exclude.copy();
         return dst;
@@ -236,28 +260,46 @@ public class Group extends Resource {
       this.actual = actual;
     }
 
+    /**
+     * @return {@link #identifier} (A unique business identifier for this group.)
+     */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (A unique business identifier for this group.)
+     */
     public Group setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #type} (Identifies the broad classification of the kind of resources the group includes.)
+     */
     public Enumeration<GroupType> getType() { 
       return this.type;
     }
 
+    /**
+     * @param value {@link #type} (Identifies the broad classification of the kind of resources the group includes.)
+     */
     public Group setType(Enumeration<GroupType> value) { 
       this.type = value;
       return this;
     }
 
+    /**
+     * @return Identifies the broad classification of the kind of resources the group includes.
+     */
     public GroupType getTypeSimple() { 
       return this.type == null ? null : this.type.getValue();
     }
 
+    /**
+     * @param value Identifies the broad classification of the kind of resources the group includes.
+     */
     public Group setTypeSimple(GroupType value) { 
         if (this.type == null)
           this.type = new Enumeration<GroupType>();
@@ -265,19 +307,31 @@ public class Group extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #actual} (If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.)
+     */
     public Boolean getActual() { 
       return this.actual;
     }
 
+    /**
+     * @param value {@link #actual} (If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.)
+     */
     public Group setActual(Boolean value) { 
       this.actual = value;
       return this;
     }
 
+    /**
+     * @return If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
+     */
     public boolean getActualSimple() { 
       return this.actual == null ? null : this.actual.getValue();
     }
 
+    /**
+     * @param value If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
+     */
     public Group setActualSimple(boolean value) { 
         if (this.actual == null)
           this.actual = new Boolean();
@@ -285,28 +339,46 @@ public class Group extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #code} (Provides a specific type of resource the group includes.  E.g. "cow", "syringe", etc.)
+     */
     public CodeableConcept getCode() { 
       return this.code;
     }
 
+    /**
+     * @param value {@link #code} (Provides a specific type of resource the group includes.  E.g. "cow", "syringe", etc.)
+     */
     public Group setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
 
+    /**
+     * @return {@link #name} (A label assigned to the group for human identification and communication.)
+     */
     public String_ getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (A label assigned to the group for human identification and communication.)
+     */
     public Group setName(String_ value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return A label assigned to the group for human identification and communication.
+     */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
+    /**
+     * @param value A label assigned to the group for human identification and communication.
+     */
     public Group setNameSimple(String value) { 
       if (value == null)
         this.name = null;
@@ -318,19 +390,31 @@ public class Group extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #quantity} (A count of the number of resource instances that are part of the group.)
+     */
     public Integer getQuantity() { 
       return this.quantity;
     }
 
+    /**
+     * @param value {@link #quantity} (A count of the number of resource instances that are part of the group.)
+     */
     public Group setQuantity(Integer value) { 
       this.quantity = value;
       return this;
     }
 
+    /**
+     * @return A count of the number of resource instances that are part of the group.
+     */
     public int getQuantitySimple() { 
       return this.quantity == null ? null : this.quantity.getValue();
     }
 
+    /**
+     * @param value A count of the number of resource instances that are part of the group.
+     */
     public Group setQuantitySimple(int value) { 
       if (value == -1)
         this.quantity = null;
@@ -342,22 +426,34 @@ public class Group extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #characteristic} (Identifies the traits shared by members of the group.)
+     */
     public List<GroupCharacteristicComponent> getCharacteristic() { 
       return this.characteristic;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #characteristic} (Identifies the traits shared by members of the group.)
+     */
     public GroupCharacteristicComponent addCharacteristic() { 
       GroupCharacteristicComponent t = new GroupCharacteristicComponent();
       this.characteristic.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #member} (Identifies the resource instances that are members of the group.)
+     */
     public List<ResourceReference> getMember() { 
       return this.member;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #member} (Identifies the resource instances that are members of the group.)
+     */
     public ResourceReference addMember() { 
       ResourceReference t = new ResourceReference();
       this.member.add(t);

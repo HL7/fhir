@@ -4,42 +4,32 @@ unlikely anyone would ever use FHIR to do this.  (XMI isn't *that* unpleasant :>
 how somewhat esoteric requirements that won't ever be supported by the core FHIR specification can still
 be managed in a conformant manner.-->
 <Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
-  <extension>
-    <extension>
-      <url value="http://example.org/do-not-use/fhir-extensions/UML#class.name"/>
+  <extension url="http://example.org/do-not-use/fhir-extensions/UML#class">
+    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.name">
       <valueString value="Class1"/>
     </extension>
-    <extension>
-      <extension>
-        <url value="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.name"/>
+    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute">
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.name">
         <valueString value="attribute1"/>
       </extension>
-      <extension>
-        <url value="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.minOccurs"/>
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.minOccurs">
         <valueInteger value="1"/>
       </extension>
-      <extension>
-        <url value="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.maxOccurs"/>
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.maxOccurs">
         <valueCode value="*"/>
       </extension>
-      <url value="http://example.org/do-not-use/fhir-extensions/UML#class.attribute"/>
     </extension>
-    <extension>
-      <extension>
-        <url value="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.name"/>
+    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute">
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.name">
         <valueString value="attribute2"/>
       </extension>
-      <extension>
-        <url value="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.minOccurs"/>
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.minOccurs">
         <valueInteger value="0"/>
       </extension>
-      <extension>
-        <url value="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.maxOccurs"/>
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.maxOccurs">
         <valueInteger value="1"/>
       </extension>
-      <url value="http://example.org/do-not-use/fhir-extensions/UML#class.attribute"/>
     </extension>
-    <url value="http://example.org/do-not-use/fhir-extensions/UML#class"/>
   </extension>
   <text>
     <status value="generated" />

@@ -335,7 +335,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void genElement(ElementDefn root, ElementDefn e, boolean first, JavaGenClass clss, boolean bUseOwner) throws Exception {
     String name = e.getName();
     if (name.endsWith("[x]") || name.equals("[type]")) {
-      String en = name.endsWith("[x]") ? name.replace("[x]", "") : "value";
+      String en = name.endsWith("[x]") && !name.equals("[x]") ? name.replace("[x]", "") : "value";
       String pfx = name.endsWith("[x]") ? name.replace("[x]", "") : "";
       write("    Type "+getElementName(en, false)+" = parseType(\""+en+"\", json);\r\n");
       write("    if ("+getElementName(en, false)+" != null)\r\n");

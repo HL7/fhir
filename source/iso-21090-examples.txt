@@ -12,7 +12,7 @@ A simple CD representing a code:
 
 In a codeableConcept with no translation to SNOMED CT:
 
-<CodeableConcept>
+<valueCodeableConcept>
   <coding>
    <code>784.0</code> 
    <system>2.16.840.1.113883.6.42</system>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -95,20 +95,32 @@ public class Medication extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #form} (Describes the form of the item.  Powder; tables; carton.)
+         */
         public CodeableConcept getForm() { 
           return this.form;
         }
 
+        /**
+         * @param value {@link #form} (Describes the form of the item.  Powder; tables; carton.)
+         */
         public MedicationProductComponent setForm(CodeableConcept value) { 
           this.form = value;
           return this;
         }
 
+        /**
+         * @return {@link #ingredient} (The ingredients of the medication.)
+         */
         public List<MedicationProductIngredientComponent> getIngredient() { 
           return this.ingredient;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #ingredient} (The ingredients of the medication.)
+         */
         public MedicationProductIngredientComponent addIngredient() { 
           MedicationProductIngredientComponent t = new MedicationProductIngredientComponent();
           this.ingredient.add(t);
@@ -152,19 +164,31 @@ public class Medication extends Resource {
         this.item = item;
       }
 
+        /**
+         * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
+         */
         public ResourceReference getItem() { 
           return this.item;
         }
 
+        /**
+         * @param value {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
+         */
         public MedicationProductIngredientComponent setItem(ResourceReference value) { 
           this.item = value;
           return this;
         }
 
+        /**
+         * @return {@link #amount} (Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.)
+         */
         public Ratio getAmount() { 
           return this.amount;
         }
 
+        /**
+         * @param value {@link #amount} (Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.)
+         */
         public MedicationProductIngredientComponent setAmount(Ratio value) { 
           this.amount = value;
           return this;
@@ -200,20 +224,32 @@ public class Medication extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #container} (The kind of container that this package comes as.)
+         */
         public CodeableConcept getContainer() { 
           return this.container;
         }
 
+        /**
+         * @param value {@link #container} (The kind of container that this package comes as.)
+         */
         public MedicationPackageComponent setContainer(CodeableConcept value) { 
           this.container = value;
           return this;
         }
 
+        /**
+         * @return {@link #content} (A set of components that go to make up the described item.)
+         */
         public List<MedicationPackageContentComponent> getContent() { 
           return this.content;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #content} (A set of components that go to make up the described item.)
+         */
         public MedicationPackageContentComponent addContent() { 
           MedicationPackageContentComponent t = new MedicationPackageContentComponent();
           this.content.add(t);
@@ -257,19 +293,31 @@ public class Medication extends Resource {
         this.item = item;
       }
 
+        /**
+         * @return {@link #item} (The product that is in the package.)
+         */
         public ResourceReference getItem() { 
           return this.item;
         }
 
+        /**
+         * @param value {@link #item} (The product that is in the package.)
+         */
         public MedicationPackageContentComponent setItem(ResourceReference value) { 
           this.item = value;
           return this;
         }
 
+        /**
+         * @return {@link #amount} (The amount of the product that is in the package.)
+         */
         public Quantity getAmount() { 
           return this.amount;
         }
 
+        /**
+         * @param value {@link #amount} (The amount of the product that is in the package.)
+         */
         public MedicationPackageContentComponent setAmount(Quantity value) { 
           this.amount = value;
           return this;
@@ -329,19 +377,31 @@ public class Medication extends Resource {
       super();
     }
 
+    /**
+     * @return {@link #name} (The common name of the medication.)
+     */
     public String_ getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (The common name of the medication.)
+     */
     public Medication setName(String_ value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return The common name of the medication.
+     */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
+    /**
+     * @param value The common name of the medication.
+     */
     public Medication setNameSimple(String value) { 
       if (value == null)
         this.name = null;
@@ -353,28 +413,46 @@ public class Medication extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #code} (References to codes for this medication in standard medication terminologies, drug dictionaries, etc.)
+     */
     public CodeableConcept getCode() { 
       return this.code;
     }
 
+    /**
+     * @param value {@link #code} (References to codes for this medication in standard medication terminologies, drug dictionaries, etc.)
+     */
     public Medication setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
 
+    /**
+     * @return {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).)
+     */
     public Boolean getIsBrand() { 
       return this.isBrand;
     }
 
+    /**
+     * @param value {@link #isBrand} (Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).)
+     */
     public Medication setIsBrand(Boolean value) { 
       this.isBrand = value;
       return this;
     }
 
+    /**
+     * @return Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
+     */
     public boolean getIsBrandSimple() { 
       return this.isBrand == null ? null : this.isBrand.getValue();
     }
 
+    /**
+     * @param value Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
+     */
     public Medication setIsBrandSimple(boolean value) { 
       if (value == false)
         this.isBrand = null;
@@ -386,28 +464,46 @@ public class Medication extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #manufacturer} (Describes the details of the manufacturer.)
+     */
     public ResourceReference getManufacturer() { 
       return this.manufacturer;
     }
 
+    /**
+     * @param value {@link #manufacturer} (Describes the details of the manufacturer.)
+     */
     public Medication setManufacturer(ResourceReference value) { 
       this.manufacturer = value;
       return this;
     }
 
+    /**
+     * @return {@link #kind} (product | package.)
+     */
     public Enumeration<MedicationKind> getKind() { 
       return this.kind;
     }
 
+    /**
+     * @param value {@link #kind} (product | package.)
+     */
     public Medication setKind(Enumeration<MedicationKind> value) { 
       this.kind = value;
       return this;
     }
 
+    /**
+     * @return product | package.
+     */
     public MedicationKind getKindSimple() { 
       return this.kind == null ? null : this.kind.getValue();
     }
 
+    /**
+     * @param value product | package.
+     */
     public Medication setKindSimple(MedicationKind value) { 
       if (value == null)
         this.kind = null;
@@ -419,19 +515,31 @@ public class Medication extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #product} (If is a product.)
+     */
     public MedicationProductComponent getProduct() { 
       return this.product;
     }
 
+    /**
+     * @param value {@link #product} (If is a product.)
+     */
     public Medication setProduct(MedicationProductComponent value) { 
       this.product = value;
       return this;
     }
 
+    /**
+     * @return {@link #package_} (Specifies Ingredient / Product / Package.)
+     */
     public MedicationPackageComponent getPackage() { 
       return this.package_;
     }
 
+    /**
+     * @param value {@link #package_} (Specifies Ingredient / Product / Package.)
+     */
     public Medication setPackage(MedicationPackageComponent value) { 
       this.package_ = value;
       return this;

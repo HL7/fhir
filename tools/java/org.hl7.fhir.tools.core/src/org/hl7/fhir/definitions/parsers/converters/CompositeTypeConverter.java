@@ -212,8 +212,11 @@ public class CompositeTypeConverter {
 		ElementDefn result = FhirFactory.eINSTANCE.createElementDefn();
 
 		String name = element.getName();
-		if (name.endsWith("[x]"))
+		if (name.endsWith("[x]")) {
 			name = name.replace("[x]", "");
+			if (Utilities.noString(name))
+			  name = "value";
+		}
 
 		result.setName(name);
 		Annotations ann = buildAnnotationsFromFhirElement(element);

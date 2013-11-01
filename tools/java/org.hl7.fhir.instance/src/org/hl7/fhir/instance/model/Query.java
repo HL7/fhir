@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -152,19 +152,31 @@ public class Query extends Resource {
         this.outcome = outcome;
       }
 
+        /**
+         * @return {@link #identifier} (Links response to source query.)
+         */
         public Uri getIdentifier() { 
           return this.identifier;
         }
 
+        /**
+         * @param value {@link #identifier} (Links response to source query.)
+         */
         public QueryResponseComponent setIdentifier(Uri value) { 
           this.identifier = value;
           return this;
         }
 
+        /**
+         * @return Links response to source query.
+         */
         public String getIdentifierSimple() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
+        /**
+         * @param value Links response to source query.
+         */
         public QueryResponseComponent setIdentifierSimple(String value) { 
             if (this.identifier == null)
               this.identifier = new Uri();
@@ -172,19 +184,31 @@ public class Query extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #outcome} (Outcome of processing the query.)
+         */
         public Enumeration<QueryOutcome> getOutcome() { 
           return this.outcome;
         }
 
+        /**
+         * @param value {@link #outcome} (Outcome of processing the query.)
+         */
         public QueryResponseComponent setOutcome(Enumeration<QueryOutcome> value) { 
           this.outcome = value;
           return this;
         }
 
+        /**
+         * @return Outcome of processing the query.
+         */
         public QueryOutcome getOutcomeSimple() { 
           return this.outcome == null ? null : this.outcome.getValue();
         }
 
+        /**
+         * @param value Outcome of processing the query.
+         */
         public QueryResponseComponent setOutcomeSimple(QueryOutcome value) { 
             if (this.outcome == null)
               this.outcome = new Enumeration<QueryOutcome>();
@@ -192,19 +216,31 @@ public class Query extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #total} (Total number of matching records.)
+         */
         public Integer getTotal() { 
           return this.total;
         }
 
+        /**
+         * @param value {@link #total} (Total number of matching records.)
+         */
         public QueryResponseComponent setTotal(Integer value) { 
           this.total = value;
           return this;
         }
 
+        /**
+         * @return Total number of matching records.
+         */
         public int getTotalSimple() { 
           return this.total == null ? null : this.total.getValue();
         }
 
+        /**
+         * @param value Total number of matching records.
+         */
         public QueryResponseComponent setTotalSimple(int value) { 
           if (value == -1)
             this.total = null;
@@ -216,66 +252,102 @@ public class Query extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #parameter} (Parameters server used.)
+         */
         public List<Extension> getParameter() { 
           return this.parameter;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #parameter} (Parameters server used.)
+         */
         public Extension addParameter() { 
           Extension t = new Extension();
           this.parameter.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #first} (To get first page (if paged).)
+         */
         public List<Extension> getFirst() { 
           return this.first;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #first} (To get first page (if paged).)
+         */
         public Extension addFirst() { 
           Extension t = new Extension();
           this.first.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #previous} (To get previous page (if paged).)
+         */
         public List<Extension> getPrevious() { 
           return this.previous;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #previous} (To get previous page (if paged).)
+         */
         public Extension addPrevious() { 
           Extension t = new Extension();
           this.previous.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #next} (To get next page (if paged).)
+         */
         public List<Extension> getNext() { 
           return this.next;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #next} (To get next page (if paged).)
+         */
         public Extension addNext() { 
           Extension t = new Extension();
           this.next.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #last} (To get last page (if paged).)
+         */
         public List<Extension> getLast() { 
           return this.last;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #last} (To get last page (if paged).)
+         */
         public Extension addLast() { 
           Extension t = new Extension();
           this.last.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #reference} (Resources that are the results of the search.)
+         */
         public List<ResourceReference> getReference() { 
           return this.reference;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #reference} (Resources that are the results of the search.)
+         */
         public ResourceReference addReference() { 
           ResourceReference t = new ResourceReference();
           this.reference.add(t);
@@ -347,19 +419,31 @@ public class Query extends Resource {
       this.identifier = identifier;
     }
 
+    /**
+     * @return {@link #identifier} (Links query and its response(s).)
+     */
     public Uri getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (Links query and its response(s).)
+     */
     public Query setIdentifier(Uri value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return Links query and its response(s).
+     */
     public String getIdentifierSimple() { 
       return this.identifier == null ? null : this.identifier.getValue();
     }
 
+    /**
+     * @param value Links query and its response(s).
+     */
     public Query setIdentifierSimple(String value) { 
         if (this.identifier == null)
           this.identifier = new Uri();
@@ -367,21 +451,33 @@ public class Query extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #parameter} (Set of query parameters with values.)
+     */
     public List<Extension> getParameter() { 
       return this.parameter;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #parameter} (Set of query parameters with values.)
+     */
     public Extension addParameter() { 
       Extension t = new Extension();
       this.parameter.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #response} (If this is a response to a query.)
+     */
     public QueryResponseComponent getResponse() { 
       return this.response;
     }
 
+    /**
+     * @param value {@link #response} (If this is a response to a query.)
+     */
     public Query setResponse(QueryResponseComponent value) { 
       this.response = value;
       return this;

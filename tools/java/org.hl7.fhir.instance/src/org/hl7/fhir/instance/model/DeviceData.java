@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -53,20 +53,32 @@ public class DeviceData extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (Describes the compartment.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Describes the compartment.)
+         */
         public DeviceDataVirtualDeviceComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #channel} (Groups together physiological measurement data and derived data.)
+         */
         public List<DeviceDataVirtualDeviceChannelComponent> getChannel() { 
           return this.channel;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #channel} (Groups together physiological measurement data and derived data.)
+         */
         public DeviceDataVirtualDeviceChannelComponent addChannel() { 
           DeviceDataVirtualDeviceChannelComponent t = new DeviceDataVirtualDeviceChannelComponent();
           this.channel.add(t);
@@ -105,20 +117,32 @@ public class DeviceData extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (Describes the channel.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Describes the channel.)
+         */
         public DeviceDataVirtualDeviceChannelComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #metric} (A piece of measured or derived data that is reported by the machine.)
+         */
         public List<DeviceDataVirtualDeviceChannelMetricComponent> getMetric() { 
           return this.metric;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #metric} (A piece of measured or derived data that is reported by the machine.)
+         */
         public DeviceDataVirtualDeviceChannelMetricComponent addMetric() { 
           DeviceDataVirtualDeviceChannelMetricComponent t = new DeviceDataVirtualDeviceChannelMetricComponent();
           this.metric.add(t);
@@ -152,10 +176,16 @@ public class DeviceData extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #observation} (The data for the metric.)
+         */
         public ResourceReference getObservation() { 
           return this.observation;
         }
 
+        /**
+         * @param value {@link #observation} (The data for the metric.)
+         */
         public DeviceDataVirtualDeviceChannelMetricComponent setObservation(ResourceReference value) { 
           this.observation = value;
           return this;
@@ -209,19 +239,31 @@ public class DeviceData extends Resource {
       this.source = source;
     }
 
+    /**
+     * @return {@link #instant} (The point in time that the values are reported.)
+     */
     public Instant getInstant() { 
       return this.instant;
     }
 
+    /**
+     * @param value {@link #instant} (The point in time that the values are reported.)
+     */
     public DeviceData setInstant(Instant value) { 
       this.instant = value;
       return this;
     }
 
+    /**
+     * @return The point in time that the values are reported.
+     */
     public Calendar getInstantSimple() { 
       return this.instant == null ? null : this.instant.getValue();
     }
 
+    /**
+     * @param value The point in time that the values are reported.
+     */
     public DeviceData setInstantSimple(Calendar value) { 
         if (this.instant == null)
           this.instant = new Instant();
@@ -229,38 +271,62 @@ public class DeviceData extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #identifier} (An identifier assigned to this observation bu the source device that made the observation.)
+     */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (An identifier assigned to this observation bu the source device that made the observation.)
+     */
     public DeviceData setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #source} (Identification information for the device that is the source of the data.)
+     */
     public ResourceReference getSource() { 
       return this.source;
     }
 
+    /**
+     * @param value {@link #source} (Identification information for the device that is the source of the data.)
+     */
     public DeviceData setSource(ResourceReference value) { 
       this.source = value;
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The subject of the measurement.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The subject of the measurement.)
+     */
     public DeviceData setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #virtualDevice} (A medical-related subsystem of a medical device.)
+     */
     public List<DeviceDataVirtualDeviceComponent> getVirtualDevice() { 
       return this.virtualDevice;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #virtualDevice} (A medical-related subsystem of a medical device.)
+     */
     public DeviceDataVirtualDeviceComponent addVirtualDevice() { 
       DeviceDataVirtualDeviceComponent t = new DeviceDataVirtualDeviceComponent();
       this.virtualDevice.add(t);

@@ -199,12 +199,10 @@
     <prohibited value="false"/>
     <notes value="9/10/12 Eve eats one meal a day with her parents"/>
     <simple>
-    <extension>
-      <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+    <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
       <valueUri value="#g1"/>
     </extension>
-    <extension>
-      <url value="http://exampleDoNotUse/General/RevisionDate"/>
+    <extension url="http://exampleDoNotUse/General/RevisionDate">
       <valueDate value="2012-09-10"/>
     </extension>
     <category value="other"/>
@@ -219,12 +217,10 @@
     <prohibited value="false"/>
     <notes value="9/10/12 Eve will sleep in her bed more often than the couch"/>
     <simple>
-    <extension>
-      <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+    <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
       <valueUri value="#g1"/>
     </extension>
-    <extension>
-      <url value="http://exampleDoNotUse/General/RevisionDate"/>
+    <extension url="http://exampleDoNotUse/General/RevisionDate">
       <valueDate value="2012-09-10"/>
     </extension>
     <category value="other"/>
@@ -238,12 +234,10 @@
     <status value="ongoing"/>
     <prohibited value="false"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g2"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
       <category value="other"/>
@@ -258,12 +252,10 @@
     <prohibited value="false"/>
     <notes value="8/27/12 Eve would like to try for 5 days a week.  9/10/12 Eve is still walking the dogs."/>
     <simple>
-    <extension>
-      <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+    <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
       <valueUri value="#g3"/>
     </extension>
-    <extension>
-      <url value="http://exampleDoNotUse/General/RevisionDate"/>
+    <extension url="http://exampleDoNotUse/General/RevisionDate">
       <valueDate value="2012-09-10"/>
     </extension>
     <category value="other"/>
@@ -278,12 +270,10 @@
     <prohibited value="false"/>
     <notes value="8/13/12 Eve walked 4 times the last week.  9/10/12 Eve did not walk to her parents the last week, but has plans to start again"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g3"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
       <category value="other"/>
@@ -297,12 +287,10 @@
     <status value="ongoing"/>
     <prohibited value="false"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g4"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-08-13"/>
       </extension>
       <category value="other"/>
@@ -317,12 +305,10 @@
     <prohibited value="false"/>
     <notes value="8/13/12 After restarting the vinegar soaks the psoriasis is improved and Eve plans to treat the remainder with light treatments.  She plans to start this week.  8/27/12 Since her skin is improved Eve has not been using the light treatment as often, maybe once a week.  She would like to increase to 3 times a week again"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g5"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-08-27"/>
       </extension>
       <category value="other"/>
@@ -337,12 +323,10 @@
     <prohibited value="false"/>
     <notes value="7/23/12 Eve created a chart as a reminer to take the medications that do not fit in her pill box"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g4"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
       <category value="other"/>
@@ -357,12 +341,10 @@
     <prohibited value="false"/>
     <notes value="7/30/12 will be able to esume exercise.  8/13/12 Eve prefers to focus on walking at this time"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g3"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-08-23"/>
       </extension>
       <category value="other"/>
@@ -376,12 +358,10 @@
     <status value="completed"/>
     <prohibited value="false"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g4"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-07-23"/>
       </extension>
       <category value="other"/>
@@ -396,12 +376,10 @@
     <prohibited value="false"/>
     <notes value="7/16/12 Eve now has some of her medications set up in pill packs by her pharmacist"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g4"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-07-16"/>
       </extension>
       <category value="other"/>
@@ -416,12 +394,10 @@
     <prohibited value="false"/>
     <notes value="7/30/12 Eve will be able to resume exercise on 7/30/12.  8/13/12 -hold until &quot;less busy&quot;"/>
     <simple>
-      <extension>
-        <url value="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink"/>
+      <extension url="http://exampleDoNotUse/EnhancedCarePlan/ActivityGoalLink">
         <valueUri value="#g3"/>
       </extension>
-      <extension>
-        <url value="http://exampleDoNotUse/General/RevisionDate"/>
+      <extension url="http://exampleDoNotUse/General/RevisionDate">
         <valueDate value="2012-08-13"/>
       </extension>
       <category value="other"/>

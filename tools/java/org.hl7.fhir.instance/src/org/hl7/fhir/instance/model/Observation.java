@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -214,19 +214,31 @@ public class Observation extends Resource {
         this.range = range;
       }
 
+        /**
+         * @return {@link #meaning} (Code for the meaning of the reference range.)
+         */
         public CodeableConcept getMeaning() { 
           return this.meaning;
         }
 
+        /**
+         * @param value {@link #meaning} (Code for the meaning of the reference range.)
+         */
         public ObservationReferenceRangeComponent setMeaning(CodeableConcept value) { 
           this.meaning = value;
           return this;
         }
 
+        /**
+         * @return {@link #range} (Actual value of the reference range.  May be a quantity (<20mg/L), a range (10-20 umol/L), or some text.)
+         */
         public Type getRange() { 
           return this.range;
         }
 
+        /**
+         * @param value {@link #range} (Actual value of the reference range.  May be a quantity (<20mg/L), a range (10-20 umol/L), or some text.)
+         */
         public ObservationReferenceRangeComponent setRange(Type value) { 
           this.range = value;
           return this;
@@ -268,19 +280,31 @@ public class Observation extends Resource {
         this.value = value;
       }
 
+        /**
+         * @return {@link #name} (Identifies what type of sub-observation was performed.)
+         */
         public CodeableConcept getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (Identifies what type of sub-observation was performed.)
+         */
         public ObservationComponentComponent setName(CodeableConcept value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return {@link #value} (The information determined as a result of making the sub-observation.)
+         */
         public Type getValue() { 
           return this.value;
         }
 
+        /**
+         * @param value {@link #value} (The information determined as a result of making the sub-observation.)
+         */
         public ObservationComponentComponent setValue(Type value) { 
           this.value = value;
           return this;
@@ -387,46 +411,76 @@ public class Observation extends Resource {
       this.reliability = reliability;
     }
 
+    /**
+     * @return {@link #name} (Identifies what type of observation was performed. Sometimes called code.)
+     */
     public CodeableConcept getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (Identifies what type of observation was performed. Sometimes called code.)
+     */
     public Observation setName(CodeableConcept value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return {@link #value} (The information determined as a result of making the observation.)
+     */
     public Type getValue() { 
       return this.value;
     }
 
+    /**
+     * @param value {@link #value} (The information determined as a result of making the observation.)
+     */
     public Observation setValue(Type value) { 
       this.value = value;
       return this;
     }
 
+    /**
+     * @return {@link #interpretation} (The assessment made based on the result of the observation.)
+     */
     public CodeableConcept getInterpretation() { 
       return this.interpretation;
     }
 
+    /**
+     * @param value {@link #interpretation} (The assessment made based on the result of the observation.)
+     */
     public Observation setInterpretation(CodeableConcept value) { 
       this.interpretation = value;
       return this;
     }
 
+    /**
+     * @return {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.)
+     */
     public String_ getComments() { 
       return this.comments;
     }
 
+    /**
+     * @param value {@link #comments} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.)
+     */
     public Observation setComments(String_ value) { 
       this.comments = value;
       return this;
     }
 
+    /**
+     * @return May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
+     */
     public String getCommentsSimple() { 
       return this.comments == null ? null : this.comments.getValue();
     }
 
+    /**
+     * @param value May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
+     */
     public Observation setCommentsSimple(String value) { 
       if (value == null)
         this.comments = null;
@@ -438,28 +492,46 @@ public class Observation extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #applies} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time".)
+     */
     public Type getApplies() { 
       return this.applies;
     }
 
+    /**
+     * @param value {@link #applies} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time".)
+     */
     public Observation setApplies(Type value) { 
       this.applies = value;
       return this;
     }
 
+    /**
+     * @return {@link #issued} (Date/Time this was made available.)
+     */
     public Instant getIssued() { 
       return this.issued;
     }
 
+    /**
+     * @param value {@link #issued} (Date/Time this was made available.)
+     */
     public Observation setIssued(Instant value) { 
       this.issued = value;
       return this;
     }
 
+    /**
+     * @return Date/Time this was made available.
+     */
     public Calendar getIssuedSimple() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
+    /**
+     * @param value Date/Time this was made available.
+     */
     public Observation setIssuedSimple(Calendar value) { 
       if (value == null)
         this.issued = null;
@@ -471,19 +543,31 @@ public class Observation extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #status} (The status of the result value.)
+     */
     public Enumeration<ObservationStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The status of the result value.)
+     */
     public Observation setStatus(Enumeration<ObservationStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The status of the result value.
+     */
     public ObservationStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The status of the result value.
+     */
     public Observation setStatusSimple(ObservationStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ObservationStatus>();
@@ -491,19 +575,31 @@ public class Observation extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.)
+     */
     public Enumeration<ObservationReliability> getReliability() { 
       return this.reliability;
     }
 
+    /**
+     * @param value {@link #reliability} (An estimate of the degree to which quality issues have impacted on the value reported.)
+     */
     public Observation setReliability(Enumeration<ObservationReliability> value) { 
       this.reliability = value;
       return this;
     }
 
+    /**
+     * @return An estimate of the degree to which quality issues have impacted on the value reported.
+     */
     public ObservationReliability getReliabilitySimple() { 
       return this.reliability == null ? null : this.reliability.getValue();
     }
 
+    /**
+     * @param value An estimate of the degree to which quality issues have impacted on the value reported.
+     */
     public Observation setReliabilitySimple(ObservationReliability value) { 
         if (this.reliability == null)
           this.reliability = new Enumeration<ObservationReliability>();
@@ -511,67 +607,109 @@ public class Observation extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #bodySite} (Indicates where on the subject's body the observation was made.)
+     */
     public CodeableConcept getBodySite() { 
       return this.bodySite;
     }
 
+    /**
+     * @param value {@link #bodySite} (Indicates where on the subject's body the observation was made.)
+     */
     public Observation setBodySite(CodeableConcept value) { 
       this.bodySite = value;
       return this;
     }
 
+    /**
+     * @return {@link #method} (Indicates the mechanism used to perform the observation.)
+     */
     public CodeableConcept getMethod() { 
       return this.method;
     }
 
+    /**
+     * @param value {@link #method} (Indicates the mechanism used to perform the observation.)
+     */
     public Observation setMethod(CodeableConcept value) { 
       this.method = value;
       return this;
     }
 
+    /**
+     * @return {@link #identifier} (A unique identifier for the simple observation.)
+     */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (A unique identifier for the simple observation.)
+     */
     public Observation setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The thing the observation is being made about.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The thing the observation is being made about.)
+     */
     public Observation setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
+     */
     public ResourceReference getPerformer() { 
       return this.performer;
     }
 
+    /**
+     * @param value {@link #performer} (Who was responsible for asserting the observed value as "true".)
+     */
     public Observation setPerformer(ResourceReference value) { 
       this.performer = value;
       return this;
     }
 
+    /**
+     * @return {@link #referenceRange} (Guidance on how to interpret the value by comparison to a normal or recommended range.)
+     */
     public List<ObservationReferenceRangeComponent> getReferenceRange() { 
       return this.referenceRange;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #referenceRange} (Guidance on how to interpret the value by comparison to a normal or recommended range.)
+     */
     public ObservationReferenceRangeComponent addReferenceRange() { 
       ObservationReferenceRangeComponent t = new ObservationReferenceRangeComponent();
       this.referenceRange.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #component} (Component observation.)
+     */
     public List<ObservationComponentComponent> getComponent() { 
       return this.component;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #component} (Component observation.)
+     */
     public ObservationComponentComponent addComponent() { 
       ObservationComponentComponent t = new ObservationComponentComponent();
       this.component.add(t);

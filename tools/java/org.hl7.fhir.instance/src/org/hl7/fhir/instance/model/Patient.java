@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -123,59 +123,95 @@ public class Patient extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #relationship} (The nature of the relationship between the patient and the contact person.)
+         */
         public List<CodeableConcept> getRelationship() { 
           return this.relationship;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #relationship} (The nature of the relationship between the patient and the contact person.)
+         */
         public CodeableConcept addRelationship() { 
           CodeableConcept t = new CodeableConcept();
           this.relationship.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #name} (A name associated with the person.)
+         */
         public HumanName getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (A name associated with the person.)
+         */
         public ContactComponent setName(HumanName value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
+         */
         public List<Contact> getTelecom() { 
           return this.telecom;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
+         */
         public Contact addTelecom() { 
           Contact t = new Contact();
           this.telecom.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #address} (Address for the contact person.)
+         */
         public Address getAddress() { 
           return this.address;
         }
 
+        /**
+         * @param value {@link #address} (Address for the contact person.)
+         */
         public ContactComponent setAddress(Address value) { 
           this.address = value;
           return this;
         }
 
+        /**
+         * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+         */
         public CodeableConcept getGender() { 
           return this.gender;
         }
 
+        /**
+         * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+         */
         public ContactComponent setGender(CodeableConcept value) { 
           this.gender = value;
           return this;
         }
 
+        /**
+         * @return {@link #organization} (Organization on behalf of which the contact is acting or for which the contact is working.)
+         */
         public ResourceReference getOrganization() { 
           return this.organization;
         }
 
+        /**
+         * @param value {@link #organization} (Organization on behalf of which the contact is acting or for which the contact is working.)
+         */
         public ContactComponent setOrganization(ResourceReference value) { 
           this.organization = value;
           return this;
@@ -233,28 +269,46 @@ public class Patient extends Resource {
         this.species = species;
       }
 
+        /**
+         * @return {@link #species} (Identifies the high level categorization of the kind of animal.)
+         */
         public CodeableConcept getSpecies() { 
           return this.species;
         }
 
+        /**
+         * @param value {@link #species} (Identifies the high level categorization of the kind of animal.)
+         */
         public AnimalComponent setSpecies(CodeableConcept value) { 
           this.species = value;
           return this;
         }
 
+        /**
+         * @return {@link #breed} (Identifies the detailed categorization of the kind of animal.)
+         */
         public CodeableConcept getBreed() { 
           return this.breed;
         }
 
+        /**
+         * @param value {@link #breed} (Identifies the detailed categorization of the kind of animal.)
+         */
         public AnimalComponent setBreed(CodeableConcept value) { 
           this.breed = value;
           return this;
         }
 
+        /**
+         * @return {@link #genderStatus} (Indicates the current state of the animal's reproductive organs.)
+         */
         public CodeableConcept getGenderStatus() { 
           return this.genderStatus;
         }
 
+        /**
+         * @param value {@link #genderStatus} (Indicates the current state of the animal's reproductive organs.)
+         */
         public AnimalComponent setGenderStatus(CodeableConcept value) { 
           this.genderStatus = value;
           return this;
@@ -298,28 +352,46 @@ public class Patient extends Resource {
         this.type = type;
       }
 
+        /**
+         * @return {@link #other} (The other patient resource that the link refers to.)
+         */
         public ResourceReference getOther() { 
           return this.other;
         }
 
+        /**
+         * @param value {@link #other} (The other patient resource that the link refers to.)
+         */
         public PatientLinkComponent setOther(ResourceReference value) { 
           this.other = value;
           return this;
         }
 
+        /**
+         * @return {@link #type} (The type of link between this patient resource and another patient resource.)
+         */
         public Enumeration<LinkType> getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (The type of link between this patient resource and another patient resource.)
+         */
         public PatientLinkComponent setType(Enumeration<LinkType> value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return The type of link between this patient resource and another patient resource.
+         */
         public LinkType getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
+        /**
+         * @param value The type of link between this patient resource and another patient resource.
+         */
         public PatientLinkComponent setTypeSimple(LinkType value) { 
             if (this.type == null)
               this.type = new Enumeration<LinkType>();
@@ -408,9 +480,14 @@ public class Patient extends Resource {
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 
     /**
-     * The provider for whom this is a patient record.
+     * Patient's nominated care provider.
      */
-    protected ResourceReference provider;
+    protected List<ResourceReference> careProvider = new ArrayList<ResourceReference>();
+
+    /**
+     * Organization that is the custodian of the patient record.
+     */
+    protected ResourceReference managingOrganization;
 
     /**
      * Link to another patient resource that concerns the same actual person.
@@ -426,61 +503,97 @@ public class Patient extends Resource {
       super();
     }
 
+    /**
+     * @return {@link #identifier} (An identifier that applies to this person as a patient.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (An identifier that applies to this person as a patient.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #name} (A name associated with the individual.)
+     */
     public List<HumanName> getName() { 
       return this.name;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #name} (A name associated with the individual.)
+     */
     public HumanName addName() { 
       HumanName t = new HumanName();
       this.name.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
+     */
     public List<Contact> getTelecom() { 
       return this.telecom;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.)
+     */
     public Contact addTelecom() { 
       Contact t = new Contact();
       this.telecom.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.)
+     */
     public CodeableConcept getGender() { 
       return this.gender;
     }
 
+    /**
+     * @param value {@link #gender} (Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.)
+     */
     public Patient setGender(CodeableConcept value) { 
       this.gender = value;
       return this;
     }
 
+    /**
+     * @return {@link #birthDate} (The date and time of birth for the individual.)
+     */
     public DateTime getBirthDate() { 
       return this.birthDate;
     }
 
+    /**
+     * @param value {@link #birthDate} (The date and time of birth for the individual.)
+     */
     public Patient setBirthDate(DateTime value) { 
       this.birthDate = value;
       return this;
     }
 
+    /**
+     * @return The date and time of birth for the individual.
+     */
     public String getBirthDateSimple() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
+    /**
+     * @param value The date and time of birth for the individual.
+     */
     public Patient setBirthDateSimple(String value) { 
       if (value == null)
         this.birthDate = null;
@@ -492,119 +605,208 @@ public class Patient extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #deceased} (Indicates if the individual is deceased or not.)
+     */
     public Type getDeceased() { 
       return this.deceased;
     }
 
+    /**
+     * @param value {@link #deceased} (Indicates if the individual is deceased or not.)
+     */
     public Patient setDeceased(Type value) { 
       this.deceased = value;
       return this;
     }
 
+    /**
+     * @return {@link #address} (Addresses for the individual.)
+     */
     public List<Address> getAddress() { 
       return this.address;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #address} (Addresses for the individual.)
+     */
     public Address addAddress() { 
       Address t = new Address();
       this.address.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #maritalStatus} (This field contains a patient's most recent marital (civil) status.)
+     */
     public CodeableConcept getMaritalStatus() { 
       return this.maritalStatus;
     }
 
+    /**
+     * @param value {@link #maritalStatus} (This field contains a patient's most recent marital (civil) status.)
+     */
     public Patient setMaritalStatus(CodeableConcept value) { 
       this.maritalStatus = value;
       return this;
     }
 
+    /**
+     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
+     */
     public Type getMultipleBirth() { 
       return this.multipleBirth;
     }
 
+    /**
+     * @param value {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
+     */
     public Patient setMultipleBirth(Type value) { 
       this.multipleBirth = value;
       return this;
     }
 
+    /**
+     * @return {@link #photo} (Image of the person.)
+     */
     public List<Attachment> getPhoto() { 
       return this.photo;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #photo} (Image of the person.)
+     */
     public Attachment addPhoto() { 
       Attachment t = new Attachment();
       this.photo.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #contact} (A contact party (e.g. guardian, partner, friend) for the patient.)
+     */
     public List<ContactComponent> getContact() { 
       return this.contact;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #contact} (A contact party (e.g. guardian, partner, friend) for the patient.)
+     */
     public ContactComponent addContact() { 
       ContactComponent t = new ContactComponent();
       this.contact.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #animal} (This element has a value if the patient is an animal.)
+     */
     public AnimalComponent getAnimal() { 
       return this.animal;
     }
 
+    /**
+     * @param value {@link #animal} (This element has a value if the patient is an animal.)
+     */
     public Patient setAnimal(AnimalComponent value) { 
       this.animal = value;
       return this;
     }
 
+    /**
+     * @return {@link #communication} (Languages which may be used to communicate with the patient.)
+     */
     public List<CodeableConcept> getCommunication() { 
       return this.communication;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #communication} (Languages which may be used to communicate with the patient.)
+     */
     public CodeableConcept addCommunication() { 
       CodeableConcept t = new CodeableConcept();
       this.communication.add(t);
       return t;
     }
 
-    public ResourceReference getProvider() { 
-      return this.provider;
+    /**
+     * @return {@link #careProvider} (Patient's nominated care provider.)
+     */
+    public List<ResourceReference> getCareProvider() { 
+      return this.careProvider;
     }
 
-    public Patient setProvider(ResourceReference value) { 
-      this.provider = value;
+    // syntactic sugar
+    /**
+     * @return {@link #careProvider} (Patient's nominated care provider.)
+     */
+    public ResourceReference addCareProvider() { 
+      ResourceReference t = new ResourceReference();
+      this.careProvider.add(t);
+      return t;
+    }
+
+    /**
+     * @return {@link #managingOrganization} (Organization that is the custodian of the patient record.)
+     */
+    public ResourceReference getManagingOrganization() { 
+      return this.managingOrganization;
+    }
+
+    /**
+     * @param value {@link #managingOrganization} (Organization that is the custodian of the patient record.)
+     */
+    public Patient setManagingOrganization(ResourceReference value) { 
+      this.managingOrganization = value;
       return this;
     }
 
+    /**
+     * @return {@link #link} (Link to another patient resource that concerns the same actual person.)
+     */
     public List<PatientLinkComponent> getLink() { 
       return this.link;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #link} (Link to another patient resource that concerns the same actual person.)
+     */
     public PatientLinkComponent addLink() { 
       PatientLinkComponent t = new PatientLinkComponent();
       this.link.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #active} (Whether this patient record is in active use.)
+     */
     public Boolean getActive() { 
       return this.active;
     }
 
+    /**
+     * @param value {@link #active} (Whether this patient record is in active use.)
+     */
     public Patient setActive(Boolean value) { 
       this.active = value;
       return this;
     }
 
+    /**
+     * @return Whether this patient record is in active use.
+     */
     public boolean getActiveSimple() { 
       return this.active == null ? null : this.active.getValue();
     }
 
+    /**
+     * @param value Whether this patient record is in active use.
+     */
     public Patient setActiveSimple(boolean value) { 
       if (value == false)
         this.active = null;
@@ -631,7 +833,8 @@ public class Patient extends Resource {
         childrenList.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("animal", "", "This element has a value if the patient is an animal.", 0, java.lang.Integer.MAX_VALUE, animal));
         childrenList.add(new Property("communication", "CodeableConcept", "Languages which may be used to communicate with the patient.", 0, java.lang.Integer.MAX_VALUE, communication));
-        childrenList.add(new Property("provider", "Resource(Organization)", "The provider for whom this is a patient record.", 0, java.lang.Integer.MAX_VALUE, provider));
+        childrenList.add(new Property("careProvider", "Resource(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, careProvider));
+        childrenList.add(new Property("managingOrganization", "Resource(Organization)", "Organization that is the custodian of the patient record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("link", "", "Link to another patient resource that concerns the same actual person.", 0, java.lang.Integer.MAX_VALUE, link));
         childrenList.add(new Property("active", "boolean", "Whether this patient record is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
       }
@@ -665,7 +868,10 @@ public class Patient extends Resource {
         dst.communication = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : communication)
           dst.communication.add(i.copy());
-        dst.provider = provider == null ? null : provider.copy();
+        dst.careProvider = new ArrayList<ResourceReference>();
+        for (ResourceReference i : careProvider)
+          dst.careProvider.add(i.copy());
+        dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
         dst.link = new ArrayList<PatientLinkComponent>();
         for (PatientLinkComponent i : link)
           dst.link.add(i.copy(dst));

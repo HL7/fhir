@@ -336,12 +336,20 @@ public class XSDBaseGenerator {
     write("        <xs:sequence>\r\n");
 
     for (ElementDefn e : elem.getElements()) {
-      if (e.getName().equals("[type]"))
-        generateAny(elem, e, null);
-      else 
-        generateElement(elem, e, null);
+      if (!e.isXmlAttribute()) {
+        if (e.getName().equals("[type]"))
+          generateAny(elem, e, null);
+        else 
+          generateElement(elem, e, null);
+      }
     }
     write("        </xs:sequence>\r\n");
+    for (ElementDefn e : elem.getElements()) {
+      if (e.isXmlAttribute()) {
+        generateAttribute(elem, e, null);
+      }
+    }
+    
     write("      </xs:extension>\r\n");
     write("    </xs:complexContent>\r\n");
     write("  </xs:complexType>\r\n");
@@ -355,6 +363,14 @@ public class XSDBaseGenerator {
       generateEnum(en);
     }
 
+  }
+
+  private void generateAttribute(ElementDefn elem, ElementDefn e, Object object) throws Exception {
+    if (e.unbounded())
+      throw new Exception("Repeating Element marked as an attribute in XML ("+e.getName()+")");
+    write("        <xs:attribute name=\""+e.getName()+"\" type=\""+e.typeCode()+"-primitive\" use=\""+(e.getMinCardinality() == 0 ? "optional" : "required")+"\"/>\r\n");
+
+    
   }
 
   private void genType(ElementDefn elem) throws Exception {
@@ -552,8 +568,7 @@ public class XSDBaseGenerator {
     write("          </xs:choice>\r\n");
   }
 
-  private void generateElement(ElementDefn root, ElementDefn e,
-      String paramType) throws Exception {
+  private void generateElement(ElementDefn root, ElementDefn e, String paramType) throws Exception {
     List<TypeRef> types = e.getTypes();
     if (types.size() > 1 || (types.size() == 1 && types.get(0).isWildcardType())) {
       if (!e.getName().contains("[x]"))

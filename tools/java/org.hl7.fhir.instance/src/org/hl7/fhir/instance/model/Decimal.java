@@ -34,27 +34,45 @@ package org.hl7.fhir.instance.model;
 import java.math.BigDecimal;
 
 /**
- * @author Grahame
- *
+ * Primitive type "decimal" in FHIR: A rational number
  */
 public class Decimal extends Type {
 
+	/**
+	 * The actual value of the decimal
+	 */
   private BigDecimal value;
+  
+  /**
+   * The exact way to represent this on the wire. In the absent of a specified representation, the natural representation of the BigDecimal value will be used.
+   */
   private String original;
 
+  /**
+   * @return the value of the decimal
+   */
   public BigDecimal getValue() {
     return value;
   }
 
+  /**
+   * @param value the value of the decimal
+   */
   public void setValue(BigDecimal value) {
     this.value = value;
     this.original = null;
   } 
 
+  /**
+   * @return the exact representation of the decimal
+   */
   public String getOriginal() {
     return original;
   }
 
+  /**
+   * @param original the exact representation of the decimal
+   */
   public void setOriginal(String original) {
     this.original = original;
   } 

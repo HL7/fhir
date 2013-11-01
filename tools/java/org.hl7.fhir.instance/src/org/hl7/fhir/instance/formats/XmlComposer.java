@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -222,9 +222,10 @@ public class XmlComposer extends XmlComposerBase {
   private void composeExtension(String name, Extension element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
+      if (element.getUrl() != null)
+        xml.attribute("url", element.getUrl().toString());
       xml.open(FHIR_NS, name);
       composeElementElements(element);
-      composeUri("url", element.getUrl());
       composeType("value", element.getValue());
       xml.close(FHIR_NS, name);
     }
@@ -1726,7 +1727,7 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("code", element.getCode());
       composeType("value", element.getValue());
       composeBoolean("exclude", element.getExclude());
       xml.close(FHIR_NS, name);
@@ -2575,7 +2576,9 @@ public class XmlComposer extends XmlComposerBase {
       composePatientAnimalComponent("animal", element.getAnimal());
       for (CodeableConcept e : element.getCommunication()) 
         composeCodeableConcept("communication", e);
-      composeResourceReference("provider", element.getProvider());
+      for (ResourceReference e : element.getCareProvider()) 
+        composeResourceReference("careProvider", e);
+      composeResourceReference("managingOrganization", element.getManagingOrganization());
       for (Patient.PatientLinkComponent e : element.getLink()) 
         composePatientPatientLinkComponent("link", e);
       composeBoolean("active", element.getActive());
@@ -2866,7 +2869,8 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeUri("target", element.getTarget());
+      composeUri("uri", element.getUri());
+      composeString("name", element.getName());
       composeString("map", element.getMap());
       xml.close(FHIR_NS, name);
     }
@@ -3247,16 +3251,35 @@ public class XmlComposer extends XmlComposerBase {
       composeResourceAttributes(element);
       xml.open(FHIR_NS, name);
       composeResourceElements(element);
-      composeIdentifier("identifier", element.getIdentifier());
-      composeString("name", element.getName());
       composeCodeableConcept("type", element.getType());
       composeString("description", element.getDescription());
       composeCodeableConcept("status", element.getStatus());
-      composePeriod("effectiveTime", element.getEffectiveTime());
+      composeSubstanceSubstanceInstanceComponent("instance", element.getInstance());
+      for (Substance.SubstanceIngredientComponent e : element.getIngredient()) 
+        composeSubstanceSubstanceIngredientComponent("ingredient", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSubstanceSubstanceInstanceComponent(String name, Substance.SubstanceInstanceComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeIdentifier("identifier", element.getIdentifier());
+      composeDateTime("expiry", element.getExpiry());
       composeQuantity("quantity", element.getQuantity());
-      for (ResourceReference e : element.getIngredient()) 
-        composeResourceReference("ingredient", e);
-      composeCodeableConcept("quantityMode", element.getQuantityMode());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSubstanceSubstanceIngredientComponent(String name, Substance.SubstanceIngredientComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeRatio("quantity", element.getQuantity());
+      composeResourceReference("substance", element.getSubstance());
       xml.close(FHIR_NS, name);
     }
   }

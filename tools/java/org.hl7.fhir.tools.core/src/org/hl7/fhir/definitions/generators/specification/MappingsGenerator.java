@@ -130,7 +130,7 @@ public class MappingsGenerator {
 	}
 	
 
-	private String titleFor(String m) {
+	public static String titleFor(String m) {
     if (m.equals(ElementDefn.RIM_MAPPING))
       return "RIM";
     if (m.equals(ElementDefn.CDA_MAPPING))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -152,28 +152,46 @@ public class Questionnaire extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #name} (Structured name for the question.)
+         */
         public CodeableConcept getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (Structured name for the question.)
+         */
         public QuestionComponent setName(CodeableConcept value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return {@link #text} (Text of the question as it may appear on screen or on a form.)
+         */
         public String_ getText() { 
           return this.text;
         }
 
+        /**
+         * @param value {@link #text} (Text of the question as it may appear on screen or on a form.)
+         */
         public QuestionComponent setText(String_ value) { 
           this.text = value;
           return this;
         }
 
+        /**
+         * @return Text of the question as it may appear on screen or on a form.
+         */
         public String getTextSimple() { 
           return this.text == null ? null : this.text.getValue();
         }
 
+        /**
+         * @param value Text of the question as it may appear on screen or on a form.
+         */
         public QuestionComponent setTextSimple(String value) { 
           if (value == null)
             this.text = null;
@@ -185,57 +203,93 @@ public class Questionnaire extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #answer} (Single-valued answer to the question.)
+         */
         public Type getAnswer() { 
           return this.answer;
         }
 
+        /**
+         * @param value {@link #answer} (Single-valued answer to the question.)
+         */
         public QuestionComponent setAnswer(Type value) { 
           this.answer = value;
           return this;
         }
 
+        /**
+         * @return {@link #choice} (One of more selections from the list of options.)
+         */
         public List<Coding> getChoice() { 
           return this.choice;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #choice} (One of more selections from the list of options.)
+         */
         public Coding addChoice() { 
           Coding t = new Coding();
           this.choice.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #options} (Reference to a valueset containing the possible options.)
+         */
         public Type getOptions() { 
           return this.options;
         }
 
+        /**
+         * @param value {@link #options} (Reference to a valueset containing the possible options.)
+         */
         public QuestionComponent setOptions(Type value) { 
           this.options = value;
           return this;
         }
 
+        /**
+         * @return {@link #data} (Structured answer in the form of a FHIR Resource or datatype.)
+         */
         public org.hl7.fhir.instance.model.Type getData() { 
           return this.data;
         }
 
+        /**
+         * @param value {@link #data} (Structured answer in the form of a FHIR Resource or datatype.)
+         */
         public QuestionComponent setData(org.hl7.fhir.instance.model.Type value) { 
           this.data = value;
           return this;
         }
 
+        /**
+         * @return {@link #remarks} (The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.)
+         */
         public String_ getRemarks() { 
           return this.remarks;
         }
 
+        /**
+         * @param value {@link #remarks} (The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.)
+         */
         public QuestionComponent setRemarks(String_ value) { 
           this.remarks = value;
           return this;
         }
 
+        /**
+         * @return The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
+         */
         public String getRemarksSimple() { 
           return this.remarks == null ? null : this.remarks.getValue();
         }
 
+        /**
+         * @param value The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
+         */
         public QuestionComponent setRemarksSimple(String value) { 
           if (value == null)
             this.remarks = null;
@@ -309,28 +363,46 @@ public class Questionnaire extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #name} (Structured name for a section of a predefined list of questions this questionnaire is responding to.)
+         */
         public CodeableConcept getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (Structured name for a section of a predefined list of questions this questionnaire is responding to.)
+         */
         public GroupComponent setName(CodeableConcept value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return {@link #header} (Header for the group, used for display purposes.)
+         */
         public String_ getHeader() { 
           return this.header;
         }
 
+        /**
+         * @param value {@link #header} (Header for the group, used for display purposes.)
+         */
         public GroupComponent setHeader(String_ value) { 
           this.header = value;
           return this;
         }
 
+        /**
+         * @return Header for the group, used for display purposes.
+         */
         public String getHeaderSimple() { 
           return this.header == null ? null : this.header.getValue();
         }
 
+        /**
+         * @param value Header for the group, used for display purposes.
+         */
         public GroupComponent setHeaderSimple(String value) { 
           if (value == null)
             this.header = null;
@@ -342,19 +414,31 @@ public class Questionnaire extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #text} (Additional text for the group, used for display purposes.)
+         */
         public String_ getText() { 
           return this.text;
         }
 
+        /**
+         * @param value {@link #text} (Additional text for the group, used for display purposes.)
+         */
         public GroupComponent setText(String_ value) { 
           this.text = value;
           return this;
         }
 
+        /**
+         * @return Additional text for the group, used for display purposes.
+         */
         public String getTextSimple() { 
           return this.text == null ? null : this.text.getValue();
         }
 
+        /**
+         * @param value Additional text for the group, used for display purposes.
+         */
         public GroupComponent setTextSimple(String value) { 
           if (value == null)
             this.text = null;
@@ -366,31 +450,49 @@ public class Questionnaire extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #subject} (More specific subject this section's answers are about, details the subject given in Questionnaire.)
+         */
         public ResourceReference getSubject() { 
           return this.subject;
         }
 
+        /**
+         * @param value {@link #subject} (More specific subject this section's answers are about, details the subject given in Questionnaire.)
+         */
         public GroupComponent setSubject(ResourceReference value) { 
           this.subject = value;
           return this;
         }
 
+        /**
+         * @return {@link #question} (Set of questions within this group.)
+         */
         public List<QuestionComponent> getQuestion() { 
           return this.question;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #question} (Set of questions within this group.)
+         */
         public QuestionComponent addQuestion() { 
           QuestionComponent t = new QuestionComponent();
           this.question.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #group} (A sub-group within a group.)
+         */
         public List<GroupComponent> getGroup() { 
           return this.group;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #group} (A sub-group within a group.)
+         */
         public GroupComponent addGroup() { 
           GroupComponent t = new GroupComponent();
           this.group.add(t);
@@ -484,19 +586,31 @@ public class Questionnaire extends Resource {
       this.authored = authored;
     }
 
+    /**
+     * @return {@link #status} (The status of the questionnaire as a whole.)
+     */
     public Enumeration<ObservationStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The status of the questionnaire as a whole.)
+     */
     public Questionnaire setStatus(Enumeration<ObservationStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The status of the questionnaire as a whole.
+     */
     public ObservationStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The status of the questionnaire as a whole.
+     */
     public Questionnaire setStatusSimple(ObservationStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ObservationStatus>();
@@ -504,19 +618,31 @@ public class Questionnaire extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #authored} (The date and/or time that this version of the questionnaire was authored.)
+     */
     public DateTime getAuthored() { 
       return this.authored;
     }
 
+    /**
+     * @param value {@link #authored} (The date and/or time that this version of the questionnaire was authored.)
+     */
     public Questionnaire setAuthored(DateTime value) { 
       this.authored = value;
       return this;
     }
 
+    /**
+     * @return The date and/or time that this version of the questionnaire was authored.
+     */
     public String getAuthoredSimple() { 
       return this.authored == null ? null : this.authored.getValue();
     }
 
+    /**
+     * @param value The date and/or time that this version of the questionnaire was authored.
+     */
     public Questionnaire setAuthoredSimple(String value) { 
         if (this.authored == null)
           this.authored = new DateTime();
@@ -524,78 +650,126 @@ public class Questionnaire extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.)
+     */
     public Questionnaire setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #author} (Person that collected the answers to the questions in the Questionnaire.)
+     */
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
+    /**
+     * @param value {@link #author} (Person that collected the answers to the questions in the Questionnaire.)
+     */
     public Questionnaire setAuthor(ResourceReference value) { 
       this.author = value;
       return this;
     }
 
+    /**
+     * @return {@link #source} (The person that answered the questions about the subject. Only used when this is not the subject him/herself.)
+     */
     public ResourceReference getSource() { 
       return this.source;
     }
 
+    /**
+     * @param value {@link #source} (The person that answered the questions about the subject. Only used when this is not the subject him/herself.)
+     */
     public Questionnaire setSource(ResourceReference value) { 
       this.source = value;
       return this;
     }
 
+    /**
+     * @return {@link #name} (Structured name for a predefined list of questions this questionnaire is responding to.)
+     */
     public CodeableConcept getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (Structured name for a predefined list of questions this questionnaire is responding to.)
+     */
     public Questionnaire setName(CodeableConcept value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #encounter} (Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     */
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
+    /**
+     * @param value {@link #encounter} (Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     */
     public Questionnaire setEncounter(ResourceReference value) { 
       this.encounter = value;
       return this;
     }
 
+    /**
+     * @return {@link #question} (Answers to questions on a questionnaire.)
+     */
     public List<QuestionComponent> getQuestion() { 
       return this.question;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #question} (Answers to questions on a questionnaire.)
+     */
     public QuestionComponent addQuestion() { 
       QuestionComponent t = new QuestionComponent();
       this.question.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #group} (A group of questions to a possibly similarly grouped set of question in the questionnaire.)
+     */
     public List<GroupComponent> getGroup() { 
       return this.group;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #group} (A group of questions to a possibly similarly grouped set of question in the questionnaire.)
+     */
     public GroupComponent addGroup() { 
       GroupComponent t = new GroupComponent();
       this.group.add(t);

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -100,19 +100,31 @@ public class Specimen extends Resource {
         this.relationship = relationship;
       }
 
+        /**
+         * @return {@link #relationship} (Whether this relationship is to a parent or to a child.)
+         */
         public Enumeration<HierarchicalRelationshipType> getRelationship() { 
           return this.relationship;
         }
 
+        /**
+         * @param value {@link #relationship} (Whether this relationship is to a parent or to a child.)
+         */
         public SpecimenSourceComponent setRelationship(Enumeration<HierarchicalRelationshipType> value) { 
           this.relationship = value;
           return this;
         }
 
+        /**
+         * @return Whether this relationship is to a parent or to a child.
+         */
         public HierarchicalRelationshipType getRelationshipSimple() { 
           return this.relationship == null ? null : this.relationship.getValue();
         }
 
+        /**
+         * @param value Whether this relationship is to a parent or to a child.
+         */
         public SpecimenSourceComponent setRelationshipSimple(HierarchicalRelationshipType value) { 
             if (this.relationship == null)
               this.relationship = new Enumeration<HierarchicalRelationshipType>();
@@ -120,11 +132,17 @@ public class Specimen extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #target} (The specimen resource that is the target of this relationship.)
+         */
         public List<ResourceReference> getTarget() { 
           return this.target;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #target} (The specimen resource that is the target of this relationship.)
+         */
         public ResourceReference addTarget() { 
           ResourceReference t = new ResourceReference();
           this.target.add(t);
@@ -188,26 +206,41 @@ public class Specimen extends Resource {
         this.collectedTime = collectedTime;
       }
 
+        /**
+         * @return {@link #collector} (Person who collected the specimen.)
+         */
         public ResourceReference getCollector() { 
           return this.collector;
         }
 
+        /**
+         * @param value {@link #collector} (Person who collected the specimen.)
+         */
         public SpecimenCollectionComponent setCollector(ResourceReference value) { 
           this.collector = value;
           return this;
         }
 
+        /**
+         * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
+         */
         public List<String_> getComment() { 
           return this.comment;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
+         */
         public String_ addComment() { 
           String_ t = new String_();
           this.comment.add(t);
           return t;
         }
 
+        /**
+         * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
+         */
         public String_ addCommentSimple(String value) { 
           String_ t = new String_();
           t.setValue(value);
@@ -215,19 +248,31 @@ public class Specimen extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #collectedTime} (Time when specimen was collected from subject - the physiologically relevant time.)
+         */
         public DateTime getCollectedTime() { 
           return this.collectedTime;
         }
 
+        /**
+         * @param value {@link #collectedTime} (Time when specimen was collected from subject - the physiologically relevant time.)
+         */
         public SpecimenCollectionComponent setCollectedTime(DateTime value) { 
           this.collectedTime = value;
           return this;
         }
 
+        /**
+         * @return Time when specimen was collected from subject - the physiologically relevant time.
+         */
         public String getCollectedTimeSimple() { 
           return this.collectedTime == null ? null : this.collectedTime.getValue();
         }
 
+        /**
+         * @param value Time when specimen was collected from subject - the physiologically relevant time.
+         */
         public SpecimenCollectionComponent setCollectedTimeSimple(String value) { 
             if (this.collectedTime == null)
               this.collectedTime = new DateTime();
@@ -235,28 +280,46 @@ public class Specimen extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #quantity} (The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.)
+         */
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
+        /**
+         * @param value {@link #quantity} (The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.)
+         */
         public SpecimenCollectionComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
 
+        /**
+         * @return {@link #method} (A coded value specifying the technique that is used to perform the procedure.)
+         */
         public CodeableConcept getMethod() { 
           return this.method;
         }
 
+        /**
+         * @param value {@link #method} (A coded value specifying the technique that is used to perform the procedure.)
+         */
         public SpecimenCollectionComponent setMethod(CodeableConcept value) { 
           this.method = value;
           return this;
         }
 
+        /**
+         * @return {@link #sourceSite} (Anatomical location from which the specimen should be collected (if subject is a patient).)
+         */
         public CodeableConcept getSourceSite() { 
           return this.sourceSite;
         }
 
+        /**
+         * @param value {@link #sourceSite} (Anatomical location from which the specimen should be collected (if subject is a patient).)
+         */
         public SpecimenCollectionComponent setSourceSite(CodeableConcept value) { 
           this.sourceSite = value;
           return this;
@@ -307,19 +370,31 @@ public class Specimen extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #description} (Textual description of procedure.)
+         */
         public String_ getDescription() { 
           return this.description;
         }
 
+        /**
+         * @param value {@link #description} (Textual description of procedure.)
+         */
         public SpecimenTreatmentComponent setDescription(String_ value) { 
           this.description = value;
           return this;
         }
 
+        /**
+         * @return Textual description of procedure.
+         */
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
+        /**
+         * @param value Textual description of procedure.
+         */
         public SpecimenTreatmentComponent setDescriptionSimple(String value) { 
           if (value == null)
             this.description = null;
@@ -331,20 +406,32 @@ public class Specimen extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #procedure} (A coded value specifying the procedure used to process the specimen.)
+         */
         public CodeableConcept getProcedure() { 
           return this.procedure;
         }
 
+        /**
+         * @param value {@link #procedure} (A coded value specifying the procedure used to process the specimen.)
+         */
         public SpecimenTreatmentComponent setProcedure(CodeableConcept value) { 
           this.procedure = value;
           return this;
         }
 
+        /**
+         * @return {@link #additive} (Specimen additive.)
+         */
         public List<ResourceReference> getAdditive() { 
           return this.additive;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #additive} (Specimen additive.)
+         */
         public ResourceReference addAdditive() { 
           ResourceReference t = new ResourceReference();
           this.additive.add(t);
@@ -405,30 +492,48 @@ public class Specimen extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #identifier} (Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc.)
+         */
         public List<Identifier> getIdentifier() { 
           return this.identifier;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #identifier} (Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc.)
+         */
         public Identifier addIdentifier() { 
           Identifier t = new Identifier();
           this.identifier.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #description} (Textual description of container.)
+         */
         public String_ getDescription() { 
           return this.description;
         }
 
+        /**
+         * @param value {@link #description} (Textual description of container.)
+         */
         public SpecimenContainerComponent setDescription(String_ value) { 
           this.description = value;
           return this;
         }
 
+        /**
+         * @return Textual description of container.
+         */
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
+        /**
+         * @param value Textual description of container.
+         */
         public SpecimenContainerComponent setDescriptionSimple(String value) { 
           if (value == null)
             this.description = null;
@@ -440,37 +545,61 @@ public class Specimen extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #type} (The type of container associated with the specimen (eg slide, aliquot, etc).)
+         */
         public CodeableConcept getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (The type of container associated with the specimen (eg slide, aliquot, etc).)
+         */
         public SpecimenContainerComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #capacity} (The capacity (volume or other measure the container may contain.)
+         */
         public Quantity getCapacity() { 
           return this.capacity;
         }
 
+        /**
+         * @param value {@link #capacity} (The capacity (volume or other measure the container may contain.)
+         */
         public SpecimenContainerComponent setCapacity(Quantity value) { 
           this.capacity = value;
           return this;
         }
 
+        /**
+         * @return {@link #specimenQuantity} (The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.)
+         */
         public Quantity getSpecimenQuantity() { 
           return this.specimenQuantity;
         }
 
+        /**
+         * @param value {@link #specimenQuantity} (The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.)
+         */
         public SpecimenContainerComponent setSpecimenQuantity(Quantity value) { 
           this.specimenQuantity = value;
           return this;
         }
 
+        /**
+         * @return {@link #additive} (Additive associated with the container.)
+         */
         public ResourceReference getAdditive() { 
           return this.additive;
         }
 
+        /**
+         * @param value {@link #additive} (Additive associated with the container.)
+         */
         public SpecimenContainerComponent setAdditive(ResourceReference value) { 
           this.additive = value;
           return this;
@@ -556,68 +685,110 @@ public class Specimen extends Resource {
       this.collection = collection;
     }
 
+    /**
+     * @return {@link #identifier} (Id for specimen.)
+     */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
+    /**
+     * @param value {@link #identifier} (Id for specimen.)
+     */
     public Specimen setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
+    /**
+     * @return {@link #type} (The type of the specimen. This is sometimes called the "matrix".)
+     */
     public CodeableConcept getType() { 
       return this.type;
     }
 
+    /**
+     * @param value {@link #type} (The type of the specimen. This is sometimes called the "matrix".)
+     */
     public Specimen setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
 
+    /**
+     * @return {@link #source} (Parent specimen from which the focal specimen was a component.)
+     */
     public List<SpecimenSourceComponent> getSource() { 
       return this.source;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #source} (Parent specimen from which the focal specimen was a component.)
+     */
     public SpecimenSourceComponent addSource() { 
       SpecimenSourceComponent t = new SpecimenSourceComponent();
       this.source.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #subject} (The subject of the report.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The subject of the report.)
+     */
     public Specimen setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #accessionIdentifier} (The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
+     */
     public List<Identifier> getAccessionIdentifier() { 
       return this.accessionIdentifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #accessionIdentifier} (The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
+     */
     public Identifier addAccessionIdentifier() { 
       Identifier t = new Identifier();
       this.accessionIdentifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #receivedTime} (Time when specimen was received for processing or testing.)
+     */
     public DateTime getReceivedTime() { 
       return this.receivedTime;
     }
 
+    /**
+     * @param value {@link #receivedTime} (Time when specimen was received for processing or testing.)
+     */
     public Specimen setReceivedTime(DateTime value) { 
       this.receivedTime = value;
       return this;
     }
 
+    /**
+     * @return Time when specimen was received for processing or testing.
+     */
     public String getReceivedTimeSimple() { 
       return this.receivedTime == null ? null : this.receivedTime.getValue();
     }
 
+    /**
+     * @param value Time when specimen was received for processing or testing.
+     */
     public Specimen setReceivedTimeSimple(String value) { 
       if (value == null)
         this.receivedTime = null;
@@ -629,31 +800,49 @@ public class Specimen extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #collection} (Details concerning the specimen collection.)
+     */
     public SpecimenCollectionComponent getCollection() { 
       return this.collection;
     }
 
+    /**
+     * @param value {@link #collection} (Details concerning the specimen collection.)
+     */
     public Specimen setCollection(SpecimenCollectionComponent value) { 
       this.collection = value;
       return this;
     }
 
+    /**
+     * @return {@link #treatment} (Details concerning treatment and processing steps for the specimen.)
+     */
     public List<SpecimenTreatmentComponent> getTreatment() { 
       return this.treatment;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #treatment} (Details concerning treatment and processing steps for the specimen.)
+     */
     public SpecimenTreatmentComponent addTreatment() { 
       SpecimenTreatmentComponent t = new SpecimenTreatmentComponent();
       this.treatment.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #container} (The container holding the specimen. May be recursive; ie blood in tube in tray in rack.)
+     */
     public List<SpecimenContainerComponent> getContainer() { 
       return this.container;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #container} (The container holding the specimen. May be recursive; ie blood in tube in tray in rack.)
+     */
     public SpecimenContainerComponent addContainer() { 
       SpecimenContainerComponent t = new SpecimenContainerComponent();
       this.container.add(t);

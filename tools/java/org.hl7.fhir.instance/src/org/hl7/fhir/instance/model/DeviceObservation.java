@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -80,39 +80,63 @@ public class DeviceObservation extends Resource {
       this.device = device;
     }
 
+    /**
+     * @return {@link #code} (A code that identifies what type of device observation this is.)
+     */
     public CodeableConcept getCode() { 
       return this.code;
     }
 
+    /**
+     * @param value {@link #code} (A code that identifies what type of device observation this is.)
+     */
     public DeviceObservation setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
 
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this observation.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this observation.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #issued} (Date the measurements were made.)
+     */
     public Instant getIssued() { 
       return this.issued;
     }
 
+    /**
+     * @param value {@link #issued} (Date the measurements were made.)
+     */
     public DeviceObservation setIssued(Instant value) { 
       this.issued = value;
       return this;
     }
 
+    /**
+     * @return Date the measurements were made.
+     */
     public Calendar getIssuedSimple() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
+    /**
+     * @param value Date the measurements were made.
+     */
     public DeviceObservation setIssuedSimple(Calendar value) { 
         if (this.issued == null)
           this.issued = new Instant();
@@ -120,29 +144,47 @@ public class DeviceObservation extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The subject of the measurements. Usually, but not always, this is a patient. However devices are also used to make measurements on other things as well.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The subject of the measurements. Usually, but not always, this is a patient. However devices are also used to make measurements on other things as well.)
+     */
     public DeviceObservation setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #device} (Device that produced the results.)
+     */
     public ResourceReference getDevice() { 
       return this.device;
     }
 
+    /**
+     * @param value {@link #device} (Device that produced the results.)
+     */
     public DeviceObservation setDevice(ResourceReference value) { 
       this.device = value;
       return this;
     }
 
+    /**
+     * @return {@link #measurement} (The actual measurements that the device produced.)
+     */
     public List<ResourceReference> getMeasurement() { 
       return this.measurement;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #measurement} (The actual measurements that the device produced.)
+     */
     public ResourceReference addMeasurement() { 
       ResourceReference t = new ResourceReference();
       this.measurement.add(t);

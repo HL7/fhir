@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -151,7 +151,7 @@ public class JsonComposer extends JsonComposerBase {
 
   private void composeDecimalCore(String name, Decimal value, boolean inArray) throws Exception {
     if (value != null && value.getValue() != null) {
-        prop(name, toString(value.getValue()));
+        prop(name, value.getValue());
     }    
     else if (inArray) 
       writeNull(name); 
@@ -2479,7 +2479,7 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeCodeableConcept("type", element.getType());
+      composeCodeableConcept("code", element.getCode());
       composeType("value", element.getValue());
       composeBooleanCore("exclude", element.getExclude(), false);
       composeBooleanExtras("exclude", element.getExclude(), false);
@@ -3624,7 +3624,13 @@ public class JsonComposer extends JsonComposerBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      composeResourceReference("provider", element.getProvider());
+      if (element.getCareProvider().size() > 0) {
+        openArray("careProvider");
+        for (ResourceReference e : element.getCareProvider()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composeResourceReference("managingOrganization", element.getManagingOrganization());
       if (element.getLink().size() > 0) {
         openArray("link");
         for (Patient.PatientLinkComponent e : element.getLink()) 
@@ -4076,8 +4082,10 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeUriCore("target", element.getTarget(), false);
-      composeUriExtras("target", element.getTarget(), false);
+      composeUriCore("uri", element.getUri(), false);
+      composeUriExtras("uri", element.getUri(), false);
+      composeStringCore("name", element.getName(), false);
+      composeStringExtras("name", element.getName(), false);
       composeStringCore("map", element.getMap(), false);
       composeStringExtras("map", element.getMap(), false);
       close();
@@ -4643,22 +4651,39 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       prop("resourceType", name);
       composeResourceElements(element);
-      composeIdentifier("identifier", element.getIdentifier());
-      composeStringCore("name", element.getName(), false);
-      composeStringExtras("name", element.getName(), false);
       composeCodeableConcept("type", element.getType());
       composeStringCore("description", element.getDescription(), false);
       composeStringExtras("description", element.getDescription(), false);
       composeCodeableConcept("status", element.getStatus());
-      composePeriod("effectiveTime", element.getEffectiveTime());
-      composeQuantity("quantity", element.getQuantity());
+      composeSubstanceSubstanceInstanceComponent("instance", element.getInstance());
       if (element.getIngredient().size() > 0) {
         openArray("ingredient");
-        for (ResourceReference e : element.getIngredient()) 
-          composeResourceReference(null, e);
+        for (Substance.SubstanceIngredientComponent e : element.getIngredient()) 
+          composeSubstanceSubstanceIngredientComponent(null, e);
         closeArray();
       };
-      composeCodeableConcept("quantityMode", element.getQuantityMode());
+    }
+  }
+
+  private void composeSubstanceSubstanceInstanceComponent(String name, Substance.SubstanceInstanceComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeIdentifier("identifier", element.getIdentifier());
+      composeDateTimeCore("expiry", element.getExpiry(), false);
+      composeDateTimeExtras("expiry", element.getExpiry(), false);
+      composeQuantity("quantity", element.getQuantity());
+      close();
+    }
+  }
+
+  private void composeSubstanceSubstanceIngredientComponent(String name, Substance.SubstanceIngredientComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeRatio("quantity", element.getQuantity());
+      composeResourceReference("substance", element.getSubstance());
+      close();
     }
   }
 

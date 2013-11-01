@@ -99,16 +99,25 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		if (hasXmlLang)
 		  write(" xml:lang?");
 		if (resource)
-	    write(" xmlns=\"http://hl7.org/fhir\"&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+	    write(" xmlns=\"http://hl7.org/fhir\"");
 		else
-	    write(" xmlns=\"http://hl7.org/fhir\"&gt;\r\n");
+	    write(" xmlns=\"http://hl7.org/fhir\"");
+		for (ElementDefn elem : root.getElements()) {
+		  if (elem.isXmlAttribute()) {
+		    generateAttribute(elem);
+		  }
+		}
+		if (resource)
+		  write("&gt; <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
+		else 
+		  write("&gt;\r\n");
     if (rn.equals(root.getName()) && resource) {
       write(" &lt;!-- from <a href=\"resources.html\">Resource</a>: <a href=\"extensibility.html\">extension</a>, <a href=\"extensibility.html#modifierExtension\">modifierExtension</a>, language, <a href=\"narrative.html#Narrative\">text</a>, and <a href=\"references.html#contained\">contained</a> -->\r\n");
     } else {
       write(" &lt;!-- from Element: <a href=\"extensibility.html\">extension</a> -->\r\n");
     }
 		for (ElementDefn elem : root.getElements()) {
-		  if (!elem.typeCode().equals("xml:lang"))
+		  if (!elem.typeCode().equals("xml:lang") && !elem.isXmlAttribute())
 		    generateCoreElem(elem, 1, rn, root.getName(), rn.equals(root.getName()) && resource);
 		}
 
@@ -117,7 +126,16 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		write("&gt;\r\n");
 	}
 
-	public void generate(ProfileDefn profile) throws Exception {
+	private void generateAttribute(ElementDefn elem) throws Exception {
+    // TODO Auto-generated method stub  
+    write(" "+elem.getName()+"=\"");
+
+    write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+"</span>");
+    String t = elem.typeCode();
+    write(" (<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".html#" + t) + "\">" + t + "</a></span>)\"");
+  }
+
+  public void generate(ProfileDefn profile) throws Exception {
 		write("<pre class=\"spec\"> <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
 
 		if (profile.getResources().size() > 0) {
@@ -489,7 +507,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
   private String getIsSummaryFlag(ElementDefn elem) {
     if (elem.isSummaryItem())
-      return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> ยง</span>";
+      return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> ง</span>";
     else 
       return "";
   }

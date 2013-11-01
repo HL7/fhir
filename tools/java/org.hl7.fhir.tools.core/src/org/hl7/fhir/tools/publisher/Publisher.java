@@ -450,7 +450,7 @@ public class Publisher {
 	    conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the full set of functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
 	  } else {
 	    rest.setDocumentationSimple("An empty conformance statement");
-	    conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from");
+	    conf.setDescriptionSimple("This is the base conformance statement for FHIR. It represents a server that provides the none of the functionality defined by FHIR. It is provided to use as a template for system designers to build their own conformance statements from. A conformance profile has to contain something, so this contains a read of a Conformance Statement");
 	  }
 	  if (full) {
 	    genConfOp(conf, rest, SystemRestfulOperation.transaction);
@@ -477,7 +477,13 @@ public class Publisher {
 	        res.getSearchParam().add(makeSearchParam(conf, rn, i));
 	      }
 	    }
+	  } else { 
+      ConformanceRestResourceComponent res = new Conformance.ConformanceRestResourceComponent();
+      rest.getResource().add(res);
+      res.setTypeSimple("Conformance");
+      genConfOp(conf, res, TypeRestfulOperation.read);
 	  }
+	  
     NarrativeGenerator gen = new NarrativeGenerator("");
     gen.generate(conf);    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-"+name+".xml"), conf, true, true);
@@ -1898,6 +1904,7 @@ public class Publisher {
       i++;
     }  
     s.append("</tests>\r\n");
+    TextFile.stringToFile(s.toString(), "c:\\temp\\fragments.xml");
     String err = javaReferencePlatform.checkFragments(page.getFolders().dstDir, s.toString());
     if (err == null)
       throw new Exception("Unable to process outcome of checking fragments");
@@ -2262,10 +2269,13 @@ public class Publisher {
 		String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    XmlComposer comp = new XmlComposer();
     Profile p = pgen.generate(profile, xml, GenerationMode.Resource);
+    XmlComposer comp = new XmlComposer();
     comp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.xml"), p, true, false);
 		Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.xml"));
+    JsonComposer jcomp = new JsonComposer();
+    jcomp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.json"), p, true);
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.json"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.json"));
 
 		TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
 		tgen.generate(profile, page.getDefinitions().getBindings());
@@ -2361,13 +2371,8 @@ public class Publisher {
 		builder = factory.newDocumentBuilder();
 		xdoc = builder.parse(new CSFileInputStream(tmp.getAbsolutePath()));
 		XhtmlGenerator xhtml = new XhtmlGenerator(null);
-		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + filename
-				+ ".profile.xml.html"), "Profile", profile.metadata("name"), 0, true);
-		// // xml to json
-		// JsonGenerator jsongen = new JsonGenerator();
-		// jsongen.generate(new CSFile(page.getFolders().dstDir+n+".xml"), new
-		// File(page.getFolders().dstDir+n+".json"));
-		//
+		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + filename + ".profile.xml.html"), "Profile", profile.metadata("name"), 0, true);
+    jsonToXhtml(filename+".profile", "Profile for "+profile.metadata("description"), resource2Json(p));
 		tmp.delete();
 		return p;
 	}

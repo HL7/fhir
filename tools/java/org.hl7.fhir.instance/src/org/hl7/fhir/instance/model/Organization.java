@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -68,48 +68,78 @@ public class Organization extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #purpose} (Indicates a purpose for which the contact can be reached.)
+         */
         public CodeableConcept getPurpose() { 
           return this.purpose;
         }
 
+        /**
+         * @param value {@link #purpose} (Indicates a purpose for which the contact can be reached.)
+         */
         public OrganizationContactComponent setPurpose(CodeableConcept value) { 
           this.purpose = value;
           return this;
         }
 
+        /**
+         * @return {@link #name} (A name associated with the contact.)
+         */
         public HumanName getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (A name associated with the contact.)
+         */
         public OrganizationContactComponent setName(HumanName value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
+         */
         public List<Contact> getTelecom() { 
           return this.telecom;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
+         */
         public Contact addTelecom() { 
           Contact t = new Contact();
           this.telecom.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #address} (Visiting or postal addresses for the contact.)
+         */
         public Address getAddress() { 
           return this.address;
         }
 
+        /**
+         * @param value {@link #address} (Visiting or postal addresses for the contact.)
+         */
         public OrganizationContactComponent setAddress(Address value) { 
           this.address = value;
           return this;
         }
 
+        /**
+         * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+         */
         public CodeableConcept getGender() { 
           return this.gender;
         }
 
+        /**
+         * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+         */
         public OrganizationContactComponent setGender(CodeableConcept value) { 
           this.gender = value;
           return this;
@@ -182,30 +212,48 @@ public class Organization extends Resource {
       super();
     }
 
+    /**
+     * @return {@link #identifier} (Identifier for the organization that is used to identify the organization across multiple disparate systems.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifier for the organization that is used to identify the organization across multiple disparate systems.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #name} (A name associated with the organization.)
+     */
     public String_ getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (A name associated with the organization.)
+     */
     public Organization setName(String_ value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return A name associated with the organization.
+     */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
+    /**
+     * @param value A name associated with the organization.
+     */
     public Organization setNameSimple(String value) { 
       if (value == null)
         this.name = null;
@@ -217,70 +265,112 @@ public class Organization extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #type} (The kind of organization that this is.)
+     */
     public CodeableConcept getType() { 
       return this.type;
     }
 
+    /**
+     * @param value {@link #type} (The kind of organization that this is.)
+     */
     public Organization setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
 
+    /**
+     * @return {@link #telecom} (A contact detail for the organization.)
+     */
     public List<Contact> getTelecom() { 
       return this.telecom;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #telecom} (A contact detail for the organization.)
+     */
     public Contact addTelecom() { 
       Contact t = new Contact();
       this.telecom.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #address} (An address for the organization.)
+     */
     public List<Address> getAddress() { 
       return this.address;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #address} (An address for the organization.)
+     */
     public Address addAddress() { 
       Address t = new Address();
       this.address.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #partOf} (The organization of which this organization forms a part.)
+     */
     public ResourceReference getPartOf() { 
       return this.partOf;
     }
 
+    /**
+     * @param value {@link #partOf} (The organization of which this organization forms a part.)
+     */
     public Organization setPartOf(ResourceReference value) { 
       this.partOf = value;
       return this;
     }
 
+    /**
+     * @return {@link #contact} (Contact for the organization for a certain purpose.)
+     */
     public List<OrganizationContactComponent> getContact() { 
       return this.contact;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #contact} (Contact for the organization for a certain purpose.)
+     */
     public OrganizationContactComponent addContact() { 
       OrganizationContactComponent t = new OrganizationContactComponent();
       this.contact.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #active} (Whether the organization's record is still in active use.)
+     */
     public Boolean getActive() { 
       return this.active;
     }
 
+    /**
+     * @param value {@link #active} (Whether the organization's record is still in active use.)
+     */
     public Organization setActive(Boolean value) { 
       this.active = value;
       return this;
     }
 
+    /**
+     * @return Whether the organization's record is still in active use.
+     */
     public boolean getActiveSimple() { 
       return this.active == null ? null : this.active.getValue();
     }
 
+    /**
+     * @param value Whether the organization's record is still in active use.
+     */
     public Organization setActiveSimple(boolean value) { 
       if (value == false)
         this.active = null;

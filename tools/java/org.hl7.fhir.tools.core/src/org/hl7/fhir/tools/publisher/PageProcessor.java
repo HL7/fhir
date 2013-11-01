@@ -2541,6 +2541,21 @@ public class PageProcessor implements Logger  {
         s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
         s.append("</tr>");
       }
+    if (resource.getName().equals("Profile")) {
+      for (String pn : definitions.getProfiles().keySet()) {
+        ProfileDefn p = definitions.getProfiles().get(pn);
+
+        
+        if (!started)
+          s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
+        started = true;
+        s.append("<tr><td><a href=\""+pn+".html\">"+Utilities.escapeXml(p.metadata("description"))+"</a></td>");
+        s.append("<td><a href=\""+pn+".xml.html\">XML</a></td>");
+        s.append("<td><a href=\""+pn+".json.html\">JSON</a></td>");
+        s.append("</tr>");
+      }
+    }
+    
   //  }
     if (started)
       s.append("</table>\r\n");

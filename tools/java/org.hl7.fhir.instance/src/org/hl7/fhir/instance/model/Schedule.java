@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -268,19 +268,31 @@ public class Schedule extends Type {
         this.units = units;
       }
 
+        /**
+         * @return {@link #frequency} (Indicates how often the event should occur.)
+         */
         public Integer getFrequency() { 
           return this.frequency;
         }
 
+        /**
+         * @param value {@link #frequency} (Indicates how often the event should occur.)
+         */
         public ScheduleRepeatComponent setFrequency(Integer value) { 
           this.frequency = value;
           return this;
         }
 
+        /**
+         * @return Indicates how often the event should occur.
+         */
         public int getFrequencySimple() { 
           return this.frequency == null ? null : this.frequency.getValue();
         }
 
+        /**
+         * @param value Indicates how often the event should occur.
+         */
         public ScheduleRepeatComponent setFrequencySimple(int value) { 
           if (value == -1)
             this.frequency = null;
@@ -292,19 +304,31 @@ public class Schedule extends Type {
           return this;
         }
 
+        /**
+         * @return {@link #when} (Identifies the occurrence of daily life that determine timing.)
+         */
         public Enumeration<EventTiming> getWhen() { 
           return this.when;
         }
 
+        /**
+         * @param value {@link #when} (Identifies the occurrence of daily life that determine timing.)
+         */
         public ScheduleRepeatComponent setWhen(Enumeration<EventTiming> value) { 
           this.when = value;
           return this;
         }
 
+        /**
+         * @return Identifies the occurrence of daily life that determine timing.
+         */
         public EventTiming getWhenSimple() { 
           return this.when == null ? null : this.when.getValue();
         }
 
+        /**
+         * @param value Identifies the occurrence of daily life that determine timing.
+         */
         public ScheduleRepeatComponent setWhenSimple(EventTiming value) { 
           if (value == null)
             this.when = null;
@@ -316,19 +340,31 @@ public class Schedule extends Type {
           return this;
         }
 
+        /**
+         * @return {@link #duration} (How long each repetition should last.)
+         */
         public Decimal getDuration() { 
           return this.duration;
         }
 
+        /**
+         * @param value {@link #duration} (How long each repetition should last.)
+         */
         public ScheduleRepeatComponent setDuration(Decimal value) { 
           this.duration = value;
           return this;
         }
 
+        /**
+         * @return How long each repetition should last.
+         */
         public BigDecimal getDurationSimple() { 
           return this.duration == null ? null : this.duration.getValue();
         }
 
+        /**
+         * @param value How long each repetition should last.
+         */
         public ScheduleRepeatComponent setDurationSimple(BigDecimal value) { 
             if (this.duration == null)
               this.duration = new Decimal();
@@ -336,19 +372,31 @@ public class Schedule extends Type {
           return this;
         }
 
+        /**
+         * @return {@link #units} (The units of time for the duration.)
+         */
         public Enumeration<UnitsOfTime> getUnits() { 
           return this.units;
         }
 
+        /**
+         * @param value {@link #units} (The units of time for the duration.)
+         */
         public ScheduleRepeatComponent setUnits(Enumeration<UnitsOfTime> value) { 
           this.units = value;
           return this;
         }
 
+        /**
+         * @return The units of time for the duration.
+         */
         public UnitsOfTime getUnitsSimple() { 
           return this.units == null ? null : this.units.getValue();
         }
 
+        /**
+         * @param value The units of time for the duration.
+         */
         public ScheduleRepeatComponent setUnitsSimple(UnitsOfTime value) { 
             if (this.units == null)
               this.units = new Enumeration<UnitsOfTime>();
@@ -356,19 +404,31 @@ public class Schedule extends Type {
           return this;
         }
 
+        /**
+         * @return {@link #count} (A total count of the desired number of repetitions.)
+         */
         public Integer getCount() { 
           return this.count;
         }
 
+        /**
+         * @param value {@link #count} (A total count of the desired number of repetitions.)
+         */
         public ScheduleRepeatComponent setCount(Integer value) { 
           this.count = value;
           return this;
         }
 
+        /**
+         * @return A total count of the desired number of repetitions.
+         */
         public int getCountSimple() { 
           return this.count == null ? null : this.count.getValue();
         }
 
+        /**
+         * @param value A total count of the desired number of repetitions.
+         */
         public ScheduleRepeatComponent setCountSimple(int value) { 
           if (value == -1)
             this.count = null;
@@ -380,19 +440,31 @@ public class Schedule extends Type {
           return this;
         }
 
+        /**
+         * @return {@link #end} (When to stop repeats.)
+         */
         public DateTime getEnd() { 
           return this.end;
         }
 
+        /**
+         * @param value {@link #end} (When to stop repeats.)
+         */
         public ScheduleRepeatComponent setEnd(DateTime value) { 
           this.end = value;
           return this;
         }
 
+        /**
+         * @return When to stop repeats.
+         */
         public String getEndSimple() { 
           return this.end == null ? null : this.end.getValue();
         }
 
+        /**
+         * @param value When to stop repeats.
+         */
         public ScheduleRepeatComponent setEndSimple(String value) { 
           if (value == null)
             this.end = null;
@@ -441,21 +513,33 @@ public class Schedule extends Type {
       super();
     }
 
+    /**
+     * @return {@link #event} (Identifies specific time periods when the event should occur.)
+     */
     public List<Period> getEvent() { 
       return this.event;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #event} (Identifies specific time periods when the event should occur.)
+     */
     public Period addEvent() { 
       Period t = new Period();
       this.event.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #repeat} (Identifies a repeating pattern to the intended time periods.)
+     */
     public ScheduleRepeatComponent getRepeat() { 
       return this.repeat;
     }
 
+    /**
+     * @param value {@link #repeat} (Identifies a repeating pattern to the intended time periods.)
+     */
     public Schedule setRepeat(ScheduleRepeatComponent value) { 
       this.repeat = value;
       return this;

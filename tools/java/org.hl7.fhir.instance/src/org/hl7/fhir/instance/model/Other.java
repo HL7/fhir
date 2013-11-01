@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -67,46 +67,76 @@ public class Other extends Resource {
       this.code = code;
     }
 
+    /**
+     * @return {@link #code} (Identifies the 'type' of resource - equivalent to the resource name for other resources.)
+     */
     public CodeableConcept getCode() { 
       return this.code;
     }
 
+    /**
+     * @param value {@link #code} (Identifies the 'type' of resource - equivalent to the resource name for other resources.)
+     */
     public Other setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
 
+    /**
+     * @return {@link #subject} (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
+     */
     public Other setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #author} (Indicates who was responsible for creating the resource instance.)
+     */
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
+    /**
+     * @param value {@link #author} (Indicates who was responsible for creating the resource instance.)
+     */
     public Other setAuthor(ResourceReference value) { 
       this.author = value;
       return this;
     }
 
+    /**
+     * @return {@link #created} (Identifies when the resource was first created.)
+     */
     public Date getCreated() { 
       return this.created;
     }
 
+    /**
+     * @param value {@link #created} (Identifies when the resource was first created.)
+     */
     public Other setCreated(Date value) { 
       this.created = value;
       return this;
     }
 
+    /**
+     * @return Identifies when the resource was first created.
+     */
     public String getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
+    /**
+     * @param value Identifies when the resource was first created.
+     */
     public Other setCreatedSimple(String value) { 
       if (value == null)
         this.created = null;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -53,19 +53,31 @@ public class Order extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #code} (Code specifies when request should be done. The code may simply be a priority code.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (Code specifies when request should be done. The code may simply be a priority code.)
+         */
         public OrderWhenComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #schedule} (A formal schedule.)
+         */
         public Schedule getSchedule() { 
           return this.schedule;
         }
 
+        /**
+         * @param value {@link #schedule} (A formal schedule.)
+         */
         public OrderWhenComponent setSchedule(Schedule value) { 
           this.schedule = value;
           return this;
@@ -130,19 +142,31 @@ public class Order extends Resource {
       super();
     }
 
+    /**
+     * @return {@link #date} (When the order was made.)
+     */
     public DateTime getDate() { 
       return this.date;
     }
 
+    /**
+     * @param value {@link #date} (When the order was made.)
+     */
     public Order setDate(DateTime value) { 
       this.date = value;
       return this;
     }
 
+    /**
+     * @return When the order was made.
+     */
     public String getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
+    /**
+     * @param value When the order was made.
+     */
     public Order setDateSimple(String value) { 
       if (value == null)
         this.date = null;
@@ -154,46 +178,76 @@ public class Order extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #subject} (Patient this order is about.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (Patient this order is about.)
+     */
     public Order setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #source} (Who initiated the order.)
+     */
     public ResourceReference getSource() { 
       return this.source;
     }
 
+    /**
+     * @param value {@link #source} (Who initiated the order.)
+     */
     public Order setSource(ResourceReference value) { 
       this.source = value;
       return this;
     }
 
+    /**
+     * @return {@link #target} (Who is intended to fulfill the order.)
+     */
     public ResourceReference getTarget() { 
       return this.target;
     }
 
+    /**
+     * @param value {@link #target} (Who is intended to fulfill the order.)
+     */
     public Order setTarget(ResourceReference value) { 
       this.target = value;
       return this;
     }
 
+    /**
+     * @return {@link #reason} (Text - why the order was made.)
+     */
     public String_ getReason() { 
       return this.reason;
     }
 
+    /**
+     * @param value {@link #reason} (Text - why the order was made.)
+     */
     public Order setReason(String_ value) { 
       this.reason = value;
       return this;
     }
 
+    /**
+     * @return Text - why the order was made.
+     */
     public String getReasonSimple() { 
       return this.reason == null ? null : this.reason.getValue();
     }
 
+    /**
+     * @param value Text - why the order was made.
+     */
     public Order setReasonSimple(String value) { 
       if (value == null)
         this.reason = null;
@@ -205,29 +259,47 @@ public class Order extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #authority} (If required by policy.)
+     */
     public ResourceReference getAuthority() { 
       return this.authority;
     }
 
+    /**
+     * @param value {@link #authority} (If required by policy.)
+     */
     public Order setAuthority(ResourceReference value) { 
       this.authority = value;
       return this;
     }
 
+    /**
+     * @return {@link #when} (When order should be fulfilled.)
+     */
     public OrderWhenComponent getWhen() { 
       return this.when;
     }
 
+    /**
+     * @param value {@link #when} (When order should be fulfilled.)
+     */
     public Order setWhen(OrderWhenComponent value) { 
       this.when = value;
       return this;
     }
 
+    /**
+     * @return {@link #detail} (What action is being ordered.)
+     */
     public List<ResourceReference> getDetail() { 
       return this.detail;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #detail} (What action is being ordered.)
+     */
     public ResourceReference addDetail() { 
       ResourceReference t = new ResourceReference();
       this.detail.add(t);

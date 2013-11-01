@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -128,37 +128,61 @@ public class Provenance extends Resource {
         this.reference = reference;
       }
 
+        /**
+         * @return {@link #role} (The role that the participant played.)
+         */
         public Coding getRole() { 
           return this.role;
         }
 
+        /**
+         * @param value {@link #role} (The role that the participant played.)
+         */
         public ProvenanceAgentComponent setRole(Coding value) { 
           this.role = value;
           return this;
         }
 
+        /**
+         * @return {@link #type} (The type of the participant.)
+         */
         public Coding getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (The type of the participant.)
+         */
         public ProvenanceAgentComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.)
+         */
         public Uri getReference() { 
           return this.reference;
         }
 
+        /**
+         * @param value {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.)
+         */
         public ProvenanceAgentComponent setReference(Uri value) { 
           this.reference = value;
           return this;
         }
 
+        /**
+         * @return Identity of participant. May be a logical or physical uri and maybe absolute or relative.
+         */
         public String getReferenceSimple() { 
           return this.reference == null ? null : this.reference.getValue();
         }
 
+        /**
+         * @param value Identity of participant. May be a logical or physical uri and maybe absolute or relative.
+         */
         public ProvenanceAgentComponent setReferenceSimple(String value) { 
             if (this.reference == null)
               this.reference = new Uri();
@@ -166,19 +190,31 @@ public class Provenance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #display} (Human-readable description of the participant.)
+         */
         public String_ getDisplay() { 
           return this.display;
         }
 
+        /**
+         * @param value {@link #display} (Human-readable description of the participant.)
+         */
         public ProvenanceAgentComponent setDisplay(String_ value) { 
           this.display = value;
           return this;
         }
 
+        /**
+         * @return Human-readable description of the participant.
+         */
         public String getDisplaySimple() { 
           return this.display == null ? null : this.display.getValue();
         }
 
+        /**
+         * @param value Human-readable description of the participant.
+         */
         public ProvenanceAgentComponent setDisplaySimple(String value) { 
           if (value == null)
             this.display = null;
@@ -246,19 +282,31 @@ public class Provenance extends Resource {
         this.reference = reference;
       }
 
+        /**
+         * @return {@link #role} (How the entity was used during the activity.)
+         */
         public Enumeration<ProvenanceEntityRole> getRole() { 
           return this.role;
         }
 
+        /**
+         * @param value {@link #role} (How the entity was used during the activity.)
+         */
         public ProvenanceEntityComponent setRole(Enumeration<ProvenanceEntityRole> value) { 
           this.role = value;
           return this;
         }
 
+        /**
+         * @return How the entity was used during the activity.
+         */
         public ProvenanceEntityRole getRoleSimple() { 
           return this.role == null ? null : this.role.getValue();
         }
 
+        /**
+         * @param value How the entity was used during the activity.
+         */
         public ProvenanceEntityComponent setRoleSimple(ProvenanceEntityRole value) { 
             if (this.role == null)
               this.role = new Enumeration<ProvenanceEntityRole>();
@@ -266,28 +314,46 @@ public class Provenance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #type} (The type of the entity. If the entity is a resource, then this is a resource type.)
+         */
         public Coding getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (The type of the entity. If the entity is a resource, then this is a resource type.)
+         */
         public ProvenanceEntityComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.)
+         */
         public Uri getReference() { 
           return this.reference;
         }
 
+        /**
+         * @param value {@link #reference} (Identity of participant. May be a logical or physical uri and maybe absolute or relative.)
+         */
         public ProvenanceEntityComponent setReference(Uri value) { 
           this.reference = value;
           return this;
         }
 
+        /**
+         * @return Identity of participant. May be a logical or physical uri and maybe absolute or relative.
+         */
         public String getReferenceSimple() { 
           return this.reference == null ? null : this.reference.getValue();
         }
 
+        /**
+         * @param value Identity of participant. May be a logical or physical uri and maybe absolute or relative.
+         */
         public ProvenanceEntityComponent setReferenceSimple(String value) { 
             if (this.reference == null)
               this.reference = new Uri();
@@ -295,19 +361,31 @@ public class Provenance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #display} (Human-readable description of the entity.)
+         */
         public String_ getDisplay() { 
           return this.display;
         }
 
+        /**
+         * @param value {@link #display} (Human-readable description of the entity.)
+         */
         public ProvenanceEntityComponent setDisplay(String_ value) { 
           this.display = value;
           return this;
         }
 
+        /**
+         * @return Human-readable description of the entity.
+         */
         public String getDisplaySimple() { 
           return this.display == null ? null : this.display.getValue();
         }
 
+        /**
+         * @param value Human-readable description of the entity.
+         */
         public ProvenanceEntityComponent setDisplaySimple(String value) { 
           if (value == null)
             this.display = null;
@@ -319,10 +397,16 @@ public class Provenance extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #agent} (The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as a shorthand for saying that the agent was responsible for the activity which generated the entity.)
+         */
         public ProvenanceAgentComponent getAgent() { 
           return this.agent;
         }
 
+        /**
+         * @param value {@link #agent} (The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as a shorthand for saying that the agent was responsible for the activity which generated the entity.)
+         */
         public ProvenanceEntityComponent setAgent(ProvenanceAgentComponent value) { 
           this.agent = value;
           return this;
@@ -403,39 +487,63 @@ public class Provenance extends Resource {
       this.recorded = recorded;
     }
 
+    /**
+     * @return {@link #target} (The resource(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
+     */
     public List<ResourceReference> getTarget() { 
       return this.target;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #target} (The resource(s) that were generated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.)
+     */
     public ResourceReference addTarget() { 
       ResourceReference t = new ResourceReference();
       this.target.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #period} (The period during which the activity occurred.)
+     */
     public Period getPeriod() { 
       return this.period;
     }
 
+    /**
+     * @param value {@link #period} (The period during which the activity occurred.)
+     */
     public Provenance setPeriod(Period value) { 
       this.period = value;
       return this;
     }
 
+    /**
+     * @return {@link #recorded} (The instant of time at which the activity was recorded.)
+     */
     public Instant getRecorded() { 
       return this.recorded;
     }
 
+    /**
+     * @param value {@link #recorded} (The instant of time at which the activity was recorded.)
+     */
     public Provenance setRecorded(Instant value) { 
       this.recorded = value;
       return this;
     }
 
+    /**
+     * @return The instant of time at which the activity was recorded.
+     */
     public Calendar getRecordedSimple() { 
       return this.recorded == null ? null : this.recorded.getValue();
     }
 
+    /**
+     * @param value The instant of time at which the activity was recorded.
+     */
     public Provenance setRecordedSimple(Calendar value) { 
         if (this.recorded == null)
           this.recorded = new Instant();
@@ -443,35 +551,56 @@ public class Provenance extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #reason} (The reason that the activity was taking place.)
+     */
     public CodeableConcept getReason() { 
       return this.reason;
     }
 
+    /**
+     * @param value {@link #reason} (The reason that the activity was taking place.)
+     */
     public Provenance setReason(CodeableConcept value) { 
       this.reason = value;
       return this;
     }
 
+    /**
+     * @return {@link #location} (Where the activity occurred, if relevant.)
+     */
     public ResourceReference getLocation() { 
       return this.location;
     }
 
+    /**
+     * @param value {@link #location} (Where the activity occurred, if relevant.)
+     */
     public Provenance setLocation(ResourceReference value) { 
       this.location = value;
       return this;
     }
 
+    /**
+     * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
+     */
     public List<Uri> getPolicy() { 
       return this.policy;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
+     */
     public Uri addPolicy() { 
       Uri t = new Uri();
       this.policy.add(t);
       return t;
     }
 
+    /**
+     * @param value {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
+     */
     public Uri addPolicySimple(String value) { 
       Uri t = new Uri();
       t.setValue(value);
@@ -479,41 +608,65 @@ public class Provenance extends Resource {
       return t;
     }
 
+    /**
+     * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.)
+     */
     public List<ProvenanceAgentComponent> getAgent() { 
       return this.agent;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.)
+     */
     public ProvenanceAgentComponent addAgent() { 
       ProvenanceAgentComponent t = new ProvenanceAgentComponent();
       this.agent.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #entity} (An entity used in this activity.)
+     */
     public List<ProvenanceEntityComponent> getEntity() { 
       return this.entity;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #entity} (An entity used in this activity.)
+     */
     public ProvenanceEntityComponent addEntity() { 
       ProvenanceEntityComponent t = new ProvenanceEntityComponent();
       this.entity.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #signature} (A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.)
+     */
     public String_ getSignature() { 
       return this.signature;
     }
 
+    /**
+     * @param value {@link #signature} (A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.)
+     */
     public Provenance setSignature(String_ value) { 
       this.signature = value;
       return this;
     }
 
+    /**
+     * @return A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.
+     */
     public String getSignatureSimple() { 
       return this.signature == null ? null : this.signature.getValue();
     }
 
+    /**
+     * @param value A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.
+     */
     public Provenance setSignatureSimple(String value) { 
       if (value == null)
         this.signature = null;

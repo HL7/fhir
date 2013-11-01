@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -53,22 +53,34 @@ public class Immunization extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #reason} (Reasons why a vaccine was administered.)
+         */
         public List<CodeableConcept> getReason() { 
           return this.reason;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #reason} (Reasons why a vaccine was administered.)
+         */
         public CodeableConcept addReason() { 
           CodeableConcept t = new CodeableConcept();
           this.reason.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #refusalReason} (Refusal or exemption reasons.)
+         */
         public List<CodeableConcept> getRefusalReason() { 
           return this.refusalReason;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #refusalReason} (Refusal or exemption reasons.)
+         */
         public CodeableConcept addRefusalReason() { 
           CodeableConcept t = new CodeableConcept();
           this.refusalReason.add(t);
@@ -114,19 +126,31 @@ public class Immunization extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #date} (Date of reaction to the immunization.)
+         */
         public DateTime getDate() { 
           return this.date;
         }
 
+        /**
+         * @param value {@link #date} (Date of reaction to the immunization.)
+         */
         public ImmunizationReactionComponent setDate(DateTime value) { 
           this.date = value;
           return this;
         }
 
+        /**
+         * @return Date of reaction to the immunization.
+         */
         public String getDateSimple() { 
           return this.date == null ? null : this.date.getValue();
         }
 
+        /**
+         * @param value Date of reaction to the immunization.
+         */
         public ImmunizationReactionComponent setDateSimple(String value) { 
           if (value == null)
             this.date = null;
@@ -138,28 +162,46 @@ public class Immunization extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #detail} (Details of the reaction.)
+         */
         public ResourceReference getDetail() { 
           return this.detail;
         }
 
+        /**
+         * @param value {@link #detail} (Details of the reaction.)
+         */
         public ImmunizationReactionComponent setDetail(ResourceReference value) { 
           this.detail = value;
           return this;
         }
 
+        /**
+         * @return {@link #reported} (Self-reported indicator.)
+         */
         public Boolean getReported() { 
           return this.reported;
         }
 
+        /**
+         * @param value {@link #reported} (Self-reported indicator.)
+         */
         public ImmunizationReactionComponent setReported(Boolean value) { 
           this.reported = value;
           return this;
         }
 
+        /**
+         * @return Self-reported indicator.
+         */
         public boolean getReportedSimple() { 
           return this.reported == null ? null : this.reported.getValue();
         }
 
+        /**
+         * @param value Self-reported indicator.
+         */
         public ImmunizationReactionComponent setReportedSimple(boolean value) { 
           if (value == false)
             this.reported = null;
@@ -239,19 +281,31 @@ public class Immunization extends Resource {
         this.doseStatus = doseStatus;
       }
 
+        /**
+         * @return {@link #doseSequence} (Nominal position in a series.)
+         */
         public Integer getDoseSequence() { 
           return this.doseSequence;
         }
 
+        /**
+         * @param value {@link #doseSequence} (Nominal position in a series.)
+         */
         public ImmunizationVaccinationProtocolComponent setDoseSequence(Integer value) { 
           this.doseSequence = value;
           return this;
         }
 
+        /**
+         * @return Nominal position in a series.
+         */
         public int getDoseSequenceSimple() { 
           return this.doseSequence == null ? null : this.doseSequence.getValue();
         }
 
+        /**
+         * @param value Nominal position in a series.
+         */
         public ImmunizationVaccinationProtocolComponent setDoseSequenceSimple(int value) { 
             if (this.doseSequence == null)
               this.doseSequence = new Integer();
@@ -259,19 +313,31 @@ public class Immunization extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #description} (Contains the description about the protocol under which the vaccine was administered.)
+         */
         public String_ getDescription() { 
           return this.description;
         }
 
+        /**
+         * @param value {@link #description} (Contains the description about the protocol under which the vaccine was administered.)
+         */
         public ImmunizationVaccinationProtocolComponent setDescription(String_ value) { 
           this.description = value;
           return this;
         }
 
+        /**
+         * @return Contains the description about the protocol under which the vaccine was administered.
+         */
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
+        /**
+         * @param value Contains the description about the protocol under which the vaccine was administered.
+         */
         public ImmunizationVaccinationProtocolComponent setDescriptionSimple(String value) { 
           if (value == null)
             this.description = null;
@@ -283,28 +349,46 @@ public class Immunization extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
         public ResourceReference getAuthority() { 
           return this.authority;
         }
 
+        /**
+         * @param value {@link #authority} (Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
         public ImmunizationVaccinationProtocolComponent setAuthority(ResourceReference value) { 
           this.authority = value;
           return this;
         }
 
+        /**
+         * @return {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.)
+         */
         public String_ getSeries() { 
           return this.series;
         }
 
+        /**
+         * @param value {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.)
+         */
         public ImmunizationVaccinationProtocolComponent setSeries(String_ value) { 
           this.series = value;
           return this;
         }
 
+        /**
+         * @return One possible path to achieve presumed immunity against a disease - within the context of an authority.
+         */
         public String getSeriesSimple() { 
           return this.series == null ? null : this.series.getValue();
         }
 
+        /**
+         * @param value One possible path to achieve presumed immunity against a disease - within the context of an authority.
+         */
         public ImmunizationVaccinationProtocolComponent setSeriesSimple(String value) { 
           if (value == null)
             this.series = null;
@@ -316,19 +400,31 @@ public class Immunization extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #seriesDoses} (The recommended number of doses to achieve immunity.)
+         */
         public Integer getSeriesDoses() { 
           return this.seriesDoses;
         }
 
+        /**
+         * @param value {@link #seriesDoses} (The recommended number of doses to achieve immunity.)
+         */
         public ImmunizationVaccinationProtocolComponent setSeriesDoses(Integer value) { 
           this.seriesDoses = value;
           return this;
         }
 
+        /**
+         * @return The recommended number of doses to achieve immunity.
+         */
         public int getSeriesDosesSimple() { 
           return this.seriesDoses == null ? null : this.seriesDoses.getValue();
         }
 
+        /**
+         * @param value The recommended number of doses to achieve immunity.
+         */
         public ImmunizationVaccinationProtocolComponent setSeriesDosesSimple(int value) { 
           if (value == -1)
             this.seriesDoses = null;
@@ -340,28 +436,46 @@ public class Immunization extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #doseTarget} (The targeted disease.)
+         */
         public CodeableConcept getDoseTarget() { 
           return this.doseTarget;
         }
 
+        /**
+         * @param value {@link #doseTarget} (The targeted disease.)
+         */
         public ImmunizationVaccinationProtocolComponent setDoseTarget(CodeableConcept value) { 
           this.doseTarget = value;
           return this;
         }
 
+        /**
+         * @return {@link #doseStatus} (Indicates if the immunization event should "count" against  the protocol.)
+         */
         public CodeableConcept getDoseStatus() { 
           return this.doseStatus;
         }
 
+        /**
+         * @param value {@link #doseStatus} (Indicates if the immunization event should "count" against  the protocol.)
+         */
         public ImmunizationVaccinationProtocolComponent setDoseStatus(CodeableConcept value) { 
           this.doseStatus = value;
           return this;
         }
 
+        /**
+         * @return {@link #doseStatusReason} (Provides an explanation as to why a immunization event should or should not count against the protocol.)
+         */
         public CodeableConcept getDoseStatusReason() { 
           return this.doseStatusReason;
         }
 
+        /**
+         * @param value {@link #doseStatusReason} (Provides an explanation as to why a immunization event should or should not count against the protocol.)
+         */
         public ImmunizationVaccinationProtocolComponent setDoseStatusReason(CodeableConcept value) { 
           this.doseStatusReason = value;
           return this;
@@ -492,19 +606,31 @@ public class Immunization extends Resource {
       this.reported = reported;
     }
 
+    /**
+     * @return {@link #date} (Date vaccine administered or was to be administered.)
+     */
     public DateTime getDate() { 
       return this.date;
     }
 
+    /**
+     * @param value {@link #date} (Date vaccine administered or was to be administered.)
+     */
     public Immunization setDate(DateTime value) { 
       this.date = value;
       return this;
     }
 
+    /**
+     * @return Date vaccine administered or was to be administered.
+     */
     public String getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
+    /**
+     * @param value Date vaccine administered or was to be administered.
+     */
     public Immunization setDateSimple(String value) { 
         if (this.date == null)
           this.date = new DateTime();
@@ -512,37 +638,61 @@ public class Immunization extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #vaccineType} (Vaccine that was administered or was to be administered.)
+     */
     public CodeableConcept getVaccineType() { 
       return this.vaccineType;
     }
 
+    /**
+     * @param value {@link #vaccineType} (Vaccine that was administered or was to be administered.)
+     */
     public Immunization setVaccineType(CodeableConcept value) { 
       this.vaccineType = value;
       return this;
     }
 
+    /**
+     * @return {@link #subject} (The patient to whom the vaccine was to be administered.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The patient to whom the vaccine was to be administered.)
+     */
     public Immunization setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #refusedIndicator} (Indicates if the vaccination was refused.)
+     */
     public Boolean getRefusedIndicator() { 
       return this.refusedIndicator;
     }
 
+    /**
+     * @param value {@link #refusedIndicator} (Indicates if the vaccination was refused.)
+     */
     public Immunization setRefusedIndicator(Boolean value) { 
       this.refusedIndicator = value;
       return this;
     }
 
+    /**
+     * @return Indicates if the vaccination was refused.
+     */
     public boolean getRefusedIndicatorSimple() { 
       return this.refusedIndicator == null ? null : this.refusedIndicator.getValue();
     }
 
+    /**
+     * @param value Indicates if the vaccination was refused.
+     */
     public Immunization setRefusedIndicatorSimple(boolean value) { 
         if (this.refusedIndicator == null)
           this.refusedIndicator = new Boolean();
@@ -550,19 +700,31 @@ public class Immunization extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #reported} (True if this administration was reported rather than directly administered.)
+     */
     public Boolean getReported() { 
       return this.reported;
     }
 
+    /**
+     * @param value {@link #reported} (True if this administration was reported rather than directly administered.)
+     */
     public Immunization setReported(Boolean value) { 
       this.reported = value;
       return this;
     }
 
+    /**
+     * @return True if this administration was reported rather than directly administered.
+     */
     public boolean getReportedSimple() { 
       return this.reported == null ? null : this.reported.getValue();
     }
 
+    /**
+     * @param value True if this administration was reported rather than directly administered.
+     */
     public Immunization setReportedSimple(boolean value) { 
         if (this.reported == null)
           this.reported = new Boolean();
@@ -570,55 +732,91 @@ public class Immunization extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #performer} (Clinician who administered the vaccine.)
+     */
     public ResourceReference getPerformer() { 
       return this.performer;
     }
 
+    /**
+     * @param value {@link #performer} (Clinician who administered the vaccine.)
+     */
     public Immunization setPerformer(ResourceReference value) { 
       this.performer = value;
       return this;
     }
 
+    /**
+     * @return {@link #requester} (Clinician who ordered the vaccination.)
+     */
     public ResourceReference getRequester() { 
       return this.requester;
     }
 
+    /**
+     * @param value {@link #requester} (Clinician who ordered the vaccination.)
+     */
     public Immunization setRequester(ResourceReference value) { 
       this.requester = value;
       return this;
     }
 
+    /**
+     * @return {@link #manufacturer} (Name of vaccine manufacturer.)
+     */
     public ResourceReference getManufacturer() { 
       return this.manufacturer;
     }
 
+    /**
+     * @param value {@link #manufacturer} (Name of vaccine manufacturer.)
+     */
     public Immunization setManufacturer(ResourceReference value) { 
       this.manufacturer = value;
       return this;
     }
 
+    /**
+     * @return {@link #location} (The service delivery location where the vaccine administration occurred.)
+     */
     public ResourceReference getLocation() { 
       return this.location;
     }
 
+    /**
+     * @param value {@link #location} (The service delivery location where the vaccine administration occurred.)
+     */
     public Immunization setLocation(ResourceReference value) { 
       this.location = value;
       return this;
     }
 
+    /**
+     * @return {@link #lotNumber} (Lot number of the  vaccine product.)
+     */
     public String_ getLotNumber() { 
       return this.lotNumber;
     }
 
+    /**
+     * @param value {@link #lotNumber} (Lot number of the  vaccine product.)
+     */
     public Immunization setLotNumber(String_ value) { 
       this.lotNumber = value;
       return this;
     }
 
+    /**
+     * @return Lot number of the  vaccine product.
+     */
     public String getLotNumberSimple() { 
       return this.lotNumber == null ? null : this.lotNumber.getValue();
     }
 
+    /**
+     * @param value Lot number of the  vaccine product.
+     */
     public Immunization setLotNumberSimple(String value) { 
       if (value == null)
         this.lotNumber = null;
@@ -630,19 +828,31 @@ public class Immunization extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #expirationDate} (Date vaccine batch expires.)
+     */
     public Date getExpirationDate() { 
       return this.expirationDate;
     }
 
+    /**
+     * @param value {@link #expirationDate} (Date vaccine batch expires.)
+     */
     public Immunization setExpirationDate(Date value) { 
       this.expirationDate = value;
       return this;
     }
 
+    /**
+     * @return Date vaccine batch expires.
+     */
     public String getExpirationDateSimple() { 
       return this.expirationDate == null ? null : this.expirationDate.getValue();
     }
 
+    /**
+     * @param value Date vaccine batch expires.
+     */
     public Immunization setExpirationDateSimple(String value) { 
       if (value == null)
         this.expirationDate = null;
@@ -654,57 +864,93 @@ public class Immunization extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #site} (Body site where vaccine was administered.)
+     */
     public CodeableConcept getSite() { 
       return this.site;
     }
 
+    /**
+     * @param value {@link #site} (Body site where vaccine was administered.)
+     */
     public Immunization setSite(CodeableConcept value) { 
       this.site = value;
       return this;
     }
 
+    /**
+     * @return {@link #route} (The path by which the vaccine product is taken into the body.)
+     */
     public CodeableConcept getRoute() { 
       return this.route;
     }
 
+    /**
+     * @param value {@link #route} (The path by which the vaccine product is taken into the body.)
+     */
     public Immunization setRoute(CodeableConcept value) { 
       this.route = value;
       return this;
     }
 
+    /**
+     * @return {@link #doseQuantity} (The quantity of vaccine product that was administered.)
+     */
     public Quantity getDoseQuantity() { 
       return this.doseQuantity;
     }
 
+    /**
+     * @param value {@link #doseQuantity} (The quantity of vaccine product that was administered.)
+     */
     public Immunization setDoseQuantity(Quantity value) { 
       this.doseQuantity = value;
       return this;
     }
 
+    /**
+     * @return {@link #explanation} (Reasons why a vaccine was administered or refused.)
+     */
     public ImmunizationExplanationComponent getExplanation() { 
       return this.explanation;
     }
 
+    /**
+     * @param value {@link #explanation} (Reasons why a vaccine was administered or refused.)
+     */
     public Immunization setExplanation(ImmunizationExplanationComponent value) { 
       this.explanation = value;
       return this;
     }
 
+    /**
+     * @return {@link #reaction} (Categorical data indicating that an adverse event is associated in time to an immunization.)
+     */
     public List<ImmunizationReactionComponent> getReaction() { 
       return this.reaction;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #reaction} (Categorical data indicating that an adverse event is associated in time to an immunization.)
+     */
     public ImmunizationReactionComponent addReaction() { 
       ImmunizationReactionComponent t = new ImmunizationReactionComponent();
       this.reaction.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #vaccinationProtocol} (Contains information about the protocol under which the vaccine was administered.)
+     */
     public ImmunizationVaccinationProtocolComponent getVaccinationProtocol() { 
       return this.vaccinationProtocol;
     }
 
+    /**
+     * @param value {@link #vaccinationProtocol} (Contains information about the protocol under which the vaccine was administered.)
+     */
     public Immunization setVaccinationProtocol(ImmunizationVaccinationProtocolComponent value) { 
       this.vaccinationProtocol = value;
       return this;

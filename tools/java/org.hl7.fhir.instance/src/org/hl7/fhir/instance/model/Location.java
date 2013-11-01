@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -65,19 +65,31 @@ public class Location extends Resource {
         this.latitude = latitude;
       }
 
+        /**
+         * @return {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).)
+         */
         public Decimal getLongitude() { 
           return this.longitude;
         }
 
+        /**
+         * @param value {@link #longitude} (Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).)
+         */
         public LocationPositionComponent setLongitude(Decimal value) { 
           this.longitude = value;
           return this;
         }
 
+        /**
+         * @return Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
+         */
         public BigDecimal getLongitudeSimple() { 
           return this.longitude == null ? null : this.longitude.getValue();
         }
 
+        /**
+         * @param value Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
+         */
         public LocationPositionComponent setLongitudeSimple(BigDecimal value) { 
             if (this.longitude == null)
               this.longitude = new Decimal();
@@ -85,19 +97,31 @@ public class Location extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).)
+         */
         public Decimal getLatitude() { 
           return this.latitude;
         }
 
+        /**
+         * @param value {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).)
+         */
         public LocationPositionComponent setLatitude(Decimal value) { 
           this.latitude = value;
           return this;
         }
 
+        /**
+         * @return Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
+         */
         public BigDecimal getLatitudeSimple() { 
           return this.latitude == null ? null : this.latitude.getValue();
         }
 
+        /**
+         * @param value Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
+         */
         public LocationPositionComponent setLatitudeSimple(BigDecimal value) { 
             if (this.latitude == null)
               this.latitude = new Decimal();
@@ -105,19 +129,31 @@ public class Location extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).)
+         */
         public Decimal getAltitude() { 
           return this.altitude;
         }
 
+        /**
+         * @param value {@link #altitude} (Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).)
+         */
         public LocationPositionComponent setAltitude(Decimal value) { 
           this.altitude = value;
           return this;
         }
 
+        /**
+         * @return Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
+         */
         public BigDecimal getAltitudeSimple() { 
           return this.altitude == null ? null : this.altitude.getValue();
         }
 
+        /**
+         * @param value Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
+         */
         public LocationPositionComponent setAltitudeSimple(BigDecimal value) { 
           if (value == null)
             this.altitude = null;
@@ -200,19 +236,31 @@ public class Location extends Resource {
       this.name = name;
     }
 
+    /**
+     * @return {@link #name} (Name of the location which identifies it to its users.)
+     */
     public String_ getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (Name of the location which identifies it to its users.)
+     */
     public Location setName(String_ value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return Name of the location which identifies it to its users.
+     */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
+    /**
+     * @param value Name of the location which identifies it to its users.
+     */
     public Location setNameSimple(String value) { 
         if (this.name == null)
           this.name = new String_();
@@ -220,19 +268,31 @@ public class Location extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #description} (Description of the Location, which helps in finding or referencing the place.)
+     */
     public String_ getDescription() { 
       return this.description;
     }
 
+    /**
+     * @param value {@link #description} (Description of the Location, which helps in finding or referencing the place.)
+     */
     public Location setDescription(String_ value) { 
       this.description = value;
       return this;
     }
 
+    /**
+     * @return Description of the Location, which helps in finding or referencing the place.
+     */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
+    /**
+     * @param value Description of the Location, which helps in finding or referencing the place.
+     */
     public Location setDescriptionSimple(String value) { 
       if (value == null)
         this.description = null;
@@ -244,66 +304,108 @@ public class Location extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #type} (Classification of the location.)
+     */
     public List<CodeableConcept> getType() { 
       return this.type;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #type} (Classification of the location.)
+     */
     public CodeableConcept addType() { 
       CodeableConcept t = new CodeableConcept();
       this.type.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #telecom} (The contact details of the main communication devices present at the location.)
+     */
     public Contact getTelecom() { 
       return this.telecom;
     }
 
+    /**
+     * @param value {@link #telecom} (The contact details of the main communication devices present at the location.)
+     */
     public Location setTelecom(Contact value) { 
       this.telecom = value;
       return this;
     }
 
+    /**
+     * @return {@link #address} (Physical location.)
+     */
     public Address getAddress() { 
       return this.address;
     }
 
+    /**
+     * @param value {@link #address} (Physical location.)
+     */
     public Location setAddress(Address value) { 
       this.address = value;
       return this;
     }
 
+    /**
+     * @return {@link #position} (The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).)
+     */
     public LocationPositionComponent getPosition() { 
       return this.position;
     }
 
+    /**
+     * @param value {@link #position} (The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).)
+     */
     public Location setPosition(LocationPositionComponent value) { 
       this.position = value;
       return this;
     }
 
+    /**
+     * @return {@link #provider} (The organization that provides services at the location.)
+     */
     public ResourceReference getProvider() { 
       return this.provider;
     }
 
+    /**
+     * @param value {@link #provider} (The organization that provides services at the location.)
+     */
     public Location setProvider(ResourceReference value) { 
       this.provider = value;
       return this;
     }
 
+    /**
+     * @return {@link #active} (Whether the location is still used to provide services.)
+     */
     public Boolean getActive() { 
       return this.active;
     }
 
+    /**
+     * @param value {@link #active} (Whether the location is still used to provide services.)
+     */
     public Location setActive(Boolean value) { 
       this.active = value;
       return this;
     }
 
+    /**
+     * @return Whether the location is still used to provide services.
+     */
     public boolean getActiveSimple() { 
       return this.active == null ? null : this.active.getValue();
     }
 
+    /**
+     * @param value Whether the location is still used to provide services.
+     */
     public Location setActiveSimple(boolean value) { 
       if (value == false)
         this.active = null;
@@ -315,10 +417,16 @@ public class Location extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #partOf} (Another Location which this Location is physically inside of.)
+     */
     public ResourceReference getPartOf() { 
       return this.partOf;
     }
 
+    /**
+     * @param value {@link #partOf} (Another Location which this Location is physically inside of.)
+     */
     public Location setPartOf(ResourceReference value) { 
       this.partOf = value;
       return this;

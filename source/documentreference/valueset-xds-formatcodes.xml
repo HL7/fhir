@@ -94,9 +94,9 @@
 
 <!--
 
-<Code code="urn:ihe:rad:1.2.840.10008.5.1.4.1.1.88.59" display="DICOM Manifest" codingScheme="1.2.840.10008.2.6.1"/>
-<Code code="1.2.840.10008.5.1.4.1.1.88.59" display="Key Object Selection Document" codingScheme="1.2.840.10008.2.6.1"/>
-<Code code="2.16.840.1.113883.10.20.1" display="HL7 CCD Document" codingScheme="HITSP"/>    
+<valueCode code="urn:ihe:rad:1.2.840.10008.5.1.4.1.1.88.59" display="DICOM Manifest" codingScheme="1.2.840.10008.2.6.1"/>
+<valueCode code="1.2.840.10008.5.1.4.1.1.88.59" display="Key Object Selection Document" codingScheme="1.2.840.10008.2.6.1"/>
+<valueCode code="2.16.840.1.113883.10.20.1" display="HL7 CCD Document" codingScheme="HITSP"/>    
 
 -->
 

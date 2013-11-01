@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -212,19 +212,31 @@ public class DiagnosticOrder extends Resource {
         this.date = date;
       }
 
+        /**
+         * @return {@link #status} (The status for the event.)
+         */
         public Enumeration<DiagnosticOrderStatus> getStatus() { 
           return this.status;
         }
 
+        /**
+         * @param value {@link #status} (The status for the event.)
+         */
         public DiagnosticOrderEventComponent setStatus(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
           return this;
         }
 
+        /**
+         * @return The status for the event.
+         */
         public DiagnosticOrderStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
+        /**
+         * @param value The status for the event.
+         */
         public DiagnosticOrderEventComponent setStatusSimple(DiagnosticOrderStatus value) { 
             if (this.status == null)
               this.status = new Enumeration<DiagnosticOrderStatus>();
@@ -232,19 +244,31 @@ public class DiagnosticOrder extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #date} (The date/time at which the event occurred.)
+         */
         public DateTime getDate() { 
           return this.date;
         }
 
+        /**
+         * @param value {@link #date} (The date/time at which the event occurred.)
+         */
         public DiagnosticOrderEventComponent setDate(DateTime value) { 
           this.date = value;
           return this;
         }
 
+        /**
+         * @return The date/time at which the event occurred.
+         */
         public String getDateSimple() { 
           return this.date == null ? null : this.date.getValue();
         }
 
+        /**
+         * @param value The date/time at which the event occurred.
+         */
         public DiagnosticOrderEventComponent setDateSimple(String value) { 
             if (this.date == null)
               this.date = new DateTime();
@@ -252,10 +276,16 @@ public class DiagnosticOrder extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #actor} (The person who was responsible for performing or recording the action.)
+         */
         public ResourceReference getActor() { 
           return this.actor;
         }
 
+        /**
+         * @param value {@link #actor} (The person who was responsible for performing or recording the action.)
+         */
         public DiagnosticOrderEventComponent setActor(ResourceReference value) { 
           this.actor = value;
           return this;
@@ -313,48 +343,78 @@ public class DiagnosticOrder extends Resource {
         this.code = code;
       }
 
+        /**
+         * @return {@link #code} (A code that identifies a particular diagnostic investigation that has been requested.)
+         */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
+        /**
+         * @param value {@link #code} (A code that identifies a particular diagnostic investigation that has been requested.)
+         */
         public DiagnosticOrderItemComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
+        /**
+         * @return {@link #specimen} (If the item is related to a specific speciment.)
+         */
         public List<ResourceReference> getSpecimen() { 
           return this.specimen;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #specimen} (If the item is related to a specific speciment.)
+         */
         public ResourceReference addSpecimen() { 
           ResourceReference t = new ResourceReference();
           this.specimen.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #bodySite} (Anatomical location where the request test should be performed.)
+         */
         public CodeableConcept getBodySite() { 
           return this.bodySite;
         }
 
+        /**
+         * @param value {@link #bodySite} (Anatomical location where the request test should be performed.)
+         */
         public DiagnosticOrderItemComponent setBodySite(CodeableConcept value) { 
           this.bodySite = value;
           return this;
         }
 
+        /**
+         * @return {@link #status} (The status of this individual item within the order.)
+         */
         public Enumeration<DiagnosticOrderStatus> getStatus() { 
           return this.status;
         }
 
+        /**
+         * @param value {@link #status} (The status of this individual item within the order.)
+         */
         public DiagnosticOrderItemComponent setStatus(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
           return this;
         }
 
+        /**
+         * @return The status of this individual item within the order.
+         */
         public DiagnosticOrderStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
+        /**
+         * @param value The status of this individual item within the order.
+         */
         public DiagnosticOrderItemComponent setStatusSimple(DiagnosticOrderStatus value) { 
           if (value == null)
             this.status = null;
@@ -366,11 +426,17 @@ public class DiagnosticOrder extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #event} (A summary of the events of interest that have occurred as this item of the request is processed.)
+         */
         public List<DiagnosticOrderEventComponent> getEvent() { 
           return this.event;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #event} (A summary of the events of interest that have occurred as this item of the request is processed.)
+         */
         public DiagnosticOrderEventComponent addEvent() { 
           DiagnosticOrderEventComponent t = new DiagnosticOrderEventComponent();
           this.event.add(t);
@@ -461,57 +527,93 @@ public class DiagnosticOrder extends Resource {
       this.subject = subject;
     }
 
+    /**
+     * @return {@link #subject} (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     */
     public DiagnosticOrder setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #orderer} (The practitioner that holds legal responsibility for ordering the investigation.)
+     */
     public ResourceReference getOrderer() { 
       return this.orderer;
     }
 
+    /**
+     * @param value {@link #orderer} (The practitioner that holds legal responsibility for ordering the investigation.)
+     */
     public DiagnosticOrder setOrderer(ResourceReference value) { 
       this.orderer = value;
       return this;
     }
 
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this order by the order or by the receiver.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this order by the order or by the receiver.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #encounter} (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     */
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
+    /**
+     * @param value {@link #encounter} (An encounter that provides additional informaton about the healthcare context in which this request is made.)
+     */
     public DiagnosticOrder setEncounter(ResourceReference value) { 
       this.encounter = value;
       return this;
     }
 
+    /**
+     * @return {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.)
+     */
     public String_ getClinicalNotes() { 
       return this.clinicalNotes;
     }
 
+    /**
+     * @param value {@link #clinicalNotes} (An explanation or justification for why this diagnostic investigation is being requested.)
+     */
     public DiagnosticOrder setClinicalNotes(String_ value) { 
       this.clinicalNotes = value;
       return this;
     }
 
+    /**
+     * @return An explanation or justification for why this diagnostic investigation is being requested.
+     */
     public String getClinicalNotesSimple() { 
       return this.clinicalNotes == null ? null : this.clinicalNotes.getValue();
     }
 
+    /**
+     * @param value An explanation or justification for why this diagnostic investigation is being requested.
+     */
     public DiagnosticOrder setClinicalNotesSimple(String value) { 
       if (value == null)
         this.clinicalNotes = null;
@@ -523,30 +625,48 @@ public class DiagnosticOrder extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #specimen} (One or more specimens that the diagnostic investigation is about.)
+     */
     public List<ResourceReference> getSpecimen() { 
       return this.specimen;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #specimen} (One or more specimens that the diagnostic investigation is about.)
+     */
     public ResourceReference addSpecimen() { 
       ResourceReference t = new ResourceReference();
       this.specimen.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #status} (The status of the order.)
+     */
     public Enumeration<DiagnosticOrderStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The status of the order.)
+     */
     public DiagnosticOrder setStatus(Enumeration<DiagnosticOrderStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The status of the order.
+     */
     public DiagnosticOrderStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The status of the order.
+     */
     public DiagnosticOrder setStatusSimple(DiagnosticOrderStatus value) { 
       if (value == null)
         this.status = null;
@@ -558,19 +678,31 @@ public class DiagnosticOrder extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #priority} (The clinical priority associated with this order.)
+     */
     public Enumeration<DiagnosticOrderPriority> getPriority() { 
       return this.priority;
     }
 
+    /**
+     * @param value {@link #priority} (The clinical priority associated with this order.)
+     */
     public DiagnosticOrder setPriority(Enumeration<DiagnosticOrderPriority> value) { 
       this.priority = value;
       return this;
     }
 
+    /**
+     * @return The clinical priority associated with this order.
+     */
     public DiagnosticOrderPriority getPrioritySimple() { 
       return this.priority == null ? null : this.priority.getValue();
     }
 
+    /**
+     * @param value The clinical priority associated with this order.
+     */
     public DiagnosticOrder setPrioritySimple(DiagnosticOrderPriority value) { 
       if (value == null)
         this.priority = null;
@@ -582,22 +714,34 @@ public class DiagnosticOrder extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed.)
+     */
     public List<DiagnosticOrderEventComponent> getEvent() { 
       return this.event;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed.)
+     */
     public DiagnosticOrderEventComponent addEvent() { 
       DiagnosticOrderEventComponent t = new DiagnosticOrderEventComponent();
       this.event.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #item} (The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.)
+     */
     public List<DiagnosticOrderItemComponent> getItem() { 
       return this.item;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #item} (The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.)
+     */
     public DiagnosticOrderItemComponent addItem() { 
       DiagnosticOrderItemComponent t = new DiagnosticOrderItemComponent();
       this.item.add(t);

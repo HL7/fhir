@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -283,17 +283,26 @@ public class Encounter extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #type} (Role of participant in encounter.)
+         */
         public List<Enumeration<ParticipantType>> getType() { 
           return this.type;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #type} (Role of participant in encounter.)
+         */
         public Enumeration<ParticipantType> addType() { 
           Enumeration<ParticipantType> t = new Enumeration<ParticipantType>();
           this.type.add(t);
           return t;
         }
 
+        /**
+         * @param value {@link #type} (Role of participant in encounter.)
+         */
         public Enumeration<ParticipantType> addTypeSimple(ParticipantType value) { 
           Enumeration<ParticipantType> t = new Enumeration<ParticipantType>();
           t.setValue(value);
@@ -301,10 +310,16 @@ public class Encounter extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #practitioner} (The practitioner that is involved.)
+         */
         public ResourceReference getPractitioner() { 
           return this.practitioner;
         }
 
+        /**
+         * @param value {@link #practitioner} (The practitioner that is involved.)
+         */
         public EncounterParticipantComponent setPractitioner(ResourceReference value) { 
           this.practitioner = value;
           return this;
@@ -387,115 +402,187 @@ public class Encounter extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #preAdmissionIdentifier} (Pre-admission identifier.)
+         */
         public Identifier getPreAdmissionIdentifier() { 
           return this.preAdmissionIdentifier;
         }
 
+        /**
+         * @param value {@link #preAdmissionIdentifier} (Pre-admission identifier.)
+         */
         public EncounterHospitalizationComponent setPreAdmissionIdentifier(Identifier value) { 
           this.preAdmissionIdentifier = value;
           return this;
         }
 
+        /**
+         * @return {@link #origin} (The location the patient came from before admission.)
+         */
         public ResourceReference getOrigin() { 
           return this.origin;
         }
 
+        /**
+         * @param value {@link #origin} (The location the patient came from before admission.)
+         */
         public EncounterHospitalizationComponent setOrigin(ResourceReference value) { 
           this.origin = value;
           return this;
         }
 
+        /**
+         * @return {@link #admitSource} (Where patient was admitted from (physician referral, transfer).)
+         */
         public CodeableConcept getAdmitSource() { 
           return this.admitSource;
         }
 
+        /**
+         * @param value {@link #admitSource} (Where patient was admitted from (physician referral, transfer).)
+         */
         public EncounterHospitalizationComponent setAdmitSource(CodeableConcept value) { 
           this.admitSource = value;
           return this;
         }
 
+        /**
+         * @return {@link #period} (Period of hospitalization.)
+         */
         public Period getPeriod() { 
           return this.period;
         }
 
+        /**
+         * @param value {@link #period} (Period of hospitalization.)
+         */
         public EncounterHospitalizationComponent setPeriod(Period value) { 
           this.period = value;
           return this;
         }
 
+        /**
+         * @return {@link #accomodation} (Where the patient stays during this encounter.)
+         */
         public List<EncounterHospitalizationAccomodationComponent> getAccomodation() { 
           return this.accomodation;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #accomodation} (Where the patient stays during this encounter.)
+         */
         public EncounterHospitalizationAccomodationComponent addAccomodation() { 
           EncounterHospitalizationAccomodationComponent t = new EncounterHospitalizationAccomodationComponent();
           this.accomodation.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #diet} (Dietary restrictions for the patient.)
+         */
         public CodeableConcept getDiet() { 
           return this.diet;
         }
 
+        /**
+         * @param value {@link #diet} (Dietary restrictions for the patient.)
+         */
         public EncounterHospitalizationComponent setDiet(CodeableConcept value) { 
           this.diet = value;
           return this;
         }
 
+        /**
+         * @return {@link #specialCourtesy} (Special courtesies (VIP, board member).)
+         */
         public List<CodeableConcept> getSpecialCourtesy() { 
           return this.specialCourtesy;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #specialCourtesy} (Special courtesies (VIP, board member).)
+         */
         public CodeableConcept addSpecialCourtesy() { 
           CodeableConcept t = new CodeableConcept();
           this.specialCourtesy.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #specialArrangement} (Wheelchair, translator, stretcher, etc.)
+         */
         public List<CodeableConcept> getSpecialArrangement() { 
           return this.specialArrangement;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #specialArrangement} (Wheelchair, translator, stretcher, etc.)
+         */
         public CodeableConcept addSpecialArrangement() { 
           CodeableConcept t = new CodeableConcept();
           this.specialArrangement.add(t);
           return t;
         }
 
+        /**
+         * @return {@link #destination} (Location the patient is discharged to.)
+         */
         public ResourceReference getDestination() { 
           return this.destination;
         }
 
+        /**
+         * @param value {@link #destination} (Location the patient is discharged to.)
+         */
         public EncounterHospitalizationComponent setDestination(ResourceReference value) { 
           this.destination = value;
           return this;
         }
 
+        /**
+         * @return {@link #dischargeDisposition} (Disposition patient released to.)
+         */
         public CodeableConcept getDischargeDisposition() { 
           return this.dischargeDisposition;
         }
 
+        /**
+         * @param value {@link #dischargeDisposition} (Disposition patient released to.)
+         */
         public EncounterHospitalizationComponent setDischargeDisposition(CodeableConcept value) { 
           this.dischargeDisposition = value;
           return this;
         }
 
+        /**
+         * @return {@link #reAdmission} (Is readmission?.)
+         */
         public Boolean getReAdmission() { 
           return this.reAdmission;
         }
 
+        /**
+         * @param value {@link #reAdmission} (Is readmission?.)
+         */
         public EncounterHospitalizationComponent setReAdmission(Boolean value) { 
           this.reAdmission = value;
           return this;
         }
 
+        /**
+         * @return Is readmission?.
+         */
         public boolean getReAdmissionSimple() { 
           return this.reAdmission == null ? null : this.reAdmission.getValue();
         }
 
+        /**
+         * @param value Is readmission?.
+         */
         public EncounterHospitalizationComponent setReAdmissionSimple(boolean value) { 
           if (value == false)
             this.reAdmission = null;
@@ -561,19 +648,31 @@ public class Encounter extends Resource {
         super();
       }
 
+        /**
+         * @return {@link #bed} (Bed.)
+         */
         public ResourceReference getBed() { 
           return this.bed;
         }
 
+        /**
+         * @param value {@link #bed} (Bed.)
+         */
         public EncounterHospitalizationAccomodationComponent setBed(ResourceReference value) { 
           this.bed = value;
           return this;
         }
 
+        /**
+         * @return {@link #period} (Period during which the patient was assigned the bed.)
+         */
         public Period getPeriod() { 
           return this.period;
         }
 
+        /**
+         * @param value {@link #period} (Period during which the patient was assigned the bed.)
+         */
         public EncounterHospitalizationAccomodationComponent setPeriod(Period value) { 
           this.period = value;
           return this;
@@ -615,19 +714,31 @@ public class Encounter extends Resource {
         this.period = period;
       }
 
+        /**
+         * @return {@link #location} (The location the encounter takes place.)
+         */
         public ResourceReference getLocation() { 
           return this.location;
         }
 
+        /**
+         * @param value {@link #location} (The location the encounter takes place.)
+         */
         public EncounterLocationComponent setLocation(ResourceReference value) { 
           this.location = value;
           return this;
         }
 
+        /**
+         * @return {@link #period} (Time period during which the patient was present at the location.)
+         */
         public Period getPeriod() { 
           return this.period;
         }
 
+        /**
+         * @param value {@link #period} (Time period during which the patient was present at the location.)
+         */
         public EncounterLocationComponent setPeriod(Period value) { 
           this.period = value;
           return this;
@@ -654,12 +765,12 @@ public class Encounter extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * E.g. active, aborted, finished.
+     * E.g. current, cancelled, finished.
      */
     protected Enumeration<EncounterState> status;
 
     /**
-     * Inpatient | Outpatient etc.
+     * E.g. inpatient, outpatient, home.
      */
     protected Enumeration<EncounterClass> class_;
 
@@ -738,30 +849,48 @@ public class Encounter extends Resource {
       this.class_ = class_;
     }
 
+    /**
+     * @return {@link #identifier} (Identifier(s) by which this encounter is known.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifier(s) by which this encounter is known.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #status} (E.g. current, cancelled, finished.)
+     */
     public Enumeration<EncounterState> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (E.g. current, cancelled, finished.)
+     */
     public Encounter setStatus(Enumeration<EncounterState> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return E.g. current, cancelled, finished.
+     */
     public EncounterState getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value E.g. current, cancelled, finished.
+     */
     public Encounter setStatusSimple(EncounterState value) { 
         if (this.status == null)
           this.status = new Enumeration<EncounterState>();
@@ -769,19 +898,31 @@ public class Encounter extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #class_} (E.g. inpatient, outpatient, home.)
+     */
     public Enumeration<EncounterClass> getClass_() { 
       return this.class_;
     }
 
+    /**
+     * @param value {@link #class_} (E.g. inpatient, outpatient, home.)
+     */
     public Encounter setClass_(Enumeration<EncounterClass> value) { 
       this.class_ = value;
       return this;
     }
 
+    /**
+     * @return E.g. inpatient, outpatient, home.
+     */
     public EncounterClass getClass_Simple() { 
       return this.class_ == null ? null : this.class_.getValue();
     }
 
+    /**
+     * @param value E.g. inpatient, outpatient, home.
+     */
     public Encounter setClass_Simple(EncounterClass value) { 
         if (this.class_ == null)
           this.class_ = new Enumeration<EncounterClass>();
@@ -789,59 +930,95 @@ public class Encounter extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #type} (Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).)
+     */
     public List<CodeableConcept> getType() { 
       return this.type;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #type} (Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).)
+     */
     public CodeableConcept addType() { 
       CodeableConcept t = new CodeableConcept();
       this.type.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #subject} (The patient present at the encounter.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The patient present at the encounter.)
+     */
     public Encounter setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #participant} (The main practitioner responsible for providing the service.)
+     */
     public List<EncounterParticipantComponent> getParticipant() { 
       return this.participant;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #participant} (The main practitioner responsible for providing the service.)
+     */
     public EncounterParticipantComponent addParticipant() { 
       EncounterParticipantComponent t = new EncounterParticipantComponent();
       this.participant.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #fulfills} (The appointment that scheduled this encounter.)
+     */
     public ResourceReference getFulfills() { 
       return this.fulfills;
     }
 
+    /**
+     * @param value {@link #fulfills} (The appointment that scheduled this encounter.)
+     */
     public Encounter setFulfills(ResourceReference value) { 
       this.fulfills = value;
       return this;
     }
 
+    /**
+     * @return {@link #start} (The date and time the encounter starts, e.g. the patient arrives.)
+     */
     public DateTime getStart() { 
       return this.start;
     }
 
+    /**
+     * @param value {@link #start} (The date and time the encounter starts, e.g. the patient arrives.)
+     */
     public Encounter setStart(DateTime value) { 
       this.start = value;
       return this;
     }
 
+    /**
+     * @return The date and time the encounter starts, e.g. the patient arrives.
+     */
     public String getStartSimple() { 
       return this.start == null ? null : this.start.getValue();
     }
 
+    /**
+     * @param value The date and time the encounter starts, e.g. the patient arrives.
+     */
     public Encounter setStartSimple(String value) { 
       if (value == null)
         this.start = null;
@@ -853,75 +1030,123 @@ public class Encounter extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #length} (Quantity of time the encounter lasted. This excludes the time during leaves of absence.)
+     */
     public Duration getLength() { 
       return this.length;
     }
 
+    /**
+     * @param value {@link #length} (Quantity of time the encounter lasted. This excludes the time during leaves of absence.)
+     */
     public Encounter setLength(Duration value) { 
       this.length = value;
       return this;
     }
 
+    /**
+     * @return {@link #reason} (Reason the encounter takes place.)
+     */
     public CodeableConcept getReason() { 
       return this.reason;
     }
 
+    /**
+     * @param value {@link #reason} (Reason the encounter takes place.)
+     */
     public Encounter setReason(CodeableConcept value) { 
       this.reason = value;
       return this;
     }
 
+    /**
+     * @return {@link #indication} (Reason the encounter takes place.)
+     */
     public ResourceReference getIndication() { 
       return this.indication;
     }
 
+    /**
+     * @param value {@link #indication} (Reason the encounter takes place.)
+     */
     public Encounter setIndication(ResourceReference value) { 
       this.indication = value;
       return this;
     }
 
+    /**
+     * @return {@link #priority} (Indicates the urgency of the encounter.)
+     */
     public CodeableConcept getPriority() { 
       return this.priority;
     }
 
+    /**
+     * @param value {@link #priority} (Indicates the urgency of the encounter.)
+     */
     public Encounter setPriority(CodeableConcept value) { 
       this.priority = value;
       return this;
     }
 
+    /**
+     * @return {@link #hospitalization} (Details about an admission to a clinic.)
+     */
     public EncounterHospitalizationComponent getHospitalization() { 
       return this.hospitalization;
     }
 
+    /**
+     * @param value {@link #hospitalization} (Details about an admission to a clinic.)
+     */
     public Encounter setHospitalization(EncounterHospitalizationComponent value) { 
       this.hospitalization = value;
       return this;
     }
 
+    /**
+     * @return {@link #location} (List of locations the patient has been at.)
+     */
     public List<EncounterLocationComponent> getLocation() { 
       return this.location;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #location} (List of locations the patient has been at.)
+     */
     public EncounterLocationComponent addLocation() { 
       EncounterLocationComponent t = new EncounterLocationComponent();
       this.location.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #serviceProvider} (Department or team providing care.)
+     */
     public ResourceReference getServiceProvider() { 
       return this.serviceProvider;
     }
 
+    /**
+     * @param value {@link #serviceProvider} (Department or team providing care.)
+     */
     public Encounter setServiceProvider(ResourceReference value) { 
       this.serviceProvider = value;
       return this;
     }
 
+    /**
+     * @return {@link #partOf} (Another Encounter this encounter is part of (administratively or in time).)
+     */
     public ResourceReference getPartOf() { 
       return this.partOf;
     }
 
+    /**
+     * @param value {@link #partOf} (Another Encounter this encounter is part of (administratively or in time).)
+     */
     public Encounter setPartOf(ResourceReference value) { 
       this.partOf = value;
       return this;
@@ -930,8 +1155,8 @@ public class Encounter extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier(s) by which this encounter is known.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "E.g. active, aborted, finished.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("class", "code", "Inpatient | Outpatient etc.", 0, java.lang.Integer.MAX_VALUE, class_));
+        childrenList.add(new Property("status", "code", "E.g. current, cancelled, finished.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("class", "code", "E.g. inpatient, outpatient, home.", 0, java.lang.Integer.MAX_VALUE, class_));
         childrenList.add(new Property("type", "CodeableConcept", "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("subject", "Resource(Patient)", "The patient present at the encounter.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("participant", "", "The main practitioner responsible for providing the service.", 0, java.lang.Integer.MAX_VALUE, participant));

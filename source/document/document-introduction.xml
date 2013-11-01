@@ -1,5 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<!--
+
+Clarifications to provide: 
+
+the duality of document and document bundle
+why to include resources in the document bundle 
+obligations involved in pulling content out of document
+address question of immutability and it's meaning (including "the document id (the feed.id of the document id) can never be re-used for a different set of resources. The order of the resources, and their content, must be identical, if the feed.id is the same.")
+
+my view is that the document exists whether there's an atom feed or not. but that the atom feed is necessary to allow normal systems to manage it. If you're a wizard level REST guy (see Josh/Lloyd) you might be able to manage all the implications of attestation and immutability in REST. Normal humans will author it piece meal, and then wrap it up in atom feed to give it trackable integrity.
+[6:07:49 AM] Grahame Grieve: So the logical document exists without atom.
+
+-->
+
 <p>
 FHIR resources can be used to build clinical documents that capture information about clinical observations and services. 
 A clinical document is a <a href="extras.html#bundle">bundle</a> (a list of resources in an <a href="extras.html#bundles">atom feed</a>) that is 
@@ -42,15 +56,41 @@ statements</a> that identify particular documents they support.
 <a name="bundle"> </a>
 <h2>Document End-Points</h2>
 
-<p>There are two RESTful end-points used for Documents:</p>
+<p>
+There are several different RESTful end-points used with Document resources and document bundles. 
+The use of the various end-points can be best be described by considering the consequences 
+of posting to them:
+</p>
+<table class="grid">
+ <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
+ <tr> <td>[baseurl]/Document</td> <td>Document Resource</td> <td>Just a document resource, not an entire 
+   document. The /document end-point is used for manipulating just the document backbone, not the entire 
+   content. This is useful either when documents are being built, or when documents have been decomposed
+   into constituent parts in order to allow the section content to be accessed directly</td> </tr>
+ <tr> <td><a href="http.html#Binary">[baseurl]/binary</a></td> <td>Document Bundle</td> <td>Just store the entire document as 
+   a sequence of bytes, and return exactly that sequence when requested. There is no way to find content in the /binary end-point,
+   so usually this would be associated with a <a href="documentreference.html">Document Reference</a> so that applications
+   can find and process the document, though this is not required</td> </tr>
+ <tr> <td><a href="http.html#transaction">[baseurl]</a> (e.g. a transaction)</td> <td>Document Bundle</td> <td>Ignore the 
+   fact that the bundle is a document, and process all the resources that it contains as individual resources. Clients SHOULD
+   not expect that a document submitted using this method will be able to reassembled exactly by the server (e.g. even if the
+   server can re-assemble the document (see below), it cannot be expected to be in the same order etc, and so a document signature is 
+   very likely to be invalid)</td> </tr>
+ <tr> <td><a href="message.html#mailbox">[baseurl]/mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
+ document to the client for processing. The exact processing the server performs is at the discretion of the
+ server. It MAY perform one or more of these actions:
+  <ul>
+    <li>Resend the document elsewhere</li>
+    <li>Break it up into individually accessible resources and make them available on a RESTful interface</li>
+    <li>Retain the document in it's binary form and make it available on /binary, and perhaps also create a DocumentReference</li>
+  </ul>
+  The server is not obliged to do anything at all, or anything on this list, though it SHOULD declare what actions it takes in the 
+  <a href="conformance.html">conformance statement</a>.
+  </td> </tr>
+</table>
 
-<ul>
- <li>[baseurl]/document/: a normal RESTful end point for document resources as standalone resources</li> 
- <li>[baseurl]/binary/: for documents as <a href="extras.html#bundle">bundles</a></li> 
-</ul>
 <p>
 Note: While these end-points are defined for use with document resources and document bundles, 
-it is not necessary to use them. Documents may be transferred between systems by using the 
-<a href="message.html#mailbox">MailBox</a> target, or by using any other method desired. 
+it is not necessary to use them. Documents may be transferred between systems using any method desired. 
 </p>
 </div>

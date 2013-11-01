@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -52,19 +52,31 @@ public class Range extends Type {
       super();
     }
 
+    /**
+     * @return {@link #low} (The low limit. The boundary is inclusive.)
+     */
     public Quantity getLow() { 
       return this.low;
     }
 
+    /**
+     * @param value {@link #low} (The low limit. The boundary is inclusive.)
+     */
     public Range setLow(Quantity value) { 
       this.low = value;
       return this;
     }
 
+    /**
+     * @return {@link #high} (The high limit. The boundary is inclusive.)
+     */
     public Quantity getHigh() { 
       return this.high;
     }
 
+    /**
+     * @param value {@link #high} (The high limit. The boundary is inclusive.)
+     */
     public Range setHigh(Quantity value) { 
       this.high = value;
       return this;

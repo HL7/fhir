@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -117,19 +117,31 @@ public class Narrative extends Element {
       this.div = div;
     }
 
+    /**
+     * @return {@link #status} (The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.)
+     */
     public Enumeration<NarrativeStatus> getStatus() { 
       return this.status;
     }
 
+    /**
+     * @param value {@link #status} (The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.)
+     */
     public Narrative setStatus(Enumeration<NarrativeStatus> value) { 
       this.status = value;
       return this;
     }
 
+    /**
+     * @return The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
+     */
     public NarrativeStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
+    /**
+     * @param value The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
+     */
     public Narrative setStatusSimple(NarrativeStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<NarrativeStatus>();
@@ -137,10 +149,16 @@ public class Narrative extends Element {
       return this;
     }
 
+    /**
+     * @return {@link #div} (The actual narrative content, a stripped down version of XHTML.)
+     */
     public XhtmlNode getDiv() { 
       return this.div;
     }
 
+    /**
+     * @param value {@link #div} (The actual narrative content, a stripped down version of XHTML.)
+     */
     public Narrative setDiv(XhtmlNode value) { 
       this.div = value;
       return this;

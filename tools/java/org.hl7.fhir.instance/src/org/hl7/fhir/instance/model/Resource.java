@@ -32,8 +32,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A resource that is defined in the FHIR specification
+ * 
+ */
 public abstract class Resource extends BackboneElement {
-	
+
+	/**
+	 * @return the type of resource that this is (e.g. for switch statements)
+	 */
   public abstract ResourceType getResourceType();
 
   /**
@@ -46,29 +53,50 @@ public abstract class Resource extends BackboneElement {
    */
   private Code language;
 
+  /**
+   * Any resources contained in this one (see speification for further details)
+   */
   private List<Resource> contained = new ArrayList<Resource>();
 	
+  /**
+   * @return Text summary of resource, for human interpretation
+   */
 	public Narrative getText() {
 		return text;
 	}
 
+	/**
+	 * @param text Text summary of resource, for human interpretation
+	 */
 	public void setText(Narrative text) {
 		this.text = text;
 	}
 
+	/**
+	 * @return The primary/base human language of the content. The value can be any valid value for xml:lang
+	 */
   public Code getLanguage() { 
     return this.language;
   }
 
+  /**
+   * @param value The primary/base human language of the content. The value can be any valid value for xml:lang
+   */
   public void setLanguage(Code value) { 
     this.language = value;
   }
 
+	/**
+	 * @return The primary/base human language of the content. The value can be any valid value for xml:lang
+	 */
   public String getLanguageSimple() { 
     return this.language == null ? null : this.language.getValue();
 
   }
 
+  /**
+   * @param value The primary/base human language of the content. The value can be any valid value for xml:lang
+   */
   public void setLanguageSimple(String value) { 
     if (value == null)
       this.language = null;
@@ -78,7 +106,9 @@ public abstract class Resource extends BackboneElement {
       this.language.setValue(value);
     }
   }
-
+/**
+ * @return Any resources contained in this one (see speification for further details)
+ */
   public List<Resource> getContained() {
     return contained;
   }

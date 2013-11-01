@@ -336,6 +336,9 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
       if (e.typeCode().equals("xml:lang")) {
         write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"() != null)\r\n");
         write("        xml.attribute(\"xml:lang\", element.get"+upFirst(getElementName(e.getName(), true))+"().toString());\r\n");
+      } else if (e.isXmlAttribute()) {
+        write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"() != null)\r\n");
+        write("        xml.attribute(\""+e.getName()+"\", element.get"+upFirst(getElementName(e.getName(), true))+"().toString());\r\n");
       }
     }
     write("      xml.open(FHIR_NS, name);\r\n");
@@ -347,7 +350,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
       write("      composeElementElements(element);\r\n");
     
     for (ElementDefn e : n.getElements()) {
-      if (!e.typeCode().equals("xml:lang")) 
+      if (!e.typeCode().equals("xml:lang") && !e.isXmlAttribute()) 
         genElement(n, e, type);
     }
     write("      xml.close(FHIR_NS, name);\r\n");
@@ -366,7 +369,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
   private void genElement(ElementDefn root, ElementDefn e, JavaGenClass type) throws Exception {
     String name = e.getName();
     if (name.endsWith("[x]") || name.equals("[type]")) {
-      String en = name.endsWith("[x]") ? name.replace("[x]", "") : "value";
+      String en = name.endsWith("[x]") && !name.equals("[x]") ? name.replace("[x]", "") : "value";
       String pfx = name.endsWith("[x]") ? name.replace("[x]", "") : "";
       write("      composeType(\""+pfx+"\", element.get"+upFirst(getElementName(en, false))+"());\r\n");
     } else {

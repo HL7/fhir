@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -78,28 +78,46 @@ public class SampledData extends Type {
       super();
     }
 
+    /**
+     * @return {@link #origin} (The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.)
+     */
     public Quantity getOrigin() { 
       return this.origin;
     }
 
+    /**
+     * @param value {@link #origin} (The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.)
+     */
     public SampledData setOrigin(Quantity value) { 
       this.origin = value;
       return this;
     }
 
+    /**
+     * @return {@link #period} (The length of time between sampling times, measured in milliseconds.)
+     */
     public Decimal getPeriod() { 
       return this.period;
     }
 
+    /**
+     * @param value {@link #period} (The length of time between sampling times, measured in milliseconds.)
+     */
     public SampledData setPeriod(Decimal value) { 
       this.period = value;
       return this;
     }
 
+    /**
+     * @return The length of time between sampling times, measured in milliseconds.
+     */
     public BigDecimal getPeriodSimple() { 
       return this.period == null ? null : this.period.getValue();
     }
 
+    /**
+     * @param value The length of time between sampling times, measured in milliseconds.
+     */
     public SampledData setPeriodSimple(BigDecimal value) { 
       if (value == null)
         this.period = null;
@@ -111,19 +129,31 @@ public class SampledData extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.)
+     */
     public Decimal getFactor() { 
       return this.factor;
     }
 
+    /**
+     * @param value {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.)
+     */
     public SampledData setFactor(Decimal value) { 
       this.factor = value;
       return this;
     }
 
+    /**
+     * @return A correction factor that is applied to the sampled data points before they are added to the origin.
+     */
     public BigDecimal getFactorSimple() { 
       return this.factor == null ? null : this.factor.getValue();
     }
 
+    /**
+     * @param value A correction factor that is applied to the sampled data points before they are added to the origin.
+     */
     public SampledData setFactorSimple(BigDecimal value) { 
       if (value == null)
         this.factor = null;
@@ -135,19 +165,31 @@ public class SampledData extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).)
+     */
     public Decimal getLowerLimit() { 
       return this.lowerLimit;
     }
 
+    /**
+     * @param value {@link #lowerLimit} (The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).)
+     */
     public SampledData setLowerLimit(Decimal value) { 
       this.lowerLimit = value;
       return this;
     }
 
+    /**
+     * @return The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
+     */
     public BigDecimal getLowerLimitSimple() { 
       return this.lowerLimit == null ? null : this.lowerLimit.getValue();
     }
 
+    /**
+     * @param value The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
+     */
     public SampledData setLowerLimitSimple(BigDecimal value) { 
       if (value == null)
         this.lowerLimit = null;
@@ -159,19 +201,31 @@ public class SampledData extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).)
+     */
     public Decimal getUpperLimit() { 
       return this.upperLimit;
     }
 
+    /**
+     * @param value {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).)
+     */
     public SampledData setUpperLimit(Decimal value) { 
       this.upperLimit = value;
       return this;
     }
 
+    /**
+     * @return The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
+     */
     public BigDecimal getUpperLimitSimple() { 
       return this.upperLimit == null ? null : this.upperLimit.getValue();
     }
 
+    /**
+     * @param value The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
+     */
     public SampledData setUpperLimitSimple(BigDecimal value) { 
       if (value == null)
         this.upperLimit = null;
@@ -183,19 +237,31 @@ public class SampledData extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #dimensions} (The Number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.)
+     */
     public Integer getDimensions() { 
       return this.dimensions;
     }
 
+    /**
+     * @param value {@link #dimensions} (The Number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.)
+     */
     public SampledData setDimensions(Integer value) { 
       this.dimensions = value;
       return this;
     }
 
+    /**
+     * @return The Number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
+     */
     public int getDimensionsSimple() { 
       return this.dimensions == null ? null : this.dimensions.getValue();
     }
 
+    /**
+     * @param value The Number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
+     */
     public SampledData setDimensionsSimple(int value) { 
       if (value == -1)
         this.dimensions = null;
@@ -207,19 +273,31 @@ public class SampledData extends Type {
       return this;
     }
 
+    /**
+     * @return {@link #data} (A series of data points separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used.)
+     */
     public String_ getData() { 
       return this.data;
     }
 
+    /**
+     * @param value {@link #data} (A series of data points separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used.)
+     */
     public SampledData setData(String_ value) { 
       this.data = value;
       return this;
     }
 
+    /**
+     * @return A series of data points separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used.
+     */
     public String getDataSimple() { 
       return this.data == null ? null : this.data.getValue();
     }
 
+    /**
+     * @param value A series of data points separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used.
+     */
     public SampledData setDataSimple(String value) { 
       if (value == null)
         this.data = null;

@@ -5,25 +5,21 @@ problem lists, allergy lists, etc.
 Note: Referral is likely to be incorporated as an official resource in a future release of the FHIR DSTU.
 -->
 <Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
-  <extension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner"/>
+  <extension url="http://example.org/do-not-use/fhir-extensions/referral#requestingPractitioner">
     <valueResource>
       <reference value="Practitioner/f201"/>
       <display value="Dokter Bronsig"/>
     </valueResource>
   </extension>
-  <extension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#notes"/>
+  <extension url="http://example.org/do-not-use/fhir-extensions/referral#notes">
     <valueString value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
   </extension>
-  <extension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#fulfillingEncounter"/>
+  <extension url="http://example.org/do-not-use/fhir-extensions/referral#fulfillingEncounter">
     <valueResource>
       <reference value="Encounter/f201"/>
     </valueResource>
   </extension>
-  <modifierExtension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#referredForService"/>
+  <modifierExtension url="http://example.org/do-not-use/fhir-extensions/referral#referredForService">
     <valueCodeableConcept>
       <coding>
         <system value="http://snomed.info/id"/>
@@ -32,15 +28,13 @@ Note: Referral is likely to be incorporated as an official resource in a future 
       </coding>
     </valueCodeableConcept>
   </modifierExtension>
-  <modifierExtension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#targetDate"/>
+  <modifierExtension url="http://example.org/do-not-use/fhir-extensions/referral#targetDate">
     <valuePeriod>
       <start value="2013-04-01"/>
       <end value="2013-04-15"/>
     </valuePeriod>
   </modifierExtension>
-  <modifierExtension>
-    <url value="http://example.org/do-not-use/fhir-extensions/referral#status"/>
+  <modifierExtension url="http://example.org/do-not-use/fhir-extensions/referral#status">
     <valueCode value="complete"/>
   </modifierExtension>
   <text>

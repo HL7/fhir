@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -87,78 +87,126 @@ public class RelatedPerson extends Resource {
       this.patient = patient;
     }
 
+    /**
+     * @return {@link #identifier} (Identifier for a person within a particular scope.)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifier for a person within a particular scope.)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #patient} (The patient this person is related to.)
+     */
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
+    /**
+     * @param value {@link #patient} (The patient this person is related to.)
+     */
     public RelatedPerson setPatient(ResourceReference value) { 
       this.patient = value;
       return this;
     }
 
+    /**
+     * @return {@link #relationship} (The nature of the relationship between a patient and the related person.)
+     */
     public CodeableConcept getRelationship() { 
       return this.relationship;
     }
 
+    /**
+     * @param value {@link #relationship} (The nature of the relationship between a patient and the related person.)
+     */
     public RelatedPerson setRelationship(CodeableConcept value) { 
       this.relationship = value;
       return this;
     }
 
+    /**
+     * @return {@link #name} (A name associated with the person.)
+     */
     public HumanName getName() { 
       return this.name;
     }
 
+    /**
+     * @param value {@link #name} (A name associated with the person.)
+     */
     public RelatedPerson setName(HumanName value) { 
       this.name = value;
       return this;
     }
 
+    /**
+     * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
+     */
     public List<Contact> getTelecom() { 
       return this.telecom;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
+     */
     public Contact addTelecom() { 
       Contact t = new Contact();
       this.telecom.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+     */
     public CodeableConcept getGender() { 
       return this.gender;
     }
 
+    /**
+     * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.)
+     */
     public RelatedPerson setGender(CodeableConcept value) { 
       this.gender = value;
       return this;
     }
 
+    /**
+     * @return {@link #address} (Address where the related person can be contacted or visited.)
+     */
     public Address getAddress() { 
       return this.address;
     }
 
+    /**
+     * @param value {@link #address} (Address where the related person can be contacted or visited.)
+     */
     public RelatedPerson setAddress(Address value) { 
       this.address = value;
       return this;
     }
 
+    /**
+     * @return {@link #photo} (Image of the person.)
+     */
     public List<Attachment> getPhoto() { 
       return this.photo;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #photo} (Image of the person.)
+     */
     public Attachment addPhoto() { 
       Attachment t = new Attachment();
       this.photo.add(t);

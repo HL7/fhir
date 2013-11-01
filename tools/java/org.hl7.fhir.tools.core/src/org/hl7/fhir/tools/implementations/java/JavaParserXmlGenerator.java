@@ -322,8 +322,11 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       write("    parseElementAttributes(xpp, res);\r\n");
     for (ElementDefn e : n.getElements()) {
       if (e.typeCode().equals("xml:lang")) {
-        write("    if (xpp.getAttributeValue(null, \"xml:Id\") != null)\r\n");
+        write("    if (xpp.getAttributeValue(null, \"xml:lang\") != null)\r\n");
         write("        res.set"+upFirst(getElementName(e.getName(), true))+"(Factory.newCode(xpp.getAttributeValue(null, \"xml:Id\")));\r\n");
+      } else if (e.isXmlAttribute()) {
+        write("    if (xpp.getAttributeValue(null, \""+e.getName()+"\") != null)\r\n");
+        write("        res.set"+upFirst(getElementName(e.getName(), true))+"Simple(xpp.getAttributeValue(null, \""+e.getName()+"\"));\r\n");        
       }
     }    
     write("    xpp.next();\r\n");
@@ -331,7 +334,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    while (eventType != XmlPullParser.END_TAG) {\r\n");
     boolean first = true;
     for (ElementDefn e : n.getElements()) {
-      if (!e.typeCode().equals("xml:lang")) {
+      if (!e.typeCode().equals("xml:lang") && !e.isXmlAttribute()) {
         genElement(n, e, first, clss, bUseOwner);
         first = false;
       }
@@ -361,8 +364,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   private void genElement(ElementDefn root, ElementDefn e, boolean first, JavaGenClass clss, boolean bUseOwner) throws Exception {
     String name = e.getName();
     if (name.endsWith("[x]") || name.equals("[type]")) {
-      String en = name.endsWith("[x]") ? name.replace("[x]", "") : "value";
-      String pfx = name.endsWith("[x]") ? name.replace("[x]", "") : "";
+      String en = name.endsWith("[x]") && !name.equals("[x]") ? name.replace("[x]", "") : "value";
+      String pfx = name.endsWith("[x]") && !name.equals("[x]") ? name.replace("[x]", "") : "";
       write("      "+(!first ? "} else " : "")+"if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, \""+pfx+"\")) {\r\n");
       write("        res.set"+upFirst(getElementName(en, false))+"(parseType(\""+en+"\", xpp));\r\n");
     } else {

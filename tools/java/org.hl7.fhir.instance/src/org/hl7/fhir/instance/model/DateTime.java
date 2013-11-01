@@ -30,17 +30,25 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.model;
 
 /**
- * @author Grahame
- *
+ * Primitive type "dateTime" in FHIR: any day in a gregorian calendar, along with the time in a 24hour clock, and possibly a timezone
  */
 public class DateTime extends Type {
 
+	/**
+	 * The value of the dateTime
+	 */
 	private String value;
 
+	/**
+	 * @return The value of the dateTime
+	 */
 	public String getValue() {
 		return value;
 	}
 
+	/**
+	 * @param value The value of the dateTime
+	 */
 	public void setValue(String value) {
 		this.value = value;
 	}

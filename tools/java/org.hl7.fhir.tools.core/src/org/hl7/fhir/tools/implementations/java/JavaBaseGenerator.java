@@ -34,6 +34,7 @@ import java.io.UnsupportedEncodingException;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
+import org.hl7.fhir.utilities.Utilities;
 
 public class JavaBaseGenerator extends OutputStreamWriter {
 
@@ -47,6 +48,8 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 	    return "value";
 	  else if ((alone && GeneratorUtils.isJavaReservedWord(name)) || (!alone && name.equals("class")))
 	    return name+"_";
+	  else if (name.equals("[x]"))
+      return "value";
 	  else
 	    return name.replace("[x]", "");
 	}
@@ -90,6 +93,6 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 	}
 
 	protected String getTitle(String name) {
-		return name.substring(0, 1).toUpperCase()+ name.substring(1);
+		return Utilities.noString(name) ? "Value" : name.substring(0, 1).toUpperCase()+ name.substring(1);
 	}
 }

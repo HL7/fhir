@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Oct 28, 2013 15:39+1100 for FHIR v0.12
+// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -73,19 +73,31 @@ public class FamilyHistory extends Resource {
         this.relationship = relationship;
       }
 
+        /**
+         * @return {@link #name} (This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".)
+         */
         public String_ getName() { 
           return this.name;
         }
 
+        /**
+         * @param value {@link #name} (This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".)
+         */
         public FamilyHistoryRelationComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
 
+        /**
+         * @return This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".
+         */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
+        /**
+         * @param value This will either be a name or a description.  E.g. "Aunt Susan", "my cousin with the red hair".
+         */
         public FamilyHistoryRelationComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
@@ -97,37 +109,61 @@ public class FamilyHistory extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #relationship} (The type of relationship this person has to the patient (father, mother, brother etc.).)
+         */
         public CodeableConcept getRelationship() { 
           return this.relationship;
         }
 
+        /**
+         * @param value {@link #relationship} (The type of relationship this person has to the patient (father, mother, brother etc.).)
+         */
         public FamilyHistoryRelationComponent setRelationship(CodeableConcept value) { 
           this.relationship = value;
           return this;
         }
 
+        /**
+         * @return {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
+         */
         public Type getDeceased() { 
           return this.deceased;
         }
 
+        /**
+         * @param value {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
+         */
         public FamilyHistoryRelationComponent setDeceased(Type value) { 
           this.deceased = value;
           return this;
         }
 
+        /**
+         * @return {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.)
+         */
         public String_ getNote() { 
           return this.note;
         }
 
+        /**
+         * @param value {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.)
+         */
         public FamilyHistoryRelationComponent setNote(String_ value) { 
           this.note = value;
           return this;
         }
 
+        /**
+         * @return This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
+         */
         public String getNoteSimple() { 
           return this.note == null ? null : this.note.getValue();
         }
 
+        /**
+         * @param value This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
+         */
         public FamilyHistoryRelationComponent setNoteSimple(String value) { 
           if (value == null)
             this.note = null;
@@ -139,11 +175,17 @@ public class FamilyHistory extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #condition} (The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.)
+         */
         public List<FamilyHistoryRelationConditionComponent> getCondition() { 
           return this.condition;
         }
 
     // syntactic sugar
+        /**
+         * @return {@link #condition} (The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.)
+         */
         public FamilyHistoryRelationConditionComponent addCondition() { 
           FamilyHistoryRelationConditionComponent t = new FamilyHistoryRelationConditionComponent();
           this.condition.add(t);
@@ -203,46 +245,76 @@ public class FamilyHistory extends Resource {
         this.type = type;
       }
 
+        /**
+         * @return {@link #type} (The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.)
+         */
         public CodeableConcept getType() { 
           return this.type;
         }
 
+        /**
+         * @param value {@link #type} (The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.)
+         */
         public FamilyHistoryRelationConditionComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
 
+        /**
+         * @return {@link #outcome} (Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.)
+         */
         public CodeableConcept getOutcome() { 
           return this.outcome;
         }
 
+        /**
+         * @param value {@link #outcome} (Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.)
+         */
         public FamilyHistoryRelationConditionComponent setOutcome(CodeableConcept value) { 
           this.outcome = value;
           return this;
         }
 
+        /**
+         * @return {@link #onset} (Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.)
+         */
         public Type getOnset() { 
           return this.onset;
         }
 
+        /**
+         * @param value {@link #onset} (Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.)
+         */
         public FamilyHistoryRelationConditionComponent setOnset(Type value) { 
           this.onset = value;
           return this;
         }
 
+        /**
+         * @return {@link #note} (An area where general notes can be placed about this specific condition.)
+         */
         public String_ getNote() { 
           return this.note;
         }
 
+        /**
+         * @param value {@link #note} (An area where general notes can be placed about this specific condition.)
+         */
         public FamilyHistoryRelationConditionComponent setNote(String_ value) { 
           this.note = value;
           return this;
         }
 
+        /**
+         * @return An area where general notes can be placed about this specific condition.
+         */
         public String getNoteSimple() { 
           return this.note == null ? null : this.note.getValue();
         }
 
+        /**
+         * @param value An area where general notes can be placed about this specific condition.
+         */
         public FamilyHistoryRelationConditionComponent setNoteSimple(String value) { 
           if (value == null)
             this.note = null;
@@ -302,39 +374,63 @@ public class FamilyHistory extends Resource {
       this.subject = subject;
     }
 
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this family history record that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #identifier} (This records identifiers associated with this family history record that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
       this.identifier.add(t);
       return t;
     }
 
+    /**
+     * @return {@link #subject} (The person who this history concerns.)
+     */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
+    /**
+     * @param value {@link #subject} (The person who this history concerns.)
+     */
     public FamilyHistory setSubject(ResourceReference value) { 
       this.subject = value;
       return this;
     }
 
+    /**
+     * @return {@link #note} (Conveys information about family history not specific to individual relations.)
+     */
     public String_ getNote() { 
       return this.note;
     }
 
+    /**
+     * @param value {@link #note} (Conveys information about family history not specific to individual relations.)
+     */
     public FamilyHistory setNote(String_ value) { 
       this.note = value;
       return this;
     }
 
+    /**
+     * @return Conveys information about family history not specific to individual relations.
+     */
     public String getNoteSimple() { 
       return this.note == null ? null : this.note.getValue();
     }
 
+    /**
+     * @param value Conveys information about family history not specific to individual relations.
+     */
     public FamilyHistory setNoteSimple(String value) { 
       if (value == null)
         this.note = null;
@@ -346,11 +442,17 @@ public class FamilyHistory extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #relation} (The related person. Each FamilyHistory resource contains the entire family history for a single person.)
+     */
     public List<FamilyHistoryRelationComponent> getRelation() { 
       return this.relation;
     }
 
     // syntactic sugar
+    /**
+     * @return {@link #relation} (The related person. Each FamilyHistory resource contains the entire family history for a single person.)
+     */
     public FamilyHistoryRelationComponent addRelation() { 
       FamilyHistoryRelationComponent t = new FamilyHistoryRelationComponent();
       this.relation.add(t);

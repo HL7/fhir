@@ -2,18 +2,14 @@
 
 <!--
 Grahame's OAuth extensions:
-<extension>
-  <url value="http://www.healthintersections.com.au/fhir/extensions#oauth-reference"/>
-  <extension>
-    <url value="http://www.healthintersections.com.au/fhir/extensions#oauth-name"/>
+<extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-reference">
+  <extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-name">
     <valueUri value="Google+"/>
   </extension>
-  <extension>
-    <url value="http://www.healthintersections.com.au/fhir/extensions#oauth-img-src"/>
+  <extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-img-src">
     <valueUri value="https://developers.google.com/accounts/images/sign-in-with-google.png"/>
   </extension>
-  <extension>
-    <url value="http://www.healthintersections.com.au/fhir/extensions#oauth-link"/>
+  <extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-link">
     <valueUri value="https://accounts.google.com/o/oauth2/auth?client_id=..."/>
   </extension>
 </extension>
