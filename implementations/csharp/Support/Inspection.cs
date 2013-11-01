@@ -119,4 +119,21 @@ namespace Hl7.Fhir.Support
         }
     }
 
+
+    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
+    public sealed class FhirElementAttribute : Attribute
+    {
+        readonly string name;
+
+        // This is a positional argument
+        public FhirElementAttribute(string name)
+        {
+            this.name = name;
+        }
+
+        public string Name
+        {
+            get { return name; }
+        }
+    }
 }

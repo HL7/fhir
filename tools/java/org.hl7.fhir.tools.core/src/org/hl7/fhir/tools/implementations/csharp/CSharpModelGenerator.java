@@ -228,14 +228,22 @@ public class CSharpModelGenerator extends GenBlock
 	
 	private void generateMemberProperty(CompositeTypeDefn context, ElementDefn member)
 			throws Exception {
-		ln("/// <summary>");
+
+    // Determine the most appropriate FHIR type to use for this
+    // (possibly polymorphic) element.
+    TypeRef tref = GeneratorUtils.getMemberTypeForElement(getDefinitions(),member);
+    boolean isSimpleElement = Character.isLowerCase(tref.getName().charAt(0)) && !member.isPrimitiveValueElement();
+  
+	  ln("/// <summary>");
 		ln("/// " + member.getAnnotation().getShortDefinition());
 		ln("/// </summary>");
+		
+		if(isSimpleElement)
+		{
+		  ln("[FhirElement(\"" + member.getName() + "\")]");
+		}
 		ln("public ");
 		
-		// Determine the most appropriate FHIR type to use for this
-		// (possibly polymorphic) element.
-		TypeRef tref = GeneratorUtils.getMemberTypeForElement(getDefinitions(),member);
 		
 		String memberCsType;
 		
@@ -256,9 +264,10 @@ public class CSharpModelGenerator extends GenBlock
 	
 		String memberName = GeneratorUtils.generateCSharpMemberName(member);
 		
-		boolean isSimpleElement = Character.isLowerCase(tref.getName().charAt(0)) && !member.isPrimitiveValueElement();
-    
-		if(isSimpleElement) memberName += "Element";
+		if(isSimpleElement)
+		{
+		  memberName += "Element";
+		}
 		
 		member.getGeneratorAnnotations().put(CLASSGEN_MEMBER_NAME, memberName);
 		member.getGeneratorAnnotations().put(CLASSGEN_MEMBER_CSTYPE, memberCsType);

@@ -44,12 +44,12 @@ namespace Hl7.Fhir.Model
         }
     }
 
-    public partial class PrimitiveElement : Element
+    public abstract class PrimitiveElement : Element
     {
         // subclasses will define Value property typed to the primitive
     }
 
-    public partial class ComplexElement : Element
+    public abstract class ComplexElement : Element
     {
         // containing elements will be generated for each specific datatype
     }

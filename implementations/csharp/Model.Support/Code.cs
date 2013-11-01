@@ -88,9 +88,9 @@ namespace Hl7.Fhir.Model
         }
     }
 
-
+    [FhirPrimitiveType("codeOfT")]
     [Serializable]
-    public class Code<T> : ComplexElement  where T : struct
+    public class Code<T> : PrimitiveElement where T : struct
     {
         // Primitive value of element
         public T? Value { get; set; }
