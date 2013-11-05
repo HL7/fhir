@@ -132,7 +132,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     
     write("  private void composeElement(Element element) throws Exception {\r\n");
     write("    if (element.getXmlId() != null)\r\n");
-    write("      prop(\"id\", element.getXmlId());\r\n");
+    write("      prop(\"_id\", element.getXmlId());\r\n");
     write("    if (element.getExtensions().size() > 0) {\r\n");
     write("      openArray(\"extension\");\r\n");
     write("      for (Extension ex : element.getExtensions())\r\n");

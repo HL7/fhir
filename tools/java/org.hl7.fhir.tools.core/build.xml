@@ -141,7 +141,7 @@
   <property name="dist" value="mvn-stage" />
   <property name="groupId" value="me.fhir" />
   <property name="artifactId" value="fhir-0.12"/>
-  <property name="version" value="0.2"/>
+  <property name="version" value="0.3-SNAPSHOT"/>
 
   <!-- define artifacts' name, which follows the convention of Maven -->
   <property name="maven-pom" location="${dist}/pom.xml" />
