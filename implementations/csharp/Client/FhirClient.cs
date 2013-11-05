@@ -713,12 +713,7 @@ namespace Hl7.Fhir.Client
             var req = (HttpWebRequest)HttpWebRequest.Create(endpoint);
             var agent =  "FhirClient for FHIR " + Model.ModelInfo.Version;
             req.Method = "GET";
-
-#if NETFX_CORE
             req.Headers[HttpRequestHeader.UserAgent] = agent;
-#else
-            req.UserAgent = agent;
-#endif
 
             if (!UseFormatParam)
                 req.Accept = ContentType.BuildContentType(PreferredFormat, forBundle);
@@ -783,39 +778,30 @@ namespace Hl7.Fhir.Client
         {
             HttpWebResponse response = (HttpWebResponse)req.GetResponseNoEx();
 
-            try
-            {
-                LastResponseDetails = ResponseDetails.FromHttpWebResponse(response);
+            LastResponseDetails = ResponseDetails.FromHttpWebResponse(response);
 
-                if ( success.Contains(LastResponseDetails.Result) ) 
-                    return onSuccess();
-                else
+            if ( success.Contains(LastResponseDetails.Result) ) 
+                return onSuccess();
+            else
+            {
+                // Try to parse the body as an OperationOutcome resource, but it is no
+                // problem if it's something else, or there is no parseable body at all
+
+                ResourceEntry<OperationOutcome> outcome = null;
+
+                try
                 {
-                    // Try to parse the body as an OperationOutcome resource, but it is no
-                    // problem if it's something else, or there is no parseable body at all
-
-                    ResourceEntry<OperationOutcome> outcome = null;
-
-                    try
-                    {
-                        outcome = resourceEntryFromResponse<OperationOutcome>();
-                    }
-                    catch
-                    {
-                        // failed, too bad.
-                    }
-
-                    if (outcome != null)
-                        throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result, outcome.Resource);                        
-                    else
-                        throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result);
+                    outcome = resourceEntryFromResponse<OperationOutcome>();
                 }
-            }
-            finally
-            {
-#if !NETFX_CORE
-                response.Close();
-#endif
+                catch
+                {
+                    // failed, too bad.
+                }
+
+                if (outcome != null)
+                    throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result, outcome.Resource);                        
+                else
+                    throw new FhirOperationException("Operation failed with status code " + LastResponseDetails.Result);
             }
         }
 
@@ -825,22 +811,28 @@ namespace Hl7.Fhir.Client
             if (tags != null)
                 request.Headers[HttpUtil.CATEGORY] = HttpUtil.BuildCategoryHeader(tags);
 
-#if NETFX_CORE
-            var getStreamTask = request.GetRequestStreamAsync();
-            getStreamTask.RunSynchronously();
-            Stream outs = getStreamTask.Result;
-#else
-            Stream outs = request.GetRequestStream();
-#endif
+            Stream outs = getRequestStream(request);
 
             outs.Write(data, 0, (int)data.Length);
             outs.Flush();
-
-#if !NETFX_CORE
-            outs.Close();
-#endif
         }
 
+       
+        private Stream getRequestStream(HttpWebRequest request)
+        {         
+            Stream requestStream = null;
+            AsyncCallback callBack = new AsyncCallback( ar => 
+                    { 
+                        var req = (HttpWebRequest)ar.AsyncState;
+                        requestStream = req.EndGetRequestStream(ar);
+                    });
+
+            var async = request.BeginGetRequestStream(callBack, request);
+
+            async.AsyncWaitHandle.WaitOne();
+
+            return requestStream;
+        }
     }
 
     public enum PageDirection

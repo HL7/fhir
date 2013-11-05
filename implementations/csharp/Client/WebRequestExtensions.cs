@@ -42,13 +42,7 @@ namespace Hl7.Fhir.Client
         {
             try
             {
-#if NETFX_CORE
-                var getResponseTask = req.GetResponseAsync();
-                getResponseTask.RunSynchronously();
-                return getResponseTask.Result;
-#else
-                return req.GetResponse();
-#endif
+                return getResponse(req);
             }
             catch (WebException wex)
             {
@@ -58,6 +52,21 @@ namespace Hl7.Fhir.Client
                 }
                 throw;
             }
+        }
+
+        private static WebResponse getResponse(WebRequest req)
+        {
+            WebResponse result = null;
+            AsyncCallback callback = new AsyncCallback(ar =>
+                {
+                    var request = (WebRequest)ar.AsyncState;
+                    result = request.EndGetResponse(ar);
+                });
+
+            var async = req.BeginGetResponse(callback, req);
+            async.AsyncWaitHandle.WaitOne();
+
+            return result;
         }
     }
 }

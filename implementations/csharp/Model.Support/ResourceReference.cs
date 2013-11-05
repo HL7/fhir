@@ -28,6 +28,7 @@
 
 */
 
+using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,7 @@ namespace Hl7.Fhir.Model
 {
     public partial class ResourceReference
     {
+        [NotMapped]
         public Uri Url
         {
             get

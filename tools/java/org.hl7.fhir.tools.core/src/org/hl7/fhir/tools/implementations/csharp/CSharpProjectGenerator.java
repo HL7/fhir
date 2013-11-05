@@ -36,25 +36,56 @@ import org.hl7.fhir.utilities.TextFile;
 
 public class CSharpProjectGenerator 
 {	
-	public void build( String destDir, List<String> cSharpProjectFiles ) throws IOException
+	public static void build( String destDir, List<String> cSharpProjectFiles ) throws IOException
 	{
 		if( !destDir.endsWith(File.separator) )
 			destDir += File.separator;
 
 		// Generate "normal" VS2012 .NET project
+		// EK 20131105 - "normal" project is now a .NET 4.0 Portable library,
+		// so we don't need separate projects for .NET and WinRT anymore.
 		List<String> templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.csproj.template"); 	
 		List<String> itemGroup = buildItemGroupContents(cSharpProjectFiles);
 		List<String> outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
 		TextFile.writeAllLines(destDir + "Hl7.Fhir.csproj", outputLines);
 		
 		// Generate WinRT VS2012 project
-		templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.WinRt.csproj.template"); 	
-		outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
-		TextFile.writeAllLines(destDir + "Hl7.Fhir.WinRt.csproj", outputLines);
+	//	templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.WinRt.csproj.template"); 	
+//		outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
+		//TextFile.writeAllLines(destDir + "Hl7.Fhir.WinRt.csproj", outputLines);
 	}
 	
+	
+	public static void setAssemblyVersionInProperties(String destDir, String version, String svnRevision) throws IOException
+	{
+	  if( !destDir.endsWith(File.separator) )
+      destDir += File.separator;
+	  
+	  String filename = destDir + "Properties" + File.separator + "AssemblyInfo.cs";
+	  List<String> assemblyInfoContents = TextFile.readAllLines(filename);  
+    List<String> outputLines = replaceAssemblyVersion( assemblyInfoContents, version, svnRevision);
+    TextFile.writeAllLines(filename, outputLines);
+	}
 
-	private List<String> replaceTemplateVar( List<String> source, String template, List<String> contents)
+	private static List<String> replaceAssemblyVersion(List<String> source, String version, String svnRevision)
+	{
+	  String generatedVersion = version + "." + svnRevision;
+	  List<String> result = new ArrayList<String>();
+	  
+	  for( String line : source)
+    {
+	    if(line.trim().startsWith("[assembly: AssemblyVersion"))
+	      result.add("[assembly: AssemblyVersion(\"" + generatedVersion + "\")]");
+	    else if(line.trim().startsWith("[assembly: AssemblyFileVersion"))
+	      result.add("[assembly: AssemblyFileVersion(\"" + generatedVersion + "\")]");
+	    else
+	      result.add(line);
+    }
+	  
+	  return result;
+	}
+	
+	private static List<String> replaceTemplateVar( List<String> source, String template, List<String> contents)
 	{
 		List<String> result = new ArrayList<String>();
 
@@ -69,7 +100,7 @@ public class CSharpProjectGenerator
 		return result;
 	}
 	
-	private List<String> buildItemGroupContents(List<String> files)
+	private static List<String> buildItemGroupContents(List<String> files)
 	{
 		List<String> result = new ArrayList<String>();
 		

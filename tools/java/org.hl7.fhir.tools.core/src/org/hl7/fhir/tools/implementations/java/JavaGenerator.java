@@ -64,7 +64,6 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.ZipGenerator;
-//import org.hl7.fhir.instance.formats.JsonComposer;
 
 public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
@@ -245,7 +244,7 @@ public boolean isECoreGenerator() {
 
   @Override
 public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir,
-      String implDir, Logger logger) throws Exception {
+      String implDir, Logger logger, String svnRevision) throws Exception {
     throw new UnsupportedOperationException("Java generator uses ElementDefn-style definitions.");	
   }
 

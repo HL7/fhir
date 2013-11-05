@@ -84,7 +84,7 @@ public interface PlatformGenerator {
    * @param implDir - the folder in the /implementations directory in the FHIR subversion tree, if the generator wants to store stuff in subversion (has a path separator appended)
    * @param logger - so that the generator can log issues/errors/progress to the same place as the overall build process
    */
-  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, Logger logger)  throws Exception;
+  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, Logger logger, String svnRevision)  throws Exception;
   
   /**
    * todo: should this be part of the generate or not?

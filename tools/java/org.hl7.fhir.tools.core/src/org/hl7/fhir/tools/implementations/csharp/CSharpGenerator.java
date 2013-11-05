@@ -82,7 +82,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
   
 	@Override
 	public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir,
-			String implDir, Logger logger) throws Exception {
+			String implDir, Logger logger, String svnRevision) throws Exception {
 
 	  this.logger = logger;
 
@@ -190,9 +190,9 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 			generatedFilenames.add(filename);			
 		}
 		
-	    // Generate C# project file
-	    CSharpProjectGenerator projGen = new CSharpProjectGenerator();
-	    projGen.build(implDir, generatedFilenames);
+	    // Generate C# project file & update assembly version
+	    CSharpProjectGenerator.build(implDir, generatedFilenames);
+	    CSharpProjectGenerator.setAssemblyVersionInProperties(implDir, definitions.getVersion(), svnRevision);
 	    
 		String modelSupportDir = "Model.Support" + sl;
 		String parsersSupportDir = "Parsers.Support" + sl;
@@ -217,9 +217,9 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		zip.addFiles(implDir, "", "Hl7.Fhir.vsmdi", null);
 		// Include supporting libraries
 		String librariesDir = "Libraries" + sl;
-		String winRTLibrariesDir = librariesDir + "WinRT" + sl;
+	//	String winRTLibrariesDir = librariesDir + "WinRT" + sl;
 		zip.addFiles(implDir+librariesDir, librariesDir, ".dll", null);
-		zip.addFiles(implDir+winRTLibrariesDir, winRTLibrariesDir , ".dll", null);
+	//	zip.addFiles(implDir+winRTLibrariesDir, winRTLibrariesDir , ".dll", null);
 		
 		// Include test project
 		String testProjectDir = "Hl7.Fhir.Tests" + sl;

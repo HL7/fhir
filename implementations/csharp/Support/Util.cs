@@ -203,14 +203,13 @@ namespace Hl7.Fhir.Support
 
     }
 
-#if NETFX_CORE
+
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
     sealed class Serializable : Attribute
     {
         // Just there to avoid compilation errors under NETFX
         // (instead of putting this #if at every single [Serializable] attribute in the model
     }
-
 
     public static class ForEachExtension
     {
@@ -220,6 +219,4 @@ namespace Hl7.Fhir.Support
                 action(elem);
         }
     }
-#endif
-
 }

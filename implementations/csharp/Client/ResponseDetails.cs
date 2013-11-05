@@ -115,6 +115,7 @@ namespace Hl7.Fhir.Client
 
             if (!String.IsNullOrEmpty(response.ContentType))
             {
+
 #if !NETFX_CORE
                 var charset = new System.Net.Mime.ContentType(response.ContentType).CharSet;
 #else

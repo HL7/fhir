@@ -99,11 +99,7 @@ namespace Hl7.Fhir.Model
 
         public Code(T? value)
         {
-#if !NETFX_CORE
             if (!typeof(T).IsEnum) 
-#else
-            if(!typeof(T).GetTypeInfo().IsEnum)
-#endif
                 throw new ArgumentException("T must be an enumerated type");
 
             Value = value;

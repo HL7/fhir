@@ -204,11 +204,7 @@ namespace Hl7.Fhir.Serializers
 
             xw.Flush();
 
-#if !NETFX_CORE
-            xw.Close();
-#endif
             return stream.ToArray();
-
         }
 
 
@@ -223,10 +219,6 @@ namespace Hl7.Fhir.Serializers
 
             jw.Flush();
 
-#if !NETFX_CORE
-            sw.Close();
-#endif
-
             return stream.ToArray();
 
         }
@@ -238,12 +230,8 @@ namespace Hl7.Fhir.Serializers
             JsonWriter jw = new JsonTextWriter(sw);
 
             serializer(jw);
-
             jw.Flush();
-
-#if !NETFX_CORE
             jw.Close();
-#endif
 
             return resultBuilder.ToString();
         }
@@ -257,10 +245,7 @@ namespace Hl7.Fhir.Serializers
             serializer(xw);
 
             xw.Flush();
-
-#if !NETFX_CORE
-            xw.Close();
-#endif
+           
 
             return sb.ToString();
         }
