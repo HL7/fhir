@@ -238,13 +238,13 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
   protected void prop(String name, BigDecimal value) throws Exception {
     if (name != null)
       json.name(name);
-    json.value(value);
+    json.value(value.toString());
   }
 
   protected void prop(String name, java.lang.Integer value) throws Exception {
     if (name != null)
       json.name(name);
-    json.value(value);
+    json.value(value.toString());
   }
 
 //	protected void composeType(Type type) throws Exception {
