@@ -366,15 +366,18 @@ public class CSharpModelGenerator extends GenBlock
 	{
 	  boolean representsPrimitive = hasPrimitiveValueElement(composite);
 
-	  // Avoid generating type attributes with names for the abstract baseclasses Element and Resource
+	  // Avoid generating type attributes with names for the abstract baseclasses Element
+	  // since that's both a primitive and a composite type
 		if( composite.isComposite() && !composite.isAbstract() )
+	  //if( composite.isComposite() )
 		{
 		  if(!representsPrimitive)
 		    ln("[FhirComplexType(\"" + composite.getName() + "\")]" );
 		  else
 		    ln("[FhirPrimitiveType(\"" + composite.getName() + "\")]" );
 		}
-		else if( composite.isResource() && !composite.isAbstract() )
+		//else if( composite.isResource() && !composite.isAbstract() )
+		else if( composite.isResource() )
 		{
 			ln("[FhirResource(\"" + composite.getName() + "\")]" );
 		}

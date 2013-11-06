@@ -348,7 +348,7 @@ public class CompositeTypeConverter {
 	
 	public static ElementDefn buildInternalIdElement()
 	{
-	  ElementDefn idElem = GeneratorUtils.buildSimpleElementDefn("_id", "id", "Local id for element", 0, 1);	  
+	  ElementDefn idElem = GeneratorUtils.buildSimpleElementDefn("id", "id", "Local id for element", 0, 1);	  
 		idElem.setPrimitiveContents(true);
 		idElem.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
 		idElem.setSummaryItem(true);		

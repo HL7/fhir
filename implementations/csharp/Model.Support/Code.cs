@@ -161,7 +161,7 @@ namespace Hl7.Fhir.Model
         {
             var code = new Code(this.ToString());
             code.Extension = this.Extension;
-            code.LocalId = this.LocalId;
+            code.Id = this.Id;
 
             return code.Validate();
         }

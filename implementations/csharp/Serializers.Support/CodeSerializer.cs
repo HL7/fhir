@@ -49,7 +49,7 @@ namespace Hl7.Fhir.Serializers
         {
             Code c = new Code(value.ToString());
             c.Extension = value.Extension;
-            c.LocalId = value.LocalId;
+            c.Id = value.Id;
 
             CodeSerializer.SerializeCode(c, writer, summary);
         }

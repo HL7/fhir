@@ -58,7 +58,7 @@ namespace Hl7.Fhir.Parsers
             {
                 result = existingInstance != null ? existingInstance : new Hl7.Fhir.Model.Code<T>();
                 result.Extension = c.Extension;
-                result.LocalId = c.LocalId;
+                result.Id = c.Id;
 
                 try
                 {

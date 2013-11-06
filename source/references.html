@@ -205,15 +205,14 @@ An example of a contained resource:
 The same example in JSON:
 </p>
 <pre class="json"> 
-{ "Document" : {
+{ "resourceType" : "Document",
   "extension" : { ... },
   "text" : { .. },
   "contained: [
-    {"Organization" : {
+    { "resourceType" : "Organization",
       "id" : "org1",
       .. whatever information is available ...
-	}}
-  ]
+	}  ]
   "information: {
     ... other attributes ...
     "custodian" : {
@@ -221,7 +220,7 @@ The same example in JSON:
 	}
     ... other attributes ...
   }
-}}
+}
 </pre>
 </div>
 <blockquote>
