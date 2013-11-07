@@ -49,10 +49,10 @@ public class CSharpProjectGenerator
 		List<String> outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
 		TextFile.writeAllLines(destDir + "Hl7.Fhir.csproj", outputLines);
 		
-		// Generate WinRT VS2012 project
-	//	templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.WinRt.csproj.template"); 	
-//		outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
-		//TextFile.writeAllLines(destDir + "Hl7.Fhir.WinRt.csproj", outputLines);
+		// Generate Portable40 project (profile 147)
+		templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.Portable40.csproj.template"); 	
+		outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
+		TextFile.writeAllLines(destDir + "Hl7.Fhir.Portable40.csproj", outputLines);
 	}
 	
 	

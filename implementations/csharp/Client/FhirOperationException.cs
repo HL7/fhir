@@ -45,7 +45,6 @@ using Newtonsoft.Json;
 
 namespace Hl7.Fhir.Client
 {
-    [Serializable]
     public class FhirOperationException : Exception
     {
         public OperationOutcome Outcome { get; set; }

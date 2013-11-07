@@ -58,7 +58,7 @@ done by using an array type. Note that:
 <ul>
  <li>The name of the array is singular - the same as the XML element</li>
  <li>An item that may repeat is represented as an array even in the case that it doesn't so that the process of parsing the resource is the same either way</li>
-</ul>
+ </ul>
 <pre class="xml">
  &lt;<b>coding</b>&gt;
    &lt;<b>system</b> value="http://snomed.info/id"/&gt;
@@ -130,9 +130,10 @@ If the value has an id attribute, or extensions, then this is represented as fol
    }]
  }
 </pre>
+<p>Note: If the primitive has an id attribute or extension, but no value, only the property with the "_" is rendered.</p>
 <p>
 In the case where the primitive element may repeat, it is represented 
-in two arrays. null values are used to fill out the second array so 
+in two arrays. null values are used to fill out both arrays so 
 that the id and/or extension are aligned with the matching value in 
 the first array, as demonstrated in this example:
 </p>
@@ -156,6 +157,8 @@ the first array, as demonstrated in this example:
   ]
  }
 </pre>
+<p>Note: when one of the repeating elements has no value, it is represented in the first array using a null. When
+an element has a value but no extension/id, the second array will have a null at the position of that element.</p>
 <blockquote>
 <p>
 Design Note: The representation of primitive data types has been 
