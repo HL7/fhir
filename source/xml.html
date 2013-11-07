@@ -106,7 +106,8 @@ In XML <a href="extras.html#bundle">bundles</a> are represented using an Atom fo
 <ul>
  <li>Logically, a bundle is a set of resources that are prepared to send somewhere for consumption - a "feed". There is no implication that the feed is a standing arrangement (though this is not precluded)</li>
  <li>The order of elements does not matter in an atom feed (but not entries: the order of the entries is important and may have some meaning associated with it). The order of elements in the atom namespace as documented above does not need to be followed, though it is followed by the FHIR reference platforms</li>
- <li>The title for the feed and the entry are arbitrary human-readable content and not to be used for any automated processing. Applications may populate these in any useful way</li> 
+ <li>The title for the feed and the entry are arbitrary human-readable content. The title of the entry SHOULD be derived from information present in the resource itself.  
+   Systems may ignore content present in the title</li> 
  <li>Every bundle SHALL have a unique id and that id SHALL be a valid absolute <a href="datatypes.html#uri">uri</a>. UUIDs are recommended (urn:uuid:...)</li>
  <li>The entry element carries the <a href="resources.html#metadata">three pieces of resource metadata</a>: Id (.id), Version Id (.link), Last Updated (.updated)</li>
  <li>Each entry also carries all the Tags affixed to the resource in the category element. The category element can be used in other ways too</li>

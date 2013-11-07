@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
+// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -337,6 +337,195 @@ public class Profile extends Resource {
       return "?";
       }
     }
+
+    public static class ProfileMappingComponent extends BackboneElement {
+        /**
+         * An Internal id that is used to identify this mapping set when specific mappings are made.
+         */
+        protected Id identity;
+
+        /**
+         * A URI that identifies the specification that this mapping is expressed to.
+         */
+        protected Uri uri;
+
+        /**
+         * A name for the specification that is being mapped to.
+         */
+        protected String_ name;
+
+        /**
+         * Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
+         */
+        protected String_ comments;
+
+      public ProfileMappingComponent() {
+        super();
+      }
+
+      public ProfileMappingComponent(Id identity) {
+        super();
+        this.identity = identity;
+      }
+
+        /**
+         * @return {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.)
+         */
+        public Id getIdentity() { 
+          return this.identity;
+        }
+
+        /**
+         * @param value {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.)
+         */
+        public ProfileMappingComponent setIdentity(Id value) { 
+          this.identity = value;
+          return this;
+        }
+
+        /**
+         * @return An Internal id that is used to identify this mapping set when specific mappings are made.
+         */
+        public String getIdentitySimple() { 
+          return this.identity == null ? null : this.identity.getValue();
+        }
+
+        /**
+         * @param value An Internal id that is used to identify this mapping set when specific mappings are made.
+         */
+        public ProfileMappingComponent setIdentitySimple(String value) { 
+            if (this.identity == null)
+              this.identity = new Id();
+            this.identity.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
+         */
+        public Uri getUri() { 
+          return this.uri;
+        }
+
+        /**
+         * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
+         */
+        public ProfileMappingComponent setUri(Uri value) { 
+          this.uri = value;
+          return this;
+        }
+
+        /**
+         * @return A URI that identifies the specification that this mapping is expressed to.
+         */
+        public String getUriSimple() { 
+          return this.uri == null ? null : this.uri.getValue();
+        }
+
+        /**
+         * @param value A URI that identifies the specification that this mapping is expressed to.
+         */
+        public ProfileMappingComponent setUriSimple(String value) { 
+          if (value == null)
+            this.uri = null;
+          else {
+            if (this.uri == null)
+              this.uri = new Uri();
+            this.uri.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #name} (A name for the specification that is being mapped to.)
+         */
+        public String_ getName() { 
+          return this.name;
+        }
+
+        /**
+         * @param value {@link #name} (A name for the specification that is being mapped to.)
+         */
+        public ProfileMappingComponent setName(String_ value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return A name for the specification that is being mapped to.
+         */
+        public String getNameSimple() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value A name for the specification that is being mapped to.
+         */
+        public ProfileMappingComponent setNameSimple(String value) { 
+          if (value == null)
+            this.name = null;
+          else {
+            if (this.name == null)
+              this.name = new String_();
+            this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
+         */
+        public String_ getComments() { 
+          return this.comments;
+        }
+
+        /**
+         * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
+         */
+        public ProfileMappingComponent setComments(String_ value) { 
+          this.comments = value;
+          return this;
+        }
+
+        /**
+         * @return Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
+         */
+        public String getCommentsSimple() { 
+          return this.comments == null ? null : this.comments.getValue();
+        }
+
+        /**
+         * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
+         */
+        public ProfileMappingComponent setCommentsSimple(String value) { 
+          if (value == null)
+            this.comments = null;
+          else {
+            if (this.comments == null)
+              this.comments = new String_();
+            this.comments.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("identity", "id", "An Internal id that is used to identify this mapping set when specific mappings are made.", 0, java.lang.Integer.MAX_VALUE, identity));
+          childrenList.add(new Property("uri", "uri", "A URI that identifies the specification that this mapping is expressed to.", 0, java.lang.Integer.MAX_VALUE, uri));
+          childrenList.add(new Property("name", "string", "A name for the specification that is being mapped to.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("comments", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comments));
+        }
+
+      public ProfileMappingComponent copy(Profile e) {
+        ProfileMappingComponent dst = new ProfileMappingComponent();
+        dst.identity = identity == null ? null : identity.copy();
+        dst.uri = uri == null ? null : uri.copy();
+        dst.name = name == null ? null : name.copy();
+        dst.comments = comments == null ? null : comments.copy();
+        return dst;
+      }
+
+  }
 
     public static class ProfileStructureComponent extends BackboneElement {
         /**
@@ -2063,14 +2252,9 @@ public class Profile extends Resource {
 
     public static class ElementDefinitionMappingComponent extends BackboneElement {
         /**
-         * A URI that identifies the specification that this mapping is expressed to.
+         * An internal reference to the definition of a mapping.
          */
-        protected Uri uri;
-
-        /**
-         * A name for the specification that is being mapped to.
-         */
-        protected String_ name;
+        protected Id identity;
 
         /**
          * Expresses what part of the target specification corresponds to this element.
@@ -2081,75 +2265,41 @@ public class Profile extends Resource {
         super();
       }
 
+      public ElementDefinitionMappingComponent(Id identity, String_ map) {
+        super();
+        this.identity = identity;
+        this.map = map;
+      }
+
         /**
-         * @return {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
+         * @return {@link #identity} (An internal reference to the definition of a mapping.)
          */
-        public Uri getUri() { 
-          return this.uri;
+        public Id getIdentity() { 
+          return this.identity;
         }
 
         /**
-         * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
+         * @param value {@link #identity} (An internal reference to the definition of a mapping.)
          */
-        public ElementDefinitionMappingComponent setUri(Uri value) { 
-          this.uri = value;
+        public ElementDefinitionMappingComponent setIdentity(Id value) { 
+          this.identity = value;
           return this;
         }
 
         /**
-         * @return A URI that identifies the specification that this mapping is expressed to.
+         * @return An internal reference to the definition of a mapping.
          */
-        public String getUriSimple() { 
-          return this.uri == null ? null : this.uri.getValue();
+        public String getIdentitySimple() { 
+          return this.identity == null ? null : this.identity.getValue();
         }
 
         /**
-         * @param value A URI that identifies the specification that this mapping is expressed to.
+         * @param value An internal reference to the definition of a mapping.
          */
-        public ElementDefinitionMappingComponent setUriSimple(String value) { 
-          if (value == null)
-            this.uri = null;
-          else {
-            if (this.uri == null)
-              this.uri = new Uri();
-            this.uri.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #name} (A name for the specification that is being mapped to.)
-         */
-        public String_ getName() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (A name for the specification that is being mapped to.)
-         */
-        public ElementDefinitionMappingComponent setName(String_ value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return A name for the specification that is being mapped to.
-         */
-        public String getNameSimple() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value A name for the specification that is being mapped to.
-         */
-        public ElementDefinitionMappingComponent setNameSimple(String value) { 
-          if (value == null)
-            this.name = null;
-          else {
-            if (this.name == null)
-              this.name = new String_();
-            this.name.setValue(value);
-          }
+        public ElementDefinitionMappingComponent setIdentitySimple(String value) { 
+            if (this.identity == null)
+              this.identity = new Id();
+            this.identity.setValue(value);
           return this;
         }
 
@@ -2179,27 +2329,21 @@ public class Profile extends Resource {
          * @param value Expresses what part of the target specification corresponds to this element.
          */
         public ElementDefinitionMappingComponent setMapSimple(String value) { 
-          if (value == null)
-            this.map = null;
-          else {
             if (this.map == null)
               this.map = new String_();
             this.map.setValue(value);
-          }
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("uri", "uri", "A URI that identifies the specification that this mapping is expressed to.", 0, java.lang.Integer.MAX_VALUE, uri));
-          childrenList.add(new Property("name", "string", "A name for the specification that is being mapped to.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("identity", "id", "An internal reference to the definition of a mapping.", 0, java.lang.Integer.MAX_VALUE, identity));
           childrenList.add(new Property("map", "string", "Expresses what part of the target specification corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, map));
         }
 
       public ElementDefinitionMappingComponent copy(Profile e) {
         ElementDefinitionMappingComponent dst = new ElementDefinitionMappingComponent();
-        dst.uri = uri == null ? null : uri.copy();
-        dst.name = name == null ? null : name.copy();
+        dst.identity = identity == null ? null : identity.copy();
         dst.map = map == null ? null : map.copy();
         return dst;
       }
@@ -2462,6 +2606,11 @@ public class Profile extends Resource {
      * The version of the FHIR specification on which this profile is based.
      */
     protected Id fhirVersion;
+
+    /**
+     * An external specification that the content is mapped to.
+     */
+    protected List<ProfileMappingComponent> mapping = new ArrayList<ProfileMappingComponent>();
 
     /**
      * A constraint statement about what contents a resource or data type may have.
@@ -2834,6 +2983,23 @@ public class Profile extends Resource {
     }
 
     /**
+     * @return {@link #mapping} (An external specification that the content is mapped to.)
+     */
+    public List<ProfileMappingComponent> getMapping() { 
+      return this.mapping;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #mapping} (An external specification that the content is mapped to.)
+     */
+    public ProfileMappingComponent addMapping() { 
+      ProfileMappingComponent t = new ProfileMappingComponent();
+      this.mapping.add(t);
+      return t;
+    }
+
+    /**
      * @return {@link #structure} (A constraint statement about what contents a resource or data type may have.)
      */
     public List<ProfileStructureComponent> getStructure() { 
@@ -2880,6 +3046,7 @@ public class Profile extends Resource {
         childrenList.add(new Property("experimental", "boolean", "This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date that this version of the profile was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this profile is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
+        childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("structure", "", "A constraint statement about what contents a resource or data type may have.", 0, java.lang.Integer.MAX_VALUE, structure));
         childrenList.add(new Property("extensionDefn", "", "An extension defined as part of the profile.", 0, java.lang.Integer.MAX_VALUE, extensionDefn));
       }
@@ -2901,6 +3068,9 @@ public class Profile extends Resource {
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
+        dst.mapping = new ArrayList<ProfileMappingComponent>();
+        for (ProfileMappingComponent i : mapping)
+          dst.mapping.add(i.copy(dst));
         dst.structure = new ArrayList<ProfileStructureComponent>();
         for (ProfileStructureComponent i : structure)
           dst.structure.add(i.copy(dst));

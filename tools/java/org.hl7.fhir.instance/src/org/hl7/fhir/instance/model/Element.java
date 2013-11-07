@@ -1,5 +1,6 @@
 package org.hl7.fhir.instance.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -36,7 +37,12 @@ POSSIBILITY OF SUCH DAMAGE.
  * The base element as defined in FHIR: an id attribute or property, and extensions. 
  * All FHIR classes that represent resource content inherit from this 
  */
-public abstract class Element {
+public abstract class Element implements Serializable {
+
+	/**
+	 * 
+	 */
+  private static final long serialVersionUID = 1L;
 
 	/**
 	 * xml:id (or "id" in json) - the target id for internal references

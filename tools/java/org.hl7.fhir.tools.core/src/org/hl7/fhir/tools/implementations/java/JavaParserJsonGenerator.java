@@ -459,8 +459,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    if (Utilities.noString(t))\r\n");
     write("      throw new Exception(\"Unable to find resource type - maybe not a FHIR resource?\");\r\n");
     write("    "+reg.toString().substring(9));
-    write("    else if (json.has(\"Binary\"))\r\n");
-    write("      return parseBinary(json.getJSONObject(\"Binary\"));\r\n");
+    write("    else if (t.equals(\"Binary\"))\r\n");
+    write("      return parseBinary(json);\r\n");
     write("    throw new Exception(\"Unknown.Unrecognised resource type\");\r\n");
     write("  }\r\n\r\n");
     write("  protected Type parseType(String prefix, JSONObject json) throws Exception {\r\n");

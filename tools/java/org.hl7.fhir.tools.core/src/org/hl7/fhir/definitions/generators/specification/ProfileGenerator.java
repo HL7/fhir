@@ -62,6 +62,7 @@ import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ExtensionContext;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
+import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ResourceAggregationMode;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
@@ -242,11 +243,7 @@ public class ProfileGenerator {
     }
     for (String mu : ElementDefn.getAllMappingUris()) {
       if (dSrc.hasMapping(mu)) {
-        ElementDefinitionMappingComponent m = new Profile.ElementDefinitionMappingComponent();
-        m.setUriSimple(mu);
-        m.setNameSimple(MappingsGenerator.titleFor(mu));
-        m.setMapSimple(dSrc.getMapping(mu));
-        dDst.getMapping().add(m);
+        addMapping(p, dDst, mu, dSrc.getMapping(mu));
       }
     }
     if (!Utilities.noString(dSrc.getBindingName()))
@@ -408,12 +405,27 @@ public class ProfileGenerator {
 
   private void addMapping(Profile p, ElementDefinitionComponent definition, String target, String map) {
     if (!Utilities.noString(map)) {
+      String id = MappingsGenerator.idFor(target);
+      if (!mappingExists(p, id)) {
+        ProfileMappingComponent pm = new ProfileMappingComponent();
+        p.getMapping().add(pm);
+        pm.setIdentitySimple(id);
+        pm.setUriSimple(target);
+        pm.setNameSimple(MappingsGenerator.titleFor(target));
+      }
       ElementDefinitionMappingComponent m = new Profile.ElementDefinitionMappingComponent();
-      m.setUriSimple(target);
-      m.setNameSimple(MappingsGenerator.titleFor(target));
+      m.setIdentitySimple(id);
       m.setMapSimple(map);
       definition.getMapping().add(m);
     }
+  }
+
+  private boolean mappingExists(Profile p, String id) {
+    for (ProfileMappingComponent t : p.getMapping()) {
+      if (id.equals(t.getIdentitySimple()))
+        return true;
+    }
+    return false;
   }
 
   private ElementComponent createBaseDefinition(Profile p, String path, ElementDefn src) throws URISyntaxException {

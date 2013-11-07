@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
+// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -4446,6 +4446,12 @@ public class JsonParser extends JsonParserBase {
       res.setFhirVersion(parseId(json.getString("fhirVersion")));
     if (json.has("_fhirVersion"))
       parseElementProperties(json.getJSONObject("_fhirVersion"), res.getFhirVersion());
+    if (json.has("mapping")) {
+      JSONArray array = json.getJSONArray("mapping");
+      for (int i = 0; i < array.length(); i++) {
+        res.getMapping().add(parseProfileProfileMappingComponent(array.getJSONObject(i), res));
+      }
+    };
     if (json.has("structure")) {
       JSONArray array = json.getJSONArray("structure");
       for (int i = 0; i < array.length(); i++) {
@@ -4458,6 +4464,28 @@ public class JsonParser extends JsonParserBase {
         res.getExtensionDefn().add(parseProfileProfileExtensionDefnComponent(array.getJSONObject(i), res));
       }
     };
+    return res;
+  }
+
+  private Profile.ProfileMappingComponent parseProfileProfileMappingComponent(JSONObject json, Profile owner) throws Exception {
+    Profile.ProfileMappingComponent res = new Profile.ProfileMappingComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("identity"))
+      res.setIdentity(parseId(json.getString("identity")));
+    if (json.has("_identity"))
+      parseElementProperties(json.getJSONObject("_identity"), res.getIdentity());
+    if (json.has("uri"))
+      res.setUri(parseUri(json.getString("uri")));
+    if (json.has("_uri"))
+      parseElementProperties(json.getJSONObject("_uri"), res.getUri());
+    if (json.has("name"))
+      res.setName(parseString(json.getString("name")));
+    if (json.has("_name"))
+      parseElementProperties(json.getJSONObject("_name"), res.getName());
+    if (json.has("comments"))
+      res.setComments(parseString(json.getString("comments")));
+    if (json.has("_comments"))
+      parseElementProperties(json.getJSONObject("_comments"), res.getComments());
     return res;
   }
 
@@ -4710,14 +4738,10 @@ public class JsonParser extends JsonParserBase {
   private Profile.ElementDefinitionMappingComponent parseProfileElementDefinitionMappingComponent(JSONObject json, Profile owner) throws Exception {
     Profile.ElementDefinitionMappingComponent res = new Profile.ElementDefinitionMappingComponent();
     parseBackboneProperties(json, res);
-    if (json.has("uri"))
-      res.setUri(parseUri(json.getString("uri")));
-    if (json.has("_uri"))
-      parseElementProperties(json.getJSONObject("_uri"), res.getUri());
-    if (json.has("name"))
-      res.setName(parseString(json.getString("name")));
-    if (json.has("_name"))
-      parseElementProperties(json.getJSONObject("_name"), res.getName());
+    if (json.has("identity"))
+      res.setIdentity(parseId(json.getString("identity")));
+    if (json.has("_identity"))
+      parseElementProperties(json.getJSONObject("_identity"), res.getIdentity());
     if (json.has("map"))
       res.setMap(parseString(json.getString("map")));
     if (json.has("_map"))

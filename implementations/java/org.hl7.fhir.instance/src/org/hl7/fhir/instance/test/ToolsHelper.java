@@ -163,11 +163,11 @@ public class ToolsHelper {
     ByteArrayOutputStream json = new ByteArrayOutputStream();
     if (rf.getFeed() != null) {
       new JsonComposer().compose(json, rf.getFeed(), true);
-      rf = pj.parseGeneral(new ByteArrayInputStream(json.toString().getBytes("UTF-8")));
+      rf = pj.parseGeneral(new ByteArrayInputStream(json.toByteArray()));
       new XmlComposer().compose(new FileOutputStream(dest), rf.getFeed(), true);
     } else {
       new JsonComposer().compose(json, rf.getResource(), true);
-      rf = pj.parseGeneral(new ByteArrayInputStream(json.toString().getBytes("UTF-8")));
+      rf = pj.parseGeneral(new ByteArrayInputStream(json.toByteArray()));
       new XmlComposer().compose(new FileOutputStream(dest), rf.getResource(), true);
     }
   }

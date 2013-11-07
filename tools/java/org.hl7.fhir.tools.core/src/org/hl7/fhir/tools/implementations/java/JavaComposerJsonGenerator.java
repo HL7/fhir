@@ -61,7 +61,8 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
 
   private StringBuilder reg = new StringBuilder();
   private StringBuilder regn = new StringBuilder();
-  private StringBuilder regt = new StringBuilder();
+  private StringBuilder regtn = new StringBuilder();
+  private StringBuilder regtp = new StringBuilder();
 //  private StringBuilder regn = new StringBuilder();
   private String genparam;
 
@@ -90,18 +91,18 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     for (ElementDefn n : definitions.getTypes().values()) {
       generate(n, JavaGenClass.Type);
       if (n.getName().equals("ResourceReference"))
-        regt.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\"Resource\", ("+n.getName()+") type);\r\n");
+        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\"Resource\", ("+n.getName()+") type);\r\n");
       else
-        regt.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
+        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
     }
 
     for (DefinedCode n : definitions.getConstraints().values()) {
       generateConstraint(n);
-      regt.append("    else if (type instanceof "+n.getCode()+")\r\n       compose"+n.getCode()+"(prefix+\""+n.getCode()+"\", ("+n.getCode()+") type);\r\n");
+      regtp.append("    else if (type instanceof "+n.getCode()+")\r\n       compose"+n.getCode()+"(prefix+\""+n.getCode()+"\", ("+n.getCode()+") type);\r\n");
     }
     for (ElementDefn n : definitions.getStructures().values()) {
       generate(n, JavaGenClass.Structure);
-      regt.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
+      regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
     }
     
     genResource();
@@ -119,10 +120,10 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
       String t = n;
       if (n.equals("String")) 
         t = "String_";
-      regt.append("    else if (type instanceof "+t+") {\r\n");
-      regt.append("      compose"+upFirst(n)+"Core(prefix+\""+n+"\", ("+t+") type, false);\r\n");
-      regt.append("      compose"+upFirst(n)+"Extras(prefix+\""+n+"\", ("+t+") type, false);\r\n");
-      regt.append("    }\r\n");
+      regtn.append("    else if (type instanceof "+t+") {\r\n");
+      regtn.append("      compose"+upFirst(n)+"Core(prefix+\""+n+"\", ("+t+") type, false);\r\n");
+      regtn.append("      compose"+upFirst(n)+"Extras(prefix+\""+n+"\", ("+t+") type, false);\r\n");
+      regtn.append("    }\r\n");
     }
     
     finish();
@@ -533,7 +534,8 @@ private String leaf(String tn) {
     write("  protected void composeType(String prefix, Type type) throws Exception {\r\n");
     write("    if (type == null)\r\n");
     write("      ;\r\n");
-    write(regt.toString());
+    write(regtp.toString());
+    write(regtn.toString());
     write("    else\r\n");
     write("      throw new Exception(\"Unhanded type\");\r\n");
     write("  }\r\n\r\n");

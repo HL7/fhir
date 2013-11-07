@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
+// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -42,7 +42,7 @@ public class JsonComposer extends JsonComposerBase {
 
   private void composeElement(Element element) throws Exception {
     if (element.getXmlId() != null)
-      prop("id", element.getXmlId());
+      prop("_id", element.getXmlId());
     if (element.getExtensions().size() > 0) {
       openArray("extension");
       for (Extension ex : element.getExtensions())
@@ -3875,6 +3875,12 @@ public class JsonComposer extends JsonComposerBase {
       composeDateTimeExtras("date", element.getDate(), false);
       composeIdCore("fhirVersion", element.getFhirVersion(), false);
       composeIdExtras("fhirVersion", element.getFhirVersion(), false);
+      if (element.getMapping().size() > 0) {
+        openArray("mapping");
+        for (Profile.ProfileMappingComponent e : element.getMapping()) 
+          composeProfileProfileMappingComponent(null, e);
+        closeArray();
+      };
       if (element.getStructure().size() > 0) {
         openArray("structure");
         for (Profile.ProfileStructureComponent e : element.getStructure()) 
@@ -3887,6 +3893,22 @@ public class JsonComposer extends JsonComposerBase {
           composeProfileProfileExtensionDefnComponent(null, e);
         closeArray();
       };
+    }
+  }
+
+  private void composeProfileProfileMappingComponent(String name, Profile.ProfileMappingComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeIdCore("identity", element.getIdentity(), false);
+      composeIdExtras("identity", element.getIdentity(), false);
+      composeUriCore("uri", element.getUri(), false);
+      composeUriExtras("uri", element.getUri(), false);
+      composeStringCore("name", element.getName(), false);
+      composeStringExtras("name", element.getName(), false);
+      composeStringCore("comments", element.getComments(), false);
+      composeStringExtras("comments", element.getComments(), false);
+      close();
     }
   }
 
@@ -4082,10 +4104,8 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeUriCore("uri", element.getUri(), false);
-      composeUriExtras("uri", element.getUri(), false);
-      composeStringCore("name", element.getName(), false);
-      composeStringExtras("name", element.getName(), false);
+      composeIdCore("identity", element.getIdentity(), false);
+      composeIdExtras("identity", element.getIdentity(), false);
       composeStringCore("map", element.getMap(), false);
       composeStringExtras("map", element.getMap(), false);
       close();

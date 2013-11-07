@@ -469,3 +469,29 @@ x-position: absolute;
 x-right: 0;
 x-margin-right: 30px;
 }
+
+a.button {
+color: #000000;
+background-color: #dae2ed;
+border-bottom: 1px solid #778899;
+border-right: 1px solid #778899;
+padding: 3px 4px 3px 4px;
+margin: 2px 2px 2px 0;
+text-decoration: none;
+font-size: 90%;
+line-height: 2.4;
+white-space: nowrap;
+}
+
+a.tag {
+color: #3E6D8E;
+background-color: #E0EAF1;
+border-bottom: 1px solid #b3cee1;
+border-right: 1px solid #b3cee1;
+padding: 3px 4px 3px 4px;
+margin: 2px 2px 2px 0;
+text-decoration: none;
+font-size: 90%;
+line-height: 2.4;
+white-space: nowrap;
+}

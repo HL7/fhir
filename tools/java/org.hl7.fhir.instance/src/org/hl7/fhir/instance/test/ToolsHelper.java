@@ -29,6 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.test;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,6 +42,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
+import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.utilities.CSFile;
@@ -156,11 +158,18 @@ public class ToolsHelper {
       throw new Exception("Source File \""+source.getAbsolutePath()+"\" not found");
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
+    JsonParser pj = new JsonParser();
     ResourceOrFeed rf = p.parseGeneral(in);
-    if (rf.getFeed() != null)
+    ByteArrayOutputStream json = new ByteArrayOutputStream();
+    if (rf.getFeed() != null) {
+      new JsonComposer().compose(json, rf.getFeed(), true);
+      rf = pj.parseGeneral(new ByteArrayInputStream(json.toString().getBytes("UTF-8")));
       new XmlComposer().compose(new FileOutputStream(dest), rf.getFeed(), true);
-    else
+    } else {
+      new JsonComposer().compose(json, rf.getResource(), true);
+      rf = pj.parseGeneral(new ByteArrayInputStream(json.toString().getBytes("UTF-8")));
       new XmlComposer().compose(new FileOutputStream(dest), rf.getResource(), true);
+    }
   }
 
   public String executeJson(String[] args) throws Exception {

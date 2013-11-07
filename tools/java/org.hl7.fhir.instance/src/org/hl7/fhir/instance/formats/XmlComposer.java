@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Nov 2, 2013 09:06+1100 for FHIR v0.12
+// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -2740,10 +2740,25 @@ public class XmlComposer extends XmlComposerBase {
       composeBoolean("experimental", element.getExperimental());
       composeDateTime("date", element.getDate());
       composeId("fhirVersion", element.getFhirVersion());
+      for (Profile.ProfileMappingComponent e : element.getMapping()) 
+        composeProfileProfileMappingComponent("mapping", e);
       for (Profile.ProfileStructureComponent e : element.getStructure()) 
         composeProfileProfileStructureComponent("structure", e);
       for (Profile.ProfileExtensionDefnComponent e : element.getExtensionDefn()) 
         composeProfileProfileExtensionDefnComponent("extensionDefn", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeProfileProfileMappingComponent(String name, Profile.ProfileMappingComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeId("identity", element.getIdentity());
+      composeUri("uri", element.getUri());
+      composeString("name", element.getName());
+      composeString("comments", element.getComments());
       xml.close(FHIR_NS, name);
     }
   }
@@ -2869,8 +2884,7 @@ public class XmlComposer extends XmlComposerBase {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeUri("uri", element.getUri());
-      composeString("name", element.getName());
+      composeId("identity", element.getIdentity());
       composeString("map", element.getMap());
       xml.close(FHIR_NS, name);
     }

@@ -130,18 +130,18 @@ public class MappingsGenerator {
 	}
 	
 
-	public static String titleFor(String m) {
+  public static String titleFor(String m) {
     if (m.equals(ElementDefn.RIM_MAPPING))
       return "RIM";
     if (m.equals(ElementDefn.CDA_MAPPING))
       return "CDA (R2)";
-		if (m.equals(ElementDefn.v2_MAPPING))
-			return "HL7 v2";
-		if (m.equals(ElementDefn.DICOM_MAPPING))
-			return "DICOM";
-		if (m.equals(ElementDefn.vCard_MAPPING))
-			return "vCard";
-		
+    if (m.equals(ElementDefn.v2_MAPPING))
+      return "HL7 v2";
+    if (m.equals(ElementDefn.DICOM_MAPPING))
+      return "DICOM";
+    if (m.equals(ElementDefn.vCard_MAPPING))
+      return "vCard";
+    
     if (ElementDefn.XDS_MAPPING.equals(m))
       return "XDS";
     if (ElementDefn.PROV_MAPPING.equals(m))
@@ -149,9 +149,32 @@ public class MappingsGenerator {
      if (ElementDefn.LOINC_MAPPING.equals(m))
        return "LOINC";
      if (ElementDefn.SNOMED_MAPPING.equals(m))
-       return "SNOMED-CT";		
-		return m.toUpperCase();
-	}
+       return "SNOMED-CT";    
+    return m.toUpperCase();
+  }
+
+  public static String idFor(String m) {
+    if (m.equals(ElementDefn.RIM_MAPPING))
+      return "rim";
+    if (m.equals(ElementDefn.CDA_MAPPING))
+      return "cda";
+    if (m.equals(ElementDefn.v2_MAPPING))
+      return "v2";
+    if (m.equals(ElementDefn.DICOM_MAPPING))
+      return "dicom";
+    if (m.equals(ElementDefn.vCard_MAPPING))
+      return "vcard";
+    
+    if (ElementDefn.XDS_MAPPING.equals(m))
+      return "xds";
+    if (ElementDefn.PROV_MAPPING.equals(m))
+      return "w3c.prov";
+     if (ElementDefn.LOINC_MAPPING.equals(m))
+       return "loinc";
+     if (ElementDefn.SNOMED_MAPPING.equals(m))
+       return "sct";    
+    return m.toLowerCase();
+  }
 
 	private boolean elementHasMapping(ElementDefn e, String m) {
 		if (e.getMappings().containsKey(m))

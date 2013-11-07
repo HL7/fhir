@@ -538,12 +538,11 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 
   protected void composeBinary(String name, Binary element) throws Exception {
     if (element != null) {
-      open(name);
+      prop("resourceType", "Binary");
       if (element.getXmlId() != null)
         prop("_id", element.getXmlId());
       prop("contentType", element.getContentType());
       prop("content", toString(element.getContent()));
-      close();
     }    
     
   }

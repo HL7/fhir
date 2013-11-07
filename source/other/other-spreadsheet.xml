@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -97,15 +97,20 @@
   <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -114,11 +119,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s77">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -438,7 +438,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Other.code</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Other.code</Data></Cell>
    </Row>
    <Row ss:Index="6" ss:AutoFitHeight="0">
     <Cell ss:Index="9" ss:StyleID="s64"/>
@@ -562,7 +562,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -607,12 +606,12 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">OtherResourceType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Codes for identifying types of resources not yet defined by FHIR</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Value set</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Value set</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-other-resource-type</Data></Cell>
     <Cell><Data ss:Type="String">HL7-maintained set of codes for &quot;Other&quot; resources</Data></Cell>
@@ -621,16 +620,16 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -675,12 +674,12 @@
    <Column ss:Width="57"/>
    <Column ss:Width="102"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s71"><Data ss:Type="String">Referral</Data></Cell>
@@ -697,11 +696,11 @@
     <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="6" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Narrative Example</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">A resource that uses all narrative features for testing rendering applications</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">other-example-narrative</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">other-example-narrative.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s71"/>
@@ -718,6 +717,14 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

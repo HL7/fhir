@@ -27,6 +27,9 @@ in one section. A summary:
  <li>Audit - FHIR defines <a href="provenance.html">provenance</a> and <a href="securityevent.html">security event</a> resources suitable for tracking the origins, authorship, history, status and access of resources</li>
  <li>Digital Signatures - FHIR includes several specifically reserved locations for digital signatures</li>
  <li>Attachments - FHIR allows for binary resources and attachments. These have their own concerns</li>
+ <li>Data Management Policies - FHIR defines a set of capabilities to support data exchange.
+     Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA for exchange between instutions). 
+     It is the responsibility of implementers to ensure that relevant regulations and other requirements are met</li>
 </ul>
 <p>
 Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
