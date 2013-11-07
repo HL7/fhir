@@ -94,8 +94,7 @@ FHIR elements with primitive values are represented in two parts:
 <p>
 The FHIR types <a href="datatypes.html#integer">integer</a> and <a href="datatypes.html#decimal">decimal</a> are represented as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
 as a JSON boolean, and all other types are represented as a JSON String which has the same content as that specified for the relevant data type. Whitespace is always significant 
-(i.e. no leading and trailing spaces for non-strings). 
-</p>
+(i.e. no leading and trailing spaces for non-strings).</p>
 <pre class="xml">
  &lt;<b>code</b> value="abc"/&gt; &lt;!-- code --&gt;
  &lt;<b>date</b> value="1972-11-30"/&gt; &lt;!-- dateTime --&gt;
@@ -109,6 +108,11 @@ as a JSON boolean, and all other types are represented as a JSON String which ha
  "deceased" : false,
  "count" : 23
 </pre>
+<blockquote>
+<p>When using a JavaScript JSON.parse() implementation, keep in mind that JavaScript natively supports only one numeric datatype, which is a floating point number. 
+This can cause loss of precision for FHIR numbers. You may want to use a custom parser and big number library 
+(e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) if this is a concern.</p>
+</blockquote>
 <p>
 If the value has an id attribute, or extensions, then this is represented as follows:
 </p>
