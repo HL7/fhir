@@ -38,28 +38,16 @@ namespace Hl7.Fhir.Model
 {
     public partial class FhirUri
     {
-        public static bool TryParse( string value, out FhirUri result)
+        public static bool TryParseValue( string value, out Uri result)
         {
-            System.Uri uriValue = null;
-            bool succ = System.Uri.TryCreate(value, UriKind.RelativeOrAbsolute, out uriValue);
-
-            if (succ)
-            {
-                result = new FhirUri(uriValue);
-                return true;
-            }
-            else
-            {
-                result = null;
-                return false;
-            }
+            return System.Uri.TryCreate(value, UriKind.RelativeOrAbsolute, out result);
         }
 
-        public static FhirUri Parse(string value)
+        public static Uri ParseValue(string value)
         {
-            FhirUri result = null;
+            Uri result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Not a correctly formatted Uri");
@@ -71,13 +59,13 @@ namespace Hl7.Fhir.Model
 
             if (Value.IsAbsoluteUri)
             {
-                Oid dummy; Uuid dummy2;
+                string dummy; string dummy2;
                 var urnValue = Value.ToString();
 
-                if (urnValue.StartsWith("urn:oid:") && !Oid.TryParse(urnValue, out dummy))
+                if (urnValue.StartsWith("urn:oid:") && !Oid.TryParseValue(urnValue, out dummy))
                     result.Add(String.Format("Uri is an urn:oid, but the oid {0} is incorrect",urnValue));
 
-                else if (urnValue.StartsWith("urn:uuid:") && !Uuid.TryParse(urnValue, out dummy2))
+                else if (urnValue.StartsWith("urn:uuid:") && !Uuid.TryParseValue(urnValue, out dummy2))
                     result.Add(String.Format("Uri is an urn:uuid, but the uuid {0} is incorrect", urnValue));
             }
 

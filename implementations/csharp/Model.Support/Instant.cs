@@ -60,33 +60,19 @@ namespace Hl7.Fhir.Model
             return new Instant(DateTimeOffset.Now);
         }
 
-        public static bool TryParse(string value, out Instant result)
+        public static bool TryParseValue(string value, out DateTimeOffset result)
         {
-            DateTimeOffset dt;
+            if (value == null) throw new ArgumentNullException("value");
 
-            if (value == null)
-            {
-                result = new Instant(null);
-                return true;
-            }
-            else if( Util.TryParseIsoDateTime(value, out dt) )
-            {
-                result = new Instant(dt);
-                return true;
-            }
-            else
-            {
-                result = null;
-                return false;
-            }
+            return Util.TryParseIsoDateTime(value, out result);
         }
 
 
-        public static Instant Parse(string value)
+        public static DateTimeOffset ParseValue(string value)
         {
-            Instant result = null;
+            DateTimeOffset result;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Instant is not in expected format");

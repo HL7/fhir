@@ -62,7 +62,7 @@ namespace Hl7.Fhir.Parsers
 
                 try
                 {
-                    result.Value = Code<T>.Parse(c.Value).Value;
+                    result.Value = Code<T>.ParseValue(c.Value);
                 }
                 catch (Exception ex)
                 {

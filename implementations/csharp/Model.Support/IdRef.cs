@@ -40,9 +40,9 @@ namespace Hl7.Fhir.Model
     public partial class IdRef
     {
         // Just here for consistency in the parser generators
-        public static IdRef Parse(string value)
+        public static string ParseValue(string value)
         {
-            return new IdRef(value);
+            return value;
         }
 
         public override string ToString()

@@ -40,11 +40,13 @@ namespace Hl7.Fhir.Model
 {
     public partial class Uuid
     {
-        public static bool TryParse(string value, out Uuid result)
+        public static bool TryParseValue(string value, out string result)
         {
-             if(value==null ||Regex.IsMatch(value,"^" + PATTERN + "$", RegexOptions.Singleline))
+            if(value == null) throw new ArgumentNullException("value");
+
+            if(value==null ||Regex.IsMatch(value,"^" + PATTERN + "$", RegexOptions.Singleline))
             {
-                result = new Uuid(value);
+                result = value;
                 return true;
             }
             else
@@ -54,11 +56,11 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public static Uuid Parse(string value)
+        public static string ParseValue(string value)
         {
-            Uuid result = null;
+            string result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Not an correctly formatted uuid value");
@@ -72,9 +74,9 @@ namespace Hl7.Fhir.Model
                 result.Add("Uuid values cannot be empty");
             else
             {
-                Uuid dummy;
+                string dummy;
 
-                if (!TryParse(Value, out dummy))
+                if (!TryParseValue(Value, out dummy))
                     result.Add("Not an correctly formatted uuid value");
             }
 

@@ -40,15 +40,22 @@ namespace Hl7.Fhir.Model
 {
     public partial class XHtml
     {
-        public static bool TryParse( string value, out XHtml result)
+        public static XHtml Parse(string value)
         {
+            return new XHtml(XHtml.ParseValue(value));
+        }
+
+        public static bool TryParseValue( string value, out string result)
+        {
+            if (value == null) throw new ArgumentNullException("value");
+
             try
             {
                 // Catch incorrect Xhtml content
                 //if (value != null)
                 //    XElement.Parse(value);
 
-                result = new XHtml(value);
+                result = value;
                 return true;
             }
             catch
@@ -58,11 +65,11 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public static XHtml Parse(string value)
+        public static string ParseValue(string value)
         {
-            XHtml result = null;
+            string result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else 
                 throw new FhirFormatException("Content is not valid xhtml");

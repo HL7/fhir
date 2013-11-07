@@ -45,11 +45,13 @@ namespace Hl7.Fhir.Model
             return new Date(DateTime.Now.ToString("yyyy-MM-dd"));
         }
 
-        public static bool TryParse(string value, out Date result)
+        public static bool TryParseValue(string value, out string result)
         {
+            if (value == null) throw new ArgumentNullException("value");
+
             if (value==null || Regex.IsMatch(value,"^" + PATTERN + "$", RegexOptions.Singleline ))
             {
-                result = new Date(value);
+                result = value;
                 return true;
             }
             else
@@ -59,11 +61,11 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public static Date Parse(string value)
+        public static string ParseValue(string value)
         {
-            Date result = null;
+            string result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Not a correctly formatted date value");
@@ -73,9 +75,9 @@ namespace Hl7.Fhir.Model
         {
             var result = new ErrorList();
 
-            Date dummy;
+            string dummy;
 
-            if (!TryParse( Value, out dummy ))
+            if (!TryParseValue( Value, out dummy ))
                 result.Add("Not a correctly formatted date value");
             
             return result; 

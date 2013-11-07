@@ -72,8 +72,8 @@ namespace Hl7.Fhir.Support.Search
             var value = compVal.Item1;
             var comp = compVal.Item2;
 
-            FhirDateTime dummy;
-            if( FhirDateTime.TryParse(value, out dummy) )
+            string dummy;
+            if( FhirDateTime.TryParseValue(value, out dummy) )
                 return new DateParamValue(comp, value);
             else
                 throw new FormatException("Date query parameters should be valid (partial) xml date/times");

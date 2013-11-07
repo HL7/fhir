@@ -40,11 +40,18 @@ namespace Hl7.Fhir.Model
 {
     public partial class Id
     {
-        public static bool TryParse(string value, out Id result)
-        {       
+        public static Id Parse(string value)
+        {            
+            return new Model.Id(Model.Id.ParseValue(value));
+        }
+
+        public static bool TryParseValue(string value, out string result)
+        {
+            if (value == null) throw new ArgumentNullException("value");
+
             if (value == null || Regex.IsMatch(value,"^" + PATTERN + "$",RegexOptions.Singleline ))
             {
-                result = new Id(value);
+                result = value;
                 return true;
             }
             else
@@ -54,11 +61,11 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public static Id Parse(string value)
+        public static string ParseValue(string value)
         {
-            Id result = null;
+            string result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Not an correctly formatted id value");
@@ -72,9 +79,9 @@ namespace Hl7.Fhir.Model
                 result.Add("Id values cannot be empty");
             else
             {
-                Id dummy;
+                string dummy;
 
-                if (!TryParse(this.Value, out dummy))
+                if (!TryParseValue(this.Value, out dummy))
                     result.Add("Not an correctly formatted id value");
             }
 

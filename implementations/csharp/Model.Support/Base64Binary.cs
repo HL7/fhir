@@ -39,18 +39,18 @@ namespace Hl7.Fhir.Model
     // A stream of bytes
     public partial class Base64Binary
     {
-        public static bool TryParse(string value, out Base64Binary result)
+        public static Base64Binary Parse(string value)
         {
+            return new Base64Binary(Base64Binary.ParseValue(value));
+        }
+
+        public static bool TryParseValue(string value, out byte[] result)
+        {
+            if (value == null) throw new ArgumentNullException("value");
+
             try
             {
-                byte[] b64Value = null;
-
-                if (value == null)
-                    b64Value = null;
-                else
-                    b64Value = Convert.FromBase64String(value);
-
-                result = new Base64Binary(b64Value);
+                result = Convert.FromBase64String(value);
                 return true;
             }
             catch
@@ -60,11 +60,11 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public static Base64Binary Parse(string value)
+        public static byte[] ParseValue(string value)
         {
-            Base64Binary result = null;
+            byte[] result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else 
                 throw new FhirFormatException("Not a correctly base64 encoded value");

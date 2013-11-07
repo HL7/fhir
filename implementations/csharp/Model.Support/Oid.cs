@@ -40,13 +40,15 @@ namespace Hl7.Fhir.Model
 {
     public partial class Oid
     {
-        public static bool TryParse(string value, out Oid result)
+        public static bool TryParseValue(string value, out string result)
         {
+            if (value == null) throw new ArgumentNullException("value");
+
             //The PATTERN (generated from the source) is incorrect. So, temporarily, a corrected version
             //until after the ballot has updated this regexp
             if (value==null || Regex.IsMatch(value, "^" + PATTERN + "$", RegexOptions.Singleline))
             {
-                result = new Oid(value);
+                result = value;
                 return true;
             }
             else
@@ -56,11 +58,11 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public static Oid Parse(string value)
+        public static string ParseValue(string value)
         {
-            Oid result = null;
+            string result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Not an correctly formatted oid value");
@@ -74,9 +76,9 @@ namespace Hl7.Fhir.Model
                 result.Add("Oid values cannot be empty");
             else
             {
-                Oid dummy;
+                string dummy;
 
-                if (!TryParse(Value, out dummy))
+                if (!TryParseValue(Value, out dummy))
                     result.Add("Not an correctly formatted oid value");
             }
 

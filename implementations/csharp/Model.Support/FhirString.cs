@@ -41,7 +41,14 @@ namespace Hl7.Fhir.Model
     {
         public static FhirString Parse(string value)
         {
-            return new FhirString(value);
+            return new FhirString(FhirString.ParseValue(value));
+        }
+
+        public static string ParseValue(string value)
+        {
+            if (value == null) throw new ArgumentNullException("value");
+
+            return value;
         }
 
         public override string ToString()

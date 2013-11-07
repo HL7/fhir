@@ -41,11 +41,11 @@ namespace Hl7.Fhir.Model
 {
     public partial class Code
     {
-        public static bool TryParse(string value, out Code result)
+        public static bool TryParseValue(string value, out string result)
         {
             if (value == null || Regex.IsMatch(value, "^" + PATTERN + "$", RegexOptions.Singleline ))
             {
-                result = new Code(value);
+                result = value;
                 return true;
             }
             else
@@ -55,11 +55,11 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public static Code Parse(string value)
+        public static string ParseValue(string value)
         {
-            Code result = null;
+            string result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Not a correctly formatted code value");
@@ -73,9 +73,9 @@ namespace Hl7.Fhir.Model
                 result.Add("Code values cannot be empty");
             else
             {
-                Code dummy;
+                string dummy;
 
-                if (!TryParse(Value, out dummy))
+                if (!TryParseValue(Value, out dummy))
                     result.Add("Not a correctly formatted code value");
             }
 
@@ -89,7 +89,6 @@ namespace Hl7.Fhir.Model
     }
 
     [FhirPrimitiveType("codeOfT")]
-    [Serializable]
     public class Code<T> : PrimitiveElement where T : struct
     {
         // Primitive value of element
@@ -105,51 +104,29 @@ namespace Hl7.Fhir.Model
             Value = value;
         }
 
-        //public static implicit operator Code<T>(T? value)
-        //{
-        //    return new Code<T>(value);
-        //}
-
-        //public static explicit operator T(Code<T> source)
-        //{
-        //    if (source.Value.HasValue)
-        //        return source.Value.Value;
-        //    else
-        //        throw new InvalidCastException();
-        //}
-
-        //public static explicit operator T?(Code<T> source)
-        //{
-        //    return source.Value;
-        //}
-
-
-        public static bool TryParse(string value, out Code<T> result)
+        public static bool TryParseValue(string value, out T result)
         {
-            object enumValue;
+            if (value == null) throw new ArgumentNullException("value");
 
-            if (value == null)
+            object res;
+
+            if (EnumHelper.TryParseEnum(value, typeof(T), out res))
             {
-                result = new Code<T>(null);
-                return true;
-            }
-            else if (EnumHelper.TryParseEnum(value, typeof(T), out enumValue))
-            {
-                result = new Code<T>((T)enumValue);
+                result = (T)res;
                 return true;
             }
             else
             {
-                result = null;
+                result = default(T);
                 return false;
             }
         }
 
-        public static Code<T> Parse(string value)
+        public static T ParseValue(string value)
         {
-            Code<T> result = null;
+            T result;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("'" + value + "' is not a correct value for " +

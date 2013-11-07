@@ -332,11 +332,16 @@ public class CSharpParserGenerator extends GenBlock
 		
 		String call = "ReadPrimitiveContents(typeof(" + csharpPrimitive + "))";
 		
-		String result = csharpPrimitive + ".Parse(reader." + call + ")";
+		String method = null;
+
+    // "value" members map directly to the Value property using the C# native type
+		if( member.isPrimitiveValueElement() )
+		  method = "ParseValue";
+		else
+		  method = "Parse";
 		
-		// "value" members map directly to the Value property using the C# native type
-		if( member.isPrimitiveValueElement() ) result += ".Value";
-		
+		String result = csharpPrimitive + "." + method + "(reader." + call + ")";
+				
 		return result;
 	}
 

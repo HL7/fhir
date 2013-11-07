@@ -81,19 +81,15 @@ namespace Hl7.Fhir.Model
         }
 
 
-        public static bool TryParse(string value, out FhirDateTime result)
+        public static bool TryParseValue(string value, out string result)
         {
-            if (value == null)
-            {
-                result = new FhirDateTime(null);
-                return true;
-            }
+            if (value == null) throw new ArgumentNullException("value");
 
             try
             {
-                var dto = XmlConvert.ToDateTimeOffset(value);
-
-                result = new FhirDateTime(value);
+                // try parse using Xml functions instead of pattern
+                XmlConvert.ToDateTimeOffset(value);
+                result = value;
                 return true;
             }
             catch
@@ -103,11 +99,11 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public static FhirDateTime Parse(string value)
+        public static string ParseValue(string value)
         {
-            FhirDateTime result = null;
+            string result = null;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Not a correctly formatted dateTime value");
@@ -117,9 +113,9 @@ namespace Hl7.Fhir.Model
         {
             var result = new ErrorList();
 
-            FhirDateTime dummy;
+            string dummy;
 
-            if (!TryParse( Value, out dummy ))
+            if (!TryParseValue( Value, out dummy ))
                 result.Add("Not a correctly formatted dateTime value");
             
             return result; 

@@ -41,54 +41,27 @@ namespace Hl7.Fhir.Model
 {
     public partial class FhirDecimal
     {
-        public static bool TryParse(string value, out FhirDecimal result)
+        public static bool TryParseValue(string value, out decimal result)
         {
-            if (value == null)
-            {
-                result = new FhirDecimal(null);
-                return true;
-            }
-
-            decimal decimalValue;
+            if (value == null) throw new ArgumentNullException("value");
 
             try
             {
-                decimalValue = XmlConvert.ToDecimal(value);
-                result = new FhirDecimal(decimalValue);
+                result = XmlConvert.ToDecimal(value);
                 return true;
             }
             catch
             {
+                result = 0;
+                return false;
             }
-
-            result = null;
-            return false;
-
-            //NumberStyles style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign |
-            //                    NumberStyles.AllowTrailingWhite | NumberStyles.AllowLeadingWhite;
-
-            //if (value == null)
-            //{
-            //    result = new FhirDecimal(null);
-            //    return true;
-            //}
-            //else if (Decimal.TryParse(value, style, NumberFormatInfo.InvariantInfo, out decimalValue))
-            //{
-            //    result = new FhirDecimal(decimalValue);
-            //    return true;
-            //}
-            //else
-            //{
-            //    result = null;
-            //    return false;
-            //}
         }
 
-        public static FhirDecimal Parse(string value)
+        public static decimal ParseValue(string value)
         {
-            FhirDecimal result = null;
+            decimal result;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else 
                 throw new FhirFormatException("Not a decimal value");

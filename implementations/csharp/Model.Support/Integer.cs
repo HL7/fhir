@@ -40,52 +40,28 @@ namespace Hl7.Fhir.Model
 {
     public partial class Integer
     {
-        public static bool TryParse( string value, out Integer result)
+        public static bool TryParseValue( string value, out int result)
         {
-            if (value == null)
-            {
-                result = new Integer(null);
-                return true;
-            }
-
-            Int32 intValue;
+            if (value == null) throw new ArgumentNullException("value");
 
             try
             {
-                intValue = XmlConvert.ToInt32(value);
-                result = new Integer(intValue);
+                result = XmlConvert.ToInt32(value);
                 return true;
             }
             catch
             {
+                result = 0;
+                return false;
             }
-
-            result = null;
-            return false;
-
-            //if (value == null)
-            //{
-            //    result = new Integer(null);
-            //    return true;
-            //}
-            //else if(Int32.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out intValue))
-            //{
-            //    result = new Integer(intValue);
-            //    return true;
-            //}
-            //else
-            //{
-            //    result = null;
-            //    return false;
-            //}
         }
 
 
-        public static Integer Parse(string value)
+        public static int ParseValue(string value)
         {
-            Integer result = null;
+            int result;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else 
                 throw new FhirFormatException("Not an integer value");

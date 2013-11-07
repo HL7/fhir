@@ -40,56 +40,28 @@ namespace Hl7.Fhir.Model
     // value can be true or false
     public partial class FhirBoolean
     {
-        public static bool TryParse(string value, out FhirBoolean result)
+        public static bool TryParseValue(string value, out bool result)
         {
             if (value == null)
-            {
-                result = new FhirBoolean(null);
-                return true;
-            }
+                throw new ArgumentNullException("value");
 
-            bool b;
             try
             {
-                b = XmlConvert.ToBoolean(value);
-                result = new FhirBoolean(b);
+                result = XmlConvert.ToBoolean(value);
                 return true;
             }
             catch
             {
-
-            }
-
-            result = null;
-            return false;
-
-            //if(value == "1" || value == "true")
-            //{
-            //    result = new FhirBoolean(true);
-            //    return true;
-            //}
-            //else if(value == "0" || value == "false")
-            //{
-            //    result = new FhirBoolean(false);
-            //    return true;
-            //}
-            //else if (value == null)
-            //{
-            //    result = new FhirBoolean(null);
-            //    return true;
-            //}
-            //else
-            //{
-            //    result = null;
-            //    return false;
-            //}
+                result = false;
+                return false;
+            }          
         }
 
-        public static FhirBoolean Parse(string value)
+        public static bool ParseValue(string value)
         {
-            FhirBoolean result = null;
+            bool result;
 
-            if (TryParse(value, out result))
+            if (TryParseValue(value, out result))
                 return result;
             else
                 throw new FhirFormatException("Booleans can be either 0, 1, true of false");
