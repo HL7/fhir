@@ -33,12 +33,12 @@ in the scope of the definition of the resource, though it is common for the narr
 include additional descriptional information extracted from other referenced resources.
 </p>
 <p>
-While resources SHOULD always contain narrative, so that to support human-consumption
-as a fallback, in a strictly managed trading systems where all systems share a common 
-data model, and additional text is unnecessary or even a clinical safety risk, the 
-narrative may be omitted. However implementers should consider carefully before 
+While resources SHOULD always contain narrative to support human-consumption
+as a fallback.  However, in a strictly managed trading systems where all systems share a common 
+data model and additional text is unnecessary or even a clinical safety risk, the 
+narrative may be omitted. Implementers should consider carefully before 
 doing this, as it will mean that these resources can only be understood in the 
-limited trading environment, and closed trading partner environments are very likely 
+limited trading environment. Closed trading partner environments are very likely 
 to open up during the lifetime of the resources they define. In addition, many workflow
 steps involving finding and aggregating resources are much more difficult or tedious if the resources
 involved do not have their own text. 
@@ -48,7 +48,7 @@ Note that <a href="references.html#contained">contained</a> Resources SHALL NOT 
 of their own.
 </p>
 <p>
-The narrative is an XHTML fragment with a flag to indicate it's relationship to the data:
+The narrative is an XHTML fragment with a flag to indicate its relationship to the data:
 </p>
 [%dt Narrative%]
 <p>
@@ -62,12 +62,12 @@ Whitelisted attributes: 'abbr', 'accesskey', 'align', 'alt', 'axis', 'bgcolor', 
   
 -->
 The XHTML content SHALL not contain
-a head, a body element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects, or event related attributes (e.g. onClick). 
-This is to ensure that the content of the narrative is contained within the resource, and that there is no active content - this would introduce 
+a head, a body element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects or event related attributes (e.g. onClick). 
+This is to ensure that the content of the narrative is contained within the resource and that there is no active content - this would introduce 
 security issues and potentially safety issues with regard to extracting text from the XHTML.
 </p>
 <p>
-The div element SHALL have some non-whitespace content (text, or an image).
+The div element SHALL have some non-whitespace content (text or an image).
 </p>
 <div class="example">
 <pre class="xml" fragment="Narrative">
@@ -91,14 +91,14 @@ In order to simplify this kind of processing, the narrative SHALL be encoded so 
 between the first "&gt;" and the last "&lt;" characters is the content of the &lt;div&gt; element.
 </p>
 <p>
-Note that the XHTML is contained in general XML, and so there is no support for HTML entities
-like &amp;nbsp; or &amp;copy; etc. Unicode characters should be used instead. Unicode 
+Note that the XHTML is contained in general XML and so there is no support for HTML entities
+like &amp;nbsp; or &amp;copy; etc. Unicode characters SHALL be used instead. Unicode 
 &amp;#160; substitutes for &amp;nbsp;. 
 </p>
 <p>
-The narrative content should be in the <a href="base-definitions.html#Resource.language">language of the resource</a>, but 
+The narrative content SHOULD be in the <a href="base-definitions.html#Resource.language">language of the resource</a>, but 
 there is no reason to expect that HTML type tooling would understand the resource <a href="resources.html#content">language</a> element. For this reason, 
-a lang attribute on the &lt;div&gt; should also be used (and see 
+a lang attribute on the &lt;div&gt; SHOULD also be used (and see 
 <a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
 </p>
 
@@ -109,8 +109,8 @@ The image source references may be a local reference within the resource:
   &lt;img src="#a5"/&gt;
 </pre>
 <p>
-This is an <a href="references.html#idref">internal reference</a> to an id attribute on an element in the same resource, 
-either an element of type "<a href="datatypes.html#Attachment">Attachment</a>", or a contained <a href="http.html#binary">Binary</a> resource.
+This is an <a href="references.html#idref">internal reference</a> to an id attribute on an element in the same resource - 
+either an element of type "<a href="datatypes.html#Attachment">Attachment</a>" or a contained <a href="http.html#binary">Binary</a> resource.
 </p>
 <div class="example">
 <pre class="xml">
@@ -137,7 +137,7 @@ part of the narrative SHOULD always be embedded in an attachment or a contained 
 <p>
 The XHTML fragment in the narrative may be styled using cascading stylesheets using 
 either external or internal styles. External styles are applied using the <i>class</i> 
-and <i>id</i> attributes on the XHTML elements, and internal styles are applied using 
+and <i>id</i> attributes on the XHTML elements and internal styles are applied using 
 a <i>style</i> attribute on the XHTML elements directly.
 </p>
 <p>
@@ -171,7 +171,7 @@ Authoring systems can use these classes, which SHALL be supported by all renderi
 </table>
 <p>
 Note: for testing purposes, there is an <a href="other-example-narrative.xml.html">example resource</a> that includes 
-all these styles, and it's also available <a href="narrative-example.html">as XHTML</a>, and a 
+all these styles. It's also available <a href="narrative-example.html">as XHTML</a> and a 
 <a href="fhir-runtime.css">standard stylesheet</a> that includes all these styles.
 </p>
 
@@ -188,7 +188,7 @@ should use this approach with care. Authoring systems may fix the following styl
 </p>
 <ul>
   <li>bold, italic, underline, strikethrough</li>
-  <li>font color, family, and size</li>
+  <li>font color, family and size</li>
   <li>background color, text alignment</li>
   <li>whitespace interpretation</li>
   <li>ordered list number format (since it may be referred to in text)</li>
@@ -207,8 +207,8 @@ of the text may create clinical safety issues.
 </p>
 <p>
 Authors MAY specify additional styles and style properties as specified in the CSS specification,
-but these are extensions to this specification and renderers are not required to honor them, and
-it SHOULD be safe to view them narrrative without these additional styling features available. 
+but these are extensions to this specification and renderers are not required to honor them.  
+It SHOULD be safe to view the narrrative without these additional styling features available. 
 </p>
 <p>
 Note that there is additional rules around styling for <a href="document.html#css">documents</a> presentation.
