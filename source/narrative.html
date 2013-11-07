@@ -87,9 +87,19 @@ The div element SHALL have some non-whitespace content (text or an image).
 </div>
 <p>
 The inner portion of the div content is often used for the innerHTML property in a browser.
-In order to simplify this kind of processing, the narrative SHALL be encoded so that the character content
-between the first "&gt;" and the last "&lt;" characters is the content of the &lt;div&gt; element.
+In order to simplify this kind of processing, when the narrative is represented in JSON, 
+it SHALL be encoded so that the character content between the first "&gt;" and the last 
+"&lt;" characters is the content of the &lt;div&gt; element. e.g.
 </p>
+<pre class="json">
+  "div": "<div>text</div>"
+</pre>
+<p>
+is legal, but this is not:
+</p>
+<pre class="json">
+  "div": "<?xml ...><div>text</div>"
+</pre>
 <p>
 Note that the XHTML is contained in general XML and so there is no support for HTML entities
 like &amp;nbsp; or &amp;copy; etc. Unicode characters SHALL be used instead. Unicode 

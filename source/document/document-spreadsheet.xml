@@ -9,19 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:20:02Z</Created>
-  <LastSaved>2013-10-04T05:09:49Z</LastSaved>
+  <LastSaved>2013-11-07T20:26:07Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6825</WindowHeight>
-  <WindowWidth>20865</WindowWidth>
-  <WindowTopX>7605</WindowTopX>
-  <WindowTopY>-19635</WindowTopY>
+  <WindowHeight>18540</WindowHeight>
+  <WindowWidth>-27106</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>1365</WindowTopY>
   <TabRatio>666</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -290,8 +289,7 @@
     <Cell><Data ss:Type="String">Document title</Data></Cell>
     <Cell><Data ss:Type="String">Official human-readable label for the document</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Need to be able to mark interim, amended, or withdrawn documents</Data></Cell>
-    <Cell><Data ss:Type="String">It's commonly the case that clinical documents do not have a title and are collectively referred to by the display name of Document.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Where these display names are rendered to the clinician or where the document has a unique title, the Document.title value should be used</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">It's commonly the case that clinical documents do not have a title and are collectively referred to by the display name of Document.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Where these display names are rendered to the clinician or where the document has a unique title, the Document.title value should be used</Data></Cell>
     <Cell><Data ss:Type="String">./title</Data></Cell>
     <Cell><Data ss:Type="String">.title</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -309,8 +307,8 @@
     <Cell><Data ss:Type="String">Status of this document</Data></Cell>
     <Cell><Data ss:Type="String">The workflow/clinical status of this document. The status is a rough guide to the clinical standing of the document</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies who is responsible for the entry of the data.</Data></Cell>
-    <Cell><Data ss:Type="String">A document marked as an amendment SHOULD replace another document. However the amended flag is not the same as a replacement statement - the amendment flag is looser, and indicates that other related documents about the same thing have been released in *some* context prior to the release of this document. &#10;&#10;If a document is marked as withdrawn, the document, or data from the document, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;withdrawn&quot; is why this element is labeled as a modifier of other elements</Data></Cell>
+    <Cell><Data ss:Type="String">Need to be able to mark interim, amended, or withdrawn documents</Data></Cell>
+    <Cell><Data ss:Type="String">If a document is marked as withdrawn, the documents in the series, or data from the document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;withdrawn&quot; is why this element is labeled as a modifier of other elements</Data></Cell>
     <Cell><Data ss:Type="String">interim: .completionCode=&quot;IN&quot; &amp; ./statusCode[isNormalDatatype()]=&quot;active&quot;;&#10;&#10;final: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and not(./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct()]);&#10;&#10;amended: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and ./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct() and statusCode=&quot;completed&quot;];&#10;&#10;withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;obsolete&quot; &#10;</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -328,7 +326,7 @@
     <Cell><Data ss:Type="String">The source of the data entry</Data></Cell>
     <Cell><Data ss:Type="String">The person or device that performed the data entry leading to this document. Where there is more than one candidate, pick the most proximal to the document creation or capture on a per-section basis. </Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Identifies who is responsible for the entry of the data.</Data></Cell>
     <Cell><Data ss:Type="String">Can provide other enterers in extensions</Data></Cell>
     <Cell><Data ss:Type="String">unique(highest(./participation[typeCode=&quot;INT&quot; and isNormalParticipation], priorityNumber)/role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()])</Data></Cell>
     <Cell><Data ss:Type="String">.dataEnterer</Data></Cell>
@@ -347,8 +345,7 @@
     <Cell><Data ss:Type="String">As defined by affinity domain</Data></Cell>
     <Cell><Data ss:Type="String">The code specifying the level of confidentiality of the XDS Document. These codes are specific to an XDS Affinity Domain.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Essential metadata for searching for the document, identifies who the document applies to</Data></Cell>
-    <Cell><Data ss:Type="String">Enforcement and issues related to highly sensitive documents are beyond the scope of XDS (see security section). confidentialityCode is part of a codification scheme and value set enforced by the Document Registry. </Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Enforcement and issues related to highly sensitive documents are beyond the scope of XDS (see security section). confidentialityCode is part of a codification scheme and value set enforced by the Document Registry. </Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">.confidentialityCode</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">.confidentialityCode</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -366,7 +363,7 @@
     <Cell><Data ss:Type="String">Who/what the document is about</Data></Cell>
     <Cell><Data ss:Type="String">Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Provides context as to the potential accuracy of the information</Data></Cell>
+    <Cell><Data ss:Type="String">Essential metadata for searching for the document, identifies who the document applies to</Data></Cell>
     <Cell><Data ss:Type="String">For clinical documents, this is usually the patient.</Data></Cell>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.recordTarget</Data></Cell>
@@ -385,7 +382,7 @@
     <Cell><Data ss:Type="String">Who provided information in document</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the source that recounted the information recorded</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies who is responsible for the content.</Data></Cell>
+    <Cell><Data ss:Type="String">Provides context as to the potential accuracy of the information</Data></Cell>
     <Cell><Data ss:Type="String">Generally used if information is sourced from a non-clinician (patient, relative, etc.)</Data></Cell>
     <Cell><Data ss:Type="String">unique(highest(./participation[typeCode=&quot;INF&quot; and isNormalParticipation], priorityNumber)/role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()])</Data></Cell>
     <Cell><Data ss:Type="String">.informant.informantChoice</Data></Cell>
@@ -404,7 +401,7 @@
     <Cell><Data ss:Type="String">Who/what authored the final document</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the information in the document.  (Not necessarily who typed it in.)</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies responsibility for the accuracy of the document content.</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies who is responsible for the content.</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.author.assignedAuthor</Data></Cell>
@@ -423,7 +420,7 @@
     <Cell><Data ss:Type="String">Attests to accuracy of document</Data></Cell>
     <Cell><Data ss:Type="String">A participant who has attested to the accuracy of the document</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Indicates the level of officialness of the attestation.</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies responsibility for the accuracy of the document content.</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.authenticator/.legalAuthenticator</Data></Cell>
@@ -442,7 +439,7 @@
     <Cell><Data ss:Type="String">personal | professional | legal | official</Data></Cell>
     <Cell><Data ss:Type="String">The type of attestation the authenticator offers</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies when the information in the document was deemed accurate.  (Things may have changed since then.)</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the level of officialness of the attestation.</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">unique(./modeCode)</Data></Cell>
     <Cell><Data ss:Type="String">.authenticator/.legalAuthenticator</Data></Cell>
@@ -461,7 +458,7 @@
     <Cell><Data ss:Type="String">When document attested</Data></Cell>
     <Cell><Data ss:Type="String">When document was attested by the party</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies who has taken on the responsibility for accuracy of the document content.</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies when the information in the document was deemed accurate.  (Things may have changed since then.)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">./time[type=&quot;TS&quot; and isNormalDatatype()]</Data></Cell>
     <Cell><Data ss:Type="String">.authenticator.time</Data></Cell>
@@ -480,7 +477,7 @@
     <Cell><Data ss:Type="String">Who attested the document</Data></Cell>
     <Cell><Data ss:Type="String">Who attested the document in the specified way</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Used for routing and also provides context as to intended audience.</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies who has taken on the responsibility for accuracy of the document content.</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">./role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()]&#10;or&#10;./role[classCode=&quot;ASSIGNED&quot; and isNormalRole and not(player)]/scoper[determinerCode=&quot;INST&quot; and classCode=&quot;ORG&quot; and isNormalEntity()]</Data></Cell>
     <Cell><Data ss:Type="String">.authenticator.assignedEnttty</Data></Cell>
@@ -499,7 +496,7 @@
     <Cell><Data ss:Type="String">Expected to receive a copy </Data></Cell>
     <Cell><Data ss:Type="String">Identifies the people and organizations for whom the document is intended</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies where to go to find the current version, where to report issues, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">Used for routing and also provides context as to intended audience.</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">./participation[typeCode=&quot;RCV&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole]&#10;or&#10;./participation[typeCode=&quot;RCV&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole and not (player)]/scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot; and isNormalEntity()]</Data></Cell>
     <Cell><Data ss:Type="String">.informationRecipient.intendedRecipient</Data></Cell>
@@ -518,7 +515,7 @@
     <Cell><Data ss:Type="String">Org which maintains the document</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the organization or group who is responsible for ongoing maintenance of and access to the document.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Provides context for the document and creates a linkage between a resource describing an event and the document created describing the event.</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies where to go to find the current version, where to report issues, etc.</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.custodian.assignedCustodian</Data></Cell>
@@ -537,7 +534,7 @@
     <Cell><Data ss:Type="String">The clinical event/act/item being documented</Data></Cell>
     <Cell><Data ss:Type="String">The main event/act/item, such as a colonoscopy or an appendectomy, being documented</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Provides context for the document and creates a linkage between a resource describing an event and the document created describing the event.</Data></Cell>
     <Cell><Data ss:Type="String">The event needs to be consistent with the type element, though can provide further information if desired</Data></Cell>
     <Cell><Data ss:Type="String">outboundRelationship[typeCode=&quot;SUBJ&quot;].target[classCode&lt;'ACT']</Data></Cell>
     <Cell><Data ss:Type="String">.documentationOf.serviceEvent</Data></Cell>
@@ -624,7 +621,7 @@
     <Cell><Data ss:Type="String">Document.replaces</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">id</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If this document replaces another</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the document this document supersedes, if any.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
@@ -659,9 +656,10 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Attachment</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Stylesheet to use when rendering the document</Data></Cell>
-    <Cell><Data ss:Type="String">A fixed CSS stylesheet to use when rendering the documents</Data></Cell>
+    <Cell><Data ss:Type="String">A fixed CSS stylesheet to use when rendering the documents. </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Support for CDA level 1</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">n/a</Data></Cell>
+    <Cell><Data ss:Type="String">This stylesheet is only used when the entire document is rendered. When resources are extracted out of a document for presentation, applications are not required to use this stylesheet</Data></Cell>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -784,10 +782,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -805,8 +804,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -950,7 +949,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1251,23 +1249,23 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">The document is complete and verified by an appropriate person, and no further work is planned</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">appended</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person. The modifications added new information to the document, but did not revise existing content</Data></Cell>
     <Cell><Data ss:Type="String">If systems are not able to be sure whether existing information has changed or not, they should use the status &quot;amended&quot;</Data></Cell>
     <Cell><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">amended</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">retracted</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The document has been withdrawn on the basis that it was original issued in error</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">The document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Usually this is because some major error has been detected in the workflow that created the document, or the document was associated with the wrong patient/author etc.</Data></Cell>
     <Cell><Data ss:Type="String">~ActStatus.nullified</Data></Cell>
    </Row>
@@ -1283,7 +1281,6 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

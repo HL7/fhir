@@ -21,7 +21,6 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6315</WindowTopY>
   <TabRatio>1000</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -322,7 +321,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Organization)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Who authenticated the document</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Document Authenticator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Which person or organization authenticates that this document is valid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -717,12 +716,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <TopRowVisible>17</TopRowVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -934,7 +933,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
