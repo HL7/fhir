@@ -74,7 +74,7 @@ In many workflows, only final documents are not made available, and the prelimin
 amended, the document SHOULD reference the document that is being replaced in <i>Document.replaces</i> if it exists. if the document issuer issues
 documents in request, rather then posting them to a repository in advance, there may be no docuemnt to replace. 
 </p>
-</p>
+<p>
 A very few documents are created entirely in error in the workflow - usually the document concerns the wrong patient or is written by the wrong author,
 and the error is only detected after the document has been released. To support resolution of this case, a new document marked as "retracted" can
 be created. This means that the entire series is now considered to be created in error, and systems receiving documents marked as retracted 
