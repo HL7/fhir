@@ -33,7 +33,7 @@ distinct requirements will be implemented as extensions.
 As such, extensibility is a fundamental part of the design of this
 specification. Every element in a resource may have extension child elements 
 to represent additional information that is not part of the basic definition 
-of the resource. Conformant applications are not allowed to reject resources 
+of the resource. Applications should not reject resources merely because
 because they contain extensions, though they may need to reject resources 
 because of the specific contents of the extensions.
 </p>
@@ -48,12 +48,12 @@ simplicity for everyone.
 In order to make the use of extensions safe and manageable, there is a
 strict governance applied to the definition and use of extensions. Though
 any implementer is allowed to define and use extensions, there is a set of requirements
-that must be met as part of theie use and definition.
+that must be met as part of their use and definition.
 </p>
 <a name="Extension"></a>
 <h2>Extension Element</h2>
 <p>
-Every element in a resource includes an optional "extension" child element that may 
+Every element in a resource or data type includes an optional "extension" child element that may 
 be present any number of times. The extension elements appear as 
 the first set of children, prior to any other defined child elements. 
 This is the content model of the extension as it appears in each resource:
@@ -63,15 +63,15 @@ This is the content model of the extension as it appears in each resource:
 Notes:
 </p>
 <ul>
- <li>The <i>url</i> is a mandatory attribute / property, and identifies an extension definition in a <a href="profile.html">resource profile</a> that defines the content and meaning of the extension.</li>
+ <li>The <i>url</i> is a mandatory attribute / property and identifies an extension definition in a <a href="profile.html">resource profile</a> that defines the content and meaning of the extension.</li>
  <li>The actual content of the extension consists of either a single value in the <i>value[x]</i> element, or it can can contain additional extensions, each with their own defining url and content</li>
- <li>The <i>url</i> cannot have itself have any extension</li>
- <li>An extension SHALL have either a value (i.e. a value[x] element) or child extensions. The value[x] element SHALL have content, and/or an id attribute that is the target of a reference from the Narrative</li>
+ <li>An extension SHALL have either a value (i.e. a value[x] element) or child extensions. The value[x] element SHALL have content and/or an id attribute that is the target of a reference from the Narrative</li>
  <li>When an extension is the target of an internal reference, the reference is always to the value of the extension. An extension is only allowed to be the target of a reference when it has no value[x]</li>
- <li>It must be safe for an application processing the content of the resource to ignore an extension. Specifically, this should be understand to mean that the content of the extension does not alter the meaning of the element that contains it. See below for further discussion</li>
+ <li>For most extensions, it must be safe for an application processing the content of the resource to ignore an extension. Specifically, this should be understood to mean that the content of the extension does not alter the meaning 
+ of the element that contains it. See below for further discussion</li>
 </ul>
 <p>
-The <i>value[x]</i> element has the [x] replaced with the title-cased name of one of the defined types, and the contents as defined for that type. The value type may be one of the following:
+The <i>value[x]</i> element has the [x] replaced with the title-cased name of one of the defined types and the contents as defined for that type. The value type may be one of the following:
 </p>
 <ul class="dense">
  <li><a href="datatypes.html#integer">integer</a></li>
@@ -101,7 +101,7 @@ The <i>value[x]</i> element has the [x] replaced with the title-cased name of on
 
 <p>
 An extension would contain other extensions instead of a value where the original definition of the extension defines 
-complex content (i.e. the extension ahs multiple parts, not a simple data type). If the value of the extension itself 
+complex content (i.e. the extension has multiple parts rather than a simple data type). If the value of the extension itself 
 needs extending, those extensions go in the content of the value[x] element.
 </p>
 <div class="example">
@@ -205,25 +205,25 @@ negates the primary meaning of the element that contains it. Some examples:
  <li>Recording that a <a href="supply.html">Supply</a> was <b>not</b> provided (i.e. refusal to fill)</li>
 </ul>
 <p>
-Implementers are encouraged not to use modifier extensions, and any use should be 
-carefully considered against it's possible downstream consequences. However implementers
-are often forced into these kind of arrangements by the business arrangements around
+Implementers should avoid the use of modifier extensions where possible.  Any use should be 
+carefully considered against its possible downstream consequences. However, implementers
+are often forced into these situations by the business arrangements around
 the use of resources, so this specification creates a framework for handling these.
 </p>
 <p>
-In these cases an application cannot safely process the resource unless it knows
+If modifier extensions are present, an application cannot safely process the resource unless it knows
 what the extension means for its own use of the data. This specification allows for 
-such modifier elements to be included at the base of a resource, or in any elements
-that do not have a data type (e.g. the elements that correspond to classes in the UML
+such modifier elements to be included at the base of a resource or in any elements
+that do not have a data type (e.g. the elements that correspond to classes in the resource UML
 diagrams), using an element named "modifierExtension", which has same content as the 
 <i>extension</i> element documented above. 
 </p>
 <p>
 Implementations processing the data in resources SHALL understand the impact 
 of the extension when using the data. If an application processing the content 
-of a resource does not recognize a modifierExtension, and the data from the 
+of a resource does not recognize a modifierExtension and the data from the 
 element it extends is processed by the application, the application SHALL 
-either refuse to process the data, or carry a warning concerning the data 
+either refuse to process the data or carry a warning concerning the data 
 along with any action or output that results from processing the data to 
 inform users that it has not fully understood the source information.
 </p>
@@ -245,18 +245,19 @@ are not required to check for unknown extensions.
 
 <h3>Summary: Conformance Rules for Modifier Extensions</h3>
 <ul>
- <li>A modifierExtension SHALL only modify the element which it contains, and its children</li>
+ <li>A modifierExtension SHALL only modify the element which it contains and/or its children</li>
  <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative.</li>
- <li>Applications SHALL always check for modifierExtensions when processing the data from any element that may carry one. If a modifierExtension they do not understand is found, the application SHALL either refuse to process the resource, or provide an appropriate warning to its users</li>
+ <li>Applications SHALL always check for modifierExtensions when processing the data from any element that may carry one. 
+ If a modifierExtension they do not understand is found, the application SHALL either refuse to process the resource or affected element, or provide an appropriate warning to its users</li>
 </ul>
 
 <h3>Example</h3>
  
 <div class="example">
 <p>
-Example: Because of a lack of clinical consensus, there's no element on <a href="allergyintolerance.html">AllergyIntolerance</a> 
+Example: Because of a lack of clinical consensus, there's no element on <a href="procedure.html">Procedure</a> 
 for any expression of certaintly around the expression of the Allergy/Intolerance. Some systems mark their entries 
-as "unlikely" or "refuted". Applications are allowed to extend a resource with data like this: 
+as "unlikely" or "probable". Applications are allowed to extend a resource with data like this: 
 </p>
 <pre class="xml">
 &lt;AllergyIntolerance&gt;
@@ -282,7 +283,7 @@ though this would not usually be the case.
 <p>
 Whan an application that doesn't understand this extension tries
 to process this resource, it is required to either refuse to process 
-the resource, or provide an appropriate warning to its users. Either
+the resource (or containing element), or provide an appropriate warning to its users. Either
 of these courses of action is potentially difficult. One option is to 
 download the profile that defines the extension (from the given URL), 
 find the name of the extension, and then use the name to display
@@ -324,7 +325,7 @@ not perform an operation:
 </div>
 <p>
 In this case, if an application is not reading the performers of the operation at all,
-the fact that one of the performers has a modifierExtension is irrelevant, and the 
+the fact that one of the performers has a modifierExtension is irrelevant and the 
 application is free to ignore it. 
 </p>
 
@@ -366,12 +367,12 @@ of these situations easier, but they cannot resolve it.
 modified element and its descendants, because it cannot know whether the modifications it has made 
 might invalidate the value of the unknown extension</li>
  <li>Systems that drop existing elements are considered to be "processing the resource"</li>
- <li>A system SHALL not modify a resource that contains must-understand resource it doesn't understand</li>
- <li>Applications SHOULD ignore extensions that they do not recognize if their "isModifier" element is missing or set to false</li>
+ <li>A system SHALL not modify a resource or element that contains must-understand extensions it doesn't understand</li>
+ <li>Applications SHOULD ignore extensions that they do not recognize if they are not "modifier" extensions</li>
  <li>Systems that do not accept unknown extensions SHALL declare so in their Conformance resource instances</li>
 </ul>
 <p>
-The degree to which an system can retain unknown extensions is a function of the type of system
+The degree to which a system can retain unknown extensions is a function of the type of system
 it is: a general purpose FHIR server, or a middleware engine would be expected to retain 
 all extensions, while an application that manage patient registration through a user 
 interface can only retain extensions to the degree that their information is part of the
@@ -384,16 +385,16 @@ Use the following rules as a guideline for handling resources:
 </p>
 <ul>
  <li>When writing extensions, make sure they are defined and published</li>
- <li>When reading elements that can have modifier extensions, check whether they are any</li>
- <li>When reading elements ignore other extensions, unless you want to read a particular extension</li>
- <li>Retain extensions when ever you can</li>
+ <li>When reading, navigating through or searching on elements that can have modifier extensions, check whether there are any</li>
+ <li>When reading elements, ignore other extensions, unless you want to read a particular extension</li>
+ <li>Retain extensions whenever you can</li>
 </ul> 
  
 <a name="define"></a>
 <h2>Defining Extensions</h2>
 
 <p>
-Extensions may be defined by any project or jurisdiction, up to and including international standards organizations such as HL7 itself, and are published
+Extensions may be defined by any project or jurisdiction, up to and including international standards organizations such as HL7 itself.  Extensions are defined and published
 as part of a <a href="profile.html">Resource Profile</a>. Extensions are always defined against some particular context - the type of element 
 that they may be used to extend. The following are possible contexts for an extension:
 </p>
@@ -447,18 +448,18 @@ standard.
 As well as defining the base element structure for resources, HL7 also publishes extensions. HL7 publishes data definitions
 as extensions rather than as part of the base resource structure in order to keep the base
 resource structure simple and concise, and to allow implementers not to engage with an entire world's
-worth of functionality up front. Note that HL7 extensions are never flagged as must-understand - if
-HL7 publishes resource content that where is-modifier=true, it will be part of the resource
+worth of functionality up front. Note that HL7 does not define "modifier" extensions - if
+HL7 publishes an element that modifies the meaning of other elements, it will be part of the resource
 content itself, since everyone has to understand the extension anyway.
 </p>
 <p>
 Before extensions can be used in instances, they SHALL be published. HL7 maintains two
-extension registries, and users are encouraged to register their extensions there. But
-this is not required; all that is required is that the extension is published in a
+extension registries and users are encouraged to register their extensions there. But
+this is not required. All that is required is that the extension is published in a
 context that is available for users of the extension. So, for example, if a particular
 extension is used within a single institution, the definition of the extension
 can be placed on the institution's intranet. However since, by their nature, resources
-tend to travel well, it's always better to use the HL7 extension registries.
+tend to travel well, it's always better to use the HL7 or other publicly accessible extension registries.
 </p>
 <p>
 HL7 provides two extension registries. The first is for HL7 approved extensions. These
@@ -484,7 +485,7 @@ use the profile-defined and imported extensions when conveying equivalent data e
 </p>
 <p>
 To minimize complexity for implementers, HL7 will not elevate content defined in an HL7-approved extension to
-be content defined in a core resource in future versions of the resource.
+be content defined in a core resource in future versions of the resource once that resource is normative.
 </p>
 <p>
 In some cases, an HL7 work group or other body may publish a profile whose sole
