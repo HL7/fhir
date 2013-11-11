@@ -19,9 +19,9 @@
      <display value="Roel"/>
  </subject>
  <participant>
-     <practitioner>
+     <individual    >
          <reference value="Practitioner/f201"/>
-    </practitioner>
+    </individual>
  </participant>
  <reason>
    <text value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>

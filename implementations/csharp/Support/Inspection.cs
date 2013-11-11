@@ -46,12 +46,12 @@ namespace Hl7.Fhir.Support
     }
 
     [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
-    public sealed class FhirResourceAttribute : Attribute
+    public sealed class FhirTypeAttribute : Attribute
     {
         readonly string name;
 
         // This is a positional argument
-        public FhirResourceAttribute(string name)
+        public FhirTypeAttribute(string name)
         {
             this.name = name;
         }
@@ -63,42 +63,7 @@ namespace Hl7.Fhir.Support
 
         public string Profile { get; set; }
 
-        // This is a named argument
-        //public int NamedInt { get; set; }
-    }
-
-    [AttributeUsage(AttributeTargets.Class, Inherited=true, AllowMultiple = false)]
-    public sealed class FhirComplexTypeAttribute : Attribute
-    {
-        readonly string name;
-
-        // This is a positional argument
-        public FhirComplexTypeAttribute(string name)
-        {
-            this.name = name;
-        }
-
-        public string Name
-        {
-            get { return name; }
-        }
-    }
-
-    [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
-    public sealed class FhirPrimitiveTypeAttribute : Attribute
-    {
-        readonly string name;
-
-        // This is a positional argument
-        public FhirPrimitiveTypeAttribute(string name)
-        {
-            this.name = name;
-        }
-
-        public string Name
-        {
-            get { return name; }
-        }
+        public bool IsResource { get; set; }
     }
 
 
@@ -134,6 +99,51 @@ namespace Hl7.Fhir.Support
         public string Name
         {
             get { return name; }
+        }
+
+        public bool IsPrimitiveValue { get; set; }
+    }
+
+
+
+    [AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
+    public sealed class EnumLiteralAttribute : Attribute
+    {
+        readonly string literal;
+
+        // This is a positional argument
+        public EnumLiteralAttribute(string literal)
+        {
+            this.literal = literal;
+        }
+
+        public string Literal
+        {
+            get { return literal; }
+        }
+    }
+
+    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = true)]
+    public sealed class ChoiceAttribute : Attribute
+    {
+        readonly string typeName;
+        readonly Type type;
+
+        // This is a positional argument
+        public ChoiceAttribute(string typeName, Type type)
+        {
+            this.typeName = typeName;
+            this.type = type;
+        }
+
+        public string TypeName
+        {
+            get { return typeName; }
+        }
+
+        public Type Type
+        {
+            get { return type; }
         }
     }
 }

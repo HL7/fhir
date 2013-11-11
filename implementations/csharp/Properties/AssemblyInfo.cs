@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
 
-//[assembly: InternalsVisibleTo("HL7.Fhir.Tests")]
+[assembly: InternalsVisibleTo("HL7.Fhir.Tests")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -28,5 +28,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.12.1915")]
-[assembly: AssemblyFileVersion("0.12.1915")]
+[assembly: AssemblyVersion("0.12.1923")]
+[assembly: AssemblyFileVersion("0.12.1923")]

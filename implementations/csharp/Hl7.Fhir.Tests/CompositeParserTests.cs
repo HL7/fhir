@@ -158,7 +158,7 @@ namespace Hl7.Fhir.Tests
             ErrorList errors = new ErrorList();
             Coding result = (Coding)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
-            Assert.AreEqual("x4", result.LocalId.ToString());
+            Assert.AreEqual("x4", result.Id.ToString());
             Assert.AreEqual("G44.1", result.Code);
             Assert.AreEqual("http://hl7.org/fhir/sid/icd-10", result.System.ToString());
             Assert.IsNull(result.Display);
@@ -170,7 +170,7 @@ namespace Hl7.Fhir.Tests
             errors.Clear();
             result = (Coding)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
-            Assert.AreEqual("x4", result.LocalId);
+            Assert.AreEqual("x4", result.Id);
             Assert.AreEqual("G44.1", result.Code);
             Assert.AreEqual("http://hl7.org/fhir/sid/icd-10", result.System.ToString());
             Assert.IsNull(result.Display);
@@ -199,7 +199,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual("R51", result.Coding[0].Code);
             Assert.AreEqual("25064002", result.Coding[1].Code);
             Assert.AreEqual("http://snomed.info/id", result.Coding[1].System.ToString());
-            Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
+            Assert.AreEqual("1", result.Coding[1].Id.ToString());
 
 
             string jsonString = @"{ ""testCodeableConcept"" : 
@@ -218,7 +218,7 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual("R51", result.Coding[0].Code);
             Assert.AreEqual("25064002", result.Coding[1].Code);
             Assert.AreEqual("http://snomed.info/id", result.Coding[1].System.ToString());
-            Assert.AreEqual("1", result.Coding[1].LocalId.ToString());
+            Assert.AreEqual("1", result.Coding[1].Id.ToString());
         }
         
 

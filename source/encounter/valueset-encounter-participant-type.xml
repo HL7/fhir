@@ -1,0 +1,57 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="ParticipantType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set defines a set of codes that can be used to indicate how an individual parcitipates in an encounter"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/participant-type"/>
+    <caseSensitive value="true"/>   
+    <concept>
+      <code value="admitter"/>
+      <display value="Admitter" />
+      <definition value="The practitioner responsible for admitting a patient to a hospital or other inpatient health facility"/>
+    </concept>
+    <concept>
+      <code value="discharger"/>
+      <display value="Discharger"/>
+      <definition value="The practitioner responsible for discharging the patient from a hospital or other inpatient health facility"/>
+    </concept>
+    <concept>
+      <code value="attending"/>
+      <display value="Attending"/>
+      <definition value="The practitioner responsible for overseeing a patient's care during the encounter" />
+    </concept> 
+    <concept>
+      <code value="consulting"/>
+      <display value="Consulting"/>
+      <definition value="An advisor participating in the service by performing evaluations and making recommendations" />
+    </concept>  
+    <concept>
+      <code value="referrer"/>
+      <display value="Referrer"/>
+      <definition value="The practitioner that referred the patient to another practitioner" />
+    </concept>  
+    <concept>
+      <code value="translator"/>
+      <display value="Translator"/>
+      <definition value="A translator who is facilitating communication with the patient during the encounter" />
+    </concept>  
+    <concept>
+      <code value="emergency"/>
+      <display value="Emergency"/>
+      <definition value="A person to be contacted in case of an emergency during the encounter" />
+    </concept>  
+    <concept>
+      <code value="discharge"/>
+      <display value="Discharge"/>
+      <definition value="A person to be contacted when the patient is discharged" />
+    </concept>  
+  </define>
+</ValueSet>
+
+

@@ -54,11 +54,11 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual(0, dummy.Count);
             Assert.AreEqual(233, j.Value.Value.Millisecond);
 
-            Instant result;
-            bool succ = Instant.TryParse("2013-04-19T16:17:23Z", out result);
+            DateTimeOffset result;
+            bool succ = Instant.TryParseValue("2013-04-19T16:17:23Z", out result);
             Assert.IsTrue(succ);
 
-            xml = FhirSerializer.SerializeElementAsXml(result, "someInstant");
+            xml = FhirSerializer.SerializeElementAsXml(new Instant(result), "someInstant");
             Assert.IsFalse(xml.Contains("16:27:23.0"));
         }
 
@@ -67,7 +67,7 @@ namespace Hl7.Fhir.Tests
         {
             Identifier id = new Identifier
                 {
-                    LocalId = "3141",
+                    Id = "3141",
                     Use = Identifier.IdentifierUse.Official,
                     Label = "SSN",
                     System = new Uri("http://hl7.org/fhir/sid/us-ssn"),                    
@@ -207,7 +207,7 @@ namespace Hl7.Fhir.Tests
 
             Patient p = new Patient()
             {
-                LocalId = "Ab4",
+                Id = "Ab4",
                 Identifier = new List<Identifier> { new Identifier { Value = "3141" } },
                 BirthDateElement = new FhirDateTime(1972, 11, 30),
                 Name = new List<HumanName> { name },

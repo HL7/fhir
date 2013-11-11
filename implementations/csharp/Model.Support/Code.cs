@@ -88,10 +88,11 @@ namespace Hl7.Fhir.Model
         }
     }
 
-    [FhirPrimitiveType("codeOfT")]
+    [FhirType("codeOfT")]
     public class Code<T> : PrimitiveElement where T : struct
     {
         // Primitive value of element
+        [FhirElement("value", IsPrimitiveValue=true)]
         public T? Value { get; set; }
 
         public Code() : this(null) {}

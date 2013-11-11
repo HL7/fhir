@@ -11,6 +11,24 @@ is required.</li>
 for examinations, while <i>Accommodation</i> keeps information about the bed a patient stays at during a hospitalization.</li>
 </ul>
 
-<!-- insert xhtml content here -->
+<h2>Example usage</h2>
+<p>As stated, Encounter allows a flexible nesting of Encounters using the partOf element. For example:</p>
+<ul>
+<li>A patient is admitted for two weeks - This could be modeled using a single Encounter instance,
+in which the start and length are given for the duration of the whole stay. The admitting doctor and
+the responsible doctor during the stay are specified using the Participant component.</li>
+<li>During the encounter, the patient moves from the admitting department to the Intensive Care unit and back - 
+Three more detailed additional Encounters can be created, one for each location the patient stayed at.
+Each of these Encounters has a single location (twice the admitting department and once
+the Intensive Care unit) and one or more participants at that location. These Encounters may use the partOf 
+relationship to indicate these movements occurred during the longer overarching Encounter.</li>
+<li>During the last part of the stay, the patient is visited by the members of the multi-disciplinary team that
+treated him for final evaluation - If relevant, for each of these short visits, an Encounter may be created
+with a single participant. Since these took place during the last part of the stay, the partOf element can be
+used to associate these short visits with either the third patient movement of the bigger overall encounter.</li>
+</ul>
+<p>Exactly how the Encounter is used depends on information available in the source system, the relevance of exchange
+of each level of Encounter and demands specific to the communicating partners. The expectation is that for each
+domain of exchange, Profiles are used to limit the flexibility of Encounter to meet the demands of the usecase.</p>
 
 </div>

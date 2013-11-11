@@ -67,7 +67,6 @@
     <Compile Include="TagTests.cs" />
     <Compile Include="SearchParamTests.cs" />
     <Compile Include="ResourceLocationTests.cs" />
-    <Compile Include="FhirClientTests.cs" />
     <Compile Include="PrimitiveParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ModelTests.cs" />

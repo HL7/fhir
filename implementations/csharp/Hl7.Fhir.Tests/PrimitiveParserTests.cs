@@ -23,19 +23,17 @@ namespace Hl7.Fhir.Tests
         {
             Id result;
 
-            bool succ = Id.TryParse("az23", out result);
-            Assert.IsTrue(succ);
+            result = Id.Parse("az23");
+            
+            // should throw error
+            result = Id.Parse("!notgood!");
+            
+            // should throw error
+            result = Id.Parse("NotGood");
 
-            succ = Id.TryParse("!notgood!", out result);
-            Assert.IsFalse(succ);
+            // should throw error
+            result = Id.Parse("1234567890123456789012345678901234567"); 
 
-            succ = Id.TryParse("NotGood", out result);
-            Assert.IsFalse(succ);
-
-            succ = Id.TryParse("1234567890123456789012345678901234567", out result);
-            Assert.IsFalse(succ);
-
-            //TODO test other types, like url (some of it is in ModelTests)
         }
 
         [TestMethod]
@@ -98,14 +96,14 @@ namespace Hl7.Fhir.Tests
             FhirBoolean result = (FhirBoolean)FhirParser.ParseElementFromXml(xmlString, errors);
             Assert.IsTrue(errors.Count == 0, errors.ToString());
             Assert.AreEqual(true, result.Value);
-            Assert.AreEqual("3141", result.LocalId.ToString());
+            Assert.AreEqual("3141", result.Id.ToString());
 
             string jsonString = "{\"someBoolean\": { \"value\" : true, \"_id\" : \"3141\" } }";
             errors.Clear();
             result = (FhirBoolean)FhirParser.ParseElementFromJson(jsonString, errors);
             Assert.IsTrue(errors.Count == 0, errors.ToString());
             Assert.AreEqual(true, result.Value);
-            Assert.AreEqual("3141", result.LocalId.ToString());
+            Assert.AreEqual("3141", result.Id.ToString());
         }
 
 
@@ -146,7 +144,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
             Assert.IsNull(result.Value);
-            Assert.AreEqual("4", result.LocalId.ToString());
+            Assert.AreEqual("4", result.Id.ToString());
 
             xmlString = "<someString xmlns='http://hl7.org/fhir' id='4' value='' />";
             errors.Clear();
@@ -155,7 +153,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
             Assert.IsNull(result.Value);
-            Assert.AreEqual("4", result.LocalId.ToString());
+            Assert.AreEqual("4", result.Id.ToString());
 
             string jsonString = "{ \"someString\" : { \"_id\" : \"4\" } }";
             errors.Clear();
@@ -163,7 +161,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
             Assert.IsNull(result.Value);
-            Assert.AreEqual("4", result.LocalId.ToString());
+            Assert.AreEqual("4", result.Id.ToString());
 
             jsonString = "{ \"someString\" : { \"_id\" : \"4\", \"value\" : \"\" } }";
             errors.Clear();
@@ -171,7 +169,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(errors.Count() == 0, errors.ToString());
             Assert.IsNotNull(result);
             Assert.IsNull(result.Value);
-            Assert.AreEqual("4", result.LocalId.ToString());
+            Assert.AreEqual("4", result.Id.ToString());
         }
 
 

@@ -20,10 +20,10 @@
         <display value="P. van de Heuvel"/>
     </subject>
     <participant>
-        <practitioner>
+        <individual>
             <reference value="Practitioner/f003"/>
             <display value="M.I.M Versteegh"/>
-        </practitioner>
+        </individual>
     </participant>
     <length>
         <value value="140"/>

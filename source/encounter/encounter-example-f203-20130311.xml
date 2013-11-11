@@ -19,9 +19,9 @@
      <display value="Roel"/>
  </subject>
  <participant>
-     <practitioner>
+     <individual>
          <reference value="Practitioner/f201"/>
-    </practitioner>
+    </individual>
  </participant>
  <reason>
    <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>

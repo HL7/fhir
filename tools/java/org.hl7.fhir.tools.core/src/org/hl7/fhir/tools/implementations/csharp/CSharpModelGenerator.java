@@ -101,7 +101,7 @@ public class CSharpModelGenerator extends GenBlock
 			ln("/// <summary>");
 			ln("/// " +  constrained.getAnnotations().getShortDefinition());
 			ln("/// </summary>");
-			ln("[FhirComplexType("); nl("\"" + constrained.getName() + "\""); nl(")]");
+			ln("[FhirType("); nl("\"" + constrained.getName() + "\""); nl(")]");
 			//ln("[Serializable]");
 			ln("public partial class " +  GeneratorUtils.generateCSharpTypeName(constrained.getName()) );
 				nl(" : ");
@@ -238,9 +238,23 @@ public class CSharpModelGenerator extends GenBlock
 		ln("/// " + member.getAnnotation().getShortDefinition());
 		ln("/// </summary>");
 		
-		if(isSimpleElement)
+		if(isSimpleElement || member.isPrimitiveValueElement())
 		{
-		  ln("[FhirElement(\"" + member.getName() + "\")]");
+		  ln("[FhirElement(\"" + member.getName() + "\"");
+		  
+		  if(member.isPrimitiveValueElement())
+		    nl(", IsPrimitiveValue=true");
+		  nl(")]");
+		}
+		if(member.isPolymorph())
+		{
+		  for(TypeRef choiceTRef : member.getType())
+		  {
+		    ln("[Choice(");
+		    nl("\"" + choiceTRef.getName() + "\", ");
+		    nl("typeof(" + GeneratorUtils.buildFullyScopedTypeName(choiceTRef) + ")"  );
+		    nl(")]");
+		  }
 		}
 		ln("public ");
 		
@@ -371,15 +385,15 @@ public class CSharpModelGenerator extends GenBlock
 		if( composite.isComposite() && !composite.isAbstract() )
 	  //if( composite.isComposite() )
 		{
-		  if(!representsPrimitive)
-		    ln("[FhirComplexType(\"" + composite.getName() + "\")]" );
-		  else
-		    ln("[FhirPrimitiveType(\"" + composite.getName() + "\")]" );
+		 // if(!representsPrimitive)
+		    ln("[FhirType(\"" + composite.getName() + "\")]" );
+		 // else
+		 //   ln("[FhirPrimitiveType(\"" + composite.getName() + "\")]" );
 		}
 		//else if( composite.isResource() && !composite.isAbstract() )
 		else if( composite.isResource() )
 		{
-			ln("[FhirResource(\"" + composite.getName() + "\")]" );
+			ln("[FhirType(\"" + composite.getName() + ", IsResource=true\")]" );
 		}
 		
 		//ln("[Serializable]");
@@ -527,6 +541,7 @@ public class CSharpModelGenerator extends GenBlock
 			{
 				String definition = code.getDefinition();
 				
+				ln("[EnumLiteral(" + "\"" + code.getCode() + "\"" +  ")]");
 				ln(GeneratorUtils.generateCSharpEnumMemberName(code.getCode()) + ",");
 				
 				if( definition != null )

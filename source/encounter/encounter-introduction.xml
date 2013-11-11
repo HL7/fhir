@@ -21,14 +21,8 @@ Encounters can be aggregated or grouped under other Encounters using the <i>part
 using Encounters elements to reflect the planned start date, planned accommodation or planned encounter locations. In 
 this case the <i>status</i> element is set to 'planned'.</p>
 
-
-<p>Specifically outside the scope of Encounter are:</p>
-<ul>
-<li>Group encounters - </li>
-<li>Appointment information - use the Appointment resource (yet to be defined). Note that in many systems outpatient
-encounters (which are in scope for Encounter) and Appointment are used concurrently. In FHIR,
-Appointment is used for establishing a date for the encounter, while Encounter is applicable to
-information about the actual Encounter, i.e. the patient showing up.</li>
-</ul>
-
+<p>Appointment information is out of scope for Encounter - use the Appointment resource (yet to be defined). 
+Note that in many systems outpatient encounters (which are in scope for Encounter) and Appointment are used 
+concurrently. In FHIR, Appointment is used for establishing a date for the encounter, while Encounter is 
+applicable to information about the actual Encounter, i.e. the patient showing up.</p>
 </div>
