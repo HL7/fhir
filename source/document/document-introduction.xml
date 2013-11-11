@@ -120,7 +120,8 @@ of posting to them:
     <li>Retain the document in it's binary form and make it available on /binary, and perhaps also create a DocumentReference</li>
   </ul>
   The server is not obliged to do anything at all, or anything on this list, though it SHOULD declare what actions it takes in the 
-  <a href="conformance.html">conformance statement</a>.
+  <a href="conformance.html">conformance statement</a>.  This end point SHALL NOT be further constrained by implementation environment.
+  If stricter control of behavior is desired, a custom service endpoint may be defined.
   </td> </tr>
 </table>
 
