@@ -35,11 +35,13 @@ or consumer.
 <p>
 Though FHIR Resources are primarily designed with for the <a href="http.html">RESTful HTTP-based implementation</a>,
 it is not necessary to use a RESTful interface when exchanging the resources; one way that they can be exchanged 
-is in the context of services. [Bo: two sentences or so about what a SOA is].
+is in the context of services. Service Oriented Architecture (SOA) is an architecture pattern using services t
+o encapsulate and provide discreet pieces of application functionality to each other. Services communicate 
+by invoking public interfaces and exchanging information (as parameters and outputs) in accordance to a 
+well-defined service contract. 
 </p>
 <p>
-FHIR resources or <a href="extras.html#bundle">bundles</a> may be used as as parameters of service interfaces,
-using webservices, or some other technical approach.
+FHIR resources or <a href="extras.html#bundle">bundles</a> may be used as the parameters or ouputs of service interfaces.
 </p>
 <p>
 Generally, the definition of particular services is a domain or context specific task, and it is anticipated
@@ -48,18 +50,20 @@ in this specification. Services defined like this are able to build on the commo
 features defined in this specification such as REST or messaging, and add specific interactions where
 appropriate. Alternatively, the service interfaces can build an entirely separate implementation. 
 At this time, FHIR does not define any specific service interfaces as part of the specification, 
-though defining common services would be considered if there was sufficient interest in this.
+though alignment with service interface definitions provided by the 
+<a href="http://hssp.wikispaces.com/">HL7 SOA work group</a> will be considered if 
+there is sufficient interest in this.
 </p>
 <blockquote>
 <p>
 <b>DSTU Notice</b>: The RESTful interface is a profile on the existing <a href="http://hssp-rlus.wikispaces.com/RLUS_FAQ">HL7/OMG HSSP 
 RLUS specification</a> (see <a href="http.html#hdata">comments on the RESTful specification</a>). 
-If there is interest, HL7 could define a webservices (SOAP) equivalent to this. The main interest
-in this would be to provide a common technical base for other webservices extensions. 
+If there is interest, HL7 could define a SOAP equivalent to this. The main interest
+in this would be to provide a common technical base for other SOAP based services. 
 </p>
 </blockquote>
 <p>
-When implementing exchange of resources using a service-based approach, there is two 
+When implementing exchange of resources using a service-based approach, there are two 
 aspects to keep in mind:
 </p>
 <ul>
@@ -74,18 +78,20 @@ and implementation.
 <a name="tech"> </a>
 <h2>Technical Requirements</h2>
 <p>
-Resources are designed so the package that is "the resource" consists of data - the content inside the resource,
-and the metadata - additional fields that are actually stored and exchanged outside the resource. In the 
-RESTful context, these fields are part of the HTTP header, and their functionality is integrated into the 
+Resources are designed so the package that is "the resource" consists of data (the content inside the resource,
+and metadata - additional fields that are actually stored and exchanged outside the resource). In the 
+RESTful context, these fields are part of the HTTP header, and their functionality is integrated into  
 the HTTP exchange. When the resources are used with a service, this data must either be exchanged with
 the resource, or the functionality they provide replaced in some way.
 </p>
 <p>
 A key question in this regard is whether the resources that are exchanged across a service interface 
 need to also be handled in a RESTful context around the service. For example, a decision support
-service where both the decision support consumer acquires the resources to be passed to the service from a
-RESTful based EHR system, and the decision support provider keeps its own internal RESTful EHR that uses
-the resources - and perhaps also interacts with the same EHR as the consumer. If resources are also to
+provider service might receive a collection of resources on which a decision is required, and 
+use an internal RESTful service to store and access them. In this case, it would need to take
+the resources out of the service context, and use them in a RESTful context, and generally the
+service would expect to see duplicate resources over time, where versions must be managed 
+correctly. If the resources to be exchanged over services are also to
 be exchanged with REST, the metadata will be required.
 </p>
 <p><b>Resource Identity</b></p>
@@ -180,7 +186,7 @@ need to be managed.
 <p>
 The modularity of resources - which resources are defined, and why - is driven by 
 a wide set of considerations around how they are used. Resources are a platform on 
-which a set of services of various kinds are provided. Accordingly, the resources
+which a set of business/clinical services of various kinds are provided. Accordingly, the resources
 are defined for general use, and they can be expected to be less suitable for a 
 particular service than custom defined structures. The pay back is wider re-use 
 of the information that the service deals with.

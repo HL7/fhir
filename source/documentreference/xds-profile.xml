@@ -20,7 +20,7 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>210</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -556,7 +556,7 @@
   <Names>
    <NamedRange ss:Name="_Ref287361564" ss:RefersTo="=crap!R15C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="35" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="126"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="198.75"/>
@@ -701,12 +701,25 @@
     <Cell ss:Index="12" ss:StyleID="s83"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.supercedes</Data></Cell>
-    <Cell><Data ss:Type="String">0..0</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.relatesTo</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Relationships to other documents</Data></Cell>
+    <Cell><Data ss:Type="String">Relationships that this document has with other document references that already exist</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
+    <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.relatesTo.code</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">supercedes | transforms | signs | appends</Data></Cell>
+    <Cell><Data ss:Type="String">The type of relationship that this document has with anther document</Data></Cell>
+    <Cell><Data ss:Type="String">If this document appends another document, then the document cannot be fully understood without also accessing the referenced document</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
+    <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.relatesTo.target</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource(DocumentReference)</Data></Cell>
-    <Cell><Data ss:Type="String">If this document replaces another</Data></Cell>
-    <Cell><Data ss:Type="String">todo</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">check</Data></Cell>
+    <Cell><Data ss:Type="String">Target of the relationship</Data></Cell>
+    <Cell><Data ss:Type="String">The target document of this relationship</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.description</Data></Cell>
@@ -816,7 +829,7 @@
     <Cell><Data ss:Type="String">XDSDocumentEntry.healthCareFacilityTypeCode</Data></Cell>
     <Cell><Data ss:Type="String">In some cases, the setting of the encounter is inherent in the typeCode, such as &quot;Diabetes Clinic Progress Note&quot;. healthcareFacilityTypeCode shall be equivalent to or further specialize the value inherent in the typeCode; for example, where the typeCode is simply &quot;Clinic Progress Note&quot; and the value of healthcareFacilityTypeCode is &quot;private clinic&quot;. The value shall not conflict with the value inherent in the typeCode, as such a conflict would create an ambiguous situation</Data></Cell>
    </Row>
-   <Row ss:Index="35" ss:AutoFitHeight="0">
+   <Row ss:Index="37" ss:AutoFitHeight="0">
     <Cell ss:Index="7" ss:StyleID="s86"/>
    </Row>
   </Table>
@@ -833,11 +846,13 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
+   <TopRowVisible>7</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>17</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1346,11 +1361,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

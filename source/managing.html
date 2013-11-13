@@ -38,16 +38,19 @@ RESTful systems, the resource identity is the same as the URL by which it is fou
 When a resource is packaged in a <a href="extras.html#bundle">bundle</a> (e.g. for 
 <a href="message.html">messages</a> or <a href="documents.html">documents</a>, or 
 <a href="services.html">exchanged in a service </a>, the id is included along 
-with the resource. Real-world use of FHIR resources creates the need to 
-manage the way resources are identified with URLs.
+with the resource. When systems using FHIR resources are deployed in an implementation
+context where there is more than two systems exchanging resources, the way that
+resources are identified with URLs needs to managed carefully
 </p>
+
 <p>
 Note that many resources also have an identifier element, which may repeat. This identifier
 is a logical identifier for the concept that the resource describes, and is different to
 the identity discussed in this section, which is the literal identity of the resource.
-Note that there may be more than one resource that describes the same concept - usually
-on different systems, though due to various record keeping issues, these may exist
-on the same system (i.e. <a href="patient.html#duplicates">patient duplicates</a>).
+Note that there are often multiple resource instances that describe the same concept 
+across multiple systems, e.g. each application keeps it's own copy of the patient 
+information in a <a href="patient.html">Patient</a> resource. This can even
+exist within a single system, such as in the case of <a href="patient.html#duplicates">patient duplicates</a>).
 </p>
 
 <h3>Using Resources</h3>
@@ -57,7 +60,7 @@ Resources are used in a variety of circumstances. Generally, these can be catego
 </p>
 <ol>
  <li><b>Closed Trading System</b>: the resources are only ever exchanged between fixed systems in a tightly controlled 
-community, such as a single hospital. There is only one master server for each resource type, and resources are managed
+community, such as a single EHR system with multiple modules. There is only one master server for each resource type, and resources are managed
 by that server. In this context, the <a href="resources.html#metadata">logical id</a> of a resource is sufficient 
 to fully identify the resource</li>
 
@@ -66,7 +69,7 @@ In order to identify resources, a full URL reference to the origin server is req
 an open system is the World Wide Web</li>
 
  <li><b>Partially closed, inter-linked systems</b>: a mixture of both closed and open systems - trading communities that are tightly managed, but have managed 
-interactions with other closed trading systems, or with the world-wide RESTful system, or both. In fact, 
+interactions with other closed trading systems, or with the world-wide web, or both. In fact, 
 this combination appears to be the most likely scenario for current real-world healthcare business solutions</li>
 </ol>
 <p>
@@ -109,7 +112,15 @@ In some limited cases, it can leave the logical id of the resources unchanged as
 from one closed system to another. However in more complicated cases, it will have to modify the 
 resource references as resources pass across the gateway. 
 </p>
-
+<blockquote>
+<p>
+DSTU Note: In it's current form, FHIR allows various convenient implementer practices around 
+resource identification that make integration across eco-system boundaries more difficult. 
+In particular, either only allowing UUIDs for logical IDs or only allowing absolute references 
+would make the boundary management problem easier but remove useful and convenient flexibility for 
+other uses of FHIR. Feedback on this will be welcome during trial use.
+</p>
+</blockquote>
 
 </div>
 

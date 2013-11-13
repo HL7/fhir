@@ -56,7 +56,7 @@ statements</a> that identify particular documents they support.
 <h2>Document Status Codes</h2>
 <p>
 Every document has a status, which describes the status of the content of the document. Documents
-themselves are never changed - once created, the document is frozen, but the information in them
+themselves are never changed - once created, the document is immutable, but the information in them
 can change, and new documents can be released in the same series. The document status relates to 
 the standing of this information in the series. The status of the document is taken from this list of codes:
 </p>
