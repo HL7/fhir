@@ -330,14 +330,14 @@ application is free to ignore it.
 </p>
 
 
-
+<a name="exchange"> </a>
 <h2>Exchanging Extensions</h2>
 
 <p>
 Extensions are a way of allowing local requirements to be reflected in a resource using
 a common information based approach so that all systems can confidently process them 
 using the same tools. However, when it comes to processing the information, applications
-will be constrained in their ability to handle resources by the degree to which they 
+will be constrained in their ability to handle extensions by the degree to which they 
 are informed about them. 
 </p>
 <p>
@@ -359,11 +359,11 @@ When it comes to deploying applications that support local requirements, situati
 will very likely arise where different applications
 exchanging information with each other are supporting different sets of extensions.
 This specification makes some basic rules that are intended to make management
-of these situations easier, but they cannot resolve it.
+of these situations easier, but they cannot resolve them.
 </p>
 <ul>
  <li>When exchanging resources, systems SHOULD retain unknown extensions when they are capable of doing so (just as they SHOULD retain core elements when they are capable of doing so)</li>
- <li>If a system modifies a resource it SHALL remove any extensions that it does not understand from the 
+ <li>If a system modifies a resource it SHOULD remove any extensions that it does not understand from the 
 modified element and its descendants, because it cannot know whether the modifications it has made 
 might invalidate the value of the unknown extension</li>
  <li>Systems that drop existing elements are considered to be "processing the resource"</li>
@@ -374,8 +374,8 @@ might invalidate the value of the unknown extension</li>
 <p>
 The degree to which a system can retain unknown extensions is a function of the type of system
 it is: a general purpose FHIR server, or a middleware engine would be expected to retain 
-all extensions, while an application that manage patient registration through a user 
-interface can only retain extensions to the degree that their information is part of the
+all extensions, while an application that manages patient registration through a user 
+interface can only retain extensions to the degree that the information in them is part of the
 set managed by the user. Other applications will fall somewhere between these two extremes.
 </p>
 
