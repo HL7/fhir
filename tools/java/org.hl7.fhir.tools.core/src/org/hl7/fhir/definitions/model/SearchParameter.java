@@ -1,6 +1,7 @@
 package org.hl7.fhir.definitions.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 /*
 Copyright (c) 2011-2013, HL7, Inc
@@ -30,6 +31,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
+import java.util.Set;
+
+import javax.print.attribute.HashAttributeSet;
 
 public class SearchParameter {
   public enum SearchType {
@@ -47,6 +51,7 @@ public class SearchParameter {
   private SearchType type;
   private List<String> paths = new ArrayList<String>();
   private List<String> composites = new ArrayList<String>();
+  private Set<String> targets = new HashSet<String>();
   
   // operational tracking
   private String xPath;
@@ -105,6 +110,29 @@ public class SearchParameter {
 
   public void setXPath(String xPath) {
     this.xPath = xPath;
+  }
+
+  public String getTargetTypesAsText() {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (String rn : targets) {
+      if (first) {
+        first = false;
+        b.append("<br/>(");
+      } else
+        b.append(", ");
+      if (rn.equals("Any")) 
+        b.append("Any");
+      else
+        b.append("<a href=\""+rn.toLowerCase()+".html\">"+rn+"</a>");
+    }
+    if (!first)
+      b.append(")");
+    return b.toString();
+  }
+
+  public Set<String> getTargets() {
+    return targets;
   }
   
   

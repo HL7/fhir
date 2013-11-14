@@ -155,6 +155,23 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, "structure", parent.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
       rule(errors, "structure", parent.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
       rule(errors, "structure", parent.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().contains("|"), "Search Parameter descriptions should start with uppercase (\""+p.getDescription()+"\")");
+      try {
+        if (p.getType() == SearchType.reference) {
+          for (String path : p.getPaths()) {
+            ElementDefn e;
+            e = parent.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path");
+            for (TypeRef t : e.getTypes()) {
+              if (t.getName().equals("Resource")) {
+                for (String pn : t.getParams()) {
+                  p.getTargets().add(pn);
+                }
+              }
+            }
+          }
+        }
+      } catch (Exception e1) {
+        rule(errors, "structure", parent.getName(), false, e1.getMessage());
+      }
     }
     for (Compartment c : definitions.getCompartments()) 
       rule(errors, "structure", parent.getName(), c.getResources().containsKey(parent), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)");
@@ -164,7 +181,7 @@ public class ResourceValidator extends BaseValidator {
     return 
         name.equals("ConceptMap") || 
         name.equals("Conformance") || 
-        name.equals("Message") || 
+        name.equals("MessageHeader") || 
         name.equals("Profile") || 
         name.equals("Query") || 
         name.equals("ValueSet") ||         

@@ -182,8 +182,8 @@
     <translation lang="en">MedicationStatement</translation>
   </item>
 
-  <item id="Message">
-    <translation lang="en">Message</translation>
+  <item id="MessageHeader">
+    <translation lang="en">MessageHeader</translation>
   </item>
 
   <item id="Observation">

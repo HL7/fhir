@@ -239,7 +239,7 @@ public class XhtmlParser {
         node.getAttributes().put(name, null);
       else if (peekChar() != '=')
       {
-        throw new Exception("Unable to read attribute value on <"+node.getName()+">"+descLoc());
+        throw new Exception("Unable to read attribute '"+name+"' value on <"+node.getName()+">"+descLoc());
       }
       else
       {
