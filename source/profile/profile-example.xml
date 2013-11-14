@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Profile xmlns="http://hl7.org/fhir">
+<Profile xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/profile.xsd">
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><pre>
 <span style="color: Gray">&lt;!-- <span style="color: Darkviolet">Resources</span> --&gt;</span>
@@ -356,7 +356,13 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationStatus"/>
+        <binding>
+          <name value="ObservationStatus"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-status"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1010,7 +1016,13 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationStatus"/>
+        <binding>
+          <name value="ObservationStatus"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-status"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1413,7 +1425,13 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationStatus"/>
+        <binding>
+          <name value="ObservationStatus"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-status"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1816,7 +1834,13 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationStatus"/>
+        <binding>
+          <name value="ObservationStatus"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-status"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2221,7 +2245,13 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationStatus"/>
+        <binding>
+          <name value="ObservationStatus"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-status"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2471,13 +2501,6 @@ associated with the use of extensions by any application, project, or standard -
     <conformance value="required"/>
     <referenceResource>
       <reference value="http://hl7.org/fhir/vs/quantity-comparator"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="ObservationStatus"/>
-    <conformance value="required"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/observation-status"/>
     </referenceResource>
   </binding>
   <binding>

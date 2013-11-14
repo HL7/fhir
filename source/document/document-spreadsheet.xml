@@ -255,26 +255,26 @@
     <Cell><Data ss:Type="String">Specifies the particular kind of document (e.g. History and Physical, Discharge Summary, Progress Note)</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Key metadata element describing the document, used in searching/filtering.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code</Data></Cell>
+    <Cell><Data ss:Type="String">./code</Data></Cell>
+    <Cell><Data ss:Type="String">./code</Data></Cell>
     <Cell><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Document.subtype</Data></Cell>
+    <Cell><Data ss:Type="String">Document.class</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentSubType</Data></Cell>
-    <Cell><Data ss:Type="String">More detail about the document type</Data></Cell>
-    <Cell><Data ss:Type="String">Additional detailed type for the document</Data></Cell>
+    <Cell><Data ss:Type="String">DocumentClass</Data></Cell>
+    <Cell><Data ss:Type="String">Categorisation of Document</Data></Cell>
+    <Cell><Data ss:Type="String">A categorisation for the type of the document. This may be implied by or derived from the code specified in the Document Type</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Helps humans to assess whether the document is of interest when viewing an index of documents</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">./code</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
     <Cell ss:StyleID="s70"/>
    </Row>
@@ -788,7 +788,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -796,15 +796,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -872,7 +871,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="11" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Width="80.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
@@ -887,6 +886,11 @@
     <Cell><Data ss:Type="String">The type of the document</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Document.type</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">class</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">Document.class</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
@@ -951,7 +955,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>21</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -1128,7 +1132,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

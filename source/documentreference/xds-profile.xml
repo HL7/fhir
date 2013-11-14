@@ -20,7 +20,7 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>210</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -618,15 +618,16 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">The code specifying the particular kind of document (e.g., Prescription, Discharge Summary, Report). It is suggested that the XDS Affinity Domain draws these values from a coding scheme providing a coarse level of granularity (about 10 to 100 entries). Shall have a single value</Data></Cell>
-    <Cell><Data ss:Type="String">XDSDocumentEntry.classCode</Data></Cell>
+    <Cell><Data ss:Type="String">XDSDocumentEntry.typeCode</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s83"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.subtype</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.class</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The code specifying the precise kind of document (e.g., Pulmonary History and Physical, Discharge Summary, Ultrasound Report).  It is suggested that the creating entity draw these values from a coding scheme providing a fine level of granularity.  </Data></Cell>
+    <Cell><Data ss:Type="String">A categorisation for the type of the document. This may be implied by or derived from the code specified in the Document Type</Data></Cell>
+    <Cell><Data ss:Type="String">XDSDocumentEntry.classCode</Data></Cell>
     <Cell><Data ss:Type="String">XDSDocumentEntry.typeCode</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s83"/>
    </Row>
@@ -846,13 +847,10 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>7</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1286,33 +1284,16 @@
     <Cell><Data ss:Type="String">In FHIR, the repository is explicit in the location and/or service URL</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">relationship</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReference</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Document Relationships</Data></Cell>
-    <Cell><Data ss:Type="String">A relationship between this document and another</Data></Cell>
-    <Cell><Data ss:Type="String">See discussion in associated text</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">relationship.type</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">#relationship</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">XDSRelationshipType</Data></Cell>
-    <Cell><Data ss:Type="String">APND | RPLC | XFRM | XFRM_RPLC | signs</Data></Cell>
-    <Cell><Data ss:Type="String">The kind of relationship between the documents</Data></Cell>
-    <Cell><Data ss:Type="String">transform with replace is both a transform and a replace</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">relationship.target</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">#relationship</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell><Data ss:Type="String">Resource(DocumentReference)</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Target Document</Data></Cell>
-    <Cell><Data ss:Type="String">The target document in a relationship</Data></Cell>
+    <Cell ss:Index="2" ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3" ss:StyleID="s78"/>
@@ -1361,10 +1342,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
