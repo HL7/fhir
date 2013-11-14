@@ -21,7 +21,8 @@
   <WindowTopX>19305</WindowTopX>
   <WindowTopY>75</WindowTopY>
   <TabRatio>651</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>13</ActiveSheet>
+  <FirstVisibleSheet>7</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1449,7 +1450,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1921,7 +1921,7 @@
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33.75">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -1933,7 +1933,7 @@
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a &quot;/&quot;, depending on the modifier used</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a &quot;|&quot;, depending on the modifier used</Data></Cell>
     <Cell><Data ss:Type="String"> </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="24" ss:StyleID="s90">
@@ -1961,10 +1961,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -49,14 +49,14 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>ImmunizationProfile - rename to ImmunizationRecommendation</li>
  <li>DocumentReference: aligned definitions more closely with XDS. Worked over the XDS Profile</li>
  <li>DocumentManifest: added this from scratch to round out XDS support</li>
- <li>Document: revised status list per o-o analysis of reporting cycles</li>
+ <li>Document: revised status list per o-o analysis of reporting cycles, and renamed sub-Type to "class" and updated definitions accordingly</li>
  <li>Validation: added Profile tags, and explained how they are used for validation</li>
  <li>Standardised identifiers: AdverseReaction, AllergyIntolerance, CarePlan, Condition, FamilyHistory, Procedure, Questionnaire all have identifier 0..*</li> 
  <li>Condition &amp; Procedure: several changes around relatedItem</li>
  <li>Procedure: made type a required element, changed type and cardinality for indications and complications, and updated definition of procedure</li>
  <li>CarePlan: made patient optional, and reworked to link activities to goals and goals to concerns, and allow other resource kinds for activities</li>
  <li>Alert: improved the definitional documentation</li>
- <li>Message: make the event code a Coding (also in the conformance statement too)</li> 
+ <li>Message: rename the resource to "MessageHeader" and make the event code a Coding (also in the conformance statement too)</li> 
  <li>Patient: Add Link structure to support typed, unidirectional links between Patient records</li>
  <li>Patient: Added careProvider 0..* to express the nominated care providers</li>
  <li>Patient: renamed "provider" to "managingOrganization"</li>

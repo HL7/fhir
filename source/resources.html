@@ -97,8 +97,8 @@ The metadata properties are key aspects of a resource and how it behaves. For im
 <table class="grid">
   <tr><th>Metadata Item</th><th>Type</th><th>Usage</th></tr>
   
-  <tr><td>Logical Id</td> <td><a href="datatypes.html#id">id</a></td> <td>The identity of the resource. 
-    Resources always have a known identity and it is constant for the entire lifetime of the resource. See <a href="references.html#Identification">Resource identification</a> for further discussion</td></tr>
+  <tr><td>Logical Id</td> <td><a href="datatypes.html#id">id</a></td> <td>A simple string that provides the logical identity of the resource. It is unique within the space of all resources of the same type on the same server. 
+     It is constant for the entire lifetime of the resource on the server. </td></tr>
 	
   <tr><td>Version Id</td><td><a href="datatypes.html#id">id</a></td><td>Changes each time the content of the resource changes. 
     Can be referenced in a <a href="references.html#Resource">resource reference</a>. Can be used to ensure that updates are based on the latest version of the resource. 
@@ -110,19 +110,28 @@ The metadata properties are key aspects of a resource and how it behaves. For im
 	
 </table>
 <p>
-Note that both the version id and the last modified date change any time the resource changes. The Version Id is more useful for managing
+Logical and Version ids are case sensitive. Ids are always opaque, and systems need not and should not attempt to determine their internal structure. 
+An id SHALL always be represented in the same way in resource references and URLs. Ids can be up to 36 characters 
+long, and contain any combination of ASCII letters, numerals, "-" and ".".
+</p>
+<p>
+The full identity of a resource is an absolute URL constructed from the server address at which it is found, the resource type, and the Logical Id, such
+as http://test.fhir.org/rest/Patient/123 (where 123 is the Logical Id). Note that implementations SHOULD NOT assume that the identity of a resource 
+is always resolvable to a literal server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
+cases, it may not actually exist (e.g. use of resource outside a RESTful environment). Resources reference each other by their identity. 
+These references are allowed to be absolute or relative (see <a href="references.html">Resource References</a> for further discussion).
+Copying or moving resources from one server to another means that resources acquire a new identity. For further details, 
+see <a href="managing.html">Managing Resource Identity</a>
+</p>
+
+<p>
+Both the Version Id and the Last Modified Date change any time the resource changes. The Version Id is more useful for managing
 concurrency issues and version specific references because of the inherent uncertainties and precision limits associated with date/times. 
 The Last Modified Date is useful for a human to ascertain the logical currency of the information in the resource.
 </p>
 <p>
 In any environment where the resources are used, the technical details of how these metadata elements 
-are represented during exchange will need to be resolved. For further details, see <a href="implementation.html">Implementation 
-Details</a>, which also contains a discussion of how resource identity is maintained.
-</p>
-<p>
-Resource and version ids are case sensitive. Ids are always opaque, and systems need not and should not attempt to determine their internal structure. 
-However the id is represented, it SHALL always be represented in the same way in resource references and URLs. Ids can be up to 36 characters 
-long, and contain any combination of ASCII letters, numerals, "-" and ".".
+are represented during exchange will need to be resolved. For further details, see <a href="services.html">Using Resources with Services</a>.
 </p>
 
 

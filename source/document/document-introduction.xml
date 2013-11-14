@@ -111,7 +111,7 @@ of posting to them:
    not expect that a document submitted using this method will be able to reassembled exactly by the server (e.g. even if the
    server can re-assemble the document (see below), it cannot be expected to be in the same order etc, and so a document signature is 
    very likely to be invalid)</td> </tr>
- <tr> <td><a href="message.html#mailbox">[baseurl]/mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
+ <tr> <td><a href="messaging.html#mailbox">[baseurl]/mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
  document to the client for processing. The exact processing the server performs is at the discretion of the
  server. It MAY perform one or more of these actions:
   <ul>

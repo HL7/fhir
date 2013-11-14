@@ -1,19 +1,43 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+       <!--
+       Additional DSTU 2 resources:
+        - notification
+        - person
+        - clinical observations / vital signs
+        - appointment
+        - query definition
+        - split profile up? 
+        - expand partitions?
+       -->
+      
+[%settitle Messaging using FHIR Resources%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h1>Messaging using FHIR Resources</h1>
 
 <p>
-This page describes how FHIR Resources can be used in a traditional messaging context, 
-much like HL7 v2. Applications asserting conformance to this framework claim to be 
-conformant to "FHIR messaging". 
+FHIR Resources can be used in a traditional messaging context, much like HL7 v2. 
+Applications asserting conformance to this framework claim to be conformant to "FHIR messaging". 
 </p>
+
 <p>
 In FHIR messaging, a "request message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the 
 real world. The request message consists of a <a href="extras.html#bundle">bundle</a>
 <a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", 
-with the first resource in the bundle being this <i>Message</i> resource. The 
-Message resource has a code - the message event - that identifies the nature of the 
-request message and carries additional request metadata. The other resources in the 
-bundle depend on the type of the request.
+with the first resource in the bundle being a <a href="messageheader.html">MessageHeader</a> 
+resource. The MessageHeader resource has a code - the message event - that identifies the 
+nature of the request message, and it alslo carries additional request metadata. 
+The other resources in the bundle depend on the type of the request.
 </p>
 <p>
 The events supported in FHIR, along with the resources that are included in them, are defined below. 
@@ -22,7 +46,7 @@ The events supported in FHIR, along with the resources that are included in them
 The destination application processes the request and returns one or more response messages 
 which are also a <a href="extras.html#bundle">bundle</a> of resources
 <a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", with the first 
-resource in the bundle being a <a href="#resource">Message</a> resource with a response
+resource in the bundle being a <a href="messageheader.html">MessageHeader</a> resource with a response
 section that reports the outcome of processing the message and any additional response 
 resources required. 
 </p>
@@ -39,7 +63,8 @@ The only requirement for the transfer layer is that requests are sent to
 a known location and responses are returned to the source of the request. 
 This specification considers the source and destination applications as logical
 entities, and the mapping from logical source and destination to implementation
-specific addresses is outside the scope of this specification.
+specific addresses is outside the scope of this specification, though this 
+specification does provide a direct delivery mechanism below.
 </p>
 
 <p>
@@ -72,7 +97,7 @@ in both directions.
 <h3>Message Identifiers</h3>
 <p>
 An incoming message contains two identifiers: the envelope id 
-(<a href="extras.html#bundles">feed</a>.id) and the <a href="message.html">message</a>.identifier. 
+(<a href="extras.html#bundles">feed</a>.id) and the <a href="messageheader.html">message</a>.identifier. 
 Each time a new message is created, it SHALL be assigned an identifier that is 
 unique within that message stream. Note that since message streams are often 
 merged with other streams, it is recommended that the identifier should be globally 
@@ -154,16 +179,55 @@ statement is a <a href="conformance.html">resource with the name
 "Conformance"</a>. 
 </p>
 
+<a name="mailbox"></a>
+<h2>Mailbox</h2>
+<p>
+The mailbox is the standard name for a service hosted on a <a href="http.html">RESTful server</a> that accepts messages and processes 
+them as transactions and returns a message response appropriate for the message received. The server is under
+no obligation to do anything particular with the resources except as required by the semantics of the event code in the 
+message resource. A server may choose to retain the resources and make them available on a RESTful interface, but 
+is not required to do so. If the server returns 200 Ok, it SHALL return a valid message that indicates what the outcome
+of the event processing is. An HTTP error indicates that the message was not processed successfully and that it should
+be resubmitted (and doing so should not result in a duplicate message response).  Repeated failures indicate either a
+fatal problem with the message or a problem with the receiving application.
+</p>
+<p>
+The mailbox can also be used to accept documents. In this case, the document is "accepted" (the server 
+takes responsibility for custody of the received document) and an HTTP status of 204 No Content is returned, 
+or an HTTP error is returned. The server is under no obligation to perform any particular processing of the document except as 
+specific trading partner agreements dictate.
+</p>
+<p>
+The following rules apply to the mailbox:
+</p>
+<ul>
+ <li>The mailbox only accepts POST transactions - any other HTTP method will result in an HTTP error</li>
+ <li>The request content type submitted is always <a href="extras.html#bundle">a bundle</a> containing a message or document resource as the first resource</li>
+ <li>The response content type returned is always an HTTP error, <a href="extras.html#bundle">a bundle</a> containing a message as the first resource, or empty (if a document was received)</li>
+ <li>If the response is an error, the body SHOULD be an <a href="operationoutcome.html">Errors &amp; Warning</a> resource with full details</li> 
+ <li>The URL never takes any parameters</li>
+ <li>The mailbox may be authenticated using standard HTTP authentication methods, including OAuth</li>
+</ul>
+<p>
+This simple mailbox profile can be used by any HTTP end point that accepts FHIR messages or documents, not just 
+FHIR RESTful servers.
+</p>
+<p>
+In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of envelope id and 
+message id described above</a> SHALL be followed when messages are processed using the mailbox. No such rules apply regarding
+documents - if the client receives no response, it should continue to submit the document until it does. Servers SHALL 
+accept multiple document submissions and process them correctly.
+</p>
+
 <a name="endpoints"></a>
 <h2>Relationship between Messaging and REST</h2>
 
 <p>
 As well as this messaging framework documented here, FHIR also defines a 
 <a href="http.html">RESTful API</a>. The messaging and RESTful frameworks
-are related in that both share the same set of resources on which the operate.
-In fact, the basic <i>Message</i> resource (defined below) on which the 
-messaging framework is implemented is, itself, a resource that can treated 
-in a RESTful approach. 
+are related in that both share the same set of resources on which they operate.
+In fact, the basic <a href="messageheader.html">MessageHeader</a> resource 
+that the messaging framework is implemented is itself a resource that can treated in a RESTful approach. 
 </p>
 <p>
 The kinds of functionality that the RESTful API and the messaging framework
@@ -176,9 +240,9 @@ On the other hand, there are differences in the capabilities offered - while
 a patient merge can be implemented as a series of RESTful operations performed
 by the client that update all resources linked to the patient, when a message 
 command to merge patient records are all is processed, the server will do all
-the work, and is able to merge in areas not exposed on the RESTful API.
+the work, and is also able to merge in areas not exposed on the RESTful API.
 The REST API, however, provides a set of basic operations on all resources
-that would need special definitions in the messaging framework - ones that
+that would need special definitions in the messaging framework - definitions that
 are not provided.
 </p>
 <p>
@@ -195,20 +259,39 @@ in this fashion does not represent the actual occurrence of any event, nor can i
 any logic associated with the actual event.</b> It is just for managing a set of message resources.
 </p>
 <p>
-In, addition, this specification defines the a mailbox ([base-url]/mailbox). This
-is a standard named end-point to which messages as <a href="extras.html#bundle">bundles</a>, 
-can be sent to a server to indicate that the event identified by the code has occurred - if
-that server is also running a REST API. In this case, the end-point returns an HTTP
-response with a message response as defined for the particular event, or an error 
-indicating that the attempt to process the message was unsuccessful. 
-The functionality of this end-point <a href="#mailbox">is described below</a>.
-</p>
-<p>
+In, addition, as described above, this specification defines the mailbox ([base-url]/mailbox)
+so that RESTful servers can offer both messaging and RESTful services at once.
 Alternatively, messages can be transported between systems using any other method by which 
 a stream of bytes (the message bundle) can be moved from one place to 
 another. There is no requirement to use HTTP.
 </p>
 
 
-<a name="resource"></a>
+
+<a name="Events"></a>
+<a name="events"></a>
+<h2>Event List</h2>
+
+<p>
+The <i>message.code</i> element carries a <a href="datatypes.html#Coding">Coding</a> that identifies the event that the message conveys. 
+This table lists the message event codes defined in this specification (the system value for these is "http://hl7.org/fhir/message-type"):
+</p>
+
+[%events%]
+
+<p>
+In this table, the request and response columns list the focus resource for the event, along with other resources that should also be carried in the message directly (if they exist).
+Additional events may be defined elsewhere, though this specification does not yet define how. DSTU: Input on this is sought during the trial use period.
+</p>
+
+
+
 </div>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>
+
+

@@ -24,7 +24,7 @@ in the RESTful framework:
 </pre>
 <p>
 For this RESTful search, the parameters are a series 
-of name=value pairs encoded in the URL or as an 
+of name=[value] pairs encoded in the URL or as an 
 x-multi-part-form submission for a POST.  
 The server returns the results in the HTTP response as a bundle (in XML, an atom feed) 
 which includes the resources that are the results of the query. The server can also
@@ -129,12 +129,12 @@ and have the usual meaning. Note that '=" must be escaped in the
 value in a URL. Examples:
 </p>
 <table class="grid">
- <tr><td>value=100</td><td>Values that equal 100, to 2 decimal places precision</td></tr>
- <tr><td>value=100.00</td><td>Values that equal 100, to 4 decimal places precision. Whole numbers also equal 100.00, but not 100.01</td></tr>
- <tr><td>value=&lt;100</td><td>Values that are less than 100</td></tr>
- <tr><td>value=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
- <tr><td>value=&gt;100</td><td>Values that are greater than 100</td></tr>
- <tr><td>value=&gt;=100</td><td>Values that are greater or equal to 100</td></tr>
+ <tr><td>[parameter]=100</td><td>Values that equal 100, to 2 decimal places precision</td></tr>
+ <tr><td>[parameter]=100.00</td><td>Values that equal 100, to 4 decimal places precision. Whole numbers also equal 100.00, but not 100.01</td></tr>
+ <tr><td>[parameter]=&lt;100</td><td>Values that are less than 100</td></tr>
+ <tr><td>[parameter]=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
+ <tr><td>[parameter]=&gt;100</td><td>Values that are greater than 100</td></tr>
+ <tr><td>[parameter]=&gt;=100</td><td>Values that are greater or equal to 100</td></tr>
 </table>
 <p>
 For comparisons involving &lt; or &gt;, uncertainty does not factor, and the precision of the numbers is considered arbitrarily high.
@@ -156,9 +156,9 @@ concepts are relatively straight-forward, there are a number of subtleties invol
      <li>Some user agents may escape the ":" characters in the URL, and servers SHALL handle this correctly</li>
    </ul>
  </li>
- <li>[date]=[value] searches for resources where the date is within
-   the given date value. "[date]=&gt;[value]" searches for all resources where the specified date is after [value]. 
-   "[date]=&lt;=[value]" searches for all resources where the specified date is in or before [value], etc. </li>
+ <li>[parameter]=[date] searches for resources where the date is within
+   the period implied by the given value in [date]. "[parameter]=&gt;[date]" searches for all resources where the specified date is after [date]. 
+   "[parameter]=&lt;=[date]" searches for all resources where the specified date is in or before [date], etc. </li>
  <li>The element the search refers to may have a datatype of <a href="datatypes.html#date">date</a>, 
  <a href="datatypes.html#dateTime">dateTime</a>, <a href="datatypes.html#instant">instant</a>, 
  <a href="datatypes.html#Period">Period</a>, or <a href="datatypes.html#Schedule">Schedule</a>. 
@@ -171,14 +171,14 @@ concepts are relatively straight-forward, there are a number of subtleties invol
  </li>
  <li>Date parameter searches are always matched based on the behavior of intervals, as follows:
    <ul>
-     <li>For [date]=[value], the requirement is that the search interval fully contains the time of the target. i.e. 2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
-	 <li>For "[date]=&lt;[value]", the requirement is that the interval of the time before [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+     <li>For [parameter]=[date], the requirement is that the search interval fully contains the time of the target. i.e. [parameter]=2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
+	 <li>For "[parameter]=&lt;[date]", the requirement is that the interval of the time before [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
-	 <li>For "[date]=&gt;[value]", the requirement is that the interval of the time after [value] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	 <li>For "[parameter]=&gt;[date]", the requirement is that the interval of the time after [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
    </ul>
-   Implicitly, a missing lower boundary is 'less than' any actual date).  A missing upper boundary is 'greater than' any actual date).
-   For instance, the period from 21-Jan 2013 onwards is included in matches for date-after=2013-03-14 because it may include times after 14-Mar 2013.
+   Implicitly, a missing lower boundary is 'less than' any actual date.  A missing upper boundary is 'greater than' any actual date.
+   For instance, the period from 21-Jan 2013 onwards is included in matches for date=&gt;=2013-03-14 because it may include times after 14-Mar 2013.
  </li>
  <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
 	<ul>
@@ -214,15 +214,14 @@ server whether to do a left-partial search. The modifier :exact can be used to i
 that the match needs to be exact - e.g. the whole string. For example:
 </p>
 <pre>
- GET [base-url]/Patient?name="eve"
- GET [base-url]/Patient?name:exact="eve"
+ GET [base-url]/Patient?name=eve
+ GET [base-url]/Patient?name:exact=eve
 </pre>
 <p>
 The first is a request to find any patients with "eve" in any part of the name. This would 
 include patients with the name "Eve", "Severine", etc. The second search would only return
 patients with the name "Eve".
 </p>
-
 <p>
 An additional modifier :text
 can be used to specify a search with advanced text handling (see <a href="#text">below</a>)
@@ -250,9 +249,9 @@ the URI/value from a Coding or an Identifier. The syntax for the
 value is one of the following:
 </p>
 <ul>
- <li><b>name=code</b> matches a code/value irrespective of it's system namespace</li>
- <li><b>name=namespace|code</b> matches a code/value in the given system namespace </li>
- <li><b>name=|code</b> matches a code/value that has no system namespace</li>
+ <li><b>[parameter]=[code]</b> matches a code/value irrespective of it's system namespace</li>
+ <li><b>[parameter]=[namespace]|[code]</b> matches a code/value in the given system namespace </li>
+ <li><b>[parameter]=|[code]</b> matches a code/value that has no system namespace</li>
 </ul>
 <p>
 Note that the namespace URI and code both must be <a hef="#escaping">escaped</a>.
@@ -283,8 +282,8 @@ Conditions where the subject reference is a particular patient, where the patien
 The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
- <li><b>name=:id</b> the logical id of a resource using a local reference (i.e. a relative reference)</li>
- <li><b>name=:url</b> where the url is an absolute URL - a reference to a a resource by it's absolute location</li>
+ <li><b>[parameter]=[id]</b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
+ <li><b>[parameter]=[url]</b> where the [url] is an absolute URL - a reference to a a resource by it's absolute location</li>
 </ul>
 <p>
 Note that if a relative reference resolves to the same value as a specified absolute URL, or vice versa, this is a match too.
@@ -400,14 +399,14 @@ and the parameter value "param=xx\\xx" means a literal value of 'xx\xx'.
 <p>
 There are two special text search parameters, _text and _content, which search 
 on the narrative of the resource, and the entire content of the resource respectively. 
-These parameters SHOULD support non-deterministic search functionality of the type 
+These parameters SHOULD support a sophisticated search functionality of the type 
 offered by typical text indexing services is appropriate. 
 The value of the parameter is a text based query, which may involve searching
 multiple words with thesaurus and proximity considerations, and logical operations 
 such as AND, OR etc. For example:
 </p>
 <pre>
- condition?_text=(bone OR liver) and metastases
+ GET [base-url]/Condition?_text=(bone OR liver) and metastases
 </pre>
 <p>
 This searches for all Condition resources with the word "metastases" and either 
@@ -422,7 +421,7 @@ a forth coming release of the odata specification for the $search parameter</a>.
 Typical implementations would use Lucene, an sql-based full text search, 
 or some indexing service. Feedback about consistent implementation in this area
 is welcome.
-</p>z 
+</p>
 </blockquote>
 
 <a name="tag" />
@@ -435,7 +434,7 @@ Resources may have <a href="extras.html#tag">tags</a> affixed to them, either ge
 The _tag parameter searches for any tagged resource by the term (URI) of the tag. For example:
 </p>
 <pre>
- condition?_tag=http://acme.org/fhir/tags/needs-review
+ GET [base-url]/Condition?_tag=http://acme.org/fhir/tags/needs-review
 </pre>
 <p>
 This searches for all Condition resources tagged with "http://acme.org/fhir/tags/needs-review". 
@@ -447,16 +446,17 @@ Searching by tag only includes tags with the general tag scheme of "http://hl7.o
 To restrict the search to only resource that are tagged that they conform to a particular profile:
 </p>
 <pre>
- diagnosticreport?_tag=http://hl7.org/fhir/profile/lipid
- diagnosticreport?_tag=http://localhost/profile/lipid
+ GET [base-url]/DiagnosticReport?_tag=http://hl7.org/fhir/profile/lipid
+ GET [base-url]/DiagnosticReport?_tag=http://localhost/profile/lipid
 </pre>
 <p>
 This searches for all Diagnostic Report resources that conform to the profile found at the given location. 
 The reference to localhost refers to a local profile with the given logical id ("lipid") in this case.
 </p>
 <p>
-Note that a recipient of a resource is free to determine which profiles a resource conforms to,
-and add additional profile tags as appropriate so that resources can be found by this operation.
+Note that when a resource is submitted to a server as a create or an update, the server is 
+free to determine which profiles a resource conforms to, and add additional profile tags 
+as appropriate so that resources can be found by this operation.
 </p>
 
 

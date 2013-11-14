@@ -22,7 +22,7 @@ Notes about the Query resource:
 <h3>Messaging based Queries</h3>
 <p>
 In order to initiate a message-based query, a sender sends a message consisting
-of a <a href="message.html">Message</a> resource, and a <i>Query</i> resource.
+of a <a href="messaging.html">Message</a> resource, and a <i>Query</i> resource.
 The message resource routes the message to the correct destination, and the 
 query contains the parameters of the search that is requested. See 
 <a href="query-examples.html">the examples</a> for an example query request 

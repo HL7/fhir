@@ -57,7 +57,7 @@ The EHR functional model describes several modes for interaction between systems
 </p>
 <table class="list">
 <tr><th>Interaction Modes</th><th>FHIR Options</th></tr>
-<tr><td>Unsolicited Notifications<br/>e.g. a patient has arrived for a clinic appointment </td><td><ul><li>create/update new resource via http</li><li>push resources using atom</li><li>Send FHIR <a href="message.html">Message</a> (if appropriate event is defined)</li></ul></td></tr>
+<tr><td>Unsolicited Notifications<br/>e.g. a patient has arrived for a clinic appointment </td><td><ul><li>create/update new resource via http</li><li>push resources using atom</li><li>Send FHIR <a href="messaging.html">Message</a> (if appropriate event is defined)</li></ul></td></tr>
 <tr><td>Query/Response<br/>e.g., Is Adam Everyman known to the system? Yes, MRN is 12345678.</td><td><ul><li>search with parameters</li><li>A query message (though not defined yet)</li></ul></td></tr>
 <tr><td>Service Request and Response<br/>e.g., Laboratory Order for Fasting Blood Sugar and a response containing the results of the test.  </td><td>Could be supported either through Messaging or SOA solutions.  Request/Response support is not yet defined</td></tr>
 <tr><td>Information Interchange between organizations (e.g. in a RHIO, or in a National Health System)  </td><td><ul><li>pub/sub using atom (push or pull)</li><li>RESTful interface</li><li>FHIR messaging</li></ul></td></tr>

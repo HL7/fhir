@@ -4,7 +4,7 @@
 
   <!-- this element is tax for using atom. it has no meaningful use in FHIR, but it's required in atom -->
   <title>Query Reponse</title>
-  <!-- this is the envelope id - see the Message resource for a discussion of its use -->
+  <!-- this is the envelope id - see the Messaging page for a discussion of its use -->
   <id>urn:uuid:e5a9e400-f36f-4e00-a17c-bff52cfdcf55</id>
   <updated>2013-05-18T08:35:00+10:00</updated>
   <!-- more Atom tax: author is not meaningful here, but it's required by Atom -->
@@ -12,16 +12,17 @@
     <name>Health Intersections Server</name>
     <uri>http://hl7connect.healthintersections.com.au/svc/fhir</uri>
   </author>
+  <category term="http://hl7.org/fhir/tag/message" scheme="http://hl7.org/fhir/tag"/> 
 
   <!-- first entry: the message response -->
   <entry>
     <!-- these elements are tax for using atom. they has no meaningful use in FHIR, but are required in atom -->
-    <title>Message Response</title>
+    <title>Message Header for Response</title>
     <id>urn:uuid:b651eebd-aaa8-4b72-854b-7e543abb99e3</id>
     <updated>2013-05-18T08:35:00+10:00</updated>
    <content type="text/xml">
-      <Message xmlns="http://hl7.org/fhir">
-        <!-- this is the message id - see the Message resource for a discussion of its use -->
+      <MessageHeader xmlns="http://hl7.org/fhir">
+        <!-- this is the message id - see the Messaging page for a discussion of its use -->
         <identifier value="c321589c-9146-4e94-81c4-b142343f77aa"/>
         <timestamp value="2013-05-18T08:14:00+10:00"/>
 
@@ -55,7 +56,7 @@
         <data>
           <reference value="urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519"/>
         </data>
-      </Message>
+      </MessageHeader>
     </content>
   </entry>
 

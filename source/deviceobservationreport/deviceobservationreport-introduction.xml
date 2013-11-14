@@ -29,7 +29,7 @@ describes the kind of data that a medical device reports. Devices are conceptual
 using the following main structure:
 </p>
 <ol>
- <li><b>Device</b> - The actual device that external systems communicate with</li>
+ <li><b>Device</b> - The actual device that external systems communicate with. In 11073, this is known as a "Medical Device System" (MDS)</li>
  <li><b>Virtual Medical Device</b> - A medical-related subsystem of a medical device. The virtual device that may be part of the containing device, or a separate device that may be communicating with it</li>
  <li><b>Channel</b> - Groups together physiological measurement data and derived data</li>
  <li><b>Metrics</b> - A piece of measured or derived data that will be reported by the machine, reported as an observation</li>

@@ -223,7 +223,7 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Message</Data></Cell>
+    <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Observation</Data></Cell>
@@ -382,8 +382,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>27</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
