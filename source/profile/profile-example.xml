@@ -252,20 +252,6 @@
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-      <definition>
-        <short value="Additional Content defined by implementations"/>
-        <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-        <comments value="there can be no stigma
-associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-        <synonym value="extensions"/>
-        <synonym value="user content"/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-          <code value="Extension"/>
-        </type>
-        <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="DiagnosticReport.extension"/>
@@ -358,6 +344,7 @@ associated with the use of extensions by any application, project, or standard -
         <isModifier value="false"/>
         <binding>
           <name value="ObservationStatus"/>
+          <isExtensible value="false"/>
           <conformance value="required"/>
           <referenceResource>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
@@ -483,7 +470,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="DiagnosticRequests"/>
+        <binding>
+          <name value="DiagnosticRequests"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/diagnostic-requests"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -498,7 +492,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="BodySite"/>
+        <binding>
+          <name value="BodySite"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/body-site"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -538,7 +539,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="DiagnosticServiceSection"/>
+        <binding>
+          <name value="DiagnosticServiceSection"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/diagnostic-service-sections"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -580,7 +588,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="DiagnosticResultGroupNames"/>
+        <binding>
+          <name value="DiagnosticResultGroupNames"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/report-names"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -711,7 +726,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="DiagnosisCodes"/>
+        <binding>
+          <name value="DiagnosisCodes"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/clinical-findings"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -756,20 +778,6 @@ associated with the use of extensions by any application, project, or standard -
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-      <definition>
-        <short value="Additional Content defined by implementations"/>
-        <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-        <comments value="there can be no stigma
-associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-        <synonym value="extensions"/>
-        <synonym value="user content"/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-          <code value="Extension"/>
-        </type>
-        <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.extension"/>
@@ -859,7 +867,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationType"/>
+        <binding>
+          <name value="ObservationType"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -902,7 +917,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="QuantityCompararator"/>
+        <binding>
+          <name value="QuantityCompararator"/>
+          <isExtensible value="false"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/quantity-comparator"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -958,7 +980,14 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationInterpretation"/>
+        <binding>
+          <name value="ObservationInterpretation"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1018,6 +1047,7 @@ The context of use may additionally require a code from a particular system (Unl
         <isModifier value="false"/>
         <binding>
           <name value="ObservationStatus"/>
+          <isExtensible value="false"/>
           <conformance value="required"/>
           <referenceResource>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
@@ -1037,7 +1067,14 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationReliability"/>
+        <binding>
+          <name value="ObservationReliability"/>
+          <isExtensible value="false"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
+          </referenceResource>
+        </binding>      
       </definition>
     </element>
     <element>
@@ -1052,7 +1089,14 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="BodySite"/>
+        <binding>
+          <name value="BodySite"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/body-site"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1067,7 +1111,14 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationMethod"/>
+        <binding>
+          <name value="ObservationMethod"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-methods"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1134,7 +1185,14 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationRangeMeaning"/>
+        <binding>
+          <name value="ObservationRangeMeaning"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1173,7 +1231,14 @@ The context of use may additionally require a code from a particular system (Unl
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationType"/>
+        <binding>
+          <name value="ObservationType"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1236,20 +1301,6 @@ The context of use may additionally require a code from a particular system (Unl
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-      <definition>
-        <short value="Additional Content defined by implementations"/>
-        <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-        <comments value="there can be no stigma
-associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-        <synonym value="extensions"/>
-        <synonym value="user content"/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-          <code value="Extension"/>
-        </type>
-        <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.extension"/>
@@ -1339,7 +1390,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationType"/>
+        <binding>
+          <name value="ObservationType"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1367,7 +1425,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationInterpretation"/>
+        <binding>
+          <name value="ObservationInterpretation"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1427,6 +1492,7 @@ associated with the use of extensions by any application, project, or standard -
         <isModifier value="false"/>
         <binding>
           <name value="ObservationStatus"/>
+          <isExtensible value="false"/>
           <conformance value="required"/>
           <referenceResource>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
@@ -1446,7 +1512,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationReliability"/>
+        <binding>
+          <name value="ObservationReliability"/>
+          <isExtensible value="false"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
+          </referenceResource>
+        </binding>      
       </definition>
     </element>
     <element>
@@ -1461,7 +1534,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="BodySite"/>
+        <binding>
+          <name value="BodySite"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/body-site"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1476,7 +1556,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationMethod"/>
+        <binding>
+          <name value="ObservationMethod"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-methods"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1543,7 +1630,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationRangeMeaning"/>
+        <binding>
+          <name value="ObservationRangeMeaning"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1582,7 +1676,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationType"/>
+        <binding>
+          <name value="ObservationType"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1645,20 +1746,6 @@ associated with the use of extensions by any application, project, or standard -
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-      <definition>
-        <short value="Additional Content defined by implementations"/>
-        <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-        <comments value="there can be no stigma
-associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-        <synonym value="extensions"/>
-        <synonym value="user content"/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-          <code value="Extension"/>
-        </type>
-        <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.extension"/>
@@ -1748,7 +1835,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationType"/>
+        <binding>
+          <name value="ObservationType"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1776,7 +1870,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationInterpretation"/>
+        <binding>
+          <name value="ObservationInterpretation"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1836,6 +1937,7 @@ associated with the use of extensions by any application, project, or standard -
         <isModifier value="false"/>
         <binding>
           <name value="ObservationStatus"/>
+          <isExtensible value="false"/>
           <conformance value="required"/>
           <referenceResource>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
@@ -1855,7 +1957,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationReliability"/>
+        <binding>
+          <name value="ObservationReliability"/>
+          <isExtensible value="false"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
+          </referenceResource>
+        </binding>      
       </definition>
     </element>
     <element>
@@ -1870,7 +1979,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="BodySite"/>
+        <binding>
+          <name value="BodySite"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/body-site"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1885,7 +2001,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationMethod"/>
+        <binding>
+          <name value="ObservationMethod"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-methods"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1952,7 +2075,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationRangeMeaning"/>
+        <binding>
+          <name value="ObservationRangeMeaning"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -1991,7 +2121,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationType"/>
+        <binding>
+          <name value="ObservationType"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2054,20 +2191,6 @@ associated with the use of extensions by any application, project, or standard -
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
-      <definition>
-        <short value="Additional Content defined by implementations"/>
-        <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension."/>
-        <comments value="there can be no stigma
-associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone."/>
-        <synonym value="extensions"/>
-        <synonym value="user content"/>
-        <min value="0"/>
-        <max value="*"/>
-        <type>
-          <code value="Extension"/>
-        </type>
-        <isModifier value="false"/>
-      </definition>
     </element>
     <element>
       <path value="Observation.extension"/>
@@ -2159,7 +2282,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationType"/>
+        <binding>
+          <name value="ObservationType"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2187,7 +2317,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationInterpretation"/>
+        <binding>
+          <name value="ObservationInterpretation"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2247,6 +2384,7 @@ associated with the use of extensions by any application, project, or standard -
         <isModifier value="false"/>
         <binding>
           <name value="ObservationStatus"/>
+          <isExtensible value="false"/>
           <conformance value="required"/>
           <referenceResource>
             <reference value="http://hl7.org/fhir/vs/observation-status"/>
@@ -2266,7 +2404,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="code"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationReliability"/>
+        <binding>
+          <name value="ObservationReliability"/>
+          <isExtensible value="false"/>
+          <conformance value="required"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
+          </referenceResource>
+        </binding>      
       </definition>
     </element>
     <element>
@@ -2281,7 +2426,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="BodySite"/>
+        <binding>
+          <name value="BodySite"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/body-site"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2296,7 +2448,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationMethod"/>
+        <binding>
+          <name value="ObservationMethod"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-methods"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2363,7 +2522,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationRangeMeaning"/>
+        <binding>
+          <name value="ObservationRangeMeaning"/>
+          <isExtensible value="true"/>
+          <conformance value="example"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2402,7 +2568,14 @@ associated with the use of extensions by any application, project, or standard -
           <code value="CodeableConcept"/>
         </type>
         <isModifier value="false"/>
-        <binding value="ObservationType"/>
+        <binding>
+          <name value="ObservationType"/>
+          <isExtensible value="true"/>
+          <conformance value="preferred"/>
+          <referenceResource>
+            <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+          </referenceResource>
+        </binding>
       </definition>
     </element>
     <element>
@@ -2456,90 +2629,4 @@ associated with the use of extensions by any application, project, or standard -
       <isModifier value="false"/>
     </definition>
   </extensionDefn>
-  <binding>
-    <name value="DiagnosticRequests"/>
-    <isExtensible value="true"/>
-    <conformance value="example"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/diagnostic-requests"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="BodySite"/>
-    <isExtensible value="true"/>
-    <conformance value="example"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/body-site"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="DiagnosisCodes"/>
-    <isExtensible value="true"/>
-    <conformance value="example"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/clinical-findings"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="ObservationType"/>
-    <isExtensible value="true"/>
-    <conformance value="preferred"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/observation-codes"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="DiagnosticResultGroupNames"/>
-    <isExtensible value="true"/>
-    <conformance value="preferred"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/report-names"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="QuantityCompararator"/>
-    <conformance value="required"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/quantity-comparator"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="ObservationReliability"/>
-    <conformance value="required"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="ObservationMethod"/>
-    <isExtensible value="true"/>
-    <conformance value="example"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/observation-methods"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="DiagnosticServiceSection"/>
-    <isExtensible value="true"/>
-    <conformance value="preferred"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/diagnostic-service-sections"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="ObservationRangeMeaning"/>
-    <isExtensible value="true"/>
-    <conformance value="example"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
-    </referenceResource>
-  </binding>
-  <binding>
-    <name value="ObservationInterpretation"/>
-    <isExtensible value="true"/>
-    <conformance value="preferred"/>
-    <referenceResource>
-      <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
-    </referenceResource>
-  </binding>
 </Profile>
