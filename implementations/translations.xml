@@ -22,8 +22,8 @@
     <translation lang="en">ConceptMap</translation>
   </item>  
 
-  <item id="DeviceData">
-    <translation lang="en">DeviceData</translation>
+  <item id="DeviceObservationReport">
+    <translation lang="en">DeviceObservationReport</translation>
   </item>
   
   <item id="DocumentManifest">
@@ -112,18 +112,6 @@
 
   <item id="Device">
     <translation lang="en">Device</translation>
-  </item>
-
-  <item id="DeviceCapabilities">
-    <translation lang="en">DeviceCapabilities</translation>
-  </item>
-
-  <item id="DeviceLog">
-    <translation lang="en">DeviceLog</translation>
-  </item>
-
-  <item id="DeviceObservation">
-    <translation lang="en">DeviceObservation</translation>
   </item>
 
   <item id="DiagnosticOrder">

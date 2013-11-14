@@ -323,7 +323,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Procedure.relatedItem.target</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(AdverseReaction | AllergyIntolerance | CarePlan | Condition | DeviceData | DiagnosticReport | FamilyHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationPrescription | MedicationStatement | Observation | Procedure)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(AdverseReaction | AllergyIntolerance | CarePlan | Condition | DeviceObservationReport | DiagnosticReport | FamilyHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationPrescription | MedicationStatement | Observation | Procedure)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The related item - e.g. a procedure</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Procedure | Prescription)</Data></Cell>
    </Row>

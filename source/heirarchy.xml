@@ -88,7 +88,7 @@ todo: compartments
     <page type="resource" resource="DiagnosticOrder"/>
     <page type="resource" resource="ImagingStudy"/>
     <page type="resource" resource="Specimen"/>
-    <page type="resource" resource="DeviceData"/>
+    <page type="resource" resource="DeviceObservationReport"/>
   </page>
   <page title="Administrative" filename="administration.html">
     <page type="resource" resource="Patient"/>
