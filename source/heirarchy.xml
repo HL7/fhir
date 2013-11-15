@@ -52,6 +52,7 @@ todo: compartments
   <page title="Implementation" filename="implementation.html">
     <page title="RESTful API" filename="http.html"/>
     <page title="Messaging" filename="messaging.html"/>
+    <page title="Documents" filename="documents.html"/>
     <page title="Downloads" filename="downloads.html"/>
     <page title="Using Resources" filename="use.html"/>
     <page title="Support" filename="support.html"/>

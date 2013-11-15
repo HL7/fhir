@@ -21,7 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6315</WindowTopY>
   <TabRatio>1000</TabRatio>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1060,7 +1060,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">ReferredDocumentStatus</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Status of the underlying document</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">http://hl7.org/fhir/vs/document-status</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/vs/composition-status</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1161,10 +1161,12 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1269,7 +1271,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

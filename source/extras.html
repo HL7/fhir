@@ -66,10 +66,11 @@ This table summarises the tags that are defined as part of this specification:
 </p>
 <table class="grid">
  <tr> <td><b>Term</b></td> <td><b>Context</b></td> <td><b>Description</b></td></tr>
- <tr> <td>http://hl7.org/fhir/tag/document</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="document.html">a document</a></td></tr>
+ <tr> <td>http://hl7.org/fhir/tag/document</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="documents.html">a document</a></td></tr>
  <tr> <td>http://hl7.org/fhir/tag/message</td> <td>A bundle (feed.category)</td> <td>Identifies that this bundle represents <a href="messaging.html">a message</a></td></tr>
 </table>
 
+<a name="profile-tags"> </a>
 <h4>Profile Tags</h4>
 <p>
 A profile tag is an assertion that the resource conforms to a particular 
@@ -101,7 +102,7 @@ the profile against which to validate the resource.
 <p>
 Note: resources can conform to multiple profiles at once. A resource can conform to 
 a profile without ever being labelled that it does, or a resource may falsely claim to conform 
-to a profile. For this reason, applications resources SHOULD always 
+to a profile. For this reason, applications processing resources SHOULD always 
 depend on the contents of the resource when processing them, and/or check resources
 against profiles directly rather than relying on profile tags.
 Profile Tags are provided as a method of find resources that conform to 
@@ -191,7 +192,7 @@ These resource bundles are useful for a variety of different reasons, including:
   <li>Returning a set of resources that meet some criteria as part of a server operation (see <a href="http.html#search">RESTful Search</a>)</li>
   <li>Returning a set of versions of resources as part of the history operation on a server  (see <a href="http.html#history">History</a>)</li>
   <li>Exchanging a set of resources as part of a message transaction (see <a href="messaging.html">Messaging</a>)</li>
-  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable group with clinical integrity - a clinical document (see <a href="document.html">Documents</a>)</li>
+  <li>Grouping a self-contained set of resources to act as an exchangeable and persistable group with clinical integrity - a clinical document (see <a href="documents.html">Documents</a>)</li>
   <li>Storing a collection of resources</li>
 </ul>
 <p>

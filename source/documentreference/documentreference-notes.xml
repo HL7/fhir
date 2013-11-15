@@ -2,7 +2,7 @@
 
 <h2>Implementation Notes</h2>
 <ul>
- <li>The use of the .docStatus codes is discussed in the <a href="document.html#status">Document description</a></li>
+ <li>The use of the .docStatus codes is discussed in the <a href="composition.html#status">Composition description</a></li>
  <li>The resources maintain one way relationships that point backwards - e.g. the document that replaces one document points towards the document that is replaced. The reverse relationships can be followed by using 
   indexes built from the resources. Typically, this done using the search parameters described below. Given that documents may have other documents that replace or append them, clients should always check these relationships when accessing documents</li>
   

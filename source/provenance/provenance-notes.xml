@@ -7,7 +7,7 @@ The provenance resource identifies information about another resource (the <i>re
 The provenance resource may be used in several different ways:
 </p>
 <ul>
- <li>As part of a <a href="document.html#bundle">document bundle</a> where it identifies the provenance of part or all of the document</li>
+ <li>As part of a <a href="documents.html">document bundle</a> where it identifies the provenance of part or all of the document</li>
  <li>On a <a href="http.html">RESTful system</a> where it keeps track of provenance information relating to resources</li>
 </ul>
 <p>

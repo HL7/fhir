@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Document xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/document.xsd">
+<Composition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/composition.xsd">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -10,11 +10,7 @@
 	  <system value="http://healthintersections.com.au/test"/>
 	  <value value="1"/>
 	</identifier>
-	<versionIdentifier>
-	  <system value="urn:ietf:rfc:3986"/>
-	  <value value="urn:uuid:72391709-b9ae-4053-b888-4bee268bf5da"/> 
-	</versionIdentifier>
-	<created value="2012-01-04T09:10:14Z"/>
+	<instant value="2012-01-04T09:10:14Z"/>
 	<type>
 	  <coding>
 		<system value="http://loinc.org"/>
@@ -58,4 +54,4 @@
       <reference value="MedicationAdministration/example"/>
     </content>
   </section>
-</Document>
+</Composition>

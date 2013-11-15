@@ -155,7 +155,7 @@
     <Cell><Data ss:Type="String">result.performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Document</Data></Cell>
+    <Cell><Data ss:Type="String">Composition</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
@@ -382,7 +382,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>27</ActiveRow>
+     <ActiveRow>11</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
