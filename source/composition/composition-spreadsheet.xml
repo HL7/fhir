@@ -21,7 +21,6 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>1425</WindowTopY>
   <TabRatio>666</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -75,11 +74,7 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s70" ss:Parent="s63">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s69">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -87,6 +82,10 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s71" ss:Parent="s63">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s72">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
@@ -190,7 +189,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A set of resources composed into a single coherent clinical statement with clinical attestation</Data></Cell>
-    <Cell><Data ss:Type="String">A set of healthcare-related information that is assembled together into a single logical document, a single coherent statement of meaning that establishes its own context, and that has clinical attestation with regard to who is making the statement. &#10;</Data></Cell>
+    <Cell><Data ss:Type="String">A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. &#10;</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">To support documents, and also to capture than EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement</Data></Cell>
     <Cell><Data ss:Type="String">While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical</Data></Cell>
     <Cell><Data ss:Type="String">Document[classCode=&quot;DOC&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]</Data></Cell>
@@ -247,7 +246,7 @@
     <Cell><Data ss:Type="String">The composition editing time, when the composition was last logically changed by the author</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">instant is used for tracking, organizing versions and searching.</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">The Last Modified Date on the composition may be after the instant of the document was attested without being changed</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">The Last Modified Date on the composition may be after the instant of the document was attested without being changed</Data></Cell>
     <Cell><Data ss:Type="String">.effectiveTime[type=&quot;TS&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.effectiveTime</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -287,7 +286,7 @@
     <Cell><Data ss:Type="String">Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Composition.title</Data></Cell>
@@ -357,8 +356,8 @@
     <Cell><Data ss:Type="String">The code specifying the level of confidentiality of the Composition</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for FHIR, and delegated to implementation profiles (see security section)</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">.confidentialityCode</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">.confidentialityCode</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">.confidentialityCode</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">.confidentialityCode</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -527,7 +526,7 @@
     <Cell><Data ss:Type="String">Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Identifies where to go to find the current version, where to report issues, etc.</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Mainly this is useful when documents are derived from the composition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Mainly this is useful when documents are derived from the composition</Data></Cell>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.custodian.assignedCustodian</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -565,8 +564,8 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as “key words” for certain types of queries.</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">.code</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -584,8 +583,8 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">.effectiveTime</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">.effectiveTime</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">.effectiveTime</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">.effectiveTime</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -602,8 +601,8 @@
     <Cell><Data ss:Type="String">Full details for the event(s) the composition/documentation concents</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;SUBJ&quot;].target</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">n/a</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;SUBJ&quot;].target</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">n/a</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -790,6 +789,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -809,8 +809,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -933,7 +933,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

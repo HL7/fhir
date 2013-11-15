@@ -6,8 +6,8 @@ Notes:
 </h2>
 <ul> 
  <li>The author and the attester are often the same person, but this may not be the case in some clinical workflows</li>
- <li>The attester attests contents of the document resource, the subject resource, and the resources referred to 
-   in the Composition.section.content references. Because documents are often derived Compositions, and the attestation
+ <li>The attester attests contents of the document resource, the subject resource and the resources referred to 
+   in the Composition.section.content references. Because documents are often derived Compositions and the attestation
    from the composition is held to apply to the document, the method use for <a href="documents.html#presentation">presenting a document</a>
    should be used when/if attesters review the content of the composition
    </li>
