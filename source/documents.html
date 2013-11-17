@@ -1,6 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!--
+Outstanding issues:
+- relationships 
+- representation
+
+-->
      
 [%settitle FHIR Documents%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -135,8 +141,8 @@ form of the document.
 <a name="css"></a>
 <p>
 In addition to the <a href="narrative.html#css">basic style rules about Narratives</a>, which 
-must be followed, a document can reference or contain a style sheet that contains additional styles that 
-apply to the collated narrative. This is done by asserting a stylesheet link on the feed:
+must be followed, a document can reference or contain one or more stylesheets that contains additional styles that 
+apply to the collated narrative. This is done by asserting stylesheet links on the feed:
 </p>
 <pre class="xml">
 &lt;feed xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;  
@@ -147,23 +153,23 @@ apply to the collated narrative. This is done by asserting a stylesheet link on 
 <p>
 The uri can be an absolute reference to a CSS stylesheet, or
 a relative reference to a Binary resource that carries a 
-CSS stylsheet. The stylesheet reference can only refer to 
+CSS stylsheet. Stylesheet references can only refer to 
 a CSS stylesheet - other forms of stylesheet are not acceptable. 
 </p>
 <p>
 Relative (internal) references SHOULD be used if the document is not 
-safe to view without applying the specified stylesheet, as it might 
-not be available to the viewer due to technical problems or policy decisions.
+safe to view without applying the specified stylesheet, as another location
+might not be available to the viewer due to technical problems or policy decisions.
 </p>
 <p>
 Unless otherwise agreed in local trading partner agreements, applications 
-displaying the collated narrative SHOULD use the style sheet provided in the 
-document. Parties entering into such a trading agreement should consider the 
-implications it will have on their long term scope for document exchange very 
-carefully. If the parties agree on a stylesheet that is not contained in the 
-document, then it may be that they will never be able to share their documents 
-safely in a more general context, such as a regional or national EHR, or a 
-global personal health record.
+displaying the collated narrative SHOULD use the stylesheets specified by the 
+document. Parties entering into a trading agreement to do something else should 
+consider the implications it will have on their long term scope for document 
+exchange very carefully. If the parties agree to use stylesheets that are 
+not contained in the document, then it may be that they will never be able 
+to share their documents safely in a more general context, such as a regional 
+or national EHR, or a global personal health record.
 </p>
 
 
@@ -244,14 +250,14 @@ of posting to them:
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td>[baseurl]/Document</td> <td>Document Bundle</td> <td>This works like a normal end point 
    for managing a type of resource, but it works with whole document bundles. The search parameters
-   exposed by this end-point are those of the document resource</td> </tr>
+   exposed by this end-point are those of the composition resource</td> </tr>
    
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end point for managing
    composition resources. This can be used while building a document, or after breaking a document up into 
    it's constituent resources, or when using compositions separately from documents</td> </tr>
    
- <tr> <td><a href="http.html#Binary">[baseurl]/binary</a></td> <td>Document Bundle</td> <td>Just store the entire document as 
-   a sequence of bytes, and return exactly that sequence when requested. There is no way to find content in the /binary end-point,
+ <tr> <td><a href="http.html#Binary">[baseurl]/Binary</a></td> <td>Document Bundle</td> <td>Just store the entire document as 
+   a sequence of bytes, and return exactly that sequence when requested. There is no way to find content in the /Binary end-point,
    so usually this would be associated with a <a href="documentreference.html">Document Reference</a> so that applications
    can find and process the document, though this is not required</td> </tr>
    
@@ -262,15 +268,21 @@ of posting to them:
    very likely to be invalid)</td> </tr>
    
  <tr> <td><a href="messaging.html#mailbox">[baseurl]/mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
- document to the client for processing. The exact processing the server performs is at the discretion of the
+ document to the server for processing. The exact processing the server performs is at the discretion of the
  server. It MAY perform one or more of these actions:
   <ul>
     <li>Resend the document elsewhere</li>
     <li>Break it up into individually accessible resources and make them available on a RESTful interface</li>
-    <li>Retain the document in it's binary form and make it available on /binary, and perhaps also create a DocumentReference</li>
+    <li>Retain the document in it's binary form and make it available on /Binary, and perhaps also create a DocumentReference</li>
   </ul>
-  The server is not obliged to process the document in any particular fashion. See additional discussion about 
-  <a href="messaging.html#mailbox">[baseurl]/mailbox</a> for further information about the server's obligations for this operation.
+  The server is not obliged to process the document in any particular fashion. The client does not know what action
+  the server takes, only that the server has accepted responsibility for the document. For this reason, a server SHALL return
+  a 200 OK if it accepts responsibility for the document, and an HTTP error code if it doesn't. The client SHALL interpret 
+  a 4xx response to indicate that there is no point resubmitting the document, and a 5xx response to indicate an unexpected 
+  error on the part of the server, which means that it is worth resubmitting the document later.
+  <br/>
+  Implementation Profiles should be careful when making rules about what happens when a document is submitted to the 
+  mailbox, as it would be easy to make rules such that a server cannot conform to more than one profile at a time.
   </td> </tr>
 </table>
 
@@ -278,6 +290,38 @@ of posting to them:
 Note: While these end-points are defined for use with document resources and document bundles, 
 it is not necessary to use them. Documents may be transferred between systems using any method desired. 
 </p>
+
+<h3>Generating a Document</h3>
+<p>
+A client can ask a server to generate a fully bundled documents from a composition resource.
+The server takes the composition resource, locates all the referenced resources, and other
+additional resources as configured or requested, and either returns a full document bundle,
+or returns an error. 
+</p>
+<p>
+If some of the resources are located on other servers, it is at the discretion of the 
+server whether to retrieve them or return an error. It is also at the discretion of 
+the server whether to retain the generated document as an identified document in the 
+/Document end point, or simply to return it to the client. 
+</p>
+<p>
+The operation is initiated by a named query, using _query=generate on the /Document
+end point:
+</p>
+<pre>
+  GET [service-url]/Document/?_query=generate&amp;id=:url&amp;...
+</pre>
+<p>
+The "id" parameter is a relative or absolute reference to composition resource (e.g.
+Composition/1234). The format of the document is specified using the accept: header, or 
+a <a href="http.html#mime-type">_format parameter</a>. Other parameters may be supplied:
+</p>
+<table class="grid">
+ <tr> <td><b>Name</b></td> <td><b>Meaning</b></td> </tr>
+ <tr> <td>persist</td> <td>Whether to store the document or not. Value = true or false. Default is for the server to decide</td> </tr>
+ <tr> <td>cert</td> <td>Certificate URL to use to sign the document with</td> </tr>
+ <tr> <td>pword</td> <td>Password if certificate requires one, and the server doesn't know it by some other means. Putting the password in the URL has obvious security implications to consider. An alternative is for the client to sign the document</td> </tr>
+</table>
 
 
 </div>

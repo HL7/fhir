@@ -258,9 +258,8 @@ update interaction.
 Servers are permitted to reject update interactions because of integrity concerns or business 
 rules implemented on the server, and return HTTP status codes accordingly (usually 422). 
 A server SHOULD accept the resource as submitted when accepts the update, and return the same
-content when it is subsequently read. However systems may not be able to do this. 
-Systems should clearly document how the resource will be changed. Clients SHOULD not 
-expect the resource to be unchanged if it does not conform to the server's profile.
+content when it is subsequently read. However systems may not be able to do this; see 
+the note on <a href="#transactional-integrity">transactional integrity</a> for discussion. 
 </p>
 <p>
 In particular, servers may choose to implement version-aware updates, where the only updates that are 
@@ -334,9 +333,8 @@ When the payload data is incorrect and cannot be used to create a new resource, 
 </p>
 <p>
 A server SHOULD accept the resource as submitted when accepts the create, and return the same
-content when it is subsequently read. However systems may not be able to do this. 
-Systems should clearly document how the resource will be changed. Clients SHOULD not 
-expect the resource to be unchanged if it does not conform to the server's profile.
+content when it is subsequently read. However systems may not be able to do this; see 
+the note on <a href="#transactional-integrity">transactional integrity</a> for discussion. 
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -488,12 +486,15 @@ The transaction interaction is performed by an HTTP POST command as shown:
 The content of the post submission is a resource bundle. The resources in the bundle are each processed separately
 as if they were an individual <a href="#create">create</a>, <a href="#update">update</a> or 
 <a href="#delete">delete</a>, along with the normal processing for each 
-(such as tracking tags, verification and version aware updates). Servers SHALL either accept all resources 
-and return a 200 OK, along with a response bundle, or reject all resources and return an 
-HTTP 400 or 500 type response. It is not an error if the submitted bundle has no resources in it.
-The outcome of the processing the transaction SHALL not depend on the order of the resources in 
-the transaction. Note that this means that a resource can only appear in a transaction once, and since
-bundles may have the same resource more than once or other order dependencies (e.g. update lists), some
+(such as tracking tags, verification and version aware updates, subject to
+the note on <a href="#transactional-integrity">transactional integrity</a>). 
+Servers SHALL either accept all resources and return a 200 OK, along with a 
+response bundle, or reject all resources and return an HTTP 400 or 500 type 
+response. It is not an error if the submitted bundle has no resources in it.
+The outcome of the processing the transaction SHALL not depend on the order 
+of the resources in the transaction. Note that this means that a resource can 
+only appear in a transaction once, and since bundles may have the same 
+resource more than once or other order dependencies (e.g. update lists), some
 kinds of bundles may not be able to be used in a transaction.
 </p>
 <p>
@@ -677,11 +678,87 @@ is represented like this in XML and JSON:
 }
 </pre>
 
+<a name="transactional-integrity"> </a>
+<h3>Transactional Integrity</h3>
+<p>
+When processing <a href="#create">create</a> and <a href="#update">update</a> 
+operations, a FHIR server is not obliged to accept the entire resource as it 
+is; when the resource is retrieved through a <a href="#read">read</a> operation 
+subsequently, the resource may be different. The difference may arise for
+several reasons:
+</p>
+<ul>
+ <li>The server merged updated content with existing content</li>
+ <li>The server applied business rules and altered the content</li>
+ <li>The server does not fully support all the features or possible values of the resource</li>
+</ul>
+<p>
+Note that there is no general purpose method to make merging with existing content or 
+altering the content by business rules safe or predictable - what is possible,
+safe and/or required is highly context dependent. These kind of behaviors may
+be driven by security considerations. With regard incomplete support, Clients can consult the server's
+base conformance statement profile references to determine which features or 
+values the server does not support.
+</p>
+<p>
+To the degree that the server alters the resource for any of 
+the 3 reasons above, the FHIR server will create implementation 
+consequences for the eco-system that it is part of, which will 
+need to be managed (i.e. it will cost more). For this reason, 
+servers SHOULD change the resource as little as possible. 
+However due to the variability that exists within healthcare, 
+this specification allows that servers MAY alter the resource on
+create/update. 
+</p>
+<p>
+Similarly, to the degree that an implementation context makes special 
+rules about merging content or altering the content, that context will
+become more expensive to maintain. 
+</p>
+<p>
+Although these rules are stated with regard to servers, a similar 
+concept applies to clients - to the degree that different client 
+systems interacting with the server do not support the same feature 
+set, the clients and/or the server will be forced to implement custom 
+logic to prevent information from being lost or corrupted. 
+</p>
+<p>
+Some of these problems can be mitigated by following a pattern 
+built on top of version-aware updates. In this pattern:
+</p>
+<ul>
+ <li>The server provides a <a href="#read">read</a> operation for any resource it accepts <a href="#update">update</a> operations on</li>
+ <li>Before updating, the client <a href="#read">reads</a> the latest version of the resource</li>
+ <li>The client applies the changes it wants to the resource, leaving other information intact (note the <a href="extensibility.html#exchange">extension related rules</a> around this)</li>
+ <li>The client writes the result back as an <a href="#update">update</a> operation, and is able to handle a 409 response (usually by trying again)</li>
+</ul>
+<p>
+If clients follow this pattern, then information from other systems
+that they do not understand will be maintained through the update.
+</p>
+<p>
+Note that it's possible for a server to choose to maintain the 
+information that would be lost, but there is no defined way for
+a server to determine whether the client omitted the information
+because it wasn't supported (perhaps in this case) or whether it 
+wishes to delete the information. 
+</p>
+<h4>Conformance</h4>
+<p>
+Both client and server systems SHOULD clearly document how transaction 
+integrity is handled.
+</p>
+<p>
+DSTU TODO: how? 
+</p>
+
+
+
 <a name="binary"> </a>
 <h3>Binary Support</h3>
 <p>
 FHIR servers can choose to support <a href="extras.html#binary">Binary Resources</a>
-at the end point [base]/binary. The binary end-point accepts
+at the end point [base]/Binary. The binary end-point accepts
 any kind of content, such as images and other media, documents (CDA, 
 PDF, Word etc.), plain text, XML or anything else, and stores the 
 content as is, along with the content type provided by the HTTP headers. 
@@ -704,7 +781,7 @@ resources are only used in bundles).
 Here is the request and response to a read operation on a CDA document:
 </p>
 <pre>
-GET /[path]/binary/4 HTTP/1.1
+GET /[path]/Binary/4 HTTP/1.1
 Host: [server]
 Accept: */*
 
@@ -712,7 +789,7 @@ HTTP/1.1 200 OK
 Content-Type: text/xml
 Access-Control-Allow-Origin: *
 Last-Modified: Thu, 24 Oct 2013 00:41:55 +0000
-Content-Location: http://[server]/[path]/binary/4/_history/1
+Content-Location: http://[server]/[path]/Binary/4/_history/1
 
 &lt;ClinicalDocument xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
   xmlns=&quot;urn:hl7-org:v3&quot;xmlns:cda=&quot;urn:hl7-org:v3&quot;&gt;
@@ -903,3 +980,5 @@ Additional codes that are likely a server errors and various codes associated wi
 [%file newfooter%]
 </body>
 </html>
+
+

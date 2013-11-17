@@ -232,13 +232,13 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     defCodeRes.start();
     defCodeRes.name = "FHIRResources";
     defCodeRes.comments.add("FHIR v"+version+" generated "+Config.DATE_FORMAT().format(genDate));
-    defCodeRes.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper, FHIRComponents, FHIRComponents_Wrapper, MSSEWrap, MSSEWrap_Wrapper");
+    defCodeRes.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper, FHIRComponents, FHIRComponents_Wrapper, DateAndTime, DateAndTime_Wrapper");
     defCodeRes.uses.add("SysUtils");
     defCodeRes.uses.add("Classes");
     defCodeRes.uses.add("StringSupport");
     defCodeRes.uses.add("DecimalSupport");
     defCodeRes.uses.add("AdvBuffers");
-    defCodeRes.uses.add("MSSEWrap");
+    defCodeRes.uses.add("DateAndTime");
     defCodeRes.uses.add("FHIRBase");
     defCodeRes.uses.add("FHIRTypes");
     defCodeRes.uses.add("FHIRComponents");
@@ -247,14 +247,14 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     defCodeConst.start();
     defCodeConst.name = "FHIRConstants";
     defCodeConst.comments.add("FHIR v"+version+" generated "+Config.DATE_FORMAT().format(genDate));
-    defCodeConst.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper, FHIRComponents, FHIRComponents_Wrapper, FHIRResources, FHIRResources_Wrapper, MSSEWrap, MSSEWrap_Wrapper");
+    defCodeConst.precomments.add("!Wrapper uses FHIRBase, FHIRBase_Wrapper, FHIRTypes, FHIRTypes_Wrapper, FHIRComponents, FHIRComponents_Wrapper, FHIRResources, FHIRResources_Wrapper");
     defCodeConst.precomments.add("!ignore ALL_RESOURCE_TYPES");
     defCodeConst.uses.add("SysUtils");
     defCodeConst.uses.add("Classes");
     defCodeConst.uses.add("StringSupport");
     defCodeConst.uses.add("DecimalSupport");
     defCodeConst.uses.add("AdvBuffers");
-    defCodeConst.uses.add("MSSEWrap");
+    defCodeConst.uses.add("DateAndTime");
     defCodeConst.uses.add("FHIRBase");
     defCodeConst.uses.add("FHIRTypes");
     defCodeConst.uses.add("FHIRComponents");
@@ -269,9 +269,9 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     defCodeType.uses.add("SysUtils");
     defCodeType.uses.add("DecimalSupport");
     defCodeType.uses.add("StringSupport");
-    defCodeType.uses.add("AdvWideStringLists");
+//    defCodeType.uses.add("AdvWideStringLists");
     defCodeType.uses.add("AdvBuffers");
-    defCodeType.uses.add("MSSEWrap");
+    defCodeType.uses.add("DateAndTime");
     defCodeType.uses.add("FHIRBase");
 
     defCodeComp = new DelphiCodeGenerator(new FileOutputStream(implDir+"FHIRComponents.pas"));
@@ -284,7 +284,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     defCodeComp.uses.add("StringSupport");
     defCodeComp.uses.add("DecimalSupport");
     defCodeComp.uses.add("AdvBuffers");
-    defCodeComp.uses.add("MSSEWrap");
+    defCodeComp.uses.add("DateAndTime");
     defCodeComp.uses.add("FHIRBase");
     defCodeComp.uses.add("FHIRTypes");
 
@@ -1299,7 +1299,7 @@ private void generateEnum(ElementDefn e) throws Exception {
     		destroy.append("  F"+getTitle(s)+".Free;\r\n");
     		assign.append("  F"+getTitle(s)+".Assign("+cn+"(oSource).F"+getTitle(s)+");\r\n");
     		getkids.append("  if (child_name = '"+getElementName(e.getName())+"') Then\r\n     list.addAll(F"+getTitle(s)+");\r\n");
-    		getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+e.typeCode()+"', F"+getTitle(s)+".Link)){3};\r\n");
+    		getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+breakConstant(e.typeCode())+"', F"+getTitle(s)+".Link)){3};\r\n");
     		impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+tn+"List;\r\n  var i : integer;\r\nbegin\r\n  result := [];\r\n  for i := 0 to "+s+".count - 1 do\r\n    result := result + ["+tn+"(StringArrayIndexOf(CODES_"+tn+", "+s+"[i].value))];\r\nend;\r\n\r\n");
     		impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+tn+"List);\r\nvar a : "+tn+";\r\nbegin\r\n  "+s+".clear;\r\n  for a := low("+tn+") to high("+tn+") do\r\n    if a in value then\r\n      "+s+".add(TFhirEnum.create(CODES_"+tn+"[a]));\r\nend;\r\n\r\n");
     		
@@ -1374,7 +1374,7 @@ private void generateEnum(ElementDefn e) throws Exception {
     		destroy.append("  F"+getTitle(s)+".Free;\r\n");
     		assign.append("  F"+getTitle(s)+".Assign("+cn+"(oSource).F"+getTitle(s)+");\r\n");
     		getkids.append("  if (child_name = '"+getElementName(e.getName())+"') Then\r\n     list.addAll(F"+getTitle(s)+");\r\n");
-    		getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+e.typeCode()+"', F"+getTitle(s)+".Link)){3};\r\n");
+    		getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+breakConstant(e.typeCode())+"', F"+getTitle(s)+".Link)){3};\r\n");
 
     		//      defineList(tn, tnl, category);
     		if (!typeIsSimple(tn)) {
@@ -1463,7 +1463,7 @@ private void generateEnum(ElementDefn e) throws Exception {
         }
         assign.append("  F"+getTitle(s)+" := "+cn+"(oSource).F"+getTitle(s)+".Link;\r\n");
         getkids.append("  if (child_name = '"+getElementName(e.getName())+"') Then\r\n     list.add(F"+getTitle(s)+".Link);\r\n");
-        getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+e.typeCode()+"', "+propV+".Link));{1}\r\n");
+        getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+breakConstant(e.typeCode())+"', "+propV+".Link));{1}\r\n");
         workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := "+parse+"\r\n");
         workingParserJ.append("      else if (json.ItemName = '"+e.getName()+"') then\r\n        result."+s+" := "+parseJ+"\r\n");
 //        if (tn.equals("TXmlIdReference")) {
@@ -1500,7 +1500,7 @@ private void generateEnum(ElementDefn e) throws Exception {
         destroy.append("  F"+getTitle(s)+".free;\r\n");
         assign.append("  "+s+" := "+cn+"(oSource)."+s+".Clone;\r\n");
         getkids.append("  if (child_name = '"+getElementName(e.getName())+"') Then\r\n     list.add("+getTitle(s)+".Link);\r\n");
-        getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+e.typeCode()+"', "+propV+".Link));{2}\r\n");
+        getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+breakConstant(e.typeCode())+"', "+propV+".Link));{2}\r\n");
         if (e.getName().contains("[x]") && e.getTypes().size() > 1) {
           String pfx = e.getName().replace("[x]", "");
           int t = e.getTypes().size();
@@ -1578,6 +1578,13 @@ private void generateEnum(ElementDefn e) throws Exception {
       }
     }
 
+  }
+
+  private String breakConstant(String typeCode) {
+    if (typeCode.length() < 255)
+      return typeCode;
+    else
+      return typeCode.substring(0, 250)+"'+'"+typeCode.substring(250);
   }
 
   private String parseName(String tn) {
@@ -1962,11 +1969,11 @@ public String getName() {
     	impl2.append("begin\r\n");
     	impl2.append("  inherited;\r\n");
     	if (pn.equals("Boolean"))
-        impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+t.getCode()+"', LCBooleanToString(FValue)));\r\n");
+        impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+breakConstant(t.getCode())+"', LCBooleanToString(FValue)));\r\n");
       else if (!pn.equals("String"))
-    		impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+t.getCode()+"', FValue.toString));\r\n");
+    		impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+breakConstant(t.getCode())+"', FValue.toString));\r\n");
     	else 
-    		impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+t.getCode()+"', FValue));\r\n");
+    		impl2.append("  oList.add(TFHIRProperty.create(self, 'value', '"+breakConstant(t.getCode())+"', FValue));\r\n");
     	impl2.append("end;\r\n\r\n");
 
 
@@ -2298,7 +2305,7 @@ public String getName() {
     prsrImpl.append("Function TFHIRJsonParser.ParseElementProperty(element : TFhirElement; path : string) : boolean;\r\n");
     prsrImpl.append("begin\r\n");
     prsrImpl.append("  result := true;\r\n");
-    prsrImpl.append("  if (json.ItemName = '_id') then\r\n");
+    prsrImpl.append("  if (json.ItemName = 'id') then\r\n");
     prsrImpl.append("    element.xmlId := json.itemValue\r\n");
     prsrImpl.append("  else if (json.ItemName = 'extension') then\r\n");
     prsrImpl.append("  begin\r\n");
@@ -2334,7 +2341,7 @@ public String getName() {
     prsrImpl.append("var\r\n");
     prsrImpl.append("  i : integer;\r\n");
     prsrImpl.append("begin\r\n");
-    prsrImpl.append("  Prop(json, '_id', elem.xmlId);\r\n");
+    prsrImpl.append("  Prop(json, 'id', elem.xmlId);\r\n");
     prsrImpl.append("  if elem.hasExtensions then\r\n");
     prsrImpl.append("  begin\r\n");
     prsrImpl.append("    json.valueArray('extension');\r\n");
@@ -2692,7 +2699,7 @@ public String getName() {
     prsrCode.uses.add("DateSupport");
     prsrCode.uses.add("IdSoapMsXml");
     prsrCode.uses.add("FHIRParserBase");
-    prsrCode.uses.add("MSSEWrap");
+    prsrCode.uses.add("DateAndTime");
     prsrCode.uses.add("FHIRBase");
     prsrCode.uses.add("FHIRResources");
     prsrCode.uses.add("FHIRConstants");

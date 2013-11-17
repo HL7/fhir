@@ -93,7 +93,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <mimeType value="application/hl7-v3+xml"/>
   <size value="3654"/>
   <hash value="da39a3ee5e6b4b0d3255bfef95601890afd80709"/>
-  <location value="http://example.org/xds/mhd/binary/@07a6483f-732b-461e-86b6-edb665c45510"/>
+  <location value="http://example.org/xds/mhd/Binary/@07a6483f-732b-461e-86b6-edb665c45510"/>
   <context>
     <code>
       <coding>

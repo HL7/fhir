@@ -7,6 +7,15 @@ associated with a series of derived documents, each of which is a frozen copy of
 composition.
 </p>
 
+<p>
+Note: <a href="http://en.wikipedia.org/wiki/EN_13606">EN 13606</a> uses the term "Composition" 
+to refer to a single commit to an EHR system, and offers some common examples: a consultation 
+note, a progress note, a report or a letter, an investigation report, a prescription form 
+and a set of bedside nursing observations. These logical examples are all valid uses of a 
+Composition resource, but it is not required that all the resources are updated in 
+a single commit.
+</p>
+
 <h2>Composition Status Codes</h2>
 <p>
 Every composition has a status, which describes the status of the content of the composition, taken from this list of codes:

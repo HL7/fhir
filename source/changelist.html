@@ -2,7 +2,7 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
        <!--
-       Additional DSTU 2 resources:
+       Post DSTU concerns:
         - notification
         - person
         - clinical observations / vital signs
@@ -10,6 +10,7 @@
         - query definition
         - split profile up? 
         - expand partitions?
+        - profile /mailbox
        -->
       
 [%settitle FHIR Change History%]
@@ -49,7 +50,7 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>ImmunizationProfile - rename to ImmunizationRecommendation</li>
  <li>DocumentReference: aligned definitions more closely with XDS. Worked over the XDS Profile</li>
  <li>DocumentManifest: added this from scratch to round out XDS support</li>
- <li>Document: revised status list per o-o analysis of reporting cycles, and renamed sub-Type to "class" and updated definitions accordingly</li>
+ <li>Document: Renamed the Document resource to "Composition" and revised status list per o-o analysis of reporting cycles, and renamed sub-Type to "class" and updated definitions accordingly</li>
  <li>Validation: added Profile tags, and explained how they are used for validation</li>
  <li>Standardised identifiers: AdverseReaction, AllergyIntolerance, CarePlan, Condition, FamilyHistory, Procedure, Questionnaire all have identifier 0..*</li> 
  <li>Condition &amp; Procedure: several changes around relatedItem</li>
@@ -71,7 +72,7 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Harmonize the search parameters for the metadata parts of Conformance, Profile, ValueSet, and ConceptMap. Remove the text parameter type, and add search parameters _text and _content. Remove token modifiers :code and :anyns, and update documentation. Remove date modifiers and use &lt; etc. Define escaping for search parameters</li>
 </ul>
 <p>
-Changes from the C# referenice implementation:
+Changes from the C# reference implementation:
 <ul>
 <li>Assembly is now signed and has a strong name</li>
 <li>Additional metadata attributes to facilitate validation, parsing and dynamic client/server behaviour</li>

@@ -27,7 +27,7 @@
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <a href="http://localhost:9556/svc/fhir/binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"
+            <a href="http://localhost:9556/svc/fhir/Binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"
               >Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005</div>
         </text>
         <masterIdentifier>
@@ -66,7 +66,7 @@
           </coding>
         </format>
         <location
-          value="http://localhost:9556/svc/fhir/binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
+          value="http://localhost:9556/svc/fhir/Binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
         <context>
           <period>
             <start value="2004-12-23T08:00:00"/>
