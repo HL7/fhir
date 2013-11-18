@@ -173,6 +173,9 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	}
 
 	private void addDefinedCode(ValueSet vs, String system, ValueSetDefineConceptComponent c) {
+		if (ToolingExtensions.hasDeprecated(c)) 
+			return;
+		
 		if (c.getAbstract() == null || !c.getAbstractSimple()) {
 			addCode(system, c.getCodeSimple(), c.getDisplaySimple());
 		}

@@ -377,5 +377,13 @@ public class XMLUtil {
     }
 	  
   }
+
+  public static boolean hasNamedChild(Element e, String name) {
+    Element c = getFirstChild(e);
+    while (c != null && !name.equals(c.getLocalName()) && !name.equals(c.getNodeName()))
+      c = getNextSibling(c);
+    return c != null;
+  }
+
 	
 }

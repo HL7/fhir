@@ -31,7 +31,7 @@
     <requestor value="false"/>
     <network>
       <identifier value="127.0.0.1"/>
-      <type value="ip"/>
+      <type value="2"/>
     </network>
   </participant>
   <source>

@@ -43,7 +43,7 @@
         <source>
           <software value="Health Intersections Server"/>
           <!-- the response was actually generated (originally) by that server -->
-          <endpoint value="http://hl7connect.healthintersections.com.au/svc/fhir/mailbox"/>
+          <endpoint value="http://hl7connect.healthintersections.com.au/svc/fhir/Mailbox"/>
         </source>
         <destination>
           <name value="notepad"/>

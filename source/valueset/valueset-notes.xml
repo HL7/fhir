@@ -146,7 +146,7 @@ case, the standard way to produce a value set expansion is to perform a
 <a href="query.html">query</a> on the value set with _query=expand:
 </p>
 <pre>
-  GET [service-url]/valueset/?_query=expand&amp;id=:url&amp;...
+  GET [service-url]/ValueSet/?_query=expand&amp;id=:url&amp;...
 </pre>
 <p>
 This is a request to produce a value set expansion for the value set

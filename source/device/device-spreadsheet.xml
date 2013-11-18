@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -74,6 +74,17 @@
   </Style>
   <Style ss:ID="s70">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -375,7 +386,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -388,38 +398,44 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="294.75"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="65.25"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="89.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="65.25" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="89.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="287.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">DeviceKind</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">Defines the nature of the device and the kind of functionality/services/behavior that may be expected from it</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:Index="5" ss:StyleID="s67"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s75">
+    <Cell><Data ss:Type="String">DeviceKind</Data></Cell>
+    <Cell><Data ss:Type="String">Defines the nature of the device and the kind of functionality/services/behavior that may be expected from it</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hit-testing.nist.gov:13110/rtmms/index.htm</Data></Cell>
+    <Cell><Data ss:Type="String">RTM Management Service</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:Index="5" ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:Index="6" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -432,11 +448,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

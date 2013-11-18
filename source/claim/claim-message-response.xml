@@ -26,7 +26,7 @@
             <system value="email"/>
             <value value="grahame@healthintersections.com.au"/>
           </contact>
-          <endpoint value="http://localhost:9556/svc/fhir//mailbox"/>
+          <endpoint value="http://localhost:9556/svc/fhir//Mailbox"/>
         </source>
         <destination>
           <endpoint value="http://localhost"/>

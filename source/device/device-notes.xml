@@ -1,5 +1,13 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<h3>Notes</h3>
+<ul>
+ <li>There are many sources of possible codes for device type. The example suggests to use device codes from RTM, 
+ which has many codes suitable to devices that make <a href="deviceobservationreport.html">Device Observation Reports</a>. 
+ Another source which will be appropriate for many devices is the FDA GUDID (see below) or equivalent. 
+ Alternatively, many jurisdictions have their own supply chain arrangements which define many useful codes.</li>
+</ul>
+
 <h3>Device Identifiers</h3>
 
 <p>
@@ -26,13 +34,13 @@ The GTIN may be part of the UDI, but it may also be known separately, in which c
 <div class="example">
 <p>GTIN example</p>
 <pre>
-  <type>
-    <coding>
-      <system value="urn:oid:1.3.160‎"/>
-      <value value="00614141999996"/>
-    </coding>
-    <!-- other codes for type -->
-  </type>
+  &lt;type&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;urn:oid:1.3.160‎&quot;/&gt;
+      &lt;value value=&quot;00614141999996&quot;/&gt;
+    &lt;/coding&gt;
+    &lt;!-- other codes for type --&gt;
+  &lt;/type&gt;
 </pre>
 
 </div>

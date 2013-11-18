@@ -92,13 +92,13 @@ it SHALL be encoded so that the character content between the first "&gt;" and t
 "&lt;" characters is the content of the &lt;div&gt; element. e.g.
 </p>
 <pre class="json">
-  "div": "<div>text</div>"
+  &quot;div&quot;: &quot;&lt;div&gt;text&lt;/div&gt;&quot;
 </pre>
 <p>
 is legal, but this is not:
 </p>
 <pre class="json">
-  "div": "<?xml ...><div>text</div>"
+  &quot;div&quot;: &quot;&lt;?xml ...&gt;&lt;div&gt;text&lt;/div&gt;&quot;
 </pre>
 <p>
 Note that the XHTML is contained in general XML and so there is no support for HTML entities
@@ -224,9 +224,10 @@ It SHOULD be safe to view the narrrative without these additional styling featur
 Note that there is additional rules around styling for <a href="documents.html#css">documents</a> presentation.
 </p>
 
+<a name="safety"> </a>
 <h3>Clinical Safety Concerns</h3>
 <p>
-Health care records are often associated with legislative requirements for very long retention 
+Health care records are often associated with legislative and business requirements for very long retention 
 times (up to a century), and extreme risk aversion with regards to inconsistent display across
 a variety of devices. Although the narrative is allowed to use the standard XHTML and CSS 
 features as described above, implementations are encouraged to be restrained in using the
@@ -234,11 +235,17 @@ features available. Even where trading partner arrangements limit the current re
 of a system, experience shows that these arrangements will gradually broaden over time.
 </p>
 <p>
-In particular, complex layered layouts requiring careful testing of 
-the match between the xhtml <i>div</i> and <i>span</i> elements and styles, and
-those that include nested tables and/or images as well make rendering consistency
-difficult, and implementations SHOULD avoid these.
+In particular:
 </p>
+<ul>
+ <li>complex layered layouts requiring careful testing of 
+the match between the xhtml <i>div</i> and <i>span</i> elements and styles, and
+those that include nested tables (possibly with images) as well make rendering consistency
+difficult, and implementations SHOULD avoid these</li>
+ <li>The use of styles e.g. bolding, italics and color; SHOULD not be utilized as the 
+   sole way to convey meaning or semantics, but should be used in conjunction with other 
+   FHIR resources to ensure consistent, long term interoperability. </li>
+</ul>
 </div>
 [%onthispage Resource Definition#root|Narrative#Narrative|Internal References#idref|JSON#json|Atom (Bundle)#atom|JSON (Bundle)#json-bundles|Schema#schema%]
 

@@ -33,7 +33,7 @@
       
         <destination>
           <name value="Health Intersections Server"/> <!-- the response was actually generated (originally) by that server -->
-          <endpoint value="http://hl7connect.healthintersections.com.au/svc/fhir/mailbox"/>
+          <endpoint value="http://hl7connect.healthintersections.com.au/svc/fhir/Mailbox"/>
         </destination>
     
         <!-- refer to the query resource that comes next -->

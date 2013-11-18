@@ -57,7 +57,7 @@ deployment architecture is a matter for system design:
 <table class="dense">
  <tr><td><img height="32" width="32" src="security-icon-user.png"/></td><td>The consumer that is using a healthcare related system</td></tr>
  <tr><td><img height="32" width="32" src="security-icon-app.png"/></td><td>The client application the user is using (application, mobile app, website, etc.)</td></tr>
- <tr><td><img height="32" width="32" src="security-icon-sec.png"/></td><td>The security system that authenticates and authorizes the user</td></tr>
+ <tr><td><img height="32" width="32" src="security-icon-sec.png"/></td><td>The security system (authentication and access control)</td></tr>
  <tr><td><img height="32" width="32" src="security-icon-fhir.png"/></td><td>The clinical/healthcare repository</td></tr>
 </table>
 </td></tr></table>
@@ -68,15 +68,24 @@ the client (consumer of FHIR services) may either interact with a security syste
 as a FHIR server, and which depends on a subsequent FHIR interface to provide the actual storage,
 or either the client or server interacts with the security system independently. In each of these
 3 scenarios, the different components may be assembled into applications or network components
-differently, but the same logical layout applies. 
+differently, but the same logical layout applies. The FHIR specification assumes that a security 
+system exists, and that it may be deployed in front of or behind the FHIR API. 
 </p>
 <p>
-The FHIR specification assumes that a security system exists, and that it may be deployed 
-in front of or behind the FHIR API. Because there are a plethora of standards relating to 
+The security system includes the following subsystems:
+</p>
+<ul>
+ <li>Authentication: Identifies and Authenticates the user</li>
+ <li>Access Control decision engine: decides whether FHIR operations are allowed</li>
+ <li>Audit Log: records actions to allow for subsequent review and detection of intrusion or innappropriate usage</li>
+</ul>
+
+<p>
+Because there are a plethora of standards relating to 
 the administration and functionality of the security system, FHIR does not provide user,
 profile, or other such administration resources. Instead, the FHIR resources are the targets
 of the policies expressed in these other approaches. What FHIR does specify is a way to apply
-security labels to resources so that a security system may use these (along with the contents
+<a href="#labels">security labels</a> to resources so that a security system may use these (along with the contents
 of the resources if appropriate) to determine whether a user is authorised to perform a 
 particular FHIR operation or not.
 </p>
@@ -139,26 +148,67 @@ the relevant resources and the underlying systems. Note that this isn't necessar
 on any security being in place, or any particular implementation. But real world usage will generally require this. 
 </p>
 <p>
-
-Todo.. outline general considerations. Note: this is under active investigation through connectathons running 
-parallel to the ballot process, and further work is expected on this section. Interested parties should track 
-the joint security / FHIR work in this area.
+A holder of data should not allow the data to be communicated unless there is assurances that the 
+other party is authorized to receive it. This is true for a Client creating a resource through a PUT/POST, 
+as much as it is true for a Server returning resources on a GET. The presumption is that without 
+proper authorization, to the satisfaction of the data holder, the data does not get communicated.
 </p>
 <p>
-RBAC notes go here
+The rules behind the Access Control decision are often very complex, and potentially depends on information sourced from:
 </p>
+<ul>
+ <li>Client, such as User Identity, User Role, Location, level of assurance</li>
+ <li>Resource, such as confidentiality, sensitivity, type of data, date ranges covered by the data, author of the data</li>
+ <li>Patient, such as the patient identity, patient relationship to the user, patient consent policies</li>
+ <li>Context of the transaction, system identity, time-of-day, purpose of use, workflow state, and transport security</li>
+</ul>
+<!-- HL7 has papers on this topic. -->
+<p>For one source of further information, see the 
+<a href="http://www.ihe.net/Technical_Framework/upload/IHE_ITI_TF_WhitePaper_AccessControl_2009-09-28.pdf">IHE Access Control white paper</a>
+</p>
+
+<h2>Audit Logging</h2>
+<p>
+FHIR provides a <a href="securityevent.html">SecurityEvent</a> resource suitable for use by 
+FHIR clients and servers to record when a security or privacy relevant event has occurred. 
+This form of audit logging records as much detail as reasonable at the time the event happened. 
+</p>
+<p>
+The SecurityEvent when used to record security and privacy relevant events can then be 
+used by properly authorized applications to support audit reporting, alerting, filtering, 
+and forwarding. This model has been developed and used in healthcare for a decade as 
+<a href="http://wiki.ihe.net/index.php?title=Audit_Trail_and_Node_Authentication">IHE-ATNA profile</a>. 
+ATNA log events can be automatically converted to SecurityEvent resources, and from there,
+client applications are able to search the security events, or subscribe to them.
+</p>
+
 
 <h2>
 Digital Signatures
 </h2>
-<p>This specification recommends the use of <a href="http://www.w3.org/TR/xmldsig-core/">W3C Digital Signatures</a> to sign resources and  
-provides an element in the <a href="provenance.html">Provenance</a> resource to carry 
-a detached digital signature for a resource. This does not prohibit other ways of using digital signatures.</p>
-
 <p>
-Additional work is anticipated in this area, including alignment with the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE DSG profile</a>.
+This specification recommends the use of <a href="http://www.w3.org/TR/xmldsig-core/">W3C Digital Signatures</a> for signatures.
+</p>
+<p>
+Resources can be signed using the <a href="provenance.html">Provenance</a> resource to carry a 
+<a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureDetached">detached digital signature</a> 
+for the purpose of detecting subsequent changes to the resource. This signature is not
+suitable for non-repudiation purposes. 
+</p>
+<p>
+In addition, <a href="document.html#signatures">documents may be signed</a> using an 
+<a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureEnveloped">enveloped</a> 
+signature. 
+</p>
+<p>
+Neither of these definitions prohibits the use of other ways of using digital signatures.
 </p>
 
+<blockquote>
+<p>
+DSTU Note: Additional work is anticipated in this area, including alignment with the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE DSG profile</a>.
+</p>
+</blockquote>
 
 <h2>Attachments</h2>
 <p>
@@ -169,6 +219,100 @@ always use caution when handling resources.
 
 <a name="labels"> </a>
 <h2>Security Labels</h2>
+
+<p>
+A security label is a <a href="extras.html#tags">tag</a> attached to a resource 
+that provides specific security metadata about the resource it is fixed to.
+The Access Control decision engine uses the security label, along with any provenance 
+resources associated with the resource, and other metadata, like 
+resource type and contents etc, to approve access, change, and other operations, 
+and to determine what level of the resource can be returned and what Handling 
+Caveats must be conveyed with the data. Security Labels enable more data 
+to flow as they enables policy fragments to accompany the resource data. 
+</p>
+<p>
+The recipient of resources with provenance and security-tags is obligated 
+to enforce the handling caveats and carry forward the provenance and 
+security-tags as appropriate.
+</p>
+<p>
+Security labels are most effective in fully trusted environments - that is, 
+where all trading partners have agreed to abide by them. In the absence of 
+this pre-agreement, Security Labels may still be used by individual parties to 
+apply assist with security role checking, but they cannot be exchanged between
+parties in a meaningful fashion; hence, less information is allowed to flow.
+</p>
+<p>
+Security labels follow the HL7 Healthcare Classification System (reference will be provided when possible) to carry:
+</p>
+<table class="grid">
+ <tr> <td><b>Security Label</b></td> <td><b>Card.</b></td> <td><b>Values</b></td>  <td><b>Description</b></td> </tr>
+ 
+ <tr> <td>Confidentiality Classification</td> <td>1..1</td> <td><a href="v3/Confidentiality/index.html">Confidentiality</a></td>  <td>Security label metadata classifying an IT 
+resource (clinical fact, data, information 
+object, service, or system capability) 
+according to its level of sensitivity, which is 
+based on an analysis of applicable privacy 
+policies and the risk of financial, 
+reputational, or other harm to an individual 
+or entity that could result if made available 
+or disclosed to unauthorized individuals, 
+entities, or processes</td> </tr>
+
+ <tr> <td>Sensitivity Category</td> <td>0.*</td> <td><a href="v3/InformationSensitivityPolicy/index.html">InformationSensitivityPolicy</a></td>  <td>Security label metadata that "segments" an 
+IT resource by categorizing the value, 
+importance, and vulnerability of an IT 
+resource perceived as undesirable to share.</td> </tr>
+
+ <tr> <td>Compartment Category</td> <td>0..*</td> <td><a href="v3/??/index.html">??</a> (todo)</td>  <td>Security label metadata that "segments" an 
+IT resource by indicating that access and 
+use is restricted to members of a defined 
+community or project</td> </tr>
+ <tr> <td>Integrity Category</td> <td>0..*</td> <td><a href="v3/??/index.html">??</a> (todo)</td>  <td>Security label metadata that "segments" an 
+IT resource by conveying the completeness, 
+veracity, reliability, trustworthiness, and 
+provenance of an IT resource</td> </tr>
+
+ <tr> <td>Handling Caveat</td> <td>0..*</td> <td><a href="v3/SecurityControlObservationValue/index.html">SecurityControlObservationValue</a></td>  <td>Security label metadata conveying dissemination 
+controls and information handling instructions 
+such as obligations and refrain policies to which an 
+IT resource custodian or receiver must comply.<br/>
+This type of handling caveat SHALL be assigned 
+to a clinical fact if required by jurisdictional or 
+organizational policy, which may be triggered by a 
+patient consent directive</td> </tr>
+</table>
+
+<p>
+Each of these security labels identifies a <a href="valueset.html">ValueSet</a> that
+lists a set of possible codes for the security label. The <a href="extras.html">tag</a>
+itself has the following parts:
+</p>
+
+<table>
+  <tr> <td>Scheme:</td> <td>http://hl7.org/fhir/tag</td> <td>Fixed Value</td> </tr>
+  <tr> <td>Term:</td> <td>[system]#[code]</td> <td>Where [code] is chosen from the list of values, and [system] is the listed system for the chosen code</td> </tr>
+  <tr> <td>LabeL</td> <td>The display name for the code</td> <td>(optional)</td> </tr>
+</table>
+
+<div class="example">
+<p>
+Here is an example, a XML patient resource with a VIP tag associated with it, as 
+represented in an HTTP response:
+</p>
+<pre>
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
+Content-Location: http://[server]/[path]/Patient/234124/_history/24
+Category: http://hl7.org/fhir/v3/ActCode#CEL; scheme="http://hl7.org/fhir/tag"; label="Celebrity"
+
+&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+...  [snip] ...
+&lt;/Patient&gt;
+</pre>
+</div>
 
 </div>
 

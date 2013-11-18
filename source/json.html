@@ -348,6 +348,23 @@ as it would be specified in HTTP, like this:
   }
 </pre>
 
+<a name="sig"> </a>
+<h4>Signatures</h4>
+<p>
+If a bundle has a signature, the signature as a JSON property "signature", 
+whose property value is an XML string that is a valid
+<a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#sec-Signature">XML signature</a>
+element.
+</p>
+
+<pre class="json">
+{
+  &quot;resourceType&quot; : &quot;Bundle&quot;,
+  ... metadata and entries as described above....
+  &quot;signature&quot; : &quot;&lt;signature xmlns=\&quot;http://www.w3.org/2000/09/xmldsig\&quot;&gt;...&lt;/signature&gt;&quot;
+}
+</pre>
+
 </div>
 [%onthispage Resource Definition#root|Narrative#Narrative|Internal References#idref|JSON#json|Atom (Bundle)#atom|JSON (Bundle)#json-bundles|Schema#schema%]
 

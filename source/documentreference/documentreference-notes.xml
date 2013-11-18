@@ -8,4 +8,42 @@
   
 </ul>
 
+<h3>Generating a Document Reference</h3>
+<p>
+A client can ask a server to generate a document reference from a document.
+The server reads the existing document and generates a matching DocumentReference
+resource, or returns one it has previously generated. Servers may be able to 
+return or generate document references for the following types of content:
+</p>
+<table class="grid">
+  <tr> <td><b>Type</b></td> <td><b>Comments</b></td> </tr>
+  <tr> <td><a href="documents.html">FHIR Documents</a></td> <td>The uri refers to an existing Document</td> </tr>
+  <tr> <td>CDA Document</td> <td>The uri is a reference to a <a href="extras.html#Binary">Binary</a> end-point that returns either a CDA 
+    document, or some kind of CDA Package that the server knows how to process (e.g. an IHE .zip) </td> </tr>
+  <tr> <td>Other</td> <td>The server can be asked to generate a document reference for other kinds of 
+    documents. For some of these documents (e.g. PDF documents) a server could only provide a 
+    DocumentReference it is already existed, or the server had special knowledge of the document</td> </tr>
+</table>
+<p>
+The server either returns a search result containing a single DocumentReference, 
+or it returns an error. 
+If some the URI refers to another server, it is at the discretion of the 
+server whether to retrieve it or return an error. 
+</p>
+<p>
+The operation is initiated by a named query, using _query=generate on the /DocumentReference
+end point:
+</p>
+<pre>
+  GET [service-url]/DocumentReference/?_query=generate&amp;uri=:url&amp;...
+</pre>
+<p>
+The "uri" parameter is a relative or absolute reference to one of the 
+document types described above. Other parameters may be supplied:
+</p>
+<table class="grid">
+  <tr> <td><b>Name</b></td> <td><b>Meaning</b></td> </tr>
+  <tr> <td>persist</td> <td>Whether to store the document at the document end-point (/Document) or not once it is generated. Value = true or false (default is for the server to decide)</td> </tr>
+</table>
+
 </div>

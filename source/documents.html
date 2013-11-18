@@ -237,6 +237,35 @@ they SHOULD either withdraw data extracted from superseded documents, or warn us
 they view the document or data taken from it.
 </p>
 
+<a name="signatures"> </a>
+<h2>Signing Documents</h2>
+<p>
+Documents may have either an <a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureEnveloped">enveloped</a> 
+or a <a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureDetached">detached</a> signature. 
+</p>
+<p>
+Enveloped signatures are included in the document using the technique described for 
+<a href="http://tools.ietf.org/html/rfc4287#section-5.1">Atom signatures</a>. 
+There is a single signature that signs the entire feed (e.g. on atom:feed). 
+The obligations described in the Atom specification apply, with the proviso 
+that atom:source has no use for Documents, and therefore there is no need 
+to create the atom:source elements. 
+</p>
+<p>
+Whether documents are signed with a enveloped or a detached signature, applications
+processing documents need to relate the document to an existing document participant.
+For this reasons, the keyName in the signature SHOULD contain a uri that points 
+directly to one of the document participants (person, device, or organization)
+by the resource identity.
+</p>
+<p>
+If the document is represented in <a href="json.html">JSON</a>, the same signature
+rules apply, and the signature is represented described for <a href="json.html#sig">JSON</a>.
+</p>
+
+
+
+
 
 <a name="bundle"> </a>
 <h2>Document End-Points</h2>
@@ -267,7 +296,7 @@ of posting to them:
    server can re-assemble the document (see below), it cannot be expected to be in the same order etc, and so a document signature is 
    very likely to be invalid)</td> </tr>
    
- <tr> <td><a href="messaging.html#mailbox">[baseurl]/mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
+ <tr> <td><a href="messaging.html#mailbox">[baseurl]/Mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
  document to the server for processing. The exact processing the server performs is at the discretion of the
  server. It MAY perform one or more of these actions:
   <ul>
@@ -293,16 +322,16 @@ it is not necessary to use them. Documents may be transferred between systems us
 
 <h3>Generating a Document</h3>
 <p>
-A client can ask a server to generate a fully bundled documents from a composition resource.
+A client can ask a server to generate a fully bundled document from a composition resource.
 The server takes the composition resource, locates all the referenced resources, and other
 additional resources as configured or requested, and either returns a full document bundle,
-or returns an error. 
+or returns an error. Note that since this is a search operation, the document bundle is 
+wrapped inside the search bundle.
 </p>
 <p>
 If some of the resources are located on other servers, it is at the discretion of the 
-server whether to retrieve them or return an error. It is also at the discretion of 
-the server whether to retain the generated document as an identified document in the 
-/Document end point, or simply to return it to the client. 
+server whether to retrieve them or return an error. If the correct version of the document 
+that would be generated already exists, then the server can return the existing one.
 </p>
 <p>
 The operation is initiated by a named query, using _query=generate on the /Document
@@ -317,10 +346,10 @@ Composition/1234). The format of the document is specified using the accept: hea
 a <a href="http.html#mime-type">_format parameter</a>. Other parameters may be supplied:
 </p>
 <table class="grid">
- <tr> <td><b>Name</b></td> <td><b>Meaning</b></td> </tr>
- <tr> <td>persist</td> <td>Whether to store the document or not. Value = true or false. Default is for the server to decide</td> </tr>
- <tr> <td>cert</td> <td>Certificate URL to use to sign the document with</td> </tr>
- <tr> <td>pword</td> <td>Password if certificate requires one, and the server doesn't know it by some other means. Putting the password in the URL has obvious security implications to consider. An alternative is for the client to sign the document</td> </tr>
+  <tr> <td><b>Name</b></td> <td><b>Meaning</b></td> </tr>
+  <tr> <td>persist</td> <td>Whether to store the document at the document end-point (/Document) or not once it is generated. Value = true or false (default is for the server to decide)</td> </tr>
+  <tr> <td>cert</td> <td>Certificate URL to use to sign the document with</td> </tr>
+  <tr> <td>pword</td> <td>Password if certificate requires one, and the server doesn't know it by some other means. Putting the password in the URL has obvious security implications to consider. An alternative is for the client to sign the document</td> </tr>
 </table>
 
 

@@ -1278,7 +1278,7 @@ public class Publisher {
 
         list.add(concept);
 
-        s.append(" <tr><td>"+Integer.toString(lvl)+"</td><td>");
+        s.append(" <tr"+(deprecated? " style=\"background: #EFEFEF\"" : "")+"><td>"+Integer.toString(lvl)+"</td><td>");
         for (int i = 1; i < lvl; i++) 
           s.append("&nbsp;&nbsp;");
         if (select) {
@@ -1476,31 +1476,47 @@ public class Publisher {
     if (r != null) {
       vs.setVersionSimple(r.getAttribute("versionDate"));
       
-      ValueSet cs = codesystems.get(XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent());
-      if (cs == null)
-        throw new Exception("Error Processing ValueSet "+id+", unable to resolve code system '"+XMLUtil.getNamedChild(e, "supportedCodeSystem").getTextContent()+"'");
       // ok, now the content
       ValueSetComposeComponent compose = new ValueSet.ValueSetComposeComponent();
       vs.setCompose(compose);
-      ConceptSetComponent imp = new ValueSet.ConceptSetComponent();
-      compose.getInclude().add(imp);
-      imp.setSystemSimple(cs.getDefine().getSystemSimple());
       Element content = XMLUtil.getNamedChild(r, "content");
       if (content == null)
         throw new Exception("Unable to find content for ValueSet "+id);
-      if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
-        throw new Exception("Unexpected codeSystem oid on content for ValueSet "+id+": expected '"+XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent()+"', found '"+content.getAttribute("codeSystem")+"'");
-      Element cnt = XMLUtil.getFirstChild(content);
-      while (cnt != null) {
-        if (cnt.getNodeName().equals("codeBasedContent") && (XMLUtil.getNamedChild(cnt, "includeRelatedCodes") != null)) {
-          // common case: include a child and all or some of it's descendants
-          ConceptSetFilterComponent f = new ValueSet.ConceptSetFilterComponent();
-          f.setOpSimple(FilterOperator.isa);
-          f.setPropertySimple("concept");
-          f.setValueSimple(cnt.getAttribute("code"));
-          imp.getFilter().add(f);
+      ValueSet cs = codesystems.get(content.getAttribute("codeSystem"));
+      if (cs == null)
+        throw new Exception("Error Processing ValueSet "+id+", unable to resolve code system '"+XMLUtil.getNamedChild(e, "supportedCodeSystem").getTextContent()+"'");
+      ConceptSetComponent imp = new ValueSet.ConceptSetComponent();
+      compose.getInclude().add(imp);
+      imp.setSystemSimple(cs.getDefine().getSystemSimple());
+
+      if (XMLUtil.hasNamedChild(content, "combinedContent")) {
+        if (!id.equals("SecurityControlObservationValue"))
+          throw new Exception("check logic; this is fragile code, and each value set needs manual review");
+        Element part = XMLUtil.getFirstChild(XMLUtil.getNamedChild(content, "combinedContent"));
+        while (part != null) {
+          if (part.getNodeName().equals("unionWithContent")) 
+            compose.addImportSimple("http://hl7.org/fhir/v3/vs/"+XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
+          else
+            throw new Exception("unknown value set construction method");
+          part = XMLUtil.getNextSibling(part);
         }
-        cnt = XMLUtil.getNextSibling(cnt);
+      } else {
+        // simple value set
+        if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
+          throw new Exception("Unexpected codeSystem oid on content for ValueSet "+id+": expected '"+XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent()+"', found '"+content.getAttribute("codeSystem")+"'");
+
+        Element cnt = XMLUtil.getFirstChild(content);
+        while (cnt != null) {
+          if (cnt.getNodeName().equals("codeBasedContent") && (XMLUtil.getNamedChild(cnt, "includeRelatedCodes") != null)) {
+            // common case: include a child and all or some of it's descendants
+            ConceptSetFilterComponent f = new ValueSet.ConceptSetFilterComponent();
+            f.setOpSimple(FilterOperator.isa);
+            f.setPropertySimple("concept");
+            f.setValueSimple(cnt.getAttribute("code"));
+            imp.getFilter().add(f);
+          }
+          cnt = XMLUtil.getNextSibling(cnt);
+        }
       }
     }
     NarrativeGenerator gen = new NarrativeGenerator("");

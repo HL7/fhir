@@ -95,13 +95,13 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
   <hash value="da39a3ee5e6b4b0d3255bfef95601890afd80709"/>
   <location value="http://example.org/xds/mhd/Binary/@07a6483f-732b-461e-86b6-edb665c45510"/>
   <context>
-    <code>
+    <event>
       <coding>
         <system value="http://ihe.net/xds/connectathon/eventCodes"/>
         <code value="T-D8200"/>
         <display value="Arm"/>
       </coding>
-    </code>
+    </event>
     <period>
       <start value="2004-12-23T08:00:00"/>
       <end value="2004-12-23T08:01:00"/>
