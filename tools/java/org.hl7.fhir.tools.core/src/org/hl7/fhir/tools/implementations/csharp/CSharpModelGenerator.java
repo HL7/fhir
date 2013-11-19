@@ -391,9 +391,9 @@ public class CSharpModelGenerator extends GenBlock
 		 //   ln("[FhirPrimitiveType(\"" + composite.getName() + "\")]" );
 		}
 		//else if( composite.isResource() && !composite.isAbstract() )
-		else if( composite.isResource() )
+		else if( composite.isResource() && !composite.isAbstract() )
 		{
-			ln("[FhirType(\"" + composite.getName() + ", IsResource=true\")]" );
+			ln("[FhirType(\"" + composite.getName() + "\", IsResource=true)]" );
 		}
 		
 		//ln("[Serializable]");

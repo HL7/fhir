@@ -1,21 +1,15 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <p>
-A Location includes both incidental locations (a place at which is used without prior designation or authorization) and 
-dedicated, formally appointed locations.
-
-Examples of use for Location are:
+A Location includes both incidental locations (a place which is used for healthcare without prior designation or authorization) and 
+dedicated, formally appointed locations. Locations may be private, public, mobile or fixed and scale from small 
+freezers to full hospital buildings or parking garages.
 </p>
+<p>Examples of Locations are:</p>
 <ul>
-<li>A hospital building, clinic or GP's office, a home</li>
-<li>A ward, corridor, bedroom, emergency room or operation room</li>
-<li>A freezer or cabinet</li>
-<li>An ambulance, personal car or roadside location</li>
-</ul>
-<p>
-Non-examples are:
-</p>
-<ul>
-<li>An MRI-device (the room in which the device is placed is the Location)</li>
-<li>...</li>
+<li>Building, ward, corridor or room</li>
+<li>Freezer, incubator</li>
+<li>Vehicle or lift</li>
+<li>Home, shed, or a garage</li>
+<li>Road, parking place, a park</li>
 </ul>
 </div>

@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13260</WindowHeight>
-  <WindowWidth>30060</WindowWidth>
+  <WindowHeight>2055</WindowHeight>
+  <WindowWidth>10935</WindowWidth>
   <WindowTopX>8265</WindowTopX>
   <WindowTopY>6420</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -574,7 +574,7 @@
     <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">Patient.communication</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -582,8 +582,8 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Language</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Languages which may be used to communicate with the patient</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Languages which may be used to communicate with the patient</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Languages which may be used to communicate with the patient about his or her health</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Languages which may be used to communicate with the patient about his or her health</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">If a patient does not speak the local language, interpreters may be required, so languages spoken is an important things to keep track of both for patient and other persons of interest</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">If no language is specified, this *implies* that the default local language is spoken.&#13;For animals, language is not a relevant field, and should be absent from the instance</Data></Cell>
@@ -779,10 +779,11 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>17</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>13</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -790,8 +791,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

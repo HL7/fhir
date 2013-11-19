@@ -50,7 +50,11 @@ namespace Hl7.Fhir.Support
     {
         readonly string name;
 
-        // This is a positional argument
+        public FhirTypeAttribute()
+        {
+            // No arg constructor - use defaults
+        }
+
         public FhirTypeAttribute(string name)
         {
             this.name = name;

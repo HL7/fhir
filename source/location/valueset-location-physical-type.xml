@@ -6,10 +6,10 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="This example value set defines a set of codes that can be used to indicate a type of location."/>
+  <description value="This example value set defines a set of codes that can be used to indicate the physical form of the Location."/>
   <status value="draft"/>
   <define>
-    <system value="http://hl7.org/fhir/location-type"/>
+    <system value="http://hl7.org/fhir/location-physical-type"/>	
     <caseSensitive value="true"/>
     <concept>
       <code value="bu"/>
@@ -19,33 +19,25 @@
       <code value="wi"/>
       <display value="Wing"/>
     </concept>
+	<concept>
+      <code value="co"/>
+      <display value="Corridor"/>
+    </concept>
     <concept>
       <code value="ro"/>
       <display value="Room"/>
     </concept>
     <concept>
-      <code value="er"/>
-      <display value="Emergency Room"/>
-    </concept>
-    <concept>
       <code value="ve"/>
       <display value="Vehicle"/>
     </concept>  
-    <concept>
-      <code value="am"/>
-      <display value="Ambulance"/>
+	<concept>
+      <code value="ho"/>
+      <display value="House"/>
     </concept>
-    <concept>
-      <code value="st"/>
-      <display value="Storage space"/>
-    </concept>  
     <concept>
       <code value="ca"/>
       <display value="Cabinet"/>
-    </concept>      
-    <concept>
-      <code value="pu"/>
-      <display value="Public location"/>
     </concept>      
     <concept>
       <code value="rd"/>

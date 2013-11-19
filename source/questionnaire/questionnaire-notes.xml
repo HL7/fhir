@@ -4,14 +4,14 @@
 Notes:
 </h2>
 <ul>
-<li>The information on questionnaires can be collected during several interactions with the patient, and therefore amended and changed over time. The
-Questionnaire.status attribute is used to support this lifecycle.</li>
 <li>Questionnaires can be authored by clinicians, the patient his/herself or a patients relatives (or even owner in the case of animals). Clinicians
 may author questionnaires, where the answers are provided by others on behalf of the patient his/herself. Additionally, information gathered for the
 purpose of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, Questionnaire makes a distinction between the author,
 the subject and the source of information.</li>
-<li>Questionnaires often correspond to predefined forms, which may be recorded using Questionnaire.name. Questionnaires.identifier identify a specific
+<li>Questionnaires may be used to represent predefined forms, named using Questionnaire.name. Questionnaires.identifier identify a specific
 set of answers to the questions on these forms.</li>
+<li>If a Questionnaire is used to just represent a predefined form or "template", the Questionnaire need not contain answers (Questionnaire.question.data or 
+Questionnaire.question.choice is empty).</li>
 <li>Questionnaires may directly contain Questions and/or contain Groups and subgroups with Questions. These may or may not correspond to the structure
 of the original form. If they do correspond, Groups may be named, so answers on a Questionnaire can refer to a corresponding sections of a form.
 Likewise, answers to Questionnaires can be named to refer to the question on a form. It is also possible to include textual content on the form in 
@@ -27,7 +27,7 @@ encounter gives context to the answers and can be used to relate information in 
 </ul>
 
 <a name="qversusr" />
-<h2>Using Questionnaires versus using Resources</h2>
+<h3>Using Questionnaires versus using Resources</h3>
 <p>There is considerable overlap between the information covered by Questionnaires and other Resources (especially FamilyHistory, MedicationStatement, Observation, Procedure, etc.): 
 Questionnaire's flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using Questionnaires or separate 
 Resources may be dictated by the procedure of collection and recording. E.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
@@ -42,14 +42,14 @@ such Questionnaires using other, more specific, Resources increases the ability 
 answers in the form of structured FHIR data. This provides an upgrade path to the questionnaire designer and communicating systems, where capable systems may use FHIR data to answer (sets of) 
 questions, whereas other systems can simply continue to supply the direct answers as input by the user.</p>
 
-<h2>Providing Questions and Answers</h2>
+<h3>Providing Questions and Answers</h3>
 <p>The Questionnaire has been specifically designed to be able to contain both a form's questions and answers. The Group and Question construct has elements to carry textual data
 of the form like headings, explanatory text, actual question text and the text of (multiple)choice options. As such, the Questionnaire can be used to:</p>
 <ul><li>only contain answers
 (in which case the actual layout and questions of the form is defined in some external way, and the <i>name</i> elements are used to relate the answers to the questions)</li>
 <li>contain a combination of questions and answers (e.g. when it is deemed important to keep the actual question text with the answer) or</li>
-<li>only contain the Questions, which is equivalent to an "empty form".</li></ul>
-<p>This third case can be useful to make Questionnaire serve as a kind of form "definition", where FHIR clients receive the empty form, display it to the user, get answers from the users 
+<li>only contain the Questions, in which case the Questionnaire represents an empty, predefined form</li></ul>
+<p>This third case can be useful to make Questionnaire serve as a kind of form "template", where FHIR clients receive the empty form, display it to the user, get answers from the users 
 and then return the combined questions and answers to the server. The <a href="questionnaire-extensions-spreadsheet.xml.html">questionnaire core 
 extensions</a> provide additional means for control over repeating sections and expected answer format.</p>
 </div>

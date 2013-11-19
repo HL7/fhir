@@ -15,7 +15,8 @@ on which business events translate to the start of a new Encounter, or what leve
 single visit of a practitioner during a hospitalization may lead to a new instance of Encounter, but depending on
 use and systems involved, it may well be that this is aggregated to a single instance for the whole hospitalization.
 Even more aggregation may occur where jurisdictions introduce groups of Encounters for financial or other reasons.
-Encounters can be aggregated or grouped under other Encounters using the <i>partOf</i> element.</p>
+Encounters can be aggregated or grouped under other Encounters using the <i>partOf</i> element. 
+See <a href="#examples">below</a> for examples.</p>
 
 <p>Encounter instances may exist before the actual encounter takes place to convey pre-admission information, including
 using Encounters elements to reflect the planned start date, planned accommodation or planned encounter locations. In 

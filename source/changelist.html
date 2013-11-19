@@ -67,6 +67,11 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
  <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness. Introduce a Map declaration element</li>
  <li>Encounter: Allow RelatedPersons to be participants in an encounter and changed type of participation to CodeableConcept.</li>
  <li>Encounter: Added discharge diagnosis to the Hospitalization element</li>
+ <li>Location: Scope of Resource now also covers devices like freezers and incubators</li>
+ <li>Location: Added a 'mode' to indicate Location instances or kinds</li>
+ <li>Location: Split the existing element 'type' into 'type' (type of service provided) and 'physicalType' (physical form of the location)</li>
+ <li>Organization: Can now refer to 0..* Locations where it provides services</li>
+ <li>Practitioner: Can now refer to 0..* Locations where the practitioner provides services</li>
  <li>Add Informative ConceptMap resource</li>
  <li>Change the following fields from string|CodeableConcept to just CodeableConcept: Encounter.reason, MedicationDispense.dispense.dosage.additionalInstructions, MedicationPrescription.reasonForPrescribing, MedicationPrescription.dosageInstruction.additionalInstructions</li>
  <li>Harmonize the search parameters for the metadata parts of Conformance, Profile, ValueSet, and ConceptMap. Remove the text parameter type, and add search parameters _text and _content. Remove token modifiers :code and :anyns, and update documentation. Remove date modifiers and use &lt; etc. Define escaping for search parameters</li>

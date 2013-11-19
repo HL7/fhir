@@ -4,24 +4,31 @@
  xmlns="http://hl7.org/fhir">
   <text>
     <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">Burgers UMC, South Wing, second floor, Operation Room 1</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Burgers UMC, South Wing, second floor, Neuro Radiology Operation Room 1</div>
   </text>  
   <name value="South-2-1.00"/>
-  <description value="South Wing, Floor 2, Operation Room 1" />
+  <description value="South Wing, Floor 2, Neuro Radiology Operation Room 1" />
   <type>
     <coding>
-      <system value="http://hl7.org/fhir/location-type" />
-      <code value="ro" />
-      <display value="Room" />
+      <system value="http://hl7.org/fhir/v3/RoleCode" />
+      <code value="RNEU" />
+      <display value="Neuroradiology unit" />
     </coding>
   </type>
   <telecom>
     <system value="phone" />
     <value value="2329" />
   </telecom>
-  <provider>
+  <physicalType>
+    <coding>
+      <system value="http://hl7.org/fhir/location-physical-type" />
+      <code value="ro" />
+      <display value="Room" />
+    </coding>
+  </physicalType>  
+  <managingOrganization>
     <reference value="Organization/f001" />
-  </provider>
+  </managingOrganization>
   <active value="true" />
   <partOf>
     <reference value="Location/1"></reference>
