@@ -220,11 +220,15 @@ public class ProfileValidator extends BaseValidator {
   private void matchElement(ResourceDefn resource, ElementDefn parent, ElementDefn element, String path) throws Exception {
     ElementComponent e = getConstraintByPath(path);
     boolean xPoint = false;
+    if (e == null && path.endsWith(".extension")) {
+      e = getConstraintByPath(resource.getName()+".extension");   
+    }
     if (e == null && parent != null && hasTypeProfile(parent.typeCode())) {
       typePoints.push(new TypeState(path.substring(0, path.lastIndexOf(".")), getTypeProfile(parent.typeCode())));
       xPoint = true;
       e = getConstraintByPath(path);
     }
+
     
     if (e == null)
       errors.add("Profile element '"+path+"' not found");
@@ -295,6 +299,7 @@ public class ProfileValidator extends BaseValidator {
         }        
       }
     }
+   
     return null;
   }
 
