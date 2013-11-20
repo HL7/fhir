@@ -1438,8 +1438,8 @@ public class Publisher {
           AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
           ae.setId("http://hl7.org/fhir/v3/vs/"+id);
           ae.getLinks().put("self", "http://hl7.org/fhir/v3/vs/"+id);
-          ae.getLinks().put("path", "v3"+File.separator+id+File.separator+"index.html");
-          ValueSet vs = buildV3ValueSet(id, dt, e, codesystems);
+          ae.getLinks().put("path", "v3"+File.separator+"vs"+File.separator+id+File.separator+"index.html");
+          ValueSet vs = buildV3ValueSet(id, dt, e, codesystems, ini);
           ae.getLinks().put("oid", e.getAttribute("id"));
           ae.setResource(vs);
           if (vs.getDate() != null)
@@ -1458,7 +1458,7 @@ public class Publisher {
   }
 
   
-  private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, ValueSet> codesystems) throws DOMException, Exception {
+  private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, ValueSet> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
     vs.setIdentifierSimple("http://hl7.org/fhir/v3/vs/"+id);
     vs.setNameSimple(id);
@@ -1505,6 +1505,8 @@ public class Publisher {
         if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
           throw new Exception("Unexpected codeSystem oid on content for ValueSet "+id+": expected '"+XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent()+"', found '"+content.getAttribute("codeSystem")+"'");
 
+        List<String> codes = new ArrayList<String>();
+
         Element cnt = XMLUtil.getFirstChild(content);
         while (cnt != null) {
           if (cnt.getNodeName().equals("codeBasedContent") && (XMLUtil.getNamedChild(cnt, "includeRelatedCodes") != null)) {
@@ -1514,12 +1516,31 @@ public class Publisher {
             f.setPropertySimple("concept");
             f.setValueSimple(cnt.getAttribute("code"));
             imp.getFilter().add(f);
+          } else if (cnt.getNodeName().equals("codeBasedContent") && cnt.hasAttribute("code")) {
+            codes.add(cnt.getAttribute("code"));
           }
           cnt = XMLUtil.getNextSibling(cnt);
         }
+        if (vsini.getStringProperty("Order", id) != null) { 
+          List<String> order = new ArrayList<String>();
+          for (String s : vsini.getStringProperty("Order", id).split("\\,")) {
+            order.add(s);
+          }
+          for (String c : order) {
+            if (codes.contains(c))
+              imp.addCodeSimple(c);
+          }
+          for (String c : codes) {
+            if (!order.contains(c))
+              imp.addCodeSimple(c);
+          }
+        } else
+          for (String c : codes) {
+            imp.addCodeSimple(c);
+          }
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator("");
+    NarrativeGenerator gen = new NarrativeGenerator("../../../");
     gen.generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     new ValueSetValidator(page.getDefinitions(), "v3: "+id).validate(vs, false);
     return vs;
@@ -1557,12 +1578,12 @@ public class Publisher {
       if (e.getNodeName().equals("valueSet")) {
         if (ini.getBooleanProperty("ValueSets", e.getAttribute("name"))) {
           String id = e.getAttribute("name");
-          Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
-          Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
+          Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+"vs"+File.separator+id);
+          Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+"vs"+File.separator+id);
           src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-vs.html");
           String sf = page.processPageIncludes(id+".html", src, "v3Vocab");
           sf = addSectionNumbers("v3"+id+".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("id")));
-          TextFile.stringToFile(sf, page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.html");
+          TextFile.stringToFile(sf, page.getFolders().dstDir + "v3"+File.separator+"vs"+File.separator+id+File.separator+"index.html");
         }
       }
       e = XMLUtil.getNextSibling(e);

@@ -354,6 +354,8 @@ public class PageProcessor implements Logger  {
         src = s1+s3;
       } else if (com[0].equals("dtmappings")) {
         src = s1 + genDataTypeMappings(com[1]) + s3;
+      }  else if (com[0].equals("v3xref")) {
+        src = s1 + xreferencesForV3(name, com[1].equals("true")) + s3;      
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -507,8 +509,6 @@ public class PageProcessor implements Logger  {
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("vsxref"))
         src = s1 + xreferencesForFhir(name) + s3;      
-      else if (com[0].equals("v3xref"))
-        src = s1 + xreferencesForV3(name) + s3;      
       else if (com[0].equals("vsexpansion"))
         src = s1 + expandValueSet(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("v3expansion"))
@@ -551,15 +551,16 @@ public class PageProcessor implements Logger  {
     return b.toString()+". ";
   }
 
-  private String xreferencesForV3(String name) {
+  private String xreferencesForV3(String name, boolean vs) {
     String n = name.replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
     StringBuilder b = new StringBuilder();
     AtomEntry<ValueSet> ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/v2/vs/");
+    String path = vs ? "../../../" : "../../";
     if (ae != null)
-      b.append(". Related v2 content: <a href=\"../../"+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
+      b.append(". Related v2 content: <a href=\""+path+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
     ae = findRelatedValueset(n, valueSets, "http://hl7.org/fhir/vs/");
     if (ae != null)
-      b.append(". Related FHIR content: <a href=\"../../"+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
+      b.append(". Related FHIR content: <a href=\""+path+ae.getLinks().get("path")+"\">"+ae.getResource().getNameSimple()+"</a>");
     return b.toString()+". ";
   }
 
@@ -659,11 +660,11 @@ public class PageProcessor implements Logger  {
   private String genV3ValueSet(String name) throws Exception {
     ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
     XmlComposer xml = new XmlComposer();
-    xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
+    xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
     JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
+    jsonToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
 
     return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
@@ -813,7 +814,7 @@ public class PageProcessor implements Logger  {
   private String genV3VSIndex() {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Uri</b></td><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name (URI = http://hl7.org/fhir/v3/vs/...) </b></td><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
     
     List<String> names = new ArrayList<String>();
     Map<String, AtomEntry> map = new HashMap<String, AtomEntry>();
@@ -834,7 +835,7 @@ public class PageProcessor implements Logger  {
       String id = tail(vs.getIdentifierSimple());
       String oid = e.getLinks().get("oid");
       String[] desc = vs.getDescriptionSimple().split("\\(OID \\= ");
-      s.append(" <tr><td><a href=\"v3/"+id+"/index.html\">"+vs.getIdentifierSimple()+"</a></td><td>"+desc[0]+"</td><td>"+oid+"</td></tr>\r\n");
+      s.append(" <tr><td><a href=\"v3/vs/"+id+"/index.html\">"+id+"</a></td><td>"+desc[0]+"</td><td>"+oid+"</td></tr>\r\n");
     }
     
     s.append("</table>\r\n");
@@ -2024,7 +2025,7 @@ public class PageProcessor implements Logger  {
   
   private String expandV3ValueSet(String name) throws Exception {
     ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
-    return expandVS(vs, "../../");
+    return expandVS(vs, "../../../");
   }
   
   private String expandVS(ValueSet vs, String prefix) {

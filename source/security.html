@@ -241,14 +241,22 @@ where all trading partners have agreed to abide by them. In the absence of
 this pre-agreement, Security Labels may still be used by individual parties to 
 apply assist with security role checking, but they cannot be exchanged between
 parties in a meaningful fashion; hence, less information is allowed to flow.
+Local agreements and implementation profiles for the use security labels should describe:
 </p>
+<ul>
+ <li>Which Security Labels are able to be used</li>
+ <li>What do if a resource has an unrecognised security label on it</li>
+ <li>Authoring obligations around security labels</li>
+ <li>Operational implications of security labels</li>
+</ul>
+
 <p>
 Security labels follow the HL7 Healthcare Classification System (reference will be provided when possible) to carry:
 </p>
 <table class="grid">
  <tr> <td><b>Security Label</b></td> <td><b>Card.</b></td> <td><b>Values</b></td>  <td><b>Description</b></td> </tr>
  
- <tr> <td>Confidentiality Classification</td> <td>1..1</td> <td><a href="v3/Confidentiality/index.html">Confidentiality</a></td>  <td>Security label metadata classifying an IT 
+ <tr> <td>Confidentiality Classification</td> <td>0..1</td> <td><a href="v3/vs/Confidentiality/index.html">Confidentiality</a></td>  <td>Security label metadata classifying an IT 
 resource (clinical fact, data, information 
 object, service, or system capability) 
 according to its level of sensitivity, which is 
@@ -259,21 +267,21 @@ or entity that could result if made available
 or disclosed to unauthorized individuals, 
 entities, or processes</td> </tr>
 
- <tr> <td>Sensitivity Category</td> <td>0.*</td> <td><a href="v3/InformationSensitivityPolicy/index.html">InformationSensitivityPolicy</a></td>  <td>Security label metadata that "segments" an 
+ <tr> <td>Sensitivity Category</td> <td>0..*</td> <td><a href="v3/vs/InformationSensitivityPolicy/index.html">InformationSensitivityPolicy</a></td>  <td>Security label metadata that "segments" an 
 IT resource by categorizing the value, 
 importance, and vulnerability of an IT 
 resource perceived as undesirable to share.</td> </tr>
 
- <tr> <td>Compartment Category</td> <td>0..*</td> <td><a href="v3/??/index.html">??</a> (todo)</td>  <td>Security label metadata that "segments" an 
+ <tr> <td>Compartment Category</td> <td>0..*</td> <td><a href="v3/vs/Compartment/index.html">Compartment</a></td>  <td>Security label metadata that "segments" an 
 IT resource by indicating that access and 
 use is restricted to members of a defined 
 community or project</td> </tr>
- <tr> <td>Integrity Category</td> <td>0..*</td> <td><a href="v3/??/index.html">??</a> (todo)</td>  <td>Security label metadata that "segments" an 
+ <tr> <td>Integrity Category</td> <td>0..*</td> <td><a href="v3/vs/SecurityIntegrityObservationValue/index.html">SecurityIntegrityObservationValue</a></td>  <td>Security label metadata that "segments" an 
 IT resource by conveying the completeness, 
 veracity, reliability, trustworthiness, and 
 provenance of an IT resource</td> </tr>
 
- <tr> <td>Handling Caveat</td> <td>0..*</td> <td><a href="v3/SecurityControlObservationValue/index.html">SecurityControlObservationValue</a></td>  <td>Security label metadata conveying dissemination 
+ <tr> <td>Handling Caveat</td> <td>0..*</td> <td><a href="v3/vs/SecurityControlObservationValue/index.html">SecurityControlObservationValue</a></td>  <td>Security label metadata conveying dissemination 
 controls and information handling instructions 
 such as obligations and refrain policies to which an 
 IT resource custodian or receiver must comply.<br/>
@@ -290,7 +298,7 @@ itself has the following parts:
 </p>
 
 <table>
-  <tr> <td>Scheme:</td> <td>http://hl7.org/fhir/tag</td> <td>Fixed Value</td> </tr>
+  <tr> <td>Scheme:</td> <td>http://hl7.org/fhir/tag/security</td> <td>Fixed Value for a security label</td> </tr>
   <tr> <td>Term:</td> <td>[system]#[code]</td> <td>Where [code] is chosen from the list of values, and [system] is the listed system for the chosen code</td> </tr>
   <tr> <td>LabeL</td> <td>The display name for the code</td> <td>(optional)</td> </tr>
 </table>
@@ -306,7 +314,7 @@ Content-Type: text/xml
 Access-Control-Allow-Origin: *
 Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
 Content-Location: http://[server]/[path]/Patient/234124/_history/24
-Category: http://hl7.org/fhir/v3/ActCode#CEL; scheme="http://hl7.org/fhir/tag"; label="Celebrity"
+Category: http://hl7.org/fhir/v3/ActCode#CEL; scheme="http://hl7.org/fhir/tag/security"; label="Celebrity"
 
 &lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
 ...  [snip] ...

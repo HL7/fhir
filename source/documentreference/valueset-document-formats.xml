@@ -36,6 +36,10 @@
       <display value="HTML markup"/>
     </concept>
     <concept>
+      <code value="signature"/>
+      <display value="XML Digital Signature"/>
+    </concept>
+    <concept>
       <code value="cda"/>
       <display value="Clinical Document (e.g. CDA or templated CDA, or Dicom Structured Report)"/>
     </concept>
