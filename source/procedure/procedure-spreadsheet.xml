@@ -21,7 +21,7 @@
   <WindowTopX>60</WindowTopX>
   <WindowTopY>4320</WindowTopY>
   <TabRatio>614</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -677,7 +677,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -827,7 +826,7 @@
     <Cell><Data ss:Type="String">AbXXXscess</Data></Cell>
     <Cell><Data ss:Type="String">Real-world procedure example</Data></Cell>
     <Cell><Data ss:Type="String">f003</Data></Cell>
-    <Cell><Data ss:Type="String">procedure-example-f003-abcess.xml</Data></Cell>
+    <Cell><Data ss:Type="String">procedure-example-f003-abscess.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -846,10 +845,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

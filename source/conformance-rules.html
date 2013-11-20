@@ -33,7 +33,7 @@ how the resources and their exchange paradigms are used to solve particular use 
 The conformance layer itself is implemented using resources:
 </p>
 <table class="grid">
- <tr> <td><a href="valueset.html">Value Set</a></td> <td>Defines a set of coded values (see "<a href="terminologes.html">Using Codes</a>" for more details)</td>  </tr>
+ <tr> <td><a href="valueset.html">Value Set</a></td> <td>Defines a set of coded values (see "<a href="terminologies.html">Using Codes</a>" for more details)</td>  </tr>
  <tr> <td><a href="profile.html">Profile</a></td> <td>Makes rules about how a resource and it's data elements are used in a particular context. A profile references value sets for the coded elements in a resource</td>  </tr>
  <tr> <td><a href="conformance.html">Conformance</a></td> <td>A statement of the kinds of resources and operations provided and/or consumed by an application. The conformance resource references profiles to describe specific use of resources by the application</td>  </tr>
 </table>
@@ -76,6 +76,8 @@ the only elements that have a minimum cardinality of 1 are those where they
 are necessary to any understanding of the element that contains them. 
 The minimum cardinalities should not be taken as a guide to which elements
 are expected to be present in any particular use of the resource, including their normal/primary usage purpose.
+This specification may publish additional profiles that define which elements are required in 
+which situation, or alternatively, such profiles might be published by jurisdictions, vendors, or projects.
 </p>
 <p>
 For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
@@ -108,11 +110,11 @@ it is a modifier.
 A typical example of an modifier element is one that negates the element that contains it. For 
 instance, in the following element definition:
 </p>
-<pre class="spec">&lt;<a title="Specific reactions to a substance." class="dict" ><b>AdverseReaction</b></a> xmlns="http://hl7.org/fhir"&gt;
+<pre class="spec">&lt;<a ok="true" title="Specific reactions to a substance." class="dict" ><b>AdverseReaction</b></a> xmlns="http://hl7.org/fhir"&gt;
  &lt;!-- Other information --&gt;
- &lt;<a title="When the exposure occurred." class="dict" ><b>exposureDate</b></a> value="[<span style="color: darkgreen"><a >dateTime</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">When the exposure occurred</span><span style="color: Gray"> --&gt;</span>
- &lt;<a title="Substance(s) that is presumed to have caused the adverse reaction." class="dict" ><b>substance</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a >Resource</a>(<a >Substance</a>)</span> <span style="color: navy">Presumed to have caused the reaction</span><span style="color: Gray"> --&gt;</span>&lt;/substance&gt;
- &lt;<a title="To say that a reaction to substance did not occur (this element modifies the meaning of other elements)" class="dict" ><span style="text-decoration: underline"><b>didNotOccurFlag</b></span></a> value="[<span style="color: darkgreen"><a >boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy">To say that a reaction to substance did not occur</span><span style="color: Gray"> --&gt;</span>
+ &lt;<a ok="true" title="When the exposure occurred." class="dict" ><b>exposureDate</b></a> value="[<span style="color: darkgreen"><a ok="true" >dateTime</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">When the exposure occurred</span><span style="color: Gray"> --&gt;</span>
+ &lt;<a ok="true" title="Substance(s) that is presumed to have caused the adverse reaction." class="dict" ><b>substance</b></a>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a ok="true" >Resource</a>(<a ok="true" >Substance</a>)</span> <span style="color: navy">Presumed to have caused the reaction</span><span style="color: Gray"> --&gt;</span>&lt;/substance&gt;
+ &lt;<a ok="true" title="To say that a reaction to substance did not occur (this element modifies the meaning of other elements)" class="dict" ><span style="text-decoration: underline"><b>didNotOccurFlag</b></span></a> value="[<span style="color: darkgreen"><a ok="true" >boolean</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: navy">To say that a reaction to substance did not occur</span><span style="color: Gray"> --&gt;</span>
  &lt;!-- Other information --&gt;
 &lt;/AdverseReaction&gt;
 </pre>

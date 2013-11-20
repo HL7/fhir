@@ -123,6 +123,8 @@ public class SearchParameter {
         b.append(", ");
       if (rn.equals("Any")) 
         b.append("Any");
+      else if (rn.equals("Binary")) 
+        b.append("<a href=\"extras.html#Binary\">"+rn+"</a>");
       else
         b.append("<a href=\""+rn.toLowerCase()+".html\">"+rn+"</a>");
     }

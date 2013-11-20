@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>1425</WindowTopY>
   <TabRatio>666</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -604,7 +604,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Encounter|InterestOfCare)</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Encounter)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Context of the conposition</Data></Cell>
     <Cell><Data ss:Type="String">Describes the clinical encounter or type of care this documentation is associated with.</Data></Cell>
@@ -782,7 +782,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>17</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -799,7 +799,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
+     <ActiveRow>23</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
@@ -1105,7 +1105,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1241,20 +1240,20 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">final</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The composition or document is complete and verified by an appropriate person, and no further work is planned</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">appended</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person. The modifications added new information to the composition or document, but did not revise existing content</Data></Cell>
     <Cell><Data ss:Type="String">If systems are not able to be sure whether existing information has changed or not, they should use the status &quot;amended&quot;</Data></Cell>
-    <Cell><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
+    <Cell><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">amended</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.complete</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -1271,11 +1270,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

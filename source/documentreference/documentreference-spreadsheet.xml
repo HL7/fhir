@@ -21,6 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6315</WindowTopY>
   <TabRatio>1000</TabRatio>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -768,7 +769,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1198,7 +1198,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">superceded</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">This reference has been superseded by another reference</Data></Cell>
-    <Cell><Data ss:Type="String">~ActStatus.obselete</Data></Cell>
+    <Cell><Data ss:Type="String">~ActStatus.obsolete</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -1218,10 +1218,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1:R2</RangeSelection>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

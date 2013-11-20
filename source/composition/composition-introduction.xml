@@ -16,6 +16,7 @@ Composition resource, but it is not required that all the resources are updated 
 a single commit.
 </p>
 
+<a name="status"> </a>
 <h2>Composition Status Codes</h2>
 <p>
 Every composition has a status, which describes the status of the content of the composition, taken from this list of codes:
@@ -45,7 +46,7 @@ have no provision for removing erroneous information from a patient's record and
 this is not safe. 
 </p>
 <p>
-Note: for RIM-centric readers, see the <a href="composition-status.html">v3 mapping for the codes</a> and the <a href="document-mappings.html#rim">RIM mapping for the element</a>.
+Note: for RIM-centric readers, see the <a href="composition-status.html">v3 mapping for the codes</a> and the <a href="composition-mappings.html#http://hl7.org/v3">RIM mapping for the element</a>.
 </p>
 
 </div>

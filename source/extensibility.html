@@ -51,6 +51,7 @@ any implementer is allowed to define and use extensions, there is a set of requi
 that must be met as part of their use and definition.
 </p>
 <a name="Extension"></a>
+<a name="extension"></a>
 <h2>Extension Element</h2>
 <p>
 Every element in a resource or data type includes an optional "extension" child element that may 
@@ -82,7 +83,7 @@ The <i>value[x]</i> element has the [x] replaced with the title-cased name of on
  <li><a href="datatypes.html#string">string</a></li>
  <li><a href="datatypes.html#uri">uri</a></li>
  <li><a href="datatypes.html#boolean">boolean</a></li>
- <li><a href="datatypes.html#code">code</a> (only if the extension definition provides a <a href="terminologies.tml#complete">complete</a> binding to a suitable set of codes)</li>
+ <li><a href="datatypes.html#code">code</a> (only if the extension definition provides a <a href="terminologies.html#code">fixed</a> binding to a suitable set of codes)</li>
  <li><a href="datatypes.html#base64Binary">base64Binary</a></li>
  <li><a href="datatypes.html#Coding">Coding</a></li>
  <li><a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
@@ -188,7 +189,7 @@ or in JSON:
 </div>
 
 <a name="mustUnderstand"> </a>
-<a name="ismodifier"> </a>
+<a name="isModifier"> </a>
 <a name="modifierExtension"> </a>
 <h2>Modifier Extensions</h2>
 <p>

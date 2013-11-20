@@ -81,8 +81,12 @@ public class GeneratorUtils {
   		return "narrative";
   	if (name.equals("Extension"))
   		return "extensibility";
-  	if (name.equals("Resource"))
-  		return "references";
+    if (name.equals("Resource"))
+      return "references";
+    if (name.equals("ResourceReference"))
+      return "references";
+    if (name.equals("Binary"))
+      return "extras";
     if (name.equals("Any"))
       return "resourcelist";
   	if (name.equals("resourceType"))

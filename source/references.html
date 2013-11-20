@@ -31,7 +31,7 @@ There are 3 cases where elements inside a resource reference each other:
 <ul>
  <li>Between a ResourceReference and an <a href="references.html#contained">contained resource</a></li>
  <li>Between elements in the narrative and structured data elements</li>
- <li>An &lt;img src=""/&gt; reference in the narrative, referring to an image found in the resource (as a contained <a href="media.html">Media</a> or <a href="binary.html">Binary</a> resource)</li>
+ <li>An &lt;img src=""/&gt; reference in the narrative, referring to an image found in the resource (as a contained <a href="media.html">Media</a> or <a href="extras.html#binary">Binary</a> resource)</li>
 </ul>
 <p>
 These references are done using an id/idref based approach, where a source element indicates that it 
@@ -68,6 +68,7 @@ to the XML attribute "id".
 </p>
 
 <a name="ResourceReference"> </a>
+<a name="resourcereference"> </a>
 <a name="Resource"> </a>
 <a name="references"> </a>
 <a name="Identification"> </a>
@@ -116,7 +117,7 @@ The actual reference looks like this:
  <li>The <i>reference</i> element contains a url that is either 
    <ul>
      <li>an absolute URL</li>
-     <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, in a bundle, <a href="atom-refs">the bundle context</a></li>
+     <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, in a bundle, <a href="#atom-refs">the bundle context</a></li>
      <li>an internal fragment reference (see "Contained Resources" below)</li>
    </ul>
  </li>
@@ -393,7 +394,7 @@ the URL that that client used (it is allowed not to in order to
 cater for proxies of various kinds). However in other 
 circumstances, where the bundle itself has been exchanged onwards
 from the point of origin, and/or stored as an entity in its own 
-right (e.g. a <a href="documents.htm">clinical document</a>) the 
+right (e.g. a <a href="documents.html">clinical document</a>) the 
 service root URL is merely a logical construct that holds within the 
 bundle when resolving resources, and will have no meaning outside 
 the bundle. 

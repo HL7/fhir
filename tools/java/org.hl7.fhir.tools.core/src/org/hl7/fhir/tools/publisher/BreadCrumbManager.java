@@ -268,10 +268,10 @@ public class BreadCrumbManager {
 
   private void writePage(StringBuilder b, Page p, int level, String path) {
     if (p.getType() == PageType.resource) {
-      addLink(b, p.getResource().toLowerCase()+".html", p.getResource(), path, level);
-      addLink(b, p.getResource().toLowerCase()+"-examples.html", p.getResource()+" Examples", path+".1", level+1);
-      addLink(b, p.getResource().toLowerCase()+"-definitions.html", p.getResource()+" Definitions", path+".2", level+1);
-      addLink(b, p.getResource().toLowerCase()+"-mappings.html", p.getResource()+" Mappings", path+".3", level+1);
+        addLink(b, p.getResource().toLowerCase()+".html", p.getResource(), path, level);
+        addLink(b, p.getResource().toLowerCase()+"-examples.html", p.getResource()+" Examples", path+".1", level+1);
+        addLink(b, p.getResource().toLowerCase()+"-definitions.html", p.getResource()+" Definitions", path+".2", level+1);
+        addLink(b, p.getResource().toLowerCase()+"-mappings.html", p.getResource()+" Mappings", path+".3", level+1);
     } else {
       addLink(b, p.getFilename(), p.getTitle(), path, level);
       for (Node n : p.getChildren()) {

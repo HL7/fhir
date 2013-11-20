@@ -25,7 +25,7 @@ This table summarizes common event scenarios, and the codes that should be used 
      <td><a href="security-event-action.html">E</a> Execute</td><td>todo</td></tr>
   <tr><td>User Logout (<a href="securityevent-examples.html">example</a>)</td><td><a href="valueset-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="valueset-dicom-dcim.html#110123">110123</a> User Logout</td>
      <td><a href="security-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged out user</td></tr>
-  <tr><td>REST operation logged on server (<a href="securityevent-examples.html">example</a>)</td><td><a href="valueset-security-event-type.html">rest</a> RESTful Operation</td><td><a href="restful-operation.html">[code]</a> defined for operation</td>
+  <tr><td>REST operation logged on server (<a href="securityevent-examples.html">example</a>)</td><td><a href="valueset-security-event-type.html">rest</a> RESTful Operation</td><td><a href="restful-operations.html">[code]</a> defined for operation</td>
      <td><a href="security-event-action.html">*</a> (see below)</td><td>Participant for logged in user, if available, and one object with a reference if at least the type is known as part of the operation. Reference.url should be provided to the granularity known</td></tr>
 </table>
 

@@ -28,6 +28,7 @@ package org.hl7.fhir.definitions.generators.specification;
  POSSIBILITY OF SUCH DAMAGE.
 
  */
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -43,7 +44,10 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
 
 public class XmlSpecGenerator extends OutputStreamWriter {
@@ -51,13 +55,15 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 	private String defPage;
 	private String dtRoot;
 	private Definitions definitions;
+  private PageProcessor page;
 
 	public XmlSpecGenerator(OutputStream out, String defPage, String dtRoot,
-			Definitions definitions) throws UnsupportedEncodingException {
+			PageProcessor page) throws UnsupportedEncodingException {
 		super(out, "UTF-8");
 		this.defPage = defPage;
 		this.dtRoot = dtRoot == null ? "" : dtRoot;
-		this.definitions = definitions;
+		this.definitions = page.getDefinitions();
+		this.page = page;
 	}
 
 	public void generate(ElementDefn root) throws Exception {
@@ -416,9 +422,10 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				    if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
 				      write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");
 				    else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
-				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
-				        write("<a href=\"v3/"+bs.getReference().substring(26)+"/index.html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
-				      else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
+				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
+				        AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
+				        write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
 				        write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
 				      else
 				        throw new Exception("Internal reference "+bs.getReference()+" not handled yet");

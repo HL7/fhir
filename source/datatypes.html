@@ -578,14 +578,6 @@ In addition to decimal values, the special values "E" (error), "L" (below detect
 and "U" (above detection limit) can also be used. If there is more than one dimension, the
 different dimensions are interlaced - all the data points for a particular time are
 represented together. 
-</p>
-<p>
-None of the elements in a SampledData are mandatory because the SampledData type is frequently used with
-devices where one usage carries just the <i>data</i> element, and the values of the other 
-elements are represented elsewhere (see <a href="devicelog.html">Device Log</a> and <a href="devicecapabilities.html">Device Capabilities</a>). 
-At least one element SHALL always be populated. The data is not interpretable without at least <i>origin</i>, 
-<i>period</i>, and <i>dimensions</i>. When carried in an <a href="observation.html">Observation</a>,
-these 3 elements and <i>data</i> SHALL be populated for the SampledData to be properly populated.
 The default value for <i>factor</i> is 1. 
 </p>
 

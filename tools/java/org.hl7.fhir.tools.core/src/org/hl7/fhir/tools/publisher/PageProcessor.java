@@ -130,6 +130,8 @@ public class PageProcessor implements Logger  {
   private String publicationNotice = "";
   private BindingNameRegistry registry;
   private String id; // technical identifier associated with the page being built
+  private EPubManager epub;
+;
   
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
@@ -141,7 +143,7 @@ public class PageProcessor implements Logger  {
   
   private String dictForDt(String dt) throws Exception {
 	  File tmp = File.createTempFile("tmp", ".tmp");
-	  DictHTMLGenerator gen = new DictHTMLGenerator(new FileOutputStream(tmp), definitions);
+	  DictHTMLGenerator gen = new DictHTMLGenerator(new FileOutputStream(tmp), this);
 	  TypeParser tp = new TypeParser();
 	  TypeRef t = tp.parse(dt).get(0);
 	  
@@ -186,7 +188,9 @@ public class PageProcessor implements Logger  {
   private String xmlForDt(String dt, String pn) throws Exception {
 	  File tmp = File.createTempFile("tmp", ".tmp");
 	  tmp.deleteOnExit();
-	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, definitions);
+	  if (dt.equals("ResourceReference") || dt.equals("Narrative") || dt.equals("Extension"))
+	    pn = "base.html";
+	  XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), pn == null ? null : pn.substring(0, pn.indexOf("."))+"-definitions.html", null, this);
 	  TypeParser tp = new TypeParser();
 	  TypeRef t = tp.parse(dt).get(0);
 	  ElementDefn e = definitions.getElementDefn(t.getName());
@@ -341,7 +345,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
-        src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
+        src = s1+new SvgGenerator(this).generate(folders.srcDir+ com[1])+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("v2xref"))
@@ -709,6 +713,7 @@ public class PageProcessor implements Logger  {
     Document xdoc = builder.parse(new CSFileInputStream(new CSFile(src)));
     XhtmlGenerator xhtml = new XhtmlGenerator(null);
     xhtml.generate(xdoc, new CSFile(dst), name, description, level, adorn);
+    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
   }
 
   public void jsonToXhtml(String src, String dst, String name, String description, int level, String json) throws Exception {
@@ -728,7 +733,7 @@ public class PageProcessor implements Logger  {
     out.write("<p>&nbsp;</p>\r\n"); 
     out.write("<div class=\"example\">\r\n");
     out.write("<p>"+Utilities.escapeXml(description)+"</p>\r\n"); 
-    out.write("<p><a href=\""+dst.substring(0, dst.length()-4)+"\">Raw JSON</a></p>\r\n"); 
+    out.write("<p><a href=\""+dst.substring(0, dst.length()-5)+"\">Raw JSON</a></p>\r\n"); 
     out.write("<pre class=\"json\">\r\n");
     out.write(Utilities.escapeXml(json));    
     out.write("</pre>\r\n");
@@ -737,6 +742,7 @@ public class PageProcessor implements Logger  {
     out.write("</html>\r\n");
     out.flush();
     outs.close();
+    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
   }
 
   
@@ -769,7 +775,8 @@ public class PageProcessor implements Logger  {
             c = XMLUtil.getNextSibling(c);
           }
           for (String v : versions)
-            s.append(" <li><a href=\"v2/"+id+"/"+v+"/index.html\">"+v+"</a></li>");            
+            if (!Utilities.noString(v))
+              s.append(" <li><a href=\"v2/"+id+"/"+v+"/index.html\">"+v+"</a></li>");            
           s.append("</ul></td></tr>\r\n");
         } else
           s.append(" <tr><td><a href=\"v2/"+id+"/index.html\">http://hl7.org/fhir/v2/"+id+"</a></td><td>"+name+"</td><td></td></tr>\r\n");
@@ -1208,7 +1215,7 @@ public class PageProcessor implements Logger  {
     StringBuilder b2 = new StringBuilder();
     for (DefinedCode c : definitions.getConstraints().values()) {
       if (c.getComment().equals(name)) {
-        b.append("<a name=\""+c.getCode()+"\"> </a>\r\n");
+        b.append("<a name=\""+c.getCode()+"\"> </a><a name=\""+c.getCode().toLowerCase()+"\"> </a>\r\n");
         b2.append(" <tr><td>"+c.getCode()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>\r\n");
       }
     }
@@ -2129,7 +2136,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
-        src = s1+new SvgGenerator(definitions).generate(folders.srcDir+ com[1])+s3;
+        src = s1+new SvgGenerator(this).generate(folders.srcDir+ com[1])+s3;
       else if (com[0].equals("file"))
         src = s1+/*TextFile.fileToString(folders.srcDir + com[1]+".html")+*/s3;
       else if (com[0].equals("setwiki")) {
@@ -2381,7 +2388,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("mappingslist"))
           src = s1+mappingsList+s3;
       else if (com[0].equals("svg"))
-        src = s1+new SvgGenerator(definitions).generate(resource)+s3;        
+        src = s1+new SvgGenerator(this).generate(resource)+s3;        
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
       else if (com[0].equals("navlist"))
@@ -2552,8 +2559,8 @@ public class PageProcessor implements Logger  {
           s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
         started = true;
         s.append("<tr><td><a href=\""+pn+".html\">"+Utilities.escapeXml(p.metadata("description"))+"</a></td>");
-        s.append("<td><a href=\""+pn+".xml.html\">XML</a></td>");
-        s.append("<td><a href=\""+pn+".json.html\">JSON</a></td>");
+        s.append("<td><a href=\""+pn+".profile.xml.html\">XML</a></td>");
+        s.append("<td><a href=\""+pn+".profile.json.html\">JSON</a></td>");
         s.append("</tr>");
       }
     }
@@ -2781,10 +2788,15 @@ public class PageProcessor implements Logger  {
 
   public void setFolders(FolderManager folders) {
     this.folders = folders;
+    epub = new EPubManager(folders.dstDir, qa, this);
   }
 
   public void setIni(IniFile ini) {
     this.ini = ini;
+  }
+
+  public EPubManager getEpub() {
+    return epub;
   }
 
   public Calendar getGenDate() {

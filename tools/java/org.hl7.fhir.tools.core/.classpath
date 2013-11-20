@@ -14,7 +14,6 @@
 	<classpathentry kind="src" path="/org.hl7.fhir.implementation"/>
 	<classpathentry kind="src" path="/org.hl7.fhir.utilities"/>
 	<classpathentry kind="src" path="/org.hl7.fhir.definitions.ecore"/>
-	<classpathentry kind="lib" path="../imports/saxon9.jar"/>
 	<classpathentry kind="lib" path="../imports/saxon9-dom.jar"/>
 	<classpathentry kind="lib" path="../imports/sequence-library-1.0.2.jar"/>
 	<classpathentry kind="lib" path="../imports/sqljet-1.1.7.jar"/>
@@ -25,5 +24,6 @@
 	<classpathentry kind="lib" path="../imports/svnkit-javahl16-1.7.9.jar"/>
 	<classpathentry kind="lib" path="../imports/antlr-runtime-3.4.jar"/>
 	<classpathentry kind="lib" path="../imports/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/saxon9he.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

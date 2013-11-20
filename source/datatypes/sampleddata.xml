@@ -105,7 +105,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SampledData.origin</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Zero value and units</Data></Cell>
     <Cell><Data ss:Type="String">The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series</Data></Cell>
@@ -113,7 +113,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">SampledData.period</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Number of milliseconds between samples</Data></Cell>
     <Cell><Data ss:Type="String">The length of time between sampling times, measured in milliseconds</Data></Cell>
@@ -144,7 +144,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">SampledData.dimensions</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Number of sample points at each time point</Data></Cell>
     <Cell><Data ss:Type="String">The Number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once</Data></Cell>
@@ -152,7 +152,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">SampledData.data</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">((-{0,1}\d*\.{0,1}\d+)|[EUL])( ((-{0,1}\d*\.{0,1}\d+)|[EUL]))*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Decimal values with spaces, or &quot;E&quot; | &quot;U&quot; | &quot;L&quot;</Data></Cell>
@@ -171,8 +171,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

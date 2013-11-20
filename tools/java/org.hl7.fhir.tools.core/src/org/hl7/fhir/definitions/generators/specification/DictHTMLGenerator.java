@@ -41,15 +41,18 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
 
 public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private Definitions definitions;
+	private PageProcessor page;
 	
-	public DictHTMLGenerator(OutputStream out, Definitions definitions) throws UnsupportedEncodingException {
+	public DictHTMLGenerator(OutputStream out, PageProcessor page) throws UnsupportedEncodingException {
 		super(out, "UTF-8");
-		this.definitions = definitions;
+		this.definitions = page.getDefinitions();
+		this.page = page;
 	}
 
 	public void generate(ElementDefn root) throws Exception
@@ -81,7 +84,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		  tableRowNE("Type", null, "<a href=\"#"+type.substring(1)+"\">See "+type.substring(1)+"</a>");
 		else
 		  tableRowNE("Type", "datatypes.html", type);
-		tableRow("Is Modifier", "resources.html#ismodifier", displayBoolean(e.isModifier()));
+		tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()));
 		tableRow("Requirements", null, e.getRequirements());
     tableRow("Aliases", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())
@@ -102,7 +105,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  StringBuilder b = new StringBuilder();
 	  BindingSpecification cd =  definitions.getBindingByName(e.getBindingName());
     b.append(cd.getName()+" : ");
-    b.append(TerminologyNotesGenerator.describeBinding(cd));
+    b.append(TerminologyNotesGenerator.describeBinding(cd, page));
 //    if (cd.getBinding() == Binding.Unbound)
 //      b.append(" (Not Bound to any codes)");
 //    else

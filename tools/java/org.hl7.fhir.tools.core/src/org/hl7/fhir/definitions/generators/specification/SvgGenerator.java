@@ -2,6 +2,7 @@ package org.hl7.fhir.definitions.generators.specification;
 
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +21,9 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLWriter;;
@@ -135,9 +139,11 @@ public class SvgGenerator {
   private double miny = 0;
   private boolean attributes = true;
   IniFile ini;
+  private PageProcessor page;
 
-  public SvgGenerator(Definitions definitions) {
-    this.definitions = definitions;
+  public SvgGenerator(PageProcessor page) {
+    this.definitions = page.getDefinitions();
+    this.page = page;
   }
 
   public String generate(String filename) throws Exception {
@@ -689,7 +695,10 @@ public class SvgGenerator {
       xml.attribute("class", "diagram-class-title");
     if (link) {
       xml.open("text");
-      xml.attribute("xlink:href", "#"+tn.toLowerCase());
+      if (tn.equals("Extension") || tn.equals("ResourceReference") || tn.equals("Narrative"))
+        xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tn) + ".html#"+tn.toLowerCase());
+      else
+        xml.attribute("xlink:href", "#"+tn.toLowerCase());
       xml.open("a");
       xml.text(tn);
       xml.close("a");
@@ -749,11 +758,11 @@ public class SvgGenerator {
     if (definitions.hasResource(root))
       return root.toLowerCase()+"-definitions.html#";
     else if ("Narrative".equals(root))
-      return "formats-definitions.html#";
+      return "base-definitions.html#";
     else if ("ResourceReference".equals(root))
-      return "resources-definitions.html#";
+      return "base-definitions.html#";
     else if ("Extension".equals(root))
-      return "extensibility-definitions.html#";
+      return "base-definitions.html#";
     else if (definitions.hasType(root))
       return "datatypes-definitions.html#";
     else
@@ -856,9 +865,10 @@ public class SvgGenerator {
       else if (bs.getReference().startsWith("valueset-"))
         return bs.getReference()+".html";            
       else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
-        if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/"))
-          return "v3/"+bs.getReference().substring(26)+"/index.html";
-        else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
+        if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
+          AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
+          return vs.getLinks().get("path").replace(File.separatorChar, '/');
+        } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
           return bs.getReference().substring(23)+".html";
         else
           throw new Exception("Internal reference "+bs.getReference()+" not handled yet");

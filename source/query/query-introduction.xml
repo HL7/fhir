@@ -254,7 +254,7 @@ value is one of the following:
  <li><b>[parameter]=|[code]</b> matches a code/value that has no system namespace</li>
 </ul>
 <p>
-Note that the namespace URI and code both must be <a hef="#escaping">escaped</a>.
+Note that the namespace URI and code both must be <a href="#escaping">escaped</a>.
 </p>
 <p>
 If the the modifier ":text", is used, the search parameter is processed as a 

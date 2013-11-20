@@ -113,7 +113,7 @@ public class BookMaker {
 					  found = true;
 				  else if (href.startsWith("http:") || href.startsWith("https:") || href.startsWith("mailto:") || href.startsWith("ftp:"))
 					  found = true;
-				  else if (href.startsWith("v2/") || href.startsWith("v3/")) {
+				  else if (href.startsWith("v2/") || href.startsWith("v3/") || href.startsWith("../")) {
 				    found = true;
 				    node.setAttribute("href", "http://hl7.org/fhir"+href);
 				  }
@@ -175,7 +175,7 @@ public class BookMaker {
             if (h.getName().startsWith("h")) {
               String s = h.allText();
               if (s.contains(":"))
-                a.addText(" (ยง"+s.substring(0, s.indexOf(':'))+")");
+                a.addText(" (ง"+s.substring(0, s.indexOf(':'))+")");
             } 
           }
         }
