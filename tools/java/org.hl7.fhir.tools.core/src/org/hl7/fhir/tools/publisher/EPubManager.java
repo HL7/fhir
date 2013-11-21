@@ -71,6 +71,11 @@ public class EPubManager implements FileNotifier {
     zip.addBytes("OEBPS\\Content.opf", generateContentFile(), false);
     build(zip);
     zip.close();
+    
+    zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub.zip"));
+    zip.addFileName("fhir-v"+page.getVersion()+".epub", Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"), false);
+    zip.close();
+    new File(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")).delete();
   }
 
   private byte[] generateContentFile() throws Exception {
@@ -229,7 +234,7 @@ public class EPubManager implements FileNotifier {
     }
     Entry e;
     if (!Utilities.noString(path)) {
-      if (href.endsWith("qa.html")) 
+      if (href.endsWith("qa.html") || href.endsWith(".epub.zip")) 
         return;
       String target = collapse(base, path);
       if (target.endsWith(".xml") || target.endsWith(".json") || target.endsWith(".xsd") || target.endsWith(".zip") || target.endsWith(".sch") || target.endsWith(".pdf") || target.endsWith(".epub")) {
