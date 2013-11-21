@@ -150,16 +150,21 @@ public class EPubManager implements FileNotifier {
     }
   }
 
-  private void check(Entry e) throws FileNotFoundException, Exception {
+  private void check(Entry e) throws Exception {
     if (new File(Utilities.path(page.getFolders().dstDir, e.filename)).exists()) { 
       e.checked = true;
-      XhtmlDocument doc = new XhtmlParser().parse(new FileInputStream(Utilities.path(page.getFolders().dstDir, e.filename)), "html");
-      checkAnchors(doc, e);
-      checkLinks(doc, e);
-      stripDivs(doc);
-      ByteArrayOutputStream stream = new ByteArrayOutputStream();
-      new XhtmlComposer().compose(stream, doc);
-      e.bytes = stream.toByteArray();
+      XhtmlDocument doc;
+      try {
+        doc = new XhtmlParser().parse(new FileInputStream(Utilities.path(page.getFolders().dstDir, e.filename)), "html");
+        checkAnchors(doc, e);
+        checkLinks(doc, e);
+        stripDivs(doc);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        new XhtmlComposer().compose(stream, doc);
+        e.bytes = stream.toByteArray();
+      } catch (Exception e1) {
+        throw new Exception("Error parsing "+Utilities.path(page.getFolders().dstDir, e.filename), e1);
+      }
     } else {
       reportError("Unable to find file "+e.filename);
     }
