@@ -108,6 +108,11 @@ public class XhtmlParser {
     return parse(entryName);
   }
   
+  public XhtmlDocument parse(InputStream input, String entryName, String charSet) throws Exception {
+    rdr = new InputStreamReader(input, charSet);
+    return parse(entryName);
+  }
+  
   private XhtmlDocument parse(String entryName) throws Exception
   {
     XhtmlDocument result = new XhtmlDocument();

@@ -155,7 +155,7 @@ public class EPubManager implements FileNotifier {
       e.checked = true;
       XhtmlDocument doc;
       try {
-        doc = new XhtmlParser().parse(new FileInputStream(Utilities.path(page.getFolders().dstDir, e.filename)), "html");
+        doc = new XhtmlParser().parse(new FileInputStream(Utilities.path(page.getFolders().dstDir, e.filename)), "html", "UTF-8");
         checkAnchors(doc, e);
         checkLinks(doc, e);
         stripDivs(doc);
