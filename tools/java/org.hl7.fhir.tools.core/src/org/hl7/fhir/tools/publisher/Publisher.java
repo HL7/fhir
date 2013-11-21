@@ -1041,7 +1041,7 @@ public class Publisher {
       }
 
       page.log("Copy HTML templates");
-      Utilities.copyDirectory(page.getFolders().rootDir+page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir);
+      Utilities.copyDirectory(page.getFolders().rootDir+page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getEpub());
       
 	    profileFeed = new AtomFeed();
 	    profileFeed.setId("http://hl7.org/fhir/profile/resources");
@@ -1180,7 +1180,7 @@ public class Publisher {
 	    produceZip();
 
 	    
-	    log("Produce page.getEpub() Form");
+	    log("Produce .epub Form");
 	    page.getEpub().produce();
 	  }
 	  else 
@@ -2101,7 +2101,7 @@ public class Publisher {
 	}
 
   private void jsonToXhtml(String n, String description, String json) throws Exception {
-    page.jsonToXhtml(n+".json", n+".json.html", n, description, 0, json);
+    page.jsonToXhtml(n+".json", n+".json.html", n+".json", n, description, 0, json);
     page.getEpub().registerFile(n+".json.html", description, EPubManager.XHTML_TYPE);
   }
   

@@ -122,7 +122,7 @@ public class Utilities {
 		return s.substring(0, 1).toUpperCase() + s.substring(1);
 	}
 	
-  public static void copyDirectory(String sourceFolder, String destFolder) throws Exception {
+  public static void copyDirectory(String sourceFolder, String destFolder, FileNotifier notifier) throws Exception {
     CSFile src = new CSFile(sourceFolder);
     if (!src.exists())
       throw new Exception("Folder " +sourceFolder+" not found");
@@ -131,9 +131,12 @@ public class Utilities {
    String[] files = src.list();
    for (String f : files) {
      if (new CSFile(sourceFolder+File.separator+f).isDirectory()) {
-       copyDirectory(sourceFolder+File.separator+f, destFolder+File.separator+f);
-     } else
+       copyDirectory(sourceFolder+File.separator+f, destFolder+File.separator+f, notifier);
+     } else {
+       if (notifier != null)
+         notifier.copyFile(sourceFolder+File.separator+f, destFolder+File.separator+f);
        copyFile(new CSFile(sourceFolder+File.separator+f), new CSFile(destFolder+File.separator+f));
+     }
    }
   }
 	

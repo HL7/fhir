@@ -349,6 +349,45 @@ public class BreadCrumbManager {
     p.addTag("br");
   }
 
+  public List<String> getSpineOrder() {
+    List<String> res = new ArrayList<String>();
+    getSpineOrder1(res, home);
+    getSpineOrder2(res, home);
+    return res;
+  }
+
+  private void getSpineOrder1(List<String> res, Page page) {
+    if (page.getType() == PageType.resource) {
+      String resource = page.resource.toLowerCase();
+      res.add(resource+".html");
+      res.add(resource+"-examples.html");
+      res.add(resource+"-definitions.html");
+      res.add(resource+"-mappings.html");
+      res.add(resource+"-explanations.html");
+      res.add(resource+"-profiles.html");
+    } else if (!Utilities.noString(page.filename))
+      res.add(page.filename);
+    for (Node p : page.getChildren()) {
+      if (p instanceof Page) 
+        getSpineOrder1(res, (Page) p);
+      else {
+        // ignore for now
+      }
+    }
+    
+  }
+
+  private void getSpineOrder2(List<String> res, Page page) {
+    for (Node p : page.getChildren()) {
+      if (p instanceof Page) 
+        getSpineOrder2(res, (Page) p);
+      else {
+        // ignore for now
+      }
+    }
+    
+  }
+
   
 }
 

@@ -17,7 +17,9 @@ todo: compartments
     <page title="EHR FM map" filename="ehr-fm.html"/>
     <page title="Resource Definitions" filename="resources.html">
       <page title="Conformance" filename="conformance-rules.html"/>
-      <page title="Tags, Bundles, Compartments" filename="extras.html"/>
+      <page title="Tags, Bundles, Compartments" filename="extras.html">
+        <page title="Compartments" filename="compartment-patient.html"/>
+      </page>
       <page title="References" filename="references.html"/>
       <page title="Narrative" filename="narrative.html"/>
       <page title="Formats" filename="formats.html">

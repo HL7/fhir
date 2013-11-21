@@ -656,7 +656,7 @@ public class PageProcessor implements Logger  {
     new XmlComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
     new JsonComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -668,7 +668,7 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(Utilities.path(folders.dstDir, "vs", name, "v3-"+name+".json"), Utilities.path("v3", "vs", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
 
     return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
@@ -681,7 +681,7 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, r2Json(vs));
+    jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path("v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), "v2-"+n[0]+"-"+n[1]+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 3, r2Json(vs));
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -694,7 +694,7 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs, false);
-    jsonToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path("v2", name, "v2-"+name+".json.html"), "v2-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -716,9 +716,9 @@ public class PageProcessor implements Logger  {
     epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
   }
 
-  public void jsonToXhtml(String src, String dst, String name, String description, int level, String json) throws Exception {
+  public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json) throws Exception {
 
-    FileOutputStream outs = new FileOutputStream(dst.contains(File.separator) ? dst : folders.dstDir+ dst);
+    FileOutputStream outs = new FileOutputStream(folders.dstDir+ dst);
     OutputStreamWriter out = new OutputStreamWriter(outs);
     
     out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
@@ -733,7 +733,7 @@ public class PageProcessor implements Logger  {
     out.write("<p>&nbsp;</p>\r\n"); 
     out.write("<div class=\"example\">\r\n");
     out.write("<p>"+Utilities.escapeXml(description)+"</p>\r\n"); 
-    out.write("<p><a href=\""+dst.substring(0, dst.length()-5)+"\">Raw JSON</a></p>\r\n"); 
+    out.write("<p><a href=\""+link+"\">Raw JSON</a></p>\r\n"); 
     out.write("<pre class=\"json\">\r\n");
     out.write(Utilities.escapeXml(json));    
     out.write("</pre>\r\n");
@@ -2788,7 +2788,7 @@ public class PageProcessor implements Logger  {
 
   public void setFolders(FolderManager folders) {
     this.folders = folders;
-    epub = new EPubManager(folders.dstDir, qa, this);
+    epub = new EPubManager(this);
   }
 
   public void setIni(IniFile ini) {
