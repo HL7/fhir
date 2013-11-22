@@ -388,6 +388,10 @@ public class BreadCrumbManager {
     
   }
 
+  public Page getPage() {
+    return home;
+  }
+
   
 }
 

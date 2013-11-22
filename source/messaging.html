@@ -187,10 +187,12 @@ be resubmitted (and doing so should not result in a duplicate message response).
 fatal problem with the message or a problem with the receiving application.
 </p>
 <p>
-The mailbox can also be used to accept documents. In this case, the document is "accepted" (the server 
+The mailbox can also be used to accept queries or documents. In the case of documents, the document is "accepted" (the server 
 takes responsibility for custody of the received document) and an HTTP status of 204 No Content is returned, 
 or an HTTP error is returned. The server is under no obligation to perform any particular processing of the document except as 
-specific trading partner agreements dictate.
+specific trading partner agreements dictate. In the case of queries, the server a bundle containing 
+a query and a set of other related resources, processes the query, and returns a bundle with a query which is a response,
+and any additional resources that are part of the query response.
 </p>
 <p>
 The following rules apply to the mailbox:

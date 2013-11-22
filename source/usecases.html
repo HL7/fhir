@@ -100,7 +100,71 @@ At present, IHE is working with the FHIR project team to use FHIR for Mobile Hea
 <h2>Decision Support</h2>
 
 <p>
-Still to be done.
+One common use of healthcare information systems is to integrate some form of decision support software into clinical systems.
+Common uses of clinical decision support are:
+</p>
+<ul>
+ <li>Drug-drug interaction checking, and more generally, prescription safety checks</li>
+ <li>Suggesting commonly missed Diagnostic Data interpretations (including delta checking)</li>
+ <li>Patient surveillance for early warning of deteriorating patient health (both acute and ambulatory care</li>
+ <li>Identifying candidates for alternative treatment plans for improved efficacy</li>
+</ul>
+<p>
+Note that in addition to clinical decision support, there is also infrastructural uses, such as 
+managing access control.
+</p>
+<p>
+The various forms of decision support each involve different interaction patterns, so there is no single 
+Decision support implementation in the FHIR specification. Generally, the patterns fall into several classes:
+</p>
+<ol>
+ <li>The decision comes from an engine entirely hidden behind a system interface, and has no direct impact on the data exchange</li>
+ <li>The decision support engine uses existing data, and generates alarm messages concerning patient state that are visible on the FHIR interface</li>
+ <li>The decision support offers is consulted through a described interface; it accepts a request for a decision, and returns a decision</li>
+</ol>
+<p>
+Any decision support may fall into multiple categories at once, depending on the perspective of a particular system.
+</p>
+<ol>
+ <li>There is no particular support required from the FHIR specification, though there will be ongoing review of the contents of the resources to ensure that they support common decision support practices appropriately</li>
+ <li>There is no suitable resource for this use yet. The <a href="alert.html">Alert</a> resource is intended or clinical notes about the patient, and is not intended for this use. A resource called "Alarm" is under preparation for this purpose </li>
+ <li>A request for a decision support is understood as a <a href="query.html">query</a> using a named _query that takes a set of parameters. See below</li>
+</ol>
+ 
+<h3>Explicit Requests for Decisions</h3> 
+<p>
+When a query is made in order to get a decision made, the following considerations apply:
+</p>
+<p><b>Request</b></p>
+<ul>
+  <li>The request for a decision is made using one of the interaction patterns described for <a href="query.htm">queries</a>: A RESTful search, a query posted to <a href="messaging.html#mailbox">/Mailbox</a>, a query <a href="messaging.html">message</a>, or the Asynchronous query pattern</li>
+  <li>The request has a _query parameter that identifies the decision that is being requested</li>
+  <li>The request also has a set of parameter values. These parameter values may be the data that describes the decision being made, or they may be references to specific resources that contain the request. In general, 
+    the more complex the decision request is, the more likely it is that a full resource is appropriate, particularly since this provides a ready made way to record and manage the requests themselves. </li>
+  <li>In some of the query interaction patterns, the resources identified in the parameter value can be bundled up with the request. In others, only the references can be passed</li>
+  <li>Which of the query patterns is most appropriate depends on the complexity of the decision support input, and the length of time the decision is expected to take. As either of these increases, the more complex query patterns become more appropriate</li>
+</ul>
+
+<p><b>Response</b></p>
+<ul>
+ <li>If the decision support engine is unable to provide the requested decision, it returns an <a href="operationoutcome.html">Operation Outcome Resource</a> describing the issue</li>
+ <li>Other wise it returns a resource the represents the decision, along with other resources as supporting information, as described by the the resource, or applicable profiles</li>
+ <li>In princple, the decision provider can choose to make a copy of the returned decision resource available through a normal RESTful interface, or it an choose not to. This decision may be constrained by applicable profiles, policy decision, or the innate nature of the query</li>
+ <li>If either the decision provider or the requester choose to retain a copy of the decision, they must ensure that the (lack of) currency of the decision is appropriately considered when it is used</li>
+</ul>
+
+<p>
+If follows from this discussion, that decisions that may be requested need at least a response resource defined, and possibly a request resource. This table summarises 
+known decisions for which resources have been defined.
+</p>
+<table class="grid">
+ <tr> <td><b>Decision</b></td> <td><b>Resources</b></td> <td><b>Invocation</b></td> </tr>
+ <tr> <td>What immunizations should this patient have?</td> <td>Response: <a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td> <td>The exact way to invoke this decision is not yet defined</td> </tr>
+</table>
+
+<p>
+Implementers are allowed to use existing resources for decisions not documented here, but there is no guarantee that they will be suitable. 
+Improving decision support will be a focus for ongoing development during the Trial Use period.
 </p>
 
 </div>

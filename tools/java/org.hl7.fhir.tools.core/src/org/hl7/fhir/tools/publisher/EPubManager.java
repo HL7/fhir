@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
+import org.hl7.fhir.tools.publisher.BreadCrumbManager.Page;
 import org.hl7.fhir.utilities.FileNotifier;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Utilities;
@@ -50,6 +51,7 @@ public class EPubManager implements FileNotifier {
 
   private PageProcessor page;
   private List<Entry> entries = new ArrayList<EPubManager.Entry>();
+  private String uuid;
 
   
   public EPubManager(PageProcessor page) {
@@ -69,14 +71,16 @@ public class EPubManager implements FileNotifier {
     zip.addFileNameNoCompress("mimetype", Utilities.path(page.getFolders().rootDir, "tools", "epub", "mimetype"));
     zip.addFileName("META_INF\\container.xml", Utilities.path(page.getFolders().rootDir, "tools", "epub", "mimetype"), false);
     zip.addBytes("OEBPS\\Content.opf", generateContentFile(), false);
+    zip.addBytes("OEBPS\\toc.ncx", generateIndexFile(), false);
     build(zip);
     zip.close();
     
     zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub.zip"));
     zip.addFileName("fhir-v"+page.getVersion()+".epub", Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"), false);
     zip.close();
-    new File(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")).delete();
+    // new File(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")).delete();
   }
+
 
   private byte[] generateContentFile() throws Exception {
     ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -99,10 +103,15 @@ public class EPubManager implements FileNotifier {
     xml.element("http://purl.org/dc/elements/1.1/", "publisher", "http://hl7.org/fhir");
     xml.attribute("id", "BookID");
     xml.attribute("http://www.idpf.org/2007/opf", "scheme", "UUID");
-    xml.element("http://purl.org/dc/elements/1.1/", "identifier", UUID.randomUUID().toString());
+    uuid = UUID.randomUUID().toString();
+    xml.element("http://purl.org/dc/elements/1.1/", "identifier", uuid);
     xml.close("metadata");
     
     xml.open("manifest");
+    xml.attribute("id", "ncx");
+    xml.attribute("href", "toc.ncx");
+    xml.attribute("media-type", "application/x-dtbncx+xml");   
+    xml.element("item", null);
     for (int i = 0; i < entries.size(); i++) {
       Entry e = entries.get(i);
       xml.attribute("id", "n"+Integer.toString(i));
@@ -128,6 +137,66 @@ public class EPubManager implements FileNotifier {
     xml.close("package");
     xml.close();
     return stream.toByteArray();
+  }
+
+  private byte[] generateIndexFile() throws Exception {
+    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+    XMLWriter xml = new XMLWriter(stream, "UTF-8");
+    xml.setPretty(true);
+    xml.start();
+    xml.namespace("http://www.daisy.org/z3986/2005/ncx/", "");
+    xml.attribute("version", "2005-1");
+    xml.open("ncx");
+    
+    xml.open("head");    
+    
+    xml.attribute("name", "dtb:uid");
+    xml.attribute("content", uuid);
+    xml.element("meta", null);
+    
+    xml.attribute("name", "dtb:depth");
+    xml.attribute("content", "1");
+    xml.element("meta", null);
+    
+    xml.attribute("name", "dtb:totalPageCount");
+    xml.attribute("content", "0");
+    xml.element("meta", null);
+    
+    xml.attribute("name", "dtb:maxPageNumber");
+    xml.attribute("content", "0");
+    xml.element("meta", null);
+    
+    xml.close("head");
+    xml.open("docTitle");
+    xml.element("text", "FHIR Specification v"+page.getVersion());
+    xml.close("docTitle");
+    
+    xml.open("navMap");
+    int i = 1;
+    addNavPoint(xml, page.getBreadCrumbManager().getPage(), i);
+    for (org.hl7.fhir.tools.publisher.BreadCrumbManager.Node p : page.getBreadCrumbManager().getPage().getChildren()) {
+      if (p instanceof Page) {
+        i++;
+        addNavPoint(xml, (Page) p, i);
+      }
+    }
+    xml.close("navMap");
+    xml.close("ncx");
+    xml.close();
+    return stream.toByteArray();
+  }
+
+  private void addNavPoint(XMLWriter xml, Page page, int i) throws Exception {
+    xml.attribute("id", "id"+page.getId());
+    xml.attribute("playOrder", Integer.toString(i));
+    xml.open("navPoint");
+    xml.open("navLabel");
+    xml.element("text", page.getTitle());
+    xml.close("navLabel");
+    xml.attribute("src", page.getFilename());
+    xml.element("content", null);
+    xml.close("navPoint");
+    
   }
 
   private void addToSpine(XMLWriter xml, String n) throws IOException {

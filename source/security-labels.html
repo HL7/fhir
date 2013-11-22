@@ -31,7 +31,7 @@ to enforce the handling caveats and carry the security labels forward as appropr
 </p>
 <p>
 Security labels are most effective in fully trusted environments - that is, 
-where all trading partners have agreed to abide by them. In the absence of 
+where all trading partners have agreed to abide by them, in a Mutual Trust Frameworks. In the absence of 
 this kind of pre-agreement, Security Labels may still be used by individual parties to 
 apply assist with security role checking, but they cannot be exchanged between
 parties in a meaningful fashion; hence, less information is allowed to flow.
@@ -43,6 +43,11 @@ Local agreements and implementation profiles for the use security labels should 
  <li>Authoring obligations around security labels</li>
  <li>Operational implications of security labels</li>
 </ul>
+
+<p>
+This specification provides a basic simple mutual trust framework, on which 
+more sophisticated mutual trust frameworks can be built by trading partners.
+</p>
 
 <h2>Representing Security Labels</h2>
 
@@ -147,7 +152,7 @@ that these are implemented as appropriate by all FHIR systems.
  <tr>
    <td>Delete After Use: http://hl7.org/fhir/v3/ActCode#DELAU</td>
    <td>
-     An application receiving this resource must delete all copies after the immediate use for which the received it is complete. <br/> Notes:
+     An application receiving a resource with this label must delete all copies after the immediate use for which the received it is complete. <br/> Notes:
      <ul>
       <li>By default, this includes not storing the resource in any audit trail. Any use must be aware of the implications of this</li>
       <li>All conformant implementations SHALL understand this security label, and not ignore it</li>
@@ -159,7 +164,7 @@ that these are implemented as appropriate by all FHIR systems.
  <tr>
    <td>Delete After Use (next Hop): http://hl7.org/fhir/security#DELAU-next</td>
    <td>
-     An application receiving this resource can retain it, but any further exchanges SHALL be tagged with "delete after use".
+     An application receiving a resource with this label can retain it, but any further exchanges SHALL be tagged with "delete after use".
      Typically, this is used when providing a resource to a repository - it can retain the resource, but no other systems 
      are allowed to. <br/> Notes:
      <ul>
@@ -173,7 +178,7 @@ that these are implemented as appropriate by all FHIR systems.
  <tr>
    <td>Do Not Re-use: http://hl7.org/fhir/v3/ActCode#NOREUSE</td>
    <td>
-     An application receiving this resource may only use it for the immediate purpose of use. In particular, the application is not authorised to re-distribute (i.e. exchange this resource with any other application). <br/> Notes:
+     An application receiving a resource with this label may only use it for the immediate purpose of use. In particular, the application is not authorised to re-distribute (i.e. exchange this resource with any other application). <br/> Notes:
      <ul>
       <li>The exact interpretation of "immediate purpose of use" and the boundaries of "the application" are determined by local policy, but application developers SHOULD be conservative in their interpretations</li>
       <li>All conformant implementations SHALL understand this security label, and not ignore it</li>
@@ -185,7 +190,7 @@ that these are implemented as appropriate by all FHIR systems.
  <tr>
    <td>Do Not Re-use (next Hop): http://hl7.org/fhir/security#NOREUSE-next</td>
    <td>
-     An application receiving this resource can re-use or re-distribute it, but any further exchanges SHALL be tagged with "Do Not Re-use".
+     An application receiving a resource with this label can re-use or re-distribute it, but any further exchanges SHALL be tagged with "Do Not Re-use".
      Typically, this is used when providing a resource to a repository - it can re-use the resource, but no other systems 
      are allowed to. <br/> Notes:
      <ul>
@@ -214,40 +219,40 @@ that these are implemented as appropriate by all FHIR systems.
  <tr>
    <td>Celebrity / VIP: http://hl7.org/fhir/v3/ActCode#CEL</td>
    <td>
-    Use on a patient resource to indicate that the patient is a celebrity or well known to the staff in the institution.
+    Use on a <a href="patient.html">Patient</a> resource to indicate that the patient is a celebrity or well known to the staff in the institution.
     Resources with this label are more likely to be the subject of active audit maintanance or additional security policy
    </td>
  </tr>
  <tr>
    <td>Staff: http://hl7.org/fhir/v3/ActCode#EMP</td>
    <td>
-    Use on a patient resource to indicate that the patient is a staff member of the institution. This is a variation on 
+    Use on a <a href="patient.html">Patient</a> resource to indicate that the patient is a staff member of the institution. This is a variation on 
     being a celebrity. Resources with this label are (even) more likely to be the subject of active audit maintanance or additional security policy
    </td>
  </tr>
  <tr>
    <td>Keep information from patient: http://hl7.org/fhir/security#nopatient</td>
    <td>
-    Used on any resource to indicate that information  is not to be made available to the patient or their relatives/carers.
+    Used on <a href="resourcelist.html">any</a> resource to indicate that information  is not to be made available to the patient or their relatives/carers.
     Typically, this is used on an <a href="alert.html">Alert</a> resource, when the alert records information on pateint abuse or non-compliance
    </td>
  </tr>
  <tr>
    <td>Contact/Employment Details Confidential: http://hl7.org/fhir/v3/ActCode#DEMO</td>
    <td>
-    Used on a patient resource to indicate that the patient's address and contact details (phone numbers, email addresses), and including employment information are sensitive 
+    Used on a <a href="patient.html">Patient</a> resource to indicate that the patient's address and contact details (phone numbers, email addresses), and including employment information are sensitive 
     information, and in particular, shouldn't be shared with patient's family without specific authorization
    </td>
  </tr>
  <tr>
    <td>Diagnosis related confidentiality: http://hl7.org/fhir/v3/ActCode#DIA</td>
    <td>
-    Used on any resource to indicate that the resource relates to a diagnosis (or potential diagnosis) which is generally associated with confidentiality requirements, or is for this particular patient. 
+    Used on <a href="resourcelist.html">any</a> resource to indicate that the resource relates to a diagnosis (or potential diagnosis) which is generally associated with confidentiality requirements, or is for this particular patient. 
     This may be associated for diagnoses including STDs, psychiatric conditions, adolescent related issues, drug abuse, genetics conditions, and others.
      <br/> Notes:
      <ul>
       <li>Generally, this security label cascades logically; e.g. any <a href="diagnosticreport.html">Diagnostic Reports</a> produced because a of a <a href="diagnosticorder.html">Diagnostic Order</a> with this security label will also have the same security label. </li>
-      <li>There may be additional labels classifying the diagnosis (such as into the categories above); these should always be accompanied by this label so that all systems will know that restrictions apply</li>
+      <li>There may be additional labels classifying the diagnosis (such as into the categories above); such labels should always be accompanied by this label so that all systems will know that restrictions apply</li>
     </ul>
    </td>
  </tr>
@@ -256,7 +261,7 @@ that these are implemented as appropriate by all FHIR systems.
    <td>
     Author consent is needed for disclosure. Typically, this is used by a treating practitioner to label portions of their own record confidential. 
     Any such resource is only shared with the author, or with other parties as arranged. Additional policy and/or labels may be required to manage
-    the arragements
+    the arrangements
    </td>
  </tr>
  <tr>
@@ -266,7 +271,7 @@ that these are implemented as appropriate by all FHIR systems.
    <td>Break The Glass: http://hl7.org/fhir/v3/ActReason#ETREAT</td>
    <td>
     The requester is asking for emergency access for patient treatment. Typically, this means that the patient is unconscious and not able to provide relevant information or consent. The exact use of 
-    this is subject to local and jurisdictional policy.
+    this is always subject to local and jurisdictional policy.
    </td>
  </tr>   
  
