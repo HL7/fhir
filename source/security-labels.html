@@ -16,26 +16,28 @@
 
 <p>
 A security label is a <a href="extras.html#tags">tag</a> attached to a resource 
-that provides specific security metadata about the resource it is fixed to.
+or bundle that provides specific security metadata about the information it is fixed to.
 The <a href="security.html#access-control">Access Control decision engine</a> 
 uses the security label, along with any provenance resources associated with 
 the resource, and other metadata, like resource type and contents etc, to 
 approve access, change, and other operations, and to determine what level 
 of the resource can be returned and what handling caveats must be conveyed 
-with the data. Security Labels enable more data to flow as they enables 
-policy fragments to accompany the resource data. 
+with the data. 
 </p>
 <p>
-The recipient of resources with provenance and security-tags is obligated 
+The recipient of resources or bundles with security-tags is obligated 
 to enforce the handling caveats and carry the security labels forward as appropriate.
+Security Labels enable more data to flow as they enable
+policy fragments to accompany the data as it is exchanged. 
 </p>
 <p>
 Security labels are most effective in fully trusted environments - that is, 
-where all trading partners have agreed to abide by them, in a Mutual Trust Frameworks. In the absence of 
-this kind of pre-agreement, Security Labels may still be used by individual parties to 
-apply assist with security role checking, but they cannot be exchanged between
-parties in a meaningful fashion; hence, less information is allowed to flow.
-Local agreements and implementation profiles for the use security labels should describe:
+where all trading partners have agreed to abide by them, in a Mutual Trust 
+Frameworks. In the absence of this kind of pre-agreement, Security Labels 
+may still be used by individual parties to assist with security role 
+checking, but they cannot be exchanged between parties in a meaningful 
+fashion; hence, less information is allowed to flow. Local agreements 
+and implementation profiles for the use security labels should describe:
 </p>
 <ul>
  <li>Which Security Labels are able to be used</li>
@@ -45,8 +47,9 @@ Local agreements and implementation profiles for the use security labels should 
 </ul>
 
 <p>
-This specification provides a basic simple mutual trust framework, on which 
-more sophisticated mutual trust frameworks can be built by trading partners.
+This specification provides a basic simple mutual trust framework below, on which 
+more sophisticated mutual trust frameworks can be built by trading partners
+using a wider array of security labels.
 </p>
 
 <h2>Representing Security Labels</h2>
