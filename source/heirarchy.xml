@@ -60,7 +60,9 @@ todo: compartments
     <page title="Using Resources" filename="use.html"/>
     <page title="Support" filename="support.html"/>
     <page title="Common Usages" filename="usecases.html"/>
-    <page title="Security" filename="security.html"/>
+    <page title="Security" filename="security.html">
+      <page title="Security Labels" filename="security-labels.html"/>
+    </page>
     <page title="Integrated Examples" filename="integrated-examples.html"/>
   </page>
 

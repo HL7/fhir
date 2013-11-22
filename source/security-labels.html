@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Security%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h1>Security Labels</h1>
+
+<p>
+A security label is a <a href="extras.html#tags">tag</a> attached to a resource 
+that provides specific security metadata about the resource it is fixed to.
+The <a href="security.html#access-control">Access Control decision engine</a> 
+uses the security label, along with any provenance resources associated with 
+the resource, and other metadata, like resource type and contents etc, to 
+approve access, change, and other operations, and to determine what level 
+of the resource can be returned and what handling caveats must be conveyed 
+with the data. Security Labels enable more data to flow as they enables 
+policy fragments to accompany the resource data. 
+</p>
+<p>
+The recipient of resources with provenance and security-tags is obligated 
+to enforce the handling caveats and carry the security labels forward as appropriate.
+</p>
+<p>
+Security labels are most effective in fully trusted environments - that is, 
+where all trading partners have agreed to abide by them. In the absence of 
+this kind of pre-agreement, Security Labels may still be used by individual parties to 
+apply assist with security role checking, but they cannot be exchanged between
+parties in a meaningful fashion; hence, less information is allowed to flow.
+Local agreements and implementation profiles for the use security labels should describe:
+</p>
+<ul>
+ <li>Which Security Labels are able to be used</li>
+ <li>What do if a resource has an unrecognised security label on it</li>
+ <li>Authoring obligations around security labels</li>
+ <li>Operational implications of security labels</li>
+</ul>
+
+<h2>Representing Security Labels</h2>
+
+<p>
+A security label is represented as a <a href="extras.html#tags">Tag</a>, with the 
+following properties:
+</p>
+<table>
+  <tr> <td>Scheme</td> <td>http://hl7.org/fhir/tag/security</td> <td>Fixed Value for a security label</td> </tr>
+  <tr> <td>Term</td> <td>a URI that identifies the security label</td> <td> Usually of the form [system]#[code], where system is a <a href="terminologies-systems.html">code system uri</a>, and code is an value from the code system</td> </tr>
+  <tr> <td>Label</td> <td>The display name for the code</td> <td>optional - for display to a human (mostly used when a system doesn't recognise the Term</td> </tr>
+</table>
+
+<div class="example">
+<p>Note: the actual terms used in these examples are described below.</p>
+<p>
+A request to see the patient's condition list, with a note that this is requested under "break-the-glass": 
+</p>
+<pre>
+HTTP/1.1 GET fhir/Patient/482735/condition
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
+Content-Location: http://[server]/[path]/Patient/234124/_history/24
+Category: http://hl7.org/fhir/v3/ActReason#ETREAT; scheme="http://hl7.org/fhir/tag/security"; label="Emrgency Treatment"
+</pre>
+
+<p>
+An XML patient resource with a "celebrity" tag associated with it, as represented in an HTTP response:
+</p>
+<pre>
+HTTP/1.1 200 OK
+Content-Type: text/xml
+Access-Control-Allow-Origin: *
+Last-Modified: Thu, 19 Nov 2013 07:07:32 +1100
+Content-Location: http://[server]/[path]/Patient/234124/_history/24
+Category: http://hl7.org/fhir/v3/ActCode#CEL; scheme="http://hl7.org/fhir/tag/security"; label="Celebrity"
+
+&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+...  [snip] ...
+&lt;/Patient&gt;
+</pre>
+<p>
+A JSON search result that includes a resource that the receiving application must delete all copies of the resource after using it:
+</p>
+<pre>
+HTTP/1.1 200 OK
+[Headers]
+
+{
+  "resourceType" : "Bundle",
+  "title" : "Search result",
+  ... other headers etc ....
+  "entry" : [
+     ... other entries ....
+     {
+       "id" : "http://fhir.furore.com/fhir/person/@1",
+       "category" : [{
+         "term" : "http://hl7.org/fhir/v3/ActCode#DELAU",
+         "label" : "delete after use",
+         "scheme" : "http://hl7.org/fhir/tag/security"
+       ... other headers + content etc ....
+     },
+     ... other entries ....
+  ]
+}
+</pre>
+
+</div>
+
+<p>
+The basic framework for security labels is described by the HL7 Healthcare Classification 
+System (HCS; ref todo). This defines how security labels are defined, and provides a 
+relatively comprehensive list of labels. All of the HCS defined labels can be used 
+as security labels on FHIR resources, requests, and responses.
+</p>
+<p>
+In addition, other security labels not defined here or in the HCS can be defined by 
+jurisdictions, vendors, or projects, and used as appropriate. However, note that:
+</p>
+<ul>
+ <li>Defining additional security labels will increase costs associated with information and system portability</li>
+ <li>Implementation guides and applications SHOULD always use the applicable label defined by the HCS if one exists</li>
+</ul>
+
+<a name="core"> </a>
+<h2>Core Security Labels</h2>
+<p>
+This specification defines a set of core security labels for all FHIR systems, 
+along with the expected behaviour associated with them. Implementers can expect
+that these are implemented as appropriate by all FHIR systems. 
+</p>
+
+<table class="grid">
+ <tr>
+   <td><b>Name/ Tag</b></td>
+   <td><b>Obligations</b></td>
+ </tr>
+ <tr>
+   <td colspan="2" style="background-color: #EFEFEF"><b>Obligatory Security Labels</b> - all conformant FHIR Applications must understand these labels</td>
+ </tr>
+ <tr>
+   <td>Delete After Use: http://hl7.org/fhir/v3/ActCode#DELAU</td>
+   <td>
+     An application receiving this resource must delete all copies after the immediate use for which the received it is complete. <br/> Notes:
+     <ul>
+      <li>By default, this includes not storing the resource in any audit trail. Any use must be aware of the implications of this</li>
+      <li>All conformant implementations SHALL understand this security label, and not ignore it</li>
+      <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to retain copies unless the exact rules for retaining it can be followed</li>
+      <li>Local institution policy is allowed to override this security label, but applications SHOULD NOT assume that any such policy will exist</li>
+     </ul>
+   </td>
+ </tr>
+ <tr>
+   <td>Delete After Use (next Hop): http://hl7.org/fhir/security#DELAU-next</td>
+   <td>
+     An application receiving this resource can retain it, but any further exchanges SHALL be tagged with "delete after use".
+     Typically, this is used when providing a resource to a repository - it can retain the resource, but no other systems 
+     are allowed to. <br/> Notes:
+     <ul>
+      <li>All conformant implementations SHALL understand this security label, and not ignore it</li>
+      <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to retain copies unless the exact rules for retaining it can be followed</li>
+      <li>Local institution policy is allowed to override this security label, but applications SHOULD NOT assume that any such policy will exist</li>
+     </ul>
+   </td>
+ </tr>
+ 
+ <tr>
+   <td>Do Not Re-use: http://hl7.org/fhir/v3/ActCode#NOREUSE</td>
+   <td>
+     An application receiving this resource may only use it for the immediate purpose of use. In particular, the application is not authorised to re-distribute (i.e. exchange this resource with any other application). <br/> Notes:
+     <ul>
+      <li>The exact interpretation of "immediate purpose of use" and the boundaries of "the application" are determined by local policy, but application developers SHOULD be conservative in their interpretations</li>
+      <li>All conformant implementations SHALL understand this security label, and not ignore it</li>
+      <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to re-distribute unless the exact rules for doing so can be followed</li>
+      <li>Local institution policy is allowed to override this security label, but applications SHOULD NOT assume that any such policy will exist</li>
+     </ul>
+   </td>
+ </tr>
+ <tr>
+   <td>Do Not Re-use (next Hop): http://hl7.org/fhir/security#NOREUSE-next</td>
+   <td>
+     An application receiving this resource can re-use or re-distribute it, but any further exchanges SHALL be tagged with "Do Not Re-use".
+     Typically, this is used when providing a resource to a repository - it can re-use the resource, but no other systems 
+     are allowed to. <br/> Notes:
+     <ul>
+      <li>All conformant implementations SHALL understand this security label, and not ignore it</li>
+      <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to retain copies unless the exact rules for retaining it can be followed</li>
+      <li>Local institution policy is allowed to override this security label, but applications SHOULD NOT assume that any such policy will exist</li>
+     </ul>
+   </td>
+ </tr> 
+ <tr>
+   <td colspan="2" style="background-color: #EFEFEF"><b>Basic Security Labels</b> - all conformant FHIR Applications must use these labels when the use cases they represent are relevant to them</td>
+ </tr>
+ <tr>
+   <td>Confidentiality codes: http://hl7.org/fhir/v3/ActCode#[code]</td>
+   <td>
+     These <a href="v3/vs/Confidentiality/index.html">confidentiality codes</a> can be applied to any resource or bundle. They are generally assigned by the author of the resource, 
+     but can be modified subsequently as a matter of operational management. The Confidentiality codes describe the sensitivity of the information in a resource with regards to 
+     whether it made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
+     <ul>
+      <li>In the absence of a confidentiality code, the basic confidentiality of a resource may be implied by it's definition and content. e.g. a patient's condition is far more likely to be confidential than a practitioner resource, and a Diagnostic Report with an HIV test is always highly confidential, where as a routine electrolytes is rarely particularly confidential</li>
+      <li>A few resources have an confidentiality code in the resource itself. This should always be understood as the original intended confidentiality, where as a confidentiality tag is the current confidentality of the content. e.g. the confidentiality may change in response to patient concern</li>
+      <li>The confidentality of a bundle is always as confidential as the most confidential resource in the bundle</li>
+     </ul>
+   </td>
+ </tr>
+ <tr>
+   <td>Celebrity / VIP: http://hl7.org/fhir/v3/ActCode#CEL</td>
+   <td>
+    Use on a patient resource to indicate that the patient is a celebrity or well known to the staff in the institution.
+    Resources with this label are more likely to be the subject of active audit maintanance or additional security policy
+   </td>
+ </tr>
+ <tr>
+   <td>Staff: http://hl7.org/fhir/v3/ActCode#EMP</td>
+   <td>
+    Use on a patient resource to indicate that the patient is a staff member of the institution. This is a variation on 
+    being a celebrity. Resources with this label are (even) more likely to be the subject of active audit maintanance or additional security policy
+   </td>
+ </tr>
+ <tr>
+   <td>Keep information from patient: http://hl7.org/fhir/security#nopatient</td>
+   <td>
+    Used on any resource to indicate that information  is not to be made available to the patient or their relatives/carers.
+    Typically, this is used on an <a href="alert.html">Alert</a> resource, when the alert records information on pateint abuse or non-compliance
+   </td>
+ </tr>
+ <tr>
+   <td>Contact/Employment Details Confidential: http://hl7.org/fhir/v3/ActCode#DEMO</td>
+   <td>
+    Used on a patient resource to indicate that the patient's address and contact details (phone numbers, email addresses), and including employment information are sensitive 
+    information, and in particular, shouldn't be shared with patient's family without specific authorization
+   </td>
+ </tr>
+ <tr>
+   <td>Diagnosis related confidentiality: http://hl7.org/fhir/v3/ActCode#DIA</td>
+   <td>
+    Used on any resource to indicate that the resource relates to a diagnosis (or potential diagnosis) which is generally associated with confidentiality requirements, or is for this particular patient. 
+    This may be associated for diagnoses including STDs, psychiatric conditions, adolescent related issues, drug abuse, genetics conditions, and others.
+     <br/> Notes:
+     <ul>
+      <li>Generally, this security label cascades logically; e.g. any <a href="diagnosticreport.html">Diagnostic Reports</a> produced because a of a <a href="diagnosticorder.html">Diagnostic Order</a> with this security label will also have the same security label. </li>
+      <li>There may be additional labels classifying the diagnosis (such as into the categories above); these should always be accompanied by this label so that all systems will know that restrictions apply</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
+   <td>Author Consent needed: http://hl7.org/fhir/v3/ActCode#ORCON</td>
+   <td>
+    Author consent is needed for disclosure. Typically, this is used by a treating practitioner to label portions of their own record confidential. 
+    Any such resource is only shared with the author, or with other parties as arranged. Additional policy and/or labels may be required to manage
+    the arragements
+   </td>
+ </tr>
+ <tr>
+   <td colspan="2" style="background-color: #EFEFEF"><b>Request / Response labels</b> - all conformant FHIR Applications must use these labels when the use cases they represent are relevant to them</td>
+ </tr>
+ <tr>
+   <td>Break The Glass: http://hl7.org/fhir/v3/ActReason#ETREAT</td>
+   <td>
+    The requester is asking for emergency access for patient treatment. Typically, this means that the patient is unconscious and not able to provide relevant information or consent. The exact use of 
+    this is subject to local and jurisdictional policy.
+   </td>
+ </tr>   
+ 
+</table>
+
+
+<a name="hcs"> </a>
+<h2>Healthcare Classification System</h2>
+
+<p>
+The security labels described above are a subset of the full set of security labels defined by the 
+HL7 Healthcare Classification System (HCS; ref todo). The HCS defines 5 categories of security 
+labels that may be applied to a resource:
+</p>
+
+<table class="grid">
+ <tr> <td><b>Security Label</b></td> <td><b>Card.</b></td> <td><b>Values</b></td>  <td><b>Description</b></td> </tr>
+ 
+ <tr> <td>Confidentiality Classification</td> <td>0..1</td> <td><a href="v3/vs/Confidentiality/index.html">Confidentiality</a></td>  <td>Security label metadata classifying an IT 
+resource (clinical fact, data, information 
+object, service, or system capability) 
+according to its level of sensitivity, which is 
+based on an analysis of applicable privacy 
+policies and the risk of financial, 
+reputational, or other harm to an individual 
+or entity that could result if made available 
+or disclosed to unauthorized individuals, 
+entities, or processes. 
+<br/>Example Uses: Unrestricted, Normal, Very restricted</td> </tr>
+
+ <tr> <td>Sensitivity Category</td> <td>0..*</td> <td><a href="v3/vs/InformationSensitivityPolicy/index.html">InformationSensitivityPolicy</a></td>  <td>Security label metadata that "segments" an 
+IT resource by categorizing the value, 
+importance, and vulnerability of an IT 
+resource perceived as undesirable to share.
+<br/>Example Uses: STDs, Psychiatric care, Celebrity status
+</td> </tr>
+
+ <tr> <td>Compartment Category</td> <td>0..*</td> <td><a href="v3/vs/Compartment/index.html">Compartment</a></td>  <td>Security label metadata that "segments" an 
+IT resource by indicating that access and 
+use is restricted to members of a defined 
+community or project
+<br/>Note: this is a different use of "Compartment" to the <a href="extras.html#compartment">Patient Compartment</a> use.
+<br/>Example Uses: Research, HR records
+</td> </tr>
+
+ <tr> <td>Integrity Category</td> <td>0..*</td> <td><a href="v3/vs/SecurityIntegrityObservationValue/index.html">SecurityIntegrityObservationValue</a></td>  <td>Security label metadata that "segments" an 
+IT resource by conveying the completeness, 
+veracity, reliability, trustworthiness, and 
+provenance of an IT resource
+<br/>Example Uses: Anonymised, signed, pateint reported
+
+</td> </tr>
+
+ <tr> <td>Handling Caveat</td> <td>0..*</td> <td><a href="v3/vs/SecurityControlObservationValue/index.html">SecurityControlObservationValue</a></td>  <td>Security label metadata conveying dissemination 
+controls and information handling instructions 
+such as obligations and refrain policies to which an 
+IT resource custodian or receiver must comply.<br/>
+This type of handling caveat SHALL be assigned 
+to a clinical fact if required by jurisdictional or 
+organizational policy, which may be triggered by a 
+patient consent directive
+<br/>Example Uses: do not disclose, various restrictions on use, and policy marks
+</td> </tr>
+</table>
+
+<p>
+Each of these security labels identifies a <a href="valueset.html">ValueSet</a> that
+lists a set of possible codes for the security label. The <a href="extras.html">tag</a>
+itself has the following parts:
+</p>
+
+<table>
+  <tr> <td>Scheme</td> <td>http://hl7.org/fhir/tag/security</td> <td>Fixed Value for a security label</td> </tr>
+  <tr> <td>Term</td> <td>[system]#[code]</td> <td>Where [code] is chosen from the list of values, and [system] is the listed system for the chosen code</td> </tr>
+  <tr> <td>Label</td> <td>The display name for the code</td> <td>(optional)</td> </tr>
+</table>
+
+
+</div>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>
