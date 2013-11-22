@@ -20,7 +20,6 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -118,6 +117,14 @@
   <Style ss:ID="s79">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat ss:Format="#,##0"/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="18" x:FullColumns="1"
@@ -127,7 +134,7 @@
    <Column ss:StyleID="s65" ss:Width="29.25"/>
    <Column ss:StyleID="s65" ss:Width="23.25"/>
    <Column ss:StyleID="s65" ss:Width="60"/>
-   <Column ss:StyleID="s65" ss:Width="27"/>
+   <Column ss:StyleID="s65" ss:Width="34.5"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="173.25"/>
    <Column ss:StyleID="s65" ss:Width="164.25"/>
    <Column ss:StyleID="s65" ss:Width="149.25"/>
@@ -253,7 +260,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">300;0</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">The signs and symptoms that were observed as part of the reaction</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Signs, Symptoms, Manifestations</Data></Cell>
@@ -297,7 +304,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">300;90</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">An exposure to a substance that preceded a reaction occurrence</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
@@ -409,10 +416,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -425,11 +433,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -727,7 +735,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

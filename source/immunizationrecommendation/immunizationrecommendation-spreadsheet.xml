@@ -20,7 +20,6 @@
   <WindowWidth>20445</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -180,7 +179,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Vaccine administration recommendations</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine administration recommendations</Data></Cell>
@@ -262,7 +261,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0;150</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Pertinent dates</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.</Data></Cell>
@@ -306,7 +305,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">300;150</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Vaccine Administration Protocol</Data></Cell>
@@ -371,7 +370,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">down</Data></Cell>
+    <Cell><Data ss:Type="String">520;150</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting adverse event report</Data></Cell>
     <Cell><Data ss:Type="String">Adverse event report information that supports the status and recommendation</Data></Cell>
    </Row>
@@ -454,12 +453,13 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -467,15 +467,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -876,7 +875,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

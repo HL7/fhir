@@ -20,7 +20,6 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>120</WindowTopX>
   <WindowTopY>9000</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -150,7 +149,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">200;0</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String"> Detailed information about conditions, problems or diagnoses</Data></Cell>
     <Cell><Data ss:Type="String">Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary</Data></Cell>
@@ -273,7 +272,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Condition.stage</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">up</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">0;0</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Stage/grade, usually assessed formally</Data></Cell>
     <Cell><Data ss:Type="String">Clinical stage or grade of a condition. May include formal severity assessments</Data></Cell>
    </Row>
@@ -297,7 +296,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Condition.evidence</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">0;150</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting evidence</Data></Cell>
     <Cell><Data ss:Type="String">Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The evidence may be a simple lost of coded symptoms/manifestations, or references to observations or formal assessments, or both</Data></Cell>
@@ -321,7 +320,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Condition.location</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">up</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">500;0</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Anatomical location, if relevant</Data></Cell>
     <Cell><Data ss:Type="String">The anatomical location where this condition manifests itself</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May be a summary code, or a reference to a very precise definition of the location, or both</Data></Cell>
@@ -346,7 +345,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Condition.relatedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">500;150</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Causes or precedents for this Condition</Data></Cell>
     <Cell><Data ss:Type="String">Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Although a condition may be caused by a substance, this is not intended to be used to record allergies/adverse reactions to substances</Data></Cell>
@@ -399,11 +398,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -753,7 +753,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

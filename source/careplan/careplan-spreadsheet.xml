@@ -16,11 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2430</WindowHeight>
+  <WindowHeight>2370</WindowHeight>
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>75</WindowTopX>
-  <WindowTopY>13695</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <WindowTopY>13755</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -113,26 +112,26 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s78">
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s79">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s80">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s81">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s83" ss:Parent="s62">
+  <Style ss:ID="s84" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s84">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -176,7 +175,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">220;0</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Healthcare plan for patient</Data></Cell>
@@ -292,7 +291,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">20;180</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Who's involved in plan?</Data></Cell>
     <Cell><Data ss:Type="String">Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.</Data></Cell>
@@ -342,7 +341,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">0;0</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Desired outcome of plan</Data></Cell>
     <Cell><Data ss:Type="String">Describes the intended objective(s) of carrying out the Care Plan.</Data></Cell>
@@ -425,7 +424,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">right</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">440;0</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Action to occur as part of plan</Data></Cell>
     <Cell><Data ss:Type="String">Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.</Data></Cell>
@@ -524,6 +523,7 @@
     <Cell><Data ss:Type="String">CarePlan.activity.simple</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">440;180</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Activity details summarised here</Data></Cell>
     <Cell><Data ss:Type="String">A simple summary of details suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Details in a simple form for generic care plan systems</Data></Cell>
@@ -700,10 +700,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -720,8 +721,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -926,7 +926,7 @@
     <Cell><Data ss:Type="String">activitydate</Data></Cell>
     <Cell><Data ss:Type="String">Specified date occurs within period specified by CarePlan.activity.timingSchedule</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">CarePlan.activity.simple.timing[x]</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">CarePlan.activity.simple.timing[x]</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1048,7 +1048,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1095,20 +1094,20 @@
     <Cell><Data ss:Type="String">Weight Loss</Data></Cell>
     <Cell><Data ss:Type="String">General Person Example</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">careplan-example.xml</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">careplan-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Pregnancy</Data></Cell>
     <Cell><Data ss:Type="String">Patient 1 for linking</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">preg</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">preg</Data></Cell>
     <Cell><Data ss:Type="String">careplan-example-pregnancy.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Integrated</Data></Cell>
     <Cell><Data ss:Type="String">Simple integrated care plan with multiple goals &amp; conditions (from Mayo)</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">integrate</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">integrate</Data></Cell>
     <Cell><Data ss:Type="String">careplan-example-integrated.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -1183,13 +1182,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="15" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s80" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s81" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s80" ss:Width="125.25"/>
-   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="221.25"/>
-   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:StyleID="s80" ss:Width="138"/>
-   <Column ss:StyleID="s80" ss:AutoFitWidth="0" ss:Width="275.25"/>
+   <Column ss:StyleID="s81" ss:Width="125.25"/>
+   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="221.25"/>
+   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="81.75"/>
+   <Column ss:StyleID="s81" ss:Width="138"/>
+   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
@@ -1379,22 +1378,22 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">sustaining</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The goal has been met, but ongoing activity is needed to sustain the goal objective</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">sustaining</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The goal has been met, but ongoing activity is needed to sustain the goal objective</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">abandoned</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">The goal is no longer being sought</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">abandoned</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The goal is no longer being sought</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s83"/>
+    <Cell ss:Index="3" ss:StyleID="s84"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s83"/>
+    <Cell ss:Index="3" ss:StyleID="s84"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s83"/>
+    <Cell ss:Index="3" ss:StyleID="s84"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

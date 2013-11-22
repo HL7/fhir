@@ -1059,15 +1059,15 @@ public class Publisher {
         page.getSvgs().put(n, TextFile.fileToString(page.getFolders().srcDir+page.getDefinitions().getDiagrams().get(n)));
       }
 
-	  }
-	  valueSetsFeed = new AtomFeed();
-	  valueSetsFeed.setId("http://hl7.org/fhir/profile/valuesets");
-	  valueSetsFeed.setTitle("FHIR Core Valuesets");
-	  valueSetsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valuesets.xml");
-	  valueSetsFeed.setUpdated(Calendar.getInstance());
+      valueSetsFeed = new AtomFeed();
+      valueSetsFeed.setId("http://hl7.org/fhir/profile/valuesets");
+      valueSetsFeed.setTitle("FHIR Core Valuesets");
+      valueSetsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valuesets.xml");
+      valueSetsFeed.setUpdated(Calendar.getInstance());
 
-	  loadValueSets();      
-	  
+      loadValueSets();      
+
+    }
 	  
 	  for (String rname : page.getDefinitions().sortedResourceNames()) {
 	    if (!rname.equals("ValueSet") && wantBuild(rname)) {
