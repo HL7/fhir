@@ -16,10 +16,11 @@
 <h1>Common Scenarios in FHIR</h1>
 
 <p>
-FHIR is a framework standard that defines a common way to solve healthcare problems, 
+FHIR is a framework standard that defines a common way to solve healthcare problems 
 and provides a set of resources that can be used in many different ways. 
 This page describes how certain common usage scenarios are implemented using the capabilities that 
-FHIR defines. 
+FHIR defines.  The provided scenarios are examples of usage and are not in any way exhaustive.  FHIR
+can and will be used in a wide variety of circumstances.
 </p>
 
 <a name="phr"></a>
@@ -40,10 +41,10 @@ In this scenario, the PHR provider:
 The EMR exposes a FHIR server that supports the <a href="http.html#search">search</a> and <a href="http.html#read">read</a> operations on the following resources: 
 </p>
 <ol>
- <li>the <a href="patient.html">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access too</li>
+ <li>the <a href="patient.html">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access to</li>
  <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on the <a href="documentreference.html">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
  <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
-CarePlan, and Condition</li> 
+CarePlan and Condition</li> 
 </ol>
 <p>
 Here is the conformance Statement for this scenario:
@@ -67,7 +68,7 @@ usage of the RESTful API should be logged in SecurityEvent resources.
 <p>
 One common way to integrate healthcare information from a variety of sources is to build a 
 repository of documents around a patient record. Building a repository of documents 
-allows for less stringent alignment around policy, procedures, and record-keeping/informatics
+allows for less stringent alignment around policy, procedures and record-keeping/informatics
 standards.
 </p>
 <p>
@@ -106,11 +107,11 @@ Common uses of clinical decision support are:
 <ul>
  <li>Drug-drug interaction checking, and more generally, prescription safety checks</li>
  <li>Suggesting commonly missed Diagnostic Data interpretations (including delta checking)</li>
- <li>Patient surveillance for early warning of deteriorating patient health (both acute and ambulatory care</li>
+ <li>Patient surveillance for early warning of deteriorating patient health (both acute and ambulatory care)</li>
  <li>Identifying candidates for alternative treatment plans for improved efficacy</li>
 </ul>
 <p>
-Note that in addition to clinical decision support, there is also infrastructural uses, such as 
+Note that in addition to clinical decision support, there are also infrastructural uses, such as 
 managing access control.
 </p>
 <p>
@@ -118,9 +119,9 @@ The various forms of decision support each involve different interaction pattern
 Decision support implementation in the FHIR specification. Generally, the patterns fall into several classes:
 </p>
 <ol>
- <li>The decision comes from an engine entirely hidden behind a system interface, and has no direct impact on the data exchange</li>
- <li>The decision support engine uses existing data, and generates alarm messages concerning patient state that are visible on the FHIR interface</li>
- <li>The decision support offers is consulted through a described interface; it accepts a request for a decision, and returns a decision</li>
+ <li>The decision comes from an engine entirely hidden behind a system interface and has no direct impact on the data exchange</li>
+ <li>The decision support engine uses existing data and generates alarm messages concerning patient state that are visible on the FHIR interface</li>
+ <li>The decision support engine is consulted through a described interface; it accepts a request for a decision and returns a decision</li>
 </ol>
 <p>
 Any decision support may fall into multiple categories at once, depending on the perspective of a particular system.
@@ -139,7 +140,7 @@ When a query is made in order to get a decision made, the following consideratio
 <ul>
   <li>The request for a decision is made using one of the interaction patterns described for <a href="query.htm">queries</a>: A RESTful search, a query posted to <a href="messaging.html#mailbox">/Mailbox</a>, a query <a href="messaging.html">message</a>, or the Asynchronous query pattern</li>
   <li>The request has a _query parameter that identifies the decision that is being requested</li>
-  <li>The request also has a set of parameter values. These parameter values may be the data that describes the decision being made, or they may be references to specific resources that contain the request. In general, 
+  <li>The request also has a set of parameter values. These parameter values may be the data that describes the decision being made or they may be references to specific resources that contain the request. In general, 
     the more complex the decision request is, the more likely it is that a full resource is appropriate, particularly since this provides a ready made way to record and manage the requests themselves. </li>
   <li>In some of the query interaction patterns, the resources identified in the parameter value can be bundled up with the request. In others, only the references can be passed</li>
   <li>Which of the query patterns is most appropriate depends on the complexity of the decision support input, and the length of time the decision is expected to take. As either of these increases, the more complex query patterns become more appropriate</li>
@@ -148,13 +149,13 @@ When a query is made in order to get a decision made, the following consideratio
 <p><b>Response</b></p>
 <ul>
  <li>If the decision support engine is unable to provide the requested decision, it returns an <a href="operationoutcome.html">Operation Outcome Resource</a> describing the issue</li>
- <li>Other wise it returns a resource the represents the decision, along with other resources as supporting information, as described by the the resource, or applicable profiles</li>
- <li>In princple, the decision provider can choose to make a copy of the returned decision resource available through a normal RESTful interface, or it an choose not to. This decision may be constrained by applicable profiles, policy decision, or the innate nature of the query</li>
+ <li>Otherwise it returns a resource the represents the decision, along with other resources as supporting information, as described by the the resource, or applicable profiles</li>
+ <li>In princple, the decision provider can choose to make a copy of the returned decision resource available through a normal RESTful interface, or it can choose not to. This decision may be constrained by applicable profiles, policy decision, or the innate nature of the query</li>
  <li>If either the decision provider or the requester choose to retain a copy of the decision, they must ensure that the (lack of) currency of the decision is appropriately considered when it is used</li>
 </ul>
 
 <p>
-If follows from this discussion, that decisions that may be requested need at least a response resource defined, and possibly a request resource. This table summarises 
+It follows from this discussion, that decisions that may be requested need at least a response resource defined, and possibly a request resource. This table summarises 
 known decisions for which resources have been defined.
 </p>
 <table class="grid">
