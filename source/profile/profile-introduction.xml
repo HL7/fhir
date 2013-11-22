@@ -190,7 +190,7 @@ The only way to determine that the first component corresponds to "Systolic" in 
 to check the values of the elements - in this case, the code element. In order to make this 
 easy to use, particularly in the context of code generation tools that work with profiles, 
 any time slicing is performed in a profile, the profile SHALL nominate a "discriminator" - a child
-element that is used to discriminate between the different slices. The child element SHALL be 
+element that is used to discriminate among the different slices. The child element SHALL be 
 associated with a fixed value in each of the definitions, or if the child element has a terminology
 binding, it SHALL be associated with a complete binding with a version specific <a href="valueset.html">Value Set</a> reference 
 that enumerates the possible codes in the value set, and where there is no overlap between the codes in the value sets.
@@ -198,12 +198,40 @@ that enumerates the possible codes in the value set, and where there is no overl
 <p>
 TODO: how does the discriminator work with resource references? - This is a open question under investigation during the current connectathon parallel to the ballot.
 </p>
+
+<p> Within a profile, a slice is defined using multiple <code>element</code>
+	entries that share a <code>path</code> but have distinct
+	<code>name</code>s. These entries together form a "slice group" that is:
+
+<ol>
+	       
+	<li><strong>Initiated by a "slicing entry"</strong> That is, the first
+		<code>element</code> in a slice group must contain a
+		<code>slicing</code> property that defines the
+		<code>discriminator</code> for all members of the group.
+
+	<li><strong>Mutually exclusive</strong>. This means that each
+		<code>element</code> in a slice group SHALL describe a
+		distinct set of  values for the group's
+		<code>discriminator</code>.  Because of this constraint, an 
+	        element in a resource <em>instance</em> will never match more
+		than one <code>element</code> in a given slice group.</li>
+
+	<li><strong>Serialized as a group</strong>. The entries in a slice
+		group must be <em>adjacent</em> in a serialized Profile,
+		<em>or</em>, if there are any intervening elements, those
+		elements must be "compatible with" the group. Concretely, this
+		means that any intervening elements must have a
+		<code>path</code> that starts with the slice groups's
+		<code>path</code>.  For example, an <code>element</code> with a
+		<code>path</code> of <code>Observation.name.extension</code>
+		would be compatible with (and thus, would not "break up") a
+		slice group whose path was <code>Observation.name</code> </li>
+
+</ol>
+</p>
 <p>
-Within a profile, a slice will mean that there are multiple entries in the element list with the 
-same path, each with a different name. All slices that are grouped together (no short path 
-in the elements between them) SHALL have the same discriminator element in the profile, and 
-each slice SHALL specify a distinct set of possible values for the element so that the different
-slice can be differentiated. The value of the discriminator is either a simple 
+The value of the discriminator is either a simple 
 name - the name of a child element, or an URI, which identifies an extension that serves
 as the discriminator.
 </p>
