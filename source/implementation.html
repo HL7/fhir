@@ -40,11 +40,36 @@
 <p>Making use of FHIR.</p>
 <ul>
   <li><a href="usecases.html">Common Use Cases</a></li>
-  <li><a href="security.html">Security</a></li>
-  <li>&nbsp;&nbsp;&nbsp;<a href="security-labels.html">Security Labels</a></li>
+  <li><a href="security.html">Security</a> &amp;  <a href="security-labels.html">Security Labels</a></li>
   <li><a href="integrated-examples.html">Integrated Examples</a></li>
 </ul>
 </td></tr></table>
+
+<h3>Implementers Safety Check List</h3>
+<p>
+FHIR is as simple to implement as we know how to make it. However, due to the nature of 
+healthcare, and healthcare processes, and cultural concerns, there are a number of features in
+FHIR that implementers are obliged to consider in order to implement safe systems.
+</p>
+<p>
+This section is a check list to help implementers be sure that they've considered all the parts
+of FHIR that impact on their system design with regard to safety. 
+</p>
+<ol>
+ <li><input type="checkbox"/> Production exchange of data will always use some form of <a href="security.html#http">encryption on the wire</a></li>
+ <li><input type="checkbox"/> For each resource that my system handles, I've reviewed the <a href="conformance-rules.html#isModifier">Modifier elements</a></li>
+ <li><input type="checkbox"/> My system checks for <a href="extensibility.html#modifierExtension">modifierExtensions</a></li>
+ <li><input type="checkbox"/> My system supports <a href="conformance-rules.html#mustSupport">elements labelled as "must-support"</a> in the <a href="profile.html">Profiles</a> that apply to my system</li>
+ <li><input type="checkbox"/> My system can <a href="narrative.html#css">render narratives properly</a> (if/when they are rendered)</li>
+ <li><input type="checkbox"/> My system has documented how <a href="managing.html#distributed">distributed resource identification</a> works in the context of use</li>
+ <li><input type="checkbox"/> My system won't wrongly ignore the <a href="security-labels.html#core">obligatory security labels</a></li>
+ <li><input type="checkbox"/> When other systems <a href="http.html#summary">return errors</a> (and <a href="messaging.html#mailbox">here</a>, and <a href="operationoutcome.html">here</a>), my system checks for them and handles them appropriately</li>
+ <li><input type="checkbox"/> My system publishes a <a href="conformance.html">conformance statement</a> so other implementers know what it does</li>
+</ol> 
+<p>
+Obviously this list is a only small part of the overall safety check 
+list for an application, which will have checks to do with jurisdictionally mandated policies, internal integrity, etc. 
+</p>
 
 </div>
 
