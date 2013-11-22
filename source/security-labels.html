@@ -234,10 +234,10 @@ that these are implemented as appropriate by all FHIR systems.
    </td>
  </tr>
  <tr>
-   <td>Keep information from patient: http://hl7.org/fhir/security#nopatient</td>
+   <td>Keep information from patient: http://hl7.org/fhir/v3/ActCode#TABOO</td>
    <td>
-    Used on <a href="resourcelist.html">any</a> resource to indicate that information  is not to be made available to the patient or their relatives/carers.
-    Typically, this is used on an <a href="alert.html">Alert</a> resource, when the alert records information on pateint abuse or non-compliance
+    Used on <a href="resourcelist.html">any</a> resource to indicate that information is not to be made available to the patient or their relatives/carers, except by the personal decision of a physician assigned to the patient.
+    A common use for this is with <a href="alert.html">Alert</a> resources, when the alert records information on pateint abuse or non-compliance
    </td>
  </tr>
  <tr>
