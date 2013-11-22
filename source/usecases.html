@@ -43,8 +43,7 @@ The EMR exposes a FHIR server that supports the <a href="http.html#search">searc
 <ol>
  <li>the <a href="patient.html">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access to</li>
  <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on the <a href="documentreference.html">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
- <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on a set of clinical resources potentially including Observation, DiagnosticReport, various Medication resources, AdverseReaction/AllergyIntolerance, 
-CarePlan and Condition</li> 
+ <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on a set of <a href="clinical.html">clinical resources</a></li> 
 </ol>
 <p>
 Here is the conformance Statement for this scenario:
