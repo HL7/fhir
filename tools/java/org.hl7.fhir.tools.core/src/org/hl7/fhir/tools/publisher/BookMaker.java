@@ -175,7 +175,7 @@ public class BookMaker {
             if (h.getName().startsWith("h")) {
               String s = h.allText();
               if (s.contains(":"))
-                a.addText(" (ง"+s.substring(0, s.indexOf(':'))+")");
+                a.addText(" (ยง"+s.substring(0, s.indexOf(':'))+")");
             } 
           }
         }
