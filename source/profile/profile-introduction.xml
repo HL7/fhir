@@ -202,6 +202,7 @@ TODO: how does the discriminator work with resource references? - This is a open
 <p> Within a profile, a slice is defined using multiple <code>element</code>
 	entries that share a <code>path</code> but have distinct
 	<code>name</code>s. These entries together form a "slice group" that is:
+</p>
 
 <ol>
 	       
@@ -229,7 +230,6 @@ TODO: how does the discriminator work with resource references? - This is a open
 		slice group whose path was <code>Observation.name</code> </li>
 
 </ol>
-</p>
 <p>
 The value of the discriminator is either a simple 
 name - the name of a child element, or an URI, which identifies an extension that serves
