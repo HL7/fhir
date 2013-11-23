@@ -209,7 +209,7 @@ TODO: how does the discriminator work with resource references? - This is a open
 	<li><strong>Initiated by a "slicing entry"</strong> That is, the first
 		<code>element</code> in a slice group must contain a
 		<code>slicing</code> property that defines the
-		<code>discriminator</code> for all members of the group.
+		<code>discriminator</code> for all members of the group.</li>
 
 	<li><strong>Mutually exclusive</strong>. This means that each
 		<code>element</code> in a slice group SHALL describe a
