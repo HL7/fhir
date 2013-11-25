@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -84,6 +84,40 @@ public class Profile extends Resource {
         return "active";
       if (code == ResourceProfileStatus.retired)
         return "retired";
+      return "?";
+      }
+    }
+
+    public enum PropertyRepresentation {
+        xmlAttr, // In XML, this property is represented as an attribute not an element.
+        Null; // added to help the parsers
+        public static PropertyRepresentation fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("xmlAttr".equals(codeString))
+          return xmlAttr;
+        throw new Exception("Unknown PropertyRepresentation code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case xmlAttr: return "xmlAttr";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class PropertyRepresentationEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("xmlAttr".equals(codeString))
+          return PropertyRepresentation.xmlAttr;
+        throw new Exception("Unknown PropertyRepresentation code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == PropertyRepresentation.xmlAttr)
+        return "xmlAttr";
       return "?";
       }
     }
@@ -749,6 +783,11 @@ public class Profile extends Resource {
         protected String_ path;
 
         /**
+         * Codes that define how this element is represented in instances, when the deviation varies from the normal case.
+         */
+        protected List<Enumeration<PropertyRepresentation>> representation = new ArrayList<Enumeration<PropertyRepresentation>>();
+
+        /**
          * The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
          */
         protected String_ name;
@@ -802,6 +841,33 @@ public class Profile extends Resource {
               this.path = new String_();
             this.path.setValue(value);
           return this;
+        }
+
+        /**
+         * @return {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
+         */
+        public List<Enumeration<PropertyRepresentation>> getRepresentation() { 
+          return this.representation;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
+         */
+        public Enumeration<PropertyRepresentation> addRepresentation() { 
+          Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>();
+          this.representation.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
+         */
+        public Enumeration<PropertyRepresentation> addRepresentationSimple(PropertyRepresentation value) { 
+          Enumeration<PropertyRepresentation> t = new Enumeration<PropertyRepresentation>();
+          t.setValue(value);
+          this.representation.add(t);
+          return t;
         }
 
         /**
@@ -873,6 +939,7 @@ public class Profile extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("path", "string", "The path identifies the element and is expressed as a '.'-separated list of ancestor elements, beginning with the name of the resource.", 0, java.lang.Integer.MAX_VALUE, path));
+          childrenList.add(new Property("representation", "code", "Codes that define how this element is represented in instances, when the deviation varies from the normal case.", 0, java.lang.Integer.MAX_VALUE, representation));
           childrenList.add(new Property("name", "string", "The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("slicing", "", "Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).", 0, java.lang.Integer.MAX_VALUE, slicing));
           childrenList.add(new Property("definition", "", "Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource.", 0, java.lang.Integer.MAX_VALUE, definition));
@@ -881,6 +948,9 @@ public class Profile extends Resource {
       public ElementComponent copy(Profile e) {
         ElementComponent dst = new ElementComponent();
         dst.path = path == null ? null : path.copy();
+        dst.representation = new ArrayList<Enumeration<PropertyRepresentation>>();
+        for (Enumeration<PropertyRepresentation> i : representation)
+          dst.representation.add(i.copy());
         dst.name = name == null ? null : name.copy();
         dst.slicing = slicing == null ? null : slicing.copy(e);
         dst.definition = definition == null ? null : definition.copy(e);

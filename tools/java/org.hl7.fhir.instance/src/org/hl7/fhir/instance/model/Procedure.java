@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -209,7 +209,7 @@ public class Procedure extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The nature of the relationship.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("target", "Resource(AdverseReaction|AllergyIntolerance|CarePlan|Condition|DeviceData|DiagnosticReport|FamilyHistory|ImagingStudy|Immunization|ImmunizationRecommendation|MedicationAdministration|MedicationDispense|MedicationPrescription|MedicationStatement|Observation|Procedure)", "The related item - e.g. a procedure.", 0, java.lang.Integer.MAX_VALUE, target));
+          childrenList.add(new Property("target", "Resource(AdverseReaction|AllergyIntolerance|CarePlan|Condition|DeviceObservationReport|DiagnosticReport|FamilyHistory|ImagingStudy|Immunization|ImmunizationRecommendation|MedicationAdministration|MedicationDispense|MedicationPrescription|MedicationStatement|Observation|Procedure)", "The related item - e.g. a procedure.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       public ProcedureRelatedItemComponent copy(Procedure e) {

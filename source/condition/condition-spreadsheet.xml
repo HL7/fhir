@@ -345,7 +345,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Condition.relatedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">500;150</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">550;150</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Causes or precedents for this Condition</Data></Cell>
     <Cell><Data ss:Type="String">Further conditions, problems, diagnoses, procedures or events that are related in some way to this condition, or the substance that caused/triggered this Condition</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Although a condition may be caused by a substance, this is not intended to be used to record allergies/adverse reactions to substances</Data></Cell>
@@ -399,10 +399,11 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>13</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>24</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,76 +38,76 @@ import java.util.*;
  */
 public class Questionnaire extends Resource {
 
-    public enum ObservationStatus {
-        registered, // The existence of the observation is registered, but there is no result yet available
-        interim, // This is an initial or interim observation: data may be incomplete or unverified
-        final_, // The observation is complete and verified by an authorised person
-        amended, // The observation has been modified subsequent to being Final, and is complete and verified by an authorised person
-        cancelled, // The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted")
-        withdrawn, // The observation has been withdrawn following previous Final release
+    public enum QuestionnaireStatus {
+        draft, // This Questionnaire is used as a template but the template is not ready for use or publication.
+        published, // This Questionnaire is used as a template, is published and ready for use.
+        retired, // This Questionnaire is used as a template but should no longer be used for new Questionnaires.
+        inprogress, // This Questionnaire has been filled out with answers, but changes or additions are still expected to be made to it.
+        complete, // This Questionnaire has been filled out with answers, and the current content is regarded as definitive.
+        amended, // This Questionnaire has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.
         Null; // added to help the parsers
-        public static ObservationStatus fromCode(String codeString) throws Exception {
+        public static QuestionnaireStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("registered".equals(codeString))
-          return registered;
-        if ("interim".equals(codeString))
-          return interim;
-        if ("final".equals(codeString))
-          return final_;
+        if ("draft".equals(codeString))
+          return draft;
+        if ("published".equals(codeString))
+          return published;
+        if ("retired".equals(codeString))
+          return retired;
+        if ("inprogress".equals(codeString))
+          return inprogress;
+        if ("complete".equals(codeString))
+          return complete;
         if ("amended".equals(codeString))
           return amended;
-        if ("cancelled".equals(codeString))
-          return cancelled;
-        if ("withdrawn".equals(codeString))
-          return withdrawn;
-        throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
+        throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case registered: return "registered";
-            case interim: return "interim";
-            case final_: return "final";
+            case draft: return "draft";
+            case published: return "published";
+            case retired: return "retired";
+            case inprogress: return "inprogress";
+            case complete: return "complete";
             case amended: return "amended";
-            case cancelled: return "cancelled";
-            case withdrawn: return "withdrawn";
             default: return "?";
           }
         }
     }
 
-  public static class ObservationStatusEnumFactory implements EnumFactory {
+  public static class QuestionnaireStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("registered".equals(codeString))
-          return ObservationStatus.registered;
-        if ("interim".equals(codeString))
-          return ObservationStatus.interim;
-        if ("final".equals(codeString))
-          return ObservationStatus.final_;
+        if ("draft".equals(codeString))
+          return QuestionnaireStatus.draft;
+        if ("published".equals(codeString))
+          return QuestionnaireStatus.published;
+        if ("retired".equals(codeString))
+          return QuestionnaireStatus.retired;
+        if ("inprogress".equals(codeString))
+          return QuestionnaireStatus.inprogress;
+        if ("complete".equals(codeString))
+          return QuestionnaireStatus.complete;
         if ("amended".equals(codeString))
-          return ObservationStatus.amended;
-        if ("cancelled".equals(codeString))
-          return ObservationStatus.cancelled;
-        if ("withdrawn".equals(codeString))
-          return ObservationStatus.withdrawn;
-        throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
+          return QuestionnaireStatus.amended;
+        throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ObservationStatus.registered)
-        return "registered";
-      if (code == ObservationStatus.interim)
-        return "interim";
-      if (code == ObservationStatus.final_)
-        return "final";
-      if (code == ObservationStatus.amended)
+      if (code == QuestionnaireStatus.draft)
+        return "draft";
+      if (code == QuestionnaireStatus.published)
+        return "published";
+      if (code == QuestionnaireStatus.retired)
+        return "retired";
+      if (code == QuestionnaireStatus.inprogress)
+        return "inprogress";
+      if (code == QuestionnaireStatus.complete)
+        return "complete";
+      if (code == QuestionnaireStatus.amended)
         return "amended";
-      if (code == ObservationStatus.cancelled)
-        return "cancelled";
-      if (code == ObservationStatus.withdrawn)
-        return "withdrawn";
       return "?";
       }
     }
@@ -527,9 +527,9 @@ public class Questionnaire extends Resource {
   }
 
     /**
-     * The status of the questionnaire as a whole.
+     * The lifecycle status of the questionnaire as a whole.
      */
-    protected Enumeration<ObservationStatus> status;
+    protected Enumeration<QuestionnaireStatus> status;
 
     /**
      * The date and/or time that this version of the questionnaire was authored.
@@ -580,40 +580,40 @@ public class Questionnaire extends Resource {
       super();
     }
 
-    public Questionnaire(Enumeration<ObservationStatus> status, DateTime authored) {
+    public Questionnaire(Enumeration<QuestionnaireStatus> status, DateTime authored) {
       super();
       this.status = status;
       this.authored = authored;
     }
 
     /**
-     * @return {@link #status} (The status of the questionnaire as a whole.)
+     * @return {@link #status} (The lifecycle status of the questionnaire as a whole.)
      */
-    public Enumeration<ObservationStatus> getStatus() { 
+    public Enumeration<QuestionnaireStatus> getStatus() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The status of the questionnaire as a whole.)
+     * @param value {@link #status} (The lifecycle status of the questionnaire as a whole.)
      */
-    public Questionnaire setStatus(Enumeration<ObservationStatus> value) { 
+    public Questionnaire setStatus(Enumeration<QuestionnaireStatus> value) { 
       this.status = value;
       return this;
     }
 
     /**
-     * @return The status of the questionnaire as a whole.
+     * @return The lifecycle status of the questionnaire as a whole.
      */
-    public ObservationStatus getStatusSimple() { 
+    public QuestionnaireStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of the questionnaire as a whole.
+     * @param value The lifecycle status of the questionnaire as a whole.
      */
-    public Questionnaire setStatusSimple(ObservationStatus value) { 
+    public Questionnaire setStatusSimple(QuestionnaireStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ObservationStatus>();
+          this.status = new Enumeration<QuestionnaireStatus>();
         this.status.setValue(value);
       return this;
     }
@@ -778,7 +778,7 @@ public class Questionnaire extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("status", "code", "The status of the questionnaire as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("authored", "dateTime", "The date and/or time that this version of the questionnaire was authored.", 0, java.lang.Integer.MAX_VALUE, authored));
         childrenList.add(new Property("subject", "Resource(Patient|RelatedPerson)", "The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("author", "Resource(Practitioner|Patient|RelatedPerson)", "Person that collected the answers to the questions in the Questionnaire.", 0, java.lang.Integer.MAX_VALUE, author));

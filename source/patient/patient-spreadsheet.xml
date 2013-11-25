@@ -370,7 +370,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">down</Data></Cell>
+    <Cell><Data ss:Type="String">300;180</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=Contact</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">A contact party (e.g. guardian, partner, friend) for the patient</Data></Cell>
@@ -502,7 +502,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">right</Data></Cell>
+    <Cell><Data ss:Type="String">300;0</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=Animal</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">If this patient is an animal (non-human)</Data></Cell>
@@ -574,7 +574,7 @@
     <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Patient.communication</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -720,7 +720,7 @@
     <Cell><Data ss:Type="String">Patient.link</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">right</Data></Cell>
+    <Cell><Data ss:Type="String">300;90</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Link to another patient resource that concerns the same actual person</Data></Cell>
     <Cell><Data ss:Type="String">Link to another patient resource that concerns the same actual person</Data></Cell>
     <Cell><Data ss:Type="String">There are multiple usecases: * Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and * Distribution of patient information across multiple servers</Data></Cell>
@@ -779,11 +779,11 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>17</TopRowVisible>
+   <TopRowVisible>11</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -791,8 +791,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

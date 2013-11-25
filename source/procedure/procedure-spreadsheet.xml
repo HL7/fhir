@@ -21,7 +21,6 @@
   <WindowTopX>60</WindowTopX>
   <WindowTopY>4320</WindowTopY>
   <TabRatio>614</TabRatio>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -231,7 +230,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell><Data ss:Type="String">Procedure.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">300;0</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The people who performed the procedure</Data></Cell>
     <Cell><Data ss:Type="String">Limited to 'real' people rather than equipment</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
@@ -307,7 +306,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Procedure.relatedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">300;80</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A procedure that is related to this one</Data></Cell>
     <Cell><Data ss:Type="String">Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure</Data></Cell>
    </Row>
@@ -349,10 +348,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -365,11 +365,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -845,7 +846,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 public class ResourceFactory extends Factory {
 
@@ -50,16 +50,14 @@ public class ResourceFactory extends Factory {
             return new Appointment();
         if ("MedicationDispense".equals(name))
             return new MedicationDispense();
-        if ("DeviceLog".equals(name))
-            return new DeviceLog();
         if ("MedicationPrescription".equals(name))
             return new MedicationPrescription();
-        if ("DeviceCapabilities".equals(name))
-            return new DeviceCapabilities();
         if ("MedicationStatement".equals(name))
             return new MedicationStatement();
         if ("Questionnaire".equals(name))
             return new Questionnaire();
+        if ("Composition".equals(name))
+            return new Composition();
         if ("OperationOutcome".equals(name))
             return new OperationOutcome();
         if ("Conformance".equals(name))
@@ -88,8 +86,6 @@ public class ResourceFactory extends Factory {
             return new Provenance();
         if ("CarePlan".equals(name))
             return new CarePlan();
-        if ("DeviceData".equals(name))
-            return new DeviceData();
         if ("Device".equals(name))
             return new Device();
         if ("Query".equals(name))
@@ -104,6 +100,8 @@ public class ResourceFactory extends Factory {
             return new DiagnosticReport();
         if ("Medication".equals(name))
             return new Medication();
+        if ("MessageHeader".equals(name))
+            return new MessageHeader();
         if ("DocumentManifest".equals(name))
             return new DocumentManifest();
         if ("MedicationAdministration".equals(name))
@@ -114,26 +112,22 @@ public class ResourceFactory extends Factory {
             return new SecurityEvent();
         if ("List".equals(name))
             return new List_();
-        if ("Document".equals(name))
-            return new Document();
+        if ("DeviceObservationReport".equals(name))
+            return new DeviceObservationReport();
         if ("AssessmentDefinition".equals(name))
             return new AssessmentDefinition();
-        if ("Message".equals(name))
-            return new Message();
         if ("FamilyHistory".equals(name))
             return new FamilyHistory();
         if ("Location".equals(name))
             return new Location();
-        if ("AllergyIntolerance".equals(name))
-            return new AllergyIntolerance();
         if ("Observation".equals(name))
             return new Observation();
+        if ("AllergyIntolerance".equals(name))
+            return new AllergyIntolerance();
         if ("RelatedPerson".equals(name))
             return new RelatedPerson();
         if ("Specimen".equals(name))
             return new Specimen();
-        if ("DeviceObservation".equals(name))
-            return new DeviceObservation();
         if ("Alert".equals(name))
             return new Alert();
         if ("Patient".equals(name))

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -475,7 +475,7 @@ public class Patient extends Resource {
     protected AnimalComponent animal;
 
     /**
-     * Languages which may be used to communicate with the patient.
+     * Languages which may be used to communicate with the patient about his or her health.
      */
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
 
@@ -717,7 +717,7 @@ public class Patient extends Resource {
     }
 
     /**
-     * @return {@link #communication} (Languages which may be used to communicate with the patient.)
+     * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
      */
     public List<CodeableConcept> getCommunication() { 
       return this.communication;
@@ -725,7 +725,7 @@ public class Patient extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #communication} (Languages which may be used to communicate with the patient.)
+     * @return {@link #communication} (Languages which may be used to communicate with the patient about his or her health.)
      */
     public CodeableConcept addCommunication() { 
       CodeableConcept t = new CodeableConcept();
@@ -832,7 +832,7 @@ public class Patient extends Resource {
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("animal", "", "This element has a value if the patient is an animal.", 0, java.lang.Integer.MAX_VALUE, animal));
-        childrenList.add(new Property("communication", "CodeableConcept", "Languages which may be used to communicate with the patient.", 0, java.lang.Integer.MAX_VALUE, communication));
+        childrenList.add(new Property("communication", "CodeableConcept", "Languages which may be used to communicate with the patient about his or her health.", 0, java.lang.Integer.MAX_VALUE, communication));
         childrenList.add(new Property("careProvider", "Resource(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, careProvider));
         childrenList.add(new Property("managingOrganization", "Resource(Organization)", "Organization that is the custodian of the patient record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("link", "", "Link to another patient resource that concerns the same actual person.", 0, java.lang.Integer.MAX_VALUE, link));

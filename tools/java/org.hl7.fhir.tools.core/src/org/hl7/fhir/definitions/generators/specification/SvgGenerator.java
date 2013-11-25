@@ -45,6 +45,7 @@ public class SvgGenerator {
   private static final double DUPLICATE_GAP = 50;
   private static final double MARGIN_X = 100;
   private static final double MARGIN_Y = 10;
+  private static final double WRAP_INDENT = 20;
 
   private class Point {
     private PointKind kind;
@@ -286,8 +287,11 @@ public class SvgGenerator {
         int i = 0;
         for (ElementDefn c : e.getElements()) 
           if (isAttribute(c)) {
-            i++;
-            double w = textWidth(textForAttribute(c));
+            String[] texts = textForAttribute(c);
+            i = i + texts.length;
+            double w = textWidth(texts[0]);
+            for (int j = 1; j < texts.length; j++)
+              w = Math.max(w, textWidth(texts[j]));
             if (w > width)
               width = w;
           }
@@ -728,6 +732,8 @@ public class SvgGenerator {
           if (isAttribute(c)) {
             i++;
             addAttribute(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT * i, c, path);
+            String[] texts = textForAttribute(c);
+            i = i + texts.length - 1;
           }
         }
       }
@@ -778,8 +784,22 @@ public class SvgGenerator {
     return text.length() * 4;
   }
 
-  private String textForAttribute(ElementDefn e) {
-    return e.getName()+" : "+e.typeCode()+" : "+e.describeCardinality()+(e.hasBinding() ? " <<"+e.getBindingName()+">>" : "");
+  private String[] textForAttribute(ElementDefn e) {
+    if (e.typeCode().length() > 40) {
+      String s = e.typeCode();
+      List<String> lines = new ArrayList<String>();
+      while (s.length() > 40) {
+        int i = 40;
+        while (s.charAt(i) != '|')
+          i--;
+        lines.add((lines.size() == 0 ? e.getName()+" : " : ".....")+s.substring(0, i+1));
+        s = s.substring(i+1);
+      }
+      lines.add(s+" : "+e.describeCardinality()+(e.hasBinding() ? " <<"+e.getBindingName()+">>" : "") );
+      return lines.toArray(new String[] {});
+    }
+    else 
+      return new String[] { e.getName()+" : "+e.typeCode()+" : "+e.describeCardinality()+(e.hasBinding() ? " <<"+e.getBindingName()+">>" : "") };
   }
 
   private boolean isAttribute(ElementDefn c) {
@@ -787,29 +807,40 @@ public class SvgGenerator {
   }
 
   private void addAttribute(XMLWriter xml, double left, double top, ElementDefn e, String path) throws Exception  {
-    xml.attribute("x", Double.toString(left + LEFT_MARGIN));
-    xml.attribute("y", Double.toString(top));
-    xml.attribute("fill", "black");
-    xml.attribute("class", "diagram-class-detail");
-    xml.open("text");
-    xml.attribute("xlink:href", baseUrl(path)+path+"."+e.getName().replace("[", "_").replace("]", "_"));
-    xml.open("a");
-    xml.element("title", e.getEnhancedDefinition());
-    xml.text(e.getName());
-    xml.close("a");
-    xml.text(" : ");
-    encodeTypes(xml, e.getTypes());
-    xml.text(" "+e.describeCardinality());
-    if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
-      xml.text(" <<");
-      xml.attribute("xlink:href", getBindingLink(e));
-      xml.open("a");
-      xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
-      xml.text(e.getBindingName());
-      xml.close("a");
-      xml.text(">>");
+    TypeCodingProgress prog = new TypeCodingProgress();
+    int i = 0;
+    int length = 0;
+    while (!prog.done) {
+      xml.attribute("x", Double.toString(left + LEFT_MARGIN + (i == 0 ? 0 : WRAP_INDENT)));
+      xml.attribute("y", Double.toString(top + LINE_HEIGHT * i));
+      xml.attribute("fill", "black");
+      xml.attribute("class", "diagram-class-detail");
+      xml.open("text");
+      if (i == 0) {
+        xml.attribute("xlink:href", baseUrl(path)+path+"."+e.getName().replace("[", "_").replace("]", "_"));
+        xml.open("a");
+        xml.element("title", e.getEnhancedDefinition());
+        xml.text(e.getName());
+        xml.close("a");
+        xml.text(" : ");
+      } else 
+        xml.text("     ");
+      encodeTypes(xml, e.getTypes(), prog);
+      if (prog.done) {
+        xml.text(" "+e.describeCardinality());
+        if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
+          xml.text(" <<");
+          xml.attribute("xlink:href", getBindingLink(e));
+          xml.open("a");
+          xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
+          xml.text(e.getBindingName());
+          xml.close("a");
+          xml.text(">>");
+        }
+      }
+      xml.close("text");
+      i++;
     }
-    xml.close("text");
   }
 
   private void addExtension(XMLWriter xml, double left, double top) throws Exception  {
@@ -890,35 +921,91 @@ public class SvgGenerator {
   }
 
   
-  private void encodeTypes(XMLWriter xml, List<TypeRef> types)  throws Exception {
+  private class TypeCodingProgress {
+    boolean done = false;
+    int cursor = 0;
+    int count = 0;
+    int start = 0;
+    boolean flag = true;
+    
+    public void init() {
+      count = 0;    
+      start = cursor;
+    }
+    
+    public void attribute(XMLWriter xml, String name, String value) throws IOException {
+      if (flag)
+        xml.attribute(name, value);
+    }
+
+    public void element(XMLWriter xml, String name, String content) throws IOException {
+      if (flag) {
+        xml.element(name, content);
+        cursor = cursor + content.length();
+      }
+      count = count + content.length();
+    }
+
+    public void text(XMLWriter xml, String content) throws IOException {
+      if (flag) {
+        xml.text(content);
+        cursor = cursor + content.length();
+      }
+      count = count + content.length();
+    }
+
+    public boolean breaktext(XMLWriter xml, String content, String coming) throws IOException {
+      text(xml, content);
+      if (flag) {
+       if (cursor + coming.length() - start > 40)
+         flag = false;
+      } else {
+        if (count == cursor)
+          flag = true;
+      }
+      return false;
+    }
+
+    public void close() {
+      done = flag;      
+    }
+
+  }
+  
+  private void encodeTypes(XMLWriter xml, List<TypeRef> types, TypeCodingProgress prog)  throws Exception {
     boolean first = true;
+    prog.init();
     for (TypeRef tr : types) {
-      if (!first)
-        xml.text("|");
+      if (!first) {
+        if (prog.breaktext(xml, "|", tr.getName()))
+          return;
+      }
       if (tr.getName().equals("*"))
-        xml.attribute("xlink:href", "datatypes.html#open");
+        prog.attribute(xml, "xlink:href", "datatypes.html#open");
       else if (tr.getName().startsWith("@")) 
-        xml.attribute("title", "@"+tr.getName().substring(1));
+        prog.attribute(xml, "title", "@"+tr.getName().substring(1));
       else
-        xml.attribute("xlink:href", GeneratorUtils.getSrcFile(tr.getName()) + ".html#" + tr.getName());
-      xml.element("a", tr.getName());
+        prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(tr.getName()) + ".html#" + tr.getName());
+      prog.element(xml, "a", tr.getName());
       if (tr.getParams().size() > 0) {
-        xml.text("(");
+        prog.text(xml, "(");
         boolean firstP = true;
         for (String t : tr.getParams()) {
           if (!firstP)
-            xml.text("|");    
+            if (prog.breaktext(xml, "|", t))
+              return;
           if (definitions.getFutureResources().containsKey(t))
-            xml.attribute("title", "This resource is not been defined yet");
+            prog.attribute(xml, "title", "This resource is not been defined yet");
           else
-            xml.attribute("xlink:href", GeneratorUtils.getSrcFile(t) + ".html#" + t);
-          xml.element("a", t);
+            prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(t) + ".html#" + t);
+          prog.element(xml, "a", t);
           firstP = false;
         }
         xml.text(")");
       }
       first = false;
     }
+    prog.close();
 
   }
 

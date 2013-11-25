@@ -111,12 +111,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
 	private void addCodeAndDescendents(String system, ValueSetDefineConceptComponent def) {
-	  if (!ToolingExtensions.hasDeprecated(def)) {  
-	    if (def.getAbstract() == null || !def.getAbstractSimple())
-	      addCode(system, def.getCodeSimple(), def.getDisplaySimple());
-	    for (ValueSetDefineConceptComponent c : def.getConcept()) 
-	      addCodeAndDescendents(system, c);	  
-	  }
+		if (!ToolingExtensions.hasDeprecated(def)) {  
+			if (def.getAbstract() == null || !def.getAbstractSimple())
+				addCode(system, def.getCodeSimple(), def.getDisplaySimple());
+			for (ValueSetDefineConceptComponent c : def.getConcept()) 
+				addCodeAndDescendents(system, c);
+		}
   }
 
 	private void excludeCodes(ConceptSetComponent inc) throws Exception {
@@ -175,13 +175,14 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	}
 
 	private void addDefinedCode(ValueSet vs, String system, ValueSetDefineConceptComponent c) {
-    if (ToolingExtensions.hasDeprecated(c)) 
-      return;
-    if (c.getAbstract() == null || !c.getAbstractSimple()) {
-			addCode(system, c.getCodeSimple(), c.getDisplaySimple());
+		if (!ToolingExtensions.hasDeprecated(c)) { 
+
+			if (c.getAbstract() == null || !c.getAbstractSimple()) {
+				addCode(system, c.getCodeSimple(), c.getDisplaySimple());
+			}
+			for (ValueSetDefineConceptComponent g : c.getConcept()) 
+				addDefinedCode(vs, vs.getDefine().getSystemSimple(), g);
 		}
-  	for (ValueSetDefineConceptComponent g : c.getConcept()) 
-  		addDefinedCode(vs, vs.getDefine().getSystemSimple(), g);
   }
 
 	private void addCode(String system, String code, String display) {

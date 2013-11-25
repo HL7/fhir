@@ -178,7 +178,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">270;0</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">300;0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -266,7 +266,7 @@
     <Cell><Data ss:Type="String">Medication.product</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">590;20</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">630;20</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If is a product</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -290,7 +290,7 @@
     <Cell><Data ss:Type="String">Medication.product.ingredient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">510;120</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">650;120</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Ingredients, if specified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -362,7 +362,7 @@
     <Cell><Data ss:Type="String">Medication.package.content</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">60;120</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">40;120</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">What is  in the package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -440,7 +440,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

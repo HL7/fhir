@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -194,90 +194,16 @@ public class Encounter extends Resource {
       }
     }
 
-    public enum ParticipantType {
-        admitter, // The practitioner responsible for admitting a patient to a hospital or other inpatient health facility.
-        discharger, // The practitioner responsible for discharging the patient from a hospital or other inpatient health facility.
-        responsible, // The practitioner responsible for overseeing a patient's care during a patient encounter.
-        attending, // The practitioner responsible for overseeing a patient's care during a patient encounter.
-        consulting, // An advisor participating in the service by performing evaluations and making recommendations.
-        referrer, // The practitioner that referred the patient to another practitioner.
-        Null; // added to help the parsers
-        public static ParticipantType fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("admitter".equals(codeString))
-          return admitter;
-        if ("discharger".equals(codeString))
-          return discharger;
-        if ("responsible".equals(codeString))
-          return responsible;
-        if ("attending".equals(codeString))
-          return attending;
-        if ("consulting".equals(codeString))
-          return consulting;
-        if ("referrer".equals(codeString))
-          return referrer;
-        throw new Exception("Unknown ParticipantType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case admitter: return "admitter";
-            case discharger: return "discharger";
-            case responsible: return "responsible";
-            case attending: return "attending";
-            case consulting: return "consulting";
-            case referrer: return "referrer";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ParticipantTypeEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("admitter".equals(codeString))
-          return ParticipantType.admitter;
-        if ("discharger".equals(codeString))
-          return ParticipantType.discharger;
-        if ("responsible".equals(codeString))
-          return ParticipantType.responsible;
-        if ("attending".equals(codeString))
-          return ParticipantType.attending;
-        if ("consulting".equals(codeString))
-          return ParticipantType.consulting;
-        if ("referrer".equals(codeString))
-          return ParticipantType.referrer;
-        throw new Exception("Unknown ParticipantType code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == ParticipantType.admitter)
-        return "admitter";
-      if (code == ParticipantType.discharger)
-        return "discharger";
-      if (code == ParticipantType.responsible)
-        return "responsible";
-      if (code == ParticipantType.attending)
-        return "attending";
-      if (code == ParticipantType.consulting)
-        return "consulting";
-      if (code == ParticipantType.referrer)
-        return "referrer";
-      return "?";
-      }
-    }
-
     public static class EncounterParticipantComponent extends BackboneElement {
         /**
          * Role of participant in encounter.
          */
-        protected List<Enumeration<ParticipantType>> type = new ArrayList<Enumeration<ParticipantType>>();
+        protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
 
         /**
-         * The practitioner that is involved.
+         * Persons involved in the encounter other than the patient.
          */
-        protected ResourceReference practitioner;
+        protected ResourceReference individual;
 
       public EncounterParticipantComponent() {
         super();
@@ -286,7 +212,7 @@ public class Encounter extends Resource {
         /**
          * @return {@link #type} (Role of participant in encounter.)
          */
-        public List<Enumeration<ParticipantType>> getType() { 
+        public List<CodeableConcept> getType() { 
           return this.type;
         }
 
@@ -294,49 +220,39 @@ public class Encounter extends Resource {
         /**
          * @return {@link #type} (Role of participant in encounter.)
          */
-        public Enumeration<ParticipantType> addType() { 
-          Enumeration<ParticipantType> t = new Enumeration<ParticipantType>();
+        public CodeableConcept addType() { 
+          CodeableConcept t = new CodeableConcept();
           this.type.add(t);
           return t;
         }
 
         /**
-         * @param value {@link #type} (Role of participant in encounter.)
+         * @return {@link #individual} (Persons involved in the encounter other than the patient.)
          */
-        public Enumeration<ParticipantType> addTypeSimple(ParticipantType value) { 
-          Enumeration<ParticipantType> t = new Enumeration<ParticipantType>();
-          t.setValue(value);
-          this.type.add(t);
-          return t;
+        public ResourceReference getIndividual() { 
+          return this.individual;
         }
 
         /**
-         * @return {@link #practitioner} (The practitioner that is involved.)
+         * @param value {@link #individual} (Persons involved in the encounter other than the patient.)
          */
-        public ResourceReference getPractitioner() { 
-          return this.practitioner;
-        }
-
-        /**
-         * @param value {@link #practitioner} (The practitioner that is involved.)
-         */
-        public EncounterParticipantComponent setPractitioner(ResourceReference value) { 
-          this.practitioner = value;
+        public EncounterParticipantComponent setIndividual(ResourceReference value) { 
+          this.individual = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("type", "code", "Role of participant in encounter.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("practitioner", "Resource(Practitioner)", "The practitioner that is involved.", 0, java.lang.Integer.MAX_VALUE, practitioner));
+          childrenList.add(new Property("type", "CodeableConcept", "Role of participant in encounter.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("individual", "Resource(Practitioner|RelatedPerson)", "Persons involved in the encounter other than the patient.", 0, java.lang.Integer.MAX_VALUE, individual));
         }
 
       public EncounterParticipantComponent copy(Encounter e) {
         EncounterParticipantComponent dst = new EncounterParticipantComponent();
-        dst.type = new ArrayList<Enumeration<ParticipantType>>();
-        for (Enumeration<ParticipantType> i : type)
+        dst.type = new ArrayList<CodeableConcept>();
+        for (CodeableConcept i : type)
           dst.type.add(i.copy());
-        dst.practitioner = practitioner == null ? null : practitioner.copy();
+        dst.individual = individual == null ? null : individual.copy();
         return dst;
       }
 
@@ -392,6 +308,11 @@ public class Encounter extends Resource {
          * Disposition patient released to.
          */
         protected CodeableConcept dischargeDisposition;
+
+        /**
+         * The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.
+         */
+        protected ResourceReference dischargeDiagnosis;
 
         /**
          * Is readmission?.
@@ -559,6 +480,21 @@ public class Encounter extends Resource {
         }
 
         /**
+         * @return {@link #dischargeDiagnosis} (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
+         */
+        public ResourceReference getDischargeDiagnosis() { 
+          return this.dischargeDiagnosis;
+        }
+
+        /**
+         * @param value {@link #dischargeDiagnosis} (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
+         */
+        public EncounterHospitalizationComponent setDischargeDiagnosis(ResourceReference value) { 
+          this.dischargeDiagnosis = value;
+          return this;
+        }
+
+        /**
          * @return {@link #reAdmission} (Is readmission?.)
          */
         public Boolean getReAdmission() { 
@@ -606,6 +542,7 @@ public class Encounter extends Resource {
           childrenList.add(new Property("specialArrangement", "CodeableConcept", "Wheelchair, translator, stretcher, etc.", 0, java.lang.Integer.MAX_VALUE, specialArrangement));
           childrenList.add(new Property("destination", "Resource(Location)", "Location the patient is discharged to.", 0, java.lang.Integer.MAX_VALUE, destination));
           childrenList.add(new Property("dischargeDisposition", "CodeableConcept", "Disposition patient released to.", 0, java.lang.Integer.MAX_VALUE, dischargeDisposition));
+          childrenList.add(new Property("dischargeDiagnosis", "Resource(Any)", "The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.", 0, java.lang.Integer.MAX_VALUE, dischargeDiagnosis));
           childrenList.add(new Property("reAdmission", "boolean", "Is readmission?.", 0, java.lang.Integer.MAX_VALUE, reAdmission));
         }
 
@@ -627,6 +564,7 @@ public class Encounter extends Resource {
           dst.specialArrangement.add(i.copy());
         dst.destination = destination == null ? null : destination.copy();
         dst.dischargeDisposition = dischargeDisposition == null ? null : dischargeDisposition.copy();
+        dst.dischargeDiagnosis = dischargeDiagnosis == null ? null : dischargeDiagnosis.copy();
         dst.reAdmission = reAdmission == null ? null : reAdmission.copy();
         return dst;
       }
@@ -805,12 +743,12 @@ public class Encounter extends Resource {
     protected Duration length;
 
     /**
-     * Reason the encounter takes place.
+     * Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.
      */
     protected CodeableConcept reason;
 
     /**
-     * Reason the encounter takes place.
+     * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.
      */
     protected ResourceReference indication;
 
@@ -1046,14 +984,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #reason} (Reason the encounter takes place.)
+     * @return {@link #reason} (Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.)
      */
     public CodeableConcept getReason() { 
       return this.reason;
     }
 
     /**
-     * @param value {@link #reason} (Reason the encounter takes place.)
+     * @param value {@link #reason} (Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.)
      */
     public Encounter setReason(CodeableConcept value) { 
       this.reason = value;
@@ -1061,14 +999,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #indication} (Reason the encounter takes place.)
+     * @return {@link #indication} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
      */
     public ResourceReference getIndication() { 
       return this.indication;
     }
 
     /**
-     * @param value {@link #indication} (Reason the encounter takes place.)
+     * @param value {@link #indication} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.)
      */
     public Encounter setIndication(ResourceReference value) { 
       this.indication = value;
@@ -1163,8 +1101,8 @@ public class Encounter extends Resource {
         childrenList.add(new Property("fulfills", "Resource(Appointment)", "The appointment that scheduled this encounter.", 0, java.lang.Integer.MAX_VALUE, fulfills));
         childrenList.add(new Property("start", "dateTime", "The date and time the encounter starts, e.g. the patient arrives.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("length", "Duration", "Quantity of time the encounter lasted. This excludes the time during leaves of absence.", 0, java.lang.Integer.MAX_VALUE, length));
-        childrenList.add(new Property("reason", "CodeableConcept", "Reason the encounter takes place.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("indication", "Resource(Any)", "Reason the encounter takes place.", 0, java.lang.Integer.MAX_VALUE, indication));
+        childrenList.add(new Property("reason", "CodeableConcept", "Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("indication", "Resource(Any)", "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.", 0, java.lang.Integer.MAX_VALUE, indication));
         childrenList.add(new Property("priority", "CodeableConcept", "Indicates the urgency of the encounter.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("hospitalization", "", "Details about an admission to a clinic.", 0, java.lang.Integer.MAX_VALUE, hospitalization));
         childrenList.add(new Property("location", "", "List of locations the patient has been at.", 0, java.lang.Integer.MAX_VALUE, location));

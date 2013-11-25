@@ -471,7 +471,7 @@ public class NarrativeGenerator {
   private  <T extends Resource> void addCsRef(ConceptSetComponent inc, XhtmlNode li, AtomEntry<T> cs) {
     String ref = null;
     if (cs != null) {
-      ref = cs.getLinks().get("path");
+      cs.getLinks().get("path");
       if (Utilities.noString(ref))
         ref = cs.getLinks().get("self");
     }

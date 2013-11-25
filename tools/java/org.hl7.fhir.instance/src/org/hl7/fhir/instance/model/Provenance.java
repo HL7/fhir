@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -474,9 +474,9 @@ public class Provenance extends Resource {
     protected List<ProvenanceEntityComponent> entity = new ArrayList<ProvenanceEntityComponent>();
 
     /**
-     * A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.
+     * A digital signature on the target resource(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
      */
-    protected String_ signature;
+    protected String_ integritySignature;
 
     public Provenance() {
       super();
@@ -643,37 +643,37 @@ public class Provenance extends Resource {
     }
 
     /**
-     * @return {@link #signature} (A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.)
+     * @return {@link #integritySignature} (A digital signature on the target resource(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.)
      */
-    public String_ getSignature() { 
-      return this.signature;
+    public String_ getIntegritySignature() { 
+      return this.integritySignature;
     }
 
     /**
-     * @param value {@link #signature} (A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.)
+     * @param value {@link #integritySignature} (A digital signature on the target resource(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.)
      */
-    public Provenance setSignature(String_ value) { 
-      this.signature = value;
+    public Provenance setIntegritySignature(String_ value) { 
+      this.integritySignature = value;
       return this;
     }
 
     /**
-     * @return A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.
+     * @return A digital signature on the target resource(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
      */
-    public String getSignatureSimple() { 
-      return this.signature == null ? null : this.signature.getValue();
+    public String getIntegritySignatureSimple() { 
+      return this.integritySignature == null ? null : this.integritySignature.getValue();
     }
 
     /**
-     * @param value A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.
+     * @param value A digital signature on the target resource(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.
      */
-    public Provenance setSignatureSimple(String value) { 
+    public Provenance setIntegritySignatureSimple(String value) { 
       if (value == null)
-        this.signature = null;
+        this.integritySignature = null;
       else {
-        if (this.signature == null)
-          this.signature = new String_();
-        this.signature.setValue(value);
+        if (this.integritySignature == null)
+          this.integritySignature = new String_();
+        this.integritySignature.setValue(value);
       }
       return this;
     }
@@ -688,7 +688,7 @@ public class Provenance extends Resource {
         childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
         childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
-        childrenList.add(new Property("signature", "string", "A digital signature on the target resource. The signature should reference a participant by xml:id. The signature is only added to support checking cryptographic integrity of the provenance, and not to represent workflow and clinical aspects of the signing process.", 0, java.lang.Integer.MAX_VALUE, signature));
+        childrenList.add(new Property("integritySignature", "string", "A digital signature on the target resource(s). The signature should match a Provenance.agent.reference in the provenance resource. The signature is only added to support checking cryptographic integrity of the resource, and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.", 0, java.lang.Integer.MAX_VALUE, integritySignature));
       }
 
       public Provenance copy() {
@@ -709,7 +709,7 @@ public class Provenance extends Resource {
         dst.entity = new ArrayList<ProvenanceEntityComponent>();
         for (ProvenanceEntityComponent i : entity)
           dst.entity.add(i.copy(dst));
-        dst.signature = signature == null ? null : signature.copy();
+        dst.integritySignature = integritySignature == null ? null : integritySignature.copy();
         return dst;
       }
 

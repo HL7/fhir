@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -230,9 +230,9 @@ public class Conformance extends Resource {
 
     public enum SearchParamType {
         number, // Search parameter SHALL be a number (an whole number, or a decimal).
-        date, // Search parameter is on a date (and should support :before and :after modifiers). The date format is the standard XML format, though other formats may be supported.
+        date, // Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
         string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
-        token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "/", depending on the modifier used.
+        token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
         reference, // A reference to another resource.
         composite, // A composite search parameter that combines a search on two values together.
         Null; // added to help the parsers
@@ -716,6 +716,11 @@ public class Conformance extends Resource {
          */
         protected List<ConformanceRestQueryComponent> query = new ArrayList<ConformanceRestQueryComponent>();
 
+        /**
+         * A list of profiles that this server implements for accepting documents on mailbox. If the list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this use.
+         */
+        protected List<Uri> documentMailbox = new ArrayList<Uri>();
+
       public ConformanceRestComponent() {
         super();
       }
@@ -859,6 +864,33 @@ public class Conformance extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #documentMailbox} (A list of profiles that this server implements for accepting documents on mailbox. If the list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this use.)
+         */
+        public List<Uri> getDocumentMailbox() { 
+          return this.documentMailbox;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #documentMailbox} (A list of profiles that this server implements for accepting documents on mailbox. If the list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this use.)
+         */
+        public Uri addDocumentMailbox() { 
+          Uri t = new Uri();
+          this.documentMailbox.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #documentMailbox} (A list of profiles that this server implements for accepting documents on mailbox. If the list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this use.)
+         */
+        public Uri addDocumentMailboxSimple(String value) { 
+          Uri t = new Uri();
+          t.setValue(value);
+          this.documentMailbox.add(t);
+          return t;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.", 0, java.lang.Integer.MAX_VALUE, mode));
@@ -867,6 +899,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("resource", "", "Identifies the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("operation", "", "Identifies a restful operation supported by the solution.", 0, java.lang.Integer.MAX_VALUE, operation));
           childrenList.add(new Property("query", "", "Definition of a named query and its parameters and their meaning.", 0, java.lang.Integer.MAX_VALUE, query));
+          childrenList.add(new Property("documentMailbox", "uri", "A list of profiles that this server implements for accepting documents on mailbox. If the list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this use.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
         }
 
       public ConformanceRestComponent copy(Conformance e) {
@@ -883,6 +916,9 @@ public class Conformance extends Resource {
         dst.query = new ArrayList<ConformanceRestQueryComponent>();
         for (ConformanceRestQueryComponent i : query)
           dst.query.add(i.copy(e));
+        dst.documentMailbox = new ArrayList<Uri>();
+        for (Uri i : documentMailbox)
+          dst.documentMailbox.add(i.copy());
         return dst;
       }
 

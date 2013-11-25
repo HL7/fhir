@@ -187,7 +187,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">MessageHeader.response</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">300;150</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If this is a reply to prior message</Data></Cell>
     <Cell><Data ss:Type="String">Information about the message that this message is a response to.  Only present if this message is a response.</Data></Cell>
@@ -231,7 +231,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">MessageHeader.source</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">500;50</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=MessageHeaderSource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Message Source Application</Data></Cell>
     <Cell><Data ss:Type="String">The source application from which this message originated</Data></Cell>
@@ -294,7 +294,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">MessageHeader.destination</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">down</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">300;0</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=MessageHeaderDestination</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Message Destination Application(s)</Data></Cell>
     <Cell><Data ss:Type="String">The destination application which the message is intended for</Data></Cell>
@@ -408,7 +408,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -421,11 +421,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -78,6 +78,14 @@ public class SampledData extends Type {
       super();
     }
 
+    public SampledData(Quantity origin, Decimal period, Integer dimensions, String_ data) {
+      super();
+      this.origin = origin;
+      this.period = period;
+      this.dimensions = dimensions;
+      this.data = data;
+    }
+
     /**
      * @return {@link #origin} (The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.)
      */
@@ -119,13 +127,9 @@ public class SampledData extends Type {
      * @param value The length of time between sampling times, measured in milliseconds.
      */
     public SampledData setPeriodSimple(BigDecimal value) { 
-      if (value == null)
-        this.period = null;
-      else {
         if (this.period == null)
           this.period = new Decimal();
         this.period.setValue(value);
-      }
       return this;
     }
 
@@ -263,13 +267,9 @@ public class SampledData extends Type {
      * @param value The Number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.
      */
     public SampledData setDimensionsSimple(int value) { 
-      if (value == -1)
-        this.dimensions = null;
-      else {
         if (this.dimensions == null)
           this.dimensions = new Integer();
         this.dimensions.setValue(value);
-      }
       return this;
     }
 
@@ -299,13 +299,9 @@ public class SampledData extends Type {
      * @param value A series of data points separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used.
      */
     public SampledData setDataSimple(String value) { 
-      if (value == null)
-        this.data = null;
-      else {
         if (this.data == null)
           this.data = new String_();
         this.data.setValue(value);
-      }
       return this;
     }
 

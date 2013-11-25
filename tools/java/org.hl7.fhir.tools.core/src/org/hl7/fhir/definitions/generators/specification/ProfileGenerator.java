@@ -63,6 +63,7 @@ import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ExtensionContext;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
+import org.hl7.fhir.instance.model.Profile.PropertyRepresentation;
 import org.hl7.fhir.instance.model.Profile.ResourceAggregationMode;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
@@ -269,6 +270,8 @@ public class ProfileGenerator {
     Profile.ElementComponent ce = new Profile.ElementComponent();
     c.getElement().add(ce);
     ce.setPath(Factory.newString_(path));
+    if (e.isXmlAttribute())
+      ce.addRepresentationSimple(PropertyRepresentation.xmlAttr);
     if (!Utilities.noString(e.getProfileName())) {
       if (!Utilities.noString(e.getDiscriminator()) && !slices.contains(path)) {
         ce.setSlicing(new Profile.ElementSlicingComponent());

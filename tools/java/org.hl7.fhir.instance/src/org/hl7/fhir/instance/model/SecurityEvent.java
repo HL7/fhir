@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -163,34 +163,34 @@ public class SecurityEvent extends Resource {
     }
 
     public enum NetworkType {
-        name, // Machine Name, including DNS name.
-        ip, // IP Address.
-        phone, // Telephone Number.
-        email, // Email address.
-        uri, // URI (User directory, HTTP-PUT, ftp, etc.).
+        _1, // Machine Name, including DNS name.
+        _2, // IP Address.
+        _3, // Telephone Number.
+        _4, // Email address.
+        _5, // URI (User directory, HTTP-PUT, ftp, etc.).
         Null; // added to help the parsers
         public static NetworkType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("name".equals(codeString))
-          return name;
-        if ("ip".equals(codeString))
-          return ip;
-        if ("phone".equals(codeString))
-          return phone;
-        if ("email".equals(codeString))
-          return email;
-        if ("uri".equals(codeString))
-          return uri;
+        if ("1".equals(codeString))
+          return _1;
+        if ("2".equals(codeString))
+          return _2;
+        if ("3".equals(codeString))
+          return _3;
+        if ("4".equals(codeString))
+          return _4;
+        if ("5".equals(codeString))
+          return _5;
         throw new Exception("Unknown NetworkType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case name: return "name";
-            case ip: return "ip";
-            case phone: return "phone";
-            case email: return "email";
-            case uri: return "uri";
+            case _1: return "1";
+            case _2: return "2";
+            case _3: return "3";
+            case _4: return "4";
+            case _5: return "5";
             default: return "?";
           }
         }
@@ -201,29 +201,29 @@ public class SecurityEvent extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("name".equals(codeString))
-          return NetworkType.name;
-        if ("ip".equals(codeString))
-          return NetworkType.ip;
-        if ("phone".equals(codeString))
-          return NetworkType.phone;
-        if ("email".equals(codeString))
-          return NetworkType.email;
-        if ("uri".equals(codeString))
-          return NetworkType.uri;
+        if ("1".equals(codeString))
+          return NetworkType._1;
+        if ("2".equals(codeString))
+          return NetworkType._2;
+        if ("3".equals(codeString))
+          return NetworkType._3;
+        if ("4".equals(codeString))
+          return NetworkType._4;
+        if ("5".equals(codeString))
+          return NetworkType._5;
         throw new Exception("Unknown NetworkType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == NetworkType.name)
-        return "name";
-      if (code == NetworkType.ip)
-        return "ip";
-      if (code == NetworkType.phone)
-        return "phone";
-      if (code == NetworkType.email)
-        return "email";
-      if (code == NetworkType.uri)
-        return "uri";
+      if (code == NetworkType._1)
+        return "1";
+      if (code == NetworkType._2)
+        return "2";
+      if (code == NetworkType._3)
+        return "3";
+      if (code == NetworkType._4)
+        return "4";
+      if (code == NetworkType._5)
+        return "5";
       return "?";
       }
     }
@@ -905,9 +905,9 @@ public class SecurityEvent extends Resource {
         protected String_ userId;
 
         /**
-         * User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
+         * Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
          */
-        protected String_ authId;
+        protected String_ altId;
 
         /**
          * Human-meaningful name for the user.
@@ -1007,37 +1007,37 @@ public class SecurityEvent extends Resource {
         }
 
         /**
-         * @return {@link #authId} (User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.)
+         * @return {@link #altId} (Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.)
          */
-        public String_ getAuthId() { 
-          return this.authId;
+        public String_ getAltId() { 
+          return this.altId;
         }
 
         /**
-         * @param value {@link #authId} (User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.)
+         * @param value {@link #altId} (Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.)
          */
-        public SecurityEventParticipantComponent setAuthId(String_ value) { 
-          this.authId = value;
+        public SecurityEventParticipantComponent setAltId(String_ value) { 
+          this.altId = value;
           return this;
         }
 
         /**
-         * @return User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
+         * @return Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
          */
-        public String getAuthIdSimple() { 
-          return this.authId == null ? null : this.authId.getValue();
+        public String getAltIdSimple() { 
+          return this.altId == null ? null : this.altId.getValue();
         }
 
         /**
-         * @param value User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
+         * @param value Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.
          */
-        public SecurityEventParticipantComponent setAuthIdSimple(String value) { 
+        public SecurityEventParticipantComponent setAltIdSimple(String value) { 
           if (value == null)
-            this.authId = null;
+            this.altId = null;
           else {
-            if (this.authId == null)
-              this.authId = new String_();
-            this.authId.setValue(value);
+            if (this.altId == null)
+              this.altId = new String_();
+            this.altId.setValue(value);
           }
           return this;
         }
@@ -1145,7 +1145,7 @@ public class SecurityEvent extends Resource {
           childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("reference", "Resource(Practitioner|Patient|Device)", "Direct reference to a resource that identifies the participant.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("userId", "string", "Unique identifier for the user actively participating in the event.", 0, java.lang.Integer.MAX_VALUE, userId));
-          childrenList.add(new Property("authId", "string", "User identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.", 0, java.lang.Integer.MAX_VALUE, authId));
+          childrenList.add(new Property("altId", "string", "Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g., single sign-on), if available.", 0, java.lang.Integer.MAX_VALUE, altId));
           childrenList.add(new Property("name", "string", "Human-meaningful name for the user.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("requestor", "boolean", "Indicator that the user is or is not the requestor, or initiator, for the event being audited.", 0, java.lang.Integer.MAX_VALUE, requestor));
           childrenList.add(new Property("media", "Coding", "Type of media involved. Used when the event is about exporting/importing onto media.", 0, java.lang.Integer.MAX_VALUE, media));
@@ -1159,7 +1159,7 @@ public class SecurityEvent extends Resource {
           dst.role.add(i.copy());
         dst.reference = reference == null ? null : reference.copy();
         dst.userId = userId == null ? null : userId.copy();
-        dst.authId = authId == null ? null : authId.copy();
+        dst.altId = altId == null ? null : altId.copy();
         dst.name = name == null ? null : name.copy();
         dst.requestor = requestor == null ? null : requestor.copy();
         dst.media = media == null ? null : media.copy();
@@ -1437,6 +1437,11 @@ public class SecurityEvent extends Resource {
         protected String_ name;
 
         /**
+         * Text that describes the object in more detail.
+         */
+        protected String_ description;
+
+        /**
          * The actual query for a query-type participant object.
          */
         protected Base64Binary query;
@@ -1640,6 +1645,42 @@ public class SecurityEvent extends Resource {
         }
 
         /**
+         * @return {@link #description} (Text that describes the object in more detail.)
+         */
+        public String_ getDescription() { 
+          return this.description;
+        }
+
+        /**
+         * @param value {@link #description} (Text that describes the object in more detail.)
+         */
+        public SecurityEventObjectComponent setDescription(String_ value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return Text that describes the object in more detail.
+         */
+        public String getDescriptionSimple() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value Text that describes the object in more detail.
+         */
+        public SecurityEventObjectComponent setDescriptionSimple(String value) { 
+          if (value == null)
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new String_();
+            this.description.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #query} (The actual query for a query-type participant object.)
          */
         public Base64Binary getQuery() { 
@@ -1701,6 +1742,7 @@ public class SecurityEvent extends Resource {
           childrenList.add(new Property("lifecycle", "code", "Identifier for the data life-cycle stage for the participant object.", 0, java.lang.Integer.MAX_VALUE, lifecycle));
           childrenList.add(new Property("sensitivity", "CodeableConcept", "Denotes policy-defined sensitivity for the Participant Object ID such as VIP, HIV status, mental health status or similar topics.", 0, java.lang.Integer.MAX_VALUE, sensitivity));
           childrenList.add(new Property("name", "string", "An instance-specific descriptor of the Participant Object ID audited, such as a person's name.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("description", "string", "Text that describes the object in more detail.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("query", "base64Binary", "The actual query for a query-type participant object.", 0, java.lang.Integer.MAX_VALUE, query));
           childrenList.add(new Property("detail", "", "Additional Information about the Object.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
@@ -1714,6 +1756,7 @@ public class SecurityEvent extends Resource {
         dst.lifecycle = lifecycle == null ? null : lifecycle.copy();
         dst.sensitivity = sensitivity == null ? null : sensitivity.copy();
         dst.name = name == null ? null : name.copy();
+        dst.description = description == null ? null : description.copy();
         dst.query = query == null ? null : query.copy();
         dst.detail = new ArrayList<SecurityEventObjectDetailComponent>();
         for (SecurityEventObjectDetailComponent i : detail)

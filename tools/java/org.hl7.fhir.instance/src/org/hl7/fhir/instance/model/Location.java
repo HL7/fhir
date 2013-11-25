@@ -29,15 +29,57 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
 import java.math.*;
 /**
- * Contact details and position information for a physical place that may be visited and where healthcare resources and participants may be found or contained, accommodated, or stored.
+ * Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
  */
 public class Location extends Resource {
+
+    public enum LocationMode {
+        instance, // The Location resource represents a specific instance of a Location.
+        kind, // The Location represents a class of Locations.
+        Null; // added to help the parsers
+        public static LocationMode fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("instance".equals(codeString))
+          return instance;
+        if ("kind".equals(codeString))
+          return kind;
+        throw new Exception("Unknown LocationMode code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case instance: return "instance";
+            case kind: return "kind";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class LocationModeEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("instance".equals(codeString))
+          return LocationMode.instance;
+        if ("kind".equals(codeString))
+          return LocationMode.kind;
+        throw new Exception("Unknown LocationMode code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == LocationMode.instance)
+        return "instance";
+      if (code == LocationMode.kind)
+        return "kind";
+      return "?";
+      }
+    }
 
     public static class LocationPositionComponent extends BackboneElement {
         /**
@@ -193,9 +235,9 @@ public class Location extends Resource {
     protected String_ description;
 
     /**
-     * Classification of the location.
+     * Indicates the type of function performed at the location.
      */
-    protected List<CodeableConcept> type = new ArrayList<CodeableConcept>();
+    protected CodeableConcept type;
 
     /**
      * The contact details of the main communication devices present at the location.
@@ -208,14 +250,19 @@ public class Location extends Resource {
     protected Address address;
 
     /**
+     * Physical form of the location, e.g. building, room, vehicle, road.
+     */
+    protected CodeableConcept physicalType;
+
+    /**
      * The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).
      */
     protected LocationPositionComponent position;
 
     /**
-     * The organization that provides services at the location.
+     * The organization that is responsible for the provisioning and upkeep of the location.
      */
-    protected ResourceReference provider;
+    protected ResourceReference managingOrganization;
 
     /**
      * Whether the location is still used to provide services.
@@ -223,9 +270,14 @@ public class Location extends Resource {
     protected Boolean active;
 
     /**
-     * Another Location which this Location is physically inside of.
+     * Another Location which this Location is physically part of.
      */
     protected ResourceReference partOf;
+
+    /**
+     * Indicates whether a resource instance represents a specific location or a class of locations.
+     */
+    protected Enumeration<LocationMode> mode;
 
     public Location() {
       super();
@@ -305,20 +357,18 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #type} (Classification of the location.)
+     * @return {@link #type} (Indicates the type of function performed at the location.)
      */
-    public List<CodeableConcept> getType() { 
+    public CodeableConcept getType() { 
       return this.type;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #type} (Classification of the location.)
+     * @param value {@link #type} (Indicates the type of function performed at the location.)
      */
-    public CodeableConcept addType() { 
-      CodeableConcept t = new CodeableConcept();
-      this.type.add(t);
-      return t;
+    public Location setType(CodeableConcept value) { 
+      this.type = value;
+      return this;
     }
 
     /**
@@ -352,6 +402,21 @@ public class Location extends Resource {
     }
 
     /**
+     * @return {@link #physicalType} (Physical form of the location, e.g. building, room, vehicle, road.)
+     */
+    public CodeableConcept getPhysicalType() { 
+      return this.physicalType;
+    }
+
+    /**
+     * @param value {@link #physicalType} (Physical form of the location, e.g. building, room, vehicle, road.)
+     */
+    public Location setPhysicalType(CodeableConcept value) { 
+      this.physicalType = value;
+      return this;
+    }
+
+    /**
      * @return {@link #position} (The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).)
      */
     public LocationPositionComponent getPosition() { 
@@ -367,17 +432,17 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #provider} (The organization that provides services at the location.)
+     * @return {@link #managingOrganization} (The organization that is responsible for the provisioning and upkeep of the location.)
      */
-    public ResourceReference getProvider() { 
-      return this.provider;
+    public ResourceReference getManagingOrganization() { 
+      return this.managingOrganization;
     }
 
     /**
-     * @param value {@link #provider} (The organization that provides services at the location.)
+     * @param value {@link #managingOrganization} (The organization that is responsible for the provisioning and upkeep of the location.)
      */
-    public Location setProvider(ResourceReference value) { 
-      this.provider = value;
+    public Location setManagingOrganization(ResourceReference value) { 
+      this.managingOrganization = value;
       return this;
     }
 
@@ -418,17 +483,53 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #partOf} (Another Location which this Location is physically inside of.)
+     * @return {@link #partOf} (Another Location which this Location is physically part of.)
      */
     public ResourceReference getPartOf() { 
       return this.partOf;
     }
 
     /**
-     * @param value {@link #partOf} (Another Location which this Location is physically inside of.)
+     * @param value {@link #partOf} (Another Location which this Location is physically part of.)
      */
     public Location setPartOf(ResourceReference value) { 
       this.partOf = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.)
+     */
+    public Enumeration<LocationMode> getMode() { 
+      return this.mode;
+    }
+
+    /**
+     * @param value {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.)
+     */
+    public Location setMode(Enumeration<LocationMode> value) { 
+      this.mode = value;
+      return this;
+    }
+
+    /**
+     * @return Indicates whether a resource instance represents a specific location or a class of locations.
+     */
+    public LocationMode getModeSimple() { 
+      return this.mode == null ? null : this.mode.getValue();
+    }
+
+    /**
+     * @param value Indicates whether a resource instance represents a specific location or a class of locations.
+     */
+    public Location setModeSimple(LocationMode value) { 
+      if (value == null)
+        this.mode = null;
+      else {
+        if (this.mode == null)
+          this.mode = new Enumeration<LocationMode>();
+        this.mode.setValue(value);
+      }
       return this;
     }
 
@@ -436,28 +537,30 @@ public class Location extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "string", "Name of the location which identifies it to its users.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("description", "string", "Description of the Location, which helps in finding or referencing the place.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("type", "CodeableConcept", "Classification of the location.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of function performed at the location.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("telecom", "Contact", "The contact details of the main communication devices present at the location.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("address", "Address", "Physical location.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("physicalType", "CodeableConcept", "Physical form of the location, e.g. building, room, vehicle, road.", 0, java.lang.Integer.MAX_VALUE, physicalType));
         childrenList.add(new Property("position", "", "The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).", 0, java.lang.Integer.MAX_VALUE, position));
-        childrenList.add(new Property("provider", "Resource(Organization)", "The organization that provides services at the location.", 0, java.lang.Integer.MAX_VALUE, provider));
+        childrenList.add(new Property("managingOrganization", "Resource(Organization)", "The organization that is responsible for the provisioning and upkeep of the location.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("active", "boolean", "Whether the location is still used to provide services.", 0, java.lang.Integer.MAX_VALUE, active));
-        childrenList.add(new Property("partOf", "Resource(Location)", "Another Location which this Location is physically inside of.", 0, java.lang.Integer.MAX_VALUE, partOf));
+        childrenList.add(new Property("partOf", "Resource(Location)", "Another Location which this Location is physically part of.", 0, java.lang.Integer.MAX_VALUE, partOf));
+        childrenList.add(new Property("mode", "code", "Indicates whether a resource instance represents a specific location or a class of locations.", 0, java.lang.Integer.MAX_VALUE, mode));
       }
 
       public Location copy() {
         Location dst = new Location();
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
-        dst.type = new ArrayList<CodeableConcept>();
-        for (CodeableConcept i : type)
-          dst.type.add(i.copy());
+        dst.type = type == null ? null : type.copy();
         dst.telecom = telecom == null ? null : telecom.copy();
         dst.address = address == null ? null : address.copy();
+        dst.physicalType = physicalType == null ? null : physicalType.copy();
         dst.position = position == null ? null : position.copy(dst);
-        dst.provider = provider == null ? null : provider.copy();
+        dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
         dst.active = active == null ? null : active.copy();
         dst.partOf = partOf == null ? null : partOf.copy();
+        dst.mode = mode == null ? null : mode.copy();
         return dst;
       }
 

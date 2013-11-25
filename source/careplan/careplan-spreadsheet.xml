@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>2370</WindowHeight>
+  <WindowHeight>2310</WindowHeight>
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>75</WindowTopX>
-  <WindowTopY>13755</WindowTopY>
+  <WindowTopY>13815</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -523,7 +523,7 @@
     <Cell><Data ss:Type="String">CarePlan.activity.simple</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">440;180</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">700;0</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Activity details summarised here</Data></Cell>
     <Cell><Data ss:Type="String">A simple summary of details suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Details in a simple form for generic care plan systems</Data></Cell>
@@ -704,7 +704,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -721,6 +721,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>24</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
