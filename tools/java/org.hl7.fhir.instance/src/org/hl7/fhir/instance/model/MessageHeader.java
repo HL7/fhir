@@ -29,14 +29,14 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Nov 7, 2013 14:52+1100 for FHIR v0.12
+// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * The root for a transmission that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the Message resource instance is the first resource in the bundle.
+ * The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the MessageHeader resource instance is the first resource in the bundle.
  */
-public class Message extends Resource {
+public class MessageHeader extends Resource {
 
     public enum ResponseCode {
         ok, // The message was accepted and processed without error.
@@ -88,7 +88,7 @@ public class Message extends Resource {
       }
     }
 
-    public static class MessageResponseComponent extends BackboneElement {
+    public static class MessageHeaderResponseComponent extends BackboneElement {
         /**
          * The id of the message that this a response to.
          */
@@ -104,11 +104,11 @@ public class Message extends Resource {
          */
         protected ResourceReference details;
 
-      public MessageResponseComponent() {
+      public MessageHeaderResponseComponent() {
         super();
       }
 
-      public MessageResponseComponent(Id identifier, Enumeration<ResponseCode> code) {
+      public MessageHeaderResponseComponent(Id identifier, Enumeration<ResponseCode> code) {
         super();
         this.identifier = identifier;
         this.code = code;
@@ -124,7 +124,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #identifier} (The id of the message that this a response to.)
          */
-        public MessageResponseComponent setIdentifier(Id value) { 
+        public MessageHeaderResponseComponent setIdentifier(Id value) { 
           this.identifier = value;
           return this;
         }
@@ -139,7 +139,7 @@ public class Message extends Resource {
         /**
          * @param value The id of the message that this a response to.
          */
-        public MessageResponseComponent setIdentifierSimple(String value) { 
+        public MessageHeaderResponseComponent setIdentifierSimple(String value) { 
             if (this.identifier == null)
               this.identifier = new Id();
             this.identifier.setValue(value);
@@ -156,7 +156,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #code} (Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.)
          */
-        public MessageResponseComponent setCode(Enumeration<ResponseCode> value) { 
+        public MessageHeaderResponseComponent setCode(Enumeration<ResponseCode> value) { 
           this.code = value;
           return this;
         }
@@ -171,7 +171,7 @@ public class Message extends Resource {
         /**
          * @param value Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.
          */
-        public MessageResponseComponent setCodeSimple(ResponseCode value) { 
+        public MessageHeaderResponseComponent setCodeSimple(ResponseCode value) { 
             if (this.code == null)
               this.code = new Enumeration<ResponseCode>();
             this.code.setValue(value);
@@ -188,7 +188,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #details} (Full details of any issues found in the message.)
          */
-        public MessageResponseComponent setDetails(ResourceReference value) { 
+        public MessageHeaderResponseComponent setDetails(ResourceReference value) { 
           this.details = value;
           return this;
         }
@@ -200,8 +200,8 @@ public class Message extends Resource {
           childrenList.add(new Property("details", "Resource(OperationOutcome)", "Full details of any issues found in the message.", 0, java.lang.Integer.MAX_VALUE, details));
         }
 
-      public MessageResponseComponent copy(Message e) {
-        MessageResponseComponent dst = new MessageResponseComponent();
+      public MessageHeaderResponseComponent copy(MessageHeader e) {
+        MessageHeaderResponseComponent dst = new MessageHeaderResponseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.code = code == null ? null : code.copy();
         dst.details = details == null ? null : details.copy();
@@ -210,7 +210,7 @@ public class Message extends Resource {
 
   }
 
-    public static class MessageSourceComponent extends BackboneElement {
+    public static class MessageHeaderSourceComponent extends BackboneElement {
         /**
          * Human-readable name for the target system.
          */
@@ -236,11 +236,11 @@ public class Message extends Resource {
          */
         protected Uri endpoint;
 
-      public MessageSourceComponent() {
+      public MessageHeaderSourceComponent() {
         super();
       }
 
-      public MessageSourceComponent(String_ software, Uri endpoint) {
+      public MessageHeaderSourceComponent(String_ software, Uri endpoint) {
         super();
         this.software = software;
         this.endpoint = endpoint;
@@ -256,7 +256,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #name} (Human-readable name for the target system.)
          */
-        public MessageSourceComponent setName(String_ value) { 
+        public MessageHeaderSourceComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
@@ -271,7 +271,7 @@ public class Message extends Resource {
         /**
          * @param value Human-readable name for the target system.
          */
-        public MessageSourceComponent setNameSimple(String value) { 
+        public MessageHeaderSourceComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -292,7 +292,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #software} (May include configuration or other information useful in debugging.)
          */
-        public MessageSourceComponent setSoftware(String_ value) { 
+        public MessageHeaderSourceComponent setSoftware(String_ value) { 
           this.software = value;
           return this;
         }
@@ -307,7 +307,7 @@ public class Message extends Resource {
         /**
          * @param value May include configuration or other information useful in debugging.
          */
-        public MessageSourceComponent setSoftwareSimple(String value) { 
+        public MessageHeaderSourceComponent setSoftwareSimple(String value) { 
             if (this.software == null)
               this.software = new String_();
             this.software.setValue(value);
@@ -324,7 +324,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.)
          */
-        public MessageSourceComponent setVersion(String_ value) { 
+        public MessageHeaderSourceComponent setVersion(String_ value) { 
           this.version = value;
           return this;
         }
@@ -339,7 +339,7 @@ public class Message extends Resource {
         /**
          * @param value Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
-        public MessageSourceComponent setVersionSimple(String value) { 
+        public MessageHeaderSourceComponent setVersionSimple(String value) { 
           if (value == null)
             this.version = null;
           else {
@@ -360,7 +360,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #contact} (An e-mail, phone, website or other contact point to use to resolve issues with message communications.)
          */
-        public MessageSourceComponent setContact(Contact value) { 
+        public MessageHeaderSourceComponent setContact(Contact value) { 
           this.contact = value;
           return this;
         }
@@ -375,7 +375,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #endpoint} (Identifies the routing target to send acknowledgements to.)
          */
-        public MessageSourceComponent setEndpoint(Uri value) { 
+        public MessageHeaderSourceComponent setEndpoint(Uri value) { 
           this.endpoint = value;
           return this;
         }
@@ -390,7 +390,7 @@ public class Message extends Resource {
         /**
          * @param value Identifies the routing target to send acknowledgements to.
          */
-        public MessageSourceComponent setEndpointSimple(String value) { 
+        public MessageHeaderSourceComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
             this.endpoint.setValue(value);
@@ -406,8 +406,8 @@ public class Message extends Resource {
           childrenList.add(new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
-      public MessageSourceComponent copy(Message e) {
-        MessageSourceComponent dst = new MessageSourceComponent();
+      public MessageHeaderSourceComponent copy(MessageHeader e) {
+        MessageHeaderSourceComponent dst = new MessageHeaderSourceComponent();
         dst.name = name == null ? null : name.copy();
         dst.software = software == null ? null : software.copy();
         dst.version = version == null ? null : version.copy();
@@ -418,7 +418,7 @@ public class Message extends Resource {
 
   }
 
-    public static class MessageDestinationComponent extends BackboneElement {
+    public static class MessageHeaderDestinationComponent extends BackboneElement {
         /**
          * Human-readable name for the source system.
          */
@@ -434,11 +434,11 @@ public class Message extends Resource {
          */
         protected Uri endpoint;
 
-      public MessageDestinationComponent() {
+      public MessageHeaderDestinationComponent() {
         super();
       }
 
-      public MessageDestinationComponent(Uri endpoint) {
+      public MessageHeaderDestinationComponent(Uri endpoint) {
         super();
         this.endpoint = endpoint;
       }
@@ -453,7 +453,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #name} (Human-readable name for the source system.)
          */
-        public MessageDestinationComponent setName(String_ value) { 
+        public MessageHeaderDestinationComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
@@ -468,7 +468,7 @@ public class Message extends Resource {
         /**
          * @param value Human-readable name for the source system.
          */
-        public MessageDestinationComponent setNameSimple(String value) { 
+        public MessageHeaderDestinationComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -489,7 +489,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #target} (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
-        public MessageDestinationComponent setTarget(ResourceReference value) { 
+        public MessageHeaderDestinationComponent setTarget(ResourceReference value) { 
           this.target = value;
           return this;
         }
@@ -504,7 +504,7 @@ public class Message extends Resource {
         /**
          * @param value {@link #endpoint} (Indicates where the message should be routed to.)
          */
-        public MessageDestinationComponent setEndpoint(Uri value) { 
+        public MessageHeaderDestinationComponent setEndpoint(Uri value) { 
           this.endpoint = value;
           return this;
         }
@@ -519,7 +519,7 @@ public class Message extends Resource {
         /**
          * @param value Indicates where the message should be routed to.
          */
-        public MessageDestinationComponent setEndpointSimple(String value) { 
+        public MessageHeaderDestinationComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
             this.endpoint.setValue(value);
@@ -533,8 +533,8 @@ public class Message extends Resource {
           childrenList.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
-      public MessageDestinationComponent copy(Message e) {
-        MessageDestinationComponent dst = new MessageDestinationComponent();
+      public MessageHeaderDestinationComponent copy(MessageHeader e) {
+        MessageHeaderDestinationComponent dst = new MessageHeaderDestinationComponent();
         dst.name = name == null ? null : name.copy();
         dst.target = target == null ? null : target.copy();
         dst.endpoint = endpoint == null ? null : endpoint.copy();
@@ -561,17 +561,17 @@ public class Message extends Resource {
     /**
      * Information about the message that this message is a response to.  Only present if this message is a response.
      */
-    protected MessageResponseComponent response;
+    protected MessageHeaderResponseComponent response;
 
     /**
      * The source application from which this message originated.
      */
-    protected MessageSourceComponent source;
+    protected MessageHeaderSourceComponent source;
 
     /**
      * The destination application which the message is intended for.
      */
-    protected List<MessageDestinationComponent> destination = new ArrayList<MessageDestinationComponent>();
+    protected List<MessageHeaderDestinationComponent> destination = new ArrayList<MessageHeaderDestinationComponent>();
 
     /**
      * The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.
@@ -579,7 +579,7 @@ public class Message extends Resource {
     protected ResourceReference enterer;
 
     /**
-     * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions.
+     * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.
      */
     protected ResourceReference author;
 
@@ -589,7 +589,7 @@ public class Message extends Resource {
     protected ResourceReference receiver;
 
     /**
-     * The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.
+     * The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.
      */
     protected ResourceReference responsible;
 
@@ -603,11 +603,11 @@ public class Message extends Resource {
      */
     protected List<ResourceReference> data = new ArrayList<ResourceReference>();
 
-    public Message() {
+    public MessageHeader() {
       super();
     }
 
-    public Message(Id identifier, Instant timestamp, Coding event, MessageSourceComponent source) {
+    public MessageHeader(Id identifier, Instant timestamp, Coding event, MessageHeaderSourceComponent source) {
       super();
       this.identifier = identifier;
       this.timestamp = timestamp;
@@ -625,7 +625,7 @@ public class Message extends Resource {
     /**
      * @param value {@link #identifier} (The identifier of this message.)
      */
-    public Message setIdentifier(Id value) { 
+    public MessageHeader setIdentifier(Id value) { 
       this.identifier = value;
       return this;
     }
@@ -640,7 +640,7 @@ public class Message extends Resource {
     /**
      * @param value The identifier of this message.
      */
-    public Message setIdentifierSimple(String value) { 
+    public MessageHeader setIdentifierSimple(String value) { 
         if (this.identifier == null)
           this.identifier = new Id();
         this.identifier.setValue(value);
@@ -657,7 +657,7 @@ public class Message extends Resource {
     /**
      * @param value {@link #timestamp} (The time that the message was sent.)
      */
-    public Message setTimestamp(Instant value) { 
+    public MessageHeader setTimestamp(Instant value) { 
       this.timestamp = value;
       return this;
     }
@@ -672,7 +672,7 @@ public class Message extends Resource {
     /**
      * @param value The time that the message was sent.
      */
-    public Message setTimestampSimple(Calendar value) { 
+    public MessageHeader setTimestampSimple(Calendar value) { 
         if (this.timestamp == null)
           this.timestamp = new Instant();
         this.timestamp.setValue(value);
@@ -689,7 +689,7 @@ public class Message extends Resource {
     /**
      * @param value {@link #event} (Code that identifies the event this message represents and connects it with it's definition. Events defined as part of the FHIR specification have the system value "http://hl7.org/fhir/message-type".)
      */
-    public Message setEvent(Coding value) { 
+    public MessageHeader setEvent(Coding value) { 
       this.event = value;
       return this;
     }
@@ -697,14 +697,14 @@ public class Message extends Resource {
     /**
      * @return {@link #response} (Information about the message that this message is a response to.  Only present if this message is a response.)
      */
-    public MessageResponseComponent getResponse() { 
+    public MessageHeaderResponseComponent getResponse() { 
       return this.response;
     }
 
     /**
      * @param value {@link #response} (Information about the message that this message is a response to.  Only present if this message is a response.)
      */
-    public Message setResponse(MessageResponseComponent value) { 
+    public MessageHeader setResponse(MessageHeaderResponseComponent value) { 
       this.response = value;
       return this;
     }
@@ -712,14 +712,14 @@ public class Message extends Resource {
     /**
      * @return {@link #source} (The source application from which this message originated.)
      */
-    public MessageSourceComponent getSource() { 
+    public MessageHeaderSourceComponent getSource() { 
       return this.source;
     }
 
     /**
      * @param value {@link #source} (The source application from which this message originated.)
      */
-    public Message setSource(MessageSourceComponent value) { 
+    public MessageHeader setSource(MessageHeaderSourceComponent value) { 
       this.source = value;
       return this;
     }
@@ -727,7 +727,7 @@ public class Message extends Resource {
     /**
      * @return {@link #destination} (The destination application which the message is intended for.)
      */
-    public List<MessageDestinationComponent> getDestination() { 
+    public List<MessageHeaderDestinationComponent> getDestination() { 
       return this.destination;
     }
 
@@ -735,8 +735,8 @@ public class Message extends Resource {
     /**
      * @return {@link #destination} (The destination application which the message is intended for.)
      */
-    public MessageDestinationComponent addDestination() { 
-      MessageDestinationComponent t = new MessageDestinationComponent();
+    public MessageHeaderDestinationComponent addDestination() { 
+      MessageHeaderDestinationComponent t = new MessageHeaderDestinationComponent();
       this.destination.add(t);
       return t;
     }
@@ -751,22 +751,22 @@ public class Message extends Resource {
     /**
      * @param value {@link #enterer} (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
      */
-    public Message setEnterer(ResourceReference value) { 
+    public MessageHeader setEnterer(ResourceReference value) { 
       this.enterer = value;
       return this;
     }
 
     /**
-     * @return {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions.)
+     * @return {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
     /**
-     * @param value {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions.)
+     * @param value {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
-    public Message setAuthor(ResourceReference value) { 
+    public MessageHeader setAuthor(ResourceReference value) { 
       this.author = value;
       return this;
     }
@@ -781,22 +781,22 @@ public class Message extends Resource {
     /**
      * @param value {@link #receiver} (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
      */
-    public Message setReceiver(ResourceReference value) { 
+    public MessageHeader setReceiver(ResourceReference value) { 
       this.receiver = value;
       return this;
     }
 
     /**
-     * @return {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.)
+     * @return {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
     public ResourceReference getResponsible() { 
       return this.responsible;
     }
 
     /**
-     * @param value {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.)
+     * @param value {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
-    public Message setResponsible(ResourceReference value) { 
+    public MessageHeader setResponsible(ResourceReference value) { 
       this.responsible = value;
       return this;
     }
@@ -811,7 +811,7 @@ public class Message extends Resource {
     /**
      * @param value {@link #reason} (Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.)
      */
-    public Message setReason(CodeableConcept value) { 
+    public MessageHeader setReason(CodeableConcept value) { 
       this.reason = value;
       return this;
     }
@@ -842,22 +842,22 @@ public class Message extends Resource {
         childrenList.add(new Property("source", "", "The source application from which this message originated.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("destination", "", "The destination application which the message is intended for.", 0, java.lang.Integer.MAX_VALUE, destination));
         childrenList.add(new Property("enterer", "Resource(Practitioner)", "The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.", 0, java.lang.Integer.MAX_VALUE, enterer));
-        childrenList.add(new Property("author", "Resource(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the Message. Can provide other authors in extensions.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("author", "Resource(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("receiver", "Resource(Practitioner|Organization)", "Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.", 0, java.lang.Integer.MAX_VALUE, receiver));
-        childrenList.add(new Property("responsible", "Resource(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the Message. The implication is that the message event happened under the policies of the responsible party.", 0, java.lang.Integer.MAX_VALUE, responsible));
+        childrenList.add(new Property("responsible", "Resource(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.", 0, java.lang.Integer.MAX_VALUE, responsible));
         childrenList.add(new Property("reason", "CodeableConcept", "Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("data", "Resource(Any)", "The actual data of the message - a reference to the root/focus class of the event.", 0, java.lang.Integer.MAX_VALUE, data));
       }
 
-      public Message copy() {
-        Message dst = new Message();
+      public MessageHeader copy() {
+        MessageHeader dst = new MessageHeader();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.event = event == null ? null : event.copy();
         dst.response = response == null ? null : response.copy(dst);
         dst.source = source == null ? null : source.copy(dst);
-        dst.destination = new ArrayList<MessageDestinationComponent>();
-        for (MessageDestinationComponent i : destination)
+        dst.destination = new ArrayList<MessageHeaderDestinationComponent>();
+        for (MessageHeaderDestinationComponent i : destination)
           dst.destination.add(i.copy(dst));
         dst.enterer = enterer == null ? null : enterer.copy();
         dst.author = author == null ? null : author.copy();
@@ -870,13 +870,13 @@ public class Message extends Resource {
         return dst;
       }
 
-      protected Message typedCopy() {
+      protected MessageHeader typedCopy() {
         return copy();
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.Message;
+    return ResourceType.MessageHeader;
    }
 
 
