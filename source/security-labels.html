@@ -25,7 +25,9 @@ the resource and other metadata (e.g. the resource type, resource contents, etc.
   <li>determine what level of the resource can be returned</li>
   <li>determine what handling caveats must be conveyed with the data</li>
 </ul>
-<p>Security Labels enable more data to flow as they enable policy fragments to accompany the resource data.</p>
+<p>
+Security Labels enable more data to flow as they enable policy fragments to accompany the resource data.
+</p>
 <p>
 The intent of a security label is that the recipient of resources or bundles with security-tags is obligated 
 to enforce the handling caveats of the tags and carry the security labels forward as appropriate.
@@ -34,9 +36,10 @@ to enforce the handling caveats of the tags and carry the security labels forwar
 Security labels are only a device to connect specific resources, bundles, or operations 
 to a wider security framework; a full set of policy and consent statements and their 
 consequent obligations is needed to give the labels meaning. As a consequence of this,
-Security labels are most effective in fully trusted environments - that is, 
+security labels are most effective in fully trusted environments - that is, 
 where all trading partners have agreed to abide by them in a Mutual Trust 
-Framework. 
+Framework. Note also that security labels support policy, and specific tagging
+of individual resources is not always required to implement policy correctly. 
 </p>
 <p>
 In the absence of this kind of pre-agreement, Security Labels 
@@ -182,6 +185,8 @@ to the applicable Mutual Trust Framework agreement as described above.
       <li>A few resources have a confidentiality code in the resource itself. This should always be understood as the original intended confidentiality, where as a confidentiality tag is the current confidentality of the content. e.g. the confidentiality may change in response to patient concern <!-- Todo: See if we can drop these confidentiality elements and replace with the tagging structure --></li>
       <li>The confidentality of a bundle is always as confidential as the most confidential resource in the bundle</li>
      </ul>
+     The additional more specific labels below are defined to support very specific fine-grained access control, and should 
+     always be used in association with an appropriate confidentiality label. 
    </td>
  </tr>
  <tr>

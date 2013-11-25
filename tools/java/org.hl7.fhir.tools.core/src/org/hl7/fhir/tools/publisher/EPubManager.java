@@ -75,10 +75,10 @@ public class EPubManager implements FileNotifier {
     build(zip);
     zip.close();
     
-    zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub.zip"));
-    zip.addFileName("fhir-v"+page.getVersion()+".epub", Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"), false);
-    zip.close();
-    // new File(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")).delete();
+//    zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub.zip"));
+//    zip.addFileName("fhir-v"+page.getVersion()+".epub", Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"), false);
+//    zip.close();
+//    // new File(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub")).delete();
   }
 
 
