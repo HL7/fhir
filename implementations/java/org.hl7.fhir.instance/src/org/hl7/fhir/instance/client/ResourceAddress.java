@@ -24,7 +24,7 @@ import org.hl7.fhir.instance.model.ResourceType;
  */
 public class ResourceAddress {
 	
-	public static final String REGEX_ID_WITH_HISTORY = "(.*)(/@)(\\d+)(/history/)(@)(\\d)+$";
+	public static final String REGEX_ID_WITH_HISTORY = "(.*)(/@)([^/]*)(/history/)(@)(\\d+)$";
 	
 	private URI baseServiceUri;
 	
@@ -96,9 +96,10 @@ public class ResourceAddress {
 		Matcher matcher = pattern.matcher(locationResponseHeader);
 		ResourceVersionedIdentifier parsedHeader = null;
 		if(matcher.matches()){
+			String serviceRoot = matcher.group(1);
 			String id = matcher.group(3);
 			String version = matcher.group(6);
-			parsedHeader = new ResourceVersionedIdentifier(id, version);
+			parsedHeader = new ResourceVersionedIdentifier(serviceRoot, id, version);
 		}
 		return parsedHeader;
 	}
@@ -170,14 +171,28 @@ public class ResourceAddress {
 	
 	public static class ResourceVersionedIdentifier {
 		
+		private String serviceRoot;
 		private String id;
 		private String version;
 		private URI resourceLocation;
+		
+		public ResourceVersionedIdentifier(String serviceRoot, String id, String version, URI resourceLocation) {
+			this.serviceRoot = serviceRoot;
+			this.id = id;
+			this.version = version;
+			this.resourceLocation = resourceLocation;
+		}
 		
 		public ResourceVersionedIdentifier(String id, String version, URI resourceLocation) {
 			this.id = id;
 			this.version = version;
 			this.resourceLocation = resourceLocation;
+		}
+		
+		public ResourceVersionedIdentifier(String serviceRoot, String id, String version) {
+			this.serviceRoot = serviceRoot;
+			this.id = id;
+			this.version = version;
 		}
 		
 		public ResourceVersionedIdentifier(String id, String version) {
@@ -205,6 +220,26 @@ public class ResourceAddress {
 			this.version = version;
 		}
 		
+		public String getServiceRoot() {
+			return serviceRoot;
+		}
+
+		public void setServiceRoot(String serviceRoot) {
+			this.serviceRoot = serviceRoot;
+		}
+		
+		public String getResourcePath() {
+			return this.serviceRoot + "/@" + this.id;
+		}
+
+		public String getVersion() {
+			return version;
+		}
+
+		public void setVersion(String version) {
+			this.version = version;
+		}
+
 		public URI getResourceLocation() {
 			return this.resourceLocation;
 		}
