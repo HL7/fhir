@@ -2537,24 +2537,25 @@ public class PageProcessor implements Logger  {
     return s.toString();
   }
 
-  private String produceExampleList(ResourceDefn resource) {
+  private String produceExampleList(ResourceDefn resource) throws Exception {
     StringBuilder s = new StringBuilder();
     boolean started = false;
     for (Example e: resource.getExamples()) {
-   //   if (!e.isInBook()) {
-        if (!started)
-          s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
-        started = true;
-        s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
-        s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
-        s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
-        s.append("</tr>");
-      }
+      //   if (!e.isInBook()) {
+      if (!started)
+        s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
+      started = true;
+      s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
+      s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
+      s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
+      s.append("</tr>");
+    }
     if (resource.getName().equals("Profile")) {
+      started = true;
       for (String pn : definitions.getProfiles().keySet()) {
         ProfileDefn p = definitions.getProfiles().get(pn);
 
-        
+
         if (!started)
           s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
         started = true;
@@ -2563,9 +2564,17 @@ public class PageProcessor implements Logger  {
         s.append("<td><a href=\""+pn+".profile.json.html\">JSON</a></td>");
         s.append("</tr>");
       }
+      for (String rn : definitions.sortedResourceNames()) {
+        if (!rn.equals("Profile")) {
+          for (RegisteredProfile p: definitions.getResourceByName(rn).getProfiles()) {
+            s.append("<tr><td><a href=\""+p.getFilename()+".html\">"+Utilities.escapeXml(p.getName())+"</a>:"+Utilities.escapeXml(p.getDescription())+"</td>"+
+             "<td><a href=\""+p.getFilename()+".profile.xml\">XML</a></td><td><a href=\""+p.getFilename()+".profile.json\">JSON</a></td></tr>");
+          }
+        }
+      }
     }
-    
-  //  }
+
+    //  }
     if (started)
       s.append("</table>\r\n");
     return s.toString();
