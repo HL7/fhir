@@ -22,6 +22,11 @@
             <op value="is-a"/>
             <value value="PRN"/>
         </filter>
+        <filter>
+            <property value="concept"/>
+            <op value="is-a"/>
+            <value value="TWIN"/>
+        </filter>
     </include>
   </compose>
 </ValueSet>
