@@ -284,7 +284,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69.9375">
-    <Cell><Data ss:Type="String">FamilyHistory.relation.born</Data></Cell>
+    <Cell><Data ss:Type="String">FamilyHistory.relation.born[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -422,8 +422,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
