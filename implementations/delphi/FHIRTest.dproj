@@ -1,0 +1,255 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E41A252C-3344-4DCD-8AC6-F914FECA6AFD}</ProjectGuid>
+        <MainSource>FHIRTest.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Console</AppType>
+        <FrameworkType>VCL</FrameworkType>
+        <ProjectVersion>14.4</ProjectVersion>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Base)'=='true') or '$(Base_OSX32)'!=''">
+        <Base_OSX32>true</Base_OSX32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Cfg_2)'=='true') or '$(Cfg_2_OSX32)'!=''">
+        <Cfg_2_OSX32>true</Cfg_2_OSX32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <VerInfo_Locale>3081</VerInfo_Locale>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_S>false</DCC_S>
+        <DCC_K>false</DCC_K>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_F>false</DCC_F>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=;CFBundleName=;CFBundleDisplayName=;CFBundleIdentifier=;CFBundleVersion=;CFBundlePackageType=;CFBundleSignature=;CFBundleAllowMixedLocalizations=;CFBundleExecutable=</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_OSX32)'!=''">
+        <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>false</DCC_DebugInformation>
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_OSX32)'!=''">
+        <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <DCC_DebugDCUs>true</DCC_DebugDCUs>
+        <Debugger_RunParams>C:\work\org.hl7.fhir\build\publish\document-example-dischargesummary.xml c:\temp\out.xml</Debugger_RunParams>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_UnitSearchPath>C:\HL7Connect\indysoap\source;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <Manifest_File>None</Manifest_File>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+        <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="support\FastMM4.pas"/>
+        <DCCReference Include="support\StringSupport.pas"/>
+        <DCCReference Include="support\MathSupport.pas"/>
+        <DCCReference Include="support\DecimalSupport.pas"/>
+        <DCCReference Include="support\GUIDSupport.pas"/>
+        <DCCReference Include="support\bignum.pas"/>
+        <DCCReference Include="support\AdvFactories.pas"/>
+        <DCCReference Include="support\FileSupport.pas"/>
+        <DCCReference Include="support\MemorySupport.pas"/>
+        <DCCReference Include="support\DateSupport.pas"/>
+        <DCCReference Include="support\ErrorSupport.pas"/>
+        <DCCReference Include="support\SystemSupport.pas"/>
+        <DCCReference Include="support\ThreadSupport.pas"/>
+        <DCCReference Include="support\EncodeSupport.pas"/>
+        <DCCReference Include="support\NetworkSupport.pas"/>
+        <DCCReference Include="support\AdvControllers.pas"/>
+        <DCCReference Include="support\AdvPersistents.pas"/>
+        <DCCReference Include="support\AdvObjects.pas"/>
+        <DCCReference Include="support\AdvExceptions.pas"/>
+        <DCCReference Include="support\AdvFilers.pas"/>
+        <DCCReference Include="support\ColourSupport.pas"/>
+        <DCCReference Include="support\CurrencySupport.pas"/>
+        <DCCReference Include="support\AdvPersistentLists.pas"/>
+        <DCCReference Include="support\AdvObjectLists.pas"/>
+        <DCCReference Include="support\AdvItems.pas"/>
+        <DCCReference Include="support\AdvCollections.pas"/>
+        <DCCReference Include="support\AdvIterators.pas"/>
+        <DCCReference Include="support\AdvClassHashes.pas"/>
+        <DCCReference Include="support\AdvHashes.pas"/>
+        <DCCReference Include="support\HashSupport.pas"/>
+        <DCCReference Include="support\AdvStringHashes.pas"/>
+        <DCCReference Include="support\AdvProfilers.pas"/>
+        <DCCReference Include="support\AdvStringIntegerMatches.pas"/>
+        <DCCReference Include="support\AdvStreams.pas"/>
+        <DCCReference Include="support\AdvParameters.pas"/>
+        <DCCReference Include="support\AdvExclusiveCriticalSections.pas"/>
+        <DCCReference Include="support\AdvThreads.pas"/>
+        <DCCReference Include="support\AdvSignals.pas"/>
+        <DCCReference Include="support\AdvSynchronizationRegistries.pas"/>
+        <DCCReference Include="support\AdvTimeControllers.pas"/>
+        <DCCReference Include="support\AdvIntegerMatches.pas"/>
+        <DCCReference Include="support\AdvBuffers.pas"/>
+        <DCCReference Include="support\BytesSupport.pas"/>
+        <DCCReference Include="support\AdvStringBuilders.pas"/>
+        <DCCReference Include="support\AdvFiles.pas"/>
+        <DCCReference Include="support\AdvLargeIntegerMatches.pas"/>
+        <DCCReference Include="support\AdvStringLargeIntegerMatches.pas"/>
+        <DCCReference Include="support\AdvStringLists.pas"/>
+        <DCCReference Include="support\AdvCSVFormatters.pas"/>
+        <DCCReference Include="support\AdvTextFormatters.pas"/>
+        <DCCReference Include="support\AdvFormatters.pas"/>
+        <DCCReference Include="support\AdvCSVExtractors.pas"/>
+        <DCCReference Include="support\AdvTextExtractors.pas"/>
+        <DCCReference Include="support\AdvExtractors.pas"/>
+        <DCCReference Include="support\AdvCharacterSets.pas"/>
+        <DCCReference Include="support\AdvOrdinalSets.pas"/>
+        <DCCReference Include="support\AdvStreamReaders.pas"/>
+        <DCCReference Include="support\AdvStringStreams.pas"/>
+        <DCCReference Include="support\DateAndTime.pas"/>
+        <DCCReference Include="support\KDate.pas"/>
+        <DCCReference Include="support\HL7V2DateSupport.pas"/>
+        <DCCReference Include="FHIRBase.pas"/>
+        <DCCReference Include="support\AdvStringMatches.pas"/>
+        <DCCReference Include="FHIRResources.pas"/>
+        <DCCReference Include="FHIRParserBase.pas"/>
+        <DCCReference Include="FHIRSupport.pas"/>
+        <DCCReference Include="support\ParseMap.pas"/>
+        <DCCReference Include="FHIRAtomFeed.pas"/>
+        <DCCReference Include="support\MsXmlParser.pas"/>
+        <DCCReference Include="support\AdvMemories.pas"/>
+        <DCCReference Include="support\XMLBuilder.pas"/>
+        <DCCReference Include="support\AdvWinInetClients.pas"/>
+        <DCCReference Include="support\MsXmlBuilder.pas"/>
+        <DCCReference Include="support\TextUtilities.pas"/>
+        <DCCReference Include="support\AdvVCLStreams.pas"/>
+        <DCCReference Include="support\AdvXmlBuilders.pas"/>
+        <DCCReference Include="support\AdvXMLFormatters.pas"/>
+        <DCCReference Include="support\AdvXMLEntities.pas"/>
+        <DCCReference Include="support\JSON.pas"/>
+        <DCCReference Include="FHIRLang.pas"/>
+        <DCCReference Include="support\AfsResourceVolumes.pas"/>
+        <DCCReference Include="support\AfsVolumes.pas"/>
+        <DCCReference Include="support\AfsStreamManagers.pas"/>
+        <DCCReference Include="support\AdvObjectMatches.pas"/>
+        <DCCReference Include="support\RegExpr.pas"/>
+        <DCCReference Include="FHIRUtilities.pas"/>
+        <DCCReference Include="support\FastMM4Messages.pas"/>
+        <None Include="Profiling\AQtimeModule1.aqt"/>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">FHIRTest.dpr</Source>
+                </Source>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">3081</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                    <VersionInfoKeys Name="CFBundleName"/>
+                    <VersionInfoKeys Name="CFBundleDisplayName"/>
+                    <VersionInfoKeys Name="CFBundleIdentifier"/>
+                    <VersionInfoKeys Name="CFBundleVersion"/>
+                    <VersionInfoKeys Name="CFBundlePackageType"/>
+                    <VersionInfoKeys Name="CFBundleSignature"/>
+                    <VersionInfoKeys Name="CFBundleAllowMixedLocalizations"/>
+                    <VersionInfoKeys Name="CFBundleExecutable"/>
+                </VersionInfoKeys>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k170.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp170.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="OSX32">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>
