@@ -1,0 +1,233 @@
+Unit AdvExceptions;
+
+
+{! 30 !}
+
+//
+// NOTE
+// * Within a Try handler block, if another exception is raised, the original
+//   exception doesn't get its destroy method called.   For this reason, the
+//   instance tracker can't be applied to exceptions.
+//
+
+Interface
+
+
+Uses
+  StringSupport,
+  SysUtils; // Exception
+
+
+Type
+{$IFDEF CLR}
+  Exception = System.Exception;
+{$ELSE}
+  Exception = SysUtils.Exception;
+{$ENDIF}
+  ExceptionClass = Class Of Exception;
+
+  EAdvException = Class(Exception)
+    Private
+      FSender : String;
+      FMethod : String;
+      FReason : String;
+      FStackTrace : String;
+
+    Public
+      Constructor Create(Const sSender, sMethod, sReason : String); Overload; Virtual;
+      Constructor Create(oSender : TObject; Const sMethod, sReason : String); Overload;
+
+      Function Description : String;
+
+      Property Sender : String Read FSender;
+      Property Method : String Read FMethod;
+      Property Reason : String Read FReason;
+      Property StackTrace : String Read FStackTrace Write FStackTrace;
+  End; 
+
+  EAdvExceptionClass = Class Of EAdvException;
+
+  EAdvAbstract = Class(EAdvException);
+
+  EAdvAssertion = Class(EAdvException);
+
+  EAdvApproximateException = Class(EAdvException)
+    Private
+      FInnerExceptionClass : TClass;
+      FInnerExceptionName : String;
+
+      Function GetHasInnerExceptionName : Boolean;
+      Function GetHasInnerExceptionClass : Boolean;
+
+    Public
+      Constructor Create(Const aInnerExceptionClass : TClass; Const sSender, sMethod, sReason : String); Overload;
+      Constructor Create(Const sInnerExceptionName, sSender, sMethod, sReason : String); Overload;
+
+      Property InnerExceptionClass : TClass Read FInnerExceptionClass Write FInnerExceptionClass;
+      Property HasInnerExceptionClass : Boolean Read GetHasInnerExceptionClass;
+      Property InnerExceptionName : String Read FInnerExceptionName Write FInnerExceptionName;
+      Property HasInnerExceptionName : Boolean Read GetHasInnerExceptionName;
+  End;
+
+  EAbstractError = SysUtils.EAbstractError;
+  EAccessViolation = SysUtils.EAccessViolation;
+  EOutOfMemory = SysUtils.EOutOfMemory;
+  EExternal = SysUtils.EExternal;
+  EExternalException = SysUtils.EExternalException;
+  EInOutError = SysUtils.EInOutError;
+  EPrivilege = SysUtils.EPrivilege;
+  EPropReadOnly = SysUtils.EPropReadOnly;
+  EPropWriteOnly = SysUtils.EPropWriteOnly;
+  EAbort = SysUtils.EAbort;
+  EAssertionFailed = SysUtils.EAssertionFailed;
+  EControlC = SysUtils.EControlC;
+  EConvertError = SysUtils.EConvertError;
+  EDivByZero = SysUtils.EDivByZero;
+  EHeapException = SysUtils.EHeapException;
+  EIntError = SysUtils.EIntError;
+  EIntOverflow = SysUtils.EIntOverflow;
+  EIntfCastError = SysUtils.EIntfCastError;
+  EInvalidCast = SysUtils.EInvalidCast;
+  EInvalidOp = SysUtils.EInvalidOp;
+  EInvalidPointer = SysUtils.EInvalidPointer;
+  EMathError = SysUtils.EMathError;
+  EOverflow = SysUtils.EOverflow;
+  EPackageError = SysUtils.EPackageError;
+  ERangeError = SysUtils.ERangeError;
+  EUnderflow = SysUtils.EUnderflow;
+  EVariantError = SysUtils.EVariantError;
+  EZeroDivide = SysUtils.EZeroDivide;
+{$IFDEF VER130}
+  EWin32Error = SysUtils.EWin32Error;
+  EStackOverflow = SysUtils.EStackOverflow;
+{$ENDIF}
+
+
+Function ExceptObject : Exception;
+Function HasExceptObject : Boolean;
+
+
+Implementation
+
+
+Uses
+  AdvFactories;
+
+
+Function ExceptObject : Exception;
+Begin
+{$IFDEF VER130}
+  Result := Exception(SysUtils.ExceptObject);
+{$ELSE}
+  Result := Exception(System.ExceptObject);
+{$ENDIF}
+End;
+
+
+Function HasExceptObject : Boolean;
+Begin
+  Result := ExceptObject <> Nil;
+End;
+
+
+Constructor EAdvException.Create(Const sSender, sMethod, sReason : String);
+Begin
+  FSender := sSender;
+  FMethod := sMethod;
+  FReason := sReason;
+
+  Message := FReason;
+End;
+
+
+Constructor EAdvException.Create(oSender : TObject; Const sMethod, sReason : String);
+Var
+  sSender : String;
+Begin
+  If Assigned(oSender) Then
+  Begin
+{$IFOPT C+}
+    If Not Factory.Valid(oSender) Then
+      sSender := '<Invalid>'
+    Else
+{$ENDIF}
+      sSender := oSender.ClassName;
+  End
+  Else
+  Begin
+    sSender := '<Nil>';
+  End;
+
+  Create(sSender, sMethod, sReason);
+End;
+
+
+Function EAdvException.Description : String;
+Begin
+  If (FSender <> '') Or (FMethod <> '') Then
+    Result := StringFormat('(%s.%s): %s', [FSender, FMethod, FReason])
+  Else
+    Result := FReason;
+End;  
+
+
+Procedure AbstractHandler(oObject : TObject);
+Var
+  pAddress : ^Integer;
+Begin
+  // pAddress will point at the location of the method in memory.  The Delphi action
+  // Search | Find Error can be used to locate the line that causes the abstract error
+  // when the application is running.
+
+  ASM
+    mov pAddress, ebp
+  End;
+
+  Inc(pAddress, 2);
+
+  If Assigned(oObject) {$IFOPT C+} And Factory.Valid(oObject) {$ENDIF} Then
+    Raise EAdvAbstract.Create('AdvExceptions', 'AbstractHandler', StringFormat('Attempted call onto an abstract method $%x in class ''%s''.', [pAddress^, oObject.ClassName]))
+  Else
+    Raise EAdvAbstract.Create('AdvExceptions', 'AbstractHandler', StringFormat('Attempted call onto an abstract method $%x in object $%x.', [pAddress^, Integer(oObject)]));
+End;
+
+
+//Procedure AssertionHandler(Const sMessage, sFilename : AnsiString; iLineNumber : Integer);
+//Begin
+//  Raise EAdvAssertion.Create('AdvExceptions', 'AssertionHandler', StringFormat('%s (%s:%d)', [sMessage, sFilename, iLineNumber]));
+//End;  
+
+
+Constructor EAdvApproximateException.Create(Const aInnerExceptionClass: TClass; Const sSender, sMethod, sReason : String);
+Begin
+  InnerExceptionClass := aInnerExceptionClass;
+
+  Create(sSender, sMethod, sReason);
+End;
+
+
+Constructor EAdvApproximateException.Create(Const sInnerExceptionName, sSender, sMethod, sReason : String);
+Begin
+  FInnerExceptionName := sInnerExceptionName;
+
+  Create(sSender, sMethod, sReason);
+End;
+
+
+Function EAdvApproximateException.GetHasInnerExceptionClass: Boolean;
+Begin
+  Result := Assigned(FInnerExceptionClass);
+End;
+
+
+Function EAdvApproximateException.GetHasInnerExceptionName : Boolean;
+Begin
+  Result := FInnerExceptionName <> '';
+End;
+
+
+Initialization
+  System.AbstractErrorProc := @AbstractHandler;
+//System.AssertErrorProc := @AssertionHandler;
+End. // AdvExceptions //
+
