@@ -5614,7 +5614,7 @@ Comment: sample not protected from light ward notified for
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-10T07:01:00Z"/>
     <subject>
       <reference value="Patient/130"/>
@@ -6972,7 +6972,7 @@ NTRC
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T22:00:00Z"/>
     <subject>
       <reference value="Patient/137"/>
@@ -9744,7 +9744,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T22:49:00Z"/>
     <subject>
       <reference value="Patient/118"/>
@@ -13393,7 +13393,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T21:19:00Z"/>
     <subject>
       <reference value="Patient/140"/>
@@ -13661,7 +13661,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T22:49:00Z"/>
     <subject>
       <reference value="Patient/167"/>
@@ -13721,7 +13721,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T20:39:00Z"/>
     <subject>
       <reference value="Patient/168"/>
@@ -14234,7 +14234,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T22:49:00Z"/>
     <subject>
       <reference value="Patient/169"/>
@@ -14700,7 +14700,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T21:19:00Z"/>
     <subject>
       <reference value="Patient/171"/>
@@ -14999,7 +14999,7 @@ CULTURE
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T12:07:00Z"/>
     <subject>
       <reference value="Patient/172"/>
@@ -15615,7 +15615,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T19:30:00Z"/>
     <subject>
       <reference value="Patient/176"/>
@@ -15849,7 +15849,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T21:19:00Z"/>
     <subject>
       <reference value="Patient/177"/>
@@ -16875,7 +16875,7 @@ G1691A Substitution Result:
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T20:00:00Z"/>
     <subject>
       <reference value="Patient/182"/>
@@ -18200,7 +18200,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T19:40:00Z"/>
     <subject>
       <reference value="Patient/151"/>
@@ -19050,7 +19050,7 @@ Pathologist: To Follow
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T19:20:00Z"/>
     <subject>
       <reference value="Patient/191"/>
@@ -19137,7 +19137,7 @@ Pathologist: To Follow
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T19:23:00Z"/>
     <subject>
       <reference value="Patient/192"/>
@@ -19559,7 +19559,7 @@ Pathologist: To Follow
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T19:21:00Z"/>
     <subject>
       <reference value="Patient/189"/>
@@ -20476,7 +20476,7 @@ Comment
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T17:15:00Z"/>
     <subject>
       <reference value="Patient/198"/>
@@ -21144,7 +21144,7 @@ NTRC
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T18:30:00Z"/>
     <subject>
       <reference value="Patient/195"/>
@@ -21368,7 +21368,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T21:19:00Z"/>
     <subject>
       <reference value="Patient/140"/>
@@ -22924,7 +22924,7 @@ sera. This serum sample has been stored for 3 months.
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T17:50:00Z"/>
     <subject>
       <reference value="Patient/110"/>
@@ -22992,7 +22992,7 @@ HIV-1/2 Ag/Ab Combo by Architect:
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T17:50:00Z"/>
     <subject>
       <reference value="Patient/110"/>
@@ -23051,7 +23051,7 @@ Antinuclear abs     TF
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T17:50:00Z"/>
     <subject>
       <reference value="Patient/110"/>
@@ -23274,7 +23274,7 @@ NTRESR
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T11:45:00Z"/>
     <subject>
       <reference value="Patient/111"/>
@@ -23327,7 +23327,7 @@ NTRESR
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T08:30:00Z"/>
     <subject>
       <reference value="Patient/112"/>
@@ -23607,7 +23607,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T21:19:00Z"/>
     <subject>
       <reference value="Patient/161"/>
@@ -23722,7 +23722,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T21:19:00Z"/>
     <subject>
       <reference value="Patient/114"/>
@@ -24408,7 +24408,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T21:19:00Z"/>
     <subject>
       <reference value="Patient/116"/>
@@ -25040,7 +25040,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T21:17:00Z"/>
     <subject>
       <reference value="Patient/157"/>
@@ -25913,7 +25913,7 @@ HbA1c(HPLC)               %      (See Below)
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T18:54:00Z"/>
     <subject>
       <reference value="Patient/124"/>
@@ -26832,7 +26832,7 @@ sera. This serum sample has been stored for 3 months.
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T18:00:00Z"/>
     <subject>
       <reference value="Patient/121"/>
@@ -26900,7 +26900,7 @@ Anaerobic bottle             4   days                 Negative
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-09T20:35:00Z"/>
     <subject>
       <reference value="Patient/121"/>
@@ -27414,7 +27414,7 @@ G1691A Substitution Result:
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T18:02:00Z"/>
     <subject>
       <reference value="Patient/182"/>
@@ -27748,7 +27748,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T18:02:00Z"/>
     <subject>
       <reference value="Patient/182"/>
@@ -27830,7 +27830,7 @@ Lupus Inhibitor Comment:
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T18:02:00Z"/>
     <subject>
       <reference value="Patient/182"/>
@@ -27897,7 +27897,7 @@ Blank Report?
 </pre>
  </div>
  </text>
-    <status value="interim"/> 
+    <status value="partial"/> 
     <issued value="2012-04-05T17:12:00Z"/>
     <subject>
       <reference value="Patient/124"/>

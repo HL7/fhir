@@ -282,7 +282,9 @@ to the applicable Mutual Trust Framework agreement as described above.
  <tr>
    <td>Break The Glass: http://hl7.org/fhir/security-label#break-the-glass</td>
    <td>
-    The requester is asking for emergency access for patient treatment. Typically, this means that the patient is unconscious and not able to provide relevant information or consent
+    The requester is asking for emergency access for patient treatment. Typically, this means that the patient is unconscious and not able to provide relevant information or consent.
+    See <a href="http://www.hl7.org/search/viewSearchResult.cfm?search_id=393442&amp;search_result_url=%2Fdocumentcenter%2Fpublic%2Fwg%2Fsecure%2FHL7%20Emergency%20Access%2Edoc">this paper</a> for 
+    discussion of the issues involved in break-the-glass operations.
    </td>
  </tr>   
  
@@ -359,6 +361,23 @@ itself has the following parts:
   <tr> <td>Term</td> <td>[system]#[code]</td> <td>Where [code] is chosen from the list of values, and [system] is the listed system for the chosen code</td> </tr>
   <tr> <td>Label</td> <td>The display name for the code</td> <td>(optional)</td> </tr>
 </table>
+
+<a name="jurisdictions"> </a>
+<h3>Jurisdiction Specific Security Labels</h3>
+
+<p>
+Realm-specific privacy law or policy category codes for use in security labels in particular domains.
+</p>
+
+<table class="grid">
+ <tr> <td><b>Security Label</b></td> <td><b>Card.</b></td> <td><b>Values</b></td>  <td><b>Description</b></td> </tr>
+ 
+ <tr> <td>US Privacy Law</td> <td>0..*</td> <td><a href="v3/vs/ActUSPrivacyLaw/index.html">ActUSPrivacyLaw</a></td>  <td>Security label metadata that “segments” an IT resource by indicating the legal provisions to which the assignment of a Confidentiality Classification complies in the US
+ 
+</td> </tr>
+
+</table>
+
 
 
 </div>

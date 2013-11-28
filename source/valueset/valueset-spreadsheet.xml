@@ -469,8 +469,8 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">!</Data></Cell>
-    <Cell><Data ss:Type="String">Code or concept</Data></Cell>
-    <Cell><Data ss:Type="String">Specifies a code or concept to be included or excluded</Data></Cell>
+    <Cell><Data ss:Type="String">Code or concept from system</Data></Cell>
+    <Cell><Data ss:Type="String">Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">expressions are allowed if defined by the underlying code system</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
@@ -502,7 +502,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">FilterOperator</Data></Cell>
-    <Cell><Data ss:Type="String">= | is-a | is_not_a | regex</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">= | is-a | is-not-a | regex</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">The kind of operation to perform as part of the filter criteria</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:Index="14"><Data ss:Type="String">N/A</Data></Cell>
@@ -600,9 +600,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>26</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -618,8 +618,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>34</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

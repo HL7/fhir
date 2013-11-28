@@ -230,14 +230,15 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, "structure", path, e.getDefinition().endsWith("."), "Definition should end with '.', but is '"+e.getDefinition()+"'");
     if (e.usesType("string") && e.usesType("CodeableConcept"))
       rule(errors, "structure", path, e.getComments().contains("string") && e.getComments().contains("CodeableConcept"), "Element type cannot have both string and CodeableConcept unless the difference between their usage is explained in the comments");
-    
+
 //    if (needsRimMapping)
 //      warning(errors, "required", path, !Utilities.noString(e.getMapping(ElementDefn.RIM_MAPPING)), "RIM Mapping is required");
 
-    if( e.getShortDefn().length() > 0)
+    String sd = e.getShortDefn();
+    if( sd.length() > 0)
 		{
-			rule(errors, "structure", path, e.getShortDefn().contains("|") || Character.isUpperCase(e.getShortDefn().charAt(0)) || !Character.isLetter(e.getShortDefn().charAt(0)), "Short Description must start with an uppercase character ('"+e.getShortDefn()+"')");
-		    rule(errors, "structure", path, !e.getShortDefn().endsWith(".") || e.getShortDefn().endsWith("etc."), "Short Description must not end with a period ('"+e.getShortDefn()+"')");
+			rule(errors, "structure", path, sd.contains("|") || Character.isUpperCase(sd.charAt(0)) || !Character.isLetter(sd.charAt(0)), "Short Description must start with an uppercase character ('"+sd+"')");
+		    rule(errors, "structure", path, !sd.endsWith(".") || sd.endsWith("etc."), "Short Description must not end with a period ('"+sd+"')");
 		    rule(errors, "structure", path, e.getDefinition().contains("|") || Character.isUpperCase(e.getDefinition().charAt(0)) || !Character.isLetter(e.getDefinition().charAt(0)), "Long Description must start with an uppercase character ('"+e.getDefinition()+"')");
 		}
 		
@@ -267,6 +268,25 @@ public class ResourceValidator extends BaseValidator {
 			rule(errors, "structure", path, cd != null, "Unable to resolve binding name " + e.getBindingName());
 			
 			if (cd != null) {
+			  if (cd.getBinding() == Binding.CodeList) {
+			    if (path.toLowerCase().endsWith("status")) {
+			      if (rule(errors, "structure", path, definitions.getStatusCodes().containsKey(path), "Status element not registered in status-codes.xml")) {
+			        for (DefinedCode c : cd.getCodes()) {
+			          rule(errors, "structure", path, definitions.getStatusCodes().get(path).contains(c.getCode()), "Status element code \""+c.getCode()+"\" not found in status-codes.xml");
+			        }
+			      }
+			    }
+			    if (sd.contains("|")) {
+			      StringBuilder b = new StringBuilder();
+            for (DefinedCode c : cd.getCodes()) {
+              b.append(" | "+c.getCode());
+            }
+            String esd = b.substring(3);
+            rule(errors, "structure", path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
+			      
+			    } else
+			      rule(errors, "structure", path, cd.getCodes().size() > 20 || cd.getCodes().size() == 1 || !hasGoodCode(cd.getCodes()), "The short description of an element with a code list should have the format code | code | etc");
+			  }
 			  boolean isComplex = !e.typeCode().equals("code");
 			  if (cd.getElementType() == ElementType.Unknown) {
 			    if (isComplex)
@@ -285,6 +305,13 @@ public class ResourceValidator extends BaseValidator {
 		}
 
 	}
+
+  private boolean hasGoodCode(List<DefinedCode> codes) {
+    for (DefinedCode d : codes) 
+      if (!Utilities.IsInteger(d.getCode()) && d.getCode().length() > 1)
+        return true;
+    return false;
+  }
 
   private void checkDefinitions(List<ValidationMessage> errors, String path, ElementDefn e) {
     rule(errors, "structure", path, e.hasDefinition(), "A Definition is required");

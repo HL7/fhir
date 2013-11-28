@@ -932,7 +932,7 @@ public class Publisher {
 		for (PlatformGenerator gen : page.getReferenceImplementations()) {
 			if (gen.doesCompile()) {
 				log("Compile " + gen.getName() + " Reference Implementation");
-				if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>())) 
+				if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page)) 
 				{
 				  // Must always be able to compile Java to go on. Also, if we're building
 				  // the web build, all generators that can compile, must compile without error.				  
@@ -1491,8 +1491,6 @@ public class Publisher {
       if (cs == null)
         throw new Exception("Error Processing ValueSet "+id+", unable to resolve code system '"+XMLUtil.getNamedChild(e, "supportedCodeSystem").getTextContent()+"'");
       ConceptSetComponent imp = new ValueSet.ConceptSetComponent();
-      compose.getInclude().add(imp);
-      imp.setSystemSimple(cs.getDefine().getSystemSimple());
 
       if (XMLUtil.hasNamedChild(content, "combinedContent")) {
         if (!id.equals("SecurityControlObservationValue"))
@@ -1507,6 +1505,9 @@ public class Publisher {
         }
       } else {
         // simple value set
+        compose.getInclude().add(imp);
+        imp.setSystemSimple(cs.getDefine().getSystemSimple());
+
         if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
           throw new Exception("Unexpected codeSystem oid on content for ValueSet "+id+": expected '"+XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent()+"', found '"+content.getAttribute("codeSystem")+"'");
 
@@ -2335,10 +2336,10 @@ public class Publisher {
 		
     String intro = null;
     if (profile.getMetadata().containsKey("introduction"))
-      intro = page.loadXmlNotesFromFile(Utilities.getDirectoryFoFile(examplePath) + File.separator + profile.getMetadata().get("introduction").get(0));
+      intro = page.loadXmlNotesFromFile(Utilities.getDirectoryForFile(examplePath) + File.separator + profile.getMetadata().get("introduction").get(0));
     String notes = null;
     if (profile.getMetadata().containsKey("notes"))
-      notes = page.loadXmlNotesFromFile(Utilities.getDirectoryFoFile(examplePath) + File.separator + profile.getMetadata().get("notes").get(0));
+      notes = page.loadXmlNotesFromFile(Utilities.getDirectoryForFile(examplePath) + File.separator + profile.getMetadata().get("notes").get(0));
 		
 		String exXml = "<p><i>No Example Provided</i></p>";
 		if (examplePath != null) {

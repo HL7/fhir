@@ -699,7 +699,7 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">SlicingRules</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Whether slice list is open or closed</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">closed | open | openAtEnd</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -925,7 +925,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The reference might be a simple name in the form #[name], which is a reference to another named constraint in a resource - where the resource contains more than one constraint, or a URL which is a reference to a resource Profile</Data><NamedCell
+    <Cell><Data ss:Type="String">The reference might be a simple name in the form #[name], which is a reference to another named constraint in a resource - where the resource contains more than one constraint, or a URL which is a reference to a resource Profile, with a terminal #[name] which identifies a specific structure entry in the profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -942,7 +942,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">AggregationMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If a reference, how it's aggregated</Data><NamedCell
+    <Cell><Data ss:Type="String">contained | referenced | bundled - If a reference, how it's aggregated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1553,7 +1553,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>17</TopRowBottomPane>
+   <TopRowBottomPane>33</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1570,8 +1570,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>27</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>42</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1984,7 +1984,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -2358,8 +2358,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>42</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R4C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2407,7 +2408,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1:R1048576</RangeSelection>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R4C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2445,6 +2448,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

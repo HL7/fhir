@@ -21,7 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6375</WindowTopY>
   <TabRatio>1000</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -299,7 +299,7 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DocumentReferenceStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">current | superseded | error</Data><NamedCell
+    <Cell><Data ss:Type="String">current | superceded | entered in error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The status of this document manifest </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -384,7 +384,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>8</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -547,7 +547,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -701,7 +700,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">entered in error</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">This reference was created in error</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -716,10 +715,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>

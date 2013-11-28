@@ -20,7 +20,6 @@
   <WindowWidth>18555</WindowWidth>
   <WindowTopX>19455</WindowTopX>
   <WindowTopY>8775</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -373,7 +372,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ConceptMapEquivalence</Data></Cell>
-    <Cell><Data ss:Type="String">equal | equivalent | wider | narrower | unmatched | disjoint</Data></Cell>
+    <Cell><Data ss:Type="String">equal | equivalent | wider | narrower | inexact | unmatched | disjoint</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConceptMap.concept.map.comments</Data></Cell>
@@ -402,6 +401,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -422,7 +422,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -632,7 +633,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

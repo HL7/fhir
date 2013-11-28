@@ -305,7 +305,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">CompositionStatus</Data></Cell>
-    <Cell><Data ss:Type="String">Status of this composition</Data></Cell>
+    <Cell><Data ss:Type="String">preliminary | final | appended | amended | entered in error</Data></Cell>
     <Cell><Data ss:Type="String">The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to mark interim, amended, or withdrawn compositions or documents</Data></Cell>
@@ -782,7 +782,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>17</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -795,12 +795,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1257,7 +1256,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">retracted</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">entered in error</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">Usually this is because some major error has been detected in the workflow that created the composition or document, or the content was associated with the wrong patient/author etc.</Data></Cell>
     <Cell><Data ss:Type="String">~ActStatus.nullified</Data></Cell>
@@ -1273,8 +1272,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R6C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

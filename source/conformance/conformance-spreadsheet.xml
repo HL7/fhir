@@ -78,7 +78,7 @@
    <Protection/>
   </Style>
   <Style ss:ID="s71">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
@@ -86,7 +86,7 @@
    <Protection/>
   </Style>
   <Style ss:ID="s72">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
@@ -467,7 +467,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.rest.security</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s72"><Data ss:Type="String">500;330</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">500;330</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Information about security of implementation</Data></Cell>
     <Cell><Data ss:Type="String">Information about security of implementation</Data></Cell>
    </Row>
@@ -484,7 +484,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">RestfulSecurityService</Data></Cell>
-    <Cell><Data ss:Type="String">What type of security services are supported/required</Data></Cell>
+    <Cell><Data ss:Type="String">OAuth | OAuth2 | NTLM | Basic | Kerberos</Data></Cell>
     <Cell><Data ss:Type="String">What type of security services are supported/required</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -553,7 +553,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">RestfulOperationType</Data></Cell>
-    <Cell><Data ss:Type="String">read | vread | update | etc.</Data></Cell>
+    <Cell><Data ss:Type="String">read | vread | update | delete | history-instance | validate | history-type | create | search-type</Data></Cell>
     <Cell><Data ss:Type="String">Identifies which operation is supported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -648,7 +648,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">SearchParamType</Data></Cell>
-    <Cell><Data ss:Type="String">Type of search parameter</Data></Cell>
+    <Cell><Data ss:Type="String">number | date | string | token | reference | composite</Data></Cell>
     <Cell><Data ss:Type="String">The type of value a search parameter refers to, and how the content is interpreted</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -735,7 +735,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">RestfulOperationSystem</Data></Cell>
-    <Cell><Data ss:Type="String">transaction | history-system | search-system</Data></Cell>
+    <Cell><Data ss:Type="String">transaction | search-system | history-system</Data></Cell>
     <Cell><Data ss:Type="String">Identifies which system operation is supported</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -823,7 +823,7 @@
     <Cell><Data ss:Type="String">A list of profiles that this server implements for accepting documents on mailbox. If the list is empty, then documents are not accepted. The base specification has the profile identifier &quot;http://hl7.org/fhir/documents/mailbox&quot;. Other specifications can declare their own identifier for this use</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">If a server accepts messages on the /Mailbox end-point, it declares this in the messaging elements</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">If a server accepts messages on the /Mailbox end-point, it declares this in the messaging elements</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -832,59 +832,59 @@
     <Cell><Data ss:Type="String">Conformance.messaging</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">0;190</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0;190</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s73"><Data ss:Type="String">If messaging is supported</Data></Cell>
     <Cell><Data ss:Type="String">Describes the messaging capabilities of the solution</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Multiple repetitions allow the documentation of multiple endpoints per solution</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Multiple repetitions allow the documentation of multiple endpoints per solution</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Conformance.messaging.endpoint</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s72"/>
+    <Cell ss:Index="7" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Actual endpoint being described</Data></Cell>
     <Cell><Data ss:Type="String">The address to which messages and/or replies are to be sent.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Can be just an identifier for solutions that do not use network addresses for routing.</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Can be just an identifier for solutions that do not use network addresses for routing.</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Conformance.messaging.reliableCache</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s72"/>
+    <Cell ss:Index="7" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Reliable Message Cache Length</Data></Cell>
     <Cell><Data ss:Type="String">The length if the receiver's reliable messaging cache length (if a receiver) or how long the cache length on the receiver should be (if a sender)</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Conformance.messaging.documentation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s72"/>
+    <Cell ss:Index="7" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Messaging interface behavior details</Data></Cell>
     <Cell><Data ss:Type="String">Provides documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Conformance.messaging.event</Data></Cell>
@@ -892,12 +892,12 @@
     <Cell ss:Index="6"><Data ss:Type="String">0;0</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Declare support for this event</Data></Cell>
     <Cell><Data ss:Type="String">Describes the solution's support for an event at this end point.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The same event may be listed up to two times - once as sender and once as receiver.</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Need to add follow-ups and need to do more to flesh out messaging dynamic model</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">The same event may be listed up to two times - once as sender and once as receiver.</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Need to add follow-ups and need to do more to flesh out messaging dynamic model</Data></Cell>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Conformance.messaging.event.code</Data></Cell>
@@ -906,12 +906,12 @@
     <Cell ss:Index="7"><Data ss:Type="String">MessageEvent</Data></Cell>
     <Cell><Data ss:Type="String">Event type</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the supported messaging event</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">May need profile id as well if profiles can define message events</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">May need profile id as well if profiles can define message events</Data></Cell>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.messaging.event.mode</Data></Cell>
@@ -926,7 +926,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">MessageTransport</Data></Cell>
-    <Cell><Data ss:Type="String">http | ftp |MLLP | etc.</Data></Cell>
+    <Cell><Data ss:Type="String">http | ftp | mllp +</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the messaging transport protocol(s) supported by this endpoint</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Loosen this to &quot;extensible&quot; once tooling supports that.</Data></Cell>
    </Row>
@@ -943,7 +943,7 @@
     <Cell><Data ss:Type="String">Conformance.messaging.event.request</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource(Profile)</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s72"/>
+    <Cell ss:Index="7" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Profile that describes the request</Data></Cell>
     <Cell><Data ss:Type="String">Information about the request for this event</Data></Cell>
    </Row>
@@ -951,7 +951,7 @@
     <Cell><Data ss:Type="String">Conformance.messaging.event.response</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource(Profile)</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s72"/>
+    <Cell ss:Index="7" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Profile that describes the response</Data></Cell>
     <Cell><Data ss:Type="String">Information about the response for this event</Data></Cell>
    </Row>
@@ -959,7 +959,7 @@
     <Cell><Data ss:Type="String">Conformance.messaging.event.documentation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s72"/>
+    <Cell ss:Index="7" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Endpoint-specific event documentation</Data></Cell>
     <Cell><Data ss:Type="String">Guidance on how this event is handled, such as internal system trigger points, business rules, etc.</Data></Cell>
    </Row>
@@ -967,17 +967,17 @@
     <Cell><Data ss:Type="String">Conformance.document</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">550;50</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:Index="5" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">550;50</Data></Cell>
+    <Cell ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Document definition</Data></Cell>
     <Cell><Data ss:Type="String">A document definition</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.document.mode</Data></Cell>
@@ -991,25 +991,25 @@
     <Cell><Data ss:Type="String">Conformance.document.documentation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s72"/>
+    <Cell ss:Index="7" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Description of document support</Data></Cell>
     <Cell><Data ss:Type="String">Describes how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.document.profile</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource(Profile)</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s72"/>
+    <Cell ss:Index="7" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Constraint on a resource used in the document</Data></Cell>
     <Cell><Data ss:Type="String">Constraint on a resource used in the document</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">The first resource is the document resource</Data></Cell>
    </Row>
   </Table>
@@ -1024,7 +1024,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>42</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1041,8 +1041,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>45</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1866,8 +1866,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R6C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1990,8 +1991,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R7C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

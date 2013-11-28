@@ -27,8 +27,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -54,6 +56,7 @@ import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 
@@ -80,13 +83,13 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   
   private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
   private List<String> enumsDone = new ArrayList<String>();
+  private Map<String, Integer> enumSizes = new HashMap<String, Integer>();
 
   private List<ElementDefn> enums = new ArrayList<ElementDefn>();
   private List<String> enumNames = new ArrayList<String>();
   private List<ElementDefn> strucs  = new ArrayList<ElementDefn>();
   private List<String> lists = new ArrayList<String>();
   
-
   private StringBuilder workingParserX;
   private StringBuilder workingComposerX;
   private StringBuilder workingParserJ;
@@ -107,6 +110,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   
   private List<String> types = new ArrayList<String>();
   private List<String> constants = new ArrayList<String>();
+  private String dcc;
+  private String exe;
   
   
   @Override
@@ -768,6 +773,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
 private void generateEnum(ElementDefn e) throws Exception {
     String tn = typeNames.get(e);
     BindingSpecification cd = getConceptDomain(e.getBindingName());
+    enumSizes.put(tn, cd.getCodes().size());
     
     
 //    StringBuilder pfx = new StringBuilder();
@@ -1278,31 +1284,39 @@ private void generateEnum(ElementDefn e) throws Exception {
     }
 
 
+//    if (enumSizes.get(tn) > 32) {
+//  }
     String s = getElementName(e.getName()); 
     boolean summary = e.isSummaryItem() || noSummaries;
     String sumAnd = summary ? "" : "Not SummaryOnly and ";
     String sum2 = summary ? "" : "if not SummaryOnly then\r\n    ";
     if (e.unbounded()) {
     	if (enumNames.contains(tn)) {         
-    		defPriv1.append("    F"+getTitle(s)+" : TFhirEnumList;\r\n"); 
-    		defPriv2.append("    Function Get"+getTitle(s)+"ST : "+tn+"List;\r\n");
-    		defPriv2.append("    Procedure Set"+getTitle(s)+"ST(value : "+tn+"List);\r\n");
+    		defPriv1.append("    F"+getTitle(s)+" : TFhirEnumList;\r\n");
+    		if (enumSizes.get(tn) < 32) {
+    		  defPriv2.append("    Function Get"+getTitle(s)+"ST : "+tn+"List;\r\n");
+    		  defPriv2.append("    Procedure Set"+getTitle(s)+"ST(value : "+tn+"List);\r\n");
+    		}
     		defPub.append("    {@member "+s+"\r\n");
     		defPub.append("      "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
     		defPub.append("    }\r\n");
     		defPub.append("    property "+s+" : TFhirEnumList read F"+getTitle(s)+";\r\n");
-    		defPub.append("    {@member "+s+"ST\r\n");
-    		defPub.append("      Typed access to "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
-    		defPub.append("    }\r\n");
-    		defPub.append("    property "+s+"ST : "+tn+"List read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
+    		if (enumSizes.get(tn) < 32) {
+    		  defPub.append("    {@member "+s+"ST\r\n");
+    		  defPub.append("      Typed access to "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
+    		  defPub.append("    }\r\n");
+    		  defPub.append("    property "+s+"ST : "+tn+"List read Get"+getTitle(s)+"ST write Set"+getTitle(s)+"ST;\r\n");
+    		}
     		create.append("  F"+getTitle(s)+" := TFHIREnumList.Create;\r\n");
     		destroy.append("  F"+getTitle(s)+".Free;\r\n");
     		assign.append("  F"+getTitle(s)+".Assign("+cn+"(oSource).F"+getTitle(s)+");\r\n");
     		getkids.append("  if (child_name = '"+getElementName(e.getName())+"') Then\r\n     list.addAll(F"+getTitle(s)+");\r\n");
     		getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+breakConstant(e.typeCode())+"', F"+getTitle(s)+".Link)){3};\r\n");
-    		impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+tn+"List;\r\n  var i : integer;\r\nbegin\r\n  result := [];\r\n  for i := 0 to "+s+".count - 1 do\r\n    result := result + ["+tn+"(StringArrayIndexOf(CODES_"+tn+", "+s+"[i].value))];\r\nend;\r\n\r\n");
-    		impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+tn+"List);\r\nvar a : "+tn+";\r\nbegin\r\n  "+s+".clear;\r\n  for a := low("+tn+") to high("+tn+") do\r\n    if a in value then\r\n      "+s+".add(TFhirEnum.create(CODES_"+tn+"[a]));\r\nend;\r\n\r\n");
-    		
+    		if (enumSizes.get(tn) < 32) {
+    		  impl.append("Function "+cn+".Get"+getTitle(s)+"ST : "+tn+"List;\r\n  var i : integer;\r\nbegin\r\n  result := [];\r\n  for i := 0 to "+s+".count - 1 do\r\n    result := result + ["+tn+"(StringArrayIndexOf(CODES_"+tn+", "+s+"[i].value))];\r\nend;\r\n\r\n");
+    		  impl.append("Procedure "+cn+".Set"+getTitle(s)+"ST(value : "+tn+"List);\r\nvar a : "+tn+";\r\nbegin\r\n  "+s+".clear;\r\n  for a := low("+tn+") to high("+tn+") do\r\n    if a in value then\r\n      "+s+".add(TFhirEnum.create(CODES_"+tn+"[a]));\r\nend;\r\n\r\n");
+    		}
+
         workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n"+
             "        result."+s+".Add("+parse+")\r\n");
         if (summary)
@@ -2519,7 +2533,7 @@ public String getName() {
     def.append("    function GetResourceType : TFhirResourceType; override;\r\n");
     def.append("    function GetHasASummary : Boolean; override;\r\n");
     def.append("  public\r\n");
-    def.append("    Constructor create; Overload; Override;\r\n");
+    def.append("    Constructor Create; Overload; Override;\r\n");
     def.append("    Destructor Destroy; Override;\r\n");
     def.append("  published\r\n");
     def.append("    Property Content : TAdvBuffer read FContent;\r\n");
@@ -2585,7 +2599,7 @@ public String getName() {
     impl2.append("end;\r\n\r\n");
 
 
-    impl2.append("constructor TFhirBinary.create;\r\n");
+    impl2.append("constructor TFhirBinary.Create;\r\n");
     impl2.append("begin\r\n");
     impl2.append("  inherited;\r\n");
     impl2.append("  FContent := TAdvBuffer.create;\r\n");
@@ -2817,23 +2831,65 @@ public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions
   }
 
   @Override
-public boolean doesCompile() {
-    return false;
+  public boolean doesCompile() {
+    String dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\RAD Studio\\10.0\\bin\\dcc32.exe";
+    return new File(dcc).exists();
   }
 
   @Override
-public boolean compile(String rootDir, List<String> errors) {
-    return false;
-  }
-
-  @Override
-public boolean doesTest() {
-    return false;
-  }
-
-  @Override
-public void loadAndSave(String rootDir, String sourceFile, String destFile) {
+public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
     
+    dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\RAD Studio\\10.0\\bin\\dcc32.exe";
+    exe = rootDir+"implementations\\delphi\\fhirtest.exe";
+    logger.log("Compiling Pascal implementation using "+dcc);
+    new File(exe).delete();
+    
+    List<String> command = new ArrayList<String>();
+    command.add(dcc);
+    command.add("-Q");
+    command.add("-UC:\\HL7Connect\\indysoap\\source");
+    command.add("-NSSystem;System.Win;WinAPI;Vcl;Vcl.Imaging;Data");
+    command.add("fhirtest.dpr");
+    // command.add(">compile.log");
+
+    ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
+    builder.directory(new File(rootDir+"implementations\\delphi"));
+
+    Process process;
+    try {
+      process = builder.start();
+      process.waitFor();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return false;
+    }
+    return (new File(exe).exists());
+  }
+
+  @Override
+  public boolean doesTest() {
+    return true;
+  }
+
+  @Override
+  public void loadAndSave(String rootDir, String sourceFile, String destFile) throws Exception {
+    
+    List<String> command = new ArrayList<String>();
+    command.add(exe);
+    command.add(sourceFile);
+    command.add(destFile);
+
+    ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
+    builder.directory(new File(Utilities.getDirectoryForFile(exe)));
+
+    Process process;
+    process = builder.start();
+    process.waitFor();
+    if (new File(destFile+".err").exists())
+      throw new Exception(TextFile.fileToString(destFile+".err"));
+    if (!(new File(destFile).exists()))
+      throw new Exception("Neither output nor error file created");
+
   }
 
   @Override

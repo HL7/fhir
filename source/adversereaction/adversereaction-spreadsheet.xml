@@ -97,12 +97,20 @@
    <Protection/>
   </Style>
   <Style ss:ID="s74">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat ss:Format="#,##0"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -110,20 +118,12 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s78">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-  </Style>
   <Style ss:ID="s79">
    <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s84">
-   <Alignment ss:Vertical="Top"/>
-   <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat ss:Format="#,##0"/>
-   <Protection/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -293,6 +293,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">ReactionSeverity</Data></Cell>
+    <Cell><Data ss:Type="String">severe | serious | moderate | minor</Data></Cell>
     <Cell><Data ss:Type="String">The severity of the sign or symptom</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;severity&gt;&gt;].value</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">AL1-4-Allergy Severity Code / IAM-4-Allergy Severity Code</Data></Cell>
@@ -304,7 +305,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">300;90</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">300;90</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">An exposure to a substance that preceded a reaction occurrence</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
@@ -334,8 +335,8 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ExposureType</Data></Cell>
-    <Cell><Data ss:Type="String">The type of exposure</Data></Cell>
-    <Cell><Data ss:Type="String">Drug Administration, Immunization, Coincidental</Data></Cell>
+    <Cell><Data ss:Type="String">drugadmin | immuniz | coincidental</Data></Cell>
+    <Cell><Data ss:Type="String">The type of exposure: Drug Administration, Immunization, Coincidental</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -349,6 +350,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">CausalityExpectation</Data></Cell>
+    <Cell><Data ss:Type="String">likely | unlikely | confirmed | unknown</Data></Cell>
     <Cell><Data ss:Type="String">A statement of how confident that the recorder was that this exposure caused the reaction</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;ReactionRelatedness&gt;, ].value&#10;&#10;Note: Observation also needs to have a subject of the Adverse Reaction itself (i.e. it's expressing relatedness of exposure &amp; reaction)</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">IAM-17-Allergy Clinical Status Code</Data></Cell>
@@ -363,6 +365,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Resource(Substance)</Data></Cell>
     <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">Presumed causative substance</Data></Cell>
     <Cell><Data ss:Type="String">Substance(s) that is presumed to have caused the adverse reaction</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
     <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=EXPAGNT]</Data></Cell>
@@ -436,8 +439,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -447,14 +450,14 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s74" ss:Width="14.25"/>
-   <Column ss:StyleID="s74" ss:Width="126"/>
-   <Column ss:StyleID="s74" ss:Width="96"/>
-   <Column ss:StyleID="s74" ss:Width="234.75"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s74" ss:Width="320.25"/>
+   <Column ss:StyleID="s75" ss:Width="14.25"/>
+   <Column ss:StyleID="s75" ss:Width="126"/>
+   <Column ss:StyleID="s75" ss:Width="96"/>
+   <Column ss:StyleID="s75" ss:Width="234.75"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s75" ss:Width="320.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -555,11 +558,11 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:Index="4" ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:Index="4" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -776,52 +779,52 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Binding</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ReactionSeverity</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The severity of an adverse reaction.</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">#reactionSeverity</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">#reactionSeverity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SymptomType</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The type of symptom.</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">http://apps.who.int/classifications/icd10/browse/2010/en</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">ICD-10 Reaction codes</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">http://apps.who.int/classifications/icd10/browse/2010/en</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ICD-10 Reaction codes</Data></Cell>
+    <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExposureType</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The type of exposure that resulted in an adverse reaction</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">#exposureType</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">The current set of codes is not exhaustive and is provided for future discussion.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">#exposureType</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s79"><Data ss:Type="String">The current set of codes is not exhaustive and is provided for future discussion.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CausalityExpectation</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">How likely is it that the given exposure caused a reaction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">#causalityExpectation</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">#causalityExpectation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s65"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:Index="5" ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:Index="5" ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s65"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s65"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -911,7 +914,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R5C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -963,7 +968,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R5C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1014,7 +1021,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R4C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -221,6 +221,7 @@ public class SourceParser {
 		definitions.setBaseResource(baseResource);
 		
 		loadCompartments();
+		loadStatusCodes();
 		
 		org.hl7.fhir.definitions.ecore.fhir.ResourceDefn eCoreBaseResource =
 				CompositeTypeConverter.buildResourceFromFhirModel(baseResource, null);
@@ -275,13 +276,28 @@ public class SourceParser {
 		for (ResourceDefn r : definitions.getResources().values()) {
 		  for (RegisteredProfile p : r.getProfiles()) {
 		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry);
-		    sparser.setFolder(Utilities.getDirectoryFoFile(p.getFilepath()));
+		    sparser.setFolder(Utilities.getDirectoryForFile(p.getFilepath()));
 		    p.setProfile(sparser.parseProfile(definitions));
 		  }
 		}
 	}
 
 	
+  private void loadStatusCodes() throws FileNotFoundException, Exception {
+    XLSXmlParser xml = new XLSXmlParser(new CSFileInputStream(srcDir+"status-codes.xml"), "compartments.xml");
+    Sheet sheet = xml.getSheets().get("Status Codes");
+    for (int row = 0; row < sheet.rows.size(); row++) {
+      String path = sheet.getColumn(row, "Path");
+      ArrayList<String> codes = new ArrayList<String>();
+      for (int i = 1; i <= 36; i++) {
+        String s = sheet.getColumn(row, "c"+Integer.toString(i));
+        if (!Utilities.noString(s))
+          codes.add(s);
+      }
+      definitions.getStatusCodes().put(path, codes); 
+    }    
+  }
+  
 	private void loadCompartments() throws FileNotFoundException, Exception {
     XLSXmlParser xml = new XLSXmlParser(new CSFileInputStream(srcDir+"compartments.xml"), "compartments.xml");
     Sheet sheet = xml.getSheets().get("compartments");

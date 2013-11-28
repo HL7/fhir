@@ -266,7 +266,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">MedicationAdministrationStatus</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Status of the administration - active | paused | completed | nullified</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">in progress | on hold | completed | entered in error | stopped</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -559,7 +559,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -567,15 +567,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1031,14 +1030,14 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The administration has started but has not yet completed.</Data></Cell>
     <Cell><Data ss:Type="String">Active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="38.25">
     <Cell ss:StyleID="s93"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">held</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;held&quot;.</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">on hold</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;.</Data></Cell>
     <Cell><Data ss:Type="String">Suspended</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
@@ -1076,8 +1075,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R6C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

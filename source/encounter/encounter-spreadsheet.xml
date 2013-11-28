@@ -21,7 +21,6 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
   <TabRatio>654</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -241,7 +240,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">EncounterState</Data></Cell>
-    <Cell><Data ss:Type="String">E.g. current, cancelled, finished</Data></Cell>
+    <Cell><Data ss:Type="String">planned | in progress | onleave | finished | cancelled</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -257,7 +256,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">EncounterClass</Data></Cell>
-    <Cell><Data ss:Type="String">E.g. inpatient, outpatient, home</Data></Cell>
+    <Cell><Data ss:Type="String">inpatient | outpatient | ambulatory | emergency +</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -644,10 +643,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -660,12 +660,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>34</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -937,7 +936,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1158,8 +1156,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R9C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1183,7 +1182,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">current</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The Encounter has begun and the patient is present / the practitioner and the patient are meeting</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1212,8 +1211,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R6C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

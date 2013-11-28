@@ -60,7 +60,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="/min"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>
@@ -81,7 +81,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="/min"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>
@@ -102,7 +102,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="/min"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>
@@ -123,7 +123,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="mm[Hg]"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>
@@ -144,7 +144,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="mm[Hg]"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>
@@ -165,7 +165,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="/min"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>
@@ -186,7 +186,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="mm[Hg]"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>
@@ -207,7 +207,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="mm[Hg]"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>
@@ -228,7 +228,7 @@ contained ones (even though this is easier for the sender)
         <system value="http://unitsofmeasure.org"/>
         <code value="mm[Hg]"/>
       </valueQuantity>
-      <status value="interim"/>
+      <status value="preliminary"/>
       <reliability value="ok"/>
     </Observation>
   </contained>

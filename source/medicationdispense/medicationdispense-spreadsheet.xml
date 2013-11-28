@@ -336,7 +336,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationDispenseStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">active | paused | completed | nullified</Data><NamedCell
+    <Cell><Data ss:Type="String">in progress | on hold | completed | entered in error | stopped</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A code specifying the state of the set of dispense events.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -436,7 +436,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationDispenseStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Active/Completed/Aborted</Data><NamedCell
+    <Cell><Data ss:Type="String">in progress | on hold | completed | entered in error | stopped</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A code specifying the state of the dispense event.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -788,7 +788,6 @@
     <VerticalResolution>300</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>10</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -800,8 +799,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1218,14 +1217,14 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s99"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">The dispense has started but has not yet completed.</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s99"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;held&quot;.</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">on hold</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Suspended</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1257,8 +1256,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R6C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

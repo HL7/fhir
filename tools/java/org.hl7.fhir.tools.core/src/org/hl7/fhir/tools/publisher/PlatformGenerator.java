@@ -101,7 +101,7 @@ public interface PlatformGenerator {
    * @return true if the compile succeeded
    * @throws Exception 
    */
-  public boolean compile(String rootDir, List<String> errors) throws Exception;
+  public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception;
   
   /**
    * 

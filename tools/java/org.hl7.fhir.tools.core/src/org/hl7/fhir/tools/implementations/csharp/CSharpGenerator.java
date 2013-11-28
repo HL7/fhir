@@ -239,7 +239,7 @@ public boolean doesCompile() {
   private static final String CSHARP_FILENAME = "CSharp.zip";
   
   @Override
-  public boolean compile(String rootDir, List<String> errors) 
+  public boolean compile(String rootDir, List<String> errors, Logger logger) 
   {  
     String solutionDirectory = Utilities.path(rootDir, "implementations", "csharp");
     String solutionFile = Utilities.path(solutionDirectory, "Hl7.Fhir.csproj");

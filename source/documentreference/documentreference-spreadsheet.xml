@@ -401,7 +401,7 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DocumentReferenceStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">current | superseded | error</Data><NamedCell
+    <Cell><Data ss:Type="String">current | superceded | entered in error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The status of this document reference </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -421,7 +421,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ReferredDocumentStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Status of the underlying document</Data><NamedCell
+    <Cell><Data ss:Type="String">preliminary | final | appended | amended | entered in error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The status of the underlying document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -452,7 +452,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DocumentRelationshipType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">supercedes | transforms | signs | appends</Data><NamedCell
+    <Cell><Data ss:Type="String">replaces | transforms | signs | appends</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The type of relationship that this document has with anther document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -771,12 +771,11 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>17</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1205,7 +1204,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">entered in error</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">This reference was created in error</Data></Cell>
     <Cell><Data ss:Type="String">~ActStatus.nullified</Data></Cell>
    </Row>
@@ -1225,7 +1224,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -183,7 +183,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">IssueSeverity</Data></Cell>
-    <Cell><Data ss:Type="String">error | warning | information&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">fatal | error | warning | information&#10;</Data></Cell>
     <Cell><Data ss:Type="String">Indicates whether the issue indicates a variation from successful processing</Data></Cell>
     <Cell><Data ss:Type="String">Indicates how relevant the issue is to the overall success of the action.</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not confuse hints and warnings with errors</Data></Cell>
@@ -245,7 +245,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -253,15 +253,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

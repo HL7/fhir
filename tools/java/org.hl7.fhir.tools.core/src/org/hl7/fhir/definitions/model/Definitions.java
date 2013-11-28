@@ -72,6 +72,7 @@ public class Definitions {
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
+  private Map<String, ArrayList<String>> statusCodes = new HashMap<String, ArrayList<String>>();
 
   private List<Compartment> compartments = new ArrayList<Compartment>();
   
@@ -302,6 +303,10 @@ public class Definitions {
 
   public boolean hasPrimitiveType(String name) {
     return primitives.containsKey(name);
+  }
+
+  public Map<String, ArrayList<String>> getStatusCodes() {
+    return statusCodes;
   }
 
   

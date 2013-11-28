@@ -210,7 +210,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ResponseType</Data></Cell>
-    <Cell><Data ss:Type="String">Type of response to the message</Data></Cell>
+    <Cell><Data ss:Type="String">ok | transient-error | fatal-error</Data></Cell>
     <Cell><Data ss:Type="String">Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not</Data></Cell>
     <Cell><Data ss:Type="String">Allows the sender of the acknowledge message to know if the request was successful or if action is needed.</Data></Cell>
     <Cell><Data ss:Type="String">This is a generic response to the request message. Specific data for the response will be found in MessageHeader.data</Data></Cell>
@@ -425,8 +425,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -548,8 +548,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R4C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

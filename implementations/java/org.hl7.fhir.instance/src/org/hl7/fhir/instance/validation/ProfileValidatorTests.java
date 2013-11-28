@@ -52,7 +52,7 @@ public class ProfileValidatorTests {
     Document reg = parseXml(registry.getAbsolutePath());
     List<Element> tests = new ArrayList<Element>();
     XMLUtil.getNamedChildren(reg.getDocumentElement(), "test", tests);
-    String dir = Utilities.getDirectoryFoFile(registry.getAbsolutePath()) + File.separator;
+    String dir = Utilities.getDirectoryForFile(registry.getAbsolutePath()) + File.separator;
     for (Element test : tests) {
     	executeCase(v, dir, test);
     }

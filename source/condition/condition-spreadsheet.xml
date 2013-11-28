@@ -183,7 +183,8 @@
     <Cell><Data ss:Type="String">Condition.encounter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Encounter during which the condition was first asserted</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Encounter when condition first asserted</Data></Cell>
+    <Cell><Data ss:Type="String">Encounter during which the condition was first asserted</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">PV1-19 (+PV1-54)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -356,7 +357,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ConditionRelationshipType</Data></Cell>
-    <Cell><Data ss:Type="String">due-to | follows</Data></Cell>
+    <Cell><Data ss:Type="String">due-to | following</Data></Cell>
     <Cell><Data ss:Type="String">The type of relationship that this condition has to the related item</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -399,12 +400,12 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>13</TopRowVisible>
+   <TopRowVisible>12</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

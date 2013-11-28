@@ -5,7 +5,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
     </div>
   </text>
-  <status value="interim"/>
+  <status value="partial"/>
   <issued value="2013-10-07T17:18:16"/>
   <subject>
     <reference value="Patient/example"/>

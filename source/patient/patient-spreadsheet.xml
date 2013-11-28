@@ -746,7 +746,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">LinkType</Data></Cell>
-    <Cell><Data ss:Type="String">The type of link</Data></Cell>
+    <Cell><Data ss:Type="String">replace | refer | seealso - type of link</Data></Cell>
     <Cell><Data ss:Type="String">The type of link between this patient resource and another patient resource.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">typeCode</Data></Cell>
@@ -779,7 +779,7 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>11</TopRowVisible>
+   <TopRowVisible>28</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -791,8 +791,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>33</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1050,8 +1050,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>1</ActiveRow>
      <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R4C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

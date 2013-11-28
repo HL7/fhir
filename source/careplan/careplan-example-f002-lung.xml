@@ -9,7 +9,7 @@
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </patient>
-    <status value="ended"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
+    <status value="completed"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
     <period>
         <start value="2011-07-06"/>
         <end value="2013-07-07"/>

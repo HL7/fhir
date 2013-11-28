@@ -186,7 +186,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GroupType</Data></Cell>
-    <Cell><Data ss:Type="String">Group Classification</Data></Cell>
+    <Cell><Data ss:Type="String">person | animal | device | medication | substance</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the broad classification of the kind of resources the group includes</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Identifies what type of resources the group is made up of</Data></Cell>
@@ -388,8 +388,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -870,7 +870,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R6C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

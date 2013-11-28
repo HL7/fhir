@@ -439,7 +439,7 @@ public class Utilities {
   }
 
 
-  public static String getDirectoryFoFile(String filepath) {
+  public static String getDirectoryForFile(String filepath) {
     int i = filepath.lastIndexOf(File.separator);
     if (i == -1)
       return filepath;

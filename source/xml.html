@@ -42,7 +42,7 @@ Notes:
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
  <li>The formal MIME-type for FHIR resources represented in XML is application/xml+fhir</li>
- <li>XML comments, instructions and formatting are not part of the contents of a resource. Applications MAY preserve these when handling resources, but are not required to do so. Note that digital signatures may depend on them (depending on the canonicalisation method used)</li>
+ <li>XML comments, processing instructions and formatting are not part of the contents of a resource. Processing Instrutions SHOULD not be included, and SHALL not be required in order to properly understand and/or present the data or narrative of the resource. Applications MAY preserve these when handling resources, but are not required to do so. Note that digital signatures may depend on them (depending on the canonicalisation method used)</li>
 </ul>
 <p>
 When represented as XML, resources may be validated by schema and schematron (see below), but 

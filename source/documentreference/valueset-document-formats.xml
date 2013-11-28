@@ -20,16 +20,20 @@
       <display value="Portable Printable Document (pdf, xps)"/>
     </concept>
     <concept>
-      <code value="doc"/>
+      <code value="document"/>
       <display value="Word Document (.rtf, .doc, .docx, .odt)"/>
     </concept>
     <concept>
-      <code value="xls"/>
+      <code value="spreadsheet"/>
       <display value="Spreadsheet (.xls, .xlsx, .odt)"/>
     </concept>
     <concept>
-      <code value="bitmap"/>
-      <display value="Bitmap image (.dicom, .bmp, .jpg, .png, .gif, etc)"/>
+      <code value="pixels"/>
+      <display value="pixel map image (.dicom, .bmp, .jpg, .png, .gif, etc)"/>
+    </concept>
+    <concept>
+      <code value="drawing"/>
+      <display value="Vector image (.svg, .eps, etc)"/>
     </concept>
     <concept>
       <code value="html"/>
@@ -42,6 +46,14 @@
     <concept>
       <code value="cda"/>
       <display value="Clinical Document (e.g. CDA or templated CDA, or Dicom Structured Report)"/>
+      <concept>
+        <code value="ccda"/>
+        <display value="Consolidated Clinical Document"/>
+      </concept>
+    </concept>
+    <concept>
+      <code value="ccr"/>
+      <display value="ASTM CCR document"/>
     </concept>
     <concept>
       <code value="v2"/>

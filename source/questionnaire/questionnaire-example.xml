@@ -61,7 +61,7 @@
       <reliability value="unknown"/>
     </Observation>
   </contained>
-  <status value="complete"/>
+  <status value="completed"/>
   <authored value="2013-02-19T14:15:00"/>
   <subject>
     <reference value="#patsub"/>

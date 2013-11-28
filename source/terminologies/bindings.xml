@@ -20,7 +20,6 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>105</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -72,23 +71,6 @@
   <Style ss:ID="s69">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s70">
-   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s72" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s73">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -112,7 +94,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="157.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="229.5"/>
@@ -160,20 +142,13 @@
     <Cell ss:Index="5"><Data ss:Type="String">#message-events</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ObservationStatus</Data></Cell>
-    <Cell><Data ss:Type="String">Codes providing the status of an observation</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#observation-status</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">ObservationBodySite</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Codes for human and animal body sites</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">SNOMED CT body sites</Data></Cell>
    </Row>
-   <Row ss:Index="10" ss:AutoFitHeight="0">
+   <Row ss:Index="9" ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SpecialValues</Data></Cell>
     <Cell><Data ss:Type="String">A set of generally useful codes defined so they can be included in value sets</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
@@ -233,72 +208,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>10</ActiveRow>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="observation-status">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="7" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="65.25"/>
-   <Column ss:AutoFitWidth="0" ss:Width="594"/>
-   <Column ss:AutoFitWidth="0" ss:Width="563.25"/>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Comments</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="18.75">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">registered</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The existence of the observation is registered, but there is no result yet available</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">This is used where an observation record is created before it is made as a place holder. Some times called &quot;To Follow&quot;</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">interim</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">This is an initial or interim observation: data may be incomplete or unverified</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The observation is complete and verified by an authorised person</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The observation has been modified subsequent to being Final, and is complete and verified by an authorised person</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="19.5">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The observation is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">withdrawn</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The observation has been withdrawn following previous Final release</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Usually this is because some error has been detected in the measurement</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <RangeSelection>R1:R1048576</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -385,7 +299,7 @@
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="436.5"/>
-   <Row ss:StyleID="s76">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s76">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Parent</Data></Cell>
@@ -475,7 +389,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>

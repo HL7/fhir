@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -180,7 +179,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">MediaType</Data></Cell>
-    <Cell><Data ss:Type="String">photo | audio | video</Data></Cell>
+    <Cell><Data ss:Type="String">photo | video | audio</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Whether the media is a photo (still image), an audio recording, or a video recording</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">y</Data></Cell>
@@ -424,6 +423,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -443,6 +443,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -1070,7 +1071,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

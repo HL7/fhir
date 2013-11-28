@@ -263,7 +263,7 @@ public boolean doesCompile() {
   }
   
   @Override
-public boolean compile(String rootDir, List<String> errors) throws Exception {
+public boolean compile(String rootDir, List<String> errors, Logger logger) throws Exception {
     this.rootDir = rootDir;
     char sc = File.separatorChar;
     List<File> classes = new ArrayList<File>();
@@ -503,7 +503,7 @@ public String checkFragments(String rootDir, String fragments) throws Exception 
     command.add(file.getAbsolutePath());
     command.add(filed.getAbsolutePath());
 
-    ProcessBuilder builder = new ProcessBuilder(command);
+    ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
     builder.directory(new File(rootDir));
 
     final Process process = builder.start();

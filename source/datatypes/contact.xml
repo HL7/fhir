@@ -19,7 +19,6 @@
   <WindowWidth>25635</WindowWidth>
   <WindowTopX>2640</WindowTopX>
   <WindowTopY>2715</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -143,7 +142,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ContactSystem</Data></Cell>
-    <Cell><Data ss:Type="String">Telecommunications form for contact</Data></Cell>
+    <Cell><Data ss:Type="String">phone | fax | email | url</Data></Cell>
     <Cell><Data ss:Type="String">Telecommunications form for contact - what communications system is required to make use of the contact</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">./scheme</Data></Cell>
    </Row>
@@ -163,7 +162,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ContactUse</Data></Cell>
-    <Cell><Data ss:Type="String">How to use this address</Data></Cell>
+    <Cell><Data ss:Type="String">home | work | temp | old | mobile - purpose of this address</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the context for the address</Data></Cell>
     <Cell><Data ss:Type="String">Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is not temporary or old unless it explicitly says that it is</Data></Cell>
@@ -185,11 +184,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -355,8 +355,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R6C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -408,12 +409,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R5C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

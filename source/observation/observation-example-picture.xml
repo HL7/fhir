@@ -35,7 +35,7 @@
   <valueAttachment>
     <contentType value="application/dicom"/>
     <!-- The actual image could be anywhere. This is a WADO example -->
-    <reference value="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+    <url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
   </valueAttachment>
   <status value="final"/>
   <reliability value="ok"/>

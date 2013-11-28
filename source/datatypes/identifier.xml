@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8445</WindowHeight>
-  <WindowWidth>24675</WindowWidth>
-  <WindowTopX>3600</WindowTopX>
-  <WindowTopY>3975</WindowTopY>
+  <WindowHeight>7815</WindowHeight>
+  <WindowWidth>24375</WindowWidth>
+  <WindowTopX>3750</WindowTopX>
+  <WindowTopY>4455</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -139,10 +139,9 @@
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">IdentifierUse</Data></Cell>
-    <Cell><Data ss:Type="String">The use of this identifier</Data></Cell>
     <Cell><Data ss:Type="String">usual | official | temp | secondary (If known)&#10;</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers</Data></Cell>
+    <Cell><Data ss:Type="String">The use of this identifier</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is not temporary unless it explicitly says that it is</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -235,7 +234,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

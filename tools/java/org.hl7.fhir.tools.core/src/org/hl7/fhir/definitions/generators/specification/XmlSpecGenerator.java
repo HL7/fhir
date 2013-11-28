@@ -210,7 +210,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		    write("&gt;");
 		    write("<span style=\" color: Gray\">&lt;!-- </span>");
 		    write(" <span style=\"color: brown;\"><b>0..1</b></span> ");
-		    writeTypeLinks(ex.getDefinition());
+		    writeTypeLinks(ex.getDefinition(), 0);
 		    write(" <span style=\"color: navy\">"+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</span>");
 		    write(" <span style=\" color: Gray\">--&gt; </span>&lt;/" + vn + ">\r\n");
 		  } else if (ex.getDefinition().getTypes().size() == 1) {
@@ -281,6 +281,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
 		boolean listed = false;
 		boolean doneType = false;
+		int width = 0;
     // If this is an unrolled element, show its profile name
     if (elem.getProfileName() != null
         && !elem.getProfileName().equals("")) {
@@ -391,7 +392,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				writeCardinality(elem);
 				listed = true;
 				if (!doneType) {
-				  writeTypeLinks(elem);
+				  width = writeTypeLinks(elem, indent);
 				}
 			} else if (elem.getName().equals("extension")) {
 				write(" <a href=\"extensibility.html\"><span style=\"color: navy\">See Extensions</span></a> ");
@@ -432,7 +433,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				    } else
 				      write("<span style=\"color: navy\"><a href=\""+bs.getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");				  
 				  } else
-					  write("<span style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</span>");
+					  write("<span style=\"color: navy\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</span>");
           if (elem.getMaxCardinality() != null && elem.getMaxCardinality() == 0) 
             write("</span>");
 				}
@@ -512,6 +513,18 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		}
 	}
 
+	private String docPrefix(int widthSoFar, int indent, ElementDefn elem) {
+	  if (widthSoFar + elem.getShortDefn().length()+8+elem.getName().length() > 105) {
+	    String ret = "\r\n  ";
+	    for (int i = 0; i < indent+2; i++)
+	      ret = ret + " ";
+
+	    return ret;
+	  }
+	  else
+	    return "";
+	}
+
   private String getIsSummaryFlag(ElementDefn elem) {
     if (elem.isSummaryItem())
       return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> §</span>";
@@ -519,15 +532,22 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       return "";
   }
 
-  private void writeTypeLinks(ElementDefn elem) throws Exception {
+  private int writeTypeLinks(ElementDefn elem, int indent) throws Exception {
     write(" <span style=\"color: darkgreen\">");
     int i = 0;
-    int d = elem.getTypes().size() / 2;
+    int w = indent + 12 + elem.getName().length(); // this is wrong if the type is an attribute, but the wrapping concern shouldn't apply in this case, so this is ok
     for (TypeRef t : elem.getTypes()) {
-      if (i > 0)
+      if (i > 0) {
         write("|");
-      if (elem.getTypes().size() > 5 && i == d)
-        write("\r\n              ");
+        w++;
+      }
+      if (w + t.getName().length() > 80) {
+        write("\r\n  ");
+        for (int j = 0; j < indent; j++)
+          write(" ");
+        w = indent+2;
+      }
+      w = w + t.getName().length(); // again, could be wrong if this is an extension, but then it won't wrap
       if (t.isXhtml() || t.getName().equals("list"))
         write(t.getName());
       else if (t.getName().equals("Extension") && t.getParams().size() == 0 && !Utilities.noString(elem.getProfile()))
@@ -540,9 +560,20 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         write("(");
         boolean firstp = true;
         for (String p : t.getParams()) {
-          if (!firstp)
+          if (!firstp) {
             write("|");
+            w++;
+          }
 
+          // again, p.length() could be wrong if this is an extension, but then it won't wrap
+          if (w + p.length() > 80) {
+            write("\r\n  ");
+            for (int j = 0; j < indent; j++)
+              write(" ");
+            w = indent+2;
+          }
+          w = w + p.length(); 
+          
           // TODO: There has to be an aggregation
           // specification per t.getParams()
           if (elem.hasAggregation()) {
@@ -568,11 +599,13 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           firstp = false;
         }
         write(")");
+        w++;
       }
 
       i++;
     }
     write("</span>");
+    return w;
   }
 
 	private void writeCardinality(ElementDefn elem) throws IOException {

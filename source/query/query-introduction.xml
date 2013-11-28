@@ -25,7 +25,7 @@ in the RESTful framework:
 <p>
 For this RESTful search, the parameters are a series 
 of name=[value] pairs encoded in the URL or as an 
-x-multi-part-form submission for a POST.  
+application/x-www-form-urlencoded submission for a POST.  
 The server returns the results in the HTTP response as a bundle (in XML, an atom feed) 
 which includes the resources that are the results of the query. The server can also
 include additional resources in the result set, such as <a href="operationoutcome.html">OperationOutcome</a> 

@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -211,6 +210,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">OrderOutcomeStatus</Data></Cell>
+    <Cell><Data ss:Type="String">pending | review | rejected | error | accepted | cancelled | aborted | complete</Data></Cell>
     <Cell><Data ss:Type="String">The status of the response</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
@@ -253,6 +253,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -272,8 +273,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -586,7 +587,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -742,7 +742,8 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R9C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

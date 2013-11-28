@@ -20,7 +20,6 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>45</WindowTopX>
   <WindowTopY>2085</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -110,7 +109,7 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s89">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -118,13 +117,13 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s155">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s183">
+  <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -214,7 +213,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">QuestionnaireStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">draft | published | retired | in progress | complete | amended</Data><NamedCell
+    <Cell><Data ss:Type="String">draft | published | retired | in progress | completed | amended</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The lifecycle status of the questionnaire as a whole.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -249,7 +248,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The subject of the questionnaires</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">The subject of the questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -265,7 +264,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Person that collected the answers</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Who collected the answers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Person that collected the answers to the questions in the Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -284,7 +283,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Practitioner|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The person that answered the questions</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Who answered the questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The person that answered the questions about the subject. Only used when this is not the subject him/herself</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -555,7 +554,7 @@
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@Questionnaire.question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Questions belonging to this group</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Questions in this group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Set of questions within this group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -588,6 +587,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -607,7 +607,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -830,7 +830,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">QuestionnaireStatus</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Lifecycle status of the questionnaire</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">n</Data></Cell>
     <Cell><Data ss:Type="String">#questionnaire-status</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -955,49 +955,49 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="93" ss:Span="1"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="299.25"/>
-   <Row>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s183"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s183"><Data ss:Type="String">Display</Data></Cell>
-    <Cell ss:StyleID="s183"><Data ss:Type="String">Definition</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Display</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s73"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This Questionnaire is used as a template but the template is not ready for use or publication.</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s73"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">published</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">published</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This Questionnaire is used as a template, is published and ready for use.</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s73"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This Questionnaire is used as a template but should no longer be used for new Questionnaires.</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s73"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">inprogress</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This Questionnaire has been filled out with answers, but changes or additions are still expected to be made to it.</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s73"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">complete</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">complete</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This Questionnaire has been filled out with answers, and the current content is regarded as definitive.</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s73"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">amended</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">amended</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This Questionnaire has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.</Data></Cell>
    </Row>
-   <Row ss:Index="10">
+   <Row ss:Index="10" ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s62"/>
    </Row>
   </Table>
@@ -1007,12 +1007,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

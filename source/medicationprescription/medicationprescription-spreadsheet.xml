@@ -293,7 +293,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationPrescriptionStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">active | paused | completed | nullified</Data><NamedCell
+    <Cell ss:StyleID="s64"><Data ss:Type="String">active | on hold | completed | entered in error | stopped | superceded</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A code specifying the state of the order.  Generally this will be active or completed state &#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -696,7 +696,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -709,12 +709,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1231,8 +1230,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="38.25">
     <Cell ss:StyleID="s89"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called &quot;held&quot;.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">on hold</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called &quot;suspended&quot;.</Data></Cell>
     <Cell><Data ss:Type="String">Suspended</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
@@ -1255,7 +1254,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25.5">
     <Cell ss:StyleID="s89"><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">obsolete</Data></Cell>
+    <Cell><Data ss:Type="String">superceded</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The prescription was replaced by a newer one, which encompasses all the information in the previous one.</Data></Cell>
    </Row>
   </Table>
@@ -1269,7 +1268,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>32</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

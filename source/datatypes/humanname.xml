@@ -20,7 +20,6 @@
   <WindowWidth>24915</WindowWidth>
   <WindowTopX>3360</WindowTopX>
   <WindowTopY>3570</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -174,7 +173,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">NameUse</Data></Cell>
-    <Cell><Data ss:Type="String">The use of this name</Data></Cell>
+    <Cell><Data ss:Type="String">usual | official | temp | nickname | anonymous | old | maiden</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the purpose for this name</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows the appropriate name for a particular context of use to be selected from among a set of names</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old name etc for a current/permanent one. Applications can assume that a name is not temporary or old unless it explicitly says that it is</Data></Cell>
@@ -259,11 +258,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -427,12 +427,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R8C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

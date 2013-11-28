@@ -155,7 +155,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">AlertStatus</Data></Cell>
-    <Cell><Data ss:Type="String">active | inactive | incorrect</Data></Cell>
+    <Cell><Data ss:Type="String">active | inactive | entered in error</Data></Cell>
     <Cell><Data ss:Type="String">Supports basic workflow</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
@@ -228,8 +228,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -653,7 +653,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">entered in error</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The alert was added in error, and should no longer be displayed</Data></Cell>
    </Row>
   </Table>
@@ -668,8 +668,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

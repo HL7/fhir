@@ -4,7 +4,7 @@
      <reference value="Patient/f201"/>
      <display value="Roel"/>
  </patient>
- <status value="ended"/>
+ <status value="completed"/>
  <period>
      <start value="2013-04-14"/>
      <end value="2013-04-21"/>
@@ -42,7 +42,7 @@
  </participant>
  <goal> 
   <description value="Check whether further treatment of sepsis/pulmonary abcess is required"/>
-  <status value="abandoned"/>
+  <status value="cancelled"/>
  </goal>
  <activity> 
   <status value="not started"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
-    <status value="complete"/>
+    <status value="completed"/>
     <authored value="2013-06-18T00:00:00+01:00"/>
     <!--Fictive, only the below answers are non-fictive-->
     <subject>

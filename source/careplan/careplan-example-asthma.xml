@@ -198,7 +198,7 @@
 
   <goal id="g1">
     <!-- An extension that specifies the minimum peak flow target for this person. Its coded so that UI's can display this in charts for example-->
-    <extension url='www.moh.govt.nz/fhir/asthma#minimumPF'></ur>
+    <extension url='www.moh.govt.nz/fhir/asthma#minimumPF'>
       <valueInteger value="500"></valueInteger>
     </extension>
     <description value="Maintain Peak flow above 500"/>
@@ -247,7 +247,7 @@
       </actionResulting>
       <notes value="In response to a peakflow below 350, a reducing dose of prednisone starting at 30mg, and reducing by 5mg every 2 days"/>
     <simple>
-      <extension url="www.moh.govt.nz/fhir/trigger">
+      <modifierExtension url="www.moh.govt.nz/fhir/trigger">
         <extension url="www.moh.govt.nz/fhir/trigger#code">
           <valueCoding>
             <system value="http://snomed.info/id"/>
@@ -261,8 +261,7 @@
             <comparator value="&lt;"/>
           </valueQuantity>
         </extension>
-        <isModifier value="true"/>
-      </extension>
+      </modifierExtension>
       <category value="drug"/>
       <details value="Eve will start oral steroids if the peakflow drops below 350"/>
     </simple>
@@ -282,7 +281,7 @@
             <display value="Respiratory flow rate (observable entity)"></display>
           </valueCoding>
         </extension>
-        <modifierExtension url="www.moh.govt.nz/fhir/trigger#value">
+        <extension url="www.moh.govt.nz/fhir/trigger#value">
           <valueQuantity>
             <value value="250"/>
             <comparator value="&lt;"/>

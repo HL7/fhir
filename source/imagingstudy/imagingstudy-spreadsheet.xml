@@ -20,7 +20,6 @@
   <WindowWidth>28815</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>45</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -324,7 +323,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">InstanceAvailability</Data></Cell>
-    <Cell><Data ss:Type="String">Instance Availability (0008,0056)</Data></Cell>
+    <Cell><Data ss:Type="String">ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0056</Data></Cell>
     <Cell><Data ss:Type="String">InstanceAvailability</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Availability of study (online, offline or nearlnie)</Data></Cell>
@@ -578,7 +577,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">InstanceAvailability</Data></Cell>
-    <Cell><Data ss:Type="String">Instance Availability (0008,0056)</Data></Cell>
+    <Cell><Data ss:Type="String">ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0056</Data></Cell>
     <Cell><Data ss:Type="String">InstanceAvailability</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Availability of series (online, offline or nearlnie)</Data></Cell>
@@ -756,7 +755,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">InstanceAvailability</Data></Cell>
-    <Cell><Data ss:Type="String">Instance Availability (0008,0056)</Data></Cell>
+    <Cell><Data ss:Type="String">ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0056</Data></Cell>
     <Cell><Data ss:Type="String">InstanceAvailability</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Availability of instance (online, offline or nearlnie)</Data></Cell>
@@ -895,6 +894,7 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -915,7 +915,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -1303,7 +1302,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1705,8 +1703,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>1</ActiveRow>
      <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R5C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

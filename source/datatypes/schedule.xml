@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7200</WindowHeight>
-  <WindowWidth>23475</WindowWidth>
-  <WindowTopX>4800</WindowTopX>
-  <WindowTopY>5220</WindowTopY>
+  <WindowHeight>6570</WindowHeight>
+  <WindowWidth>23175</WindowWidth>
+  <WindowTopX>4950</WindowTopX>
+  <WindowTopY>5700</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -151,7 +151,7 @@
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">EventTiming</Data></Cell>
-    <Cell><Data ss:Type="String">Event occurs duration from common life event</Data></Cell>
+    <Cell><Data ss:Type="String">HS | WAKE | AC | ACM | ACD | ACV | PC | PCM | PCD | PCV - common life events</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the occurrence of daily life that determine timing</Data></Cell>
     <Cell><Data ss:Type="String">Timings are frequently determined by occurrences such as waking, eating and sleep</Data></Cell>
    </Row>
@@ -169,7 +169,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">UnitsOfTime</Data></Cell>
-    <Cell><Data ss:Type="String">The units of time for the duration</Data></Cell>
+    <Cell><Data ss:Type="String">s | min | h | d | wk | mo | a - unit of time (UCUM)</Data></Cell>
     <Cell><Data ss:Type="String">The units of time for the duration</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -204,8 +204,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -407,7 +407,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R11C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -470,8 +472,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R8C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

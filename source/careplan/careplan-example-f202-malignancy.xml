@@ -84,7 +84,7 @@
       <status value="in progress"/>
    </goal>
    <activity>
-      <status value="ongoing"/>
+      <status value="in progress"/>
       <prohibited value="false"/>
       <actionResulting>
          <reference value="Procedure/f201"/>

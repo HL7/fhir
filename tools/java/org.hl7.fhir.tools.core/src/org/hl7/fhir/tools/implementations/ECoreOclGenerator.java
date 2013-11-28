@@ -98,7 +98,7 @@ public boolean doesCompile() {
   }
 
   @Override
-public boolean compile(String rootDir, List<String> errors) {
+public boolean compile(String rootDir, List<String> errors, Logger logger) {
     return false;
   }
 

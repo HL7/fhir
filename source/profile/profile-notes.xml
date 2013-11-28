@@ -5,9 +5,15 @@
 
 <ul>
 
-<li>The name of a resource constraint (Profile.structure.name) is only used as a logical target for .element.type.profile. A reference may reference another resource 
-  constraint in the same Resource Profile by Profile.resource.name as #[name] or a different resource constraint in another profile by an absolute uri. In the case of an absolute uri, it 
-  SHALL resolve literally or logically to a <a href="profile.html">Resource Profile</a> and specify a #[name] portion in the URI that references a particular constraint in the target profile by name.</li>
+<li>The name of a resource constraint (Profile.structure.name) is used as a logical target for both internal and external references to the profile.
+ <ul>
+   <li>A internal reference is made from Profile.structure.element.definition.type.profile to re-use the constraints declared in another structure, either in the same profile or another. If the reference is 
+     within the same resource, the uri is a relative reference with the form #[name]. If the reference is to another resource, it should be either an absolute URI that termintes with a #[name] </li>
+   <li>An external reference is one made to the profile from a <a href="conformance.html">Conformance Statement</a> or a <a href="extras.html#tags">Profile Tag</a>. 
+   For these references, the [#name] portion is optional. If there is no #name portion, the reference doesn't identify a particular structural definition in the instance, 
+   and it is an error if there is more than one matching structure for the resource type in context that might apply when the Profile reference is used</li>
+ </ul> 
+</li>
   
 <li>The constraint statement has a flat list of elements. The path element provides the overall structure and it SHALL match the structure and names in the resource structure exactly.</li>
 
