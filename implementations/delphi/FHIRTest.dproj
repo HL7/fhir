@@ -94,7 +94,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="support\FastMM4.pas"/>
         <DCCReference Include="support\StringSupport.pas"/>
         <DCCReference Include="support\MathSupport.pas"/>
         <DCCReference Include="support\DecimalSupport.pas"/>
@@ -180,7 +179,6 @@
         <DCCReference Include="support\AdvObjectMatches.pas"/>
         <DCCReference Include="support\RegExpr.pas"/>
         <DCCReference Include="FHIRUtilities.pas"/>
-        <DCCReference Include="support\FastMM4Messages.pas"/>
         <None Include="Profiling\AQtimeModule1.aqt"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>

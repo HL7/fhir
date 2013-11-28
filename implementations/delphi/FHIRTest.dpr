@@ -3,7 +3,6 @@ program FHIRTest;
 {$APPTYPE CONSOLE}
 
 uses
-  FastMM4 in 'support\FastMM4.pas',
   FHIRConstants,
   FHIRParser,
   SysUtils,
@@ -93,8 +92,7 @@ uses
   AfsStreamManagers in 'support\AfsStreamManagers.pas',
   AdvObjectMatches in 'support\AdvObjectMatches.pas',
   RegExpr in 'support\RegExpr.pas',
-  FHIRUtilities in 'FHIRUtilities.pas',
-  FastMM4Messages in 'support\FastMM4Messages.pas';
+  FHIRUtilities in 'FHIRUtilities.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var
