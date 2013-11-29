@@ -630,7 +630,9 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 */
 	@Override
 	public boolean isPolymorph() {
-		return getType() != null && (getType().size() > 1 || getType().get(0).getName().equals(TypeRef.ELEMENT_TYPE_NAME));
+		return getType() != null && (getType().size() > 1 
+				|| getType().get(0).getName().equals(TypeRef.ELEMENT_TYPE_NAME)
+				|| getType().get(0).getName().equals(TypeRef.RESOURCE_TYPE_NAME));
 	}
 
 	/**
@@ -640,7 +642,7 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 */
 	public boolean containsResource() {
 		return getType() != null && getType().size() == 1 &&
-				getType().get(0).getName().equals("Resource");
+				getType().get(0).getName().equals(TypeRef.RESOURCE_TYPE_NAME);
 	}
 
 	/**

@@ -36,7 +36,7 @@ using System.Text;
 
 namespace Hl7.Fhir.Model
 {
-    public partial class Element : IExtendable, IValidatable
+    public abstract partial class Element : IExtendable
     {       
         internal virtual ErrorList ValidateRules()
         {
@@ -44,20 +44,11 @@ namespace Hl7.Fhir.Model
         }
     }
 
-    public abstract class PrimitiveElement : Element
-    {
-        // subclasses will define Value property typed to the primitive
-    }
-
-    public abstract class ComplexElement : Element
-    {
-        // containing elements will be generated for each specific datatype
-    }
 
     // Resource is not a subclass of Composite, since it
     // cannot be used in places where you can use composites.
-    public abstract partial class Resource : IExtendable, IValidatable
-    {
+    public abstract partial class Resource : IExtendable
+    {            
         internal virtual ErrorList ValidateRules()
         {
             return ErrorList.EMPTY;
@@ -69,12 +60,6 @@ namespace Hl7.Fhir.Model
         List<Extension> Extension { get; set; }
     }
 
-
-
-    public interface IValidatable
-    {
-        ErrorList Validate();
-    }
 
     public class FhirFormatException : System.Exception
     {

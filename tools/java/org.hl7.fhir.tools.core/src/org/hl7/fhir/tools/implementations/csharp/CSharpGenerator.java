@@ -32,10 +32,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
-import org.hl7.fhir.definitions.ecore.fhir.NameScope;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -65,7 +63,11 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 	  
 	@Override
 	public String getDescription() {
-		return "Resource definitions, XML & Json parsers, validation and a FHIR Client API. The reference implementation uses the standard .NET framework and only Json.NET as a third-party assembly.";
+		return ".NET library with classes corresponding to the resource definitions and datatypes. " +
+				"This assembly is used as part of the reference open-source FHIR support library. " +
+		    "To get the support library (which includes parsers, serializers and a FHIR http client), " +
+		    "use NuGet to find package \"Hl7.Fhir\"." +
+				"The source for this full library can be found at <a href=\"https://github.com/ewoutkramer/fhir-net-api\">github</a>";
 	}
 
 	@Override
@@ -88,12 +90,12 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 
 		char sl = File.separatorChar;
 		String modelDir = "Model" + sl;
-		String parsersDir = "Parsers" + sl;
-		String serializersDir = "Serializers" + sl;
+	//	String parsersDir = "Parsers" + sl;
+	//	String serializersDir = "Serializers" + sl;
 		
 		File f = new CSFile(implDir + modelDir);	if( !f.exists() ) f.mkdir();
-		File p = new CSFile(implDir + parsersDir);	if( !p.exists() ) p.mkdir();
-		File s = new CSFile(implDir + serializersDir);	if( !s.exists() ) s.mkdir();
+	//	File p = new CSFile(implDir + parsersDir);	if( !p.exists() ) p.mkdir();
+	//	File s = new CSFile(implDir + serializersDir);	if( !s.exists() ) s.mkdir();
 	
 		
 		List<String> generatedFilenames = new ArrayList<String>();
@@ -118,6 +120,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		
 		for( CompositeTypeDefn composite : allComplexTypes )
 		{		  
+	  
 		  // Generate model for all other classes
 			String compositeFilename = modelDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + ".cs";	
 			new CSharpModelGenerator(definitions)
@@ -125,22 +128,22 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 			generatedFilenames.add(compositeFilename);
 		}
 
-		for( CompositeTypeDefn composite : allComplexTypes )
-		{		
-			// Don't generate parsers/serializers for abstract stuff (for now)
-			if( composite.isAbstract() ) continue;
-      
-      // Generate parsers/serializers for all other classes
-			String xmlParserFilename = parsersDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + "Parser.cs";			
-			new CSharpParserGenerator(definitions)
-					.generateCompositeParser(composite, definitions).toFile(implDir+xmlParserFilename);			
-			generatedFilenames.add(xmlParserFilename);
-	
-			String serializerFilename = serializersDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + "Serializer.cs";			
-			new CSharpSerializerGenerator(definitions)
-				.generateCompositeSerializer(composite).toFile(implDir+serializerFilename);			
-			generatedFilenames.add(serializerFilename);
-		}
+//		for( CompositeTypeDefn composite : allComplexTypes )
+//		{		
+//			// Don't generate parsers/serializers for abstract stuff (for now)
+//			if( composite.isAbstract() ) continue;
+//      
+//      // Generate parsers/serializers for all other classes
+//			String xmlParserFilename = parsersDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + "Parser.cs";			
+//			new CSharpParserGenerator(definitions)
+//					.generateCompositeParser(composite, definitions).toFile(implDir+xmlParserFilename);			
+//			generatedFilenames.add(xmlParserFilename);
+//	
+//			String serializerFilename = serializersDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + "Serializer.cs";			
+//			new CSharpSerializerGenerator(definitions)
+//				.generateCompositeSerializer(composite).toFile(implDir+serializerFilename);			
+//			generatedFilenames.add(serializerFilename);
+//		}
 		
 		for( ConstrainedTypeDefn constrained : definitions.getLocalConstrainedTypes() )
 		{
@@ -150,71 +153,72 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 				.generateConstrained(constrained).toFile(implDir+constrainedFilename);						 
 			generatedFilenames.add(constrainedFilename);
 			
-			// Build Xml parser for constrained type
-			String parserFilename = parsersDir + constrained.getName() + "Parser.cs";
-			new CSharpParserGenerator(definitions)
-				.generateConstrainedParser(constrained).toFile(implDir+parserFilename);						 
-			generatedFilenames.add(parserFilename);
+//			// Build Xml parser for constrained type
+//			String parserFilename = parsersDir + constrained.getName() + "Parser.cs";
+//			new CSharpParserGenerator(definitions)
+//				.generateConstrainedParser(constrained).toFile(implDir+parserFilename);						 
+//			generatedFilenames.add(parserFilename);
 		}
 
 		// Collect all bindings to generate the EnumHelper class
-		List<BindingDefn> allBindings = new ArrayList<BindingDefn>();
-		allBindings.addAll(definitions.getBinding());
-		for( NameScope ns : definitions.getLocalCompositeTypes() )
-			allBindings.addAll(ns.getBinding());
-		for( NameScope ns : definitions.getResources() )
-			allBindings.addAll(ns.getBinding());
-		{
-			String enumHelperFilename = modelDir + "EnumHelper.cs";
-			
-			new CSharpEnumHelperGenerator(definitions)
-				.generateEnumHelper(definitions, allBindings).toFile(implDir+enumHelperFilename);						 
-			generatedFilenames.add(enumHelperFilename);			
-		}
+//		List<BindingDefn> allBindings = new ArrayList<BindingDefn>();
+//		allBindings.addAll(definitions.getBinding());
+//		for( NameScope ns : definitions.getLocalCompositeTypes() )
+//			allBindings.addAll(ns.getBinding());
+//		for( NameScope ns : definitions.getResources() )
+//			allBindings.addAll(ns.getBinding());
+//		{
+//			String enumHelperFilename = modelDir + "EnumHelper.cs";
+//			
+//			new CSharpEnumHelperGenerator(definitions)
+//				.generateEnumHelper(definitions, allBindings).toFile(implDir+enumHelperFilename);						 
+//			generatedFilenames.add(enumHelperFilename);			
+//		}
 		
 		// Generate resource parser entrypoint
-		{
-			String filename = parsersDir + "FhirParser.cs";
-			
-			new CSharpFhirParserGenerator(definitions)
-				.generateResourceParser(definitions).toFile(implDir+filename);						 
-			generatedFilenames.add(filename);			
-		}
-		
-		// Generate resource serializer entrypoint
-		{
-			String filename = serializersDir + "FhirSerializer.cs";
-			
-			new CSharpSerializerGenerator(definitions)
-				.generateResourceSerializer().toFile(implDir+filename);						 
-			generatedFilenames.add(filename);			
-		}
+//		{
+//			String filename = parsersDir + "FhirParser.cs";
+//			
+//			new CSharpFhirParserGenerator(definitions)
+//				.generateResourceParser(definitions).toFile(implDir+filename);						 
+//			generatedFilenames.add(filename);			
+//		}
+//		
+//		// Generate resource serializer entrypoint
+//		{
+//			String filename = serializersDir + "FhirSerializer.cs";
+//			
+//			new CSharpSerializerGenerator(definitions)
+//				.generateResourceSerializer().toFile(implDir+filename);						 
+//			generatedFilenames.add(filename);			
+//		}
 		
 	    // Generate C# project file & update assembly version
 	    CSharpProjectGenerator.build(implDir, generatedFilenames);
 	    CSharpProjectGenerator.setAssemblyVersionInProperties(implDir, definitions.getVersion(), svnRevision);
 	    
 		String modelSupportDir = "Model.Support" + sl;
-		String parsersSupportDir = "Parsers.Support" + sl;
-		String serializersSupportDir = "Serializers.Support" + sl;
+	//	String parsersSupportDir = "Parsers.Support" + sl;
+	//	String serializersSupportDir = "Serializers.Support" + sl;
 		String supportDir = "Support" + sl;
 	//	String supportSearchDir = supportDir + "Search" + sl;
 		
 		ZipGenerator zip = new ZipGenerator(destDir + CSHARP_FILENAME);
 		zip.addFiles(implDir+modelDir, modelDir, ".cs", null);
-		zip.addFiles(implDir+parsersDir, parsersDir, ".cs", null);
-		zip.addFiles(implDir+serializersDir, serializersDir, ".cs", null);
+//		zip.addFiles(implDir+parsersDir, parsersDir, ".cs", null);
+//		zip.addFiles(implDir+serializersDir, serializersDir, ".cs", null);
 		zip.addFolder(implDir+modelSupportDir, modelSupportDir, false);
-		zip.addFolder(implDir+parsersSupportDir, parsersSupportDir, false);
-		zip.addFolder(implDir+serializersSupportDir, serializersSupportDir, false);
-		zip.addFolder(implDir+supportDir, supportDir, false);
+	//	zip.addFolder(implDir+parsersSupportDir, parsersSupportDir, false);
+	//	zip.addFolder(implDir+serializersSupportDir, serializersSupportDir, false);
+	//	zip.addFolder(implDir+supportDir, supportDir, false);
 		//zip.addFiles(implDir+supportSearchDir,supportSearchDir, ".cs", null);
-		zip.addFolder(implDir+"Client"+sl, "Client"+sl, false);
+	//	zip.addFolder(implDir+"Client"+sl, "Client"+sl, false);
 		zip.addFiles(implDir+"Properties" + sl, "Properties"+sl, ".cs", null);
 		zip.addFiles(implDir, "", ".csproj", null);
 		zip.addFiles(implDir, "", ".sln", null);
-		zip.addFiles(implDir, "", "Local.testsettings", null);
+	//	zip.addFiles(implDir, "", "Local.testsettings", null);
 		zip.addFiles(implDir, "", "Hl7.Fhir.vsmdi", null);
+		zip.addFiles(implDir, "", "README.txt", null);
 		// Include supporting libraries
 		String librariesDir = "Libraries" + sl;
 	//	String winRTLibrariesDir = librariesDir + "WinRT" + sl;

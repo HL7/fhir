@@ -221,6 +221,11 @@ public class CompositeTypeConverter {
 		result.setName(name);
 		Annotations ann = buildAnnotationsFromFhirElement(element);
 
+		if(element.isXmlAttribute())
+		  result.setXmlFormatHint(XmlFormatHint.ATTRIBUTE);
+		if(element.isXhtmlElement())
+		  result.setXmlFormatHint(XmlFormatHint.XHTML_ELEMENT);
+		
 		result.setAnnotation(ann);		
 		result.setIsModifier(element.isModifier());
 		

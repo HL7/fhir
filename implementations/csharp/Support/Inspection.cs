@@ -89,6 +89,18 @@ namespace Hl7.Fhir.Support
     }
 
 
+    /// <summary>
+    /// Xml Serialization used for primitive values
+    /// </summary>
+    public enum XmlSerializationHint
+    {
+        None,
+        Attribute, 
+        TextNode,
+        XhtmlElement
+    }
+
+
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class FhirElementAttribute : Attribute
     {
@@ -98,6 +110,7 @@ namespace Hl7.Fhir.Support
         public FhirElementAttribute(string name)
         {
             this.name = name;
+            this.XmlSerialization = XmlSerializationHint.None;
         }
 
         public string Name
@@ -106,6 +119,10 @@ namespace Hl7.Fhir.Support
         }
 
         public bool IsPrimitiveValue { get; set; }
+
+        public XmlSerializationHint XmlSerialization { get; set; }
+
+        public int Order { get; set; }
     }
 
 
@@ -127,27 +144,33 @@ namespace Hl7.Fhir.Support
         }
     }
 
+
+    public enum WildcardChoice
+    {
+        AnyResource,
+        AnyDatatype
+    }
+
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = true)]
     public sealed class ChoiceAttribute : Attribute
     {
-        readonly string typeName;
-        readonly Type type;
-
         // This is a positional argument
         public ChoiceAttribute(string typeName, Type type)
         {
-            this.typeName = typeName;
-            this.type = type;
+            TypeName = typeName;
+            Type = type;
+            Wildcard = null;
         }
 
-        public string TypeName
+        public ChoiceAttribute(WildcardChoice choice)
         {
-            get { return typeName; }
+            Wildcard = choice;
         }
 
-        public Type Type
-        {
-            get { return type; }
-        }
+        public WildcardChoice? Wildcard { get; private set; }
+
+        public string TypeName { get; private set; }
+
+        public Type Type { get; private set; }
     }
 }

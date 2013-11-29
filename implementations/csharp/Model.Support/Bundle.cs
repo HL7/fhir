@@ -35,7 +35,6 @@ using System.Text;
 using System.Xml;
 using Hl7.Fhir.Model;
 using System.Xml.Linq;
-using Hl7.Fhir.Parsers;
 using System.IO;
 using Newtonsoft.Json;
 using Hl7.Fhir.Support;
@@ -54,7 +53,7 @@ namespace Hl7.Fhir.Model
 
         public int? TotalResults { get; set; }
 
-        public ManagedEntryList Entries { get; internal set; }
+        public ManagedEntryList Entries { get; set; }
 
         public Bundle()
         {
@@ -335,8 +334,8 @@ namespace Hl7.Fhir.Model
 
             if (Resource == null)
                 errors.Add("Entry must contain Resource data, Content may not be null");
-            else
-                errors.AddRange(Resource.Validate());
+          //  else
+             //   errors.AddRange(Resource.Validate());
             
             return errors;
         } 

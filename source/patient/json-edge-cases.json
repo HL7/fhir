@@ -13,7 +13,6 @@
         "url": "http://hl7.org/fhir/example-do-not-use#recordStatus",
         "valueCode": "archived"
     }]},
-    "active": false,
     "name": [
         {
             "given": [
@@ -59,14 +58,14 @@
         "state": "Vic",
         "zip": "3999"
     }],
-    "_maritalStatus": {"extension": [{
+    "maritalStatus": {"extension": [{
         "valueCode": "ASKU",
         "url": "http://hl7.org/fhir/Profileiso-21090#nullFlavor"
     }]},
     "multipleBirthInteger": 3,
     "text": {
         "status": "generated",
-        "div": "<div>\n      <table>\n        <tbody>\n          <tr>\n            <td>Name<\/td>\n            <td>Peter James <b>Chalmers<\/b> (&quot;Jim&quot;)<\/td>\n          <\/tr>\n          <tr>\n            <td>Address<\/td>\n            <td>534 Erewhon, Pleasantville, Vic, 3999<\/td>\n          <\/tr>\n          <tr>\n            <td>Contacts<\/td>\n            <td>Home: unknown. Work: (03) 5555 6473<\/td>\n          <\/tr>\n          <tr>\n            <td>Id<\/td>\n            <td>MRN: 12345 (Acme Healthcare)<\/td>\n          <\/tr>\n        <\/tbody>\n      <\/table>\n    <\/div>"
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <table>\n        <tbody>\n          <tr>\n            <td>Name<\/td>\n            <td>Peter James <b>Chalmers<\/b> (&quot;Jim&quot;)<\/td>\n          <\/tr>\n          <tr>\n            <td>Address<\/td>\n            <td>534 Erewhon, Pleasantville, Vic, 3999<\/td>\n          <\/tr>\n          <tr>\n            <td>Contacts<\/td>\n            <td>Home: unknown. Work: (03) 5555 6473<\/td>\n          <\/tr>\n          <tr>\n            <td>Id<\/td>\n            <td>MRN: 12345 (Acme Healthcare)<\/td>\n          <\/tr>\n        <\/tbody>\n      <\/table>\n    <\/div>"
     },
     "contained": [
         {
@@ -80,7 +79,7 @@
             "id": "org3141",
             "text": {
                 "status": "generated",
-                "div": "<div>\n      <p>Good Health Clinic<\/p>\n    <\/div>"
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Good Health Clinic<\/p>\n    <\/div>"
             },
             "identifier": [{
                 "system": "urn:ietf:rfc:3986",
@@ -118,7 +117,7 @@
                 {"extension": [{
                     "url": "http://hl7.org/fhir/Profileiso-21090#nullFlavor",
                     "valueCode": "ASKU"
-                }]}                
+                }]}
             ],
             "_given": [
                 null,
@@ -146,7 +145,7 @@
             "value": "+33 (237) 998327"
         }]
     }],
-    "careProvider": {"reference": "#org3141"},
+    "careProvider": [{"reference": "#org3141"}],
     "telecom": [
         {"use": "home"},
         {

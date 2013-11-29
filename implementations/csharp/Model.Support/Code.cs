@@ -89,7 +89,7 @@ namespace Hl7.Fhir.Model
     }
 
     [FhirType("codeOfT")]
-    public class Code<T> : PrimitiveElement where T : struct
+    public class Code<T> : Element where T : struct
     {
         // Primitive value of element
         [FhirElement("value", IsPrimitiveValue=true)]
@@ -105,51 +105,51 @@ namespace Hl7.Fhir.Model
             Value = value;
         }
 
-        public static bool TryParseValue(string value, out T result)
-        {
-            if (value == null) throw new ArgumentNullException("value");
+        //public static bool TryParseValue(string value, out T result)
+        //{
+        //    if (value == null) throw new ArgumentNullException("value");
 
-            object res;
+        //    object res;
 
-            if (EnumHelper.TryParseEnum(value, typeof(T), out res))
-            {
-                result = (T)res;
-                return true;
-            }
-            else
-            {
-                result = default(T);
-                return false;
-            }
-        }
+        //    if (EnumHelper.TryParseEnum(value, typeof(T), out res))
+        //    {
+        //        result = (T)res;
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        result = default(T);
+        //        return false;
+        //    }
+        //}
 
-        public static T ParseValue(string value)
-        {
-            T result;
+        //public static T ParseValue(string value)
+        //{
+        //    T result;
 
-            if (TryParseValue(value, out result))
-                return result;
-            else
-                throw new FhirFormatException("'" + value + "' is not a correct value for " +
-                            "enum " + typeof(T).Name );
-        }
+        //    if (TryParseValue(value, out result))
+        //        return result;
+        //    else
+        //        throw new FhirFormatException("'" + value + "' is not a correct value for " +
+        //                    "enum " + typeof(T).Name );
+        //}
 
 
-        public override ErrorList Validate()
-        {
-            var code = new Code(this.ToString());
-            code.Extension = this.Extension;
-            code.Id = this.Id;
+        //public override ErrorList Validate()
+        //{
+        //    var code = new Code(this.ToString());
+        //    code.Extension = this.Extension;
+        //    code.Id = this.Id;
 
-            return code.Validate();
-        }
+        //    return code.Validate();
+        //}
 
-        public override string ToString()
-        {
-            if (this.Value.HasValue)
-                return EnumHelper.EnumToString(this.Value, typeof(T));
-            else
-                return null;
-        }
+        //public override string ToString()
+        //{
+        //    if (this.Value.HasValue)
+        //        return EnumHelper.EnumToString(this.Value, typeof(T));
+        //    else
+        //        return null;
+        //}
     }
 }

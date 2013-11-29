@@ -499,10 +499,8 @@ public class GeneratorUtils {
 	{
 		if( elem.containsResource() )
 			return elem.getType().get(0);	// the element's type is already correct, "Resource"
-
-		boolean hasMulti = elem.isPolymorph() || elem.getName().equals(TypeRef.ELEMENT_TYPE_NAME);
-										
-		if( !hasMulti )
+									
+		if( !elem.isPolymorph() )
 			return elem.getType().get(0);	// no polymorphism -> the type itself
 		else
 			return newTypeRef(TypeRef.ELEMENT_TYPE_NAME);   // the polymophic Element type

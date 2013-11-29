@@ -33,12 +33,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>hl7fhirkey.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Libraries\Newtonsoft.Json.dll</HintPath>
@@ -52,7 +46,7 @@
   <ItemGroup>
 		@@@MODELFILES@@@
   </ItemGroup>
-  <ItemGroup>
+ <ItemGroup>
     <Compile Include="Model.Support\Binary.cs" />
     <Compile Include="Model.Support\Bundle.cs" />
     <Compile Include="Model.Support\FhirDateTime.cs" />
@@ -78,50 +72,10 @@
     <Compile Include="Model.Support\ValueSet.cs" />
     <Compile Include="Model.Support\ManagedEntryList.cs" />
     <Compile Include="Model.Support\UriLinkList.cs" />
-    <Compile Include="Parsers.Support\ParserUtils.cs" />
-    <Compile Include="Parsers.Support\CodeParser.cs" />
-    <Compile Include="Parsers.Support\IFhirReader.cs" />
-    <Compile Include="Parsers.Support\XmlFhirReader.cs" />
-    <Compile Include="Parsers.Support\JsonFhirReader.cs" />
-    <Compile Include="Parsers.Support\FhirParser.cs" />
-	<Compile Include="Parsers.Support\TagListParser.cs" />
-    <Compile Include="Parsers.Support\BundleJsonParser.cs" />
-    <Compile Include="Parsers.Support\BundleXmlParser.cs" />
-    <Compile Include="Parsers.Support\FhirParseException.cs" />
-    <Compile Include="Serializers.Support\TagListSerializer.cs" />
-    <Compile Include="Serializers.Support\IFhirWriter.cs" />
-    <Compile Include="Serializers.Support\CodeSerializer.cs" />
-    <Compile Include="Serializers.Support\JsonFhirWriter.cs" />
-    <Compile Include="Serializers.Support\XmlFhirWriter.cs" />
-    <Compile Include="Serializers.Support\SerializationUtil.cs" />
-    <Compile Include="Serializers.Support\FhirSerializer.cs" />
-    <Compile Include="Serializers.Support\BundleJsonSerializer.cs" />
-    <Compile Include="Serializers.Support\BundleXmlSerializer.cs" />
-    <Compile Include="Support\ContentType.cs" />
-    <Compile Include="Support\Util.cs" />
-    <Compile Include="Support\HttpUtil.cs" />
-	<Compile Include="Support\SystemNetMimeContentType.cs" />
-    <Compile Include="Support\Search\SearchParam.cs" />
-    <Compile Include="Support\QueryParam.cs" />
-    <Compile Include="Support\ResourceLocation.cs" />
     <Compile Include="Support\ErrorList.cs" />
+    <Compile Include="Support\Util.cs" />
     <Compile Include="Support\Inspection.cs" />
-	<Compile Include="Support\Search\BoolParamValue.cs" />
-    <Compile Include="Support\Search\CombinedParamValue.cs" />
-    <Compile Include="Support\Search\ReferenceParamValue.cs" />
-    <Compile Include="Support\Search\TokenParamValue.cs" />
-    <Compile Include="Support\Search\DateParamValue.cs" />
-    <Compile Include="Support\Search\StringParamValue.cs" />
-    <Compile Include="Support\Search\IntegerParamValue.cs" />
-    <Compile Include="Support\Search\SearchParamValue.cs" />
-    <Compile Include="Client\FhirClient.cs" />
-    <Compile Include="Client\ResponseDetails.cs" />
-    <Compile Include="Client\WebRequestExtensions.cs" />
-    <Compile Include="Client\FhirOperationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="hl7fhirkey.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

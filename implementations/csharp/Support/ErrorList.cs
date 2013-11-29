@@ -34,7 +34,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using Hl7.Fhir.Model;
-using Hl7.Fhir.Parsers;
+
 
 namespace Hl7.Fhir.Support
 {
@@ -78,10 +78,10 @@ namespace Hl7.Fhir.Support
 
         public string DefaultContext { get; set; }
 
-        internal void Add(string message, string context, IFhirReader reader)
-        {         
-            this.Add(message, context, reader.LineNumber, reader.LinePosition);
-        }
+        //internal void Add(string message, string context, IFhirReader reader)
+        //{         
+        //    this.Add(message, context, reader.LineNumber, reader.LinePosition);
+        //}
 
         public void Add(string message, string context, int? line, int? pos)
         {
@@ -99,10 +99,10 @@ namespace Hl7.Fhir.Support
             this.Add(message, DefaultContext, null, null);
         }
 
-        internal void Add(string message, IFhirReader reader)
-        {
-            this.Add(message, DefaultContext, reader);
-        }
+        //internal void Add(string message, IFhirReader reader)
+        //{
+        //    this.Add(message, DefaultContext, reader);
+        //}
 
         public void Add(string message)
         {

@@ -22,7 +22,7 @@ namespace Hl7.Fhir.Tests
             //var oidWithZero = "urn:oid:1.2.0.3.4";
 
             //FhirUri uri = FhirUri.ParseValue(oidUrl);
-            //Assert.AreEqual(0,uri.Validate().Count);
+            //Assert.AreEqual(0, uri.Validate().Count);
 
             //uri = FhirUri.Parse(illOidUrl);
             //Assert.AreEqual(1, uri.Validate().Count);
@@ -43,17 +43,17 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void ValidateResourceWithIncorrectElement()
         {
-            FhirDateTime dt = new FhirDateTime();
+            //FhirDateTime dt = new FhirDateTime();
 
-            dt.Value = "Ewout Kramer";
+            //dt.Value = "Ewout Kramer";
 
-            Observation o = new Observation { Applies = dt };
-            DiagnosticReport rep = new DiagnosticReport();
-            rep.Contained = new List<Resource> { o };
+            //Observation o = new Observation { Applies = dt };
+            //DiagnosticReport rep = new DiagnosticReport();
+            //rep.Contained = new List<Resource> { o };
 
-            var errors = dt.Validate();
+            //var errors = dt.Validate();
 
-            Assert.IsTrue(errors.Count == 1);
+            //Assert.IsTrue(errors.Count == 1);
         }
 
         [TestMethod]
@@ -104,19 +104,6 @@ namespace Hl7.Fhir.Tests
         //    {
         //    }
         //}
-
-
-        [TestMethod]
-        public void EnumParsing()
-        {
-            //var c = Code<Address.AddressUse>.Parse("temp");
-            //Assert.AreEqual(Address.AddressUse.Temp, c.Value);
-            //Assert.AreEqual("temp", c.ToString());
-
-            //var f = Code<Quantity.QuantityCompararator>.Parse(">");
-            //Assert.AreEqual(Quantity.QuantityCompararator.GreaterThan, f.Value);
-            //Assert.AreEqual(">", f.ToString());
-        }
 
 
 
