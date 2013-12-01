@@ -1,9 +1,38 @@
 Unit FHIRParserBase;
 
+{
+Copyright (c) 2011-2013, HL7, Inc
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice, this 
+   list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation 
+   and/or other materials provided with the distribution.
+ * Neither the name of HL7 nor the names of its contributors may be used to 
+   endorse or promote products derived from this software without specific 
+   prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGE.
+}
+
 Interface
 
 uses
-  SysUtils, Classes, ActiveX, IdSoapMsXml, IdSoapXml, FHIRBase, FHIRResources, FHIRTypes, BytesSupport, FHIRConstants,
+  SysUtils, Classes, ActiveX, IdSoapMsXml, IdSoapXml, FHIRBase, FHIRResources, FHIRTypes, Math,
+  BytesSupport, FHIRConstants, EncdDecd,
   FHIRSupport,
   MsXmlParser, AdvBuffers, AdvStringLists, StringSupport, DecimalSupport, EncodeSupport, DateAndTime,
   XmlBuilder, AdvXmlBuilders, TextUtilities,
@@ -69,6 +98,7 @@ Type
     Function PathForElement(element : IXmlDomNode) : String;
     procedure SeTFhirElement(const Value: IXmlDomElement);
 
+    function ParseAtomBase(child : IXmlDomElement; base : TFHIRAtomBase; path : String) : boolean;
     function ParseFeed(element : IXmlDomElement) : TFHIRAtomFeed;
     function ParseEntry(element : IXmlDomElement) : TFHIRAtomEntry;
     function ParseDeletedEntry(element : IXmlDomElement) : TFHIRAtomEntry;
@@ -78,8 +108,8 @@ Type
     Function GetAttribute(element : IXmlDomElement; const name : String) : String;
     function FirstChild(element : IXmlDomElement) : IXmlDomElement;
     function NextSibling(element : IXmlDomElement) : IXmlDomElement;
-    procedure TakeCommentsStart(element : TFhirElement);
-    procedure TakeCommentsEnd(element : TFhirElement);
+    procedure TakeCommentsStart(element : TFHIRBase);
+    procedure TakeCommentsEnd(element : TFHIRBase);
     procedure closeOutElement(result : TFhirElement; element : IXmlDomElement);
 
     Function ParseXHtmlNode(element : IXmlDomElement; path : String) : TFhirXHtmlNode; overload;
@@ -99,35 +129,40 @@ Type
   End;
 
 
+  TJsonObjectHandler = procedure (jsn : TJsonObject; ctxt : TFHIRObjectList) of object;
+  TJsonObjectPrimitiveHandler = procedure (value : String; jsn : TJsonObject; ctxt : TFHIRObjectList) of object;
+  TJsonObjectEnumHandler = procedure (value : String; jsn : TJsonObject; ctxt : TFHIRObjectList; Const aNames : Array Of String) of object;
+
   TFHIRJsonParserBase = class (TFHIRParser)
   private
-    procedure SetJson(const Value: TJsonParser);
-    function ParseEntry: TFHIRAtomEntry;
-    procedure ParseTags;
+    procedure ParseAtomBase(base : TFHIRAtomBase; jsn : TJsonObject);
+    procedure ParseTags(jsn : TJsonObject);
+
   Protected
-    FJson : TJsonParser;
-    Function ParseXHtmlNode(path : String) : TFhirXHtmlNode;
+    Function ParseXHtmlNode(path, value : String) : TFhirXHtmlNode;
 
-    Procedure UnknownContent(path : String);
-    Procedure JsonError(const sMessage : String);
+    Function ParseResource(jsn : TJsonObject) : TFhirResource; Virtual;
+    Function ParseFeed(jsn : TJsonObject) : TFHIRAtomFeed;
+    function parseBinary(jsn : TJsonObject) : TFhirBinary;
+    procedure ParseComments(base : TFHIRBase; jsn : TJsonObject);
 
-    function ParseContained(path : String) : TFhirResource;
-    Function ParseResource(path : String) : TFhirResource; Virtual;
-    Function ParseFeed : TFHIRAtomFeed;
-    function parseBinary(path : String) : TFhirBinary;
+    procedure iterateArray(arr : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectHandler);
+    procedure iteratePrimitiveArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectPrimitiveHandler);
+    procedure iterateEnumArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectEnumHandler; Const aNames : Array Of String);
+
+    // handlers
+    procedure ParseEntry(jsn : TJsonObject; ctxt : TFHIRObjectList);
+    procedure ParseLink(jsn : TJsonObject; ctxt : TFHIRObjectList);
+    procedure ParseCategory(jsn : TJsonObject; ctxt : TFHIRObjectList);
+    procedure ParseContained(jsn : TJsonObject; ctxt : TFHIRObjectList);
   Public
-    Destructor Destroy; Override;
     procedure Parse; Override;
-    property Json : TJsonParser read FJson write SetJson;
   End;
 
   TFHIRComposer = {abstract} class (TFHIRObject)
   private
     FLang: String;
     FSummaryOnly: Boolean;
-    FComment: String;
-    Procedure ComposeEntry(xml : TXmlBuilder; entry : TFHIRAtomEntry);
-    Procedure ComposeFeed(xml : TXmlBuilder; feed : TFHIRAtomFeed);
   protected
     Procedure ComposeResource(xml : TXmlBuilder; id, ver : String; oResource : TFhirResource); overload; virtual;
     Procedure ComposeBinary(xml : TXmlBuilder; binary : TFhirBinary);
@@ -139,20 +174,23 @@ Type
   public
     Constructor Create(lang : String); Virtual;
     Procedure Compose(stream : TStream; id, ver : String; oResource : TFhirResource; isPretty : Boolean); Overload; Virtual; Abstract;
-    Procedure Compose(stream : TStream; oFeed : TFHIRAtomFeed; isPretty : Boolean); Overload; Virtual;
+    Procedure Compose(stream : TStream; oFeed : TFHIRAtomFeed; isPretty : Boolean); Overload; Virtual; Abstract;
     Procedure Compose(stream : TStream; ResourceType : TFhirResourceType; id, ver : String; oTags : TFHIRAtomCategoryList; isPretty : Boolean); Overload; Virtual; Abstract;
     Function MimeType : String; virtual;
     Property Lang : String read FLang write FLang;
     Property SummaryOnly : Boolean read FSummaryOnly write FSummaryOnly;
-    Property Comment : String read FComment write FComment;
   End;
 
   TFHIRXmlComposerBase = class (TFHIRComposer)
   private
+    FComment: String;
+    Procedure ComposeAtomBase(xml : TXmlBuilder; base : TFHIRAtomBase);
+    Procedure ComposeEntry(xml : TXmlBuilder; entry : TFHIRAtomEntry);
+    Procedure ComposeFeed(xml : TXmlBuilder; feed : TFHIRAtomFeed);
   Protected
 //    xml : TXmlBuilder;
-    procedure commentsStart(xml : TXmlBuilder; value : TFhirElement);
-    procedure commentsEnd(xml : TXmlBuilder; value : TFhirElement);
+    procedure commentsStart(xml : TXmlBuilder; value : TFhirBase);
+    procedure commentsEnd(xml : TXmlBuilder; value : TFhirBase);
     Procedure Attribute(xml : TXmlBuilder; name, value : String);
     Procedure Text(xml : TXmlBuilder; name, value : String);
     procedure closeOutElement(xml : TXmlBuilder; value : TFhirElement);
@@ -162,17 +200,23 @@ Type
     Procedure Compose(stream : TStream; id, ver : String; oResource : TFhirResource; isPretty : Boolean); Override;
     Procedure Compose(node : IXmlDomNode; id, ver : String; oResource : TFhirResource); Overload;
     Procedure Compose(stream : TStream; ResourceType : TFhirResourceType; id, ver : String; oTags : TFHIRAtomCategoryList; isPretty : Boolean); Override;
+    Procedure Compose(stream : TStream; oFeed : TFHIRAtomFeed; isPretty : Boolean); Overload; Override;
     Function MimeType : String; Override;
+    Property Comment : String read FComment write FComment;
   End;
 
   TFHIRJsonComposerBase = class (TFHIRComposer)
   private
+    FComments : Boolean;
+    Procedure ComposeAtomBase(json : TJSONWriter; base : TFHIRAtomBase);
     Procedure ComposeEntry(json : TJSONWriter; entry : TFHIRAtomEntry);
   Protected
+    Procedure PropNull(json : TJSONWriter; name : String); overload;
     Procedure Prop(json : TJSONWriter; name, value : String); overload;
     Procedure Prop(json : TJSONWriter; name : String; value : boolean); overload;
     Procedure ComposeXHtmlNode(json : TJSONWriter; name : String; value : TFhirXHtmlNode); overload;
 
+    Procedure composeComments(json : TJSONWriter; base : TFHIRBase);
     procedure composeContained(json : TJSONWriter; oResource : TFhirResource); overload; virtual;
     Procedure ComposeResource(json : TJSONWriter; id, ver : String; oResource : TFhirResource); overload; virtual;
     Procedure ComposeResource(xml : TXmlBuilder; id, ver : String; oResource : TFhirResource); overload; override;
@@ -183,6 +227,7 @@ Type
     Procedure Compose(stream : TStream; oFeed : TFHIRAtomFeed; isPretty : Boolean); Overload; Override;
     Procedure Compose(stream : TStream; ResourceType : TFhirResourceType; id, ver : String; oTags : TFHIRAtomCategoryList; isPretty : Boolean); Override;
     Function MimeType : String; Override;
+    Property Comments : Boolean read FComments write FComments;
   End;
 
   TFHIRXhtmlComposer = class (TFHIRComposer)
@@ -284,29 +329,28 @@ end;
 
 { TFHIRJsonParserBase }
 
-procedure TFHIRJsonParserBase.JsonError(const sMessage: String);
-begin
-  FJson.JsonError(sMessage);
-end;
 
 procedure TFHIRJsonParserBase.Parse;
+var
+  obj : TJsonObject;
+  s : string;
 begin
-  if FJson = nil then
-    FJson := TJSONParser.Create(source);
-  if FJson.itemName = 'title' then
-    feed := ParseFeed
-  else if FJson.itemName = 'taglist' then
-    ParseTags
-  else
-  begin
-    if FJson.ItemType <> jpitObject Then
-      JsonError(GetFhirMessage('MSG_JSON_OBJECT', lang));
-    resource := ParseResource('');
+  obj := TJSONParser.Parse(source);
+  try
+    s := obj['resourceType'];
+    if s = 'Bundle' then
+      feed := ParseFeed(obj)
+    else if s = 'TagList' then
+      ParseTags(obj)
+    else
+      resource := ParseResource(obj);
+  finally
+    obj.Free;
   end;
 end;
 
 
-function TFHIRJsonParserBase.ParseResource(path : String): TFhirResource;
+function TFHIRJsonParserBase.ParseResource(jsn : TJsonObject): TFhirResource;
 begin
   raise exception.create('don''t use TFHIRJsonParserBase directly - use TFHIRJsonParser');
 end;
@@ -333,12 +377,12 @@ begin
   Raise Exception.Create(StringFormat(GetFhirMessage('MSG_ERROR_PARSING', lang), [sMessage+' @ '+sPath]));
 end;
 
-function TFHIRJsonParserBase.ParseXHtmlNode(path : String): TFhirXHtmlNode;
+function TFHIRJsonParserBase.ParseXHtmlNode(path, value : String): TFhirXHtmlNode;
 var
   ss : TStringStream;
   parser : TFHIRXmlParserBase;
 begin
-  ss := TStringStream.create(json.itemValue);
+  ss := TStringStream.create(value);
   try
     parser := TFHIRXmlParserBase.create(lang);
     try
@@ -352,18 +396,6 @@ begin
   end;
 end;
 
-procedure TFHIRJsonParserBase.SetJson(const Value: TJsonParser);
-begin
-  FJson := Value;
-end;
-
-procedure TFHIRJsonParserBase.UnknownContent;
-begin
-  if AllowUnknownContent Then
-    FJson.Skip
-  Else
-    JsonError(StringFormat(GetFhirMessage('MSG_UNKNOWN_CONTENT', lang), [FJson.ItemName]));
-end;
 
 function TFHIRXmlParserBase.ParseXHtmlXml(node : IXmlDomNode): TFhirXHtmlNode;
 var
@@ -424,295 +456,194 @@ begin
 end;
 
 
-function TFHIRJsonParserBase.ParseFeed: TFHIRAtomFeed;
+function TFHIRJsonParserBase.ParseFeed(jsn : TJsonObject): TFHIRAtomFeed;
 var
-  rel, url : String;
+  cat : TFHIRAtomCategory;
+  i : integer;
 begin
-// in this context, that has already happened  json.next;
   result := TFHIRAtomFeed.create;
   try
-    while (json.ItemType <> jpitEnd) do
-    begin
-      if (json.ItemName = 'title') then
-        result.title := json.itemValue
-      else if (json.ItemName = 'updated') then
-        result.updated := TDateAndTime.createXml(json.itemValue)
-      else if (json.ItemName = 'id') then
-        result.id := json.itemValue
-      else if (json.ItemName = 'totalResults') then
-        result.SearchTotal := StrToIntDef(json.itemValue, 0)
-      else if (json.ItemName = 'link') then
-      begin
-        json.checkState(jpitArray);
-        json.Next;
-        while (json.ItemType <> jpitEnd) do
-        begin
-          rel := '';
-          url := '';
-          json.next;
-          while (json.ItemType <> jpitEnd) do
-          begin
-            if (json.ItemName = 'href') then
-              url := json.itemValue
-            else if (json.ItemName = 'rel') then
-              rel := json.itemValue
-            else
-               UnknownContent('feed.link');
-            json.next;
-          end;
-          result.links.addValue(url, rel);
-          json.Next;
-        end;
-      end
-      else if (json.ItemName = 'author') then
-      begin
-        json.checkState(jpitArray);
-        json.Next;
-        while (json.ItemType <> jpitEnd) do
-        begin
-          json.next;
-          while (json.ItemType <> jpitEnd) do
-          begin
-            if (json.ItemName = 'name') then
-              result.authorName := Json.ItemValue
-            else if (json.ItemName = 'uri') then
-              result.authorUri := Json.ItemValue
-            else
-               UnknownContent('feed.author');
-            json.next;
-          end;
-          json.Next;
-        end;
-      end
-      else if (json.ItemName = 'entry') then
-      begin
-        json.checkState(jpitArray);
-        json.Next;
-        while (json.ItemType <> jpitEnd) do
-        begin
-          result.entries.add(ParseEntry);
-          json.Next;
-        end;
-      end
-      else
-         UnknownContent('feed');
-      json.next;
-    end;
-
+    ParseAtomBase(result, jsn);
+    if (jsn.has('totalResults')) then
+      result.SearchTotal := StrToIntDef(jsn.vStr['totalResults'], 0);
+    if (jsn.has('entry')) then
+      iterateArray(jsn.vArr['entry'], result.entries, ParseEntry);
     result.link;
   finally
     result.free;
   end;
 end;
 
-function TFHIRJsonParserBase.ParseEntry: TFHIRAtomEntry;
+procedure TFHIRJsonParserBase.ParseLink(jsn : TJsonObject; ctxt : TFHIRObjectList);
 var
-  rel, url : String;
+  link_ : TFHIRAtomLink;
+begin
+  link_ := TFHIRAtomLink.Create;
+  try
+    ParseComments(link_, jsn);
+    if jsn.has('href') then
+      link_.url:= jsn['href'];
+    if jsn.has('rel') then
+      link_.Rel:= jsn['rel'];
+    ctxt.add(link_.link);
+  finally
+    link_.free;
+  end;
+end;
+
+procedure TFHIRJsonParserBase.ParseCategory(jsn : TJsonObject; ctxt : TFHIRObjectList);
+var
   cat : TFHIRAtomCategory;
 begin
-  json.next;
-  result := TFHIRAtomEntry.create;
+  cat := TFHIRAtomCategory.Create;
   try
-    while (json.ItemType <> jpitEnd) do
-    begin
-      if (json.ItemName = 'title') then
-        result.title := json.itemValue
-      else if (json.ItemName = 'updated') then
-        result.updated := TDateAndTime.CreateXml(json.itemValue)
-      else if (json.ItemName = 'published') then
-        result.published_ := TDateAndTime.CreateXml(json.itemValue)
-      else if (json.ItemName = 'deleted') then
-      begin
-        result.updated := TDateAndTime.CreateXml(json.itemValue);
-        result.deleted := true;
-      end
-      else if (json.ItemName = 'id') then
-        result.id := json.itemValue
-      else if (json.ItemName = 'sourceId') then
-        result.originalId := json.itemValue
-      else if (json.ItemName = 'link') then
-      begin
-        json.checkState(jpitArray);
-        json.Next;
-        while (json.ItemType <> jpitEnd) do
-        begin
-          rel := '';
-          url := '';
-          json.next;
-          while (json.ItemType <> jpitEnd) do
-          begin
-            if (json.ItemName = 'href') then
-              url := json.itemValue
-            else if (json.ItemName = 'rel') then
-              rel := json.itemValue
-            else
-               UnknownContent('feed.entry.link');
-            json.next;
-          end;
-          result.links.addValue(url, rel);
-          json.Next;
-        end;
-      end
-      else if (json.ItemName = 'author') then
-      begin
-        json.checkState(jpitArray);
-        json.Next;
-        while (json.ItemType <> jpitEnd) do
-        begin
-          json.next;
-          while (json.ItemType <> jpitEnd) do
-          begin
-            if (json.ItemName = 'name') then
-              result.authorName := Json.ItemValue
-            else if (json.ItemName = 'uri') then
-              result.authorUri := Json.ItemValue
-            else
-               UnknownContent('feed.entry.author');
-            json.next;
-          end;
-          json.Next;
-        end;
-      end
-      else if (json.ItemName = 'category') then
-      begin
-        json.checkState(jpitArray);
-        json.Next;
-        while (json.ItemType <> jpitEnd) do
-        begin
-          cat := TFHIRAtomCategory.Create;
-          try
-            json.next;
-            while (json.ItemType <> jpitEnd) do
-            begin
-              if (json.ItemName = 'term') then
-                cat.term := json.itemValue
-              else if (json.ItemName = 'scheme') then
-                cat.scheme := json.itemValue
-              else if (json.ItemName = 'label') then
-                cat.label_ := json.itemValue
-              else
-                 UnknownContent('feed.entry.category');
-              json.next;
-            end;
-            result.categories.add(cat.link);
-          finally
-            cat.free;
-          end;
-          json.Next;
-        end;
-      end
-      else if (json.ItemName = 'content') then
-      begin
-        json.Next;
-        if json.itemName = 'Binary' then
-          result.resource := parseBinary('feed.entry.content')
-        else
-          result.resource := ParseResource('feed.entry.content');
-        json.Next;
-      end
-      else if (json.ItemName = 'summary') then
-        result.summary := ParseXHtmlNode('feed.entry.summary')
-      else
-         UnknownContent('feed.entry');
-      json.next;
-    end;
-
-    result.link;
+    if jsn.has('term') then
+      cat.term:= jsn['term'];
+    if jsn.has('scheme') then
+      cat.scheme:= jsn['scheme'];
+    if jsn.has('label') then
+      cat.label_:= jsn['label'];
+    ParseComments(cat, jsn);
+    ctxt.add(cat.link);
   finally
-    result.free;
+    cat.free;
   end;
 end;
+
+
+procedure TFHIRJsonParserBase.ParseAtomBase(base : TFHIRAtomBase; jsn : TJsonObject);
+var
+  aut : TJsonArray;
+  i : integer;
+begin
+  ParseComments(base, jsn);
+  if jsn.has('title') then
+    base.title:= jsn['title'];
+  if jsn.has('updated') then
+    base.updated := TDateAndTime.CreateXml(jsn['updated']);
+  if jsn.has('published') then
+    base.published_ := TDateAndTime.CreateXml(jsn['published']);
+  if jsn.has('id') then
+    base.id:= jsn['id'];
+  if jsn.has('link') then
+    iterateArray(jsn.vArr['link'], base.links, ParseLink);
+  if jsn.has('author') then
+  begin
+    aut := jsn.vArr['author'];
+    for i := 0 to aut.Count - 1 do
+    begin
+      if (aut[i] as TJsonObject).has('name') then
+        base.authorName := (aut[i] as TJsonObject)['name'];
+      if (aut[i] as TJsonObject).has('uri') then
+        base.authorUri := (aut[i] as TJsonObject)['uri'];
+    end;
+  end;
+  if jsn.has('category') then
+    iterateArray(jsn.vArr['category'], base.categories, ParseCategory);
+end;
+
+procedure TFHIRJsonParserBase.ParseEntry(jsn : TJsonObject; ctxt : TFHIRObjectList);
+var
+  e : TFHIRAtomEntry;
+  cnt : TJsonObject;
+begin
+  e := TFHIRAtomEntry.create;
+  try
+    parseAtomBase(e, jsn);
+    if jsn.has('deleted') then
+    begin
+      e.updated := TDateAndTime.CreateXml(jsn['deleted']);
+      e.deleted := true;
+    end;
+    if jsn.has('sourceId') then
+      e.originalId := jsn['sourceId'];
+    if jsn.has('content') then
+    begin
+      cnt := jsn.vObj['content'];
+      if cnt['resourceType'] = 'Binary' then
+        e.resource := parseBinary(cnt)
+      else
+        e.resource := ParseResource(cnt);
+    end;
+    if jsn.has('summary') then
+      e.summary := ParseXHtmlNode('feed.entry.summary', jsn['summary']);
+
+    ctxt.add(e.link);
+  finally
+    e.free;
+  end;
+end;
+
 
 procedure TFHIRJsonParserBase.ParseTags;
-var
-  cat : TFHIRAtomCategory;
 begin
-  FTags := TFHIRAtomCategoryList.create;
-
-  json.next;
-  while (json.ItemType <> jpitEnd) do
-  begin
-    if (json.ItemName = 'category') then
-    begin
-      json.checkState(jpitArray);
-      json.Next;
-      while (json.ItemType <> jpitEnd) do
-      begin
-        cat := TFHIRAtomCategory.Create;
-        try
-          json.next;
-          while (json.ItemType <> jpitEnd) do
-          begin
-            if (json.ItemName = 'term') then
-              cat.term := json.itemValue
-            else if (json.ItemName = 'scheme') then
-              cat.scheme := json.itemValue
-            else if (json.ItemName = 'label') then
-              cat.label_ := json.itemValue
-            else
-               UnknownContent('taglist.category');
-            json.next;
-          end;
-          FTags.add(cat.link);
-        finally
-          cat.free;
-        end;
-        json.Next;
-      end;
-    end
-    else
-       UnknownContent('taglist');
-    json.next;
-  end;
+  if jsn.has('category') then
+    iterateArray(jsn.vArr['category'], FTags, ParseCategory);
 end;
 
 
-function TFHIRJsonParserBase.parseBinary(path : String): TFhirBinary;
+function TFHIRJsonParserBase.parseBinary(jsn : TJsonObject): TFhirBinary;
 begin
-  json.next;
   result := TFhirBinary.create;
   try
-    while (json.ItemType <> jpitEnd) do
-    begin
-      if (json.ItemName = 'contentType') then
-        result.ContentType := json.itemValue
-      else if (json.ItemName = 'content') then
-        result.content.AsBytes := DecodeBase64(json.itemValue)
-      else if (json.ItemName = '_id') then
-        result.xmlId := json.ItemValue
-      else
-         UnknownContent(path);
-      json.next;
-    end;
-
+    if jsn.has('contentType') then
+      result.ContentType:= jsn['contentType'];
+    if jsn.has('content') then
+      result.content.AsBytes := DecodeBase64(jsn['content']);
+    if jsn.has('id') then
+      result.xmlId:= jsn['id'];
     result.link;
   finally
     result.free;
   end;
 end;
 
-function TFHIRJsonParserBase.ParseContained(path : String): TFhirResource;
+procedure TFHIRJsonParserBase.ParseComments(base: TFHIRBase; jsn : TJsonObject);
 begin
-  json.Next;
-  json.checkState(jpitObject);
-  result := ParseResource(path);
-  try
-    json.Next;
-    if (json.ItemType <> jpitEnd) then
-      UnknownContent(path);
-    result.link;
-  finally
-    result.free;
+  if jsn.has('_xml_comments_start') then
+    base.xml_commentsStart.AsText:= jsn['_xml_comments_start'];
+  if jsn.has('_xml_comments_end') then
+    base.xml_commentsEnd.AsText:= jsn['_xml_comments_end'];
+end;
+
+procedure TFHIRJsonParserBase.ParseContained(jsn : TJsonObject; ctxt : TFHIRObjectList);
+begin
+  ctxt.add(ParseResource(jsn));
+end;
+
+procedure TFHIRJsonParserBase.iterateArray(arr : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectHandler);
+var
+  i : integer;
+begin
+  if arr <> nil then
+  begin
+    for i := 0 to arr.Count - 1 do
+      handler(arr.Obj[i], ctxt);
   end;
 end;
 
-
-
-destructor TFHIRJsonParserBase.Destroy;
+procedure TFHIRJsonParserBase.iteratePrimitiveArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectPrimitiveHandler);
+var
+  i, t : integer;
 begin
-  FJson.free;
-  inherited;
+  if (arr1 <> nil) or (arr2 <> nil) then
+  begin
+    for i := 0 to max(arr1.Count, arr2.Count) - 1 do
+      handler(arr1.Value[i], arr2.Obj[i], ctxt);
+  end;
 end;
+
+procedure TFHIRJsonParserBase.iterateEnumArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectEnumHandler; Const aNames : Array Of String);
+var
+  i, t : integer;
+begin
+  if (arr1 <> nil) or (arr2 <> nil) then
+  begin
+    for i := 0 to max(arr1.Count, arr2.Count) - 1 do
+      handler(arr1.Value[i], arr2.Obj[i], ctxt, aNames);
+  end;
+end;
+
 
 { TFHIRXmlComposerBase }
 
@@ -787,7 +718,7 @@ begin
   result := 'application/xml+fhir; charset=UTF-8';
 end;
 
-procedure TFHIRXmlComposerBase.commentsStart(xml: TXmlBuilder; value: TFhirElement);
+procedure TFHIRXmlComposerBase.commentsStart(xml: TXmlBuilder; value: TFhirBase);
 var
   i : integer;
 begin
@@ -798,7 +729,7 @@ begin
     xml.Comment(value.Xml_commentsStart[i]);
 end;
 
-procedure TFHIRXmlComposerBase.commentsEnd(xml: TXmlBuilder; value: TFhirElement);
+procedure TFHIRXmlComposerBase.commentsEnd(xml: TXmlBuilder; value: TFhirBase);
 var
   i : integer;
 begin
@@ -960,36 +891,10 @@ begin
     oStream.Stream := stream;
 //    json.IsPretty := isPretty;
     json.Start;
-//    json.valueObject('feed');
-    Prop(json, 'title', oFeed.title);
-    Prop(json, 'id', oFeed.id);
+    json.value('resourceType', 'Bundle');
+    ComposeAtomBase(json, oFeed);
     if oFeed.isSearch then
       Prop(json, 'totalResults', inttostr(oFeed.SearchTotal));
-    if oFeed.links.Count > 0 then
-    begin
-      json.ValueArray('link');
-      for i := 0 to oFeed.links.Count - 1 do
-      begin
-        json.ValueObject;
-        Prop(json, 'href', oFeed.links.GetItemN(i).URL);
-        Prop(json, 'rel', oFeed.links.GetItemN(i).Rel);
-        json.FinishObject;
-      end;
-      json.FinishArray;
-    end;
-    Prop(json, 'updated', oFeed.updated.AsXML);
-    if (ofeed.authorUri <> '') or (ofeed.authorName <> '') then
-    begin
-      json.ValueArray('author');
-      json.ValueObject;
-      if (ofeed.authorName <> '') then
-        prop(json, 'name', ofeed.authorName);
-      if (ofeed.authorUri <> '') then
-        prop(json, 'uri', ofeed.authorUri);
-      json.FinishObject;
-      json.FinishArray;
-    end;
-
     json.ValueArray('entry');
     for i := 0 to oFeed.entries.count - 1 Do
       ComposeEntry(json, oFeed.entries[i]);
@@ -1007,11 +912,63 @@ begin
 end;
 
 
+procedure TFHIRJsonComposerBase.ComposeAtomBase(json: TJSONWriter; base : TFHIRAtomBase);
+var
+  i : integer;
+begin
+  prop(json, 'title', base.title);
+  prop(json, 'id', base.id);
+  if base.links.Count > 0 then
+  begin
+    json.ValueArray('link');
+    for i := 0 to base.links.Count - 1 do
+    begin
+      json.ValueObject;
+      composeComments(json, base);
+      Prop(json, 'href', base.links.GetItemN(i).URL);
+      Prop(json, 'rel', base.links.GetItemN(i).Rel);
+      json.FinishObject;
+    end;
+    json.FinishArray;
+  end;
+  if base.updated <> nil then
+    prop(json, 'updated', base.updated.AsXML);
+
+  if (base.authorUri <> '') or (base.authorName <> '') then
+  begin
+    json.ValueArray('author');
+    json.ValueObject;
+    if (base.authorName <> '') then
+      prop(json, 'name', base.authorName);
+    if (base.authorUri <> '') then
+      prop(json, 'uri', base.authorUri);
+    json.FinishObject;
+    json.FinishArray;
+  end;
+
+  if base.categories.count > 0 then
+  begin
+    json.ValueArray('category');
+    for i := 0 to base.categories.Count - 1 do
+    begin
+      json.ValueObject;
+      composeComments(json, base);
+      Prop(json, 'scheme', base.categories.GetItemN(i).scheme);
+      Prop(json, 'term', base.categories.GetItemN(i).term);
+      if base.categories.GetItemN(i).label_ <> '' then
+        Prop(json, 'label', base.categories.GetItemN(i).label_);
+      json.FinishObject;
+    end;
+    json.FinishArray;
+  end;
+end;
+
 procedure TFHIRJsonComposerBase.ComposeEntry(json: TJSONWriter; entry: TFHIRAtomEntry);
 var
   i : integer;
 begin
   json.ValueObject();
+  composeComments(json, entry);
   if (entry.deleted) then
   begin
     if entry.updated <> nil then
@@ -1043,53 +1000,11 @@ begin
   end
   else
   begin
-    prop(json, 'title', entry.title);
-    prop(json, 'id', entry.id);
-    if entry.links.Count > 0 then
-    begin
-      json.ValueArray('link');
-      for i := 0 to entry.links.Count - 1 do
-      begin
-        json.ValueObject;
-        Prop(json, 'href', entry.links.GetItemN(i).URL);
-        Prop(json, 'rel', entry.links.GetItemN(i).Rel);
-        json.FinishObject;
-      end;
-      json.FinishArray;
-    end;
-    if entry.updated <> nil then
-      prop(json, 'updated', entry.updated.AsXML);
+    ComposeAtomBase(json, entry);
     if (entry.published_ <> nil) Then
       prop(json, 'published', entry.published_.AsXML);
     if (entry.originalId <> '') then
       prop(json, 'sourceId', entry.originalId);
-
-    if (entry.authorUri <> '') or (entry.authorName <> '') then
-    begin
-      json.ValueArray('author');
-      json.ValueObject;
-      if (entry.authorName <> '') then
-        prop(json, 'name', entry.authorName);
-      if (entry.authorUri <> '') then
-        prop(json, 'uri', entry.authorUri);
-      json.FinishObject;
-      json.FinishArray;
-    end;
-
-    if entry.categories.count > 0 then
-    begin
-      json.ValueArray('category');
-      for i := 0 to entry.categories.Count - 1 do
-      begin
-        json.ValueObject;
-        Prop(json, 'scheme', entry.categories.GetItemN(i).scheme);
-        Prop(json, 'term', entry.categories.GetItemN(i).term);
-        if entry.categories.GetItemN(i).label_ <> '' then
-          Prop(json, 'label', entry.categories.GetItemN(i).label_);
-        json.FinishObject;
-      end;
-      json.FinishArray;
-    end;
 
     json.ValueObject('content');
     if entry.resource is TFhirBinary then
@@ -1107,10 +1022,9 @@ end;
 
 procedure TFHIRJsonComposerBase.ComposeBinary(json: TJSONWriter; binary: TFhirBinary);
 begin
-  json.valueObject('Binary');
+  Prop(json, 'id', binary.xmlId);
   Prop(json, 'contentType', binary.ContentType);
-  Prop(json, 'content', EncodeBase64(binary.Content.asbytes));
-  json.finishObject;
+  Prop(json, 'content', StringReplace(EncodeBase64(binary.Content.Data, binary.Content.Size), #13#10, ''));
 end;
 
 procedure TFHIRJsonComposerBase.composeContained(json: TJSONWriter; oResource: TFhirResource);
@@ -1118,6 +1032,17 @@ begin
   json.ValueObject('');
   ComposeResource(json, '', '', oResource);
   json.FinishObject;
+end;
+
+procedure TFHIRJsonComposerBase.composeComments(json: TJSONWriter; base: TFHIRBase);
+begin
+  if not FComments then
+    exit;
+
+  if base.HasXmlCommentsStart then
+    json.Value('_xml_comments_start', base.xml_commentsStart.AsText);
+  if base.HasXmlCommentsEnd then
+    json.Value('_xml_comments_end', base.xml_commentsEnd.AsText);
 end;
 
 procedure TFHIRJsonComposerBase.Compose(stream: TStream; ResourceType : TFhirResourceType; id, ver : String; oTags: TFHIRAtomCategoryList; isPretty: Boolean);
@@ -1133,6 +1058,7 @@ begin
     oStream.Stream := stream;
     json.Start;
     json.ValueObject('taglist');
+    json.Value('resourceType', 'TagList');
     json.ValueArray('category');
     for i := 0 to oTags.Count - 1 do
     begin
@@ -1154,6 +1080,11 @@ end;
 procedure TFHIRJsonComposerBase.Prop(json: TJSONWriter; name: String; value: boolean);
 begin
   json.Value(name, value);
+end;
+
+procedure TFHIRJsonComposerBase.PropNull(json: TJSONWriter; name: String);
+begin
+  json.ValueNull(name);
 end;
 
 { TFHIRParser }
@@ -1218,49 +1149,25 @@ end;
 function TFHIRXmlParserBase.ParseFeed(element : IXmlDomElement): TFHIRAtomFeed;
 var
   child : IXMLDOMElement;
-  grandChild : IXMLDOMElement;
 begin
   if element.baseName <> 'feed' then
     Raise Exception.create(StringFormat(GetFhirMessage('MSG_CANT_PARSE_ROOT', lang), [element.baseName]));
 
   result := TFHIRAtomFeed.create;
   try
-    child := TMsXmlParser.FirstChild(element);
+    TakeCommentsStart(result);
+    child := FirstChild(element);
     while (child <> nil) do
     begin
-      if (child.baseName = 'title') then
-        result.title := child.text
-      else if (child.baseName = 'link') then
-        result.Links.AddValue(TMsXmlParser.GetAttribute(child, 'href'), TMsXmlParser.GetAttribute(child, 'rel'))
-      else if (child.baseName = 'totalResults') then
+      if (child.baseName = 'totalResults') then
         result.SearchTotal := StrToIntDef(child.text, 0)
-      else if (child.baseName = 'author') then
-      begin
-        grandChild := TMsXmlParser.FirstChild(child);
-        while (grandchild <> nil) do
-        begin
-          if (grandchild.baseName = 'name') then
-            result.authorName := grandchild.text
-          else if (grandchild.baseName = 'uri') then
-            result.authorUri := grandchild.text
-          else
-             UnknownContent(grandchild, '/feed/author');
-          grandchild := TMsXmlParser.NextSibling(grandchild);
-        end;
-      end
-      else if (child.baseName = 'id') then
-        result.id := child.text
-      else if (child.baseName = 'category') then
-        result.categories.AddValue(child.getAttribute('scheme'), child.getAttribute('term'), TMsXmlParser.GetAttribute(child, 'label'))
-      else if (child.baseName = 'updated') then
-        result.updated := TDateAndTime.createXml(child.text)
       else if (child.baseName = 'entry') then
         result.entries.Add(ParseEntry(child))
       else if (child.baseName = 'deleted-entry') then
         result.entries.add(ParseDeletedEntry(child))
-      else
+      else if not ParseAtomBase(child, result, 'feed') then
          UnknownContent(child, '/feed');
-      child := TMsXmlParser.NextSibling(child);
+      child := NextSibling(child);
     end;
     result.link;
   finally
@@ -1276,68 +1183,103 @@ var
 begin
   result := TFHIRAtomEntry.create;
   try
-    child := TMsXmlParser.FirstChild(element);
+    TakeCommentsStart(result);
+    child := FirstChild(element);
     while (child <> nil) do
     begin
-      if (child.baseName = 'title') then
-        result.title := child.text
-      else if (child.baseName = 'link') then
-        result.Links.AddValue(TMsXmlParser.GetAttribute(child, 'href'), TMsXmlParser.GetAttribute(child, 'rel'))
-      else if (child.baseName = 'id') then
-        result.id := child.text
-      else if (child.baseName = 'updated') then
-        result.updated := TDateAndTime.createXml(child.text)
-      else if (child.baseName = 'published') then
-        result.published_ := TDateAndTime.createXml(child.text)
-      else if (child.baseName = 'category') then
-        result.categories.AddValue(child.getAttribute('scheme'), child.getAttribute('term'), TMsXmlParser.GetAttribute(child, 'label'))
-      else if (child.baseName = 'source') then
+      if (child.baseName = 'source') then
       begin
-        grandChild := TMsXmlParser.FirstChild(child);
+        grandChild := FirstChild(child);
         while (grandchild <> nil) do
         begin
           if (grandchild.baseName = 'id') then
             result.originalId := grandchild.text
           else
              UnknownContent(grandchild, '/feed/entry/source');
-          grandchild := TMsXmlParser.NextSibling(grandchild);
-        end;
-      end
-      else if (child.baseName = 'author') then
-      begin
-        grandChild := TMsXmlParser.FirstChild(child);
-        while (grandchild <> nil) do
-        begin
-          if (grandchild.baseName = 'name') then
-            result.authorName := grandchild.text
-          else if (grandchild.baseName = 'uri') then
-            result.authorUri := grandchild.text
-          else
-             UnknownContent(grandchild, '/feed/entry/author');
-          grandchild := TMsXmlParser.NextSibling(grandchild);
+          grandchild := NextSibling(grandchild);
         end;
       end
       else if (child.baseName = 'content') then
       begin
         s := TMsXmlParser.GetAttribute(child, 'type');
         if (s = 'text/xml') or (s = '') or (s = 'xml') then
-          result.Resource := ParseResource(TMsXmlParser.FirstChild(child), '/feed/entry/content')
+          result.Resource := ParseResource(FirstChild(child), '/feed/entry/content')
         else
           raise exception.create(StringFormat(GetFhirMessage('MSG_CANT_PARSE_CONTENT', lang), [child.getAttribute('type')]));
       end
       else if (child.baseName = 'summary') then
       begin
-        if (TMsXmlParser.FirstChild(child) <> nil) then
-          result.summary := ParseXHtmlNode(TMsXmlParser.FirstChild(child), '/feed/entry/summary')
+        if (FirstChild(child) <> nil) then
+          result.summary := ParseXHtmlNode(FirstChild(child), '/feed/entry/summary')
       end
-      else
-         UnknownContent(child, 'feed/entry');
-      child := TMsXmlParser.NextSibling(child);
+      else if not ParseAtomBase(child, result, 'feed.entry') then
+         UnknownContent(child, 'feed.entry');
+      child := NextSibling(child);
     end;
     result.link;
   finally
     result.free;
   end;
+end;
+
+function TFHIRXmlParserBase.ParseAtomBase(child: IXmlDomElement; base : TFHIRAtomBase; path : string) : boolean;
+var
+  grandchild : IXMLDOMElement;
+  link : TFHIRAtomLink;
+  cat : TFHIRAtomCategory;
+begin
+  result := true;
+  if (child.baseName = 'title') then
+    base.title := child.text
+  else if (child.baseName = 'link') then
+  begin
+    link := TFHIRAtomLink.Create;
+    try
+      TakeCommentsStart(link);
+      link.URL := TMsXmlParser.GetAttribute(child, 'href');
+      link.Rel := TMsXmlParser.GetAttribute(child, 'rel');
+      base.Links.add(link.Link);
+    finally
+      link.Free;
+    end;
+  end
+  else if (child.baseName = 'id') then
+    base.id := child.text
+  else if (child.baseName = 'updated') then
+    base.updated := TDateAndTime.createXml(child.text)
+  else if (child.baseName = 'published') then
+    base.published_ := TDateAndTime.createXml(child.text)
+  else if (child.baseName = 'category') then
+  begin
+    cat := TFHIRAtomCategory.create;
+    try
+      TakeCommentsStart(cat);
+      cat.scheme := TMsXmlParser.GetAttribute(child, 'scheme');
+      cat.term :=  TMsXmlParser.GetAttribute(child, 'term');
+      cat.label_ :=  TMsXmlParser.GetAttribute(child, 'label');
+      base.categories.Add(cat.link);
+    finally
+      cat.Free;
+    end;
+  end
+  else if (child.baseName = 'author') then
+  begin
+    grandChild := FirstChild(child);
+    while (grandchild <> nil) do
+    begin
+      TakeCommentsStart(base);
+      if (grandchild.baseName = 'name') then
+        base.authorName := grandchild.text
+      else if (grandchild.baseName = 'uri') then
+        base.authorUri := grandchild.text
+      else
+         UnknownContent(grandchild, path+'/author');
+      grandchild := NextSibling(grandchild);
+    end;
+  end
+  else
+     result := false;
+  TakeCommentsStart(base);
 end;
 
 function TFHIRXmlParserBase.ParseDeletedEntry(element: IXmlDomElement): TFHIRAtomEntry;
@@ -1347,29 +1289,30 @@ var
 begin
   result := TFHIRAtomEntry.create;
   try
+    TakeCommentsStart(result);
     result.deleted := true;
     result.id := TMsXmlParser.GetAttribute(element, 'ref');
     result.updated := TDateAndTime.createXml(TMsXmlParser.GetAttribute(element, 'when'));
-    child := TMsXmlParser.FirstChild(element);
+    child := FirstChild(element);
     while (child <> nil) do
     begin
       if (child.baseName = 'link') then
         result.Links.AddValue(TMsXmlParser.GetAttribute(child, 'href'), TMsXmlParser.GetAttribute(child, 'rel'))
       else if (child.baseName = 'source') then
       begin
-        grandChild := TMsXmlParser.FirstChild(child);
+        grandChild := FirstChild(child);
         while (grandchild <> nil) do
         begin
           if (grandchild.baseName = 'id') then
             result.originalId := grandchild.text
           else
              UnknownContent(grandchild, '/feed/deleted-entry/id');
-          grandchild := TMsXmlParser.NextSibling(grandchild);
+          grandchild := NextSibling(grandchild);
         end;
       end
       else if (child.baseName = 'by') then
       begin
-        grandChild := TMsXmlParser.FirstChild(child);
+        grandChild := FirstChild(child);
         while (grandchild <> nil) do
         begin
           if (grandchild.baseName = 'name') then
@@ -1378,12 +1321,12 @@ begin
             result.authorUri := grandchild.text
           else
              UnknownContent(grandchild, '/feed/deleted-entry/by');
-          grandchild := TMsXmlParser.NextSibling(grandchild);
+          grandchild := NextSibling(grandchild);
         end;
       end
       else
          UnknownContent(child, '/feed/entry');
-      child := TMsXmlParser.NextSibling(child);
+      child := NextSibling(child);
     end;
     result.link;
   finally
@@ -1409,7 +1352,7 @@ begin
   raise exception.create('don''t use TFHIRXmlComposerBase directly - use TFHIRXmlComposer');
 end;
 
-procedure TFHIRComposer.Compose(stream: TStream; oFeed: TFHIRAtomFeed; isPretty: Boolean);
+procedure TFHIRXmlComposerBase.Compose(stream: TStream; oFeed: TFHIRAtomFeed; isPretty: Boolean);
 var
   xml : TXmlBuilder;
 begin
@@ -1428,13 +1371,47 @@ begin
   end;
 end;
 
-procedure TFHIRComposer.ComposeFeed(xml : TXmlBuilder; feed: TFHIRAtomFeed);
+procedure TFHIRXmlComposerBase.ComposeAtomBase(xml : TXmlBuilder; base : TFHIRAtomBase);
+var
+  i : integer;
+begin
+  commentsStart(xml, base);
+  xml.TagText('title', base.title);
+  xml.TagText('id', base.id);
+  for i := 0 to base.links.count - 1 do
+  begin
+    xml.AddAttribute('href', base.links.GetItemN(i).URL);
+    xml.AddAttribute('rel', base.links.GetItemN(i).Rel);
+    xml.Tag('link');
+  end;
+  if base.updated <> nil then
+    xml.TagText('updated', base.updated.AsXML);
+  if (base.authorUri <> '') or (base.authorName <> '') then
+  begin
+    xml.Open('author');
+    if base.authorName <> '' then
+      xml.TagText('name', base.authorName);
+    if base.authorUri <> '' then
+      xml.TagText('uri', base.authorUri);
+    xml.Close('author');
+  end;
+  for i := 0 to base.categories.Count - 1 do
+  begin
+    xml.AddAttribute('scheme', base.categories.GetItemN(i).scheme);
+    xml.AddAttribute('term', base.categories.GetItemN(i).term);
+    if base.categories.GetItemN(i).label_ <> '' then
+      xml.AddAttribute('label', base.categories.GetItemN(i).label_);
+    xml.Tag('category');
+  end;
+end;
+
+procedure TFHIRXmlComposerBase.ComposeFeed(xml : TXmlBuilder; feed: TFHIRAtomFeed);
 var
   i : integer;
 begin
   xml.Open('feed');
-  xml.TagText('title', feed.title);
-  xml.TagText('id', feed.id);
+  ComposeAtomBase(xml, feed);
+
   if (feed.isSearch) then
   begin
     xml.Namespace := 'http://a9.com/-/spec/opensearch/1.1/';
@@ -1442,37 +1419,13 @@ begin
     xml.Namespace := ATOM_NS;
   end;
 
-  for i := 0 to feed.links.count - 1 do
-  begin
-    xml.AddAttribute('href', feed.links.GetItemN(i).URL);
-    xml.AddAttribute('rel', feed.links.GetItemN(i).Rel);
-    xml.Tag('link');
-  end;
-  if feed.updated <> nil then
-    xml.TagText('updated', feed.updated.AsXML);
-  if (feed.authorUri <> '') or (feed.authorName <> '') then
-  begin
-    xml.Open('author');
-    if feed.authorName <> '' then
-      xml.TagText('name', feed.authorName);
-    if feed.authorUri <> '' then
-      xml.TagText('uri', feed.authorUri);
-    xml.Close('author');
-  end;
-  for i := 0 to feed.categories.Count - 1 do
-  begin
-    xml.AddAttribute('scheme', feed.categories.GetItemN(i).scheme);
-    xml.AddAttribute('term', feed.categories.GetItemN(i).term);
-    if feed.categories.GetItemN(i).label_ <> '' then
-      xml.AddAttribute('label', feed. categories.GetItemN(i).label_);
-    xml.Tag('category');
-  end;
   for i := 0 to feed.entries.count - 1 Do
     ComposeEntry(xml, feed.entries[i]);
+  commentsEnd(xml, feed);
   xml.Close('feed');
 end;
 
-procedure TFHIRComposer.ComposeEntry(xml : TXmlBuilder; entry: TFHIRAtomEntry);
+procedure TFHIRXmlComposerBase.ComposeEntry(xml : TXmlBuilder; entry: TFHIRAtomEntry);
 var
   i : integer;
 begin
@@ -1508,17 +1461,10 @@ begin
   end
   else
   begin
-    xml.Namespace := ATOM_NS;
+    if xml.Namespace <> ATOM_NS  then
+      xml.Namespace := ATOM_NS;
     xml.Open('entry');
-    xml.TagText('title', entry.title);
-    xml.TagText('id', entry.id);
-    for i := 0 to entry.links.count - 1 do
-    begin
-      xml.AddAttribute('href', entry.links.GetItemN(i).URL);
-      xml.AddAttribute('rel', entry.links.GetItemN(i).Rel);
-      xml.Tag('link');
-    end;
-    xml.TagText('updated', entry.updated.AsXml);
+    composeAtomBase(xml, entry);
     if (entry.published_ <> nil) Then
       xml.TagText('published', entry.published_.AsXML);
     if (entry.originalId <> '') then
@@ -1526,23 +1472,6 @@ begin
       xml.Open('source');
       xml.TagText('id', entry.originalId);
       xml.Close('source');
-    end;
-    if (entry.authorUri <> '') or (entry.authorName <> '') then
-    begin
-      xml.Open('author');
-      if entry.authorName <> '' then
-        xml.TagText('name', entry.authorName);
-      if entry.authorUri <> '' then
-        xml.TagText('uri', entry.authorUri);
-      xml.Close('author');
-    end;
-    for i := 0 to entry.categories.Count - 1 do
-    begin
-      xml.AddAttribute('scheme', entry.categories.GetItemN(i).scheme);
-      xml.AddAttribute('term', entry.categories.GetItemN(i).term);
-      if entry.categories.GetItemN(i).label_ <> '' then
-        xml.AddAttribute('label', entry.categories.GetItemN(i).label_);
-      xml.Tag('category');
     end;
     xml.AddAttribute('type', 'text/xml');
     xml.Open('content');
@@ -1562,6 +1491,7 @@ begin
       xml.Namespace := ATOM_NS;
       xml.Close('summary');
     end;
+    commentsEnd(xml, entry);
     xml.Close('entry');
   end;
 end;
@@ -2196,7 +2126,7 @@ Begin
 end;
 
 
-procedure TFHIRXmlParserBase.TakeCommentsStart(element: TFhirElement);
+procedure TFHIRXmlParserBase.TakeCommentsStart(element: TFHIRBase);
 begin
   if FComments.count > 0 then
   begin
@@ -2205,7 +2135,7 @@ begin
   end;
 end;
 
-procedure TFHIRXmlParserBase.TakeCommentsEnd(element: TFhirElement);
+procedure TFHIRXmlParserBase.TakeCommentsEnd(element: TFHIRBase);
 begin
   if FComments.count > 0 then
   begin
@@ -2216,9 +2146,11 @@ end;
 
 procedure TFHIRComposer.ComposeBinary(xml: TXmlBuilder; binary: TFhirBinary);
 begin
-  xml.Namespace := FHIR_NS;
+  if (xml.Namespace <> FHIR_NS) then
+    xml.Namespace := FHIR_NS;
+  xml.AddAttribute('id', binary.xmlId);
   xml.AddAttribute('contentType', binary.ContentType);
-  xml.TagText('Binary', EncodeBase64(binary.Content.AsBytes));
+  xml.TagText('Binary', StringReplace(EncodeBase64(binary.Content.Data, binary.Content.Size), #13#10, ''));
 end;
 
 procedure TFHIRComposer.ComposeXHtmlNode(s: TAdvStringBuilder; node: TFhirXHtmlNode; indent : integer);
@@ -2258,6 +2190,7 @@ begin
   result := TFhirBinary.create;
   try
     result.ContentType := GetAttribute(element, 'contentType');
+    result.xmlId := GetAttribute(element, 'id');
     result.Content.AsBytes := DecodeBase64(element.text);
     result.link;
   finally
@@ -2331,7 +2264,7 @@ begin
       FTags.AddValue(TMsXmlParser.GetAttribute(child, 'scheme'), TMsXmlParser.GetAttribute(child, 'term'), TMsXmlParser.GetAttribute(child, 'label'))
     else
        UnknownContent(child, 'taglist');
-    child := TMsXmlParser.NextSibling(child);
+    child := NextSibling(child);
   end;
 end;
 

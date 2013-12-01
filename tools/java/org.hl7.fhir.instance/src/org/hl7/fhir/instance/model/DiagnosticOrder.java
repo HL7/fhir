@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -42,10 +42,10 @@ public class DiagnosticOrder extends Resource {
         requested, // The request has been placed.
         received, // The receiving system has received the order, but not yet decided whether it will be performed.
         accepted, // The receiving system has accepted the order, but work has not yet commenced.
-        inprogress, // The work to fulfill the order is happening.
+        inProgress, // The work to fulfill the order is happening.
         review, // The work is complete, and the outcomes are being reviewed for approval.
-        complete, // The work has been complete, the report(s) released, and no further work is planned.
-        suspended, // The request has been held by originating system/user request.
+        completed, // The work has been complete, the report(s) released, and no further work is planned.
+        onHold, // The request has been held by originating system/user request.
         rejected, // The receiving system has declined to fulfill the request.
         failed, // The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
         Null; // added to help the parsers
@@ -58,14 +58,14 @@ public class DiagnosticOrder extends Resource {
           return received;
         if ("accepted".equals(codeString))
           return accepted;
-        if ("inprogress".equals(codeString))
-          return inprogress;
+        if ("in progress".equals(codeString))
+          return inProgress;
         if ("review".equals(codeString))
           return review;
-        if ("complete".equals(codeString))
-          return complete;
-        if ("suspended".equals(codeString))
-          return suspended;
+        if ("completed".equals(codeString))
+          return completed;
+        if ("on hold".equals(codeString))
+          return onHold;
         if ("rejected".equals(codeString))
           return rejected;
         if ("failed".equals(codeString))
@@ -77,10 +77,10 @@ public class DiagnosticOrder extends Resource {
             case requested: return "requested";
             case received: return "received";
             case accepted: return "accepted";
-            case inprogress: return "inprogress";
+            case inProgress: return "in progress";
             case review: return "review";
-            case complete: return "complete";
-            case suspended: return "suspended";
+            case completed: return "completed";
+            case onHold: return "on hold";
             case rejected: return "rejected";
             case failed: return "failed";
             default: return "?";
@@ -99,14 +99,14 @@ public class DiagnosticOrder extends Resource {
           return DiagnosticOrderStatus.received;
         if ("accepted".equals(codeString))
           return DiagnosticOrderStatus.accepted;
-        if ("inprogress".equals(codeString))
-          return DiagnosticOrderStatus.inprogress;
+        if ("in progress".equals(codeString))
+          return DiagnosticOrderStatus.inProgress;
         if ("review".equals(codeString))
           return DiagnosticOrderStatus.review;
-        if ("complete".equals(codeString))
-          return DiagnosticOrderStatus.complete;
-        if ("suspended".equals(codeString))
-          return DiagnosticOrderStatus.suspended;
+        if ("completed".equals(codeString))
+          return DiagnosticOrderStatus.completed;
+        if ("on hold".equals(codeString))
+          return DiagnosticOrderStatus.onHold;
         if ("rejected".equals(codeString))
           return DiagnosticOrderStatus.rejected;
         if ("failed".equals(codeString))
@@ -120,14 +120,14 @@ public class DiagnosticOrder extends Resource {
         return "received";
       if (code == DiagnosticOrderStatus.accepted)
         return "accepted";
-      if (code == DiagnosticOrderStatus.inprogress)
-        return "inprogress";
+      if (code == DiagnosticOrderStatus.inProgress)
+        return "in progress";
       if (code == DiagnosticOrderStatus.review)
         return "review";
-      if (code == DiagnosticOrderStatus.complete)
-        return "complete";
-      if (code == DiagnosticOrderStatus.suspended)
-        return "suspended";
+      if (code == DiagnosticOrderStatus.completed)
+        return "completed";
+      if (code == DiagnosticOrderStatus.onHold)
+        return "on hold";
       if (code == DiagnosticOrderStatus.rejected)
         return "rejected";
       if (code == DiagnosticOrderStatus.failed)

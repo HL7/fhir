@@ -112,10 +112,10 @@
             href="http://hl7connect.healthintersections.com.au/svc/fhir/Practitioner/example/history/1"/>
 
         <updated>2013-05-05T16:13:03Z</updated>
-        <published>2013-05-28T22:12:21Z</published>
         <author>
             <name>68.151.217.168</name>
         </author>
+        <published>2013-05-28T22:12:21Z</published>
         <content type="text/xml">
             <Practitioner xmlns="http://hl7.org/fhir">
                 <text>

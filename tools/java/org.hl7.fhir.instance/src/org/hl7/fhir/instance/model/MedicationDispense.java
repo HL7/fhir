@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -39,8 +39,8 @@ import java.util.*;
 public class MedicationDispense extends Resource {
 
     public enum MedicationDispenseStatus {
-        active, // The dispense has started but has not yet completed.
-        suspended, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "held".
+        inProgress, // The dispense has started but has not yet completed.
+        onHold, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended".
         completed, // All actions that are implied by the dispense have occurred.
         enteredInError, // The dispense was entered in error and therefore nullified.
         stopped, // Actions implied by the dispense have been permanently halted, before all of them occurred.
@@ -48,10 +48,10 @@ public class MedicationDispense extends Resource {
         public static MedicationDispenseStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("active".equals(codeString))
-          return active;
-        if ("suspended".equals(codeString))
-          return suspended;
+        if ("in progress".equals(codeString))
+          return inProgress;
+        if ("on hold".equals(codeString))
+          return onHold;
         if ("completed".equals(codeString))
           return completed;
         if ("entered in error".equals(codeString))
@@ -62,8 +62,8 @@ public class MedicationDispense extends Resource {
         }
         public String toCode() {
           switch (this) {
-            case active: return "active";
-            case suspended: return "suspended";
+            case inProgress: return "in progress";
+            case onHold: return "on hold";
             case completed: return "completed";
             case enteredInError: return "entered in error";
             case stopped: return "stopped";
@@ -77,10 +77,10 @@ public class MedicationDispense extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("active".equals(codeString))
-          return MedicationDispenseStatus.active;
-        if ("suspended".equals(codeString))
-          return MedicationDispenseStatus.suspended;
+        if ("in progress".equals(codeString))
+          return MedicationDispenseStatus.inProgress;
+        if ("on hold".equals(codeString))
+          return MedicationDispenseStatus.onHold;
         if ("completed".equals(codeString))
           return MedicationDispenseStatus.completed;
         if ("entered in error".equals(codeString))
@@ -90,10 +90,10 @@ public class MedicationDispense extends Resource {
         throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == MedicationDispenseStatus.active)
-        return "active";
-      if (code == MedicationDispenseStatus.suspended)
-        return "suspended";
+      if (code == MedicationDispenseStatus.inProgress)
+        return "in progress";
+      if (code == MedicationDispenseStatus.onHold)
+        return "on hold";
       if (code == MedicationDispenseStatus.completed)
         return "completed";
       if (code == MedicationDispenseStatus.enteredInError)

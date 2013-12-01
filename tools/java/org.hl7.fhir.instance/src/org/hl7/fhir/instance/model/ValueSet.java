@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -649,7 +649,7 @@ public class ValueSet extends Resource {
         protected String_ version;
 
         /**
-         * Specifies a code or concept to be included or excluded.
+         * Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.
          */
         protected List<Code> code = new ArrayList<Code>();
 
@@ -736,7 +736,7 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return {@link #code} (Specifies a code or concept to be included or excluded.)
+         * @return {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
          */
         public List<Code> getCode() { 
           return this.code;
@@ -744,7 +744,7 @@ public class ValueSet extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #code} (Specifies a code or concept to be included or excluded.)
+         * @return {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
          */
         public Code addCode() { 
           Code t = new Code();
@@ -753,7 +753,7 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @param value {@link #code} (Specifies a code or concept to be included or excluded.)
+         * @param value {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
          */
         public Code addCodeSimple(String value) { 
           Code t = new Code();
@@ -783,7 +783,7 @@ public class ValueSet extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "The code system from which the selected codes come from.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("version", "string", "The version of the code system that the codes are selected from.", 0, java.lang.Integer.MAX_VALUE, version));
-          childrenList.add(new Property("code", "code", "Specifies a code or concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "code", "Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter));
         }
 

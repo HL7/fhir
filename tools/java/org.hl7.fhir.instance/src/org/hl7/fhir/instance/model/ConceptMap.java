@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -379,7 +379,7 @@ public class ConceptMap extends Resource {
         protected String_ code;
 
         /**
-         * equal | equivalent | wider | narrower | unmatched | disjoint.
+         * equal | equivalent | wider | narrower | inexact | unmatched | disjoint.
          */
         protected Enumeration<ConceptEquivalence> equivalence;
 
@@ -467,14 +467,14 @@ public class ConceptMap extends Resource {
         }
 
         /**
-         * @return {@link #equivalence} (equal | equivalent | wider | narrower | unmatched | disjoint.)
+         * @return {@link #equivalence} (equal | equivalent | wider | narrower | inexact | unmatched | disjoint.)
          */
         public Enumeration<ConceptEquivalence> getEquivalence() { 
           return this.equivalence;
         }
 
         /**
-         * @param value {@link #equivalence} (equal | equivalent | wider | narrower | unmatched | disjoint.)
+         * @param value {@link #equivalence} (equal | equivalent | wider | narrower | inexact | unmatched | disjoint.)
          */
         public ConceptMapConceptMapComponent setEquivalence(Enumeration<ConceptEquivalence> value) { 
           this.equivalence = value;
@@ -482,14 +482,14 @@ public class ConceptMap extends Resource {
         }
 
         /**
-         * @return equal | equivalent | wider | narrower | unmatched | disjoint.
+         * @return equal | equivalent | wider | narrower | inexact | unmatched | disjoint.
          */
         public ConceptEquivalence getEquivalenceSimple() { 
           return this.equivalence == null ? null : this.equivalence.getValue();
         }
 
         /**
-         * @param value equal | equivalent | wider | narrower | unmatched | disjoint.
+         * @param value equal | equivalent | wider | narrower | inexact | unmatched | disjoint.
          */
         public ConceptMapConceptMapComponent setEquivalenceSimple(ConceptEquivalence value) { 
             if (this.equivalence == null)
@@ -538,7 +538,7 @@ public class ConceptMap extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "If this code is not for use as a real concept.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("code", "string", "Text to Display to the user.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("equivalence", "code", "equal | equivalent | wider | narrower | unmatched | disjoint.", 0, java.lang.Integer.MAX_VALUE, equivalence));
+          childrenList.add(new Property("equivalence", "code", "equal | equivalent | wider | narrower | inexact | unmatched | disjoint.", 0, java.lang.Integer.MAX_VALUE, equivalence));
           childrenList.add(new Property("comments", "string", "Description of status/issues in mapping.", 0, java.lang.Integer.MAX_VALUE, comments));
         }
 

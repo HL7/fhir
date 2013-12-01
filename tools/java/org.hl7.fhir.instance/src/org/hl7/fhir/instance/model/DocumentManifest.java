@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ public class DocumentManifest extends Resource {
     public enum DocumentReferenceStatus {
         current, // This is the current reference for this document.
         superceded, // This reference has been superseded by another reference.
-        error, // This reference was created in error.
+        enteredInError, // This reference was created in error.
         Null; // added to help the parsers
         public static DocumentReferenceStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -50,15 +50,15 @@ public class DocumentManifest extends Resource {
           return current;
         if ("superceded".equals(codeString))
           return superceded;
-        if ("error".equals(codeString))
-          return error;
+        if ("entered in error".equals(codeString))
+          return enteredInError;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case current: return "current";
             case superceded: return "superceded";
-            case error: return "error";
+            case enteredInError: return "entered in error";
             default: return "?";
           }
         }
@@ -73,8 +73,8 @@ public class DocumentManifest extends Resource {
           return DocumentReferenceStatus.current;
         if ("superceded".equals(codeString))
           return DocumentReferenceStatus.superceded;
-        if ("error".equals(codeString))
-          return DocumentReferenceStatus.error;
+        if ("entered in error".equals(codeString))
+          return DocumentReferenceStatus.enteredInError;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -82,8 +82,8 @@ public class DocumentManifest extends Resource {
         return "current";
       if (code == DocumentReferenceStatus.superceded)
         return "superceded";
-      if (code == DocumentReferenceStatus.error)
-        return "error";
+      if (code == DocumentReferenceStatus.enteredInError)
+        return "entered in error";
       return "?";
       }
     }

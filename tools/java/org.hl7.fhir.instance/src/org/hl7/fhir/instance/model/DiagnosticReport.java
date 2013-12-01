@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,76 +38,92 @@ import java.util.*;
  */
 public class DiagnosticReport extends Resource {
 
-    public enum ObservationStatus {
-        registered, // The existence of the observation is registered, but there is no result yet available
-        interim, // This is an initial or interim observation: data may be incomplete or unverified
-        final_, // The observation is complete and verified by an authorised person
-        amended, // The observation has been modified subsequent to being Final, and is complete and verified by an authorised person
-        cancelled, // The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted")
-        withdrawn, // The observation has been withdrawn following previous Final release
+    public enum DiagnosticReportStatus {
+        registered, // The existence of the report is registered, but there is nothing yet available.
+        partial, // This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.
+        final_, // The report is complete and verified by an authorised person.
+        corrected, // The report has been modified subsequent to being Final, and is complete and verified by an authorised person.
+        amended, // The report has been modified subsequent to being Final, and is complete and verified by an authorised person, and data has been changed.
+        appended, // The report has been modified subsequent to being Final, and is complete and verified by an authorised person. New content has been added, but existing content hasn't changed.
+        cancelled, // The report is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
+        enteredInError, // The report has been withdrawn following previous Final release.
         Null; // added to help the parsers
-        public static ObservationStatus fromCode(String codeString) throws Exception {
+        public static DiagnosticReportStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("registered".equals(codeString))
           return registered;
-        if ("interim".equals(codeString))
-          return interim;
+        if ("partial".equals(codeString))
+          return partial;
         if ("final".equals(codeString))
           return final_;
+        if ("corrected".equals(codeString))
+          return corrected;
         if ("amended".equals(codeString))
           return amended;
+        if ("appended".equals(codeString))
+          return appended;
         if ("cancelled".equals(codeString))
           return cancelled;
-        if ("withdrawn".equals(codeString))
-          return withdrawn;
-        throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
+        if ("entered in error".equals(codeString))
+          return enteredInError;
+        throw new Exception("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case registered: return "registered";
-            case interim: return "interim";
+            case partial: return "partial";
             case final_: return "final";
+            case corrected: return "corrected";
             case amended: return "amended";
+            case appended: return "appended";
             case cancelled: return "cancelled";
-            case withdrawn: return "withdrawn";
+            case enteredInError: return "entered in error";
             default: return "?";
           }
         }
     }
 
-  public static class ObservationStatusEnumFactory implements EnumFactory {
+  public static class DiagnosticReportStatusEnumFactory implements EnumFactory {
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("registered".equals(codeString))
-          return ObservationStatus.registered;
-        if ("interim".equals(codeString))
-          return ObservationStatus.interim;
+          return DiagnosticReportStatus.registered;
+        if ("partial".equals(codeString))
+          return DiagnosticReportStatus.partial;
         if ("final".equals(codeString))
-          return ObservationStatus.final_;
+          return DiagnosticReportStatus.final_;
+        if ("corrected".equals(codeString))
+          return DiagnosticReportStatus.corrected;
         if ("amended".equals(codeString))
-          return ObservationStatus.amended;
+          return DiagnosticReportStatus.amended;
+        if ("appended".equals(codeString))
+          return DiagnosticReportStatus.appended;
         if ("cancelled".equals(codeString))
-          return ObservationStatus.cancelled;
-        if ("withdrawn".equals(codeString))
-          return ObservationStatus.withdrawn;
-        throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
+          return DiagnosticReportStatus.cancelled;
+        if ("entered in error".equals(codeString))
+          return DiagnosticReportStatus.enteredInError;
+        throw new Exception("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ObservationStatus.registered)
+      if (code == DiagnosticReportStatus.registered)
         return "registered";
-      if (code == ObservationStatus.interim)
-        return "interim";
-      if (code == ObservationStatus.final_)
+      if (code == DiagnosticReportStatus.partial)
+        return "partial";
+      if (code == DiagnosticReportStatus.final_)
         return "final";
-      if (code == ObservationStatus.amended)
+      if (code == DiagnosticReportStatus.corrected)
+        return "corrected";
+      if (code == DiagnosticReportStatus.amended)
         return "amended";
-      if (code == ObservationStatus.cancelled)
+      if (code == DiagnosticReportStatus.appended)
+        return "appended";
+      if (code == DiagnosticReportStatus.cancelled)
         return "cancelled";
-      if (code == ObservationStatus.withdrawn)
-        return "withdrawn";
+      if (code == DiagnosticReportStatus.enteredInError)
+        return "entered in error";
       return "?";
       }
     }
@@ -427,7 +443,7 @@ public class DiagnosticReport extends Resource {
     /**
      * The status of the diagnostic report as a whole.
      */
-    protected Enumeration<ObservationStatus> status;
+    protected Enumeration<DiagnosticReportStatus> status;
 
     /**
      * The date and/or time that this version of the report was released from the source diagnostic service.
@@ -493,7 +509,7 @@ public class DiagnosticReport extends Resource {
       super();
     }
 
-    public DiagnosticReport(Enumeration<ObservationStatus> status, DateTime issued, ResourceReference subject, ResourceReference performer, Type diagnostic, ResultGroupComponent results) {
+    public DiagnosticReport(Enumeration<DiagnosticReportStatus> status, DateTime issued, ResourceReference subject, ResourceReference performer, Type diagnostic, ResultGroupComponent results) {
       super();
       this.status = status;
       this.issued = issued;
@@ -506,14 +522,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return {@link #status} (The status of the diagnostic report as a whole.)
      */
-    public Enumeration<ObservationStatus> getStatus() { 
+    public Enumeration<DiagnosticReportStatus> getStatus() { 
       return this.status;
     }
 
     /**
      * @param value {@link #status} (The status of the diagnostic report as a whole.)
      */
-    public DiagnosticReport setStatus(Enumeration<ObservationStatus> value) { 
+    public DiagnosticReport setStatus(Enumeration<DiagnosticReportStatus> value) { 
       this.status = value;
       return this;
     }
@@ -521,16 +537,16 @@ public class DiagnosticReport extends Resource {
     /**
      * @return The status of the diagnostic report as a whole.
      */
-    public ObservationStatus getStatusSimple() { 
+    public DiagnosticReportStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the diagnostic report as a whole.
      */
-    public DiagnosticReport setStatusSimple(ObservationStatus value) { 
+    public DiagnosticReport setStatusSimple(DiagnosticReportStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ObservationStatus>();
+          this.status = new Enumeration<DiagnosticReportStatus>();
         this.status.setValue(value);
       return this;
     }

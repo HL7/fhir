@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -41,8 +41,8 @@ Related resources tie this event to the authorizing prescription, and the specif
 public class MedicationAdministration extends Resource {
 
     public enum MedicationAdminStatus {
-        active, // The administration has started but has not yet completed.
-        held, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "held".
+        inProgress, // The administration has started but has not yet completed.
+        onHold, // Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended".
         completed, // All actions that are implied by the administration have occurred.
         enteredInError, // The administration was entered in error and therefore nullified.
         stopped, // Actions implied by the administration have been permanently halted, before all of them occurred.
@@ -50,10 +50,10 @@ public class MedicationAdministration extends Resource {
         public static MedicationAdminStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("active".equals(codeString))
-          return active;
-        if ("held".equals(codeString))
-          return held;
+        if ("in progress".equals(codeString))
+          return inProgress;
+        if ("on hold".equals(codeString))
+          return onHold;
         if ("completed".equals(codeString))
           return completed;
         if ("entered in error".equals(codeString))
@@ -64,8 +64,8 @@ public class MedicationAdministration extends Resource {
         }
         public String toCode() {
           switch (this) {
-            case active: return "active";
-            case held: return "held";
+            case inProgress: return "in progress";
+            case onHold: return "on hold";
             case completed: return "completed";
             case enteredInError: return "entered in error";
             case stopped: return "stopped";
@@ -79,10 +79,10 @@ public class MedicationAdministration extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("active".equals(codeString))
-          return MedicationAdminStatus.active;
-        if ("held".equals(codeString))
-          return MedicationAdminStatus.held;
+        if ("in progress".equals(codeString))
+          return MedicationAdminStatus.inProgress;
+        if ("on hold".equals(codeString))
+          return MedicationAdminStatus.onHold;
         if ("completed".equals(codeString))
           return MedicationAdminStatus.completed;
         if ("entered in error".equals(codeString))
@@ -92,10 +92,10 @@ public class MedicationAdministration extends Resource {
         throw new Exception("Unknown MedicationAdminStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == MedicationAdminStatus.active)
-        return "active";
-      if (code == MedicationAdminStatus.held)
-        return "held";
+      if (code == MedicationAdminStatus.inProgress)
+        return "in progress";
+      if (code == MedicationAdminStatus.onHold)
+        return "on hold";
       if (code == MedicationAdminStatus.completed)
         return "completed";
       if (code == MedicationAdminStatus.enteredInError)

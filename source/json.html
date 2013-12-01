@@ -295,7 +295,8 @@ Each element in the Xml feed definition has a JSON corresponding JSON object mem
       &quot;scheme&quot; : &quot;[Tag Type]&quot;
     }],
     &quot;content&quot; : {
-      &quot;Person&quot; : { ...person content in JSON... }
+      &quot;resourceType&quot; : &quot;Patient&quot;,
+      { ...patient content in JSON... }
     },
     &quot;summary&quot; : &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;(text summary)&lt;/div&gt;&quot;,
   },
@@ -342,10 +343,11 @@ it is represented as base64 encoded content along with a content-type, which is 
 as it would be specified in HTTP, like this:
 </p>
 <pre class="json">
-  &quot;Binary&quot; : {
-    &quot;contentType&quot; : &quot;[mime type]&quot;,
-    &quot;content&quot; : &quot;[base64 of data]&quot;
-  }
+{
+  &quot;resourceType&quot; : &quot;Binary&quot;,
+  &quot;contentType&quot; : &quot;[mime type]&quot;,
+  &quot;content&quot; : &quot;[base64 of data]&quot;
+}
 </pre>
 
 <a name="sig"> </a>

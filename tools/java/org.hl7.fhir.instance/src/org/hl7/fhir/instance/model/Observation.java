@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -39,38 +39,38 @@ import java.util.*;
 public class Observation extends Resource {
 
     public enum ObservationStatus {
-        registered, // The existence of the observation is registered, but there is no result yet available
-        interim, // This is an initial or interim observation: data may be incomplete or unverified
-        final_, // The observation is complete and verified by an authorised person
-        amended, // The observation has been modified subsequent to being Final, and is complete and verified by an authorised person
-        cancelled, // The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted")
-        withdrawn, // The observation has been withdrawn following previous Final release
+        registered, // The existence of the observation is registered, but there is no result yet available.
+        preliminary, // This is an initial or interim observation: data may be incomplete or unverified.
+        final_, // The observation is complete and verified by an authorised person.
+        amended, // The observation has been modified subsequent to being Final, and is complete and verified by an authorised person.
+        cancelled, // The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
+        enteredInError, // The observation has been withdrawn following previous Final release.
         Null; // added to help the parsers
         public static ObservationStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("registered".equals(codeString))
           return registered;
-        if ("interim".equals(codeString))
-          return interim;
+        if ("preliminary".equals(codeString))
+          return preliminary;
         if ("final".equals(codeString))
           return final_;
         if ("amended".equals(codeString))
           return amended;
         if ("cancelled".equals(codeString))
           return cancelled;
-        if ("withdrawn".equals(codeString))
-          return withdrawn;
+        if ("entered in error".equals(codeString))
+          return enteredInError;
         throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case registered: return "registered";
-            case interim: return "interim";
+            case preliminary: return "preliminary";
             case final_: return "final";
             case amended: return "amended";
             case cancelled: return "cancelled";
-            case withdrawn: return "withdrawn";
+            case enteredInError: return "entered in error";
             default: return "?";
           }
         }
@@ -83,31 +83,31 @@ public class Observation extends Resource {
                 return null;
         if ("registered".equals(codeString))
           return ObservationStatus.registered;
-        if ("interim".equals(codeString))
-          return ObservationStatus.interim;
+        if ("preliminary".equals(codeString))
+          return ObservationStatus.preliminary;
         if ("final".equals(codeString))
           return ObservationStatus.final_;
         if ("amended".equals(codeString))
           return ObservationStatus.amended;
         if ("cancelled".equals(codeString))
           return ObservationStatus.cancelled;
-        if ("withdrawn".equals(codeString))
-          return ObservationStatus.withdrawn;
+        if ("entered in error".equals(codeString))
+          return ObservationStatus.enteredInError;
         throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObservationStatus.registered)
         return "registered";
-      if (code == ObservationStatus.interim)
-        return "interim";
+      if (code == ObservationStatus.preliminary)
+        return "preliminary";
       if (code == ObservationStatus.final_)
         return "final";
       if (code == ObservationStatus.amended)
         return "amended";
       if (code == ObservationStatus.cancelled)
         return "cancelled";
-      if (code == ObservationStatus.withdrawn)
-        return "withdrawn";
+      if (code == ObservationStatus.enteredInError)
+        return "entered in error";
       return "?";
       }
     }

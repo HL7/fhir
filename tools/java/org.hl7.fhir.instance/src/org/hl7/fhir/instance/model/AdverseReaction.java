@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -297,7 +297,7 @@ public class AdverseReaction extends Resource {
         protected DateTime exposureDate;
 
         /**
-         * Drug Administration, Immunization, Coincidental.
+         * The type of exposure: Drug Administration, Immunization, Coincidental.
          */
         protected Enumeration<ExposureType> exposureType;
 
@@ -352,14 +352,14 @@ public class AdverseReaction extends Resource {
         }
 
         /**
-         * @return {@link #exposureType} (Drug Administration, Immunization, Coincidental.)
+         * @return {@link #exposureType} (The type of exposure: Drug Administration, Immunization, Coincidental.)
          */
         public Enumeration<ExposureType> getExposureType() { 
           return this.exposureType;
         }
 
         /**
-         * @param value {@link #exposureType} (Drug Administration, Immunization, Coincidental.)
+         * @param value {@link #exposureType} (The type of exposure: Drug Administration, Immunization, Coincidental.)
          */
         public AdverseReactionExposureComponent setExposureType(Enumeration<ExposureType> value) { 
           this.exposureType = value;
@@ -367,14 +367,14 @@ public class AdverseReaction extends Resource {
         }
 
         /**
-         * @return Drug Administration, Immunization, Coincidental.
+         * @return The type of exposure: Drug Administration, Immunization, Coincidental.
          */
         public ExposureType getExposureTypeSimple() { 
           return this.exposureType == null ? null : this.exposureType.getValue();
         }
 
         /**
-         * @param value Drug Administration, Immunization, Coincidental.
+         * @param value The type of exposure: Drug Administration, Immunization, Coincidental.
          */
         public AdverseReactionExposureComponent setExposureTypeSimple(ExposureType value) { 
           if (value == null)
@@ -441,7 +441,7 @@ public class AdverseReaction extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("exposureDate", "dateTime", "When the exposure occurred.", 0, java.lang.Integer.MAX_VALUE, exposureDate));
-          childrenList.add(new Property("exposureType", "code", "Drug Administration, Immunization, Coincidental.", 0, java.lang.Integer.MAX_VALUE, exposureType));
+          childrenList.add(new Property("exposureType", "code", "The type of exposure: Drug Administration, Immunization, Coincidental.", 0, java.lang.Integer.MAX_VALUE, exposureType));
           childrenList.add(new Property("causalityExpectation", "code", "A statement of how confident that the recorder was that this exposure caused the reaction.", 0, java.lang.Integer.MAX_VALUE, causalityExpectation));
           childrenList.add(new Property("substance", "Resource(Substance)", "Substance(s) that is presumed to have caused the adverse reaction.", 0, java.lang.Integer.MAX_VALUE, substance));
         }

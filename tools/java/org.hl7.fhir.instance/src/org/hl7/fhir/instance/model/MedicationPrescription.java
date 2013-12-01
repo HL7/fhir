@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -40,37 +40,37 @@ public class MedicationPrescription extends Resource {
 
     public enum MedicationPrescriptionStatus {
         active, // The prescription is 'actionable', but not all actions that are implied by it have occurred yet.
-        suspended, // Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called "held".
+        onHold, // Actions implied by the prescription have been temporarily halted, but are expected to continue later.  May also be called "suspended".
         completed, // All actions that are implied by the prescription have occurred (this will rarely be made explicit).
         enteredInError, // The prescription was entered in error and therefore nullified.
         stopped, // Actions implied by the prescription have been permanently halted, before all of them occurred.
-        obsolete, // The prescription was replaced by a newer one, which encompasses all the information in the previous one.
+        superceded, // The prescription was replaced by a newer one, which encompasses all the information in the previous one.
         Null; // added to help the parsers
         public static MedicationPrescriptionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
           return active;
-        if ("suspended".equals(codeString))
-          return suspended;
+        if ("on hold".equals(codeString))
+          return onHold;
         if ("completed".equals(codeString))
           return completed;
         if ("entered in error".equals(codeString))
           return enteredInError;
         if ("stopped".equals(codeString))
           return stopped;
-        if ("obsolete".equals(codeString))
-          return obsolete;
+        if ("superceded".equals(codeString))
+          return superceded;
         throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case active: return "active";
-            case suspended: return "suspended";
+            case onHold: return "on hold";
             case completed: return "completed";
             case enteredInError: return "entered in error";
             case stopped: return "stopped";
-            case obsolete: return "obsolete";
+            case superceded: return "superceded";
             default: return "?";
           }
         }
@@ -83,31 +83,31 @@ public class MedicationPrescription extends Resource {
                 return null;
         if ("active".equals(codeString))
           return MedicationPrescriptionStatus.active;
-        if ("suspended".equals(codeString))
-          return MedicationPrescriptionStatus.suspended;
+        if ("on hold".equals(codeString))
+          return MedicationPrescriptionStatus.onHold;
         if ("completed".equals(codeString))
           return MedicationPrescriptionStatus.completed;
         if ("entered in error".equals(codeString))
           return MedicationPrescriptionStatus.enteredInError;
         if ("stopped".equals(codeString))
           return MedicationPrescriptionStatus.stopped;
-        if ("obsolete".equals(codeString))
-          return MedicationPrescriptionStatus.obsolete;
+        if ("superceded".equals(codeString))
+          return MedicationPrescriptionStatus.superceded;
         throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationPrescriptionStatus.active)
         return "active";
-      if (code == MedicationPrescriptionStatus.suspended)
-        return "suspended";
+      if (code == MedicationPrescriptionStatus.onHold)
+        return "on hold";
       if (code == MedicationPrescriptionStatus.completed)
         return "completed";
       if (code == MedicationPrescriptionStatus.enteredInError)
         return "entered in error";
       if (code == MedicationPrescriptionStatus.stopped)
         return "stopped";
-      if (code == MedicationPrescriptionStatus.obsolete)
-        return "obsolete";
+      if (code == MedicationPrescriptionStatus.superceded)
+        return "superceded";
       return "?";
       }
     }

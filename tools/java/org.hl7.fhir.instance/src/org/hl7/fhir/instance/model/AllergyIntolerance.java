@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -225,7 +225,7 @@ public class AllergyIntolerance extends Resource {
     protected DateTime recordedDate;
 
     /**
-     * Suspected, Confirmed, Refuted, Resolved.
+     * Status of the sensitivity.
      */
     protected Enumeration<Sensitivitystatus> status;
 
@@ -388,14 +388,14 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #status} (Suspected, Confirmed, Refuted, Resolved.)
+     * @return {@link #status} (Status of the sensitivity.)
      */
     public Enumeration<Sensitivitystatus> getStatus() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (Suspected, Confirmed, Refuted, Resolved.)
+     * @param value {@link #status} (Status of the sensitivity.)
      */
     public AllergyIntolerance setStatus(Enumeration<Sensitivitystatus> value) { 
       this.status = value;
@@ -403,14 +403,14 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return Suspected, Confirmed, Refuted, Resolved.
+     * @return Status of the sensitivity.
      */
     public Sensitivitystatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value Suspected, Confirmed, Refuted, Resolved.
+     * @param value Status of the sensitivity.
      */
     public AllergyIntolerance setStatusSimple(Sensitivitystatus value) { 
         if (this.status == null)
@@ -504,7 +504,7 @@ public class AllergyIntolerance extends Resource {
         childrenList.add(new Property("criticality", "code", "Criticality of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, criticality));
         childrenList.add(new Property("sensitivityType", "code", "Type of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, sensitivityType));
         childrenList.add(new Property("recordedDate", "dateTime", "Date when the sensitivity was recorded.", 0, java.lang.Integer.MAX_VALUE, recordedDate));
-        childrenList.add(new Property("status", "code", "Suspected, Confirmed, Refuted, Resolved.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "Status of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("subject", "Resource(Patient)", "Who the sensitivity is for.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("recorder", "Resource(Practitioner|Patient)", "Who recorded the sensitivity.", 0, java.lang.Integer.MAX_VALUE, recorder));
         childrenList.add(new Property("substance", "Resource(Substance)", "The substance that causes the sensitivity.", 0, java.lang.Integer.MAX_VALUE, substance));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ public class CarePlan extends Resource {
     public enum CarePlanStatus {
         planned, // The plan is in development or awaiting use but is not yet intended to be acted upon.
         active, // The plan is intended to be followed and used as part of patient care.
-        ended, // The plan is no longer in use and is not expected to be followed or used in patient care.
+        completed, // The plan is no longer in use and is not expected to be followed or used in patient care.
         Null; // added to help the parsers
         public static CarePlanStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -50,15 +50,15 @@ public class CarePlan extends Resource {
           return planned;
         if ("active".equals(codeString))
           return active;
-        if ("ended".equals(codeString))
-          return ended;
+        if ("completed".equals(codeString))
+          return completed;
         throw new Exception("Unknown CarePlanStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case planned: return "planned";
             case active: return "active";
-            case ended: return "ended";
+            case completed: return "completed";
             default: return "?";
           }
         }
@@ -73,8 +73,8 @@ public class CarePlan extends Resource {
           return CarePlanStatus.planned;
         if ("active".equals(codeString))
           return CarePlanStatus.active;
-        if ("ended".equals(codeString))
-          return CarePlanStatus.ended;
+        if ("completed".equals(codeString))
+          return CarePlanStatus.completed;
         throw new Exception("Unknown CarePlanStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -82,8 +82,8 @@ public class CarePlan extends Resource {
         return "planned";
       if (code == CarePlanStatus.active)
         return "active";
-      if (code == CarePlanStatus.ended)
-        return "ended";
+      if (code == CarePlanStatus.completed)
+        return "completed";
       return "?";
       }
     }
@@ -92,7 +92,7 @@ public class CarePlan extends Resource {
         inProgress, // The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again).
         achieved, // The goal has been met and no further action is needed.
         sustaining, // The goal has been met, but ongoing activity is needed to sustain the goal objective.
-        abandoned, // The goal is no longer being sought.
+        cancelled, // The goal is no longer being sought.
         Null; // added to help the parsers
         public static CarePlanGoalStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -103,8 +103,8 @@ public class CarePlan extends Resource {
           return achieved;
         if ("sustaining".equals(codeString))
           return sustaining;
-        if ("abandoned".equals(codeString))
-          return abandoned;
+        if ("cancelled".equals(codeString))
+          return cancelled;
         throw new Exception("Unknown CarePlanGoalStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -112,7 +112,7 @@ public class CarePlan extends Resource {
             case inProgress: return "in progress";
             case achieved: return "achieved";
             case sustaining: return "sustaining";
-            case abandoned: return "abandoned";
+            case cancelled: return "cancelled";
             default: return "?";
           }
         }
@@ -129,8 +129,8 @@ public class CarePlan extends Resource {
           return CarePlanGoalStatus.achieved;
         if ("sustaining".equals(codeString))
           return CarePlanGoalStatus.sustaining;
-        if ("abandoned".equals(codeString))
-          return CarePlanGoalStatus.abandoned;
+        if ("cancelled".equals(codeString))
+          return CarePlanGoalStatus.cancelled;
         throw new Exception("Unknown CarePlanGoalStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -140,8 +140,8 @@ public class CarePlan extends Resource {
         return "achieved";
       if (code == CarePlanGoalStatus.sustaining)
         return "sustaining";
-      if (code == CarePlanGoalStatus.abandoned)
-        return "abandoned";
+      if (code == CarePlanGoalStatus.cancelled)
+        return "cancelled";
       return "?";
       }
     }
@@ -149,10 +149,10 @@ public class CarePlan extends Resource {
     public enum CarePlanActivityStatus {
         notStarted, // Activity is planned but no action has yet been taken.
         scheduled, // Appointment or other booking has occurred but activity has not yet begun.
-        ongoing, // Activity has been started but is not yet complete.
+        inProgress, // Activity has been started but is not yet complete.
         onHold, // Activity was started but has temporarily ceased with an expectation of resumption at a future time.
         completed, // The activities have been completed (more or less) as planned.
-        discontinued, // The activities have been ended prior to completion (perhaps even before they were started).
+        cancelled, // The activities have been ended prior to completion (perhaps even before they were started).
         Null; // added to help the parsers
         public static CarePlanActivityStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -161,24 +161,24 @@ public class CarePlan extends Resource {
           return notStarted;
         if ("scheduled".equals(codeString))
           return scheduled;
-        if ("ongoing".equals(codeString))
-          return ongoing;
+        if ("in progress".equals(codeString))
+          return inProgress;
         if ("on hold".equals(codeString))
           return onHold;
         if ("completed".equals(codeString))
           return completed;
-        if ("discontinued".equals(codeString))
-          return discontinued;
+        if ("cancelled".equals(codeString))
+          return cancelled;
         throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case notStarted: return "not started";
             case scheduled: return "scheduled";
-            case ongoing: return "ongoing";
+            case inProgress: return "in progress";
             case onHold: return "on hold";
             case completed: return "completed";
-            case discontinued: return "discontinued";
+            case cancelled: return "cancelled";
             default: return "?";
           }
         }
@@ -193,14 +193,14 @@ public class CarePlan extends Resource {
           return CarePlanActivityStatus.notStarted;
         if ("scheduled".equals(codeString))
           return CarePlanActivityStatus.scheduled;
-        if ("ongoing".equals(codeString))
-          return CarePlanActivityStatus.ongoing;
+        if ("in progress".equals(codeString))
+          return CarePlanActivityStatus.inProgress;
         if ("on hold".equals(codeString))
           return CarePlanActivityStatus.onHold;
         if ("completed".equals(codeString))
           return CarePlanActivityStatus.completed;
-        if ("discontinued".equals(codeString))
-          return CarePlanActivityStatus.discontinued;
+        if ("cancelled".equals(codeString))
+          return CarePlanActivityStatus.cancelled;
         throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -208,14 +208,14 @@ public class CarePlan extends Resource {
         return "not started";
       if (code == CarePlanActivityStatus.scheduled)
         return "scheduled";
-      if (code == CarePlanActivityStatus.ongoing)
-        return "ongoing";
+      if (code == CarePlanActivityStatus.inProgress)
+        return "in progress";
       if (code == CarePlanActivityStatus.onHold)
         return "on hold";
       if (code == CarePlanActivityStatus.completed)
         return "completed";
-      if (code == CarePlanActivityStatus.discontinued)
-        return "discontinued";
+      if (code == CarePlanActivityStatus.cancelled)
+        return "cancelled";
       return "?";
       }
     }

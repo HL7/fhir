@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -42,8 +42,8 @@ public class Questionnaire extends Resource {
         draft, // This Questionnaire is used as a template but the template is not ready for use or publication.
         published, // This Questionnaire is used as a template, is published and ready for use.
         retired, // This Questionnaire is used as a template but should no longer be used for new Questionnaires.
-        inprogress, // This Questionnaire has been filled out with answers, but changes or additions are still expected to be made to it.
-        complete, // This Questionnaire has been filled out with answers, and the current content is regarded as definitive.
+        inProgress, // This Questionnaire has been filled out with answers, but changes or additions are still expected to be made to it.
+        completed, // This Questionnaire has been filled out with answers, and the current content is regarded as definitive.
         amended, // This Questionnaire has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.
         Null; // added to help the parsers
         public static QuestionnaireStatus fromCode(String codeString) throws Exception {
@@ -55,10 +55,10 @@ public class Questionnaire extends Resource {
           return published;
         if ("retired".equals(codeString))
           return retired;
-        if ("inprogress".equals(codeString))
-          return inprogress;
-        if ("complete".equals(codeString))
-          return complete;
+        if ("in progress".equals(codeString))
+          return inProgress;
+        if ("completed".equals(codeString))
+          return completed;
         if ("amended".equals(codeString))
           return amended;
         throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
@@ -68,8 +68,8 @@ public class Questionnaire extends Resource {
             case draft: return "draft";
             case published: return "published";
             case retired: return "retired";
-            case inprogress: return "inprogress";
-            case complete: return "complete";
+            case inProgress: return "in progress";
+            case completed: return "completed";
             case amended: return "amended";
             default: return "?";
           }
@@ -87,10 +87,10 @@ public class Questionnaire extends Resource {
           return QuestionnaireStatus.published;
         if ("retired".equals(codeString))
           return QuestionnaireStatus.retired;
-        if ("inprogress".equals(codeString))
-          return QuestionnaireStatus.inprogress;
-        if ("complete".equals(codeString))
-          return QuestionnaireStatus.complete;
+        if ("in progress".equals(codeString))
+          return QuestionnaireStatus.inProgress;
+        if ("completed".equals(codeString))
+          return QuestionnaireStatus.completed;
         if ("amended".equals(codeString))
           return QuestionnaireStatus.amended;
         throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
@@ -102,10 +102,10 @@ public class Questionnaire extends Resource {
         return "published";
       if (code == QuestionnaireStatus.retired)
         return "retired";
-      if (code == QuestionnaireStatus.inprogress)
-        return "inprogress";
-      if (code == QuestionnaireStatus.complete)
-        return "complete";
+      if (code == QuestionnaireStatus.inProgress)
+        return "in progress";
+      if (code == QuestionnaireStatus.completed)
+        return "completed";
       if (code == QuestionnaireStatus.amended)
         return "amended";
       return "?";
@@ -542,12 +542,12 @@ public class Questionnaire extends Resource {
     protected ResourceReference subject;
 
     /**
-     * Person that collected the answers to the questions in the Questionnaire.
+     * Person who received the answers to the questions in the Questionnaire and recorded them in the system.
      */
     protected ResourceReference author;
 
     /**
-     * The person that answered the questions about the subject. Only used when this is not the subject him/herself.
+     * The person who answered the questions about the subject. Only used when this is not the subject him/herself.
      */
     protected ResourceReference source;
 
@@ -666,14 +666,14 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #author} (Person that collected the answers to the questions in the Questionnaire.)
+     * @return {@link #author} (Person who received the answers to the questions in the Questionnaire and recorded them in the system.)
      */
     public ResourceReference getAuthor() { 
       return this.author;
     }
 
     /**
-     * @param value {@link #author} (Person that collected the answers to the questions in the Questionnaire.)
+     * @param value {@link #author} (Person who received the answers to the questions in the Questionnaire and recorded them in the system.)
      */
     public Questionnaire setAuthor(ResourceReference value) { 
       this.author = value;
@@ -681,14 +681,14 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #source} (The person that answered the questions about the subject. Only used when this is not the subject him/herself.)
+     * @return {@link #source} (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
      */
     public ResourceReference getSource() { 
       return this.source;
     }
 
     /**
-     * @param value {@link #source} (The person that answered the questions about the subject. Only used when this is not the subject him/herself.)
+     * @param value {@link #source} (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
      */
     public Questionnaire setSource(ResourceReference value) { 
       this.source = value;
@@ -781,8 +781,8 @@ public class Questionnaire extends Resource {
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("authored", "dateTime", "The date and/or time that this version of the questionnaire was authored.", 0, java.lang.Integer.MAX_VALUE, authored));
         childrenList.add(new Property("subject", "Resource(Patient|RelatedPerson)", "The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("author", "Resource(Practitioner|Patient|RelatedPerson)", "Person that collected the answers to the questions in the Questionnaire.", 0, java.lang.Integer.MAX_VALUE, author));
-        childrenList.add(new Property("source", "Resource(Patient|Practitioner|RelatedPerson)", "The person that answered the questions about the subject. Only used when this is not the subject him/herself.", 0, java.lang.Integer.MAX_VALUE, source));
+        childrenList.add(new Property("author", "Resource(Practitioner|Patient|RelatedPerson)", "Person who received the answers to the questions in the Questionnaire and recorded them in the system.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("source", "Resource(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject. Only used when this is not the subject him/herself.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("name", "CodeableConcept", "Structured name for a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.", 0, java.lang.Integer.MAX_VALUE, encounter));

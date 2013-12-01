@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1868,8 +1868,8 @@ public class JsonComposer extends JsonComposerBase {
       prop("resourceType", name);
       composeResourceElements(element);
       if (element.getStatus() != null) {
-        composeEnumerationCore("status", element.getStatus(), new DiagnosticReport.ObservationStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatus(), new DiagnosticReport.ObservationStatusEnumFactory(), false);
+        composeEnumerationCore("status", element.getStatus(), new DiagnosticReport.DiagnosticReportStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new DiagnosticReport.DiagnosticReportStatusEnumFactory(), false);
       }
       composeDateTimeCore("issued", element.getIssued(), false);
       composeDateTimeExtras("issued", element.getIssued(), false);
@@ -2267,6 +2267,7 @@ public class JsonComposer extends JsonComposerBase {
       composeStringCore("name", element.getName(), false);
       composeStringExtras("name", element.getName(), false);
       composeCodeableConcept("relationship", element.getRelationship());
+      composeType("born", element.getBorn());
       composeType("deceased", element.getDeceased());
       composeStringCore("note", element.getNote(), false);
       composeStringExtras("note", element.getNote(), false);

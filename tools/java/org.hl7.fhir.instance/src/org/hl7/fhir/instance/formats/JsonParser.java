@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -2015,7 +2015,7 @@ public class JsonParser extends JsonParserBase {
     DiagnosticReport res = new DiagnosticReport();
     parseResourceProperties(json, res);
     if (json.has("status"))
-      res.setStatus(parseEnumeration(json.getString("status"), DiagnosticReport.ObservationStatus.Null, new DiagnosticReport.ObservationStatusEnumFactory()));
+      res.setStatus(parseEnumeration(json.getString("status"), DiagnosticReport.DiagnosticReportStatus.Null, new DiagnosticReport.DiagnosticReportStatusEnumFactory()));
     if (json.has("_status"))
       parseElementProperties(json.getJSONObject("_status"), res.getStatus());
     if (json.has("issued"))
@@ -2489,6 +2489,9 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getJSONObject("_name"), res.getName());
     if (json.has("relationship"))
       res.setRelationship(parseCodeableConcept(json.getJSONObject("relationship")));
+    Type born = parseType("born", json);
+    if (born != null)
+      res.setBorn(born);
     Type deceased = parseType("deceased", json);
     if (deceased != null)
       res.setDeceased(deceased);

@@ -1,5 +1,33 @@
 Unit JSON;
 
+{
+Copyright (c) 2001-2013, Kestral Computing Pty Ltd (http://www.kestral.com.au)
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice, this 
+   list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation 
+   and/or other materials provided with the distribution.
+ * Neither the name of HL7 nor the names of its contributors may be used to 
+   endorse or promote products derived from this software without specific 
+   prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGE.
+}
+
 Interface
 
 uses
@@ -10,11 +38,91 @@ uses
   AdvObjects,
   AdvTextFormatters,
   AdvTextExtractors,
+  AdvStringObjectMatches,
+  AdvObjectLists,
   AdvStringBuilders;
 
 Function JSONString(const value : String) : String;
 
 Type
+  TJsonObject = class;
+
+  TJsonNode = class (TAdvObject)
+  private
+    FPath: String;
+  protected
+    function nodeType : String;
+  public
+    constructor create(path : String); virtual;
+    Function Link : TJsonNode; Overload;
+    property path : String read FPath write FPath;
+  end;
+
+  TJsonProperties = class (TAdvStringObjectMatch)
+  private
+    function GetProp(const aKey: String): TJsonNode;
+    procedure SetProp(const aKey: String; const Value: TJsonNode);
+  protected
+    Function ItemClass : TAdvObjectClass; override;
+  public
+    Function Link : TJsonProperties; Overload;
+    Property Prop[Const aKey : String] : TJsonNode Read GetProp Write SetProp; Default;
+  end;
+
+  TJsonArray = class (TJsonNode)
+  private
+    FItems : TAdvObjectList;
+    function GetCount: integer;
+    function GetItem(i: integer): TJsonNode;
+    function GetObj(i: integer): TJsonObject;
+    function GetValue(i: integer): String;
+    procedure SetItem(i: integer; const Value: TJsonNode);
+    procedure SetObj(i: integer; const Value: TJsonObject);
+    procedure SetValue(i: integer; const Value: String);
+  public
+    constructor create(path : String); override;
+    destructor destroy; override;
+    Function Link : TJsonArray; Overload;
+
+    Property Count : integer read GetCount;
+    Property Item[i : integer] : TJsonNode read GetItem write SetItem;
+    Property Obj[i : integer] : TJsonObject read GetObj write SetObj; default;
+    Property Value[i : integer] : String read GetValue write SetValue;
+  end;
+
+  TJsonNull = class (TJsonNode);
+
+  TJsonValue = class (TJsonNode)
+  private
+    FValue: String;
+  public
+    Constructor Create(path : String; value : string); overload;
+    Function Link : TJsonValue; Overload;
+    property value : String read FValue write FValue;
+  end;
+
+  TJsonObject = class (TJsonNode)
+  private
+    FName : String;
+    FProperties : TJsonProperties;
+    function GetString(name: String): String;
+    function GetArray(name: String): TJsonArray;
+    function GetObject(name: String): TJsonObject;
+  public
+    constructor create(path : String); override;
+    destructor destroy; override;
+    Function Link : TJsonObject; Overload;
+
+    Function has(name : String) : Boolean;
+
+    Property vStr[name : String] : String read GetString; default;
+    Property vArr[name : String] : TJsonArray read GetArray;
+    Property vObj[name : String] : TJsonObject read GetObject;
+
+    Property name : String read FName write FName;
+    Property properties : TJsonProperties read FProperties;
+  end;
+
   TJSONWriter = class (TAdvTextFormatter)
   private
     FBuilder : TAdvStringBuilder;
@@ -56,7 +164,7 @@ Type
   End;
 
 
-  TJSONLexType = (jltOpen, jltClose, jltString, jltNumber, jltColon, jltComma, jltOpenArray, jltCloseArray, jltEof);
+  TJSONLexType = (jltOpen, jltClose, jltString, jltNumber, jltColon, jltComma, jltOpenArray, jltCloseArray, jltEof, jltNull);
 
   TJSONLexer = class (TAdvTextExtractor)
   Private
@@ -80,7 +188,7 @@ Type
 
   End;
 
-  TJsonParserItemType = (jpitObject, jpitSimple, jpitArray, jpitEnd, jpitEof);
+  TJsonParserItemType = (jpitObject, jpitSimple, jpitArray, jpitEnd, jpitEof, jpitNull);
 
   TJSONParser = class (TAdvObject)
   Private
@@ -92,6 +200,9 @@ Type
     Procedure ParseProperty;
     Procedure SkipInner;
     function GetItemValue: String;
+    function GetItemNull: boolean;
+    procedure readObject(obj : TJsonObject);
+    procedure readArray(arr : TJsonArray);
   Public
     Constructor Create(oStream : TStream); Overload;
     Constructor Create(oStream : TAdvStream);  Overload;
@@ -99,15 +210,18 @@ Type
     Property ItemType : TJsonParserItemType read FItemType;
     Property ItemName : String read FItemName;
     Property ItemValue : String read GetItemValue;
+    Property ItemNull : boolean read GetItemNull;
     Procedure Next;
     Procedure Skip;
     Procedure JsonError(sMsg : String);
     Procedure CheckState(aState : TJsonParserItemType);
+    class Function Parse(stream : TAdvStream): TJsonObject; overload;
+    class Function Parse(stream : TStream): TJsonObject; overload;
   End;
 
 Const
-  Codes_TJsonParserItemType : Array[TJsonParserItemType] of String = ('Object', 'Simple', 'Array', 'End', 'EOF');
-  Codes_TJSONLexType : Array[TJSONLexType] of String = ('Open', 'Close', 'String', 'Number', 'Colon', 'Comma', 'OpenArray', 'CloseArray', 'Eof');
+  Codes_TJsonParserItemType : Array[TJsonParserItemType] of String = ('Object', 'Simple', 'Array', 'End', 'EOF', 'Null');
+  Codes_TJSONLexType : Array[TJSONLexType] of String = ('Open', 'Close', 'String', 'Number', 'Colon', 'Comma', 'OpenArray', 'CloseArray', 'Eof', 'Null');
 
 Implementation
 
@@ -361,7 +475,7 @@ end;
 
 procedure TJSONLexer.ParseWord(sWord : String; ch : Char);
 Begin
-  FLexType := jltString;
+  FLexType := jltNull;
   FValue := ch;
   While More and (Length(FValue) < length(sWord)) and (FValue = copy(sWord, 1, length(FValue))) Do
     FValue := FValue + getNextChar;
@@ -520,6 +634,11 @@ begin
   Start;
 end;
 
+function TJSONParser.GetItemNull: boolean;
+begin
+  result := false;
+end;
+
 function TJSONParser.GetItemValue: String;
 begin
   if FItemType <> jpitSimple Then
@@ -548,7 +667,7 @@ begin
       else
         ParseProperty;
       End;
-    jpitSimple, jpitEnd :
+    jpitNull, jpitSimple, jpitEnd :
       Begin
       if FItemType = jpitEnd Then
         FLex.FStates.Delete(0);
@@ -585,6 +704,42 @@ begin
   End;
 end;
 
+class function TJSONParser.Parse(stream: TAdvStream): TJsonObject;
+var
+  p : TJSONParser;
+begin
+  p := TJSONParser.Create(stream);
+  try
+    result := TJsonObject.Create('$');
+    try
+      p.readObject(result);
+      result.Link;
+    finally
+      result.Free;
+    end;
+  finally
+    p.Free;
+  end;
+end;
+
+class function TJSONParser.Parse(stream: TStream): TJsonObject;
+var
+  p : TJSONParser;
+begin
+  p := TJSONParser.Create(stream);
+  try
+    result := TJsonObject.Create('$');
+    try
+      p.readObject(result);
+      result.Link;
+    finally
+      result.Free;
+    end;
+  finally
+    p.Free;
+  end;
+end;
+
 procedure TJSONParser.ParseProperty;
 Begin
   If FLex.FStates.Objects[0] = nil Then
@@ -594,6 +749,12 @@ Begin
     FLex.Consume(jltColon);
   End;
   case FLex.LexType of
+    jltNull :
+      Begin
+      FItemType := jpitNull;
+      FItemValue := FLex.FValue;
+      FLex.Next;
+      end;
     jltString :
       Begin
       FItemType := jpitSimple;
@@ -624,6 +785,73 @@ Begin
   End;
 End;
 
+
+procedure TJSONParser.readArray(arr: TJsonArray);
+var
+  obj : TJsonObject;
+  child : TJsonArray;
+  i : integer;
+begin
+  i := 0;
+  while (ItemType <> jpitEnd) do
+  begin
+    case ItemType of
+      jpitObject:
+        begin
+          obj := TJsonObject.Create(arr.path+'['+inttostr(i)+']');
+          arr.FItems.Add(obj);
+          Next;
+          readObject(obj);
+        end;
+      jpitSimple:
+        arr.FItems.Add(TJsonValue.Create(arr.path+'['+inttostr(i)+']', ItemValue));
+      jpitNull :
+        arr.FItems.Add(TJsonNull.Create(arr.path+'['+inttostr(i)+']'));
+      jpitArray:
+        begin
+        child := TJsonArray.Create(arr.path+'['+inttostr(i)+']');
+        obj.FProperties.Add(ItemName, child);
+        Next;
+        readArray(child);
+        end;
+      jpitEof : raise Exception.Create('Unexpected End of File');
+    end;
+    Next;
+    inc(i);
+  end;
+end;
+
+procedure TJSONParser.readObject(obj: TJsonObject);
+var
+  child : TJsonObject;
+  arr : TJsonArray;
+begin
+  while (ItemType <> jpitEnd) do
+  begin
+    case ItemType of
+      jpitObject:
+        begin
+          child := TJsonObject.Create(obj.path+'.'+ItemName);
+          obj.FProperties.Add(ItemName, child);
+          Next;
+          readObject(child);
+        end;
+      jpitSimple:
+        obj.FProperties.Add(ItemName, TJsonValue.Create(obj.path+'.'+ItemName, ItemValue));
+      jpitNull:
+        obj.FProperties.Add(ItemName, TJsonNull.Create(obj.path+'.'+ItemName));
+      jpitArray:
+        begin
+        arr := TJsonArray.Create(obj.path+'.'+ItemName);
+        obj.FProperties.Add(ItemName, arr);
+        Next;
+        readArray(arr);
+        end;
+      jpitEof : raise Exception.Create('Unexpected End of File');
+    end;
+    next;
+  end;
+end;
 
 procedure TJSONParser.Skip;
 begin
@@ -713,6 +941,213 @@ destructor TJSONParser.Destroy;
 begin
   FLex.free;
   inherited;
+end;
+
+
+{ TJsonNode }
+
+constructor TJsonNode.create(path: String);
+begin
+  inherited Create;
+  self.path := path;
+end;
+
+function TJsonNode.Link: TJsonNode;
+begin
+  result := TJsonNode(Inherited Link);
+end;
+
+function TJsonNode.nodeType: String;
+begin
+  result := copy(className, 6, $FF);
+end;
+
+{ TJsonProperties }
+
+function TJsonProperties.GetProp(const aKey: String): TJsonNode;
+begin
+  result := Matches[aKey] as TJsonNode;
+end;
+
+function TJsonProperties.ItemClass: TAdvObjectClass;
+begin
+  result := TJsonNode;
+end;
+
+function TJsonProperties.Link: TJsonProperties;
+begin
+  result := TJsonProperties(Inherited Link);
+end;
+
+procedure TJsonProperties.SetProp(const aKey: String; const Value: TJsonNode);
+begin
+  Matches[aKey] := Value;
+end;
+
+
+{ TJsonArray }
+
+constructor TJsonArray.create;
+begin
+  inherited;
+  FItems := TAdvObjectList.Create;
+end;
+
+destructor TJsonArray.destroy;
+begin
+  FItems.Free;
+  inherited;
+end;
+
+function TJsonArray.GetCount: integer;
+begin
+  if self = nil then
+    result := 0
+  else
+    result := FItems.Count;
+end;
+
+function TJsonArray.GetItem(i: integer): TJsonNode;
+begin
+  if (self = nil) or (i >= Count) then
+    result := nil
+  else
+    result := FItems[i] as TJsonNode;
+end;
+
+function TJsonArray.GetObj(i: integer): TJsonObject;
+begin
+  if (self = nil) or (i >= Count) then
+    result := nil
+  else if FItems[i] is TJsonObject then
+    result := FItems[i] as TJsonObject
+  else if FItems[i] is TJsonNull then
+    result := nil
+  else
+    raise Exception.Create('Found a '+TJsonNode(FItems[i]).nodeType+' expecting an object at '+path+'['+inttostr(i)+']');
+end;
+
+function TJsonArray.GetValue(i: integer): String;
+begin
+  if (self = nil) or (i >= Count)  then
+    result := ''
+  else if FItems[i] is TJsonValue then
+    result := (FItems[i] as TJsonValue).FValue
+  else if FItems[i] is TJsonNull then
+    result := ''
+  else
+    raise Exception.Create('Found a '+nodeType+' expecting a string property at '+path);
+end;
+
+function TJsonArray.Link: TJsonArray;
+begin
+  result := TJsonArray(Inherited Link);
+end;
+
+procedure TJsonArray.SetItem(i: integer; const Value: TJsonNode);
+begin
+  FItems[i] := Value;
+end;
+
+procedure TJsonArray.SetObj(i: integer; const Value: TJsonObject);
+begin
+  FItems[i] := Value;
+end;
+
+procedure TJsonArray.SetValue(i: integer; const Value: String);
+begin
+  FItems[i] := TJsonValue.Create(Path+'['+inttostr(i)+']', Value);
+end;
+
+{ TJsonValue }
+
+constructor TJsonValue.Create(path, value: string);
+begin
+  Create(path);
+  self.value := value;
+end;
+
+function TJsonValue.Link: TJsonValue;
+begin
+  result := TJsonValue(Inherited Link);
+end;
+
+{ TJsonObject }
+
+constructor TJsonObject.create;
+begin
+  inherited;
+  FProperties := TJsonProperties.Create;
+end;
+
+destructor TJsonObject.destroy;
+begin
+  FProperties.Free;
+  inherited;
+end;
+
+function TJsonObject.GetArray(name: String): TJsonArray;
+var
+  node : TJsonNode;
+begin
+  if has(name) then
+  begin
+    node := FProperties[name];
+    if node is TJsonArray then
+      result := TJsonArray(node)
+    else if node is TJsonNull then
+      result := nil
+    else
+      raise Exception.Create('Found a '+nodeType+' looking for an array at '+path);
+  end
+  else
+    result := nil;
+end;
+
+function TJsonObject.GetObject(name: String): TJsonObject;
+var
+  node : TJsonNode;
+begin
+  if has(name) then
+  begin
+    node := FProperties[name];
+    if node is TJsonObject then
+      result := TJsonObject(node)
+    else if node is TJsonNull then
+      result := nil
+    else
+      raise Exception.Create('Found a '+node.ClassName+' looking for an object');
+  end
+  else
+    result := nil;
+end;
+
+function TJsonObject.GetString(name: String): String;
+var
+  node : TJsonNode;
+begin
+  if has(name) then
+  begin
+    node := FProperties[name];
+    if node is TJsonValue then
+      result := TJsonValue(node).FValue
+    else if node is TJsonNull then
+      result := ''
+    else
+      raise Exception.Create('Found a '+node.ClassName+' looking for a string');
+  end
+  else
+    result := '';
+end;
+
+function TJsonObject.has(name: String): Boolean;
+begin
+  result := FProperties.ExistsByKey(name);
+end;
+
+function TJsonObject.Link: TJsonObject;
+begin
+  result := TJsonObject(Inherited Link);
 end;
 
 End.

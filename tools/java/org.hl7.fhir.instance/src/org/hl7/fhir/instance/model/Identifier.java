@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -97,7 +97,7 @@ public class Identifier extends Type {
     }
 
     /**
-     * usual | official | temp | secondary (If known).
+     * The use of this identifier.
      */
     protected Enumeration<IdentifierUse> use;
 
@@ -131,14 +131,14 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #use} (usual | official | temp | secondary (If known).)
+     * @return {@link #use} (The use of this identifier.)
      */
     public Enumeration<IdentifierUse> getUse() { 
       return this.use;
     }
 
     /**
-     * @param value {@link #use} (usual | official | temp | secondary (If known).)
+     * @param value {@link #use} (The use of this identifier.)
      */
     public Identifier setUse(Enumeration<IdentifierUse> value) { 
       this.use = value;
@@ -146,14 +146,14 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return usual | official | temp | secondary (If known).
+     * @return The use of this identifier.
      */
     public IdentifierUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
-     * @param value usual | official | temp | secondary (If known).
+     * @param value The use of this identifier.
      */
     public Identifier setUseSimple(IdentifierUse value) { 
       if (value == null)
@@ -306,7 +306,7 @@ public class Identifier extends Type {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("use", "code", "usual | official | temp | secondary (If known).", 0, java.lang.Integer.MAX_VALUE, use));
+        childrenList.add(new Property("use", "code", "The use of this identifier.", 0, java.lang.Integer.MAX_VALUE, use));
         childrenList.add(new Property("label", "string", "A label for the identifier that can be displayed to a human so they can recognize the identifier.", 0, java.lang.Integer.MAX_VALUE, label));
         childrenList.add(new Property("system", "uri", "Establishes the namespace in which set of possible id values is unique.", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("value", "string", "The portion of the identifier typically displayed to the user and which is unique within the context of the system.", 0, java.lang.Integer.MAX_VALUE, value));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -97,7 +97,7 @@ public class Address extends Type {
     }
 
     /**
-     * Identifies the intended purpose of this address.
+     * The use of this address.
      */
     protected Enumeration<AddressUse> use;
 
@@ -142,14 +142,14 @@ P.O. Box number, delivery hints, and similar address information.
     }
 
     /**
-     * @return {@link #use} (Identifies the intended purpose of this address.)
+     * @return {@link #use} (The use of this address.)
      */
     public Enumeration<AddressUse> getUse() { 
       return this.use;
     }
 
     /**
-     * @param value {@link #use} (Identifies the intended purpose of this address.)
+     * @param value {@link #use} (The use of this address.)
      */
     public Address setUse(Enumeration<AddressUse> value) { 
       this.use = value;
@@ -157,14 +157,14 @@ P.O. Box number, delivery hints, and similar address information.
     }
 
     /**
-     * @return Identifies the intended purpose of this address.
+     * @return The use of this address.
      */
     public AddressUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
-     * @param value Identifies the intended purpose of this address.
+     * @param value The use of this address.
      */
     public Address setUseSimple(AddressUse value) { 
       if (value == null)
@@ -404,7 +404,7 @@ P.O. Box number, delivery hints, and similar address information.)
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("use", "code", "Identifies the intended purpose of this address.", 0, java.lang.Integer.MAX_VALUE, use));
+        childrenList.add(new Property("use", "code", "The use of this address.", 0, java.lang.Integer.MAX_VALUE, use));
         childrenList.add(new Property("text", "string", "A full text representation of the address.", 0, java.lang.Integer.MAX_VALUE, text));
         childrenList.add(new Property("line", "string", "This component contains the house number, apartment number, street name, street direction, \nP.O. Box number, delivery hints, and similar address information.", 0, java.lang.Integer.MAX_VALUE, line));
         childrenList.add(new Property("city", "string", "The name of the city, town, village or other community or delivery center.", 0, java.lang.Integer.MAX_VALUE, city));

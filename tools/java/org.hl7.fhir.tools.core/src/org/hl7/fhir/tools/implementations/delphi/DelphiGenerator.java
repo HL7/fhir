@@ -91,7 +91,9 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private List<String> lists = new ArrayList<String>();
   
   private StringBuilder workingParserX;
+  private StringBuilder workingParserXA;
   private StringBuilder workingComposerX;
+  private StringBuilder workingComposerXA;
   private StringBuilder workingParserJ;
   private StringBuilder workingComposerJ;
   private StringBuilder factoryIntf;
@@ -162,7 +164,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
       genResource(n, "TFhir"+n.getName(), "TFhirResource", true, ClassCategory.Resource);
       prsrRegX.append("  else if element.baseName = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(element, path+'/"+n.getName()+"')\r\n");
       srlsRegX.append("    frt"+n.getName()+": Compose"+n.getName()+"(xml, '"+n.getName()+"', TFhir"+n.getName()+"(resource));\r\n");
-      prsrRegJ.append("  else if json.ItemName = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(path+'."+n.getName()+"')\r\n");
+      prsrRegJ.append("  else if s = '"+n.getName()+"' Then\r\n    result := Parse"+n.getName()+"(jsn)\r\n");
       srlsRegJ.append("    frt"+n.getName()+": Compose"+n.getName()+"(json, '"+n.getName()+"', TFhir"+n.getName()+"(resource));\r\n");
     }
     
@@ -193,6 +195,14 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     genDoco(implDir);
     ZipGenerator zip = new ZipGenerator(destDir+"delphi.zip");
     zip.addFiles(implDir, "", ".pas", null);
+    zip.addFiles(implDir, "", ".res", null);
+    zip.addFiles(implDir, "", ".rc", null);
+    zip.addFiles(implDir, "", ".dpr", null);
+    zip.addFiles(implDir, "", ".dproj", null);
+    zip.addFiles(implDir, "", ".dof", null);
+    zip.addFiles(implDir, "", ".txt", null);
+    zip.addFiles(Utilities.path(implDir, "support", ""), "support\\", ".pas", null);
+    zip.addFiles(Utilities.path(implDir, "support", ""), "support\\", ".inc", null);
     zip.close();    
   }
 
@@ -339,10 +349,12 @@ public void generate(Definitions definitions, String destDir, String implDir, St
   private void genGenericResource(ElementDefn root, String tn, String pt, String superClass, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n");
     srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
-    prsrdefJ.append("    function Parse"+tn.substring(5)+"(path : string) : "+tn+";\r\n");
+    prsrdefJ.append("    function Parse"+tn.substring(5)+"(jsn : TJsonObject) : "+tn+"; overload; {b/}\r\n");
     srlsdefJ.append("    procedure Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+");\r\n");
     workingParserX = new StringBuilder();
+    workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
+    workingComposerXA = new StringBuilder();
     workingParserJ = new StringBuilder();
     workingComposerJ = new StringBuilder();
     
@@ -427,7 +439,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString()+impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, false, !superClass.equals("TFHIRObject"));
+    generateParser(tn, ClassCategory.Type, !superClass.equals("TFHIRObject"));
   }
   
   private DelphiCodeGenerator getCode(ClassCategory category) {
@@ -445,10 +457,12 @@ public void generate(Definitions definitions, String destDir, String implDir, St
   private void genType(ElementDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement; path : string) : TFhir"+root.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
-    prsrdefJ.append("    function Parse"+root.getName()+"(path : string) : TFhir"+root.getName()+";\r\n");
+    prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload;\r\n");
     srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");\r\n");
     workingParserX = new StringBuilder();
+    workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
+    workingComposerXA = new StringBuilder();
     workingParserJ = new StringBuilder();
     workingComposerJ = new StringBuilder();
 
@@ -546,17 +560,19 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, isRes, !superClass.equals("TFHIRObject"));
+    generateParser(tn, isRes ? ClassCategory.Resource : ClassCategory.Type, !superClass.equals("TFHIRObject"));
     defineList(tn, tn+"List", category, false);
   }
 
   private void genResource(ResourceDefn root, String tn, String superClass, boolean listsAreWrapped, ClassCategory category) throws Exception {
     prsrdefX.append("    function Parse"+root.getName()+"(element : IXmlDomElement; path : string) : TFhir"+root.getName()+";\r\n");
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
-    prsrdefJ.append("    function Parse"+root.getName()+"(path : string) : TFhir"+root.getName()+";\r\n");
+    prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload; {b|}\r\n");
     srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");\r\n");
     workingParserX = new StringBuilder();
+    workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
+    workingComposerXA = new StringBuilder();
     workingParserJ = new StringBuilder();
     workingComposerJ = new StringBuilder();
 
@@ -658,7 +674,7 @@ public void generate(Definitions definitions, String destDir, String implDir, St
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, isRes, !superClass.equals("TFHIRObject"));
+    generateParser(tn, isRes ? ClassCategory.Resource : ClassCategory.Type, !superClass.equals("TFHIRObject"));
   }
 
   private boolean hasASummary(ResourceDefn root) {
@@ -874,10 +890,12 @@ private void generateEnum(ElementDefn e) throws Exception {
 
     prsrdefX.append("    function Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n");
     srlsdefX.append("    procedure Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
-    prsrdefJ.append("    function Parse"+tn.substring(5)+"(path : string) : "+tn+";\r\n");
+    prsrdefJ.append("    function Parse"+tn.substring(5)+"(jsn : TJsonObject) : "+tn+"; overload; {b\\}\r\n");
     srlsdefJ.append("    procedure Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+");\r\n");
     workingParserX = new StringBuilder();
+    workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
+    workingComposerXA = new StringBuilder();
     workingParserJ = new StringBuilder();
     workingComposerJ = new StringBuilder();
     
@@ -896,7 +914,10 @@ private void generateEnum(ElementDefn e) throws Exception {
     def.append("    "+Utilities.normaliseEolns(e.getDefinition())+"\r\n");
     def.append("  }\r\n");
     def.append("  {!.Net HL7Connect.Fhir."+tn.substring(5)+"}\r\n");
-    def.append("  "+tn+" = class (TFhirElement)\r\n");
+    if (category == ClassCategory.Component)
+      def.append("  "+tn+" = class (TFhirBackboneElement)\r\n");
+    else
+      def.append("  "+tn+" = class (TFhirElement)\r\n");
     types.add(tn);
     factoryIntf.append("    {@member new"+tn.substring(5)+"\r\n      create a new "+e.getName()+"\r\n    }\r\n    {!script nolink}\r\n    function new"+tn.substring(5)+" : "+tn+";\r\n");    
     factoryImpl.append("function TFhirResourceFactory.new"+tn.substring(5)+" : "+tn+";\r\nbegin\r\n  result := "+tn+".create;\r\nend;\r\n\r\n");
@@ -979,11 +1000,11 @@ private void generateEnum(ElementDefn e) throws Exception {
     getCode(category).classDefs.add(def.toString());
     getCode(category).classImpls.add(impl2.toString() + impl.toString());
     getCode(category).classFwds.add("  "+tn+" = class;\r\n");
-    generateParser(tn, false, true);
+    generateParser(tn, category, true);
     defineList(tn, tn+"List", category, false);
   }
 
-  private void generateParser(String tn, boolean isResource, boolean isElement) throws Exception {
+  private void generateParser(String tn, ClassCategory category, boolean isElement) throws Exception {
     String s = workingParserX.toString();
     prsrImpl.append(
             "function TFHIRXmlParser.Parse"+tn.substring(5)+"(element : IXmlDomElement; path : string) : "+tn+";\r\n"+
@@ -996,11 +1017,13 @@ private void generateEnum(ElementDefn e) throws Exception {
             "  result := "+tn+".create;\r\n"+
             "  try\r\n");
     if (isElement)
-      if (isResource)
+      if (category == ClassCategory.Resource)
         prsrImpl.append("    parseResourceAttributes(result, path, element);\r\n");
       else
         prsrImpl.append("    parseElementAttributes(result, path, element);\r\n");
 
+    prsrImpl.append(workingParserXA.toString());
+    
     prsrImpl.append(
             "    child := FirstChild(element);\r\n"+
             "    while (child <> nil) do\r\n"+
@@ -1018,10 +1041,13 @@ private void generateEnum(ElementDefn e) throws Exception {
     if (!isElement)
       prsrImpl.append(
           "      else\r\n");
-    else if (isResource)
+    else if (category == ClassCategory.Resource)
       prsrImpl.append(
           "      else if Not ParseResourceChild(result, path, child) then\r\n");
-    else
+    else if (category == ClassCategory.Component)
+      prsrImpl.append(
+      "      else if Not ParseBackboneElementChild(result, path, child) then\r\n");
+    else 
       prsrImpl.append(
       "      else if Not ParseElementChild(result, path, child) then\r\n");
     prsrImpl.append(
@@ -1044,20 +1070,23 @@ private void generateEnum(ElementDefn e) throws Exception {
     prsrImpl.append(
             "procedure TFHIRXmlComposer.Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
     if (s.contains("for i := "))
-      prsrImpl.append("var\r\n  i : integer;\r\n");
+      prsrImpl.append("var\r\n  i : integer;\r\n  ext : boolean;\r\n");
     prsrImpl.append(
             "begin\r\n"+
             "  if (elem = nil) then\r\n    exit;\r\n");
     if (isElement)
-      if (isResource)
+      if (category == ClassCategory.Resource)
         prsrImpl.append("  composeResourceAttributes(xml, elem);\r\n");
       else
         prsrImpl.append("  composeElementAttributes(xml, elem);\r\n");
+    prsrImpl.append(workingComposerXA.toString());        
     prsrImpl.append(
             "  xml.open(name);\r\n");
     if (isElement)
-      if (isResource)
+      if (category == ClassCategory.Resource)
         prsrImpl.append("  composeResourceChildren(xml, elem);\r\n");
+      else if (category == ClassCategory.Component)
+        prsrImpl.append("  composeBackboneElementChildren(xml, elem);\r\n");
       else
         prsrImpl.append("  composeElementChildren(xml, elem);\r\n");
     
@@ -1069,32 +1098,29 @@ private void generateEnum(ElementDefn e) throws Exception {
             "end;\r\n\r\n"
         );
 
+    prsrdefJ.append("    procedure Parse"+tn.substring(5)+"(jsn : TJsonObject; ctxt : TFHIRObjectList); overload; {b.}\r\n");
+    prsrImpl.append("procedure TFHIRJsonParser.Parse"+tn.substring(5)+"(jsn : TJsonObject; ctxt : TFHIRObjectList);\r\n");
+    prsrImpl.append("begin\r\n");
+    prsrImpl.append("  ctxt.add(Parse"+tn.substring(5)+"(jsn));\r\n");
+    prsrImpl.append("end;\r\n\r\n");
+
     s = workingParserJ.toString();
     prsrImpl.append(
-            "function TFHIRJsonParser.Parse"+tn.substring(5)+"(path : string) : "+tn+";\r\n"+
+        "function TFHIRJsonParser.Parse"+tn.substring(5)+"(jsn : TJsonObject) : "+tn+";\r\n"+
             "begin\r\n"+
-            "  json.next;\r\n"+    
             "  result := "+tn+".create;\r\n"+
-            "  try\r\n"+
-            "    while (json.ItemType <> jpitEnd) do\r\n"+
-            "    begin\r\n      ");
-    if (s.length() > 11)
-      prsrImpl.append(s.substring(11));
-    if (!isElement)
-      prsrImpl.append(
-          "      else\r\n");
-    else if (isResource)
-      prsrImpl.append(
-          "      else if not ParseResourceProperty(result, path) then\r\n");
-    else
-      prsrImpl.append(
-        "      else if not ParseElementProperty(result, path) then\r\n");
+        "  try\r\n");
+    if (isElement) {
+      if (category == ClassCategory.Resource)
+        prsrImpl.append("    ParseResourceProperties(jsn, result);\r\n");
+      else if (category == ClassCategory.Component)
+        prsrImpl.append("    ParseBackboneElementProperties(jsn, result);\r\n");
+      else
+        prsrImpl.append("    ParseElementProperties(jsn, result);\r\n");
+    }
+    prsrImpl.append(s);
     prsrImpl.append(
-            "         UnknownContent(path);\r\n"+
-            "      json.next;\r\n"+    
-            "    end;\r\n"+
-            "\r\n"+
-            "    result.link;\r\n"+
+        "    result.link;\r\n"+
             "  finally\r\n"+
             "    result.free;\r\n"+
             "  end;\r\n"+
@@ -1104,22 +1130,32 @@ private void generateEnum(ElementDefn e) throws Exception {
     s = workingComposerJ.toString();
     prsrImpl.append(
             "procedure TFHIRJsonComposer.Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+");\r\n");
-    if (s.contains("for i := ") || isResource)
-      prsrImpl.append("var\r\n  i : integer;\r\n");
-    prsrImpl.append(
-            "begin\r\n"+
-            "  if (elem = nil) then\r\n    exit;\r\n"+
-            "  json.valueObject(name);\r\n");
+    if (s.contains("for i := ") || category == ClassCategory.Resource)
+      prsrImpl.append("var\r\n  i : integer;  ext : boolean;\r\n");
+    if (category == ClassCategory.Resource)
+      prsrImpl.append(
+          "begin\r\n"+
+          "  if (elem = nil) then\r\n    exit;\r\n");
+    else 
+      prsrImpl.append(
+          "begin\r\n"+
+          "  if (elem = nil) then\r\n    exit;\r\n"+
+          "  json.valueObject(name);\r\n");
     if (isElement)
-      if (isResource)
+      if (category == ClassCategory.Resource)
         prsrImpl.append("  ComposeResourceProperties(json, elem);\r\n");
+      else if (category == ClassCategory.Component)
+        prsrImpl.append("  ComposeBackboneElementProperties(json, elem);\r\n");
       else
         prsrImpl.append("  ComposeElementProperties(json, elem);\r\n");
     prsrImpl.append(s);
-    prsrImpl.append(
+    if (category == ClassCategory.Resource)
+      prsrImpl.append(
+          "end;\r\n\r\n");
+    else
+      prsrImpl.append(
             "  json.finishObject;\r\n"+
-            "end;\r\n\r\n"
-        );
+            "end;\r\n\r\n");
 
   }
 
@@ -1253,21 +1289,22 @@ private void generateEnum(ElementDefn e) throws Exception {
     else 
       propV = propV+".Link";
     
-    String parseJ = null;
-    if (typeIsSimple(tn)) {
-      if (enumNames.contains(tn))
-        parseJ = "ParseEnum(CODES_"+tn+", path+'."+e.getName()+"')";
-      else if (tn.equals("Integer"))
-        parseJ = "StringToInteger32(json.itemValue)";
-      else if (tn.equals("Boolean"))
-        parseJ = "StringToBoolean(json.itemValue)";
-      else if (tn.equals("TDateAndTime"))
-        parseJ = "TDateAndTime.createXml(json.itemValue)";
-      else if (tn.equals("TFhirXHtmlNode"))
-        parseJ = "ParseXhtml()";
-      else
-        parseJ = "json.itemValue";
-    }
+    String parseJ1 = null;
+//    if (typeIsSimple(tn)) {
+      if (enumNames.contains(tn)) {
+        parseJ1 = "ParseEnumValue(CODES_"+tn+"')";
+      } else if (tn.equals("Integer")) {
+        parseJ1 = "ParseIntegerValue(path+'."+e.getName()+"')";
+      } else if (tn.equals("Boolean") || tn.equals("TFhirBoolean")) {
+        parseJ1 = "ParseBooleanValue(path+'."+e.getName()+"')";
+      } else if (tn.equals("TDateAndTime") || tn.equals("TFhirDateTime") || tn.equals("TFhirDate") || tn.equals("TFhirInstant")) {
+        parseJ1 = "ParseDateAndTimeValue(path+'."+e.getName()+"')";
+      } else if (tn.equals("TFhirXHtmlNode")) {
+        parseJ1 = "ParseXhtml(path+'."+e.getName()+"')";
+      } else {
+        parseJ1 = "ParseStringValue(path+'."+e.getName()+"')";
+      }
+//    }
     String srlsd = "Text";
     String srlsdJ = "Prop";
     String srls = "#";
@@ -1327,18 +1364,9 @@ private void generateEnum(ElementDefn e) throws Exception {
             "      ComposeEnum(xml, '"+e.getName()+"', elem."+s+"[i], CODES_"+tn+");\r\n");
         //     ComposeEnum(xml, 'flag', elem.flag[i], CODES_TFhirDeviceValueFlag);
 
-        workingParserJ.append("      else if (json.ItemName = '"+e.getName()+"') then\r\n"+
-            "      begin\r\n"+
-            "        json.checkState(jpitArray);\r\n"+
-            "        json.Next;\r\n"+
-            "        if json.ItemType = jpitEnd then\r\n"+
-            "          json.next;\r\n"+
-            "        while (json.ItemType <> jpitEnd) do\r\n"+
-            "        begin\r\n"+
-            "          result."+s+".Add("+parseJ+");\r\n"+
-            "          json.Next;\r\n"+
-            "        end;\r\n"+
-            "      end\r\n");
+        workingParserJ.append(
+            "    if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"') then\r\n"+
+            "      iterateEnumArray(jsn.vArr['"+e.getName()+"'], jsn.vArr['_"+e.getName()+"'], result."+s+", parseEnum, CODES_"+tn+");\r\n");
 
         if (summary)
           workingComposerJ.append("  if elem."+s+".Count > 0 then\r\n");
@@ -1347,14 +1375,24 @@ private void generateEnum(ElementDefn e) throws Exception {
         workingComposerJ.append(
             "  begin\r\n"+
             "    json.valueArray('"+e.getName()+"');\r\n"+
+            "    ext := false;\r\n"+    
             "    for i := 0 to elem."+s+".Count - 1 do\r\n"+
-//            "      "+srlsdJ+"(json, '',"+srls.replace("#", "elem."+s+"[i]")+");\r\n"+
-            "      ComposeEnum(json, '', elem."+s+"[i], CODES_"+tn+");\r\n"+
+            "    begin\r\n"+
+            "      ext := ext or ((elem."+s+"[i].xmlid <> '') or (elem."+s+"[i].hasExtensions));\r\n"+
+            "      ComposeEnumValue(json, '', elem."+s+"[i], CODES_"+tn+", true);\r\n"+
+            "    end;\r\n"+
             "    json.FinishArray;\r\n"+
+            "    if ext then\r\n"+
+            "    begin\r\n"+
+            "      json.valueArray('_"+e.getName()+"');\r\n"+
+            "      for i := 0 to elem."+s+".Count - 1 do\r\n"+
+            "        ComposeEnumProps(json, '', elem."+s+"[i], CODES_"+tn+", true);\r\n"+
+            "      json.FinishArray;\r\n"+
+            "    end;\r\n"+
             "  end;\r\n");
 
 //    		workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := "+parse+"\r\n");
-//        workingParserJ.append("      else if (json.ItemName = '"+e.getName()+"') then\r\n        result."+s+" := "+parseJ+"\r\n");
+//        workingParserJ.append("      else if jsn.has('"+e.getName()+"') then\r\n        result."+s+" := "+parseJ+"\r\n");
 ////        if (tn.equals("TXmlIdReference")) {
 ////          workingComposerX.append("  if (elem."+e.getName()+" <> '') then\r\n");
 ////          workingComposerX.append("  begin\r\n");
@@ -1394,7 +1432,8 @@ private void generateEnum(ElementDefn e) throws Exception {
     		if (!typeIsSimple(tn)) {
     			if (!e.getName().equals("[type]") && !e.getName().contains("[x]")) {
     				parse = "Parse"+parseName(tn)+"(child, path+'/"+e.getName()+"')";
-    				parseJ = "Parse"+parseName(tn)+"(path+'."+e.getName()+"')";
+    				if (!typeIsPrimitive(e.typeCode()))
+    				  parseJ1 = "Parse"+parseName(tn)+"(path+'."+e.getName()+"')";
     				srlsd = "Compose"+parseName(tn);
     				srlsdJ = "Compose"+parseName(tn);
     			} else {
@@ -1409,30 +1448,47 @@ private void generateEnum(ElementDefn e) throws Exception {
         else
           workingComposerX.append("  if not SummaryOnly then\r\n    for i := 0 to elem."+s+".Count - 1 do\r\n"+
             "      "+srlsd+"(xml, '"+e.getName()+"', "+srls.replace("#", "elem."+s+"[i]")+");\r\n");
-    		workingParserJ.append("      else if (json.ItemName = '"+e.getName()+"') then\r\n"+
-    				"      begin\r\n"+
-    				"        json.checkState(jpitArray);\r\n"+
-    				"        json.Next;\r\n"+
-            "        if json.ItemType = jpitEnd then\r\n"+
-            "          json.next;\r\n"+
-    				"        while (json.ItemType <> jpitEnd) do\r\n"+
-    				"        begin\r\n"+
-    				"          result."+s+".Add("+parseJ+");\r\n"+
-    				"          json.Next;\r\n"+
-    				"        end;\r\n"+
-    				"      end\r\n");
+    		if (typeIsPrimitive(e.typeCode())) 
+        workingParserJ.append(
+            "      if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"') then\r\n"+
+            "      iteratePrimitiveArray(jsn.vArr['"+e.getName()+"'], jsn.vArr['_"+e.getName()+"'], result."+s+", parse"+parseName(tn)+");\r\n");
+    		else
+    		  workingParserJ.append("    if jsn.has('"+e.getName()+"') then\r\n"+
+            "      iterateArray(jsn.vArr['"+e.getName()+"'], result."+s+", parse"+parseName(tn)+");\r\n");
 
         if (summary)
           workingComposerJ.append("  if elem."+s+".Count > 0 then\r\n");
         else
           workingComposerJ.append("  if not SummaryOnly and (elem."+s+".Count > 0) then\r\n");
-    		workingComposerJ.append(
-    				"  begin\r\n"+
-    				"    json.valueArray('"+e.getName()+"');\r\n"+
-    				"    for i := 0 to elem."+s+".Count - 1 do\r\n"+
-    				"      "+srlsdJ+"(json, '',"+srls.replace("#", "elem."+s+"[i]")+");\r\n"+
-    				"    json.FinishArray;\r\n"+
-    				"  end;\r\n");
+        if (typeIsPrimitive(e.typeCode())) 
+          workingComposerJ.append(
+              "  begin\r\n"+
+              "    json.valueArray('"+e.getName()+"');\r\n"+
+              "    ext := false;\r\n"+    
+              "    for i := 0 to elem."+s+".Count - 1 do\r\n"+
+              "    begin\r\n"+
+              "      ext := ext or ((elem."+s+"[i].xmlid <> '') or (elem."+s+"[i].hasExtensions));\r\n"+
+              "      "+srlsdJ+"Value(json, '',"+srls.replace("#", "elem."+s+"[i]")+", true);\r\n"+
+              "    end;\r\n"+
+              "    json.FinishArray;\r\n"+
+              "    if ext then\r\n"+
+              "    begin\r\n"+
+              "      json.valueArray('_"+e.getName()+"');\r\n"+
+              "      for i := 0 to elem."+s+".Count - 1 do\r\n"+
+              "        "+srlsdJ+"Props(json, '',"+srls.replace("#", "elem."+s+"[i]")+", true);\r\n"+
+              "      json.FinishArray;\r\n"+
+              "    end;\r\n"+
+              "  end;\r\n");
+        
+        
+        else
+      		workingComposerJ.append(
+    				  "  begin\r\n"+
+    				  "    json.valueArray('"+e.getName()+"');\r\n"+
+    				  "    for i := 0 to elem."+s+".Count - 1 do\r\n"+
+    				  "      "+srlsdJ+"(json, '',"+srls.replace("#", "elem."+s+"[i]")+"); {z - "+e.typeCode()+"}\r\n"+
+    				  "    json.FinishArray;\r\n"+
+    				  "  end;\r\n");
     	}
     } else {
       if (enumNames.contains(tn)) {         
@@ -1478,8 +1534,12 @@ private void generateEnum(ElementDefn e) throws Exception {
         assign.append("  F"+getTitle(s)+" := "+cn+"(oSource).F"+getTitle(s)+".Link;\r\n");
         getkids.append("  if (child_name = '"+getElementName(e.getName())+"') Then\r\n     list.add(F"+getTitle(s)+".Link);\r\n");
         getprops.append("  oList.add(TFHIRProperty.create(self, '"+e.getName()+"', '"+breakConstant(e.typeCode())+"', "+propV+".Link));{1}\r\n");
-        workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := "+parse+"\r\n");
-        workingParserJ.append("      else if (json.ItemName = '"+e.getName()+"') then\r\n        result."+s+" := "+parseJ+"\r\n");
+        if (e.isXmlAttribute())
+          workingParserXA.append("    result."+s+"ST := fix me (and compose)! GetAttribute(element, '"+e.getName()+"');\r\n");
+        else  
+          workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := "+parse+"\r\n");
+        workingParserJ.append("    if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"')  then\r\n"+
+          "      result."+s+" := parseEnum(jsn['"+e.getName()+"'], jsn.vObj['_"+e.getName()+"'], CODES_"+tn+");\r\n");
 //        if (tn.equals("TXmlIdReference")) {
 //          workingComposerX.append("  if (elem."+e.getName()+" <> '') then\r\n");
 //          workingComposerX.append("  begin\r\n");
@@ -1490,10 +1550,12 @@ private void generateEnum(ElementDefn e) throws Exception {
         destroy.append("  F"+getTitle(s)+".free;\r\n");
         if (enumNames.contains(tn)) {         
           workingComposerX.append("  "+sum2+"ComposeEnum(xml, '"+e.getName()+"', elem."+getTitle(s)+", CODES_"+tn+");\r\n");
-          workingComposerJ.append("  "+sum2+"ComposeEnum(json, '"+e.getName()+"', elem."+getTitle(s)+", CODES_"+tn+");\r\n");
+          workingComposerJ.append("  "+sum2+"ComposeEnumValue(json, '"+e.getName()+"', elem."+getTitle(s)+", CODES_"+tn+", false);\r\n");
+          workingComposerJ.append("  "+sum2+"ComposeEnumProps(json, '"+e.getName()+"', elem."+getTitle(s)+", CODES_"+tn+", false);\r\n");
         } else {
           workingComposerX.append("  "+sum2+"Compose"+tn+"(xml, '"+e.getName()+"', elem."+getTitle(s)+");\r\n");
-          workingComposerJ.append("  "+sum2+"Compose"+tn+"(json, '"+e.getName()+"', elem."+getTitle(s)+");\r\n");        
+          workingComposerJ.append("  "+sum2+"Compose"+tn+"Value(json, '"+e.getName()+"', elem."+getTitle(s)+", false); {1}\r\n");        
+          workingComposerJ.append("  "+sum2+"Compose"+tn+"Props(json, '"+e.getName()+"', elem."+getTitle(s)+", false); {y}\r\n");        
         }
       }
       else {
@@ -1523,7 +1585,7 @@ private void generateEnum(ElementDefn e) throws Exception {
             if (td.isResourceReference()) {
               workingParserX.append("      else if (child.baseName = '"+pfx+"Resource') then\r\n        result."+s+" := ParseResourceReference(child, path+'/"+pfx+"Resource') {a}\r\n");
               workingComposerX.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is TFhirResourceReference) {2} then\r\n    ComposeResourceReference(xml, '"+pfx+"Resource', TFhirResourceReference(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
-              workingParserJ.append("      else if (json.ItemName = '"+pfx+"Resource') then\r\n        result."+s+" := ParseResourceReference(path+'."+pfx+"Resource')\r\n");
+              workingParserJ.append("    if jsn.has('"+pfx+"Resource') {a3} then\r\n      result."+s+" := ParseResourceReference(jsn.vObj['"+pfx+"Resource']);\r\n");
               workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is TFhirResourceReference) then\r\n    ComposeResourceReference(json, '"+pfx+"Resource', TFhirResourceReference(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
             }
             else {
@@ -1541,41 +1603,67 @@ private void generateEnum(ElementDefn e) throws Exception {
 //                  workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" elem."+s+" is TFHIR"+getTitle(td.getName())+" then\r\n    Prop(json, '"+pfx+getTitle(td.getName())+"', LCBooleanToString(TFHIR"+getTitle(td.getName())+"(elem."+s+").value))"+(i == t-1?";" : "")+"\r\n");
 //              } else {
                 workingComposerX.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName(), true)+") {6} then\r\n    Compose"+getTitle(td.getName())+"(xml, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
-                workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName(), true)+") then\r\n    Compose"+getTitle(td.getName())+"(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+"))"+(i == t-1?";" : "")+"\r\n");
-//              }
-              workingParserJ.append("      else if (json.ItemName = '"+pfx+getTitle(td.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(td.getName())+"(path+'."+pfx+getTitle(td.getName())+"')\r\n");
+                if (typeIsPrimitive(td.getName())) {
+                  workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName(), true)+") then \r\n"+
+                      "  begin\r\n"+
+                      "    Compose"+getTitle(td.getName())+"Value(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+"), false);\r\n"+
+                      "    Compose"+getTitle(td.getName())+"Props(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+"), false);\r\n  end"+(i == t-1?";" : "")+"\r\n");
+                  workingParserJ.append("    if jsn.has('"+pfx+getTitle(td.getName())+"') or jsn.has('_"+pfx+getTitle(td.getName())+"') then\r\n      result."+s+" := parse"+Utilities.capitalize(td.getName())+"(jsn['"+pfx+getTitle(td.getName())+"'], jsn.vObj['_"+pfx+getTitle(td.getName())+"']);\r\n");
+                } else {
+                  workingComposerJ.append("  "+(i==0 ? "if" : "else if")+" "+sumAnd+"(elem."+s+" is "+getTypeName(td.getName(), true)+") then \r\n"+
+                      "    Compose"+getTitle(td.getName())+"(json, '"+pfx+getTitle(td.getName())+"', "+getTypeName(td.getName(), true)+"(elem."+s+")) "+(i == t-1?";" : "")+"\r\n");
+                  workingParserJ.append("    if jsn.has('"+pfx+getTitle(td.getName())+"') {a4} then\r\n      result."+s+" := Parse"+getTitle(td.getName())+"(jsn.vObj['"+pfx+getTitle(td.getName())+"']);\r\n");
+                }
             }
             i++;
           }
           
         } else if (!e.getName().equals("[type]") && !e.getName().contains("[x]")) {
-          workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(child, path+'/"+e.getName()+"') {b}\r\n");
-          workingComposerX.append("  "+sum2+"Compose"+parseName(tn)+"(xml, '"+e.getName()+"', elem."+s+");\r\n");
-          workingParserJ.append("      else if (json.ItemName = '"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(path+'."+e.getName()+"')\r\n");
-          workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"(json, '"+e.getName()+"', elem."+s+");\r\n");
+          if (e.isXmlAttribute()) {
+            workingParserXA.append("    result."+s+"ST := GetAttribute(element, '"+e.getName()+"');\r\n");
+            workingComposerXA.append("  Attribute(xml, '"+e.getName()+"', elem."+s+"ST);\r\n");
+          } else {  
+            workingParserX.append("      else if (child.baseName = '"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(child, path+'/"+e.getName()+"') {b}\r\n");
+            workingComposerX.append("  "+sum2+"Compose"+parseName(tn)+"(xml, '"+e.getName()+"', elem."+s+");\r\n");
+          }
+          if (typeIsPrimitive(e.typeCode())) 
+            workingParserJ.append("    if jsn.has('"+e.getName()+"') or jsn.has('_"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(jsn['"+e.getName()+"'], jsn.vObj['_"+e.getName()+"']);{q}\r\n");
+          else if (e.typeCode().equals("xhtml"))
+            workingParserJ.append("    if jsn.has('"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(jsn.path+'.div', jsn['"+e.getName()+"']);{q}\r\n");
+          else
+            workingParserJ.append("    if jsn.has('"+e.getName()+"') then\r\n        result."+s+" := Parse"+parseName(tn)+"(jsn.vObj['"+e.getName()+"']);{q}\r\n");
+          if (typeIsPrimitive(e.typeCode())) {
+            workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"Value(json, '"+e.getName()+"', elem."+s+", false);\r\n");
+            workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"Props(json, '"+e.getName()+"', elem."+s+", false);\r\n");
+          } else
+            workingComposerJ.append("  "+sum2+"Compose"+parseName(tn)+"(json, '"+e.getName()+"', elem."+s+"); {a}\r\n");
         } else {
           String pfx = e.getName().contains("[x]") ? e.getName().replace("[x]", "") : "";
           int i = 0;
           for (DefinedCode cd : definitions.getPrimitives().values()) {
-            workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(cd.getCode())+"') then\r\n        result."+s+" := Parse"+getTitle(cd.getCode())+"(child, path+'/"+pfx+getTitle(cd.getCode())+"') {c}\r\n");
+            workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(cd.getCode())+"') then\r\n        result."+s+" := Parse"+getTitle(cd.getCode())+"(child, path+'."+pfx+getTitle(cd.getCode())+"') {c}\r\n");
             String ptn = "TFhir"+getTitle(cd.getCode());
 //            if (cd.getCode().equals("base64Binary"))
 //              ptn = "TFHIRBytes";
             workingComposerX.append("  "+(i > 0 ? "else " : "")+"if "+sumAnd+"(elem."+s+" is "+ptn+") {1} then\r\n    Compose"+ptn.substring(5)+"(xml, '"+pfx+getTitle(cd.getCode())+"', "+ptn+"(elem."+s+"))\r\n");
-            workingParserJ.append("      else if (json.ItemName = '"+pfx+getTitle(cd.getCode())+"') then\r\n        result."+s+" := Parse"+getTitle(cd.getCode())+"(path+'."+pfx+getTitle(cd.getCode())+"')\r\n");
-            workingComposerJ.append("  "+(i > 0 ? "else " : "")+"if "+sumAnd+"(elem."+s+" is "+ptn+") then\r\n    Compose"+ptn.substring(5)+"(json, '"+pfx+getTitle(cd.getCode())+"', "+ptn+"(elem."+s+"))\r\n");
+            workingParserJ.append("    if jsn.has('"+pfx+getTitle(cd.getCode())+"') or jsn.has('_"+pfx+getTitle(cd.getCode())+"') then\r\n        result."+s+" := Parse"+getTitle(cd.getCode())+"(jsn['"+pfx+getTitle(cd.getCode())+"'], jsn.vObj['_"+pfx+getTitle(cd.getCode())+"']);\r\n");
+            workingComposerJ.append("  "+(i > 0 ? "else " : "")+"if "+sumAnd+"(elem."+s+" is "+ptn+") then\r\n"+
+              "  begin\r\n"+
+              "    Compose"+ptn.substring(5)+"Value(json, '"+pfx+getTitle(cd.getCode())+"', "+ptn+"(elem."+s+"), false);\r\n"+
+              "    Compose"+ptn.substring(5)+"Props(json, '"+pfx+getTitle(cd.getCode())+"', "+ptn+"(elem."+s+"), false)\r\n"+
+              "  end\r\n");
             i++;
           }
           for (ElementDefn ed : definitions.getTypes().values()) {
             if (ed.getName().equals("ResourceReference")) {
               workingParserX.append("      else if (child.baseName = '"+pfx+"Resource') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(child, path+'/"+pfx+"Resource') {e0}\r\n");
               workingComposerX.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") {8} then\r\n    Compose"+getTitle(ed.getName())+"(xml, '"+pfx+"Resource', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
-              workingParserJ.append("      else if (json.ItemName = '"+pfx+"Resource') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(path+'."+pfx+"Resource')\r\n");
+              workingParserJ.append("    if jsn.has('"+pfx+"Resource') {a6} then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(jsn.vObj['"+pfx+"Resource']);\r\n");
               workingComposerJ.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") then\r\n    Compose"+getTitle(ed.getName())+"(json, '"+pfx+"Resource', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
             } else {
-              workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(ed.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(child, path+'/"+pfx+getTitle(ed.getName())+"') {e"+ed.getName()+"}\r\n");
+              workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(ed.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(child, path+'."+pfx+getTitle(ed.getName())+"') {e"+ed.getName()+"}\r\n");
               workingComposerX.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") {8} then\r\n    Compose"+getTitle(ed.getName())+"(xml, '"+pfx+getTitle(ed.getName())+"', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
-              workingParserJ.append("      else if (json.ItemName = '"+pfx+getTitle(ed.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(path+'."+pfx+getTitle(ed.getName())+"')\r\n");
+              workingParserJ.append("    if jsn.has('"+pfx+getTitle(ed.getName())+"') {a7} then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(jsn.vObj['"+pfx+getTitle(ed.getName())+"']);\r\n");
               workingComposerJ.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") then\r\n    Compose"+getTitle(ed.getName())+"(json, '"+pfx+getTitle(ed.getName())+"', TFhir"+getTitle(ed.getName())+"(elem."+s+"))\r\n");
             }
           }
@@ -1584,14 +1672,30 @@ private void generateEnum(ElementDefn e) throws Exception {
           for (ElementDefn ed : definitions.getStructures().values()) {
             workingParserX.append("      else if (child.baseName = '"+pfx+getTitle(ed.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(child, path+'/"+pfx+getTitle(ed.getName())+"') {f}\r\n");
             workingComposerX.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") {9} then\r\n    Compose"+getTitle(ed.getName())+"(xml, '"+pfx+getTitle(ed.getName())+"', TFhir"+getTitle(ed.getName())+"(elem."+s+"))"+(i < t-1 ? "" : ";")+"\r\n");
-            workingParserJ.append("      else if (json.ItemName = '"+pfx+getTitle(ed.getName())+"') then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(path+'."+pfx+getTitle(ed.getName())+"')\r\n");
+            workingParserJ.append("    if jsn.has('"+pfx+getTitle(ed.getName())+"') {a9} then\r\n        result."+s+" := Parse"+getTitle(ed.getName())+"(jsn.vObj['"+pfx+getTitle(ed.getName())+"']);\r\n");
             workingComposerJ.append("  else if "+sumAnd+"(elem."+s+" is TFhir"+getTitle(ed.getName())+") then\r\n    Compose"+getTitle(ed.getName())+"(json, '"+pfx+getTitle(ed.getName())+"', TFhir"+getTitle(ed.getName())+"(elem."+s+"))"+(i < t-1 ? "" : ";")+"\r\n");
             i++;
           }
         }
       }
     }
+  }
 
+  private String primitiveParse(String name, String prefix) {
+    if (name.equals("integer")) 
+      return "ParseIntegerValue(path+'."+prefix+'.'+Utilities.capitalize(name)+"')";
+    if (name.equals("boolean")) 
+      return "ParseBooleanValue(path+'."+prefix+'.'+Utilities.capitalize(name)+"')";
+    if (name.equals("instant") || name.equals("dateTime") || name.equals("date")) 
+      return "ParseDateAndTimeValue(path+'."+prefix+'.'+Utilities.capitalize(name)+"')";
+    return "ParseStringValue(path+'."+prefix+'.'+Utilities.capitalize(name)+"')";
+  }
+
+  private boolean typeIsPrimitive(String tn) {
+    return tn.equalsIgnoreCase("uri") || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("code") || tn.equalsIgnoreCase("boolean")
+        || tn.equalsIgnoreCase("integer") || tn.equalsIgnoreCase("idref") || tn.equalsIgnoreCase("instant") 
+        || tn.equalsIgnoreCase("datetime") || tn.equalsIgnoreCase("date") || tn.equalsIgnoreCase("id") || tn.equalsIgnoreCase("oid")
+        || tn.equalsIgnoreCase("decimal") || tn.equalsIgnoreCase("string") || tn.equalsIgnoreCase("base64Binary");
   }
 
   private String breakConstant(String typeCode) {
@@ -1891,12 +1995,12 @@ public String getName() {
   public void genConstraint(DefinedCode c) {
     prsrdefX.append("    function Parse"+c.getCode()+"(element : IXmlDomElement; path : string) : TFhir"+c.getCode()+";\r\n");
     srlsdefX.append("    procedure Compose"+c.getCode()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getCode()+");\r\n");
-    prsrdefJ.append("    function Parse"+c.getCode()+"(path : string) : TFhir"+c.getCode()+";\r\n");
+    prsrdefJ.append("    function Parse"+c.getCode()+"(jsn : TJsonObject) : TFhir"+c.getCode()+"; overload;\r\n");
     srlsdefJ.append("    procedure Compose"+c.getCode()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getCode()+");\r\n");
     defCodeType.classDefs.add("  TFhir"+c.getCode()+" = TFhir"+c.getComment()+";\r\n");
     prsrImpl.append("function TFHIRXmlParser.Parse"+c.getCode()+"(element : IXmlDomElement; path : string) : TFhir"+c.getCode()+";\r\nbegin\r\n  result := Parse"+c.getComment()+"(element, path);\r\nend;\r\n\r\n");
     prsrImpl.append("procedure TFHIRXmlComposer.Compose"+c.getCode()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getCode()+");\r\nbegin\r\n  Compose"+c.getComment()+"(xml, name, elem);\r\nend;\r\n\r\n");
-    prsrImpl.append("function TFHIRJsonParser.Parse"+c.getCode()+"(path : string) : TFhir"+c.getCode()+";\r\nbegin\r\n  result := Parse"+c.getComment()+"(path);\r\nend;\r\n\r\n");
+    prsrImpl.append("function TFHIRJsonParser.Parse"+c.getCode()+"(jsn : TJsonObject) : TFhir"+c.getCode()+";\r\nbegin\r\n  result := Parse"+c.getComment()+"(jsn);\r\nend;\r\n\r\n");
     prsrImpl.append("procedure TFHIRJsonComposer.Compose"+c.getCode()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getCode()+");\r\nbegin\r\n  Compose"+c.getComment()+"(json, name, elem);\r\nend;\r\n\r\n");
   }
   
@@ -2041,25 +2145,24 @@ public String getName() {
       prsrImpl.append("  end;\r\n");
       prsrImpl.append("end;\r\n\r\n");
       
-      prsrdefJ.append("    Function Parse"+tn+"(Const aNames : Array Of String; path : String) : TFhir"+tn+";\r\n");
-      prsrImpl.append("function TFHIRJsonParser.Parse"+tn+"(Const aNames : Array Of String; path : String) : TFhir"+tn+";\r\n");
+      prsrdefJ.append("    procedure ParseEnum(value : string; jsn : TJsonObject; ctxt : TFHIRObjectList; Const aNames : Array Of String); overload;\r\n");
+      prsrImpl.append("procedure TFHIRJsonParser.ParseEnum(value : string; jsn : TJsonObject; ctxt : TFHIRObjectList; Const aNames : Array Of String);\r\n");
       prsrImpl.append("begin\r\n");
-      prsrImpl.append("  FJson.next;\r\n");
-      prsrImpl.append("  result := TFhir"+tn+".Create;\r\n");
+      prsrImpl.append("  ctxt.add(ParseEnum(value, jsn, aNames));\r\n");
+      prsrImpl.append("end;\r\n\r\n");
+      prsrdefJ.append("    function ParseEnum(value : string; jsn : TJsonObject; Const aNames : Array Of String) : TFHIREnum; overload;\r\n");
+      prsrImpl.append("function TFHIRJsonParser.ParseEnum(value : string; jsn : TJsonObject; Const aNames : Array Of String) : TFHIREnum;\r\n");
+      prsrImpl.append("begin\r\n");
+      prsrImpl.append("  if StringArrayIndexOf(aNames, value) < 0 then\r\n");
+      prsrImpl.append("    raise Exception.create('unknown code: '+value+' from a set of choices of '+StringArrayToCommaString(aNames)+' for \"'+jsn.path+'\"');\r\n");
+      prsrImpl.append("  result := TFHIREnum.create;\r\n");
       prsrImpl.append("  try\r\n");
-      prsrImpl.append("    while (FJson.ItemType <> jpitEnd) do\r\n");
-      prsrImpl.append("    begin\r\n");
-      prsrImpl.append("      if (FJson.ItemName = 'value') then\r\n");
-      prsrImpl.append("        result.value := FJson.ItemValue\r\n");
-      prsrImpl.append("      else if not ParseElementProperty(result, path) then\r\n");
-      prsrImpl.append("         UnknownContent(path);\r\n");
-      prsrImpl.append("      FJson.next;\r\n");
-      prsrImpl.append("    end;\r\n");
-      prsrImpl.append("    if StringArrayIndexOf(aNames, result.value) < 0 then\r\n");
-      prsrImpl.append("      raise Exception.create('unknown code: '+result.value+' from a set of choices of '+StringArrayToCommaString(aNames)+' for \"'+path+'\"');\r\n");
-      prsrImpl.append("    result.Link;\r\n");
+      prsrImpl.append("    result.value := value;\r\n");
+      prsrImpl.append("    if (jsn <> nil) then\r\n");
+      prsrImpl.append("      parseElementProperties(jsn, result);\r\n");
+      prsrImpl.append("    result.link;\r\n");
       prsrImpl.append("  finally\r\n");
-      prsrImpl.append("    result.Free;\r\n");
+      prsrImpl.append("    result.free;\r\n");
       prsrImpl.append("  end;\r\n");
       prsrImpl.append("end;\r\n\r\n");
 
@@ -2076,15 +2179,36 @@ public String getName() {
       prsrImpl.append("  closeOutElement(xml, value);\r\n");
       prsrImpl.append("  xml.close(name);\r\n");
       prsrImpl.append("end;\r\n\r\n");
-      srlsdefJ.append("    Procedure Compose"+tn+"(json : TJSONWriter; name : String; value : TFhir"+tn+"; Const aNames : Array Of String);\r\n");
-      prsrImpl.append("Procedure TFHIRJsonComposer.Compose"+tn+"(json : TJSONWriter; name : String; value : TFhir"+tn+"; Const aNames : Array Of String);\r\n");
+      srlsdefJ.append("    Procedure Compose"+tn+"Value(json : TJSONWriter; name : String; value : TFhir"+tn+"; Const aNames : Array Of String; inArray : boolean);\r\n");
+      srlsdefJ.append("    Procedure Compose"+tn+"Props(json : TJSONWriter; name : String; value : TFhir"+tn+"; Const aNames : Array Of String; inArray : boolean);\r\n");
+      prsrImpl.append("Procedure TFHIRJsonComposer.Compose"+tn+"Value(json : TJSONWriter; name : String; value : TFhir"+tn+"; Const aNames : Array Of String; inArray : boolean);\r\n");
       prsrImpl.append("begin\r\n");
-      prsrImpl.append("  if (value = nil) then\r\n");
+      prsrImpl.append("  if (value = nil) or (value.Value = '') then\r\n");
+      prsrImpl.append("  begin\r\n");
+      prsrImpl.append("    if inArray then\r\n");
+      prsrImpl.append("      propNull(json, name);\r\n");
       prsrImpl.append("    exit;\r\n");
-      prsrImpl.append("  json.valueObject(name);\r\n");
-      prsrImpl.append("  ComposeElementProperties(json, value);\r\n");
-      prsrImpl.append("  prop(json, 'value', value.value);\r\n");
-      prsrImpl.append("  json.finishObject;\r\n");
+      prsrImpl.append("  end\r\n");
+      prsrImpl.append("  else\r\n");
+      prsrImpl.append("    prop(json, name, value.value);\r\n");
+      prsrImpl.append("end;\r\n\r\n");
+      prsrImpl.append("Procedure TFHIRJsonComposer.Compose"+tn+"Props(json : TJSONWriter; name : String; value : TFhir"+tn+"; Const aNames : Array Of String; inArray : boolean);\r\n");
+      prsrImpl.append("begin\r\n");
+      prsrImpl.append("  if (value = nil) or ((value.xmlId = '') and (not value.hasExtensions) and (not value.hasComments)) then\r\n");
+      prsrImpl.append("  begin\r\n");
+      prsrImpl.append("    if inArray then\r\n");
+      prsrImpl.append("      propNull(json, name);\r\n");
+      prsrImpl.append("    exit;\r\n");
+      prsrImpl.append("  end\r\n");
+      prsrImpl.append("  else\r\n");
+      prsrImpl.append("  begin\r\n");
+      prsrImpl.append("    if (inArray) then\r\n");
+      prsrImpl.append("      json.valueObject('')\r\n");
+      prsrImpl.append("    else\r\n");
+      prsrImpl.append("      json.valueObject('_'+name);\r\n");
+      prsrImpl.append("    ComposeElementProperties(json, value);\r\n");
+      prsrImpl.append("    json.finishObject;\r\n");
+      prsrImpl.append("  end;\r\n");
       prsrImpl.append("end;\r\n\r\n");
     } else {
       prsrdefX.append("    function Parse"+tn+"(element : IXmlDomElement; path : string) : TFhir"+tn+";\r\n");
@@ -2116,30 +2240,37 @@ public String getName() {
       prsrImpl.append("end;\r\n\r\n");
 
 
-      prsrdefJ.append("    Function Parse"+tn+"(path : string) : TFhir"+tn+";\r\n");
-      prsrImpl.append("function TFHIRJsonParser.Parse"+tn+"(path : string): TFhir"+tn+";\r\n");
+      prsrdefJ.append("    procedure Parse"+tn+"(value : string; jsn : TJsonObject; ctxt : TFHIRObjectList); overload;\r\n");
+      prsrImpl.append("procedure TFHIRJsonParser.Parse"+tn+"(value : string; jsn : TJsonObject; ctxt : TFHIRObjectList);\r\n");
       prsrImpl.append("begin\r\n");
-      prsrImpl.append("  FJson.next;\r\n");
+      prsrImpl.append("  ctxt.add(Parse"+tn+"(value, jsn));\r\n");
+      prsrImpl.append("end;\r\n\r\n");
+      prsrdefJ.append("    function Parse"+tn+"(value : string; jsn : TJsonObject) : TFHIR"+tn+"; overload;\r\n");
+      prsrImpl.append("function TFHIRJsonParser.Parse"+tn+"(value : string; jsn : TJsonObject) : TFHIR"+tn+";\r\n");
+      prsrImpl.append("begin\r\n");
       prsrImpl.append("  result := TFhir"+tn+".Create;\r\n");
       prsrImpl.append("  try\r\n");
-      prsrImpl.append("    while (FJson.ItemType <> jpitEnd) do\r\n");
-      prsrImpl.append("    begin\r\n");
-      prsrImpl.append("      if (FJson.ItemName = 'value') then\r\n");
       if (pn.equals("Boolean"))
-        prsrImpl.append("        result.value := StringToBoolean(FJson.ItemValue)\r\n");
+        prsrImpl.append("    result.value := StringToBoolean(value);\r\n");
       else if (!pn.equals("String"))
-        prsrImpl.append("        result.value := to"+pn+"(FJson.ItemValue)\r\n");
+        prsrImpl.append("     result.value := to"+pn+"(value);\r\n");
       else
-        prsrImpl.append("        result.value := FJson.ItemValue\r\n");
-      prsrImpl.append("      else if not ParseElementProperty(result, path) then\r\n");
-      prsrImpl.append("         UnknownContent(path);\r\n");
-      prsrImpl.append("      FJson.next;\r\n");
-      prsrImpl.append("    end;\r\n");
+        prsrImpl.append("    result.value := value;\r\n");
+      prsrImpl.append("    if (jsn <> nil) then\r\n");
+      prsrImpl.append("      parseElementProperties(jsn, result);\r\n");
       prsrImpl.append("    result.Link;\r\n");
       prsrImpl.append("  finally\r\n");
       prsrImpl.append("    result.Free;\r\n");
       prsrImpl.append("  end;\r\n");
       prsrImpl.append("end;\r\n\r\n");
+
+      
+      
+      
+      
+      
+      
+      
       srlsdefX.append("    Procedure Compose"+tn+"(xml : TXmlBuilder; name : String; value : TFhir"+tn+");\r\n");
       prsrImpl.append("Procedure TFHIRXmlComposer.Compose"+tn+"(xml : TXmlBuilder; name : String; value : TFhir"+tn+");\r\n");
       prsrImpl.append("begin\r\n");
@@ -2162,8 +2293,9 @@ public String getName() {
       prsrImpl.append("  closeOutElement(xml, value);\r\n");
       prsrImpl.append("  xml.close(name);\r\n");
       prsrImpl.append("end;\r\n\r\n");
-      srlsdefJ.append("    Procedure Compose"+tn+"(json : TJSONWriter; name : String; value : TFhir"+tn+");\r\n");
-      prsrImpl.append("Procedure TFHIRJsonComposer.Compose"+tn+"(json : TJSONWriter; name : String; value : TFhir"+tn+");\r\n");
+      srlsdefJ.append("    Procedure Compose"+tn+"Value(json : TJSONWriter; name : String; value : TFhir"+tn+"; inArray : boolean);\r\n");
+      srlsdefJ.append("    Procedure Compose"+tn+"Props(json : TJSONWriter; name : String; value : TFhir"+tn+"; inArray : boolean);\r\n");
+      prsrImpl.append("Procedure TFHIRJsonComposer.Compose"+tn+"Value(json : TJSONWriter; name : String; value : TFhir"+tn+"; inArray : boolean);\r\n");
       prsrImpl.append("begin\r\n");
       if (pn.equals("Boolean"))
         prsrImpl.append("  if (value = nil) then\r\n");
@@ -2171,16 +2303,36 @@ public String getName() {
         prsrImpl.append("  if (value = nil) or (value.value = nil) then\r\n");
       else 
         prsrImpl.append("  if (value = nil) or (value.value = '') then\r\n");
+      prsrImpl.append("  begin\r\n");
+      prsrImpl.append("    if inArray then\r\n");
+      prsrImpl.append("      propNull(json, name);\r\n");
       prsrImpl.append("    exit;\r\n");
-      prsrImpl.append("  json.valueObject(name);\r\n");
-      prsrImpl.append("  ComposeElementProperties(json, value);\r\n");
+      prsrImpl.append("  end\r\n");
+      prsrImpl.append("  else\r\n");
       if (pn.equals("Boolean"))
-        prsrImpl.append("  prop(json, 'value', value.value);\r\n");
+        prsrImpl.append("    prop(json, name, value.value);\r\n");
       else if (!pn.equals("String"))
-        prsrImpl.append("  prop(json, 'value', toString(value.value));\r\n");
+        prsrImpl.append("    prop(json, name, toString(value.value));\r\n");
       else
-        prsrImpl.append("  prop(json, 'value', value.value);\r\n");
-      prsrImpl.append("  json.finishObject;\r\n");
+        prsrImpl.append("    prop(json, name, value.value);\r\n");
+      prsrImpl.append("end;\r\n\r\n");
+      prsrImpl.append("Procedure TFHIRJsonComposer.Compose"+tn+"Props(json : TJSONWriter; name : String; value : TFhir"+tn+"; inArray : boolean);\r\n");
+      prsrImpl.append("begin\r\n");
+      prsrImpl.append("  if (value = nil) or ((value.xmlId = '') and (not value.hasExtensions) and (not value.hasComments)) then\r\n");
+      prsrImpl.append("  begin\r\n");
+      prsrImpl.append("    if inArray then\r\n");
+      prsrImpl.append("      propNull(json, name);\r\n");
+      prsrImpl.append("    exit;\r\n");
+      prsrImpl.append("  end\r\n");
+      prsrImpl.append("  else\r\n");
+      prsrImpl.append("  begin\r\n");
+      prsrImpl.append("    if (inArray) then\r\n");
+      prsrImpl.append("      json.valueObject('')\r\n");
+      prsrImpl.append("    else\r\n");
+      prsrImpl.append("      json.valueObject('_'+name);\r\n");
+      prsrImpl.append("    ComposeElementProperties(json, value);\r\n");
+      prsrImpl.append("    json.finishObject;\r\n");
+      prsrImpl.append("  end;\r\n");
       prsrImpl.append("end;\r\n\r\n");
     }
 
@@ -2288,6 +2440,79 @@ public String getName() {
     impl2.append("  result := (FExtensionList <> nil) and (FExtensionList.count > 0);\r\n");
     impl2.append("end;\r\n\r\n");
 
+    def.append("  {@Class TFhirBackboneElement : TFHIRBase\r\n");
+    def.append("    Base Element Definition - extensions, ids\r\n");
+    def.append("  }\r\n");
+    def.append("  {!.Net HL7Connect.Fhir.BackboneElement}\r\n");
+    def.append("  TFHIRBackboneElement = {abstract} class (TFhirElement)\r\n");
+    types.add("TFHIRBackboneElement");
+    def.append("  private\r\n");
+    def.append("    FModifierExtensionList : TFhirExtensionList;\r\n");
+    def.append("    function GetModifierExtensionList: TFhirExtensionList;\r\n");
+    def.append("  protected\r\n");
+    def.append("    Procedure GetChildrenByName(child_name : string; list : TFHIRObjectList); override;\r\n");
+    def.append("    Procedure ListProperties(oList : TFHIRPropertyList; bInheritedProperties : Boolean); Override;\r\n");
+    def.append("  public\r\n");
+    def.append("    destructor Destroy; override;\r\n");
+    def.append("    {!script hide}\r\n");
+    def.append("    procedure Assign(oSource : TAdvObject); override;\r\n");
+    def.append("    function Link : TFHIRBackboneElement; overload;\r\n");
+    def.append("    function Clone : TFHIRBackboneElement; overload;\r\n");
+    def.append("    function HasModifierExtensions : Boolean;\r\n");
+    def.append("    {!script show}\r\n");
+    def.append("  published\r\n");
+    def.append("    {@member ModifierExtensionList\r\n");
+    def.append("      Modifier Extensions on this value\r\n");
+    def.append("    }\r\n");
+    def.append("    property ModifierExtensionList : TFhirExtensionList read GetModifierExtensionList;\r\n");
+    def.append("  end;\r\n");
+    def.append("  \r\n");
+    def.append("\r\n");
+    
+    impl2.append("{ TFHIRBackboneElement }\r\n\r\n");
+
+    impl2.append("destructor TFHIRBackboneElement.Destroy;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  FModifierExtensionList.Free;\r\n");
+    impl2.append("  inherited;\r\n");
+    impl2.append("end;\r\n\r\n");
+    
+    impl2.append("procedure TFHIRBackboneElement.GetChildrenByName(child_name : string; list : TFHIRObjectList);\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  inherited;\r\n");
+    impl2.append("  if (child_name = 'modifierExtension') Then\r\n     list.addAll(FModifierExtensionList);\r\n");
+    impl2.append("end;\r\n\r\n");
+    impl2.append("procedure TFHIRBackboneElement.ListProperties(oList: TFHIRPropertyList; bInheritedProperties: Boolean);\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  inherited;\r\n");
+    impl2.append("  oList.add(TFHIRProperty.create(self, 'modifierExtension', 'Extension', FModifierExtensionList.Link));\r\n");
+    impl2.append("end;\r\n\r\n");
+    
+    
+    impl2.append("procedure TFHIRBackboneElement.Assign(oSource : TAdvObject);\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  inherited;\r\n");
+    impl2.append("  if TFHIRBackboneElement(oSource).HasModifierExtensions then\r\n    ModifierExtensionList.assign(TFHIRBackboneElement(oSource).ModifierextensionList)\r\n"+
+    "  else if FModifierExtensionList <> nil then\r\n  begin\r\n    FModifierExtensionList.free;\r\n    FModifierExtensionList := nil;\r\n  end;\r\n");
+    impl2.append("end;\r\n\r\n");
+    
+    impl2.append("function TFHIRBackboneElement.Link : TFHIRBackboneElement;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  result := TFHIRBackboneElement(inherited Link);\r\n");
+    impl2.append("end;\r\n\r\n");
+    impl2.append("function TFHIRBackboneElement.Clone : TFHIRBackboneElement;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  result := TFHIRBackboneElement(inherited Clone);\r\n");
+    impl2.append("end;\r\n\r\n");
+    impl2.append("function TFHIRBackboneElement.GetModifierExtensionList : TFhirExtensionList;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  if FModifierExtensionList = nil then\r\n    FModifierExtensionList := TFhirExtensionList.Create;\r\n  result := FModifierExtensionList;\r\n");
+    impl2.append("end;\r\n\r\n");
+    impl2.append("function TFHIRBackboneElement.HasModifierExtensions : boolean;\r\n");
+    impl2.append("begin\r\n");
+    impl2.append("  result := (FModifierExtensionList <> nil) and (FModifierExtensionList.count > 0);\r\n");
+    impl2.append("end;\r\n\r\n");
+
     impl2.append("{ TFhirType }\r\n\r\n");
     impl2.append("function TFhirType.Link : TFhirType;\r\n");
     impl2.append("begin\r\n");
@@ -2305,6 +2530,16 @@ public String getName() {
     prsrImpl.append("  value.xmlId := GetAttribute(element, 'id');\r\n");
     prsrImpl.append("end;\r\n\r\n");
 
+    prsrdefX.append("    Function ParseBackboneElementChild(element : TFhirBackboneElement; path : string; child : IXmlDomElement) : boolean;\r\n");
+    prsrImpl.append("Function TFHIRXmlParser.ParseBackboneElementChild(element : TFhirBackboneElement; path : string; child : IXmlDomElement) : boolean;\r\n");
+    prsrImpl.append("begin\r\n");
+    prsrImpl.append("  result := true;\r\n");
+    prsrImpl.append("  if (child.baseName = 'modifierExtension') then\r\n");
+    prsrImpl.append("    element.ModifierExtensionList.add(ParseExtension(child, path+'/modifierExtension'))\r\n");
+    prsrImpl.append("  else\r\n");
+    prsrImpl.append("    result := ParseElementChild(element, path, child);\r\n");
+    prsrImpl.append("end;\r\n\r\n");
+    
     prsrdefX.append("    Function ParseElementChild(element : TFhirElement; path : string; child : IXmlDomElement) : boolean;\r\n");
     prsrImpl.append("Function TFHIRXmlParser.ParseElementChild(element : TFhirElement; path : string; child : IXmlDomElement) : boolean;\r\n");
     prsrImpl.append("begin\r\n");
@@ -2315,24 +2550,22 @@ public String getName() {
     prsrImpl.append("    result := false;\r\n");
     prsrImpl.append("end;\r\n\r\n");
     
-    prsrdefJ.append("    Function ParseElementProperty(element : TFhirElement; path : string) : boolean;\r\n");
-    prsrImpl.append("Function TFHIRJsonParser.ParseElementProperty(element : TFhirElement; path : string) : boolean;\r\n");
+    prsrdefJ.append("    procedure ParseElementProperties(jsn : TJsonObject; element : TFhirElement);\r\n");
+    prsrImpl.append("procedure TFHIRJsonParser.ParseElementProperties(jsn : TJsonObject; element : TFhirElement);\r\n");
     prsrImpl.append("begin\r\n");
-    prsrImpl.append("  result := true;\r\n");
-    prsrImpl.append("  if (json.ItemName = 'id') then\r\n");
-    prsrImpl.append("    element.xmlId := json.itemValue\r\n");
-    prsrImpl.append("  else if (json.ItemName = 'extension') then\r\n");
-    prsrImpl.append("  begin\r\n");
-    prsrImpl.append("    json.checkState(jpitArray);\r\n");
-    prsrImpl.append("    json.Next;\r\n");
-    prsrImpl.append("    while (json.ItemType <> jpitEnd) do\r\n");
-    prsrImpl.append("    begin\r\n");
-    prsrImpl.append("      element.extensionList.Add(ParseExtension(path+'.extension'));\r\n");
-    prsrImpl.append("      json.Next;\r\n");
-    prsrImpl.append("    end;\r\n");
-    prsrImpl.append("  end\r\n");
-    prsrImpl.append("  else\r\n");
-    prsrImpl.append("    result := false;\r\n\r\n");
+    prsrImpl.append("  parseComments(element, jsn);\r\n\r\n");
+    prsrImpl.append("  if jsn.has('id') then\r\n");
+    prsrImpl.append("    element.xmlId:= jsn['id'];\r\n");
+    prsrImpl.append("  if jsn.has('extension') then\r\n");
+    prsrImpl.append("    iterateArray(jsn.vArr['extension'], element.extensionList, parseExtension)\r\n");
+    prsrImpl.append("end;\r\n\r\n");
+
+    prsrdefJ.append("    procedure ParseBackboneElementProperties(jsn : TJsonObject; element : TFhirBackboneElement);\r\n");
+    prsrImpl.append("procedure TFHIRJsonParser.ParseBackboneElementProperties(jsn : TJsonObject; element : TFhirBackboneElement);\r\n");
+    prsrImpl.append("begin\r\n");
+    prsrImpl.append("  parseElementProperties(jsn, element);\r\n\r\n");
+    prsrImpl.append("  if jsn.has('modifierExtension') then\r\n");
+    prsrImpl.append("    iterateArray(jsn.vArr['modifierExtension'], element.modifierExtensionList, parseExtension)\r\n");
     prsrImpl.append("end;\r\n\r\n");
 
     srlsdefX.append("    Procedure ComposeElementAttributes(xml : TXmlBuilder; element : TFhirElement);\r\n");
@@ -2350,17 +2583,42 @@ public String getName() {
     prsrImpl.append("    for i := 0 to element.extensionList.count - 1 do\r\n");
     prsrImpl.append("       ComposeExtension(xml, 'extension', element.extensionList[i]);\r\n");
     prsrImpl.append("end;\r\n\r\n");
+    srlsdefX.append("    Procedure ComposeBackboneElementChildren(xml : TXmlBuilder; element : TFhirBackboneElement);\r\n");
+    prsrImpl.append("Procedure TFHIRXmlComposer.ComposeBackboneElementChildren(xml : TXmlBuilder; element : TFhirBackboneElement);\r\n");
+    prsrImpl.append("var\r\n");
+    prsrImpl.append("  i : integer;\r\n");
+    prsrImpl.append("begin\r\n");
+    prsrImpl.append("  ComposeElementChildren(xml, element);\r\n");
+    prsrImpl.append("  if element.hasModifierExtensions then\r\n");
+    prsrImpl.append("    for i := 0 to element.modifierExtensionList.count - 1 do\r\n");
+    prsrImpl.append("       ComposeExtension(xml, 'modifierExtension', element.modifierExtensionList[i]);\r\n");
+    prsrImpl.append("end;\r\n\r\n");
     srlsdefJ.append("    Procedure ComposeElementProperties(json : TJSONWriter; elem : TFhirElement);\r\n");
     prsrImpl.append("Procedure TFHIRJsonComposer.ComposeElementProperties(json : TJSONWriter; elem : TFhirElement);\r\n");
     prsrImpl.append("var\r\n");
     prsrImpl.append("  i : integer;\r\n");
     prsrImpl.append("begin\r\n");
+    prsrImpl.append("  composeComments(json, elem);\r\n");
     prsrImpl.append("  Prop(json, 'id', elem.xmlId);\r\n");
     prsrImpl.append("  if elem.hasExtensions then\r\n");
     prsrImpl.append("  begin\r\n");
     prsrImpl.append("    json.valueArray('extension');\r\n");
     prsrImpl.append("    for i := 0 to elem.extensionList.count - 1 do\r\n");
     prsrImpl.append("       ComposeExtension(json, '', elem.extensionList[i]);\r\n");
+    prsrImpl.append("    json.FinishArray;\r\n");
+    prsrImpl.append("  end;\r\n");
+    prsrImpl.append("end;\r\n\r\n");
+    srlsdefJ.append("    Procedure ComposeBackboneElementProperties(json : TJSONWriter; elem : TFhirBackboneElement);\r\n");
+    prsrImpl.append("Procedure TFHIRJsonComposer.ComposeBackboneElementProperties(json : TJSONWriter; elem : TFhirBackboneElement);\r\n");
+    prsrImpl.append("var\r\n");
+    prsrImpl.append("  i : integer;\r\n");
+    prsrImpl.append("begin\r\n");
+    prsrImpl.append("  ComposeElementProperties(json, elem);\r\n");
+    prsrImpl.append("  if elem.hasModifierExtensions then\r\n");
+    prsrImpl.append("  begin\r\n");
+    prsrImpl.append("    json.valueArray('modifierExtension');\r\n");
+    prsrImpl.append("    for i := 0 to elem.modifierExtensionList.count - 1 do\r\n");
+    prsrImpl.append("       ComposeExtension(json, '', elem.modifierExtensionList[i]);\r\n");
     prsrImpl.append("    json.FinishArray;\r\n");
     prsrImpl.append("  end;\r\n");
     prsrImpl.append("end;\r\n\r\n");
@@ -2473,7 +2731,7 @@ public String getName() {
     def.append("    Base Resource Definition - extensions, narrative, contained resources\r\n");
     def.append("  }\r\n");
     def.append("  {!.Net HL7Connect.Fhir.Resource}\r\n");
-    def.append("  TFhirResource = {abstract} class (TFhirElement)\r\n");
+    def.append("  TFhirResource = {abstract} class (TFhirBackboneElement)\r\n");
     types.add("TFhirResource");
     def.append("  private\r\n");
     def.append("    FText : TFhirNarrative;\r\n");
@@ -2642,30 +2900,20 @@ public String getName() {
     prsrImpl.append("    resource.language := ParseCode(child, path+'/language')\r\n");
     prsrImpl.append("  else if (child.baseName = 'contained') then\r\n");
     prsrImpl.append("    resource.ContainedList.add(ParseContained(child, path+'/contained'))\r\n");
-    prsrImpl.append("  else if not parseElementChild(resource, path, child) then\r\n");
+    prsrImpl.append("  else if not parseBackboneElementChild(resource, path, child) then\r\n");
     prsrImpl.append("    result := false;\r\n");
     prsrImpl.append("end;\r\n\r\n");
     
-    prsrdefJ.append("    Function ParseResourceProperty(resource : TFhirResource; path : string) : boolean;\r\n");
-    prsrImpl.append("Function TFHIRJsonParser.ParseResourceProperty(resource : TFhirResource; path : string) : boolean;\r\n");
+    prsrdefJ.append("    Function ParseResourceProperties(jsn : TJsonObject; resource : TFhirResource) : boolean;\r\n");
+    prsrImpl.append("Function TFHIRJsonParser.ParseResourceProperties(jsn : TJsonObject; resource : TFhirResource) : boolean;\r\n");
     prsrImpl.append("begin\r\n");
-    prsrImpl.append("  result := true;\r\n");
-    prsrImpl.append("  if (json.ItemName = 'language') then\r\n");
-    prsrImpl.append("    resource.language := parseCode(path+'.language')\r\n");
-    prsrImpl.append("  else if (json.ItemName = 'text') then\r\n");
-    prsrImpl.append("    resource.text := parseNarrative(path+'.text')\r\n");
-    prsrImpl.append("  else if (json.ItemName = 'contained') then\r\n");
-    prsrImpl.append("  begin\r\n");
-    prsrImpl.append("    json.checkState(jpitArray);\r\n");
-    prsrImpl.append("    json.Next;\r\n");
-    prsrImpl.append("    while (json.ItemType <> jpitEnd) do\r\n");
-    prsrImpl.append("    begin\r\n");
-    prsrImpl.append("      resource.containedList.Add(ParseContained(path+'.contained'));\r\n");
-    prsrImpl.append("      json.Next;\r\n");
-    prsrImpl.append("    end;\r\n");
-    prsrImpl.append("  end\r\n");
-    prsrImpl.append("  else if not ParseElementProperty(resource, path) then\r\n");
-    prsrImpl.append("    result := false;\r\n\r\n");
+    prsrImpl.append("  ParseBackboneElementProperties(jsn, resource);\r\n");
+    prsrImpl.append("  if jsn.has('language') or jsn.has('_language') then\r\n");
+    prsrImpl.append("    resource.language := parseCode(jsn['language'], jsn.vObj['_language']);\r\n");
+    prsrImpl.append("  if jsn.has('text') then\r\n");
+    prsrImpl.append("    resource.text := parseNarrative(jsn.vObj['text']);\r\n");
+    prsrImpl.append("  if jsn.has('contained') then\r\n");
+    prsrImpl.append("    iterateArray(jsn.vArr['contained'], resource.containedList, parseContained);\r\n");
     prsrImpl.append("end;\r\n\r\n");
 
 
@@ -2679,7 +2927,7 @@ public String getName() {
     prsrImpl.append("var\r\n");
     prsrImpl.append("  i : integer;\r\n");
     prsrImpl.append("begin\r\n");
-    prsrImpl.append("  composeElementChildren(xml, resource);\r\n");
+    prsrImpl.append("  composeBackboneElementChildren(xml, resource);\r\n");
     prsrImpl.append("  composeCode(xml, 'language', resource.language);\r\n");
     prsrImpl.append("  if not SummaryOnly then\r\n    composeNarrative(xml, 'text', resource.text);\r\n");    
     prsrImpl.append("  if not SummaryOnly then\r\n    for i := 0 to resource.containedList.count - 1 do\r\n");
@@ -2690,8 +2938,9 @@ public String getName() {
     prsrImpl.append("var\r\n");
     prsrImpl.append("  i : integer;\r\n");
     prsrImpl.append("begin\r\n");
-    prsrImpl.append("  ComposeElementProperties(json, resource);\r\n");
-    prsrImpl.append("  composeCode(json, 'language', resource.language);\r\n");
+    prsrImpl.append("  ComposeBackboneElementProperties(json, resource);\r\n");
+    prsrImpl.append("  composeCodeValue(json, 'language', resource.language, false);\r\n");
+    prsrImpl.append("  composeCodeProps(json, 'language', resource.language, false);\r\n");
     prsrImpl.append("  if not SummaryOnly then\r\n    ComposeNarrative(json, 'text', resource.text);\r\n");
     prsrImpl.append("  if not SummaryOnly and (resource.containedList.count > 0) then\r\n");
     prsrImpl.append("  begin\r\n");
@@ -2761,14 +3010,17 @@ public String getName() {
         );
 
     prsrImpl.append(
-        "function TFHIRJsonParser.ParseResource(path : String) : TFhirResource;\r\n"+
-        "begin\r\n "+
-        prsrRegJ.toString().substring(6)+
-        "  else if (json.itemName = 'Binary') Then\r\n"+
-        "    result := ParseBinary(path)\r\n"+
-        "  else\r\n"+
-        "    raise Exception.create('error: the element '+json.itemName+' is not a valid resource name');\r\n" +
-        "end;\r\n\r\n"
+        "function TFHIRJsonParser.ParseResource(jsn : TJsonObject) : TFhirResource;\r\n"+
+            "var\r\n" +
+            "  s : String;\r\n" +
+            "begin\r\n"+
+            "  s := jsn['resourceType'];\r\n "+
+            prsrRegJ.toString().substring(6)+
+            "  else if s = 'Binary' Then\r\n"+
+            "    result := ParseBinary(jsn)\r\n"+
+            "  else\r\n"+
+            "    raise Exception.create('error: the element '+s+' is not a valid resource name');\r\n" +
+            "end;\r\n\r\n"
         );
 
     prsrImpl.append(
@@ -2776,6 +3028,7 @@ public String getName() {
         "begin\r\n"+
         "  if (resource = nil) Then\r\n"+
         "    Raise Exception.Create('error - resource is nil');\r\n"+
+        "  json.value('resourceType', CODES_TFhirResourceType[resource.ResourceType]);\r\n"+
         "  Case resource.ResourceType of\r\n"+
         srlsRegJ.toString()+
         "    frtBinary: ComposeBinary(json, TFhirBinary(resource));\r\n"+
@@ -2799,7 +3052,7 @@ public String getName() {
         "  TFHIRJsonParser = class (TFHIRJsonParserBase)\r\n"+
         "  protected\r\n"+
         prsrdefJ.toString()+
-        "    function ParseResource(path : String) : TFhirResource; override;\r\n"+
+        "    function ParseResource(jsn : TJsonObject) : TFhirResource; override;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRJsonComposer = class (TFHIRJsonComposerBase)\r\n"+
         "  protected\r\n"+
@@ -2847,8 +3100,9 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     List<String> command = new ArrayList<String>();
     command.add(dcc);
     command.add("-Q");
+    command.add("-W-");
     command.add("-UC:\\HL7Connect\\indysoap\\source");
-    command.add("-NSSystem;System.Win;WinAPI;Vcl;Vcl.Imaging;Data");
+    command.add("-NSSystem;System.Win;WinAPI;Vcl;Vcl.Imaging;Data;Soap");
     command.add("fhirtest.dpr");
     // command.add(">compile.log");
 
@@ -2868,7 +3122,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
 
   @Override
   public boolean doesTest() {
-    return true;
+    return doesCompile();
   }
 
   @Override

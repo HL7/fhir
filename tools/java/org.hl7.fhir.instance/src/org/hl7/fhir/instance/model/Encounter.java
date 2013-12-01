@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ public class Encounter extends Resource {
 
     public enum EncounterState {
         planned, // The Encounter has not yet started.
-        current, // The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
+        inProgress, // The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
         onleave, // The Encounter has begun, but the patient is temporarily on leave.
         finished, // The Encounter has ended.
         cancelled, // The Encounter has ended before it has begun.
@@ -50,8 +50,8 @@ public class Encounter extends Resource {
                 return null;
         if ("planned".equals(codeString))
           return planned;
-        if ("current".equals(codeString))
-          return current;
+        if ("in progress".equals(codeString))
+          return inProgress;
         if ("onleave".equals(codeString))
           return onleave;
         if ("finished".equals(codeString))
@@ -63,7 +63,7 @@ public class Encounter extends Resource {
         public String toCode() {
           switch (this) {
             case planned: return "planned";
-            case current: return "current";
+            case inProgress: return "in progress";
             case onleave: return "onleave";
             case finished: return "finished";
             case cancelled: return "cancelled";
@@ -79,8 +79,8 @@ public class Encounter extends Resource {
                 return null;
         if ("planned".equals(codeString))
           return EncounterState.planned;
-        if ("current".equals(codeString))
-          return EncounterState.current;
+        if ("in progress".equals(codeString))
+          return EncounterState.inProgress;
         if ("onleave".equals(codeString))
           return EncounterState.onleave;
         if ("finished".equals(codeString))
@@ -92,8 +92,8 @@ public class Encounter extends Resource {
     public String toCode(Enum<?> code) throws Exception {
       if (code == EncounterState.planned)
         return "planned";
-      if (code == EncounterState.current)
-        return "current";
+      if (code == EncounterState.inProgress)
+        return "in progress";
       if (code == EncounterState.onleave)
         return "onleave";
       if (code == EncounterState.finished)
@@ -703,12 +703,12 @@ public class Encounter extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * E.g. current, cancelled, finished.
+     * planned | in progress | onleave | finished | cancelled.
      */
     protected Enumeration<EncounterState> status;
 
     /**
-     * E.g. inpatient, outpatient, home.
+     * inpatient | outpatient | ambulatory | emergency +.
      */
     protected Enumeration<EncounterClass> class_;
 
@@ -805,14 +805,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #status} (E.g. current, cancelled, finished.)
+     * @return {@link #status} (planned | in progress | onleave | finished | cancelled.)
      */
     public Enumeration<EncounterState> getStatus() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (E.g. current, cancelled, finished.)
+     * @param value {@link #status} (planned | in progress | onleave | finished | cancelled.)
      */
     public Encounter setStatus(Enumeration<EncounterState> value) { 
       this.status = value;
@@ -820,14 +820,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return E.g. current, cancelled, finished.
+     * @return planned | in progress | onleave | finished | cancelled.
      */
     public EncounterState getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value E.g. current, cancelled, finished.
+     * @param value planned | in progress | onleave | finished | cancelled.
      */
     public Encounter setStatusSimple(EncounterState value) { 
         if (this.status == null)
@@ -837,14 +837,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #class_} (E.g. inpatient, outpatient, home.)
+     * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.)
      */
     public Enumeration<EncounterClass> getClass_() { 
       return this.class_;
     }
 
     /**
-     * @param value {@link #class_} (E.g. inpatient, outpatient, home.)
+     * @param value {@link #class_} (inpatient | outpatient | ambulatory | emergency +.)
      */
     public Encounter setClass_(Enumeration<EncounterClass> value) { 
       this.class_ = value;
@@ -852,14 +852,14 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return E.g. inpatient, outpatient, home.
+     * @return inpatient | outpatient | ambulatory | emergency +.
      */
     public EncounterClass getClass_Simple() { 
       return this.class_ == null ? null : this.class_.getValue();
     }
 
     /**
-     * @param value E.g. inpatient, outpatient, home.
+     * @param value inpatient | outpatient | ambulatory | emergency +.
      */
     public Encounter setClass_Simple(EncounterClass value) { 
         if (this.class_ == null)
@@ -1093,8 +1093,8 @@ public class Encounter extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier(s) by which this encounter is known.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "E.g. current, cancelled, finished.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("class", "code", "E.g. inpatient, outpatient, home.", 0, java.lang.Integer.MAX_VALUE, class_));
+        childrenList.add(new Property("status", "code", "planned | in progress | onleave | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("class", "code", "inpatient | outpatient | ambulatory | emergency +.", 0, java.lang.Integer.MAX_VALUE, class_));
         childrenList.add(new Property("type", "CodeableConcept", "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("subject", "Resource(Patient)", "The patient present at the encounter.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("participant", "", "The main practitioner responsible for providing the service.", 0, java.lang.Integer.MAX_VALUE, participant));

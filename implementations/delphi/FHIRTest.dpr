@@ -8,6 +8,7 @@ uses
   SysUtils,
   Classes,
   ActiveX,
+  IdSoapTestingUtils,
   StringSupport in 'support\StringSupport.pas',
   MathSupport in 'support\MathSupport.pas',
   DecimalSupport in 'support\DecimalSupport.pas',
@@ -21,7 +22,6 @@ uses
   SystemSupport in 'support\SystemSupport.pas',
   ThreadSupport in 'support\ThreadSupport.pas',
   EncodeSupport in 'support\EncodeSupport.pas',
-  NetworkSupport in 'support\NetworkSupport.pas',
   AdvControllers in 'support\AdvControllers.pas',
   AdvPersistents in 'support\AdvPersistents.pas',
   AdvObjects in 'support\AdvObjects.pas',
@@ -92,7 +92,8 @@ uses
   AfsStreamManagers in 'support\AfsStreamManagers.pas',
   AdvObjectMatches in 'support\AdvObjectMatches.pas',
   RegExpr in 'support\RegExpr.pas',
-  FHIRUtilities in 'FHIRUtilities.pas';
+  FHIRUtilities in 'FHIRUtilities.pas',
+  AdvStringObjectMatches in 'support\AdvStringObjectMatches.pas';
 
 procedure SaveStringToFile(s : AnsiString; fn : String);
 var
@@ -113,7 +114,6 @@ var
   c : TFHIRComposer;
   r : TFhirResource;
   a : TFHIRAtomFeed;
-  o : TAdvObject;
 procedure Roundtrip(Source, Dest : String);
 begin
   try
@@ -135,6 +135,7 @@ begin
     try
       c := TFHIRJsonComposer.Create('en');
       try
+        TFHIRJsonComposer(c).Comments := true;
         if r <> nil then
           c.Compose(m, '', '', r, true)
         else
@@ -142,6 +143,8 @@ begin
       finally
         c.free;
       end;
+      m.Position := 0;
+      m.SaveToFile(ChangeFileExt(dest, '.json'));
       m.Position := 0;
       r.Free;
       a.Free;
@@ -177,14 +180,40 @@ begin
     r.Free;
     a.Free;
   end;
+
+//  IdSoapXmlCheckDifferent(source, dest);
+end;
+
+procedure roundTripDirectory(pathSource, pathDest : String);
+var
+  SR: TSearchRec;
+  s : String;
+begin
+  if FindFirst(IncludeTrailingPathDelimiter(PathSource) + '*.xml', faAnyFile, SR) = 0 then
+  begin
+    repeat
+      s := copy(SR.Name, 1, pos('.', SR.Name)-1);
+      if (SR.Attr <> faDirectory) and (copy(s, length(s)-1, 2) <> '-d') then
+      begin
+        Writeln(SR.name);
+        Roundtrip(IncludeTrailingPathDelimiter(pathSource)+SR.Name, IncludeTrailingPathDelimiter(pathDest)+s+'-d'+ExtractFileExt((SR.Name)));
+      end;
+    until FindNext(SR) <> 0;
+    FindClose(SR);
+  end;
 end;
 
 begin
   try
     CoInitialize(nil);
-    if (ParamStr(1) = '') or (ParamStr(2) = '') or not FileExists(paramstr(1)) then
-      raise Exception.Create('Provide input and output file names');
-    roundTrip(paramStr(1), paramStr(2));
+    if DirectoryExists(ParamStr(2)) and DirectoryExists(Paramstr(1)) then
+      roundTripDirectory(Paramstr(1), ParamStr(2))
+    else
+    begin
+      if (ParamStr(1) = '') or (ParamStr(2) = '') or not FileExists(paramstr(1)) then
+        raise Exception.Create('Provide input and output file names');
+      roundTrip(paramStr(1), paramStr(2));
+    end;
   except
     on e:exception do
       SaveStringToFile(AnsiString(e.Message), ParamStr(2)+'.err');

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ public class Alert extends Resource {
     public enum AlertStatus {
         active, // A current alert that should be displayed to a user. A system may use the category to determine which roles should view the alert.
         inactive, // The alert does not need to be displayed any more.
-        error, // The alert was added in error, and should no longer be displayed.
+        enteredInError, // The alert was added in error, and should no longer be displayed.
         Null; // added to help the parsers
         public static AlertStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -50,15 +50,15 @@ public class Alert extends Resource {
           return active;
         if ("inactive".equals(codeString))
           return inactive;
-        if ("error".equals(codeString))
-          return error;
+        if ("entered in error".equals(codeString))
+          return enteredInError;
         throw new Exception("Unknown AlertStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case active: return "active";
             case inactive: return "inactive";
-            case error: return "error";
+            case enteredInError: return "entered in error";
             default: return "?";
           }
         }
@@ -73,8 +73,8 @@ public class Alert extends Resource {
           return AlertStatus.active;
         if ("inactive".equals(codeString))
           return AlertStatus.inactive;
-        if ("error".equals(codeString))
-          return AlertStatus.error;
+        if ("entered in error".equals(codeString))
+          return AlertStatus.enteredInError;
         throw new Exception("Unknown AlertStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -82,8 +82,8 @@ public class Alert extends Resource {
         return "active";
       if (code == AlertStatus.inactive)
         return "inactive";
-      if (code == AlertStatus.error)
-        return "error";
+      if (code == AlertStatus.enteredInError)
+        return "entered in error";
       return "?";
       }
     }

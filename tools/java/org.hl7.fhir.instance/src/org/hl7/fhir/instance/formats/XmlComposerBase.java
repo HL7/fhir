@@ -188,8 +188,6 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 	    }
 	    if (e.getUpdated() != null)
 	      xml.element(ATOM_NS, "updated", dateToXml(e.getUpdated()));
-	    if (e.getPublished() != null)
-	      xml.element(ATOM_NS, "published", dateToXml(e.getPublished()));
 
 	    if (entry.getAuthorUri() != null  || entry.getAuthorName() != null) {
 	      xml.open("author");
@@ -206,6 +204,8 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 					xml.attribute("label", cat.getLabel());
 		    xml.element("category", null);
 			}
+	    if (e.getPublished() != null)
+	      xml.element(ATOM_NS, "published", dateToXml(e.getPublished()));
 	    
 	    xml.attribute("type", "text/xml");
 	    xml.open(ATOM_NS, "content");

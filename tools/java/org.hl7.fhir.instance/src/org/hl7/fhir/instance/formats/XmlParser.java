@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1922,7 +1922,7 @@ public class XmlParser extends XmlParserBase {
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
-        res.setStatus(parseEnumeration(xpp, DiagnosticReport.ObservationStatus.Null, new DiagnosticReport.ObservationStatusEnumFactory()));
+        res.setStatus(parseEnumeration(xpp, DiagnosticReport.DiagnosticReportStatus.Null, new DiagnosticReport.DiagnosticReportStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("issued")) {
         res.setIssued(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("subject")) {
@@ -2351,6 +2351,8 @@ public class XmlParser extends XmlParserBase {
         res.setName(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("relationship")) {
         res.setRelationship(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "born")) {
+        res.setBorn(parseType("born", xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "deceased")) {
         res.setDeceased(parseType("deceased", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("note")) {

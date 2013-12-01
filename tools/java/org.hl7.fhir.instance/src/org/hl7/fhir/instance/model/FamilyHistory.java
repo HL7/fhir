@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -48,6 +48,11 @@ public class FamilyHistory extends Resource {
          * The type of relationship this person has to the patient (father, mother, brother etc.).
          */
         protected CodeableConcept relationship;
+
+        /**
+         * The actual or approximate date of birth of the relative.
+         */
+        protected Type born;
 
         /**
          * If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.
@@ -125,6 +130,21 @@ public class FamilyHistory extends Resource {
         }
 
         /**
+         * @return {@link #born} (The actual or approximate date of birth of the relative.)
+         */
+        public Type getBorn() { 
+          return this.born;
+        }
+
+        /**
+         * @param value {@link #born} (The actual or approximate date of birth of the relative.)
+         */
+        public FamilyHistoryRelationComponent setBorn(Type value) { 
+          this.born = value;
+          return this;
+        }
+
+        /**
          * @return {@link #deceased} (If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.)
          */
         public Type getDeceased() { 
@@ -196,7 +216,8 @@ public class FamilyHistory extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "This will either be a name or a description.  E.g. 'Aunt Susan', 'my cousin with the red hair'.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("relationship", "CodeableConcept", "The type of relationship this person has to the patient (father, mother, brother etc.).", 0, java.lang.Integer.MAX_VALUE, relationship));
-          childrenList.add(new Property("deceased[x]", "boolean|Age|Range|string", "If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.", 0, java.lang.Integer.MAX_VALUE, deceased));
+          childrenList.add(new Property("born[x]", "Period|date|string", "The actual or approximate date of birth of the relative.", 0, java.lang.Integer.MAX_VALUE, born));
+          childrenList.add(new Property("deceased[x]", "boolean|Age|Range|date|string", "If this resource is indicating that the related person is deceased, then an indicator of whether the person is deceased (yes) or not (no) or the age or age range or description of age at death - can be indicated here. If the reason for death is known, then it can be indicated in the outcome code of the condition - in this case the deceased property should still be set.", 0, java.lang.Integer.MAX_VALUE, deceased));
           childrenList.add(new Property("note", "string", "This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.", 0, java.lang.Integer.MAX_VALUE, note));
           childrenList.add(new Property("condition", "", "The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.", 0, java.lang.Integer.MAX_VALUE, condition));
         }
@@ -205,6 +226,7 @@ public class FamilyHistory extends Resource {
         FamilyHistoryRelationComponent dst = new FamilyHistoryRelationComponent();
         dst.name = name == null ? null : name.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
+        dst.born = born == null ? null : born.copy();
         dst.deceased = deceased == null ? null : deceased.copy();
         dst.note = note == null ? null : note.copy();
         dst.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();

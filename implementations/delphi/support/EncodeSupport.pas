@@ -1,34 +1,46 @@
 Unit EncodeSupport;
 
+{
+Copyright (c) 2001-2013, Kestral Computing Pty Ltd (http://www.kestral.com.au)
+All rights reserved.
 
-{! 54 !}
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
 
+ * Redistributions of source code must retain the above copyright notice, this 
+   list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation 
+   and/or other materials provided with the distribution.
+ * Neither the name of HL7 nor the names of its contributors may be used to 
+   endorse or promote products derived from this software without specific 
+   prior written permission.
 
-//
-// Unit EncodeSupport
-//
-// Started 9 May 2000
-//
-// HISTORY
-//
-// [CH] 17 July 2000
-//  + Imported into Library v3.0
-//
-// [CH] 30 January 2003
-//  + Added EncodeUU/DecodeUU
-//
-
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGE.
+}
 
 Interface
 
 
 Uses
   SysUtils,
-  StringSupport, MathSupport, NetworkSupport;
+  StringSupport, MathSupport;
 
 Function EncodeNYSIIS(Const sValue : String) : String;
+{
 Function EncodeBase64(Const sValue : TBytes) : AnsiString; Overload;
 Function DecodeBase64(Const sValue : AnsiString) : TBytes; Overload;
+}
+
 Function EncodeXML(Const sValue : String; bEoln : Boolean = True) : String; Overload;
 Function DecodeXML(Const sValue : String) : String; Overload;
 Function EncodeQuotedString(Const sValue : String; Const cQuote : Char) : String; Overload;
@@ -174,7 +186,7 @@ Begin
   Result := Cardinal(pTarget) - Cardinal(@aTarget);
 End;
 
-Function DecodeBase64(Const sValue : AnsiString) : TBytes;
+Function DecodeBase64(Const sValue : AnsiString) : TBytes; Overload;
 Begin
   SetLength(Result, SizeOfDecodeBase64(sValue));
 
@@ -274,7 +286,7 @@ Begin
   Result := Cardinal(pTarget) - Cardinal(@aTarget);
 End;
 
-Function EncodeBase64(Const sValue : TBytes) : AnsiString;
+Function EncodeBase64(Const sValue : TBytes) : AnsiString; Overload;
 Begin
   SetLength(Result, SizeOfEncodeBase64(Pointer(sValue)^, Length(sValue)));
 

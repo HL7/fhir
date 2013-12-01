@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Nov 23, 2013 21:51+1100 for FHIR v0.12
+// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ public class Composition extends Resource {
         final_, // The composition or document is complete and verified by an appropriate person, and no further work is planned.
         appended, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorised person. The modifications added new information to the composition or document, but did not revise existing content.
         amended, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorised person.
-        retracted, // The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.
+        enteredInError, // The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.
         Null; // added to help the parsers
         public static CompositionStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -56,8 +56,8 @@ public class Composition extends Resource {
           return appended;
         if ("amended".equals(codeString))
           return amended;
-        if ("retracted".equals(codeString))
-          return retracted;
+        if ("entered in error".equals(codeString))
+          return enteredInError;
         throw new Exception("Unknown CompositionStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -66,7 +66,7 @@ public class Composition extends Resource {
             case final_: return "final";
             case appended: return "appended";
             case amended: return "amended";
-            case retracted: return "retracted";
+            case enteredInError: return "entered in error";
             default: return "?";
           }
         }
@@ -85,8 +85,8 @@ public class Composition extends Resource {
           return CompositionStatus.appended;
         if ("amended".equals(codeString))
           return CompositionStatus.amended;
-        if ("retracted".equals(codeString))
-          return CompositionStatus.retracted;
+        if ("entered in error".equals(codeString))
+          return CompositionStatus.enteredInError;
         throw new Exception("Unknown CompositionStatus code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -98,8 +98,8 @@ public class Composition extends Resource {
         return "appended";
       if (code == CompositionStatus.amended)
         return "amended";
-      if (code == CompositionStatus.retracted)
-        return "retracted";
+      if (code == CompositionStatus.enteredInError)
+        return "entered in error";
       return "?";
       }
     }
