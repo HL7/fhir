@@ -77,11 +77,14 @@ in both directions.
 <p>
 A key aspect of a message is the impact of it's content:
 </p>
+<!--
 <table class="grid">
  <tr> <td>Consequence</td> <td>The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment</td> </tr>
  <tr> <td>Currency</td> <td>The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful</td> </tr>
  <tr> <td>Notification</td> <td>The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications</td> </tr>
 </table>
+-->
+[%codelist MessageSignificanceCategory%]
 <p>
 Some Events defined by FHIR are assigned to one of these categories, 
 but others are not able to be categorized in advance, and the category
@@ -144,14 +147,14 @@ Some of the message delivery mechanisms mentioned above are reliable delivery
 systems - the message is always delivered, or an appropriate error is returned
 to the source. However most implementations use methods which do not provide
 reliable messaging, and either the request or the response can get lost in transit.
-FHIR messaging describes a simple approach that receivers should conform to in 
+FHIR messaging describes a simple approach that receivers SHOULD conform to in 
 order to handle the absence of reliable messaging that maintains predictable 
-functionality.
+functionality. 
 </p>
 <p>
-In order to enable these processing rules, and to benefit from them, the 
-original sender of the message SHALL do the following when it receives
-no response to a message within a configured timeout period:
+If the sender of the message implements reliable messaging, it SHALL do 
+the following when it receives no response to a message within a 
+configured timeout period:
 </p>
 <table class="grid">
  <tr><td>Consequence</td><td>Resend the same message (including with the same identifier) with the same envelope id</td></tr>
@@ -159,9 +162,9 @@ no response to a message within a configured timeout period:
  <tr><td>Notification</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
 </table>
 <p>
-When a receiver declares that it implements reliable answers, it SHALL check the 
-incoming envelope id and message identifier against a cache of previously received messages. 
-The correct action to take depends on what is received:
+When a receiver implements reliable messaging, it SHALL check the incoming envelope 
+id and message identifier against a cache of previously received messages. The 
+correct action to take depends on what is received:
 </p>
 <table class="grid">
  <tr><td>Both the envelope id and message identifier have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
@@ -174,11 +177,78 @@ The duration period for caching does generally not need to be very long. At a mi
 could be 1 minute longer than the timeout of the sending system, though it may need to 
 be longer depending on the re-sending policies of the sending system. 
 </p>
+<p>
+Applications that implement reliable messaging declare their reliable cache 
+period in their <a href="conformance.html">conformance statement</a>.
+</p>
+
+<h4>Example: Consequence</h4>
+<p>
+In the first example, a Clinical EHR issues an order for a particular imaging examination 
+to be performed on a patient. This is considered to be a message of <b>Consequence</b>: multiple
+orders should not be created (in practice there are usually human review processes that 
+catch multiple orders, but repeat orders create entropy in the system that is harmful). 
+The EHR sends a message where the envelope id (feed.id) is UUID 1 (urn:uuid:72edc4e0-6708-42ab-9734-f56721882c10), 
+with a Message Header that contains a message id of UUID 2 (urn:uuid:dad53a57-dcb4-4f18-b066-7239eb4b5229).
+</p>
+<p>
+The EHR system never receives a response to the message; it does not know whether the request
+message got lost, or the imaging management systems was unable to process the request, or whether
+it successfully processed the message and the response was lost. In this case, the EHR system
+resends the message with same two identifiers. 
+</p>
+<p>
+In this case, the imaging system successfully received the message, and processed it. Because
+it receives the resent order after 1 minute (which is within it's 15 minute cache time), 
+and the two UUIDs 1 and 2 match a message it has already processed, it knows that it already 
+processed the order, and simply returns the previous response. In the case of additional resent
+queries, the application keeps sending the original response, though it may also alert system
+administrators that the same original message keeps being resent, since lost messages should be 
+a rare occurrence.
+</p>
+<p>
+When the EHR system finally receives the message, it knows how the imaging management system 
+responded; it can be sure because the message id from the original request is echoed in the 
+response portion of the returned message.
+</p>
 
 
-<pre>
-TODO: describe some use cases
-</pre>
+<h4>Example: Currency</h4>
+<p>
+In this second example, a Clinical EHR needs to know what appointment slots are available
+for a particular imaging procedure. This is a message of <b>Currency</b>: available slots are 
+ever disappearing, and ordering a slot that has become unavailable is a waste of time for 
+the humans and systems involved. The EHR sends a message where the envelope id (feed.id) is 
+UUID 3 (urn:uuid:4c7f5cb2-5964-4d42-b719-e0227461818c), with a Message Header that contains 
+a message id of UUID 4 (urn:uuid:63ED7D68-B2CC-421D-BA1C-A6C7785581F2).
+</p>
+<p>
+The EHR system never receives a response to the message; it does not know whether the request
+message got lost, or the imaging management systems was unable to process the request, or whether
+it successfully processed the message and the response was lost. In this case, the EHR system
+resends the message with same message id (UUID 4), but creates a new envelope id (feed.id):
+(urn:uuid:c7c17fe4-9560-49c7-b2ae-42636476fb86).
+</p>
+<p>
+In this case, the imaging system successfully received the message, and processed it. When 
+it receives the resent order after 1 minute (which is within it's 15 minute cache time), it 
+sees that although the message id is the same, the envelope id has changed, and it reprocesses
+the message again, and sends a new response.
+</p>
+<p>
+When the EHR system finally receives the message, it knows the current slot availability 
+on the imaging management system responded. 
+</p>
+<p>
+Note that the existence of active intermediaries (or "middleware") creates the need
+for this protocol - the original sender matches the response to the request based on the 
+message id, and so an active intermediary that choose the re-initiate a query that
+it previously relayed cannot change the message id. This protocol avoids the need for
+the message id to change, and only requires change to the envelope id which is never
+the basis for context linking outside the immediate message exchange protocol described
+bere.
+</p>
+
 
 <h2>Conformance Statement</h2>
 <p>
