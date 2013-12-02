@@ -26,50 +26,53 @@
         <label value="Roel's VL 1-1, 18-65_1.2.2"/>
     </identifier>
 
-    <question>
-        <!--Seperate answer-->
-        <text value="Do you have allergies?"/>
-        <answerString value="I am allergic to house dust"/>
-    </question>
-
     <group>
-        <!--Answers to general questions-->
-       <header value="General questions"/>       
-       <question>
-           <text value="What is your gender?"/>                        
-            <answerString value="Male"/>
-        </question>
-        <question>
-            <name>
-                <text value="What is your date of birth?"/>
-            </name>
-            <answerDate value="1960-03-13"/>
-        </question>
-        <question>
-            <name>
-                <text value="What is your country of birth?"/>
-            </name>
-            <answerString value="The Netherlands"/>
-        </question>
-        <question>
-            <name>
-                <text value="What is your marital status?"/>
-            </name>
-            <answerString value="married"/>
-        </question>
-    </group>
+        <group>
+            <question>
+                <!--Seperate answer-->
+                <text value="Do you have allergies?"/>
+                <answerString value="I am allergic to house dust"/>
+            </question>
+        </group>
+        <group>
+            <!--Answers to general questions-->
+            <header value="General questions"/>
+            <question>
+                <text value="What is your gender?"/>
+                <answerString value="Male"/>
+            </question>
+            <question>
+                <name>
+                    <text value="What is your date of birth?"/>
+                </name>
+                <answerDate value="1960-03-13"/>
+            </question>
+            <question>
+                <name>
+                    <text value="What is your country of birth?"/>
+                </name>
+                <answerString value="The Netherlands"/>
+            </question>
+            <question>
+                <name>
+                    <text value="What is your marital status?"/>
+                </name>
+                <answerString value="married"/>
+            </question>
+        </group>
 
-    <group>
-        <!--Answers to intoxications-->
-        <header value="Intoxications"/>
-        
-        <question>
-            <text value="Do you smoke?"/>            
-            <answerString value="No"/>
-        </question>
-        <question>
-            <text value="Do you drink alchohol?"/>
-            <answerString value="No, but I used to drink"/>
-        </question>
+        <group>
+            <!--Answers to intoxications-->
+            <header value="Intoxications"/>
+
+            <question>
+                <text value="Do you smoke?"/>
+                <answerString value="No"/>
+            </question>
+            <question>
+                <text value="Do you drink alchohol?"/>
+                <answerString value="No, but I used to drink"/>
+            </question>
+        </group>
     </group>
 </Questionnaire>

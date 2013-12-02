@@ -33,5 +33,5 @@
   <managingOrganization>
     <reference value="Organization/f001"/>
   </managingOrganization>
-  <active value="true"/>
+  <status value="active" />
 </Location>

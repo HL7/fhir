@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2013-11-18T14:54:15Z</LastSaved>
+  <LastSaved>2013-12-02T14:36:15Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -136,10 +136,10 @@
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R26C17"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R18C17"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="26" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="27" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="312.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="30"/>
@@ -346,137 +346,21 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Questionnaire.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">=Question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Answers to questions</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Answers to questions on a questionnaire</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Responses, Contents</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Must register answers to questions</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Questionnaire.question.name</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">2</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">QuestionName</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Code or name of the question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Structured name for the question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Structured name identified the question so the answers can be identified, extracted and used.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Questionnaire.question.text</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">2</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Text of the question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Text of the question as it may appear on screen or on a form</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">When including text for the questionnaire, each question may contain its actual question display text</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Questionnaire.question.answer[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">decimal | integer | boolean | date | string | dateTime | instant</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Single-valued answer to the question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Single-valued answer to the question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Need to be able to retain a single-valued answers to a question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.choice</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Coding</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Selected options</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">One of more selections from the list of options</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.options[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">uri | Resource(ValueSet)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Valueset containing the possible options</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Reference to a valueset containing the possible options</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Questionnaire.question.data[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">*</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Structured answer</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Structured answer in the form of a FHIR Resource or datatype</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Depending on the system used to compose a Questionnaire instance,  it may be possible for such a system to supply answers in the form of structured FHIR data.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
-    <Cell><Data ss:Type="String">Questionnaire.question.remarks</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Remarks about the answer given</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Many questionnaires allow you to include &quot;comments&quot; in addition to the answers given.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.6875">
     <Cell><Data ss:Type="String">Questionnaire.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=Group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Grouped answers</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Grouped questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A group of questions to a possibly similarly grouped set of question in the questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Need to be able to logically group answers to grouped questions</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The Questionnaire itself has one &quot;root&quot; group with the actual contents of the Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43.3125">
@@ -535,6 +419,23 @@
     <Cell><Data ss:Type="String">When repeats is not given, false is assumed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Questionnaire.group.ordered</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Whether the contents of this group have a meaningful order</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Whether the contents of this group have a meaningful order</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Ordering of questions and groups within groups is important since questions may only make sense in a certain order or the order of collecting answers may influence the way a subject responds to those questions</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">When ordered is not given, false is assumed</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.group.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -549,22 +450,10 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">Questionnaire.group.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@Questionnaire.question</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Questions in this group</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Set of questions within this group</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Need to be able to report information about the collected specimens on which the report is based</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.group.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Nested questionnaire group</Data><NamedCell
@@ -573,6 +462,93 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Reports can consist of complex nested groups</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=Question</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Questions in this group</Data></Cell>
+    <Cell><Data ss:Type="String">Set of questions within this group</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Responses, Contents</Data></Cell>
+    <Cell><Data ss:Type="String">Must register answers to questions</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Questionnaire.group.question.name</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">QuestionName</Data></Cell>
+    <Cell><Data ss:Type="String">Code or name of the question</Data></Cell>
+    <Cell><Data ss:Type="String">Structured name for the question that identifies this question within the Questionnaire or Group</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Structured name identifies the question so the answers can be extracted and used.</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Questionnaire.group.question.text</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Text of the question</Data></Cell>
+    <Cell><Data ss:Type="String">Text of the question as it may appear on screen or on a form</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">When including text for the questionnaire, each question may contain its actual question display text</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Questionnaire.group.question.answer[x]</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">decimal | integer | boolean | date | string | dateTime | instant</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Single-valued answer to the question</Data></Cell>
+    <Cell><Data ss:Type="String">Single-valued answer to the question</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Need to be able to retain a single-valued answers to a question</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+    <Cell><Data ss:Type="String">Questionnaire.group.question.choice</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Coding</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Selected options</Data></Cell>
+    <Cell><Data ss:Type="String">Selections made by the user from the list of options</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+    <Cell><Data ss:Type="String">Questionnaire.group.question.options</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Resource(ValueSet)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Valueset containing the possible options</Data></Cell>
+    <Cell><Data ss:Type="String">Reference to a valueset containing the possible options</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">Questionnaire.group.question.data[x]</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Structured answer</Data></Cell>
+    <Cell><Data ss:Type="String">Structured answer in the form of a FHIR Resource or datatype</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Depending on the system used to compose a Questionnaire instance,  it may be possible for such a system to supply answers in the form of structured FHIR data.</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+    <Cell><Data ss:Type="String">Questionnaire.group.question.remarks</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Remarks about the answer given</Data></Cell>
+    <Cell><Data ss:Type="String">The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Many questionnaires allow you to include &quot;comments&quot; in addition to the answers given.</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s66"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Questionnaire.group.question.group</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Nested questionnaire group</Data></Cell>
+    <Cell><Data ss:Type="String">Nested group, containing nested question for this question</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">It is useful to have &quot;sub-questions&quot;, questions which normally appear when certain answers are given and which collect additional details.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -591,9 +567,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -601,7 +577,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -609,8 +584,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -618,7 +593,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="162.75"
     ss:Span="1"/>
@@ -635,16 +610,23 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">SimpleChoiceOrData</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">Must supply either a simple answer, a choice, data or nothing</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">count(f:data) + count(f:choice) + count(f:value) &lt;= 1</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">count(f:data) + count(f:choice) + count(f:answer) &lt;= 1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">MustHaveNameOrText</Data></Cell>
-    <Cell><Data ss:Type="String">Questionnaire.question</Data></Cell>
+    <Cell><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">Must supply a name, a question's text or both</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:name) + count(f:text) &gt;= 1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">GroupHaveSubOrQuestions</Data></Cell>
+    <Cell><Data ss:Type="String">Questionnaire.group</Data></Cell>
+    <Cell><Data ss:Type="String">Groups may either contain questions or groups but not both</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:group) and exists(f:question))</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -663,8 +645,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

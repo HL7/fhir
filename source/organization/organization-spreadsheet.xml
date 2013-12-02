@@ -20,7 +20,6 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -159,7 +158,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="20" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="21" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s65" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="197.25"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -408,6 +407,23 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Organization.location</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Location(s) the organization uses to provide services</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Location(s) the organization uses to provide services</Data></Cell>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="129.5625">
     <Cell><Data ss:Type="String">Organization.active</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -429,7 +445,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>5</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>10</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -441,8 +458,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -541,7 +558,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

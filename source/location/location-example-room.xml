@@ -29,7 +29,7 @@
   <managingOrganization>
     <reference value="Organization/f001" />
   </managingOrganization>
-  <active value="true" />
+  <status value="suspended" />
   <partOf>
     <reference value="Location/1"></reference>
   </partOf>

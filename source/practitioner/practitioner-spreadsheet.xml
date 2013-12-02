@@ -20,7 +20,6 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -113,7 +112,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="18" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="19" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="340.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="33.75"/>
@@ -303,8 +302,8 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">PractitionerRole</Data></Cell>
-    <Cell><Data ss:Type="String">A role the practitioner has</Data></Cell>
-    <Cell><Data ss:Type="String">The way in which the person represents the organization - what role do they have?</Data></Cell>
+    <Cell><Data ss:Type="String">Roles which this practitioner may perform</Data></Cell>
+    <Cell><Data ss:Type="String">Roles which this practitioner is authorized perform for the organization</Data></Cell>
     <Cell><Data ss:Type="String">Need to know what authority the practitioner has - what can they do?</Data></Cell>
     <Cell><Data ss:Type="String">A person may have more than one role. At least one role is required.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
@@ -324,12 +323,19 @@
     <Cell><Data ss:Type="String">Practitioner.period</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The period during which the person is authorized to perform the service</Data></Cell>
-    <Cell><Data ss:Type="String">The period during which the person is authorized to perform the service</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The period during which the practitioner is authorized to perform in these role(s)</Data></Cell>
+    <Cell><Data ss:Type="String">The period during which the person is authorized to act as a practitioner in these role(s) for the organization</Data></Cell>
     <Cell><Data ss:Type="String">Even after the agencies is revoked, the fact that it existed must still be recorded</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-8/9 / PRA-5.4-date of certification&#10;</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Is this separate from the period of validity of the qualification?</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">Practitioner.location</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">The location(s) at which this practitioner provides care</Data></Cell>
+    <Cell><Data ss:Type="String">The location(s) at which this practitioner provides care</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Practitioner.qualification</Data></Cell>
@@ -394,10 +400,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
+   <TopRowVisible>5</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -736,7 +745,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

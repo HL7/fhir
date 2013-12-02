@@ -10,10 +10,11 @@ purpose of a patient may be about the patient's relatives (e.g. in family anamne
 the subject and the source of information.</li>
 <li>Questionnaires may be used to represent predefined forms, named using Questionnaire.name. Questionnaires.identifier identify a specific
 set of answers to the questions on these forms.</li>
-<li>If a Questionnaire is used to just represent a predefined form or "template", the Questionnaire need not contain answers (Questionnaire.question.data or 
-Questionnaire.question.choice is empty).</li>
-<li>Questionnaires may directly contain Questions and/or contain Groups and subgroups with Questions. These may or may not correspond to the structure
-of the original form. If they do correspond, Groups may be named, so answers on a Questionnaire can refer to a corresponding sections of a form.
+<li>If a Questionnaire is used to just represent a predefined form or "template", the Questionnaire need not contain answers (Question.answer, Question.data and 
+Questionnaire.question.choice are empty).</li>
+<li>A Questionnaire's contents are placed inside its single nested Group, which may contain Questions or subgroups with Questions. 
+These may or may not correspond to the structure of the original form. If they do correspond, Groups may be named, so answers on a Questionnaire can 
+refer to a corresponding sections of a form.
 Likewise, answers to Questionnaires can be named to refer to the question on a form. It is also possible to include textual content on the form in 
 Questionnaire (see below).</li>
 <li>Since sections and questions may be answered multiple times, the same Group.name and Question.name may appear multiple times.</li>

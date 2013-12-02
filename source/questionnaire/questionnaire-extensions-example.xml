@@ -70,126 +70,124 @@
     <reference value="#questauth"/>
   </author>
   <name>
-    <text value="Cancer Treatment Quality Questionnaire 2012"/>
+    <text value="Cancer Quality Forum Questionnaire 2012"/>
   </name>
   <group>
-    <!-- COMORBIDITY -->
-    <!-- First main section of the form, questions about comorbidity -->
-    <name>
-      <coding>
-        <system value="http://cancer.questionnaire.org/system/code/sections"/>
-        <code value="COMORBIDITY"/>
-      </coding>
-    </name>
-    <!-- section contains one question: whether there is comorbidity -->
-    <question>
-      <name>
-        <coding>
-          <system value="http://cancer.questionnaire.org/system/code/questions"/>
-          <code value="COMORB"/>
-        </coding>
-      </name>
-      <choice>
-        <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-        <code value="1"/>
-        <display value="Yes"/>
-      </choice>
-    </question>
     <group>
-      <!-- COMORBIDITY/CARDIAL -->
-      <!-- Subsection about specific comorbidity: cardial -->
+      <!-- COMORBIDITY -->
+      <!-- First main section of the form, questions about comorbidity -->
       <name>
         <coding>
           <system value="http://cancer.questionnaire.org/system/code/sections"/>
-          <code value="CARDIAL"/>
+          <code value="COMORBIDITY"/>
         </coding>
       </name>
+      <!-- section contains one question: whether there is comorbidity -->
       <question>
         <name>
           <coding>
             <system value="http://cancer.questionnaire.org/system/code/questions"/>
-            <code value="COMORBCAR"/>
+            <code value="COMORB"/>
           </coding>
         </name>
         <choice>
           <system value="http://cancer.questionnaire.org/system/code/yesno"/>
           <code value="1"/>
+          <display value="Yes"/>
         </choice>
-      </question>
-      <question>
-        <!-- This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code -->
-        <name>
-          <coding>
-            <system value="http://cancer.questionnaire.org/system/code/questions"/>
-            <code value="COMCAR00"/>
-            <display value="Angina Pectoris"/>
-          </coding>
-          <coding>
-            <system value="http://snomed.info/id"/>
-            <code value="194828000"/>
-            <display value="Angina (disorder)"/>
-          </coding>
-        </name>
-        <choice>
-          <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-          <code value="1"/>
-        </choice>
-      </question>
-      <question>
-        <name>
-          <coding>
-            <system value="http://snomed.info/id"/>
-            <code value="22298006"/>
-            <display value="Myocardial infarction (disorder)"/>
-          </coding>
-        </name>
-        <choice>
-          <system value="http://cancer.questionnaire.org/system/code/yesno"/>
-          <code value="0"/>
-        </choice>
+        <group>
+          <!-- COMORBIDITY/CARDIAL -->
+          <!-- Subsection about specific comorbidity: cardial -->
+          <name>
+            <coding>
+              <system value="http://cancer.questionnaire.org/system/code/sections"/>
+              <code value="CARDIAL"/>
+            </coding>
+          </name>
+          <question>
+            <name>
+              <coding>
+                <system value="http://cancer.questionnaire.org/system/code/questions"/>
+                <code value="COMORBCAR"/>
+              </coding>
+            </name>
+            <choice>
+              <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+              <code value="1"/>
+            </choice>
+          </question>
+          <question>
+            <!-- This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code -->
+            <name>
+              <coding>
+                <system value="http://cancer.questionnaire.org/system/code/questions"/>
+                <code value="COMCAR00"/>
+                <display value="Angina Pectoris"/>
+              </coding>
+              <coding>
+                <system value="http://snomed.info/id"/>
+                <code value="194828000"/>
+                <display value="Angina (disorder)"/>
+              </coding>
+            </name>
+            <choice>
+              <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+              <code value="1"/>
+            </choice>
+          </question>
+          <question>
+            <name>
+              <coding>
+                <system value="http://snomed.info/id"/>
+                <code value="22298006"/>
+                <display value="Myocardial infarction (disorder)"/>
+              </coding>
+            </name>
+            <choice>
+              <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+              <code value="0"/>
+            </choice>
+          </question>
+        </group>
+        <group>
+          <!-- COMORBIDITY/VASCULAR -->
+          <name>
+            <coding>
+              <system value="http://cancer.questionnaire.org/system/code/sections"/>
+              <code value="VASCULAR"/>
+            </coding>
+          </name>
+        </group>
       </question>
     </group>
-    <!-- COMORBIDITY/CARDIAL -->
     <group>
-      <!-- COMORBIDITY/VASCULAR -->
+      <!-- HISTOPATHOLOGY -->
       <name>
         <coding>
           <system value="http://cancer.questionnaire.org/system/code/sections"/>
-          <code value="VASCULAR"/>
+          <code value="HISTOPATHOLOGY"/>
         </coding>
       </name>
-    </group>
-    <!-- COMORBIDITY/VASCULAR -->
-  </group>
-  <!-- COMORBIDITY -->
-  <group>
-    <!-- HISTOPATHOLOGY -->
-    <name>
-      <coding>
-        <system value="http://cancer.questionnaire.org/system/code/sections"/>
-        <code value="HISTOPATHOLOGY"/>
-      </coding>
-    </name>
-    <group>
-      <name>
-        <coding>
-          <system value="http://cancer.questionnaire.org/system/code/sections"/>
-          <code value="ABDOMINAL"/>
-        </coding>
-      </name>
-      <question>
+      <group>
         <name>
           <coding>
-            <system value="http://cancer.questionnaire.org/system/code/questions"/>
-            <code value="STADPT"/>
-            <display value="pT category"/>
+            <system value="http://cancer.questionnaire.org/system/code/sections"/>
+            <code value="ABDOMINAL"/>
           </coding>
         </name>
-        <dataResource>
-          <reference value="#obs.pt-category"/>
-        </dataResource>
-      </question>
+        <question>
+          <name>
+            <coding>
+              <system value="http://cancer.questionnaire.org/system/code/questions"/>
+              <code value="STADPT"/>
+              <display value="pT category"/>
+            </coding>
+          </name>
+          <dataResource>
+            <reference value="#obs.pt-category"/>
+          </dataResource>
+        </question>
+      </group>
     </group>
   </group>
-  <!-- HISTOPATHOLOGY -->
 </Questionnaire>

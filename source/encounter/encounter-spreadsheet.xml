@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-08-05T10:12:54Z</LastSaved>
+  <LastSaved>2013-12-02T16:57:47Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -338,7 +338,7 @@
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Encounter.fulfills</Data></Cell>
+    <Cell><Data ss:Type="String">!Encounter.fulfills</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -663,8 +663,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -820,7 +820,7 @@
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="26" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:Width="78"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="419.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s77">
@@ -850,7 +850,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">Encounter.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">fulfills</Data></Cell>
+    <Cell><Data ss:Type="String">!fulfills</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Encounter.fulfills</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s79"/>
@@ -956,7 +956,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>6</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

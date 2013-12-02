@@ -20,7 +20,6 @@
   <WindowWidth>9600</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -36,6 +35,14 @@
   <Style ss:ID="s62" ss:Name="Hyperlink">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
     ss:Underline="Single"/>
+  </Style>
+  <Style ss:ID="s123" ss:Name="Normal 2">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
   <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -138,6 +145,23 @@
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
+  </Style>
+  <Style ss:ID="s81" ss:Parent="s123">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s138">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -330,14 +354,14 @@
     <Cell><Data ss:Type="String">scopingEntity[classCode=ORG determinerKind=INSTANCE]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Location.active</Data></Cell>
+    <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Whether the location is still used to provide services</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">LocationStatus</Data></Cell>
+    <Cell><Data ss:Type="String">active | suspended | inactive</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"/>
@@ -377,10 +401,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -397,6 +422,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>13</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -526,7 +552,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -585,10 +610,10 @@
     <Cell><Data ss:Type="String">Location.address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">active</Data></Cell>
-    <Cell><Data ss:Type="String">Whether to search for active or inactive locations</Data></Cell>
+    <Cell><Data ss:Type="String">status</Data></Cell>
+    <Cell><Data ss:Type="String">Searches for locations with a specific kind of status</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">Location.active</Data></Cell>
+    <Cell><Data ss:Type="String">Location.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">partof</Data></Cell>
@@ -735,7 +760,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -782,9 +807,11 @@
     <Cell><Data ss:Type="String">#location-mode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s73"/>
+    <Cell><Data ss:Type="String">LocationStatus</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Indicates whether the location is still in use</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#location-status</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -813,8 +840,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -905,6 +932,74 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>3</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="location-status">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="9" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s78" ss:Width="14.25"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="122.25"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="272.25"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="381"/>
+   <Row>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Comments</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The location is operational</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">This does not suggest the Location is occupied, just that the Location can be used to provide healthcare. Resource management is not part of the Location resource.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The location is temporarily closed</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The location is no longer used</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s73"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

@@ -8,6 +8,7 @@ interpreting the context of the encounter, choosing the appropriate business rul
 is required.</li>
 <li>The <i>Location</i> indicates where the patient has been during the encounter (he might visit multiple locations, e.g. to an MRI room
 for examinations, while <i>Accommodation</i> keeps information about the bed a patient stays at during a hospitalization.</li>
+<li>In future versions of FHIR, some kind of charge posting vehicle (e.g. Account) will be added.</li>
 </ul>
 </p>
 <a name="examples" />

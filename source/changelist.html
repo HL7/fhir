@@ -7,6 +7,7 @@
         - person
         - clinical observations / vital signs
         - appointment
+		- charge posting vehicle (e.g. Account)
         - query definition
         - split profile up? 
         - expand partitions?
@@ -43,59 +44,61 @@ Changes from the DSTU ballot (v0.11) to the DSTU final copy (0.20?):
 </p>
 <ul>
  <li>All resources: make a rule that any contained resources must be explicitly referred to from other content in the resource</li>
- <li>ResourceReference: remove "type" element - it had no actual function</li>
+ <li>Alert: improved the definitional documentation</li> 
  <li>Bundle - add the "fhir-base" link that SHALL be present if relative references are found in the bundle</li>
- <li>JSON - rename "_id" to "id", and change the way that primitive types are represented (split id and extension out into _[name])</li>
- <li>Documents &amp; Messages: document that these are marked with tags to identify them</li>
- <li>Extensions: make rules around obligations for exchange</li>
- <li>REST API: The syntax of the URLs has changed (remove @ from the ids). resources are no longer returned on create/update/transaction, and rules around the transction response have changed. <a href="http://enable-cors.org/">CORS</a> is now recommended (and in the conformance resource).</li>
- <li>Searching: clarify that searching is not just for rest. Extend _sort parameter. Add relevance score, and sorting by that. Add _profile parameter. Change "integer" type to "number"</li>
+ <li>CarePlan: made patient optional, and reworked to link activities to goals and goals to concerns, and allow other resource kinds for activities</li>
  <li>Choice: remove choice and add Coding.valueset</li>
  <li>CodeableConcept: move primary to Coding.primary</li>
  <li>Coding: add primary, valueset and version &amp; align code system version rules with core principles</li>
- <li>Conformance: Add Conformance.profile. Move system operations to rest.operations from rest.resource.operations, &amp; add updateCreate and versionSpecificUpdates flags. Add note about Content-Location header. Add mailbox for documents profiles</li>
- <li>ValueSet: add define.version, and a new constraint that codes must be unique in the definition space, and tighten up publication (maps and cross links, expansions, deal with poly-heirarchies &amp; deprecated codes, publish all v3 code systems, map the data types), add more uniqueness variants, and tighten notes around imported value sets</li>
- <li>The following pages have been rewritten (Editorial changes only): "Resource Definitions", "Using codes" and the overview page</li>
- <li>FamilyHistory: change the value set for relation type to use the v3 value set directly</li>
- <li>Remove Coverage resource</li>
- <li>Narrative: Changed the styles that can be used by authoring systems, and the obligations on rendering systems</li>
- <li>ImagingStudy: add link to DiagnosticOrder. Trim mappings to DICOM. Limit URL to WADO-RS only (not WADO)</li>
- <li>ImmunizationProfile - rename to ImmunizationRecommendation</li>
- <li>DocumentReference: aligned definitions more closely with XDS. Worked over the XDS Profile. Add _query=generate for DocumentReferences. Changed the value set for Confidentiality and format codes</li>
- <li>DocumentManifest: added this from scratch to round out XDS support</li>
- <li>Document: Renamed the Document resource to "Composition" and revised status list per o-o analysis of reporting cycles, and renamed sub-Type to "class" and updated definitions accordingly. changed the value set for confidentiality</li>
- <li>Validation: added Profile tags, and explained how they are used for validation</li>
- <li>Standardised identifiers: AdverseReaction, AllergyIntolerance, CarePlan, Condition, FamilyHistory, Procedure, Questionnaire all have identifier 0..*</li> 
+ <li>ConceptMap: added Informative ConceptMap resource</li>
  <li>Condition &amp; Procedure: several changes around relatedItem</li>
- <li>Procedure: made type a required element, changed type and cardinality for indications and complications, and updated definition of procedure</li>
- <li>CarePlan: made patient optional, and reworked to link activities to goals and goals to concerns, and allow other resource kinds for activities</li>
- <li>Alert: improved the definitional documentation</li>
- <li>Message: rename the resource to "MessageHeader" and make the event code a Coding (also in the conformance statement too)</li> 
- <li>Patient: Add Link structure to support typed, unidirectional links between Patient records</li>
- <li>Patient: Added careProvider 0..* to express the nominated care providers</li>
- <li>Patient: renamed "provider" to "managingOrganization"</li>
+ <li>Conformance: Add Conformance.profile. Move system operations to rest.operations from rest.resource.operations, &amp; add updateCreate and versionSpecificUpdates flags. Add note about Content-Location header. Add mailbox for documents profiles</li>
+ <li>Coverage: resource has been removed</li>
+ <li>Documents &amp; Messages: document that these are marked with tags to identify them</li>
+ <li>Document: Renamed the Document resource to "Composition" and revised status list per o-o analysis of reporting cycles, and renamed sub-Type to "class" and updated definitions accordingly. changed the value set for confidentiality</li>
  <li>Document: changed the type of .replaces, and the code set for Document.status has changed, and made obligations around the handling of retracted documents more clear. Add Location as an allowed subject target</li>
- <li>Patient: Added a Patient link and unlink messages</li>
- <li>Patient: Corrections to the v2 mappings</li>
- <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness. Introduce a Map declaration element</li>
+ <li>DocumentManifest: added this from scratch to round out XDS support</li>
+ <li>DocumentReference: aligned definitions more closely with XDS. Worked over the XDS Profile. Add _query=generate for DocumentReferences. Changed the value set for Confidentiality and format codes</li>
  <li>Encounter: Allow RelatedPersons to be participants in an encounter and changed type of participation to CodeableConcept.</li>
  <li>Encounter: Added discharge diagnosis to the Hospitalization element</li>
+ <li>Extensions: make rules around obligations for exchange</li>
+ <li>FamilyHistory: change the value set for relation type to use the v3 value set directly</li>
+ <li>ImagingStudy: add link to DiagnosticOrder. Trim mappings to DICOM. Limit URL to WADO-RS only (not WADO)</li>
+ <li>ImmunizationProfile - rename to ImmunizationRecommendation</li>
+ <li>JSON - rename "_id" to "id", and change the way that primitive types are represented (split id and extension out into _[name])</li>
  <li>Location: Scope of Resource now also covers devices like freezers and incubators</li>
  <li>Location: Added a 'mode' to indicate Location instances or kinds</li>
  <li>Location: Split the existing element 'type' into 'type' (type of service provided) and 'physicalType' (physical form of the location)</li>
+ <li>Location: A new 'status' element has replaced the boolean 'active', allowing for more values rather than true or false</li>
+ <li>Message: rename the resource to "MessageHeader" and make the event code a Coding (also in the conformance statement too)</li> 
+ <li>Narrative: Changed the styles that can be used by authoring systems, and the obligations on rendering systems</li>
  <li>Organization: Can now refer to 0..* Locations where it provides services</li>
+ <li>Patient: Add Link structure to support typed, unidirectional links between Patient records</li>
+ <li>Patient: Added careProvider 0..* to express the nominated care providers, renamed "provider" to "managingOrganization"</li>
+ <li>Patient: Added a Patient link and unlink messages</li>
+ <li>Patient: Corrections to the v2 mappings</li>
  <li>Practitioner: Can now refer to 0..* Locations where the practitioner provides services</li>
- <li>Add Informative ConceptMap resource</li>
+ <li>Procedure: made type a required element, changed type and cardinality for indications and complications, and updated definition of procedure</li>
+ <li>Profile: Remove the concept of re-useable bindings, and collapse binding in line to element definition. Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness. Introduce a Map declaration element</li>
+ <li>Questionnaire: Added support for nested questions, new status codes and support for ordered Questionnaires</li>
+ <li>ResourceReference: remove "type" element - it had no actual function</li>
+ <li>REST API: The syntax of the URLs has changed (remove @ from the ids). resources are no longer returned on create/update/transaction, and rules around the transction response have changed. <a href="http://enable-cors.org/">CORS</a> is now recommended (and in the conformance resource).</li>
+ <li>Searching: clarify that searching is not just for rest. Extend _sort parameter. Add relevance score, and sorting by that. Add _profile parameter. Change "integer" type to "number"</li>
+ <li>Security: Added details for what the security labels actually are, including some obligatory security labels</li>
+ <li>Validation: added Profile tags, and explained how they are used for validation</li>
+ <li>ValueSet: add define.version, and a new constraint that codes must be unique in the definition space, and tighten up publication (maps and cross links, expansions, deal with poly-heirarchies &amp; deprecated codes, publish all v3 code systems, map the data types), add more uniqueness variants, and tighten notes around imported value sets</li>
+ <li>/mailbox: allowed queries as well as messages and documents</li>
+ <li>The following pages have been rewritten (Editorial changes only): "Resource Definitions", "Using codes" and the overview page</li>
+ <li>Standardised identifiers: AdverseReaction, AllergyIntolerance, CarePlan, Condition, FamilyHistory, Procedure, Questionnaire all have identifier 0..*</li> 
  <li>Change the following fields from string|CodeableConcept to just CodeableConcept: Encounter.reason, MedicationDispense.dispense.dosage.additionalInstructions, MedicationPrescription.reasonForPrescribing, MedicationPrescription.dosageInstruction.additionalInstructions</li>
  <li>Harmonize the search parameters for the metadata parts of Conformance, Profile, ValueSet, and ConceptMap. Remove the text parameter type, and add search parameters _text and _content. Remove token modifiers :code and :anyns, and update documentation. Remove date modifiers and use &lt; etc. Define escaping for search parameters</li>
- <li>Security: Added details for what the security labels actually are, including some obligatory security labels</li>
- <li>mailBox: allowed queries as well as messages and documents</li>
 </ul>
 <p>
 Changes from the C# reference implementation:
 <ul>
-<li>Assembly is now signed and has a strong name</li>
 <li>Additional metadata attributes to facilitate validation, parsing and dynamic client/server behaviour</li>
+<li>Hl7.Fhir.Model dll now only contains the generated model classes. Parsing, serialization and client support has been moved out to a separate
+open-source library at http://github.com/ewoutkramer/fhir-net-api</li>
 </ul>
 </p>
 </div>

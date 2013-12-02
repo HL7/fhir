@@ -73,9 +73,9 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="37" ss:ExpandedRowCount="30" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="37" ss:ExpandedRowCount="31" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="157.5"/>
+   <Column ss:StyleID="s62" ss:Width="313.5"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="60"/>
    <Column ss:Index="8" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="57.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="48.75"/>
@@ -267,6 +267,12 @@
     <Cell ss:Index="29"><Data ss:Type="String">DUE</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Location.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:Index="27"><Data ss:Type="String">inactive</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
@@ -349,10 +355,12 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
+   <LeftColumnVisible>5</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
