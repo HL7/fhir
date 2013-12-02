@@ -20,7 +20,7 @@
   <WindowWidth>19785</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -390,22 +390,29 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Events">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s71" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="99.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="171"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="99.75" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="171"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="96.75"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="69.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell><Data ss:Type="String">Category</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Request Resources</Data></Cell>
     <Cell><Data ss:Type="String">Response Resources</Data></Cell>
     <Cell><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">admin-notify</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Notification</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">(see Patient)</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">RelatedPerson</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -420,11 +427,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -499,7 +507,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

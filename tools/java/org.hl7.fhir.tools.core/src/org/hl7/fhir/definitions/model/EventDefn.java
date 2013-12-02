@@ -32,8 +32,12 @@ import java.util.List;
 
 public class EventDefn {
 
+  public enum Category {
+    Consequence, Currency, Notification
+  }
   private String code;
   private String definition;
+  private Category category;
   private List<EventUsage> usages = new ArrayList<EventUsage>();
   private List<String> followUps = new ArrayList<String>();
   
@@ -54,6 +58,12 @@ public class EventDefn {
   }
   public List<String> getFollowUps() {
     return followUps;
+  }
+  public Category getCategory() {
+    return category;
+  }
+  public void setCategory(Category category) {
+    this.category = category;
   }
   
   

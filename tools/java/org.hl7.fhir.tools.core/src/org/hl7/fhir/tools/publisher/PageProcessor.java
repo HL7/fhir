@@ -358,6 +358,8 @@ public class PageProcessor implements Logger  {
         src = s1+s3;
       } else if (com[0].equals("dtmappings")) {
         src = s1 + genDataTypeMappings(com[1]) + s3;
+      } else if (com[0].equals("dtusage")) {
+        src = s1 + genDataTypeUsage(com[1]) + s3;
       }  else if (com[0].equals("v3xref")) {
         src = s1 + xreferencesForV3(name, com[1].equals("true")) + s3;      
       } else if (com[0].equals("setlevel")) {
@@ -1731,12 +1733,12 @@ public class PageProcessor implements Logger  {
     Collections.sort(codes);
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><th>Code</th><th>Description</th><th>Request</th><th>Response</th><th>Notes</th></tr>\r\n");
+    s.append(" <tr><th>Code</th><th>Category</th><th>Description</th><th>Request</th><th>Response</th><th>Notes</th></tr>\r\n");
     for (String c : codes) {
       EventDefn e = definitions.getEvents().get(c);
       if (e.getUsages().size() == 1) {
         EventUsage u = e.getUsages().get(0);
-        s.append(" <tr><td>"+e.getCode()+"</td><td>"+e.getDefinition()+"</td>");
+        s.append(" <tr><td>"+e.getCode()+"</td><td>"+(e.getCategory() == null ? "??" : e.getCategory().toString())+"</td><td>"+e.getDefinition()+"</td>");
         s.append("<td>"+describeMsg(u.getRequestResources(), u.getRequestAggregations())+"</td><td>"+
             describeMsg(u.getResponseResources(), u.getResponseAggregations())+"</td><td>"+
             combineNotes(e.getFollowUps(), u.getNotes())+"</td></tr>\r\n");
@@ -1876,6 +1878,8 @@ public class PageProcessor implements Logger  {
       }
       else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
+      else if (com[0].equals("dtusage")) 
+        src = s1 + genDataTypeUsage(com[1]) + s3;
       else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("wiki"))
@@ -2117,6 +2121,8 @@ public class PageProcessor implements Logger  {
         src = s1+s3;
       else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
+      else if (com[0].equals("dtusage")) 
+        src = s1 + genDataTypeUsage(com[1]) + s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("maponthispage"))
@@ -2290,6 +2296,43 @@ public class PageProcessor implements Logger  {
 
 
 
+  private String genDataTypeUsage(String tn) {
+    StringBuilder b = new StringBuilder();
+    for (ElementDefn e : definitions.getTypes().values()) {
+      if (usesType(e, tn)) {
+        b.append(", <a href=\"#"+e.getName()+"\">"+e.getName()+"</a>");
+      }
+    }
+    for (ResourceDefn e : definitions.getResources().values()) {
+      if (usesType(e.getRoot(), tn)) {
+        b.append(", <a href=\""+e.getName().toLowerCase()+".html\">"+e.getName()+"</a>");
+      }
+    }
+    String s = b.toString().substring(2);
+    int i = s.lastIndexOf(", ");
+    if ( i > 1)
+      s = s.substring(0, i)+" and"+s.substring(i+1);
+    return s;
+  }
+
+  private boolean usesType(ElementDefn e, String tn) {
+    if (usesType(e.getTypes(), tn)) 
+      return true;
+    for (ElementDefn c : e.getElements()) 
+      if (usesType(c, tn))
+        return true;
+    return false;
+  }
+
+  private boolean usesType(List<TypeRef> types, String tn) {
+    for (TypeRef t : types) {
+      if (t.getName().equals(tn)) 
+        return true; 
+      // no need to check parameters
+    }
+    return false;
+  }
+
   String processResourceIncludes(String name, ResourceDefn resource, String xml, String tx, String dict, String src, String mappings, String mappingsList, String type) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(name)+"_Page";
     String workingTitle = Utilities.escapeXml(resource.getName());
@@ -2432,9 +2475,9 @@ public class PageProcessor implements Logger  {
       }
     }
     if (refs.size() == 1)
-      return "<p>This resource is used by <a href=\""+refs.get(0).toLowerCase()+".html\">"+refs+"</a></p>\r\n";
+      return "<p>This resource is referenced by <a href=\""+refs.get(0).toLowerCase()+".html\">"+refs+"</a></p>\r\n";
     else if (refs.size() > 1)
-      return "<p>This resource is used by "+asLinks(refs)+"</p>\r\n";
+      return "<p>This resource is referenced by "+asLinks(refs)+"</p>\r\n";
     else
       return "";
   }

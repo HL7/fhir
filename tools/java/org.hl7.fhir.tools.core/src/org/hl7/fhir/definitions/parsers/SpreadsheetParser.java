@@ -42,6 +42,7 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
+import org.hl7.fhir.definitions.model.EventDefn.Category;
 import org.hl7.fhir.definitions.model.EventUsage;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
@@ -617,6 +618,7 @@ public class SpreadsheetParser {
 					events.add(e);
 					e.setCode(code);
 					e.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Description")));
+					e.setCategory(readCategory(sheet.getColumn(row, "Category")));
 					EventUsage u = new EventUsage();
 					e.getUsages().add(u);
 					u.setNotes(sheet.getColumn(row, "Notes"));
@@ -656,7 +658,20 @@ public class SpreadsheetParser {
 		}
 	}
 
-	private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants) throws Exception {
+	private Category readCategory(String s) throws Exception {
+    if (Utilities.noString(s))
+     return null;
+    if (s.equalsIgnoreCase("Consequence"))
+      return Category.Consequence;
+    if (s.equalsIgnoreCase("Currency"))
+      return Category.Currency;
+    if (s.equalsIgnoreCase("Notification"))
+      return Category.Notification;
+    throw new Exception("unknown event category "+s);
+  }
+
+
+  private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants) throws Exception {
 		ElementDefn e;
 		String path = sheet.getColumn(row, "Element");
 		if (path.startsWith("!"))

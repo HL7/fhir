@@ -20,7 +20,7 @@
   <WindowWidth>9600</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -33,21 +33,21 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s115" ss:Name="Hyperlink">
+  <Style ss:ID="s62" ss:Name="Hyperlink">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
     ss:Underline="Single"/>
   </Style>
-  <Style ss:ID="s62">
+  <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s63">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -57,22 +57,14 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s67">
+  <Style ss:ID="s68">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s68">
-   <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
@@ -80,6 +72,14 @@
    <Protection/>
   </Style>
   <Style ss:ID="s69">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s70">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -87,7 +87,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s71">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -95,13 +95,13 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s72">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s73">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -109,7 +109,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -117,10 +117,13 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s77" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -130,35 +133,32 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s90">
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s94" ss:Parent="s115">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="16" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
-   <Column ss:StyleID="s62" ss:Width="29.25"/>
-   <Column ss:StyleID="s62" ss:Width="22.5"/>
-   <Column ss:StyleID="s62" ss:Width="60"/>
-   <Column ss:StyleID="s62" ss:Width="42"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="106.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="211.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="207"/>
-   <Column ss:Index="15" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="203.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="123.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="150.75"/>
+   <Column ss:StyleID="s63" ss:Width="29.25"/>
+   <Column ss:StyleID="s63" ss:Width="22.5"/>
+   <Column ss:StyleID="s63" ss:Width="60"/>
+   <Column ss:StyleID="s63" ss:Width="42"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="211.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="207"/>
+   <Column ss:Index="15" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="203.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="123.75"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -178,10 +178,10 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Location</Data></Cell>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Details and position information for a physical place</Data></Cell>
@@ -201,7 +201,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Name of the location</Data></Cell>
     <Cell><Data ss:Type="String">Name of the location which identifies it to its users</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s67"><Data ss:Type="String">Organization label locations in registries, need to keep track of those</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">Organization label locations in registries, need to keep track of those</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">name</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -222,10 +222,10 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">LocationType</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">LocationType</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the type of function performed at the location</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the type of function performed at the location</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s67"/>
+    <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -241,7 +241,7 @@
     <Cell><Data ss:Type="String">Contact details of the location</Data></Cell>
     <Cell><Data ss:Type="String">The contact details of the main communication devices present at the location</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">telecom</Data></Cell>
    </Row>
@@ -256,7 +256,7 @@
     <Cell><Data ss:Type="String">Physical location</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">If locations can be visited, we need to keep track of their address</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">If locations can be visited, we need to keep track of their address</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">addr</Data></Cell>
    </Row>
@@ -267,10 +267,10 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PhysicalType</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PhysicalType</Data></Cell>
     <Cell><Data ss:Type="String">Physical form of the location</Data></Cell>
     <Cell><Data ss:Type="String">Physical form of the location, e.g. building, room, vehicle, road</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s67"><Data ss:Type="String">For purposes of showing relevant locations in queries, we need to categorize locations</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"><Data ss:Type="String">For purposes of showing relevant locations in queries, we need to categorize locations</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">playingEntity [classCode=PLC].code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -325,7 +325,7 @@
     <Cell><Data ss:Type="String">The organization that is responsible for the provisioning and upkeep of the location</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Need to know who manages the location</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Need to know who manages the location</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">scopingEntity[classCode=ORG determinerKind=INSTANCE]</Data></Cell>
    </Row>
@@ -340,7 +340,7 @@
     <Cell><Data ss:Type="String">Whether the location is still used to provide services</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">statusCode</Data></Cell>
    </Row>
@@ -406,13 +406,13 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="188.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+   x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -423,7 +423,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -431,7 +431,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -439,7 +439,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -447,7 +447,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -455,7 +455,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -494,27 +494,29 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Events">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="82.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="82.5" ss:Span="1"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="157.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="162.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="195.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Event Code</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Notes</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Request Resources</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Response Resources</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Follow Ups</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Category</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Request Resources</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Response Resources</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">admin-notify</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Notification</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">(see Patient)</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Location</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -524,6 +526,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -543,6 +546,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -555,7 +560,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="428.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="63.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s64">
+   <Row ss:AutoFitHeight="0" ss:Height="16.5" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
@@ -590,118 +595,118 @@
     <Cell><Data ss:Type="String">The location of which this location is a part</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Location.partOf</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">near</Data></Cell>
     <Cell><Data ss:Type="String">The coordinates expressed as [lat],[long] (using KML, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">near-distance</Data></Cell>
     <Cell><Data ss:Type="String">A distance quantity to limit the near search to locations within a specific distance</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s63"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -747,39 +752,39 @@
    <Column ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"><Data ss:Type="String">PhysicalType</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Physical form of the location</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">valueset-location-physical-type</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">PhysicalType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Physical form of the location</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">valueset-location-physical-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">LocationType</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Indicates the type of function performed at the location</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s94" ss:HRef="http://hl7.org/fhir/v3/vs/ServiceDeliveryLocationRoleType"><Data
+    <Cell ss:StyleID="s73"><Data ss:Type="String">LocationType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Indicates the type of function performed at the location</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s77" ss:HRef="http://hl7.org/fhir/v3/vs/ServiceDeliveryLocationRoleType"><Data
       ss:Type="String">http://hl7.org/fhir/v3/vs/ServiceDeliveryLocationRoleType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"><Data ss:Type="String">LocationMode</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Indicates whether a resource instance represents a specific location or a class of locations</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">LocationMode</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Indicates whether a resource instance represents a specific location or a class of locations</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s78"/>
     <Cell><Data ss:Type="String">#location-mode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s72"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="3" ss:StyleID="s73"/>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -789,7 +794,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -825,12 +829,12 @@
    <Column ss:Width="192"/>
    <Column ss:Width="204"/>
    <Row ss:AutoFitHeight="0" ss:Height="28.6875">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Wing</Data></Cell>
@@ -869,25 +873,25 @@
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="66"/>
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="221.25"/>
-   <Row ss:Height="30">
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Definition</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:StyleID="s75"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">instance</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The Location resource represents a specific instance of a Location</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s78"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">instance</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The Location resource represents a specific instance of a Location</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s75"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">kind</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The Location represents a class of Locations</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s78"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">kind</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">The Location represents a class of Locations</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s72"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -896,6 +900,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>

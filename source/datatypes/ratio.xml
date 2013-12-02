@@ -16,11 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7485</WindowHeight>
-  <WindowWidth>28155</WindowWidth>
-  <WindowTopX>4560</WindowTopX>
-  <WindowTopY>4935</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowHeight>6855</WindowHeight>
+  <WindowWidth>27855</WindowWidth>
+  <WindowTopX>4710</WindowTopX>
+  <WindowTopY>5415</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -102,6 +101,7 @@
     <Cell><Data ss:Type="String">A ratio of two Quantity values - a numerator and a denominator. </Data></Cell>
     <Cell><Data ss:Type="String">Need to able to capture ratios for some measurements (titers) and some rates (costs)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">RTO</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Ratio.numerator</Data></Cell>
@@ -109,7 +109,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">The numerator</Data></Cell>
     <Cell><Data ss:Type="String">The numerator</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">RTO.numerator</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">.numerator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Ratio.denominator</Data></Cell>
@@ -117,7 +117,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">The denominator</Data></Cell>
     <Cell><Data ss:Type="String">The denominator</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">RTO.denominator</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">.denominator</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -127,10 +127,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -169,7 +171,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

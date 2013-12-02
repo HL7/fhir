@@ -16,11 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8340</WindowHeight>
-  <WindowWidth>24435</WindowWidth>
-  <WindowTopX>3840</WindowTopX>
-  <WindowTopY>4080</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowHeight>7710</WindowHeight>
+  <WindowWidth>24135</WindowWidth>
+  <WindowTopX>4320</WindowTopX>
+  <WindowTopY>2895</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -111,6 +110,7 @@
     <Cell><Data ss:Type="String">Need to be able to specify ranges of values or time periods</Data></Cell>
     <Cell><Data ss:Type="String">The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. i.e. 1.99 is not in the range 2 -&gt; 3</Data></Cell>
     <Cell><Data ss:Type="String">IVL&lt;QTY[not(type=&quot;TS&quot;)]&gt; [lowClosed=&quot;true&quot; and highClosed=&quot;true&quot;]or URG&lt;QTY[not(type=&quot;TS&quot;)]&gt;</Data></Cell>
+    <Cell><Data ss:Type="String">NR and also possibly SN (but see also quantity)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Range.low</Data></Cell>
@@ -121,6 +121,7 @@
     <Cell><Data ss:Type="String">The low limit. The boundary is inclusive.</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">If the low element is missing, the meaning is that the low boundary is not known.</Data></Cell>
     <Cell><Data ss:Type="String">./low</Data></Cell>
+    <Cell><Data ss:Type="String">NR.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="195">
     <Cell><Data ss:Type="String">Range.high</Data></Cell>
@@ -131,6 +132,7 @@
     <Cell><Data ss:Type="String">The high limit. The boundary is inclusive. </Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">If the high element is missing, the meaning is that the high boundary is not known. </Data></Cell>
     <Cell><Data ss:Type="String">./high</Data></Cell>
+    <Cell><Data ss:Type="String">NR.2</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -140,11 +142,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -205,14 +208,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>4</ActiveCol>
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

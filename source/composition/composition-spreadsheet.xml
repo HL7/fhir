@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:20:02Z</Created>
-  <LastSaved>2013-11-14T21:28:45Z</LastSaved>
+  <LastSaved>2013-12-01T19:30:41Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -421,7 +421,7 @@
     <Cell><Data ss:Type="String">A participant who has attested to the accuracy of the composition/document</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Identifies responsibility for the accuracy of the composition content.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Only list each attester once</Data></Cell>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.authenticator/.legalAuthenticator</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -430,7 +430,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Composition.attester.mode</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -440,9 +440,9 @@
     <Cell><Data ss:Type="String">The type of attestation the authenticator offers</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the level of officialness of the attestation.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Use more than one code where a single attestor has more than one mode (professional and legal are often paired)</Data></Cell>
     <Cell><Data ss:Type="String">unique(./modeCode)</Data></Cell>
-    <Cell><Data ss:Type="String">.authenticator/.legalAuthenticator</Data></Cell>
+    <Cell><Data ss:Type="String">implied by .authenticator/.legalAuthenticator</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -516,7 +516,7 @@
     <Cell><Data ss:Type="String">Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Identifies where to go to find the current version, where to report issues, etc.</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Mainly this is useful when documents are derived from the composition</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because knowing this is sometimes not known by the authoring system, and can be inferred by context. However it's important that this information be known when working with a derived document, so providing a custodian is encouraged</Data></Cell>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.custodian.assignedCustodian</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -782,7 +782,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -795,11 +795,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1156,7 +1157,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

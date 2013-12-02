@@ -205,6 +205,10 @@ The context of use may frequently make rules about the kind of attachment
 </p>
 </div>
 
+<p>
+Attachment is used in the following places: [%dtusage Attachment%]
+</p>
+
 <a name="Coding"> </a>
 <a name="coding"> </a>
 <a name="codesystem"> </a>
@@ -347,6 +351,10 @@ particular context by <a href="terminologies.html">binding</a> the element to a 
 </p>
 </div>
 
+
+<p>
+Coding is used in the following places: [%dtusage Coding%]
+</p>
 <blockquote>
 <p>
 <b>Design Note</b>: This specification defines two types for representing coded values:
@@ -411,6 +419,10 @@ particular context by <a href="terminologies.html">binding</a> the element to a 
 </p>
 </div>
 
+<p>
+CodeableConcept is used in the following places: [%dtusage CodeableConcept%]
+</p>
+
 <a name="Quantity"></a>
 <a name="quantity"></a>
 <h2 style="margin-bottom: 1px">
@@ -450,6 +462,10 @@ of use may additionally require a <i>code</i> from a particular <i>system</i>.
 The context of use may also restrict the values for the <i>value</i> or <i>range</i>.
 </p>
 </div>
+<p>
+Coding is used in the following places: [%dtusage Quantity%]
+</p>
+
 <h3>
 Defined Variations on Quantity
 </h3>
@@ -491,6 +507,10 @@ includes 1.50, and 2.50 but not 1.49 or 2.51.
 <p><b>Constraints</b></p>
 [%dt.constraints Range%]
 </div>
+<p>
+Range is used in the following places: [%dtusage Range%]
+</p>
+
 <a name="Ratio"></a>
 <a name="ratio"></a>
 <h2 style="margin-bottom: 1px">
@@ -523,6 +543,12 @@ to allow an invalid ratio with an extension with further information.
 The context of use may require particular types of Quantity for the numerator or denominator.
 </p>
 </div>
+
+<p>
+Ratio is used in the following places: [%dtusage Ratio%]
+</p>
+
+
 <a name="Period"></a>
 <a name="period"></a>
 <h2 style="margin-bottom: 1px">
@@ -556,6 +582,10 @@ the end of the 27th May.
 </div>
 -->
 
+<p>
+Period is used in the following places: [%dtusage Period%]
+</p>
+
 <a name="SampledData"></a>
 <a name="sampleddata"></a>
 <h2 style="margin-bottom: 1px">
@@ -580,6 +610,11 @@ different dimensions are interlaced - all the data points for a particular time 
 represented together. 
 The default value for <i>factor</i> is 1. 
 </p>
+
+<p>
+SampledData is used in the following places: [%dtusage SampledData%]
+</p>
+
 
 <a name="Identifier"></a>
 <a name="identifier"></a>
@@ -620,6 +655,9 @@ information sharing in a wider context is very likely to arise eventually, and v
 <p>
 The <i>assigner</i> is used to indicate what registry/state/facility/etc. assigned the identifier. 
 </p>  
+<p>
+Identifier is used in the following places: [%dtusage Identifier%]
+</p>
 
 <a name="HumanName"></a>
 <a name="humanname"></a>
@@ -661,6 +699,9 @@ Note that the order of the  parts within a given part type has
 significance and SHALL be observed. The appropriate order between 
 family name and given names depends on culture and context of use.  
 </p>
+<p>
+HumanName is used in the following places: [%dtusage HumanName%]
+</p>
 
 <!--<div class="use">
 <p><b>Constraints</b></p>
@@ -696,6 +737,11 @@ of the two is present.
 [%dt.constraints Address%]
 </div>
 
+<p>
+Address is used in the following places: [%dtusage Address%]
+</p>
+
+
 <a name="Contact"></a>
 <a name="contact"></a>
 <h2 style="margin-bottom: 1px">
@@ -717,6 +763,10 @@ However, this is frequently not possible due to legacy data and/or recording met
 <p><b>Constraints</b></p>
 [%dt.constraints Contact%]
 </div>
+
+<p>
+Contact is used in the following places: [%dtusage Contact%]
+</p>
 
 <a name="Schedule"></a>
 <a name="schedule"></a>
@@ -755,6 +805,10 @@ the Schedule will terminate on some criteria that are expressed elsewhere.
 
 </div>
 
+<p>
+Schedule is used in the following places: [%dtusage Schedule%]
+</p>
+
 <a name="open"> </a>
 <h2>Open Type Element</h2>
 <p>
@@ -787,6 +841,10 @@ Some elements have no specified type. The type is represented by the wildcard sy
 </ul>
 <p>
 The element name ends with "[x]", and this is replaced with the Title cased name of the data type.
+</p>
+
+<p>
+Open references are used in the following places: [%dtusage *%]
 </p>
 
 <a name="other"> </a>

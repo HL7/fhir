@@ -330,6 +330,34 @@ the fact that one of the performers has a modifierExtension is irrelevant and th
 application is free to ignore it. 
 </p>
 
+<h3>Special Case: Missing data</h3>
+<p>
+In some cases, implementers may find that they do not have appropriate data for an
+element with minimum cardinality = 1. In this case, the element must be present, but 
+unless the resource or a profile on it has made the actual value of the primitive 
+data type mandatory, it is possible to provide an extension that explains why the 
+primitive value is not present:
+</p>
+<pre class="xml">
+&lt;uri&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/nullFlavor&quot;&gt;
+    &lt;valueCode=&quot;UNK&quot;/&gt;
+  &lt;/extension&gt;
+&lt;/uri&gt;
+</pre>
+<p>
+In this example, instead of a value, a v3 nullFlavor is provided. Note that 
+it is not required that this particular extension be used. This extension 
+is <b>not</b> a modifier extension, because the primitive data type has no
+value. 
+</p>
+<p>
+It is not valid to create a fictional piece of data for the primitive value,
+and then to add an extension indicating that the data has been constructed
+to meet the data rules. This would be both a bad idea, and also a modifier
+extension, which is not allowed on data types. 
+</p>
+
 
 <a name="exchange"> </a>
 <h2>Exchanging Extensions</h2>

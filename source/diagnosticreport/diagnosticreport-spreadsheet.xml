@@ -20,6 +20,7 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -794,7 +795,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -864,17 +864,18 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Events">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="73.5"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="73.5" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="118.5"/>
    <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="156.75" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="125.25"
+   <Column ss:Index="7" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="125.25"
     ss:Span="1"/>
-   <Column ss:Index="8" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="102"/>
+   <Column ss:Index="9" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="102"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell><Data ss:Type="String">Category</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Notes</Data></Cell>
     <Cell><Data ss:Type="String">Request Resources</Data></Cell>
@@ -885,8 +886,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">diagnosticreport-provide</Data></Cell>
+    <Cell><Data ss:Type="String">Notification</Data></Cell>
     <Cell><Data ss:Type="String">Provide a diagnostic report, or update a previously provided diagnostic report</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">DiagnosticReport</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">DiagnosticReport</Data></Cell>
     <Cell><Data ss:Type="String">.patient&#10;.perfomer&#10;.results.specimen&#10;.results.result&#10;.image</Data></Cell>
    </Row>
   </Table>
@@ -903,11 +905,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

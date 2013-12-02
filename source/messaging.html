@@ -25,7 +25,7 @@ real world. The request message consists of a <a href="extras.html#bundle">bundl
 <a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", 
 with the first resource in the bundle being a <a href="messageheader.html">MessageHeader</a> 
 resource. The MessageHeader resource has a code - the message event - that identifies the 
-nature of the request message, and it alslo carries additional request metadata. 
+nature of the request message, and it also carries additional request metadata. 
 The other resources in the bundle depend on the type of the request.
 </p>
 <p>
@@ -39,6 +39,7 @@ resource in the bundle being a <a href="messageheader.html">MessageHeader</a> re
 section that reports the outcome of processing the message and any additional response 
 resources required. 
 </p>
+
 
 <h2>Basic Messaging Assumptions</h2>
 
@@ -55,15 +56,6 @@ entities, and the mapping from logical source and destination to implementation
 specific addresses is outside the scope of this specification, though this 
 specification does provide a direct delivery mechanism below.
 </p>
-
-<p>
-In principle, source applications are not required to wait for a response to 
-a transaction before issuing a new transaction. However in many cases, the 
-messages in a given stream are dependent on each other, and must be sent and 
-processed in order. In addition, some transfer methods may require sequential 
-delivery of messages.
-</p>
-
 <p>
 This specification assumes that content will be delivered from one application to 
 another by some delivery mechanism, and then one or more responses will be returned 
@@ -82,12 +74,50 @@ If these middleware agents are modifying the message content, then they become
 responsible for honoring the contract that applies (including applicable profiles) 
 in both directions.
 </p>
+<p>
+A key aspect of a message is the impact of it's content:
+</p>
+<table class="grid">
+ <tr> <td>Consequence</td> <td>The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment</td> </tr>
+ <tr> <td>Currency</td> <td>The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful</td> </tr>
+ <tr> <td>Notification</td> <td>The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications</td> </tr>
+</table>
+<p>
+Some Events defined by FHIR are assigned to one of these categories, 
+but others are not able to be categorized in advance, and the category
+must be determined by the content, or the context.
+</p>
 
 <a name="synchronous"> </a>
-<h3>Synchronicity</h3>
+<a name="patterns"> </a>
+<h3>Message Exchange Patterns</h3>
 <p>
-ToDO: Synchronicity
+Each FHIR message has one or more response messages. There must be at least 
+one response message so that the sender can know that the message was properly
+received. Multiple response SHALL not be returned for messages of consequence,
+and SHOULD not be returned for notifications. 
 </p>
+<p>
+In principle, source applications are not required to wait for a response to 
+a transaction before issuing a new transaction. However in many cases, the 
+messages in a given stream are dependent on each other, and must be sent and 
+processed in order. In addition, some transfer methods may require sequential 
+delivery of messages.
+</p>
+<p>
+For this reason, a synchronous exchange pattern - where the sender sends a 
+message, and waits on the same channel for a single response, and then 
+sends the next message - are the easiest to understand and manage. The 
+<a href="$MailBox">MailBox</a> described below works in this fashion.
+</p>
+<p>
+However synchronous message exchange does not cater for multiple response 
+messages, which may arise when processing queries, and also imposes 
+through-put limitations which may become relevant at high volumes. 
+Because of this, other complex message patterns are allowed, though 
+none are described in detail in this specification.
+</p>
+
 
 <h3>Message Identifiers</h3>
 <p>
@@ -119,17 +149,6 @@ order to handle the absence of reliable messaging that maintains predictable
 functionality.
 </p>
 <p>
-When considering the issue of reliable messaging, the source application 
-should consider whether the message is a message of consequence, or 
-a message of currency. A message of consequence is one where the message
-requests a change that should not be processed more than once, and where
-the sender needs the response that results from processing the message.
-A message of currency is where the correct response is the very latest 
-information available. Typically, this is status information. Some 
-messages fit into neither category - the response does not particularly
-matter. Usually these are notification messages.
-</p>
-<p>
 In order to enable these processing rules, and to benefit from them, the 
 original sender of the message SHALL do the following when it receives
 no response to a message within a configured timeout period:
@@ -137,7 +156,7 @@ no response to a message within a configured timeout period:
 <table class="grid">
  <tr><td>Consequence</td><td>Resend the same message (including with the same identifier) with the same envelope id</td></tr>
  <tr><td>Currency</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
- <tr><td>Neither</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
+ <tr><td>Notification</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
 </table>
 <p>
 When a receiver declares that it implements reliable answers, it SHALL check the 

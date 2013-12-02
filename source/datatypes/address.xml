@@ -206,7 +206,8 @@
     <Cell ss:Index="7"><Data ss:Type="String">Street name, number, direction &amp; P.O. Box etc </Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This component contains the house number, apartment number, street name, street direction, &#10;P.O. Box number, delivery hints, and similar address information</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">home | work | temp | old - purpose of this address</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)&#10;</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">AD.part[parttype = AL]</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)&#10;</Data></Cell>
     <Cell><Data ss:Type="String">street address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -216,7 +217,8 @@
     <Cell ss:Index="7"><Data ss:Type="String">Name of city, town etc.</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The name of the city, town, village or other community or delivery center.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Muncipality</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">XAD.3</Data></Cell>
+    <Cell><Data ss:Type="String">AD.part[parttype = CTY]</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.3</Data></Cell>
     <Cell><Data ss:Type="String">locality</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -226,7 +228,8 @@
     <Cell ss:Index="7"><Data ss:Type="String">Sub-unit of country (abreviations ok)</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Province, Territory</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">XAD.4</Data></Cell>
+    <Cell><Data ss:Type="String">AD.part[parttype = STA]</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.4</Data></Cell>
     <Cell><Data ss:Type="String">region</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -236,7 +239,8 @@
     <Cell ss:Index="7"><Data ss:Type="String">Postal code for area</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A postal code designating a region defined by the postal service.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">PostCode</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">XAD.5</Data></Cell>
+    <Cell><Data ss:Type="String">AD.part[parttype = ZIP]</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.5</Data></Cell>
     <Cell><Data ss:Type="String">postal code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -245,7 +249,8 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Country (can be ISO 3166 3 letter code)</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Country. ISO 3166 3 letter codes can be used in place of a full country name.</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">XAD.6</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">AD.part[parttype = CNT]</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.6</Data></Cell>
     <Cell><Data ss:Type="String">country name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -277,8 +282,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

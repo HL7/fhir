@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:22:15Z</Created>
-  <LastSaved>2013-10-23T04:33:32Z</LastSaved>
+  <LastSaved>2013-12-01T20:02:05Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -165,7 +165,8 @@
     <Cell ss:Index="10"><Data ss:Type="String">Need to be able to record names, along with notes about their use</Data></Cell>
     <Cell><Data ss:Type="String">Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts may or may not be imbued with some implicit meaning; various cultures associate different importance with the name parts, and the degree to which systems must care about name parts around the world varies widely.</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">EN</Data></Cell>
+    <Cell><Data ss:Type="String">EN (actually, PN)</Data></Cell>
+    <Cell><Data ss:Type="String">XPN</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">HumanName.use</Data></Cell>
@@ -179,6 +180,7 @@
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old name etc for a current/permanent one. Applications can assume that a name is not temporary or old unless it explicitly says that it is</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">unique(./use)</Data></Cell>
+    <Cell><Data ss:Type="String">XPN.7, but often indicated by which field contains the name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">HumanName.text</Data></Cell>
@@ -190,6 +192,7 @@
     <Cell><Data ss:Type="String">Can provide both a text representation and structured parts. &#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">./formatted</Data></Cell>
+    <Cell><Data ss:Type="String">implied by XPN.11</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="50.25">
     <Cell><Data ss:Type="String">HumanName.family</Data></Cell>
@@ -201,6 +204,8 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">For family name, hyphenated names such as &quot;Smith-Jones&quot; are a single name, but names with spaces such as &quot;Smith Jones&quot; are broken into multiple parts</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">./part[partType = FAM]</Data></Cell>
+    <Cell><Data ss:Type="String">XPN.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.5">
     <Cell><Data ss:Type="String">HumanName.given</Data></Cell>
@@ -212,6 +217,8 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">If only initials are recorded, they may be used in place of the full name</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">./part[partType = GIV]</Data></Cell>
+    <Cell><Data ss:Type="String">XPN.2 + XPN.3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.5">
     <Cell><Data ss:Type="String">HumanName.prefix</Data></Cell>
@@ -221,6 +228,8 @@
     <Cell><Data ss:Type="String">Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the start of the name</Data></Cell>
     <Cell ss:Index="10" ss:StyleID="s69"/>
     <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">./part[partType = PFX]</Data></Cell>
+    <Cell><Data ss:Type="String">XPN.5</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.5">
     <Cell><Data ss:Type="String">HumanName.suffix</Data></Cell>
@@ -230,6 +239,8 @@
     <Cell><Data ss:Type="String">Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that comes at the end of the name</Data></Cell>
     <Cell ss:Index="10" ss:StyleID="s69"/>
     <Cell ss:Index="12" ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">./part[partType = SFX]</Data></Cell>
+    <Cell><Data ss:Type="String">XPN/4</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">HumanName.period</Data></Cell>
@@ -240,6 +251,7 @@
     <Cell ss:Index="10" ss:StyleID="s69"><Data ss:Type="String">Allows names to be placed in historical context</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]</Data></Cell>
+    <Cell><Data ss:Type="String">XPN.13 + XPN.14</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="12" ss:StyleID="Default"/>
@@ -259,11 +271,13 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
+   <TopRowVisible>1</TopRowVisible>
+   <LeftColumnVisible>5</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

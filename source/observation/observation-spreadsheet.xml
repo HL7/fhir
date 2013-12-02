@@ -20,6 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>30</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -927,7 +928,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1041,16 +1041,17 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Events">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="82.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="82.5" ss:Span="1"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="157.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="162.75" ss:Span="1"/>
-   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="195.75"/>
+   <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="195.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
     <Cell ss:StyleID="s67"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">Category</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Notes</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Request Resources</Data></Cell>
@@ -1060,8 +1061,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:StyleID="s79"><Data ss:Type="String">observation-provide</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Notification</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Provide a simple observation or update a previously provided simple observation</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s79"><Data ss:Type="String">Observation</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s79"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">.subjectPatient&#10;.subjectPatient.person&#10;.subjectGroup&#10;.subjectDevice&#10;.subjectAnimal&#10;.performerAgent&#10;.performerAgent.person&#10;.performerPatient&#10;.performerPerson</Data></Cell>
     <Cell ss:StyleID="s79"/>
    </Row>
@@ -1073,6 +1075,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1092,6 +1095,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

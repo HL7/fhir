@@ -117,7 +117,8 @@
     <Cell><Data ss:Type="String">A schedule that specifies an event that may occur multiple times. Schedules are not used for recording when things did happen, but when they are expected or requested to occur.</Data></Cell>
     <Cell><Data ss:Type="String">Need to able to track schedules. There are several different ways to do scheduling: one or more specified times, a simple rules like three times a day, or to say, x before/after meals</Data></Cell>
     <Cell><Data ss:Type="String">  A schedule can be either a list of events - intervals on which the event occurs, or a single event with repeating criteria or just repeating criteria with no actual event. </Data></Cell>
-    <Cell><Data ss:Type="String">GTS</Data></Cell>
+    <Cell><Data ss:Type="String">QSET&lt;TS&gt; (GTS)</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Schedule.event</Data></Cell>
@@ -126,6 +127,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">When the event occurs</Data></Cell>
     <Cell><Data ss:Type="String">Identifies specific time periods when the event should occur</Data></Cell>
     <Cell><Data ss:Type="String">Some schedules are just explicit lists of times</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">QLIST&lt;TS&gt; or PIVL.offset</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Schedule.repeat</Data></Cell>
@@ -136,6 +138,7 @@
     <Cell><Data ss:Type="String">Identifies a repeating pattern to the intended time periods. </Data></Cell>
     <Cell><Data ss:Type="String">Many schedules are determined by regular repetitions</Data></Cell>
     <Cell><Data ss:Type="String">If present, the Schedule.event indicates the time of the first occurrence.</Data></Cell>
+    <Cell><Data ss:Type="String">Implies PIVL or EIVL</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Schedule.repeat.frequency</Data></Cell>
@@ -144,6 +147,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Event occurs frequency times per duration</Data></Cell>
     <Cell><Data ss:Type="String">Indicates how often the event should occur.</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">PIVL.phase</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Schedule.repeat.when</Data></Cell>
@@ -154,6 +158,7 @@
     <Cell><Data ss:Type="String">HS | WAKE | AC | ACM | ACD | ACV | PC | PCM | PCD | PCV - common life events</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the occurrence of daily life that determine timing</Data></Cell>
     <Cell><Data ss:Type="String">Timings are frequently determined by occurrences such as waking, eating and sleep</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">EIVL.event</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Schedule.repeat.duration</Data></Cell>
@@ -163,6 +168,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Repeating or event-related duration</Data></Cell>
     <Cell><Data ss:Type="String">How long each repetition should last</Data></Cell>
     <Cell><Data ss:Type="String">Some activities are not instantaneous and need to be maintained for a period of time</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">PIVL.phase / EIVL.offset</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Schedule.repeat.units</Data></Cell>
@@ -171,6 +177,7 @@
     <Cell><Data ss:Type="String">UnitsOfTime</Data></Cell>
     <Cell><Data ss:Type="String">s | min | h | d | wk | mo | a - unit of time (UCUM)</Data></Cell>
     <Cell><Data ss:Type="String">The units of time for the duration</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">PIVL.phase.unit</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Schedule.repeat.count</Data></Cell>
@@ -181,6 +188,7 @@
     <Cell><Data ss:Type="String">A total count of the desired number of repetitions</Data></Cell>
     <Cell><Data ss:Type="String">Repetitions may be limited by end time or total occurrences</Data></Cell>
     <Cell><Data ss:Type="String">An end need not be specified</Data></Cell>
+    <Cell><Data ss:Type="String">PIVL.count</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Schedule.repeat.end</Data></Cell>
@@ -191,6 +199,7 @@
     <Cell><Data ss:Type="String">When to stop repeats</Data></Cell>
     <Cell><Data ss:Type="String">Repetitions may be limited by end time or total occurrences</Data></Cell>
     <Cell><Data ss:Type="String">An end need not be specified</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -204,8 +213,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

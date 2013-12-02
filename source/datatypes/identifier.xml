@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:22:02Z</Created>
-  <LastSaved>2013-10-03T22:33:09Z</LastSaved>
+  <LastSaved>2013-12-01T20:41:17Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,8 +18,8 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>7815</WindowHeight>
   <WindowWidth>24375</WindowWidth>
-  <WindowTopX>3750</WindowTopX>
-  <WindowTopY>4455</WindowTopY>
+  <WindowTopX>2805</WindowTopX>
+  <WindowTopY>3975</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -87,6 +87,15 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="8" x:FullColumns="1"
@@ -130,7 +139,8 @@
     <Cell><Data ss:Type="String">A technical identifier - identifies some entity uniquely and unambiguously</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Need to be able to identify things with confidence and be sure that the identification is not subject to misinterpretation</Data></Cell>
     <Cell><Data ss:Type="String">the Identifier class is a little looser than II because it allows URIs as well as registered OIDs or GUIDs</Data></Cell>
-    <Cell><Data ss:Type="String">II</Data></Cell>
+    <Cell><Data ss:Type="String">II - see see identifier pattern at http://wiki.hl7.org/index.php?title=Common_Design_Patterns#Identifier_Pattern for relevant discussion</Data></Cell>
+    <Cell><Data ss:Type="String">CX / EI (occasionally, more often EI maps to a resource id or a URL)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Identifier.use</Data></Cell>
@@ -143,8 +153,8 @@
     <Cell><Data ss:Type="String">The use of this identifier</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is not temporary unless it explicitly says that it is</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">CX.5</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -161,8 +171,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Allows humans to make use of identifiers when the identifier system is not known</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -176,6 +186,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the id itself is a full uri</Data></Cell>
     <Cell><Data ss:Type="String">There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">II.root</Data></Cell>
+    <Cell><Data ss:Type="String">CX.4 / EI-2-4</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Identifier.value</Data></Cell>
@@ -186,6 +197,7 @@
     <Cell><Data ss:Type="Number">123456</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">if the value is actually a full uri, then the system SHALL be urn:ietf:rfc:3986</Data></Cell>
     <Cell><Data ss:Type="String">II.extension or II.root if system indicates OID or GUID</Data></Cell>
+    <Cell><Data ss:Type="String">CX.1 / EI.1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Identifier.period</Data></Cell>
@@ -199,8 +211,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">CX.7 + CX.8</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -216,8 +228,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The reference may be just a text description of the assigner</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">II.assigningAuthorityName but note that this is an improper use by the definition of the field</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">CX.4 / (CX.4,CX.9,CX.10)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -233,8 +245,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

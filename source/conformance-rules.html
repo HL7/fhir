@@ -66,7 +66,10 @@ that describe specific use cases may use other values for cardinality within the
 of the cardinality defined by the resource. 
 </p>
 <p>
-Note that when present, elements cannot be empty - they SHALL have either a value attribute, child elements, or extensions. 
+Note that when present, elements cannot be empty - they SHALL have either a value attribute, 
+child elements, or extensions. This means that setting an element to a minimum cardinality
+of 1 does not ensure that valid data will be present; specific XPath constraints are required
+to ensure that the required data will be present.
 </p>
 <p>
 In this specification, very few elements have a minimum cardinality of 1. 

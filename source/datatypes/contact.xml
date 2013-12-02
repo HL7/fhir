@@ -135,6 +135,7 @@
     <Cell><Data ss:Type="String">All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">TEL</Data></Cell>
+    <Cell><Data ss:Type="String">XTN</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42.75">
     <Cell><Data ss:Type="String">Contact.system</Data></Cell>
@@ -145,6 +146,7 @@
     <Cell><Data ss:Type="String">phone | fax | email | url</Data></Cell>
     <Cell><Data ss:Type="String">Telecommunications form for contact - what communications system is required to make use of the contact</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">./scheme</Data></Cell>
+    <Cell><Data ss:Type="String">XTN.3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Contact.value</Data></Cell>
@@ -155,6 +157,7 @@
     <Cell><Data ss:Type="String">Need to support legacy numbers that are not in a tightly controlled format </Data></Cell>
     <Cell><Data ss:Type="String">additional out of band data such as extensions, or notes about use of the contact are sometimes included in the value</Data></Cell>
     <Cell><Data ss:Type="String">./url</Data></Cell>
+    <Cell><Data ss:Type="String">XTN.1 (or XTN.12)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Contact.use</Data></Cell>
@@ -167,6 +170,7 @@
     <Cell><Data ss:Type="String">Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is not temporary or old unless it explicitly says that it is</Data></Cell>
     <Cell><Data ss:Type="String">unique(./use)</Data></Cell>
+    <Cell><Data ss:Type="String">XTN.2 - but often indicated by field</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Contact.period</Data></Cell>
@@ -175,6 +179,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">Time period when the contact was/is in use</Data></Cell>
     <Cell><Data ss:Type="String">Time period when the contact was/is in use</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">./useablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]</Data></Cell>
+    <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -188,8 +193,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -18,8 +18,8 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>7770</WindowHeight>
   <WindowWidth>23955</WindowWidth>
-  <WindowTopX>4320</WindowTopX>
-  <WindowTopY>4650</WindowTopY>
+  <WindowTopX>1590</WindowTopX>
+  <WindowTopY>5295</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -102,6 +102,7 @@
     <Cell><Data ss:Type="String">There is a need for a concise way to handle the data produced by devices that sample a physical state at a high frequency</Data></Cell>
     <Cell><Data ss:Type="String">The data is not interpretable without at least origin, period, and dimensions, but these are optional to allow a separation between the template of measurement and the actual measurement, such as between DeviceCapabilities and DeviceLog</Data></Cell>
     <Cell><Data ss:Type="String">SLIST + GLIST</Data></Cell>
+    <Cell><Data ss:Type="String">N/A (but see section 7.14 in v2.7)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SampledData.origin</Data></Cell>
@@ -134,6 +135,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Lower limit of detection</Data></Cell>
     <Cell><Data ss:Type="String">The lower limit of detection of the measured points. This is needed if any of the data points have the value &quot;L&quot; (lower than detection limit)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">N/A (use SLIST.digits.nullFlavor)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">SampledData.upperLimit</Data></Cell>
@@ -141,6 +143,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">decimal</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Upper limit of detection</Data></Cell>
     <Cell><Data ss:Type="String">The upper limit of detection of the measured points. This is needed if any of the data points have the value &quot;U&quot; (higher than detection limit)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">N/A (use SLIST.digits.nullFlavor)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">SampledData.dimensions</Data></Cell>
@@ -149,6 +152,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Number of sample points at each time point</Data></Cell>
     <Cell><Data ss:Type="String">The Number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">If there is more than one dimension, the code for the type of data will define the meaning of the dimensions (typically ECG data)</Data></Cell>
+    <Cell><Data ss:Type="String">N/A (fixed to 1)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">SampledData.data</Data></Cell>
@@ -171,8 +175,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

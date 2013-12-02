@@ -20,6 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -553,7 +554,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -656,14 +656,15 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Events">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="210"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:Index="4" ss:StyleID="s84" ss:Width="157.5" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="210" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:Index="5" ss:StyleID="s84" ss:Width="157.5" ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Category</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Notes</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Request Resources</Data></Cell>
@@ -672,6 +673,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration-Update</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Consequence</Data></Cell>
     <Cell><Data ss:Type="String">Update a Medication Administration record.</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
@@ -679,20 +681,23 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="51">
     <Cell ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration-Nullification</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Consequence</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Someone wishes to record that the record of administration of a medication is in error and should be ignored.</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration-Complete</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Consequence</Data></Cell>
     <Cell><Data ss:Type="String">Change the status of a Medication Administration to show that it is complete.</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration-Recording</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Consequence</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates that a medication has been recorded against the patient's record</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">MedicationAdministration</Data></Cell>
    </Row>
   </Table>
@@ -703,6 +708,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
