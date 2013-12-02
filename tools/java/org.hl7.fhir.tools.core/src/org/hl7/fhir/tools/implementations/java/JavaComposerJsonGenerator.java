@@ -440,7 +440,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     }
 
   private boolean isPrimitive(ElementDefn e) {
-    return definitions.hasPrimitiveType(e.typeCode());
+    return definitions.hasPrimitiveType(e.typeCode()) || e.typeCode().equals("idref");
   }
 
 
