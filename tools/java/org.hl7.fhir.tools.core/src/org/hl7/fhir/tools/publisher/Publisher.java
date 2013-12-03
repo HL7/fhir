@@ -482,7 +482,7 @@ public class Publisher {
     gen.generate(conf);    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-"+name+".xml"), conf, true, true);
     cloneToXhtml("conformance-"+name+"", "Basic Conformance Statement", true);
-    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-"+name+".json"), conf, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-"+name+".json"), conf, true);
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     new JsonComposer().compose(b, conf, true);
     String json = new String(b.toByteArray());
@@ -1112,25 +1112,25 @@ public class Publisher {
       
       log(" ...collections ");
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed, true);
       cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", false);
       jsonToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", resource2Json(profileFeed));
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml"), typeFeed, true, false);
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed, true);
       cloneToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)", false);
       jsonToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)", resource2Json(typeFeed));
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed, true, false);
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, true);
       cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", false);
       jsonToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", resource2Json(valueSetsFeed));
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples"+ File.separator+"v2-tables.xml");
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets, true);
       cloneToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)", false);
       jsonToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)", resource2Json(v2Valuesets));
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml"), v3Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().dstDir + "examples"+ File.separator+"v3-codesystems.xml");
-      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets, false);
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets, true);
       cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)", false);
       jsonToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)", resource2Json(v3Valuesets));
 
@@ -1886,7 +1886,7 @@ public class Publisher {
     rp.getStructure().get(0).setNameSimple(c.getCode());
     
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
-    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, true);
     
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, c.getCode().toLowerCase(), typeFeed);
@@ -1908,7 +1908,7 @@ public class Publisher {
     String fn = "type-"+type.getName()+".profile.xml";
     Profile rp = pgen.generate(p, "<div>Type definition for "+type.getName()+" from <a href=\"http://hl7.org/fhir/datatypes.html#"+type.getName()+"\">FHIR Specification</a></div>", GenerationMode.Element);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
-    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, true);
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, type.getName().toLowerCase(), typeFeed);
@@ -2228,7 +2228,7 @@ public class Publisher {
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
 		Profile rp = pgen.generate(p, xmlSpec, mode);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
-    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp, true);
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + n+ ".profile.xml"), new CSFile(page.getFolders().dstDir+ "examples" + File.separator + n + ".profile.xml"));
 		if (buildFlags.get("all"))
@@ -3046,7 +3046,7 @@ public class Publisher {
       page.setId(null);
 
       JsonComposer json = new JsonComposer();
-      json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), vs, false);
+      json.compose(new FileOutputStream(page.getFolders().dstDir+name+".json"), vs, true);
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+name+".xml"), vs, true);
       cloneToXhtml(name, "Definition for Value Set"+vs.getNameSimple(), false);
@@ -3192,7 +3192,7 @@ public class Publisher {
     }
     cm.setDescriptionSimple("v2 Map ("+b.toString()+")");
     JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")), cm, false);
+    json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")), cm, true);
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.xml")), cm, true);
     AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
@@ -3255,7 +3255,7 @@ public class Publisher {
     }
     cm.setDescriptionSimple("v3 Map ("+b.toString()+")");
     JsonComposer json = new JsonComposer();
-    json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")), cm, false);
+    json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")), cm, true);
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.xml")), cm, true);
     AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
@@ -3287,7 +3287,7 @@ public class Publisher {
 
 
       JsonComposer json = new JsonComposer();
-      json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".json")), vs, false);
+      json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".json")), vs, true);
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, ".xml")), vs, true);
       cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set"+vs.getNameSimple(), false);
