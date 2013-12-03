@@ -1,0 +1,12 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<h2>Extensions to Patient</h2>
+<ul>
+<li><b>race</b> - (0..1) A CodeableConcept bound to the v3 valueset for Race</li>
+<li><b>ethnicity</b> - (0..1) A CodeableConcept bound to the v3 valueset for Ethnicity</li>
+</ul>
+
+<h2>Extensions to Address</h2>
+<ul>
+<li><b>county</b> - (0..1) A string containing the name of the county</li>
+</ul>
+</div>

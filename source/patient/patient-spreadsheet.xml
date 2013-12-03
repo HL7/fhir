@@ -20,7 +20,7 @@
   <WindowWidth>10935</WindowWidth>
   <WindowTopX>8265</WindowTopX>
   <WindowTopY>6420</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -118,10 +118,10 @@
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s81">
-   <Alignment ss:Vertical="Top"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s82">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Vertical="Top"/>
   </Style>
   <Style ss:ID="s83">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -144,6 +144,16 @@
   </Style>
   <Style ss:ID="s86">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s132">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -881,11 +891,11 @@
     <Cell ss:Index="5"><Data ss:Type="String">Patient, Patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">admin-notify</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Notification</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Notification that a patient or other administrative resource as been created or updated</Data></Cell>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">admin-notify</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Notification</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Notification that a patient or other administrative resource as been created or updated</Data></Cell>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Patient</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -895,7 +905,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1030,25 +1039,25 @@
    <Column ss:AutoFitWidth="0" ss:Width="36"/>
    <Column ss:AutoFitWidth="0" ss:Width="86.25"/>
    <Column ss:Width="320.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s81">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s82">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s81">
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s82">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">replace</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains the link.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s81">
+   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s82">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">refer</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s81">
+   <Row ss:AutoFitHeight="0" ss:Height="90" ss:StyleID="s82">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">seealso</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1072,14 +1081,14 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="9" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s81" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s82" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="114.75"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="363"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="107.25"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="131.25"/>
-   <Column ss:StyleID="s81" ss:Width="257.25"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="114.75"/>
+   <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="363"/>
+   <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="107.25"/>
+   <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="131.25"/>
+   <Column ss:StyleID="s82" ss:Width="257.25"/>
+   <Column ss:StyleID="s82" ss:AutoFitWidth="0" ss:Width="140.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
@@ -1090,23 +1099,23 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">AnimalGenderStatus</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">The state of the animal's reproductive organs</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">AnimalGenderStatus</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The state of the animal's reproductive organs</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">valueset-animal-genderstatus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">AnimalSpecies</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">The species of an animal</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">AnimalSpecies</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The species of an animal</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">valueset-animal-species</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">AnimalBreed</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">The breed of an animal</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">AnimalBreed</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">The breed of an animal</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">valueset-animal-breeds</Data></Cell>
    </Row>
@@ -1126,30 +1135,30 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="6" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s82"/>
+    <Cell ss:StyleID="s81"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1300,6 +1309,46 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Profiles">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="81"/>
+   <Column ss:AutoFitWidth="0" ss:Width="198"/>
+   <Column ss:Width="212.25"/>
+   <Column ss:Width="63"/>
+   <Column ss:Width="194.25"/>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Example</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">profile-us-core</Data></Cell>
+    <Cell><Data ss:Type="String">Core extensions for the US realm</Data></Cell>
+    <Cell><Data ss:Type="String">profile-us-core-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">profile-us-core-example.xml</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
 </Workbook>

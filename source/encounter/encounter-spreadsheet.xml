@@ -21,6 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
   <TabRatio>654</TabRatio>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -352,16 +353,17 @@
     <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Encounter.start</Data></Cell>
+    <Cell><Data ss:Type="String">Encounter.period</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">The date and time the encounter starts</Data></Cell>
-    <Cell><Data ss:Type="String">The date and time the encounter starts, e.g. the patient arrives</Data></Cell>
+    <Cell><Data ss:Type="String">The start and end time of the encounter</Data></Cell>
+    <Cell><Data ss:Type="String">The start and end time of the encounter</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">If not (yet) known, the end of the Period may be omitted</Data></Cell>
     <Cell ss:Index="15" ss:StyleID="s71"/>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -375,6 +377,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Quantity of time the encounter lasted</Data></Cell>
     <Cell><Data ss:Type="String">Quantity of time the encounter lasted. This excludes the time during leaves of absence.</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s68"/>
+    <Cell><Data ss:Type="String">May differ from the time the Encounter.period lasted because of leave of absence.</Data></Cell>
     <Cell ss:Index="15" ss:StyleID="s69"><Data ss:Type="String">(PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes&#10;</Data></Cell>
     <Cell ss:StyleID="s68"/>
    </Row>
@@ -643,7 +646,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -840,9 +842,10 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">Encounter.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">start</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Encounter.start</Data></Cell>
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell><Data ss:Type="String">A date within the period the Encounter lasted</Data></Cell>
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Encounter.period</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
@@ -936,6 +939,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -955,8 +959,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>27</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
