@@ -21,7 +21,7 @@ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
 IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
 INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
 PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
@@ -1579,7 +1579,7 @@ Header(Session, FBaseURL, lang)+
     if oResource is TFhirBinary then
     begin
       if StringStartsWith(TFhirBinary(oResource).ContentType, 'image/') then
-        s.append('<img src="'+LOWERCASE_CODES_TFhirResourceType[oResource.ResourceType]+'/@'+id+'">'+#13#10)
+        s.append('<img src="'+CODES_TFhirResourceType[oResource.ResourceType]+'/'+id+'">'+#13#10)
       else
         s.append('<pre class="xml">'+#13#10+'('+GetFhirMessage('NAME_BINARY', lang)+')'+#13#10+'</pre>'+#13#10);
     end
@@ -1588,9 +1588,9 @@ Header(Session, FBaseURL, lang)+
      inc(c);
      if assigned(FTags) then
        if ver <> '' then
-         s.append('<p><a href="./tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(oResource.resourceType, FBaseURL+LOWERCASE_CODES_TFhirResourceType[oResource.ResourceType]+'/@'+id+'/history/@'+ver+'/tags', Ftags, c)+'</p>'+#13#10)
+         s.append('<p><a href="./tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(oResource.resourceType, FBaseURL+CODES_TFhirResourceType[oResource.ResourceType]+'/'+id+'/_history/'+ver+'/_tags', Ftags, c)+'</p>'+#13#10)
        else if id <> '' then
-         s.append('<p><a href="./tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(oResource.resourceType, FBaseURL+LOWERCASE_CODES_TFhirResourceType[oResource.ResourceType]+'/@'+id+'/tags', Ftags, c)+'</p>'+#13#10);
+         s.append('<p><a href="./tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(oResource.resourceType, FBaseURL+CODES_TFhirResourceType[oResource.ResourceType]+'/'+id+'/_tags', Ftags, c)+'</p>'+#13#10);
      if id <> '' then
        s.append('<p><a href="?_format=xml">XML</a> or <a href="?_format=json">JSON</a> '+GetFhirMessage('NAME_REPRESENTATION', lang)+'</p>'+#13#10);
      if oResource.text <> nil then
@@ -1695,14 +1695,14 @@ Header(Session, FBaseURL, lang)+
         ', <a href="'+e.Links.rel['self']+'?_format=xml">XML</a> or '+
         '<a href="'+e.Links.rel['self']+'?_format=json">JSON</a> '+GetFhirMessage('NAME_REPRESENTATION', lang));
         s.append(
-        ', or <a href="'+e.id+'/history">'+GetFhirMessage('NAME_HISTORY', lang)+'</a>. Updated: '+e.updated.AsXML+'; Author: '+Author(e, a)+'</p>'+#13#10);
+        ', or <a href="'+e.id+'/_history">'+GetFhirMessage('NAME_HISTORY', lang)+'</a>. Updated: '+e.updated.AsXML+'; Author: '+Author(e, a)+'</p>'+#13#10);
 
       if e.deleted then
         s.append('<p>'+GetFhirMessage('MSG_DELETED', lang)+'</p>')
       else if e.resource is TFhirBinary then
       begin
         if StringStartsWith(TFhirBinary(e.resource).ContentType, 'image/') then
-          s.append('<img src="'+LOWERCASE_CODES_TFhirResourceType[e.resource.resourcetype]+'/@'+e.id+'">'+#13#10)
+          s.append('<img src="'+CODES_TFhirResourceType[e.resource.resourcetype]+'/'+e.id+'">'+#13#10)
         else
           s.append('<pre class="xml">'+#13#10+'('+GetFhirMessage('NAME_BINARY', lang)+')'+#13#10+'</pre>'+#13#10);
       end
@@ -1774,11 +1774,11 @@ Header(Session, FBaseURL, Lang));
   else if ver = '' then
     s.append('    <h2>'+FormatTextToXml(StringFormat(GetFhirMessage('RESOURCE_TAGS', lang), [CODES_TFhirResourceType[ResourceType], id]))+'</h2>'+#13#10+
      '<p></p><p>'+GetFhirMessage('NAME_LINKS', lang)+': <a href="?_format=xml">XML</a> or <a href="?_format=json">JSON</a> '+GetFhirMessage('NAME_REPRESENTATION', lang)+'. '+
-     'Or: <a href="../@'+id+'">This Resource</a> </p>')
+     'Or: <a href="../'+id+'">This Resource</a> </p>')
   else
     s.append('    <h2>'+FormatTextToXml(StringFormat(GetFhirMessage('RESOURCE_VER_TAGS', lang), [CODES_TFhirResourceType[ResourceType], id, ver]))+'</h2>'+#13#10+
      '<p></p><p>'+GetFhirMessage('NAME_LINKS', lang)+': <a href="?_format=xml">XML</a> or <a href="?_format=json">JSON</a> '+GetFhirMessage('NAME_REPRESENTATION', lang)+'. '+
-     'Or: <a href="../@'+ver+'">This Resource Version</a> </p>');
+     'Or: <a href="../'+ver+'">This Resource Version</a> </p>');
 
    s.append('<p></p>'+#13#10);
    if (oTags.Count = 0) then
@@ -1791,9 +1791,9 @@ Header(Session, FBaseURL, Lang));
      begin
        s.append(' <tr><td>');
        if ResourceType = frtNull then
-         s.append('<a href="'+FBaseUrl+'search?tag='+oTags[i].term+'"/>'+oTags[i].term+'</a>')
+         s.append('<a href="'+FBaseUrl+'_search?tag='+oTags[i].term+'"/>'+oTags[i].term+'</a>')
        else
-         s.append('<a href="'+FBaseUrl+LOWERCASE_CODES_TFhirResourceType[ResourceType]+'/search?tag='+oTags[i].term+'"/>'+oTags[i].term+'</a>');
+         s.append('<a href="'+FBaseUrl+CODES_TFhirResourceType[ResourceType]+'/_search?tag='+oTags[i].term+'"/>'+oTags[i].term+'</a>');
        s.append('</td><td></td><td>'+FormatTextToXml(oTags[i].label_)+'</td></tr>'+#13#10);
      end;
      s.append('</table>'+#13#10);
@@ -2026,10 +2026,10 @@ begin
         lbl := '??';
 
       if aType = frtNull then
-        result := result + '<a href="'+FBaseUrl+'search?tag='+tags[i].term+'" class="tag" title="'+tags[i].term+'">'+lbl+'</a>'
+        result := result + '<a href="'+FBaseUrl+'_search?tag='+tags[i].term+'" class="tag" title="'+tags[i].term+'">'+lbl+'</a>'
       else
       begin
-        result := result + '<a href="'+FBaseUrl+LOWERCASE_CODES_TFhirResourceType[aType]+'/search?tag='+tags[i].term+'" class="tag" title="'+tags[i].term+'">'+lbl+'</a>';
+        result := result + '<a href="'+FBaseUrl+CODES_TFhirResourceType[aType]+'/_search?tag='+tags[i].term+'" class="tag" title="'+tags[i].term+'">'+lbl+'</a>';
         if (target <> '') then
           result := result + '<a href="javascript:deleteTag('''+target+''', '''+tags[i].term+''')" class="tag-delete" title="Delete '+tags[i].term+'">-</a>'
       end;
@@ -2046,7 +2046,7 @@ var
 begin
   if bPrefixLinks then
   begin
-    pfx := base+'/'+lowercase(CODES_TFHIRResourceType[a])+'/';
+    pfx := base+'/'+CODES_TFHIRResourceType[a]+'/';
     pfxp := base+'/'+'profile/'
   end
   else
@@ -2073,12 +2073,12 @@ begin
   if a = frtBinary then
     result := result + bef + 'n/a' + aft
   else
-    result := result + bef + '<a class="button" href="'+pfxp+'@'+lowercase(CODES_TFHIRResourceType[a])+'">'+GetFhirMessage('NAME_PROFILE', lang)+'</a>' + aft;
-  result := result + bef + '<a class="button" href="'+pfx+'history">'+GetFhirMessage('NAME_UPDATES', lang)+'</a>' + aft;
+    result := result + bef + '<a class="button" href="'+pfxp+CODES_TFHIRResourceType[a]+'">'+GetFhirMessage('NAME_PROFILE', lang)+'</a>' + aft;
+  result := result + bef + '<a class="button" href="'+pfx+'_history">'+GetFhirMessage('NAME_UPDATES', lang)+'</a>' + aft;
   if a = frtBinary then
     result := result + bef + 'n/a' + aft
   else
-    result := result + bef + '<a class="button" href="'+pfx+'search">'+GetFhirMessage('NAME_SEARCH', lang)+'</a>' + aft;
+    result := result + bef + '<a class="button" href="'+pfx+'_search">'+GetFhirMessage('NAME_SEARCH', lang)+'</a>' + aft;
   if bTable then
     result := result + bef + '<a class="tag" href="'+pfx+'tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>' + aft;
 end;
