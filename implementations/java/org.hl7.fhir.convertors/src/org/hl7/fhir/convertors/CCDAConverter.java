@@ -13,10 +13,10 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.Document;
-import org.hl7.fhir.instance.model.Document.DocumentAttestationMode;
-import org.hl7.fhir.instance.model.Document.DocumentAttesterComponent;
-import org.hl7.fhir.instance.model.Document.SectionComponent;
+import org.hl7.fhir.instance.model.Composition;
+import org.hl7.fhir.instance.model.Composition.CompositionAttestationMode;
+import org.hl7.fhir.instance.model.Composition.CompositionAttesterComponent;
+import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.AllergyIntolerance;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Factory;
@@ -37,7 +37,7 @@ public class CCDAConverter {
 	private Element doc; 
 	private Convert convert;
 	private AtomFeed feed;
-	private Document document;
+	private Composition Composition;
 	
 	public AtomFeed convert(InputStream stream) throws Exception {
 
@@ -53,22 +53,22 @@ public class CCDAConverter {
 		
 		// process the header
 		makeDocument();
-		document.setSubject(Factory.makeResourceReference(makeSubject()));
+		Composition.setSubject(Factory.makeResourceReference(makeSubject()));
 		for (Element e : cda.getChildren(doc, "author"))
-			document.getAuthor().add(Factory.makeResourceReference(makeAuthor(e)));
+			Composition.getAuthor().add(Factory.makeResourceReference(makeAuthor(e)));
 		// todo: data enterer & informant goes in provenance
-		document.setCustodian(Factory.makeResourceReference(makeOrganization(
+		Composition.setCustodian(Factory.makeResourceReference(makeOrganization(
 				 cda.getDescendent(doc, "custodian/assignedCustodian/representedCustodianOrganization"), "Custodian")));
 		// todo: informationRecipient		
 		for (Element e : cda.getChildren(doc, "legalAuthenticator"))
-			document.getAttester().add(makeAttester(e, DocumentAttestationMode.legal, "Legal Authenticator"));
+			Composition.getAttester().add(makeAttester(e, CompositionAttestationMode.legal, "Legal Authenticator"));
 		for (Element e : cda.getChildren(doc, "authenticator"))
-			document.getAttester().add(makeAttester(e, DocumentAttestationMode.professional, "Authenticator"));
+			Composition.getAttester().add(makeAttester(e, CompositionAttestationMode.professional, "Authenticator"));
 		
 		// process the contents
 		// we do this by section - keep the original section order
 		Element body =  cda.getDescendent(doc, "component/structuredBody");
-		processComponentSections(document.getSection(), body);
+		processComponentSections(Composition.getSection(), body);
 		return feed;
 	}
 
@@ -84,25 +84,25 @@ public class CCDAConverter {
 	}
 
 	private void makeDocument() throws Exception {
-		document = (Document) ResourceFactory.createResource("Document");
-    addResource(document, "Document", UUID.randomUUID().toString());
+		Composition = (Composition) ResourceFactory.createResource("Composition");
+    addResource(Composition, "Composition", UUID.randomUUID().toString());
 
 		Element title = cda.getChild(doc, "title");
 		if (title == null) {
-			feed.setTitle("Clinical Document (generated from CCDA document)");
+			feed.setTitle("Clinical Composition (generated from CCDA Composition)");
 		} else {
 			feed.setTitle(title.getTextContent());
-			document.setTitleSimple(title.getTextContent());			
+			Composition.setTitleSimple(title.getTextContent());			
 		}
-		document.setVersionIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "id")));
+		Composition.setVersionIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "id")));
 		if (cda.getChild(doc, "setId") != null)
-			document.setIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "setId")));
+			Composition.setIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "setId")));
 			
-		document.setCreated(convert.makeInstantFromTS(cda.getChild(doc, "effectiveTime")));
-		document.setType(convert.makeCodeableConceptFromCD(cda.getChild(doc, "code")));
-		document.setConfidentiality(convert.makeCodingFromCV(cda.getChild(doc, "confidentialityCode")));
+		Composition.setCreated(convert.makeInstantFromTS(cda.getChild(doc, "effectiveTime")));
+		Composition.setType(convert.makeCodeableConceptFromCD(cda.getChild(doc, "code")));
+		Composition.setConfidentiality(convert.makeCodingFromCV(cda.getChild(doc, "confidentialityCode")));
 		if (cda.getChild(doc, "confidentialityCode") != null)
-			document.setLanguageSimple(cda.getChild(doc, "confidentialityCode").getAttribute("value")); // todo - fix streaming for this
+			Composition.setLanguageSimple(cda.getChild(doc, "confidentialityCode").getAttribute("value")); // todo - fix streaming for this
 		
 		Element ee = cda.getChild(doc, "componentOf");
 		if (ee != null)
@@ -113,10 +113,10 @@ public class CCDAConverter {
 				visit.getIdentifier().add(convert.makeIdentifierFromII(e));
 			visit.setHospitalization(new Encounter.EncounterHospitalizationComponent());
 			visit.getHospitalization().setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
-			document.setEvent(new Document.DocumentEventComponent());
-			document.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
-			document.getEvent().setPeriod(visit.getHospitalization().getPeriod());
-			document.getEvent().getDetail().add(Factory.makeResourceReference(addResource(visit, "Encounter", UUID.randomUUID().toString())));			
+			Composition.setEvent(new Composition.DocumentEventComponent());
+			Composition.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
+			Composition.getEvent().setPeriod(visit.getHospitalization().getPeriod());
+			Composition.getEvent().getDetail().add(Factory.makeResourceReference(addResource(visit, "Encounter", UUID.randomUUID().toString())));			
 		}
 		
 		// main todo: fill out the narrative, but before we can do that, we have to convert everything else
@@ -208,7 +208,7 @@ public class CCDAConverter {
 	}
 
 
-	private DocumentAttesterComponent makeAttester(Element a1, DocumentAttestationMode mode, String title) throws Exception {
+	private CompositionAttesterComponent makeAttester(Element a1, CompositionAttestationMode mode, String title) throws Exception {
 		Practitioner  pr = (Practitioner) ResourceFactory.createResource("Practitioner");
 		Element ass = cda.getChild(a1, "assignedEntity");
 		for (Element e : cda.getChildren(ass, "id"))
@@ -224,8 +224,8 @@ public class CCDAConverter {
   			pr.setName(convert.makeNameFromEN(e));
 		
 
-		DocumentAttesterComponent att = new Document.DocumentAttesterComponent();
-		att.setModeSimple(mode);
+		CompositionAttesterComponent att = new CompositionAttesterComponent();
+		att.addModeSimple(mode);
 		att.setTime(convert.makeDateTimeFromTS(cda.getChild(a1,"time")));
 	  att.setParty(Factory.makeResourceReference(addResource(pr, title, UUID.randomUUID().toString())));
 	  return att;
@@ -302,7 +302,7 @@ public class CCDAConverter {
 		
 		
 		// todo: text
-		SectionComponent s = new Document.SectionComponent();
+		SectionComponent s = new Composition.SectionComponent();
 		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
 		// todo: check subject
 		s.setContent(Factory.makeResourceReference(addResource(list, "Allergies, Adverse Reactions, Alerts", UUID.randomUUID().toString())));

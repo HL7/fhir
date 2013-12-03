@@ -1042,7 +1042,7 @@ public class Publisher {
 
       page.log("Copy HTML templates");
       Utilities.copyDirectory(page.getFolders().rootDir+page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getEpub());
-      TextFile.stringToFile("[FHIR Publication]\r\nVersion="+page.getVersion()+"\r\nrevision="+page.getSvnRevision()+"\r\ndate="+new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()), Utilities.path(page.getFolders().dstDir, "version.info"));
+      TextFile.stringToFile("\r\n[FHIR]\r\nversion="+page.getVersion()+"\r\nrevision="+page.getSvnRevision()+"\r\ndate="+new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()), Utilities.path(page.getFolders().dstDir, "version.info"));
 	    profileFeed = new AtomFeed();
 	    profileFeed.setId("http://hl7.org/fhir/profile/resources");
 	    profileFeed.setTitle("Resources as Profiles");

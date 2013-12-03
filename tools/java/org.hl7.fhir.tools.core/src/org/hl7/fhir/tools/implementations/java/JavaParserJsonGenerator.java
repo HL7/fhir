@@ -455,7 +455,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private void finish() throws Exception {
     write("  @Override\r\n");
     write("  protected Resource parseResource(JSONObject json) throws Exception {\r\n");
-    write("    String t = json.getString(\"resourceType\");\r\n");
+    write("    String t = json.getString(\"_type\");\r\n");
     write("    if (Utilities.noString(t))\r\n");
     write("      throw new Exception(\"Unable to find resource type - maybe not a FHIR resource?\");\r\n");
     write("    "+reg.toString().substring(9));

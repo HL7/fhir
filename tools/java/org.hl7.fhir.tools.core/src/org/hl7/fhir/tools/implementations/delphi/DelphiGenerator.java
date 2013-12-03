@@ -3014,7 +3014,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "var\r\n" +
             "  s : String;\r\n" +
             "begin\r\n"+
-            "  s := jsn['resourceType'];\r\n "+
+            "  s := jsn['_type'];\r\n "+
             prsrRegJ.toString().substring(6)+
             "  else if s = 'Binary' Then\r\n"+
             "    result := ParseBinary(jsn)\r\n"+
@@ -3028,7 +3028,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "begin\r\n"+
             "  if (resource = nil) Then\r\n"+
             "    Raise Exception.Create('error - resource is nil');\r\n"+
-            "  json.value('resourceType', CODES_TFhirResourceType[resource.ResourceType]);\r\n"+
+            "  json.value('_type', CODES_TFhirResourceType[resource.ResourceType]);\r\n"+
             "  Case resource.ResourceType of\r\n"+
             srlsRegJ.toString()+
             "    frtBinary: ComposeBinary(json, TFhirBinary(resource));\r\n"+
