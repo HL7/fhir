@@ -10,7 +10,7 @@
     <class value="outpatient"/>
     <type>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="Patient-initiated encounter"/>
             <display value="270427003"/>
         </coding>
@@ -33,14 +33,14 @@
     </length>
     <reason>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="34068001"/>
             <display value="Partial lobectomy of lung"/>
         </coding>
     </reason>
     <priority>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="103391001"/>
             <display value="Urgent"/>
         </coding>
@@ -53,19 +53,19 @@
         </preAdmissionIdentifier>
     <!--    <preAdmissionTest>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="399208008"/>
                 <display value="Chest X-ray"/>
             </coding>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="396550006"/>
                 <display value="Blood test"/>
             </coding>
         </preAdmissionTest> -->
         <admitSource>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="Referral by radiologist"/>
                 <display value="305997006"/>
             </coding>
@@ -82,7 +82,7 @@
         </accomodation> 
         <dischargeDisposition>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="Discharge to home"/>
                 <display value="306689006"/>
             </coding>

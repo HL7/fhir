@@ -2,7 +2,7 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
  <name><!--Kind of observation = Bicarbonate-->
     <coding>   
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="365722008"/>
         <display value="Bicarbonate level"/>
      </coding>
@@ -10,12 +10,12 @@
  <valueQuantity><!--Bicarbonate=28mmol/L-->
     <value value="28"/>
     <units value="mmol/L"/>
-    <system value="http://snomed.info/id"/>
+    <system value="http://snomed.info/sct"/>
     <code value="258813002"/>
  </valueQuantity>
  <interpretation>
     <coding>   
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="166698001"/>
         <display value="Serum bicarbonate level normal"/>    
     </coding>  
@@ -29,7 +29,7 @@
  <reliability value="ok"/><!--No reliability concerns-->
  <method><!--Method was serum measurement-->
     <coding>   
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="271239003"/>
         <display value="Serum bicarbonate measurement"/> 
     </coding>   
@@ -50,7 +50,7 @@
  <referenceRange><!--Healthy bicarbonate level ranges from 22mmol/L to 29mmol/L--> 
     <meaning>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="260395002"/>
             <display value="Normal range"/> 
         </coding>

@@ -125,7 +125,7 @@
                 <display value="Angina Pectoris"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="194828000"/>
                 <display value="Angina (disorder)"/>
               </coding>
@@ -138,7 +138,7 @@
           <question>
             <name>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="22298006"/>
                 <display value="Myocardial infarction (disorder)"/>
               </coding>

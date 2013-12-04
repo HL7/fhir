@@ -80,7 +80,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
 	private void includeCodes(ConceptSetComponent inc) throws Exception {
-    if (inc.getSystemSimple().equals("http://snomed.info/id"))
+    if (inc.getSystemSimple().equals("http://snomed.info/sct"))
       throw new Exception("Snomed Expansion is not yet supported (which release?)");
     if (inc.getSystemSimple().equals("http://loinc.org"))
       throw new Exception("LOINC Expansion is not yet supported (todo)");

@@ -55,7 +55,7 @@
   <compose>
     <import value="http://hl7.org/fhir/vs/imaging-modality"/>
     <include>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <code value="T-D4000">
         <!-- just to hook in the snomed display name, until build issues with snomed are resolved -->
         <extension url="http://hl7.org/fhir/tools/extensions#display">

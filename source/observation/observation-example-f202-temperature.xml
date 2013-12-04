@@ -2,7 +2,7 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
  <name><!--Kind of observation = Oral Temperature-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="415945006"/>
        <display value="Oral temperature"/>
     </coding>
@@ -10,7 +10,7 @@
  <valueQuantity><!--Temperature=39 degrees Celsius-->
     <value value="39"/>
     <units value="degrees C"/>
-    <system value="http://snomed.info/id"/>
+    <system value="http://snomed.info/sct"/>
     <code value="258710007"/>
  </valueQuantity>
  <interpretation>
@@ -24,14 +24,14 @@
  <reliability value="questionable"/><!--http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3418963/-->
  <bodySite>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
         <display value="Body as a whole"/>  
     </coding>
  </bodySite>
  <method>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="89003005"/>
         <display value="Oral temperature taking"/>  
     </coding>
@@ -47,7 +47,7 @@
  <referenceRange>  <!-- 0..* Provides guide for interpretation -->
    <meaning>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="386661006"/>
             <display value="Fever"/> 
         </coding>

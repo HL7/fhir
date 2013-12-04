@@ -35,7 +35,7 @@
     <gender>
             <!--The practitioner's administrative gender-->
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="248153007"/>
                 <display value="Male"/>
             </coding>
@@ -53,14 +53,14 @@
     </organization>
     <role>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="225304007"/>
             <display value="Implementation of planned interventions"/>
         </coding>
     </role>
     <specialty>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="310512001"/>
             <display value="Medical oncologist"/>
         </coding>
@@ -69,7 +69,7 @@
         <code>
             <!--Dr. Bronsig is not only a medical oncologist, but also a pulmonologist-->
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="41672002"/>
                 <display value="Pulmonologist"/>
             </coding>

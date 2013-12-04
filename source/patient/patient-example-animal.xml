@@ -82,7 +82,7 @@
     </species>
     <breed>
       <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="58108001"/>
         <display value="Golden retriever"/>
       </coding>

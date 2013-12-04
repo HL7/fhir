@@ -37,7 +37,7 @@
           <category value="procedure"/> <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
           <code>
               <coding>
-                  <system value="http://snomed.info/id"/>
+                  <system value="http://snomed.info/sct"/>
                   <code value="172960003"/>
                   <display value="Incision of retropharyngeal abscess"/>
               </coding>

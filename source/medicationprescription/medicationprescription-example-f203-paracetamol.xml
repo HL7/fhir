@@ -26,7 +26,7 @@
   <!--No defined schedule (<timing>)-->
   <method>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="322236009"/>
        <display value="Paracetamol 500mg tablet"/>
     </coding>
@@ -35,13 +35,13 @@
     <numerator>
         <value value="3000"/>
         <units value="milligram"/>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="258684004"/>
     </numerator>
     <denominator>
         <value value="24"/>
         <units value="hours"/>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="258702006"/>
     </denominator>
   </maxDosePerPeriod>

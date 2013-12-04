@@ -30,7 +30,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <filter>
         <!-- Snomed CT - selected children of SCTID:91723000 "anatomical structure" -->
         <property value="concept"/>

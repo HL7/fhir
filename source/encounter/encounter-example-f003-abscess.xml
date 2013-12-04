@@ -9,7 +9,7 @@
     <class value="outpatient"/>
     <type>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="Patient-initiated encounter"/>
             <display value="270427003"/>
         </coding>
@@ -32,14 +32,14 @@
     </length>
     <reason>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="18099001"/>
             <display value="Retropharyngeal abscess"/>
         </coding>
     </reason>
     <priority>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="103391001"/>
             <display value="Non-urgent ear, nose and throat admission"/>
         </coding>
@@ -52,19 +52,19 @@
         </preAdmissionIdentifier>
    <!--     <preAdmissionTest>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="168719007"/>
                 <display value="Neck soft tissue X-ray"/>
             </coding>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="396550006"/>
                 <display value="Blood test"/>
             </coding>
         </preAdmissionTest> -->
         <admitSource>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="Referral by physician"/>
                 <display value="305956004"/>
             </coding>
@@ -81,7 +81,7 @@
         </accomodation> 
         <dischargeDisposition>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="Discharge to home"/>
                 <display value="306689006"/>
             </coding>

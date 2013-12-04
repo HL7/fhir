@@ -22,7 +22,7 @@ Note: Referral is likely to be incorporated as an official resource in a future 
   <modifierExtension url="http://example.org/do-not-use/fhir-extensions/referral#referredForService">
     <valueCodeableConcept>
       <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="11429006"/>
         <display value="Consultation"/>
       </coding>

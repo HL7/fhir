@@ -31,7 +31,7 @@
     
     <gender><!--The practitioner's administrative gender-->
       <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="248153007"/>
         <display value="Male"/>
       </coding>  
@@ -47,14 +47,14 @@
  </organization>
  <role>
      <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="36682004"/>
         <display value="Physical therapist"/>   
      </coding> 
  </role>
  <specialty>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="410158009"/>
         <display value="Assess physical therapist service"/>
     </coding>

@@ -21,7 +21,7 @@
     </encounter>
     <reasonForPrescribing>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="28036006"/>
             <display value="High density lipoprotein cholesterol level"/>
         </coding>
@@ -43,14 +43,14 @@
         </timingSchedule>  
         <site>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="181220002"/>
                 <display value="Entire oral cavity"/>
             </coding>
         </site>
         <route>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="386359008"/>
                 <display value="Administration of drug or medicament via oral route"/>
             </coding>
@@ -68,7 +68,7 @@
         </validityPeriod>
         <quantity>
             <value value="90"/>
-            <system value="http://snomed.info/id"/> 
+            <system value="http://snomed.info/sct"/> 
             <code value="46992007"/>
         </quantity>
     </dispense>   

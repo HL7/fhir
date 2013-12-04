@@ -34,10 +34,10 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
     </Practitioner>
   </contained>
 
-  <identifier>
+  <masterIdentifier>
     <system value="http://example.org/documents"/>
     <value value="23425234234-2346"/>
-  </identifier>
+  </masterIdentifier>
   <subject>
     <reference value="Patient/xcda"/>
   </subject>

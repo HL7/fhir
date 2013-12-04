@@ -14,14 +14,14 @@
     <dateAsserted value="2012-02-20"/> <!-- first suspected by physician visit -->
     <code>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="18099001"/>
             <display value="Retropharyngeal abscess"/>
         </coding>
     </code>
     <category>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="diagnosis"/>
             <display value="439401001"/>
         </coding>
@@ -29,7 +29,7 @@
     <status value="confirmed"/>
     <severity>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="371923003"/>
             <display value="Mild to moderate"/>
         </coding>
@@ -38,7 +38,7 @@
     <evidence>
         <code>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="169068008"/>
                 <display value="CT of neck"/>
             </coding>
@@ -47,7 +47,7 @@
     <location>
         <code>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="280193007"/>
                 <display value="Entire retropharyngeal area"/>    
             </coding>

@@ -5,7 +5,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <table>
         <tr><td><b>URI</b></td><td><b>Description</b></td></tr>
-        <tr><td>http://snomed.info/id</td><td>SNOMED CT: (http://ihtsdo.org)</td></tr>
+        <tr><td>http://snomed.info/sct</td><td>SNOMED CT: (http://ihtsdo.org)</td></tr>
         <tr><td>http://loinc.org</td><td>LOINC (http://loinc.org)</td></tr>
         <tr><td>http://unitsofmeasure.org</td><td>UCUM: (http://unitsofmeasure.org) Case Sensitive Codes)</td></tr>
         <tr><td>http://hl7.org/fhir/sid/icd-10</td><td>ICD-10 International (http://www.who.int/classifications/icd/en/)</td></tr>
@@ -86,7 +86,7 @@
       <!-- these are all URIs, defined elsewhere, and just listed here for convenience -->
       <system value="urn:ietf:rfc:3986"/>
       
-      <code value="http://snomed.info/id">
+      <code value="http://snomed.info/sct">
         <extension url="http://hl7.org/fhir/tools/extensions#display">
           <valueString value="SNOMED CT: (http://ihtsdo.org)"/>
         </extension>

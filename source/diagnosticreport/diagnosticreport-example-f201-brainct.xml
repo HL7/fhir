@@ -13,7 +13,7 @@
  <!--No identifier or request details were available-->
  <serviceCategory><!--The request was honored by the Department of Radiology-->
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="394914008"/>
         <display value="Radiology"/> 
     </coding>     
@@ -26,7 +26,7 @@
  <results>
     <name>
       <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="429858000"/>
         <display value="CT of head-neck"/>
       </coding>
@@ -36,7 +36,7 @@
  <conclusion value="CT brains: large tumor sphenoid/clivus."/>
  <codedDiagnosis>
      <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="188340000"/>
        <display value="Malignant craniopharyngeal tumor"/> 
      </coding>

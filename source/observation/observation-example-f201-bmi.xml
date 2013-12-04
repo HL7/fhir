@@ -2,7 +2,7 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
  <name><!--Kind of observation = BMI-->
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="60621009"/>
         <display value="Body mass index"/>
     </coding>
@@ -12,7 +12,7 @@
  </valueQuantity> 
  <interpretation><!--BMI of 31,31 is high-->
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="75540009"/>
         <display value="High"/>     
     </coding>
@@ -26,14 +26,14 @@
  <reliability value="ok"/><!--No reliability concerns-->
  <bodySite><!--BMI applies to whole body-->
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
         <display value="Body as a whole"/>   
     </coding>
  </bodySite>
  <method><!--BMI method is measurement as an action-->
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="122869004"/>
         <display value="Measurement - action"/> 
     </coding>
@@ -49,7 +49,7 @@
  <referenceRange><!--BMI<20 indicates low BMI-->
     <meaning>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="310252000"/>
             <display value="Low BMI"/> 
         </coding>
@@ -62,7 +62,7 @@
  <referenceRange><!--20<BMI<25 indicates normal BMI-->
     <meaning>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="412768003"/>
             <display value="Normal BMI"/> 
         </coding>
@@ -79,7 +79,7 @@
  <referenceRange><!--25<BMI<30 indicates overweight-->
     <meaning>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="162863004"/>
             <display value="Overweight"/> 
         </coding>
@@ -96,7 +96,7 @@
  <referenceRange><!--30<BMI<40 indicates obesity-->
     <meaning> 
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="162864005"/>
             <display value="Obesity"/> 
         </coding>
@@ -113,7 +113,7 @@
  <referenceRange><!--BMI>40 indicates severe obesity-->
     <meaning>
         <coding>   
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="162864005"/>
             <display value="Severe obesity"/> 
         </coding>   
@@ -126,7 +126,7 @@
  <component><!--Length-->
      <name>
         <coding>   
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="410667008"/>
             <display value="Length"/>   
         </coding>      
@@ -134,14 +134,14 @@
      <valueQuantity>
          <value value="182"/>
          <units value="centimeter"/>
-         <system value="http://snomed.info/id"/>
+         <system value="http://snomed.info/sct"/>
          <code value="258672001"/>
      </valueQuantity>
  </component> 
  <component><!--Weight-->
      <name>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="60621009"/>
             <display value="Weight"/>  
         </coding>    
@@ -149,7 +149,7 @@
      <valueQuantity>
          <value value="103.7"/>
          <units value="kilogram"/>
-         <system value="http://snomed.info/id"/>
+         <system value="http://snomed.info/sct"/>
          <code value="258683005"/>
      </valueQuantity>
  </component>

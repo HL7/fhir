@@ -20,7 +20,7 @@
  <status value="confirmed"/>
  <severity>
    <coding>
-    <system value="http://snomed.info/id"/>
+    <system value="http://snomed.info/sct"/>
     <code value="255604002"/>
     <display value="Mild"/>
    </coding>

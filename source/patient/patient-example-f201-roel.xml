@@ -40,7 +40,7 @@
     <gender>
         <!--The gender for administrative purposes-->
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="248153007"/>
             <display value="Male"/>
         </coding>
@@ -64,7 +64,7 @@
     <maritalStatus>
         <!--Marital status of the person-->
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="36629006"/>
             <display value="Legally married"/>
         </coding>
@@ -83,7 +83,7 @@
         <relationship>
             <!--Indicates that the contact is the patient's wife-->
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="127850001"/>
                 <display value="Wife"/>
             </coding>

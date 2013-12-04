@@ -10,7 +10,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <filter>
         <!-- todo: work this over. what this means is any concepts where they have is-a with 260419006 how should this be done? -->
         <property value="concept"/>

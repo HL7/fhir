@@ -12,7 +12,7 @@
    <code>
       <!--The problem is a malignant tumor-->
       <coding>
-         <system value="http://snomed.info/id"/>
+         <system value="http://snomed.info/sct"/>
          <code value="363346000"/>
          <display value="Malignant tumor"/>
       </coding>
@@ -26,14 +26,14 @@
    <status value="confirmed"/>
    <certainty>
       <coding>
-         <system value="http://snomed.info/id"/>
+         <system value="http://snomed.info/sct"/>
          <code value="17162000"/>
          <display value="Certain"/>
       </coding>
    </certainty>
    <severity>
       <coding>
-         <system value="http://snomed.info/id"/>
+         <system value="http://snomed.info/sct"/>
          <code value="24484000"/>
          <display value="Severe"/>
       </coding>
@@ -41,7 +41,7 @@
    <onsetAge>
       <value value="52"/>
       <units value="years"/>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <code value="258707000"/>
    </onsetAge>
    <!--No remission means no <rebatement>-->
@@ -56,7 +56,7 @@
       <!--Head and neck malignancy-->
       <code>
          <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="361355005"/>
             <display value="Head and neck"/>
          </coding>

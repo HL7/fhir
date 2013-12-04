@@ -3,14 +3,14 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
  <name><!--Kind of observation = Blood culture-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="104177005"/>
        <display value="Blood culture for bacteria"/>
     </coding>
  </name>
  <valueCodeableConcept>
      <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="8745002"/>
         <display value="Gram-positive bacteria"/>
      </coding>
@@ -27,7 +27,7 @@
  <!--BodySite not relevant-->
  <method>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="104177005"/>
        <display value="Blood culture for bacteria"/>
     </coding>

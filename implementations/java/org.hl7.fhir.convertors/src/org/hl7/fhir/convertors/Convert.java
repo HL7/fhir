@@ -59,7 +59,7 @@ public class Convert {
 
 	private String UriForOid(String r) {
 		if (r.equals("2.16.840.1.113883.6.96"))
-			return "http://snomed.info/id";
+			return "http://snomed.info/sct";
 		if (r.equals("2.16.840.1.113883.6.1"))
 			return "http://loinc.org";
 		if (r.equals("2.16.840.1.113883.6.8"))

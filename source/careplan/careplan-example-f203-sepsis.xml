@@ -17,7 +17,7 @@
  <participant>  
   <role>
      <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="425268008"/>
        <display value="Review of care plan"/>
      </coding>
@@ -30,7 +30,7 @@
  <participant>  
   <role>
      <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="278110001"/>
        <display value="Radiographic imaging"/>
      </coding>
@@ -51,7 +51,7 @@
     <category value="observation"/>
     <code>
        <coding>
-         <system value="http://snomed.info/id"/>
+         <system value="http://snomed.info/sct"/>
          <code value="241541005"/>
          <display value="HRCT of lungs"/>
        </coding>      

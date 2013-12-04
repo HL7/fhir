@@ -15,14 +15,14 @@
  <dateAsserted value="2013-03-11"/>
  <code><!--The problem is bacterial sepsis-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="10001005"/>
        <display value="Bacterial sepsis"/> 
     </coding>
  </code>
  <category><!--Bacterial sepsis is certainly a moderate to severe problem-->
      <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="55607006"/>
         <display value="Problem"/> 
      </coding>
@@ -34,14 +34,14 @@
  <status value="confirmed"/>
  <certainty>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="17162000"/>
         <display value="Certain"/> 
     </coding>
  </certainty>
  <severity>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="371924009"/>
         <display value="Moderate to severe"/> 
     </coding>
@@ -56,7 +56,7 @@
  <location><!--Location is intravascular pulmonary-->
   <code>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="281158006"/>
         <display value="Pulmonary vascular structure"/> 
     </coding>

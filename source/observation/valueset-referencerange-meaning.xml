@@ -102,7 +102,7 @@ Range Basis
   </define>
   <compose>
     <include>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <code value="248153007"/> <!-- Male (finding) -->
       <code value="248152002"/> <!-- Female (finding) -->
       <code value="77386006"/> <!-- Patient currently pregnant (finding) -->

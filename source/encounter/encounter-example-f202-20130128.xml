@@ -9,7 +9,7 @@
  <class value="outpatient"/><!--Outpatient encounter for chemotherapy-->
  <type>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="367336001"/>
        <display value="Chemotherapy"/> 
     </coding>
@@ -26,7 +26,7 @@
  <length>
     <value value="56"/>
     <units value="minutes"/>
-    <system value="http://snomed.info/id"/>
+    <system value="http://snomed.info/sct"/>
     <code value="258701004"/>
  </length>
  <reason>
@@ -38,7 +38,7 @@
  </indication>
  <priority><!--Urgent priority, because of complications-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="103391001"/>
        <display value="Urgent"/>
     </coding>

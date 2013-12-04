@@ -17,7 +17,7 @@
  <when>
   <code>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="394848005"/>
        <display value="Normal priority"/>
     </coding>

@@ -32,21 +32,21 @@
   </timingSchedule>
   <site><!--Medication enters the oral cavity-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="74262004"/>
        <display value="Oral cavity"/>
     </coding>
   </site>
   <route><!--Medication follows the respiratory tract-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="321667001"/>
        <display value="Respiratory tract"/>
     </coding>
   </route>
   <method><!--Medication is administered with a specific inhaler-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="320276009"/>
        <display value="Salmeterol+fluticasone 25/250ug inhaler"/>
     </coding>
@@ -54,7 +54,7 @@
   <doseQuantity><!--TODO Cardinality is not sufficient: 25ug salmeterol + 250ug fluticasone can only be coded with 275ug...-->
     <value value="275"/>
     <units value="microgram"/>
-    <system value="http://snomed.info/id"/>
+    <system value="http://snomed.info/sct"/>
     <code value="258685003"/>
   </doseQuantity>
   <!--TODO EK: <rate> and <maxDosePerPeriod> are not sufficient for this specific patient: 
@@ -64,13 +64,13 @@
     <numerator>
         <value value="2"/>
         <units value="puffs"/>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="415215001"/>
     </numerator>
     <denominator>
         <value value="1"/>
         <units value="daily"/>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="259032004"/>
     </denominator>
   </maxDosePerPeriod>

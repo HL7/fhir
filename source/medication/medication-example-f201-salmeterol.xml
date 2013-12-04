@@ -3,7 +3,7 @@
  <name value="Salmeterol/fluticason"/>
  <code>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="411106009"/>
        <display value="Flutacisone + Salmeterol"/>
     </coding>
@@ -13,7 +13,7 @@
  <product> 
   <form>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="421606006"/>
        <display value="Aerosol spray"/>
     </coding>

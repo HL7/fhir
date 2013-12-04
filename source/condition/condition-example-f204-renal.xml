@@ -14,14 +14,14 @@
  <dateAsserted value="2013-03-11"/>
  <code>
      <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="36225005"/>
        <display value="Renal insufficiency due to procedure"/>
      </coding>
  </code>
  <category><!--Renal insufficiency could become a severe problem-->
      <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="55607006"/>
         <display value="Problem"/> 
      </coding>
@@ -33,7 +33,7 @@
  <status value="working"/><!--The patient is being treated on the basis that this is the problem, but it is still not confirmed (<certainty> is therewith also working)-->
  <severity>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="24484000"/>
         <display value="Severe"/> 
     </coding>
@@ -43,7 +43,7 @@
  <stage><!--The problem is temporary and will not become permanent renal insufficiency-->
   <summary>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="14803004"/>
         <display value="Temporary"/> 
     </coding>
@@ -52,7 +52,7 @@
  <location> 
   <code>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="181414000"/>
         <display value="Kidney"/> 
     </coding>

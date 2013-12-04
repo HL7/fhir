@@ -13,14 +13,14 @@
  <dateAsserted value="2013-04-04"/><!--The problem was entered at April fourth-->
  <code><!--The problem is a fever-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="386661006"/>
        <display value="Fever"/> 
     </coding>
  </code>
  <category><!--The fever is a mild problem-->
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="55607006"/>
         <display value="Problem"/> 
     </coding>
@@ -32,7 +32,7 @@
  <status value="confirmed"/>
  <severity><!--The fever is mild -->
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="255604002"/>
         <display value="Mild"/> 
     </coding>
@@ -42,7 +42,7 @@
  <evidence><!--Problem is confirmed by 39 degrees Celsius-->
   <code>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="258710007"/>
         <display value="degrees Celsius"/> 
     </coding>        
@@ -55,7 +55,7 @@
  <location><!--Fever applies to whole body-->
   <code>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
         <display value="Body as a whole"/>  
     </coding>

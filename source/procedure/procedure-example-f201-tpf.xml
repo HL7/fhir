@@ -8,14 +8,14 @@
   <type>
     <!--The procedure is TPF-based chemotherapy-->
     <coding>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <code value="367336001"/>
       <display value="Chemotherapy"/>
     </coding>
   </type>
   <bodySite>
     <coding>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <code value="272676008"/>
       <display value="Sphenoid bone"/>
     </coding>
@@ -31,7 +31,7 @@
     </person>
     <role>
       <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="310512001"/>
         <display value="Medical oncologist"/>
       </coding>

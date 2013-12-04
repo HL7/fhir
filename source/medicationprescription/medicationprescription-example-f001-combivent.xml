@@ -22,7 +22,7 @@
     </encounter>
     <reasonForPrescribing>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="13645005"/>
             <display value="Chronic obstructive pulmonary disease"/>
         </coding>
@@ -49,14 +49,14 @@
         </timingSchedule>
         <site>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="181220002"/>
                 <display value="Entire oral cavity"/>
             </coding>
         </site>
         <route>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="394899003"/>
                 <display value="oral administration of treatment"/>
             </coding>

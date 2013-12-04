@@ -12,7 +12,7 @@
    <type>
       <!--BMC is an Academic Medical Center-->
       <coding>
-         <system value="http://snomed.info/id"/>
+         <system value="http://snomed.info/sct"/>
          <code value="405608006"/>
          <display value="Academic Medical Center"/>
       </coding>

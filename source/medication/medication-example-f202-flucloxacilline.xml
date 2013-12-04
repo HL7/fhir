@@ -3,7 +3,7 @@
  <name value="Flucloxacillin"/>
  <code>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="387544009"/>
        <display value="Flucloxacillin"/>
     </coding>
@@ -13,7 +13,7 @@
  <product> 
   <form>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="385218009"/>
        <display value="Injection"/>
     </coding>

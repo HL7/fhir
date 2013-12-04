@@ -3,7 +3,7 @@
     <name value="Combivent"/>
     <code>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="320442002"/> <!-- SNOMED CT classification code -->
             <display value="Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler"/>
         </coding>
@@ -18,7 +18,7 @@
     <product>
         <form>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="420317006"/> <!-- SNOMED CT classification code -->
                 <display value="Inhaler (qualifier value)"/>
             </coding>

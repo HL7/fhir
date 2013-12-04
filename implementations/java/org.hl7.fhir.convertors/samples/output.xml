@@ -402,7 +402,7 @@
               <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-category"/>
               <valueCodeableConcept>
                 <coding>
-                  <system value="http://snomed.info/id"/>
+                  <system value="http://snomed.info/sct"/>
                   <code value="419511003"/>
                   <display value="Propensity to adverse reactions to drug"/>
                 </coding>
@@ -444,7 +444,7 @@
               <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-category"/>
               <valueCodeableConcept>
                 <coding>
-                  <system value="http://snomed.info/id"/>
+                  <system value="http://snomed.info/sct"/>
                   <code value="419511003"/>
                   <display value="Propensity to adverse reactions to drug"/>
                 </coding>
@@ -486,7 +486,7 @@
               <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-category"/>
               <valueCodeableConcept>
                 <coding>
-                  <system value="http://snomed.info/id"/>
+                  <system value="http://snomed.info/sct"/>
                   <code value="419511003"/>
                   <display value="Propensity to adverse reactions to drug"/>
                 </coding>

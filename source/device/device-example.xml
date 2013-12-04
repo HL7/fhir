@@ -16,7 +16,7 @@
   </identifier>
   <type>
     <coding>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <code value="86184003"/>
       <display value="Electrocardiographic monitor and recorder"/>
     </coding>

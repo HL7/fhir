@@ -35,7 +35,7 @@
     
     <gender><!--The practitioner's administrative gender-->
       <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="248153007"/>
         <display value="Male"/>
       </coding>
@@ -51,14 +51,14 @@
  </organization>
  <role>
      <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="33526004"/>
         <display value="Electronic laboratory reporting"/>   
      </coding> 
  </role>
  <specialty>
     <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="159285000"/>
         <display value="Medical laboratory technician"/>
     </coding>

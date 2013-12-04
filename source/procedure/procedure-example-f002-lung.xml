@@ -6,14 +6,14 @@
     </subject>
         <type>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="359615001"/>
                 <display value="Partial lobectomy of lung"/>
             </coding>
         </type>
         <bodySite>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39607008"/>
                 <display value="Lung structure"/>
             </coding>

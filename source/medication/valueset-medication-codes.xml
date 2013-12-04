@@ -22,7 +22,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <filter>
         <!-- Snomed CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value" -->
         <property value="concept"/>

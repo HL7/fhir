@@ -41,7 +41,7 @@
   <Observation id='obs1'>
     <name>
       <coding>
-        <system value='http://snomed.info/id'/>
+        <system value='http://snomed.info/sct'/>
         <code value="229819007"/>
         <display value="Tobacco use and exposure (observable entity)"/>
       </coding>
@@ -57,7 +57,7 @@
     <Observation id='obs2'>
       <name>
         <coding>
-          <system value='http://snomed.info/id'/>
+          <system value='http://snomed.info/sct'/>
           <code value="397021000000108"/>
           <display value="Alcohol use (UK Specific)"/>
         </coding>
@@ -72,7 +72,7 @@
   <!-- This is a List of Social history -->
   <code>
     <coding>
-      <system value='http://snomed.info/id'/>
+      <system value='http://snomed.info/sct'/>
       <code value="365448001"/>
       <display value="Social and personal history finding (finding)"/>
     </coding>

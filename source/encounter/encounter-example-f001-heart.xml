@@ -9,7 +9,7 @@
     <class value="outpatient"/>
     <type>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="Patient-initiated encounter"/>
             <display value="270427003"/>
         </coding>
@@ -32,14 +32,14 @@
     </length>
     <reason>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="34068001"/>
             <display value="Heart valve replacement"/>
         </coding>
     </reason>
     <priority>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="310361003"/>
             <display value="Non-urgent cardiological admission"/>
         </coding>
@@ -52,19 +52,19 @@
         </preAdmissionIdentifier>
   <!--      <preAdmissionTest>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="164847006"/>
                 <display value="Standard ECG"/>
             </coding>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="396550006"/>
                 <display value="Blood test"/>
             </coding>
         </preAdmissionTest> -->
         <admitSource>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="Referral by physician"/>
                 <display value="305956004"/>
             </coding>
@@ -81,7 +81,7 @@
         </accomodation> 
         <dischargeDisposition>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="Discharge to home"/>
                 <display value="306689006"/>
             </coding>

@@ -20,7 +20,7 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>210</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -597,9 +597,10 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s78">
     <Cell ss:Index="2" ss:StyleID="s80"><Data ss:Type="String">DocumentReference.identifier</Data></Cell>
-    <Cell><Data ss:Type="String">0..0</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell><Data ss:Type="String">Other identifiers for the document</Data></Cell>
+    <Cell><Data ss:Type="String">XDSDocumentEntry.referenceIdList</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Does this get used in XDS?</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s83"/>
    </Row>
@@ -847,13 +848,11 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>12</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1267,14 +1266,14 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">!homeCommunityId</Data></Cell>
+    <Cell><Data ss:Type="String">homeCommunityId</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">XDSDocumentEntry.homeCommunityId</Data></Cell>
     <Cell><Data ss:Type="String">A globally unique identifier for a community</Data></Cell>
-    <Cell><Data ss:Type="String">Existing XDS usage is poorly understood</Data></Cell>
+    <Cell><Data ss:Type="String">Existing XDS usage is poorly characterised</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">!repositoryUniqueId</Data></Cell>
@@ -1345,11 +1344,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

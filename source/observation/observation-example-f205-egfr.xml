@@ -3,7 +3,7 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
  <name><!--Kind of observation = EGFR-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="409402009"/>
        <display value="Epidermal Growth Factor Receptor"/>
     </coding>
@@ -11,12 +11,12 @@
  <valueQuantity><!--EGFR=54mL/min-->
     <value value="54"/>
     <units value="mL/min"/>
-    <system value="http://snomed.info/id"/>
+    <system value="http://snomed.info/sct"/>
     <code value="258859000"/>
  </valueQuantity>
  <interpretation>
      <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="427038005"/>
         <display value="Negative for epidermal growth factor receptor expression (Non-small cell lung cancer)"/>  
      </coding>  
@@ -30,7 +30,7 @@
  <reliability value="ok"/><!--No reliability concerns-->
  <method><!--Method was serum measurement-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="129266000"/>
        <display value="Measurement"/> 
     </coding>
@@ -51,7 +51,7 @@
  <referenceRange><!--Non-small cell lung cancer is suspected with EGFR > 60mL/min--> 
     <meaning>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="426964009"/>
             <display value="Non-small cell carcinoma"/> 
         </coding>

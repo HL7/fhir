@@ -59,7 +59,7 @@
       </subject>
       <code>
         <coding>
-          <system value="http://snomed.info/id"/>
+          <system value="http://snomed.info/sct"/>
           <code value="195967001"/>
           <display value="Asthma (disorder)"></display>
         </coding>
@@ -75,7 +75,7 @@
       <name value="Prednisone 5mg tablet"/>
       <code>
         <coding>
-          <system value="http://snomed.info/id"/>
+          <system value="http://snomed.info/sct"/>
           <code value="373994007"/>
           <display value="Prednisone 5mg Tablet"></display>
         </coding>
@@ -216,7 +216,7 @@
      <category value="observation"/>
      <code>
        <coding>
-         <system value="http://snomed.info/id"/>
+         <system value="http://snomed.info/sct"/>
          <code value="313193502"/>
          <display value="Respiratory flow rate (observable entity)"></display>
        </coding>
@@ -250,7 +250,7 @@
       <modifierExtension url="www.moh.govt.nz/fhir/trigger">
         <extension url="www.moh.govt.nz/fhir/trigger#code">
           <valueCoding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="313193502"/>
             <display value="Respiratory flow rate (observable entity)"></display>
           </valueCoding>
@@ -276,7 +276,7 @@
       <modifierExtension url="www.moh.govt.nz/fhir/trigger">
         <extension url="www.moh.govt.nz/fhir/trigger#code">
           <valueCoding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="313193502"/>
             <display value="Respiratory flow rate (observable entity)"></display>
           </valueCoding>

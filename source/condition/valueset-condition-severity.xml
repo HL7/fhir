@@ -23,7 +23,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <code value="399166001"/>
       <code value="24484000"/>
       <code value="6736007"/>

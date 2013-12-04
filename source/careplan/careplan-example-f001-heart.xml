@@ -43,7 +43,7 @@
           <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
           <code>
               <coding>
-                  <system value="http://snomed.info/id"/>
+                  <system value="http://snomed.info/sct"/>
                   <code value="64915003"/>
                   <display value=" Operative procedure on heart"/>
               </coding>

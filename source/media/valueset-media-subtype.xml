@@ -56,7 +56,7 @@
   <compose>
     <import value="http://hl7.org/fhir/vs/imaging-modality"/>
     <include>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <filter>
         <!-- todo: work this over. what this means is any concepts where they have is-a with 363679005 how should this be done? -->
         <property value="concept"/>

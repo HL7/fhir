@@ -11,7 +11,7 @@
   <name value="Penicillin VK oral suspension 125mg/5ml"/>
   <code>
     <coding>
-      <system value="http://snomed.info/id"/>
+      <system value="http://snomed.info/sct"/>
       <code value="323418000"/>
       <display value="Phenoxymethylpenicillin 125mg/5mL oral solution (product)"/>
     </coding>  
@@ -26,7 +26,7 @@
   <product>
     <form>
       <coding>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="37595005"/>
         <display value="Suspension"/>
       </coding>

@@ -31,14 +31,14 @@
   </timingSchedule>
   <route><!--Medication follows the respiratory tract-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="47625008"/>
        <display value="Intravenous route"/>
     </coding>
   </route>
   <method>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="323493005"/>
        <display value="Injected floxacillin"/><!--SNOMED code maps to 1 gram whilst the patient receives 12 grams-->
     </coding>
@@ -47,13 +47,13 @@
     <numerator>
         <value value="12"/>
         <units value="gram"/>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="258682000"/>
     </numerator>
     <denominator>
         <value value="24"/>
         <units value="hours"/>
-        <system value="http://snomed.info/id"/>
+        <system value="http://snomed.info/sct"/>
         <code value="258702006"/>
     </denominator>
   </maxDosePerPeriod>

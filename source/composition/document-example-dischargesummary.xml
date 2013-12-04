@@ -425,7 +425,7 @@
                     <!-- Orally -->
                     <route>
                         <coding>
-                            <system value="http://snomed.info/id"/>
+                            <system value="http://snomed.info/sct"/>
                             <code value="363743006"/>
                             <display value="oral administration of treatment"/>
                         </coding>

@@ -3,7 +3,7 @@
     <name value="Crestor"/>
     <code>
         <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="408036003"/> <!-- SNOMED CT classification code -->
             <display value="Rosuvastatin 10mg tablet"/>
         </coding>
@@ -18,7 +18,7 @@
     <package>
         <container>
             <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="398124009"/>
                 <display value="drug container"/>
             </coding>
@@ -28,7 +28,7 @@
             <amount>
                 <value value="30"/>
                 <units value="Pill"/>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46992007"/>
             </amount> 
             </content>-->

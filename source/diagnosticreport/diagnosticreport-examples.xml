@@ -203,7 +203,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -240,7 +240,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -277,7 +277,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -314,7 +314,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -351,7 +351,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -388,7 +388,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -425,7 +425,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -462,7 +462,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -499,7 +499,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -542,7 +542,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -579,7 +579,7 @@
                 <display value="Direct Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39748002"/>
               </coding>
             </name>
@@ -616,7 +616,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -653,7 +653,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -690,7 +690,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -733,7 +733,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -770,7 +770,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -807,7 +807,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -844,7 +844,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -881,7 +881,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -918,7 +918,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -955,7 +955,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -992,7 +992,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -1029,7 +1029,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -1072,7 +1072,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -1109,7 +1109,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -1146,7 +1146,7 @@
                 <display value="HDL Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="17888004"/>
               </coding>
             </name>
@@ -1471,7 +1471,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -1508,7 +1508,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -1545,7 +1545,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -1582,7 +1582,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -1619,7 +1619,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -1656,7 +1656,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -1693,7 +1693,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -1736,7 +1736,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -1773,7 +1773,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -1816,7 +1816,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -1853,7 +1853,7 @@
                 <display value="Direct Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39748002"/>
               </coding>
             </name>
@@ -1890,7 +1890,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -1933,7 +1933,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -1976,7 +1976,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -2019,7 +2019,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -2062,7 +2062,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -2099,7 +2099,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -2136,7 +2136,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -2173,7 +2173,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -2210,7 +2210,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -2247,7 +2247,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -2284,7 +2284,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -2321,7 +2321,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -2364,7 +2364,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -2401,7 +2401,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -2554,7 +2554,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -2591,7 +2591,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -2628,7 +2628,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -2665,7 +2665,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -2702,7 +2702,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -2739,7 +2739,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -2776,7 +2776,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -2813,7 +2813,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -2850,7 +2850,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -2893,7 +2893,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -2930,7 +2930,7 @@
                 <display value="Direct Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39748002"/>
               </coding>
             </name>
@@ -2967,7 +2967,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -3010,7 +3010,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -3053,7 +3053,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -3096,7 +3096,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -3133,7 +3133,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -3170,7 +3170,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -3207,7 +3207,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -3244,7 +3244,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -3281,7 +3281,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -3318,7 +3318,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -3355,7 +3355,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -3392,7 +3392,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -3435,7 +3435,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -3472,7 +3472,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -3626,7 +3626,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -3663,7 +3663,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -3700,7 +3700,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -3737,7 +3737,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -3774,7 +3774,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -3811,7 +3811,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -3848,7 +3848,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -3885,7 +3885,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -3922,7 +3922,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -3965,7 +3965,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -4002,7 +4002,7 @@
                 <display value="Direct Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39748002"/>
               </coding>
             </name>
@@ -4039,7 +4039,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -4082,7 +4082,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -4125,7 +4125,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -4162,7 +4162,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -4199,7 +4199,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -4236,7 +4236,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -4273,7 +4273,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -4310,7 +4310,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -4347,7 +4347,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -4384,7 +4384,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -4421,7 +4421,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -4458,7 +4458,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -4501,7 +4501,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -4538,7 +4538,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -4692,7 +4692,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -4729,7 +4729,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -4766,7 +4766,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -4803,7 +4803,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -4840,7 +4840,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -4877,7 +4877,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -4914,7 +4914,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -4951,7 +4951,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -4988,7 +4988,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -5025,7 +5025,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -5068,7 +5068,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -5111,7 +5111,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -5154,7 +5154,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -5197,7 +5197,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -5240,7 +5240,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -5283,7 +5283,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -5320,7 +5320,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -5357,7 +5357,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -5394,7 +5394,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -5431,7 +5431,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -5468,7 +5468,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -5505,7 +5505,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -5542,7 +5542,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -5585,7 +5585,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -5735,7 +5735,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -5772,7 +5772,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -5809,7 +5809,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -5846,7 +5846,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -5883,7 +5883,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -5920,7 +5920,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -5957,7 +5957,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -5994,7 +5994,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -6031,7 +6031,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -6074,7 +6074,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -6117,7 +6117,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -6160,7 +6160,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -6203,7 +6203,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -6246,7 +6246,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -6289,7 +6289,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -6332,7 +6332,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -6369,7 +6369,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -6406,7 +6406,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -6443,7 +6443,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -6480,7 +6480,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -6517,7 +6517,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -6554,7 +6554,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -6591,7 +6591,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -6634,7 +6634,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -6784,7 +6784,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -6821,7 +6821,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -6858,7 +6858,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -6895,7 +6895,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -6932,7 +6932,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -6969,7 +6969,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -7006,7 +7006,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -7043,7 +7043,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -7080,7 +7080,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -7123,7 +7123,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -7166,7 +7166,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -7209,7 +7209,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -7252,7 +7252,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -7295,7 +7295,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -7338,7 +7338,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -7375,7 +7375,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -7412,7 +7412,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -7449,7 +7449,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -7486,7 +7486,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -7523,7 +7523,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -7560,7 +7560,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -7597,7 +7597,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -7640,7 +7640,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -7683,7 +7683,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -7833,7 +7833,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -7870,7 +7870,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -7907,7 +7907,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -7944,7 +7944,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -7981,7 +7981,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -8018,7 +8018,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -8055,7 +8055,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -8092,7 +8092,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -8129,7 +8129,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -8172,7 +8172,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -8209,7 +8209,7 @@
                 <display value="Direct Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39748002"/>
               </coding>
             </name>
@@ -8246,7 +8246,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -8283,7 +8283,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -8320,7 +8320,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -8363,7 +8363,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -8400,7 +8400,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -8437,7 +8437,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -8474,7 +8474,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -8511,7 +8511,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -8548,7 +8548,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -8585,7 +8585,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -8622,7 +8622,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -8701,7 +8701,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -8738,7 +8738,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -8891,7 +8891,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -8928,7 +8928,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -8965,7 +8965,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -9002,7 +9002,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -9039,7 +9039,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -9076,7 +9076,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -9113,7 +9113,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -9156,7 +9156,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -9193,7 +9193,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -9236,7 +9236,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -9273,7 +9273,7 @@
                 <display value="Direct Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39748002"/>
               </coding>
             </name>
@@ -9310,7 +9310,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -9353,7 +9353,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -9396,7 +9396,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -9439,7 +9439,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -9482,7 +9482,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -9519,7 +9519,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -9556,7 +9556,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -9593,7 +9593,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -9630,7 +9630,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -9667,7 +9667,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -9704,7 +9704,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -9741,7 +9741,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -9784,7 +9784,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -9821,7 +9821,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -9974,7 +9974,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -10011,7 +10011,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -10048,7 +10048,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -10085,7 +10085,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -10122,7 +10122,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -10159,7 +10159,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -10196,7 +10196,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -10233,7 +10233,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -10270,7 +10270,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -10313,7 +10313,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -10350,7 +10350,7 @@
                 <display value="Direct Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39748002"/>
               </coding>
             </name>
@@ -10387,7 +10387,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -10430,7 +10430,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -10473,7 +10473,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -10516,7 +10516,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -10553,7 +10553,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -10590,7 +10590,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -10627,7 +10627,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -10664,7 +10664,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -10701,7 +10701,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -10738,7 +10738,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -10775,7 +10775,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -10812,7 +10812,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -10855,7 +10855,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -10892,7 +10892,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -11046,7 +11046,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -11083,7 +11083,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -11120,7 +11120,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -11157,7 +11157,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -11194,7 +11194,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -11231,7 +11231,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -11268,7 +11268,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -11305,7 +11305,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -11342,7 +11342,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -11385,7 +11385,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -11422,7 +11422,7 @@
                 <display value="Direct Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="39748002"/>
               </coding>
             </name>
@@ -11459,7 +11459,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -11502,7 +11502,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -11545,7 +11545,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -11582,7 +11582,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -11619,7 +11619,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -11656,7 +11656,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -11693,7 +11693,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -11730,7 +11730,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -11767,7 +11767,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -11804,7 +11804,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -11841,7 +11841,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -11878,7 +11878,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -11921,7 +11921,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -11958,7 +11958,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -12112,7 +12112,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -12149,7 +12149,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -12186,7 +12186,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -12223,7 +12223,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -12260,7 +12260,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -12297,7 +12297,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -12334,7 +12334,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -12371,7 +12371,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -12408,7 +12408,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -12445,7 +12445,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -12488,7 +12488,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -12531,7 +12531,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -12574,7 +12574,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -12617,7 +12617,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -12660,7 +12660,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -12703,7 +12703,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -12740,7 +12740,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -12777,7 +12777,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -12814,7 +12814,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -12851,7 +12851,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -12888,7 +12888,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -12925,7 +12925,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -12962,7 +12962,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -13005,7 +13005,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -13155,7 +13155,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -13192,7 +13192,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -13229,7 +13229,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -13266,7 +13266,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -13303,7 +13303,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -13340,7 +13340,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -13377,7 +13377,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -13414,7 +13414,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -13451,7 +13451,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -13494,7 +13494,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -13537,7 +13537,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -13580,7 +13580,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -13623,7 +13623,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -13666,7 +13666,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -13709,7 +13709,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -13752,7 +13752,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -13789,7 +13789,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -13826,7 +13826,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -13863,7 +13863,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -13900,7 +13900,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -13937,7 +13937,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -13974,7 +13974,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -14011,7 +14011,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -14054,7 +14054,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -14204,7 +14204,7 @@
                 <display value="Sodium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104934005"/>
               </coding>
             </name>
@@ -14241,7 +14241,7 @@
                 <display value="Serum Potassium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="59573005"/>
               </coding>
             </name>
@@ -14278,7 +14278,7 @@
                 <display value="Chloride"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="46511006"/>
               </coding>
             </name>
@@ -14315,7 +14315,7 @@
                 <display value="Bicarbonate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88645003"/>
               </coding>
             </name>
@@ -14352,7 +14352,7 @@
                 <display value="Other Anions"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="271057005"/>
               </coding>
             </name>
@@ -14389,7 +14389,7 @@
                 <display value="Glucose"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="36048009"/>
               </coding>
             </name>
@@ -14426,7 +14426,7 @@
                 <display value="Urea"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="273967009"/>
               </coding>
             </name>
@@ -14463,7 +14463,7 @@
                 <display value="Serum Creatinine"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="70901006"/>
               </coding>
             </name>
@@ -14500,7 +14500,7 @@
                 <display value="Serum Uric Acid"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="86228006"/>
               </coding>
             </name>
@@ -14543,7 +14543,7 @@
                 <display value="Total Bilirubin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="27171005"/>
               </coding>
             </name>
@@ -14586,7 +14586,7 @@
                 <display value="Total Alk. Phosphatase"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="88810008"/>
               </coding>
             </name>
@@ -14629,7 +14629,7 @@
                 <display value="Gamma G.T."/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="69480007"/>
               </coding>
             </name>
@@ -14672,7 +14672,7 @@
                 <display value="ALT"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="34608000"/>
               </coding>
             </name>
@@ -14715,7 +14715,7 @@
                 <display value="AST"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="45896001"/>
               </coding>
             </name>
@@ -14758,7 +14758,7 @@
                 <display value="LD"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="11274001"/>
               </coding>
             </name>
@@ -14795,7 +14795,7 @@
                 <display value="Serum Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="71878006"/>
               </coding>
             </name>
@@ -14832,7 +14832,7 @@
                 <display value="Corrected Calcium"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="166708003"/>
               </coding>
             </name>
@@ -14869,7 +14869,7 @@
                 <display value="Serum Phosphate"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104866001"/>
               </coding>
             </name>
@@ -14906,7 +14906,7 @@
                 <display value="Total Protein"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="74040009"/>
               </coding>
             </name>
@@ -14943,7 +14943,7 @@
                 <display value="Serum Albumin"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104485008"/>
               </coding>
             </name>
@@ -14980,7 +14980,7 @@
                 <display value="Globulins"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104979009"/>
               </coding>
             </name>
@@ -15017,7 +15017,7 @@
                 <display value="Iron"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="42950004"/>
               </coding>
             </name>
@@ -15060,7 +15060,7 @@
                 <display value="Cholesterol"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="77068002"/>
               </coding>
             </name>
@@ -15103,7 +15103,7 @@
                 <display value="Triglycerides"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="104784006"/>
               </coding>
             </name>
@@ -15916,7 +15916,7 @@
                 <display value="C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"/>
               </coding>
               <coding>
-                <system value="http://snomed.info/id"/>
+                <system value="http://snomed.info/sct"/>
                 <code value="55235003"/>
               </coding>
               <text value="hsCRP"/>

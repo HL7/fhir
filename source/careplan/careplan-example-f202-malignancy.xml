@@ -8,7 +8,7 @@
                <name value="Docetaxel"/>
                <code>
                   <coding>
-                     <system value="http://snomed.info/id" />
+                     <system value="http://snomed.info/sct" />
                      <code value="108806006" />
                   </coding>
                </code>
@@ -19,7 +19,7 @@
                <name value="Cisplatin"/>
                <code>
                   <coding>
-                     <system value="http://snomed.info/id" />
+                     <system value="http://snomed.info/sct" />
                      <code value="57066004" />
                   </coding>
                </code>               
@@ -30,7 +30,7 @@
                <name value="5-Fluorouracil"/>
                <code>
                   <coding>
-                     <system value="http://snomed.info/id" />
+                     <system value="http://snomed.info/sct" />
                      <code value="3127006" />
                   </coding>
                </code>
@@ -69,7 +69,7 @@
    <participant>
       <role>
          <coding>
-            <system value="http://snomed.info/id"/>
+            <system value="http://snomed.info/sct"/>
             <code value="28995006"/>
             <display value="Treated by"/>
          </coding>
@@ -94,7 +94,7 @@
         <category value="procedure"/>
         <code>
            <coding>
-              <system value="http://snomed.info/id"/>
+              <system value="http://snomed.info/sct"/>
               <code value="367336001"/>
               <display value="Chemotherapy"/>
            </coding>

@@ -1567,7 +1567,7 @@ public class PageProcessor implements Logger  {
         String uri = c.getSystemSimple();
         String n = "Other";
         if (uri != null) {
-          if ("http://snomed.info/id".equals(uri)) n = "SNOMED CT"; 
+          if ("http://snomed.info/sct".equals(uri)) n = "SNOMED CT"; 
           if ("http://loinc.org".equals(uri)) n = "LOINC";
           if ("http://nema.org/dicom/dcid".equals(uri)) n = "DICOM";
           if ("http://hl7.org/fhir/resource-types".equals(uri)) n = "FHIR";

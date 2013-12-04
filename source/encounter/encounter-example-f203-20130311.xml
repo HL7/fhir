@@ -9,7 +9,7 @@
  <class value="inpatient"/><!--Inpatient encounter for straphylococcus infection-->
  <type>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="183807002"/>
        <display value="Inpatient stay for nine days"/>
     </coding>
@@ -29,7 +29,7 @@
 <!--No indication, because no referral took place-->
  <priority><!--High priority-->
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="394849002"/>
        <display value="High priority"/>
     </coding>
@@ -40,7 +40,7 @@
   </origin>--> 
   <admitSource>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="309902002"/>
        <display value="Clinical Oncology Department"/>
     </coding>
@@ -52,7 +52,7 @@
   <!--accomodation details are not available-->
   <diet>
     <coding>
-       <system value="http://snomed.info/id"/>
+       <system value="http://snomed.info/sct"/>
        <code value="276026009"/>
        <display value="Fluid balance regulation"/>
     </coding>

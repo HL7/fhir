@@ -2,7 +2,7 @@
 <AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
  <identifier>
     <label value="House dust allergy"/>
-    <system value="http://snomed.info/id"/>
+    <system value="http://snomed.info/sct"/>
     <value value="232349006"/>    
  </identifier>
  <criticality value="medium"/><!--House dust is likely to result in reactions that will inconvenience the subject-->
