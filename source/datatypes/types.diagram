@@ -5,10 +5,10 @@ element-attributes=true
 [directions]
 Quantity=-300;-15
 Attachment=150;-30
-Range=230;-100
+Range=-260;110
 Period=80;-100
 Ratio=-260;-100
 CodeableConcept=150;110
-Coding=10;110
+Coding=-60;80
 Choice.option=-310;110
 SampledData=-40;-150

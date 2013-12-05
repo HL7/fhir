@@ -668,7 +668,7 @@ is represented like this in XML and JSON:
 
 <pre class="json">
 {
-  &quot;_type&quot; : &quot;taglist&quot;,
+  &quot;resourceType&quot; : &quot;taglist&quot;,
   &quot;category&quot; : [{
       &quot;term&quot; : &quot;[Tag URI]&quot;,
       &quot;label&quot; : &quot;[Tag Label]&quot;,
@@ -676,6 +676,9 @@ is represented like this in XML and JSON:
     }]
 }
 </pre>
+<p>
+Note that "resourceType" is used for consistency even though a tag list is not a FHIR "resource".
+</p>
 
 <a name="transactional-integrity"> </a>
 <h3>Transactional Integrity</h3>

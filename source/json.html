@@ -218,12 +218,12 @@ converted to JSON member values, in the same manner as described for primitives.
 
 <h3>JSON representation of Resources</h3>
 <p>
-A resource is a JSON object with a property "_type" which informs the 
+A resource is a JSON object with a property "resourceType" which informs the 
 parser which resource type this is:
 </p>
 <pre class="json">
 {
-  "_type" : "Patient",
+  "resourceType" : "Patient",
   "text" : {
     "status" : "generated" ,
     "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;"
@@ -232,17 +232,18 @@ parser which resource type this is:
 }
 </pre>
 <p>
-Note that parsers cannot assume that the _type property will come first. 
+Note that parsers cannot assume that the resourceType property will come first. 
 </p>
 <blockquote>
 <p>
 <b>Design Note</b>: This is a problem for several JSON -&gt; Object serialisers that assume that the 
-_type property does come first, including <a href="http://james.newtonking.com/json">Json.NET</a>. 
+resourceType property does come first, including <a href="http://james.newtonking.com/json">Json.NET</a>. 
 However some JSON generators do not give the authoring application control of the order of the 
 property values, and so these implementations cannot inter-operate with implementations that make
 assumptions about order. Given that JSON says that the property values are an unordered map of name/value
 pairs, this specification cannot require that properties come in any particular order, though implementers
-may choose to fix the property order if they are able.
+may choose to fix the property order if they are able (and the reference platforms provided with this 
+specification do so).
 </p>
 </blockquote>
 
@@ -258,12 +259,13 @@ There is <a href="json-edge-cases.json">a sample file</a> with many edge cases t
 <p>
 In JSON <a href="extras.html#bundle">bundles</a> are represented using a JSON format that is tailored to the specific needs for bundles. 
 Each element in the Xml feed definition has a JSON corresponding JSON object member with the same name. For convenience, a bundle has a 
-"_type" property with the value of "Bundle". Here is an example feed returning search results for a person query:
+"resourceType" property with the value of "Bundle" ("resourceType" is used for consistency with resources, even though a bundle is 
+not a resource, but a container of resources). Here is an example feed returning search results for a person query:
 </p>
 
 <pre class="json">
 {
-  &quot;_type&quot; : &quot;Bundle&quot;,
+  &quot;resourceType&quot; : &quot;Bundle&quot;,
   &quot;title&quot; : &quot;Search result&quot;,
   &quot;updated&quot; : &quot;2012-09-20T12:04:45.6787909+00:00&quot;,
   &quot;id&quot; : &quot;urn:uuid:50ea3e5e-b6a7-4f55-956c-caef491bbc08&quot;,
@@ -295,7 +297,7 @@ Each element in the Xml feed definition has a JSON corresponding JSON object mem
       &quot;scheme&quot; : &quot;[Tag Type]&quot;
     }],
     &quot;content&quot; : {
-      &quot;_type&quot; : &quot;Patient&quot;,
+      &quot;resourceType&quot; : &quot;Patient&quot;,
       { ...patient content in JSON... }
     },
     &quot;summary&quot; : &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;(text summary)&lt;/div&gt;&quot;,
@@ -344,7 +346,7 @@ as it would be specified in HTTP, like this:
 </p>
 <pre class="json">
 {
-  &quot;_type&quot; : &quot;Binary&quot;,
+  &quot;resourceType&quot; : &quot;Binary&quot;,
   &quot;contentType&quot; : &quot;[mime type]&quot;,
   &quot;content&quot; : &quot;[base64 of data]&quot;
 }
@@ -361,7 +363,7 @@ element.
 
 <pre class="json">
 {
-  &quot;_type&quot; : &quot;Bundle&quot;,
+  &quot;resourceType&quot; : &quot;Bundle&quot;,
   ... metadata and entries as described above....
   &quot;signature&quot; : &quot;&lt;signature xmlns=\&quot;http://www.w3.org/2000/09/xmldsig\&quot;&gt;...&lt;/signature&gt;&quot;
 }

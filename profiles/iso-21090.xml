@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
-  <LastSaved>2013-10-31T08:43:50Z</LastSaved>
+  <LastSaved>2013-12-05T07:31:59Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,6 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>210</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -92,6 +91,9 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s76">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s78">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
  </Styles>
@@ -176,11 +178,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>11</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -188,7 +190,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="28" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="29" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="192.75"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -218,6 +220,19 @@
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">nullFlavor</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Any</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">NullFlavor</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">NI | OTH | NINF | PINF | UNK | ASKU | NAV | NASK | TRC | MSK | NA</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">If the value is not a proper value, indicates the reason</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s72"><Data ss:Type="String">Considerable care must be used when using nullFlavor in this context of FHIR - more than any other concept, this is tied to the way v3 works, and FHIR is quite different. For instance, there is no notion of a &quot;proper value&quot; as opposed to any other value in FHIR. a NullFlavor should be understood to mean, &quot;why information is missing&quot;, and the nulFlavors OTH, NINF, PINF, and TRC should not be used </Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ANY.nullFlavor</Data></Cell>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">name-qualifier</Data></Cell>
@@ -510,11 +525,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -522,7 +537,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="209.25"/>
@@ -559,6 +574,13 @@
     <Cell><Data ss:Type="String">required</Data></Cell>
     <Cell><Data ss:Type="String">#postal-address-use</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NullFlavor</Data></Cell>
+    <Cell><Data ss:Type="String">A collection of codes specifying why a valid value is not present</Data></Cell>
+    <Cell><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#null-flavor</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -567,11 +589,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -861,7 +882,137 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <RangeSelection>R1:R1048576</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="null-flavor">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="16" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="105.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="84"/>
+   <Column ss:AutoFitWidth="0" ss:Width="141.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">display</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">definition</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NI</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">No Information</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The value is exceptional (missing, omitted, incomplete, improper). No information as to the reason for being an exceptional value is provided. This is the most general exceptional value. It is also the default exceptional value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">INV</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">invalid</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DER</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">derived</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">An actual value may exist, but it must be derived from the provided information (usually an EXPR generic data type extension will be used to convey the derivation expression</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OTH</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">other</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The actual value is not a member of the set of permitted data values in the constrained value domain of a variable. (e.g., concept not provided by required code system). Usage Notes: This flavor and its specializations are most commonly used with the CD datatype and its flavors. However, it may apply to *any* datatype where the constraints of the type are tighter than can be conveyed. For example, a PQ that is for a true measured amount whose units are not supported in UCUM, a need to convey a REAL when the type has been constrained to INT, etc. With coded datatypes, this null flavor may only be used if the vocabulary binding has a coding strength of CNE. By definition, all local codes and original text are part of the value set if the coding strength is CWE</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NINF</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">negative infinity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Negative infinity of numbers</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PINF</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">positive infinity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Positive infinity of numbers</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">UNC</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">un-encoded</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The actual value has not yet been encoded within the approved value domain. Example: Original text or a local code has been specified but translation or encoding to the approved value set has not yet occurred due to limitations of the sending system. Original text has been captured for a PQ, but not attempt has been made to split the value and unit or to encode the unit in UCUM. Usage Notes: If it is known that it is not possible to encode the concept, OTH should be used instead. However, use of UNC does not necessarily guarantee the concept will be encodable, only that encoding has not been attempted. Data type properties such as original text and translations may be present when this null flavor is included</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MSK</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">masked</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information. Note: using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided. Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">NA</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">not applicable</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Known to have no proper value (e.g., last menstrual period for a male)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">UNK</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">A proper value is applicable, but not known. Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ASKU</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">asked but unknown</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Information was sought but not found (e.g., patient was asked but didn't know)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">NAV</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">temporarily unavailable</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Information is not available at this time but it is expected that it will be available later.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">NASK</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">not asked</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">This information has not been sought (e.g., patient was not asked)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">QS</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Sufficient Quantity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material. e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' The null flavor would be used to express the quantity of water</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">TRC</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">trace</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The content is greater than zero, but too small to be quantified</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

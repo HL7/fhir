@@ -337,7 +337,7 @@ var
 begin
   obj := TJSONParser.Parse(source);
   try
-    s := obj['_type'];
+    s := obj['resourceType'];
     if s = 'Bundle' then
       feed := ParseFeed(obj)
     else if s = 'TagList' then
@@ -560,7 +560,7 @@ begin
     if jsn.has('content') then
     begin
       cnt := jsn.vObj['content'];
-      if cnt['_type'] = 'Binary' then
+      if cnt['resourceType'] = 'Binary' then
         e.resource := parseBinary(cnt)
       else
         e.resource := ParseResource(cnt);
@@ -894,7 +894,7 @@ begin
     oStream.Stream := stream;
 //    json.IsPretty := isPretty;
     json.Start;
-    json.value('_type', 'Bundle');
+    json.value('resourceType', 'Bundle');
     ComposeAtomBase(json, oFeed);
     if oFeed.isSearch then
       Prop(json, 'totalResults', inttostr(oFeed.SearchTotal));
@@ -1060,7 +1060,7 @@ begin
     json.Stream := oStream;
     oStream.Stream := stream;
     json.Start;
-    json.Value('_type', 'TagList');
+    json.Value('resourceType', 'TagList');
     json.ValueArray('category');
     for i := 0 to oTags.Count - 1 do
     begin

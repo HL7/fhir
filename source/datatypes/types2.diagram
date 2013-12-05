@@ -7,5 +7,5 @@ HumanName=-230;-170
 Address=-30;-180
 Contact=180;-160
 Identifier=-230;-20
-Schedule=10;50
+Schedule=10;65
 Schedule.repeat=200;-20
