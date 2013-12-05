@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6195</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -207,7 +206,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s69">
     <Cell ss:StyleID="s68"><Data ss:Type="String">DeviceObservationReport.virtualDevice.channel.metric.observation</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The data for the metric</Data></Cell>
     <Cell><Data ss:Type="String">The data for the metric</Data></Cell>
@@ -225,11 +224,12 @@
     <PaperSizeIndex>9</PaperSizeIndex>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -421,7 +421,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

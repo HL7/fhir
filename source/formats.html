@@ -71,6 +71,7 @@ Notes:
  <li>If the element name is underlined, then applications are required to <a href="conformance-rules.html#mustSupport">support</a> and/or <a href="conformance-rules.html#ismodifier">understand</a> it</li>
  <li>The character set for a resource is always Unicode, encoded in UTF-8.</li>
  <li>Any of the elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
+ <a name="element-rules"> </a>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
  <li>In addition to this descriptive syntax, other definitional forms are available, including W3C schema and Schematron</li>

@@ -35,7 +35,7 @@ uses
   BytesSupport, FHIRConstants, EncdDecd,
   FHIRSupport,
   MsXmlParser, AdvBuffers, AdvStringLists, StringSupport, DecimalSupport, EncodeSupport, DateAndTime,
-  XmlBuilder, AdvXmlBuilders, TextUtilities,
+  XmlBuilder, AdvXmlBuilders, TextUtilities, FHIRTags,
   DateSupport, MsXmlBuilder, JSON, AdvVCLStreams, FHIRAtomFeed, AdvStringStreams, AdvStringBuilders, FHIRLang;
 
 const
@@ -337,7 +337,7 @@ var
 begin
   obj := TJSONParser.Parse(source);
   try
-    s := obj['resourceType'];
+    s := obj['_type'];
     if s = 'Bundle' then
       feed := ParseFeed(obj)
     else if s = 'TagList' then
@@ -560,7 +560,7 @@ begin
     if jsn.has('content') then
     begin
       cnt := jsn.vObj['content'];
-      if cnt['resourceType'] = 'Binary' then
+      if cnt['_type'] = 'Binary' then
         e.resource := parseBinary(cnt)
       else
         e.resource := ParseResource(cnt);
@@ -575,10 +575,13 @@ begin
 end;
 
 
-procedure TFHIRJsonParserBase.ParseTags;
+procedure TFHIRJsonParserBase.ParseTags(jsn : TJsonObject);
 begin
   if jsn.has('category') then
+  begin
+    FTags := TFHIRAtomCategoryList.Create;
     iterateArray(jsn.vArr['category'], FTags, ParseCategory);
+  end;
 end;
 
 
@@ -715,7 +718,7 @@ end;
 
 function TFHIRXmlComposerBase.MimeType: String;
 begin
-  result := 'application/xml+fhir; charset=UTF-8';
+  result := 'text/xml+fhir; charset=UTF-8';
 end;
 
 procedure TFHIRXmlComposerBase.commentsStart(xml: TXmlBuilder; value: TFhirBase);
@@ -891,7 +894,7 @@ begin
     oStream.Stream := stream;
 //    json.IsPretty := isPretty;
     json.Start;
-    json.value('resourceType', 'Bundle');
+    json.value('_type', 'Bundle');
     ComposeAtomBase(json, oFeed);
     if oFeed.isSearch then
       Prop(json, 'totalResults', inttostr(oFeed.SearchTotal));
@@ -1057,8 +1060,7 @@ begin
     json.Stream := oStream;
     oStream.Stream := stream;
     json.Start;
-    json.ValueObject('taglist');
-    json.Value('resourceType', 'TagList');
+    json.Value('_type', 'TagList');
     json.ValueArray('category');
     for i := 0 to oTags.Count - 1 do
     begin
@@ -1070,7 +1072,6 @@ begin
       json.FinishObject;
     end;
     json.FinishArray;
-    json.FinishObject;
     json.Finish;
   finally
     json.free;
@@ -1588,9 +1589,9 @@ Header(Session, FBaseURL, lang)+
      inc(c);
      if assigned(FTags) then
        if ver <> '' then
-         s.append('<p><a href="./tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(oResource.resourceType, FBaseURL+CODES_TFhirResourceType[oResource.ResourceType]+'/'+id+'/_history/'+ver+'/_tags', Ftags, c)+'</p>'+#13#10)
+         s.append('<p><a href="./_tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(oResource.resourceType, FBaseURL+CODES_TFhirResourceType[oResource.ResourceType]+'/'+id+'/_history/'+ver+'/_tags', Ftags, c)+'</p>'+#13#10)
        else if id <> '' then
-         s.append('<p><a href="./tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(oResource.resourceType, FBaseURL+CODES_TFhirResourceType[oResource.ResourceType]+'/'+id+'/_tags', Ftags, c)+'</p>'+#13#10);
+         s.append('<p><a href="./_tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(oResource.resourceType, FBaseURL+CODES_TFhirResourceType[oResource.ResourceType]+'/'+id+'/_tags', Ftags, c)+'</p>'+#13#10);
      if id <> '' then
        s.append('<p><a href="?_format=xml">XML</a> or <a href="?_format=json">JSON</a> '+GetFhirMessage('NAME_REPRESENTATION', lang)+'</p>'+#13#10);
      if oResource.text <> nil then
@@ -1686,8 +1687,8 @@ Header(Session, FBaseURL, lang)+
     begin
       e := oFeed.entries[i];
       s.append('<h2>'+FormatTextToXml(e.title)+'</h2>'+#13#10);
-      if e.categories <> nil then
-        s.append('<p><a href="'+e.id+'/tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(e.resource.ResourceType, e.links.GetRel('self')+'/tags', e.categories, i+1        )+'</p>'+#13#10);
+      if (e.categories <> nil) and (e.Resource <> nil) then
+        s.append('<p><a href="'+e.id+'/_tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>: '+PresentTags(e.resource.ResourceType, e.links.GetRel('self')+'/_tags', e.categories, i+1        )+'</p>'+#13#10);
 
       s.append('<p><a href="'+e.Links.rel['self']+'">this resource</a> ');
       if not (e.resource is TFhirBinary) then
@@ -1699,6 +1700,8 @@ Header(Session, FBaseURL, lang)+
 
       if e.deleted then
         s.append('<p>'+GetFhirMessage('MSG_DELETED', lang)+'</p>')
+      else if e.resource = nil then
+        s.append('<p>(--)</p>')
       else if e.resource is TFhirBinary then
       begin
         if StringStartsWith(TFhirBinary(e.resource).ContentType, 'image/') then
@@ -1949,7 +1952,7 @@ begin
 '	<div class="container">  <!-- container -->'+#13#10+
 '            <div class="row">'+#13#10+
 '            	<div class="inner-wrapper">'+#13#10+
-' <div class="col-9">'+#13#10+
+' <div id="div-cnt" class="col-9">'+#13#10+
 ''+#13#10+
 ''+#13#10;
 end;
@@ -1993,6 +1996,9 @@ result :=
 '  <link rel="stylesheet" href="/assets/css/project.css"/>'+#13#10+
 '  <link rel="stylesheet" href="/assets/css/pygments-manni.css"/>'+#13#10+
 ''+#13#10+
+'    <!-- FHIR Server stuff -->'+#13#10+
+'  <link rel="stylesheet" href="/css/tags.css"/>'+#13#10+
+''+#13#10+
 '    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->'+#13#10+
 '    <!-- [if lt IE 9]>'+#13#10+
 '  <script src="/assets/js/html5shiv.js"></script>'+#13#10+
@@ -2011,6 +2017,7 @@ function TFHIRXhtmlComposer.PresentTags(aType : TFhirResourceType; target : Stri
 var
   i : integer;
   lbl : string;
+  clss, typ : string;
 begin
   if tags.count = 0 then
     result := '(no tags)'
@@ -2023,15 +2030,28 @@ begin
       if lbl = '' then
         lbl := URLTail(tags[i].term);
       if (length(lbl) > 20) then
-        lbl := '??';
+        lbl := Copy(lbl, 1, 20)+'..';
+
+      if tags[i].scheme = TAG_FHIR_SCHEME_PROFILE then
+      begin
+        clss := 'tag-profile';
+        typ := 'Profile: ';
+      end
+      else if tags[i].scheme = TAG_FHIR_SCHEME_SECURITY then
+      begin
+        clss := 'tag-security';
+        typ := 'Security: ';
+      end
+      else
+        clss := 'tag';
 
       if aType = frtNull then
-        result := result + '<a href="'+FBaseUrl+'_search?tag='+tags[i].term+'" class="tag" title="'+tags[i].term+'">'+lbl+'</a>'
+        result := result + '<a href="'+FBaseUrl+'_search?tag='+tags[i].term+'" class="'+clss+'" title="'+typ+tags[i].term+'">'+lbl+'</a>'
       else
       begin
-        result := result + '<a href="'+FBaseUrl+CODES_TFhirResourceType[aType]+'/_search?tag='+tags[i].term+'" class="tag" title="'+tags[i].term+'">'+lbl+'</a>';
+        result := result + '<a href="'+FBaseUrl+CODES_TFhirResourceType[aType]+'/_search?tag='+tags[i].term+'" class="'+clss+'" title="'+typ+tags[i].term+'">'+lbl+'</a>';
         if (target <> '') then
-          result := result + '<a href="javascript:deleteTag('''+target+''', '''+tags[i].term+''')" class="tag-delete" title="Delete '+tags[i].term+'">-</a>'
+          result := result + '<a href="javascript:deleteTag('''+target+''', '''+tags[i].scheme+''', '''+tags[i].term+''')" class="tag-delete" title="Delete '+tags[i].term+'">-</a>'
       end;
       result := result + '&nbsp;';
     end;
@@ -2080,7 +2100,7 @@ begin
   else
     result := result + bef + '<a class="button" href="'+pfx+'_search">'+GetFhirMessage('NAME_SEARCH', lang)+'</a>' + aft;
   if bTable then
-    result := result + bef + '<a class="tag" href="'+pfx+'tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>' + aft;
+    result := result + bef + '<a class="tag" href="'+pfx+'_tags">'+GetFhirMessage('NAME_TAGS', lang)+'</a>' + aft;
 end;
 
 function TFHIRXhtmlComposer.ResourceMediaType: String;

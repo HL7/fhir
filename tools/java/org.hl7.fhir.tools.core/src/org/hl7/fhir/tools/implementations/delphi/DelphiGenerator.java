@@ -39,6 +39,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -723,7 +724,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         String n = p.getCode().replace("$", "_");
         String d = Utilities.normaliseEolns(p.getDescription());
         String nf = n.replace("-", "_");
-        String t = getTarget(p.getPathSummary(), r);
+        String t = getTarget(p.getTargets());
         if (i == l) {
           def.append("    "+prefix+getTitle(nf)+"); {@enum.value "+prefix+getTitle(nf)+" "+d+" }\r\n");
           con2.append(" "+prefix+getTitle(nf)+");");
@@ -754,36 +755,23 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     }
   }
 
-  private String getTarget(String path, ResourceDefn r) throws Exception {
-    if (Utilities.noString(path))
-      return "[]";
-    try {
-      ElementDefn e = r.getRoot().getElementForPath(path, definitions, "generating pascal code");
-      if (!e.typeCode().startsWith("Resource("))
-        return "[]";
-      else if (e.typeCode().endsWith("(Any)"))
-        return "ALL_RESOURCE_TYPES";
-      else {
-        StringBuilder s = new StringBuilder();
-        s.append("[");
-        boolean first = true;
-        for (String p : e.getTypes().get(0).getParams()) {
-          if (definitions.hasResource(p)) {
-            if (!first)
-              s.append(", ");
-            s.append("frt"+p);
-            first = false;
-          }
-        }
-        s.append("]");
-        return s.toString();
+  private String getTarget(Set<String> targets) throws Exception {
+    if (targets.size() == 1 && targets.contains("Any"))
+      return "ALL_RESOURCE_TYPES";
+
+    StringBuilder s = new StringBuilder();
+    s.append("[");
+    boolean first = true;
+    for (String p : targets) {
+      if (definitions.hasResource(p)) {
+        if (!first)
+          s.append(", ");
+        s.append("frt"+p);
+        first = false;
       }
-
-    } catch (Exception e) {
-      return "[]";
     }
-
-
+    s.append("]");
+    return s.toString();
   }
 
   private void generateEnum(ElementDefn e) throws Exception {

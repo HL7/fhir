@@ -1414,7 +1414,7 @@ public class Publisher {
           String id = e.getAttribute("name");
           if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", id)) {
             AtomEntry<ValueSet> ae = new AtomEntry<ValueSet>();
-            ae.setId("http://hl7.org/fhir/v3/vs/"+id);
+            ae.setId("http://hl7.org/fhir/v3/"+id);
             ae.getLinks().put("self", "http://hl7.org/fhir/v3/"+id);
             ae.getLinks().put("path", "v3"+File.separator+id+File.separator+"index.html");
             ae.getLinks().put("oid", e.getAttribute("codeSystemId"));
@@ -2327,7 +2327,7 @@ public class Publisher {
 		Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.xml"));
     JsonComposer jcomp = new JsonComposer();
     jcomp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.json"), p, true);
-    Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.json"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.json"));
+//    Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.json"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.json"));
 
 		TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
 		tgen.generate(profile, page.getDefinitions().getBindings());

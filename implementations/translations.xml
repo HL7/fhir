@@ -308,7 +308,7 @@
 
   <item id="MSG_TRANSACTION_MISSING_ID">
     <!-- <translation lang="du">Dubbele id in bundel: %s</translation> -->
-    <translation lang="en">Missing Identifier in transaction - and entry.id must be provided</translation>
+    <translation lang="en">Missing Identifier in transaction - an entry.id must be provided</translation>
     <!-- <translation lang="it">Identificatore duplicato nel batch: %s</translation> -->
   </item>
 

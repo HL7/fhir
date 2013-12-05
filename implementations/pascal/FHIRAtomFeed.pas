@@ -6,27 +6,27 @@ unit FHIRAtomFeed;
 Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification, 
+Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this 
+ * Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
+ * Neither the name of HL7 nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
    prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 }
 
@@ -35,10 +35,12 @@ interface
 uses
   SysUtils, Classes,
   StringSupport, BytesSupport,
+  Json,
   FHIRBase,
   FHIRTypes,
   FHIRResources,
   DateAndTime,
+  AdvMemories,
   AdvObjects,
   AdvObjectLists;
 
@@ -179,6 +181,9 @@ type
   TFHIRAtomCategoryList = class (TFHIRObjectList)
   private
     procedure SetItemN(index : Integer; value : TFHIRAtomCategory);
+    function GetJson : TBytes;
+    procedure SetJson(value : TBytes); overload;
+    procedure SetJson(obj : TJsonObject); overload;
   protected
     function ItemClass: TAdvObjectClass; Override;
     Procedure InsertByIndex(index : Integer; value : TFHIRAtomCategory);
@@ -189,14 +194,12 @@ type
     Function Clone : TFHIRAtomCategoryList; Overload;
     Function GetItemN(index : Integer) : TFHIRAtomCategory;
     Property ItemN[index : Integer] : TFHIRAtomCategory read GetItemN write SetItemN; default;
-    Function encode : String;
-    Function encodeUTF8 : TBytes;
-    Procedure decode(s : String); Overload;
-    Procedure decode(s : TStream); Overload;
+    Property Json : TBytes read GetJson write SetJson;
+    procedure DecodeJson(stream : TStream);
     Procedure CopyTags(other : TFHIRAtomCategoryList);
-    function HasTag(tagUri : string):Boolean; overload;
-    function HasTag(tagUri : string; var n : integer):Boolean; overload;
-    function GetTag(tagUri : string):TFHIRAtomCategory;
+    function HasTag(schemeUri, tagUri : string):Boolean; overload;
+    function HasTag(schemeUri, tagUri : string; var n : integer):Boolean; overload;
+    function GetTag(schemeUri, tagUri : string):TFHIRAtomCategory;
     Function AsHeader : String;
 
     {!script show}
@@ -277,7 +280,7 @@ type
     procedure Assign(oSource : TAdvObject); override;
     function Link : TFHIRAtomBase; overload;
     function Clone : TFHIRAtomBase; overload;
-    Function HasTag(tag : string) : boolean;
+    Function HasTag(schemeUri, tag : string) : boolean;
     {!script show}
   published
     {@member title
@@ -525,9 +528,9 @@ begin
   Fupdated := Value;
 end;
 
-function TFHIRAtomBase.HasTag(tag: string): boolean;
+function TFHIRAtomBase.HasTag(schemeUri, tag: string): boolean;
 begin
-  result := categories.HasTag(tag);
+  result := categories.HasTag(schemeUri, tag);
 end;
 
 function TFHIRAtomBase.Link: TFHIRAtomBase;
@@ -926,14 +929,10 @@ begin
   result := Inherited Count;
 end;
 
-procedure TFHIRAtomCategoryList.decode(s: TStream);
-var
-  b : TBytes;
-  src : String;
+procedure TFHIRAtomCategoryList.DecodeJson(stream: TStream);
 begin
-  b := StreamToBytes(s);
-  src := TEncoding.UTF8.GetString(b);
-  decode(src);
+  stream.Position := 0;
+  SetJson(TJSONParser.Parse(stream));
 end;
 
 function TFHIRAtomCategoryList.GetItemN(index: Integer): TFHIRAtomCategory;
@@ -997,18 +996,38 @@ begin
   result := TFHIRAtomCategory;
 end;
 
-function TFHIRAtomCategoryList.encode: String;
+function TFHIRAtomCategoryList.GetJson: TBytes;
 var
   i : integer;
+  json : TJSONWriter;
+  strm : TAdvMemoryStream;
 begin
-  result := inttostr(Count)+#1;
-  for i := 0 to Count - 1 do
-    result := result + ItemN[i].term+#1+ItemN[i].label_+#2+ItemN[i].scheme+#1;
-end;
-
-function TFHIRAtomCategoryList.encodeUTF8: TBytes;
-begin
-  result := TEncoding.UTF8.GetBytes(encode);
+  strm := TAdvMemoryStream.Create;
+  try
+    json := TJSONWriter.Create;
+    try
+      json.Stream := strm.Link;
+      json.Start;
+      json.ValueArray('tags');
+      for i := 0 to Count - 1 do
+      begin
+        json.ValueObject('');
+        json.Value('scheme', ItemN[i].scheme);
+        json.Value('term', ItemN[i].term);
+        json.Value('label', ItemN[i].label_);
+        json.FinishObject;
+      end;
+      json.FinishArray;
+      json.Finish;
+    finally
+      json.Free;
+    end;
+    strm.Position := 0;
+    setLength(result, strm.Size);
+    strm.Read(result[0], strm.Size);
+  finally
+    strm.Free;
+  end;
 end;
 
 procedure TFHIRAtomCategoryList.CopyTags(other: TFHIRAtomCategoryList);
@@ -1017,41 +1036,36 @@ var
 begin
   if other <> nil then
     for i := 0 to other.Count - 1 do
-      if (other[i].scheme = FHIR_TAG_SCHEME) and not HasTag(other[i].term) then
+      if not HasTag(other[i].Scheme, other[i].term) then
         add(other[i].link);
 end;
 
-procedure TFHIRAtomCategoryList.decode(s: String);
+procedure TFHIRAtomCategoryList.SetJson(obj : TJsonObject);
 var
-  i, t : integer;
+  jsn : TJsonObject;
+  ja : TJsonArray;
   cat : TFHIRAtomCategory;
-  t1, t2 : String;
-  function next : String;
-  begin
-    StringSplit(s, #1, result, s);
-  end;
+  i : integer;
 begin
-  t := StrToIntdef(next, 0);
-  for i := 0 to t - 1 do
+  ja := obj.vArr['tags'];
+  for i := 0 to ja.Count - 1 do
   begin
+    jsn := ja[i];
     cat := TFHIRAtomCategory.create;
     try
       cat.scheme := FHIR_TAG_SCHEME;
-      cat.term := next;
-      t1 := next;
-      if pos(#2, t1) = 0 then // legacy - before encoding scheme
-        cat.label_ := t1
-      else
-      begin
-        StringSplit(t1, #2, t1, t2);
-        cat.label_ := t1;
-        cat.scheme := t2;
-      end;
+      cat.term := jsn['term'];
+      cat.label_ := jsn['label'];
+      cat.scheme := jsn['scheme'];
       add(cat.Link);
     finally
       cat.free;
     end;
   end;
+end;
+procedure TFHIRAtomCategoryList.SetJson(value : TBytes);
+begin
+  SetJson(TJSONParser.Parse(value));
 end;
 
 function TFHIRAtomCategoryList.AsHeader: String;
@@ -1069,39 +1083,39 @@ begin
   end;
 end;
 
-function TFHIRAtomCategoryList.HasTag(tagUri: string): Boolean;
+function TFHIRAtomCategoryList.HasTag(schemeUri, tagUri: string): Boolean;
 var
   i : integer;
 begin
   result := false;
   for i := 0 to Count - 1 do
-    if (ItemN[i].FScheme = FHIR_TAG_SCHEME) and  (ItemN[i].FTerm = tagUri) then
+    if (ItemN[i].FScheme = schemeUri) and  (ItemN[i].FTerm = tagUri) then
     begin
       result := true;
       break;
     end;
 end;
 
-function TFHIRAtomCategoryList.GetTag(tagUri: string): TFHIRAtomCategory;
+function TFHIRAtomCategoryList.GetTag(schemeUri, tagUri: string): TFHIRAtomCategory;
 var
   i : integer;
 begin
   result := nil;
   for i := 0 to Count - 1 do
-    if (ItemN[i].FScheme = FHIR_TAG_SCHEME) and (ItemN[i].FTerm = tagUri) then
+    if (ItemN[i].FScheme = schemeUri) and (ItemN[i].FTerm = tagUri) then
     begin
       result := ItemN[i];
       break;
     end;
 end;
 
-function TFHIRAtomCategoryList.HasTag(tagUri: string; var n: integer): Boolean;
+function TFHIRAtomCategoryList.HasTag(schemeUri, tagUri: string; var n: integer): Boolean;
 var
   i : integer;
 begin
   result := false;
   for i := 0 to Count - 1 do
-    if (ItemN[i].FScheme = FHIR_TAG_SCHEME) and (ItemN[i].FTerm = tagUri) then
+    if (ItemN[i].FScheme = schemeUri) and (ItemN[i].FTerm = tagUri) then
     begin
       result := true;
       n := i;
