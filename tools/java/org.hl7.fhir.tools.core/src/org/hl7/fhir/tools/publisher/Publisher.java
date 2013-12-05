@@ -2334,12 +2334,18 @@ public class Publisher {
 		tgen.close();
 		String tx = TextFile.fileToString(tmp.getAbsolutePath());
 		
-    String intro = null;
+		String introAndNotesPath = null;
+		if(examplePath != null)
+		  introAndNotesPath = Utilities.getDirectoryForFile(examplePath);
+		else
+		 introAndNotesPath =  Utilities.path(page.getFolders().rootDir, "profiles");
+    
+		String intro = null;
     if (profile.getMetadata().containsKey("introduction"))
-      intro = page.loadXmlNotesFromFile(Utilities.getDirectoryForFile(examplePath) + File.separator + profile.getMetadata().get("introduction").get(0));
+      intro = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("introduction").get(0));
     String notes = null;
     if (profile.getMetadata().containsKey("notes"))
-      notes = page.loadXmlNotesFromFile(Utilities.getDirectoryForFile(examplePath) + File.separator + profile.getMetadata().get("notes").get(0));
+      notes = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("notes").get(0));
 		
 		String exXml = "<p><i>No Example Provided</i></p>";
 		if (examplePath != null) {

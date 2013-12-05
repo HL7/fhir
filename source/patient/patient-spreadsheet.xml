@@ -20,7 +20,7 @@
   <WindowWidth>10935</WindowWidth>
   <WindowTopX>8265</WindowTopX>
   <WindowTopY>6420</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -145,7 +145,7 @@
   <Style ss:ID="s86">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s132">
+  <Style ss:ID="s87">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -789,7 +789,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>28</TopRowVisible>
+   <TopRowVisible>32</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
@@ -801,8 +801,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>35</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1187,7 +1187,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="150"/>
    <Column ss:AutoFitWidth="0" ss:Width="248.25"/>
@@ -1286,6 +1286,13 @@
     <Cell><Data ss:Type="String">patient-example-f201-roel.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">UsExtensions</Data></Cell>
+    <Cell><Data ss:Type="String">Patient example showing US extensions</Data></Cell>
+    <Cell><Data ss:Type="String">us01</Data></Cell>
+    <Cell><Data ss:Type="String">patient-example-us-extensions.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1300,10 +1307,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1312,26 +1321,19 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="1" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="81"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
    <Column ss:Width="212.25"/>
    <Column ss:Width="63"/>
    <Column ss:Width="194.25"/>
-   <Row ss:Height="30">
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Example</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">profile-us-core</Data></Cell>
-    <Cell><Data ss:Type="String">Core extensions for the US realm</Data></Cell>
-    <Cell><Data ss:Type="String">profile-us-core-spreadsheet.xml</Data></Cell>
-    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">profile-us-core-example.xml</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Example</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1340,11 +1342,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
+   <Unsynced/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <RangeSelection>R2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

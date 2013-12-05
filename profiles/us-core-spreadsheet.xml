@@ -48,31 +48,31 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s66" ss:Parent="s62">
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s68" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s69" ss:Parent="s62">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s69">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-   <NumberFormat ss:Format="Short Date"/>
-  </Style>
-  <Style ss:ID="s70" ss:Parent="s62">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s71">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -82,7 +82,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -91,19 +91,19 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s74">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
@@ -112,16 +112,16 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s80">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"
     ss:Bold="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="19" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="18" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="108"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="789.75"/>
@@ -131,7 +131,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">id</Data></Cell>
-    <Cell><Data ss:Type="String">profile-us-core</Data></Cell>
+    <Cell><Data ss:Type="String">us-core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">version</Data></Cell>
@@ -151,7 +151,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell><Data ss:Type="String">Contains constraints and extensions to the core FHIR specification specific to the US realm</Data></Cell>
+    <Cell><Data ss:Type="String">Contains constraints and extensions to the FHIR specification specific to the US realm</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">comments</Data></Cell>
@@ -163,7 +163,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="DateTime">2013-12-03T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="DateTime">2013-12-03T00:00:00.000</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">endorser.name</Data></Cell>
@@ -171,7 +171,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">endorser.reference</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">changes</Data></Cell>
@@ -182,24 +182,21 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">resource</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">binding</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s66" ss:HRef="http://hl7.org/fhir/profile-us-core-201401"><Data
-      ss:Type="String">http://hl7.org/fhir/profile-us-core-201401</Data></Cell>
+    <Cell ss:StyleID="s69" ss:HRef="http://hl7.org/fhir/Profile/us-core"><Data
+      ss:Type="String">http://hl7.org/fhir/Profile/us-core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">introduction</Data></Cell>
-    <Cell><Data ss:Type="String">profile-us-core-introduction.xml</Data></Cell>
+    <Cell><Data ss:Type="String">us-core-introduction.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">notes</Data></Cell>
-    <Cell><Data ss:Type="String">profile-us-core-notes.xml</Data></Cell>
+    <Cell><Data ss:Type="String">us-core-notes.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -213,7 +210,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>14</ActiveRow>
+     <RangeSelection>R15</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -222,21 +220,21 @@
  </Worksheet>
  <Worksheet ss:Name="Extensions">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="20" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="154.5"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="77.25"/>
-   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="150.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="56.25"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="134.25"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="114.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="105.75"/>
-   <Column ss:StyleID="s71" ss:Width="148.5"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="159"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="213.75"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s73">
+   x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="154.5"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="150.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="56.25"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="134.25"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="114.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="105.75"/>
+   <Column ss:StyleID="s70" ss:Width="148.5"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="159"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="213.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s72">
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Context Type</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -253,25 +251,25 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">race</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Patient</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Race</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Race</Data></Cell>
     <Cell><Data ss:Type="String">A category of humans sharing history, origin or nationality</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">ethnicity</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Patient</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">Ethnicity</Data></Cell>
     <Cell><Data ss:Type="String">A category of human sharing heritage</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">A code classifying the person into a named category of humans sharing a common real or presumed heritage.</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">A code classifying the person into a named category of humans sharing a common real or presumed heritage.</Data></Cell>
     <Cell ss:Index="10" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -279,12 +277,12 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">county</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Address</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">DataType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Address</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Name of county</Data></Cell>
@@ -295,55 +293,55 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Decide on whether we need an explicit omitReason to indicate the fact that (and the reason why) a question on a form remain unanswered.&#10;Gives the flexibility to support both just sending the answered questions or exchanging the &quot;full&quot; form, on which each question is either answered&#10;or explicitly omitted.&lt;/p&gt;&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18.75">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="23.25">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="26.25">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="52.5">
-    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -363,7 +361,6 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -381,26 +378,26 @@
    <Column ss:AutoFitWidth="0" ss:Width="168"/>
    <Column ss:AutoFitWidth="0" ss:Width="158.25"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Example</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Race</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Race</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Race</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Race</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Ethnicity</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">A code classifying the person into a named category of humans sharing a common real or presumed heritage.</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Ethnicity</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">A code classifying the person into a named category of humans sharing a common real or presumed heritage.</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s81"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Ethnicity</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s80"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/Ethnicity</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
