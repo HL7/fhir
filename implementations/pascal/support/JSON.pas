@@ -13,7 +13,7 @@ are permitted provided that the following conditions are met:
    this list of conditions and the following disclaimer in the documentation 
    and/or other materials provided with the distribution.
  * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
+   endorse or promote products derived from this software without specific
    prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
@@ -201,7 +201,7 @@ Type
     Procedure SkipInner;
     function GetItemValue: String;
     function GetItemNull: boolean;
-    procedure readObject(obj : TJsonObject);
+    procedure readObject(obj : TJsonObject; root : boolean);
     procedure readArray(arr : TJsonArray);
   Public
     Constructor Create(oStream : TStream); Overload;
@@ -217,6 +217,7 @@ Type
     Procedure CheckState(aState : TJsonParserItemType);
     class Function Parse(stream : TAdvStream): TJsonObject; overload;
     class Function Parse(stream : TStream): TJsonObject; overload;
+    class Function Parse(b : TBytes): TJsonObject; overload;
   End;
 
 Const
@@ -712,7 +713,7 @@ begin
   try
     result := TJsonObject.Create('$');
     try
-      p.readObject(result);
+      p.readObject(result, true);
       result.Link;
     finally
       result.Free;
@@ -730,7 +731,7 @@ begin
   try
     result := TJsonObject.Create('$');
     try
-      p.readObject(result);
+      p.readObject(result, true);
       result.Link;
     finally
       result.Free;
@@ -801,7 +802,7 @@ begin
           obj := TJsonObject.Create(arr.path+'['+inttostr(i)+']');
           arr.FItems.Add(obj);
           Next;
-          readObject(obj);
+          readObject(obj, false);
         end;
       jpitSimple:
         arr.FItems.Add(TJsonValue.Create(arr.path+'['+inttostr(i)+']', ItemValue));
@@ -821,12 +822,12 @@ begin
   end;
 end;
 
-procedure TJSONParser.readObject(obj: TJsonObject);
+procedure TJSONParser.readObject(obj: TJsonObject; root : boolean);
 var
   child : TJsonObject;
   arr : TJsonArray;
 begin
-  while (ItemType <> jpitEnd) do
+  while not ((ItemType = jpitEnd) or (root and (ItemType = jpitEof))) do
   begin
     case ItemType of
       jpitObject:
@@ -834,7 +835,7 @@ begin
           child := TJsonObject.Create(obj.path+'.'+ItemName);
           obj.FProperties.Add(ItemName, child);
           Next;
-          readObject(child);
+          readObject(child, false);
         end;
       jpitSimple:
         obj.FProperties.Add(ItemName, TJsonValue.Create(obj.path+'.'+ItemName, ItemValue));
@@ -885,7 +886,7 @@ begin
     ParseProperty;
   End
   Else
-    FLex.JsonError('Unexpected content at start of JSON');
+    FLex.JsonError('Unexpected content at start of JSON: '+Codes_TJSONLexType[FLex.LexType]);
 End;
 
 procedure TJSONWriter.ValueInArray(const value: String);
@@ -943,6 +944,18 @@ begin
   inherited;
 end;
 
+
+class function TJSONParser.Parse(b: TBytes): TJsonObject;
+var
+  s : TBytesStream;
+begin
+  s := TBytesStream.Create(b);
+  try
+    result := Parse(s);
+  finally
+    s.Free;
+  end;
+end;
 
 { TJsonNode }
 
