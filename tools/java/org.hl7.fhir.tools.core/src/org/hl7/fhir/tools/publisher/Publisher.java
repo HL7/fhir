@@ -2438,8 +2438,7 @@ public class Publisher {
 		return p;
 	}
 
-	private void validateProfile(ProfileDefn profile)
-			throws FileNotFoundException, Exception {
+	private void validateProfile(ProfileDefn profile) throws FileNotFoundException, Exception {
 		for (ResourceDefn c : profile.getResources()) {
 			Profile resource = loadResourceProfile(c.getName());
 			ProfileValidator v = new ProfileValidator();

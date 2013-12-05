@@ -81,6 +81,8 @@ public class BindingsParser {
     cd.setOid(sheet.getColumn(row, "Oid"));
     cd.setWebSite(sheet.getColumn(row, "Website"));
     cd.setEmail(sheet.getColumn(row, "Email"));
+    cd.setV2Map(sheet.getColumn(row, "v2"));
+    cd.setV3Map(sheet.getColumn(row, "v3"));
 
     results.add(cd);
 	}
@@ -136,6 +138,8 @@ public class BindingsParser {
       c.setSystem(sheet.getColumn(row, "System"));
       c.setDefinition(sheet.getColumn(row, "Definition"));
       c.setComment(sheet.getColumn(row, "Comment"));
+      c.setV2Map(sheet.getColumn(row, "v2"));
+      c.setV3Map(sheet.getColumn(row, "v3"));
       cd.getCodes().add(c);
     }
     return true;

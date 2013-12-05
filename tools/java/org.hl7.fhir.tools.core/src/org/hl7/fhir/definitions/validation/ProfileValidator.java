@@ -291,9 +291,9 @@ public class ProfileValidator extends BaseValidator {
           return e;
       }
     } else {
-      for (ElementComponent e : typePoints.firstElement().getType().getElement()) {
+      for (ElementComponent e : typePoints.peek().getType().getElement()) {
         if (e.getPath().getValue().contains(".")) { // skip the first one
-          String p = typePoints.firstElement().getPrefix()+"."+e.getPath().getValue().substring(e.getPath().getValue().indexOf(".")+1);
+          String p = typePoints.peek().getPrefix()+"."+e.getPath().getValue().substring(e.getPath().getValue().indexOf(".")+1);
           if (p.equals(path) || (p.endsWith("[x]") && path.length() > p.length() && p.substring(0, p.length()-3).equals(path.substring(0, p.length()-3)) && isType(path.substring(p.length()-3))))
             return e;
         }        

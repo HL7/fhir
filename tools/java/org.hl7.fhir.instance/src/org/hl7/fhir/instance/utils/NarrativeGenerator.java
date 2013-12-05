@@ -128,13 +128,14 @@ public class NarrativeGenerator {
     XhtmlNode t = x.addTag("table");
     boolean commentS = false;
     boolean deprecated = false;
+    boolean displays = false;
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
-      deprecated = deprecated || conceptsHaveDeprecated(c);
+      displays = displays || conceptsHaveDisplayed(c);
     }
-    addMapHeaders(addTableHeaderRowStandard(t, commentS, deprecated), mymaps);
+    addMapHeaders(addTableHeaderRowStandard(t, commentS, deprecated, displays), mymaps);
     for (ValueSetDefineConceptComponent c : vs.getDefine().getConcept()) {
-      addDefineRowToTable(t, c, 0, commentS, deprecated, mymaps);
+      addDefineRowToTable(t, c, 0, commentS, deprecated, displays, mymaps);
     }    
   }
 
@@ -166,6 +167,15 @@ public class NarrativeGenerator {
     return false;
   }
 
+  private boolean conceptsHaveDisplayed(ValueSetDefineConceptComponent c) {
+    if (!Utilities.noString(c.getDisplaySimple())) 
+      return true;
+    for (ValueSetDefineConceptComponent g : c.getConcept()) 
+      if (conceptsHaveComments(g))
+        return true;
+    return false;
+  }
+
   private boolean conceptsHaveDeprecated(ValueSetDefineConceptComponent c) {
     if (ToolingExtensions.hasDeprecated(c)) 
       return true;
@@ -182,14 +192,16 @@ public class NarrativeGenerator {
   }
 
 
-  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean comments, boolean deprecated) {
+  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean comments, boolean deprecated, boolean displays) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     XhtmlNode b = td.addTag("b");
     b.addText("Code");
-    td = tr.addTag("td");
-    b = td.addTag("b");
-    b.addText("Display");
+    if (displays) {
+      td = tr.addTag("td");
+      b = td.addTag("b");
+      b.addText("Display");
+    }
     td = tr.addTag("td");
     b = td.addTag("b");
     b.addText("Definition");
@@ -247,7 +259,7 @@ public class NarrativeGenerator {
     }    
   }
 
-  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment, boolean deprecated, Map<ConceptMap, String> maps) {
+  private void addDefineRowToTable(XhtmlNode t, ValueSetDefineConceptComponent c, int i, boolean comment, boolean deprecated, boolean displays, Map<ConceptMap, String> maps) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
     String s = Utilities.padLeft("", '.', i*2);
@@ -255,10 +267,11 @@ public class NarrativeGenerator {
     XhtmlNode a = td.addTag("a");
     a.setAttribute("name", Utilities.nmtokenize(c.getCodeSimple()));
     a.addText(c.getCodeSimple());
-    
-    td = tr.addTag("td");
-    if (c.getDisplaySimple() != null)
-      td.addText(c.getDisplaySimple());
+    if (displays) {
+      td = tr.addTag("td");
+      if (c.getDisplaySimple() != null)
+        td.addText(c.getDisplaySimple());
+    }
     td = tr.addTag("td");
     if (c.getDefinitionSimple() != null)
       smartAddText(td, c.getDefinitionSimple());
@@ -302,7 +315,7 @@ public class NarrativeGenerator {
       a.addText(c.getCodeSimple());
     }
     for (ValueSetDefineConceptComponent cc : c.getConcept()) {
-      addDefineRowToTable(t, cc, i+1, comment, deprecated, maps);
+      addDefineRowToTable(t, cc, i+1, comment, deprecated, displays, maps);
     }    
   }
 
@@ -393,7 +406,7 @@ public class NarrativeGenerator {
         for (Code c : inc.getCode()) {
           hasComments = hasComments || c.hasExtension(ToolingExtensions.EXT_COMMENT);
         }
-        addTableHeaderRowStandard(t, hasComments, false);
+        addTableHeaderRowStandard(t, hasComments, true, false);
         for (Code c : inc.getCode()) {
           XhtmlNode tr = t.addTag("tr");
           tr.addTag("td").addText(c.getValue());
