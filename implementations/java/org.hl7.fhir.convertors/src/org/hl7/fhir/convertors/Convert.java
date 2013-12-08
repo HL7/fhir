@@ -57,6 +57,26 @@ public class Convert {
 		return id;
 	}
 
+	public String makeURIfromII(Element e) {
+		String r = e.getAttribute("root");
+		if (Utilities.noString(e.getAttribute("extension"))) {
+			if (isGuid(r)) 
+				return "urn:uuid:"+r;
+			else if (UriForOid(r) != null)
+				return UriForOid(r);
+			else 
+				return UriForOid(r);
+		} else {
+			if (isGuid(r)) 
+				return "urn:uuid:"+r+"::"+e.getAttribute("extension");
+			else if (UriForOid(r) != null)
+				return UriForOid(r)+"::"+e.getAttribute("extension");
+			else 
+				return "urn:oid:"+r+"::"+e.getAttribute("extension");
+		}
+  }
+	
+
 	private String UriForOid(String r) {
 		if (r.equals("2.16.840.1.113883.6.96"))
 			return "http://snomed.info/sct";
@@ -309,5 +329,5 @@ public class Convert {
 		else
 			return null;
   }
-	
+
 }

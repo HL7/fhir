@@ -37,7 +37,7 @@ public class CCDAConverter {
 	private Element doc; 
 	private Convert convert;
 	private AtomFeed feed;
-	private Composition Composition;
+	private Composition composition;
 	
 	public AtomFeed convert(InputStream stream) throws Exception {
 
@@ -53,22 +53,22 @@ public class CCDAConverter {
 		
 		// process the header
 		makeDocument();
-		Composition.setSubject(Factory.makeResourceReference(makeSubject()));
+		composition.setSubject(Factory.makeResourceReference(makeSubject()));
 		for (Element e : cda.getChildren(doc, "author"))
-			Composition.getAuthor().add(Factory.makeResourceReference(makeAuthor(e)));
+			composition.getAuthor().add(Factory.makeResourceReference(makeAuthor(e)));
 		// todo: data enterer & informant goes in provenance
-		Composition.setCustodian(Factory.makeResourceReference(makeOrganization(
+		composition.setCustodian(Factory.makeResourceReference(makeOrganization(
 				 cda.getDescendent(doc, "custodian/assignedCustodian/representedCustodianOrganization"), "Custodian")));
 		// todo: informationRecipient		
 		for (Element e : cda.getChildren(doc, "legalAuthenticator"))
-			Composition.getAttester().add(makeAttester(e, CompositionAttestationMode.legal, "Legal Authenticator"));
+			composition.getAttester().add(makeAttester(e, CompositionAttestationMode.legal, "Legal Authenticator"));
 		for (Element e : cda.getChildren(doc, "authenticator"))
-			Composition.getAttester().add(makeAttester(e, CompositionAttestationMode.professional, "Authenticator"));
+			composition.getAttester().add(makeAttester(e, CompositionAttestationMode.professional, "Authenticator"));
 		
 		// process the contents
 		// we do this by section - keep the original section order
 		Element body =  cda.getDescendent(doc, "component/structuredBody");
-		processComponentSections(Composition.getSection(), body);
+		processComponentSections(composition.getSection(), body);
 		return feed;
 	}
 
@@ -84,25 +84,27 @@ public class CCDAConverter {
 	}
 
 	private void makeDocument() throws Exception {
-		Composition = (Composition) ResourceFactory.createResource("Composition");
-    addResource(Composition, "Composition", UUID.randomUUID().toString());
+		composition = (Composition) ResourceFactory.createResource("Composition");
+    addResource(composition, "Composition", UUID.randomUUID().toString());
 
 		Element title = cda.getChild(doc, "title");
 		if (title == null) {
 			feed.setTitle("Clinical Composition (generated from CCDA Composition)");
 		} else {
 			feed.setTitle(title.getTextContent());
-			Composition.setTitleSimple(title.getTextContent());			
+			composition.setTitleSimple(title.getTextContent());			
 		}
-		Composition.setVersionIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "id")));
-		if (cda.getChild(doc, "setId") != null)
-			Composition.setIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "setId")));
+		if (cda.getChild(doc, "setId") != null) {
+ 			feed.setId(convert.makeURIfromII(cda.getChild(doc, "id")));
+			composition.setIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "setId")));
+		} else
+			composition.setIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "id"))); // well, we fall back to id
 			
-		Composition.setCreated(convert.makeInstantFromTS(cda.getChild(doc, "effectiveTime")));
-		Composition.setType(convert.makeCodeableConceptFromCD(cda.getChild(doc, "code")));
-		Composition.setConfidentiality(convert.makeCodingFromCV(cda.getChild(doc, "confidentialityCode")));
+		composition.setInstant(convert.makeInstantFromTS(cda.getChild(doc, "effectiveTime")));
+		composition.setType(convert.makeCodeableConceptFromCD(cda.getChild(doc, "code")));
+		composition.setConfidentiality(convert.makeCodingFromCV(cda.getChild(doc, "confidentialityCode")));
 		if (cda.getChild(doc, "confidentialityCode") != null)
-			Composition.setLanguageSimple(cda.getChild(doc, "confidentialityCode").getAttribute("value")); // todo - fix streaming for this
+			composition.setLanguageSimple(cda.getChild(doc, "confidentialityCode").getAttribute("value")); // todo - fix streaming for this
 		
 		Element ee = cda.getChild(doc, "componentOf");
 		if (ee != null)
@@ -113,10 +115,10 @@ public class CCDAConverter {
 				visit.getIdentifier().add(convert.makeIdentifierFromII(e));
 			visit.setHospitalization(new Encounter.EncounterHospitalizationComponent());
 			visit.getHospitalization().setPeriod(convert.makePeriodFromIVL(cda.getChild(ee, "effectiveTime")));
-			Composition.setEvent(new Composition.DocumentEventComponent());
-			Composition.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
-			Composition.getEvent().setPeriod(visit.getHospitalization().getPeriod());
-			Composition.getEvent().getDetail().add(Factory.makeResourceReference(addResource(visit, "Encounter", UUID.randomUUID().toString())));			
+			composition.setEvent(new Composition.CompositionEventComponent());
+			composition.getEvent().getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
+			composition.getEvent().setPeriod(visit.getHospitalization().getPeriod());
+			composition.getEvent().getDetail().add(Factory.makeResourceReference(addResource(visit, "Encounter", UUID.randomUUID().toString())));			
 		}
 		
 		// main todo: fill out the narrative, but before we can do that, we have to convert everything else
@@ -169,7 +171,7 @@ public class CCDAConverter {
 		// todo: this got broken.... lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
 		cc.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_LANG_PROF, convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")), false));
 		pat.getExtensions().add(Factory.newExtension(CcdaExtensions.NAME_RELIGION, convert.makeCodeableConceptFromCD(cda.getChild(p, "religiousAffiliationCode")), false));
-		pat.setProvider(Factory.makeResourceReference(makeOrganization(cda.getChild(pr, "providerOrganization"), "Provider")));
+		pat.setManagingOrganization(Factory.makeResourceReference(makeOrganization(cda.getChild(pr, "providerOrganization"), "Provider")));
 		return addResource(pat, "Subject", UUID.randomUUID().toString());
 	}
 
