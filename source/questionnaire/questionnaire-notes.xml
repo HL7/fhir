@@ -51,6 +51,6 @@ of the form like headings, explanatory text, actual question text and the text o
 <li>contain a combination of questions and answers (e.g. when it is deemed important to keep the actual question text with the answer) or</li>
 <li>only contain the Questions, in which case the Questionnaire represents an empty, predefined form</li></ul>
 <p>This third case can be useful to make Questionnaire serve as a kind of form "template", where FHIR clients receive the empty form, display it to the user, get answers from the users 
-and then return the combined questions and answers to the server. The <a href="questionnaire-extensions-spreadsheet.xml.html">questionnaire core 
+and then return the combined questions and answers to the server. The <a href="questionnaire-extensions.html">questionnaire core 
 extensions</a> provide additional means for control over repeating sections and expected answer format.</p>
 </div>

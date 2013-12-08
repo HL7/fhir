@@ -56,7 +56,6 @@ public class WebMaker {
 
   private FolderManager folders;
   private String version;
-  private List<String> past = new ArrayList<String>();
   private IniFile ini;
   private ZipGenerator zip;  
   private Definitions definitions;
@@ -81,16 +80,12 @@ public class WebMaker {
     File fd = new CSFile(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"fhir-dload-"+version+".zip");
     if (fd.exists())
       fd.delete();
-
+    makeArchives();
+    
     String[] files = new CSFile(folders.dstDir).list();
     for (String f : files) {
       if (f.endsWith(".html")) {
         String src = TextFile.fileToString(folders.dstDir+f);
-        if (src.contains("<!--archive-->")) {
-          src = src.replace("<!--archive-->", makeArchives());
-        } else if (src.contains("<!-- archive -->")) {
-          src = src.replace("<!-- archive -->", makeArchives());
-        }
         if (src.contains(SEARCH_FORM_HOLDER)) 
           src = src.replace(SEARCH_FORM_HOLDER, googleSearch());
         int i = src.indexOf("</body>");
@@ -149,7 +144,7 @@ public class WebMaker {
     }
     zip = new ZipGenerator(fw.getAbsolutePath());
     zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator, "", null, null);
-    for (String v : past)
+    for (String v : definitions.getPastVersions())
       zip.addFiles(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v"+v+File.separator, "v"+v+File.separator, null, null);
     for (String n : folderList) 
       zip.addFolder(folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n+File.separator, n+File.separator, false);
@@ -205,21 +200,10 @@ public class WebMaker {
         "</script>\r\n";
 
   }
-  private CharSequence makeArchives() throws Exception {
-    IniFile ini = new IniFile(folders.rootDir+"publish.ini"); 
-    StringBuilder s = new StringBuilder();
-    s.append("<h2>Archived Versions of FHIR</h2>");
-    s.append("<p>These archives only keep the more significant past versions of FHIR, and only the book form, and are provided for purposes of supporting html diff tools. A full archive history of everything is available <a href=\"http://wiki.hl7.org/index.php?title=FHIR\">through the HL7 gForge archives</a>.</p>");
-    s.append("<ul>");
-    for (String v : ini.getPropertyNames("Archives")) {
-      s.append("<li><a href=\"v"+v+"/index.html\">Version "+v+"</a>, "+ini.getStringProperty("Archives", v)+". (<a " +
-      		"href=\"http://www.w3.org/2007/10/htmldiff?doc1=http://www.hl7.org/implement/standards/FHIR/v"+v+"/fhir-book.html&amp;doc2=http://www.hl7.org/implement/standards/FHIR/fhir-book.html\">Diff with current</a>) </li>");
-      if (!past.contains(v))
-        past.add(v);
+  private void makeArchives() throws Exception {
+    for (String v : definitions.getPastVersions()) {
       extractZip(folders.archiveDir+"v"+v+".zip", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v"+v+File.separator);
     }
-    s.append("</ul>");
-    return s.toString();
   }
 
   static final int BUFFER = 2048;

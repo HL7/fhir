@@ -413,6 +413,7 @@ This searches for all Condition resources with the word "metastases" and either
 "bone" or "liver" in the narrative. The server MAY choose to search 
 for related words as well. 
 </p>
+<a name="dstu"> </a>
 <blockquote>
 <p><b>DSTU Note</b>: The issues around standardizing text search are not fully resolved. 
 During the trial use period for this specification, we recommend that systems use 

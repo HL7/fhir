@@ -195,7 +195,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Common / Commercial name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The common name of the medication</Data><NamedCell
+    <Cell><Data ss:Type="String">The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">RXO-1.2-Requested Give Code.text / RXE-2.2-Give Code.text / RXD-2.2-Dispense/Give Code.text / RXG-4.2-Give Code.text / RXA-5.2-Administered Code.text&#10;</Data><NamedCell
@@ -212,13 +212,15 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationFormalRepresentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">References to std. medication terminologies</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Codes that identify this medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">References to codes for this medication in standard medication terminologies, drug dictionaries, etc</Data><NamedCell
+    <Cell><Data ss:Type="String">A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">When defining a medication, the code is the &quot;identifying&quot; code for the medication. All the codings provided should be at the same level in the hierarchy (generic, formulation, generic strength, etc.). Codes that relate the medication across the hierarchy should be conveyed using the relationships inherent in Medication.package and Medication.product.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -426,7 +428,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -434,14 +436,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

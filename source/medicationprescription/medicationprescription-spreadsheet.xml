@@ -18,8 +18,8 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>8100</WindowHeight>
   <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>120</WindowTopY>
+  <WindowTopX>7410</WindowTopX>
+  <WindowTopY>6810</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -190,6 +190,14 @@
   </Style>
   <Style ss:ID="s94">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s95">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -385,7 +393,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">CombinedMedicationRequest.component1.administration.consumable</Data><NamedCell
+    <Cell ss:Index="12" ss:StyleID="s95"><Data ss:Type="String">Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.administration.consumable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">RXE-2-Give Code / RXO-1-Requested Give Code / RXD-2-Dispense/Give Code&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -696,9 +706,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -706,14 +716,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1343,7 +1355,7 @@
     <Cell><Data ss:Type="String">Metoprolol</Data></Cell>
     <Cell><Data ss:Type="String">Real-world prescription example</Data></Cell>
     <Cell><Data ss:Type="String">f004</Data></Cell>
-    <Cell><Data ss:Type="String">medicationprescription-example-f004-metoprorol.xml</Data></Cell>
+    <Cell><Data ss:Type="String">medicationprescription-example-f004-metoprolol.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

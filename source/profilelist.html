@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Profiles defined as part of FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>Profiles defined as part of FHIR</h2>
+ 
+<p>
+A <a href="profile.html">Profile</a> is a special resource that provides additional rules 
+about how a type of resource is used in a particlar context of use, or for a particular use
+case. 
+</p>
+<p>
+Some particular use cases are common or important enough to be described as part of the 
+specification itself:
+</p>
+<table class="grid">
+ <tr>
+  <td><b>Name</b></td>
+  <td><b>Usage</b></td>
+ </tr>
+ <tr>
+  <td><a href="general-extensions.html">General Extensions</a></td>
+  <td>A set of general extensions defined for the convenience of implementers that use FHIR resources</td>
+ </tr>
+ <tr>
+  <td><a href="us-core.html">US Profile</a></td>
+  <td>Contains constraints and extensions to the FHIR specification specific to the US realm</td>
+ </tr>
+ <tr>
+  <td><a href="iso-21090.html">ISO 21090</a></td>
+  <td>Extra ISO 21090 features not included in data types because of core design policy</td>
+ </tr>
+ <tr>
+  <td><a href="questionnaire-extensions.html">Questionnaire</a></td>
+  <td>Core extensions for Questionnaire</td>
+ </tr>
+ <tr>
+  <td><a href="tools-extensions.html">Tools Extensions</a></td>
+  <td>Extensions defined by the build tools. These extensions are candidates for being elevated into the core in a subsequent version</td>
+ </tr>
+</table>
+
+<p>
+Other profiles may be found in the general profile repository (reference to be provided).
+</p>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>

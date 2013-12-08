@@ -20,7 +20,6 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -382,7 +381,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">Medication</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data></Cell>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Note: do not use Medication.name to describe the administered medication. When the only available information is a text description of the medication, Medication.code.text should be used</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXA-5-Administered Code</Data></Cell>
     <Cell ss:StyleID="s74"/>
@@ -554,12 +553,13 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -567,14 +567,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -708,7 +709,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

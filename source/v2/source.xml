@@ -13736,7 +13736,7 @@
       <item id="0" code="SS" desc="Social Security Number"/>
       <item id="0" code="VN" desc="Visit Number"/>
       <item id="0" code="VS" desc="VISA"/>
-      <item id="0" code="XX" desc="Organizaiton Indentifier"/>
+      <item id="0" code="XX" desc="Organization Indentifier"/>
     </version>
     <version version="2.3.1" desc="Identifier type">
       <item id="1" code="AM" desc="American Express"/>

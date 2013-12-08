@@ -180,7 +180,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="192.75"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -223,6 +223,16 @@
     <Cell ss:Index="11" ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">ANY.nullFlavor</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">birthPlace</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">Patient</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">Address</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Place of Birth for patient</Data></Cell>
+    <Cell><Data ss:Type="String">The registered place of birth of the patient</Data></Cell>
+    <Cell><Data ss:Type="String">This is used in some contexts as an administrative attribute of the patient</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -241,8 +251,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

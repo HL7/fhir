@@ -1,6 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       
+      <!--
+       DSTU issues list, from ballot reoonciliation
+       
+       Post DSTU concerns:
+       -->
       
 [%settitle Outstanding Issues%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -13,265 +18,74 @@
 <div class="col-9">
 
 <a name="todo"> </a>
-<h2>Outstanding Issues</h2>
+<a name="ballotstatus"></a>
+<h2>Draft Standard for Trial Use</h2>
+
 
 <p>
-This pages summarizes the known outstanding issues and todo notes currently found in the FHIR specification. 
-Most of these issues (thought not all) are noted through out the specification in the appropriate location.
-Many of these questions are under investigation during the current connectathon cycle parallel to the ballot.
+FHIR is being balloted as a Draft Standard for Trial Use.  
+A complete description of the rules for DSTU can be found 
+in HL7's <a href="http://www.hl7.org/documentcenter/public/membership/HL7_Governance_and_Operations_Manual.pdf">Governance and Operations Manual</a>. 
+However, the essential points for implementers are covered below:
 </p>
+<p>
+The purpose of this phase in the
+approval process is to gain real-world implementation experience based on a vetted, approved
+version of the specification prior to locking any particular aspect of the specification "in stone".
+This specification makes a number of statements about what HL7 will and will not do in future
+versions of this specification.  These statements generally concern expectations around forward
+and backward compatibility and how the specification will evolve.  However, these statements only 
+hold once the specification is approved as a "normative" standard - the approval process that will 
+occur subsequent to DSTU.  Between different DSTU versions and between the DSTU and final approved
+normative version of the specification and its resources, these rules around compatibility and other
+issues will not be enforced, and may not be honored.  Elements may be renamed, moved, dropped or otherwise changed.
+Extensions may be promoted to core elements and core elements may be demoted to extensions.  Wire
+syntax and invocation sequences may be changed.  Other breaking changes may occur.
+</p>
+<p>
+Major changes are not expected, however the risk does exist.  If they occur, such changes will 
+not be undertaken without good supporting rationale.  However, long term implementability and 
+usefulness of the specification will receive greater weight when evaluating changes that impact on
+existing DSTU implementations.  DSTU implementers should therefore provide flexibility in their
+architecture that will allow them to more easily accommodate changes to the specification.  They should
+also consider how their implementations might peacefully coexist with implementations of future
+DSTU and normative versions that may not be fully compatible.
+</p>
+
+<h3>Open Issues</h3>
 
 <p>
-Note that adding additional resources is an ongoing process - see <a href="resourcelist.html#adding">notes here</a> (bottom of the page).
+There are a number of issues in which input based on implementation experience is specifically
+sought during the trial use phase:
+</p>
+<ul>
+ <li><a href="conformance.html#dstu">Conformance</a>: How system profiles are used</li>
+ <li><a href="managing.html#dstu">Resource Identificatino</a>: Managing resource identification in distributed systems</li>
+ <li><a href="query.html#dstu">Query / Search</a>: How should text search be standardized?</li>
+ <li><a href="security-labels.html#dstu">Security Labels</a>: How much policy can be standardised, and how does this impact on this specification?</li>
+ <li><a href="security.html#dstu">Security</a>: What use cases are there for digital signatures?</li>
+</ul>
+<p>
+In addition, there a are future proposed resources:
+</p>
+<ul>
+ <li>A notification resource for creating and recording notifications between parties</li>
+ <li>An alarm resource to represent current issues with the </li>
+ <li>A person resource to support person registries</li>
+ <li>An appointment resource for making and tracking arrangements around the future of care</li>
+ <li>Payment related resources, and specifically, Account</li>
+ <li>?A way to define particular queries (finer detail than Profile provides)</li>
+ <li>One or more resources for Advance Care Directive / Power of Attorney</li>
+</ul>
+<p>
+Note that other resources beyond these may be anticipated.
+</p>
+<p>
+In addition to these, further work is planned around tracking and 
+reporting clinical observations / vital signs, and supporting 
+remote consultations / telehealth. 
 </p>
 
-
-<table class="grid">
- <tr>
-  <td><b>Section</b></td>
-  <td><b>Issues</b></td>
- </tr>
- 
- <tr>
-  <td>Publication Format</td>
-  <td><ul>
-    <li>fix single page form</li>
-  </ul></td>    
- </tr>
- 
- <tr>
-  <td>General</td>
-  <td><ul>
-    <li>Develop Relax NG, RDF, and eCore definitions of the resources</li>
-    <li>Should a resource identify which profile(s) it conforms to? (why?) (related discussion: rules of handling and version dependency)</li>
-    <li>What consistent life cycle patterns do we need for resources?</li>
-    <li>There is still a lack of clarity around how patient linking/unlinking/merging/unmerging should be handled</li>
-  </ul></td>    
- </tr>
-
- 
- <tr>
-  <td>Reference Implementations</td>
-  <td><ul>
-    <li>Delphi reference implementation has dependencies on unpublished code</li>
-    <li>Consider other publication options for C# and Java (e.g. maven?)</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="integrated-examples.html">Examples</a></td>
-  <td><ul>
-    <li>Examples continue to develop and be fleshed out. Several are marked with links that need fixing - these correspond to further additional planned examples</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="datatypes.html">Data Types</a></td>
-  <td><ul>
-    <li>The way Attachment.uri works with relative references needs to be properly described</li>
-    <li>Does language ever matter on Coding.display?</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="extensibility.html">Extensibility</a></td>
-  <td><ul>
-    <li>point to actual registry once it's up and running</li>
-    <li>How to manage published extension life cycle (i.e. deprcation)</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="narrative.html">Narrative</a></td>
-  <td><ul>
-    <li>Formally encode cosntraints in schematron</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="security.html">Security</a> &amp; <a href="securityevent.html">Security Event</a></td>
-  <td><ul>
-    <li>This is under active investigation through connectathons running parallel to the ballot process, and further work is expected on this section. Interested parties should track the joint security / FHIR work in this area</li>
-    <li>Profile for OAuth based login</li>
-    <li>Do we need an element for Media Id (as opposed to type)?</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="terminologies.html">Codes &amp; Terminologies</a></td>
-  <td><ul>
-    <li>The named system list needs expansion</li>
-  </ul></td>    
- </tr>
-
-
-
-
-
-
-
-
-
-
-
-
- <tr>
-  <td><a href="conformance.html">Conformance</a> / <a href="profile.html">Profile</a> </td>
-  <td><ul>
-    <li>Add flag for accept unknown content</li>
-    <li>Need to add back to the conformance resource about how creates and ids work for a system</li>
-    <li>Need to avoid imposing requirement to keep version history while still supporting versioning as much as possible</li>
-    <li>Do we need something more formal for security capabilities?</li>
-    <li>Does a system need to be able to enumerate profiles that it does support?</li>
-    <li>Need to do more to flesh out messaging dynamic model?</li>
-    <li>May need profile id as well if profiles can define message events?</li>
-    <li>Where do search parameters belong - profile or conformance, or both?</li>
-    <li>How does the profile slicing discriminator work with resource references</li>
-    <li>How are bundles managed in profiles?</li>
-    <li></li>
-    <li></li>
-  </ul></td>    
- </tr>
-  
- 
- <tr>
-  <td><a href="careplan.html">Care Plan</a></td>
-  <td><ul>
-    <li>Isn't &lt;performer&gt; redundant when considering &lt;participant&gt; that was defined before</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="condition.html">Condition</a></td>
-  <td><ul>
-    <li>The physician states (in the EHR) that fever could be caused by another (bacterial) infection.How do you express such an (important!) fact with FHIR</li>
-    <li>The difference between "due-to" and "follows" is very unclear in the current documentation</li>
-    <li>Discuss the applicability of assessing stages</li>
-    <li>due-to: How to differentiate from follows?</li>
-    <li>Condition.age = is a range needed?</li>
-    <li>Condition.stage - narrow</li>
-  </ul></td>    
- </tr>
-     
- <tr>
-  <td>Coverage  </td>
-  <td><ul>
-    <li>Need a definition for Coverage.group</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td>Device Capabilities</td>
-  <td><ul>
-    <li>What communications protocol is used with device capabilities / device log resources?</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="diagnosticreport.html">Diagnostic Report</a></td>
-  <td><ul>
-    <li>Should performer be allowed to be an organization?</li>
-    <li>DiagnosticReport.requestDetail.encounter / DiagnosticReport.requestDetail.requestOrderId / DiagnosticReport.requestDetail.receiverOrderId - Question whether these are 80%</li>
-    <li>Reference Range Meaning - where can appropriate codes come from?</li>
-    <li></li>
-  </ul></td>    
- </tr>
-    
- <tr>
-  <td><a href="documents.html">Document</a></td>
-  <td><ul>
-    <li>Confidentiality? Language? Consent? Signatures</li>
-    <li>Need to extend this to support documents with other types of subjects.  Also rationalize with encounter &amp; context elements</li>
-    <li>Document.section.content: This may need to be 0..*.  May need to consider adding text here to account for missing resources</li>
-  </ul></td>    
- </tr>
-
- 
- <tr>
-  <td><a href="encounter.html">Encounter</a></td>
-  <td><ul>
-    <li>Encounter.type: Why is this merely a CodeableConcept and not Resource (any)?</li>
-  </ul></td>    
- </tr>
-
- 
- <tr>
-  <td><a href="group.html">Group</a></td>
-  <td><ul>
-    <li>We need determiner codes that indicate we're talking about a group even when we haven't specified a specific quantity</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="list.html">List</a></td>
-  <td><ul>
-    <li>does Loinc define useful codes for list.type?</li>
-  </ul></td>    
- </tr>
-  
-
- <tr>
-  <td><a href="location.html">Location</a></td>
-  <td><ul>
-    <li>Shouldn't that be &quot;owns or manages&quot;? Why introduce the fact that an organization provides services here? If this is a home location, you wouldn't mention the organization(s) providing services there?</li>
-  </ul></td>    
- </tr>
-
- 
- <tr>
-  <td><a href="medication.html">Medication</a></td>
-  <td><ul>
-    <li>Is it necessary to assign an identifying code to a medication record so that a system's list of medication resources can also be used as a coding system?</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="medicationadministration.html">Medication Administration</a></td>
-  <td><ul>
-    <li>Expand notes on relationship between quantity and rate</li>
-    <li>Explain what happens if rate is not continuous</li>
-  </ul></td>    
- </tr>
- 
-
- <tr>
-  <td><a href="medicationprescription.html">Medication Prescription</a></td>
-  <td><ul>
-    <li>reasonForPrescribing: Why can't this be Resource (any)</li>
-    <li>doseQuantity: Cardinality is not sufficient: 25ug salmeterol + 250ug fluticasone can only be coded with 275ug...</li>
-    <li>&lt;rate&gt; and &lt;maxDosePerPeriod&gt; are not sufficient for this specific patient:  a max dose is higher than a daily amount and rate is intended for (e.g. infuus-)rates,   whilst prescribed amount needs to be expressed... </li>
-  </ul></td>    
- </tr>
-
- 
- <tr>
-  <td><a href="messaging.html">Messaging</a></td>
-  <td><ul>
-    <li>Describe some use cases</li>
-    <li>Consider changing the code to Coding to support profile-defined events</li>
-    <li>Message.effectiveTIme: this is not 80/20? Also, it should really be in the domain resources, not tucked away here</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="procedure.html">Procedure</a></td>
-  <td><ul>
-    <li>Procedure.indication: Why can't this be Resource (any) AND String?</li>
-    <li>Should there be a separate entry for duration? Currently this is inferred from date if represented as a Period</li>
-    <li>Indication is currently a string. What to do if you want to indicate that the procedure is because of a Condition?
-    You could use relatedItem, but is it confusing to have indication in multiple places.</li>
-    <li>Should we support a careplan as followup?</li>
-  </ul></td>    
- </tr>
-
- <tr>
-  <td><a href="query.html">Query</a></td>
-  <td><ul>
-    <li>How are errors processed?</li>
-  </ul></td>    
- </tr>
- 
-</table>
 
 </div>
 

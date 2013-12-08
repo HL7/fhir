@@ -75,6 +75,7 @@ public class Definitions {
   private Map<String, ArrayList<String>> statusCodes = new HashMap<String, ArrayList<String>>();
 
   private List<Compartment> compartments = new ArrayList<Compartment>();
+  private List<String> pastVersions = new ArrayList<String>();
   
 	// Returns the root ElementDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
@@ -307,6 +308,10 @@ public class Definitions {
 
   public Map<String, ArrayList<String>> getStatusCodes() {
     return statusCodes;
+  }
+
+  public List<String> getPastVersions() {
+    return pastVersions;
   }
 
   

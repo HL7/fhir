@@ -521,6 +521,8 @@ public class PageProcessor implements Logger  {
         src = s1 + expandV3ValueSet(name) + s3;
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;  
+      else if (com[0].equals("archive"))
+        src = s1 + makeArchives() + s3;  
         
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
@@ -1071,7 +1073,7 @@ public class PageProcessor implements Logger  {
     for (RegisteredProfile p : r.getProfiles()) {
       for (ExtensionDefn ex : p.getProfile().getExtensions()) {
         if (ex.getDefinition().hasBinding() && ex.getDefinition().getBindingName() != null && ex.getDefinition().getBindingName().equals(cd.getName())) {
-          b.append(" <li><a href=\""+p.getDestFilename()+".html#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
+          b.append(" <li><a href=\""+p.getDestFilenameNoExt()+".html#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
         }
       }
     }
@@ -2284,6 +2286,8 @@ public class PageProcessor implements Logger  {
         src = s1 + svnRevision + s3;      
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;  
+      else if (com[0].equals("archive"))
+        src = s1 + makeArchives() + s3;  
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
       else if (com[0].equals("pub-notice"))
@@ -2722,6 +2726,8 @@ public class PageProcessor implements Logger  {
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
         src = s1+Utilities.escapeXml(profile.metadata("name"))+s3;
+      else if (com[0].equals("filetitle"))
+        src = s1+(filename.contains(".") ? filename.substring(0, filename.lastIndexOf(".")) : filename)+s3;
       else if (com[0].equals("name"))
         src = s1+filename+s3;
       else if (com[0].equals("date")) {
@@ -2791,6 +2797,22 @@ public class PageProcessor implements Logger  {
   private boolean isAggregationEndpoint(String name) {
     return definitions.getAggregationEndpoints().contains(name.toLowerCase());
   }   
+
+  private String makeArchives() throws Exception {
+    IniFile ini = new IniFile(folders.rootDir+"publish.ini"); 
+    StringBuilder s = new StringBuilder();
+    s.append("<h2>Archived Versions of FHIR</h2>");
+    s.append("<p>These archives only keep the more significant past versions of FHIR, and only the book form, and are provided for purposes of supporting html diff tools. A full archive history of everything is available <a href=\"http://wiki.hl7.org/index.php?title=FHIR\">through the HL7 gForge archives</a>.</p>");
+    s.append("<ul>");
+    for (String v : ini.getPropertyNames("Archives")) {
+      s.append("<li><a href=\"http://www.hl7.org/implement/standards/FHIR/"+v+"/index.htm\">Version "+v+"</a>, "+ini.getStringProperty("Archives", v)+". (<a " +
+          "href=\"http://www.w3.org/2007/10/htmldiff?doc1=http://www.hl7.org/implement/standards/FHIR/v"+v+"/fhir-book.htm&amp;doc2=http://www.hl7.org/implement/standards/FHIR/fhir-book.html\">Diff with current</a>) </li>");
+      if (!definitions.getPastVersions().contains(v))
+        definitions.getPastVersions().add(v);
+    }
+    s.append("</ul>");
+    return s.toString();
+  }
 
 
   private String describeStatus(String s) {

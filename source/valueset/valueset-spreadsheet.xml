@@ -20,6 +20,7 @@
   <WindowWidth>18435</WindowWidth>
   <WindowTopX>120</WindowTopX>
   <WindowTopY>8610</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -596,7 +597,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1037,16 +1037,17 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="108"/>
-   <Column ss:AutoFitWidth="0" ss:Width="237"/>
-   <Column ss:AutoFitWidth="0" ss:Width="179.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="237" ss:Span="1"/>
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="179.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="99"/>
    <Column ss:AutoFitWidth="0" ss:Width="258.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Source</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Example</Data></Cell>
@@ -1055,6 +1056,7 @@
     <Cell><Data ss:Type="String">ValueSet Extensions</Data></Cell>
     <Cell><Data ss:Type="String">HL7 Defined ValueSet resource extensions</Data></Cell>
     <Cell><Data ss:Type="String">valueset-extensions-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-extensions.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
   </Table>
@@ -1065,11 +1067,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <RangeSelection>R3C1:R3C5</RangeSelection>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -104,11 +104,14 @@ resources also SHALL:
 Beyond these requirements, a producer of resources SHOULD ensure that any data that would reasonably be expected
 to conform to the declared profiles SHOULD be published in this form. 
 </p>
+
+<a name="dstu"> </a>
+<blockquote>
 <p>
 DSTU note: there are many uninvestigated issues associated with system profiles. 
 HL7 is actively seeking feedback from users who experiment with system profiles, and users
 should be prepared for changes to features and obligations in this area in the future.
 </p>
-
+</blockquote>
 
 </div>

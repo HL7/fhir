@@ -224,6 +224,14 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
+  <Style ss:ID="s102">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
@@ -494,7 +502,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s102"><Data ss:Type="String">Note: do not use Medication.name to describe the dispensed medication. When the only available information is a text description of the medication, Medication.code.text should be used</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.AdministrationRequest.consumable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">RXD-2-Dispense/Give Code</Data></Cell>
@@ -788,10 +797,11 @@
     <VerticalResolution>300</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>3</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -799,8 +809,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -116,6 +116,10 @@ public class RegisteredProfile {
   public String getTitle() {
     return destFilename.contains(".") ? destFilename.substring(0, destFilename.lastIndexOf(".")) : destFilename;
   }
+
+  public String getDestFilenameNoExt() {
+    return getTitle();
+  }
   
 
  

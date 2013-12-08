@@ -996,7 +996,7 @@ public class Publisher {
 					String src = TextFile.fileToString(fn.getAbsolutePath());
 					String srcn = src
 							.replace(
-									"Warning: This version of FHIR is the DSTU Reconciliation version (see the <a href=\"changelist.html\">Change List</a>)",
+									"Warning: This version of FHIR is the DSTU Reconciliation version (see the <a href=\"history.html\">Version History</a>)",
 									"This is an old version of FHIR retained for archive purposes. Do not use for anything else");
 					if (!srcn.equals(src))
 						c++;
@@ -1021,7 +1021,7 @@ public class Publisher {
 			}
 		}
 		if (c < 3)
-			throw new Exception("header note replacement in archive failed");
+			throw new Exception("header note replacement in archive failed"); // so check the syntax of the string constant above
 		zip.close();
 	}
 
@@ -2756,7 +2756,7 @@ public class Publisher {
   private void produceCoverageWarning(String path, ElementDefn e) {
     
     if (!e.isCoveredByExample() && !Utilities.noString(path)) {
-      log("The path "+path+e.getName()+" is not covered by any example");
+      log("The search path "+path+e.getName()+" is not covered by any example");
       page.getQa().notCovered(path+e.getName());
     }
     for (ElementDefn c : e.getElements()) {
