@@ -338,7 +338,7 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
         write("        xml.attribute(\"xml:lang\", element.get"+upFirst(getElementName(e.getName(), true))+"().toString());\r\n");
       } else if (e.isXmlAttribute()) {
         write("      if (element.get"+upFirst(getElementName(e.getName(), true))+"() != null)\r\n");
-        write("        xml.attribute(\""+e.getName()+"\", element.get"+upFirst(getElementName(e.getName(), true))+"().toString());\r\n");
+        write("        xml.attribute(\""+e.getName()+"\", element.get"+upFirst(getElementName(e.getName(), true))+"().getValue());\r\n");
       }
     }
     write("      xml.open(FHIR_NS, name);\r\n");

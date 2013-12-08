@@ -45,7 +45,8 @@ public class RegisteredProfile {
 
   private String name;
   private String description;
-  private String filename;
+  private String sourceFilename;
+  private String destFilename;
   private String filepath;
   private ProfileDefn profile;
   private String example;
@@ -54,11 +55,12 @@ public class RegisteredProfile {
   private Profile resource;
   
   
-  public RegisteredProfile(String name, String description, String filename, String filepath, ProfileInputType type, String example, String examplePath) {
+  public RegisteredProfile(String name, String description, String destFilename, String sourceFilename, String filepath, ProfileInputType type, String example, String examplePath) {
     super();
     this.name = name;
     this.description = description;
-    this.filename = filename;
+    this.sourceFilename = sourceFilename;
+    this.destFilename = destFilename;
     this.filepath = filepath;
     this.type= type;
     this.example = example;
@@ -74,8 +76,11 @@ public class RegisteredProfile {
   public void setDescription(String description) {
     this.description = description;
   }
-  public String getFilename() {
-    return filename;
+  public String getSourceFilename() {
+    return sourceFilename;
+  }
+  public String getDestFilename() {
+    return destFilename;
   }
   public ProfileDefn getProfile() {
     return profile;
@@ -106,6 +111,10 @@ public class RegisteredProfile {
 
   public void setResource(Profile resource) {
     this.resource = resource;
+  }
+
+  public String getTitle() {
+    return destFilename.contains(".") ? destFilename.substring(0, destFilename.lastIndexOf(".")) : destFilename;
   }
   
 

@@ -20,6 +20,7 @@
   <WindowWidth>19410</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>135</WindowTopY>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -942,7 +943,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">AggregationMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">contained | referenced | bundled - If a reference, how it's aggregated</Data><NamedCell
+    <Cell><Data ss:Type="String">contained | referenced | bundled - how aggregated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1549,7 +1550,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1570,7 +1570,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>42</ActiveRow>
+     <ActiveRow>43</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -2218,7 +2218,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="75.75"/>
    <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="218.25"/>
@@ -2241,14 +2241,6 @@
     <Cell><Data ss:Type="String">tool</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Tools Extensions</Data></Cell>
-    <Cell><Data ss:Type="String">Extensions defined by the build tools. These extensions are candidates for being elevated into the core</Data></Cell>
-    <Cell><Data ss:Type="String">tools-extensions</Data></Cell>
-    <Cell><Data ss:Type="String">profile-tools-extensions.xml</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">y</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="5" ss:StyleID="Default"/>
    </Row>
@@ -2266,10 +2258,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>

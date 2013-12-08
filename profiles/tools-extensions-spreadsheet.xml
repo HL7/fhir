@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Grahame</Author>
+  <LastAuthor>Grahame</LastAuthor>
+  <Created>2012-03-19T09:39:52Z</Created>
+  <LastSaved>2013-12-07T20:44:44Z</LastSaved>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>7275</WindowHeight>
+  <WindowWidth>14880</WindowWidth>
+  <WindowTopX>480</WindowTopX>
+  <WindowTopY>270</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62" ss:Name="Hyperlink">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
+    ss:Underline="Single"/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s66" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s68" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Metadata">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="19" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="108"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="789.75"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+    <Cell><Data ss:Type="String">Name</Data></Cell>
+    <Cell><Data ss:Type="String">Value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">id</Data></Cell>
+    <Cell><Data ss:Type="String">tools-extensions</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell><Data ss:Type="String">Extensions defined by the FHIR build tools</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">author.name</Data></Cell>
+    <Cell><Data ss:Type="String">HL7 FHIR project</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">author.reference</Data></Cell>
+    <Cell ss:StyleID="s66" ss:HRef="http://hl7.org/fhir"><Data ss:Type="String">http://hl7.org/fhir</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">intention</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">code</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">description</Data></Cell>
+    <Cell><Data ss:Type="String">Extensions defined by the build tools. These extensions are candidates for being elevated into the core</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">evidence</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">comments</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">status</Data></Cell>
+    <Cell><Data ss:Type="String">draft</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2013-07-07T00:00:00.000</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">endorser.name</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">endorser.reference</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">changes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">supercedes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">profile</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">binding</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">extension.uri</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/Profile/tools-extensions"><Data
+      ss:Type="String">http://hl7.org/fhir/Profile/tools-extensions</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Extensions">
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="7" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="192.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="150.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="56.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="73.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="105.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="159"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="213.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
+   <Column ss:Index="12" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s71">
+    <Cell><Data ss:Type="String">Code</Data></Cell>
+    <Cell><Data ss:Type="String">Context Type</Data></Cell>
+    <Cell><Data ss:Type="String">Context</Data></Cell>
+    <Cell><Data ss:Type="String">Card.</Data></Cell>
+    <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Binding</Data></Cell>
+    <Cell><Data ss:Type="String">Is Modifier</Data></Cell>
+    <Cell><Data ss:Type="String">Short Name</Data></Cell>
+    <Cell><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Requirements</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">To Do</Data></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">comment</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Comment about the use of this code in this context</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">This is used in various FHIR value sets to make comments on how particular codes are used when the formal definition is a little abstract or vague, but it's not clear whether it belongs in the actual value set resource</Data></Cell>
+    <Cell><Data ss:Type="String">Too many codes have very abstract definitions, and the correct use or purpose of the code isn't sufficiently clear from the definition</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">This is used in various FHIR value sets to make comments on how particular codes are used when the formal definition is a little abstract or vague, but it's not clear whether it belongs in the actual value set resource</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">n/a</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">display</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A different display for this code</Data></Cell>
+    <Cell><Data ss:Type="String">An alternative display is used to tailor a code's description to a particular use case. Doing this is dangerous, because it's easy to introduce a different meaning for the code in this context, but it's also useful to make the display suitable for a particular kind of user in a particular kind of context</Data></Cell>
+    <Cell><Data ss:Type="String">Many codes have displays that are inappropriate in a particular context of use</Data></Cell>
+    <Cell><Data ss:Type="String">An alternative display is used to tailor a code's description to a particular use case. Doing this is dangerous, because it's easy to introduce a different meaning for the code in this context, but it's also useful to make the display suitable for a particular kind of user in a particular kind of context</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">definition</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet.compose.include.code</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A definition for this code</Data></Cell>
+    <Cell><Data ss:Type="String">A display name that describes the meaning of this code when used as part of this value set</Data></Cell>
+    <Cell><Data ss:Type="String">Some code systems don't provide definitions (most enumeration types)</Data></Cell>
+    <Cell><Data ss:Type="String">This is provided for when the source code system doesn't actually provide a definition (there are many such). Providing an definition for a code should not be done where the underlying code system provides a definition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">deprecated</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet.define.concept</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Whether the concept has been deprecated</Data></Cell>
+    <Cell><Data ss:Type="String">Set to true of the concept has been deprecated (still can be used, but soon to be withdrawn)</Data></Cell>
+    <Cell><Data ss:Type="String">Some code systems deprecate codes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">parentCode</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet.define.concept</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">Additional parent(s) for this concept</Data></Cell>
+    <Cell><Data ss:Type="String">Refers to another code defined within the code system that identifies a concept that is also a parent of this code.  I.e. The referenced concept subsumes the extended concept.  Because meaning is inferred from hierarchy as well as definition, the presence of this extension modifies the meaning of the extended concept</Data></Cell>
+    <Cell><Data ss:Type="String">For when the code system being defined is poly-heirarchical</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">issue-source</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">OperationOutcomeSource</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Source of a validation message</Data></Cell>
+    <Cell><Data ss:Type="String">Where in the code - schema, schematron, or validator - an error message comes from</Data></Cell>
+    <Cell><Data ss:Type="String">Helps a user track down the source of the problem</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>5</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Bindings">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="209.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="99"/>
+   <Column ss:AutoFitWidth="0" ss:Width="168"/>
+   <Column ss:AutoFitWidth="0" ss:Width="158.25"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding Strength</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Description</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">OperationOutcomeSource</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

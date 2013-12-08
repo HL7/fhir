@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/patient.xsd">
-  <extension url="http://hl7.org/fhir/profile-us-core-201401#race">
+  <extension url="http://hl7.org/fhir/Profile/us-core#race">
     <valueCodeableConcept>
       <coding>
         <system value="http://hl7.org/fhir/v3/Race" />
@@ -9,7 +9,7 @@
       </coding>
     </valueCodeableConcept>    
   </extension>
-  <extension url="http://hl7.org/fhir/profile-us-core-201401#ethnicity">
+  <extension url="http://hl7.org/fhir/Profile/us-core#ethnicity">
     <valueCodeableConcept>
       <coding>
         <system value="http://hl7.org/fhir/v3/Ethnicity" />
@@ -52,7 +52,7 @@
   </name>
   
   <address>
-    <extension url="http://hl7.org/fhir/profile-us-core-201401#county">
+    <extension url="http://hl7.org/fhir/Profile/us-core#county">
       <valueString value="Orange County" />
     </extension>
     <use value="home"/>

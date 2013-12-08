@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T09:39:52Z</Created>
-  <LastSaved>2013-10-04T04:43:29Z</LastSaved>
+  <LastSaved>2013-12-06T12:55:11Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1266,7 +1266,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">homeCommunityId</Data></Cell>
+    <Cell><Data ss:Type="String">!homeCommunityId</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -1286,12 +1286,22 @@
     <Cell><Data ss:Type="String">In FHIR, the repository is explicit in the location and/or service URL</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell><Data ss:Type="String">author-institution-repeats</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Additional Institutions</Data></Cell>
+    <Cell><Data ss:Type="String">XDS allows multiple institutions for an author, but the Practitioner only allows one. If there a multiple institutions in an XDS record, use this extension for the additional ones</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell><Data ss:Type="String">practiceSettingCode</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">DocumentReference</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">XDSDocumentEntry.practiceSettingCode</Data></Cell>
+    <Cell><Data ss:Type="String">The code specifying the clinical specialty where the act that resulted in the document was performed (e.g., Family Practice, Laboratory, Radiology)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2" ss:StyleID="s78"/>
@@ -1348,8 +1358,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

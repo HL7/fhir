@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -166,7 +166,7 @@ public class Practitioner extends Resource {
     protected ResourceReference organization;
 
     /**
-     * The way in which the person represents the organization - what role do they have?.
+     * Roles which this practitioner is authorized perform for the organization.
      */
     protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
 
@@ -176,9 +176,14 @@ public class Practitioner extends Resource {
     protected List<CodeableConcept> specialty = new ArrayList<CodeableConcept>();
 
     /**
-     * The period during which the person is authorized to perform the service.
+     * The period during which the person is authorized to act as a practitioner in these role(s) for the organization.
      */
     protected Period period;
+
+    /**
+     * The location(s) at which this practitioner provides care.
+     */
+    protected List<ResourceReference> location = new ArrayList<ResourceReference>();
 
     /**
      * Qualifications relevant to the provided service.
@@ -342,7 +347,7 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #role} (The way in which the person represents the organization - what role do they have?.)
+     * @return {@link #role} (Roles which this practitioner is authorized perform for the organization.)
      */
     public List<CodeableConcept> getRole() { 
       return this.role;
@@ -350,7 +355,7 @@ public class Practitioner extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #role} (The way in which the person represents the organization - what role do they have?.)
+     * @return {@link #role} (Roles which this practitioner is authorized perform for the organization.)
      */
     public CodeableConcept addRole() { 
       CodeableConcept t = new CodeableConcept();
@@ -376,18 +381,35 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #period} (The period during which the person is authorized to perform the service.)
+     * @return {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
      */
     public Period getPeriod() { 
       return this.period;
     }
 
     /**
-     * @param value {@link #period} (The period during which the person is authorized to perform the service.)
+     * @param value {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
      */
     public Practitioner setPeriod(Period value) { 
       this.period = value;
       return this;
+    }
+
+    /**
+     * @return {@link #location} (The location(s) at which this practitioner provides care.)
+     */
+    public List<ResourceReference> getLocation() { 
+      return this.location;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #location} (The location(s) at which this practitioner provides care.)
+     */
+    public ResourceReference addLocation() { 
+      ResourceReference t = new ResourceReference();
+      this.location.add(t);
+      return t;
     }
 
     /**
@@ -434,9 +456,10 @@ public class Practitioner extends Resource {
         childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("organization", "Resource(Organization)", "The organization that the practitioner represents.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("role", "CodeableConcept", "The way in which the person represents the organization - what role do they have?.", 0, java.lang.Integer.MAX_VALUE, role));
+        childrenList.add(new Property("role", "CodeableConcept", "Roles which this practitioner is authorized perform for the organization.", 0, java.lang.Integer.MAX_VALUE, role));
         childrenList.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
-        childrenList.add(new Property("period", "Period", "The period during which the person is authorized to perform the service.", 0, java.lang.Integer.MAX_VALUE, period));
+        childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
+        childrenList.add(new Property("location", "Resource(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("qualification", "", "Qualifications relevant to the provided service.", 0, java.lang.Integer.MAX_VALUE, qualification));
         childrenList.add(new Property("communication", "CodeableConcept", "A language the practitioner is able to use in patient communication.", 0, java.lang.Integer.MAX_VALUE, communication));
       }
@@ -464,6 +487,9 @@ public class Practitioner extends Resource {
         for (CodeableConcept i : specialty)
           dst.specialty.add(i.copy());
         dst.period = period == null ? null : period.copy();
+        dst.location = new ArrayList<ResourceReference>();
+        for (ResourceReference i : location)
+          dst.location.add(i.copy());
         dst.qualification = new ArrayList<PractitionerQualificationComponent>();
         for (PractitionerQualificationComponent i : qualification)
           dst.qualification.add(i.copy(dst));

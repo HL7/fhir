@@ -64,10 +64,11 @@ public class Validator {
       System.out.println("");
       System.out.println("JSON is not supported at this time");
       System.out.println("");
-      System.out.println("Usage: FHIRValidator.jar [source] (-defn [definitions]) (-output [output]) where: ");
+      System.out.println("Usage: FHIRValidator.jar [source] (-defn [definitions]) (-output [output]) (-noxslt) where: ");
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
       System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from hl7.org");
       System.out.println("* [output] is a filename for the results (OperationOutcome). Default: results are sent to the std out.");
+      System.out.println("* -noxslt means not to run the schematrons (you really need to run these, but they need xslt2).");
       System.out.println("");
       System.out.println("Or: FHIRValidator.jar -profile-tests [registry] (-defn [definitions])");
       System.out.println("");
@@ -81,17 +82,20 @@ public class Validator {
             registry = args[i+1];
           if (args[i].equals("-defn"))
             pack = args[i+1];
+          	
         }
         ProfileValidatorTests tests = new ProfileValidatorTests(new File(pack), new File(registry));
         tests.execute();
       } else { 
         Validator exe = new Validator();
         exe.setSource(args[0]);
-        for (int i = 1; i < args.length - 1; i++) {
+        for (int i = 1; i < args.length; i++) {
           if (args[i].equals("-defn"))
             exe.setDefinitions(args[i+1]);
           if (args[i].equals("-output"))
             output = args[i+1];
+          if (args[i].equals("-noxslt"))
+          	exe.engine.setNoSchematron(true);
         }
         exe.process();
         if (output == null) {
@@ -111,7 +115,8 @@ public class Validator {
   }
 
 
-  private List<ValidationMessage> outputs() {
+
+	private List<ValidationMessage> outputs() {
     return engine.getOutputs();
   }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-atom.xsd">
+  xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
   <title>XDS Submission - prepared by Health Intersections Test Script</title>
   <id>urn:uuid:02f06039-da24-4585-953b-0e9da4e79f41</id>
   <updated>2013-07-01T13:11:33Z</updated>
@@ -15,7 +15,7 @@
     <updated>2013-07-01T13:11:33Z</updated>
     <content type="text/xml">
       <DocumentReference xmlns="http://hl7.org/fhir">
-        <extension url="http://hl7.org/fhir/xds#practiceSettingCode">
+        <extension url="http://hl7.org/fhir/Profile/xds-profile#practiceSettingCode">
           <valueCodeableConcept>
             <coding>
               <system value="http://ihe.net/connectathon/practiceSettingCodes"/>
@@ -58,13 +58,7 @@
         <description value="Physical"/>
         <primaryLanguage value="en-us"/>
         <mimeType value="text/plain"/>
-        <format>
-          <coding>
-            <system value="http://ihe.net/connectathon/formatCodes"/>
-            <code value="CDAR2/IHE 1.0"/>
-            <display value="CDAR2/IHE 1.0"/>
-          </coding>
-        </format>
+        <format value="urn:oid:1.3.6.1.4.1.19376.1.5.3.1.1.16.1.4"/>
         <location
           value="http://localhost:9556/svc/fhir/Binary/@1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
         <context>
@@ -113,7 +107,7 @@
     <updated>2013-07-01T13:11:33Z</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
-        <extension url="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats">
+        <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
           <valueResource>
             <display value="Parma Community"/>
           </valueResource>
@@ -157,7 +151,7 @@
     <updated>2013-07-01T13:11:33Z</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
-        <extension url="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats">
+        <extension url="http://hl7.org/fhir/Profile/xds-profile#author-institution-repeats">
           <valueResource>
             <display value="Berea Community"/>
           </valueResource>

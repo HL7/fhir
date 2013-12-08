@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
     <!-- an extension to record the LMP, which is required at the plan level... -->
-    <extension url="http://exampleDoNotUse/careplan#lmp" >
+    <extension url="http://example.org/DoNotUse/careplan#lmp" >
         <valueDateTime value="2013-01-01" />
     </extension>
  
@@ -100,7 +100,7 @@
         <!-- This will be the first antenatal encounter -->
         
         <!-- a link to further details about the first antenatal details -->
-        <extension url="http://exampleDoNotUse/careplan#andetails" >
+        <extension url="http://example.org/DoNotUse/careplan#andetails" >
             <valueUri value="http://orionhealth.com/fhir/careplan/1andetails" />
         </extension>
         

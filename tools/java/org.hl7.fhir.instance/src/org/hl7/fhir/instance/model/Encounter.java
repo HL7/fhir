@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -728,14 +728,9 @@ public class Encounter extends Resource {
     protected List<EncounterParticipantComponent> participant = new ArrayList<EncounterParticipantComponent>();
 
     /**
-     * The appointment that scheduled this encounter.
+     * The start and end time of the encounter.
      */
-    protected ResourceReference fulfills;
-
-    /**
-     * The date and time the encounter starts, e.g. the patient arrives.
-     */
-    protected DateTime start;
+    protected Period period;
 
     /**
      * Quantity of time the encounter lasted. This excludes the time during leaves of absence.
@@ -918,53 +913,17 @@ public class Encounter extends Resource {
     }
 
     /**
-     * @return {@link #fulfills} (The appointment that scheduled this encounter.)
+     * @return {@link #period} (The start and end time of the encounter.)
      */
-    public ResourceReference getFulfills() { 
-      return this.fulfills;
+    public Period getPeriod() { 
+      return this.period;
     }
 
     /**
-     * @param value {@link #fulfills} (The appointment that scheduled this encounter.)
+     * @param value {@link #period} (The start and end time of the encounter.)
      */
-    public Encounter setFulfills(ResourceReference value) { 
-      this.fulfills = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #start} (The date and time the encounter starts, e.g. the patient arrives.)
-     */
-    public DateTime getStart() { 
-      return this.start;
-    }
-
-    /**
-     * @param value {@link #start} (The date and time the encounter starts, e.g. the patient arrives.)
-     */
-    public Encounter setStart(DateTime value) { 
-      this.start = value;
-      return this;
-    }
-
-    /**
-     * @return The date and time the encounter starts, e.g. the patient arrives.
-     */
-    public String getStartSimple() { 
-      return this.start == null ? null : this.start.getValue();
-    }
-
-    /**
-     * @param value The date and time the encounter starts, e.g. the patient arrives.
-     */
-    public Encounter setStartSimple(String value) { 
-      if (value == null)
-        this.start = null;
-      else {
-        if (this.start == null)
-          this.start = new DateTime();
-        this.start.setValue(value);
-      }
+    public Encounter setPeriod(Period value) { 
+      this.period = value;
       return this;
     }
 
@@ -1098,8 +1057,7 @@ public class Encounter extends Resource {
         childrenList.add(new Property("type", "CodeableConcept", "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("subject", "Resource(Patient)", "The patient present at the encounter.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("participant", "", "The main practitioner responsible for providing the service.", 0, java.lang.Integer.MAX_VALUE, participant));
-        childrenList.add(new Property("fulfills", "Resource(Appointment)", "The appointment that scheduled this encounter.", 0, java.lang.Integer.MAX_VALUE, fulfills));
-        childrenList.add(new Property("start", "dateTime", "The date and time the encounter starts, e.g. the patient arrives.", 0, java.lang.Integer.MAX_VALUE, start));
+        childrenList.add(new Property("period", "Period", "The start and end time of the encounter.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("length", "Duration", "Quantity of time the encounter lasted. This excludes the time during leaves of absence.", 0, java.lang.Integer.MAX_VALUE, length));
         childrenList.add(new Property("reason", "CodeableConcept", "Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("indication", "Resource(Any)", "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis.", 0, java.lang.Integer.MAX_VALUE, indication));
@@ -1124,8 +1082,7 @@ public class Encounter extends Resource {
         dst.participant = new ArrayList<EncounterParticipantComponent>();
         for (EncounterParticipantComponent i : participant)
           dst.participant.add(i.copy(dst));
-        dst.fulfills = fulfills == null ? null : fulfills.copy();
-        dst.start = start == null ? null : start.copy();
+        dst.period = period == null ? null : period.copy();
         dst.length = length == null ? null : length.copy();
         dst.reason = reason == null ? null : reason.copy();
         dst.indication = indication == null ? null : indication.copy();

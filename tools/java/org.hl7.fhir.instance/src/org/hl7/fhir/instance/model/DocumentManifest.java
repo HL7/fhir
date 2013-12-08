@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -89,9 +89,14 @@ public class DocumentManifest extends Resource {
     }
 
     /**
-     * A single identifier that identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.
+     * A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.
      */
-    protected Identifier identifier;
+    protected Identifier masterIdentifier;
+
+    /**
+     * Other identifiers associated with the document, including version independent, source record and workflow related identifiers.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).
@@ -152,25 +157,42 @@ public class DocumentManifest extends Resource {
       super();
     }
 
-    public DocumentManifest(Identifier identifier, Enumeration<DocumentReferenceStatus> status) {
+    public DocumentManifest(Identifier masterIdentifier, Enumeration<DocumentReferenceStatus> status) {
       super();
-      this.identifier = identifier;
+      this.masterIdentifier = masterIdentifier;
       this.status = status;
     }
 
     /**
-     * @return {@link #identifier} (A single identifier that identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
+     * @return {@link #masterIdentifier} (A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
      */
-    public Identifier getIdentifier() { 
-      return this.identifier;
+    public Identifier getMasterIdentifier() { 
+      return this.masterIdentifier;
     }
 
     /**
-     * @param value {@link #identifier} (A single identifier that identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
+     * @param value {@link #masterIdentifier} (A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
      */
-    public DocumentManifest setIdentifier(Identifier value) { 
-      this.identifier = value;
+    public DocumentManifest setMasterIdentifier(Identifier value) { 
+      this.masterIdentifier = value;
       return this;
+    }
+
+    /**
+     * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
+     */
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #identifier} (Other identifiers associated with the document, including version independent, source record and workflow related identifiers.)
+     */
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -428,7 +450,8 @@ public class DocumentManifest extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "A single identifier that identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("masterIdentifier", "Identifier", "A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));
+        childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document, including version independent, source record and workflow related identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device)", "Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("recipient", "Resource(Patient|Practitioner|Organization)", "A patient, practitioner, or organization that this set of documents is intended for.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("type", "CodeableConcept", "Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there's only one - but it may be wider.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -444,7 +467,10 @@ public class DocumentManifest extends Resource {
 
       public DocumentManifest copy() {
         DocumentManifest dst = new DocumentManifest();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.masterIdentifier = masterIdentifier == null ? null : masterIdentifier.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.subject = new ArrayList<ResourceReference>();
         for (ResourceReference i : subject)
           dst.subject.add(i.copy());

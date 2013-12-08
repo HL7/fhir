@@ -58,6 +58,10 @@ other patient records. It is not a requirement that such links are bilateral.
 This specification does not specify merge functionality: if multiple patient records are found to be 
 duplicates, they can be linked together, as described above. These links merely express the relationship
 between records, and in the case of a replacement link, indicate a "master" record.  This specification
-does not mandate that FHIR servers migrate information between such records on finding such a link.
+does not mandate that FHIR servers migrate information between such records on finding such a link. Note:
 </p>
+<ul>
+ <li>Health information administrators may call the process "merging", but it is often implemented as "linking" at the record level</li>
+ <li>Servers are allowed to implement merging/record migration even though it is not mandated. </li>
+</ul>
 </div>

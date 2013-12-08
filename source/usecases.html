@@ -86,7 +86,7 @@ The following FHIR Resources are involved in the XDS functionality:
 </p>
 <ul>
  <li>The <a href="documentreference.html">DocumentReference</a> resource describes a document that is located elsewhere. A document registry is a system that maintains a set of Document References</li>
- <li>The <a href="xds-profile.xml.html">XDS profile</a> provides specific XDS implementation detail for the more general DocumentReference resource</li>
+ <li>The <a href="xds-profile.html">XDS profile</a> provides specific XDS implementation detail for the more general DocumentReference resource</li>
  <li>The <a href="http.html#binary">Binary</a> support can be used to store the actual documents on a FHIR server. A repository is a system that stores the binary document in addition to Document References (or sometimes without)</li>
  <li><a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a> and <a href="organization.html">Organization</a> resources provide support for identifying people and organizations</li>
  <li>The <a href="securityevent.html">SecurityEvent</a> resource tracks usage of the document registry and repository</li>
@@ -137,7 +137,7 @@ When a query is made in order to get a decision made, the following consideratio
 </p>
 <p><b>Request</b></p>
 <ul>
-  <li>The request for a decision is made using one of the interaction patterns described for <a href="query.htm">queries</a>: A RESTful search, a query posted to <a href="messaging.html#mailbox">/Mailbox</a>, a query <a href="messaging.html">message</a>, or the Asynchronous query pattern</li>
+  <li>The request for a decision is made using one of the interaction patterns described for <a href="query.html">queries</a>: A RESTful search, a query posted to <a href="messaging.html#mailbox">/Mailbox</a>, a query <a href="messaging.html">message</a>, or the Asynchronous query pattern</li>
   <li>The request has a _query parameter that identifies the decision that is being requested</li>
   <li>The request also has a set of parameter values. These parameter values may be the data that describes the decision being made or they may be references to specific resources that contain the request. In general, 
     the more complex the decision request is, the more likely it is that a full resource is appropriate, particularly since this provides a ready made way to record and manage the requests themselves. </li>

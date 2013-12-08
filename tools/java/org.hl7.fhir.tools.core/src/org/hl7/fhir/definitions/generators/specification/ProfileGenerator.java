@@ -88,6 +88,8 @@ public class ProfileGenerator {
   }
 
   public Profile generate(ProfileDefn profile, String html, GenerationMode mode) throws Exception {
+    if (profile.getSource() != null)
+      return profile.getSource();
     Profile p = new Profile();
     p.setName(Factory.newString_(profile.metadata("name")));
     p.setPublisher(Factory.newString_(profile.metadata("author.name")));

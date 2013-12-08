@@ -196,17 +196,17 @@
       <system value="http://snomed.info/sct"/>
       <code value="394802001">
         <!-- just to hook in the snomed display name, until build issues with snomed are resolved -->
-        <extension url="http://hl7.org/fhir/tools/extensions#display">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
           <valueString value="General Medicine"/>
         </extension>
       </code>
       <code value="408478003">
-        <extension url="http://hl7.org/fhir/tools/extensions#display">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
           <valueString value="Critical Care Medicine"/>
         </extension>
       </code>
       <code value="410001006">
-        <extension url="http://hl7.org/fhir/tools/extensions#display">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
           <valueString value="Military Medicine"/>
         </extension>
       </code>

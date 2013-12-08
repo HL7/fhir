@@ -31,6 +31,7 @@ package org.hl7.fhir.definitions.parsers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -65,11 +66,13 @@ import org.hl7.fhir.definitions.parsers.converters.EventConverter;
 import org.hl7.fhir.definitions.parsers.converters.PrimitiveConverter;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
@@ -266,9 +269,11 @@ public class SourceParser {
 		for (String n : ini.getPropertyNames("special-resources"))
 			definitions.getAggregationEndpoints().add(n);
 
-		for (String n : ini.getPropertyNames("valuesets")) {
-		  loadValueSet(n);
-		}
+		String[] pn = ini.getPropertyNames("valuesets");
+		if (pn != null)
+		  for (String n : pn) {
+		    loadValueSet(n);
+		  }
 		for (String n : ini.getPropertyNames("profiles")) {
 			loadProfile(n, definitions.getProfiles());
 		}
@@ -349,14 +354,25 @@ public class SourceParser {
 	
 	private void loadProfile(String n, Map<String, ProfileDefn> profiles)
 			throws Exception {
-		File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
-		SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry);
-		try {
-		  ProfileDefn profile = sparser.parseProfile(definitions);
-		  definitions.getProfiles().put(n, profile);
-		} catch (Exception e) {
-		  throw new Exception("Error Parsing Profile: '"+n+"': "+e.getMessage(), e);
-		}
+	  File spreadsheet = new CSFile(rootDir+ ini.getStringProperty("profiles", n));
+	  if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
+	    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry);
+	    try {
+	      ProfileDefn profile = sparser.parseProfile(definitions);
+	      definitions.getProfiles().put(n, profile);
+	    } catch (Exception e) {
+	      throw new Exception("Error Parsing Profile: '"+n+"': "+e.getMessage(), e);
+	    }
+	  } else {
+	    ProfileDefn profile = new ProfileDefn();
+      try {
+  	    profile.setSource((Profile) new XmlParser().parse(new FileInputStream(spreadsheet)));
+        definitions.getProfiles().put(n, profile);
+      } catch (Exception e) {
+        throw new Exception("Error Parsing Profile: '"+n+"': "+e.getMessage(), e);
+      }
+	  }
+	    
 	}
 
 	private void loadGlobalConceptDomains() throws Exception {

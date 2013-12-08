@@ -16,12 +16,12 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class ToolingExtensions {
 
-  public static final String EXT_COMMENT = "http://hl7.org/fhir/tools/extensions#comment";
-  public static final String EXT_DISPLAY = "http://hl7.org/fhir/tools/extensions#display";
-  public static final String EXT_DEFINITION = "http://hl7.org/fhir/tools/extensions#definition";
-  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/tools/extensions#deprecated";
-  public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/tools/extensions#issue-source";
-  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/tools/extensions#subsumes";
+  public static final String EXT_COMMENT = "http://hl7.org/fhir/Profile/tools-extensions#comment";
+  public static final String EXT_DISPLAY = "http://hl7.org/fhir/Profile/tools-extensions#display";
+  public static final String EXT_DEFINITION = "http://hl7.org/fhir/Profile/tools-extensions#definition";
+  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/Profile/tools-extensions#deprecated";
+  public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/Profile/tools-extensions#issue-source";
+  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/Profile/tools-extensions#subsumes";
 
   public static Extension makeIssueSource(Source source) {
     Extension ex = new Extension();
@@ -43,7 +43,7 @@ public class ToolingExtensions {
   }
 
   public static void addSubsumes(ValueSetDefineConceptComponent nc, String code) throws Exception {
-    nc.getExtensions().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
+    nc.getModifierExtensions().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
   }
 
   public static void addDefinition(Code nc, String definition) throws Exception {

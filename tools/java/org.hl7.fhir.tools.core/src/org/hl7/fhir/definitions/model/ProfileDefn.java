@@ -32,6 +32,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.Profile;
+
 public class ProfileDefn {
 
 
@@ -40,6 +42,7 @@ public class ProfileDefn {
   private Map<String, ArrayList<String>> metadata = new HashMap<String, ArrayList<String>>();
   private List<ExtensionDefn> extensions = new ArrayList<ExtensionDefn>();
   private List<BindingSpecification> bindings = new ArrayList<BindingSpecification>();
+  private Profile source;
   
   public Map<String, ArrayList<String>> getMetadata() {
     return metadata;
@@ -55,6 +58,21 @@ public class ProfileDefn {
   }
 
   public String metadata(String name) {
+    if (source != null) {
+      if ("description".equals(name))
+        return source.getDescriptionSimple();
+      if ("name".equals(name))
+        return source.getNameSimple();
+      if ("date".equals(name))
+        return source.getDateSimple();
+      if ("status".equals(name))
+        return source.getStatusSimple().toCode();
+      if ("author.name".equals(name))
+        return source.getPublisherSimple();
+      if ("id".equals(name))
+        return source.getIdentifierSimple();
+      throw new Error("metadata request for "+name);
+    }
     if (!metadata.containsKey(name))
       return "";
     ArrayList<String> a = metadata.get(name);
@@ -86,6 +104,14 @@ public class ProfileDefn {
 
   public List<BindingSpecification> getBindings() {
     return bindings;
+  }
+
+  public Profile getSource() {
+    return source;
+  }
+
+  public void setSource(Profile source) {
+    this.source = source;
   }
 
 

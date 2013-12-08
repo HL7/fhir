@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -174,6 +174,11 @@ public class DeviceObservationReport extends Resource {
 
       public DeviceObservationReportVirtualDeviceChannelMetricComponent() {
         super();
+      }
+
+      public DeviceObservationReportVirtualDeviceChannelMetricComponent(ResourceReference observation) {
+        super();
+        this.observation = observation;
       }
 
         /**

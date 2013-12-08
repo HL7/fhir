@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE FamilyHistory [
-  <!ENTITY pedigree "http://hl7.org/fhir/profile/familyhistory/geneticpedigree#">
+  <!ENTITY pedigree "http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree#">
 ]>
 <FamilyHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familyhistory.xsd">
   <text>

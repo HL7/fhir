@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -112,222 +112,6 @@ public class Questionnaire extends Resource {
       }
     }
 
-    public static class QuestionComponent extends BackboneElement {
-        /**
-         * Structured name for the question.
-         */
-        protected CodeableConcept name;
-
-        /**
-         * Text of the question as it may appear on screen or on a form.
-         */
-        protected String_ text;
-
-        /**
-         * Single-valued answer to the question.
-         */
-        protected Type answer;
-
-        /**
-         * One of more selections from the list of options.
-         */
-        protected List<Coding> choice = new ArrayList<Coding>();
-
-        /**
-         * Reference to a valueset containing the possible options.
-         */
-        protected Type options;
-
-        /**
-         * Structured answer in the form of a FHIR Resource or datatype.
-         */
-        protected org.hl7.fhir.instance.model.Type data;
-
-        /**
-         * The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
-         */
-        protected String_ remarks;
-
-      public QuestionComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #name} (Structured name for the question.)
-         */
-        public CodeableConcept getName() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (Structured name for the question.)
-         */
-        public QuestionComponent setName(CodeableConcept value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #text} (Text of the question as it may appear on screen or on a form.)
-         */
-        public String_ getText() { 
-          return this.text;
-        }
-
-        /**
-         * @param value {@link #text} (Text of the question as it may appear on screen or on a form.)
-         */
-        public QuestionComponent setText(String_ value) { 
-          this.text = value;
-          return this;
-        }
-
-        /**
-         * @return Text of the question as it may appear on screen or on a form.
-         */
-        public String getTextSimple() { 
-          return this.text == null ? null : this.text.getValue();
-        }
-
-        /**
-         * @param value Text of the question as it may appear on screen or on a form.
-         */
-        public QuestionComponent setTextSimple(String value) { 
-          if (value == null)
-            this.text = null;
-          else {
-            if (this.text == null)
-              this.text = new String_();
-            this.text.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #answer} (Single-valued answer to the question.)
-         */
-        public Type getAnswer() { 
-          return this.answer;
-        }
-
-        /**
-         * @param value {@link #answer} (Single-valued answer to the question.)
-         */
-        public QuestionComponent setAnswer(Type value) { 
-          this.answer = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #choice} (One of more selections from the list of options.)
-         */
-        public List<Coding> getChoice() { 
-          return this.choice;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #choice} (One of more selections from the list of options.)
-         */
-        public Coding addChoice() { 
-          Coding t = new Coding();
-          this.choice.add(t);
-          return t;
-        }
-
-        /**
-         * @return {@link #options} (Reference to a valueset containing the possible options.)
-         */
-        public Type getOptions() { 
-          return this.options;
-        }
-
-        /**
-         * @param value {@link #options} (Reference to a valueset containing the possible options.)
-         */
-        public QuestionComponent setOptions(Type value) { 
-          this.options = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #data} (Structured answer in the form of a FHIR Resource or datatype.)
-         */
-        public org.hl7.fhir.instance.model.Type getData() { 
-          return this.data;
-        }
-
-        /**
-         * @param value {@link #data} (Structured answer in the form of a FHIR Resource or datatype.)
-         */
-        public QuestionComponent setData(org.hl7.fhir.instance.model.Type value) { 
-          this.data = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #remarks} (The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.)
-         */
-        public String_ getRemarks() { 
-          return this.remarks;
-        }
-
-        /**
-         * @param value {@link #remarks} (The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.)
-         */
-        public QuestionComponent setRemarks(String_ value) { 
-          this.remarks = value;
-          return this;
-        }
-
-        /**
-         * @return The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
-         */
-        public String getRemarksSimple() { 
-          return this.remarks == null ? null : this.remarks.getValue();
-        }
-
-        /**
-         * @param value The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
-         */
-        public QuestionComponent setRemarksSimple(String value) { 
-          if (value == null)
-            this.remarks = null;
-          else {
-            if (this.remarks == null)
-              this.remarks = new String_();
-            this.remarks.setValue(value);
-          }
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "CodeableConcept", "Structured name for the question.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("text", "string", "Text of the question as it may appear on screen or on a form.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("answer[x]", "decimal|integer|boolean|date|string|dateTime|instant", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, answer));
-          childrenList.add(new Property("choice", "Coding", "One of more selections from the list of options.", 0, java.lang.Integer.MAX_VALUE, choice));
-          childrenList.add(new Property("options[x]", "uri|Resource(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));
-          childrenList.add(new Property("data[x]", "*", "Structured answer in the form of a FHIR Resource or datatype.", 0, java.lang.Integer.MAX_VALUE, data));
-          childrenList.add(new Property("remarks", "string", "The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.", 0, java.lang.Integer.MAX_VALUE, remarks));
-        }
-
-      public QuestionComponent copy(Questionnaire e) {
-        QuestionComponent dst = new QuestionComponent();
-        dst.name = name == null ? null : name.copy();
-        dst.text = text == null ? null : text.copy();
-        dst.answer = answer == null ? null : answer.copy();
-        dst.choice = new ArrayList<Coding>();
-        for (Coding i : choice)
-          dst.choice.add(i.copy());
-        dst.options = options == null ? null : options.copy();
-        dst.data = data == null ? null : data.copy();
-        dst.remarks = remarks == null ? null : remarks.copy();
-        return dst;
-      }
-
-  }
-
     public static class GroupComponent extends BackboneElement {
         /**
          * Structured name for a section of a predefined list of questions this questionnaire is responding to.
@@ -345,19 +129,24 @@ public class Questionnaire extends Resource {
         protected String_ text;
 
         /**
+         * Whether the contents of this group have a meaningful order.
+         */
+        protected Boolean ordered;
+
+        /**
          * More specific subject this section's answers are about, details the subject given in Questionnaire.
          */
         protected ResourceReference subject;
 
         /**
-         * Set of questions within this group.
-         */
-        protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
-
-        /**
          * A sub-group within a group.
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
+
+        /**
+         * Set of questions within this group.
+         */
+        protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
 
       public GroupComponent() {
         super();
@@ -451,6 +240,42 @@ public class Questionnaire extends Resource {
         }
 
         /**
+         * @return {@link #ordered} (Whether the contents of this group have a meaningful order.)
+         */
+        public Boolean getOrdered() { 
+          return this.ordered;
+        }
+
+        /**
+         * @param value {@link #ordered} (Whether the contents of this group have a meaningful order.)
+         */
+        public GroupComponent setOrdered(Boolean value) { 
+          this.ordered = value;
+          return this;
+        }
+
+        /**
+         * @return Whether the contents of this group have a meaningful order.
+         */
+        public boolean getOrderedSimple() { 
+          return this.ordered == null ? null : this.ordered.getValue();
+        }
+
+        /**
+         * @param value Whether the contents of this group have a meaningful order.
+         */
+        public GroupComponent setOrderedSimple(boolean value) { 
+          if (value == false)
+            this.ordered = null;
+          else {
+            if (this.ordered == null)
+              this.ordered = new Boolean();
+            this.ordered.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #subject} (More specific subject this section's answers are about, details the subject given in Questionnaire.)
          */
         public ResourceReference getSubject() { 
@@ -463,23 +288,6 @@ public class Questionnaire extends Resource {
         public GroupComponent setSubject(ResourceReference value) { 
           this.subject = value;
           return this;
-        }
-
-        /**
-         * @return {@link #question} (Set of questions within this group.)
-         */
-        public List<QuestionComponent> getQuestion() { 
-          return this.question;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #question} (Set of questions within this group.)
-         */
-        public QuestionComponent addQuestion() { 
-          QuestionComponent t = new QuestionComponent();
-          this.question.add(t);
-          return t;
         }
 
         /**
@@ -499,14 +307,32 @@ public class Questionnaire extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #question} (Set of questions within this group.)
+         */
+        public List<QuestionComponent> getQuestion() { 
+          return this.question;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #question} (Set of questions within this group.)
+         */
+        public QuestionComponent addQuestion() { 
+          QuestionComponent t = new QuestionComponent();
+          this.question.add(t);
+          return t;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "CodeableConcept", "Structured name for a section of a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("header", "string", "Header for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, header));
           childrenList.add(new Property("text", "string", "Additional text for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("ordered", "boolean", "Whether the contents of this group have a meaningful order.", 0, java.lang.Integer.MAX_VALUE, ordered));
           childrenList.add(new Property("subject", "Resource(Any)", "More specific subject this section's answers are about, details the subject given in Questionnaire.", 0, java.lang.Integer.MAX_VALUE, subject));
-          childrenList.add(new Property("question", "@Questionnaire.question", "Set of questions within this group.", 0, java.lang.Integer.MAX_VALUE, question));
           childrenList.add(new Property("group", "@Questionnaire.group", "A sub-group within a group.", 0, java.lang.Integer.MAX_VALUE, group));
+          childrenList.add(new Property("question", "", "Set of questions within this group.", 0, java.lang.Integer.MAX_VALUE, question));
         }
 
       public GroupComponent copy(Questionnaire e) {
@@ -514,10 +340,253 @@ public class Questionnaire extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.header = header == null ? null : header.copy();
         dst.text = text == null ? null : text.copy();
+        dst.ordered = ordered == null ? null : ordered.copy();
         dst.subject = subject == null ? null : subject.copy();
+        dst.group = new ArrayList<GroupComponent>();
+        for (GroupComponent i : group)
+          dst.group.add(i.copy(e));
         dst.question = new ArrayList<QuestionComponent>();
         for (QuestionComponent i : question)
           dst.question.add(i.copy(e));
+        return dst;
+      }
+
+  }
+
+    public static class QuestionComponent extends BackboneElement {
+        /**
+         * Structured name for the question that identifies this question within the Questionnaire or Group.
+         */
+        protected CodeableConcept name;
+
+        /**
+         * Text of the question as it may appear on screen or on a form.
+         */
+        protected String_ text;
+
+        /**
+         * Single-valued answer to the question.
+         */
+        protected Type answer;
+
+        /**
+         * Selections made by the user from the list of options.
+         */
+        protected List<Coding> choice = new ArrayList<Coding>();
+
+        /**
+         * Reference to a valueset containing the possible options.
+         */
+        protected ResourceReference options;
+
+        /**
+         * Structured answer in the form of a FHIR Resource or datatype.
+         */
+        protected org.hl7.fhir.instance.model.Type data;
+
+        /**
+         * The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
+         */
+        protected String_ remarks;
+
+        /**
+         * Nested group, containing nested question for this question.
+         */
+        protected List<GroupComponent> group = new ArrayList<GroupComponent>();
+
+      public QuestionComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #name} (Structured name for the question that identifies this question within the Questionnaire or Group.)
+         */
+        public CodeableConcept getName() { 
+          return this.name;
+        }
+
+        /**
+         * @param value {@link #name} (Structured name for the question that identifies this question within the Questionnaire or Group.)
+         */
+        public QuestionComponent setName(CodeableConcept value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #text} (Text of the question as it may appear on screen or on a form.)
+         */
+        public String_ getText() { 
+          return this.text;
+        }
+
+        /**
+         * @param value {@link #text} (Text of the question as it may appear on screen or on a form.)
+         */
+        public QuestionComponent setText(String_ value) { 
+          this.text = value;
+          return this;
+        }
+
+        /**
+         * @return Text of the question as it may appear on screen or on a form.
+         */
+        public String getTextSimple() { 
+          return this.text == null ? null : this.text.getValue();
+        }
+
+        /**
+         * @param value Text of the question as it may appear on screen or on a form.
+         */
+        public QuestionComponent setTextSimple(String value) { 
+          if (value == null)
+            this.text = null;
+          else {
+            if (this.text == null)
+              this.text = new String_();
+            this.text.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #answer} (Single-valued answer to the question.)
+         */
+        public Type getAnswer() { 
+          return this.answer;
+        }
+
+        /**
+         * @param value {@link #answer} (Single-valued answer to the question.)
+         */
+        public QuestionComponent setAnswer(Type value) { 
+          this.answer = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #choice} (Selections made by the user from the list of options.)
+         */
+        public List<Coding> getChoice() { 
+          return this.choice;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #choice} (Selections made by the user from the list of options.)
+         */
+        public Coding addChoice() { 
+          Coding t = new Coding();
+          this.choice.add(t);
+          return t;
+        }
+
+        /**
+         * @return {@link #options} (Reference to a valueset containing the possible options.)
+         */
+        public ResourceReference getOptions() { 
+          return this.options;
+        }
+
+        /**
+         * @param value {@link #options} (Reference to a valueset containing the possible options.)
+         */
+        public QuestionComponent setOptions(ResourceReference value) { 
+          this.options = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #data} (Structured answer in the form of a FHIR Resource or datatype.)
+         */
+        public org.hl7.fhir.instance.model.Type getData() { 
+          return this.data;
+        }
+
+        /**
+         * @param value {@link #data} (Structured answer in the form of a FHIR Resource or datatype.)
+         */
+        public QuestionComponent setData(org.hl7.fhir.instance.model.Type value) { 
+          this.data = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #remarks} (The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.)
+         */
+        public String_ getRemarks() { 
+          return this.remarks;
+        }
+
+        /**
+         * @param value {@link #remarks} (The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.)
+         */
+        public QuestionComponent setRemarks(String_ value) { 
+          this.remarks = value;
+          return this;
+        }
+
+        /**
+         * @return The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
+         */
+        public String getRemarksSimple() { 
+          return this.remarks == null ? null : this.remarks.getValue();
+        }
+
+        /**
+         * @param value The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.
+         */
+        public QuestionComponent setRemarksSimple(String value) { 
+          if (value == null)
+            this.remarks = null;
+          else {
+            if (this.remarks == null)
+              this.remarks = new String_();
+            this.remarks.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #group} (Nested group, containing nested question for this question.)
+         */
+        public List<GroupComponent> getGroup() { 
+          return this.group;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #group} (Nested group, containing nested question for this question.)
+         */
+        public GroupComponent addGroup() { 
+          GroupComponent t = new GroupComponent();
+          this.group.add(t);
+          return t;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "CodeableConcept", "Structured name for the question that identifies this question within the Questionnaire or Group.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("text", "string", "Text of the question as it may appear on screen or on a form.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("answer[x]", "decimal|integer|boolean|date|string|dateTime|instant", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, answer));
+          childrenList.add(new Property("choice", "Coding", "Selections made by the user from the list of options.", 0, java.lang.Integer.MAX_VALUE, choice));
+          childrenList.add(new Property("options", "Resource(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));
+          childrenList.add(new Property("data[x]", "*", "Structured answer in the form of a FHIR Resource or datatype.", 0, java.lang.Integer.MAX_VALUE, data));
+          childrenList.add(new Property("remarks", "string", "The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.", 0, java.lang.Integer.MAX_VALUE, remarks));
+          childrenList.add(new Property("group", "@Questionnaire.group", "Nested group, containing nested question for this question.", 0, java.lang.Integer.MAX_VALUE, group));
+        }
+
+      public QuestionComponent copy(Questionnaire e) {
+        QuestionComponent dst = new QuestionComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.text = text == null ? null : text.copy();
+        dst.answer = answer == null ? null : answer.copy();
+        dst.choice = new ArrayList<Coding>();
+        for (Coding i : choice)
+          dst.choice.add(i.copy());
+        dst.options = options == null ? null : options.copy();
+        dst.data = data == null ? null : data.copy();
+        dst.remarks = remarks == null ? null : remarks.copy();
         dst.group = new ArrayList<GroupComponent>();
         for (GroupComponent i : group)
           dst.group.add(i.copy(e));
@@ -567,14 +636,9 @@ public class Questionnaire extends Resource {
     protected ResourceReference encounter;
 
     /**
-     * Answers to questions on a questionnaire.
-     */
-    protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
-
-    /**
      * A group of questions to a possibly similarly grouped set of question in the questionnaire.
      */
-    protected List<GroupComponent> group = new ArrayList<GroupComponent>();
+    protected GroupComponent group;
 
     public Questionnaire() {
       super();
@@ -743,37 +807,18 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #question} (Answers to questions on a questionnaire.)
-     */
-    public List<QuestionComponent> getQuestion() { 
-      return this.question;
-    }
-
-    // syntactic sugar
-    /**
-     * @return {@link #question} (Answers to questions on a questionnaire.)
-     */
-    public QuestionComponent addQuestion() { 
-      QuestionComponent t = new QuestionComponent();
-      this.question.add(t);
-      return t;
-    }
-
-    /**
      * @return {@link #group} (A group of questions to a possibly similarly grouped set of question in the questionnaire.)
      */
-    public List<GroupComponent> getGroup() { 
+    public GroupComponent getGroup() { 
       return this.group;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #group} (A group of questions to a possibly similarly grouped set of question in the questionnaire.)
+     * @param value {@link #group} (A group of questions to a possibly similarly grouped set of question in the questionnaire.)
      */
-    public GroupComponent addGroup() { 
-      GroupComponent t = new GroupComponent();
-      this.group.add(t);
-      return t;
+    public Questionnaire setGroup(GroupComponent value) { 
+      this.group = value;
+      return this;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -786,7 +831,6 @@ public class Questionnaire extends Resource {
         childrenList.add(new Property("name", "CodeableConcept", "Structured name for a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("question", "", "Answers to questions on a questionnaire.", 0, java.lang.Integer.MAX_VALUE, question));
         childrenList.add(new Property("group", "", "A group of questions to a possibly similarly grouped set of question in the questionnaire.", 0, java.lang.Integer.MAX_VALUE, group));
       }
 
@@ -802,12 +846,7 @@ public class Questionnaire extends Resource {
         for (Identifier i : identifier)
           dst.identifier.add(i.copy());
         dst.encounter = encounter == null ? null : encounter.copy();
-        dst.question = new ArrayList<QuestionComponent>();
-        for (QuestionComponent i : question)
-          dst.question.add(i.copy(dst));
-        dst.group = new ArrayList<GroupComponent>();
-        for (GroupComponent i : group)
-          dst.group.add(i.copy(dst));
+        dst.group = group == null ? null : group.copy(dst);
         return dst;
       }
 

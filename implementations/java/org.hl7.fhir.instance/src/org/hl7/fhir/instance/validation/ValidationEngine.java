@@ -40,6 +40,7 @@ public class ValidationEngine {
   private Map<String, byte[]> definitions = new HashMap<String, byte[]>();
   private List<ValidationMessage> outputs;  
   private OperationOutcome outcome;
+	private boolean noSchematron;
 
 
   public void process() throws Exception {
@@ -57,13 +58,15 @@ public class ValidationEngine {
     builder.setErrorHandler(new ValidationErrorHandler(outputs));
     Document doc = builder.parse(new ByteArrayInputStream(source));
 
-    // 2. schematron validation
-    String sch = doc.getDocumentElement().getNodeName().toLowerCase();
-    if (sch.equals("feed"))
-      sch = "fhir-atom";
-    byte[] tmp = Utilities.transform(definitions, definitions.get(sch+".sch"), definitions.get("iso_svrl_for_xslt1.xsl"));
-    byte[] out = Utilities.transform(definitions, source, tmp);
-    processSchematronOutput(out);    
+    if (!noSchematron) {
+    	// 2. schematron validation
+    	String sch = doc.getDocumentElement().getNodeName().toLowerCase();
+    	if (sch.equals("feed"))
+    		sch = "fhir-atom";
+    	byte[] tmp = Utilities.transform(definitions, definitions.get(sch+".sch"), definitions.get("iso_svrl_for_xslt1.xsl"));
+    	byte[] out = Utilities.transform(definitions, source, tmp);
+    	processSchematronOutput(out);
+    }
 
     // 3. internal validation. reparse without schema to "help"
     factory = DocumentBuilderFactory.newInstance();
@@ -73,7 +76,7 @@ public class ValidationEngine {
     builder.setErrorHandler(new ValidationErrorHandler(outputs));
     doc = builder.parse(new ByteArrayInputStream(source));
 
-    outputs.addAll(new InstanceValidator(definitions).validateInstance(doc.getDocumentElement()));
+    outputs.addAll(new InstanceValidator(definitions, null).validateInstance(doc.getDocumentElement()));
 
     Resource r = new XmlParser().parse(new ByteArrayInputStream(source));
         
@@ -162,5 +165,13 @@ public class ValidationEngine {
     this.source = source;
   }
 
-  
+	public boolean isNoSchematron() {
+		return noSchematron;
+	}
+
+	public void setNoSchematron(boolean noSchematron) {
+		this.noSchematron = noSchematron;
+	}
+
+
 }

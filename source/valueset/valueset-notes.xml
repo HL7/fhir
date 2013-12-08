@@ -11,8 +11,8 @@ implementations as they can make use of the innate identifier and versioning mec
 <h2>Value Sets that define codes</h2>
 
 <p>
-A value set that defines codes automatically includes all the codes it defines. 
-This kind of value set is useful for simple sets of codes that are highly 
+Valuesets can define their own codes. A value set that defines codes automatically includes all 
+the codes it defines, and is useful for simple sets of codes that are highly 
 specific and context-dependent. The value set and the code system are both 
 given URI identifiers by which they may be identified from elsewhere 
 (ValueSet.identifier and ValueSet.define.system). These identifiers SHALL 
@@ -27,6 +27,11 @@ be different.
    the containing concept (there is an "is-a" relationship between the codes).</li>
   <li>An abstract concept SHALL have contained concepts</li>
 </ul>
+<p>
+Note: Value sets only define their own codes when they are not defined elsewhere,
+such as codes defined in SNOMED CT, LOINC, RxNorm etc. To specify a value set that
+is made up of codes from other code systems, see "compose" below. 
+</p>
 
 <a name="versioning"> </a>
 <h3>Versioning Code Systems</h3>
@@ -88,15 +93,64 @@ to compute the relationship, which might not be possible for a profile tool</li>
 How filters are used with various code systems:
 </p>
 <table class="grid">
- <tr><th>System</th>    <th>Property</th> <th>Expression</th> <th>Value</th>        <th>Definition</th></tr>
- <tr><td>SNOMED CT</td> <td>"concept"</td><td>is-a</td>       <td>[concept]</td>    <td>Includes all codes that have a transitive is-a relationship with the concept Id provided as the value <br/>The formal expression for this is DescendentsAndSelf([concept])</td> </tr>
- <tr><td></td>          <td>"expression"</td><td>=</td>       <td>[expression]</td> <td>The result of the filter is the result of executing the given snomed expression 
- (see the draft <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_CT_Query_Specification_-__v0.08_-_20121213.doc"> SNOMED CT Query Language</a>)</td> </tr>
- <tr><td colspan="4"><hr/></td></tr>
- <tr><td>Loinc</td> <td>SCALE_TYP</td><td>=</td>       <td>[concept]</td>    <td>Includes all codes where the named property has the given value</td> </tr>
- <tr><td></td>      <td>Type</td>        <td>=</td>       <td>Method</td>       <td>All the LOINC codes for particular methods defined in LOINC</td> </tr>
- <tr><td colspan="4"><hr/></td></tr>
- <tr><td>V3 Code systems</td> <td>"concept"</td><td>is-a</td>       <td>[code]</td>    <td>Includes all codes that have a transitive is-a relationship with the concept identified by the value</td> </tr>
+ <tr>
+   <th>System</th>    
+   <th>Property Name</th> 
+   <th>Expression</th> 
+   <th>Value</th>        
+   <th>Definition</th>
+   <th>Example</th>
+ </tr>
+ <tr>
+   <td>SNOMED CT</td> 
+   <td>concept</td>
+   <td>is-a</td>       
+   <td>[concept]</td>    
+   <td>Includes all codes that have a transitive is-a relationship with the concept Id provided as the value <br/>The formal expression for this is DescendentsAndSelf([concept])</td> 
+   <td><a href="valueset-administration-method-codes.html">Administation Methods</a></td>
+ </tr>
+ <tr>
+   <td></td>          
+   <td>expression</td>
+   <td>=</td>       
+   <td>[expression]</td> 
+   <td>The result of the filter is the result of executing the given snomed expression 
+    (see the draft <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_CT_Query_Specification_-__v0.08_-_20121213.doc"> SNOMED CT Query Language</a>)</td> 
+   <td>(no example yet)</td>
+ </tr>
+ <tr>
+   <td colspan="4"><hr/></td>
+ </tr>
+ 
+ <tr>
+   <td>Loinc</td> 
+   <td>SCALE_TYP</td>
+   <td>=</td>       
+   <td>[concept]</td>    
+   <td>Includes all codes where the named property has the given value</td> 
+   <td><a href="valueset-doc-codes.html">Document Codes</a></td>
+ </tr>
+ <tr>
+   <td></td>      
+   <td>Type</td>        
+   <td>=</td>       
+   <td>Method</td>       
+   <td>All the LOINC codes for particular methods defined in LOINC</td> 
+   <td><a href="valueset-observation-methods.html">Observation Methods</a></td>
+ </tr>
+ <tr>
+   <td colspan="4"><hr/></td>
+ </tr>
+ 
+ <tr>
+   <td>V3 Code systems</td> 
+   <td>concept</td>
+   <td>is-a</td>       
+   <td>[code]</td>    
+   <td>Includes all codes that have a transitive is-a relationship with the concept identified by the value</td> 
+   <td><a href="valueset-relatedperson-relationshiptype.html">Relationship Type</a></td>
+ </tr>
+ 
 </table>
 
 <a name="expansion"> </a>
@@ -146,11 +200,11 @@ case, the standard way to produce a value set expansion is to perform a
 <a href="query.html">query</a> on the value set with _query=expand:
 </p>
 <pre>
-  GET [service-url]/ValueSet/?_query=expand&amp;id=:url&amp;...
+  GET [service-url]/ValueSet/?_query=expand&amp;id=:valueSet&amp;...
 </pre>
 <p>
 This is a request to produce a value set expansion for the value set
-with the provided id (either a logical id, or an absolute reference to a value set). 
+with the provided id is either a logical id, or an absolute reference to a value set. 
 The value set can be identified by other means, such as identifier and version. 
 Servers can define their own additional parameters that influence the expansion 
 process, such in relation to order and hierarchy.
@@ -169,7 +223,7 @@ ask for validation is to perform a
 <a href="query.html">query</a> on the value set with _query=validate:
 </p>
 <pre>
-  GET [service-url]/valueset/?_query=validate&amp;id=:url&amp;system=:url&amp;version=:string&amp;code=:string&amp;...
+  GET [service-url]/valueset/?_query=validate&amp;id=:valueSet&amp;system=:system&amp;version=:version&amp;code=:code&amp;...
 </pre>
 <p>
 The values for system, version, and code are those from the <a href="datatypes.html#Coding">Coding</a> data type.

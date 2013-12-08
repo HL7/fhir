@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -348,6 +348,56 @@ public class Conformance extends Resource {
         return "search-system";
       if (code == SystemRestfulOperation.historysystem)
         return "history-system";
+      return "?";
+      }
+    }
+
+    public enum MessageSignificanceCategory {
+        consequence, // The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment.
+        currency, // The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
+        notification, // The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
+        Null; // added to help the parsers
+        public static MessageSignificanceCategory fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("Consequence".equals(codeString))
+          return consequence;
+        if ("Currency".equals(codeString))
+          return currency;
+        if ("Notification".equals(codeString))
+          return notification;
+        throw new Exception("Unknown MessageSignificanceCategory code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case consequence: return "Consequence";
+            case currency: return "Currency";
+            case notification: return "Notification";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class MessageSignificanceCategoryEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("Consequence".equals(codeString))
+          return MessageSignificanceCategory.consequence;
+        if ("Currency".equals(codeString))
+          return MessageSignificanceCategory.currency;
+        if ("Notification".equals(codeString))
+          return MessageSignificanceCategory.notification;
+        throw new Exception("Unknown MessageSignificanceCategory code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == MessageSignificanceCategory.consequence)
+        return "Consequence";
+      if (code == MessageSignificanceCategory.currency)
+        return "Currency";
+      if (code == MessageSignificanceCategory.notification)
+        return "Notification";
       return "?";
       }
     }
@@ -2244,6 +2294,11 @@ public class Conformance extends Resource {
         protected Coding code;
 
         /**
+         * The impact of the content of the message.
+         */
+        protected Enumeration<MessageSignificanceCategory> category;
+
+        /**
          * The mode of this event declaration - whether application is sender or receiver.
          */
         protected Enumeration<MessageConformanceEventMode> mode;
@@ -2298,6 +2353,42 @@ public class Conformance extends Resource {
          */
         public ConformanceMessagingEventComponent setCode(Coding value) { 
           this.code = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #category} (The impact of the content of the message.)
+         */
+        public Enumeration<MessageSignificanceCategory> getCategory() { 
+          return this.category;
+        }
+
+        /**
+         * @param value {@link #category} (The impact of the content of the message.)
+         */
+        public ConformanceMessagingEventComponent setCategory(Enumeration<MessageSignificanceCategory> value) { 
+          this.category = value;
+          return this;
+        }
+
+        /**
+         * @return The impact of the content of the message.
+         */
+        public MessageSignificanceCategory getCategorySimple() { 
+          return this.category == null ? null : this.category.getValue();
+        }
+
+        /**
+         * @param value The impact of the content of the message.
+         */
+        public ConformanceMessagingEventComponent setCategorySimple(MessageSignificanceCategory value) { 
+          if (value == null)
+            this.category = null;
+          else {
+            if (this.category == null)
+              this.category = new Enumeration<MessageSignificanceCategory>();
+            this.category.setValue(value);
+          }
           return this;
         }
 
@@ -2451,6 +2542,7 @@ public class Conformance extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "Identifies the supported messaging event.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("category", "code", "The impact of the content of the message.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("mode", "code", "The mode of this event declaration - whether application is sender or receiver.", 0, java.lang.Integer.MAX_VALUE, mode));
           childrenList.add(new Property("protocol", "Coding", "Identifies the messaging transport protocol(s) supported by this endpoint.", 0, java.lang.Integer.MAX_VALUE, protocol));
           childrenList.add(new Property("focus", "code", "Identifies the resource associated with the event.  This is the resource that defines the event.", 0, java.lang.Integer.MAX_VALUE, focus));
@@ -2462,6 +2554,7 @@ public class Conformance extends Resource {
       public ConformanceMessagingEventComponent copy(Conformance e) {
         ConformanceMessagingEventComponent dst = new ConformanceMessagingEventComponent();
         dst.code = code == null ? null : code.copy();
+        dst.category = category == null ? null : category.copy();
         dst.mode = mode == null ? null : mode.copy();
         dst.protocol = new ArrayList<Coding>();
         for (Coding i : protocol)

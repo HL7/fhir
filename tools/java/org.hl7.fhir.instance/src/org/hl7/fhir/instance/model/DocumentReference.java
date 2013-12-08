@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -621,9 +621,9 @@ public class DocumentReference extends Resource {
     protected Code mimeType;
 
     /**
-     * The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml).
+     * An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.
      */
-    protected CodeableConcept format;
+    protected List<Uri> format = new ArrayList<Uri>();
 
     /**
      * The size of the source document this reference refers to in bytes.
@@ -1078,18 +1078,30 @@ public class DocumentReference extends Resource {
     }
 
     /**
-     * @return {@link #format} (The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml).)
+     * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
-    public CodeableConcept getFormat() { 
+    public List<Uri> getFormat() { 
       return this.format;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #format} (The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml).)
+     * @return {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
      */
-    public DocumentReference setFormat(CodeableConcept value) { 
-      this.format = value;
-      return this;
+    public Uri addFormat() { 
+      Uri t = new Uri();
+      this.format.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
+     */
+    public Uri addFormatSimple(String value) { 
+      Uri t = new Uri();
+      t.setValue(value);
+      this.format.add(t);
+      return t;
     }
 
     /**
@@ -1250,7 +1262,7 @@ public class DocumentReference extends Resource {
         childrenList.add(new Property("confidentiality", "CodeableConcept", "A code specifying the level of confidentiality of the XDS Document.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
         childrenList.add(new Property("primaryLanguage", "code", "The primary language in which the source document is written.", 0, java.lang.Integer.MAX_VALUE, primaryLanguage));
         childrenList.add(new Property("mimeType", "code", "The mime type of the source document.", 0, java.lang.Integer.MAX_VALUE, mimeType));
-        childrenList.add(new Property("format", "CodeableConcept", "The format of the document. This is used when the mimeType of the document does not provide enough differentiating information (typically, when the mime type of the document is text/xml).", 0, java.lang.Integer.MAX_VALUE, format));
+        childrenList.add(new Property("format", "uri", "An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.", 0, java.lang.Integer.MAX_VALUE, format));
         childrenList.add(new Property("size", "integer", "The size of the source document this reference refers to in bytes.", 0, java.lang.Integer.MAX_VALUE, size));
         childrenList.add(new Property("hash", "string", "A hash of the source document to ensure that changes have not occurred.", 0, java.lang.Integer.MAX_VALUE, hash));
         childrenList.add(new Property("location", "uri", "A url at which the document can be accessed.", 0, java.lang.Integer.MAX_VALUE, location));
@@ -1286,7 +1298,9 @@ public class DocumentReference extends Resource {
           dst.confidentiality.add(i.copy());
         dst.primaryLanguage = primaryLanguage == null ? null : primaryLanguage.copy();
         dst.mimeType = mimeType == null ? null : mimeType.copy();
-        dst.format = format == null ? null : format.copy();
+        dst.format = new ArrayList<Uri>();
+        for (Uri i : format)
+          dst.format.add(i.copy());
         dst.size = size == null ? null : size.copy();
         dst.hash = hash == null ? null : hash.copy();
         dst.location = location == null ? null : location.copy();

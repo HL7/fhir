@@ -109,6 +109,7 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
   // title, id, links, updated, published, authors
 	private void composeFeed(AtomFeed feed) throws Exception {
 
+	  prop("resourceType", "Bundle");
 	  prop("title", feed.getTitle());
     prop("id", feed.getId());
     if (feed.getLinks().size() > 0) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,6 +38,56 @@ import java.math.*;
  * Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
  */
 public class Location extends Resource {
+
+    public enum LocationStatus {
+        active, // The location is operational.
+        suspended, // The location is temporarily closed.
+        inactive, // The location is no longer used.
+        Null; // added to help the parsers
+        public static LocationStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return active;
+        if ("suspended".equals(codeString))
+          return suspended;
+        if ("inactive".equals(codeString))
+          return inactive;
+        throw new Exception("Unknown LocationStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case active: return "active";
+            case suspended: return "suspended";
+            case inactive: return "inactive";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class LocationStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return LocationStatus.active;
+        if ("suspended".equals(codeString))
+          return LocationStatus.suspended;
+        if ("inactive".equals(codeString))
+          return LocationStatus.inactive;
+        throw new Exception("Unknown LocationStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == LocationStatus.active)
+        return "active";
+      if (code == LocationStatus.suspended)
+        return "suspended";
+      if (code == LocationStatus.inactive)
+        return "inactive";
+      return "?";
+      }
+    }
 
     public enum LocationMode {
         instance, // The Location resource represents a specific instance of a Location.
@@ -265,9 +315,9 @@ public class Location extends Resource {
     protected ResourceReference managingOrganization;
 
     /**
-     * Whether the location is still used to provide services.
+     * active | suspended | inactive.
      */
-    protected Boolean active;
+    protected Enumeration<LocationStatus> status;
 
     /**
      * Another Location which this Location is physically part of.
@@ -447,37 +497,37 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #active} (Whether the location is still used to provide services.)
+     * @return {@link #status} (active | suspended | inactive.)
      */
-    public Boolean getActive() { 
-      return this.active;
+    public Enumeration<LocationStatus> getStatus() { 
+      return this.status;
     }
 
     /**
-     * @param value {@link #active} (Whether the location is still used to provide services.)
+     * @param value {@link #status} (active | suspended | inactive.)
      */
-    public Location setActive(Boolean value) { 
-      this.active = value;
+    public Location setStatus(Enumeration<LocationStatus> value) { 
+      this.status = value;
       return this;
     }
 
     /**
-     * @return Whether the location is still used to provide services.
+     * @return active | suspended | inactive.
      */
-    public boolean getActiveSimple() { 
-      return this.active == null ? null : this.active.getValue();
+    public LocationStatus getStatusSimple() { 
+      return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value Whether the location is still used to provide services.
+     * @param value active | suspended | inactive.
      */
-    public Location setActiveSimple(boolean value) { 
-      if (value == false)
-        this.active = null;
+    public Location setStatusSimple(LocationStatus value) { 
+      if (value == null)
+        this.status = null;
       else {
-        if (this.active == null)
-          this.active = new Boolean();
-        this.active.setValue(value);
+        if (this.status == null)
+          this.status = new Enumeration<LocationStatus>();
+        this.status.setValue(value);
       }
       return this;
     }
@@ -543,7 +593,7 @@ public class Location extends Resource {
         childrenList.add(new Property("physicalType", "CodeableConcept", "Physical form of the location, e.g. building, room, vehicle, road.", 0, java.lang.Integer.MAX_VALUE, physicalType));
         childrenList.add(new Property("position", "", "The absolute geographic location of the Location, expressed in a KML compatible manner (see notes below for KML).", 0, java.lang.Integer.MAX_VALUE, position));
         childrenList.add(new Property("managingOrganization", "Resource(Organization)", "The organization that is responsible for the provisioning and upkeep of the location.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
-        childrenList.add(new Property("active", "boolean", "Whether the location is still used to provide services.", 0, java.lang.Integer.MAX_VALUE, active));
+        childrenList.add(new Property("status", "code", "active | suspended | inactive.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("partOf", "Resource(Location)", "Another Location which this Location is physically part of.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("mode", "code", "Indicates whether a resource instance represents a specific location or a class of locations.", 0, java.lang.Integer.MAX_VALUE, mode));
       }
@@ -558,7 +608,7 @@ public class Location extends Resource {
         dst.physicalType = physicalType == null ? null : physicalType.copy();
         dst.position = position == null ? null : position.copy(dst);
         dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
-        dst.active = active == null ? null : active.copy();
+        dst.status = status == null ? null : status.copy();
         dst.partOf = partOf == null ? null : partOf.copy();
         dst.mode = mode == null ? null : mode.copy();
         return dst;

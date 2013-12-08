@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -204,6 +204,11 @@ public class Organization extends Resource {
     protected List<OrganizationContactComponent> contact = new ArrayList<OrganizationContactComponent>();
 
     /**
+     * Location(s) the organization uses to provide services.
+     */
+    protected List<ResourceReference> location = new ArrayList<ResourceReference>();
+
+    /**
      * Whether the organization's record is still in active use.
      */
     protected Boolean active;
@@ -347,6 +352,23 @@ public class Organization extends Resource {
     }
 
     /**
+     * @return {@link #location} (Location(s) the organization uses to provide services.)
+     */
+    public List<ResourceReference> getLocation() { 
+      return this.location;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #location} (Location(s) the organization uses to provide services.)
+     */
+    public ResourceReference addLocation() { 
+      ResourceReference t = new ResourceReference();
+      this.location.add(t);
+      return t;
+    }
+
+    /**
      * @return {@link #active} (Whether the organization's record is still in active use.)
      */
     public Boolean getActive() { 
@@ -391,6 +413,7 @@ public class Organization extends Resource {
         childrenList.add(new Property("address", "Address", "An address for the organization.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("partOf", "Resource(Organization)", "The organization of which this organization forms a part.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("contact", "", "Contact for the organization for a certain purpose.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("location", "Resource(Location)", "Location(s) the organization uses to provide services.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("active", "boolean", "Whether the organization's record is still in active use.", 0, java.lang.Integer.MAX_VALUE, active));
       }
 
@@ -411,6 +434,9 @@ public class Organization extends Resource {
         dst.contact = new ArrayList<OrganizationContactComponent>();
         for (OrganizationContactComponent i : contact)
           dst.contact.add(i.copy(dst));
+        dst.location = new ArrayList<ResourceReference>();
+        for (ResourceReference i : location)
+          dst.location.add(i.copy());
         dst.active = active == null ? null : active.copy();
         return dst;
       }

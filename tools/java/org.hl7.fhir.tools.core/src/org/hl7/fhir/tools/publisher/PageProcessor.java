@@ -1071,7 +1071,7 @@ public class PageProcessor implements Logger  {
     for (RegisteredProfile p : r.getProfiles()) {
       for (ExtensionDefn ex : p.getProfile().getExtensions()) {
         if (ex.getDefinition().hasBinding() && ex.getDefinition().getBindingName() != null && ex.getDefinition().getBindingName().equals(cd.getName())) {
-          b.append(" <li><a href=\""+p.getFilename()+".html#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
+          b.append(" <li><a href=\""+p.getDestFilename()+".html#"+ex.getCode()+"\">Extension "+ex.getCode()+"</a> "+getBSTypeDesc(cd)+"</li>\r\n");
         }
       }
     }
@@ -2574,7 +2574,7 @@ public class PageProcessor implements Logger  {
       s.append("<tr><td colspan=\"2\">No Profiles defined for this resource</td></tr>");
     } else { 
       for (RegisteredProfile p: resource.getProfiles()) {
-        s.append("<tr><td><a href=\""+p.getFilename()+".html\">"+Utilities.escapeXml(p.getName())+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td></tr>");
+        s.append("<tr><td><a href=\""+p.getTitle()+".html\">"+Utilities.escapeXml(p.getName())+"</a></td><td>"+Utilities.escapeXml(p.getDescription())+"</td></tr>");
       }
     }
     return s.toString();
@@ -2610,8 +2610,8 @@ public class PageProcessor implements Logger  {
       for (String rn : definitions.sortedResourceNames()) {
         if (!rn.equals("Profile")) {
           for (RegisteredProfile p: definitions.getResourceByName(rn).getProfiles()) {
-            s.append("<tr><td><a href=\""+p.getFilename()+".html\">"+Utilities.escapeXml(p.getName())+"</a>:"+Utilities.escapeXml(p.getDescription())+"</td>"+
-             "<td><a href=\""+p.getFilename()+".profile.xml\">XML</a></td><td><a href=\""+p.getFilename()+".profile.json\">JSON</a></td></tr>");
+            s.append("<tr><td><a href=\""+p.getTitle()+".html\">"+Utilities.escapeXml(p.getName())+"</a>:"+Utilities.escapeXml(p.getDescription())+"</td>"+
+             "<td><a href=\""+p.getTitle()+".profile.xml\">XML</a></td><td><a href=\""+p.getTitle()+".profile.json\">JSON</a></td></tr>");
           }
         }
       }
@@ -2703,7 +2703,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
       else if (com[0].equals("pageheader"))
-        src = s1+pageHeader(profile.getMetadata().get("name").get(0))+s3;
+        src = s1+pageHeader(profile.metadata("name"))+s3;
       else if (com[0].equals("header"))
         src = s1+TextFile.fileToString(folders.srcDir + "header.html")+s3;
       else if (com[0].equals("newheader"))
@@ -2721,12 +2721,12 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("footer3"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
-        src = s1+Utilities.escapeXml(profile.getMetadata().get("name").get(0))+s3;
+        src = s1+Utilities.escapeXml(profile.metadata("name"))+s3;
       else if (com[0].equals("name"))
         src = s1+filename+s3;
       else if (com[0].equals("date")) {
-        if (!Utilities.noString(profile.getMetadata().get("date").get(0))) {
-          Date d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(profile.getMetadata().get("date").get(0));
+        if (!Utilities.noString(profile.metadata("date"))) {
+          Date d = new SimpleDateFormat("yyyy-MM-dd").parse(profile.metadata("date"));
           src = s1+Config.DATE_FORMAT().format(d)+s3;
         }
         else
@@ -2736,22 +2736,22 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("gendate"))
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
-        src = s1+profile.getMetadata().get("description").get(0)+s3;
+        src = s1+profile.metadata("description")+s3;
       else if (com[0].equals("profile.intro"))
-        src = s1+(intro == null ? profile.getMetadata().get("description").get(0) : intro) +s3;
+        src = s1+(intro == null ? profile.metadata("description") : intro) +s3;
       else if (com[0].equals("profile.notes"))
         src = s1+(notes == null ? "" : notes) +s3;
       else if (com[0].equals("example"))
         src = s1+example+s3;
       else if (com[0].equals("status"))
-        src = s1+describeStatus(profile.getMetadata().get("status").get(0))+s3;
+        src = s1+describeStatus(profile.metadata("status"))+s3;
       else if (com[0].equals("author"))
-        src = s1+profile.getMetadata().get("author.name").get(0)+s3;
+        src = s1+profile.metadata("author.name")+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
       else if (com[0].equals("profilelist")) {
         if (profile.getMetadata().containsKey("resource"))
-          src = s1+", and profiles the "+profile.getMetadata().get("resource").get(0)+" Resource"+s3;
+          src = s1+", and profiles the "+profile.metadata("resource")+" Resource"+s3;
         else
           src = s1+s3;
       } else if (com[0].equals("tx"))
@@ -2781,7 +2781,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("resurl")) {
-          src = s1+"The id of this profile is "+profile.getMetadata().get("id").get(0)+s3;
+          src = s1+"The id of this profile is "+profile.metadata("id")+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }

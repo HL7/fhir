@@ -8,6 +8,28 @@
   
 </ul>
 
+<h3>Document Formats</h3>
+<p>
+In addition to a mime type (which is mandatory), there is also a <i>format</i> element which carries
+a URI. This element has one ore more identifiers that indicate that the format and/or content of the 
+document conforms to additional rules beyond the base format indicated in the mimeType. This is most 
+often used when the mime-type is text/xml, to provide additional information for finding the correct
+document.
+</p>
+<p>
+Defined URIs:
+</p>
+<ul>
+ <li><a href="http://www.astm.org/Standards/E2369.htm">ASTM CCR</a>: urn:astm-org:CCR</li>
+ <li>CCDA: urn:hl7-org:sdwg:ccda-level-1:1.1, urn:hl7-org:sdwg:ccda-level-2:1.1 and urn:hl7-org:sdwg:ccda-level-3:1.1</li>
+ <li>IHE defines URIs <a href="http://wiki.ihe.net/index.php?title=IHE_Format_Codes">here</a> and 
+   OIDs <a href="http://wiki.ihe.net/index.php?title=PCC_Vocabulary_Registry_and_Data_Dictionary">here</a> (prefix OIDs with urn:oid: in the resource).</li> 
+</ul>
+<p>
+Other URIs can be used for items not on this list.
+</p>
+
+
 <h3>Generating a Document Reference</h3>
 <p>
 A client can ask a server to generate a document reference from a document.

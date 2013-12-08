@@ -1,0 +1,233 @@
+<Profile xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/profile.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+     <p><b>http://hl7.org/fhir/tools/extensions</b></p>
+     <p>Extensions defined by the build tools. These extensions are candidates for being elevated into the core.</p>
+     <table>
+      <tr>
+        <td><b>Code</b></td>
+        <td><b>Context</b></td>
+        <td><b>Type</b></td>
+        <td><b>Cardinality</b></td>
+        <td><b>Notes</b></td>
+      </tr>
+      <tr>
+        <td>comment</td>
+        <td>ValueSet.compose.include.code</td>
+        <td>string</td>
+        <td>0..1</td>
+        <td>This is used in various FHIR value sets to make comments on how particular codes are used when the formal definition is a little abstract or vague, but it's not clear whether it belongs in the actual value set resource</td>
+      </tr>
+      <tr>
+        <td>display</td>
+        <td>ValueSet.compose.include.code</td>
+        <td>string</td>
+        <td>0..1</td>
+        <td>An alternative display is used to tailor a code's description to a particular use case. Doing this is dangerous, because it's easy to introduce a different meaning for the code in this context, but it's also useful to make the display suitable for a particular kind of user in a particular kind of context</td>
+      </tr>
+      <tr>
+        <td>definition</td>
+        <td>ValueSet.compose.include.code</td>
+        <td>string</td>
+        <td>0..1</td>
+        <td>This is provided for when the source code system doesn't actually provide a definition (there are many such). Providing an definition for a code should not be done where the underlying code system provides a definition</td>
+      </tr>
+      <tr>
+        <td>deprecated</td>
+        <td>ValueSet.define.concept</td>
+        <td>boolean</td>
+        <td>0..1</td>
+        <td>Whether the concept has been deprecated</td>
+      </tr>
+      <tr>
+        <td>subsumes</td>
+        <td>ValueSet.define.concept</td>
+        <td>code</td>
+        <td>0..*</td>
+        <td>Codes that this concept subsumes that have already been declared elsewhere</td>
+      </tr>
+      <tr>
+        <td>issue-source</td>
+        <td>OperationOutcome</td>
+        <td>string</td>
+        <td>0..1</td>
+        <td>Helps a user track down the source of the problem</td>
+      </tr>
+    </table>
+    </div>
+  </text>
+  <contained>
+    <ValueSet id="v1">
+      <name value="OperationOutcomeSource"/>
+      <description value="Where in the code - schema, schematron, or validator - an error message comes from"/>
+      <status value="draft"/>
+      <define>
+        <system value="http://hl7.org/fhir/operation-outcome-source"/>
+        <caseSensitive value="true"/>
+        <concept>
+          <code value="ExampleValidator"/>
+          <display value="ExampleValidator"/>
+          <definition value="The error comes from the publication example validator (only in the build process)"/>
+        </concept>
+        <concept>
+          <code value="ProfileValidator"/>
+          <display value="ProfileValidator"/>
+          <definition value="The error comes from the code that checks that profiles are valid"/>
+        </concept>
+        <concept>
+          <code value="ResourceValidator"/>
+          <display value="ResourceValidator"/>
+          <definition value="The error comes from the code the validates the basic resource definitions"/>
+        </concept>
+        <concept>
+          <code value="InstanceValidator"/>
+          <display value="InstanceValidator"/>
+          <definition value="The error comes from code that checks instances against the base profiles and any additional identified profiles"/>
+        </concept>
+        <concept>
+          <code value="Schema"/>
+          <display value="Schema"/>
+          <definition value="The error comes from checking the instance against the schemas"/>
+        </concept>
+        <concept>
+          <code value="Schematron"/>
+          <display value="Schematron"/>
+          <definition value="The error comes from checking the instance against the invariants defined in the specification"/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+
+  <identifier value="http://hl7.org/fhir/tools/extensions"/>
+  <name value="Extensions defined by the FHIR build tools"/>
+  <publisher value="FHIR Project Team"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>    
+  </telecom>
+  <description value="Extensions defined by the build tools. These extensions are candidates for being elevated into the core"/>
+  <status value="draft"/>
+  <date value="2013-07-07"/>
+
+  <extensionDefn> 
+    <code value="comment"/>
+    <display value="Comment"/>
+    <contextType value="resource"/>
+    <context value="ValueSet.compose.include.code"/>
+    <context value="ValueSet.define.concept"/>
+    <definition>
+      <short value="Comment about the use of this code in this context"/>
+      <formal value="A comment that explains how this code is used in this context (where the value set is expected to be used)"/>
+      <comments value="This is used in various FHIR value sets to make comments on how particular codes are used when the formal definition is a little abstract or vague, but it's not clear whether it belongs in the actual value set resource"/>
+      <requirements value="Too many codes have very abstract definitions, and the correct use or purpose of the code isn't sufficiently clear from the definition"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type> 
+        <code value="string"/>      
+      </type>
+      <isModifier value="false"/>
+    </definition> 
+  </extensionDefn>
+  
+  <extensionDefn> 
+    <code value="display"/>
+    <display value="Display"/>
+    <contextType value="resource"/>
+    <context value="ValueSet.compose.include.code"/>
+    <definition>
+      <short value="A different display for this code"/>
+      <formal value="A different display to use when this code is used as part of this value set"/>
+      <comments value="An alternative display is used to tailor a code's description to a particular use case. Doing this is dangerous, because it's easy to introduce a different meaning for the code in this context, but it's also useful to make the display suitable for a particular kind of user in a particular kind of context"/>
+      <requirements value="Many codes have displays that are inappropriate in a particular context of use"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type> 
+        <code value="string"/>      
+      </type>
+      <isModifier value="false"/>
+    </definition> 
+  </extensionDefn>
+
+  <extensionDefn> 
+    <code value="definition"/>
+    <display value="Definition"/>
+    <contextType value="resource"/>
+    <context value="ValueSet.compose.include.code"/>
+    <definition>
+      <short value="A definition for this code"/>
+      <formal value="A display name that describes the meaning of this code when used as part of this value set"/>
+      <comments value="This is provided for when the source code system doesn't actually provide a definition (there are many such). Providing an definition for a code should not be done where the underlying code system provides a definition"/>
+      <requirements value="Some code systems don't provide definitions (most enumeration types)"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type> 
+        <code value="string"/>      
+      </type>
+      <isModifier value="false"/>
+    </definition> 
+  </extensionDefn>
+  
+  <extensionDefn> 
+    <code value="deprecated"/>
+    <display value="Dreprecated"/>
+    <contextType value="resource"/>
+    <context value="ValueSet.define.concept"/>
+    <definition>
+      <short value="Whether the concept has been deprecated"/>
+      <formal value="Set to true of the concept has been deprecated (still can be used, but soon to be withdrawn)"/>
+      <requirements value="Some code systems deprecate codes"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type> 
+        <code value="boolean"/>      
+      </type>
+      <isModifier value="false"/> <!-- no, cause you can still use the code -->
+    </definition> 
+  </extensionDefn>
+  
+  <extensionDefn> 
+    <code value="subsumes"/>
+    <display value="Subsumes"/>
+    <contextType value="resource"/>
+    <context value="ValueSet.define.concept"/>
+    <definition>
+      <short value="Codes that this concept subsumes that have already been declared elsewhere"/>
+      <formal value="Refers to another code defined within the code system that is also subsumed by this code. I.e. This concept subsumes the referenced concept.  Because meaning is inferred from hierarchy as well as definition, the presence of this extension modifies the meaning of the extended concept."/>
+      <requirements value="For when the code system being defined is poly-heirarchical"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type> 
+        <code value="code"/>      
+      </type>
+      <isModifier value="true"/>
+    </definition> 
+  </extensionDefn>
+  
+  <extensionDefn> 
+    <code value="issue-source"/>
+    <display value="Source of Issue"/>
+    <contextType value="resource"/>
+    <context value="OperationOutcome"/>
+    <definition>
+      <short value="Source of a validation message"/>
+      <formal value="Where in the code - schema, schematron, or validator - an error message comes from"/>
+      <comments value="Helps a user track down the source of the problem"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type> 
+        <code value="code"/>      
+      </type>
+      <isModifier value="false"/>
+      <binding>
+        <name value="OperationOutcomeSource"/>
+        <isExtensible value="true"/>
+        <conformance value="preferred"/>
+        <referenceResource>
+          <reference value="#v1"/>
+        </referenceResource>
+      </binding>
+    </definition> 
+  </extensionDefn>
+
+</Profile>

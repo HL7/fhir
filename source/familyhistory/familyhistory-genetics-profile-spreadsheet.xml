@@ -20,7 +20,7 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>6225</WindowTopX>
   <WindowTopY>1425</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -231,8 +231,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s66" ss:HRef="http://hl7.org/fhir/profile/familyhistory/geneticpedigree"><Data
-      ss:Type="String">http://hl7.org/fhir/profile/familyhistory/geneticpedigree</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/Profile/familyhistory-genetics-pedigree</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -246,7 +245,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>11</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -945,7 +944,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1093,7 +1091,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Extension</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">#relationParent</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">integer</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Link to parent relative(s)</Data></Cell>
@@ -1128,6 +1126,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1148,7 +1147,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

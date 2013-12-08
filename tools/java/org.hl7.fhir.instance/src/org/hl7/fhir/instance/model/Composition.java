@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 1, 2013 22:52+1100 for FHIR v0.12
+// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -166,7 +166,7 @@ public class Composition extends Resource {
         /**
          * The type of attestation the authenticator offers.
          */
-        protected Enumeration<CompositionAttestationMode> mode;
+        protected List<Enumeration<CompositionAttestationMode>> mode = new ArrayList<Enumeration<CompositionAttestationMode>>();
 
         /**
          * When composition was attested by the party.
@@ -182,41 +182,31 @@ public class Composition extends Resource {
         super();
       }
 
-      public CompositionAttesterComponent(Enumeration<CompositionAttestationMode> mode) {
-        super();
-        this.mode = mode;
-      }
-
         /**
          * @return {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public Enumeration<CompositionAttestationMode> getMode() { 
+        public List<Enumeration<CompositionAttestationMode>> getMode() { 
           return this.mode;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #mode} (The type of attestation the authenticator offers.)
+         */
+        public Enumeration<CompositionAttestationMode> addMode() { 
+          Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
+          this.mode.add(t);
+          return t;
         }
 
         /**
          * @param value {@link #mode} (The type of attestation the authenticator offers.)
          */
-        public CompositionAttesterComponent setMode(Enumeration<CompositionAttestationMode> value) { 
-          this.mode = value;
-          return this;
-        }
-
-        /**
-         * @return The type of attestation the authenticator offers.
-         */
-        public CompositionAttestationMode getModeSimple() { 
-          return this.mode == null ? null : this.mode.getValue();
-        }
-
-        /**
-         * @param value The type of attestation the authenticator offers.
-         */
-        public CompositionAttesterComponent setModeSimple(CompositionAttestationMode value) { 
-            if (this.mode == null)
-              this.mode = new Enumeration<CompositionAttestationMode>();
-            this.mode.setValue(value);
-          return this;
+        public Enumeration<CompositionAttestationMode> addModeSimple(CompositionAttestationMode value) { 
+          Enumeration<CompositionAttestationMode> t = new Enumeration<CompositionAttestationMode>();
+          t.setValue(value);
+          this.mode.add(t);
+          return t;
         }
 
         /**
@@ -279,7 +269,9 @@ public class Composition extends Resource {
 
       public CompositionAttesterComponent copy(Composition e) {
         CompositionAttesterComponent dst = new CompositionAttesterComponent();
-        dst.mode = mode == null ? null : mode.copy();
+        dst.mode = new ArrayList<Enumeration<CompositionAttestationMode>>();
+        for (Enumeration<CompositionAttestationMode> i : mode)
+          dst.mode.add(i.copy());
         dst.time = time == null ? null : time.copy();
         dst.party = party == null ? null : party.copy();
         return dst;

@@ -419,8 +419,10 @@ public class Publisher {
     }
     generateCodeSystemsPart2();
     generateValueSetsPart2();
-    generateConformanceStatement(true, "base");
-    generateConformanceStatement(false, "base2");
+    if (isGenerate) {
+      generateConformanceStatement(true, "base");
+      generateConformanceStatement(false, "base2");
+    }
 	}
 
 	private void generateConformanceStatement(boolean full, String name) throws Exception {
@@ -2041,7 +2043,7 @@ public class Publisher {
 	  svg.generate(resource, page.getFolders().dstDir+n+".svg");
 	  
 	  for (RegisteredProfile p : resource.getProfiles())
-		  p.setResource(produceProfile(p.getFilename(), p.getProfile(), p.getExamplePath(), p.getExample()));
+		  p.setResource(produceProfile(p.getDestFilename(), p.getProfile(), p.getExamplePath(), p.getExample()));
 
 	  for (Example e : resource.getExamples()) {
 		  try {
@@ -2310,6 +2312,7 @@ public class Publisher {
 	private Profile produceProfile(String filename, ProfileDefn profile, String examplePath, String exampleName) throws Exception {
 		File tmp = File.createTempFile("tmp", ".tmp");
 		tmp.deleteOnExit();
+		String title = filename.contains(".") ? filename.substring(0, filename.lastIndexOf(".")) : filename;
 
 		// you have to validate a profile, because it has to be merged with it's
 		// base resource to fill out all the missing bits
@@ -2323,11 +2326,11 @@ public class Publisher {
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     Profile p = pgen.generate(profile, xml, GenerationMode.Resource);
     XmlComposer comp = new XmlComposer();
-    comp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.xml"), p, true, false);
-		Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.xml"));
+    comp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml"), p, true, false);
+		Utilities.copyFile(new CSFile(page.getFolders().dstDir + title + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + title + ".profile.xml"));
     JsonComposer jcomp = new JsonComposer();
-    jcomp.compose(new FileOutputStream(page.getFolders().dstDir + filename + ".profile.json"), p, true);
-//    Utilities.copyFile(new CSFile(page.getFolders().dstDir + filename + ".profile.json"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + filename + ".profile.json"));
+    jcomp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.json"), p, true);
+//    Utilities.copyFile(new CSFile(page.getFolders().dstDir + title + ".profile.json"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + title + ".profile.json"));
 
 		TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(new FileOutputStream(tmp), page);
 		tgen.generate(profile, page.getDefinitions().getBindings());
@@ -2397,9 +2400,9 @@ public class Publisher {
 		String src = TextFile.fileToString(page.getFolders().srcDir
 				+ "template-profile.html");
 		src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes);
-		page.getEpub().registerFile(filename+".html", "Profile "+exampleName, EPubManager.XHTML_TYPE);
-		TextFile.stringToFile(src, page.getFolders().dstDir + filename + ".html");
-    page.getEpub().registerFile(filename + ".html", "Profile "+exampleName, EPubManager.XHTML_TYPE);
+		page.getEpub().registerFile(title+".html", "Profile "+exampleName, EPubManager.XHTML_TYPE);
+		TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
+    page.getEpub().registerFile(title + ".html", "Profile "+exampleName, EPubManager.XHTML_TYPE);
 		//
 		// src = Utilities.fileToString(page.getFolders().srcDir +
 		// "template-print.html").replace("<body>",
@@ -2422,7 +2425,7 @@ public class Publisher {
 		factory.setNamespaceAware(true);
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		Document xdoc = builder.parse(new CSFileInputStream(
-				page.getFolders().dstDir + filename + ".profile.xml"));
+				page.getFolders().dstDir + title + ".profile.xml"));
 		XmlGenerator xmlgen = new XmlGenerator();
 		xmlgen.generate(xdoc.getDocumentElement(), tmp, "http://hl7.org/fhir",
 				xdoc.getDocumentElement().getLocalName());
@@ -2431,9 +2434,9 @@ public class Publisher {
 		builder = factory.newDocumentBuilder();
 		xdoc = builder.parse(new CSFileInputStream(tmp.getAbsolutePath()));
 		XhtmlGenerator xhtml = new XhtmlGenerator(null);
-		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + filename + ".profile.xml.html"), "Profile", profile.metadata("name"), 0, true);
-    page.getEpub().registerFile(filename + ".profile.xml.html", "Profile", EPubManager.XHTML_TYPE);
-    jsonToXhtml(filename+".profile", "Profile for "+profile.metadata("description"), resource2Json(p));
+		xhtml.generate(xdoc, new CSFile(page.getFolders().dstDir + title + ".profile.xml.html"), "Profile", profile.metadata("name"), 0, true);
+    page.getEpub().registerFile(title + ".profile.xml.html", "Profile", EPubManager.XHTML_TYPE);
+    jsonToXhtml(title+".profile", "Profile for "+profile.metadata("description"), resource2Json(p));
 		tmp.delete();
 		return p;
 	}
@@ -2669,7 +2672,7 @@ public class Publisher {
 		schemaFactory.setResourceResolver(new MyResourceResolver(page
 				.getFolders().dstDir));
 		Schema schema = schemaFactory.newSchema(sources);
-    InstanceValidator validator = new InstanceValidator(page.getFolders().dstDir+"validation.zip");
+    InstanceValidator validator = new InstanceValidator(page.getFolders().dstDir+"validation.zip", new SpecificationExtensionResolver(page.getFolders().dstDir));
     validator.setSuppressLoincSnomedMessages(true);
 		log(".... done");
 
@@ -2682,7 +2685,7 @@ public class Publisher {
           validateXmlFile(schema, n, validator, null);
 		    }
 		    for (RegisteredProfile e : r.getProfiles()) {
-		      String n = e.getFilename()+".profile";
+		      String n = e.getTitle()+".profile";
           log(" ...validate " + n);
           validateXmlFile(schema, n, validator, null);
           if (!Utilities.noString(e.getExample())) {
