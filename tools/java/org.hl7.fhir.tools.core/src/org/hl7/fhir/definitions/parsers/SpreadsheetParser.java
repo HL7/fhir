@@ -803,6 +803,8 @@ public class SpreadsheetParser {
     e.addMapping(ElementDefn.PROV_MAPPING, sheet.getColumn(row, "Prov Mapping"));
     e.addMapping(ElementDefn.LOINC_MAPPING, sheet.getColumn(row, "LOINC"));
     e.addMapping(ElementDefn.SNOMED_MAPPING, sheet.getColumn(row, "SNOMED"));
+    e.addMapping(ElementDefn.iCAL_MAPPING, sheet.getColumn(row, "iCal Mapping"));
+    e.addMapping(ElementDefn.ServD_MAPPING, sheet.getColumn(row, "ServD Mapping"));
 		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
 		e.setExample(sheet.getColumn(row, "Example"));
 		e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
@@ -850,8 +852,10 @@ public class SpreadsheetParser {
     exe.addMapping(ElementDefn.v2_MAPPING, sheet.getColumn(row, "v2 Mapping"));
     exe.addMapping(ElementDefn.DICOM_MAPPING, sheet.getColumn(row, "DICOM Mapping"));
     exe.addMapping(ElementDefn.vCard_MAPPING, sheet.getColumn(row, "vCard Mapping"));
+    exe.addMapping(ElementDefn.iCAL_MAPPING, sheet.getColumn(row, "iCal Mapping"));
     exe.addMapping(ElementDefn.XDS_MAPPING, sheet.getColumn(row, "XDS Mapping"));
     exe.addMapping(ElementDefn.PROV_MAPPING, sheet.getColumn(row, "Prov Mapping"));
+    exe.addMapping(ElementDefn.ServD_MAPPING, sheet.getColumn(row, "ServD Mapping"));
     exe.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
     exe.setExample(sheet.getColumn(row, "Example"));
     exe.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));

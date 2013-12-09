@@ -2662,15 +2662,11 @@ public class Publisher {
 		log("Validating XML");
 		log(".. Loading schemas");
 		StreamSource[] sources = new StreamSource[2];
-		sources[0] = new StreamSource(new CSFileInputStream(
-				page.getFolders().dstDir + "fhir-all.xsd"));
-		sources[1] = new StreamSource(new CSFileInputStream(
-				page.getFolders().dstDir + "fhir-atom.xsd"));
-		SchemaFactory schemaFactory = SchemaFactory
-				.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		sources[0] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-all.xsd"));
+		sources[1] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-atom.xsd"));
+		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		schemaFactory.setErrorHandler(new MyErrorHandler(false));
-		schemaFactory.setResourceResolver(new MyResourceResolver(page
-				.getFolders().dstDir));
+		schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));
 		Schema schema = schemaFactory.newSchema(sources);
     InstanceValidator validator = new InstanceValidator(page.getFolders().dstDir+"validation.zip", new SpecificationExtensionResolver(page.getFolders().dstDir));
     validator.setSuppressLoincSnomedMessages(true);
@@ -2815,7 +2811,8 @@ public class Publisher {
 //      validator.validateInstanceByProfile(issues, root, profile);
 		boolean abort = false;
 		for (ValidationMessage m : issues) {
-		  page.log("  " +m.summary());
+		  if (!m.getLevel().equals(IssueSeverity.information))
+		    page.log("  " +m.summary());
 		  abort = abort || m.getLevel().equals(IssueSeverity.error);
 		}
 		if (abort)

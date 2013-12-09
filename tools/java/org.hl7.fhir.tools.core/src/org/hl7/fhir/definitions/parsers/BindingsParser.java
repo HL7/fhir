@@ -69,22 +69,24 @@ public class BindingsParser {
 	}
 	
 	private void processLine(List<BindingSpecification> results, Sheet sheet, int row) throws Exception {
-		BindingSpecification cd = new BindingSpecification();
-    cd.setName(sheet.getColumn(row, "Binding Name"));
-		cd.setDefinition(sheet.getColumn(row, "Definition"));
-    cd.setBinding(readBinding(sheet.getColumn(row, "Binding")));
-    cd.setReference(sheet.getColumn(row, "Reference"));
-    cd.setDescription(sheet.getColumn(row, "Description"));
-    cd.setId(registry.idForName(cd.getName()));
-    cd.setSource(filename);
-    cd.setUri(sheet.getColumn(row, "Uri"));
-    cd.setOid(sheet.getColumn(row, "Oid"));
-    cd.setWebSite(sheet.getColumn(row, "Website"));
-    cd.setEmail(sheet.getColumn(row, "Email"));
-    cd.setV2Map(sheet.getColumn(row, "v2"));
-    cd.setV3Map(sheet.getColumn(row, "v3"));
+	  BindingSpecification cd = new BindingSpecification();
+	  cd.setName(sheet.getColumn(row, "Binding Name"));
+	  if (!cd.getName().startsWith("!")) {
+	    cd.setDefinition(sheet.getColumn(row, "Definition"));
+	    cd.setBinding(readBinding(sheet.getColumn(row, "Binding")));
+	    cd.setReference(sheet.getColumn(row, "Reference"));
+	    cd.setDescription(sheet.getColumn(row, "Description"));
+	    cd.setId(registry.idForName(cd.getName()));
+	    cd.setSource(filename);
+	    cd.setUri(sheet.getColumn(row, "Uri"));
+	    cd.setOid(sheet.getColumn(row, "Oid"));
+	    cd.setWebSite(sheet.getColumn(row, "Website"));
+	    cd.setEmail(sheet.getColumn(row, "Email"));
+	    cd.setV2Map(sheet.getColumn(row, "v2"));
+	    cd.setV3Map(sheet.getColumn(row, "v3"));
 
-    results.add(cd);
+	    results.add(cd);
+	  }
 	}
 
 	public static BindingExtensibility readExtensibility(String s) throws Exception {

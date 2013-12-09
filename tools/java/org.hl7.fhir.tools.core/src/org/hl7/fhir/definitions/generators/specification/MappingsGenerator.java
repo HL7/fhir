@@ -60,6 +60,10 @@ public class MappingsGenerator {
 	      return 8;
       if (ElementDefn.CDA_MAPPING.equals(s))
         return 9;
+      if (ElementDefn.iCAL_MAPPING.equals(s))
+        return 10;
+      if (ElementDefn.ServD_MAPPING.equals(s))
+        return 11;
 	    return 0;
 	  }
 
@@ -141,6 +145,10 @@ public class MappingsGenerator {
       return "DICOM";
     if (m.equals(ElementDefn.vCard_MAPPING))
       return "vCard";
+    if (m.equals(ElementDefn.iCAL_MAPPING))
+      return "iCalendar";
+    if (m.equals(ElementDefn.ServD_MAPPING))
+      return "ServD";
     
     if (ElementDefn.XDS_MAPPING.equals(m))
       return "XDS";
@@ -164,6 +172,10 @@ public class MappingsGenerator {
       return "dicom";
     if (m.equals(ElementDefn.vCard_MAPPING))
       return "vcard";
+    if (m.equals(ElementDefn.iCAL_MAPPING))
+      return "ical";
+    if (m.equals(ElementDefn.ServD_MAPPING))
+      return "servd";
     
     if (ElementDefn.XDS_MAPPING.equals(m))
       return "xds";

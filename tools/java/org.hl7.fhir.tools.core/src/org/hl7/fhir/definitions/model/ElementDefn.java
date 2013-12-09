@@ -47,6 +47,8 @@ public class ElementDefn {
   public static final String LOINC_MAPPING = "http://loinc.org";
   public static final String SNOMED_MAPPING = "http://snomed.info";
   public static final String PROV_MAPPING = "http://www.w3.org/ns/prov";
+  public static final String iCAL_MAPPING = "http://www.ietf.org/rfc/rfc2445.txt";
+  public static final String ServD_MAPPING = "http://www.omg.org/spec/ServD/1.0/";
   public static final int MAX_NEG = -1000000;
 	
 	private List<TypeRef> types = new ArrayList<TypeRef>();
@@ -750,10 +752,12 @@ public class ElementDefn {
     results.add(v2_MAPPING);
     results.add(DICOM_MAPPING);
     results.add(vCard_MAPPING);
+    results.add(iCAL_MAPPING);
     results.add(XDS_MAPPING);
     results.add(LOINC_MAPPING);
     results.add(SNOMED_MAPPING);
     results.add(PROV_MAPPING);
+    results.add(ServD_MAPPING);
     return results;
   }
 
