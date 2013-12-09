@@ -30,21 +30,17 @@
 
 
 using Hl7.Fhir.Model;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml;
-using System.Xml.Linq;
 
 namespace Hl7.Fhir.Support
 {
     public class Util
     {
+        
         public const string FHIRNS = "http://hl7.org/fhir";
         public const string XHTMLNS = "http://www.w3.org/1999/xhtml";
         public const string XMLNS = "http://www.w3.org/2000/xmlns/";

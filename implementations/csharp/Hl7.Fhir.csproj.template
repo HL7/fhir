@@ -31,18 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Libraries\Newtonsoft.Json.dll</HintPath>
-    </Reference>
 	<Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
 		@@@MODELFILES@@@
@@ -59,8 +49,6 @@
     <Compile Include="Model.Support\FhirString.cs" />
     <Compile Include="Model.Support\Code.cs" />
     <Compile Include="Model.Support\Date.cs" />
-    <Compile Include="Model.Support\FhirTypes.cs" />
-    <Compile Include="Model.Support\Base64Binary.cs" />
     <Compile Include="Model.Support\FhirBoolean.cs" />
     <Compile Include="Model.Support\FhirDecimal.cs" />
     <Compile Include="Model.Support\Integer.cs" />
@@ -69,13 +57,13 @@
     <Compile Include="Model.Support\ModelInfo.cs" />
     <Compile Include="Model.Support\Initializers.cs" />
     <Compile Include="Model.Support\ResourceReference.cs" />
-    <Compile Include="Model.Support\Tag.cs" />
+    <Compile Include="Model.Support\TagList.cs" />
     <Compile Include="Model.Support\ValueSet.cs" />
     <Compile Include="Model.Support\ManagedEntryList.cs" />
     <Compile Include="Model.Support\UriLinkList.cs" />
     <Compile Include="Support\ErrorList.cs" />
     <Compile Include="Support\Util.cs" />
-    <Compile Include="Support\Inspection.cs" />
+    <Compile Include="Introspection\NotMappedAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

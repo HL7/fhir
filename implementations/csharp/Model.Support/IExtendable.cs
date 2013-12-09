@@ -36,39 +36,11 @@ using System.Text;
 
 namespace Hl7.Fhir.Model
 {
-    public abstract partial class Element : IExtendable
-    {       
-        internal virtual ErrorList ValidateRules()
-        {
-            return ErrorList.EMPTY;
-        }
-    }
-
-
-    // Resource is not a subclass of Composite, since it
-    // cannot be used in places where you can use composites.
-    public abstract partial class Resource : IExtendable
-    {            
-        internal virtual ErrorList ValidateRules()
-        {
-            return ErrorList.EMPTY;
-        }
-    }
-
     public interface IExtendable
     {
         List<Extension> Extension { get; set; }
     }
-
-
-    public class FhirFormatException : System.Exception
-    {
-        public FhirFormatException() { }
-        public FhirFormatException(string message) : base(message) { }
-        public FhirFormatException(string message, System.Exception inner) : base(message, inner) { }
-    }
-
-
+   
     public static class ExtensionExtensions
     {
         /// <summary>

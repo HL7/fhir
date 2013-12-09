@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using Hl7.Fhir.Support;
-using System.ComponentModel.DataAnnotations;
-
-/*
-  Copyright (c) 2011-2012, HL7, Inc
+﻿/*
+  Copyright (c) 2011-2013, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -33,26 +28,27 @@ using System.ComponentModel.DataAnnotations;
 
 */
 
-namespace Hl7.Fhir.Model
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Hl7.Fhir.Introspection
 {
-    /// <summary>
-    /// Resource for capturing binary data
-    /// </summary>
-    public partial class Binary : Hl7.Fhir.Model.Resource
+    [AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = false)]
+    public sealed class EnumLiteralAttribute : Attribute
     {
-        internal override ErrorList ValidateRules()
+        readonly string literal;
+
+        // This is a positional argument
+        public EnumLiteralAttribute(string literal)
         {
-            var result = new ErrorList();
-            result.AddRange(base.ValidateRules());
-            
-            if (Content == null)
-                result.Add("Entry must contain (possibly 0-length) data");
+            this.literal = literal;
+        }
 
-            if (ContentType == null)
-                result.Add("Entry must contain a contentType");
-
-            return result;
+        public string Literal
+        {
+            get { return literal; }
         }
     }
-    
 }

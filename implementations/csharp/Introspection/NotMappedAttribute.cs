@@ -1,5 +1,5 @@
 ﻿/*
-  Copyright (c) 2011-2012, HL7, Inc
+  Copyright (c) 2011-2013, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -28,55 +28,19 @@
 
 */
 
-using Hl7.Fhir.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Hl7.Fhir.Model
+namespace Hl7.Fhir.Introspection
 {
-    // A stream of bytes
-    public partial class Base64Binary
+    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
+    public sealed class NotMappedAttribute : Attribute
     {
-        public static Base64Binary Parse(string value)
+        public NotMappedAttribute()
         {
-            return new Base64Binary(Base64Binary.ParseValue(value));
+            // This attribute is just a marker, no functionality or data
         }
-
-        public static bool TryParseValue(string value, out byte[] result)
-        {
-            if (value == null) throw new ArgumentNullException("value");
-
-            try
-            {
-                result = Convert.FromBase64String(value);
-                return true;
-            }
-            catch
-            {
-                result = null;
-                return false;
-            }
-        }
-
-        public static byte[] ParseValue(string value)
-        {
-            byte[] result = null;
-
-            if (TryParseValue(value, out result))
-                return result;
-            else 
-                throw new FhirFormatException("Not a correctly base64 encoded value");
-        }
-
-        public override string ToString()
-        {
-            if (Value == null)
-                return null;
-            else
-                return Convert.ToBase64String(Value);
-        }
-    }
-  
+    } 
 }

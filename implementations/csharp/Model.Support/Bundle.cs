@@ -36,7 +36,6 @@ using System.Xml;
 using Hl7.Fhir.Model;
 using System.Xml.Linq;
 using System.IO;
-using Newtonsoft.Json;
 using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
@@ -47,6 +46,7 @@ namespace Hl7.Fhir.Model
         public DateTimeOffset? LastUpdated { get; set; }
         public Uri Id { get; set; }
         public UriLinkList Links { get; set; }
+        public IEnumerable<Tag> Tags { get; set; }
 
         public string AuthorName { get; set; }
         public string AuthorUri { get; set; }

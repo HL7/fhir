@@ -36,11 +36,27 @@ using System.Xml;
 using Hl7.Fhir.Model;
 using System.Xml.Linq;
 using System.IO;
-using Newtonsoft.Json;
 using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
+    [FhirType]
+    public class TagList
+    {
+        public TagList()
+        {
+            Category = new List<Tag>();
+        }
+
+        public TagList(IEnumerable<Tag> tags)
+        {
+            this.Category = new List<Tag>(tags);
+        }
+
+        public List<Tag> Category { get; set; }
+    }
+
+    [FhirType]
     public class Tag
     {
         public const string FHIRTAGNS = "http://hl7.org/fhir/tag";
