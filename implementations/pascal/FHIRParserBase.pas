@@ -310,7 +310,7 @@ begin
       feed := ParseFeed(root)
     else if root.namespaceURI = FHIR_NS Then
     begin
-      if (root.nodeName = 'taglist') then
+      if (root.nodeName = 'TagList') then
         ParseTags(root)
       else
         resource := ParseResource(root, '')
@@ -768,7 +768,7 @@ begin
     xml.Start;
     if FComment <> '' then
       xml.Comment(FComment);
-    xml.Open('taglist');
+    xml.Open('TagList');
     for i := 0 to oTags.Count - 1 do
     begin
       xml.AddAttribute('scheme', oTags[i].scheme);
@@ -778,7 +778,7 @@ begin
       xml.Tag('category');
     end;
 
-    xml.Close('taglist');
+    xml.Close('TagList');
     xml.Finish;
     xml.Build(stream);
   finally
@@ -2273,7 +2273,7 @@ procedure TFHIRXmlParserBase.ParseTags(element: IXMLDOMElement);
 var
   child : IXMLDOMElement;
 begin
-  if element.baseName <> 'taglist' then
+  if element.baseName <> 'TagList' then
     Raise Exception.create(StringFormat(GetFhirMessage('MSG_CANT_PARSE_ROOT', lang), [element.baseName]));
 
   FTags := TFHIRAtomCategoryList.create;
@@ -2283,7 +2283,7 @@ begin
     if (child.baseName = 'category') then
       FTags.AddValue(TMsXmlParser.GetAttribute(child, 'scheme'), TMsXmlParser.GetAttribute(child, 'term'), TMsXmlParser.GetAttribute(child, 'label'))
     else
-       UnknownContent(child, 'taglist');
+       UnknownContent(child, 'TagList');
     child := NextSibling(child);
   end;
 end;
