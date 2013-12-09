@@ -1,0 +1,29 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<!--
+
+-->
+<p>
+Appointment resources are used to provide information about 
+a meeting that may be in the future or past. An adverse sensitivity is defined as:
+</p>
+<blockquote>
+  <p>
+  A condition expected to result in undesirable physiologic reaction to an 
+  amount of a substance that would not produce a reaction in most individuals.  
+  The substance is the trigger of an immunologic response that produces the 
+  observed physiologic changes, or in some instances nonimmunologic mechanisms 
+  that produce clinically identical physiologic changes.  The immunologic 
+  response might be considered the actual cause of the reaction, but it is 
+  exposure to the trigger substance that is clinically observable.
+  </p>  
+</blockquote>  
+<p>
+This definition excludes clinically identical episodes that may be caused by 
+physical agents, such as heat, cold, sunlight, or vibration, by exercise activity, 
+or by infectious agents. Those conditions caused by physical agents or infectious 
+would be captured on the problem list (<a href="list.html">List</a>/<a href="condition.html">Condition</a> Resources). The allergy/intolerance list is a list of 
+conditions that represent a propensity unique to this individual for 
+a reaction upon future exposure to a specified substance. 
+</p>
+</div>
+
