@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7710</WindowHeight>
-  <WindowWidth>24135</WindowWidth>
-  <WindowTopX>3990</WindowTopX>
-  <WindowTopY>4560</WindowTopY>
+  <WindowHeight>7080</WindowHeight>
+  <WindowWidth>23835</WindowWidth>
+  <WindowTopX>4140</WindowTopX>
+  <WindowTopY>5040</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -116,7 +116,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">The start of the period</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Starting time with inclusive boundary</Data></Cell>
     <Cell><Data ss:Type="String">The start of the period. The boundary is inclusive.</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">If the low element is missing, the meaning is that the low boundary is not known.</Data></Cell>
     <Cell><Data ss:Type="String">./low</Data></Cell>
@@ -127,7 +127,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">The end of the period, if not ongoing</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">End time with inclusive boundary, if not ongoing</Data></Cell>
     <Cell><Data ss:Type="String">The end of the period. If the high is missing, it means that the period is ongoing</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">The high value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has a end value of 2012-02-03</Data></Cell>
     <Cell><Data ss:Type="String">./high</Data></Cell>
@@ -145,8 +145,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
