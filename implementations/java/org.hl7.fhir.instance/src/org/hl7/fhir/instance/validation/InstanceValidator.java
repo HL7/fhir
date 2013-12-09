@@ -54,6 +54,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.NamespaceContextMap;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -333,7 +334,7 @@ public class InstanceValidator extends BaseValidator {
     if (NS_FHIR.equals(element.getNamespaceURI())) {
       rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
     }
-    Map<String, ElementComponent> children = getChildren(structure, definition);
+    Map<String, ElementComponent> children = getChildren(structure, definition.getPathSimple());
     ChildIterator ci = new ChildIterator(path, element);
     while (ci.next()) {
       ElementComponent child = children.get(ci.name());
@@ -421,20 +422,22 @@ public class InstanceValidator extends BaseValidator {
             // special: check vocabulary. Mostly, this isn't needed on a code, but it is with extension
             if (cs.equals("code"))  {
               ElementDefinitionBindingComponent binding = ext.getDefinition().getDefinition().getBinding();
-              if (warning(errors, "code-unknown", path, binding != null && binding.getReference() != null && binding.getReference() instanceof ResourceReference, "Binding for "+path+" missing or cannot be processed")) {
-                if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
-                  ValueSet vs = resolveBindingReference(binding.getReference());
-                  if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
-                    try {
-                      vs = cache.getExpander().expand(vs);
-                      if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
-                        warning(errors, "code-unknown", path, codeInExpansion(vs, null, child.getAttribute("value")), "Code "+child.getAttribute("value")+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+")");
+              if (binding != null) {
+                if (warning(errors, "code-unknown", path, binding.getReference() != null && binding.getReference() instanceof ResourceReference, "Binding for "+path+" missing or cannot be processed")) {
+                  if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
+                    ValueSet vs = resolveBindingReference(binding.getReference());
+                    if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
+                      try {
+                        vs = cache.getExpander().expand(vs);
+                        if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
+                          warning(errors, "code-unknown", path, codeInExpansion(vs, null, child.getAttribute("value")), "Code "+child.getAttribute("value")+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+")");
+                        }
+                      } catch (Exception e) {
+                        warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
                       }
-                    } catch (Exception e) {
-                      warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
                     }
-                  }
-                } 
+                  } 
+                }
               }
             }
           }
@@ -461,10 +464,13 @@ public class InstanceValidator extends BaseValidator {
 	  } else if (definition.getContextTypeSimple() == ExtensionContext.resource) {
       boolean ok = false;
       String simplePath = simplifyPath(path);
-      for (String_ ct : definition.getContext()) 
-        if (ct.getValue().equals("*") || ct.getValue().equals(parentType) || simplePath.endsWith("."+ct.getValue()))
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      for (String_ ct : definition.getContext()) {
+        b.append(ct.getValue());
+        if (ct.getValue().equals("*") || ct.getValue().equals(parentType) || simplePath.equals(ct.getValue()) || simplePath.endsWith("."+ct.getValue()))
             ok = true;
-      rule(errors, "structure", path, ok, "This extension is not allowed to be used with the resource "+parentType);
+      }
+      rule(errors, "structure", path, ok, "This extension is not allowed to be used with the resource "+(parentType == null ? simplePath : parentType)+" (allowed: "+b.toString()+")");
 	  } else 
   		throw new Error("Unknown context type");	  	
   }
@@ -473,9 +479,24 @@ public class InstanceValidator extends BaseValidator {
     String s = path.replace("/f:", ".");
     while (s.contains("[")) 
       s = s.substring(0, s.indexOf("["))+s.substring(s.indexOf("]")+1);
-    if (s.endsWith(".extension"))
-      s = s.substring(0, s.length()-".extension".length());
-    return s;
+    String[] parts = s.split("\\.");
+    int i = 0;
+    while (i < parts.length && !types.containsKey(parts[i].toLowerCase()))
+      i++;
+    if (i >= parts.length)
+      throw new Error("Unable to process part "+path);
+    int j = parts.length - 1;
+    while (j > 0 && (parts[j].equals("extension") || parts[j].equals("modifierExtension")))
+        j--;
+    while (j > 1 && (parts[j].equals(parts[j-1])))
+      j--;
+    StringBuilder b = new StringBuilder();
+    for (int k = i; k <= j; k++) {
+      if (k > i)
+        b.append(".");
+      b.append(parts[k]);
+    }
+    return b.toString();
   }
 
 	private boolean empty(Element element) {
@@ -502,16 +523,23 @@ public class InstanceValidator extends BaseValidator {
     return null;
   }
 
-  private Map<String, ElementComponent> getChildren(ProfileStructureComponent structure, ElementComponent definition) {
+  private Map<String, ElementComponent> getChildren(ProfileStructureComponent structure, String path) {
     HashMap<String, ElementComponent> res = new HashMap<String, Profile.ElementComponent>(); 
     for (ElementComponent e : structure.getElement()) {
-      if (e.getPathSimple().startsWith(definition.getPathSimple()+".") && !e.getPathSimple().equals(definition.getPathSimple())) {
-        String tail = e.getPathSimple().substring(definition.getPathSimple().length()+1);
-        if (!tail.contains(".")) {
-          res.put(tail, e);
+      String p = e.getPathSimple();
+      if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p)) {
+        if (path.length() > p.length())
+          return getChildren(structure, e.getDefinition().getNameReferenceSimple()+"."+path.substring(p.length()+1));
+        else
+          return getChildren(structure, e.getDefinition().getNameReferenceSimple());
+      } else if (p.startsWith(path+".") && !p.equals(path)) {
+          String tail = p.substring(path.length()+1);
+          if (!tail.contains(".")) {
+            res.put(tail, e);
+          }
         }
+
       }
-    }
     return res;
   }
 

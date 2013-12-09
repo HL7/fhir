@@ -21,8 +21,6 @@
   <WindowTopX>19305</WindowTopX>
   <WindowTopY>75</WindowTopY>
   <TabRatio>651</TabRatio>
-  <ActiveSheet>14</ActiveSheet>
-  <FirstVisibleSheet>9</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -242,6 +240,7 @@
     <Cell><Data ss:Type="String">230;160</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">A conformance statement about how an application or implementation supports FHIR or the set of requirements for a desired implementation</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">N/A (would map to MIF instead, but MIF has no equivalent)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Conformance.identifier</Data></Cell>
@@ -531,14 +530,14 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">ResourceType</Data></Cell>
-    <Cell><Data ss:Type="String">Resource type</Data></Cell>
+    <Cell><Data ss:Type="String">A resource type that is supported</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the resource exposed via the restful interface</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Conformance.rest.resource.profile</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource(Profile)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Resource Profiles supported</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">What structural features are supported</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This profile applies to all the resources of this type - i.e. it is the superset of what is supported</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Ballot: Does a system need to be able to enumerate profiles that it does support?</Data></Cell>
@@ -771,7 +770,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Name of the query (_query=)</Data></Cell>
+    <Cell><Data ss:Type="String">Special named queries (_query=)</Data></Cell>
     <Cell><Data ss:Type="String">The name of this query, which is used in the _query parameter when the query is used</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -1035,10 +1034,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>58</TopRowBottomPane>
+   <TopRowBottomPane>44</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1055,8 +1055,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>63</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>54</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2056,7 +2056,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -2071,6 +2070,7 @@
  <Worksheet ss:Name="Sheet16">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row ss:AutoFitHeight="0"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -2078,6 +2078,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

@@ -293,7 +293,7 @@ public class SourceParser {
     for (int row = 0; row < sheet.rows.size(); row++) {
       String path = sheet.getColumn(row, "Path");
       ArrayList<String> codes = new ArrayList<String>();
-      for (int i = 1; i <= 36; i++) {
+      for (int i = 1; i <= 80; i++) {
         String s = sheet.getColumn(row, "c"+Integer.toString(i));
         if (!Utilities.noString(s))
           codes.add(s);

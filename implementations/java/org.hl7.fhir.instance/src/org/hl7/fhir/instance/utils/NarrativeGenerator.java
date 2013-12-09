@@ -476,6 +476,8 @@ public class NarrativeGenerator {
         ref = cs.getLinks().get("self");
     }
     if (cs != null && ref != null) {
+      if (!Utilities.noString(prefix) && ref.startsWith("http://hl7.org/fhir/"))
+        ref = ref.substring(20)+"/index.html";
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", prefix+ref.replace("\\", "/"));
       a.addText(inc.getSystemSimple().toString());

@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6855</WindowHeight>
-  <WindowWidth>27855</WindowWidth>
-  <WindowTopX>4710</WindowTopX>
-  <WindowTopY>5415</WindowTopY>
+  <WindowHeight>6225</WindowHeight>
+  <WindowWidth>27555</WindowWidth>
+  <WindowTopX>4860</WindowTopX>
+  <WindowTopY>5895</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -107,16 +107,16 @@
     <Cell><Data ss:Type="String">Ratio.numerator</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">The numerator</Data></Cell>
-    <Cell><Data ss:Type="String">The numerator</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Numerator value</Data></Cell>
+    <Cell><Data ss:Type="String">The value of the numerator</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">.numerator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Ratio.denominator</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">The denominator</Data></Cell>
-    <Cell><Data ss:Type="String">The denominator</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Denominator value</Data></Cell>
+    <Cell><Data ss:Type="String">The value of the denominator</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">.denominator</Data></Cell>
    </Row>
   </Table>
@@ -131,8 +131,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

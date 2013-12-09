@@ -15,10 +15,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9705</WindowHeight>
-  <WindowWidth>25635</WindowWidth>
-  <WindowTopX>2640</WindowTopX>
-  <WindowTopY>2715</WindowTopY>
+  <WindowHeight>9075</WindowHeight>
+  <WindowWidth>25335</WindowWidth>
+  <WindowTopX>2790</WindowTopX>
+  <WindowTopY>3195</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -131,7 +131,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Structure</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Technology mediated contact details (phone, fax, email, etc)</Data></Cell>
     <Cell><Data ss:Type="String">All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">TEL</Data></Cell>
@@ -194,7 +194,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

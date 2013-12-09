@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8850</WindowHeight>
-  <WindowWidth>24915</WindowWidth>
-  <WindowTopX>3360</WindowTopX>
-  <WindowTopY>3570</WindowTopY>
+  <WindowHeight>8220</WindowHeight>
+  <WindowWidth>24615</WindowWidth>
+  <WindowTopX>3510</WindowTopX>
+  <WindowTopY>4050</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -160,7 +160,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Structure</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Name of a human</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">Name of a human - parts and usage</Data></Cell>
     <Cell><Data ss:Type="String">A human's name with the ability to identify parts and usage</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Need to be able to record names, along with notes about their use</Data></Cell>
     <Cell><Data ss:Type="String">Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts may or may not be imbued with some implicit meaning; various cultures associate different importance with the name parts, and the degree to which systems must care about name parts around the world varies widely.</Data></Cell>
@@ -272,12 +272,11 @@
    <Unsynced/>
    <Selected/>
    <TopRowVisible>1</TopRowVisible>
-   <LeftColumnVisible>5</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -43,7 +43,7 @@ public class ToolingExtensions {
   }
 
   public static void addSubsumes(ValueSetDefineConceptComponent nc, String code) throws Exception {
-    nc.getExtensions().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
+    nc.getModifierExtensions().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
   }
 
   public static void addDefinition(Code nc, String definition) throws Exception {
@@ -106,7 +106,7 @@ public class ToolingExtensions {
   public static List<Code> getSubsumes(ValueSetDefineConceptComponent c) {
     List<Code> res = new ArrayList<Code>();
 
-    for (Extension e : c.getModifierExtensions()) {
+    for (Extension e : c.getExtensions()) {
       if (EXT_SUBSUMES.equals(e.getUrlSimple()))
         res.add((Code) e.getValue());
     }

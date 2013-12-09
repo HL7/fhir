@@ -21,7 +21,6 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6315</WindowTopY>
   <TabRatio>1000</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -231,7 +230,7 @@
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Practitioner|Group|Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The subject of the document</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Who|what is the subject of the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -343,7 +342,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner|Organization)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Document Authenticator</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Who/What authenticated the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Which person or organization authenticates that this document is valid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -531,7 +530,7 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Language</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Primary language of the document</Data><NamedCell
+    <Cell><Data ss:Type="String">The marked primary language for the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The primary language in which the source document is written</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -547,7 +546,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MimeType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Mime type of the document</Data><NamedCell
+    <Cell><Data ss:Type="String">Mime type, + maybe character encoding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The mime type of the source document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -682,7 +681,7 @@
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Name of parameter</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Parameter name in service call</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The name of a parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -695,7 +694,7 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Parameter value</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Parameter value for the name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The value of the named parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -770,14 +769,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <TopRowVisible>19</TopRowVisible>
-   <LeftColumnVisible>1</LeftColumnVisible>
+   <Selected/>
+   <TopRowVisible>16</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>8</ActiveCol>
-     <RangeSelection>R23C9:R23C11</RangeSelection>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1163,7 +1161,6 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

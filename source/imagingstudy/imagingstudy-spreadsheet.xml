@@ -468,7 +468,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Modality</Data></Cell>
-    <Cell><Data ss:Type="String">The modality of this series (0008,0060)</Data></Cell>
+    <Cell><Data ss:Type="String">The modality of the instances in the series (0008,0060)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0060</Data></Cell>
     <Cell><Data ss:Type="String">Modality</Data></Cell>
     <Cell><Data ss:Type="String">CT</Data></Cell>
@@ -727,7 +727,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Type of instance (0004,1430)</Data></Cell>
+    <Cell><Data ss:Type="String">Type of instance (image etc) (0004,1430)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">0004,1430</Data></Cell>
     <Cell><Data ss:Type="String">Directory Record Type</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="Default"/>
@@ -915,6 +915,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>39</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

@@ -21,7 +21,6 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>180</WindowTopY>
   <TabRatio>782</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -182,7 +181,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">SecurityEventType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type of event</Data><NamedCell
+    <Cell><Data ss:Type="String">Type/identifier of event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifier for a family of the event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -201,7 +200,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">SecurityEventSubType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Sub-type of event</Data><NamedCell
+    <Cell><Data ss:Type="String">More specific type/id for the event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifier for the category of event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -737,10 +736,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>33</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1063,7 +1064,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

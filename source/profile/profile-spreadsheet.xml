@@ -20,7 +20,6 @@
   <WindowWidth>19410</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>135</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -754,7 +753,7 @@
     <Cell><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Formal definition</Data><NamedCell
+    <Cell><Data ss:Type="String">Full formal definition in human language</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"> The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -879,7 +878,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">250;480</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type of the element</Data><NamedCell
+    <Cell><Data ss:Type="String">Type and Profile for this element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">The data type or resource that the value of this element is permitted to be</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1550,10 +1549,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>33</TopRowBottomPane>
+   <TopRowBottomPane>32</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1570,7 +1570,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>43</ActiveRow>
+     <ActiveRow>39</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -2258,7 +2258,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -334,7 +334,7 @@ public class InstanceValidator extends BaseValidator {
     if (NS_FHIR.equals(element.getNamespaceURI())) {
       rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
     }
-    Map<String, ElementComponent> children = getChildren(structure, definition);
+    Map<String, ElementComponent> children = getChildren(structure, definition.getPathSimple());
     ChildIterator ci = new ChildIterator(path, element);
     while (ci.next()) {
       ElementComponent child = children.get(ci.name());
@@ -523,16 +523,23 @@ public class InstanceValidator extends BaseValidator {
     return null;
   }
 
-  private Map<String, ElementComponent> getChildren(ProfileStructureComponent structure, ElementComponent definition) {
+  private Map<String, ElementComponent> getChildren(ProfileStructureComponent structure, String path) {
     HashMap<String, ElementComponent> res = new HashMap<String, Profile.ElementComponent>(); 
     for (ElementComponent e : structure.getElement()) {
-      if (e.getPathSimple().startsWith(definition.getPathSimple()+".") && !e.getPathSimple().equals(definition.getPathSimple())) {
-        String tail = e.getPathSimple().substring(definition.getPathSimple().length()+1);
-        if (!tail.contains(".")) {
-          res.put(tail, e);
+      String p = e.getPathSimple();
+      if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p)) {
+        if (path.length() > p.length())
+          return getChildren(structure, e.getDefinition().getNameReferenceSimple()+"."+path.substring(p.length()+1));
+        else
+          return getChildren(structure, e.getDefinition().getNameReferenceSimple());
+      } else if (p.startsWith(path+".") && !p.equals(path)) {
+          String tail = p.substring(path.length()+1);
+          if (!tail.contains(".")) {
+            res.put(tail, e);
+          }
         }
+
       }
-    }
     return res;
   }
 
