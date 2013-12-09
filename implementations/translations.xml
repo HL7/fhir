@@ -18,6 +18,10 @@
     <translation lang="en">Other</translation>
   </item>
 
+  <item id="Appointment">
+    <translation lang="en">Appointment</translation>
+  </item>
+  
   <item id="ConceptMap">
     <translation lang="en">ConceptMap</translation>
   </item>  

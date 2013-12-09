@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15270</WindowHeight>
-  <WindowWidth>27495</WindowWidth>
-  <WindowTopX>630</WindowTopX>
-  <WindowTopY>570</WindowTopY>
+  <WindowHeight>7440</WindowHeight>
+  <WindowWidth>19455</WindowWidth>
+  <WindowTopX>1035</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -27,7 +27,7 @@
   <Style ss:ID="Default" ss:Name="Normal">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:FontName="Arial" ss:Color="#000000"/>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -43,7 +43,7 @@
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
      ss:Color="#F2F2F2"/>
    </Borders>
-   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s63">
@@ -56,7 +56,7 @@
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
      ss:Color="#F2F2F2"/>
    </Borders>
-   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s64">
@@ -68,17 +68,23 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
      ss:Color="#F2F2F2"/>
    </Borders>
-   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="37" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="33" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:Width="313.5"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="60"/>
    <Column ss:Index="8" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="57.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="48.75"/>
+   <Column ss:Index="34" ss:StyleID="s62" ss:Width="45"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Path</Data></Cell>
     <Cell><Data ss:Type="String">c1</Data></Cell>
@@ -115,7 +121,7 @@
     <Cell><Data ss:Type="String">c32</Data></Cell>
     <Cell><Data ss:Type="String">c33</Data></Cell>
     <Cell><Data ss:Type="String">c34</Data></Cell>
-    <Cell><Data ss:Type="String">c35</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="String">c35</Data></Cell>
     <Cell><Data ss:Type="String">c36</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
@@ -346,6 +352,22 @@
     <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Appointment.status</Data></Cell>
+    <Cell ss:Index="30"><Data ss:Type="String">busy</Data></Cell>
+    <Cell><Data ss:Type="String">free</Data></Cell>
+    <Cell><Data ss:Type="String">tentative</Data></Cell>
+    <Cell><Data ss:Type="String">outofoffice</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Appointment.participationStatus</Data></Cell>
+    <Cell><Data ss:Type="String">accepted</Data></Cell>
+    <Cell><Data ss:Type="String">declined</Data></Cell>
+    <Cell><Data ss:Type="String">tentative</Data></Cell>
+    <Cell><Data ss:Type="String">in-process</Data></Cell>
+    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell><Data ss:Type="String">needs-action</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -355,12 +377,13 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
-   <LeftColumnVisible>5</LeftColumnVisible>
+   <TopRowVisible>17</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R33C2:R33C8</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -104,7 +104,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="63" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="64" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="140.25"/>
@@ -365,6 +365,11 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Appointment</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">recorder</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -382,7 +387,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
