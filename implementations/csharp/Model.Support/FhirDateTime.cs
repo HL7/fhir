@@ -35,7 +35,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Xml;
 
 namespace Hl7.Fhir.Model
 {
@@ -77,53 +76,8 @@ namespace Hl7.Fhir.Model
 
         public static FhirDateTime Now()
         {
-            return new FhirDateTime(DateTime.Now.ToString(FMT_FULL));
+            return new FhirDateTime(Util.FormatIsoDateTime(DateTimeOffset.Now));
         }
 
-
-        public static bool TryParseValue(string value, out string result)
-        {
-            if (value == null) throw new ArgumentNullException("value");
-
-            try
-            {
-                // try parse using Xml functions instead of pattern
-                XmlConvert.ToDateTimeOffset(value);
-                result = value;
-                return true;
-            }
-            catch
-            {
-                result = null;
-                return false;
-            }
-        }
-
-        public static string ParseValue(string value)
-        {
-            string result = null;
-
-            if (TryParseValue(value, out result))
-                return result;
-            else
-                throw new FhirFormatException("Not a correctly formatted dateTime value");
-        }
-
-        internal override ErrorList ValidateRules()
-        {
-            var result = new ErrorList();
-
-            string dummy;
-
-            if (!TryParseValue( Value, out dummy ))
-                result.Add("Not a correctly formatted dateTime value");
-            
-            return result; 
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
     }
 }

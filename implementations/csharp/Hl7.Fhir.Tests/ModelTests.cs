@@ -68,11 +68,6 @@ namespace Hl7.Fhir.Tests
             Assert.AreEqual("value",xr.Element("child").Value);
         }
 
-        [TestMethod]
-        public void ValidateEncodingNameAssertions()
-        {
-            Assert.AreEqual(Encoding.UTF8.HeaderName, Encoding.UTF8.WebName);
-        }
 
         //[TestMethod]
         //public void VerifyCastOperators()

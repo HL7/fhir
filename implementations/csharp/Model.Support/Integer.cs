@@ -34,47 +34,11 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using Hl7.Fhir.Support;
-using System.Xml;
 
 namespace Hl7.Fhir.Model
 {
     public partial class Integer
     {
-        public static bool TryParseValue( string value, out int result)
-        {
-            if (value == null) throw new ArgumentNullException("value");
-
-            try
-            {
-                result = XmlConvert.ToInt32(value);
-                return true;
-            }
-            catch
-            {
-                result = 0;
-                return false;
-            }
-        }
-
-
-        public static int ParseValue(string value)
-        {
-            int result;
-
-            if (TryParseValue(value, out result))
-                return result;
-            else 
-                throw new FhirFormatException("Not an integer value");
-        }
-
-
-        public override string ToString()
-        {
-            if (Value.HasValue)
-                return Value.Value.ToString(CultureInfo.InvariantCulture);
-            else
-                return null;
-        }
     }
-  
+ 
 }

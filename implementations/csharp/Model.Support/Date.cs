@@ -45,47 +45,42 @@ namespace Hl7.Fhir.Model
             return new Date(DateTime.Now.ToString("yyyy-MM-dd"));
         }
 
-        public static bool TryParseValue(string value, out string result)
-        {
-            if (value == null) throw new ArgumentNullException("value");
+        //public static bool TryParseValue(string value, out string result)
+        //{
+        //    if (value == null) throw new ArgumentNullException("value");
 
-            if (value==null || Regex.IsMatch(value,"^" + PATTERN + "$", RegexOptions.Singleline ))
-            {
-                result = value;
-                return true;
-            }
-            else
-            {
-                result = null;
-                return false;
-            }
-        }
+        //    if (value==null || Regex.IsMatch(value,"^" + PATTERN + "$", RegexOptions.Singleline ))
+        //    {
+        //        result = value;
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        result = null;
+        //        return false;
+        //    }
+        //}
 
-        public static string ParseValue(string value)
-        {
-            string result = null;
+        //public static string ParseValue(string value)
+        //{
+        //    string result = null;
 
-            if (TryParseValue(value, out result))
-                return result;
-            else
-                throw new FhirFormatException("Not a correctly formatted date value");
-        }
+        //    if (TryParseValue(value, out result))
+        //        return result;
+        //    else
+        //        throw new FhirFormatException("Not a correctly formatted date value");
+        //}
 
-        internal override ErrorList ValidateRules()
-        {
-            var result = new ErrorList();
+        //internal override ErrorList ValidateRules()
+        //{
+        //    var result = new ErrorList();
 
-            string dummy;
+        //    string dummy;
 
-            if (!TryParseValue( Value, out dummy ))
-                result.Add("Not a correctly formatted date value");
+        //    if (!TryParseValue( Value, out dummy ))
+        //        result.Add("Not a correctly formatted date value");
             
-            return result; 
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
+        //    return result; 
+        //}
     }
 }

@@ -42,8 +42,6 @@ public class CSharpProjectGenerator
 			destDir += File.separator;
 
 		// Generate "normal" VS2012 .NET project
-		// EK 20131105 - "normal" project is now a .NET 4.0 Portable library,
-		// so we don't need separate projects for .NET and WinRT anymore.
 		List<String> templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.csproj.template"); 	
 		List<String> itemGroup = buildItemGroupContents(cSharpProjectFiles);
 		List<String> outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
@@ -62,7 +60,7 @@ public class CSharpProjectGenerator
       destDir += File.separator;
 	  
 	  String filename = destDir + "Properties" + File.separator + "AssemblyInfo.cs";
-	  List<String> assemblyInfoContents = TextFile.readAllLines(filename);  
+	  List<String> assemblyInfoContents = TextFile.readAllLines(filename + ".template");  
     List<String> outputLines = replaceAssemblyVersion( assemblyInfoContents, version, svnRevision);
     TextFile.writeAllLines(filename, outputLines);
 	}

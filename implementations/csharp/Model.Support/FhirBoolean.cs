@@ -33,47 +33,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml;
 
 namespace Hl7.Fhir.Model
 {
     // value can be true or false
     public partial class FhirBoolean
     {
-        public static bool TryParseValue(string value, out bool result)
-        {
-            if (value == null)
-                throw new ArgumentNullException("value");
-
-            try
-            {
-                result = XmlConvert.ToBoolean(value);
-                return true;
-            }
-            catch
-            {
-                result = false;
-                return false;
-            }          
-        }
-
-        public static bool ParseValue(string value)
-        {
-            bool result;
-
-            if (TryParseValue(value, out result))
-                return result;
-            else
-                throw new FhirFormatException("Booleans can be either 0, 1, true of false");
-        }
-
-        public override string ToString()
-        {
-            if (Value.HasValue)
-                return XmlConvert.ToString(Value.Value);
-            else
-                return null;
-        }
     }
   
 }

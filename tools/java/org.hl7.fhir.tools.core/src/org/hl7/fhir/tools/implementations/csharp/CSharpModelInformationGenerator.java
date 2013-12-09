@@ -65,7 +65,6 @@ public class CSharpModelInformationGenerator extends GenBlock
 		inc( rgen.header(definitions.getDate(), definitions.getVersion() ) );
 		ln();
 		ln("using Hl7.Fhir.Model;");
-		ln("using System.Xml;");
 		ln();
 		ln("namespace Hl7.Fhir.Model");
 		bs("{");		

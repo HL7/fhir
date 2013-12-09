@@ -32,15 +32,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml;
 using Hl7.Fhir.Model;
-using System.Xml.Linq;
 using System.IO;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace Hl7.Fhir.Model
 {
-    public class Bundle
+    public class Bundle : Hl7.Fhir.Validation.IValidatableObject
     {
         public string Title { get; set; }
         public DateTimeOffset? LastUpdated { get; set; }
@@ -61,31 +61,48 @@ namespace Hl7.Fhir.Model
             Links = new UriLinkList();
         }
 
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (validationContext.ObjectType != typeof(Bundle))
+                throw new ArgumentException("Can only validate instances of type Bundle");
+
+            var value = (Binary)validationContext.ObjectInstance;
+            var result = new List<ValidationResult>();
+
+            if (String.IsNullOrWhiteSpace(Title))
+                result.Add(new ValidationResult("Feed must contain a title"));
+
+            if (!Util.UriHasValue(Id))
+                result.Add(new ValidationResult("Feed must have an id"));
+            else
+                if (!Id.IsAbsoluteUri)
+                    result.Add(new ValidationResult("Feed id must be an absolute URI"));
+
+            if (LastUpdated == null)
+                result.Add(new ValidationResult("Feed must have a updated date"));
+
+            if (Links.SearchLink != null)
+                result.Add(new ValidationResult("Links with rel='search' can only be used on feed entries"));
+
+            if (Entries != null)
+            {
+                foreach (var entry in Entries.Where(e => e != null))
+                {
+                    //TODO: Validate nested entries
+              //      Validator.TryValidateObject(entry, new ValidationContext(entry,null,null),result);
+                }
+            }
+
+            if (!result.Any()) result.Add(ValidationResult.Success);
+
+            return result;
+        }
+
         public ErrorList Validate()
         {
             ErrorList errors = new ErrorList();
             string context = String.Format("Feed '{0}'", Id);
 
-            if (String.IsNullOrWhiteSpace(Title))
-                errors.Add("Feed must contain a title", context);
-
-            if (!Util.UriHasValue(Id))
-                errors.Add("Feed must have an id", context);
-            else
-                if (!Id.IsAbsoluteUri)
-                    errors.Add("Feed id must be an absolute URI", context);
-
-            if (LastUpdated == null)
-                errors.Add("Feed must have a updated date", context);
-
-            if (Links.SearchLink != null)
-                errors.Add("Links with rel='search' can only be used on feed entries", context);
-
-            if(Entries != null)
-            {
-                foreach(var entry in Entries.Where(e=>e != null))
-                    errors.AddRange(entry.Validate());
-            }
 
             return errors;
         }
@@ -191,170 +208,6 @@ namespace Hl7.Fhir.Model
         public static IEnumerable<ResourceEntry<T>> ByTag<T>(this IEnumerable<ResourceEntry<T>> res, string term) where T : Resource, new()
         {
             return res.Where(re => re.Tags.FilterFhirTags().HasTag(term));
-        }
-    }
-
-
-    public abstract class BundleEntry
-    {
-        public BundleEntry()
-        {
-            Links = new UriLinkList();
-        }
-
-        public Uri Id { get; set; }
-        public Bundle Parent { set; get; }
-        public UriLinkList Links { get; set; }
-        public IEnumerable<Tag> Tags { get; set; }
-
-        public Uri SelfLink
-        {
-            get { return Links.SelfLink; }
-            set { Links.SelfLink = value; }
-        }
-
-        public virtual ErrorList Validate()
-        {
-            ErrorList errors = new ErrorList();
-            errors.DefaultContext = String.Format("Entry '{0}'", Id);
-
-            // SelfLink is no longer mandatory since a resource may not yet
-            // have an established resource URL when using Atom to post batches
-            // of new resources.
-            //if (SelfLink == null || SelfLink.ToString() == String.Empty)
-            //    errors.Add("Entry must have a link of type 'self'", context);
-
-            if (!Util.UriHasValue(Id))
-                errors.Add("Entry must have an id");
-            else
-                if (!Id.IsAbsoluteUri)
-                    errors.Add("Entry id must be an absolute URI");
-
-            if (Util.UriHasValue(SelfLink) && !SelfLink.IsAbsoluteUri)
-                errors.Add("Entry selflink must be an absolute URI");
-
-            if (Links.FirstLink != null || Links.LastLink != null || Links.PreviousLink != null || Links.NextLink != null)
-                errors.Add("Paging links can only be used on feeds, not entries");
-
-            if( Tags != null )
-                errors.AddRange(Tags.Validate());
-
-            return errors;
-        }
-
-        /// <summary>
-        /// Read-only property getting a summary from a Resource or a descriptive text in other cases.
-        /// </summary>
-        public abstract string Summary { get; }
-    }
-
-
-    public class DeletedEntry : BundleEntry
-    {
-        public DateTimeOffset? When { get; set; }
-
-        public override string Summary
-        {
-            get
-            {
-                return "<div xmlns='http://www.w3.org/1999/xhtml'>This resource has been deleted " +
-                    "on " + When.ToString() + "</div>";
-            }
-        }
-
-        public override ErrorList Validate()
-        {
-            var errors = base.Validate();
-
-            if (When == null)
-                errors.Add("A DeletedEntry must have a non-null deletion time (When)");
-
-            return errors;
-        }
-    }
-
-
-    public class ResourceEntry<T> : ResourceEntry where T : Resource, new()
-    {
-        public new T Resource
-        { 
-            get { return (T)((ResourceEntry)this).Resource; }
-            set { ((ResourceEntry)this).Resource = value; }
-        }
-
-        public static ResourceEntry<T> Create(T resource)
-        {
-            var result = new ResourceEntry<T>();
-
-            result.Resource = resource;
-
-            return result;
-        }
-    }
-
-    public abstract class ResourceEntry : BundleEntry
-    {
-        public Resource Resource { get; set; }
-
-        public string Title { get; set; }
-
-        public DateTimeOffset? LastUpdated { get; set; }
-        public DateTimeOffset? Published { get; set; }
-        public string AuthorName { get; set; }
-        public string AuthorUri { get; set; }
-
-
-        /// <summary>
-        /// Creates an instance of a typed ResourceEntry&lt;T&gt;, based on the actual type of the passed resource parameter
-        /// </summary>
-        /// <param name="resource"></param>
-        /// <returns></returns>
-        public static ResourceEntry Create(Resource resource)
-        {
-            Type typedREType = typeof(ResourceEntry<>).MakeGenericType(resource.GetType());
-            var result = (ResourceEntry)Activator.CreateInstance(typedREType);
-            result.Resource = resource;
-
-            return result;
-        }
-
-
-        public override ErrorList Validate()
-        {
-            ErrorList errors = base.Validate();
-
-            if (String.IsNullOrWhiteSpace(Title))
-                errors.Add("Entry must contain a title");
-
-            if (String.IsNullOrWhiteSpace(AuthorName) && String.IsNullOrEmpty(Parent.AuthorName))
-                errors.Add("Entry, or its parent feed, must have at least one author with a name");
-
-            if (LastUpdated == null)
-                errors.Add("Entry must have an updated date");
-
-            if (Resource == null)
-                errors.Add("Entry must contain Resource data, Content may not be null");
-          //  else
-             //   errors.AddRange(Resource.Validate());
-            
-            return errors;
-        } 
-
-        /// <summary>
-        /// Read-only. Returns the summary text from a Resource.
-        /// </summary>
-        public override string Summary
-        {
-            get
-            {
-                if (Resource is Binary)
-                    return string.Format("<div xmlns='http://www.w3.org/1999/xhtml'>" +
-                        "Binary content (mediatype {0})</div>", ((Binary)Resource).ContentType);
-                else if (Resource != null && Resource.Text != null)
-                    return Resource.Text.Div;
-                else
-                    return null;
-            }
         }
     }
 }

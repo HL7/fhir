@@ -128,7 +128,8 @@ public class CSharpModelGenerator extends GenBlock
 		ln("using System;");
 		ln("using System.Collections.Generic;");
 		ln("using Hl7.Fhir.Support;");
-		ln("using System.Xml.Linq;");
+		ln("using Hl7.Fhir.Introspection;");
+		ln("using Hl7.Fhir.Validation;");
 		ln("using System.Linq;");
 		ln();
 		ln("/*");
@@ -218,50 +219,45 @@ public class CSharpModelGenerator extends GenBlock
   }
 
 
-	private void generateMembers()
-	{
-	  
-	}
-	
-  private void generateValidationMethod(CompositeTypeDefn composite) {
-    String specifier = "override";
-    
-    if( composite.getBaseType() == null ) specifier = "virtual";
-    
-    ln("public "); nl(specifier); nl(" ErrorList Validate()");
-    bs("{");
-      ln("var result = new ErrorList();");
-      ln();
-      
-      if( composite.getBaseType() != null )
-      {
-        ln("result.AddRange(base.Validate());");
-        ln();
-      }
-      else
-      {
-        ln("result.AddRange(ValidateRules());");
-        ln();
-      }
-
-      for( ElementDefn member : composite.getElement() )
-      {
-        if( member.isPrimitiveValueElement() ) continue;
-        
-        String memberName = member.getGeneratorAnnotations().get(CLASSGEN_MEMBER_NAME); 
-      
-        ln("if(" + memberName + " != null )");
-        bs();
-          if( member.isRepeating() )
-            ln(memberName + ".ForEach(elem => result.AddRange(elem.Validate()));");              
-          else
-            ln("result.AddRange(" + memberName + ".Validate());");
-        es();
-      }
-      ln();
-      ln("return result;");
-    es("}");
-  }
+//  private void generateValidationMethod(CompositeTypeDefn composite) {
+//    String specifier = "override";
+//    
+//    if( composite.getBaseType() == null ) specifier = "virtual";
+//    
+//    ln("public "); nl(specifier); nl(" ErrorList Validate()");
+//    bs("{");
+//      ln("var result = new ErrorList();");
+//      ln();
+//      
+//      if( composite.getBaseType() != null )
+//      {
+//        ln("result.AddRange(base.Validate());");
+//        ln();
+//      }
+//      else
+//      {
+//        ln("result.AddRange(ValidateRules());");
+//        ln();
+//      }
+//
+//      for( ElementDefn member : composite.getElement() )
+//      {
+//        if( member.isPrimitiveValueElement() ) continue;
+//        
+//        String memberName = member.getGeneratorAnnotations().get(CLASSGEN_MEMBER_NAME); 
+//      
+//        ln("if(" + memberName + " != null )");
+//        bs();
+//          if( member.isRepeating() )
+//            ln(memberName + ".ForEach(elem => result.AddRange(elem.Validate()));");              
+//          else
+//            ln("result.AddRange(" + memberName + ".Validate());");
+//        es();
+//      }
+//      ln();
+//      ln("return result;");
+//    es("}");
+//  }
 
 	private boolean hasPrimitiveValueElement( CompositeTypeDefn composite )
 	{
@@ -320,6 +316,9 @@ public class CSharpModelGenerator extends GenBlock
 		    nl(")]");
 		  }
 		}
+		
+		if(needsNativeProperty) addPrimitiveValidators(tref.getName());
+		
 		ln("public ");
 		
 		
@@ -360,6 +359,28 @@ public class CSharpModelGenerator extends GenBlock
 	    // access methods to get to easily get to the elements Value property.
 		  generateSimpleValueAccess(member, tref, memberCsType, singleElementCsType, memberName);
 	}
+
+
+  private void addPrimitiveValidators(String primitive) {
+    // Add any specific validators placed atop native types
+    if(primitive.equals("uuid") )
+      ln("[UuidPattern]");
+    else if(primitive.equals("oid"))
+      ln("[OidPattern]");
+    else if(primitive.equals("id"))
+      ln("[IdPattern]");
+    else if(primitive.equals("uri"))
+      ln("[UriPattern]");
+    else if(primitive.equals("instant"))
+      ln("[InstantPattern]");
+    else if(primitive.equals("date"))
+      ln("[DatePattern]");
+    else if(primitive.equals("dateTime"))
+      ln("[DateTimePattern]");
+    else if(primitive.equals("code"))
+      ln("[CodePattern]");
+
+  }
 
 
   private void generateSimpleValueAccess(ElementDefn member, TypeRef tref, String memberCsType, 

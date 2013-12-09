@@ -32,11 +32,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml;
 using Hl7.Fhir.Model;
-using System.Xml.Linq;
 using System.IO;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Introspection;
 
 namespace Hl7.Fhir.Model
 {

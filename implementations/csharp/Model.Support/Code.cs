@@ -36,58 +36,10 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Introspection;
 
 namespace Hl7.Fhir.Model
 {
-    public partial class Code
-    {
-        public static bool TryParseValue(string value, out string result)
-        {
-            if (value == null || Regex.IsMatch(value, "^" + PATTERN + "$", RegexOptions.Singleline ))
-            {
-                result = value;
-                return true;
-            }
-            else
-            {
-                result = null;
-                return false;
-            }
-        }
-
-        public static string ParseValue(string value)
-        {
-            string result = null;
-
-            if (TryParseValue(value, out result))
-                return result;
-            else
-                throw new FhirFormatException("Not a correctly formatted code value");
-        }
-
-        internal override ErrorList ValidateRules()
-        {
-            var result = new ErrorList();
-
-            if (Value == null)
-                result.Add("Code values cannot be empty");
-            else
-            {
-                string dummy;
-
-                if (!TryParseValue(Value, out dummy))
-                    result.Add("Not a correctly formatted code value");
-            }
-
-            return result; 
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
-    }
-
     [FhirType("codeOfT")]
     public class Code<T> : Element where T : struct
     {
@@ -103,53 +55,6 @@ namespace Hl7.Fhir.Model
                 throw new ArgumentException("T must be an enumerated type");
 
             Value = value;
-        }
-
-        //public static bool TryParseValue(string value, out T result)
-        //{
-        //    if (value == null) throw new ArgumentNullException("value");
-
-        //    object res;
-
-        //    if (EnumHelper.TryParseEnum(value, typeof(T), out res))
-        //    {
-        //        result = (T)res;
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        result = default(T);
-        //        return false;
-        //    }
-        //}
-
-        //public static T ParseValue(string value)
-        //{
-        //    T result;
-
-        //    if (TryParseValue(value, out result))
-        //        return result;
-        //    else
-        //        throw new FhirFormatException("'" + value + "' is not a correct value for " +
-        //                    "enum " + typeof(T).Name );
-        //}
-
-
-        //public override ErrorList Validate()
-        //{
-        //    var code = new Code(this.ToString());
-        //    code.Extension = this.Extension;
-        //    code.Id = this.Id;
-
-        //    return code.Validate();
-        //}
-
-        //public override string ToString()
-        //{
-        //    if (this.Value.HasValue)
-        //        return EnumHelper.EnumToString(this.Value, typeof(T));
-        //    else
-        //        return null;
-        //}
+        }       
     }
 }

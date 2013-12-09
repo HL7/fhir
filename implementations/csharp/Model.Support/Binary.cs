@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Hl7.Fhir.Support;
+using Hl7.Fhir.Validation;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 /*
   Copyright (c) 2011-2012, HL7, Inc
@@ -38,21 +40,25 @@ namespace Hl7.Fhir.Model
     /// <summary>
     /// Resource for capturing binary data
     /// </summary>
-    public partial class Binary : Hl7.Fhir.Model.Resource
+    public partial class Binary : Hl7.Fhir.Model.Resource, Hl7.Fhir.Validation.IValidatableObject
     {
-        internal override ErrorList ValidateRules()
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            var result = new ErrorList();
-            result.AddRange(base.ValidateRules());
-            
-            if (Content == null)
-                result.Add("Entry must contain (possibly 0-length) data");
+            if (validationContext.ObjectType != typeof(Binary))
+                throw new ArgumentException("Can only validate instances of type Binary");
 
-            if (ContentType == null)
-                result.Add("Entry must contain a contentType");
+            var value = (Binary)validationContext.ObjectInstance;
+            var result = new List<ValidationResult>();
+
+            if (value.Content == null)
+                result.Add(new ValidationResult("Entry must contain (possibly 0-length) data in Content element"));
+
+            if (value.ContentType == null)
+                result.Add(new ValidationResult("Entry must contain a ContentType"));
+
+            if(!result.Any()) result.Add(ValidationResult.Success);
 
             return result;
         }
-    }
-    
+    }       
 }

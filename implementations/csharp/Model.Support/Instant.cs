@@ -75,7 +75,7 @@ namespace Hl7.Fhir.Model
             if (TryParseValue(value, out result))
                 return result;
             else
-                throw new FhirFormatException("Instant is not in expected format");
+                throw new FormatException("Instant is not in expected format");
         }
 
         public override string ToString()

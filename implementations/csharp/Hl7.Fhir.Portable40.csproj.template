@@ -12,7 +12,7 @@
     <RootNamespace>Hl7.Fhir</RootNamespace>
     <AssemblyName>Hl7.Fhir</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile147</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile42</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
@@ -43,30 +43,26 @@
   <ItemGroup>
     <Compile Include="Model.Support\Binary.cs" />
     <Compile Include="Model.Support\Bundle.cs" />
-    <Compile Include="Model.Support\FhirDateTime.cs" />
-    <Compile Include="Model.Support\Id.cs" />
-    <Compile Include="Model.Support\IdRef.cs" />
-    <Compile Include="Model.Support\Uuid.cs" />
-    <Compile Include="Model.Support\Oid.cs" />
-    <Compile Include="Model.Support\FhirUri.cs" />
-    <Compile Include="Model.Support\FhirString.cs" />
+    <Compile Include="Model.Support\BundleEntry.cs" />
     <Compile Include="Model.Support\Code.cs" />
     <Compile Include="Model.Support\Date.cs" />
+    <Compile Include="Model.Support\Element.cs" />
     <Compile Include="Model.Support\FhirBoolean.cs" />
+    <Compile Include="Model.Support\FhirDateTime.cs" />
     <Compile Include="Model.Support\FhirDecimal.cs" />
-    <Compile Include="Model.Support\Integer.cs" />
-    <Compile Include="Model.Support\XHtml.cs" />
-    <Compile Include="Model.Support\Instant.cs" />
-    <Compile Include="Model.Support\ModelInfo.cs" />
+    <Compile Include="Model.Support\FhirString.cs" />
+    <Compile Include="Model.Support\IExtendable.cs" />
     <Compile Include="Model.Support\Initializers.cs" />
+    <Compile Include="Model.Support\Instant.cs" />
+    <Compile Include="Model.Support\Integer.cs" />
+    <Compile Include="Model.Support\ManagedEntryList.cs" />
+    <Compile Include="Model.Support\ModelInfo.cs" />
+    <Compile Include="Model.Support\Resource.cs" />
     <Compile Include="Model.Support\ResourceReference.cs" />
     <Compile Include="Model.Support\TagList.cs" />
-    <Compile Include="Model.Support\ValueSet.cs" />
-    <Compile Include="Model.Support\ManagedEntryList.cs" />
     <Compile Include="Model.Support\UriLinkList.cs" />
-    <Compile Include="Model.Support\Element.cs" />
-    <Compile Include="Model.Support\IExtendable.cs" />
-    <Compile Include="Model.Support\Resource.cs" />
+    <Compile Include="Model.Support\ValueSet.cs" />
+    <Compile Include="Model.Support\XHtml.cs" />
     <Compile Include="Support\ErrorList.cs" />
     <Compile Include="Support\Util.cs" />
     <Compile Include="Introspection\NotMappedAttribute.cs" />
@@ -76,6 +72,15 @@
     <Compile Include="Introspection\XmlSerializationHint.cs" />
     <Compile Include="Introspection\FhirElementAttribute.cs" />
     <Compile Include="Introspection\FhirTypeAttribute.cs" />
+    <Compile Include="Validation\CodePatternAttribute.cs" />
+    <Compile Include="Validation\DatePatternAttribute.cs" />
+    <Compile Include="Validation\DateTimePatternAttribute.cs" />
+    <Compile Include="Validation\IdPatternAttribute.cs" />
+    <Compile Include="Validation\InstantPatternAttribute.cs" />
+    <Compile Include="Validation\IValidatableObject.cs" />
+    <Compile Include="Validation\OidPatternAttribute.cs" />
+    <Compile Include="Validation\UriPatternAttribute.cs" />
+    <Compile Include="Validation\UuidPatternAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

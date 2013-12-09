@@ -35,45 +35,11 @@ using System.Text;
 //using Hl7.Fhir.Support;
 using System.Globalization;
 using Hl7.Fhir.Support;
-using System.Xml;
 
 namespace Hl7.Fhir.Model
 {
     public partial class FhirDecimal
     {
-        public static bool TryParseValue(string value, out decimal result)
-        {
-            if (value == null) throw new ArgumentNullException("value");
-
-            try
-            {
-                result = XmlConvert.ToDecimal(value);
-                return true;
-            }
-            catch
-            {
-                result = 0;
-                return false;
-            }
-        }
-
-        public static decimal ParseValue(string value)
-        {
-            decimal result;
-
-            if (TryParseValue(value, out result))
-                return result;
-            else 
-                throw new FhirFormatException("Not a decimal value");
-        }
-
-        public override string ToString()
-        {
-            if (Value.HasValue)
-                return XmlConvert.ToString(Value.Value);
-            else
-                return null;
-        }
     }
   
 }

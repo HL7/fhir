@@ -33,8 +33,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml.Linq;
-//using Hl7.Fhir.Support;
 
 namespace Hl7.Fhir.Model
 {
@@ -72,7 +70,7 @@ namespace Hl7.Fhir.Model
             if (TryParseValue(value, out result))
                 return result;
             else 
-                throw new FhirFormatException("Content is not valid xhtml");
+                throw new FormatException("Content is not valid xhtml");
         }
 
         public override string ToString()
