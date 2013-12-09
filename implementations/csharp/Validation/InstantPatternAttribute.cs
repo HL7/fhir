@@ -12,10 +12,10 @@ namespace Hl7.Fhir.Validation
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (validationContext.ObjectType != typeof(DateTimeOffset))
-                throw new ArgumentException("IdPatternAttribute can only be applied to DateTimeOffset properties");
+            if (value == null) return ValidationResult.Success;
 
-            if(value == null) return ValidationResult.Success;
+            if (value.GetType() != typeof(DateTimeOffset))
+                throw new ArgumentException("IdPatternAttribute can only be applied to DateTimeOffset properties");
 
             //TODO: Check FHIR specific rules
             return ValidationResult.Success;

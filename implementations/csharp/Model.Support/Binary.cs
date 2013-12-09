@@ -44,19 +44,13 @@ namespace Hl7.Fhir.Model
     {
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (validationContext.ObjectType != typeof(Binary))
-                throw new ArgumentException("Can only validate instances of type Binary");
-
-            var value = (Binary)validationContext.ObjectInstance;
             var result = new List<ValidationResult>();
 
-            if (value.Content == null)
+            if (Content == null)
                 result.Add(new ValidationResult("Entry must contain (possibly 0-length) data in Content element"));
 
-            if (value.ContentType == null)
+            if (ContentType == null)
                 result.Add(new ValidationResult("Entry must contain a ContentType"));
-
-            if(!result.Any()) result.Add(ValidationResult.Success);
 
             return result;
         }

@@ -13,10 +13,10 @@ namespace Hl7.Fhir.Validation
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (validationContext.ObjectType != typeof(string))
-                throw new ArgumentException("CodePatternAttribute can only be applied to string properties");
+            if (value == null) return ValidationResult.Success;
 
-            if(value == null) return ValidationResult.Success;
+            if (value.GetType() != typeof(string))
+                throw new ArgumentException("CodePatternAttribute can only be applied to string properties");
 
             if (Regex.IsMatch(value as string, "^" + Code.PATTERN + "$", RegexOptions.Singleline))
                 return ValidationResult.Success;

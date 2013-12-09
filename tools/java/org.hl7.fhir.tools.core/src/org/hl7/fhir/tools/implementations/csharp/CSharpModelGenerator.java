@@ -362,24 +362,25 @@ public class CSharpModelGenerator extends GenBlock
 
 
   private void addPrimitiveValidators(String primitive) {
-    // Add any specific validators placed atop native types
-    if(primitive.equals("uuid") )
-      ln("[UuidPattern]");
-    else if(primitive.equals("oid"))
-      ln("[OidPattern]");
-    else if(primitive.equals("id"))
-      ln("[IdPattern]");
-    else if(primitive.equals("uri"))
-      ln("[UriPattern]");
-    else if(primitive.equals("instant"))
-      ln("[InstantPattern]");
-    else if(primitive.equals("date"))
-      ln("[DatePattern]");
-    else if(primitive.equals("dateTime"))
-      ln("[DateTimePattern]");
-    else if(primitive.equals("code"))
-      ln("[CodePattern]");
-
+   // Add any specific validators placed atop native types
+   if(primitive.equals("code"))
+     ln("[CodePattern]");
+   else if(primitive.equals("date"))
+     ln("[DatePattern]");
+   else if(primitive.equals("dateTime"))
+     ln("[DateTimePattern]");
+   else if(primitive.equals("id"))
+     ln("[IdPattern]");
+   else if(primitive.equals("instant"))
+     ln("[InstantPattern]");
+   else if(primitive.equals("xhtml"))
+     ln("[NarrativeXhtmlPattern]");
+   else if(primitive.equals("oid"))
+     ln("[OidPattern]");
+   else if(primitive.equals("uri"))
+     ln("[UriPattern]");
+   else if(primitive.equals("uuid") )
+     ln("[UuidPattern]");
   }
 
 
@@ -523,93 +524,93 @@ public class CSharpModelGenerator extends GenBlock
 	}
 
 
-	public GenBlock generateEnumHandling(BindingDefn binding) 
-	{
-		begin();
-		
-		ln("/// <summary>");
-		ln("/// Conversion of " + binding.getName() + "from and into string");
-		ln("/// <summary>");
-		ln("public static class " + binding.getName() + "Handling");
-		bs("{"); 
-			ln("public static bool TryParse");
-				nl("(string value, ");
-				nl("out " + binding.getName() + " result)");
-			bs("{");
-				ln( "result = default(" + binding.getName() + ");");
-				ln();					
-				enumValueParseCases(binding);
-				ln();
-				ln("return true;");					
-			es("}");
-			ln();
-			ln("public static string ToString");
-				nl("(" + binding.getName() + " value)");
-			bs("{");
-				enumValueToStringCases(binding);
-			es("}");
-		es("}");
-		
-		return end();
-	}
+//	public GenBlock generateEnumHandling(BindingDefn binding) 
+//	{
+//		begin();
+//		
+//		ln("/// <summary>");
+//		ln("/// Conversion of " + binding.getName() + "from and into string");
+//		ln("/// <summary>");
+//		ln("public static class " + binding.getName() + "Handling");
+//		bs("{"); 
+//			ln("public static bool TryParse");
+//				nl("(string value, ");
+//				nl("out " + binding.getName() + " result)");
+//			bs("{");
+//				ln( "result = default(" + binding.getName() + ");");
+//				ln();					
+//				enumValueParseCases(binding);
+//				ln();
+//				ln("return true;");					
+//			es("}");
+//			ln();
+//			ln("public static string ToString");
+//				nl("(" + binding.getName() + " value)");
+//			bs("{");
+//				enumValueToStringCases(binding);
+//			es("}");
+//		es("}");
+//		
+//		return end();
+//	}
 
 	
-	private void enumValueParseCases(BindingDefn binding) 
-	{
-		boolean isFirstClause = true;
-			
-		for( DefinedCode code : binding.getCode() ) 
-		{					
-			if( !isFirstClause )
-				ln("else ");
-			else
-				ln();
-					
-			isFirstClause = false;
-			
-			nl("if( value==");
-				nl("\"" + code.getCode() + "\")");
-			bs();
-				ln("result = " + binding.getName());
-					nl("." + GeneratorUtils.generateCSharpEnumMemberName(code.getCode()));
-					nl(";");
-			es();						
-		}
-		ln("else");
-		bs();
-			ln("return false;");
-		es();
-	}
-
-	private void enumValueToStringCases(BindingDefn binding) 
-	{
-		boolean isFirstClause = true;
-			
-		for( DefinedCode code : binding.getCode() ) 
-		{					
-			if( !isFirstClause )
-				ln("else ");
-			else
-				ln();
-					
-			isFirstClause = false;
-			
-			nl("if( value==");
-				nl(binding.getName());
-				nl("." + GeneratorUtils.generateCSharpEnumMemberName(code.getCode()));
-				nl(" )");
-			bs();
-				ln("return ");
-					nl("\"" + code.getCode() + "\";");
-			es();						
-		}
-	    ln("else");
-	    bs();
-	    	ln("throw new ArgumentException(\"Unrecognized ");
-	    		nl(binding.getName());
-	    		nl(" value: \" + value.ToString());");
-	    es();
-	}
+//	private void enumValueParseCases(BindingDefn binding) 
+//	{
+//		boolean isFirstClause = true;
+//			
+//		for( DefinedCode code : binding.getCode() ) 
+//		{					
+//			if( !isFirstClause )
+//				ln("else ");
+//			else
+//				ln();
+//					
+//			isFirstClause = false;
+//			
+//			nl("if( value==");
+//				nl("\"" + code.getCode() + "\")");
+//			bs();
+//				ln("result = " + binding.getName());
+//					nl("." + GeneratorUtils.generateCSharpEnumMemberName(code.getCode()));
+//					nl(";");
+//			es();						
+//		}
+//		ln("else");
+//		bs();
+//			ln("return false;");
+//		es();
+//	}
+//
+//	private void enumValueToStringCases(BindingDefn binding) 
+//	{
+//		boolean isFirstClause = true;
+//			
+//		for( DefinedCode code : binding.getCode() ) 
+//		{					
+//			if( !isFirstClause )
+//				ln("else ");
+//			else
+//				ln();
+//					
+//			isFirstClause = false;
+//			
+//			nl("if( value==");
+//				nl(binding.getName());
+//				nl("." + GeneratorUtils.generateCSharpEnumMemberName(code.getCode()));
+//				nl(" )");
+//			bs();
+//				ln("return ");
+//					nl("\"" + code.getCode() + "\";");
+//			es();						
+//		}
+//	    ln("else");
+//	    bs();
+//	    	ln("throw new ArgumentException(\"Unrecognized ");
+//	    		nl(binding.getName());
+//	    		nl(" value: \" + value.ToString());");
+//	    es();
+//	}
 
 
 	public GenBlock generateEnum(BindingDefn binding) throws Exception {
@@ -665,7 +666,9 @@ public class CSharpModelGenerator extends GenBlock
 
     	// Generate empty constructor
         ln("public " + className + "()");
-        	nl(": this(null) {}");
+        	nl(": this(");
+        	nl("(" + csharpPrimitive + ")"); // Avoid ambiguous this() calls by specifying type of null
+        	nl("null) {}");
         ln();
         
         // Generate the cast from a C# primitive to the Fhir primitive

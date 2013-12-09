@@ -59,33 +59,5 @@ namespace Hl7.Fhir.Model
         {
             return new Instant(DateTimeOffset.Now);
         }
-
-        public static bool TryParseValue(string value, out DateTimeOffset result)
-        {
-            if (value == null) throw new ArgumentNullException("value");
-
-            return Util.TryParseIsoDateTime(value, out result);
-        }
-
-
-        public static DateTimeOffset ParseValue(string value)
-        {
-            DateTimeOffset result;
-
-            if (TryParseValue(value, out result))
-                return result;
-            else
-                throw new FormatException("Instant is not in expected format");
-        }
-
-        public override string ToString()
-        {
-            if (Value.HasValue)
-            {
-                return Util.FormatIsoDateTime(Value.Value);
-            }
-            else
-                return null;
-        }
     }
 }

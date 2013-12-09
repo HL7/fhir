@@ -12,10 +12,10 @@ namespace Hl7.Fhir.Validation
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (validationContext.ObjectType != typeof(Uri))
-                throw new ArgumentException("UriPatternAttribute can only be applied to .NET Uri properties");
-
             if (value == null) return ValidationResult.Success;
+
+            if (value.GetType() != typeof(Uri))
+                throw new ArgumentException("UriPatternAttribute can only be applied to .NET Uri properties");
 
             var uri = (Uri)value;
 

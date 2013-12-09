@@ -36,11 +36,14 @@ using Hl7.Fhir.Model;
 using System.IO;
 using Hl7.Fhir.Support;
 using Hl7.Fhir.Introspection;
+using System.ComponentModel.DataAnnotations;
+using Hl7.Fhir.Validation;
 
 namespace Hl7.Fhir.Model
 {
     [FhirType]
-    public class TagList
+    [IsValidatable]
+    public class TagList : Hl7.Fhir.Validation.IValidatableObject
     {
         public TagList()
         {
@@ -53,10 +56,22 @@ namespace Hl7.Fhir.Model
         }
 
         public List<Tag> Category { get; set; }
+
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var result = new List<ValidationResult>();
+
+            foreach (var tag in Category)
+                result.AddRange(tag.Validate(validationContext));
+
+            return result;
+        }
     }
 
     [FhirType]
-    public class Tag
+    [IsValidatable]
+    public class Tag : Hl7.Fhir.Validation.IValidatableObject
     {
         public const string FHIRTAGNS = "http://hl7.org/fhir/tag";
         public static readonly Uri FHIRTAGSCHEME = new Uri(FHIRTAGNS, UriKind.Absolute);
@@ -69,32 +84,32 @@ namespace Hl7.Fhir.Model
         {
         }
 
-        public Tag(string term)
+        public Tag(string term, Uri scheme, string label=null)
         {
             this.Term = term;
-        }
-
-        public Tag(string term, Uri scheme=null, string label=null) : this(term)
-        {
             this.Scheme = scheme;
             this.Label = label;
         }
 
-        public Tag(string term, string scheme = null, string label = null)
+        public Tag(string term, string scheme, string label = null)
             : this(term, scheme==null ? null : new Uri(scheme,UriKind.RelativeOrAbsolute), label)
         {
         }
 
 
-        public ErrorList Validate()
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            ErrorList result = new ErrorList();
+            var result = new List<ValidationResult>();
 
-            if (Label == null)
-                result.Add("Tag label cannot be null");
+            if (Scheme == null)
+                result.Add(new ValidationResult("Tag scheme cannot be null"));
+
+            if (Term == null)
+                result.Add(new ValidationResult("Tag term cannot be null"));
 
             return result;
         }
+
 
         public override bool Equals(object obj)
         {
@@ -180,15 +195,6 @@ namespace Hl7.Fhir.Model
 
             if (that != null)
                 result.RemoveAll(t => that.HasTag(t.Term, t.Scheme));
-
-            return result;
-        }
-
-        public static ErrorList Validate(this IEnumerable<Tag> tags)
-        {
-            ErrorList result = new ErrorList();
-
-            foreach (var tag in tags) result.AddRange(tag.Validate());
 
             return result;
         }

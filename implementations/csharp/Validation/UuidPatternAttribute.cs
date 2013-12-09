@@ -13,7 +13,9 @@ namespace Hl7.Fhir.Validation
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            if (validationContext.ObjectType != typeof(string))
+            if (value == null) return ValidationResult.Success;
+
+            if (value.GetType() != typeof(string))
                 throw new ArgumentException("UuidPatternAttribute can only be applied to string properties");
 
             if (UuidPatternAttribute.IsValid((string)value))
@@ -24,8 +26,6 @@ namespace Hl7.Fhir.Validation
 
         public static bool IsValid(string value)
         {
-            if (value == null) return true;
-
             return Regex.IsMatch(value, "^" + Uuid.PATTERN + "$", RegexOptions.Singleline);
         }
     }

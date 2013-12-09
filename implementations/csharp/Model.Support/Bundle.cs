@@ -63,10 +63,6 @@ namespace Hl7.Fhir.Model
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (validationContext.ObjectType != typeof(Bundle))
-                throw new ArgumentException("Can only validate instances of type Bundle");
-
-            var value = (Binary)validationContext.ObjectInstance;
             var result = new List<ValidationResult>();
 
             if (String.IsNullOrWhiteSpace(Title))
@@ -88,12 +84,9 @@ namespace Hl7.Fhir.Model
             {
                 foreach (var entry in Entries.Where(e => e != null))
                 {
-                    //TODO: Validate nested entries
-              //      Validator.TryValidateObject(entry, new ValidationContext(entry,null,null),result);
+                    result.AddRange(entry.Validate(null));  //BundleEntry's validate does not require validationcontext
                 }
             }
-
-            if (!result.Any()) result.Add(ValidationResult.Success);
 
             return result;
         }

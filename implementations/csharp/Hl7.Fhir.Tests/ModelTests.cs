@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Hl7.Fhir.Model;
 using System.Xml.Linq;
 using Hl7.Fhir.Support;
+using System.ComponentModel.DataAnnotations;
 
 namespace Hl7.Fhir.Tests
 {
@@ -13,30 +14,81 @@ namespace Hl7.Fhir.Tests
     public class ModelTests
     {
         [TestMethod]
+        public void TestIdValidation()
+        {
+            Id id = new Id("az23");
+
+            Validator.ValidateObject(id, new ValidationContext(id), true);
+
+            try
+            {
+                // should throw error
+                id = new Id("!notgood!");
+                Validator.ValidateObject(id, new ValidationContext(id), true);
+                Assert.Fail();
+            }
+            catch(ValidationException) { }
+
+
+            try
+            {
+                // should throw error
+                id = new Id("NotGood");
+                Validator.ValidateObject(id, new ValidationContext(id), true);
+                Assert.Fail();
+            }
+            catch(ValidationException) { }
+
+            try
+            {
+                // should throw error
+                id = new Id("1234567890123456789012345678901234567");
+                Validator.ValidateObject(id, new ValidationContext(id), true);
+                Assert.Fail();
+            }
+            catch(ValidationException) { }
+        }
+
+    
+        [TestMethod]
         public void OIDandUUIDUrls()
         {
-            //var oidUrl = "urn:oid:1.2.3";
-            //var illOidUrl = "urn:oid:datmagdusniet";
-            //var uuidUrl = "urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11";
-            //var illUuidUrl = "urn:uuid:ooknietgoed";
-            //var oidWithZero = "urn:oid:1.2.0.3.4";
+            var oidUrl = "urn:oid:1.2.3";
+            var illOidUrl = "urn:oid:datmagdusniet";
+            var uuidUrl = "urn:uuid:a5afddf4-e880-459b-876e-e4591b0acc11";
+            var illUuidUrl = "urn:uuid:ooknietgoed";
+            var oidWithZero = "urn:oid:1.2.0.3.4";
 
-            //FhirUri uri = FhirUri.ParseValue(oidUrl);
-            //Assert.AreEqual(0, uri.Validate().Count);
+            FhirUri uri = new FhirUri(oidUrl);
+            Validator.ValidateObject(uri, new ValidationContext(uri), true);
 
-            //uri = FhirUri.Parse(illOidUrl);
-            //Assert.AreEqual(1, uri.Validate().Count);
+            try
+            {
+                // should throw error
+                uri = new FhirUri(illOidUrl);
+                Validator.ValidateObject(uri, new ValidationContext(uri), true);
+                Assert.Fail();
+            }
+            catch (ValidationException) { }
 
-            //uri = FhirUri.Parse(uuidUrl);
-            //Assert.AreEqual(0, uri.Validate().Count);
+            
+            uri = new FhirUri(uuidUrl);
+            Validator.ValidateObject(uri, new ValidationContext(uri), true);
 
-            //uri = FhirUri.Parse(illUuidUrl);
-            //Assert.AreEqual(1, uri.Validate().Count);
+            try
+            {
+                // should throw error
+                uri = new FhirUri(illUuidUrl);
+                Validator.ValidateObject(uri, new ValidationContext(uri), true);
+                Assert.Fail();
+            }
+            catch (ValidationException) { }
 
-            //Assert.IsTrue(Uri.Equals(new Uri("http://nu.nl"), new Uri("http://nu.nl")));
+            uri = new FhirUri(oidWithZero);
+            Validator.ValidateObject(uri, new ValidationContext(uri), true);
+         
+            Assert.IsTrue(Uri.Equals(new Uri("http://nu.nl"), new Uri("http://nu.nl")));
 
-            //uri = FhirUri.Parse(oidWithZero);
-            //Assert.AreEqual(0, uri.Validate().Count);
         }
 
 
@@ -69,39 +121,6 @@ namespace Hl7.Fhir.Tests
         }
 
 
-        //[TestMethod]
-        //public void VerifyCastOperators()
-        //{
-        //    FhirBoolean b = true;
-        //    FhirBoolean bn = (bool?)null;
-        //    FhirBoolean bn2 = new FhirBoolean(null);
-        //    FhirBoolean bn3 = new FhirBoolean(false);
-
-        //    Assert.AreEqual(true, b.Value);
-        //    Assert.IsNull(bn);
-
-        //    bool rb = (bool)b;
-        //    Assert.AreEqual(true, rb);
-
-        //    bool? rbn = (bool?)b;
-        //    Assert.AreEqual(true, rbn);
-
-        //    bool? rbn2 = (bool?)bn;
-        //    Assert.IsFalse(rbn2.HasValue);
-        //    Assert.IsNull(rbn2);
-
-        //    try
-        //    {
-        //        bool rb2 = (bool)bn;
-        //        Assert.Fail();
-        //    }
-        //    catch (InvalidCastException)
-        //    {
-        //    }
-        //}
-
-
-
         [TestMethod]
         public void DateTimeHandling()
         {
@@ -115,10 +134,7 @@ namespace Hl7.Fhir.Tests
             //dt = FhirDateTime.Parse("2013-08-18T00:00:00.000+12:00");
         }
 
-
-      
-
-
+     
         [TestMethod]
         public void SimpleValueSupport()
         {
