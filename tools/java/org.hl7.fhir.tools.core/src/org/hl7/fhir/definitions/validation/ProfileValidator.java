@@ -44,6 +44,7 @@ import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.Utilities;
 
 /**
  * Given a candidate profile, and the actual base profile for a resource, check that the candidate is valid.
@@ -287,6 +288,12 @@ public class ProfileValidator extends BaseValidator {
     if (typePoints.empty()) {
       for (ElementComponent e : profile.getStructure().get(0).getElement()) {
         String p = e.getPath().getValue();
+        if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p))
+          if (path.length() > p.length())
+            return getConstraintByPath(e.getDefinition().getNameReferenceSimple()+"."+path.substring(p.length()+1));
+          else
+            return getConstraintByPath(e.getDefinition().getNameReferenceSimple());
+        
         if (p.equals(path) || (p.endsWith("[x]") && path.length() > p.length() && p.substring(0, p.length()-3).equals(path.substring(0, p.length()-3)) && isType(path.substring(p.length()-3))))
           return e;
       }

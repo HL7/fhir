@@ -35,6 +35,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -493,5 +494,20 @@ public class Utilities {
         b.append(c);
     }   
     return b.toString();
+  }
+
+
+  public static String[] splitByCamelCase(String name) {
+    List<String> parts = new ArrayList<String>();
+    StringBuilder b = new StringBuilder();
+    for (int i = 0; i < name.length(); i++) {
+      if (i > 0 && Character.isUpperCase(name.charAt(i))) {
+        parts.add(b.toString());
+        b = new StringBuilder();
+      }
+      b.append(Character.toLowerCase(name.charAt(i)));
+    }
+    parts.add(b.toString());
+    return parts.toArray(new String[] {} );
   }
 }

@@ -367,15 +367,37 @@ public class ResourceValidator extends BaseValidator {
 	  if (Utilities.noString(parentName))
 	    return false;
 	  if (name.equals(parentName))
-      return false;
-	  name = name.toLowerCase();
-	  parentName = parentName.toLowerCase();
-	  if (parentName.startsWith(name))
-	    return true;
-	  for (int i = 3; i < name.length(); i++)
-	    if (parentName.endsWith(name.substring(0, i)))
+      return false; // special case
+	  String[] names = Utilities.splitByCamelCase(name);
+	  String[] parentNames = Utilities.splitByCamelCase(parentName);
+	  for (int i = 1; i <= names.length; i++) {
+	    if (arraysMatch(copyLeft(names, i), copyRight(parentNames, i)))
 	      return true;
+	  }
 	  return false;
+  }
+
+  private boolean arraysMatch(String[] a1, String[] a2) {
+    if (a1.length != a2.length)
+      return false;
+    for (int i = 0; i < a1.length; i++) 
+      if (!a1[i].equals(a2[i]))
+           return false;
+    return true;
+  }
+
+  private String[] copyLeft(String[] names, int length) {
+    String[] p = new String[Math.min(length, names.length)];
+    for (int i = 0; i < p.length; i++)
+      p[i] = names[i];
+    return p;
+  }
+  
+  private String[] copyRight(String[] names, int length) {
+    String[] p = new String[Math.min(length, names.length)];
+    for (int i = 0; i < p.length; i++)
+      p[i] = names[i + Math.max(0, names.length - length)];
+    return p;
   }
 
   private void checkType(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent) {

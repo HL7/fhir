@@ -302,10 +302,14 @@ public class ProfileGenerator {
     // no purpose here
     ce.getDefinition().setMin(Factory.newInteger(e.getMinCardinality()));
     ce.getDefinition().setMax(Factory.newString_(e.getMaxCardinality() == null ? "*" : e.getMaxCardinality().toString()));
-    for (TypeRef t : e.getTypes()) {
-      TypeRefComponent type = new Profile.TypeRefComponent();
-      type.setCode(Factory.newCode(t.summaryFormal()));
-      ce.getDefinition().getType().add(type);
+    if (e.typeCode().startsWith("@")) {
+      ce.getDefinition().setNameReferenceSimple(e.typeCode().substring(1));
+    } else {
+      for (TypeRef t : e.getTypes()) {
+        TypeRefComponent type = new Profile.TypeRefComponent();
+        type.setCode(Factory.newCode(t.summaryFormal()));
+        ce.getDefinition().getType().add(type);
+      }
     }
     // ce.setConformance(getType(e.getConformance()));
     if (!"".equals(e.getCondition())) {
