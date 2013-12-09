@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10275</WindowHeight>
-  <WindowWidth>26115</WindowWidth>
-  <WindowTopX>2160</WindowTopX>
-  <WindowTopY>2145</WindowTopY>
+  <WindowHeight>9645</WindowHeight>
+  <WindowWidth>25815</WindowWidth>
+  <WindowTopX>2310</WindowTopX>
+  <WindowTopY>2625</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -259,14 +259,15 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="185.25"/>
+   <Column ss:Index="3" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="185.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="342.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="267.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="305.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
+    <Cell><Data ss:Type="String">Context</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">English</Data></Cell>
     <Cell><Data ss:Type="String">OCL</Data></Cell>
@@ -274,9 +275,10 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">Value set doesn't substitute for system</Data></Cell>
     <Cell><Data ss:Type="String">If a valueSet is provided, a system URI SHALL also be provided.</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">not (exists(f:valueSet) and exists(f:code)) or exists(f:system)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not (exists(f:valueSet) and exists(f:code)) or exists(f:system)</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -291,7 +293,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
