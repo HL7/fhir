@@ -1,6 +1,6 @@
 
 <Patient xmlns="http://hl7.org/fhir">
-  <extension url="http://www.goodhealth.org/consent#trials">
+  <extension url="http://example.org/consent#trials">
     <valueCode value="renal"/>
   </extension>
   <text>

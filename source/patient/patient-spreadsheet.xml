@@ -1187,7 +1187,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="150"/>
    <Column ss:AutoFitWidth="0" ss:Width="248.25"/>
@@ -1293,6 +1293,13 @@
     <Cell><Data ss:Type="String">patient-example-us-extensions.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Glossy</Data></Cell>
+    <Cell><Data ss:Type="String">Example for glossy</Data></Cell>
+    <Cell><Data ss:Type="String">glossy</Data></Cell>
+    <Cell><Data ss:Type="String">patient-glossy-example.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1312,7 +1319,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>14</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <RangeSelection>R15C1:R15C6</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
