@@ -20,7 +20,6 @@
   <WindowWidth>23250</WindowWidth>
   <WindowTopX>3360</WindowTopX>
   <WindowTopY>3510</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -156,7 +155,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">ActivityDefinitionCategory</Data></Cell>
-    <Cell><Data ss:Type="String">encounter | procedure | observation | +</Data></Cell>
+    <Cell><Data ss:Type="String">diet | drug | encounter | observation +</Data></Cell>
     <Cell><Data ss:Type="String">High-level categorization of the type of activity.</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">May determine what types of extensions are permitted</Data></Cell>
@@ -177,7 +176,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">ActivityDefinitionCode</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ActivityDefinitionType</Data></Cell>
     <Cell><Data ss:Type="String">Detail type of activity</Data></Cell>
     <Cell><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -198,7 +197,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">CodeableConcept | Schedule|string</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept | Schedule</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">ActivityTiming</Data></Cell>
     <Cell><Data ss:Type="String">When activity is to occur</Data></Cell>
     <Cell><Data ss:Type="String">The period, timing or frequency upon which the described activity is to occur.</Data></Cell>
@@ -467,11 +466,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
+   <LeftColumnVisible>6</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -538,7 +539,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">#activity-definition-category</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s67"><Data ss:Type="String">ActivityDefinitionCode</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ActivityDefinitionType</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Detailed type of planned activity.  E.g. CBC</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -563,7 +564,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -623,7 +624,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
