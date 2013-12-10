@@ -99,7 +99,7 @@ public class ToolsHelper {
     return eventType;
   }
   
-  private void executeFragments(String[] args) throws Exception {
+  public void executeFragments(String[] args) throws Exception {
     try {
       File source = new CSFile(args[1]);
       File dest = new CSFile(args[2]);

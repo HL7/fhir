@@ -93,6 +93,7 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
@@ -102,6 +103,7 @@ import org.w3c.dom.Element;
 public class PageProcessor implements Logger  {
 
   private static final String SIDEBAR_SPACER = "<p>&nbsp;</p>\r\n";
+  private List<String> suppressedMessages = new ArrayList<String>();
   private Definitions definitions;
   private FolderManager folders;
   private String version;
@@ -2878,20 +2880,25 @@ public class PageProcessor implements Logger  {
   }
 
   @Override
-public void log(String content) {
+public void log(String content, LogMessageType type) {
 //    if (notime) {
 //      System.out.println(content);
 //      notime = false;
 //    } else {
-      Date stop = new Date();
-      long l1 = start.getTime();
-      long l2 = stop.getTime();
-      long diff = l2 - l1;
-      long secs = diff / 1000;
-      MemoryMXBean mem = ManagementFactory.getMemoryMXBean();
-      // mem.gc();
-      long used = mem.getHeapMemoryUsage().getUsed() / (1024 * 1024);
-      System.out.println(String.format("%1$-74s", content)+" "+String.format("%1$3s", Long.toString(secs))+"sec "+String.format("%1$4s", Long.toString(used))+"MB");
+    if (!(suppressedMessages.contains(content) && (type == LogMessageType.Hint || type == LogMessageType.Warning))) {
+      if (type == LogMessageType.Process) {
+        Date stop = new Date();
+        long l1 = start.getTime();
+        long l2 = stop.getTime();
+        long diff = l2 - l1;
+        long secs = diff / 1000;
+        MemoryMXBean mem = ManagementFactory.getMemoryMXBean();
+        // mem.gc();
+        long used = mem.getHeapMemoryUsage().getUsed() / (1024 * 1024);
+        System.out.println(String.format("%1$-74s", content)+" "+String.format("%1$3s", Long.toString(secs))+"sec "+String.format("%1$4s", Long.toString(used))+"MB");
+      } else
+        System.out.println(content);
+    }
 //    }
   }
   
@@ -3024,6 +3031,10 @@ public void log(String content) {
   public void setId(String id) {
     this.id = id;
     
+  }
+
+  public List<String> getSuppressedMessages() {
+    return suppressedMessages;
   }
 
 

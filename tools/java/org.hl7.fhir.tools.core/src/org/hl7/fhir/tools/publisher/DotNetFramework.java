@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 
 public class DotNetFramework {
 
@@ -50,17 +51,17 @@ public class DotNetFramework {
 
     if( fwPath == null )
     {
-      l.log("Cannot find .NET framework path, will not attempt to compile the C# reference implementation.");
+      l.log("Cannot find .NET framework path, will not attempt to compile the C# reference implementation.", LogMessageType.Warning);
       return null;
     }
 
     if( !fwPath.contains("v4.") )
     {
-      l.log("Found .NET framework, but the publication tool requires a .NET v4.x framework");
+      l.log("Found .NET framework, but the publication tool requires a .NET v4.x framework", LogMessageType.Hint);
       return null;
     }
     
-    l.log("Using .NET framework in " + fwPath);
+    l.log("Using .NET framework in " + fwPath, LogMessageType.Hint);
     
     String build = Utilities.appendSlash(fwPath) + "msbuild.exe" + " " + makefile;
     
@@ -95,7 +96,7 @@ public class DotNetFramework {
     catch(Exception e)
     {
       // Some low-level compilation error
-      l.log("Compilation failed due to dotnet tooling errors:" + Utilities.systemEol() + e.getMessage());
+      l.log("Compilation failed due to dotnet tooling errors:" + Utilities.systemEol() + e.getMessage(), LogMessageType.Error);
       return null;
     }
 

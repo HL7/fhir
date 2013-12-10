@@ -126,5 +126,5 @@ public interface PlatformGenerator {
    * incomplete, and we mainly want to know whether they include things that are not known
    *  
    */
-  public String checkFragments(String rootDir, String fragmentsXml) throws Exception;
+  public String checkFragments(String rootDir, String fragmentsXml, boolean inProcess) throws Exception;
 }

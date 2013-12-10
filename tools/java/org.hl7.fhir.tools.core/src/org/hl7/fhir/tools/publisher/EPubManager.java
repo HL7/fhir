@@ -16,6 +16,7 @@ import org.hl7.fhir.utilities.FileNotifier;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -280,7 +281,7 @@ public class EPubManager implements FileNotifier {
   }
 
   private void reportError(String msg) {
-    page.log(msg);
+    page.log(msg, LogMessageType.Error);
     page.getQa().brokenlink(msg);
   }
 

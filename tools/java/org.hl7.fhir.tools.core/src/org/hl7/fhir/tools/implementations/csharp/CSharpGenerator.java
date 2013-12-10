@@ -44,6 +44,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 
 public class CSharpGenerator extends BaseGenerator implements PlatformGenerator {
 
@@ -256,7 +257,7 @@ public boolean doesCompile() {
     // If there was an error, print the message
     else if(result.exitValue != 0)
     {
-      logger.log(result.message);
+      logger.log(result.message, LogMessageType.Error);
       return false;
     }
 
@@ -276,7 +277,7 @@ public boolean doesCompile() {
     {     
       if( origZipFile.renameTo(tempZipFile) == false )
       {
-        logger.log("Failed to rename CSharp.zip to a temporary file. Is it locked?");
+        logger.log("Failed to rename CSharp.zip to a temporary file. Is it locked?", LogMessageType.Error);
         return false;
       }
       
@@ -288,7 +289,7 @@ public boolean doesCompile() {
     }
     catch( Exception e)
     {
-      logger.log("Failed to add compiled assembly to csharp distribution zip");
+      logger.log("Failed to add compiled assembly to csharp distribution zip", LogMessageType.Error);
       return false;
     }
     finally
@@ -309,7 +310,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) {
   }
 
   @Override
-public String checkFragments(String rootDir, String fragments) throws Exception {
+public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
     return "Not supported by C# implementation";
   }
 }

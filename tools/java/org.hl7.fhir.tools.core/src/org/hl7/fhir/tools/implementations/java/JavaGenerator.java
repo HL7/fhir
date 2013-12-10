@@ -64,6 +64,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 
 public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
@@ -290,7 +291,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     Boolean result = task.call();
     if (!result) {
       for (Diagnostic<? extends JavaFileObject> t : diagnostics.getDiagnostics()) {
-        logger.log("c: "+t.toString());
+        logger.log("c: "+t.toString(), LogMessageType.Error);
       }
     }
 
@@ -483,7 +484,8 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
   }
 
   @Override
-public String checkFragments(String rootDir, String fragments) throws Exception {
+  // in process for debugging, but requires tool generated code to be current
+  public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
     File file = File.createTempFile("temp", ".xml");
     file.deleteOnExit();
     if (file.exists())
@@ -495,20 +497,23 @@ public String checkFragments(String rootDir, String fragments) throws Exception 
     if (filed.exists())
       filed.delete();
     
-    List<String> command = new ArrayList<String>();
-    command.add("java");
-    command.add("-jar");
-    command.add("org.hl7.fhir.validator.jar");
-    command.add("fragments");
-    command.add(file.getAbsolutePath());
-    command.add(filed.getAbsolutePath());
+    if (inProcess) {
+      new ToolsHelper().executeFragments(new String[] {"fragments", file.getAbsolutePath(), filed.getAbsolutePath()}); 
+    } else {
+      List<String> command = new ArrayList<String>();
+      command.add("java");
+      command.add("-jar");
+      command.add("org.hl7.fhir.validator.jar");
+      command.add("fragments");
+      command.add(file.getAbsolutePath());
+      command.add(filed.getAbsolutePath());
 
-    ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
-    builder.directory(new File(rootDir));
+      ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
+      builder.directory(new File(rootDir));
 
-    final Process process = builder.start();
-    process.waitFor();
-
+      final Process process = builder.start();
+      process.waitFor();
+    }
     if (!filed.exists())
       return "Fragment processing failed completely";
     String s = TextFile.fileToString(filed.getAbsolutePath());

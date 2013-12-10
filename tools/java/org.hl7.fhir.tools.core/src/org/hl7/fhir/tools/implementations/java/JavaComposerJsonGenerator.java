@@ -233,7 +233,7 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("  private void compose"+upFirst(dc.getCode())+"Core(String name, "+tn+" value, boolean inArray) throws Exception {\r\n");
     if (dc.getCode().equals("integer")  || dc.getCode().equals("boolean"))
       write("    if (value != null) {\r\n");
-    else if (dc.getCode().equals("decimal") || dc.getCode().equals("uri") || dc.getCode().equals("base64Binary") || dc.getCode().equals("instant"))
+    else if (dc.getCode().equals("decimal") || dc.getCode().equals("uri") || dc.getCode().equals("base64Binary") || dc.getCode().equals("instant") || dc.getCode().equals("date") || dc.getCode().equals("dateTime"))
       write("    if (value != null && value.getValue() != null) {\r\n");
     else
       write("    if (value != null && !Utilities.noString(value.getValue())) {\r\n");

@@ -32,11 +32,14 @@ import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -131,6 +134,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
+import org.hl7.fhir.instance.test.ToolsHelper;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.InstanceValidator;
@@ -146,6 +150,7 @@ import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
@@ -330,15 +335,16 @@ public class Publisher {
   }
 
 	public void execute(String folder) throws Exception {
-    log("Publish FHIR in folder " + folder+" @ "+Config.DATE_FORMAT().format(page.getGenDate().getTime()));
+    page.log("Publish FHIR in folder " + folder+" @ "+Config.DATE_FORMAT().format(page.getGenDate().getTime()), LogMessageType.Process);
 		if (isGenerate) 
 		  checkSubversion(folder);    
 		registerReferencePlatforms();
 
 		if (initialize(folder)) {
-	    log("Version "+page.getVersion()+"-"+page.getSvnRevision());
+	    page.log("Version "+page.getVersion()+"-"+page.getSvnRevision(), LogMessageType.Hint);
 
 	    cache = new IniFile(page.getFolders().rootDir+"temp"+File.separator+"build.cache");
+	    loadSuppressedMessages(page.getFolders().rootDir);
 		  boolean doAny = false;
 	    for (String n : dates.keySet()) {
 	      Long d = cache.getLongProperty("dates", n);
@@ -352,7 +358,7 @@ public class Publisher {
 	    cache.save();
 	    
 	    if (!buildFlags.get("all"))
-	      log("Partial Build (if you want a full build, just run the build again)");
+	      page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
 	    Utilities.createDirectory(page.getFolders().dstDir);
 			
 			page.getBreadCrumbManager().parse(page.getFolders().srcDir+"heirarchy.xml");
@@ -362,7 +368,7 @@ public class Publisher {
 
 			if (validate()) {
 				if (isGenerate) {
-	        log("Clear Directory");
+	        page.log("Clear Directory", LogMessageType.Process);
 	        if (buildFlags.get("all"))
 	          Utilities.clearDirectory(page.getFolders().dstDir);
 	        Utilities.createDirectory(page.getFolders().dstDir + "html");
@@ -378,13 +384,27 @@ public class Publisher {
 				validateXml();
 		    if (isGenerate && buildFlags.get("all")) 
   		    produceQA();
-				log("Finished publishing FHIR @ "+Config.DATE_FORMAT().format(Calendar.getInstance().getTime()));
+				page.log("Finished publishing FHIR @ "+Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
 			} else
-				log("Didn't publish FHIR due to errors @ "+Config.DATE_FORMAT().format(Calendar.getInstance().getTime()));
+				page.log("Didn't publish FHIR due to errors @ "+Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
 		}
 	}
 
-	private void loadValueSets() throws Exception {
+	private void loadSuppressedMessages(String rootDir) throws Exception {
+    InputStreamReader r = new InputStreamReader(new FileInputStream(rootDir+"suppressed-messages.txt"));
+    StringBuilder b = new StringBuilder();
+    while (r.ready()) {
+      char c = (char) r.read();
+      if (c == '\r' || c == '\n') {
+        if (b.length() > 0) 
+          page.getSuppressedMessages().add(b.toString());
+        b = new StringBuilder();
+      } else
+        b.append(c);
+    }
+  }
+
+  private void loadValueSets() throws Exception {
     v2Valuesets = new AtomFeed();
     v2Valuesets.setId("http://hl7.org/fhir/v2/valuesets");
     v2Valuesets.setTitle("v2 tables as ValueSets");
@@ -398,10 +418,10 @@ public class Publisher {
     v3Valuesets.setUpdated(Calendar.getInstance());
     page.setv3Valuesets(v3Valuesets);
     
-    log(" ...vocab");
+    page.log(" ...vocab", LogMessageType.Process);
     analyseV2();
     analyseV3();
-    log(" ...resource ValueSet");
+    page.log(" ...resource ValueSet", LogMessageType.Process);
     ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
     if (isGenerate) {
       produceResource1(r);      
@@ -588,7 +608,7 @@ public class Publisher {
 	        }
 	      } 
 	      if (!(bs.getName().equals("DataType") || bs.getName().equals("FHIRDefinedType") || bs.getName().equals("ResourceType") || bs.getName().equals("MessageEvent"))) 
-	        log("unprocessed special type "+bs.getName());
+	        page.log("unprocessed special type "+bs.getName(), LogMessageType.Error);
 	    }
 	  }
     prsr.getRegistry().commit();
@@ -636,7 +656,7 @@ public class Publisher {
 		page.setDefinitions(new Definitions());
 		page.setFolders(new FolderManager(folder));
 		
-		log("Checking Source for " + folder);
+		page.log("Checking Source for " + folder, LogMessageType.Process);
 
 		List<String> errors = new ArrayList<String>();
 
@@ -681,15 +701,15 @@ public class Publisher {
 		}
 
 		if (errors.size() > 0)
-			log("Unable to publish FHIR specification:");
+			page.log("Unable to publish FHIR specification:", LogMessageType.Error);
 		for (String e : errors) {
-			log(e);
+			page.log(e, LogMessageType.Error);
 		}
 		return errors.size() == 0;
 	}
 
 	private boolean validate() throws Exception {
-		log("Validating");
+		page.log("Validating", LogMessageType.Process);
 		ResourceValidator val = new ResourceValidator(page.getDefinitions(), translations.getDocumentElement(), page.getCodeSystems());
 
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
@@ -916,12 +936,12 @@ public class Publisher {
 		resource.load(new CSFileInputStream(eCorePath), null);
 		org.hl7.fhir.definitions.ecore.fhir.Definitions eCoreDefs = (org.hl7.fhir.definitions.ecore.fhir.Definitions) resource.getContents().get(0);
 
-		log("Produce Schemas");
+		page.log("Produce Schemas", LogMessageType.Process);
     new SchemaGenerator().generate(page.getDefinitions(), page.getIni(), page.getFolders().tmpResDir, page.getFolders().xsdDir, page.getFolders().dstDir, 
           page.getFolders().srcDir, page.getVersion(), Config.DATE_FORMAT().format(page.getGenDate().getTime()));
 
 		for (PlatformGenerator gen : page.getReferenceImplementations()) {
-			log("Produce " + gen.getName() + " Reference Implementation");
+			page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);
 
 			String destDir = page.getFolders().dstDir;
 			String implDir = page.getFolders().implDir(gen.getName());
@@ -933,7 +953,7 @@ public class Publisher {
 		}
 		for (PlatformGenerator gen : page.getReferenceImplementations()) {
 			if (gen.doesCompile()) {
-				log("Compile " + gen.getName() + " Reference Implementation");
+				page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
 				if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page)) 
 				{
 				  // Must always be able to compile Java to go on. Also, if we're building
@@ -941,12 +961,12 @@ public class Publisher {
 				  if( gen.getName().equals("java") || web )
 				    throw new Exception("Compile " + gen.getName() + " failed");
 				  else
-				    log("Compile " + gen.getName() + " failed, still going on.");
+				    page.log("Compile " + gen.getName() + " failed, still going on.", LogMessageType.Error);
 				}
 			}
 		}
 
-    log("Produce Schematrons");
+    page.log("Produce Schematrons", LogMessageType.Process);
 		for (String rname : page.getDefinitions().sortedResourceNames()) {
 		  ResourceDefn r = page.getDefinitions().getResources().get(rname); 
 			String n = r.getName().toLowerCase();			
@@ -960,7 +980,7 @@ public class Publisher {
 		sg.close();
 		
 		produceSchemaZip();
-		log("Produce Content");
+		page.log("Produce Content", LogMessageType.Process);
 		produceSpec();
 
 		if (buildFlags.get("all")) {
@@ -968,12 +988,12 @@ public class Publisher {
 	      if (!new File(page.getFolders().archiveDir).exists())
 	        throw new Exception("Unable to build HL7 copy with no archive directory (sync svn at one level up the tree)");
 
-		    log("Produce HL7 copy");
+		    page.log("Produce HL7 copy", LogMessageType.Process);
 		    wm = new WebMaker(page.getFolders(), page.getVersion(), page.getIni(), page.getDefinitions());
 		    wm.produceHL7Copy();
 		  }
       if (new File(page.getFolders().archiveDir).exists() && !noArchive) {
-		    log("Produce Archive copy");
+		    page.log("Produce Archive copy", LogMessageType.Process);
 		    produceArchive();
       }
 		}		
@@ -1042,7 +1062,7 @@ public class Publisher {
         page.getEpub().registerFile(page.getIni().getStringProperty("files", n), "Support File", EPubManager.determineType(page.getIni().getStringProperty("files", n)));
       }
 
-      page.log("Copy HTML templates");
+      page.log("Copy HTML templates", LogMessageType.Process);
       Utilities.copyDirectory(page.getFolders().rootDir+page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getEpub());
       TextFile.stringToFile("\r\n[FHIR]\r\nversion="+page.getVersion()+"\r\nrevision="+page.getSvnRevision()+"\r\ndate="+new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()), Utilities.path(page.getFolders().dstDir, "version.info"));
 	    profileFeed = new AtomFeed();
@@ -1057,7 +1077,7 @@ public class Publisher {
       typeFeed.setUpdated(Calendar.getInstance());
 
       for (String n : page.getDefinitions().getDiagrams().keySet()) {
-        log(" ...diagram "+n);
+        page.log(" ...diagram "+n, LogMessageType.Process);
         page.getSvgs().put(n, TextFile.fileToString(page.getFolders().srcDir+page.getDefinitions().getDiagrams().get(n)));
       }
 
@@ -1083,36 +1103,36 @@ public class Publisher {
 	  for (String rname : page.getDefinitions().sortedResourceNames()) {
 	    if (!rname.equals("ValueSet") && wantBuild(rname)) {
 	      ResourceDefn r = page.getDefinitions().getResources().get(rname); 
-	      log(" ...resource "+r.getName());
+	      page.log(" ...resource "+r.getName(), LogMessageType.Process);
 	      produceResource2(r);
 	    }
 	  }
 
 	   for (Compartment c : page.getDefinitions().getCompartments()) {
 	      if (buildFlags.get("all")) {
-	        log(" ...compartment "+c.getName());
+	        page.log(" ...compartment "+c.getName(), LogMessageType.Process);
 	        produceCompartment(c);
 	      }
 	    }
 
 	  for (String n : page.getIni().getPropertyNames("pages")) {
 	    if (buildFlags.get("all") || buildFlags.get("page-"+n.toLowerCase())) {
-	      log(" ...page "+n);
+	      page.log(" ...page "+n, LogMessageType.Process);
 	      producePage(n, page.getIni().getStringProperty("pages", n));
 	    }
 	  }
 	  if (buildFlags.get("all")) {
-	    log(" ...check Fragments");
+	    page.log(" ...check Fragments", LogMessageType.Process);
 	    checkFragments();
 	    for (String n : page.getDefinitions().getProfiles().keySet()) {
-	      log(" ...profile "+n);
+	      page.log(" ...profile "+n, LogMessageType.Process);
 	      produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null);
 	    }
 
       produceV2();
       produceV3();
       
-      log(" ...collections ");
+      page.log(" ...collections ", LogMessageType.Process);
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed, true);
       cloneToXhtml("profiles-resources", "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", false);
@@ -1136,7 +1156,7 @@ public class Publisher {
       cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)", false);
       jsonToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)", resource2Json(v3Valuesets));
 
-      log("....validator");
+      page.log("....validator", LogMessageType.Process);
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
       zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
@@ -1171,7 +1191,7 @@ public class Publisher {
       zip.close();
       
 
-      log(" ...zips");
+      page.log(" ...zips", LogMessageType.Process);
 	    zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
 	    zip.addFiles(page.getFolders().dstDir + "examples" + File.separator, "", null, null);
 	    zip.close();
@@ -1180,15 +1200,15 @@ public class Publisher {
 	    zip.addFiles(page.getFolders().dstDir, "", ".json", null);
 	    zip.close();
 
-	    log(" ...zip");
+	    page.log(" ...final zip", LogMessageType.Process);
 	    produceZip();
 
 	    
-	    log("Produce .epub Form");
+	    page.log("Produce .epub Form", LogMessageType.Process);
 	    page.getEpub().produce();
 	  }
 	  else 
-	    log("Partial Build - terminating now");
+	    page.log("Partial Build - terminating now", LogMessageType.Error);
 	}
 
   private String resource2Json(AtomFeed profileFeed2) throws Exception {
@@ -1557,7 +1577,7 @@ public class Publisher {
   }
 
   private void produceV3() throws Exception {
-    log(" ...v3 Code Systems");
+    page.log(" ...v3 Code Systems", LogMessageType.Process);
     
     Utilities.createDirectory(page.getFolders().dstDir + "v3");
     Utilities.clearDirectory(page.getFolders().dstDir + "v3");
@@ -1802,7 +1822,7 @@ public class Publisher {
   }
 
   private void produceV2() throws Exception {
-    log(" ...v2 Tables");
+    page.log(" ...v2 Tables", LogMessageType.Process);
 
     Utilities.createDirectory(page.getFolders().dstDir + "v2");
     Utilities.clearDirectory(page.getFolders().dstDir + "v2");
@@ -1948,29 +1968,29 @@ public class Publisher {
       i++;
     }  
     s.append("</tests>\r\n");
-    TextFile.stringToFile(s.toString(), "c:\\temp\\fragments.xml");
-    String err = javaReferencePlatform.checkFragments(page.getFolders().dstDir, s.toString());
+    String err = javaReferencePlatform.checkFragments(page.getFolders().dstDir, s.toString(), true);
     if (err == null)
       throw new Exception("Unable to process outcome of checking fragments");
     if (!err.startsWith("<results"))
       throw new Exception(err);
 
-    XmlPullParser xpp = loadXml(new ByteArrayInputStream(err.getBytes()));
-    nextNoWhitespace(xpp);
-    xpp.next();
-    nextNoWhitespace(xpp);
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document errDoc = builder.parse(new ByteArrayInputStream(err.getBytes()));
     
-    while (xpp.getEventType() == XmlPullParser.START_TAG && xpp.getName().equals("result")) {
-      String id = xpp.getAttributeValue(null, "id");
-      String outcome = xpp.getAttributeValue(null, "outcome");
+    Element result = XMLUtil.getFirstChild(errDoc.getDocumentElement());
+    
+    while (result != null) {
+      String id = result.getAttribute("id");
+      String outcome = result.getAttribute("outcome");
       if (!"ok".equals(outcome)) {
         Fragment f = fragments.get(Integer.parseInt(id));
-        String msg = "Fragment Error in page "+f.getPage()+": "+xpp.getAttributeValue(null, "msg")+" for\r\n"+f.getXml();
-        log(msg);
+        String msg = "Fragment Error in page "+f.getPage()+": "+result.getAttribute("msg")+" for\r\n"+f.getXml();
+        page.log(msg, LogMessageType.Error);
+        page.log("", LogMessageType.Error);
         errors.add(msg);
       }
-      xpp.next();
-      nextNoWhitespace(xpp);
+      result = XMLUtil.getNextSibling(result);
     }
     if (errors.size() > 0) 
       throw new Exception("Fragment Errors prevent publication from continuing");
@@ -2561,7 +2581,7 @@ public class Publisher {
 
   private void cachePage(String filename, String source, String title) throws Exception {
 		try {
-			// log("parse "+filename);
+			// page.log("parse "+filename);
 			XhtmlDocument src = new XhtmlParser().parse(source, "html");
 			scanForFragments(filename, src);
       // book.getPages().put(filename, src);
@@ -2659,8 +2679,8 @@ public class Publisher {
 	private void validateXml() throws Exception {
     if (buildFlags.get("all") && isGenerate)
   	  produceCoverageWarnings();
-		log("Validating XML");
-		log(".. Loading schemas");
+		page.log("Validating XML", LogMessageType.Process);
+		page.log(".. Loading schemas", LogMessageType.Process);
 		StreamSource[] sources = new StreamSource[2];
 		sources[0] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-all.xsd"));
 		sources[1] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-atom.xsd"));
@@ -2670,19 +2690,19 @@ public class Publisher {
 		Schema schema = schemaFactory.newSchema(sources);
     InstanceValidator validator = new InstanceValidator(page.getFolders().dstDir+"validation.zip", new SpecificationExtensionResolver(page.getFolders().dstDir));
     validator.setSuppressLoincSnomedMessages(true);
-		log(".... done");
+		page.log(".... done", LogMessageType.Process);
 
 		for (String rname : page.getDefinitions().sortedResourceNames()) {
 		  ResourceDefn r = page.getDefinitions().getResources().get(rname); 
 		  if (wantBuild(rname)) {
 		    for (Example e : r.getExamples()) {
 		      String n = e.getFileTitle();
-          log(" ...validate " + n);
+          page.log(" ...validate " + n, LogMessageType.Process);
           validateXmlFile(schema, n, validator, null);
 		    }
 		    for (RegisteredProfile e : r.getProfiles()) {
 		      String n = e.getTitle()+".profile";
-          log(" ...validate " + n);
+          page.log(" ...validate " + n, LogMessageType.Process);
           validateXmlFile(schema, n, validator, null);
           if (!Utilities.noString(e.getExample())) {
             validateXmlFile(schema, Utilities.changeFileExt(e.getExample(), ""), validator, e.getResource()); // validates the example against it's base definitions
@@ -2693,45 +2713,45 @@ public class Publisher {
 
 		if (buildFlags.get("all")) {
 	    for (String n : page.getDefinitions().getProfiles().keySet()) {
-	      log(" ...profile "+n);
+	      page.log(" ...profile "+n, LogMessageType.Process);
 	      validateXmlFile(schema, n+".profile", validator, null);
 	    }
 
-	    log(" ...validate " + "profiles-resources");
+	    page.log(" ...validate " + "profiles-resources", LogMessageType.Process);
 		  validateXmlFile(schema, "profiles-resources", validator, null);
 		  
-      log(" ...validate " + "profiles-types");
+      page.log(" ...validate " + "profiles-types", LogMessageType.Process);
       validateXmlFile(schema, "profiles-types", validator, null);
 		  
-      log(" ...validate " + "valuesets");
+      page.log(" ...validate " + "valuesets", LogMessageType.Process);
       validateXmlFile(schema, "valuesets", validator, null);
 		  
-      log(" ...validate " + "v2-tables");
+      page.log(" ...validate " + "v2-tables", LogMessageType.Process);
       validateXmlFile(schema, "v2-tables", validator, null);
-      log(" ...validate " + "v3-codesystems");
+      page.log(" ...validate " + "v3-codesystems", LogMessageType.Process);
       validateXmlFile(schema, "v3-codesystems", validator, null);
 		}
-		log("Reference Platform Validation.");
+		page.log("Reference Platform Validation", LogMessageType.Process);
 
 		for (String rname : page.getDefinitions().sortedResourceNames()) {
 		  ResourceDefn r = page.getDefinitions().getResources().get(rname); 
 		  if (wantBuild(rname)) {
 		    for (Example e : r.getExamples()) {
 		      String n = e.getFileTitle();
-		      log(" ...test " + n);
+		      page.log(" ...test " + n, LogMessageType.Process);
 		      validateRoundTrip(schema, n);
 		    }
 		  }
     }
     if (buildFlags.get("all")) {
-      log(" ...test " + "profiles-resources");
+      page.log(" ...test " + "profiles-resources", LogMessageType.Process);
       validateRoundTrip(schema, "profiles-resources");
     }
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
       for (SearchParameter sp : r.getSearchParams().values()) {
         if (!sp.isWorks() && !sp.getCode().equals("_id")) {
-          page.log("Search Parameter '"+rn+"."+sp.getCode()+"' had no found values in any example. Consider reviewing the path ("+sp.getXPath()+")");
+          page.log("Search Parameter '"+rn+"."+sp.getCode()+"' had no found values in any example. Consider reviewing the path ("+sp.getXPath()+")", LogMessageType.Warning);
           page.getQa().warning("Search Parameter '"+rn+"."+sp.getCode()+"' had no fond values in any example. Consider reviewing the path ("+sp.getXPath()+")");
         }
       }      
@@ -2752,7 +2772,7 @@ public class Publisher {
   private void produceCoverageWarning(String path, ElementDefn e) {
     
     if (!e.isCoveredByExample() && !Utilities.noString(path)) {
-      log("The search path "+path+e.getName()+" is not covered by any example");
+      page.log("The search path "+path+e.getName()+" is not covered by any example", LogMessageType.Warning);
       page.getQa().notCovered(path+e.getName());
     }
     for (ElementDefn c : e.getElements()) {
@@ -2795,10 +2815,10 @@ public class Publisher {
 		doc = builder.parse(new CSFileInputStream(tmpOutput.getAbsolutePath()));
 		NodeList nl = doc.getDocumentElement().getElementsByTagNameNS("http://purl.oclc.org/dsdl/svrl", "failed-assert");
 		if (nl.getLength() > 0) {
-			page.log("Schematron Validation Failed for " + n + ".xml:");
+			page.log("Schematron Validation Failed for " + n + ".xml:", LogMessageType.Error);
 			for (int i = 0; i < nl.getLength(); i++) {
 				Element e = (Element) nl.item(i);
-				page.log("  @" + e.getAttribute("location") + ": "+ e.getTextContent());
+				page.log("  @" + e.getAttribute("location") + ": "+ e.getTextContent(), LogMessageType.Error);
 			}
       throw new Exception("Resource Example " + n + " failed invariant validation");
 		}
@@ -2812,14 +2832,24 @@ public class Publisher {
 		boolean abort = false;
 		for (ValidationMessage m : issues) {
 		  if (!m.getLevel().equals(IssueSeverity.information))
-		    page.log("  " +m.summary());
+		    page.log("  " +m.summary(), typeforSeverity(m.getLevel()));
 		  abort = abort || m.getLevel().equals(IssueSeverity.error);
 		}
 		if (abort)
 		  throw new Exception("Resource Example " + n + " failed instance validation");
 	}
 
-	private void validateRoundTrip(Schema schema, String n) throws Exception {
+	private LogMessageType typeforSeverity(IssueSeverity level) {
+    switch (level) {
+    case error : return LogMessageType.Error;
+    case fatal : return LogMessageType.Error;
+    case information : return LogMessageType.Hint;
+    case warning : return LogMessageType.Warning;
+    }
+    return LogMessageType.Error;
+  }
+
+  private void validateRoundTrip(Schema schema, String n) throws Exception {
 		for (PlatformGenerator gen : page.getReferenceImplementations()) {
 			if (gen.doesTest()) {
 				gen.loadAndSave(page.getFolders().dstDir, page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n+"-tmp.xml");
@@ -2869,7 +2899,7 @@ public class Publisher {
 	        if (resultNodes.getLength() > 0)
 	          sp.setWorks(true);
 	      } catch (Exception e1) {
-	        page.log("Xpath \""+sp.getXPath()+"\" execution failed: "+e1.getMessage());
+	        page.log("Xpath \""+sp.getXPath()+"\" execution failed: "+e1.getMessage(), LogMessageType.Error);
 	      }
 	    }
 	  }
@@ -2907,7 +2937,7 @@ public class Publisher {
 
 		if (!TextFile.fileToString(tmp1.getAbsolutePath()).equals(
 				TextFile.fileToString(tmp2.getAbsolutePath()))) {
-			page.log("file " + t+ " did not round trip perfectly in XML in platform " + n);
+			page.log("file " + t+ " did not round trip perfectly in XML in platform " + n, LogMessageType.Warning);
 			String diff = diffProgram != null ? diffProgram : System.getenv("ProgramFiles(X86)")+sc+"WinMerge"+sc+"WinMergeU.exe";
 			if (new CSFile(diff).exists()) {
 				List<String> command = new ArrayList<String>();
@@ -2922,7 +2952,7 @@ public class Publisher {
 				process.waitFor();
 			} else {
 			  // no diff program
-			  page.log("Files for diff: '"+fn1+"' and '"+fn2+"'");
+			  page.log("Files for diff: '"+fn1+"' and '"+fn2+"'", LogMessageType.Warning);
 			}
 		}
 	}
@@ -2958,16 +2988,12 @@ public class Publisher {
 
 	}
 
-  public void log(String content) {
-    page.log(content);
-  }
-
 //  public void logNoEoln(String content) {
 //    page.logNoEoln(content);
 //  }
 
   private void generateValueSetsPart1() throws Exception {
-    log(" ...value sets");
+    page.log(" ...value sets", LogMessageType.Process);
     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
       if (Utilities.noString(bs.getOid()))
         bs.setOid(PageProcessor.OID_VS+ page.getRegistry().idForName(bs.getName()));
@@ -2981,7 +3007,7 @@ public class Publisher {
   }
   
   private void generateValueSetsPart2() throws Exception {
-    log(" ...value sets (2)");
+    page.log(" ...value sets (2)", LogMessageType.Process);
      for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
       if (bs.getBinding() == Binding.ValueSet && bs.getReferredValueSet() != null && !bs.getReference().startsWith("http://hl7.org/fhir"))
         generateValueSetPart2(bs.getReference(), bs.getName(), bs.getOid());
@@ -3061,7 +3087,7 @@ public class Publisher {
   
  
   private void generateCodeSystemsPart1() throws Exception {
-    log(" ...code lists");
+    page.log(" ...code lists", LogMessageType.Process);
     for (BindingSpecification bs : page.getDefinitions().getBindings().values()) {
       if (Utilities.noString(bs.getOid()))
           bs.setOid(page.getRegistry().idForName(bs.getName()));
@@ -3071,7 +3097,7 @@ public class Publisher {
   }
   
   private void generateCodeSystemsPart2() throws Exception {
-    log(" ...code lists (2)");
+    page.log(" ...code lists (2)", LogMessageType.Process);
     for (BindingSpecification bs : page.getDefinitions().getBindings().values())
       if (bs.getBinding() == Binding.CodeList || bs.getBinding() == Binding.Special)
         generateCodeSystemPart2(bs.getReference().substring(1)+".html", bs);

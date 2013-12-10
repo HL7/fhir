@@ -41,6 +41,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
@@ -138,7 +139,7 @@ public class BookMaker {
 				  }
 				  if (!found && !new File(page.getFolders().dstDir+href).exists() && !href.equals("qa.html")) {
 				    page.getQa().brokenlink("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
-					  page.log("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>");
+					  page.log("broken link in "+name+": <a href=\""+href+"\">"+node.allText()+"</a>", LogMessageType.Warning);
 				  }
 			  }
 		  }

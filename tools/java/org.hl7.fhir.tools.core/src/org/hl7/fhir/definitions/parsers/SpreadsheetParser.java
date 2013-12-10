@@ -63,6 +63,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 
 public class SpreadsheetParser {
@@ -128,16 +129,16 @@ public class SpreadsheetParser {
 		
 		for (Invariant inv : invariants.values()) {
 		  if (Utilities.noString(inv.getContext())) 
-		    log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context");
+		    log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" has no context", LogMessageType.Warning);
 		  else {
 		    ElementDefn ed = findContext(resource.getRoot(), inv.getContext(), "Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" Context");
 		    if (ed.getName().endsWith("[x]") && !inv.getContext().endsWith("[x]"))
 		      inv.setFixedName(inv.getContext().substring(inv.getContext().lastIndexOf(".")+1));
 		    ed.getInvariants().put(inv.getId(), inv);
 		    if (Utilities.noString(inv.getXpath()))
-	        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement");
+	        log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no XPath statement", LogMessageType.Warning);
 		    else if (inv.getXpath().contains("\""))
-          log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
+          log.log("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character", LogMessageType.Warning);
 		  }
 		}
 		
@@ -294,7 +295,7 @@ public class SpreadsheetParser {
 			  inv.setEnglish(sheet.getColumn(row, "English"));
 			  inv.setXpath(sheet.getColumn(row, "XPath"));
 			  if (!Utilities.noString(sheet.getColumn(row,  "Schematron")))
-			    log.log("Value found for schematron "+getLocation(row));  
+			    log.log("Value found for schematron "+getLocation(row), LogMessageType.Hint);  
 			  inv.setOcl(sheet.getColumn(row, "OCL"));
 			  if (s == null || s.equals("")
 			      || result.containsKey(s))

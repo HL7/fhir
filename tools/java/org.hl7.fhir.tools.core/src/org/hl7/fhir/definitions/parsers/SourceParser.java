@@ -71,6 +71,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
@@ -162,7 +163,7 @@ public class SourceParser {
 	
 	public void parse(Calendar genDate, String version)
 			throws Exception {
-		logger.log("Loading");
+		logger.log("Loading", LogMessageType.Process);
 
 		eCoreParseResults = DefinitionsImpl.build(genDate.getTime(), version);
 
@@ -375,7 +376,7 @@ public class SourceParser {
 	}
 
 	private void loadGlobalConceptDomains() throws Exception {
-		logger.log("Load Concept Domains");
+		logger.log("Load Concept Domains", LogMessageType.Process);
 
 		BindingsParser parser = new BindingsParser(new CSFileInputStream(new CSFile(termDir + "bindings.xml")), termDir + "bindings.xml", srcDir, registry);
 		List<BindingSpecification> cds = parser.parse();

@@ -60,6 +60,7 @@ import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 
 /**
  * Generates the delphi reference implementation
@@ -3082,7 +3083,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
     dcc = System.getenv("ProgramFiles(X86)")+"\\Embarcadero\\RAD Studio\\10.0\\bin\\dcc32.exe";
     exe = rootDir+"implementations\\pascal\\fhirtest.exe";
-    logger.log("Compiling Pascal implementation using "+dcc);
+    logger.log("Compiling Pascal implementation using "+dcc, LogMessageType.Process);
     new File(exe).delete();
 
     List<String> command = new ArrayList<String>();
@@ -3135,7 +3136,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   @Override
-  public String checkFragments(String rootDir, String fragments) throws Exception {
+  public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
     return "Not supported by pascal implementation";
   }
 

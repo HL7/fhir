@@ -677,13 +677,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     if (n.equals("Decimal"))
       return "BigDecimal";
     if (n.equals("DateTime"))
-      return "String";
+      return "DateAndTime";
     if (n.equals("Date"))
-      return "String";
+      return "DateAndTime";
     if (n.equals("Id"))
       return "String";
     if (n.equals("Instant"))
-      return "Calendar";
+      return "DateAndTime";
     
     String tns = null;
     if (n.indexOf("<") > 0) {
