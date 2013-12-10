@@ -43,7 +43,7 @@ public class AtomEntry<T extends Resource> extends AtomBase {
 	/**
 	 * Date this resource was published (no particular use in the FHIR specification)
 	 */
-  private java.util.Calendar published;
+  private DateAndTime published;
   
   /**
    * The resource itself
@@ -58,14 +58,14 @@ public class AtomEntry<T extends Resource> extends AtomBase {
   /**
    * @return Date this resource was published (no particular use in the FHIR specification)
    */
-  public java.util.Calendar getPublished() {
+  public DateAndTime getPublished() {
     return published;
   }
   
   /**
    * @param published Date this resource was published (no particular use in the FHIR specification)
    */
-  public void setPublished(java.util.Calendar published) {
+  public void setPublished(DateAndTime published) {
     this.published = published;
   }
   

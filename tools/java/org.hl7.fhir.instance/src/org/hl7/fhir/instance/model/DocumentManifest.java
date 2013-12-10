@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -279,14 +279,14 @@ public class DocumentManifest extends Resource {
     /**
      * @return When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
      */
-    public String getCreatedSimple() { 
+    public DateAndTime getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).
      */
-    public DocumentManifest setCreatedSimple(String value) { 
+    public DocumentManifest setCreatedSimple(DateAndTime value) { 
       if (value == null)
         this.created = null;
       else {

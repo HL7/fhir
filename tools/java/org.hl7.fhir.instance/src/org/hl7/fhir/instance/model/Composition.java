@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -227,14 +227,14 @@ public class Composition extends Resource {
         /**
          * @return When composition was attested by the party.
          */
-        public String getTimeSimple() { 
+        public DateAndTime getTimeSimple() { 
           return this.time == null ? null : this.time.getValue();
         }
 
         /**
          * @param value When composition was attested by the party.
          */
-        public CompositionAttesterComponent setTimeSimple(String value) { 
+        public CompositionAttesterComponent setTimeSimple(DateAndTime value) { 
           if (value == null)
             this.time = null;
           else {
@@ -593,14 +593,14 @@ public class Composition extends Resource {
     /**
      * @return The composition editing time, when the composition was last logically changed by the author.
      */
-    public Calendar getInstantSimple() { 
+    public DateAndTime getInstantSimple() { 
       return this.instant == null ? null : this.instant.getValue();
     }
 
     /**
      * @param value The composition editing time, when the composition was last logically changed by the author.
      */
-    public Composition setInstantSimple(Calendar value) { 
+    public Composition setInstantSimple(DateAndTime value) { 
         if (this.instant == null)
           this.instant = new Instant();
         this.instant.setValue(value);

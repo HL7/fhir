@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -458,14 +458,14 @@ public class Schedule extends Type {
         /**
          * @return When to stop repeats.
          */
-        public String getEndSimple() { 
+        public DateAndTime getEndSimple() { 
           return this.end == null ? null : this.end.getValue();
         }
 
         /**
          * @param value When to stop repeats.
          */
-        public ScheduleRepeatComponent setEndSimple(String value) { 
+        public ScheduleRepeatComponent setEndSimple(DateAndTime value) { 
           if (value == null)
             this.end = null;
           else {

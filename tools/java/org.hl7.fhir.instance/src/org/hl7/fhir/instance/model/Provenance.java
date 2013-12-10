@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -537,14 +537,14 @@ public class Provenance extends Resource {
     /**
      * @return The instant of time at which the activity was recorded.
      */
-    public Calendar getRecordedSimple() { 
+    public DateAndTime getRecordedSimple() { 
       return this.recorded == null ? null : this.recorded.getValue();
     }
 
     /**
      * @param value The instant of time at which the activity was recorded.
      */
-    public Provenance setRecordedSimple(Calendar value) { 
+    public Provenance setRecordedSimple(DateAndTime value) { 
         if (this.recorded == null)
           this.recorded = new Instant();
         this.recorded.setValue(value);

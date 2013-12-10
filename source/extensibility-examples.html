@@ -132,7 +132,7 @@ fragment identifier.
   &lt;extension url=&quot;http://example.org/phr/documents/fhir/extensions#participation-agreement&quot; &gt;
     &lt;valueUri value=&quot;http://example.org/phr/documents/patient/general/v1&quot; /&gt;
   &lt;/extension&gt;
-  ...
+  <!-- ... -->
 &lt;/Patient&gt;
 
 </pre>
@@ -274,7 +274,7 @@ and their associated bindings. In this case, the profile looks like this:
 <pre class="xml" fragment="Profile">
 &lt;Profile xmlns="http://hl7.org/fhir">
   &lt;name value="iso-21090" /&gt;
-  &lt;!-- snip other metadata -->
+  &lt;!-- snip other metadata, including definition of RIM Mapping -->
   &lt;extensionDefn>
     &lt;code value="name-qualifier" /&gt;
     &lt;contextType value="datatype" /&gt;
@@ -292,30 +292,23 @@ and their associated bindings. In this case, the profile looks like this:
       &lt;/type>
       &lt;mustSupport value="false" /&gt;
       &lt;isModifier value="false" /&gt;
-      &lt;binding value="EntityNamePartQualifier" /&gt;
+      &lt;binding&gt;
+        &lt;name value="EntityNamePartQualifier" /&gt;
+        &lt;isExtensible value="codelist" /&gt;
+        &lt;conformance value="required" /&gt;
+        &lt;description value="A set of codes each of which specifies a certain subcategory
+            of the name part in addition to the main name part type" /&gt;
+        &lt;referenceResource&gt;
+          &lt;reference value="ValueSet/name-part-qualifier" /&gt;
+        &lt;/referenceResource&gt;
+      &lt;/binding&gt;
       &lt;mapping>
-         &lt;target value="RIM" /&gt;
+         &lt;identity value="RIM" /&gt;
          &lt;map value="ENXP.qualifier" /&gt;
       &lt;/mapping>
     &lt;/definition>
   &lt;/extensionDefn>
 
-  &lt;binding>
-    &lt;name value="EntityNamePartQualifier" /&gt;
-    &lt;definition value="A set of codes each of which specifies a certain subcategory
-        of the name part in addition to the main name part type" /&gt;
-    &lt;type value="codelist" /&gt;
-    &lt;isExtensible value="codelist" /&gt;
-    &lt;conformance value="required" /&gt;
-    &lt;reference value="http://hl7.org/fhir/ValueSet/name-part-qualifier" /&gt;
-    &lt;concept>
-      &lt;code value="LS" /&gt;
-      &lt;system value="http://hl7.org/fhir/v3/EntityNamePartQualifier" /&gt;
-      &lt;display value="Legal status" /&gt;
-      &lt;definition value="For ..." /&gt;&lt;!-- snip definition --&gt; 
-    &lt;/concept>
-    &lt;!-- snip other codes -->
-  &lt;/binding>
   &lt;!-- snip narrative -->
 &lt;/Profile>
 

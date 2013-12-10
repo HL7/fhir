@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -777,14 +777,14 @@ public class SecurityEvent extends Resource {
         /**
          * @return The time when the event occurred on the source.
          */
-        public Calendar getDateTimeSimple() { 
+        public DateAndTime getDateTimeSimple() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value The time when the event occurred on the source.
          */
-        public SecurityEventEventComponent setDateTimeSimple(Calendar value) { 
+        public SecurityEventEventComponent setDateTimeSimple(DateAndTime value) { 
             if (this.dateTime == null)
               this.dateTime = new Instant();
             this.dateTime.setValue(value);

@@ -34,11 +34,18 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.utilities.Utilities;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
+
+import com.sun.org.apache.bcel.internal.generic.CALOAD;
 
 public abstract class XmlBase {
   protected static final String FHIR_NS = "http://hl7.org/fhir";
@@ -63,31 +70,8 @@ public abstract class XmlBase {
     return eventType;
   }
 
-  
 
-  public static String dateToXml(java.util.Calendar date) {
-    // there's a better way to do this in java 1.7, but for now going java 1.7 is too hard for implementers
-    // String res = new SimpleDateFormat(XML_DATE_PATTERN).format(date);
-    // return res.substring(0, 22)+":"+res.substring(22);
- 
-  	// javax.xml.bind. isn't available on android..
-    return javax.xml.bind.DatatypeConverter.printDateTime(date);
-  	
-  }
-  
-  public static java.util.Calendar xmlToDate(String date) throws ParseException {
-    // there's a better way to do this in java 1.7, but for now going java 1.7 is too hard for implementers
-    //if (date.length() > 23)
-    //  date = date.substring(0, 22)+date.substring(23);  
-    //return new SimpleDateFormat(XML_DATE_PATTERN).parse(date);
-  	
-  	
-  	// javax.xml.bind. isn't available on android
-    return javax.xml.bind.DatatypeConverter.parseDateTime(date);
-
-  }
-
-  protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
+	protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
   	// when this is called, we are pointing an element that may have content
     while (xpp.getEventType() != XmlPullParser.END_TAG) {
   		xpp.next();
@@ -128,8 +112,8 @@ public abstract class XmlBase {
     return new String(encodeBase64);
   }
   
-  protected String toString(Calendar value) {
-    return dateToXml(value);
+  protected String toString(DateAndTime value) {
+    return value.toString();
   }
   
 

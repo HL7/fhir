@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -842,14 +842,14 @@ public class DocumentReference extends Resource {
     /**
      * @return When the document was created.
      */
-    public String getCreatedSimple() { 
+    public DateAndTime getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value When the document was created.
      */
-    public DocumentReference setCreatedSimple(String value) { 
+    public DocumentReference setCreatedSimple(DateAndTime value) { 
       if (value == null)
         this.created = null;
       else {
@@ -878,14 +878,14 @@ public class DocumentReference extends Resource {
     /**
      * @return When the document reference was created.
      */
-    public Calendar getIndexedSimple() { 
+    public DateAndTime getIndexedSimple() { 
       return this.indexed == null ? null : this.indexed.getValue();
     }
 
     /**
      * @param value When the document reference was created.
      */
-    public DocumentReference setIndexedSimple(Calendar value) { 
+    public DocumentReference setIndexedSimple(DateAndTime value) { 
         if (this.indexed == null)
           this.indexed = new Instant();
         this.indexed.setValue(value);

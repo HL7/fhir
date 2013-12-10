@@ -10,6 +10,7 @@ import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Contact;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Contact.ContactUse;
 import org.hl7.fhir.instance.model.DateTime;
@@ -104,10 +105,7 @@ public class Convert {
 
 	public Instant makeInstantFromTS(Element child) throws Exception {
 	  Instant i = new Instant();
-	  Calendar cal = Calendar.getInstance();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmZ");
-    cal.setTime(sdf.parse(child.getAttribute("value")));// todo - why is the time zone being ignored?
-	  i.setValue(cal);
+	  i.setValue(DateAndTime.parseV3(child.getAttribute("value")));
 	  return i;
   }
 
@@ -273,43 +271,8 @@ public class Convert {
 
 	public DateTime makeDateTimeFromTS(Element ts) throws Exception {
     String v = ts.getAttribute("value");
-    String m = "";
-    String tz = null;
-    if (v.contains("-")) {
-    	tz = v.substring(v.indexOf("-"));
-    	v = v.substring(0, v.indexOf("-"));    	
-    } else  if (v.contains("+")) {
-    	tz = v.substring(v.indexOf("+"));
-    	v = v.substring(0, v.indexOf("+"));    	
-    }
-    boolean t = v.length() > 8;
-    if (v.length() == 4)
-    	m = "yyyy";
-    else if (v.length() == 6)
-    	m = "yyyyMM";
-    else if (v.length() == 8)
-    	m = "yyyyMMdd";
-    else if (v.length() == 10)
-    	m = "yyyyMMddhh";
-    else if (v.length() == 12)
-    	m = "yyyyMMddhhmm";
-    else {
-    	if (v.length() > 14)
-    		v = v.substring(0, 14);    
-    	m = "yyyyMMddhhmmss";
-    }
-    if (tz != null) {
-    	v = v + tz;
-    	m = m + "Z";
-    }
-
-    
-		DateTime d = new DateTime();
-	  Calendar cal = Calendar.getInstance();
-    SimpleDateFormat sdf = new SimpleDateFormat(m);
-    cal.setTime(sdf.parse(v));
-    //sdf = new SimpleDateFormat(t ? tz != null ? "yyyy-MM-dd'T'hh:mm:ssZ" : "yyyy-MM-dd'T'hh:mm:ss" : "yyyy-MM-dd");
-	  d.setValue(javax.xml.bind.DatatypeConverter.printDateTime(cal));
+    DateTime d = new DateTime();
+	  d.setValue(DateAndTime.parseV3(v));
     return d;
   }
 

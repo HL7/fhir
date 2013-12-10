@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -700,14 +700,14 @@ public class Questionnaire extends Resource {
     /**
      * @return The date and/or time that this version of the questionnaire was authored.
      */
-    public String getAuthoredSimple() { 
+    public DateAndTime getAuthoredSimple() { 
       return this.authored == null ? null : this.authored.getValue();
     }
 
     /**
      * @param value The date and/or time that this version of the questionnaire was authored.
      */
-    public Questionnaire setAuthoredSimple(String value) { 
+    public Questionnaire setAuthoredSimple(DateAndTime value) { 
         if (this.authored == null)
           this.authored = new DateTime();
         this.authored.setValue(value);

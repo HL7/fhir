@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -96,7 +96,7 @@ public class JsonComposer extends JsonComposerBase {
   }
 
   private void composeDateTimeCore(String name, DateTime value, boolean inArray) throws Exception {
-    if (value != null && !Utilities.noString(value.getValue())) {
+    if (value != null && value.getValue() != null) {
         prop(name, toString(value.getValue()));
     }    
     else if (inArray) 
@@ -132,7 +132,7 @@ public class JsonComposer extends JsonComposerBase {
   }
 
   private void composeDateCore(String name, Date value, boolean inArray) throws Exception {
-    if (value != null && !Utilities.noString(value.getValue())) {
+    if (value != null && value.getValue() != null) {
         prop(name, toString(value.getValue()));
     }    
     else if (inArray) 

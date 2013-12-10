@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -369,14 +369,14 @@ public class AllergyIntolerance extends Resource {
     /**
      * @return Date when the sensitivity was recorded.
      */
-    public String getRecordedDateSimple() { 
+    public DateAndTime getRecordedDateSimple() { 
       return this.recordedDate == null ? null : this.recordedDate.getValue();
     }
 
     /**
      * @param value Date when the sensitivity was recorded.
      */
-    public AllergyIntolerance setRecordedDateSimple(String value) { 
+    public AllergyIntolerance setRecordedDateSimple(DateAndTime value) { 
       if (value == null)
         this.recordedDate = null;
       else {

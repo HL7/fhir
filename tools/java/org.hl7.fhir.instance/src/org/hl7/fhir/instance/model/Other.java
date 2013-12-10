@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -130,14 +130,14 @@ public class Other extends Resource {
     /**
      * @return Identifies when the resource was first created.
      */
-    public String getCreatedSimple() { 
+    public DateAndTime getCreatedSimple() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value Identifies when the resource was first created.
      */
-    public Other setCreatedSimple(String value) { 
+    public Other setCreatedSimple(DateAndTime value) { 
       if (value == null)
         this.created = null;
       else {

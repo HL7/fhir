@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -339,12 +339,12 @@ public class Medication extends Resource {
   }
 
     /**
-     * The common name of the medication.
+     * The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.
      */
     protected String_ name;
 
     /**
-     * References to codes for this medication in standard medication terminologies, drug dictionaries, etc.
+     * A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.
      */
     protected CodeableConcept code;
 
@@ -378,14 +378,14 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #name} (The common name of the medication.)
+     * @return {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.)
      */
     public String_ getName() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (The common name of the medication.)
+     * @param value {@link #name} (The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.)
      */
     public Medication setName(String_ value) { 
       this.name = value;
@@ -393,14 +393,14 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return The common name of the medication.
+     * @return The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.
      */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value The common name of the medication.
+     * @param value The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.
      */
     public Medication setNameSimple(String value) { 
       if (value == null)
@@ -414,14 +414,14 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #code} (References to codes for this medication in standard medication terminologies, drug dictionaries, etc.)
+     * @return {@link #code} (A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.)
      */
     public CodeableConcept getCode() { 
       return this.code;
     }
 
     /**
-     * @param value {@link #code} (References to codes for this medication in standard medication terminologies, drug dictionaries, etc.)
+     * @param value {@link #code} (A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.)
      */
     public Medication setCode(CodeableConcept value) { 
       this.code = value;
@@ -547,8 +547,8 @@ public class Medication extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("name", "string", "The common name of the medication.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("code", "CodeableConcept", "References to codes for this medication in standard medication terminologies, drug dictionaries, etc.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("name", "string", "The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("code", "CodeableConcept", "A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("isBrand", "boolean", "Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).", 0, java.lang.Integer.MAX_VALUE, isBrand));
         childrenList.add(new Property("manufacturer", "Resource(Organization)", "Describes the details of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         childrenList.add(new Property("kind", "code", "product | package.", 0, java.lang.Integer.MAX_VALUE, kind));

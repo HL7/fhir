@@ -78,6 +78,7 @@ import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -2966,8 +2967,8 @@ public void log(String content, LogMessageType type) {
     e.setId("http://hl7.org/fhir/vs/" + id);
     e.getLinks().put("self", "http://hl7.org/fhir/vs/" + id);
     e.setTitle("Valueset \"" + id+ "\" to support automated processing");
-    e.setUpdated(genDate);
-    e.setPublished(genDate);
+    e.setUpdated(new DateAndTime(genDate));
+    e.setPublished(new DateAndTime(genDate));
     e.setAuthorName("HL7, Inc");
     e.setAuthorUri("http://hl7.org");
     e.setResource(vs);

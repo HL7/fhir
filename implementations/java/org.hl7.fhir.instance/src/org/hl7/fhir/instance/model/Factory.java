@@ -2,6 +2,7 @@ package org.hl7.fhir.instance.model;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.ParseException;
 import java.util.Calendar;
 
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
@@ -66,19 +67,19 @@ public class Factory {
     return res;
   }
 
-  public static DateTime newDateTime(String value) {
+  public static DateTime newDateTime(String value) throws ParseException {
     if (value == null)
       return null;
     DateTime res = new DateTime();
-    res.setValue(value);
+    res.setValue(new DateAndTime(value));
     return res;
   }
 
-  public static Date newDate(String value) {
+  public static Date newDate(String value) throws ParseException {
     if (value == null)
       return null;
     Date res = new Date();
-    res.setValue(value);
+    res.setValue(new DateAndTime(value));
     return res;
   }
 
@@ -144,7 +145,7 @@ public class Factory {
   
   public static DateTime nowDateTime() {
     DateTime dt = new DateTime();
-    dt.setValue("2023-05-12T00:10:00"); // todo -fix this
+    dt.setValue(DateAndTime.now());
     return dt;
   }
 
@@ -157,7 +158,7 @@ public class Factory {
 
  public Instant nowInstant() {
 	 Instant instant = new Instant();
-	 instant.setValue(Calendar.getInstance());
+	 instant.setValue(DateAndTime.now());
 	 return instant;
  }
  

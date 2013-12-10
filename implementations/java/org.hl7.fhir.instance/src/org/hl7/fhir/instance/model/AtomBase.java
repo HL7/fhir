@@ -58,7 +58,7 @@ public class AtomBase {
   /**
    * When this was last updated
    */
-  private java.util.Calendar updated;
+  private DateAndTime updated;
   
   /**
    * The author name. There must be an author for entries; they may inherit it from the feed. FHIR doesn't define how this must be populated
@@ -135,13 +135,13 @@ public class AtomBase {
   /**
    * @return When this was last updated
    */
-  public java.util.Calendar getUpdated() {
+  public DateAndTime getUpdated() {
     return updated;
   }
   /**
    * @param updated When this was last updated
    */
-  public void setUpdated(java.util.Calendar updated) {
+  public void setUpdated(DateAndTime updated) {
     this.updated = updated;
   }
   

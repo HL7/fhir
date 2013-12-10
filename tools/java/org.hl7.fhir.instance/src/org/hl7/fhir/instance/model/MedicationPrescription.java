@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -673,14 +673,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * @return The date (and perhaps time) when the prescription was written.
      */
-    public String getDateWrittenSimple() { 
+    public DateAndTime getDateWrittenSimple() { 
       return this.dateWritten == null ? null : this.dateWritten.getValue();
     }
 
     /**
      * @param value The date (and perhaps time) when the prescription was written.
      */
-    public MedicationPrescription setDateWrittenSimple(String value) { 
+    public MedicationPrescription setDateWrittenSimple(DateAndTime value) { 
       if (value == null)
         this.dateWritten = null;
       else {

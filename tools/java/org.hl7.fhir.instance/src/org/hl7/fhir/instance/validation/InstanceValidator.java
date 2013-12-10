@@ -1046,15 +1046,15 @@ public class InstanceValidator extends BaseValidator {
 			else if (fixed instanceof org.hl7.fhir.instance.model.Base64Binary)
 				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Base64Binary) fixed).getStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Base64Binary) fixed).getStringValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.Instant)
-				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Instant) fixed).getStringValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Instant) fixed).getStringValue()+"'");
+				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Instant) fixed).getValue().toString(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Instant) fixed).getStringValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.String_)
 				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.String_) fixed).getValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.String_) fixed).getValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.Uri)
 				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Uri) fixed).getValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Uri) fixed).getValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.Date)
-				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Date) fixed).getValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Date) fixed).getValue()+"'");
+				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Date) fixed).getValue().toString(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Date) fixed).getValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.DateTime)
-				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.DateTime) fixed).getValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.DateTime) fixed).getValue()+"'");
+				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.DateTime) fixed).getValue().toString(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.DateTime) fixed).getValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.Oid)
 				rule(errors, "value", path, check(((org.hl7.fhir.instance.model.Oid) fixed).getValue(), value), "Value is '"+value+"' but must be '"+((org.hl7.fhir.instance.model.Oid) fixed).getValue()+"'");
 			else if (fixed instanceof org.hl7.fhir.instance.model.Uuid)

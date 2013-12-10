@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -569,14 +569,14 @@ public class DiagnosticReport extends Resource {
     /**
      * @return The date and/or time that this version of the report was released from the source diagnostic service.
      */
-    public String getIssuedSimple() { 
+    public DateAndTime getIssuedSimple() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
      * @param value The date and/or time that this version of the report was released from the source diagnostic service.
      */
-    public DiagnosticReport setIssuedSimple(String value) { 
+    public DiagnosticReport setIssuedSimple(DateAndTime value) { 
         if (this.issued == null)
           this.issued = new DateTime();
         this.issued.setValue(value);

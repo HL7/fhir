@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -77,7 +77,7 @@ public class XmlComposer extends XmlComposerBase {
   }    
 
   private void composeDateTime(String name, DateTime value) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
         xml.attribute("value", toString(value.getValue()));
@@ -101,7 +101,7 @@ public class XmlComposer extends XmlComposerBase {
   }    
 
   private void composeDate(String name, Date value) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || !Utilities.noString(value.getValue()))) {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions() || value.getValue() != null)) {
       composeElementAttributes(value);
       if (value.getValue() != null) 
         xml.attribute("value", toString(value.getValue()));

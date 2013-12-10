@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -262,14 +262,14 @@ public class DiagnosticOrder extends Resource {
         /**
          * @return The date/time at which the event occurred.
          */
-        public String getDateSimple() { 
+        public DateAndTime getDateSimple() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value The date/time at which the event occurred.
          */
-        public DiagnosticOrderEventComponent setDateSimple(String value) { 
+        public DiagnosticOrderEventComponent setDateSimple(DateAndTime value) { 
             if (this.date == null)
               this.date = new DateTime();
             this.date.setValue(value);

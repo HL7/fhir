@@ -22,6 +22,7 @@ import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.List_;
 import org.hl7.fhir.instance.model.List_.ListEntryComponent;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Organization;
 import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Practitioner;
@@ -48,7 +49,7 @@ public class CCDAConverter {
 
 		// check it's a CDA/CCD
 		feed = new AtomFeed();
-		feed.setUpdated(Calendar.getInstance());
+		feed.setUpdated(DateAndTime.now());
 		feed.setId(UUID.randomUUID().toString());
 		
 		// process the header
@@ -75,7 +76,7 @@ public class CCDAConverter {
 	
 	private String addResource(Resource r, String title, String id) {
 		AtomEntry e = new AtomEntry();
-		e.setUpdated(Calendar.getInstance());
+		e.setUpdated(DateAndTime.now());
 		e.setResource(r);
 		e.setTitle(title);
 		e.setId(id);

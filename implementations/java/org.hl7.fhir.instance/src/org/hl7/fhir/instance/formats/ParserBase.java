@@ -1,12 +1,14 @@
 package org.hl7.fhir.instance.formats;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -37,8 +39,8 @@ public abstract class ParserBase extends XmlBase {
 	return java.lang.Integer.parseInt(value);
   }
 
-  protected String parseDateTimePrimitive(String value) {
-    return value;
+  protected DateAndTime parseDateTimePrimitive(String value) throws ParseException {
+    return new DateAndTime(value);
   }
 
 
@@ -46,8 +48,8 @@ public abstract class ParserBase extends XmlBase {
     return value;
   }
 
-  protected String parseDatePrimitive(String value) {
-    return value;
+  protected DateAndTime parseDatePrimitive(String value) throws ParseException {
+    return new DateAndTime(value);
   }
 
   protected BigDecimal parseDecimalPrimitive(String value) {
@@ -74,8 +76,8 @@ public abstract class ParserBase extends XmlBase {
     return java.lang.Boolean.valueOf(value);
   }
   
-  protected Calendar parseInstantPrimitive(String value) throws Exception {
-    return xmlToDate(value);
+  protected DateAndTime parseInstantPrimitive(String value) throws Exception {
+    return new DateAndTime(value);
   }
 
   protected String parseIdPrimitive(String value) {

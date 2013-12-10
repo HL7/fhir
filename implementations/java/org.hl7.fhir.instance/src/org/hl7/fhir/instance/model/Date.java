@@ -37,19 +37,19 @@ public class Date extends Type {
 	/**
 	 * The value of the date
 	 */
-	private String value;
+	private DateAndTime value;
 
 	/**
 	 * @return The value of the date
 	 */
-	public String getValue() {
+	public DateAndTime getValue() {
 		return value;
 	}
 
 	/**
 	 * @param value The value of the date
 	 */
-	public void setValue(String value) {
+	public void setValue(DateAndTime value) {
 		this.value = value;
 	}
 	

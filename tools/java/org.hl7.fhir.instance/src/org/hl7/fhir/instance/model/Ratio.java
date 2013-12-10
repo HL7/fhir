@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -39,12 +39,12 @@ import java.util.*;
 public class Ratio extends Type {
 
     /**
-     * The numerator.
+     * The value of the numerator.
      */
     protected Quantity numerator;
 
     /**
-     * The denominator.
+     * The value of the denominator.
      */
     protected Quantity denominator;
 
@@ -53,14 +53,14 @@ public class Ratio extends Type {
     }
 
     /**
-     * @return {@link #numerator} (The numerator.)
+     * @return {@link #numerator} (The value of the numerator.)
      */
     public Quantity getNumerator() { 
       return this.numerator;
     }
 
     /**
-     * @param value {@link #numerator} (The numerator.)
+     * @param value {@link #numerator} (The value of the numerator.)
      */
     public Ratio setNumerator(Quantity value) { 
       this.numerator = value;
@@ -68,14 +68,14 @@ public class Ratio extends Type {
     }
 
     /**
-     * @return {@link #denominator} (The denominator.)
+     * @return {@link #denominator} (The value of the denominator.)
      */
     public Quantity getDenominator() { 
       return this.denominator;
     }
 
     /**
-     * @param value {@link #denominator} (The denominator.)
+     * @param value {@link #denominator} (The value of the denominator.)
      */
     public Ratio setDenominator(Quantity value) { 
       this.denominator = value;
@@ -84,8 +84,8 @@ public class Ratio extends Type {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("numerator", "Quantity", "The numerator.", 0, java.lang.Integer.MAX_VALUE, numerator));
-        childrenList.add(new Property("denominator", "Quantity", "The denominator.", 0, java.lang.Integer.MAX_VALUE, denominator));
+        childrenList.add(new Property("numerator", "Quantity", "The value of the numerator.", 0, java.lang.Integer.MAX_VALUE, numerator));
+        childrenList.add(new Property("denominator", "Quantity", "The value of the denominator.", 0, java.lang.Integer.MAX_VALUE, denominator));
       }
 
       public Ratio copy() {

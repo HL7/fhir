@@ -28,7 +28,13 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities;
 
+import org.hl7.fhir.utilities.Logger.LogMessageType;
+
 public interface Logger {
-  public void log(String content);
+  public enum LogMessageType {
+     Process, Error, Warning, Hint;
+  }
+
+  public void log(String content, LogMessageType type);
 //  public void logNoEoln(String content);
 }

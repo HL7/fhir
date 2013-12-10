@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.Code;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
@@ -38,7 +39,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   public ValueSet expand(ValueSet source) throws Exception {
     focus = source.copy();
     focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
-    focus.getExpansion().setTimestampSimple(Calendar.getInstance());
+    focus.getExpansion().setTimestampSimple(DateAndTime.now());
     
   	
     handleDefine(source);

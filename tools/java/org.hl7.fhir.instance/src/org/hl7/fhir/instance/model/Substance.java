@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -91,14 +91,14 @@ public class Substance extends Resource {
         /**
          * @return When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        public String getExpirySimple() { 
+        public DateAndTime getExpirySimple() { 
           return this.expiry == null ? null : this.expiry.getValue();
         }
 
         /**
          * @param value When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        public SubstanceInstanceComponent setExpirySimple(String value) { 
+        public SubstanceInstanceComponent setExpirySimple(DateAndTime value) { 
           if (value == null)
             this.expiry = null;
           else {

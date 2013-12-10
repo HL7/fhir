@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -627,14 +627,14 @@ public class Condition extends Resource {
     /**
      * @return Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
-    public String getDateAssertedSimple() { 
+    public DateAndTime getDateAssertedSimple() { 
       return this.dateAsserted == null ? null : this.dateAsserted.getValue();
     }
 
     /**
      * @param value Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
      */
-    public Condition setDateAssertedSimple(String value) { 
+    public Condition setDateAssertedSimple(DateAndTime value) { 
       if (value == null)
         this.dateAsserted = null;
       else {

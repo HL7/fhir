@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -147,14 +147,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return The date of the immunization recommendation.
          */
-        public String getRecommendationDateSimple() { 
+        public DateAndTime getRecommendationDateSimple() { 
           return this.recommendationDate == null ? null : this.recommendationDate.getValue();
         }
 
         /**
          * @param value The date of the immunization recommendation.
          */
-        public ImmunizationRecommendationRecommendationComponent setRecommendationDateSimple(String value) { 
+        public ImmunizationRecommendationRecommendationComponent setRecommendationDateSimple(DateAndTime value) { 
             if (this.recommendationDate == null)
               this.recommendationDate = new DateTime();
             this.recommendationDate.setValue(value);
@@ -418,14 +418,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return Date recommendation.
          */
-        public String getValueSimple() { 
+        public DateAndTime getValueSimple() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value Date recommendation.
          */
-        public ImmunizationRecommendationRecommendationDateCriterionComponent setValueSimple(String value) { 
+        public ImmunizationRecommendationRecommendationDateCriterionComponent setValueSimple(DateAndTime value) { 
             if (this.value == null)
               this.value = new DateTime();
             this.value.setValue(value);
@@ -704,14 +704,14 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return The date of the adverse event report.
          */
-        public String getReportDateSimple() { 
+        public DateAndTime getReportDateSimple() { 
           return this.reportDate == null ? null : this.reportDate.getValue();
         }
 
         /**
          * @param value The date of the adverse event report.
          */
-        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setReportDateSimple(String value) { 
+        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setReportDateSimple(DateAndTime value) { 
           if (value == null)
             this.reportDate = null;
           else {

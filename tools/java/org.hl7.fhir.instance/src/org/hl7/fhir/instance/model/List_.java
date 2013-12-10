@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -189,14 +189,14 @@ public class List_ extends Resource {
         /**
          * @return When this item was added to the list.
          */
-        public String getDateSimple() { 
+        public DateAndTime getDateSimple() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value When this item was added to the list.
          */
-        public ListEntryComponent setDateSimple(String value) { 
+        public ListEntryComponent setDateSimple(DateAndTime value) { 
           if (value == null)
             this.date = null;
           else {
@@ -355,14 +355,14 @@ public class List_ extends Resource {
     /**
      * @return The date that the list was prepared.
      */
-    public String getDateSimple() { 
+    public DateAndTime getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the list was prepared.
      */
-    public List_ setDateSimple(String value) { 
+    public List_ setDateSimple(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {

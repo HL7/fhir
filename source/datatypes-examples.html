@@ -32,7 +32,7 @@
 	<p>A uri that is a urn:</p><pre class="xml" fragment="uri">&lt;id value="urn:isbn:0451450523" /&gt;</pre>
 	<p>A date of birth:</p><pre class="xml" fragment="date">&lt;date value="1951-06-04" /&gt;</pre>
 	<p>An approximate date of birth:</p><pre class="xml" fragment="date">&lt;date value="1951-06" /&gt;</pre>
-	<p>The instant a document was created, including time zone:</p><pre class="xml" fragment="instant">&lt;instant value="2013-06-08T10:57:34+01" /&gt;</pre>
+	<p>The instant a document was created, including time zone:</p><pre class="xml" fragment="instant">&lt;instant value="2013-06-08T10:57:34+01:00" /&gt;</pre>
 	<p>The instant a document was created, expressed in UTC, with milliseconds:</p><pre class="xml" fragment="instant">&lt;instant value="2013-06-08T09:57:34.2112Z" /&gt;</pre>
 </div>
 
@@ -81,7 +81,7 @@ Since the JSON examples have the same structure as the XML, only XML is shown fo
 <pre class="xml" fragment="Attachment">
   &lt;image&gt;
     &lt;contentType value="application/dicom" /&gt;
-    &lt;reference value="http://10.1.2.3:1000/wado?requestType=WADO&amp;amp;wado_details..." /&gt;
+    &lt;url value="http://10.1.2.3:1000/wado?requestType=WADO&amp;amp;wado_details..." /&gt;
     &lt;hash value="EQH/..AgME" /&gt;
   &lt;/image&gt;
 </pre>
@@ -103,7 +103,7 @@ to some organization to further sub-allocate):</p>
   &lt;identifier&gt;
     &lt;use value="official" /&gt;
     &lt;system value="urn:oid:2.16.840.1.113883.16.4.3.2.5" /&gt;
-    &lt;key value="123" /&gt;
+    &lt;value value="123" /&gt;
   &lt;/identifier&gt;
 </pre>
 
@@ -112,7 +112,7 @@ to some organization to further sub-allocate):</p>
   &lt;identifier&gt;
     &lt;use value="official" /&gt;
     &lt;system value="http://www.acmehosp.com/patients" /&gt;
-    &lt;key value="44552" /&gt;
+    &lt;value value="44552" /&gt;
     &lt;period&gt;
       &lt;start value="2003-05-03" /&gt;
     &lt;/period&gt;
@@ -124,7 +124,7 @@ to some organization to further sub-allocate):</p>
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
    &lt;system value="urn:ietf:rfc:3986" /&gt;
-   &lt;key value="http://pas-server/xxx/Patient/443556" /&gt;
+   &lt;value value="http://pas-server/xxx/Patient/443556" /&gt;
   &lt;/identifier&gt;
 </pre>
 <p>This is not a resource reference - it's a logical reference by the patient identifier.</p>
@@ -134,7 +134,7 @@ to some organization to further sub-allocate):</p>
   &lt;identifier&gt;
     &lt;use value="temp" /&gt;
     &lt;system value="urn:ietf:rfc:3986" /&gt;
-    &lt;key value="urn:uuid:a76d9bbf-f293-4fb7-ad4c-2851cac77162" /&gt;
+    &lt;value value="urn:uuid:a76d9bbf-f293-4fb7-ad4c-2851cac77162" /&gt;
   &lt;/identifier&gt;
 </pre>
 <p>UUIDs are often used for temporary identifiers, though this is not necessary.</p>
@@ -145,7 +145,7 @@ to some organization to further sub-allocate):</p>
     &lt;use value="usual" /&gt;
     &lt;label value="SSN" /&gt;
     &lt;system value="http://hl7.org/fhir/sid/us-ssn" /&gt;
-    &lt;key value="000111111" /&gt;
+    &lt;value value="000111111" /&gt;
   &lt;/identifier&gt;
 </pre>
 <p>Notes:</p> 
@@ -160,7 +160,7 @@ to some organization to further sub-allocate):</p>
     &lt;use value="usual" /&gt;
     &lt;label value="MRN" /&gt;
     &lt;system value="urn:oid:0.1.2.3.4.5.6.7" /&gt;
-    &lt;key value="2356" /&gt;
+    &lt;value value="2356" /&gt;
     &lt;period&gt;
       &lt;start value="2009-07-05" /&gt;
     &lt;/period&gt;
@@ -252,13 +252,13 @@ In this case, there is no display element, because no display is defined for SNO
 
 <p>Using the valueset:</p>
 <p>The results on a urinalysis strip:</p>
-<pre class="xml" fragment="CodeableConcept">
+<pre class="xml" fragment="Coding">
   &lt;valueCoding&gt;
     &lt;system value="http://example.org/codes/simple-grades" /&gt;
     &lt;code value="+" /&gt;
-    &lt;valueset&gt;
+    &lt;valueSet&gt;
       &lt;reference url="ValueSet/simple-grades" /&gt;
-    &lt;/valueset&gt;
+    &lt;/valueSet&gt;
   &lt;/valueCoding&gt;
 </pre>
 <p>
@@ -458,7 +458,7 @@ See also <a href="datatypes.html#SampledData">Base Definition</a>, <a href="data
 <div class="example">
 <p><b>Example</b></p>
 <p>The output from an EKG device:</p>
-<pre class="xml" fragment="Period">
+<pre class="xml" fragment="SampledData">
  &lt;sampledData&gt;
   &lt;origin&gt;
    &lt;value value="0"/&gt;
@@ -467,7 +467,7 @@ See also <a href="datatypes.html#SampledData">Base Definition</a>, <a href="data
    &lt;code value="uV"/&gt;   
   &lt;/origin&gt;
   &lt;period value="2"/&gt;
-  &lt;scale value="2.5"/&gt;
+  &lt;factor value="2.5"/&gt;
   &lt;dimensions value="1"/&gt;
   &lt;data value="-4 -13 -18 -18 -18 -17 -16 -16 -16 -16 -16 -17 -18 -18 -18 ...."/&gt;
  &lt;/sampledData&gt;

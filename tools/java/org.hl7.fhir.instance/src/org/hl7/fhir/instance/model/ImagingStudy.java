@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -1195,14 +1195,14 @@ public class ImagingStudy extends Resource {
         /**
          * @return When the series started.
          */
-        public String getDateTimeSimple() { 
+        public DateAndTime getDateTimeSimple() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value When the series started.
          */
-        public ImagingStudySeriesComponent setDateTimeSimple(String value) { 
+        public ImagingStudySeriesComponent setDateTimeSimple(DateAndTime value) { 
           if (value == null)
             this.dateTime = null;
           else {
@@ -1280,7 +1280,7 @@ public class ImagingStudy extends Resource {
         protected Oid sopclass;
 
         /**
-         * Type of instance (0004,1430).
+         * Type of instance (image etc) (0004,1430).
          */
         protected String_ type;
 
@@ -1410,14 +1410,14 @@ public class ImagingStudy extends Resource {
         }
 
         /**
-         * @return {@link #type} (Type of instance (0004,1430).)
+         * @return {@link #type} (Type of instance (image etc) (0004,1430).)
          */
         public String_ getType() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (Type of instance (0004,1430).)
+         * @param value {@link #type} (Type of instance (image etc) (0004,1430).)
          */
         public ImagingStudySeriesInstanceComponent setType(String_ value) { 
           this.type = value;
@@ -1425,14 +1425,14 @@ public class ImagingStudy extends Resource {
         }
 
         /**
-         * @return Type of instance (0004,1430).
+         * @return Type of instance (image etc) (0004,1430).
          */
         public String getTypeSimple() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
-         * @param value Type of instance (0004,1430).
+         * @param value Type of instance (image etc) (0004,1430).
          */
         public ImagingStudySeriesInstanceComponent setTypeSimple(String value) { 
           if (value == null)
@@ -1537,7 +1537,7 @@ public class ImagingStudy extends Resource {
           childrenList.add(new Property("number", "integer", "The number of this image in the series.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("uid", "oid", "Formal identifier for this image.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("sopclass", "oid", "DICOM Image type.", 0, java.lang.Integer.MAX_VALUE, sopclass));
-          childrenList.add(new Property("type", "string", "Type of instance (0004,1430).", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("type", "string", "Type of instance (image etc) (0004,1430).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("title", "string", "Description (0070,0080 | 0040,A043 > 0008,0104 | 0042,0010 | 0008,0008).", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("url", "uri", "WADO-RS url where image is available.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("attachment", "Resource(Any)", "A FHIR resource with content for this instance.", 0, java.lang.Integer.MAX_VALUE, attachment));
@@ -1672,14 +1672,14 @@ public class ImagingStudy extends Resource {
     /**
      * @return Date and Time the study took place.
      */
-    public String getDateTimeSimple() { 
+    public DateAndTime getDateTimeSimple() { 
       return this.dateTime == null ? null : this.dateTime.getValue();
     }
 
     /**
      * @param value Date and Time the study took place.
      */
-    public ImagingStudy setDateTimeSimple(String value) { 
+    public ImagingStudy setDateTimeSimple(DateAndTime value) { 
       if (value == null)
         this.dateTime = null;
       else {

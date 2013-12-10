@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -942,14 +942,14 @@ public class ConceptMap extends Resource {
     /**
      * @return The date that the concept map status was last changed.
      */
-    public String getDateSimple() { 
+    public DateAndTime getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the concept map status was last changed.
      */
-    public ConceptMap setDateSimple(String value) { 
+    public ConceptMap setDateSimple(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {

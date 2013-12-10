@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -262,14 +262,14 @@ public class DeviceObservationReport extends Resource {
     /**
      * @return The point in time that the values are reported.
      */
-    public Calendar getInstantSimple() { 
+    public DateAndTime getInstantSimple() { 
       return this.instant == null ? null : this.instant.getValue();
     }
 
     /**
      * @param value The point in time that the values are reported.
      */
-    public DeviceObservationReport setInstantSimple(Calendar value) { 
+    public DeviceObservationReport setInstantSimple(DateAndTime value) { 
         if (this.instant == null)
           this.instant = new Instant();
         this.instant.setValue(value);

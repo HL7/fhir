@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -665,14 +665,14 @@ public class MessageHeader extends Resource {
     /**
      * @return The time that the message was sent.
      */
-    public Calendar getTimestampSimple() { 
+    public DateAndTime getTimestampSimple() { 
       return this.timestamp == null ? null : this.timestamp.getValue();
     }
 
     /**
      * @param value The time that the message was sent.
      */
-    public MessageHeader setTimestampSimple(Calendar value) { 
+    public MessageHeader setTimestampSimple(DateAndTime value) { 
         if (this.timestamp == null)
           this.timestamp = new Instant();
         this.timestamp.setValue(value);

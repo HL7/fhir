@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -1208,14 +1208,14 @@ public class CarePlan extends Resource {
     /**
      * @return Identifies the most recent date on which the plan has been revised.
      */
-    public String getModifiedSimple() { 
+    public DateAndTime getModifiedSimple() { 
       return this.modified == null ? null : this.modified.getValue();
     }
 
     /**
      * @param value Identifies the most recent date on which the plan has been revised.
      */
-    public CarePlan setModifiedSimple(String value) { 
+    public CarePlan setModifiedSimple(DateAndTime value) { 
       if (value == null)
         this.modified = null;
       else {

@@ -122,7 +122,7 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
     	xml.setDefaultNamespace(ATOM_NS);
     }
     if (feed.getUpdated() != null)
-      xml.element(ATOM_NS, "updated", dateToXml(feed.getUpdated()));
+      xml.element(ATOM_NS, "updated", feed.getUpdated().toString());
     if (feed.getAuthorName() != null || feed.getAuthorUri() != null) {
       xml.open(ATOM_NS, "author");
       if (feed.getAuthorName() != null)
@@ -151,7 +151,7 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 	  if (entry.isDeleted()) {
 	    xml.setDefaultNamespace("http://purl.org/atompub/tombstones/1.0");
 	    xml.attribute("ref", entry.getId());
-	    xml.attribute("when", dateToXml(entry.getUpdated()));
+	    xml.attribute("when", entry.getUpdated().toString());
 	    xml.open("deleted-entry");
 	    for (String name : entry.getLinks().keySet()) {
 	      xml.attribute("href", entry.getLinks().get(name));
@@ -187,7 +187,7 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 	      xml.element(ATOM_NS, "link", null);
 	    }
 	    if (e.getUpdated() != null)
-	      xml.element(ATOM_NS, "updated", dateToXml(e.getUpdated()));
+	      xml.element(ATOM_NS, "updated", e.getUpdated().toString());
 
 	    if (entry.getAuthorUri() != null  || entry.getAuthorName() != null) {
 	      xml.open("author");
@@ -205,7 +205,7 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 		    xml.element("category", null);
 			}
 	    if (e.getPublished() != null)
-	      xml.element(ATOM_NS, "published", dateToXml(e.getPublished()));
+	      xml.element(ATOM_NS, "published", e.getPublished().toString());
 	    
 	    xml.attribute("type", "text/xml");
 	    xml.open(ATOM_NS, "content");

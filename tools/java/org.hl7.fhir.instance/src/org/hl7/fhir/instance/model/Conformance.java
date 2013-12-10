@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -597,14 +597,14 @@ public class Conformance extends Resource {
         /**
          * @return Date this version of the software released.
          */
-        public String getReleaseDateSimple() { 
+        public DateAndTime getReleaseDateSimple() { 
           return this.releaseDate == null ? null : this.releaseDate.getValue();
         }
 
         /**
          * @param value Date this version of the software released.
          */
-        public ConformanceSoftwareComponent setReleaseDateSimple(String value) { 
+        public ConformanceSoftwareComponent setReleaseDateSimple(DateAndTime value) { 
           if (value == null)
             this.releaseDate = null;
           else {
@@ -3079,14 +3079,14 @@ public class Conformance extends Resource {
     /**
      * @return Date that the conformance statement is published.
      */
-    public String getDateSimple() { 
+    public DateAndTime getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value Date that the conformance statement is published.
      */
-    public Conformance setDateSimple(String value) { 
+    public Conformance setDateSimple(DateAndTime value) { 
         if (this.date == null)
           this.date = new DateTime();
         this.date.setValue(value);

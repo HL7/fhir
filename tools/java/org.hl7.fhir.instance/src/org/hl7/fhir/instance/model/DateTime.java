@@ -37,19 +37,19 @@ public class DateTime extends Type {
 	/**
 	 * The value of the dateTime
 	 */
-	private String value;
+	private DateAndTime value;
 
 	/**
 	 * @return The value of the dateTime
 	 */
-	public String getValue() {
+	public DateAndTime getValue() {
 		return value;
 	}
 
 	/**
 	 * @param value The value of the dateTime
 	 */
-	public void setValue(String value) {
+	public void setValue(DateAndTime value) {
 		this.value = value;
 	}
 	

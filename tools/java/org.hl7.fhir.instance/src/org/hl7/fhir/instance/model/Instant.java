@@ -45,19 +45,19 @@ public class Instant extends Type {
 	/**
 	 * The value for the instant
 	 */
-	private Calendar value;
+	private DateAndTime value;
 
 	/**
 	 * @return the instant
 	 */
-	public Calendar getValue() {
+	public DateAndTime getValue() {
 		return value;
 	}
 
 	/**
 	 * @param value the instant
 	 */
-	public void setValue(Calendar value) {
+	public void setValue(DateAndTime value) {
 		this.value = value;
 	} 
 	protected Type typedCopy() {
@@ -70,6 +70,6 @@ public class Instant extends Type {
 	}
 
 	public String getStringValue() {
-	  return value == null ? null : XmlBase.dateToXml(value);
+	  return value == null ? null : value.toString();
   }
 }

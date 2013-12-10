@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -266,14 +266,14 @@ public class Specimen extends Resource {
         /**
          * @return Time when specimen was collected from subject - the physiologically relevant time.
          */
-        public String getCollectedTimeSimple() { 
+        public DateAndTime getCollectedTimeSimple() { 
           return this.collectedTime == null ? null : this.collectedTime.getValue();
         }
 
         /**
          * @param value Time when specimen was collected from subject - the physiologically relevant time.
          */
-        public SpecimenCollectionComponent setCollectedTimeSimple(String value) { 
+        public SpecimenCollectionComponent setCollectedTimeSimple(DateAndTime value) { 
             if (this.collectedTime == null)
               this.collectedTime = new DateTime();
             this.collectedTime.setValue(value);
@@ -782,14 +782,14 @@ public class Specimen extends Resource {
     /**
      * @return Time when specimen was received for processing or testing.
      */
-    public String getReceivedTimeSimple() { 
+    public DateAndTime getReceivedTimeSimple() { 
       return this.receivedTime == null ? null : this.receivedTime.getValue();
     }
 
     /**
      * @param value Time when specimen was received for processing or testing.
      */
-    public Specimen setReceivedTimeSimple(String value) { 
+    public Specimen setReceivedTimeSimple(DateAndTime value) { 
       if (value == null)
         this.receivedTime = null;
       else {

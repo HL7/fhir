@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -25,6 +26,7 @@ import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DateTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Patient;
@@ -65,7 +67,7 @@ public class FHIRSimpleClientTest {
 	public void tearDown() throws Exception {	
 	}
 	
-	public void loadPatientResource() {
+	public void loadPatientResource() throws ParseException {
 		Patient testPatient = buildPatient();
 		AtomEntry<Patient> result = testClient.create(Patient.class, testPatient);
 		testPatientId = getPatientId(result);
@@ -150,7 +152,7 @@ public class FHIRSimpleClientTest {
 	}
 
 	@Test
-	public void testRead() {
+	public void testRead() throws ParseException {
 		loadPatientResource();
 		AtomEntry<Patient> fetchedPatient = testClient.read(Patient.class, testPatientId);
 		assertEquals("2008-08-08", fetchedPatient.getResource().getBirthDate().getValue());
@@ -158,7 +160,7 @@ public class FHIRSimpleClientTest {
 	}
 
 	@Test
-	public void testVread() {
+	public void testVread() throws ParseException {
 		loadPatientResource();
 		AtomEntry<Patient> fetchedPatient = testClient.vread(Patient.class, testPatientId, "1");
 		assertEquals("2008-08-08", fetchedPatient.getResource().getBirthDate().getValue());
@@ -166,11 +168,11 @@ public class FHIRSimpleClientTest {
 	}
 
 	@Test
-	public void testUpdate() {
+	public void testUpdate() throws ParseException {
 		loadPatientResource();
 		Patient modifiedPatient = testClient.read(Patient.class, testPatientId).getResource();
 		DateTime modifiedBirthday = new DateTime();
-		modifiedBirthday.setValue("2002-09-09");
+		modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
 		modifiedPatient.setBirthDate(modifiedBirthday);
 		AtomEntry<Patient> result = testClient.update(Patient.class, modifiedPatient, testPatientId);
 		if(((Resource)result.getResource()) instanceof OperationOutcome) {
@@ -180,7 +182,7 @@ public class FHIRSimpleClientTest {
 			assertTrue(modifiedBirthday.getValue().equals(updatedResource.getBirthDate().getValue()));
 		}
 		modifiedBirthday = new DateTime();
-		modifiedBirthday.setValue("2008-08-08");
+		modifiedBirthday.setValue(new DateAndTime("2008-08-08"));
 		modifiedPatient.setBirthDate(modifiedBirthday);
 		result = testClient.update(Patient.class, modifiedPatient, testPatientId);
 		if(((Resource)result.getResource()) instanceof OperationOutcome) {
@@ -193,11 +195,11 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testValidate() {
+	public void testValidate() throws ParseException {
 		loadPatientResource();
 		Patient patient = testClient.read(Patient.class, testPatientId).getResource();
 		DateTime modifiedBirthday = new DateTime();
-		modifiedBirthday.setValue("2009-08-08");
+		modifiedBirthday.setValue(new DateAndTime("2009-08-08"));
 		patient.setBirthDate(modifiedBirthday);
 		AtomEntry<OperationOutcome> validate = testClient.validate(Patient.class, patient, testPatientId);
 		String issue = validate.getResource().getIssue().get(0).getDetailsSimple();
@@ -206,7 +208,7 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testCreate() {
+	public void testCreate() throws ParseException {
 		Patient patientRequest = buildPatient();
 		AtomEntry<Patient> result = testClient.create(Patient.class, patientRequest);
 		Patient patient = (Patient)result.getResource();
@@ -218,9 +220,9 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testCreateWithErrors() {
+	public void testCreateWithErrors() throws ParseException {
 		AdverseReaction adverseReaction = new AdverseReaction();
-		adverseReaction.setReactionDateSimple("2013-01-10");
+		adverseReaction.setReactionDateSimple(new DateAndTime("2013-01-10"));
 		//adverseReaction.setDidNotOccurFlagSimple(false);
 		AtomEntry<AdverseReaction> result = null;
 		try {
@@ -234,7 +236,7 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testDelete() {
+	public void testDelete() throws ParseException {
 		Patient patientRequest = buildPatient();
 		AtomEntry<Patient> result = testClient.create(Patient.class, patientRequest);
 		boolean success = testClient.delete(Patient.class, getPatientId(result));
@@ -243,7 +245,7 @@ public class FHIRSimpleClientTest {
 	
 
 	@Test
-	public void testGetHistoryForResourceWithId() {
+	public void testGetHistoryForResourceWithId() throws ParseException {
 		loadPatientResource();
 		Patient patient = testClient.read(Patient.class, testPatientId).getResource();
 		testClient.update(Patient.class, patient, testPatientId);
@@ -255,7 +257,7 @@ public class FHIRSimpleClientTest {
 	
 	
 	@Test
-	public void testGetHistoryForResourcesOfTypeSinceCalendarDate() {
+	public void testGetHistoryForResourcesOfTypeSinceCalendarDate() throws ParseException {
 		Calendar testDate = GregorianCalendar.getInstance();
 		testDate.add(Calendar.HOUR_OF_DAY, -1);
 		AtomEntry<Patient> createdEntry = testClient.create(Patient.class, buildPatient());
@@ -276,7 +278,7 @@ public class FHIRSimpleClientTest {
 	}
 
 	@Test
-	public void testGetHistoryForResourceWithIdSinceCalendarDate() {
+	public void testGetHistoryForResourceWithIdSinceCalendarDate() throws ParseException {
 		Calendar testDate = GregorianCalendar.getInstance();
 		testDate.add(Calendar.HOUR_OF_DAY, -1);
 		AtomEntry<Patient> entry = testClient.create(Patient.class, buildPatient());
@@ -300,15 +302,15 @@ public class FHIRSimpleClientTest {
 	}
 
 	@Test
-	public void testTransactionSuccess() {
+	public void testTransactionSuccess() throws ParseException {
 		Patient patient = buildPatient();
 		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
-		createdPatientEntry.getResource().setBirthDateSimple("1966-01-10");
+		createdPatientEntry.getResource().setBirthDateSimple(new DateAndTime("1966-01-10"));
 		ResourceReference patientReference = new ResourceReference();
 		patientReference.setReferenceSimple(createdPatientEntry.getLinks().get("self"));
 		AdverseReaction adverseReaction = new AdverseReaction();
 		adverseReaction.setSubject(patientReference);
-		adverseReaction.setReactionDateSimple("2013-01-10");
+		adverseReaction.setReactionDateSimple(new DateAndTime("2013-01-10"));
 		adverseReaction.setDidNotOccurFlagSimple(false);
 		AtomEntry<AdverseReaction> adverseReactionEntry = testClient.create(AdverseReaction.class, adverseReaction);
 		AtomFeed batchFeed = new AtomFeed();
@@ -320,10 +322,10 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testTransactionError() {
+	public void testTransactionError() throws ParseException {
 		Patient patient = buildPatient();
 		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
-		createdPatientEntry.getResource().setBirthDateSimple("1966-01-10");
+		createdPatientEntry.getResource().setBirthDateSimple(new DateAndTime("1966-01-10"));
 		AtomFeed batchFeed = new AtomFeed();
 		batchFeed.getEntryList().add(createdPatientEntry);
 		batchFeed.getEntryList().add(createdPatientEntry);
@@ -338,10 +340,10 @@ public class FHIRSimpleClientTest {
 		}
 	}
 
-	private Patient buildPatient() {
+	private Patient buildPatient() throws ParseException {
 		Patient patient = new Patient();
 		DateTime birthday = new DateTime();
-		birthday.setValue("2008-08-08");
+		birthday.setValue(new DateAndTime("2008-08-08"));
 		patient.setBirthDate(birthday);
 		Code genderCode = new Code();
 		genderCode.setValue("F");

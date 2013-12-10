@@ -123,7 +123,7 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
       closeArray();
     }
 		if (feed.getUpdated() != null)
-			prop("updated", dateToXml(feed.getUpdated()));
+			prop("updated", feed.getUpdated().toString());
 		if (feed.getTags().size() > 0) {
 			openArray("category");
 			for (AtomCategory cat : feed.getTags()) {
@@ -175,9 +175,9 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 		}
 
 		if (e.getUpdated() != null)
-			prop("updated", dateToXml(e.getUpdated()));
+			prop("updated", e.getUpdated().toString());
 		if (e.getPublished() != null) 
-			prop("published", dateToXml(e.getPublished()));
+			prop("published", e.getPublished().toString());
 
     if (e.getAuthorName() != null || e.getAuthorUri() != null) {
       openArray("author");

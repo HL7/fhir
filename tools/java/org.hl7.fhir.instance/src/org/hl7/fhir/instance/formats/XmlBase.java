@@ -37,10 +37,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.utilities.Utilities;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -68,49 +68,8 @@ public abstract class XmlBase {
     return eventType;
   }
 
-  
 
-  public static String dateToXml(java.util.Calendar date) {
-    // there's a better way to do this in java 1.7, but for now going java 1.7 is too hard for implementers
-    // String res = new SimpleDateFormat(XML_DATE_PATTERN).format(date);
-    // return res.substring(0, 22)+":"+res.substring(22);
- 
-  	// javax.xml.bind. isn't available on android..
-    return javax.xml.bind.DatatypeConverter.printDateTime(date);
-  	
-  }
-  
-  public static java.util.Calendar xmlToDate(String date) throws ParseException  {
-    // java 1.7 can parse xml date/times, but going java 1.7 is too hard for implementers
-    // javax.xml.bind.DatatypeConverte can parse xml date/times, but is not available on android. (and it's error message sucks)
-    // so we parse the date directly
-    String s;
-    String t;
-    if (date.endsWith("Z")) {
-      s = date.substring(0, date.length()-1);
-      t = null;
-    } else if (date.lastIndexOf("-") > 8) {
-      s = date.substring(0, date.lastIndexOf("-"));
-      t = date.substring(s.lastIndexOf("-"));
-    } else if (date.lastIndexOf("+") > 8) {
-      s = date.substring(0, date.lastIndexOf("-"));
-      t = date.substring(s.lastIndexOf("+"));
-    } else { // no timezone
-      s = date;
-      t = null;      
-    }
-    Calendar res = new GregorianCalendar();
-    try {
-      if (t != null)
-        res.setTimeZone(TimeZone.getTimeZone("GMT"+t));
-      res.setTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").parse(s));
-    } catch (ParseException e) {
-      throw new ParseException("The date '"+date+"' is not a valid Date Time Format ("+e.getMessage()+")", e.getErrorOffset());
-    }
-    return res;
-  }
-
-  protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
+	protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
   	// when this is called, we are pointing an element that may have content
     while (xpp.getEventType() != XmlPullParser.END_TAG) {
   		xpp.next();
@@ -151,8 +110,8 @@ public abstract class XmlBase {
     return new String(encodeBase64);
   }
   
-  protected String toString(Calendar value) {
-    return dateToXml(value);
+  protected String toString(DateAndTime value) {
+    return value.toString();
   }
   
 

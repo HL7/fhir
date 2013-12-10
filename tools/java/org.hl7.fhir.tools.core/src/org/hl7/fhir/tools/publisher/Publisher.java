@@ -121,6 +121,7 @@ import org.hl7.fhir.instance.model.Conformance.RestfulConformanceMode;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulOperation;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulOperation;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
@@ -409,13 +410,13 @@ public class Publisher {
     v2Valuesets.setId("http://hl7.org/fhir/v2/valuesets");
     v2Valuesets.setTitle("v2 tables as ValueSets");
     v2Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v2-tables.xml");
-    v2Valuesets.setUpdated(Calendar.getInstance());
+    v2Valuesets.setUpdated(DateAndTime.now());
     page.setV2Valuesets(v2Valuesets);
     v3Valuesets = new AtomFeed();
     v3Valuesets.setId("http://hl7.org/fhir/v3/valuesets");
     v3Valuesets.setTitle("v3 Code Systems and ValueSets");
     v3Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v3-valuesets.xml");
-    v3Valuesets.setUpdated(Calendar.getInstance());
+    v3Valuesets.setUpdated(DateAndTime.now());
     page.setv3Valuesets(v3Valuesets);
     
     page.log(" ...vocab", LogMessageType.Process);
@@ -453,7 +454,7 @@ public class Publisher {
 	  conf.setPublisherSimple("FHIR Project Team");
 	  conf.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org/fhir"));
 	  conf.setStatusSimple(ConformanceStatementStatus.draft);
-	  conf.setDateSimple(new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(page.getGenDate().getTime()));
+	  conf.setDateSimple(new DateAndTime(page.getGenDate().getTime()));
 	  conf.setFhirVersionSimple(page.getVersion());
 	  conf.setAcceptUnknownSimple(false);
 	  conf.getFormat().add(Factory.newCode("xml"));
@@ -1069,12 +1070,12 @@ public class Publisher {
 	    profileFeed.setId("http://hl7.org/fhir/profile/resources");
 	    profileFeed.setTitle("Resources as Profiles");
 	    profileFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-resources.xml");
-	    profileFeed.setUpdated(Calendar.getInstance());
+	    profileFeed.setUpdated(DateAndTime.now());
       typeFeed = new AtomFeed();
       typeFeed.setId("http://hl7.org/fhir/profile/types");
       typeFeed.setTitle("Resources as Profiles");
       typeFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-types.xml");
-      typeFeed.setUpdated(Calendar.getInstance());
+      typeFeed.setUpdated(DateAndTime.now());
 
       for (String n : page.getDefinitions().getDiagrams().keySet()) {
         page.log(" ...diagram "+n, LogMessageType.Process);
@@ -1085,7 +1086,7 @@ public class Publisher {
       valueSetsFeed.setId("http://hl7.org/fhir/profile/valuesets");
       valueSetsFeed.setTitle("FHIR Core Valuesets");
       valueSetsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valuesets.xml");
-      valueSetsFeed.setUpdated(Calendar.getInstance());
+      valueSetsFeed.setUpdated(DateAndTime.now());
 
       loadValueSets();      
 
@@ -1339,7 +1340,7 @@ public class Publisher {
     Element r = XMLUtil.getNamedChild(e, "releasedVersion");
     if (r != null) {
       s.append("<p>Release Date: "+r.getAttribute("releaseDate")+"</p>\r\n");
-      vs.setDateSimple(r.getAttribute("releaseDate"));
+      vs.setDateSimple(new DateAndTime(r.getAttribute("releaseDate")));
     }
     r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
     if (r == null)
@@ -1443,9 +1444,9 @@ public class Publisher {
             ValueSet vs = buildV3CodeSystem(id, dt, e);
             ae.setResource(vs);
             if (vs.getDate() != null)
-              ae.setUpdated(XmlBase.xmlToDate(vs.getDate().getValue()));
+              ae.setUpdated(vs.getDate().getValue().expandTime());
             else
-              ae.setUpdated(Calendar.getInstance());
+              ae.setUpdated(DateAndTime.now());
             ae.setTitle(vs.getDescriptionSimple());
             ae.setAuthorName(vs.getPublisherSimple());
             page.getV3Valuesets().getEntryList().add(ae);
@@ -1470,9 +1471,9 @@ public class Publisher {
           ae.getLinks().put("oid", e.getAttribute("id"));
           ae.setResource(vs);
           if (vs.getDate() != null)
-            ae.setUpdated(XmlBase.xmlToDate(vs.getDate().getValue()));
+            ae.setUpdated(vs.getDate().getValue().expandTime());
           else
-            ae.setUpdated(Calendar.getInstance());
+            ae.setUpdated(DateAndTime.now());
           ae.setTitle(vs.getDescriptionSimple());
           ae.setAuthorName(vs.getPublisherSimple());
           page.getV3Valuesets().getEntryList().add(ae);
@@ -1633,7 +1634,7 @@ public class Publisher {
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
-    vs.setDateSimple("2011-01-28"); // v2.7 version
+    vs.setDateSimple(new DateAndTime("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
     def.setCaseSensitiveSimple(true);
@@ -1707,7 +1708,7 @@ public class Publisher {
     vs.setPublisherSimple("HL7, Inc");
     vs.getTelecom().add(Factory.newContact(ContactSystem.url, "http://hl7.org"));
     vs.setStatusSimple(ValuesetStatus.active);
-    vs.setDateSimple("2011-01-28"); // v2.7 version
+    vs.setDateSimple(new DateAndTime("2011-01-28")); // v2.7 version
     ValueSetDefineComponent def = new ValueSet.ValueSetDefineComponent();
     vs.setDefine(def);
     def.setCaseSensitiveSimple(true);
@@ -1968,7 +1969,7 @@ public class Publisher {
       i++;
     }  
     s.append("</tests>\r\n");
-    String err = javaReferencePlatform.checkFragments(page.getFolders().dstDir, s.toString(), true);
+    String err = javaReferencePlatform.checkFragments(page.getFolders().dstDir, s.toString(), false);
     if (err == null)
       throw new Exception("Unable to process outcome of checking fragments");
     if (!err.startsWith("<results"))
@@ -2288,8 +2289,8 @@ public class Publisher {
     e.setId("http://hl7.org/fhir/profile/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/" + id+ ".profile.xml");
     e.setTitle("\"" + id+ "\" as a profile (to help derivation)");
-    e.setUpdated(page.getGenDate());
-    e.setPublished(page.getGenDate());
+    e.setUpdated(new DateAndTime(page.getGenDate()));
+    e.setPublished(new DateAndTime(page.getGenDate()));
     e.setAuthorName("HL7, Inc (FHIR Project)");
     e.setAuthorUri("http://hl7.org/fhir");
     e.setResource(profile);
@@ -2304,8 +2305,8 @@ public class Publisher {
     e.setId("http://hl7.org/fhir/valueset/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valueset/" + id);
     e.setTitle("Valueset \"" + id+ "\" to support automated processing");
-    e.setUpdated(page.getGenDate());
-    e.setPublished(page.getGenDate());
+    e.setUpdated(new DateAndTime(page.getGenDate()));
+    e.setPublished(new DateAndTime(page.getGenDate()));
     e.setAuthorName("HL7, Inc (FHIR Project)");
     e.setAuthorUri("http://hl7.org/fhir");
     e.setResource(vs);
@@ -2320,8 +2321,8 @@ public class Publisher {
     e.setId("http://hl7.org/fhir/conformance/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/conformance/" + id);
     e.setTitle("\"" + id+ "\" - to help with system development");
-    e.setUpdated(page.getGenDate());
-    e.setPublished(page.getGenDate());
+    e.setUpdated(new DateAndTime(page.getGenDate()));
+    e.setPublished(new DateAndTime(page.getGenDate()));
     e.setAuthorName("HL7, Inc (FHIR Project)");
     e.setAuthorUri("http://hl7.org/fhir");
     e.setResource(conf);

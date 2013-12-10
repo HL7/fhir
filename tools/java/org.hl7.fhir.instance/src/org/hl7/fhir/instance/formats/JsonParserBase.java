@@ -36,6 +36,7 @@ import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.utilities.TextFile;
@@ -118,7 +119,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     if (json.has("id"))
       res.setId(json.getString("id"));
     if (json.has("updated"))
-      res.setUpdated(xmlToDate(json.getString("updated")));
+      res.setUpdated(new DateAndTime(json.getString("updated")));
     if (json.has("author")) {
       JSONObject author = json.getJSONArray("author").getJSONObject(0);
       if (author.has("name"))
@@ -156,9 +157,9 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     if (json.has("id"))
       res.setId(json.getString("id"));
     if (json.has("updated"))
-      res.setUpdated(xmlToDate(json.getString("updated")));
+      res.setUpdated(new DateAndTime(json.getString("updated")));
     if (json.has("published"))
-      res.setPublished(xmlToDate(json.getString("published")));
+      res.setPublished(new DateAndTime(json.getString("published")));
     if (json.has("link")) {
       JSONArray array = json.getJSONArray("link");
       for (int i = 0; i < array.length(); i++) {

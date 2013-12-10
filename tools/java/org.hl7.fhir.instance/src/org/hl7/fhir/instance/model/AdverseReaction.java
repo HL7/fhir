@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -333,14 +333,14 @@ public class AdverseReaction extends Resource {
         /**
          * @return When the exposure occurred.
          */
-        public String getExposureDateSimple() { 
+        public DateAndTime getExposureDateSimple() { 
           return this.exposureDate == null ? null : this.exposureDate.getValue();
         }
 
         /**
          * @param value When the exposure occurred.
          */
-        public AdverseReactionExposureComponent setExposureDateSimple(String value) { 
+        public AdverseReactionExposureComponent setExposureDateSimple(DateAndTime value) { 
           if (value == null)
             this.exposureDate = null;
           else {
@@ -537,14 +537,14 @@ public class AdverseReaction extends Resource {
     /**
      * @return When the reaction occurred.
      */
-    public String getReactionDateSimple() { 
+    public DateAndTime getReactionDateSimple() { 
       return this.reactionDate == null ? null : this.reactionDate.getValue();
     }
 
     /**
      * @param value When the reaction occurred.
      */
-    public AdverseReaction setReactionDateSimple(String value) { 
+    public AdverseReaction setReactionDateSimple(DateAndTime value) { 
       if (value == null)
         this.reactionDate = null;
       else {

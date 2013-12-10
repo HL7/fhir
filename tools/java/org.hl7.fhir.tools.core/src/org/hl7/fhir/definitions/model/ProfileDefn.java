@@ -64,7 +64,7 @@ public class ProfileDefn {
       if ("name".equals(name))
         return source.getNameSimple();
       if ("date".equals(name))
-        return source.getDateSimple();
+        return source.getDateSimple().toString();
       if ("status".equals(name))
         return source.getStatusSimple().toCode();
       if ("author.name".equals(name))

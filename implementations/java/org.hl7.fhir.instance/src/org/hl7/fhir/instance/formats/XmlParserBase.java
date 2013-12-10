@@ -36,6 +36,7 @@ import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Binary;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Type;
@@ -295,8 +296,8 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     return res;
   }
   
-  private Calendar parseDate(XmlPullParser xpp) throws Exception {
-    return xmlToDate(parseString(xpp));    
+  private DateAndTime parseDate(XmlPullParser xpp) throws Exception {
+    return new DateAndTime(parseString(xpp));    
   }
 
  

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -144,14 +144,14 @@ public class Immunization extends Resource {
         /**
          * @return Date of reaction to the immunization.
          */
-        public String getDateSimple() { 
+        public DateAndTime getDateSimple() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value Date of reaction to the immunization.
          */
-        public ImmunizationReactionComponent setDateSimple(String value) { 
+        public ImmunizationReactionComponent setDateSimple(DateAndTime value) { 
           if (value == null)
             this.date = null;
           else {
@@ -624,14 +624,14 @@ public class Immunization extends Resource {
     /**
      * @return Date vaccine administered or was to be administered.
      */
-    public String getDateSimple() { 
+    public DateAndTime getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value Date vaccine administered or was to be administered.
      */
-    public Immunization setDateSimple(String value) { 
+    public Immunization setDateSimple(DateAndTime value) { 
         if (this.date == null)
           this.date = new DateTime();
         this.date.setValue(value);
@@ -846,14 +846,14 @@ public class Immunization extends Resource {
     /**
      * @return Date vaccine batch expires.
      */
-    public String getExpirationDateSimple() { 
+    public DateAndTime getExpirationDateSimple() { 
       return this.expirationDate == null ? null : this.expirationDate.getValue();
     }
 
     /**
      * @param value Date vaccine batch expires.
      */
-    public Immunization setExpirationDateSimple(String value) { 
+    public Immunization setExpirationDateSimple(DateAndTime value) { 
       if (value == null)
         this.expirationDate = null;
       else {

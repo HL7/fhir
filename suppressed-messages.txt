@@ -1,0 +1,1 @@
+warning @ SecurityEvent: All resources should have an identifier (src = ResourceValidator)

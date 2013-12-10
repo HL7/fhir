@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 8, 2013 18:48+1100 for FHIR v0.12
+// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -587,14 +587,14 @@ public class Patient extends Resource {
     /**
      * @return The date and time of birth for the individual.
      */
-    public String getBirthDateSimple() { 
+    public DateAndTime getBirthDateSimple() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The date and time of birth for the individual.
      */
-    public Patient setBirthDateSimple(String value) { 
+    public Patient setBirthDateSimple(DateAndTime value) { 
       if (value == null)
         this.birthDate = null;
       else {
