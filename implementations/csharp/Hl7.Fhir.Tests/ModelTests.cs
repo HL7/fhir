@@ -93,19 +93,22 @@ namespace Hl7.Fhir.Tests
 
 
         [TestMethod]
-        public void ValidateResourceWithIncorrectElement()
+        public void ValidateResourceWithIncorrectChildElement()
         {
-            //FhirDateTime dt = new FhirDateTime();
+            FhirDateTime dt = new FhirDateTime();
+            dt.Value = "Ewout Kramer";
 
-            //dt.Value = "Ewout Kramer";
+            Observation o = new Observation { Applies = dt };
+            DiagnosticReport rep = new DiagnosticReport();
+            rep.Contained = new List<Resource> { o };
 
-            //Observation o = new Observation { Applies = dt };
-            //DiagnosticReport rep = new DiagnosticReport();
-            //rep.Contained = new List<Resource> { o };
-
-            //var errors = dt.Validate();
-
-            //Assert.IsTrue(errors.Count == 1);
+            try
+            {
+                // should throw error
+                Validator.ValidateObject(rep, new ValidationContext(rep), true);
+                Assert.Fail();
+            }
+            catch (ValidationException) { }
         }
 
         [TestMethod]
@@ -124,14 +127,11 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void DateTimeHandling()
         {
-            //FhirDateTime dt = FhirDateTime.Parse("2010-01-01");
+            FhirDateTime dt = new FhirDateTime("2010-01-01");
+            Assert.AreEqual("2010-01-01", dt.Value);
 
-            //Assert.AreEqual("2010-01-01", dt.ToString());
-
-            //FhirDateTime dt2 = new FhirDateTime(1972, 11, 30, 15, 10);
-            //Assert.IsTrue(dt2.ToString().StartsWith("1972-11-30T15:10"));
-
-            //dt = FhirDateTime.Parse("2013-08-18T00:00:00.000+12:00");
+            FhirDateTime dt2 = new FhirDateTime(1972, 11, 30, 15, 10);
+            Assert.IsTrue(dt2.Value.StartsWith("1972-11-30T15:10"));
         }
 
      

@@ -341,15 +341,13 @@
     <Cell><Data ss:Type="String">Practitioner.qualification</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Qualifications relevant to the provided service</Data></Cell>
-    <Cell><Data ss:Type="String">Qualifications relevant to the provided service</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Qualifications obtained by training and certification</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CER?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">Qualification</Data></Cell>
     <Cell><Data ss:Type="String">Qualification</Data></Cell>
     <Cell><Data ss:Type="String">Coded representation of the qualification</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s74"/>
@@ -401,11 +399,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>5</TopRowVisible>
+   <TopRowVisible>11</TopRowVisible>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>17</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>

@@ -9,13 +9,13 @@ using System.Text.RegularExpressions;
 namespace Hl7.Fhir.Validation
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
-    public class IsValidatableAttribute : ValidationAttribute
+    public class InvokeIValidatableObjectAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var validatable = value as IValidatableObject;
 
-            if (value != null)
+            if (validatable != null)
                 return validatable.Validate(validationContext).FirstOrDefault();
             else
                 return null;

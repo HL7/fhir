@@ -28,15 +28,18 @@
 
 */
 
+using Hl7.Fhir.Validation;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
 namespace Hl7.Fhir.Introspection
 {
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
-    public sealed class FhirElementAttribute : Attribute
+    public sealed class FhirElementAttribute : ValidationAttribute
     {
         readonly string name;
 
@@ -57,5 +60,29 @@ namespace Hl7.Fhir.Introspection
         public XmlSerializationHint XmlSerialization { get; set; }
 
         public int Order { get; set; }
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value == null) return ValidationResult.Success;
+
+            IEnumerable list = value as IEnumerable;
+            var result = new List<ValidationResult>();
+
+            if (list != null)
+            {
+                foreach (var element in list)
+                {
+                    var context = ValidationContextFactory.Create(element, null);
+                    Validator.TryValidateObject(element, context, result, true);
+                }
+            }
+            else
+            {
+                var context = ValidationContextFactory.Create(value, null);
+                Validator.TryValidateObject(value, context, result, true);
+            }
+
+            return result.FirstOrDefault();                
+        }
     }
 }

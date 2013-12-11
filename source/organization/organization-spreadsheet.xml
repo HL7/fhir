@@ -207,7 +207,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Identifier for this organization</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Identifies this organization  across multiple systems</Data></Cell>
     <Cell><Data ss:Type="String">Identifier for the organization that is used to identify the organization across multiple disparate systems</Data></Cell>
     <Cell><Data ss:Type="String">Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.scopes[Role](classCode=IDENT)</Data></Cell>
@@ -325,9 +325,8 @@
     <Cell><Data ss:Type="String">Organization.contact</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Contact for the organization </Data></Cell>
-    <Cell><Data ss:Type="String">Contact for the organization for a certain purpose</Data></Cell>
-    <Cell><Data ss:Type="String">Need to keep track of assigned contact points within bigger organization</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Contact for the organization for a certain purpose</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Need to keep track of assigned contact points within bigger organization</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.contactParty</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -446,11 +445,11 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
-   <TopRowVisible>10</TopRowVisible>
+   <TopRowVisible>12</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -458,8 +457,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

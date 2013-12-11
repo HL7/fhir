@@ -30,7 +30,7 @@ multiple numbers because of mergers of patient record systems over time.
 <p>The <i>link</i> element is used to assert that patient resources refer to the same person. This element is used
 to support three distinct scenario's where multiple records of the same person exist:</p>
 
-<h3>Patient record created in error</h3>
+<h3>Duplicate Patient records</h3>
 <p>Managing Patient registration is a well known difficult problem. Around 2% of registrations are in error, 
 mostly duplicate records. Sometimes the duplicate record is caught fairly quickly and retired before much 
 data is accumulated. In other cases, substantial amounts of data may accumulate. By using a link of type 'replace',

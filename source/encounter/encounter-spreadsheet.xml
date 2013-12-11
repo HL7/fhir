@@ -21,7 +21,7 @@
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
   <TabRatio>654</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -168,7 +168,7 @@
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="222"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="266.25"/>
    <Column ss:StyleID="s64" ss:Width="29.25"/>
    <Column ss:StyleID="s64" ss:Width="22.5"/>
    <Column ss:StyleID="s64" ss:Width="60"/>
@@ -482,8 +482,8 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Period of hospitalization</Data></Cell>
-    <Cell><Data ss:Type="String">Period of hospitalization.</Data></Cell>
+    <Cell><Data ss:Type="String">Period during which the patient was admitted</Data></Cell>
+    <Cell><Data ss:Type="String">Period during which the patient was admitted</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -514,7 +514,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Resource(Location)</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell><Data ss:Type="String">Bed</Data></Cell>
+    <Cell><Data ss:Type="String">The bed that is assigned to the patient </Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -595,7 +595,7 @@
     <Cell><Data ss:Type="String">Encounter.hospitalization.reAdmission</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Is readmission?</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Is this hospitalization a readmission?</Data></Cell>
     <Cell ss:Index="15" ss:StyleID="s71"><Data ss:Type="String">PV1-13-re-admission indicator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -649,9 +649,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -659,14 +659,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -939,7 +941,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1050,6 +1051,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EncounterReason</Data></Cell>
     <Cell><Data ss:Type="String">Reason why the encounter takes place</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-encounter-reason</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1065,6 +1069,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1084,7 +1089,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>12</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

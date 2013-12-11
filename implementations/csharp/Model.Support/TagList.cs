@@ -42,7 +42,6 @@ using Hl7.Fhir.Validation;
 namespace Hl7.Fhir.Model
 {
     [FhirType]
-    [IsValidatable]
     public class TagList : Hl7.Fhir.Validation.IValidatableObject
     {
         public TagList()
@@ -70,7 +69,6 @@ namespace Hl7.Fhir.Model
     }
 
     [FhirType]
-    [IsValidatable]
     public class Tag : Hl7.Fhir.Validation.IValidatableObject
     {
         public const string FHIRTAGNS = "http://hl7.org/fhir/tag";

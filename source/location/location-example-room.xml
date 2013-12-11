@@ -6,8 +6,11 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Burgers UMC, South Wing, second floor, Neuro Radiology Operation Room 1</div>
   </text>  
-  <name value="South-2-1.00"/>
-  <description value="South Wing, Floor 2, Neuro Radiology Operation Room 1" />
+  <identifier>
+    <value value="B1-S.F2.1.00" />
+  </identifier>
+  <name value="South Wing Neuro OR 1"/>
+  <description value="Old South Wing, Neuro Radiology Operation Room 1 on second floor" />
   <type>
     <coding>
       <system value="http://hl7.org/fhir/v3/RoleCode" />
