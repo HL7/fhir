@@ -40,6 +40,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Hl7.Fhir.Model
 {
+    [InvokeIValidatableObject]
     public class DeletedEntry : BundleEntry, Hl7.Fhir.Validation.IValidatableObject
     {
         public DateTimeOffset? When { get; set; }

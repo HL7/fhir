@@ -33,12 +33,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 
 public class CSVProcessor {
 
   public class DataReader extends CSVReader {
 
-    public DataReader(InputStream data) {
+    public DataReader(InputStream data) throws UnsupportedEncodingException {
       super(data);
     }
 
@@ -94,7 +95,11 @@ public class CSVProcessor {
   }
 
   public void setData(InputStream data) {
-    this.data = new DataReader(data);   
+    try {
+		this.data = new DataReader(data);
+	} catch (UnsupportedEncodingException e) {
+		// DataReader is fixed to "UTF-8", so this exception cannot really occur
+	}   
   }
 
   public void setOutput(OutputStream out) {
@@ -137,7 +142,7 @@ public class CSVProcessor {
 
   private String readSource() throws Exception {
     StringBuilder s = new StringBuilder();
-    InputStreamReader r = new InputStreamReader(source);
+    InputStreamReader r = new InputStreamReader(source,"UTF-8");
     while (r.ready()) {
       s.append((char) r.read()); 
     }

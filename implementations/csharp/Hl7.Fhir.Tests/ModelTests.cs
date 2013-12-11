@@ -20,35 +20,27 @@ namespace Hl7.Fhir.Tests
 
             Validator.ValidateObject(id, new ValidationContext(id), true);
 
-            try
-            {
-                // should throw error
-                id = new Id("!notgood!");
-                Validator.ValidateObject(id, new ValidationContext(id), true);
-                Assert.Fail();
-            }
-            catch(ValidationException) { }
+            id = new Id("!notgood!");
+            validateErrorOrFail(id);
 
+            id = new Id("NotGood");
+            validateErrorOrFail(id);
 
-            try
-            {
-                // should throw error
-                id = new Id("NotGood");
-                Validator.ValidateObject(id, new ValidationContext(id), true);
-                Assert.Fail();
-            }
-            catch(ValidationException) { }
-
-            try
-            {
-                // should throw error
-                id = new Id("1234567890123456789012345678901234567");
-                Validator.ValidateObject(id, new ValidationContext(id), true);
-                Assert.Fail();
-            }
-            catch(ValidationException) { }
+            id = new Id("1234567890123456789012345678901234567");
+            validateErrorOrFail(id);
         }
 
+
+        private void validateErrorOrFail(object instance)
+        {
+            try
+            {
+                // should throw error
+                Validator.ValidateObject(instance, new ValidationContext(instance), true);
+                Assert.Fail();
+            }
+            catch (ValidationException) { }
+        }
     
         [TestMethod]
         public void OIDandUUIDUrls()
@@ -62,33 +54,19 @@ namespace Hl7.Fhir.Tests
             FhirUri uri = new FhirUri(oidUrl);
             Validator.ValidateObject(uri, new ValidationContext(uri), true);
 
-            try
-            {
-                // should throw error
-                uri = new FhirUri(illOidUrl);
-                Validator.ValidateObject(uri, new ValidationContext(uri), true);
-                Assert.Fail();
-            }
-            catch (ValidationException) { }
-
+            uri = new FhirUri(illOidUrl);
+            validateErrorOrFail(uri);
             
             uri = new FhirUri(uuidUrl);
             Validator.ValidateObject(uri, new ValidationContext(uri), true);
 
-            try
-            {
-                // should throw error
-                uri = new FhirUri(illUuidUrl);
-                Validator.ValidateObject(uri, new ValidationContext(uri), true);
-                Assert.Fail();
-            }
-            catch (ValidationException) { }
+            uri = new FhirUri(illUuidUrl);
+            validateErrorOrFail(uri);
 
             uri = new FhirUri(oidWithZero);
             Validator.ValidateObject(uri, new ValidationContext(uri), true);
          
             Assert.IsTrue(Uri.Equals(new Uri("http://nu.nl"), new Uri("http://nu.nl")));
-
         }
 
 
@@ -102,13 +80,39 @@ namespace Hl7.Fhir.Tests
             DiagnosticReport rep = new DiagnosticReport();
             rep.Contained = new List<Resource> { o };
 
-            try
-            {
-                // should throw error
-                Validator.ValidateObject(rep, new ValidationContext(rep), true);
-                Assert.Fail();
-            }
-            catch (ValidationException) { }
+            validateErrorOrFail(rep);
+        }
+
+
+        [TestMethod]
+        public void TestAllowedChoices()
+        {
+            Patient p = new Patient();
+
+            p.Deceased = new FhirBoolean(true);
+            Validator.ValidateObject(p, new ValidationContext(p), true);
+
+            p.Deceased = new FhirUri();
+            validateErrorOrFail(p);
+        }
+
+
+        [TestMethod]
+        public void TestCardinality()
+        {
+            OperationOutcome oo = new OperationOutcome();
+            validateErrorOrFail(oo);
+
+            oo.Issue = new List<OperationOutcome.OperationOutcomeIssueComponent>();
+            validateErrorOrFail(oo);
+
+            var issue = new OperationOutcome.OperationOutcomeIssueComponent();
+
+            oo.Issue.Add(issue);
+            validateErrorOrFail(oo);
+
+            issue.Severity = OperationOutcome.IssueSeverity.Information;
+            Validator.ValidateObject(issue, new ValidationContext(issue), true);
         }
 
         [TestMethod]

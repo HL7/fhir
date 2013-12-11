@@ -40,6 +40,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Hl7.Fhir.Model
 {
+    [InvokeIValidatableObject]
     public class ResourceEntry<T> : ResourceEntry, Hl7.Fhir.Validation.IValidatableObject where T : Resource, new()
     {
         public new T Resource
@@ -58,6 +59,7 @@ namespace Hl7.Fhir.Model
         }
     }
 
+    [InvokeIValidatableObject]
     public abstract class ResourceEntry : BundleEntry, Hl7.Fhir.Validation.IValidatableObject
     {
         public Resource Resource { get; set; }

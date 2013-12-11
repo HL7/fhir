@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
 
 /*
 Copyright (c) 2002 JSON.org
@@ -69,9 +70,10 @@ public class JSONTokener {
 
     /**
      * Construct a JSONTokener from an InputStream.
+     * @throws UnsupportedEncodingException 
      */
-    public JSONTokener(InputStream inputStream) throws JSONException {
-        this(new InputStreamReader(inputStream));
+    public JSONTokener(InputStream inputStream) throws JSONException, UnsupportedEncodingException {
+        this(new InputStreamReader(inputStream, "UTF-8"));
     }
 
 

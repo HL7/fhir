@@ -40,6 +40,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Hl7.Fhir.Model
 {
+    [InvokeIValidatableObject]
     public class Bundle : Hl7.Fhir.Validation.IValidatableObject
     {
         public string Title { get; set; }

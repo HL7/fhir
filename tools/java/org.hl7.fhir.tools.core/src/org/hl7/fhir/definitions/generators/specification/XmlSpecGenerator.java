@@ -36,16 +36,15 @@ import java.io.UnsupportedEncodingException;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
-import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
+import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
@@ -527,7 +526,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
   private String getIsSummaryFlag(ElementDefn elem) {
     if (elem.isSummaryItem())
-      return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> §</span>";
+      return "<span title=\"This element is included in a summary view (See Search/Query)\" style=\"color: Navy\"> &#167;</span>";
     else 
       return "";
   }

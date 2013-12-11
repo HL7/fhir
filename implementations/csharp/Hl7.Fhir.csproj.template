@@ -67,10 +67,12 @@
     <Compile Include="Introspection\NotMappedAttribute.cs" />
     <Compile Include="Introspection\FhirEnumerationAttribute.cs" />
     <Compile Include="Introspection\EnumLiteralAttribute.cs" />
-    <Compile Include="Introspection\ChoiceAttribute.cs" />
     <Compile Include="Introspection\XmlSerializationHint.cs" />
     <Compile Include="Introspection\FhirElementAttribute.cs" />
     <Compile Include="Introspection\FhirTypeAttribute.cs" />
+    <Compile Include="Introspection\ChoiceType.cs" />
+    <Compile Include="Validation\CardinalityAttribute.cs" />
+    <Compile Include="Validation\AllowedTypesAttribute.cs" />
     <Compile Include="Validation\CodePatternAttribute.cs" />
     <Compile Include="Validation\DatePatternAttribute.cs" />
     <Compile Include="Validation\DateTimePatternAttribute.cs" />
@@ -82,8 +84,8 @@
     <Compile Include="Validation\OidPatternAttribute.cs" />
     <Compile Include="Validation\UriPatternAttribute.cs" />
     <Compile Include="Validation\UuidPatternAttribute.cs" />
-	<Compile Include="Validation\ValidationContextFactory.cs" />    
-	<Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\ValidationContextFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -104,15 +104,10 @@ public class XhtmlParser {
   }
   
   public XhtmlDocument parse(InputStream input, String entryName) throws Exception {
-    rdr = new InputStreamReader(input);
+    rdr = new InputStreamReader(input, "UTF-8");
     return parse(entryName);
   }
-  
-  public XhtmlDocument parse(InputStream input, String entryName, String charSet) throws Exception {
-    rdr = new InputStreamReader(input, charSet);
-    return parse(entryName);
-  }
-  
+   
   private XhtmlDocument parse(String entryName) throws Exception
   {
     XhtmlDocument result = new XhtmlDocument();

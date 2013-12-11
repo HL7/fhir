@@ -13,7 +13,7 @@
               ...
             Histopathology
               Abdominal
-                pT category: 1
+                pT category: 1a
               ...
           </pre>
     </div>
@@ -52,11 +52,18 @@
     <Observation id="obs.pt-category">
       <name>
         <coding>
-          <system value="http://cancer.questionnaire.org/system/code/questions"/>
+          <system value="http://snomed.info/sct"/>
           <code value="53786006"/>
-          <display value="pT1 category"/>
+          <display value="pT category"/>
         </coding>
       </name>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="443357004" />
+          <display value="pT1a category" />
+        </coding>
+      </valueCodeableConcept>
       <status value="final"/>
       <reliability value="unknown"/>
     </Observation>

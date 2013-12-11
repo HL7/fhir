@@ -43,12 +43,14 @@ namespace Hl7.Fhir.Introspection
     {
         readonly string name;
 
-        // This is a positional argument
         public FhirElementAttribute(string name)
         {
             this.name = name;
             this.XmlSerialization = XmlSerializationHint.None;
+            this.Choice = ChoiceType.None;
         }
+
+        public ChoiceType Choice { get; set; }
 
         public string Name
         {

@@ -279,6 +279,30 @@ public class CSharpModelGenerator extends GenBlock
                                     member.isPrimitiveValueElement();
     boolean hasBothPrimitiveAndElementProperty = isFhirPrimitive && !needsNativeProperty;
     
+
+    String choiceType = null;
+    String choices = "";
+        
+    if(member.isPolymorph())
+    {     
+      for(TypeRef choiceTRef : member.getType())
+      {    
+        String name = choiceTRef.getName();
+        
+        if(name.equals(TypeRef.ELEMENT_TYPE_NAME))
+          choiceType = "DatatypeChoice";
+        else if(name.equals(TypeRef.RESOURCE_TYPE_NAME))
+          choiceType = "ResourceChoice";
+        else
+          choiceType = "DatatypeChoice";
+        
+        choices += "typeof(" + GeneratorUtils.buildFullyScopedTypeName(choiceTRef) + "),";
+      }
+      
+      if(choices.endsWith(",")) choices = choices.substring(0, choices.length()-1);
+    }
+    
+    
 	  ln("/// <summary>");
 		ln("/// " + member.getAnnotation().getShortDefinition());
 		ln("/// </summary>");
@@ -290,38 +314,36 @@ public class CSharpModelGenerator extends GenBlock
 		  
     if(member.getXmlFormatHint() != XmlFormatHint.ELEMENT)
 	      nl(", XmlSerialization=XmlSerializationHint." + member.getXmlFormatHint().getName());
-
+    
     if(order != 0)
       nl(", Order=" + Integer.toString(order));
+
+    if(choiceType!=null) // None
+      nl(", Choice=ChoiceType." + choiceType);
+    nl(")]");
     
-	  nl(")]");
-		
-		if(member.isPolymorph())
-		{		  
-		  for(TypeRef choiceTRef : member.getType())
-		  {
-		    ln("[Choice(");
-		    
-		    String name = choiceTRef.getName();
-		    
-		    if(name.equals(TypeRef.ELEMENT_TYPE_NAME))
-		      nl("WildcardChoice.AnyDatatype");
-		    else if(name.equals(TypeRef.RESOURCE_TYPE_NAME))
-		      nl("WildcardChoice.AnyResource");
-		    else
-		    {
-  		    nl("\"" + choiceTRef.getName() + "\", ");
-  		    nl("typeof(" + GeneratorUtils.buildFullyScopedTypeName(choiceTRef) + ")"  );
-		    }
-		    nl(")]");
-		  }
-		}
-		
+    if(choices.length() > 0)
+    {
+      ln("[AllowedTypes(");
+      nl(choices);
+      nl(")]");
+    }
+    
+    // a. If min > 0 -> element(s) must be present -> we need to validate
+    // b1. If max == -1 -> a list with any length, no additional validation requirements beyond min
+    // b2. If max == 1 -> a single element, no additional validation requirements beyond min
+    if(member.getMinCardinality() > 0 || (member.getMaxCardinality() != -1 && member.getMaxCardinality() != 1) )
+    {
+      ln("[Cardinality(");
+      nl("Min=" + Integer.toString(member.getMinCardinality()));
+      nl(",Max=" + Integer.toString(member.getMaxCardinality()));
+      nl(")]");
+    }
+    
 		if(needsNativeProperty) addPrimitiveValidators(tref.getName());
 		
 		ln("public ");
-		
-		
+			
 		String memberCsType;
 		
 		if( GeneratorUtils.isCodeWithCodeList( getDefinitions(), tref ) )

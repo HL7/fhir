@@ -35,32 +35,10 @@ using System.Text;
 
 namespace Hl7.Fhir.Introspection
 {
-    [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = true)]
-    public sealed class ChoiceAttribute : Attribute
+    public enum ChoiceType
     {
-        // This is a positional argument
-        public ChoiceAttribute(string typeName, Type type)
-        {
-            TypeName = typeName;
-            Type = type;
-            Wildcard = null;
-        }
-
-        public ChoiceAttribute(WildcardChoice choice)
-        {
-            Wildcard = choice;
-        }
-
-        public WildcardChoice? Wildcard { get; private set; }
-
-        public string TypeName { get; private set; }
-
-        public Type Type { get; private set; }
-    }
-
-    public enum WildcardChoice
-    {
-        AnyResource,
-        AnyDatatype
+        None,
+        ResourceChoice,
+        DatatypeChoice
     }
 }

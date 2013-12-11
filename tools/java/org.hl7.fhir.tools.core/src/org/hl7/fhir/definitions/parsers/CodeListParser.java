@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -35,7 +36,7 @@ import org.hl7.fhir.utilities.CSVReader;
 
 public class CodeListParser  extends CSVReader {
 
-	public CodeListParser(InputStream in) {
+	public CodeListParser(InputStream in) throws UnsupportedEncodingException {
 		super(in);
 	}
 
