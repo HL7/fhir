@@ -53,7 +53,7 @@
        <coding>
          <system value="http://snomed.info/sct"/>
          <code value="284093001"/>
-         <display value="Potassium supplement"/>
+         <display value="Potassium supplementation"/>
        </coding>
     </code>
     <timingString value="daily"/>
@@ -79,7 +79,7 @@
        <coding>
          <system value="http://snomed.info/sct"/>
          <code value="306005"/>
-         <display value="Echography of the kidney"/>
+         <display value="Echography of kidney"/>
        </coding>
     </code>
   </simple>

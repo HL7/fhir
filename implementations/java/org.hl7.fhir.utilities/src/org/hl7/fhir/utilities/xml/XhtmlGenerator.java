@@ -31,6 +31,7 @@ package org.hl7.fhir.utilities.xml;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -75,35 +76,64 @@ public class XhtmlGenerator {
   public void generate(Document doc, File xhtml, String name, String desc, int level, boolean adorn) throws Exception {
     adorn = true; // till the xml trick is working
     
-		FileOutputStream outs = new FileOutputStream(xhtml);
-		OutputStreamWriter out = new OutputStreamWriter(outs);
-		
-		out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
-		out.write("<head>\r\n");
-		out.write(" <title>Example Instance for "+name+"</title>\r\n");
-		out.write(" <link rel=\"stylesheet\" href=\"");
-		for (int i = 0; i < level; i++)
-		  out.write("../");
-		out.write("fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n");
-		if (!adorn) {
-	    out.write(" <link rel=\"stylesheet\" href=\"");
-	    for (int i = 0; i < level; i++)
-	      out.write("../");
-	    out.write("./assets/css/xml.css\" type=\"text/css\" media=\"screen\"/>\r\n");
-	    
+    FileOutputStream outs = new FileOutputStream(xhtml);
+    OutputStreamWriter out = new OutputStreamWriter(outs);
+    
+    out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
+    out.write("<head>\r\n");
+    out.write(" <title>Example Instance for "+name+"</title>\r\n");
+    out.write(" <link rel=\"stylesheet\" href=\"");
+    for (int i = 0; i < level; i++)
+      out.write("../");
+    out.write("fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n");
+    if (!adorn) {
+      out.write(" <link rel=\"stylesheet\" href=\"");
+      for (int i = 0; i < level; i++)
+        out.write("../");
+      out.write("./assets/css/xml.css\" type=\"text/css\" media=\"screen\"/>\r\n");
+      
       out.write(" <script src=\"");
       for (int i = 0; i < level; i++)
         out.write("../");
       out.write("./assets/js/xml.js\"></script>\r\n");
-      out.write("<script>\r\n  hljs.tabReplace = '  '; // 2 spaces\r\n  hljs.initHighlightingOnLoad();\r\n</script>\r\n");		  
-		}
-		out.write("</head>\r\n");
-		
-		out.write("<body>\r\n");
-    out.write("<p>&nbsp;</p>\r\n");	
+      out.write("<script>\r\n  hljs.tabReplace = '  '; // 2 spaces\r\n  hljs.initHighlightingOnLoad();\r\n</script>\r\n");      
+    }
+    out.write("</head>\r\n");
+    
+    out.write("<body>\r\n");
+    out.write("<p>&nbsp;</p>\r\n"); 
     out.write("<div class=\"example\">\r\n");
     out.write("<p>"+Utilities.escapeXml(desc)+"</p>\r\n"); 
     out.write("<p><a href=\""+xhtml.getName().substring(0, xhtml.getName().length()-5)+"\">Raw XML</a></p>\r\n");
+    if (adorn) {
+      out.write("<pre class=\"xml\">\r\n");
+
+      XhtmlGeneratorAdornerState state = null; // adorner == null ? new XhtmlGeneratorAdornerState("", "") : adorner.getState(this, null, null);
+      for (int i = 0; i < doc.getChildNodes().getLength(); i++)
+        writeNode(out, doc.getChildNodes().item(i), state, level);
+      out.write("</pre>\r\n");
+    } else {
+      out.write("<code class=\"xml\">\r\n");
+      for (int i = 0; i < doc.getChildNodes().getLength(); i++)
+        writeNodePlain(out, doc.getChildNodes().item(i), level);
+      
+      out.write("</code>\r\n");      
+    }
+    out.write("</div>\r\n");
+    out.write("</body>\r\n");
+    out.write("</html>\r\n");
+    out.flush();
+    outs.close();
+  }
+
+  public void generate(Document doc, OutputStream xhtml, String name, String desc, int level, boolean adorn, String filename) throws Exception {
+    adorn = true; // till the xml trick is working
+    
+		OutputStreamWriter out = new OutputStreamWriter(xhtml);
+		
+    out.write("<div class=\"example\">\r\n");
+    out.write("<p>"+Utilities.escapeXml(desc)+"</p>\r\n"); 
+    out.write("<p><a href=\""+filename.substring(0, filename.length()-5)+"\">Raw XML</a></p>\r\n");
     if (adorn) {
       out.write("<pre class=\"xml\">\r\n");
 
@@ -119,10 +149,7 @@ public class XhtmlGenerator {
       out.write("</code>\r\n");      
     }
     out.write("</div>\r\n");
-		out.write("</body>\r\n");
-		out.write("</html>\r\n");
 		out.flush();
-		outs.close();
 	}
 
   private void writeNodePlain(Writer out, Node node, int level) throws Exception {

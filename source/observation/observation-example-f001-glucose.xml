@@ -4,7 +4,7 @@
         <coding>
             <system value="http://loinc.org"/>
             <code value="2339-0"/>
-            <display value="glucose observation from blood system"/>
+            <display value="Glucose [Mass/volume] in Blood"/>
         </coding>
     </name>
     <valueQuantity>
@@ -55,20 +55,18 @@
         <display value="A. Langeveld"/>
     </performer>
     <referenceRange>
-        <rangeRange>
-            <low>
-                <value value="3.1"/>
-                <units value="mmol/l"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="mmol/l"/>
-            </low>
-            <high>
-                <value value="6.2"/>
-                <units value="mmol/l"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="mmol/l"/>
-            </high>
-        </rangeRange>
+      <low>
+          <value value="3.1"/>
+          <units value="mmol/l"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/l"/>
+      </low>
+      <high>
+          <value value="6.2"/>
+          <units value="mmol/l"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/l"/>
+      </high>
     </referenceRange>
 </Observation>
 

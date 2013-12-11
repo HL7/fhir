@@ -24,6 +24,7 @@ import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
@@ -51,6 +52,8 @@ import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.utils.ConceptLocator;
+import org.hl7.fhir.instance.utils.ConceptLocator.ValidationResult;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -97,11 +100,15 @@ public class InstanceValidator extends BaseValidator {
   private boolean suppressLoincSnomedMessages;
   private ExtensionLocatorService extensions;
 
-  public InstanceValidator(String validationZip, ExtensionLocatorService extensions) throws Exception {
+
+  private ConceptLocator conceptLocator;
+
+  public InstanceValidator(String validationZip, ExtensionLocatorService extensions, ConceptLocator conceptLocator) throws Exception {
     super();
     source = Source.InstanceValidator;
     loadValidationResources(validationZip);
     this.extensions = (extensions == null ) ? new NullExtensionResolver() : extensions;
+    this.conceptLocator = conceptLocator;
   }  
 
   private void loadValidationResources(String name) throws Exception {
@@ -750,7 +757,18 @@ public class InstanceValidator extends BaseValidator {
 
 
   private boolean checkCode(List<ValidationMessage> errors, String path, String code, String system, String display) {
-    if (system.startsWith("http://hl7.org/fhir")) {
+    if (conceptLocator != null && conceptLocator.verifiesSystem(system)) {
+      ValidationResult s = conceptLocator.validate(system, code, display);
+      if (s == null)
+        return true;
+      if (s.getSeverity() == IssueSeverity.information)
+        hint(errors, "code-unknown", path, s == null, s.getMessage());
+      else if (s.getSeverity() == IssueSeverity.warning)
+        warning(errors, "code-unknown", path, s == null, s.getMessage());
+      else
+        return warning(errors, "code-unknown", path, s == null, s.getMessage());
+      return true;
+    } else if (system.startsWith("http://hl7.org/fhir")) {
       if (system.equals("http://hl7.org/fhir/sid/icd-10"))
         return true; // else don't check ICD-10 (for now)
       else {

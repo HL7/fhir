@@ -64,20 +64,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="135"/>
-              <units value="g/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="g/L"/>
-            </low>
-            <high>
-              <value value="180"/>
-              <units value="g/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="g/L"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="135"/>
+            <units value="g/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="g/L"/>
+          </low>
+          <high>
+            <value value="180"/>
+            <units value="g/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="g/L"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -103,20 +101,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="4.2"/>
-              <units value="x10*12/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*12/L"/>
-            </low>
-            <high>
-              <value value="6.0"/>
-              <units value="x10*12/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*12/L"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="4.2"/>
+            <units value="x10*12/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*12/L"/>
+          </low>
+          <high>
+            <value value="6.0"/>
+            <units value="x10*12/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*12/L"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -146,16 +142,14 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="38"/>
-             <units value="%"/>
-            </low>
-            <high>
-              <value value="52"/>
-              <units value="%"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="38"/>
+           <units value="%"/>
+          </low>
+          <high>
+            <value value="52"/>
+            <units value="%"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -187,20 +181,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="80"/>
-              <units value="fL"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="fL"/>
-            </low>
-            <high>
-              <value value="98"/>
-              <units value="fL"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="fL"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="80"/>
+            <units value="fL"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="fL"/>
+          </low>
+          <high>
+            <value value="98"/>
+            <units value="fL"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="fL"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -232,20 +224,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="27"/>
-              <units value="pg"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="pg"/>
-            </low>
-            <high>
-              <value value="35"/>
-              <units value="pg"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="pg"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="27"/>
+            <units value="pg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="pg"/>
+          </low>
+          <high>
+            <value value="35"/>
+            <units value="pg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="pg"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -271,20 +261,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="150"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </low>
-            <high>
-              <value value="450"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="150"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </low>
+          <high>
+            <value value="450"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -310,20 +298,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="4.0"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </low>
-            <high>
-              <value value="11.0"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="4.0"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </low>
+          <high>
+            <value value="11.0"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -378,20 +364,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="2.0"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </low>
-            <high>
-              <value value="7.5"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="2.0"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </low>
+          <high>
+            <value value="7.5"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -446,20 +430,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="1.1"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </low>
-            <high>
-              <value value="4.0"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="1.1"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </low>
+          <high>
+            <value value="4.0"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -508,20 +490,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="0.2"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </low>
-            <high>
-              <value value="1.0"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="0.2"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </low>
+          <high>
+            <value value="1.0"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -576,20 +556,18 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeRange>
-            <low>
-              <value value="0.04"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </low>
-            <high>
-              <value value="0.40"/>
-              <units value="x10*9/L"/>
-              <system value="http://unitsofmeasure.org"/>
-              <code value="10*9/L"/>
-            </high>
-          </rangeRange>
+          <low>
+            <value value="0.04"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </low>
+          <high>
+            <value value="0.40"/>
+            <units value="x10*9/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="10*9/L"/>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -638,13 +616,12 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeQuantity>
+          <high>
             <value value="0.21"/>
-            <comparator value="&lt;"/>
             <units value="x10*9/L"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="10*9/L"/>
-          </rangeQuantity>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -674,8 +651,8 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     <name>
       <coding>
       <system value="http://loinc.org"/>
-        <code value="15430-2"/>
-      <display value="FULL BLOOD EXAMINATION"/>
+        <code value="58410-2"/>
+      <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
     </coding>
       <coding>
         <code value="CBC"/>

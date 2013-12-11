@@ -45,6 +45,7 @@ import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
@@ -79,11 +80,14 @@ import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
+import org.hl7.fhir.instance.utils.ConceptLocator;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ValueSetExpander;
 import org.hl7.fhir.instance.utils.ValueSetExpanderSimple;
@@ -134,6 +138,7 @@ public class PageProcessor implements Logger  {
   private BindingNameRegistry registry;
   private String id; // technical identifier associated with the page being built
   private EPubManager epub;
+  private SpecificationConceptLocator conceptLocator = new SpecificationConceptLocator();
 ;
   
   public final static String PUB_NOTICE =
@@ -661,7 +666,7 @@ public class PageProcessor implements Logger  {
   private String genV3CodeSystem(String name) throws Exception {
     ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v3/"+name).getResource();
     new XmlComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false, "v3:cs:"+name);
     new JsonComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
     jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
 
@@ -672,7 +677,7 @@ public class PageProcessor implements Logger  {
     ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false, "v3:vs:"+name);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
     jsonToXhtml(Utilities.path(folders.dstDir, "vs", name, "v3-"+name+".json"), Utilities.path("v3", "vs", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
@@ -685,7 +690,7 @@ public class PageProcessor implements Logger  {
     ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v2/"+n[0]+"/"+n[1]).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false);
+    cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false, "v2:tbl"+name);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs, false);
     jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path("v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), "v2-"+n[0]+"-"+n[1]+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 3, r2Json(vs));
@@ -698,7 +703,7 @@ public class PageProcessor implements Logger  {
     ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v2/"+name).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false);
+    cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false, "v2:tbl"+name);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs, false);
     jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path("v2", name, "v2-"+name+".json.html"), "v2-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
@@ -712,14 +717,24 @@ public class PageProcessor implements Logger  {
     return new String(bytes.toByteArray());
   }
 
-  private void cloneToXhtml(String src, String dst, String name, String description, int level, boolean adorn) throws Exception {
+  private void cloneToXhtml(String src, String dst, String name, String description, int level, boolean adorn, String pageType) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
 
     Document xdoc = builder.parse(new CSFileInputStream(new CSFile(src)));
-    XhtmlGenerator xhtml = new XhtmlGenerator(null);
-    xhtml.generate(xdoc, new CSFile(dst), name, description, level, adorn);
+//    XhtmlGenerator xhtml = new XhtmlGenerator(null);
+//    xhtml.generate(xdoc, new CSFile(dst), name, description, level, adorn);
+    
+    String n = new File(dst).getName();
+    n = n.substring(0, n.length()-9);
+    XhtmlGenerator xhtml = new XhtmlGenerator(new ExampleAdorner(definitions));
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    xhtml.generate(xdoc, b, name, description, level, adorn, n+".xml.html");
+    String html = TextFile.fileToString(folders.srcDir + "template-example-xml.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", b.toString());
+    html = processPageIncludes(n+".xml.html", html, pageType);
+    TextFile.stringToFile(html, dst);
+    
     epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
   }
 
@@ -2054,7 +2069,7 @@ public class PageProcessor implements Logger  {
       exp.setDefine(null);
       exp.setText(null);
       exp.setDescriptionSimple("Value Set Contents (Expansion) for "+vs.getNameSimple()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator(prefix).generate(exp, codeSystems, valueSets, conceptMaps);
+      new NarrativeGenerator(prefix, conceptLocator).generate(exp, codeSystems, valueSets, conceptMaps);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
@@ -2637,9 +2652,9 @@ public class PageProcessor implements Logger  {
     for (Example e: resource.getExamples()) {
      if (e.isInBook()) {
         s.append("<h3>"+Utilities.escapeXml(e.getName())+"</h3>\r\n");
-        s.append("<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n");
+        s.append("<p>XML</p>\r\n");
         s.append(e.getXhtm());
-        s.append("<p>JSON Equivalent</p>\r\n");
+        s.append("<p>JSON</p>\r\n");
         s.append(e.getJson());
       }
     }
@@ -3038,6 +3053,132 @@ public void log(String content, LogMessageType type) {
     return suppressedMessages;
   }
 
+
+  public class SpecificationConceptLocator implements ConceptLocator {
+
+    private Map<String, String> snomedCodes = new HashMap<String, String>();
+    private Map<String, String> loincCodes = new HashMap<String, String>();
+    
+    @Override
+    public ValueSetDefineConceptComponent locate(String system, String code) {
+      if (system.equals("http://snomed.info/sct"))
+        try {
+          return locateSnomed(code);
+        } catch (Exception e) {
+        }        
+      if (system.equals("http://loinc.org"))
+        try {
+          return locateLoinc(code);
+        } catch (Exception e) {
+        }        
+      return null;
+    }
+
+    private ValueSetDefineConceptComponent locateSnomed(String code) throws Exception {
+      if (snomedCodes.isEmpty())
+         loadSnomed();
+      if (!snomedCodes.containsKey(code))
+        return null;
+      ValueSetDefineConceptComponent cc = new ValueSetDefineConceptComponent();
+      cc.setCodeSimple(code);
+      cc.setDisplaySimple(snomedCodes.get(code));
+      return cc;
+    }
+
+    private ValidationResult verifySnomed(String code, String display) throws Exception {
+      if (snomedCodes.isEmpty())
+         loadSnomed();
+      if (!snomedCodes.containsKey(code))
+        return new ValidationResult(IssueSeverity.warning, "Unknown Snomed Code "+code);
+      if (display == null)
+        return null;
+      if (!snomedCodes.get(code).equalsIgnoreCase(display))
+        return new ValidationResult(IssueSeverity.error, "Snomed Display Name for "+code+" must be '"+snomedCodes.get(code)+"'");
+      return null;
+    }
+
+    private ValueSetDefineConceptComponent locateLoinc(String code) throws Exception {
+      if (loincCodes.isEmpty())
+         loadLoinc();
+      if (!loincCodes.containsKey(code))
+        return null;
+      ValueSetDefineConceptComponent cc = new ValueSetDefineConceptComponent();
+      cc.setCodeSimple(code);
+      String s = loincCodes.get(code);
+      s = s.substring(s.indexOf("|")+1);
+      cc.setDisplaySimple(s);
+      return cc;
+    }
+
+    private ValidationResult verifyLoinc(String code, String display) throws Exception {
+      if (loincCodes.isEmpty())
+         loadLoinc();
+      if (!loincCodes.containsKey(code))
+        return new ValidationResult(IssueSeverity.error, "Unknown Loinc Code "+code);
+      if (display == null)
+        return null;
+      display = display.toLowerCase();
+      String s = loincCodes.get(code);
+      String sl = s.toLowerCase();
+      if (!sl.startsWith(display+"|") && !sl.endsWith("|"+display) )
+        if (s.startsWith("|"))
+          return new ValidationResult(IssueSeverity.error, "Loinc Display Name for "+code+" must be '"+s.substring(1)+"'");
+        else 
+          return new ValidationResult(IssueSeverity.error, "Loinc Display Name for "+code+" must be either '"+s.substring(0, s.indexOf("|"))+"' or '"+s.substring(s.indexOf("|")+1)+"'");
+      return null;
+    }
+
+    @Override
+    public ValidationResult validate(String system, String code, String display) {
+      if (system.equals("http://snomed.info/sct"))
+        try {
+          return verifySnomed(code, display);
+        } catch (Exception e) {
+        }        
+      if (system.equals("http://loinc.org"))
+        try {
+          return verifyLoinc(code, display);
+        } catch (Exception e) {
+        }        
+      return new ValidationResult(IssueSeverity.warning, "Unknown code system "+system);
+    }
+
+    @Override
+    public boolean verifiesSystem(String system) {
+      return "http://snomed.info/sct".equals(system) || "http://loinc.org".equals(system) ;
+    }
+  }
+
+  public void loadSnomed() throws Exception {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document xdoc = builder.parse(new CSFileInputStream(Utilities.path(folders.srcDir, "snomed", "snomed.xml")));
+    Element code = XMLUtil.getFirstChild(xdoc.getDocumentElement());
+    while (code != null) {
+      conceptLocator.snomedCodes.put(code.getAttribute("id"), code.getAttribute("display"));
+      code = XMLUtil.getNextSibling(code);
+    }
+  }
+
+  public void loadLoinc() throws Exception {
+    log("Load Loinc", LogMessageType.Process);
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    Document xdoc = builder.parse(new CSFileInputStream(Utilities.path(folders.srcDir, "loinc", "loinc.xml")));
+    Element code = XMLUtil.getFirstChild(xdoc.getDocumentElement());
+    while (code != null) {
+      if (code.getAttribute("long").equalsIgnoreCase(code.getAttribute("short"))) 
+        conceptLocator.loincCodes.put(code.getAttribute("id"), "|"+code.getAttribute("long"));
+      else
+        conceptLocator.loincCodes.put(code.getAttribute("id"), code.getAttribute("short")+"|"+code.getAttribute("long"));
+      code = XMLUtil.getNextSibling(code);
+    }
+    log("Loinc Loaded", LogMessageType.Process);
+  }
+
+  public SpecificationConceptLocator getConceptLocator() {
+    return conceptLocator;
+  }
 
   
 }

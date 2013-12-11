@@ -45,7 +45,7 @@
               <coding>
                   <system value="http://snomed.info/sct"/>
                   <code value="64915003"/>
-                  <display value=" Operative procedure on heart"/>
+                  <display value="Operation on heart"/>
               </coding>
           </code>
           <timingString value="2011-06-27T09:30:10+01:00"/>

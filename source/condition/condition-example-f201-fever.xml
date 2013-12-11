@@ -44,7 +44,7 @@
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="258710007"/>
-        <display value="degrees Celsius"/> 
+        <display value="degrees C"/> 
     </coding>        
   </code>
   <detail>
@@ -57,7 +57,7 @@
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
-        <display value="Body as a whole"/>  
+        <display value="Entire body as a whole"/>  
     </coding>
   </code>
  </location>

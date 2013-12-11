@@ -47,13 +47,12 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeQuantity>
+          <high>
             <value value="4.5"/>
-            <comparator value="&lt;"/>
             <units value="mmol/L"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="mmol/L"/>
-          </rangeQuantity>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -75,13 +74,12 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeQuantity>
+          <high>
             <value value="2.0"/>
-            <comparator value="&lt;"/>
             <units value="mmol/L"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="mmol/L"/>
-          </rangeQuantity>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -103,13 +101,12 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeQuantity>
+          <low>
             <value value="1.5"/>
-            <comparator value="&gt;"/>
             <units value="mmol/L"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="mmol/L"/>
-          </rangeQuantity>
+          </low>
         </referenceRange>
       </Observation>
     </contained> 
@@ -131,13 +128,12 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <status value="final"/>
         <reliability value="ok"/>
         <referenceRange>
-          <rangeQuantity>
+          <high>
             <value value="3.0"/>
-            <comparator value="&lt;"/>
             <units value="mmol/L"/>
             <system value="http://unitsofmeasure.org"/>
             <code value="mmol/L"/>
-          </rangeQuantity>
+          </high>
         </referenceRange>
       </Observation>
     </contained> 
@@ -167,7 +163,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <coding>
         <system value="http://loinc.org"/>
         <code value="57698-3"/>
-        <display value="Lipid panel with direct LDL"/>
+        <display value="Lipid panel with direct LDL - Serum or Plasma"/>
       </coding>
       <text value="Lipid Panel"/>
     </name>

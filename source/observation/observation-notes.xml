@@ -4,24 +4,37 @@
 
 <ul>
   <li>
-    The element that contains the actual value of the result has a variable name 
-	depending on the type. The name is "value" + the type name, ignoring parameters, 
-	with a capital on the first letter, e.g. valueInterval or valueString
+    The element, Observation.value[x], has a variable name depending on the type as follows:
+    <ul>
+     <li>valueQuantity</li>
+     <li>valueCodeableConcept</li>
+     <li>valueRatio</li>
+     <li>valueChoice</li>
+     <li>valuePeriod</li>
+     <li>valueSampleData</li>
+     <li>valueString</li>
+    </ul>
+    The element name is ""'value' + the type name"" with a capital on the first letter of the type
   </li>
   <li>
-    The obtainedDateTime or obtainedPeriod is the time that the observation is most 
+    The appliesDateTime or appliesPeriod is the time that the observation is most 
     relevant as an observation of the subject. For a biological subject (e.g. a human patient), 
     this is the physiologically relevant time of the observation. 
-	In the case of an observation on a specimen, this represents the start and 
-    end of the specimen collection (which may include multiple specimens). 
+	In the case of an observation using a specimen, this represents the start and 
+    end of the specimen collection (e.g. 24 hour Urine Sodium), but if the collection time is 
+    sufficiently short, this is reported as a point in time value (e.g. normal venepuncture). 
     In the case of an observation obtained directly from a subject (e.g., BP, 
-    Chest X-ray), this represent the start and end time of the observation process.
+    Chest X-ray), this is the start and end time of the observation process, which again, is 
+    often reported as a single point in time.
   </li>
   <li>
     At its simplest, resource instances can consist of only a type and a value, with a reliability and status flag.  
     The relevance of other properties will vary based on the type of observation.  
-	Normal range may be useful for lab tests and other measures like systolic blood pressure, but will have little 
+	Reference ranges may be useful for lab tests and other measures like systolic blood pressure, but will have little 
 	relevance for something like "pregnancy status"
+  </li>
+  <li>
+    Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties
   </li>
   <li>
     Profiles will be created to provide guidance on capturing certain types 

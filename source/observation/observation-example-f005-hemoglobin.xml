@@ -55,19 +55,17 @@
         <display value="A. Langeveld"/>
     </performer>
     <referenceRange>
-        <rangeRange>
-            <low>
-                <value value="7.5"/>
-                <units value="g/dl"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="g/dl"/>
-            </low>
-            <high>
-                <value value="10"/>
-                <units value="g/dl"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="g/dl"/>
-            </high>
-        </rangeRange>
+      <low>
+          <value value="7.5"/>
+          <units value="g/dl"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g/dl"/>
+      </low>
+      <high>
+          <value value="10"/>
+          <units value="g/dl"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g/dl"/>
+      </high>
     </referenceRange>
 </Observation>

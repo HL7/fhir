@@ -23,7 +23,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
       <coding>
         <system value="http://loinc.org"/>
         <code value="34108-1"/>
-        <display value="Outpatient Evaluation And Management"/>
+        <display value="Outpatient Note"/>
       </coding>
     </type>
     <title value="Physical"/>

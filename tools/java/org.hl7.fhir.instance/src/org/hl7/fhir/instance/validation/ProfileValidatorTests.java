@@ -47,7 +47,7 @@ public class ProfileValidatorTests {
 	}
 
 	public void execute() throws Exception {
-	  InstanceValidator v = new InstanceValidator(pack.getAbsolutePath(), null);
+	  InstanceValidator v = new InstanceValidator(pack.getAbsolutePath(), null, null);
 	  
     Document reg = parseXml(registry.getAbsolutePath());
     List<Element> tests = new ArrayList<Element>();

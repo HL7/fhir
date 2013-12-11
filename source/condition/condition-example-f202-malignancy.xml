@@ -14,7 +14,7 @@
       <coding>
          <system value="http://snomed.info/sct"/>
          <code value="363346000"/>
-         <display value="Malignant tumor"/>
+         <display value="Malignant neoplastic disease"/>
       </coding>
    </code>
    <category>
@@ -58,7 +58,7 @@
          <coding>
             <system value="http://snomed.info/sct"/>
             <code value="361355005"/>
-            <display value="Head and neck"/>
+            <display value="Entire head and neck"/>
          </coding>
       </code>
    </location>

@@ -302,7 +302,7 @@
                     <coding>
                         <system value="http://loinc.org"/>
                         <code value="10183-2"/>
-                        <display value="Medication List"/>
+                        <display value="Hospital discharge medications"/>
                     </coding>
 
                 </code>
@@ -426,7 +426,7 @@
                     <route>
                         <coding>
                             <system value="http://snomed.info/sct"/>
-                            <code value="363743006"/>
+                            <code value="394899003"/>
                             <display value="oral administration of treatment"/>
                         </coding>
                     </route>
@@ -479,7 +479,7 @@
                     <coding>
                         <system value="http://loinc.org"/>
                         <code value="48765-2"/>
-                        <display value="Allergies"/>
+                        <display value="Allergies and adverse reactions Document"/>
                     </coding>
 
                 </code>

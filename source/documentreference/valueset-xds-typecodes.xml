@@ -22,611 +22,127 @@
   <compose>
     <include>
       <system value="http://loinc.org"/>
-      <code value="34096-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Home Comprehensive History and Physical Note"/>
-        </extension>
-      </code>
-      <code value="4121-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Interventional Procedure Note"/>
-        </extension>
-      </code>
-      <code value="8743-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Autopsy Note"/>
-        </extension>
-      </code>
-      <code value="4095-0">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Comprehensive History and Physical Note"/>
-        </extension>
-      </code>
-      <code value="4098-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Conference Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="1488-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Consultation Note"/>
-        </extension>
-      </code>
-      <code value="8574-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Discharge Note"/>
-        </extension>
-      </code>
-      <code value="8842-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Discharge Summarization Note"/>
-        </extension>
-      </code>
-      <code value="4109-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Evaluation And Management Note"/>
-        </extension>
-      </code>
-      <code value="4117-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="History And Physical Note"/>
-        </extension>
-      </code>
-      <code value="8636-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8570-0">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Procedure Note"/>
-        </extension>
-      </code>
-      <code value="1506-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4133-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Summarization of Episode Note"/>
-        </extension>
-      </code>
-      <code value="1504-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Surgical Operation Note"/>
-        </extension>
-      </code>
-      <code value="4138-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Targeted History And Physical Note"/>
-        </extension>
-      </code>
-      <code value="4140-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Transfer of Care Referral Note"/>
-        </extension>
-      </code>
-      <code value="8761-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Transfer Summarization Note"/>
-        </extension>
-      </code>
-      <code value="4100-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Critical Care Unit Consultation Note"/>
-        </extension>
-      </code>
-      <code value="4126-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Critical Care Unit Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4111-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Emergency Department Evaluation And Management Note"/>
-        </extension>
-      </code>
-      <code value="5507-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Emergency Department Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4107-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Home Health Education Procedure Note"/>
-        </extension>
-      </code>
-      <code value="4118-0">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Home Health Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4129-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Home Health Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4104-0">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Hospital Consultation Note"/>
-        </extension>
-      </code>
-      <code value="4105-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Hospital Discharge Summarization Note"/>
-        </extension>
-      </code>
-      <code value="4114-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Hospital Group Counseling Note"/>
-        </extension>
-      </code>
-      <code value="1492-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Hospital History and Physical Note"/>
-        </extension>
-      </code>
-      <code value="4130-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Hospital Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4112-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Inpatient Evaluation And Management Note"/>
-        </extension>
-      </code>
-      <code value="4097-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Home Conference Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4113-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Home Evaluation And Management Note"/>
-        </extension>
-      </code>
-      <code value="4119-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Home Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4611-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Outpatient Confirmatory Consultation Note"/>
-        </extension>
-      </code>
-      <code value="4108-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Outpatient Evaluation And Management"/>
-        </extension>
-      </code>
-      <code value="4120-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Outpatient Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4131-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Outpatient Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4137-0">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Outpatient Surgical Operation Note"/>
-        </extension>
-      </code>
-      <code value="4123-0">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Anesthesia Hospital Pre-Operative Evaluation And Management Note"/>
-        </extension>
-      </code>
-      <code value="8655-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Attending Physician Discharge Summarization Note"/>
-        </extension>
-      </code>
-      <code value="8654-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Attending Physician Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8733-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Attending Physician Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4134-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Attending Physician Outpatient Supervisory Note"/>
-        </extension>
-      </code>
-      <code value="4135-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Attending Physician Cardiology Outpatient Supervisory Note"/>
-        </extension>
-      </code>
-      <code value="4136-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Attending Physician Gastroenterology Outpatient Supervisory Note"/>
-        </extension>
-      </code>
-      <code value="4099-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Cardiology Consultation Note"/>
-        </extension>
-      </code>
-      <code value="4094-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Cardiology Hospital Admission History And Physical Note"/>
-        </extension>
-      </code>
-      <code value="4124-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Cardiology Outpatient Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4125-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Case Manager Home Health Care Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8581-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Chiropractor Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8762-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Chiropractor Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8763-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Consulting Physician Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8569-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Consulting Physician Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4127-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Dental Hygienist Outpatient Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="9761-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Dentistry Discharge Summarization Note"/>
-        </extension>
-      </code>
-      <code value="8572-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Dentistry Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8577-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Dentistry Procedure Note"/>
-        </extension>
-      </code>
-      <code value="8617-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Dentistry Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8583-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Dentistry Surgical Operation Note"/>
-        </extension>
-      </code>
-      <code value="8618-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Dentistry Visit Note"/>
-        </extension>
-      </code>
-      <code value="4128-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Dentistry Outpatient Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4110-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Diabetology Outpatient Evaluation And Management Note"/>
-        </extension>
-      </code>
-      <code value="8748-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Diagnostic Imaging Report"/>
-        </extension>
-      </code>
-      <code value="4101-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="General Medicine Outpatient Consultation Note"/>
-        </extension>
-      </code>
-      <code value="4115-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Medical Student Hospital History and Physical Note"/>
-        </extension>
-      </code>
-      <code value="8621-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nurse Practitioner Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8764-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nurse Practitioner Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8622-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Discharge Assessment Note"/>
-        </extension>
-      </code>
-      <code value="9753-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8623-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4139-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Telephone Encounter Note"/>
-        </extension>
-      </code>
-      <code value="8651-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Nursing Transfer Summarization Note"/>
-        </extension>
-      </code>
-      <code value="8734-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Occupational Therapy Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="1507-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Occupational Therapy Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4122-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Pathology Pathology Procedure Note"/>
-        </extension>
-      </code>
-      <code value="4132-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Pharmacy Outpatient Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8735-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physical Therapy Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="1508-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physical Therapy Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8579-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physical Therapy Visit Note"/>
-        </extension>
-      </code>
-      <code value="1490-0">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician Discharge Summarization Note"/>
-        </extension>
-      </code>
-      <code value="8626-0">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician History and Physical Note"/>
-        </extension>
-      </code>
-      <code value="8736-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="1505-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician Procedure Note"/>
-        </extension>
-      </code>
-      <code value="8573-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician Surgical Operation Note"/>
-        </extension>
-      </code>
-      <code value="8616-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician Transfer Summarization Note"/>
-        </extension>
-      </code>
-      <code value="8568-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician Emergency Department Visit Note"/>
-        </extension>
-      </code>
-      <code value="4106-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician Hospital Discharge Summarization Note"/>
-        </extension>
-      </code>
-      <code value="4116-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Physician Nursing Home History and Physical Note"/>
-        </extension>
-      </code>
-      <code value="8737-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Podiatry Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8625-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Podiatry Procedure Note"/>
-        </extension>
-      </code>
-      <code value="1509-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Podiatry Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8624-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Podiatry Surgical Operation Note"/>
-        </extension>
-      </code>
-      <code value="8635-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Psychiatry Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8627-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Psychiatry Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4102-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Psychiatry Hospital Consultation Note"/>
-        </extension>
-      </code>
-      <code value="8738-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Psychology Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="1510-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Psychology Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4103-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Pulmonary Consultation Note"/>
-        </extension>
-      </code>
-      <code value="8739-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Social Service Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8656-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Social Service Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="8653-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Social Service Visit Note"/>
-        </extension>
-      </code>
-      <code value="8740-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Speech Therapy Initial Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="1512-1">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Speech Therapy Subsequent Visit Evaluation Note"/>
-        </extension>
-      </code>
-      <code value="4138-3">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="Remote Health Reading"/>
-        </extension>
-      </code>
-      <code value="4133-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="SUMMARIZATION OF EPISODE NOTE"/>
-        </extension>
-      </code>
-      <code value="8717-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="BLOOD BANK STUDIES"/>
-        </extension>
-      </code>
-      <code value="8718-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="CELL MARKER STUDIES"/>
-        </extension>
-      </code>
-      <code value="8719-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="CHEMISTRY STUDIES"/>
-        </extension>
-      </code>
-      <code value="8722-9">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="FERTILITY STUDIES"/>
-        </extension>
-      </code>
-      <code value="8723-7">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="HEMATOLOGY STUDIES"/>
-        </extension>
-      </code>
-      <code value="8724-5">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="HLA STUDIES"/>
-        </extension>
-      </code>
-      <code value="8725-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="MICROBIOLOGY STUDIES"/>
-        </extension>
-      </code>
-      <code value="8727-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="SEROLOGY STUDIES"/>
-        </extension>
-      </code>
-      <code value="8767-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="BLOOD GAS STUDIES"/>
-        </extension>
-      </code>
-      <code value="8768-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="CELL COUNTS+DIFFERENTIAL STUDIES"/>
-        </extension>
-      </code>
-      <code value="6435-8">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="MOLECULAR PATHOLOGY STUDIES"/>
-        </extension>
-      </code>
-      <code value="6436-6">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="LABORATORY STUDIES"/>
-        </extension>
-      </code>
-      <code value="6437-4">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="CHEMISTRY CHALLENGE STUDIES"/>
-        </extension>
-      </code>
-      <code value="6438-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="CYTOLOGY STUDIES"/>
-        </extension>
-      </code>
-      <code value="1502-2">
-        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
-          <valueString value="LABORATORY REPORT.TOTAL"/>
-        </extension>
-      </code>
+      <code value="34096-8"/>
+      <code value="34121-4"/>
+      <code value="18743-5"/>
+      <code value="34095-0"/>
+      <code value="34098-4"/>
+      <code value="11488-4"/>
+      <code value="28574-2"/>
+      <code value="18842-5"/>
+      <code value="34109-9"/>
+      <code value="34117-2"/>
+      <code value="28636-9"/>
+      <code value="28570-0"/>
+      <code value="11506-3"/>
+      <code value="34133-9"/>
+      <code value="11504-8"/>
+      <code value="34138-8"/>
+      <code value="34140-4"/>
+      <code value="18761-7"/>
+      <code value="34100-8"/>
+      <code value="34126-3"/>
+      <code value="34111-5"/>
+      <code value="15507-7"/>
+      <code value="34107-3"/>
+      <code value="34118-0"/>
+      <code value="34129-7"/>
+      <code value="34104-0"/>
+      <code value="34105-7"/>
+      <code value="34114-9"/>
+      <code value="11492-6"/>
+      <code value="34130-5"/>
+      <code value="34112-3"/>
+      <code value="34097-6"/>
+      <code value="34113-1"/>
+      <code value="34119-8"/>
+      <code value="24611-6"/>
+      <code value="34108-1"/>
+      <code value="34120-6"/>
+      <code value="34131-3"/>
+      <code value="34137-0"/>
+      <code value="34123-0"/>
+      <code value="28655-9"/>
+      <code value="28654-2"/>
+      <code value="18733-6"/>
+      <code value="34134-7"/>
+      <code value="34135-4"/>
+      <code value="34136-2"/>
+      <code value="34099-2"/>
+      <code value="34094-3"/>
+      <code value="34124-8"/>
+      <code value="34125-5"/>
+      <code value="28581-7"/>
+      <code value="18762-5"/>
+      <code value="18763-3"/>
+      <code value="28569-2"/>
+      <code value="34127-1"/>
+      <code value="29761-4"/>
+      <code value="28572-6"/>
+      <code value="28577-5"/>
+      <code value="28617-9"/>
+      <code value="28583-3"/>
+      <code value="28618-7"/>
+      <code value="34128-9"/>
+      <code value="34110-7"/>
+      <code value="18748-4"/>
+      <code value="34101-6"/>
+      <code value="34115-6"/>
+      <code value="28621-1"/>
+      <code value="18764-1"/>
+      <code value="28622-9"/>
+      <code value="29753-1"/>
+      <code value="28623-7"/>
+      <code value="34139-6"/>
+      <code value="28651-8"/>
+      <code value="18734-4"/>
+      <code value="11507-1"/>
+      <code value="34122-2"/>
+      <code value="34132-1"/>
+      <code value="18735-1"/>
+      <code value="11508-9"/>
+      <code value="28579-1"/>
+      <code value="11490-0"/>
+      <code value="28626-0"/>
+      <code value="18736-9"/>
+      <code value="11505-5"/>
+      <code value="28573-4"/>
+      <code value="28616-1"/>
+      <code value="28568-4"/>
+      <code value="34106-5"/>
+      <code value="34116-4"/>
+      <code value="18737-7"/>
+      <code value="28625-2"/>
+      <code value="11509-7"/>
+      <code value="28624-5"/>
+      <code value="28635-1"/>
+      <code value="28627-8"/>
+      <code value="34102-4"/>
+      <code value="18738-5"/>
+      <code value="11510-5"/>
+      <code value="34103-2"/>
+      <code value="18739-3"/>
+      <code value="28656-7"/>
+      <code value="28653-4"/>
+      <code value="18740-1"/>
+      <code value="11512-1"/>
+      <code value="54138-3"/>
+      <code value="34133-9"/>
+      <code value="18717-9"/>
+      <code value="18718-7"/>
+      <code value="18719-5"/>
+      <code value="18722-9"/>
+      <code value="18723-7"/>
+      <code value="18724-5"/>
+      <code value="18725-2"/>
+      <code value="18727-8"/>
+      <code value="18767-4"/>
+      <code value="18768-2"/>
+      <code value="26435-8"/>
+      <code value="26436-6"/>
+      <code value="26437-4"/>
+      <code value="26438-2"/>
+      <code value="11502-2"/>
       
     </include>
   </compose>  

@@ -239,6 +239,43 @@ public class BreadCrumbManager {
           b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
         b.append("        <li><b>"+Utilities.fileTitle(name)+"</b></li>");
+      } else if (type.equals("example") && name.contains("-") && map.containsKey(name.substring(0, name.indexOf("-")))) {
+        String[] path = map.get(name.substring(0, name.indexOf("-"))).split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><b>Example</b></li>");
+      } else if ((type.startsWith("profile-instance") || type.startsWith("resource-instance"))&& type.contains(":")) {
+        String[] path = map.get(type.substring(type.indexOf(":")+1).toLowerCase()).split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        if (type.startsWith("resource-instance"))
+          b.append("        <li><b>Example Instance</b></li>");
+        else
+          b.append("        <li><b>Profile Instance</b></li>");
+      } else if (type.equals("valueset-instance") && name.contains(".")) {
+        String[] path = map.get("terminologies-valuesets.html").split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><a href=\""+prefix+name.substring(0, name.indexOf("."))+".html\">"+name.substring(0, name.indexOf("."))+"</a></li>");
+        b.append("        <li><b>Instance</b></li>");
       } else if (type.startsWith("res") && map.containsKey(Utilities.fileTitle(name))) {
         String[] path = map.get(Utilities.fileTitle(name)).split("\\.");
         Page focus = home;
@@ -253,6 +290,30 @@ public class BreadCrumbManager {
           b.append("        <li><a href=\""+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
           b.append("        <li><b>"+type.substring(4)+"</b></li>");          
         }
+      } else if (type.equals("profile-instance")) {
+        String title = name.substring(name.indexOf("-")+1);
+        title = title.substring(0, title.indexOf("."));
+        String[] path = (map.containsKey(title) ? map.get(title) :  map.get("datatypes.html")).split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><a href=\""+prefix+name.substring(0, name.indexOf("."))+".html\">"+name.substring(0, name.indexOf("."))+"</a></li>");
+        b.append("        <li><b>Profile</b></li>");
+      } else if (type.startsWith("v2:")) {
+        String[] path = map.get("v2Vocab").split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length - 1; i++) {
+          focus = getChild(focus, path[i]);
+          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name)+"</a></li>");
+        b.append("        <li><b>Example Instance</b></li>");
+        
       } else {
         b.append("        <li>??? "+name+" / "+type+"</li>\r\n");
       }

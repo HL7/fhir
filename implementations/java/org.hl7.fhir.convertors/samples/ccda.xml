@@ -373,7 +373,7 @@ Allergies, Adverse Reactions, Alerts
 							<id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
 							<code code="48765-2" codeSystem="2.16.840.1.113883.6.1"
 								codeSystemName="LOINC"
-								displayName="Allergies, adverse reactions, alerts"/>
+								displayName="Allergies and adverse reactions Document"/>
 							<statusCode code="active"/>
 							<effectiveTime value="20070501">
 								<low value="20070501"/>
@@ -604,7 +604,7 @@ Allergies, Adverse Reactions, Alerts
 							<id root="36e3e930-7b14-11db-9fe1-0800200c9a66"/>
 							<code code="48765-2" codeSystem="2.16.840.1.113883.6.1"
 								codeSystemName="LOINC"
-								displayName="Allergies, adverse reactions, alerts"/>
+								displayName="Allergies and adverse reactions Document"/>
 							<statusCode code="active"/>
 							<effectiveTime value="20080501">
 								<low value="20080501"/>

@@ -18,9 +18,9 @@
 	<reportId>5234342</reportId>
 	<reportName>
 	  <coding>
-	    <code>15430-2</code>
+	    <code>58410-2</code>
       <system>http://loinc.org</system>
-      <display>FULL BLOOD EXAMINATION</display>
+      <display>Complete blood count (hemogram) panel - Blood by Automated count</display>
     </coding>
 	  <coding>
 	    <code>CBC</code>

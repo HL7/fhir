@@ -71,7 +71,7 @@
          <coding>
             <system value="http://snomed.info/sct"/>
             <code value="28995006"/>
-            <display value="Treated by"/>
+            <display value="Treated with"/>
          </coding>
       </role>
       <member>

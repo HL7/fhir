@@ -43,10 +43,12 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 public class NarrativeGenerator {
 
   private String prefix;
+  private ConceptLocator conceptLocator;
   
-  public NarrativeGenerator(String prefix) {
+  public NarrativeGenerator(String prefix, ConceptLocator conceptLocator) {
     super();
     this.prefix = prefix;
+    this.conceptLocator = conceptLocator;
   }
 
   /**
@@ -378,7 +380,7 @@ public class NarrativeGenerator {
   private  void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry<ValueSet>> codeSystems) throws Exception {
     XhtmlNode li;
     li = ul.addTag("li");
-    AtomEntry<? extends Resource> e = codeSystems.get(inc.getSystemSimple().toString());
+    AtomEntry<? extends Resource> e = codeSystems.get(inc.getSystemSimple());
     
     if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) { 
       li.addText(type+" all codes defined in ");
@@ -397,7 +399,7 @@ public class NarrativeGenerator {
         for (Code c : inc.getCode()) {
           XhtmlNode tr = t.addTag("tr");
           tr.addTag("td").addText(c.getValue());
-          ValueSetDefineConceptComponent cc = getConceptForCode(e, c.getValue());
+          ValueSetDefineConceptComponent cc = getConceptForCode(e, c.getValue(), inc.getSystemSimple());
           
           XhtmlNode td = tr.addTag("td");
           if (c.hasExtension(ToolingExtensions.EXT_DISPLAY))
@@ -441,9 +443,13 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private <T extends Resource> ValueSetDefineConceptComponent getConceptForCode(AtomEntry<T> e, String code) {
-    if (e == null)
-      return null;
+  private <T extends Resource> ValueSetDefineConceptComponent getConceptForCode(AtomEntry<T> e, String code, String system) {
+    if (e == null) {
+      if (conceptLocator != null)
+        return conceptLocator.locate(system, code);
+      else
+        return null;
+    }
     ValueSet vs = (ValueSet) e.getResource();
     if (vs.getDefine() == null)
       return null;

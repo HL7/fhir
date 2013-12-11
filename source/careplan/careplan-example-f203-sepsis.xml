@@ -53,7 +53,7 @@
        <coding>
          <system value="http://snomed.info/sct"/>
          <code value="241541005"/>
-         <display value="HRCT of lungs"/>
+         <display value="High resolution computed tomography of lungs"/>
        </coding>      
     </code>
   </simple>

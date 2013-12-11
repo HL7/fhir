@@ -15,7 +15,7 @@
 	  <coding>
 		<system value="http://loinc.org"/>
 		<code value="11488-4"/>
-		<display value="Consultation note"/>
+		<display value="Consult note"/>
 	  </coding>
 	</type>
 	<status value="final"/>

@@ -21,7 +21,9 @@ todo: compartments
         <page title="Compartments" filename="compartment-patient.html"/>
       </page>
       <page title="References" filename="references.html"/>
-      <page title="Narrative" filename="narrative.html"/>
+      <page title="Narrative" filename="narrative.html">
+        <page title="Narrative Example" filename="narrative-example.html"/>
+      </page>
       <page title="Formats" filename="formats.html">
         <page title="XML" filename="xml.html"/>
         <page title="JSON" filename="json.html"/>
@@ -59,6 +61,9 @@ todo: compartments
     <page title="Downloads" filename="downloads.html"/>
     <page title="Using Resources" filename="use.html"/>
     <page title="Support" filename="support.html"/>
+    <page title="Managing Resouce Identity" filename="managing.html"/>
+    <page title="Services / SOA" filename="services.html"/>
+    <page title="Interaction Patterns" filename="pushpull.html"/>
     <page title="Common Usages" filename="usecases.html"/>
     <page title="Profile List" filename="profilelist.html"/>
     <page title="Security" filename="security.html">

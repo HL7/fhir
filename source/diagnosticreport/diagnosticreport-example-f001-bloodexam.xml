@@ -38,7 +38,7 @@
                 <system value="http://loinc.org"/>
                 <!--  LOINC  -->
                 <code value="19071-0"/>
-                <display value="Blood removed from patient"/>
+                <display value="Blood removed from patient [Volume]"/>
             </coding>
         </requestTest>
         <bodySite>
@@ -71,8 +71,8 @@
         <name>
             <coding>
                 <system value="http://loinc.org"/>
-                <code value="15430-2"/>
-                <display value="FULL BLOOD EXAMINATION"/>
+                <code value="58410-2"/>
+                <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
             </coding>
         </name>
 <!--        <specimen>

@@ -48,20 +48,18 @@
      <display value="Luigi Maas"/>
  </performer>
  <referenceRange><!--Healthy bicarbonate level ranges from 22mmol/L to 29mmol/L--> 
+    <low> 
+        <value value="22"/>
+    </low>
+    <high>
+        <value value="29"/>
+    </high>
     <meaning>
         <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="260395002"/>
-            <display value="Normal range"/> 
+            <system value="http://hl7.org/fhir/referencerange-meaning"/>
+            <code value="normal"/>
+            <display value="Normal Range"/> 
         </coding>
     </meaning>
-    <rangeRange>
-        <low> 
-            <value value="22"/>
-        </low>
-        <high>
-            <value value="29"/>
-        </high>
-    </rangeRange>
  </referenceRange>
 </Observation>

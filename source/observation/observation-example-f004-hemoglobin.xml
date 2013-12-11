@@ -4,7 +4,7 @@
         <coding>
             <system value="http://loinc.org"/>
             <code value="28540-3"/>
-            <display value="Erythrocyte concentration"/>
+            <display value="Erythrocyte mean corpuscular hemoglobin concentration [Mass/volume]"/>
         </coding>
     </name>
     <valueQuantity>
@@ -55,19 +55,17 @@
         <display value="A. Langeveld"/>
     </performer>
     <referenceRange>
-        <rangeRange>
-            <low>
-                <value value="32"/>
-                <units value="g/dl"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="g/dl"/>
-            </low>
-            <high>
-                <value value="36"/>
-                <units value="g/dl"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="g/dl"/>
-            </high>
-        </rangeRange>
+      <low>
+          <value value="32"/>
+          <units value="g/dl"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g/dl"/>
+      </low>
+      <high>
+          <value value="36"/>
+          <units value="g/dl"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="g/dl"/>
+      </high>
     </referenceRange>
 </Observation>

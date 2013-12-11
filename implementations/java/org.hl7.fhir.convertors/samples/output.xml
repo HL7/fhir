@@ -23,7 +23,7 @@
           <coding>
             <system value="http://loinc.org"/>
             <code value="11488-4"/>
-            <display value="Consultation Note"/>
+            <display value="Consult note"/>
           </coding>
         </type>
         <title value="Community Health and Hospitals: Consultation Note"/>

@@ -49,16 +49,9 @@
      <display value="Luigi Maas"/>
  </performer>
  <referenceRange><!--Non-small cell lung cancer is suspected with EGFR > 60mL/min--> 
-    <meaning>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="426964009"/>
-            <display value="Non-small cell carcinoma"/> 
-        </coding>
-    </meaning>
-    <rangeQuantity>
-        <value value="60"/>
-        <comparator value="&gt;"/>
-    </rangeQuantity>
+    <high>
+      <value value="60"/>
+      <units value="mL/min"/>
+    </high>
  </referenceRange>
 </Observation>

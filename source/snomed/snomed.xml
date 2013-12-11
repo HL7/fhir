@@ -1,0 +1,61 @@
+<!--
+
+  the build tool can't afford to load all of snomed, but it needs some concepts to render 
+  
+  only put snomed preferred names here (publication rule)
+
+-->
+<snomed>
+  <concept id="108806006" display="Docetaxel"/>  
+  <concept id="172960003" display="Incision of retropharyngeal abscess"/>  
+  <concept id="229774002" display="Carer"/>  
+  <concept id="241541005" display="High resolution computed tomography of lungs"/>  
+  <concept id="24484000" display="Severe"/>  
+  <concept id="248152002" display="Female"/>
+  <concept id="248153007" display="Male"/>
+  <concept id="255604002" display="Mild"/>  
+  <concept id="258710007" display="degrees C"/>  
+  <concept id="278110001" display="Radiographic imaging"/>  
+  <concept id="284093001" display="Potassium supplementation"/>  
+  <concept id="28995006" display="Treated with"/>  
+  <concept id="306005" display="Echography of kidney"/>  
+  <concept id="3127006" display="Fluorouracil"/>  
+  <concept id="359615001" display="Partial lobectomy of lung"/>  
+  <concept id="367336001" display="Chemotherapy"/>  
+  <concept id="38266002" display="Entire body as a whole"/>  
+  <concept id="39065001" display="Burn of ear"/>  
+  <concept id="394899003" display="Oral administration of treatment"/>  
+  <concept id="425268008" display="Review of care plan"/>  
+  <concept id="439401001" display="Diagnosis"/>  
+  <concept id="49521004" display="Left external ear structure"/>  
+  <concept id="55607006" display="Problem"/>  
+  <concept id="57066004" display="Cisplatin"/>  
+  <concept id="64915003" display="Operation on heart"/>
+  <concept id="77386006" display="Patient currently pregnant"/>
+  <concept id="386661006" display="Fever"/>  
+  <concept id="361355005" display="Entire head and neck"/>  
+  <concept id="363346000" display="Malignant neoplastic disease"/>  
+  <concept id="17162000" display="Certain"/>  
+  
+<!--
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+  <concept id="" display=""/>  
+-->  
+  
+</snomed>

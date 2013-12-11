@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ This is a systolic blood pressure measurement.
+ There would almost always be a partner observation that is a diastolic measurement
+-->
+
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Blood pressure 107/65 (normal)</div>
   </text>
   <name>
+    <!-- LOINC - always recommended to have a LOINC code -->
     <coding>
       <system value="http://loinc.org"/>
-      <code value="55284-4"/>
-      <display value="Blood pressure systolic and diastolic"/>
+      <code value="8480-6"/>
+      <display value="Systolic blood pressure"/>
+    </coding>
+    <!-- Snomed Codes - becoming more commonsysto -->
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="271649006"/>
+      <display value="Systolic blood pressure"/>
+    </coding>
+    <!-- Also, a local code specific to the source system -->
+    <coding>
+      <system value="http://acme.org/devices/clinical-codes"/>
+      <code value="bp-s"/>
+      <display value="Systolic Blood pressure"/>
     </coding>
   </name>
+  <valueQuantity>
+    <value value="107"/>
+    <units value="mm[Hg]"/>
+  </valueQuantity>
+  
   <interpretation>
     <coding>
       <system value="http://hl7.org/fhir/v2/0078"/>
@@ -34,30 +57,4 @@
   <performer>
     <reference value="Practitioner/example"/>
   </performer>
-  <component>
-    <name>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="8480-6"/>
-        <display value="Systolic blood pressure"/>
-      </coding>
-    </name>
-    <valueQuantity>
-      <value value="107"/>
-      <units value="mm[Hg]"/>
-    </valueQuantity>
-  </component>
-  <component>
-    <name>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="8462-4"/>
-        <display value="Diastolic blood pressure"/>
-      </coding>
-    </name>
-    <valueQuantity>
-      <value value="65"/>
-      <units value="mm[Hg]"/>
-    </valueQuantity>
-  </component>
 </Observation>

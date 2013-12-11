@@ -22,7 +22,7 @@ SourceId: 1.3.6.1.4.1.21367.2009.1.2.1
   <type>
     <system value="http://loinc.org"/>
     <code value="34108-1"/>
-    <display value="Outpatient Evaluation And Management"/>
+    <display value="Outpatient Note"/>
   </type>
   <title value="Physical"/>
   <documentId value="oid:1.3.6.1.4.1.21367.2005.3.7"/>

@@ -6,6 +6,12 @@
        <code value="415945006"/>
        <display value="Oral temperature"/>
     </coding>
+    <coding>
+       <system value="http://loinc.org"/>
+       <code value="8310-5"/>
+       <display value="Body temperature"/>
+    </coding>
+    <text value="Body temperature"/>
  </name>
  <valueQuantity><!--Temperature=39 degrees Celsius-->
     <value value="39"/>
@@ -26,7 +32,7 @@
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="38266002"/>
-        <display value="Body as a whole"/>  
+        <display value="Entire body as a whole"/>  
     </coding>
  </bodySite>
  <method>
@@ -45,16 +51,9 @@
      <reference value="Practitioner/f201"/>
  </performer>
  <referenceRange>  <!-- 0..* Provides guide for interpretation -->
-   <meaning>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="386661006"/>
-            <display value="Fever"/> 
-        </coding>
-    </meaning>
-    <rangeQuantity>
-        <value value="37.5"/>
-        <comparator value="&gt;"/>
-    </rangeQuantity>
+    <low>
+      <value value="37.5"/>
+      <units value="degrees C"/>
+    </low>
  </referenceRange>
 </Observation>
