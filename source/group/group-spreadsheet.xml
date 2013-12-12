@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2012-11-26T07:10:37Z</LastSaved>
+  <LastSaved>2013-12-12T14:34:38Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>4140</WindowTopX>
   <WindowTopY>1515</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -105,7 +105,7 @@
   <Style ss:ID="s73">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
@@ -187,7 +187,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">GroupType</Data></Cell>
-    <Cell><Data ss:Type="String">person | animal | device | medication | substance</Data></Cell>
+    <Cell><Data ss:Type="String">person | animal | practitioner | device | medication | substance</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the broad classification of the kind of resources the group includes</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Identifies what type of resources the group is made up of</Data></Cell>
@@ -346,7 +346,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Patient|Practitioner|Device|Medication)</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Patient|Practitioner|Device|Medication|Substance)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Who is in group</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the resource instances that are members of the group.</Data></Cell>
@@ -372,7 +372,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -385,6 +385,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
@@ -512,7 +513,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -824,10 +824,10 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="group-type">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:Width="57.75"/>
-   <Column ss:Width="207"/>
+   <Column ss:Width="237"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
@@ -845,16 +845,21 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">practitioner</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Group contains healthcare practitioner resources</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">device</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Group contains Device resources</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">medication</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Group contains Medication resources</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">substance</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Group contains Substance resources</Data></Cell>
    </Row>
@@ -873,9 +878,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-     <RangeSelection>R2C2:R6C2</RangeSelection>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -960,7 +964,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
@@ -972,6 +976,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
