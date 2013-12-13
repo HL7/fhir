@@ -1127,7 +1127,7 @@ public class Publisher {
 	    checkFragments();
 	    for (String n : page.getDefinitions().getProfiles().keySet()) {
 	      page.log(" ...profile "+n, LogMessageType.Process);
-	      produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null);
+	      produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null, null);
 	    }
 
       produceV2();
@@ -1913,7 +1913,7 @@ public class Publisher {
     
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, c.getCode().toLowerCase(), typeFeed);
-    cloneToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode(), false, "profile-instance");
+    cloneToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode(), false, "profile-instance:type:"+c.getCode());
     jsonToXhtml("type-"+c.getCode()+".profile", "Profile for "+c.getCode(), resource2Json(rp));
   }
 
@@ -1936,7 +1936,7 @@ public class Publisher {
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, type.getName().toLowerCase(), typeFeed);
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + "datatypes.html"));
-    cloneToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName(), false, "profile-instance");
+    cloneToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName(), false, "profile-instance:type:"+type.getName());
     jsonToXhtml("type-"+type.getName()+".profile", "Profile for "+type.getName(), resource2Json(rp));
   }
 
@@ -2064,7 +2064,7 @@ public class Publisher {
 	  svg.generate(resource, page.getFolders().dstDir+n+".svg");
 	  
 	  for (RegisteredProfile p : resource.getProfiles())
-		  p.setResource(produceProfile(p.getDestFilename(), p.getProfile(), p.getExamplePath(), p.getExample()));
+		  p.setResource(produceProfile(p.getDestFilename(), p.getProfile(), p.getExamplePath(), p.getExample(), resource.getName()));
 
 	  for (Example e : resource.getExamples()) {
 		  try {
@@ -2264,7 +2264,7 @@ public class Publisher {
 		if (buildFlags.get("all"))
 		  addToResourceFeed(rp, root.getName().toLowerCase(), profileFeed);
 		saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html" + File.separator + n + ".html"));
-    cloneToXhtml(n+".profile", "Profile for "+n, true, "profile-instance:"+root.getName());
+    cloneToXhtml(n+".profile", "Profile for "+n, true, "profile-instance:resource:"+root.getName());
     jsonToXhtml(n+".profile", "Profile for "+n, resource2Json(rp));
 	}
 
@@ -2337,7 +2337,7 @@ public class Publisher {
     dest.getEntryList().add(e);
   }
 
-	private Profile produceProfile(String filename, ProfileDefn profile, String examplePath, String exampleName) throws Exception {
+	private Profile produceProfile(String filename, ProfileDefn profile, String examplePath, String exampleName, String master) throws Exception {
 		File tmp = File.createTempFile("tmp", ".tmp");
 		tmp.deleteOnExit();
 		String title = filename.contains(".") ? filename.substring(0, filename.lastIndexOf(".")) : filename;
@@ -2393,7 +2393,7 @@ public class Publisher {
 	    xdoc = builder.parse(new CSFileInputStream(dst.getAbsolutePath()));
 	    XhtmlGenerator xhtml = new XhtmlGenerator(null);
 	    exXml = xhtml.generateInsert(xdoc, "Example for Profile "+profile.metadata("name"), null);
-      cloneToXhtml(n, "Example for Profile "+profile.metadata("name"), true, "profile-instance");
+      cloneToXhtml(n, "Example for Profile "+profile.metadata("name"), true, "profile-instance:example");
 	    
 	    String json;
 	    // generate the json version (use the java reference platform)
@@ -2426,7 +2426,7 @@ public class Publisher {
 		//
 		String src = TextFile.fileToString(page.getFolders().srcDir
 				+ "template-profile.html");
-		src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes);
+		src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master);
 		page.getEpub().registerFile(title+".html", "Profile "+exampleName, EPubManager.XHTML_TYPE);
 		TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
     page.getEpub().registerFile(title + ".html", "Profile "+exampleName, EPubManager.XHTML_TYPE);
@@ -2464,7 +2464,7 @@ public class Publisher {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
 		xhtml.generate(xdoc, b, "Profile", profile.metadata("name"), 0, true, title + ".profile.xml.html");
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processPageIncludes(title+".xml.html", html, "profile-instance");
+    html = page.processPageIncludes(title+".xml.html", html, master == null ? "profile-instance" : "profile-instance:res:"+master);
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".profile.xml.html");
 
     
@@ -2744,6 +2744,8 @@ public class Publisher {
       page.log(" ...validate " + "v3-codesystems", LogMessageType.Process);
       validateXmlFile(schema, "v3-codesystems", validator, null);
 		}
+    page.saveSnomed();
+
 		page.log("Reference Platform Validation", LogMessageType.Process);
 
 		for (String rname : page.getDefinitions().sortedResourceNames()) {

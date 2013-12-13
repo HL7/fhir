@@ -22,8 +22,8 @@
     <category>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="diagnosis"/>
-            <display value="439401001"/>
+            <code value="439401001"/>
+            <display value="diagnosis"/>
         </coding>
     </category>
     <status value="confirmed"/>

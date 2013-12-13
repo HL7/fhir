@@ -4,7 +4,7 @@
         <coding>
             <system value="http://loinc.org"/>
             <code value="30350-3"/>
-            <display value="Hemoglobin [Mass/​volume] in Venous blood"/>
+            <display value="Hemoglobin [Mass/volume] in Venous blood"/>
         </coding>
     </name>
     <valueQuantity>

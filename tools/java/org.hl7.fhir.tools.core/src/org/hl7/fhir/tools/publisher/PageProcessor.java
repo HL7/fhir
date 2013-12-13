@@ -30,6 +30,8 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
@@ -47,6 +49,14 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
@@ -74,6 +84,7 @@ import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
+import org.hl7.fhir.instance.client.EFhirClientException;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -101,6 +112,7 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -677,7 +689,7 @@ public class PageProcessor implements Logger  {
     ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
-    cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false, "v3:vs:"+name);
+    cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false, "v3:vs:"+name);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
     jsonToXhtml(Utilities.path(folders.dstDir, "vs", name, "v3-"+name+".json"), Utilities.path("v3", "vs", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
@@ -2696,7 +2708,7 @@ public class PageProcessor implements Logger  {
     return loadXmlNotesFromFile(filename);
   }
 
-  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes) throws Exception {
+  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
 
     while (src.contains("<%") || src.contains("[%"))
@@ -2793,7 +2805,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(filename, genlevel(0)) + s3;
       else if (com[0].equals("breadcrumblist"))
-        src = s1 + breadCrumbManager.makelist(filename, "profile", genlevel(0)) + s3;      
+        src = s1 + breadCrumbManager.makelist(filename, (master == null ? "profilelist.html" : "profile:"+master), genlevel(0)) + s3;      
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;      
       else if (com[0].equals("revision"))
@@ -3058,6 +3070,8 @@ public void log(String content, LogMessageType type) {
 
     private Map<String, String> snomedCodes = new HashMap<String, String>();
     private Map<String, String> loincCodes = new HashMap<String, String>();
+    private boolean triedServer = false;
+    private boolean serverOk = false;
     
     @Override
     public ValueSetDefineConceptComponent locate(String system, String code) {
@@ -3089,12 +3103,44 @@ public void log(String content, LogMessageType type) {
       if (snomedCodes.isEmpty())
          loadSnomed();
       if (!snomedCodes.containsKey(code))
-        return new ValidationResult(IssueSeverity.warning, "Unknown Snomed Code "+code);
+        queryForTerm(code);
+      if (!snomedCodes.containsKey(code))
+        if (serverOk)
+          return new ValidationResult(IssueSeverity.error, "Unknown Snomed Code "+code);
+        else
+          return new ValidationResult(IssueSeverity.warning, "Unknown Snomed Code "+code);
       if (display == null)
         return null;
       if (!snomedCodes.get(code).equalsIgnoreCase(display))
-        return new ValidationResult(IssueSeverity.error, "Snomed Display Name for "+code+" must be '"+snomedCodes.get(code)+"'");
+        return new ValidationResult(IssueSeverity.warning, "Snomed Display Name for "+code+" must be '"+snomedCodes.get(code)+"'");
       return null;
+    }
+
+    private void queryForTerm(String code) {
+      if (!triedServer || serverOk) {
+        triedServer = true;
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpGet httpget = new HttpGet("http://fhir.healthintersections.com.au/snomed/tool/"+code);
+        try {
+          HttpResponse response = httpclient.execute(httpget);
+          HttpEntity entity = response.getEntity();
+          if (entity != null) {
+            InputStream instream = entity.getContent();
+            try {
+              DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+              DocumentBuilder builder = factory.newDocumentBuilder();
+              Document xdoc = builder.parse(instream);
+              if (!Utilities.noString(xdoc.getDocumentElement().getAttribute("display")))
+                snomedCodes.put(code, xdoc.getDocumentElement().getAttribute("display"));
+            } finally {
+              instream.close();
+            }
+          }
+          serverOk = true;
+        } catch (Exception e) {
+          serverOk = false;
+        }
+      }
     }
 
     private ValueSetDefineConceptComponent locateLoinc(String code) throws Exception {
@@ -3117,14 +3163,12 @@ public void log(String content, LogMessageType type) {
         return new ValidationResult(IssueSeverity.error, "Unknown Loinc Code "+code);
       if (display == null)
         return null;
-      display = display.toLowerCase();
       String s = loincCodes.get(code);
-      String sl = s.toLowerCase();
-      if (!sl.startsWith(display+"|") && !sl.endsWith("|"+display) )
-        if (s.startsWith("|"))
-          return new ValidationResult(IssueSeverity.error, "Loinc Display Name for "+code+" must be '"+s.substring(1)+"'");
-        else 
-          return new ValidationResult(IssueSeverity.error, "Loinc Display Name for "+code+" must be either '"+s.substring(0, s.indexOf("|"))+"' or '"+s.substring(s.indexOf("|")+1)+"'");
+      if (s.startsWith("|"))  {
+        if (!display.equalsIgnoreCase(s.substring(1)))
+          return new ValidationResult(IssueSeverity.error, "Loinc Display Name for "+code+" must be '"+s.substring(1)+"' (not '"+display+"')");
+      } else if (!display.equalsIgnoreCase(s.substring(0, s.indexOf("|"))) && !display.equalsIgnoreCase(s.substring(s.indexOf("|")+1)))
+        return new ValidationResult(IssueSeverity.error, "Loinc Display Name for "+code+" must be either '"+s.substring(0, s.indexOf("|"))+"' or '"+s.substring(s.indexOf("|")+1)+"' (not '"+display+"')");
       return null;
     }
 
@@ -3160,6 +3204,27 @@ public void log(String content, LogMessageType type) {
     }
   }
 
+  public void saveSnomed() throws Exception {
+    FileOutputStream file = new FileOutputStream(Utilities.path(folders.srcDir, "snomed", "snomed.xml"));
+    XMLWriter xml = new XMLWriter(file, "UTF-8");
+    xml.setPretty(true);
+    xml.start();
+    xml.comment("the build tool builds these from the designated snomed server, when it can", true);
+    xml.open("snomed");
+    
+    List<String> ids = new ArrayList<String>();
+    ids.addAll(conceptLocator.snomedCodes.keySet());
+    Collections.sort(ids);
+    for (String s : ids) {
+      xml.attribute("id", s);
+      xml.attribute("display", conceptLocator.snomedCodes.get(s));
+      xml.element("concept", null);
+    }
+    xml.close("snomed");
+    xml.close();
+    
+  }
+  
   public void loadLoinc() throws Exception {
     log("Load Loinc", LogMessageType.Process);
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

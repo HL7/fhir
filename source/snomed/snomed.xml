@@ -1,61 +1,185 @@
-<!--
+<?xml version="1.0" encoding="UTF-8"?>
 
-  the build tool can't afford to load all of snomed, but it needs some concepts to render 
-  
-  only put snomed preferred names here (publication rule)
-
--->
+<!-- the build tool builds these from the designated snomed server, when it can -->
 <snomed>
-  <concept id="108806006" display="Docetaxel"/>  
-  <concept id="172960003" display="Incision of retropharyngeal abscess"/>  
-  <concept id="229774002" display="Carer"/>  
-  <concept id="241541005" display="High resolution computed tomography of lungs"/>  
-  <concept id="24484000" display="Severe"/>  
-  <concept id="248152002" display="Female"/>
-  <concept id="248153007" display="Male"/>
-  <concept id="255604002" display="Mild"/>  
-  <concept id="258710007" display="degrees C"/>  
-  <concept id="278110001" display="Radiographic imaging"/>  
-  <concept id="284093001" display="Potassium supplementation"/>  
-  <concept id="28995006" display="Treated with"/>  
-  <concept id="306005" display="Echography of kidney"/>  
-  <concept id="3127006" display="Fluorouracil"/>  
-  <concept id="359615001" display="Partial lobectomy of lung"/>  
-  <concept id="367336001" display="Chemotherapy"/>  
-  <concept id="38266002" display="Entire body as a whole"/>  
-  <concept id="39065001" display="Burn of ear"/>  
-  <concept id="394899003" display="Oral administration of treatment"/>  
-  <concept id="425268008" display="Review of care plan"/>  
-  <concept id="439401001" display="Diagnosis"/>  
-  <concept id="49521004" display="Left external ear structure"/>  
-  <concept id="55607006" display="Problem"/>  
-  <concept id="57066004" display="Cisplatin"/>  
-  <concept id="64915003" display="Operation on heart"/>
-  <concept id="77386006" display="Patient currently pregnant"/>
-  <concept id="386661006" display="Fever"/>  
-  <concept id="361355005" display="Entire head and neck"/>  
-  <concept id="363346000" display="Malignant neoplastic disease"/>  
-  <concept id="17162000" display="Certain"/>  
-  
-<!--
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
-  <concept id="" display=""/>  
--->  
-  
+  <concept id="10001005" display="Bacterial septicemia (disorder)"/>
+  <concept id="103391001" display="Urgency (qualifier value)"/>
+  <concept id="104177005" display="Blood culture for bacteria, including anaerobic screen (procedure)"/>
+  <concept id="104485008" display="Albumin measurement, serum (procedure)"/>
+  <concept id="104784006" display="Lipids, triglycerides measurement (procedure)"/>
+  <concept id="104866001" display="Phosphate measurement (procedure)"/>
+  <concept id="104934005" display="Sodium measurement, serum (procedure)"/>
+  <concept id="104979009" display="Total globulins measurement (procedure)"/>
+  <concept id="108806006" display="Docetaxel (substance)"/>
+  <concept id="11274001" display="Lactate dehydrogenase measurement (procedure)"/>
+  <concept id="113075003" display="Creatinine measurement, serum (procedure)"/>
+  <concept id="11429006" display="Consultation (procedure)"/>
+  <concept id="115665000" display="Atopy (disorder)"/>
+  <concept id="120220003" display="Injection to forearm (procedure)"/>
+  <concept id="122869004" display="Measurement procedure (procedure)"/>
+  <concept id="127850001" display="Wife (person)"/>
+  <concept id="129266000" display="Measurement - action (qualifier value)"/>
+  <concept id="13645005" display="Chronic obstructive lung disease (disorder)"/>
+  <concept id="14803004" display="Transitory (qualifier value)"/>
+  <concept id="14975008" display="Forearm structure (body structure)"/>
+  <concept id="15220000" display="Laboratory test (procedure)"/>
+  <concept id="159285000" display="Medical laboratory technician (occupation)"/>
+  <concept id="162863004" display="Body mass index index 25-29 - overweight (finding)"/>
+  <concept id="162864005" display="Body mass index 30+ - obesity (finding)"/>
+  <concept id="166698001" display="Serum bicarbonate level normal (finding)"/>
+  <concept id="166708003" display="Corrected serum calcium measurement (procedure)"/>
+  <concept id="166717003" display="Serum creatinine raised (finding)"/>
+  <concept id="169068008" display="CT of neck (procedure)"/>
+  <concept id="169069000" display="CT of chest (procedure)"/>
+  <concept id="17162000" display="Certain (qualifier value)"/>
+  <concept id="172960003" display="Incision of retropharyngeal abscess (procedure)"/>
+  <concept id="17401000" display="Cardiac valve structure (body structure)"/>
+  <concept id="17621005" display="Normal (qualifier value)"/>
+  <concept id="17888004" display="High density lipoprotein measurement (procedure)"/>
+  <concept id="18099001" display="Retropharyngeal abscess (disorder)"/>
+  <concept id="181220002" display="Entire oral cavity (body structure)"/>
+  <concept id="181414000" display="Entire kidney (body structure)"/>
+  <concept id="182836005" display="Review of medication (procedure)"/>
+  <concept id="183807002" display="Inpatient stay 9 days (finding)"/>
+  <concept id="188340000" display="Malignant tumor of craniopharyngeal duct (disorder)"/>
+  <concept id="190372001" display="Type I diabetes mellitus maturity onset (disorder)"/>
+  <concept id="194828000" display="Angina (disorder)"/>
+  <concept id="22298006" display="Myocardial infarction (disorder)"/>
+  <concept id="224565004" display="Renal nurse (occupation)"/>
+  <concept id="225304007" display="Implementation of planned interventions (procedure)"/>
+  <concept id="229774002" display="Carer (occupation)"/>
+  <concept id="241541005" display="High resolution CT of lungs (procedure)"/>
+  <concept id="24484000" display="Severe (severity modifier) (qualifier value)"/>
+  <concept id="248152002" display="Female (finding)"/>
+  <concept id="248153007" display="Male (finding)"/>
+  <concept id="25062003" display="Feeding tube, device (physical object)"/>
+  <concept id="252275004" display="Hematology test (procedure)"/>
+  <concept id="254637007" display="Non-small cell lung cancer (disorder)"/>
+  <concept id="255604002" display="Mild (qualifier value)"/>
+  <concept id="258710007" display="degrees C (qualifier value)"/>
+  <concept id="271057005" display="Serum anion gap measurement (procedure)"/>
+  <concept id="271239003" display="Serum bicarbonate measurement (procedure)"/>
+  <concept id="271649006" display="Systolic blood pressure (observable entity)"/>
+  <concept id="27171005" display="Urinalysis (procedure)"/>
+  <concept id="272676008" display="Entire sphenoid bone (body structure)"/>
+  <concept id="273967009" display="Serum urea measurement (procedure)"/>
+  <concept id="276026009" display="Fluid balance regulation (procedure)"/>
+  <concept id="278110001" display="Radiographic imaging - action (qualifier value)"/>
+  <concept id="280193007" display="Entire retropharyngeal area (body structure)"/>
+  <concept id="28036006" display="High density lipoprotein cholesterol measurement (procedure)"/>
+  <concept id="281158006" display="Pulmonary vascular structure (body structure)"/>
+  <concept id="284093001" display="Potassium supplementation (substance)"/>
+  <concept id="28995006" display="Treated with (attribute)"/>
+  <concept id="306005" display="Echography of kidney (procedure)"/>
+  <concept id="308046002" display="Superficial forearm vein (body structure)"/>
+  <concept id="3092008" display="Staphylococcus aureus (organism)"/>
+  <concept id="309902002" display="Clinical oncology department (environment)"/>
+  <concept id="310252000" display="Body mass index less than 20 (finding)"/>
+  <concept id="310361003" display="Non-urgent cardiological admission (procedure)"/>
+  <concept id="310512001" display="Medical oncologist (occupation)"/>
+  <concept id="3127006" display="Fluorouracil (substance)"/>
+  <concept id="315619001" display="FH myocardial infarction male first degree age known (context-dependent category)"/>
+  <concept id="318475005" display="Metoprolol tartrate 50mg tablet (substance)"/>
+  <concept id="318851002" display="Enalapril maleate 5mg tablet (substance)"/>
+  <concept id="320276009" display="Salmeterol+fluticasone propionate 25micrograms/250micrograms CFC-free inhaler (substance)"/>
+  <concept id="320442002" display="Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler (substance)"/>
+  <concept id="321667001" display="Respiratory tract structure (body structure)"/>
+  <concept id="322236009" display="Paracetamol 500mg tablet (substance)"/>
+  <concept id="323418000" display="Phenoxymethylpenicillin 125mg/5mL oral solution (substance)"/>
+  <concept id="323493005" display="Flucloxacillin 1g injection (pdr for recon) (substance)"/>
+  <concept id="325267004" display="Tolbutamide 500mg tablet (substance)"/>
+  <concept id="33526004" display="Laboratory reporting, electronic (procedure)"/>
+  <concept id="34068001" display="Heart valve replacement (procedure)"/>
+  <concept id="34608000" display="Alanine aminotransferase measurement (procedure)"/>
+  <concept id="359615001" display="Partial lobectomy of lung (procedure)"/>
+  <concept id="36048009" display="Glucose measurement (procedure)"/>
+  <concept id="361355005" display="Entire head and neck (body structure)"/>
+  <concept id="36225005" display="Acute renal failure due to procedure (disorder)"/>
+  <concept id="363346000" display="Malignant tumor (disorder)"/>
+  <concept id="365722008" display="Finding of bicarbonate level (finding)"/>
+  <concept id="365756002" display="Finding of creatinine level (finding)"/>
+  <concept id="36629006" display="Legally married (finding)"/>
+  <concept id="36682004" display="Physiotherapist (occupation)"/>
+  <concept id="367336001" display="Chemotherapy (procedure)"/>
+  <concept id="368009" display="Heart valve disorder (disorder)"/>
+  <concept id="368225008" display="Entire left forearm (body structure)"/>
+  <concept id="371041009" display="Embolic stroke (disorder)"/>
+  <concept id="371923003" display="Mild to moderate (qualifier value)"/>
+  <concept id="371924009" display="Moderate to severe (qualifier value)"/>
+  <concept id="37595005" display="Suspension (substance)"/>
+  <concept id="38048003" display="Uncle (person)"/>
+  <concept id="38266002" display="Entire body as a whole (body structure)"/>
+  <concept id="38341003" display="Raised blood pressure (disorder)"/>
+  <concept id="385055001" display="Tablet dose form (qualifier value)"/>
+  <concept id="385218009" display="Injection (qualifier value)"/>
+  <concept id="386359008" display="Administration of drug or medicament via oral route (procedure)"/>
+  <concept id="386661006" display="Fever (finding)"/>
+  <concept id="387517004" display="Acetaminophen (substance)"/>
+  <concept id="387544009" display="Floxacillin (substance)"/>
+  <concept id="39065001" display="Burn of ear (disorder)"/>
+  <concept id="394848005" display="Normal priority (qualifier value)"/>
+  <concept id="394849002" display="High priority (qualifier value)"/>
+  <concept id="394899003" display="Oral administration of treatment (navigational concept)"/>
+  <concept id="394914008" display="Radiology - specialty (qualifier value)"/>
+  <concept id="39607008" display="Lung structure (body structure)"/>
+  <concept id="39748002" display="Bilirubin, direct measurement (procedure)"/>
+  <concept id="398124009" display="Drug container (physical object)"/>
+  <concept id="39839004" display="Diaphragmatic hernia (disorder)"/>
+  <concept id="405608006" display="Academic medical center (environment)"/>
+  <concept id="406466009" display="House dust allergen (substance)"/>
+  <concept id="40768004" display="Left thorax structure (body structure)"/>
+  <concept id="408036003" display="Rosuvastatin 10mg tablet (product)"/>
+  <concept id="409402009" display="Epidermal growth factor receptor inhibitor (substance)"/>
+  <concept id="410158009" display="Physical therapy assessment (procedure)"/>
+  <concept id="411106009" display="Fluticasone + salmeterol (product)"/>
+  <concept id="412768003" display="Body mass index 20-24 - normal (finding)"/>
+  <concept id="415945006" display="Oral temperature (observable entity)"/>
+  <concept id="41672002" display="Respiratory disease specialist (occupation)"/>
+  <concept id="419099009" display="Dead (finding)"/>
+  <concept id="420317006" display="Inhaler (qualifier value)"/>
+  <concept id="421606006" display="Aerosol spray (qualifier value)"/>
+  <concept id="425268008" display="Review of care plan (procedure)"/>
+  <concept id="426396005" display="Cardiac chest pain (finding)"/>
+  <concept id="427038005" display="Non-small cell lung cancer, negative for epidermal growth factor receptor expression (disorder)"/>
+  <concept id="428763004" display="Bacteremia due to Staphylococcus aureus (finding)"/>
+  <concept id="42950004" display="Iron measurement (procedure)"/>
+  <concept id="429858000" display="Computed tomography of head and neck (procedure)"/>
+  <concept id="439401001" display="Diagnosis (observable entity)"/>
+  <concept id="443357004" display="pT1a category (finding)"/>
+  <concept id="444780001" display="Glucose in blood specimen above reference range (finding)"/>
+  <concept id="45896001" display="Aspartate aminotransferase measurement (procedure)"/>
+  <concept id="46511006" display="Chloride measurement (procedure)"/>
+  <concept id="47625008" display="Intravenous route (qualifier value)"/>
+  <concept id="48387007" display="Incision of trachea (procedure)"/>
+  <concept id="49521004" display="Left external ear structure (body structure)"/>
+  <concept id="51185008" display="Thoracic structure (body structure)"/>
+  <concept id="53786006" display="pT1 stage (tumor staging)"/>
+  <concept id="55235003" display="C-reactive protein measurement (procedure)"/>
+  <concept id="55607006" display="Problem (finding)"/>
+  <concept id="57066004" display="Cisplatin (substance)"/>
+  <concept id="58108001" display="Golden retriever (organism)"/>
+  <concept id="59573005" display="Potassium measurement (procedure)"/>
+  <concept id="60621009" display="Body mass index (observable entity)"/>
+  <concept id="64915003" display="Operation on heart (procedure)"/>
+  <concept id="6736007" display="Moderate (severity modifier) (qualifier value)"/>
+  <concept id="69480007" display="Gamma glutamyl transferase measurement (procedure)"/>
+  <concept id="70901006" display="Creatinine measurement (procedure)"/>
+  <concept id="71878006" display="Calcium measurement (procedure)"/>
+  <concept id="72705000" display="Mother (person)"/>
+  <concept id="74040009" display="Protein measurement (procedure)"/>
+  <concept id="74262004" display="Oral cavity structure (body structure)"/>
+  <concept id="75540009" display="High (qualifier value)"/>
+  <concept id="77068002" display="Cholesterol measurement (procedure)"/>
+  <concept id="80146002" display="Appendectomy (procedure)"/>
+  <concept id="83030008" display="Structure of retropharyngeal area (body structure)"/>
+  <concept id="86184003" display="Electrocardiographic monitor and recorder, device (physical object)"/>
+  <concept id="86228006" display="Uric acid measurement (procedure)"/>
+  <concept id="8745002" display="Gram-positive bacterium (organism)"/>
+  <concept id="87628006" display="Bacterial infectious disease (disorder)"/>
+  <concept id="88480006" display="Potassium (substance)"/>
+  <concept id="88645003" display="Bicarbonate measurement (procedure)"/>
+  <concept id="88810008" display="Alkaline phosphatase measurement (procedure)"/>
+  <concept id="89003005" display="Oral temperature taking (procedure)"/>
+  <concept id="90105005" display="Biopsy of soft tissue of forearm, superficial (procedure)"/>
+  <concept id="9632001" display="Nursing procedure"/>
 </snomed>

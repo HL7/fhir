@@ -52,8 +52,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="718-7"/>
-            <display value="Haemoglobin"/>
+            <display value="Hemoglobin [Mass/volume] in Blood"/>
           </coding>
+          <text value="Haemoglobin"/>
         </name>
         <valueQuantity>
           <value value="176"/>
@@ -89,8 +90,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="789-8"/>
-            <display value="Red Cell Count"/>
+            <display value="Erythrocytes [#/volume] in Blood by Automated count"/>
           </coding>
+          <text value="Red Cell Count"/>
         </name>
         <valueQuantity>
           <value value="5.9"/>
@@ -126,8 +128,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="4544-3"/>
-            <display value="Haematocrit"/>
+            <display value="Hematocrit [Volume Fraction] of Blood by Automated count"/>
           </coding>
+          <text value="Haematocrit"/>
         </name>
         <valueQuantity>
           <value value="55"/>
@@ -163,8 +166,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="787-2"/>
-            <display value="Mean Cell Volume"/>
+            <display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
           </coding>
+          <text value="Mean Cell Volume"/>
         </name>
         <valueQuantity>
           <value value="99"/>
@@ -206,8 +210,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="785-6"/>
-            <display value="Mean Cell Haemoglobin"/>
+            <display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
           </coding>
+          <text value="Mean Cell Haemoglobin"/>
         </name>
         <valueQuantity>
           <value value="36"/>
@@ -249,8 +254,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="777-3"/>
-            <display value="Platelet Count"/>
+            <display value="Platelets [#/volume] in Blood by Automated count"/>
           </coding>
+          <text value="Platelet Count"/>
         </name>
         <valueQuantity>
           <value value="444"/>
@@ -286,8 +292,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="6690-2"/>
-            <display value="White Cell Count"/>
+            <display value="Leukocytes [#/volume] in Blood by Automated count"/>
           </coding>
+          <text value="White Cell Count"/>
         </name>
         <valueQuantity>
           <value value="4.6"/>
@@ -323,8 +330,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="770-8"/>
-            <display value="Neutrophils"/>
+            <display value="Neutrophils/100 leukocytes in Blood by Automated count"/>
           </coding>
+          <text value="Neutrophils"/>
         </name>
         <valueQuantity>
           <value value="20"/>
@@ -346,8 +354,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="751-8"/>
-            <display value="Neutrophils"/>
+            <display value="Neutrophils [#/volume] in Blood by Automated count"/>
           </coding>
+          <text value="Neutrophils"/>
         </name>
         <valueQuantity>
           <value value="0.9"/>
@@ -389,8 +398,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="736-9"/>
-            <display value="Lymphocytes"/>
+            <display value="Lymphocytes/100 leukocytes in Blood by Automated count"/>
           </coding>
+          <text value="Lymphocytes"/>
         </name>
         <valueQuantity>
           <value value="20"/>
@@ -412,8 +422,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="731-0"/>
-            <display value="Lymphocytes"/>
+            <display value="Lymphocytes [#/volume] in Blood by Automated count"/>
           </coding>
+          <text value="Lymphocytes"/>
         </name>
         <valueQuantity>
           <value value="0.9"/>
@@ -455,8 +466,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="5905-5"/>
-            <display value="Monocytes"/>
+            <display value="Monocytes/100 leukocytes in Blood by Automated count"/>
           </coding>
+          <text value="Monocytes"/>
         </name>
         <valueQuantity>
           <value value="20"/>
@@ -478,8 +490,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="742-7"/>
-            <display value="Monocytes"/>
+            <display value="Monocytes [#/volume] in Blood by Automated count"/>
           </coding>
+          <text value="Monocytes"/>
         </name>
         <valueQuantity>
           <value value="0.9"/>
@@ -515,8 +528,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="713-8"/>
-            <display value="Eosinophils"/>
+            <display value="Eosinophils/100 leukocytes in Blood by Automated count"/>
           </coding>
+          <text value="Eosinophils"/>
         </name>
         <valueQuantity>
           <value value="20"/>
@@ -538,8 +552,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="711-2"/>
-            <display value="Eosinophils"/>
+            <display value="Eosinophils [#/volume] in Blood by Automated count"/>
           </coding>
+          <text value="Eosinophils"/>
         </name>
         <valueQuantity>
           <value value="0.92"/>
@@ -581,8 +596,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="706-2"/>
-            <display value="Basophils"/>
+            <display value="Basophils/100 leukocytes in Blood by Automated count"/>
           </coding>
+          <text value="Basophils"/>
         </name>
         <valueQuantity>
           <value value="20"/>
@@ -604,8 +620,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
           <coding>
             <system value="http://loinc.org"/>
             <code value="704-7"/>
-            <display value="Basophils"/>
+            <display value="Basophils [#/volume] in Blood by Automated count"/>
           </coding>
+          <text value="Basophils"/>
         </name>
         <valueQuantity>
           <value value="0.92"/>
@@ -650,14 +667,15 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
     <results>
     <name>
       <coding>
-      <system value="http://loinc.org"/>
+        <system value="http://loinc.org"/>
         <code value="58410-2"/>
-      <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
-    </coding>
+        <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
+      </coding>
       <coding>
         <code value="CBC"/>
-      <display value="MASTER FULL BLOOD COUNT"/>
-    </coding>
+        <display value="MASTER FULL BLOOD COUNT"/>
+      </coding>
+      <text value="Complete Blood Count"/>
     </name>
 
     <!-- now the atomic results -->

@@ -102,6 +102,7 @@ public class BreadCrumbManager {
   private Map<String, Page> pages = new HashMap<String, BreadCrumbManager.Page>();
   private Map<String, Pages> pagesMap = new HashMap<String, BreadCrumbManager.Pages>();
   
+  
   public void parse(String filename) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
@@ -250,7 +251,7 @@ public class BreadCrumbManager {
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
         b.append("        <li><b>Example</b></li>");
-      } else if ((type.startsWith("profile-instance") || type.startsWith("resource-instance"))&& type.contains(":")) {
+      } else if (type.startsWith("resource-instance") && type.contains(":")) {
         String[] path = map.get(type.substring(type.indexOf(":")+1).toLowerCase()).split("\\.");
         Page focus = home;
         for (int i = 0; i < path.length; i++) {
@@ -290,10 +291,8 @@ public class BreadCrumbManager {
           b.append("        <li><a href=\""+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
           b.append("        <li><b>"+type.substring(4)+"</b></li>");          
         }
-      } else if (type.equals("profile-instance")) {
-        String title = name.substring(name.indexOf("-")+1);
-        title = title.substring(0, title.indexOf("."));
-        String[] path = (map.containsKey(title) ? map.get(title) :  map.get("datatypes.html")).split("\\.");
+      } else if (type.startsWith("profile:")) {
+        String[] path = map.get(type.substring(type.indexOf(":")+1).toLowerCase()).split("\\.");
         Page focus = home;
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
@@ -302,7 +301,51 @@ public class BreadCrumbManager {
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
-        b.append("        <li><a href=\""+prefix+name.substring(0, name.indexOf("."))+".html\">"+name.substring(0, name.indexOf("."))+"</a></li>");
+        b.append("        <li><b>"+Utilities.fileTitle(name)+"</b></li>");
+      } else if (type.startsWith("profile-instance:type")) {
+        String[] path = map.get("datatypes.html").split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><b>Profile</b></li>");
+      } else if (type.startsWith("profile-instance:resource")) {
+        String[] path = map.get(type.substring(type.lastIndexOf(":")+1).toLowerCase()).split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><b>Profile Instance</b></li>");
+      } else if (type.startsWith("profile-instance:res:")) {
+        String[] path = map.get(type.substring(type.lastIndexOf(":")+1).toLowerCase()).split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><a href=\""+prefix+Utilities.fileTitle(name)+".html\">"+Utilities.fileTitle(name)+"</a></li>");
+        b.append("        <li><b>Profile Instance</b></li>");
+      } else if (type.startsWith("profile-instance")) {
+        String[] path = map.get("profilelist.html").split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
         b.append("        <li><b>Profile</b></li>");
       } else if (type.startsWith("v2:")) {
         String[] path = map.get("v2Vocab").split("\\.");
@@ -312,12 +355,21 @@ public class BreadCrumbManager {
           b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }
         b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name)+"</a></li>");
-        b.append("        <li><b>Example Instance</b></li>");
-        
+        b.append("        <li><b>Instance</b></li>");
+      } else if (type.startsWith("v3:")) {        
+        String[] path = map.get("v3Vocab").split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length - 1; i++) {
+          focus = getChild(focus, path[i]);
+          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name.substring(3))+"</a></li>");
+        b.append("        <li><b>Instance</b></li>");
       } else {
         b.append("        <li>??? "+name+" / "+type+"</li>\r\n");
       }
     }
+    b.append("        <!-- "+name+" / "+type+" -->\r\n");
     return b.toString();
   }
 

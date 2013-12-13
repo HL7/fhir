@@ -766,7 +766,7 @@ public class InstanceValidator extends BaseValidator {
       else if (s.getSeverity() == IssueSeverity.warning)
         warning(errors, "code-unknown", path, s == null, s.getMessage());
       else
-        return warning(errors, "code-unknown", path, s == null, s.getMessage());
+        return rule(errors, "code-unknown", path, s == null, s.getMessage());
       return true;
     } else if (system.startsWith("http://hl7.org/fhir")) {
       if (system.equals("http://hl7.org/fhir/sid/icd-10"))

@@ -556,7 +556,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="14629-0"/>
-                <display value="Direct Bilirubin"/>
+                <display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>
@@ -1093,7 +1093,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="2085-9"/>
-                <display value="HDL Cholesterol"/>
+                <display value="Cholesterol in HDL [Mass/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>
@@ -1778,7 +1778,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="14629-0"/>
-                <display value="Direct Bilirubin"/>
+                <display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>
@@ -2805,7 +2805,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="14629-0"/>
-                <display value="Direct Bilirubin"/>
+                <display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>
@@ -3827,7 +3827,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="14629-0"/>
-                <display value="Direct Bilirubin"/>
+                <display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>
@@ -7840,7 +7840,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="14629-0"/>
-                <display value="Direct Bilirubin"/>
+                <display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>
@@ -8854,7 +8854,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="14629-0"/>
-                <display value="Direct Bilirubin"/>
+                <display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>
@@ -9881,7 +9881,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="14629-0"/>
-                <display value="Direct Bilirubin"/>
+                <display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>
@@ -10903,7 +10903,7 @@
               <coding>
                 <system value="http://loinc.org"/>
                 <code value="14629-0"/>
-                <display value="Direct Bilirubin"/>
+                <display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
               </coding>
               <coding>
                 <system value="http://snomed.info/sct"/>

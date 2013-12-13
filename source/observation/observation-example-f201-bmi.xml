@@ -8,7 +8,7 @@
     </coding>
     <coding>
         <system value="http://loinc.org"/>
-        <code value="3915-5"/>
+        <code value="39156-5"/>
         <display value="Body mass index (BMI) [Ratio]"/>
     </coding>
     <text value="BMI"/>
