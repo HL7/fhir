@@ -91,13 +91,14 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 
 		char sl = File.separatorChar;
 		String modelDir = "Model" + sl;
-	//	String parsersDir = "Parsers" + sl;
-	//	String serializersDir = "Serializers" + sl;
-		
+		String introspectionDir = "Introspection" + sl;
+		String validationDir = "Validation" + sl;
+		String modelSupportDir = "Model.Support" + sl;
+		 
 		File f = new CSFile(implDir + modelDir);	if( !f.exists() ) f.mkdir();
-	//	File p = new CSFile(implDir + parsersDir);	if( !p.exists() ) p.mkdir();
-	//	File s = new CSFile(implDir + serializersDir);	if( !s.exists() ) s.mkdir();
-	
+		File i = new CSFile(implDir + introspectionDir);	if( !i.exists() ) i.mkdir();
+		File v = new CSFile(implDir + validationDir);	if( !v.exists() ) v.mkdir();
+		File s = new CSFile(implDir + modelSupportDir); if( !s.exists() ) s.mkdir();
 		
 		List<String> generatedFilenames = new ArrayList<String>();
 
@@ -198,28 +199,19 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 	    CSharpProjectGenerator.build(implDir, generatedFilenames);
 	    CSharpProjectGenerator.setAssemblyVersionInProperties(implDir, definitions.getVersion(), svnRevision);
 	    
-		String modelSupportDir = "Model.Support" + sl;
-	//	String parsersSupportDir = "Parsers.Support" + sl;
-	//	String serializersSupportDir = "Serializers.Support" + sl;
-	//	String supportDir = "Support" + sl;
-	//	String supportSearchDir = supportDir + "Search" + sl;
-		
+	
 		ZipGenerator zip = new ZipGenerator(destDir + CSHARP_FILENAME);
-		zip.addFiles(implDir+modelDir, modelDir, ".cs", null);
-//		zip.addFiles(implDir+parsersDir, parsersDir, ".cs", null);
-//		zip.addFiles(implDir+serializersDir, serializersDir, ".cs", null);
+    zip.addFolder(implDir+modelDir, modelDir, false);
 		zip.addFolder(implDir+modelSupportDir, modelSupportDir, false);
-	//	zip.addFolder(implDir+parsersSupportDir, parsersSupportDir, false);
-	//	zip.addFolder(implDir+serializersSupportDir, serializersSupportDir, false);
-	//	zip.addFolder(implDir+supportDir, supportDir, false);
-		//zip.addFiles(implDir+supportSearchDir,supportSearchDir, ".cs", null);
-	//	zip.addFolder(implDir+"Client"+sl, "Client"+sl, false);
+		zip.addFolder(implDir+introspectionDir, introspectionDir, false);
+		zip.addFolder(implDir+validationDir, validationDir, false);
+
 		zip.addFiles(implDir+"Properties" + sl, "Properties"+sl, ".cs", null);
 		zip.addFiles(implDir, "", ".csproj", null);
 		zip.addFiles(implDir, "", ".sln", null);
-	//	zip.addFiles(implDir, "", "Local.testsettings", null);
 		zip.addFiles(implDir, "", "Hl7.Fhir.vsmdi", null);
 		zip.addFiles(implDir, "", "README.txt", null);
+
 		// Include supporting libraries
 		String librariesDir = "Libraries" + sl;
 	//	String winRTLibrariesDir = librariesDir + "WinRT" + sl;

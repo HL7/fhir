@@ -20,13 +20,13 @@
   </xsd:simpleType>
   <xsd:simpleType name="SearchType">
     <xsd:restriction base="xsd:NCName">
-      <xsd:enumeration value="integer"/>
-      <xsd:enumeration value="string"/>
-      <xsd:enumeration value="text"/>
-      <xsd:enumeration value="date"/>
-      <xsd:enumeration value="token"/>
-      <xsd:enumeration value="reference"/>
       <xsd:enumeration value="composite"/>
+      <xsd:enumeration value="number"/>
+      <xsd:enumeration value="string"/>
+      <xsd:enumeration value="date"/>
+      <xsd:enumeration value="reference"/>
+      <xsd:enumeration value="token"/>
+      <xsd:enumeration value="quantity"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="BindingExtensibility">

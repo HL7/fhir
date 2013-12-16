@@ -23,296 +23,316 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum SearchType implements Enumerator {
 	/**
-   * The '<em><b>Integer</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Composite</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #INTEGER_VALUE
-   * @generated
-   * @ordered
-   */
-	NUMBER(1, "number", "number"),
-
-	/**
-   * The '<em><b>String</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * @see #COMPOSITE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COMPOSITE(0, "composite", "composite"), /**
+	 * The '<em><b>Number</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #STRING_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #NUMBER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NUMBER(1, "number", "number"), /**
+	 * The '<em><b>String</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STRING_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	STRING(2, "string", "string"), /**
-	/**
-   * The '<em><b>Date</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Date</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #DATE_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #DATE_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	DATE(3, "date", "date"), /**
-   * The '<em><b>Token</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Reference</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #TOKEN_VALUE
-   * @generated
-   * @ordered
-   */
-	TOKEN(4, "token", "token"), /**
-   * The '<em><b>Reference</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * @see #REFERENCE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REFERENCE(5, "reference", "reference"), /**
+	 * The '<em><b>Token</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #REFERENCE_VALUE
-   * @generated
-   * @ordered
-   */
-	REFERENCE(5, "reference", "reference"),
+	 * @see #TOKEN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TOKEN(6, "token", "token"), /**
+	 * The '<em><b>Quantity</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #QUANTITY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	QUANTITY(4, "quantity", "quantity");
 
 	/**
-   * The '<em><b>Composite</b></em>' literal object.
-   * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-   * @see #COMPOSITE_VALUE
-   * @generated
-   * @ordered
-   */
-	COMPOSITE(0, "composite", "composite");
-
-	/**
-   * The '<em><b>Integer</b></em>' literal value.
-   * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Integer</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-   * @see #INTEGER
-   * @model name="integer"
-   * @generated
-   * @ordered
-   */
-	public static final int NUMBER_VALUE = 1;
-
-	/**
-   * The '<em><b>String</b></em>' literal value.
-   * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>String</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-   * @see #STRING
-   * @model name="string"
-   * @generated
-   * @ordered
-   */
-	public static final int STRING_VALUE = 2;
-
-	/**
-   * The '<em><b>Date</b></em>' literal value.
-   * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Date</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-   * @see #DATE
-   * @model name="date"
-   * @generated
-   * @ordered
-   */
-	public static final int DATE_VALUE = 3;
-
-	/**
-   * The '<em><b>Token</b></em>' literal value.
-   * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Token</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-   * @see #TOKEN
-   * @model name="token"
-   * @generated
-   * @ordered
-   */
-	public static final int TOKEN_VALUE = 4;
-
-	/**
-   * The '<em><b>Reference</b></em>' literal value.
-   * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Reference</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-   * @see #REFERENCE
-   * @model name="reference"
-   * @generated
-   * @ordered
-   */
-	public static final int REFERENCE_VALUE = 5;
-
-	/**
-   * The '<em><b>Composite</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Composite</b></em>' literal value.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Composite</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-   * @see #COMPOSITE
-   * @model name="composite"
-   * @generated
-   * @ordered
-   */
+	 * @see #COMPOSITE
+	 * @model name="composite"
+	 * @generated
+	 * @ordered
+	 */
 	public static final int COMPOSITE_VALUE = 0;
 
 	/**
-   * An array of all the '<em><b>Search Type</b></em>' enumerators.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Number</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Integer</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-   * @generated
-   */
-	private static final SearchType[] VALUES_ARRAY =
-		new SearchType[] {
-      NUMBER,
-      STRING,
-      DATE,
-      TOKEN,
-      REFERENCE,
-      COMPOSITE,
-    };
+	 * @see #NUMBER
+	 * @model name="number"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NUMBER_VALUE = 1;
 
 	/**
-   * A public read-only list of all the '<em><b>Search Type</b></em>' enumerators.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>String</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>String</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @see #STRING
+	 * @model name="string"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STRING_VALUE = 2;
+
+	/**
+	 * The '<em><b>Date</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Date</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DATE
+	 * @model name="date"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATE_VALUE = 3;
+
+	/**
+	 * The '<em><b>Reference</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Reference</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #REFERENCE
+	 * @model name="reference"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REFERENCE_VALUE = 5;
+
+	/**
+	 * The '<em><b>Token</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Token</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #TOKEN
+	 * @model name="token"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TOKEN_VALUE = 6;
+
+	/**
+	 * The '<em><b>Quantity</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Quantity</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #QUANTITY
+	 * @model name="quantity"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int QUANTITY_VALUE = 4;
+
+	/**
+	 * An array of all the '<em><b>Search Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static final SearchType[] VALUES_ARRAY =
+		new SearchType[] {
+			COMPOSITE,
+			NUMBER,
+			STRING,
+			DATE,
+			REFERENCE,
+			TOKEN,
+			QUANTITY,
+		};
+
+	/**
+	 * A public read-only list of all the '<em><b>Search Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public static final List<SearchType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-   * Returns the '<em><b>Search Type</b></em>' literal with the specified literal value.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Search Type</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public static SearchType get(String literal) {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-      SearchType result = VALUES_ARRAY[i];
-      if (result.toString().equals(literal)) {
-        return result;
-      }
-    }
-    return null;
-  }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			SearchType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-   * Returns the '<em><b>Search Type</b></em>' literal with the specified name.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Search Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public static SearchType getByName(String name) {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-      SearchType result = VALUES_ARRAY[i];
-      if (result.getName().equals(name)) {
-        return result;
-      }
-    }
-    return null;
-  }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			SearchType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
 	/**
-   * Returns the '<em><b>Search Type</b></em>' literal with the specified integer value.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Search Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public static SearchType get(int value) {
-    switch (value) {
-      case NUMBER_VALUE: return NUMBER;
-      case STRING_VALUE: return STRING;
-      case DATE_VALUE: return DATE;
-      case TOKEN_VALUE: return TOKEN;
-      case REFERENCE_VALUE: return REFERENCE;
-      case COMPOSITE_VALUE: return COMPOSITE;
-    }
-    return null;
-  }
+		switch (value) {
+			case COMPOSITE_VALUE: return COMPOSITE;
+			case NUMBER_VALUE: return NUMBER;
+			case STRING_VALUE: return STRING;
+			case DATE_VALUE: return DATE;
+			case REFERENCE_VALUE: return REFERENCE;
+			case TOKEN_VALUE: return TOKEN;
+			case QUANTITY_VALUE: return QUANTITY;
+		}
+		return null;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	private final int value;
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	private final String name;
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	private final String literal;
 
 	/**
-   * Only this class can construct instances.
-   * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	private SearchType(int value, String name, String literal) {
-    this.value = value;
-    this.name = name;
-    this.literal = literal;
-  }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public int getValue() {
-    return value;
-  }
+	  return value;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public String getName() {
-    return name;
-  }
+	  return name;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public String getLiteral() {
-    return literal;
-  }
+	  return literal;
+	}
 
 	/**
-   * Returns the literal value of the enumerator, which is its string representation.
-   * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-    return literal;
-  }
+		return literal;
+	}
 	
 } //SearchType

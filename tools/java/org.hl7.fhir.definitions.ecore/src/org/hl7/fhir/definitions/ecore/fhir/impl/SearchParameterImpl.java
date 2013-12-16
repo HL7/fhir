@@ -37,320 +37,320 @@ import org.hl7.fhir.definitions.ecore.fhir.SearchType;
  */
 public class SearchParameterImpl extends EObjectImpl implements SearchParameter {
 	/**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
 	protected String name = NAME_EDEFAULT;
 
 	/**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-	protected static final SearchType TYPE_EDEFAULT = SearchType.NUMBER;
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SearchType TYPE_EDEFAULT = SearchType.COMPOSITE;
 
 	/**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
 	protected SearchType type = TYPE_EDEFAULT;
 
 	/**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getPath()
-   * @generated
-   * @ordered
-   */
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<String> path;
 
 	/**
-   * The cached value of the '{@link #getComposite() <em>Composite</em>}' attribute list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getComposite() <em>Composite</em>}' attribute list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @see #getComposite()
-   * @generated
-   * @ordered
-   */
+	 * @see #getComposite()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<String> composite;
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	protected SearchParameterImpl() {
-    super();
-  }
+		super();
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-    return FhirPackage.Literals.SEARCH_PARAMETER;
-  }
+		return FhirPackage.Literals.SEARCH_PARAMETER;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public String getName() {
-    return name;
-  }
+		return name;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public void setName(String newName) {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEARCH_PARAMETER__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEARCH_PARAMETER__NAME, oldName, name));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public String getDescription() {
-    return description;
-  }
+		return description;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public void setDescription(String newDescription) {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEARCH_PARAMETER__DESCRIPTION, oldDescription, description));
-  }
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEARCH_PARAMETER__DESCRIPTION, oldDescription, description));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public SearchType getType() {
-    return type;
-  }
+		return type;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public void setType(SearchType newType) {
-    SearchType oldType = type;
-    type = newType == null ? TYPE_EDEFAULT : newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEARCH_PARAMETER__TYPE, oldType, type));
-  }
+		SearchType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FhirPackage.SEARCH_PARAMETER__TYPE, oldType, type));
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public EList<String> getPath() {
-    if (path == null) {
-      path = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__PATH);
-    }
-    return path;
-  }
+		if (path == null) {
+			path = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__PATH);
+		}
+		return path;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	public EList<String> getComposite() {
-    if (composite == null) {
-      composite = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__COMPOSITE);
-    }
-    return composite;
-  }
+		if (composite == null) {
+			composite = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__COMPOSITE);
+		}
+		return composite;
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-    switch (featureID) {
-      case FhirPackage.SEARCH_PARAMETER__NAME:
-        return getName();
-      case FhirPackage.SEARCH_PARAMETER__DESCRIPTION:
-        return getDescription();
-      case FhirPackage.SEARCH_PARAMETER__TYPE:
-        return getType();
-      case FhirPackage.SEARCH_PARAMETER__PATH:
-        return getPath();
-      case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
-        return getComposite();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case FhirPackage.SEARCH_PARAMETER__NAME:
+				return getName();
+			case FhirPackage.SEARCH_PARAMETER__DESCRIPTION:
+				return getDescription();
+			case FhirPackage.SEARCH_PARAMETER__TYPE:
+				return getType();
+			case FhirPackage.SEARCH_PARAMETER__PATH:
+				return getPath();
+			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
+				return getComposite();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-    switch (featureID) {
-      case FhirPackage.SEARCH_PARAMETER__NAME:
-        setName((String)newValue);
-        return;
-      case FhirPackage.SEARCH_PARAMETER__DESCRIPTION:
-        setDescription((String)newValue);
-        return;
-      case FhirPackage.SEARCH_PARAMETER__TYPE:
-        setType((SearchType)newValue);
-        return;
-      case FhirPackage.SEARCH_PARAMETER__PATH:
-        getPath().clear();
-        getPath().addAll((Collection<? extends String>)newValue);
-        return;
-      case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
-        getComposite().clear();
-        getComposite().addAll((Collection<? extends String>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case FhirPackage.SEARCH_PARAMETER__NAME:
+				setName((String)newValue);
+				return;
+			case FhirPackage.SEARCH_PARAMETER__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case FhirPackage.SEARCH_PARAMETER__TYPE:
+				setType((SearchType)newValue);
+				return;
+			case FhirPackage.SEARCH_PARAMETER__PATH:
+				getPath().clear();
+				getPath().addAll((Collection<? extends String>)newValue);
+				return;
+			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
+				getComposite().clear();
+				getComposite().addAll((Collection<? extends String>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-    switch (featureID) {
-      case FhirPackage.SEARCH_PARAMETER__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case FhirPackage.SEARCH_PARAMETER__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
-        return;
-      case FhirPackage.SEARCH_PARAMETER__TYPE:
-        setType(TYPE_EDEFAULT);
-        return;
-      case FhirPackage.SEARCH_PARAMETER__PATH:
-        getPath().clear();
-        return;
-      case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
-        getComposite().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case FhirPackage.SEARCH_PARAMETER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case FhirPackage.SEARCH_PARAMETER__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case FhirPackage.SEARCH_PARAMETER__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case FhirPackage.SEARCH_PARAMETER__PATH:
+				getPath().clear();
+				return;
+			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
+				getComposite().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-    switch (featureID) {
-      case FhirPackage.SEARCH_PARAMETER__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case FhirPackage.SEARCH_PARAMETER__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case FhirPackage.SEARCH_PARAMETER__TYPE:
-        return type != TYPE_EDEFAULT;
-      case FhirPackage.SEARCH_PARAMETER__PATH:
-        return path != null && !path.isEmpty();
-      case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
-        return composite != null && !composite.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case FhirPackage.SEARCH_PARAMETER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case FhirPackage.SEARCH_PARAMETER__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case FhirPackage.SEARCH_PARAMETER__TYPE:
+				return type != TYPE_EDEFAULT;
+			case FhirPackage.SEARCH_PARAMETER__PATH:
+				return path != null && !path.isEmpty();
+			case FhirPackage.SEARCH_PARAMETER__COMPOSITE:
+				return composite != null && !composite.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", description: ");
-    result.append(description);
-    result.append(", type: ");
-    result.append(type);
-    result.append(", path: ");
-    result.append(path);
-    result.append(", composite: ");
-    result.append(composite);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", description: ");
+		result.append(description);
+		result.append(", type: ");
+		result.append(type);
+		result.append(", path: ");
+		result.append(path);
+		result.append(", composite: ");
+		result.append(composite);
+		result.append(')');
+		return result.toString();
+	}
 
 } //SearchParameterImpl

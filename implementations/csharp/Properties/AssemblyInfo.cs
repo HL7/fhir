@@ -20,5 +20,5 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("HL7.Fhir.Tests")]
 [assembly: CLSCompliant(true)]
 
-[assembly: AssemblyVersion("0.12.2036")]
-[assembly: AssemblyFileVersion("0.12.2036")]
+[assembly: AssemblyVersion("0.12.2039")]
+[assembly: AssemblyFileVersion("0.12.2039")]
