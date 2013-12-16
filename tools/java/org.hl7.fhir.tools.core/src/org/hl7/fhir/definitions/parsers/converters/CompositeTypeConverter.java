@@ -344,8 +344,12 @@ public class CompositeTypeConverter {
 		baseAnn.setShortDefinition("Basetype for all composite-typed elements");
 		result.setAnnotations(baseAnn);
 		
-		ElementDefn extElem = GeneratorUtils.buildSimpleElementDefn("extension", "Extension", "Nested extensions", 0, -1);		
+		ElementDefn extElem = GeneratorUtils.buildSimpleElementDefn("extension", "Extension", "Additional Content defined by implementations", 0, -1);		
 		result.getElement().add(extElem);
+
+		ElementDefn modExtElem = GeneratorUtils.buildSimpleElementDefn("modifierExtension", "Extension", "Extensions that cannot be ignored", 0, -1);    
+    result.getElement().add(modExtElem);
+		
 		result.getElement().add(buildInternalIdElement());
 		
 		return result;
