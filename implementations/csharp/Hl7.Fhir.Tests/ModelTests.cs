@@ -5,7 +5,6 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Hl7.Fhir.Model;
 using System.Xml.Linq;
-using Hl7.Fhir.Support;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hl7.Fhir.Tests
@@ -218,6 +217,39 @@ namespace Hl7.Fhir.Tests
             {
                 // pass
             }
+        }
+
+        [TestMethod]
+        public void ValidateBundleEntry()
+        {
+            var e = new ResourceEntry<Patient>();
+            e.Id = new Uri("http://someserver.org/fhir/patient/@1");
+            e.Title = "Some title";
+            e.LastUpdated = DateTimeOffset.Now;
+
+            // Validates mandatory fields?
+            validateErrorOrFail(e);
+            e.Resource = new Patient();
+            Validator.ValidateObject(e, new ValidationContext(e), true);
+
+            // Checks nested errors on resource content?
+            e.Resource = new Patient { Deceased = new FhirUri() };
+            validateErrorOrFail(e);
+
+            e.Resource = new Patient();
+
+            var f = new Bundle() { Title = "Some feed title" };
+            f.Id = new Uri("http://someserver.org/fhir/feed/@1424234232342");
+
+            // Validates mandatory fields?
+            validateErrorOrFail(f);            
+            f.LastUpdated = DateTimeOffset.Now;
+            Validator.ValidateObject(f, new ValidationContext(f), true);
+
+            // Checks nested errors on nested bundle element?
+            f.Entries.Add(e);
+            e.Id = null;
+            validateErrorOrFail(f);            
         }
 
         [TestMethod]

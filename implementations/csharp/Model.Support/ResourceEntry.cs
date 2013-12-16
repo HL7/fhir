@@ -34,7 +34,7 @@ using System.Linq;
 using System.Text;
 using Hl7.Fhir.Model;
 using System.IO;
-using Hl7.Fhir.Support;
+
 using Hl7.Fhir.Validation;
 using System.ComponentModel.DataAnnotations;
 
@@ -111,14 +111,13 @@ namespace Hl7.Fhir.Model
             if (String.IsNullOrWhiteSpace(Title))
                 result.Add(new ValidationResult("Entry must contain a title"));
 
-            if (String.IsNullOrWhiteSpace(AuthorName) && String.IsNullOrEmpty(Parent.AuthorName))
-                result.Add(new ValidationResult("Entry, or its parent feed, must have at least one author with a name"));
-
             if (LastUpdated == null)
                 result.Add(new ValidationResult("Entry must have an updated date"));
 
             if (Resource == null)
                 result.Add(new ValidationResult("Entry must contain Resource data, Content may not be null"));
+            else
+                Validator.TryValidateObject(this.Resource, ValidationContextFactory.Create(this.Resource, null), result, true);
 
             return result;
         }

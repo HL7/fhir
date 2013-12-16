@@ -127,7 +127,6 @@ public class CSharpModelGenerator extends GenBlock
 		
 		ln("using System;");
 		ln("using System.Collections.Generic;");
-		ln("using Hl7.Fhir.Support;");
 		ln("using Hl7.Fhir.Introspection;");
 		ln("using Hl7.Fhir.Validation;");
 		ln("using System.Linq;");

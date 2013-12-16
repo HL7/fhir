@@ -34,14 +34,14 @@ using System.Linq;
 using System.Text;
 using Hl7.Fhir.Model;
 using System.IO;
-using Hl7.Fhir.Support;
+
 using Hl7.Fhir.Introspection;
 using System.ComponentModel.DataAnnotations;
 using Hl7.Fhir.Validation;
 
 namespace Hl7.Fhir.Model
 {
-    [FhirType]
+    [FhirType(IsResource=true)]
     public class TagList : Hl7.Fhir.Validation.IValidatableObject
     {
         public TagList()
@@ -78,8 +78,9 @@ namespace Hl7.Fhir.Model
         public string Label { get; private set; }
         public Uri Scheme { get; private set; }
 
-        private Tag()
+        public Tag()
         {
+            // FhirParsers needs this constructor to be public
         }
 
         public Tag(string term, Uri scheme, string label=null)

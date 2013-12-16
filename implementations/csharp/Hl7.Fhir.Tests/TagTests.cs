@@ -5,7 +5,6 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Hl7.Fhir.Model;
 using System.Xml.Linq;
-using Hl7.Fhir.Support;
 using System.ComponentModel.DataAnnotations;
 
 

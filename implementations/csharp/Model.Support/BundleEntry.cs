@@ -34,7 +34,7 @@ using System.Linq;
 using System.Text;
 using Hl7.Fhir.Model;
 using System.IO;
-using Hl7.Fhir.Support;
+
 using Hl7.Fhir.Validation;
 using System.ComponentModel.DataAnnotations;
 
@@ -49,7 +49,6 @@ namespace Hl7.Fhir.Model
         }
 
         public Uri Id { get; set; }
-        public Bundle Parent { set; get; }
         public UriLinkList Links { get; set; }
         public IEnumerable<Tag> Tags { get; set; }
 
@@ -69,13 +68,13 @@ namespace Hl7.Fhir.Model
         {
             var result = new List<ValidationResult>();
 
-            if (!Util.UriHasValue(Id))
+            if (!Bundle.UriHasValue(Id))
                 result.Add(new ValidationResult("Entry must have an id"));
             else
                 if (!Id.IsAbsoluteUri)
                     result.Add(new ValidationResult("Entry id must be an absolute URI"));
 
-            if (Util.UriHasValue(SelfLink) && !SelfLink.IsAbsoluteUri)
+            if (Bundle.UriHasValue(SelfLink) && !SelfLink.IsAbsoluteUri)
                 result.Add(new ValidationResult("Entry selflink must be an absolute URI"));
 
             if (Links.FirstLink != null || Links.LastLink != null || Links.PreviousLink != null || Links.NextLink != null)

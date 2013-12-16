@@ -20,7 +20,7 @@
   <WindowWidth>10935</WindowWidth>
   <WindowTopX>8265</WindowTopX>
   <WindowTopY>6420</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -918,7 +918,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
@@ -991,7 +991,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">provider</Data></Cell>
-    <Cell><Data ss:Type="String">The identity of the organization at which this person is a patient</Data></Cell>
+    <Cell><Data ss:Type="String">The organization at which this person is a patient</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Patient.managingOrganization</Data></Cell>
    </Row>
@@ -1013,6 +1013,12 @@
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Patient.animal.breed</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">link</Data></Cell>
+    <Cell><Data ss:Type="String">All patients linked to the given patient</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">Patient.link.other</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1021,11 +1027,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1314,7 +1321,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Hl7.Fhir.Support;
 using Hl7.Fhir.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

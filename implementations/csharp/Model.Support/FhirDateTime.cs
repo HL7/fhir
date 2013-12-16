@@ -29,7 +29,7 @@
 */
 
 
-using Hl7.Fhir.Support;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,8 +76,7 @@ namespace Hl7.Fhir.Model
 
         public static FhirDateTime Now()
         {
-            return new FhirDateTime(Util.FormatIsoDateTime(DateTimeOffset.Now));
+            return new FhirDateTime(DateTimeOffset.Now.ToString(FMT_FULL));
         }
-
     }
 }

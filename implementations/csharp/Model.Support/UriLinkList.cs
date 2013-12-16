@@ -46,7 +46,8 @@ namespace Hl7.Fhir.Model
         public const string ATOM_LINKREL_FIRST = "first";
         public const string ATOM_LINKREL_LAST = "last";
         public const string ATOM_LINKREL_SEARCH = "search";
-        public const string ATOM_LINKREL_PREDVERSION = "predecessor-version";
+  //      public const string ATOM_LINKREL_PREDVERSION = "predecessor-version";
+        public const string ATOM_LINKREL_FHIRBASE = "fhir-base";
 
 
         public UriLinkList() : base() { }
@@ -117,16 +118,29 @@ namespace Hl7.Fhir.Model
             }
         }
 
-        public Uri PredecessorVersionLink
+        //public Uri PredecessorVersionLink
+        //{
+        //    get
+        //    {
+        //        return getEntry(ATOM_LINKREL_PREDVERSION);
+        //    }
+
+        //    set
+        //    {
+        //        setEntry(ATOM_LINKREL_PREDVERSION, value);
+        //    }
+        //}
+
+        public Uri Base
         {
             get
             {
-                return getEntry(ATOM_LINKREL_PREDVERSION);
+                return getEntry(ATOM_LINKREL_FHIRBASE);
             }
 
             set
             {
-                setEntry(ATOM_LINKREL_PREDVERSION, value);
+                setEntry(ATOM_LINKREL_FHIRBASE, value);
             }
         }
 

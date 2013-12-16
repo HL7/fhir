@@ -42,9 +42,9 @@ import org.hl7.fhir.tools.publisher.DotNetFramework.DotNetCompileResult;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
 
 public class CSharpGenerator extends BaseGenerator implements PlatformGenerator {
 
@@ -68,7 +68,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 				"This assembly is used as part of the reference open-source FHIR support library. " +
 		    "To get the support library (which includes parsers, serializers and a FHIR http client), " +
 		    "use NuGet to find package \"Hl7.Fhir\"." +
-				"The source for this full library can be found at <a href=\"https://github.com/ewoutkramer/fhir-net-api\">github</a>";
+				"The source for this full library can be found at http://github.com/ewoutkramer/fhir-net-api";
 	}
 
 	@Override
@@ -201,7 +201,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 		String modelSupportDir = "Model.Support" + sl;
 	//	String parsersSupportDir = "Parsers.Support" + sl;
 	//	String serializersSupportDir = "Serializers.Support" + sl;
-		String supportDir = "Support" + sl;
+	//	String supportDir = "Support" + sl;
 	//	String supportSearchDir = supportDir + "Search" + sl;
 		
 		ZipGenerator zip = new ZipGenerator(destDir + CSHARP_FILENAME);

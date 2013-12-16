@@ -34,7 +34,7 @@ using System.Linq;
 using System.Text;
 using Hl7.Fhir.Model;
 using System.IO;
-using Hl7.Fhir.Support;
+
 using Hl7.Fhir.Validation;
 using System.ComponentModel.DataAnnotations;
 

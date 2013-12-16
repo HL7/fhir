@@ -53,7 +53,6 @@
     <Compile Include="Model.Support\IExtendable.cs" />
     <Compile Include="Model.Support\Initializers.cs" />
     <Compile Include="Model.Support\Instant.cs" />
-    <Compile Include="Model.Support\ManagedEntryList.cs" />
     <Compile Include="Model.Support\ModelInfo.cs" />
     <Compile Include="Model.Support\Resource.cs" />
     <Compile Include="Model.Support\ResourceEntry.cs" />
@@ -62,8 +61,6 @@
     <Compile Include="Model.Support\UriLinkList.cs" />
     <Compile Include="Model.Support\ValueSet.cs" />
     <Compile Include="Model.Support\XHtml.cs" />
-    <Compile Include="Support\ErrorList.cs" />
-    <Compile Include="Support\Util.cs" />
     <Compile Include="Introspection\NotMappedAttribute.cs" />
     <Compile Include="Introspection\FhirEnumerationAttribute.cs" />
     <Compile Include="Introspection\EnumLiteralAttribute.cs" />
