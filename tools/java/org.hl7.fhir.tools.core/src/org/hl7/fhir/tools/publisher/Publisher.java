@@ -363,7 +363,9 @@ public class Publisher {
 	    Utilities.createDirectory(page.getFolders().dstDir);
 			
 			page.getBreadCrumbManager().parse(page.getFolders().srcDir+"heirarchy.xml");
-			
+	    page.loadSnomed();
+	    page.loadLoinc();
+
 			prsr.parse(page.getGenDate(), page.getVersion());
 			defineSpecialValues();
 
@@ -1065,7 +1067,7 @@ public class Publisher {
 
       page.log("Copy HTML templates", LogMessageType.Process);
       Utilities.copyDirectory(page.getFolders().rootDir+page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getEpub());
-      TextFile.stringToFile("\r\n[FHIR]\r\nversion="+page.getVersion()+"\r\nrevision="+page.getSvnRevision()+"\r\ndate="+new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()), Utilities.path(page.getFolders().dstDir, "version.info"));
+      TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion="+page.getVersion()+"."+page.getSvnRevision()+"\r\nversion="+page.getVersion()+"\r\nrevision="+page.getSvnRevision()+"\r\ndate="+new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()), Utilities.path(page.getFolders().dstDir, "version.info"));
 	    profileFeed = new AtomFeed();
 	    profileFeed.setId("http://hl7.org/fhir/profile/resources");
 	    profileFeed.setTitle("Resources as Profiles");

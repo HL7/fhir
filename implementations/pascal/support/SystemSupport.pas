@@ -32,10 +32,12 @@ Interface
 
 
 Uses
-  SysUtils, Windows,
+  SysUtils, Windows, ShellApi, ShlObj,
   DateSupport, StringSupport, ThreadSupport;
 
 Function SystemTemp : String;
+Function ProgData : String;
+
 
 Implementation
 
@@ -70,6 +72,29 @@ Function SystemIsWindows7 : Boolean;
 Begin
   Result := SystemIsWindowsNT And (gOSInfo.dwMajorVersion >= 6) And (gOSInfo.dwMinorVersion >= 1);
 End;
+
+Function ShellFolder(iID : Integer) : String;
+Var
+  sPath : Array[0..2048] Of Char;
+  pIDs  : PItemIDList;
+Begin
+  Result := '';
+
+  If SHGetSpecialFolderLocation(0, iID, pIDs) = S_OK Then
+  Begin
+    FillChar(sPath, SizeOf(sPath), #0);
+
+    If ShGetPathFromIDList(pIDs, sPath) Then
+      Result := IncludeTrailingPathDelimiter(sPath);
+  End;
+End;
+
+Function ProgData : String;
+Begin
+  Result := ShellFolder(CSIDL_COMMON_APPDATA);
+End;
+
+
 
 Initialization
   FillChar(gSystemInfo, SizeOf(gSystemInfo), 0);

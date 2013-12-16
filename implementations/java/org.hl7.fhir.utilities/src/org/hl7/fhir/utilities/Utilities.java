@@ -510,4 +510,9 @@ public class Utilities {
     parts.add(b.toString());
     return parts.toArray(new String[] {} );
   }
+
+
+  public static String encodeUri(String v) {
+    return v.replace(" ", "%20");
+  }
 }

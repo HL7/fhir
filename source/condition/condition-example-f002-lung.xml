@@ -39,8 +39,8 @@
         <summary>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="stage II"/>
-                <display value="258219007"/>
+                <code value="258219007"/>
+                <display value="stage II"/>
             </coding>
         </summary>
     </stage>

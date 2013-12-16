@@ -10,8 +10,8 @@
     <type>
         <coding>
             <system value="http://snomed.info/sct"/>
-            <code value="Patient-initiated encounter"/>
-            <display value="270427003"/>
+            <code value="270427003"/>
+            <display value="Patient-initiated encounter"/>
         </coding>
     </type>
     <subject>
@@ -65,8 +65,8 @@
         <admitSource>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="Referral by physician"/>
-                <display value="305956004"/>
+                <code value="305956004"/>
+                <display value="Referral by physician"/>
             </coding>
         </admitSource>
         <period>
@@ -82,8 +82,8 @@
         <dischargeDisposition>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="Discharge to home"/>
-                <display value="306689006"/>
+                <code value="306689006"/>
+                <display value="Discharge to home"/>
             </coding>
         </dischargeDisposition>
         <reAdmission value="false"/>
