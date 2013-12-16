@@ -259,7 +259,7 @@ public class DateAndTime {
 
 	public void setFraction(int fraction) throws Exception {
 		this.fraction = fraction;
-		if (this.fraction == 0)
+		if (this.fractions == 0)
 			throw new Exception("set 'fractions' before setting 'fraction'");
 	}
 
