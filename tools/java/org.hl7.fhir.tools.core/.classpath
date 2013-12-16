@@ -24,10 +24,10 @@
 	<classpathentry kind="lib" path="../imports/antlr-runtime-3.4.jar"/>
 	<classpathentry kind="lib" path="../imports/gson-2.2.4.jar"/>
 	<classpathentry kind="lib" path="../imports/saxon9he.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/httpclient-4.2.3.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/httpclient-cache-4.2.3.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/httpcore-4.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/httpmime-4.2.3.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="../imports/httpclient-4.2.3.jar"/>
+	<classpathentry kind="lib" path="../imports/httpclient-cache-4.2.3.jar"/>
+	<classpathentry kind="lib" path="../imports/httpcore-4.2.2.jar"/>
+	<classpathentry kind="lib" path="../imports/httpmime-4.2.3.jar"/>
+	<classpathentry kind="lib" path="../imports/commons-logging-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
