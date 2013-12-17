@@ -123,7 +123,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="41.25" ss:Span="1"/>
@@ -135,7 +135,7 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="182.25" ss:Span="1"/>
    <Column ss:Index="13" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"
-    ss:Span="1"/>
+    ss:Span="2"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -151,6 +151,7 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">vCard Mapping</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">ServD Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -167,6 +168,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">EN (actually, PN)</Data></Cell>
     <Cell><Data ss:Type="String">XPN</Data></Cell>
+    <Cell><Data ss:Type="String">ProviderName</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">HumanName.use</Data></Cell>
@@ -181,6 +183,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">unique(./use)</Data></Cell>
     <Cell><Data ss:Type="String">XPN.7, but often indicated by which field contains the name</Data></Cell>
+    <Cell><Data ss:Type="String">./NamePurpose</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">HumanName.text</Data></Cell>
@@ -206,6 +209,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">./part[partType = FAM]</Data></Cell>
     <Cell><Data ss:Type="String">XPN.1</Data></Cell>
+    <Cell><Data ss:Type="String">./FamilyName</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.5">
     <Cell><Data ss:Type="String">HumanName.given</Data></Cell>
@@ -219,6 +223,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">./part[partType = GIV]</Data></Cell>
     <Cell><Data ss:Type="String">XPN.2 + XPN.3</Data></Cell>
+    <Cell><Data ss:Type="String">./GivenNames</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.5">
     <Cell><Data ss:Type="String">HumanName.prefix</Data></Cell>
@@ -230,6 +235,7 @@
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">./part[partType = PFX]</Data></Cell>
     <Cell><Data ss:Type="String">XPN.5</Data></Cell>
+    <Cell><Data ss:Type="String">./TitleCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="46.5">
     <Cell><Data ss:Type="String">HumanName.suffix</Data></Cell>
@@ -252,6 +258,7 @@
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">XPN.13 + XPN.14</Data></Cell>
+    <Cell><Data ss:Type="String">./StartDate and ./EndDate</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="12" ss:StyleID="Default"/>

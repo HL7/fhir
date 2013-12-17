@@ -66,28 +66,6 @@
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s68">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s69">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s71" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s72" ss:Parent="s62">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -96,9 +74,31 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s72" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s73" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="92.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="36.75"/>
@@ -111,7 +111,7 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="108.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"
-    ss:Span="1"/>
+    ss:Span="2"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -126,6 +126,7 @@
     <Cell><Data ss:Type="String">Comments</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">ServD Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -141,6 +142,7 @@
     <Cell><Data ss:Type="String">the Identifier class is a little looser than II because it allows URIs as well as registered OIDs or GUIDs</Data></Cell>
     <Cell><Data ss:Type="String">II - see see identifier pattern at http://wiki.hl7.org/index.php?title=Common_Design_Patterns#Identifier_Pattern for relevant discussion</Data></Cell>
     <Cell><Data ss:Type="String">CX / EI (occasionally, more often EI maps to a resource id or a URL)</Data></Cell>
+    <Cell><Data ss:Type="String">Identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Identifier.use</Data></Cell>
@@ -153,8 +155,9 @@
     <Cell><Data ss:Type="String">The use of this identifier</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers</Data></Cell>
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is not temporary unless it explicitly says that it is</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">CX.5</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">CX.5</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -171,8 +174,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Allows humans to make use of identifiers when the identifier system is not known</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -187,6 +191,7 @@
     <Cell><Data ss:Type="String">There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">II.root</Data></Cell>
     <Cell><Data ss:Type="String">CX.4 / EI-2-4</Data></Cell>
+    <Cell><Data ss:Type="String">./IdentifierType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Identifier.value</Data></Cell>
@@ -198,6 +203,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">if the value is actually a full uri, then the system SHALL be urn:ietf:rfc:3986</Data></Cell>
     <Cell><Data ss:Type="String">II.extension or II.root if system indicates OID or GUID</Data></Cell>
     <Cell><Data ss:Type="String">CX.1 / EI.1</Data></Cell>
+    <Cell><Data ss:Type="String">./Value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Identifier.period</Data></Cell>
@@ -211,8 +217,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">CX.7 + CX.8</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">./StartDate and ./EndDate</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -228,8 +235,9 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The reference may be just a text description of the assigner</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">II.assigningAuthorityName but note that this is an improper use by the definition of the field</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">CX.4 / (CX.4,CX.9,CX.10)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">II.assigningAuthorityName but note that this is an improper use by the definition of the field</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">CX.4 / (CX.4,CX.9,CX.10)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">./IdentifierIssuingAuthority</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -242,11 +250,28 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
+   <FreezePanes/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>5</SplitVertical>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>0</ActiveRow>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveCol>4</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -255,13 +280,13 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="102"
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="102"
     ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="386.25"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="75"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="347.25"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="292.5"/>
+   <Column ss:Index="4" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="386.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="347.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="292.5"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -309,10 +334,10 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">IdentifierUse</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">IdentifierUse</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Identifies the use for this identifier, if known&#10;</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">#identifier-use</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">#identifier-use</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -349,23 +374,23 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">usual</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">the identifier recommended for display and use in real-world interactions</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">usual</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">the identifier recommended for display and use in real-world interactions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">official</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">the identifier considered to be most trusted for the identification of this item</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">official</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">the identifier considered to be most trusted for the identification of this item</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">temp</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">A temporary identifier</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">temp</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">A temporary identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">secondary</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">secondary</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context</Data></Cell>
     <Cell><Data ss:Type="String">Unfortunately, this is a common problem that arises in data exchange, where information is not identified in some formats, but some identification must be assigned in other formats</Data></Cell>
    </Row>
   </Table>

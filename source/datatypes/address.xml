@@ -124,7 +124,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="10" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="102"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="42"/>
@@ -137,8 +137,8 @@
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="128.25" ss:Span="1"/>
    <Column ss:Index="13" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="120.75"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="67.5" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="84.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="67.5" ss:Span="2"/>
+   <Column ss:Index="17" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="84.75"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="73.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -156,6 +156,7 @@
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">vCard Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">ServD Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -171,6 +172,7 @@
     <Cell><Data ss:Type="String">Note: address is for postal addresses, not physical locations</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">AD</Data></Cell>
     <Cell><Data ss:Type="String">XAD</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Address</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Address.use</Data></Cell>
@@ -185,7 +187,8 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is not temporary or old unless it explicitly says that it is</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">unique(./use)</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.7</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Is it outside the 80% for this to repeat?</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">./AddressPurpose</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">Is it outside the 80% for this to repeat?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Address.text</Data></Cell>
@@ -209,6 +212,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">AD.part[parttype = AL]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)&#10;</Data></Cell>
     <Cell><Data ss:Type="String">street address</Data></Cell>
+    <Cell><Data ss:Type="String">./StreetAddress (newline delimitted)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Address.city</Data></Cell>
@@ -220,6 +224,7 @@
     <Cell><Data ss:Type="String">AD.part[parttype = CTY]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.3</Data></Cell>
     <Cell><Data ss:Type="String">locality</Data></Cell>
+    <Cell><Data ss:Type="String">./Jurisdiction</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Address.state</Data></Cell>
@@ -231,6 +236,7 @@
     <Cell><Data ss:Type="String">AD.part[parttype = STA]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.4</Data></Cell>
     <Cell><Data ss:Type="String">region</Data></Cell>
+    <Cell><Data ss:Type="String">./Region</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Address.zip</Data></Cell>
@@ -242,6 +248,7 @@
     <Cell><Data ss:Type="String">AD.part[parttype = ZIP]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.5</Data></Cell>
     <Cell><Data ss:Type="String">postal code</Data></Cell>
+    <Cell><Data ss:Type="String">./PostalIdentificationCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Address.country</Data></Cell>
@@ -252,6 +259,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">AD.part[parttype = CNT]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.6</Data></Cell>
     <Cell><Data ss:Type="String">country name</Data></Cell>
+    <Cell><Data ss:Type="String">./Country</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Address.period</Data></Cell>
@@ -263,6 +271,7 @@
     <Cell><Data ss:Type="String">Allows addresses to be placed in historical context</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./usablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.12 / XAD.13 + XAD.14&#10;</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">./StartDate and ./EndDate</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -279,11 +288,28 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
+   <FreezePanes/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>5</SplitVertical>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>0</ActiveRow>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveCol>4</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
