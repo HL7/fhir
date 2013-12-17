@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Ewout Kramer</LastAuthor>
+  <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:25:18Z</Created>
-  <LastSaved>2013-07-02T12:57:42Z</LastSaved>
+  <LastSaved>2013-12-09T04:14:32Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -110,9 +110,14 @@
   <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
+  <Style ss:ID="s80" ss:Parent="s63">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="19" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="19" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="340.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="33.75"/>
@@ -124,8 +129,10 @@
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="69"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="16" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="180.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="249.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="180.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -141,6 +148,7 @@
     <Cell><Data ss:Type="String">Summary</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">ServD Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -157,6 +165,7 @@
     <Cell><Data ss:Type="String">Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Role</Data></Cell>
     <Cell><Data ss:Type="String">PRD (as one example)</Data></Cell>
+    <Cell><Data ss:Type="String">Provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Practitioner.identifier</Data></Cell>
@@ -167,7 +176,8 @@
     <Cell><Data ss:Type="String">Often, specific identities are assigned for the agent</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-7 (or XCN.1 Person Identifier)</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Under &quot;Comments&quot; it said: &quot;The identifier changes when a new/different person steps into the same role&quot;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case.</Data></Cell>
+    <Cell><Data ss:Type="String">./Identifiers</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Under &quot;Comments&quot; it said: &quot;The identifier changes when a new/different person steps into the same role&quot;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s68"><Data ss:Type="String">Practitioner.name</Data></Cell>
@@ -184,6 +194,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./name</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">XCN Components</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">./PreferredName (GivenNames, FamilyName, TitleCode)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
@@ -204,6 +215,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./telecom</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">PRT-15, STF-10, ROL-12</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">./ContactPoints</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
@@ -224,6 +236,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./addr</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">ORC-24, STF-11, ROL-11, PRT-14</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">./Addresses</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
@@ -244,6 +257,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./administrativeGender</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String"> STF-5</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">./GenderCode</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -264,7 +278,8 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./birthTime</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">STF-6</Data></Cell>
-    <Cell ss:Index="16" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">(not represented in ServD)</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -283,7 +298,8 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="16" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">./ImageURI (only supports the URI reference)</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="Default"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
    </Row>
@@ -296,6 +312,7 @@
     <Cell><Data ss:Type="String">Need to be able to track the represented organization separately, if any.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-10 (-&gt; 14) / PRA-9-Institution / PRT-8-Participation Organization for person participation</Data></Cell>
+    <Cell><Data ss:Type="String">(ServD maps Practitioners and Organizations via another entity, so this concept is not available)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Practitioner.role</Data></Cell>
@@ -308,6 +325,7 @@
     <Cell><Data ss:Type="String">A person may have more than one role. At least one role is required.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-1 / STF-18-job title / PRA-3-practitioner category  / PRT-4-Participation / ROL-3-role-ROL / ORC-12-ordering provider / OBR-16-ordering provider / PV1-7-attending doctor / PV1-8-referring doctor / PV1-9-consulting doctor / PV1-17-admitting doctor&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">(ServD maps Practitioners and Organizations via another entity, so this concept is not available)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Practitioner.specialty</Data></Cell>
@@ -318,6 +336,7 @@
     <Cell><Data ss:Type="String">Specific specialty of the practitioner</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">PRA-5-specialty</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">./Specialty</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Practitioner.period</Data></Cell>
@@ -328,7 +347,8 @@
     <Cell><Data ss:Type="String">Even after the agencies is revoked, the fact that it existed must still be recorded</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">PRD-8/9 / PRA-5.4-date of certification&#10;</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Is this separate from the period of validity of the qualification?</Data></Cell>
+    <Cell><Data ss:Type="String">(ServD maps Practitioners and Organizations via another entity, so this concept is not available)</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">Is this separate from the period of validity of the qualification?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Practitioner.location</Data></Cell>
@@ -336,6 +356,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Location)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The location(s) at which this practitioner provides care</Data></Cell>
     <Cell><Data ss:Type="String">The location(s) at which this practitioner provides care</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">(ServD maps Practitioners and Organizations via another entity, so this concept is not available)&lt;br/&gt;&#10;However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Practitioner.qualification</Data></Cell>
@@ -343,6 +364,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Qualifications obtained by training and certification</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CER?</Data></Cell>
+    <Cell><Data ss:Type="String">./Qualifications</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.code</Data></Cell>
@@ -351,6 +373,7 @@
     <Cell><Data ss:Type="String">Qualification</Data></Cell>
     <Cell><Data ss:Type="String">Coded representation of the qualification</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s74"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">./Qualifications.Value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Practitioner.qualification.period</Data></Cell>
@@ -359,6 +382,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Period during which the qualification is valid</Data></Cell>
     <Cell><Data ss:Type="String">Period during which the qualification is valid</Data></Cell>
     <Cell><Data ss:Type="String">Qualifications are often for a limited period of time, and can be revoked.</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">./Qualifications.StartDate and ./Qualifications.EndDate</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner.qualification.issuer</Data></Cell>
@@ -382,7 +406,8 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./languageCode</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">PID-15, NK1-20, LAN-2</Data></Cell>
-    <Cell ss:Index="16" ss:StyleID="s71"><Data ss:Type="String">Note: cannot be named &quot;language&quot; because of technical reasons</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">./Languages.LanguageSpokenCode</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s71"><Data ss:Type="String">Note: cannot be named &quot;language&quot; because of technical reasons</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
