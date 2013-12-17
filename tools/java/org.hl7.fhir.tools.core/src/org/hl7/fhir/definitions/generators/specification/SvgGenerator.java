@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.saxon.query.UnboundFunctionLibrary;
-
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -26,7 +24,7 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xml.XMLWriter;;
+import org.hl7.fhir.utilities.xml.XMLWriter;
 
 public class SvgGenerator {
 
@@ -380,7 +378,8 @@ public class SvgGenerator {
         int c = 0;
         for (int j = i+1; j < links.size(); j++) {
           Link l2 = links.get(j);
-          if (l2.source == l.source && l2.target == l.target)
+          if ((l2.source == l.source && l2.target == l.target) ||
+              (l2.source == l.target && l2.target == l.source))
             c++;
         }     
         l.count = c;
@@ -388,7 +387,8 @@ public class SvgGenerator {
           int k = 0;
           for (int j = i+1; j < links.size(); j++) {
             Link l2 = links.get(j);
-            if (l2.source == l.source && l2.target == l.target) {
+            if ((l2.source == l.source && l2.target == l.target) ||
+                (l2.source == l.target && l2.target == l.source) ) {
               k++;
               l2.count = c;
               l2.index = k;
