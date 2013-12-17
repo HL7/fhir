@@ -97,7 +97,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="79.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="33" ss:Span="1"/>
@@ -108,7 +108,7 @@
    <Column ss:Index="9" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
    <Column ss:Index="11" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135"
-    ss:Span="1"/>
+    ss:Span="2"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -122,6 +122,7 @@
     <Cell><Data ss:Type="String">Comments</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">ServD Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -136,6 +137,7 @@
     <Cell><Data ss:Type="String">Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">TEL</Data></Cell>
     <Cell><Data ss:Type="String">XTN</Data></Cell>
+    <Cell><Data ss:Type="String">ContactPoint</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42.75">
     <Cell><Data ss:Type="String">Contact.system</Data></Cell>
@@ -147,6 +149,7 @@
     <Cell><Data ss:Type="String">Telecommunications form for contact - what communications system is required to make use of the contact</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">./scheme</Data></Cell>
     <Cell><Data ss:Type="String">XTN.3</Data></Cell>
+    <Cell><Data ss:Type="String">./ContactPointType</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Contact.value</Data></Cell>
@@ -158,6 +161,7 @@
     <Cell><Data ss:Type="String">additional out of band data such as extensions, or notes about use of the contact are sometimes included in the value</Data></Cell>
     <Cell><Data ss:Type="String">./url</Data></Cell>
     <Cell><Data ss:Type="String">XTN.1 (or XTN.12)</Data></Cell>
+    <Cell><Data ss:Type="String">./Value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Contact.use</Data></Cell>
@@ -171,6 +175,7 @@
     <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is not temporary or old unless it explicitly says that it is</Data></Cell>
     <Cell><Data ss:Type="String">unique(./use)</Data></Cell>
     <Cell><Data ss:Type="String">XTN.2 - but often indicated by field</Data></Cell>
+    <Cell><Data ss:Type="String">./ContactPointPurpose</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Contact.period</Data></Cell>
@@ -180,6 +185,7 @@
     <Cell><Data ss:Type="String">Time period when the contact was/is in use</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">./useablePeriod[type=&quot;IVL&lt;TS&gt;&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
+    <Cell><Data ss:Type="String">./StartDate and ./EndDate</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
