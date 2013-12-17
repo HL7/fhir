@@ -81,11 +81,6 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s71">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
   <Style ss:ID="s73" ss:Parent="s64">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
@@ -156,9 +151,19 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s89" ss:Parent="s63">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s90" ss:Parent="s64">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="21" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="21" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s65" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="197.25"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="56.25" ss:Span="1"/>
@@ -170,8 +175,8 @@
    <Column ss:Index="10" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="161.25"
     ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="175.5"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="15" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="175.5"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Element</Data></Cell>
@@ -187,6 +192,7 @@
     <Cell><Data ss:Type="String">Comments</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">ServD Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
@@ -201,6 +207,7 @@
     <Cell><Data ss:Type="String">A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Organization(classCode=ORG, determinerCode=INST)</Data></Cell>
     <Cell><Data ss:Type="String">(also see master files messages)</Data></Cell>
+    <Cell><Data ss:Type="String">Organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Organization.identifier</Data></Cell>
@@ -212,6 +219,7 @@
     <Cell><Data ss:Type="String">Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.scopes[Role](classCode=IDENT)</Data></Cell>
     <Cell><Data ss:Type="String">XON.10 Organization Identifier / XON.3 ID Number&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">./Identifiers</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Organization.name</Data></Cell>
@@ -223,7 +231,8 @@
     <Cell><Data ss:Type="String">Need to use the name as the label of the organization. </Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.name</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XON.1 Organization Name</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">If you need multiple names to cater for acronyms and &quot;trading under&quot; names, use an extension &quot;alias&quot; instead</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">.PreferredName/Name</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">If you need multiple names to cater for acronyms and &quot;trading under&quot; names, use an extension &quot;alias&quot; instead</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell><Data ss:Type="String">Organization.type</Data></Cell>
@@ -236,7 +245,7 @@
     <Cell><Data ss:Type="String">Organizations can be corporations, wards, sections, clinical teams, government departments, etc. Note that code is generally a classifier of the type of organization; in many applications, codes are used to identity a particular organization (say, ward) as opposed to another of the same type - these are identifiers, not codes</Data></Cell>
     <Cell><Data ss:Type="String">.code</Data></Cell>
     <Cell><Data ss:Type="String">No equivalent in v2</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Organization.telecom</Data></Cell>
@@ -249,6 +258,7 @@
     <Cell><Data ss:Type="String">The use code home is not to be used. Note that these contacts are not the contact details of people who are employed by or represent the organization, but official contacts for the organization itself</Data></Cell>
     <Cell><Data ss:Type="String">.telecom</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">No authoritative equivalent in V2.x</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">./ContactPoints</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Organization.address</Data></Cell>
@@ -261,6 +271,7 @@
     <Cell><Data ss:Type="String">Organization may have multiple addresses with different uses or applicable periods. The use code home is not to be used</Data></Cell>
     <Cell><Data ss:Type="String">.address</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">No authoritative equivalent in V2.x; some V2.x segments such as OBX might provide a serialized instance value</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">./PrimaryAddress and ./OtherAddresses</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">!Organization.accreditation</Data></Cell>
@@ -271,6 +282,7 @@
     <Cell><Data ss:Type="String">For many organizations in healthcare, it is necessary to track the qualifications an organization has</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.plays[Role](classCode='QUAL')</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Roughly analogous to person-specific CER segment in V2.x</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Could be mapped via ./Attrbutes or ./Affiliations</Data></Cell>
     <Cell><Data ss:Type="String">1) Not sure if qualified &amp; accredited are the same.  2) Could potentially propose a new classCode. We wonder if Accreditation is in the 80%. Accreditation is not part of the current PA domain, it was in Personnel Management but this has been retracted. The PM version also had many more attributes, so is this Accreditation good enough? We (current participants) do not use it. We decide to keep it, to see what happens in ballot </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -300,7 +312,7 @@
     <Cell><Data ss:Type="String">The organization that conferred/confers the accreditation</Data></Cell>
     <Cell><Data ss:Type="String">May determine the significance of the qualification, and allows a link back to a qualification registry, if one exists</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.scopedBy[Organization]</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Lloyd(?): Do we need jurisdiction as well?  (The jurisdiction is often more relevant than the accrediting org.)  EK: Isn't a jurisdiction an organization?</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">Lloyd(?): Do we need jurisdiction as well?  (The jurisdiction is often more relevant than the accrediting org.)  EK: Isn't a jurisdiction an organization?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">!Organization.accreditation.period</Data></Cell>
@@ -319,6 +331,7 @@
     <Cell><Data ss:Type="String">The organization of which this organization forms a part</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to track the hierarchy of organizations within an organization</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s73"><Data ss:Type="String">No equivalent in V2.x</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">n/a</Data></Cell>
     <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -354,6 +367,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">PID-5, PID-9</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Organization.contact.telecom</Data></Cell>
@@ -369,6 +383,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">./telecom</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">PID-13, PID-14</Data></Cell>
+    <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
@@ -388,6 +403,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">PID-11</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Organization.contact.gender</Data></Cell>
@@ -405,6 +421,7 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">PID-8</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Organization.location</Data></Cell>
@@ -420,6 +437,7 @@
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">./Sites</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"/>
    </Row>
@@ -434,7 +452,8 @@
     <Cell><Data ss:Type="String">Default is true.</Data></Cell>
     <Cell><Data ss:Type="String">.status</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">No equivalent in V2.x</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s78"><Data ss:Type="String">Lloyd(?): This isn't data we record about an organization but is data about this organization's record. I would argue about including this metadata here. It also implies effects on functionality, like not showing up in queries anymore, which cannot be guaranteed. All in all, this belongs to record infrastructure, not data</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">./Status (however this concept in ServD more covers why the organization is active or not, could be delisted, deregistered, not operational yet) this could alternatively be derived from ./StartDate and ./EndDate and given a context date.</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s78"><Data ss:Type="String">Lloyd(?): This isn't data we record about an organization but is data about this organization's record. I would argue about including this metadata here. It also implies effects on functionality, like not showing up in queries anymore, which cannot be guaranteed. All in all, this belongs to record infrastructure, not data</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
