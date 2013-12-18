@@ -29,6 +29,7 @@ package org.hl7.fhir.definitions.validation;
 
  */
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,6 +52,7 @@ import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.validation.BaseValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -507,5 +509,17 @@ public class ResourceValidator extends BaseValidator {
 //    for (String t : typeCounter.keySet()) {
 //      System.out.println(t+": "+typeCounter.get(t).toString());
 //    }
+  }
+
+  public List<ValidationMessage> checkBindings(Map<String, BindingSpecification> bindings) {
+    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
+    Set<String> names = new HashSet<String>();
+    for (BindingSpecification b : bindings.values()) {
+      if (names.contains(b.getName())) 
+        errors.add(new ValidationMessage(source, "structure", "binding "+b.getName(), "Duplicate Binding Name "+b.getName(), IssueSeverity.error));        
+      else
+        names.add(b.getName());
+    }
+    return errors;
   }
 }

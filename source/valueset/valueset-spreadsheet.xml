@@ -20,7 +20,6 @@
   <WindowWidth>18435</WindowWidth>
   <WindowTopX>120</WindowTopX>
   <WindowTopY>8610</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -503,7 +502,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">FilterOperator</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">= | is-a | is-not-a | regex</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">= | is-a | is-not-a | regex | in | not in</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">The kind of operation to perform as part of the filter criteria</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:Index="14"><Data ss:Type="String">N/A</Data></Cell>
@@ -597,6 +596,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -930,7 +930,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="filter-operator">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="90"/>
    <Column ss:Width="419.25"/>
@@ -963,6 +963,16 @@
     <Cell><Data ss:Type="String">regex</Data></Cell>
     <Cell><Data ss:Type="String">The property value representation matches the regex specified in the value</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="String">The property value is in the set of codes or concepts identified by the value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">not in</Data></Cell>
+    <Cell><Data ss:Type="String">The property value is not in the set of codes or concepts identified by the value</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -974,8 +984,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1067,7 +1077,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

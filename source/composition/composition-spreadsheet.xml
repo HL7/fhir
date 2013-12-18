@@ -396,7 +396,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Practitioner|Device|Patient|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who/what authored the composition</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.)</Data></Cell>
@@ -799,8 +799,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -2087,7 +2087,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       impl2.append("procedure TFhir"+tn+".Assign(oSource : TAdvObject);\r\n");
       impl2.append("begin\r\n");
       impl2.append("  inherited;\r\n");
-      impl2.append("  FValue := TFhir"+tn+"(oSource).Value;\r\n");
+      if (!pn.equals("String") && !pn.equals("Boolean")) 
+        impl2.append("  FValue := TFhir"+tn+"(oSource).Value.Link;\r\n");
+      else 
+        impl2.append("  FValue := TFhir"+tn+"(oSource).Value;\r\n");
       impl2.append("end;\r\n\r\n");
     }
 

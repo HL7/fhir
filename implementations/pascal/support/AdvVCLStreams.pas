@@ -32,7 +32,6 @@ Interface
 
 
 Uses
-  axctrls,
   AdvObjects, Windows,
   Classes, ActiveX,
   AdvStreams;

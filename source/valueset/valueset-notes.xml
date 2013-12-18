@@ -96,27 +96,35 @@ How filters are used with various code systems:
  <tr>
    <th>System</th>    
    <th>Property Name</th> 
-   <th>Expression</th> 
+   <th>Operation</th> 
    <th>Value</th>        
    <th>Definition</th>
    <th>Example</th>
  </tr>
  <tr>
-   <td>SNOMED CT</td> 
-   <td>concept</td>
-   <td>is-a</td>       
-   <td>[concept]</td>    
-   <td>Includes all codes that have a transitive is-a relationship with the concept Id provided as the value <br/>The formal expression for this is DescendentsAndSelf([concept])</td> 
-   <td><a href="valueset-administration-method-codes.html">Administation Methods</a></td>
- </tr>
- <tr>
-   <td></td>          
+   <td>SNOMED CT</td>          
    <td>expression</td>
    <td>=</td>       
    <td>[expression]</td> 
    <td>The result of the filter is the result of executing the given snomed expression 
     (see the draft <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_CT_Query_Specification_-__v0.08_-_20121213.doc"> SNOMED CT Query Language</a>)</td> 
    <td>(no example yet)</td>
+ </tr>
+ <tr>
+   <td></td> 
+   <td>concept</td>
+   <td>is-a</td>       
+   <td>[concept]</td>    
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value <br/>The SNOMED CT Query Language expression for this is DescendentsAndSelf([concept])</td> 
+   <td><a href="valueset-administration-method-codes.html">Administation Methods</a></td>
+ </tr>
+ <tr>
+   <td></td> 
+   <td>concept</td>
+   <td>in</td>       
+   <td>[concept]</td>    
+   <td>Includes all concept ids that are in the reference set identified by the concept Id provided as the value <br/>The SNOMED CT Query Language expression for this is MembersOf([concept])</td> 
+   <td><a href="valueset-administration-method-codes.html">Administation Methods</a></td>
  </tr>
  <tr>
    <td colspan="4"><hr/></td>

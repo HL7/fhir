@@ -6,8 +6,10 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -204,6 +206,7 @@ public class InstanceValidator extends BaseValidator {
   public void validateInstance(List<ValidationMessage> errors, Element elem) throws Exception {
     boolean feedHasAuthor = XMLUtil.getNamedChild(elem, "author") != null;
     if (elem.getLocalName().equals("feed")) {
+    	Set<String> selfLinks = new HashSet<String>();
       ChildIterator ci = new ChildIterator("", elem);
       while (ci.next()) {
         if (ci.name().equals("category"))
@@ -212,8 +215,13 @@ public class InstanceValidator extends BaseValidator {
           validateId(errors, ci.path(), ci.element(), true);
         else if (ci.name().equals("link"))
           validateLink(errors, ci.path(), ci.element(), false);
-        else if (ci.name().equals("entry")) 
-          validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor);
+        else if (ci.name().equals("entry")) {
+          String s = validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor);
+          if (s != null) {
+          	if (rule(errors, "structure", "feed", !selfLinks.contains(s), "Duplicate Self Links are not allowed in a feed (\""+s+"\")"))
+          		selfLinks.add(s);
+          }
+        }
       }
     }
     else
@@ -226,12 +234,12 @@ public class InstanceValidator extends BaseValidator {
     return errors;
   }
 
-  private void validateAtomEntry(List<ValidationMessage> errors, String path, Element element, boolean feedHasAuthor) throws Exception {
+  private String validateAtomEntry(List<ValidationMessage> errors, String path, Element element, boolean feedHasAuthor) throws Exception {
     rule(errors, "invalid", path, XMLUtil.getNamedChild(element, "title") != null, "Entry must have a title");
     rule(errors, "invalid", path, XMLUtil.getNamedChild(element, "updated") != null, "Entry must have a last updated time");
     rule(errors, "invalid", path, feedHasAuthor || XMLUtil.getNamedChild(element, "author") != null, "Entry must have an author because the feed doesn't");
 
-
+    String self = null;
 
     ChildIterator ci = new ChildIterator(path, element);
     while (ci.next()) {
@@ -239,13 +247,17 @@ public class InstanceValidator extends BaseValidator {
         validateTag(ci.path(), ci.element(), true);
       else if (ci.name().equals("id"))
         validateId(errors, ci.path(), ci.element(), true);
-      else if (ci.name().equals("link"))
+      else if (ci.name().equals("link")) {
+      	if (ci.element().getAttribute("rel").equals("self") && ci.element().hasAttribute("href"))
+      		self = ci.element().getAttribute("href");
         validateLink(errors, ci.path(), ci.element(), true);
+      }
       else if (ci.name().equals("content")) {
         Element r = XMLUtil.getFirstChild(ci.element());
         validate(errors, ci.path()+"/f:"+r.getLocalName(), r);
       }
     }
+    return self;
   }
 
   private void validate(List<ValidationMessage> errors, String path, Element elem) throws Exception {

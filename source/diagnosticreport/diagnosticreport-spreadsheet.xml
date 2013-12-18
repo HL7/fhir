@@ -16,11 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5490</WindowHeight>
-  <WindowWidth>17490</WindowWidth>
+  <WindowHeight>1740</WindowHeight>
+  <WindowWidth>9570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -633,7 +632,7 @@
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">DiagnosticResultGroupNames</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">DiagnosticReportNames</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Name/Code for this group of results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -795,10 +794,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>12</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -811,11 +811,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -905,7 +906,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1033,7 +1033,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="149.25"/>
    <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="336.75"/>
@@ -1071,14 +1071,6 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-diagnostic-requests</Data></Cell>
     <Cell><Data ss:Type="String">LOINC Order Codes</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticResultGroupNames</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Codes used to identify individual and panel diagnostic items</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s74"/>
-    <Cell><Data ss:Type="String">valueset-report-names</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticServiceSection</Data></Cell>
@@ -1119,8 +1111,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

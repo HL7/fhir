@@ -723,9 +723,10 @@ public class Publisher {
 		for (String n : page.getDefinitions().sortedResourceNames())
 		  if (hasBuildFlag("page-"+n.toLowerCase()))
   			errors.addAll(val.check(n, page.getDefinitions().getResources().get(n)));
-    for (String n : page.getDefinitions().getBindings().keySet())
-      if (hasBuildFlag("all"))
+    if (hasBuildFlag("all"))
+      for (String n : page.getDefinitions().getBindings().keySet())
         errors.addAll(val.check(n, page.getDefinitions().getBindingByName(n)));
+    errors.addAll(val.checkBindings(page.getDefinitions().getBindings()));
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResources().get(rname); 
@@ -1145,6 +1146,7 @@ public class Publisher {
       cloneToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)", false, "summary-instance");
       jsonToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)", resource2Json(typeFeed));
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed, true, false);
+      Utilities.copyFile(page.getFolders().dstDir + "valuesets.xml", page.getFolders().dstDir + "examples"+ File.separator+"valuesets.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, true);
       cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", false, "summary-instance");
       jsonToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", resource2Json(valueSetsFeed));
@@ -2310,6 +2312,9 @@ public class Publisher {
   }
 
   private void addToResourceFeed(ValueSet vs, String id, AtomFeed dest) throws Exception {
+    if (dest.getById("http://hl7.org/fhir/valueset/" + id) != null)
+      throw new Exception("Attempt to add duplicate value set "+id);
+    
     AtomEntry e = new AtomEntry();
     e.setId("http://hl7.org/fhir/valueset/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valueset/" + id);
@@ -2326,6 +2331,9 @@ public class Publisher {
   }
 
   private void addToResourceFeed(Conformance conf, String id, AtomFeed dest) throws Exception {
+    if (dest.getById(id) != null)
+      throw new Exception("Attempt to add duplicate value set "+id);
+
     AtomEntry e = new AtomEntry();
     e.setId("http://hl7.org/fhir/conformance/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/conformance/" + id);

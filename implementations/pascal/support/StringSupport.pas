@@ -172,6 +172,7 @@ Function StringContainsAny(Const sValue : String; Const aSet : TCharSet) : Boole
 Function StringIsCardinal16(Const sValue : String) : Boolean; Overload;
 Function StringIsInteger16(Const sValue : String) : Boolean; Overload;
 Function StringIsInteger32(Const sValue : String) : Boolean; Overload;
+Function StringIsInteger64(Const sValue : String) : Boolean; Overload;
 Function StringIsAlphabetic(Const sValue : String) : Boolean; Overload;
 Function StringIsWhitespace(Const sValue : String) : Boolean; Overload;
 function GetStringCell(const ADelimitedString: String; ACell: Cardinal; ADelimiter: String): String; Overload;
@@ -707,6 +708,22 @@ End;
 Function StringIsInteger32(Const sValue : String) : Boolean;
 Var
   iValue : Integer;
+  iError : Integer;
+Begin
+  Result := sValue <> '';
+
+  If Result Then
+  Begin
+    Val(sValue, iValue, iError);
+
+    Result := (iError = 0) And (iValue = iValue); // 2nd part to remove warning.
+  End;
+End;
+
+
+Function StringIsInteger64(Const sValue : String) : Boolean;
+Var
+  iValue : Int64;
   iError : Integer;
 Begin
   Result := sValue <> '';

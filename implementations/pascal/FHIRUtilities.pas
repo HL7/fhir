@@ -664,7 +664,7 @@ begin
   p := x.addTag('p');
   p.addText(vs.DescriptionST);
   p := x.addTag('p');
-  p.addText('This value set is an expansion, and includes the follow terms in the expansion');
+  p.addText('This value set is an expansion, and includes the following terms in the expansion');
   t := x.addTag('table');
   addTableHeaderRowExpansion(t);
   for i := 0 to vs.expansion.containsList.Count - 1 do

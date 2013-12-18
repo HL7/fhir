@@ -289,7 +289,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Device)</Data><NamedCell
+    <Cell><Data ss:Type="String">Resource(Practitioner|Device|Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who/what authored the document</Data><NamedCell
@@ -770,12 +770,11 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>16</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
