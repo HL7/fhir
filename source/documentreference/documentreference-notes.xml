@@ -11,7 +11,7 @@
 <h3>Document Formats</h3>
 <p>
 In addition to a mime type (which is mandatory), there is also a <i>format</i> element which carries
-a URI. This element has one ore more identifiers that indicate that the format and/or content of the 
+a URI. This element has one or more identifiers that indicate that the format and/or content of the 
 document conforms to additional rules beyond the base format indicated in the mimeType. This is most 
 often used when the mime-type is text/xml, to provide additional information for finding the correct
 document.

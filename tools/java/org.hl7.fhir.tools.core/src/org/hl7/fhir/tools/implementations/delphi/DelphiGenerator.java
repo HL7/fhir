@@ -110,6 +110,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   private StringBuilder srlsdefX = new StringBuilder();
   private StringBuilder prsrdefJ = new StringBuilder();
   private StringBuilder srlsdefJ = new StringBuilder();
+  private StringBuilder prsrFragJ = new StringBuilder();
+  private StringBuilder prsrFragX = new StringBuilder();
   private Map<String, String> simpleTypes = new HashMap<String, String>();
 
   private List<String> types = new ArrayList<String>();
@@ -461,6 +463,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     srlsdefX.append("    procedure Compose"+root.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+root.getName()+");\r\n");
     prsrdefJ.append("    function Parse"+root.getName()+"(jsn : TJsonObject) : TFhir"+root.getName()+"; overload;\r\n");
     srlsdefJ.append("    procedure Compose"+root.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+root.getName()+");\r\n");
+    prsrFragJ.append("  else if (type_ = '"+tn+"') then\r\n    result := parse"+root.getName()+"(jsn)\r\n");
+    prsrFragX.append("  else if SameText(element.NodeName, '"+tn+"') then\r\n    result := parse"+root.getName()+"(element, element.nodeName)\r\n");
     workingParserX = new StringBuilder();
     workingParserXA = new StringBuilder();
     workingComposerX = new StringBuilder();
@@ -3016,6 +3020,28 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         );
 
     prsrImpl.append(
+        "function TFHIRJsonParser.ParseFragment(jsn : TJsonObject; type_ : String) : TFhirElement;\r\n"+
+            "begin\r\n  "+
+            prsrFragJ.toString().substring(6)+
+            "  else if type_ = 'Binary' Then\r\n"+
+            "    result := ParseBinary(jsn)\r\n"+
+            "  else\r\n"+
+            "    raise Exception.create('error: the element '+type_+' is not a valid fragment name');\r\n" +
+            "end;\r\n\r\n"
+        );
+
+    prsrImpl.append(
+        "function TFHIRXmlParser.ParseFragment(element : IXMLDOMElement) : TFhirElement;\r\n"+
+            "begin\r\n  "+
+            prsrFragX.toString().substring(6)+
+            "  else if sameText(element.nodeName, 'Binary') Then\r\n"+
+            "    result := ParseBinary(element, element.nodeName)\r\n"+
+            "  else\r\n"+
+            "    raise Exception.create('error: the element '+element.nodeName+' is not a valid fragment name');\r\n" +
+            "end;\r\n\r\n"
+        );
+
+    prsrImpl.append(
         "procedure TFHIRJsonComposer.ComposeResource(json : TJSONWriter; id, ver : String; resource: TFhirResource);\r\n"+
             "begin\r\n"+
             "  if (resource = nil) Then\r\n"+
@@ -3035,6 +3061,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  protected\r\n"+
         prsrdefX.toString()+
         "    function ParseResource(element : IxmlDomElement; path : String) : TFhirResource; override;\r\n"+
+        "  public\r\n"+
+        "    function ParseFragment(element : IxmlDomElement) : TFhirElement; overload;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRXmlComposer = class (TFHIRXmlComposerBase)\r\n"+
         "  protected\r\n"+
@@ -3045,6 +3073,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         "  protected\r\n"+
         prsrdefJ.toString()+
         "    function ParseResource(jsn : TJsonObject) : TFhirResource; override;\r\n"+
+        "  public\r\n"+
+        "    function ParseFragment(jsn : TJsonObject; type_ : String) : TFhirElement;  overload;\r\n"+
         "  end;\r\n\r\n"+
         "  TFHIRJsonComposer = class (TFHIRJsonComposerBase)\r\n"+
         "  protected\r\n"+

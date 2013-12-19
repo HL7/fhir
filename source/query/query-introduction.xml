@@ -129,8 +129,8 @@ and have the usual meaning. Note that '=" must be escaped in the
 value in a URL. Examples:
 </p>
 <table class="grid">
- <tr><td>[parameter]=100</td><td>Values that equal 100, to 2 decimal places precision</td></tr>
- <tr><td>[parameter]=100.00</td><td>Values that equal 100, to 4 decimal places precision. Whole numbers also equal 100.00, but not 100.01</td></tr>
+ <tr><td>[parameter]=100</td><td>Values that equal 100, to 2 significant figures precision</td></tr>
+ <tr><td>[parameter]=100.00</td><td>Values that equal 100, to 4 significant figures precision. Whole numbers also equal 100.00, but not 100.01</td></tr>
  <tr><td>[parameter]=&lt;100</td><td>Values that are less than 100</td></tr>
  <tr><td>[parameter]=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
  <tr><td>[parameter]=&gt;100</td><td>Values that are greater than 100</td></tr>

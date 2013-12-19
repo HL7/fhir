@@ -4,27 +4,27 @@ Unit FHIRParserBase;
 Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification, 
+Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this 
+ * Redistributions of source code must retain the above copyright notice, this
    list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
+ * Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-   endorse or promote products derived from this software without specific 
+ * Neither the name of HL7 nor the names of its contributors may be used to
+   endorse or promote products derived from this software without specific
    prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
 NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 }
 
@@ -126,6 +126,7 @@ Type
     property Element : IXmlDomElement read FElement write SeTFhirElement;
     Function ParseHtml(element : IXmlDomElement) : TFhirXHtmlNode; Overload;
     Function ParseHtml() : TFhirXHtmlNode; Overload;
+    class function ParseFragment(fragment, lang : String) : TFHIRElement; overload;
   End;
 
 
@@ -157,6 +158,7 @@ Type
     procedure ParseContained(jsn : TJsonObject; ctxt : TFHIRObjectList);
   Public
     procedure Parse; Override;
+    class function ParseFragment(fragment, type_, lang : String) : TFHIRElement; overload;
   End;
 
   TFHIRComposer = {abstract} class (TFHIRObject)
@@ -1130,6 +1132,54 @@ begin
   inherited;
 end;
 
+class function TFHIRJsonParserBase.ParseFragment(fragment, type_, lang: String): TFHIRElement;
+var
+  ss : TStringStream;
+  p : TFHIRJsonParser;
+  jsn : TJsonObject;
+begin
+  ss := TStringStream.Create(fragment, TEncoding.UTF8);
+  try
+    jsn := TJSONParser.Parse(ss);
+    try
+      p := TFHIRJsonParser.Create(lang);
+      try
+        result := p.ParseFragment(jsn, type_);
+      finally
+        p.Free;
+      end;
+    finally
+      jsn.Free;
+    end;
+  finally
+    ss.Free;
+  end;
+end;
+
+class function TFHIRXmlParserBase.ParseFragment(fragment, lang: String): TFHIRElement;
+var
+  ss : TStringStream;
+  p : TFHIRXmlParser;
+  xml : IXMLDOMElement;
+begin
+  ss := TStringStream.Create(fragment, TEncoding.UTF8);
+  try
+    p := TFHIRXmlParser.Create(lang);
+    try
+      p.source := ss;
+      xml := p.LoadXml(ss).documentElement;
+      if xml.namespaceURI <> FHIR_NS Then
+        raise Exception.Create('Unknown namespace');
+      result := p.ParseFragment(xml);
+    finally
+      p.free;
+    end;
+  finally
+    ss.Free;
+  end;
+
+end;
+
 procedure TFHIRParser.Setfeed(const Value: TFHIRAtomFeed);
 begin
   Ffeed.Free;
@@ -1556,7 +1606,7 @@ begin
     title := FormatTextToXml(GetFhirMessage('NAME_RESOURCE', lang)+' '+id)
   else
     title := FormatTextToXml(GetFhirMessage('NAME_RESOURCE', lang)+' '+id+' '+GetFhirMessage('NAME_VERSION', lang)+' '+ver);
-    
+
   c := 0;
   s := TAdvStringBuilder.create;
   try

@@ -231,7 +231,7 @@ ask for validation is to perform a
 <a href="query.html">query</a> on the value set with _query=validate:
 </p>
 <pre>
-  GET [service-url]/valueset/?_query=validate&amp;id=:valueSet&amp;system=:system&amp;version=:version&amp;code=:code&amp;...
+  GET [service-url]/ValueSet/?_query=validate&amp;id=:valueSet&amp;system=:system&amp;version=:version&amp;code=:code&amp;...
 </pre>
 <p>
 The values for system, version, and code are those from the <a href="datatypes.html#Coding">Coding</a> data type.
