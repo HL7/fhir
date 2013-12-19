@@ -5,8 +5,21 @@ Notes about the Query resource:
 </p>
 <ul>
  <li>The id is usually a UUID (urn:uuid:...). Its sole use is to match request and response logically</li>
- <li>The parameters defined for use with the query the resource are all those described above</li>
- <li>The <a href="extensibility.html">extension</a> type is used for parameters. The namespace http://hl7.org/fhir/query is used in the uri value for all the named parameters. Other namespaces may be used for parameters that would/could not appear in the named parameter list in a query url.</li>
+ <li>The parameters defined for use with the query the resource are all those described above, with the
+ addition of an optional _type parameter, which is the name of the Resource type to limit the search on. Without
+ this parameter, the Query effectively becomes a system-wide search.</li>
+ <li>The <a href="extensibility.html">extension</a> type is used for parameters. 
+ The namespace "http://hl7.org/fhir/query" is used in the Extension.uri value for all the named parameters. 
+ Other namespaces may be used for parameters that would/could not appear in the named parameter list in a query url.
+ </li>
+ <li>Search parameter name, modifiers and chained parameters are added to the Extension uri as a fragment identifier,
+ e.g.
+<pre>
+  &lt;parameter url="http://hl7.org/fhir/query#subject:Patient.name"&gt;
+    &lt;valueString value="odile"/&gt;
+  &lt;/parameter&gt;
+</pre>
+</li>
  <li>Parameter names are mandatory, and values are optional. Parameters with missing values are ignored when processing the query</li>
  <li>Parameter names do not need to be unique. The interpretation of multiple search parameters is as described above</li>
  <li>There SHALL be at least one parameter provided with a search - a search request without any request cannot be processed</li>

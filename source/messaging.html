@@ -111,7 +111,7 @@ delivery of messages.
 For this reason, a synchronous exchange pattern - where the sender sends a 
 message, and waits on the same channel for a single response, and then 
 sends the next message - are the easiest to understand and manage. The 
-<a href="#mailbox">MailBox</a> described below works in this fashion.
+<a href="#mailbox">Mailbox</a> described below works in this fashion.
 </p>
 <p>
 However synchronous message exchange does not cater for multiple response 
@@ -266,22 +266,31 @@ statement is a <a href="conformance.html">resource with the name
 <a name="mailbox"></a>
 <h2>Mailbox</h2>
 <p>
-The mailbox is the standard name for a service hosted on a <a href="http.html">RESTful server</a> that accepts messages and processes 
+The mailbox is the standard name for a service hosted on a <a href="http.html">RESTful server</a> that accepts 
+messages and processes 
 them as transactions and returns a message response appropriate for the message received. The server is under
-no obligation to do anything particular with the resources except as required by the semantics of the event code in the 
-message resource. A server may choose to retain the resources and make them available on a RESTful interface, but 
-is not required to do so. If the server returns 200 Ok, it SHALL return a valid message that indicates what the outcome
-of the event processing is. An HTTP error indicates that the message was not processed successfully and that it should
-be resubmitted (and doing so should not result in a duplicate message response).  Repeated failures indicate either a
-fatal problem with the message or a problem with the receiving application.
-</p>
+no obligation to do anything particular with the resources except as required by the semantics of the event code in
+the message resource. A server may choose to retain the resources and make them available on a RESTful interface, but 
+is not required to do so.</p>
+
+<h4>Submitting query messages and documents</h4>
 <p>
-The mailbox can also be used to accept queries or documents. In the case of documents, the document is "accepted" (the server 
-takes responsibility for custody of the received document) and an HTTP status of 204 No Content is returned, 
-or an HTTP error is returned. The server is under no obligation to perform any particular processing of the document except as 
+The mailbox can also be used to accept queries or documents. In the case of documents, the document is "accepted" 
+(the server takes responsibility for custody of the received document) 
+or an HTTP error is returned. The server is under no obligation to perform any particular processing of the document
+except as 
 specific trading partner agreements dictate. In the case of queries, the server a bundle containing 
 a query and a set of other related resources, processes the query, and returns a bundle with a query which is a response,
 and any additional resources that are part of the query response.
+</p>
+<h4>Result of submission</h4>
+<p>Depending on the semantics of the event code or processing done on the query or document, a server may return 
+a status code 200 OK, 201 Created, 202 Accepted or 204 No Content. If the server returns 200 OK, it SHALL return a 
+bundle with the outcome of the event or document processing. In case of errors, the client SHALL interpret a 
+4xx response to indicate that there is no point resubmitting the message or document, and a 5xx response to indicate 
+an unexpected error on the part of the server, which means that it is worth resubmitting 
+(and doing so should not result in a duplicate message response).  Repeated failures indicate either a
+fatal problem with the submission or a problem with the receiving application.
 </p>
 <p>
 The following rules apply to the mailbox:
@@ -337,15 +346,15 @@ support, or vice versa, though systems may find it useful to support both
 sets of functionality in order to satisfy a wider range of implementers. 
 </p>
 <p>
-As a resource that can be used with the RESTful framework, the messaging
-resource has the normal resource end-point ([base-url]/Message), which is
+As a resource that can be used with the RESTful framework, the MessageHeader
+resource has the normal resource end-point (/MessageHeader), which is
 used to manage a set of static messages resources. This could be used to 
-make an archive of past messages available. <b>Creating or updating Message resources
+make an archive of past messages available. <b>Creating or updating MessageHeader resources
 in this fashion does not represent the actual occurrence of any event, nor can it trigger
 any logic associated with the actual event.</b> It is just for managing a set of message resources.
 </p>
 <p>
-In, addition, as described above, this specification defines the mailbox ([base-url]/Mailbox)
+In, addition, as described above, this specification defines the /Mailbox end-point
 so that RESTful servers can offer both messaging and RESTful services at once.
 Alternatively, messages can be transported between systems using any other method by which 
 a stream of bytes (the message bundle) can be moved from one place to 

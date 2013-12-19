@@ -125,12 +125,12 @@ separated from the parameter name by a colon. Modifiers are:</p>
 <h4>number</h4>
 <p>
 The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value, 
-and have the usual meaning. Note that '=" must be escaped in the 
+and have the usual meaning. Note that "=" must be escaped in the 
 value in a URL. Examples:
 </p>
 <table class="grid">
- <tr><td>[parameter]=100</td><td>Values that equal 100, to 2 significant figures precision</td></tr>
- <tr><td>[parameter]=100.00</td><td>Values that equal 100, to 4 significant figures precision. Whole numbers also equal 100.00, but not 100.01</td></tr>
+ <tr><td>[parameter]=100</td><td>Values that equal 100, to 2 significant figures precision, so range [99.5 ... 100.5)</td></tr>
+ <tr><td>[parameter]=100.00</td><td>Values that equal 100, to 4 significant figures precision, so range [99.995 ... 100.005). Whole numbers also equal 100.00, but not 100.01</td></tr>
  <tr><td>[parameter]=&lt;100</td><td>Values that are less than 100</td></tr>
  <tr><td>[parameter]=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
  <tr><td>[parameter]=&gt;100</td><td>Values that are greater than 100</td></tr>
@@ -211,11 +211,11 @@ The string parameter refer to simple string searches against sequences of charac
 Matches are case- and accent- insensitive. By default, a match exists if a portion of 
 the parameter value contains the specified string. It is at the discretion of the 
 server whether to do a left-partial search. The modifier :exact can be used to indicate
-that the match needs to be exact - e.g. the whole string. For example:
+that the match needs to be exact (the whole string, including casing and accents). For example:
 </p>
 <pre>
  GET [base-url]/Patient?name=eve
- GET [base-url]/Patient?name:exact=eve
+ GET [base-url]/Patient?name:exact=Eve
 </pre>
 <p>
 The first is a request to find any patients with "eve" in any part of the name. This would 
@@ -305,6 +305,7 @@ would not usually know what type that resource has (but since these are absolute
 references, there can be no ambiguity about the type).
 </p>
 
+<h4>Chained parameters</h4>
 <p>
 In order to save a client from doing a series of search operations, 
 reference parameters may be "chained" by appending them with 
@@ -374,7 +375,8 @@ state-on-date=new$2013-05-04,active$2013-05-05.
 <p>
 Modifiers are not used on composite parameters.
 <!--
-Future note: use \p and \m in query values? if we add a double = to parameter value for text, that would get rid of :exact. 
+Future note: use \p and \m in query values? if we add a double = to parameter value for text, that would get rid 
+of :exact. 
 Won't try to get rid of type modifier - that's the real use for modifiers because it has to be in a chaining line. 
 Other modifier is :text on token - use "~"? or ""?
 -->
@@ -428,38 +430,35 @@ is welcome.
 <a name="tag" />
 <a name="tags" />
 <a name="profile" />
-<h3>Selecting resources by Tag/profile</h3>
+<h3>Selecting resources by tag, profile or security label</h3>
 
 <p>
-Resources may have <a href="extras.html#tag">tags</a> affixed to them, either general tags or profile tags. 
-The _tag parameter searches for any tagged resource by the term (URI) of the tag. For example:
+Resources may have <a href="extras.html#tag">tags</a> affixed to them: either general tags, profile tags or
+security labels. Search supports the _tag, _profile and _security parameters to search for any tagged resource
+by the term (URI) within the specific tag scheme. For example:
 </p>
 <pre>
  GET [base-url]/Condition?_tag=http://acme.org/fhir/tags/needs-review
 </pre>
 <p>
-This searches for all Condition resources tagged with "http://acme.org/fhir/tags/needs-review". 
-The _tag search parameter may have the modifiers ":partial" and ":text", which mean 
-to only match on the left side of the target tag term, or to search the label part of the tag respectively.
-Searching by tag only includes tags with the general tag scheme of "http://hl7.org/fhir/tag".
-</p>
-<p>
-To restrict the search to only resource that are tagged that they conform to a particular profile:
-</p>
+This searches for all Condition resources with a tag "http://acme.org/fhir/tags/needs-review" in the
+general tag scheme "http://hl7.org/fhir/tag". In the same manner:</p>
 <pre>
- GET [base-url]/DiagnosticReport?_tag=http://hl7.org/fhir/profile/lipid
- GET [base-url]/DiagnosticReport?_tag=http://localhost/profile/lipid
+ GET [base-url]/DiagnosticReport?_profile=http://hl7.org/fhir/profile/lipid
+ GET [base-url]/DiagnosticReport?_profile=http://localhost/profile/lipid
 </pre>
 <p>
-This searches for all Diagnostic Report resources that conform to the profile found at the given location. 
+restricts the search to only DiagnosticReport resources that are tagged that they conform to a particular profile.
 The reference to localhost refers to a local profile with the given logical id ("lipid") in this case.
+</p>
+<p>All three tag search parameter may have the modifiers ":partial" and ":text", which mean 
+to only match on the left side of the target tag term, or to search the label part of the tag respectively.
 </p>
 <p>
 Note that when a resource is submitted to a server as a create or an update, the server is 
 free to determine which profiles a resource conforms to, and add additional profile tags 
 as appropriate so that resources can be found by this operation.
 </p>
-
 
 <a name="return"> </a>
 <h2>Managing Returned Resources</h2>
@@ -600,7 +599,7 @@ The client can request the server to return a summary portion of the resources
 only using the parameter "_summary":
 </p>
 <pre>
-   GET [base-url]/Valueset?_summary=true
+   GET [base-url]/ValueSet?_summary=true
 </pre>
 <p>
 The <i>_summary</i> parameter requests the server to return only the elements marked 
