@@ -306,7 +306,7 @@ of posting to them:
   </ul>
   The server is not obliged to process the document in any particular fashion. The client does not know what action
   the server takes, only that the server has accepted responsibility for the document. For this reason, a server SHALL return
-  a 200 OK if it accepts responsibility for the document, and an HTTP error code if it doesn't. The client SHALL interpret 
+  a 204 No Content if it accepts responsibility for the document, and an HTTP error code if it doesn't. The client SHALL interpret 
   a 4xx response to indicate that there is no point resubmitting the document, and a 5xx response to indicate an unexpected 
   error on the part of the server, which means that it is worth resubmitting the document later.
   <br/>

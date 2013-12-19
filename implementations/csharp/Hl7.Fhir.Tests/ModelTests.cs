@@ -40,7 +40,7 @@ namespace Hl7.Fhir.Tests
             }
             catch (ValidationException) { }
         }
-    
+
         [TestMethod]
         public void OIDandUUIDUrls()
         {
@@ -55,7 +55,7 @@ namespace Hl7.Fhir.Tests
 
             uri = new FhirUri(illOidUrl);
             validateErrorOrFail(uri);
-            
+
             uri = new FhirUri(uuidUrl);
             Validator.ValidateObject(uri, new ValidationContext(uri), true);
 
@@ -64,7 +64,7 @@ namespace Hl7.Fhir.Tests
 
             uri = new FhirUri(oidWithZero);
             Validator.ValidateObject(uri, new ValidationContext(uri), true);
-         
+
             Assert.IsTrue(Uri.Equals(new Uri("http://nu.nl"), new Uri("http://nu.nl")));
         }
 
@@ -122,8 +122,8 @@ namespace Hl7.Fhir.Tests
                         new XElement("child", "value2"));
 
             Assert.IsNull(xr.Element("childx"));
-            Assert.AreEqual(0,xr.Elements("childx").Count());
-            Assert.AreEqual("value",xr.Element("child").Value);
+            Assert.AreEqual(0, xr.Elements("childx").Count());
+            Assert.AreEqual("value", xr.Element("child").Value);
         }
 
 
@@ -137,7 +137,7 @@ namespace Hl7.Fhir.Tests
             Assert.IsTrue(dt2.Value.StartsWith("1972-11-30T15:10"));
         }
 
-     
+
         [TestMethod]
         public void SimpleValueSupport()
         {
@@ -242,37 +242,14 @@ namespace Hl7.Fhir.Tests
             f.Id = new Uri("http://someserver.org/fhir/feed/@1424234232342");
 
             // Validates mandatory fields?
-            validateErrorOrFail(f);            
+            validateErrorOrFail(f);
             f.LastUpdated = DateTimeOffset.Now;
             Validator.ValidateObject(f, new ValidationContext(f), true);
 
             // Checks nested errors on nested bundle element?
             f.Entries.Add(e);
             e.Id = null;
-            validateErrorOrFail(f);            
-        }
-
-        [TestMethod]
-        public void ResourceListFiltering()
-        {
-            var rl = new List<BundleEntry>();
-
-            rl.Add(new ResourceEntry<Patient> { Id = new Uri("http://x.com/@1"), SelfLink = new Uri("http://x.com/@1/history/@1") });
-            rl.Add(new ResourceEntry<Patient> { Id = new Uri("http://x.com/@1"), SelfLink = new Uri("http://x.com/@1/history/@2") });
-            rl.Add(new ResourceEntry<CarePlan> { Id = new Uri("http://x.com/@2"), SelfLink = new Uri("http://x.com/@2/history/@1") });
-            rl.Add(new DeletedEntry() { Id = new Uri("http://x.com/@2"), SelfLink = new Uri("http://x.com/@2/history/@2") });
-
-            var tr = rl.ByResourceType<Patient>();
-            Assert.AreEqual(2, tr.Count());
-            var tr2 = rl.ByResourceType<CarePlan>();
-            Assert.AreEqual(1, tr2.Count());
-
-            var ur = rl.ById(new Uri("http://x.com/@1"));
-            Assert.AreEqual(2, ur.Count());
-            Assert.AreEqual(2, ur.ByResourceType<Patient>().Count());
-
-            Assert.IsNotNull(ur.BySelfLink(new Uri("http://x.com/@1/history/@1")));
-            Assert.IsNotNull(rl.BySelfLink(new Uri("http://x.com/@2/history/@2")));
+            validateErrorOrFail(f);
         }
     }
 }

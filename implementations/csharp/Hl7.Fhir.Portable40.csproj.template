@@ -59,7 +59,6 @@
     <Compile Include="Model.Support\ResourceReference.cs" />
     <Compile Include="Model.Support\TagList.cs" />
     <Compile Include="Model.Support\UriLinkList.cs" />
-    <Compile Include="Model.Support\ValueSet.cs" />
     <Compile Include="Model.Support\XHtml.cs" />
     <Compile Include="Introspection\NotMappedAttribute.cs" />
     <Compile Include="Introspection\FhirEnumerationAttribute.cs" />

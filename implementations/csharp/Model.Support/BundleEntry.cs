@@ -46,11 +46,12 @@ namespace Hl7.Fhir.Model
         public BundleEntry()
         {
             Links = new UriLinkList();
+            Tags = new List<Tag>();
         }
 
         public Uri Id { get; set; }
         public UriLinkList Links { get; set; }
-        public IEnumerable<Tag> Tags { get; set; }
+        public ICollection<Tag> Tags { get; set; }
 
         public Uri SelfLink
         {

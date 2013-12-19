@@ -51,6 +51,7 @@ The following logical interactions are defined:
   <tr><td><a href="#transaction">transaction</a></td><td>Update, create or delete a set of resources as a single transaction</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the update history for all resources</td></tr>
 </table>
+<p>In addition to these operations, there is a <a href="messaging.html#mailbox">Mailbox</a> and <a href="documents.html#bundle">Document</a> endpoint.</p>
 
 <p><b>Style Guide</b></p>
 <p>
@@ -369,7 +370,7 @@ To search a single resource type:
 To search a <a href="extras.html#compartments">compartment</a>:
 </p>
 <pre>
-  GET [base]/[compartment]/[id]/*?[parameters]  {&amp;_format=[mime-type]}
+  GET [base]/[compartment]/[id]/?[parameters]  {&amp;_format=[mime-type]}
   GET [base]/[compartment]/[id]/[type]?[parameters]  {&amp;_format=[mime-type]}
 </pre>
 <p>
@@ -648,7 +649,7 @@ The following operations provide specific support for tags: <a name="tag-ops"> <
  <tr><td width="50%"><b>HTTP Command</b></td><td valign="center"><b>description</b></td></tr>
  <tr><td><pre>GET [base]/_tags</pre></td><td valign="center">get a list of all tags</td></tr>
  <tr><td><pre>GET [base]/[type]/_tags</pre></td><td valign="center">get a list of all tags used for the nominated resource type</td></tr>
- <tr><td><pre>GET [base]/[type]/[id]/tags</pre></td><td valign="center">get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries</td></tr>
+ <tr><td><pre>GET [base]/[type]/[id]/_tags</pre></td><td valign="center">get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries</td></tr>
  <tr><td><pre>GET [base]/[type]/[id]/_history/[vid]/_tags</pre></td><td valign="center">get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries</td></tr>
  <tr><td><pre>POST [base]/[type]/[id]/_tags</pre></td><td valign="center">Affix tags in the list to the nominated resource</td></tr>
  <tr><td><pre>POST [base]/[type]/[id]/_history/[vid]/_tags</pre></td><td valign="center">Affix tags in the list to the nominated version of the resource</td></tr>
@@ -928,16 +929,20 @@ These tables present a summary of the interactions described here.
 <tr><td>search-all</td>	<td>/</td>                   		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>validate</td>   <td>/[type]/_validate{/[id]}</td>       <td>POST</td>         <td>R</td>            <td>Resource</td> <td>O</td>      <td>N/A</td></tr>
 <tr><td>history</td>	<td>/[type]/[id]/_history</td> 		  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>history-type</td><td>/[type]/history</td> 		  	  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>history-all</td><td>/history</td> 		  			  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
-<tr><td>tags-all</td><td>/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
-<tr><td>tags-type</td><td>/[type]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td>history-type</td><td>/[type]/_history</td> 		  	  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>history-all</td><td>/_history</td> 		  			  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
+<tr><td>tags-all</td>	<td>/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td>tags-type</td>	<td>/[type]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td rowspan="3">tags</td><td rowspan="3">/[type]/[id]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
 <tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
-<tr><td rowspan="3">tags-version</td><td rowspan="3">/[type]/[id]/_history/[vid]/tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td rowspan="3">tags-version</td><td rowspan="3">/[type]/[id]/_history/[vid]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
 <tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+<tr><td rowspan="2">mailbox</td>
+<td>/Mailbox (Message)</td><td>POST</td><td>R</td><td>Bundle</td><td>R</td><td>N/A</td></tr>
+<tr><td>/Mailbox (Document)</td><td>POST</td><td>R</td><td>Bundle</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>document</td>	<td>/Document</td><td>POST</td><td>R</td><td>Bundle</td><td>N/A</td><td>N/A</td></tr>
 </table>
 
 <p>
@@ -950,8 +955,8 @@ Note: N/A = not present, R = Required, O = optional.
 <tr><td>read</td>         <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>R</td>                <td>200, 404, 410</td></tr>
 <tr><td>vread</td>        <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>O</td>                <td>200, 404, 405</td></tr>
 <tr><td>conformance</td>  <td>R</td>            <td>Conformance</td>        <td>N/A</td>      <td>O</td>                <td>200, 404</td></tr>
-<tr><td>update</td>       <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>R</td>                <td>201, 400, 404, 405, 409, 412, 422</td></tr>
-<tr><td>create</td>       <td>R</td>            <td>Resource</td>           <td>R</td>        <td>O</td>                <td>200, 201, 400, 404, 405, 422</td></tr>
+<tr><td>update</td>       <td>R</td>            <td>N/A</td>           <td>N/A</td>      <td>R</td>                <td>200, 201, 400, 404, 405, 409, 412, 422</td></tr>
+<tr><td>create</td>       <td>R</td>            <td>N/A</td>           <td>R</td>        <td>O</td>                <td>201, 400, 404, 405, 422</td></tr>
 <tr><td>transaction</td>  <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200, 400, 404, 405, 409, 412, 422</td></tr>
 <tr><td>delete</td>       <td>N/A</td>          <td>N/A</td>                <td>N/A</td>      <td>N/A</td>              <td>204, 405, 404</td></tr>
 <tr><td>search</td>       <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200, 403</td></tr>
@@ -968,6 +973,10 @@ Note: N/A = not present, R = Required, O = optional.
 <tr><td rowspan="3">tags-version</td><td>R (GET)</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200, 404</td></tr>
 <tr><td>N/A (POST)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
 <tr><td>N/A (DELETE)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
+<tr><td rowspan="2">mailbox</td>
+	<td>R (Message)</td><td>Bundle</td><td>N/A</td><td>N/A</td><td>200</td></tr>
+<tr><td>N/A (Document)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
+<tr><td>document</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>200</td></tr>
 </table>
 
 <p>

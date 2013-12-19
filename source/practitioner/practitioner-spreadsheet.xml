@@ -90,13 +90,18 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s75">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  <Style ss:ID="s75" ss:Parent="s63">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s76">
-   <Alignment ss:Vertical="Top"/>
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s77">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -104,16 +109,11 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s78">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
   <Style ss:ID="s79">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
-  </Style>
-  <Style ss:ID="s80" ss:Parent="s63">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -160,7 +160,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A person with a  formal responsibility in the provisioning of healthcare or related services</Data></Cell>
-    <Cell><Data ss:Type="String">Demographics and qualification information for an individual who is directly or indirectly involved in the provisioning of healthcare</Data></Cell>
+    <Cell><Data ss:Type="String">A person who is directly or indirectly involved in the provisioning of healthcare</Data></Cell>
     <Cell><Data ss:Type="String">Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Role</Data></Cell>
@@ -229,8 +229,8 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Address</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">One or more addresses for the practitioner</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">One or more addresses where the practitioner can be found or visited</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">The address for the practitioner</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">The address where the practitioner can be found or visited</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Need to keep track where the practitioner can found during work or for directing mail</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
@@ -336,7 +336,7 @@
     <Cell><Data ss:Type="String">Specific specialty of the practitioner</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">PRA-5-specialty</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">./Specialty</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">./Specialty</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Practitioner.period</Data></Cell>
@@ -373,7 +373,7 @@
     <Cell><Data ss:Type="String">Qualification</Data></Cell>
     <Cell><Data ss:Type="String">Coded representation of the qualification</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s74"/>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">./Qualifications.Value</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">./Qualifications.Value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Practitioner.qualification.period</Data></Cell>
@@ -424,13 +424,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>11</TopRowVisible>
    <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -439,7 +438,7 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="1" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">English</Data></Cell>
@@ -551,12 +550,12 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="132"/>
-   <Column ss:StyleID="s76" ss:Width="436.5"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="52.5"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="120.75"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="222.75"/>
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="132"/>
+   <Column ss:StyleID="s77" ss:Width="436.5"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="52.5"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="120.75"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="222.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
@@ -564,12 +563,12 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">PractitionerRole</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The role a person plays representing an organization</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">PractitionerRole</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The role a person plays representing an organization</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-practitioner-role</Data></Cell>
    </Row>
@@ -631,7 +630,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">cda author</Data></Cell>
     <Cell><Data ss:Type="String">CDA Example Author</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">xcda-author</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">xcda-author</Data></Cell>
     <Cell><Data ss:Type="String">practitioner-example-xcda-author.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -746,20 +745,20 @@
    <Column ss:AutoFitWidth="0" ss:Width="111"/>
    <Column ss:AutoFitWidth="0" ss:Width="69"/>
    <Row ss:AutoFitHeight="0" ss:Height="22.5">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Event Code</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Category</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Notes</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Request Resources</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Response Resources</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Follow Ups</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Category</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Request Resources</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Response Resources</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">admin-notify</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Notification</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">(see Patient)</Data></Cell>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Practitioner</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">admin-notify</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Notification</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">(see Patient)</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Practitioner</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

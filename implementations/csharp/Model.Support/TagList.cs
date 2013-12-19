@@ -71,8 +71,11 @@ namespace Hl7.Fhir.Model
     [FhirType]
     public class Tag : Hl7.Fhir.Validation.IValidatableObject
     {
-        public const string FHIRTAGNS = "http://hl7.org/fhir/tag";
-        public static readonly Uri FHIRTAGSCHEME = new Uri(FHIRTAGNS, UriKind.Absolute);
+        private const string FHIRTAGNS = "http://hl7.org/fhir/tag";
+        
+        public static readonly Uri FHIRTAGSCHEME_GENERAL = new Uri(FHIRTAGNS, UriKind.Absolute);
+        public static readonly Uri FHIRTAGSCHEME_PROFILE = new Uri(FHIRTAGNS + "/profile", UriKind.Absolute);
+        public static readonly Uri FHIRTAGSCHEME_SECURITY = new Uri(FHIRTAGNS + "/security", UriKind.Absolute);
 
         public string Term { get; private set; }
         public string Label { get; private set; }
@@ -128,74 +131,6 @@ namespace Hl7.Fhir.Model
             if (Scheme != null) hash ^= Scheme.GetHashCode();
 
             return hash;
-        }
-    }
-
-
-    public static class TagListExtensions
-    {
-        public static IEnumerable<Tag> FindByTerm(this IEnumerable<Tag> tags, string term)
-        {
-            return tags.Where(e => String.Equals(term, e.Term));
-        }
-
-        public static IEnumerable<Tag> FindByTerm(this IEnumerable<Tag> tags, string term, Uri scheme)
-        {
-            return tags.Where(e => String.Equals(term, e.Term) && Uri.Equals(scheme,e.Scheme));
-        }
-
-        public static IEnumerable<Tag> FindByTerm(this IEnumerable<Tag> tags, string term, string scheme)
-        {
-            var schemeUri = scheme != null ? new Uri(scheme, UriKind.RelativeOrAbsolute) : null;
-
-            return FindByTerm(tags, term, schemeUri);
-        }
-
-        public static IEnumerable<Tag> FindByScheme(this IEnumerable<Tag> tags, Uri scheme)
-        {
-            return tags.Where(e => Uri.Equals(e.Scheme, scheme));
-        }
-
-        public static bool HasTag(this IEnumerable<Tag> tags, string term)
-        {
-            return FindByTerm(tags, term).Count() > 0;
-        }
-
-        public static bool HasTag(this IEnumerable<Tag> tags, string term, Uri scheme)
-        {
-            return FindByTerm(tags, term, scheme).Count() > 0;   
-        }
-
-        public static bool HasTag(this IEnumerable<Tag> tags, string term, string scheme)
-        {
-            return FindByTerm(tags, term, scheme).Count() > 0;
-        }
-
-        public static IEnumerable<Tag> FilterFhirTags(this IEnumerable<Tag> tags)
-        {
-            var fhirScheme = new Uri(Tag.FHIRTAGNS);
-            return tags.Where(e => Uri.Equals(e.Scheme, fhirScheme));
-        }
-
-        public static IEnumerable<Tag> Merge(this IEnumerable<Tag> tags, IEnumerable<Tag> that)
-        {
-            var result = new List<Tag>(tags.Remove(that));
-
-            result.AddRange(that);
-
-            return result;
-        }
-
-        public static IEnumerable<Tag> Remove(this IEnumerable<Tag> tags, IEnumerable<Tag> that)
-        {
-            var result = new List<Tag>();
-
-            result.AddRange(tags);
-
-            if (that != null)
-                result.RemoveAll(t => that.HasTag(t.Term, t.Scheme));
-
-            return result;
         }
     }
 }
