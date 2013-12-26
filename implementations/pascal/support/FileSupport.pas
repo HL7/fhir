@@ -58,6 +58,8 @@ Procedure FileHandleClose(Var aFileHandle : TFileHandle); Overload;
 Function FileGetReadOnlyAttribute(Const sFilename : String) : Boolean; Overload;
 Procedure FileSetReadOnlyAttribute(Const sFilename : String; Const bReadOnly : Boolean); Overload;
 Function PathFolder(Const sFilename : String) : String; Overload;
+Function FileCopyAttempt(Const sSource, sDestination : String) : Boolean; Overload;
+Function FileCopyForce(Const sSource, sDestination : String) : Boolean; Overload;
 
 Implementation
 
@@ -184,5 +186,19 @@ Begin
 
   FileSetAttributes(sFilename, aAttributes);
 End;
+
+Function FileCopyAttempt(Const sSource, sDestination : String) : Boolean;
+Begin
+  Result := Windows.CopyFile(PChar(sSource), PChar(sDestination), True);
+End;
+
+
+Function FileCopyForce(Const sSource, sDestination : String) : Boolean;
+Begin
+  Result := Windows.CopyFile(PChar(sSource), PChar(sDestination), False);
+End;
+
+
+
 
 End. // FileSupport //

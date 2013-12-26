@@ -174,7 +174,7 @@ Type
     FStates : TStringList;
     Function getNextChar : Char;
     Procedure Push(ch : Char);
-    procedure ParseWord(sWord : String; ch : Char);
+    procedure ParseWord(sWord : String; ch : Char; aType : TJSONLexType);
     Procedure JsonError(sMsg : String);
     Function Path : String;
   Public
@@ -474,9 +474,9 @@ begin
   Next;
 end;
 
-procedure TJSONLexer.ParseWord(sWord : String; ch : Char);
+procedure TJSONLexer.ParseWord(sWord : String; ch : Char; aType : TJSONLexType);
 Begin
-  FLexType := jltNull;
+  FLexType := aType;
   FValue := ch;
   While More and (Length(FValue) < length(sWord)) and (FValue = copy(sWord, 1, length(FValue))) Do
     FValue := FValue + getNextChar;
@@ -530,9 +530,9 @@ begin
     ',' : FLexType := jltComma;
     '[' : FLexType := jltOpenArray;
     ']' : FLexType := jltCloseArray;
-    't' : ParseWord('true', ch);
-    'f' : ParseWord('false', ch);
-    'n' : ParseWord('null', ch);
+    't' : ParseWord('true', ch, jltString);
+    'f' : ParseWord('false', ch, jltString);
+    'n' : ParseWord('null', ch, jltNull);
     '0'..'9' :
       Begin
       FLexType := jltNumber;

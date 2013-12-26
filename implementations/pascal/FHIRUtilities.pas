@@ -93,9 +93,30 @@ procedure BuildNarrative(vs : TFhirValueSet); overload;
 Function removeCaseAndAccents(s : String) : String;
 
 type
-  TFHIRElementHelper = class helper for TFhirOperationOutcome
+  TFHIRElementHelper = class helper for TFHIRElement
   public
     procedure addExtension(url : String; t : TFhirType);
+    function hasExtension(url : String) : boolean;
+    function getExtension(url : String) : Integer;
+    function getExtensionString(url : String) : String;
+    procedure removeExtension(url : String);
+    procedure setExtensionString(url, value : String);
+  end;
+
+  TFHIRConformanceHelper = class helper (TFHIRElementHelper) for TFHIRConformance
+  public
+    function rest(type_ : TFhirResourceType) : TFhirConformanceRestResource;
+  end;
+
+  TFhirConformanceRestResourceHelper = class helper (TFHIRElementHelper) for TFhirConformanceRestResource
+  public
+    function operation(type_ : TFhirTypeRestfulOperation) : TFhirConformanceRestResourceOperation;
+  end;
+
+  TFhirContactListHelper = class helper for TFhirContactList
+  public
+    function system(type_ : TFhirContactSystem) : String;
+    procedure setSystem(type_ : TFhirContactSystem; value : String);
   end;
 
   TFHIROperationOutcomeHelper = class helper (TFHIRElementHelper) for TFhirOperationOutcome
@@ -1018,6 +1039,125 @@ begin
   ex := self.ExtensionList.Append;
   ex.urlST := url;
   ex.value := t; // nolink here (done outside)
+end;
+
+function TFHIRElementHelper.getExtension(url: String): Integer;
+var
+  i : integer;
+begin
+  result := -1;
+  for i := 0 to self.ExtensionList.Count -1 do
+    if self.ExtensionList[i].urlST = url then
+      result := i;
+end;
+
+function TFHIRElementHelper.getExtensionString(url: String): String;
+var
+  ndx : Integer;
+begin
+  ndx := getExtension(url);
+  if (ndx = -1) then
+    result := ''
+  else if (self.ExtensionList.Item(ndx).value is TFhirString) then
+    result := TFhirString(self.ExtensionList.Item(ndx).value).value
+  else if (self.ExtensionList.Item(ndx).value is TFhirCode) then
+    result := TFhirCode(self.ExtensionList.Item(ndx).value).value
+  else if (self.ExtensionList.Item(ndx).value is TFhirUri) then
+    result := TFhirUri(self.ExtensionList.Item(ndx).value).value
+  else
+    result := '';
+end;
+
+function TFHIRElementHelper.hasExtension(url: String): boolean;
+begin
+  result := getExtension(url) > -1;
+end;
+
+procedure TFHIRElementHelper.removeExtension(url: String);
+var
+  ndx : integer;
+begin
+  ndx := getExtension(url);
+  while ndx > -1 do
+  begin
+    Self.ExtensionList.DeleteByIndex(ndx);
+    ndx := getExtension(url);
+  end;
+
+end;
+
+procedure TFHIRElementHelper.setExtensionString(url, value: String);
+var
+  ext : TFhirExtension;
+begin
+  removeExtension(url);
+  ext := self.ExtensionList.Append;
+  ext.urlST := url;
+  ext.value := TFhirString.Create(value);
+end;
+
+{ TFHIRConformanceHelper }
+
+function TFHIRConformanceHelper.rest(type_: TFhirResourceType): TFhirConformanceRestResource;
+var
+  i : integer;
+  j : integer;
+begin
+  result := nil;
+  for I := 0 to self.restlist.count - 1 do
+    if self.restlist[i].modeST = RestfulConformanceModeServer then
+      for j := 0 to self.restlist[i].resourceList.count - 1 do
+        if self.restlist[i].resourceList[j].type_ST = CODES_TFhirResourceType[type_] then
+        begin
+          result := self.restlist[i].resourceList[j];
+          exit;
+        end;
+end;
+
+{ TFhirConformanceRestResourceHelper }
+
+function TFhirConformanceRestResourceHelper.operation(type_: TFhirTypeRestfulOperation): TFhirConformanceRestResourceOperation;
+var
+  i : integer;
+begin
+  result := nil;
+  for i := 0 to self.operationList.count - 1 do
+    if (self.operationList[i].codeST = type_) then
+      result := self.operationList[i];
+
+
+
+end;
+
+{ TFhirValueSetHelper }
+
+
+{ TFhirContactListHelper }
+
+procedure TFhirContactListHelper.setSystem(type_: TFhirContactSystem; value: String);
+var
+  i : integer;
+  c : TFhirContact;
+begin
+  for i := 0 to self.Count - 1 do
+    if Item(i).systemST = type_ then
+    begin
+      Item(i).valueST := value;
+      exit;
+    end;
+  c := self.Append;
+  c.systemST := type_;
+  c.valueST := value;
+end;
+
+function TFhirContactListHelper.system(type_: TFhirContactSystem): String;
+var
+  i : integer;
+begin
+  result := '';
+  for i := 0 to self.Count - 1 do
+    if Item(i).systemST = type_ then
+      result := Item(i).valueST;
 end;
 
 end.
