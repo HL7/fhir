@@ -53,14 +53,14 @@ Type
   TSmartDecimalContext = class (TAdvObjectList)
   private
   public
-    Function Value(value : AnsiString) : TSmartDecimal; Overload;
+    Function Value(value : String) : TSmartDecimal; Overload;
     {!script hide}
     Function Value(value : Integer) : TSmartDecimal; Overload;
     Function Value(value : int64) : TSmartDecimal; Overload;
     Function Value(value : TSmartDecimal) : TSmartDecimal; Overload; // move into a different context
     {!script show}
 
-    Function Equals(oOne, oTwo : TSmartDecimal) : Boolean; overload;
+    Function Equal(oOne, oTwo : TSmartDecimal) : Boolean; overload;
     Function Compares(oOne, oTwo : TSmartDecimal) : Integer; overload;
     Function Zero : TSmartDecimal;
     Function One : TSmartDecimal;
@@ -100,30 +100,30 @@ Type
     FPrecision : integer;
     FScientific : Boolean;
     FNegative : Boolean;
-    FDigits : AnsiString;
+    FDigits : String;
     FDecimal : integer;
 
-    Procedure SetValue(sValue : AnsiString);
-    Procedure SetValueDecimal(sValue : AnsiString);
-    Procedure SetValueScientific(sValue : AnsiString);
-    Function GetValue: AnsiString;
-    Function GetValueDecimal : AnsiString;
-    Function GetValueScientific : AnsiString;
-//    Function GetValueByPrecision: AnsiString;
-//    Function GetValueScientificByPrecision : AnsiString;
-//    Function GetValueDecimalByPrecision : AnsiString;
+    Procedure SetValue(sValue : String);
+    Procedure SetValueDecimal(sValue : String);
+    Procedure SetValueScientific(sValue : String);
+    Function GetValue: String;
+    Function GetValueDecimal : String;
+    Function GetValueScientific : String;
+//    Function GetValueByPrecision: String;
+//    Function GetValueScientificByPrecision : String;
+//    Function GetValueDecimalByPrecision : String;
 
     Function DoAdd(oOther : TSmartDecimal) : TSmartDecimal;
     Function DoSubtract(oOther : TSmartDecimal) : TSmartDecimal;
 
-    Function StringAddition(s1, s2 : AnsiString):AnsiString;
-    Function StringSubtraction(s1, s2 : AnsiString):AnsiString;
+    Function StringAddition(s1, s2 : String):String;
+    Function StringSubtraction(s1, s2 : String):String;
 
-    Function dig(c : AnsiChar) : integer;
-    Function cdig(i : integer) : AnsiChar;
+    Function dig(c : Char) : integer;
+    Function cdig(i : integer) : Char;
   Public
     Constructor Create(context : TSmartDecimalContext); Overload;
-    Constructor Create(sValue : AnsiString); Overload;
+    Constructor Create(sValue : String); Overload;
     Constructor Create(iValue : Integer); Overload;
     Constructor Create(iValue : int64); Overload;
     {!script hide}
@@ -132,7 +132,7 @@ Type
     Procedure Assign(oOther : TAdvObject); override;
     Function Clone : TSmartDecimal; Overload;
     Procedure Define(oFiler : TAdvFiler); Override;
-    class Function Equals(oOne, oTwo : TSmartDecimal) : Boolean; overload;
+    class Function Equal(oOne, oTwo : TSmartDecimal) : Boolean; overload;
     class Function Compares(oOne, oTwo : TSmartDecimal) : Integer; overload;
     class Function FromActiveX(oX: tagDEC): TSmartDecimal;
 
@@ -142,7 +142,7 @@ Type
     Function Modulo(iOther : Integer) : TSmartDecimal; Overload;
     Function Add(iOther : Integer) : TSmartDecimal; Overload;
     Function Subtract(iOther : Integer) : TSmartDecimal; Overload;
-    Function Equals(oOther : TSmartDecimal) : Boolean; overload;
+    Function Equal(oOther : TSmartDecimal) : Boolean; overload;
     Function Compares(oOther : TSmartDecimal) : Integer; overload;
     Function AsCardinal : Cardinal;
     Function AsInteger : Integer;
@@ -228,17 +228,17 @@ Type
     {@member AsString
       String representation of the value - will use scientific or decimal notation as specified by the IsScientific property
     }
-    Property AsString : AnsiString read GetValue;
+    Property AsString : String read GetValue;
 
     {@member AsScientific
       String representation using scientific notiation
     }
-    Property AsScientific : AnsiString read GetValueScientific;
+    Property AsScientific : String read GetValueScientific;
 
     {@member AsDecimal
       String representation using decimal notiation
     }
-    Property AsDecimal : AnsiString read GetValuedecimal;
+    Property AsDecimal : String read GetValuedecimal;
 
   end;
 
@@ -258,7 +258,7 @@ Begin
   FContext := context;
   FContext.Add(self);
 End;
-Constructor TSmartDecimal.Create(sValue : AnsiString);
+Constructor TSmartDecimal.Create(sValue : String);
 begin
   Create;
   SetValue(sValue);
@@ -292,7 +292,7 @@ Begin
 
 end;
 
-Procedure TSmartDecimal.SetValue(sValue : AnsiString);
+Procedure TSmartDecimal.SetValue(sValue : String);
 Begin
   if (sValue= '') or (sValue = '-') then
     Error('SetValue', '"'+sValue+'" is not a valid decimal');
@@ -303,17 +303,17 @@ Begin
     SetValueDecimal(sValue);
 end;
 
-Function FirstNonZero(s : AnsiString):integer;
+Function FirstNonZero(s : String):integer;
 var
   i : integer;
 begin
   result := length(s);
   for i := 1 to length(s) Do
-    if not (s[i] in ['0', '.']) then
+    if not CharInSet(s[i], ['0', '.']) then
       result := IntegerMin(result, i);
 end;
 
-Function AllZeros(s : AnsiString; iStart : integer):Boolean;
+Function AllZeros(s : String; iStart : integer):Boolean;
 var
   i : integer;
 begin
@@ -323,7 +323,7 @@ begin
       result := false;
 end;
 
-Function CountSignificants(sValue : AnsiString):Integer;
+Function CountSignificants(sValue : String):Integer;
 var
   i : integer;
 Begin
@@ -335,7 +335,7 @@ Begin
   result := length(sValue);
 end;
 
-Procedure TSmartDecimal.SetValueDecimal(sValue : AnsiString);
+Procedure TSmartDecimal.SetValueDecimal(sValue : String);
 var
   iDecimal : integer;
   i : integer;
@@ -352,7 +352,7 @@ Begin
   for i := 1 to length(sValue) do
     if (sValue[i] = '.') And (iDecimal = 0) then
       iDecimal := i
-    else if not (sValue[i] in ['0'..'9']) then
+    else if not CharInSet(sValue[i], ['0'..'9']) then
       raise Exception.Create('"'+sValue+'" is not a valid decimal');
 
   if iDecimal = 0 then
@@ -406,7 +406,7 @@ Begin
     result := DoSubtract(oOther);
 end;
 
-Function TSmartDecimal.StringAddition(s1, s2 : AnsiString):AnsiString;
+Function TSmartDecimal.StringAddition(s1, s2 : String):String;
 var
   i, t, c : Integer;
 Begin
@@ -425,7 +425,7 @@ end;
 Function TSmartDecimal.DoAdd(oOther : TSmartDecimal) : TSmartDecimal;
 var
   iMax : Integer;
-  s1, s2, s3 : AnsiString;
+  s1, s2, s3 : String;
 Begin
   iMax := IntegerMax(FDecimal, oOther.FDecimal);
   s1 := StringMultiply('0', iMax - FDecimal+1) + FDigits;
@@ -464,7 +464,7 @@ Begin
 end;
 
 
-Function TSmartDecimal.StringSubtraction(s1, s2 : AnsiString):AnsiString;
+Function TSmartDecimal.StringSubtraction(s1, s2 : String):String;
 var
   i, t, c : integer;
 Begin
@@ -491,7 +491,7 @@ end;
 Function TSmartDecimal.DoSubtract(oOther : TSmartDecimal) : TSmartDecimal;
 var
   iMax : Integer;
-  s1, s2, s3 : AnsiString;
+  s1, s2, s3 : String;
   bNeg : Boolean;
 Begin
   iMax := IntegerMax(FDecimal, oOther.FDecimal);
@@ -548,9 +548,9 @@ end;
 Function TSmartDecimal.Multiply(oOther : TSmartDecimal) : TSmartDecimal;
 var
   iMax : Integer;
-  s1, s2, s3 : AnsiString;
-  s : Array of AnsiString;
-  res : AnsiString;
+  s1, s2, s3 : String;
+  s : Array of String;
+  res : String;
   i, j, c, t : integer;
   iDec : Integer;
   iPrec : Integer;
@@ -654,7 +654,7 @@ Begin
 end;
 
 
-Function TrimLeadingZeros(s : AnsiString):AnsiString;
+Function TrimLeadingZeros(s : String):String;
 begin
   result := s;
   while (result <> '') And (result[1] = '0') do
@@ -663,7 +663,7 @@ begin
     result := '0';
 end;
 
-Function RoundUp(const s : AnsiString; var d : Integer):AnsiString;
+Function RoundUp(const s : String; var d : Integer):String;
 var
   i : integer;
   bUp : Boolean;
@@ -677,7 +677,7 @@ Begin
     if bUp then
       result[i] := '0'
     else
-      result[i] := ansichar(ord(result[i])+1);
+      result[i] := char(ord(result[i])+1);
     dec(i);
   end;
   if bUp then
@@ -689,10 +689,10 @@ end;
 
 Function TSmartDecimal.Divide(oOther : TSmartDecimal) : TSmartDecimal;
 var
-  s : AnsiString;
-  w, r, v : AnsiString;
+  s : String;
+  w, r, v : String;
   i, l, m, d, vi, iPrec : integer;
-  tens : Array of AnsiString;
+  tens : Array of String;
   bProc, bHandled, bUp : Boolean;
   Procedure Grabnext;
   Begin
@@ -897,9 +897,9 @@ Begin
   end;
 end;
 
-Function TSmartDecimal.Equals(oOther : TSmartDecimal) : Boolean;
+Function TSmartDecimal.Equal(oOther : TSmartDecimal) : Boolean;
 Begin
-  result := FContext.Equals(self, oOther);
+  result := FContext.Equal(self, oOther);
 end;
 
 
@@ -915,18 +915,18 @@ Begin
     if not (
        ((i = 1) and (s[i] = '-')) or
        (not bDec and (s[i] = '.')) or
-       (s[i] in ['0'..'9'])) Then
+       CharInSet(s[i], ['0'..'9'])) Then
       result := false;
     bdec := s[i] = '.';
   End;
 End;
 
-Procedure TSmartDecimal.SetValueScientific(sValue: AnsiString);
+Procedure TSmartDecimal.SetValueScientific(sValue: String);
 var
   i : integer;
-  s, e : AnsiString;
+  s, e : String;
 begin
-  StringSplitAnsi(sValue, 'e', s, e);
+  StringSplit(sValue, 'e', s, e);
 
   if (s= '') or (s = '-') or not StringIsDecimal(s) then
     Error('SetValue', '"'+sValue+'" is not a valid decimal (numeric)');
@@ -944,7 +944,7 @@ begin
     i := 1;
   while i <= length(e) Do
   begin
-    if not (e[i] in ['0'..'9']) then
+    if not CharInSet(e[i], ['0'..'9']) then
       raise Exception.Create('"'+sValue+'" is not a valid decimal');
     inc(i);
   end;
@@ -952,7 +952,7 @@ begin
   FDecimal := FDecimal + i;
 end;
 
-Function TSmartDecimal.GetValue: AnsiString;
+Function TSmartDecimal.GetValue: String;
 begin
   if FScientific then
     result := GetValueScientific
@@ -960,7 +960,7 @@ begin
     result := GetValueDecimal;
 end;
 {
-Function TSmartDecimal.GetValueByPrecision: AnsiString;
+Function TSmartDecimal.GetValueByPrecision: String;
 begin
   if FScientific then
     result := GetValueScientificByPrecision
@@ -969,7 +969,7 @@ begin
 end;
 }
 
-Function TSmartDecimal.GetValueScientific: AnsiString;
+Function TSmartDecimal.GetValueScientific: String;
 var
   bZero : Boolean;
 begin
@@ -993,7 +993,7 @@ begin
 end;
 
 
-Function TSmartDecimal.GetValueDecimal: AnsiString;
+Function TSmartDecimal.GetValueDecimal: String;
 begin
   result := FDigits;
   if FDecimal <> length(FDigits) + 1 then
@@ -1010,13 +1010,13 @@ begin
     result := '-' + result;
 end;
 
-Function TSmartDecimal.cdig(i: integer): AnsiChar;
+Function TSmartDecimal.cdig(i: integer): Char;
 begin
 //  assert((i >= 0) and (I <= 9));
-  result := ansichar(i + ord('0'));
+  result := char(i + ord('0'));
 end;
 
-Function TSmartDecimal.dig(c: AnsiChar): integer;
+Function TSmartDecimal.dig(c: Char): integer;
 begin
 //  assert(c in ['0'..'9']);
   result := ord(c) - ord('0');
@@ -1156,7 +1156,7 @@ end;
 
 { TSmartDecimalContext }
 
-Function TSmartDecimalContext.value(value : AnsiString) : TSmartDecimal;
+Function TSmartDecimalContext.value(value : String) : TSmartDecimal;
 begin
   result := TSmartDecimal.create(self);
   result.SetValue(value);
@@ -1185,7 +1185,7 @@ begin
 end;
 
 
-Function TSmartDecimalContext.Equals(oOne, oTwo : TSmartDecimal) : Boolean;
+Function TSmartDecimalContext.Equal(oOne, oTwo : TSmartDecimal) : Boolean;
 Begin
   result := Compares(oOne, oTwo) = 0;
 end;
@@ -1225,7 +1225,7 @@ end;
 Function TSmartDecimalContext.Compares(oOne, oTwo: TSmartDecimal): Integer;
 var
   iMax : Integer;
-  s1, s2 : AnsiString;
+  s1, s2 : String;
 Begin
   if (oOne = nil) Or (oTwo = nil) then
     result := 0
@@ -1269,13 +1269,13 @@ begin
   end;
 end;
 
-class function TSmartDecimal.Equals(oOne, oTwo: TSmartDecimal): Boolean;
+class function TSmartDecimal.Equal(oOne, oTwo: TSmartDecimal): Boolean;
 var
   context : TSmartDecimalContext;
 begin
   context := TSmartDecimalContext.create;
   try
-    result := context.Equals(oOne, oTwo);
+    result := context.Equal(oOne, oTwo);
   finally
     context.free;
   end;

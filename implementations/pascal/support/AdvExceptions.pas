@@ -193,6 +193,7 @@ Procedure AbstractHandler(oObject : TObject);
 Var
   pAddress : ^Integer;
 Begin
+  {$IFDEF WIN32}
   // pAddress will point at the location of the method in memory.  The Delphi action
   // Search | Find Error can be used to locate the line that causes the abstract error
   // when the application is running.
@@ -207,6 +208,9 @@ Begin
     Raise EAdvAbstract.Create('AdvExceptions', 'AbstractHandler', StringFormat('Attempted call onto an abstract method $%x in class ''%s''.', [pAddress^, oObject.ClassName]))
   Else
     Raise EAdvAbstract.Create('AdvExceptions', 'AbstractHandler', StringFormat('Attempted call onto an abstract method $%x in object $%x.', [pAddress^, Integer(oObject)]));
+  {$ELSE}
+  Raise EAdvAbstract.Create('AdvExceptions', 'AbstractHandler', StringFormat('Attempted call onto an abstract method $%x in object $%x.', [pAddress^, Integer(oObject)]));
+  {$ENDIF}
 End;
 
 

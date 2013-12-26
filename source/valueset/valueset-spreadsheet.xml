@@ -334,12 +334,14 @@
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">10;240</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set defines its own codes</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define.system</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">URI to identify the code system</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">ValueSet.define.version</Data></Cell>
@@ -347,6 +349,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Version of this system</Data></Cell>
     <Cell><Data ss:Type="String">The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">ValueSet.define.caseSensitive</Data></Cell>
@@ -354,7 +357,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If code comparison is case sensitive</Data></Cell>
     <Cell><Data ss:Type="String">If code comparison is case sensitive when codes within this systemare compared to each other</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define.concept</Data></Cell>
@@ -418,7 +422,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Import the contents of another value set</Data></Cell>
     <Cell><Data ss:Type="String">Includes the contents of the referenced value set as part of the contents of this value set</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">The value set URI is either a logical reference to a defined value set such as a Snomed reference set, or a literal reference to a value set definition (not an expansion). If the reference is a logical one, it may not reference a actual FHIR value set resource; in this case, the referenced definition of a set of coded values needs to be clear about how versions are resolved</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">The value set URI is either a logical reference to a defined value set such as a Snomed reference set, or a literal reference to a value set definition (not an expansion). If the reference is a logical one, it may not reference a actual FHIR value set resource; in this case, the referenced definition of a set of coded values needs to be clear about how versions are resolved</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -429,7 +434,8 @@
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=ConceptSet</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
     <Cell><Data ss:Type="String">Include one or more codes from a code system</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">If there are no codes or filters, the entire code system is included</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">If there are no codes or filters, the entire code system is included</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -438,7 +444,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The system the codes come from</Data></Cell>
     <Cell><Data ss:Type="String">The code system from which the selected codes come from</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">See [[Coding.system]] for further documentation</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">See [[Coding.system]] for further documentation</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="s74" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href"><Data
       ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href</Data></Cell>
@@ -449,7 +456,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Specific version of the code system referred to</Data></Cell>
     <Cell><Data ss:Type="String">The version of the code system that the codes are selected from</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">This is used when selecting the descendents of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">This is used when selecting the descendents of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="s74" ss:HRef="mailto:ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Version"><Data
       ss:Type="String">ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Version</Data></Cell>
@@ -618,8 +626,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>34</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>36</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

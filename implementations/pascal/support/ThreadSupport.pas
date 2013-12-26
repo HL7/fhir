@@ -78,9 +78,7 @@ End;
 
 Procedure ThreadBreakpoint;
 Begin
-  {$IFDEF FPC}
-  // todo: how to do this?
-  {$ELSE}
+  {$IFDEF WIN32}
   Try
     ASM
       int $03
@@ -89,6 +87,8 @@ Begin
     // on some poorly configured Windows systems int $03 can cause unhandled
     // exceptions with improperly installed Dr Watsons etc....
   End;
+  {$ELSE}
+  // todo: how to do this?
   {$ENDIF}
 End;
 

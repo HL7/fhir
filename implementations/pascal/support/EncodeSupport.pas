@@ -549,7 +549,7 @@ Begin
       Result[iLoop] := '%';
       Inc(iLoop);
 
-      System.Insert(EncodeHexadecimal(Byte(cValue)), Result, iLoop);
+      System.Insert(string(EncodeHexadecimal(Byte(cValue))), Result, iLoop);
       Inc(iLoop);
     End;
 

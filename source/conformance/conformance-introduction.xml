@@ -1,24 +1,14 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- 
-todo
-* add flag for accept unknown content
-* Need to add back to the conformance resource about how creates and ids work for a system
-* Need to avoid imposing requirement to keep version history while still supporting versioning as much as possible
- -->
-<p>
-Conformance Statements provide for a degree of automatic configuration and adaptation.
-However, capturing absolutely every variation that could impact the interoperability of
-two systems, let alone keeping that detailed information up-to-date as systems evolve 
-through maintenance and upgrades is rarely practical. Therefore, conformance statements 
-should be seen as an interim step.  They provide a degree of automation.  However, they 
-also provide a great deal of human-readable content that can minimize the need for direct 
-communication between the operators of the systems being configured to interoperate.
-</p>
+<div>
+<h2>Scope and Usage</h2>
+<p> 
+<%definition%> 
+</p> 
 <p>
 Conformance statements are used in one of three ways:
 </p>
-<h2>Describe an actual implementation</h2>
+<h3>Describe an actual implementation</h3>
 <p>
 In this scenario, the conformance statement describes the capabilities of a deployed 
 and configured solution available at a particular access point or set of access points.  
@@ -36,7 +26,7 @@ A conformance statement is identified as being an implementation statement throu
 presence of the <i>implementation</i> element.
 </p>
 
-<h2>Describe software solution capabilities</h2>
+<h3>Describe software solution capabilities</h3>
 <p>
 In this scenario, the conformance statement describes the generic capabilities of a 
 software application or component solution.  The solution might be available for
@@ -55,7 +45,7 @@ A conformance statement is identified as being a software solution statement thr
 presence of the <i>software</i> element.
 </p>
 
-<h2>Describe a desired solution</h2>
+<h3>Describe a desired solution</h3>
 <p>
 In this scenario, the conformance statement describes the capabilities of a desired
 system.  It might be used as part of an architectural design process to document
@@ -75,5 +65,28 @@ be compared against the solution statements proffered by respondents to an RFP. 
 solution statement for a software package forms the starting point for the implementation 
 statement associated with a particular installation of that software package.
 </p>
+</div> 
+
+<div>
+<h2>Background and Context</h2>
+<!-- 
+todo
+* add flag for accept unknown content
+* Need to add back to the conformance resource about how creates and ids work for a system
+* Need to avoid imposing requirement to keep version history while still supporting versioning as much as possible
+ -->
+<p>
+Conformance Statements provide for a degree of automatic configuration and adaptation.
+However, capturing absolutely every variation that could impact the interoperability of
+two systems, let alone keeping that detailed information up-to-date as systems evolve 
+through maintenance and upgrades is rarely practical. Therefore, conformance statements 
+should be seen as an interim step.  They provide a degree of automation.  However, they 
+also provide a great deal of human-readable content that can minimize the need for direct 
+communication between the operators of the systems being configured to interoperate.
+</p>
+
+</div>
+
+
 
 </div>

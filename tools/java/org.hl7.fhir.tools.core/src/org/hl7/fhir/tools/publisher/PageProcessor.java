@@ -110,7 +110,11 @@ import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
+import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
+import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
@@ -304,7 +308,7 @@ public class PageProcessor implements Logger  {
   }
 
 
-  public String processPageIncludes(String file, String src, String type) throws Exception {
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
@@ -543,7 +547,8 @@ public class PageProcessor implements Logger  {
         src = s1 + genlevel(level) + s3;  
       else if (com[0].equals("archive"))
         src = s1 + makeArchives() + s3;  
-        
+      else if (others != null && others.containsKey(com[0]))  
+        src = s1 + others.get(com[0]) + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -744,7 +749,7 @@ public class PageProcessor implements Logger  {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, name, description, level, adorn, n+".xml.html");
     String html = TextFile.fileToString(folders.srcDir + "template-example-xml.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", b.toString());
-    html = processPageIncludes(n+".xml.html", html, pageType);
+    html = processPageIncludes(n+".xml.html", html, pageType, null);
     TextFile.stringToFile(html, dst);
     
     epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
@@ -2429,7 +2434,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("status"))
         src = s1+resource.getStatus()+s3;
       else if (com[0].equals("introduction")) 
-        src = s1+loadXmlNotes(name, "introduction")+s3;
+        src = s1+loadXmlNotes(name, "introduction", true, resource.getRoot().getDefinition())+s3;
       else if (com[0].equals("examples")) 
         src = s1+produceExamples(resource)+s3;
       else if (com[0].equals("profiles")) 
@@ -2457,7 +2462,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("plural"))
         src = s1+Utilities.pluralizeMe(name)+s3;
       else if (com[0].equals("notes")) {
-        src = s1+loadXmlNotes(name, "notes")+s3;
+        src = s1+loadXmlNotes(name, "notes", false, null)+s3;
       } else if (com[0].equals("dictionary"))
         src = s1+dict+s3;
       else if (com[0].equals("mappings"))
@@ -2481,7 +2486,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
       else if (com[0].equals("example-header"))
-        src = s1 + loadXmlNotesFromFile(Utilities.path(folders.srcDir, name.toLowerCase(), name+"-examples-header.xml"))+s3;
+        src = s1 + loadXmlNotesFromFile(Utilities.path(folders.srcDir, name.toLowerCase(), name+"-examples-header.xml"), false, null)+s3;
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("resref"))
@@ -2676,36 +2681,104 @@ public class PageProcessor implements Logger  {
   private static final String HTML_PREFIX = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";
   
-  public String loadXmlNotesFromFile(String filename) throws Exception {
+  public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition) throws Exception {
     if (!new CSFile(filename).exists()) {
       TextFile.stringToFile(HTML_PREFIX+"\r\n<!-- content goes here -->\r\n\r\n"+HTML_SUFFIX, filename);
       return "";
     }
 
+    String res;
     String cnt = TextFile.fileToString(filename);
-    cnt = processPageIncludes(filename, cnt, "notes").trim()+"\r\n";
+    Map<String, String> others = new HashMap<String, String>();
+    others.put("definition", definition);
+    cnt = processPageIncludes(filename, cnt, "notes", others).trim()+"\r\n";
     if (cnt.startsWith("<div")) {
       if (!cnt.startsWith(HTML_PREFIX))
         throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX.length()));
       else if (!cnt.endsWith(HTML_SUFFIX))
         throw new Exception("unable to process end xhtml content "+filename+" : "+cnt.substring(cnt.length()-HTML_SUFFIX.length()));
       else {
-        String res = cnt.substring(HTML_PREFIX.length(), cnt.length()-(HTML_SUFFIX.length()));
-        return res;
+        res = cnt.substring(HTML_PREFIX.length(), cnt.length()-(HTML_SUFFIX.length()));
       }
     } else {
-      TextFile.stringToFile(HTML_PREFIX+cnt+HTML_SUFFIX, filename);
-      return cnt;
+      res = HTML_PREFIX+cnt+HTML_SUFFIX;
+      TextFile.stringToFile(res, filename);
     }
-    
+    if (checkHeaders) {
+      checkFormat(filename, res);
+      
+    }
+    return res;
+   
   }
-  private String loadXmlNotes(String name, String suffix) throws Exception {
+
+  private void checkFormat(String filename, String res) throws Exception {
+    XhtmlNode doc = new XhtmlParser().parse("<div>"+res+"</div>", null).getFirstElement();
+    if (!doc.getName().equals("div"))
+      log("file \""+filename+"\": root element should be 'div'", LogMessageType.Error);
+    else if (doc.getFirstElement() == null) {
+      log("file \""+filename+"\": there is no 'Scope and Usage'", LogMessageType.Error);
+    } else {
+      XhtmlNode scope = null;
+      XhtmlNode context = null;
+      for (XhtmlNode x : doc.getChildNodes()) {
+        if (x.getNodeType() == NodeType.Element) {
+          if (!x.getName().equals("div")) {
+            log("file \""+filename+"\": all child elements of the root div should be 'div's too (found '"+x.getName()+"')", LogMessageType.Error);
+            return;
+          } else if (x.getChildNodes().isEmpty()) {
+            log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"] must have at least an h2", LogMessageType.Error);
+            return;
+          } else if (!x.getFirstElement().getName().equals("h2")) { 
+            log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"] must start with an h2", LogMessageType.Error);
+            return;
+          } else {
+            String s = x.getFirstElement().allText();
+            if (! ((s.equals("Scope and Usage")) || (s.equals("Boundaries and Relationships")) || (s.equals("Background and Context")) ) ) {
+              log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"]/h2 must be either 'Scope and Usage', 'Boundaries and Relationships', or 'Background and Context'", LogMessageType.Error);
+              return;
+            } else { 
+              if (scope == null) {
+                if (s.equals("Scope and Usage")) 
+                  scope = x;
+                else {
+                  log("file \""+filename+"\": 'Scope and Usage' must come first", LogMessageType.Error);
+                  return;
+                }
+                if (s.equals("Boundaries and Relationships")) {
+                  if (context != null) {
+                    log("file \""+filename+"\": 'Boundaries and Relationships' must come first before 'Background and Context'", LogMessageType.Error);
+                    return;
+                  }
+                }
+                  
+                if (s.equals("Background and Context"))
+                  context = x;
+              }
+            }
+            boolean found = false;
+            for (XhtmlNode n : x.getChildNodes()) {
+              if (!found)
+                found = n == x.getFirstElement();
+              else {
+                if ("h1".equals(n.getName()) || "h2".equals(n.getName())) {
+                  log("file \""+filename+"\": content of a <div> inner section cannot contain h1 or h2 headings", LogMessageType.Error);
+                  return;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition) throws Exception {
     String filename;
     if (new CSFile(folders.sndBoxDir + name).exists())
       filename = folders.sndBoxDir + name+File.separatorChar+name+"-"+suffix+".xml";
     else
       filename = folders.srcDir + name+File.separatorChar+name+"-"+suffix+".xml";
-    return loadXmlNotesFromFile(filename);
+    return loadXmlNotesFromFile(filename, checkHeaders, definition);
   }
 
   String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master) throws Exception {

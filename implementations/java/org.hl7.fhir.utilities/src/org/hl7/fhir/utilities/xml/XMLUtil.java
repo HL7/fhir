@@ -36,8 +36,11 @@ import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
+import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -343,13 +346,7 @@ public class XMLUtil {
   }
 
   public static String htmlToXmlEscapedPlainText(String definition) throws Exception {
-    
-    
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(false);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document xdoc = builder.parse(new ByteArrayInputStream(("<div>"+definition+"</div>").getBytes()));
-    return htmlToXmlEscapedPlainText(xdoc.getDocumentElement());
+    return htmlToXmlEscapedPlainText(parseToDom("<div>"+definition+"</div>").getDocumentElement());
   }
 
   public static String elementToString(Element el) {
@@ -385,5 +382,12 @@ public class XMLUtil {
     return c != null;
   }
 
-	
+  public static Document parseToDom(String content) throws Exception {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(false);
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    return builder.parse(new ByteArrayInputStream(content.getBytes()));
+  }
+
+ 	
 }

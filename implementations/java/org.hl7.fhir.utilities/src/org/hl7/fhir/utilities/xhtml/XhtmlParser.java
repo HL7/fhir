@@ -116,8 +116,8 @@ public class XhtmlParser {
       throw new Exception("Unable to Parse HTML - does not start with tag. Found "+peekChar()+descLoc());
     readChar();
     String n = readName().toLowerCase();
-    if (!n.equals(entryName))
-      throw new Exception("Unable to Parse HTML - does not start with '"+entryName+"'"+descLoc());
+    if ((entryName != null) && !n.equals(entryName))
+      throw new Exception("Unable to Parse HTML - starts with '"+n+"' not '"+entryName+"'"+descLoc());
     XhtmlNode root = result.addTag(n);
 
     readToTagEnd();

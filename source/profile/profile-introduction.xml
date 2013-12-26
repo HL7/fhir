@@ -1,6 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-
+<div>
+<h2>Scope and Usage</h2>
+<p> 
+<%definition%> 
+</p> 
 <p>
 This specification describes a set of base resources that are used in many different
 contexts in healthcare. In order to make this manageable, applications and specifications need to be
@@ -13,13 +17,12 @@ which itself is represented as a resource.
 </p>
 
 <p>
-Profile resources have four main parts:
+Profile resources have three main parts:
 </p>
 <ol>
  <li>A metadata section the describes the profile, and supports registry searching</li>
  <li><i>Structures</i> that define and describe how a Resource or Data Type is used</li>
  <li><i>Extension Definitions</i> that define extensions that can be used in structures</li>
- <li><i>Bindings</i> that describe a particular way that terminology is used</li>
 </ol>
 <p>
 This page defines the profile resource, and describes how it is used. Note that 
@@ -30,10 +33,19 @@ set of profiles</a> for all resources and data types is published.
 A FHIR RESTful server serving the profile resource is also a profile repository. 
 HL7 hosts one for public registration of FHIR profiles at (yet to be done).
 </p>
-<h2>Scope of a Profile</h2>
+</div> 
+
+<div> 
+<h2>Boundaries and Relationships</h2> 
+<ul>
+ <li>Profiles are used by <a href>Conformance Profiles</a> for specifying how resources are used</li>
+ <li>Profiles use <a href="valuesets"></a> to specify the content of coded elements</li>
+</ul>
+
+<h3>Limitations of Use</h3>
 <p>
 A profile specifies a set of rules that the content of a resource must adhere to. 
-In addition, a resource is allowed to describe required behaviour for applications
+In addition, a resource is allowed to describe required behavior for applications
 that conform to the profile. However the ability of the profile to define this behavior
 is limited in some respects:
 </p>
@@ -42,7 +54,7 @@ is limited in some respects:
  <li>It must be safe to process a resource without knowing of the profile</li>
 </ul>
 <p>
-The consequence of this is that if a profile mandates behaviour that cannot 
+The consequence of this is that if a profile mandates behavior that cannot 
 be ignored, it must also mandate an extension with isModifier=true in the
 instance. Another way of saying this is that knowledge must be explicit in
 the instance, not implicit in the profile. 
@@ -53,8 +65,12 @@ resource was deemed extremely unlikely, it could not simply say that this is so;
 say that the resource must have an extension that represents this knowledge. 
 </p>
 
+</div> 
 
-<h2>Metadata</h2>
+<div>
+<h2>Background and Context</h2>
+
+<h3>Metadata</h3>
 <p>
 The profile resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>
 and <a href="conformance.html">Conformance</a> resources. The metadata describes the profile, and helps 
@@ -82,7 +98,7 @@ find the profile when registered in profile repositories.
 <li>Multiple codes may be assigned to the profile. These may either describe the template, the focus of the template or both. They are solely to help find the profile by searching for structured concepts.</li>
 
 </ul>  
-<h2>Structure</h2>
+<h3>Structure</h3>
 <p>
 This section specifies restrictions on the content of a resource or a data type. Each structure has a name,
 which as an internal name unique in the scope of the profile that is used to reuse the structure, and 
@@ -240,7 +256,7 @@ An additional reason to use slicing is when a single element has a choice of typ
 different types need different definitions, mappings, or constraints. 
 </p>
 
-<h2>Extension Definitions</h2>
+<h3>Extension Definitions</h3>
 <p>
 A profile can also define extensions. Some profiles only define extensions, and others define 
 extensions as part of defining one or more structures. For an extension definition, the 
@@ -263,7 +279,7 @@ For further discussion of defining and using extensions, along with some example
 see <a href="extensibility.html">Extensibility</a>. 
 </p>
 
-<h3>Using Extensions in Structures</h3>
+<h4>Using Extensions in Structures</h4>
 <p>
 Defining a extension means that it can be used in a resource somewhere. To actually
 use a resource, the extension list on the resource needs to be sliced. To do this,
@@ -278,13 +294,12 @@ of an extension should be 0.
 </p>
 
 <a name="binding"> </a>
-<h2>Binding Definitions</h2>
+<h3>Binding Definitions</h3>
 
 <p>
-This section defines a set of bindings. A binding links from an element that may 
-contain a code to a definition of the set of possible codes the element may 
-contain. The binding identifies the definition of the set of possible codes, 
-and controls how tightly the set of the possible codes is interpreted.
+Coded elements have bindings that link from the element to a definition of the 
+set of possible codes the element may contain. The binding identifies the 
+definition of the set of possible codes, and controls how tightly the set of the possible codes is interpreted.
 </p>
 <p>
 The set of possible codes is either a formal reference to a value set 
@@ -357,6 +372,7 @@ value sets as well as code systems by version or independent of version.  Unless
 version-specific, it is possible that the set of codes permitted in the value set could change over time.
 </p>
 
+</div>
 
 
 </div>

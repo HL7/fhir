@@ -254,6 +254,7 @@ public class Publisher {
   private AtomFeed profileFeed;
   private AtomFeed typeFeed;
   private AtomFeed valueSetsFeed;
+  private AtomFeed conceptMapsFeed;
   private AtomFeed v2Valuesets;
   private AtomFeed v3Valuesets; 
   private List<Fragment> fragments = new ArrayList<Publisher.Fragment>();
@@ -1078,7 +1079,7 @@ public class Publisher {
       typeFeed.setId("http://hl7.org/fhir/profile/types");
       typeFeed.setTitle("Resources as Profiles");
       typeFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-types.xml");
-      typeFeed.setUpdated(DateAndTime.now());
+      typeFeed.setUpdated(profileFeed.getUpdated());
 
       for (String n : page.getDefinitions().getDiagrams().keySet()) {
         page.log(" ...diagram "+n, LogMessageType.Process);
@@ -1089,7 +1090,13 @@ public class Publisher {
       valueSetsFeed.setId("http://hl7.org/fhir/profile/valuesets");
       valueSetsFeed.setTitle("FHIR Core Valuesets");
       valueSetsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valuesets.xml");
-      valueSetsFeed.setUpdated(DateAndTime.now());
+      valueSetsFeed.setUpdated(profileFeed.getUpdated());
+
+      conceptMapsFeed = new AtomFeed();
+      conceptMapsFeed.setId("http://hl7.org/fhir/profile/conceptmaps");
+      conceptMapsFeed.setTitle("FHIR Core Concept Maps");
+      conceptMapsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/conceptmaps.xml");
+      conceptMapsFeed.setUpdated(profileFeed.getUpdated());
 
       loadValueSets();      
 
@@ -1150,7 +1157,14 @@ public class Publisher {
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, true);
       cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", false, "summary-instance");
       jsonToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", resource2Json(valueSetsFeed));
-      new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
+      
+      new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "conceptmaps.xml"), conceptMapsFeed, true, false);
+      Utilities.copyFile(page.getFolders().dstDir + "conceptmaps.xml", page.getFolders().dstDir + "examples"+ File.separator+"conceptmaps.xml");
+      new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "conceptmaps.json"), conceptMapsFeed, true);
+      cloneToXhtml("conceptmaps", "Base concept maps (implementation assistance, for validation, derivation and product development)", false, "summary-instance");
+      jsonToXhtml("conceptmaps", "Base concept maps (implementation assistance, for validation, derivation and product development)", resource2Json(conceptMapsFeed));
+      
+      new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);      
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples"+ File.separator+"v2-tables.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.json"), v2Valuesets, true);
       cloneToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)", false, "summary-instance");
@@ -1189,6 +1203,8 @@ public class Publisher {
       zip = new ZipGenerator(page.getFolders().dstDir + "all-valuesets.zip");
       zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
       zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
+      zip.addFileName("conceptmaps.xml", page.getFolders().dstDir + "conceptmaps.xml", false);
+      zip.addFileName("conceptmaps.json", page.getFolders().dstDir + "conceptmaps.json", false);
       zip.addFileName("v2-tables.xml", page.getFolders().dstDir + "v2-tables.xml", false);
       zip.addFileName("v2-tables.json", page.getFolders().dstDir + "v2-tables.json", false);
       zip.addFileName("v3-codesystems.xml", page.getFolders().dstDir + "v3-codesystems.xml", false);
@@ -1232,7 +1248,7 @@ public class Publisher {
     page.getQa().countDefinitions(page.getDefinitions());
     
     String src = TextFile.fileToString(page.getFolders().srcDir+ "qa.html");
-    TextFile.stringToFile(page.processPageIncludes("qa.html", src, "page"), page.getFolders().dstDir+"qa.html");
+    TextFile.stringToFile(page.processPageIncludes("qa.html", src, "page", null), page.getFolders().dstDir+"qa.html");
     
     if (web) {
       page.getQa().commit(page.getFolders().rootDir);
@@ -1587,7 +1603,7 @@ public class Publisher {
     Utilities.createDirectory(page.getFolders().dstDir + "v3");
     Utilities.clearDirectory(page.getFolders().dstDir + "v3");
     String src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.html");
-    TextFile.stringToFile(addSectionNumbers("terminologies-v3.html", "terminologies-v3", page.processPageIncludes("v3/template.html", src, "page"), null), page.getFolders().dstDir+"terminologies-v3.html");
+    TextFile.stringToFile(addSectionNumbers("terminologies-v3.html", "terminologies-v3", page.processPageIncludes("v3/template.html", src, "page", null), null), page.getFolders().dstDir+"terminologies-v3.html");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template.html");
     cachePage("terminologies-v3.html", page.processPageIncludesForBook("v3/template.html", src, "page"), "V3 Terminologes");
     IniFile ini = new IniFile(page.getFolders().srcDir + "v3"+File.separator+"valuesets.ini");
@@ -1603,7 +1619,7 @@ public class Publisher {
             Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+id);
             src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-cs.html");
 
-            String sf = page.processPageIncludes(id+".html", src, "v3Vocab");
+            String sf = page.processPageIncludes(id+".html", src, "v3Vocab", null);
             sf = addSectionNumbers("v3"+id+".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")));
             TextFile.stringToFile(sf, page.getFolders().dstDir + "v3"+File.separator+id+File.separator+"index.html");
             page.getEpub().registerFile("v3"+File.separator+id+File.separator+"index.html", "v3 CodeSystem "+id, EPubManager.XHTML_TYPE);
@@ -1616,7 +1632,7 @@ public class Publisher {
           Utilities.createDirectory(page.getFolders().dstDir + "v3"+File.separator+"vs"+File.separator+id);
           Utilities.clearDirectory(page.getFolders().dstDir + "v3"+File.separator+"vs"+File.separator+id);
           src = TextFile.fileToString(page.getFolders().srcDir+ "v3"+File.separator+"template-vs.html");
-          String sf = page.processPageIncludes(id+".html", src, "v3Vocab");
+          String sf = page.processPageIncludes(id+".html", src, "v3Vocab", null);
           sf = addSectionNumbers("v3"+id+".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("id")));
           TextFile.stringToFile(sf, page.getFolders().dstDir + "v3"+File.separator+"vs"+File.separator+id+File.separator+"index.html");
           page.getEpub().registerFile("v3"+File.separator+"vs"+File.separator+id+File.separator+"index.html", "v3 ValueSet "+id, EPubManager.XHTML_TYPE);
@@ -1832,7 +1848,7 @@ public class Publisher {
     Utilities.createDirectory(page.getFolders().dstDir + "v2");
     Utilities.clearDirectory(page.getFolders().dstDir + "v2");
     String src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template.html");
-    TextFile.stringToFile(addSectionNumbers("terminologies-v2.html", "terminologies-v2", page.processPageIncludes("v2/template.html", src, "v2Vocab"), null), page.getFolders().dstDir + "terminologies-v2.html");
+    TextFile.stringToFile(addSectionNumbers("terminologies-v2.html", "terminologies-v2", page.processPageIncludes("v2/template.html", src, "v2Vocab", null), null), page.getFolders().dstDir + "terminologies-v2.html");
     src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template.html");
     cachePage("terminologies-v2.html", page.processPageIncludesForBook("v2/template.html", src, "v2Vocab"), "V2 Terminologies");
     
@@ -1847,7 +1863,7 @@ public class Publisher {
         Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
         Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id);
         src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template-tbl.html");
-        String sf = page.processPageIncludes(id+".html", src, "v2Vocab");
+        String sf = page.processPageIncludes(id+".html", src, "v2Vocab", null);
         sf = addSectionNumbers("v2"+id+".html", "template-v2", sf, iid);
         TextFile.stringToFile(sf, page.getFolders().dstDir + "v2"+File.separator+id+File.separator+"index.html");
         page.getEpub().registerFile("v2"+File.separator+id+File.separator+"index.html", "v2 Table "+iid, EPubManager.XHTML_TYPE);
@@ -1873,7 +1889,7 @@ public class Publisher {
             Utilities.createDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
             Utilities.clearDirectory(page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver);
             src = TextFile.fileToString(page.getFolders().srcDir+ "v2"+File.separator+"template-tbl-ver.html");
-            String sf = page.processPageIncludes(id+"|"+ver+".html", src, "v2Vocab");
+            String sf = page.processPageIncludes(id+"|"+ver+".html", src, "v2Vocab", null);
             sf = addSectionNumbers("v2"+id+"."+ver+".html", "template-v2", sf, iid+"."+Integer.toString(i));
             TextFile.stringToFile(sf, page.getFolders().dstDir + "v2"+File.separator+id+File.separator+ver+File.separator+"index.html");
             page.getEpub().registerFile("v2"+File.separator+id+File.separator+ver+File.separator+"index.html", "v2 Table "+iid+" "+ver, EPubManager.XHTML_TYPE);
@@ -2145,7 +2161,7 @@ public class Publisher {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), description, 0, adorn, n + ".xml.html");
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processPageIncludes(n+".xml.html", html, pageType);
+    html = page.processPageIncludes(n+".xml.html", html, pageType, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
 
     
@@ -2224,7 +2240,7 @@ public class Publisher {
 		ByteArrayOutputStream b = new ByteArrayOutputStream();
 		xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()+" (id = \""+e.getId()+"\")", 0, true, n+".xml.html");
 		String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-		html = page.processPageIncludes(n+".xml.html", html, "resource-instance:"+resource.getName());
+		html = page.processPageIncludes(n+".xml.html", html, "resource-instance:"+resource.getName(), null);
 		TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
 		if (e.isInBook()) {
 			XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml.html"), "html");
@@ -2383,10 +2399,10 @@ public class Publisher {
     
 		String intro = null;
     if (profile.getMetadata().containsKey("introduction"))
-      intro = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("introduction").get(0));
+      intro = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("introduction").get(0), true, null);
     String notes = null;
     if (profile.getMetadata().containsKey("notes"))
-      notes = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("notes").get(0));
+      notes = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("notes").get(0), false, null);
 		
 		String exXml = "<p><i>No Example Provided</i></p>";
 		if (examplePath != null) {
@@ -2474,7 +2490,7 @@ public class Publisher {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
 		xhtml.generate(xdoc, b, "Profile", profile.metadata("name"), 0, true, title + ".profile.xml.html");
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
-    html = page.processPageIncludes(title+".xml.html", html, master == null ? "profile-instance" : "profile-instance:res:"+master);
+    html = page.processPageIncludes(title+".xml.html", html, master == null ? "profile-instance" : "profile-instance:res:"+master, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".profile.xml.html");
 
     
@@ -2514,7 +2530,7 @@ public class Publisher {
 
 	private void producePage(String file, String logicalName) throws Exception {
 		String src = TextFile.fileToString(page.getFolders().srcDir + file);
-		src = page.processPageIncludes(file, src, "page");
+		src = page.processPageIncludes(file, src, "page", null);
 		// before we save this page out, we're going to figure out what it's index is, and number the headers if we can
 
 		if (Utilities.noString(logicalName)) 
@@ -2549,7 +2565,7 @@ public class Publisher {
     String logicalName = "compartment-"+c.getName();
     String file = logicalName + ".html";
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-compartment.html");
-    src = page.processPageIncludes(file, src, "compartment");
+    src = page.processPageIncludes(file, src, "compartment", null);
 
 //    String prefix = "";
 //    if (!page.getSectionTrackerCache().containsKey("compartment-"+c.getName())) {
@@ -3093,7 +3109,7 @@ public class Publisher {
 
       ae.getLinks().put("path", name+".html");
       page.setId(id);
-      String sf = page.processPageIncludes(title+".html", TextFile.fileToString(page.getFolders().srcDir+"template-vs.html"), "valueSet");
+      String sf = page.processPageIncludes(title+".html", TextFile.fileToString(page.getFolders().srcDir+"template-vs.html"), "valueSet", null);
       sf = addSectionNumbers(title+".html", "template-valueset", sf, Utilities.oidTail(id));
 
       TextFile.stringToFile(sf, page.getFolders().dstDir+name+".html");
@@ -3253,8 +3269,10 @@ public class Publisher {
     xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.xml")), cm, true);
     AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
     e.setResource(cm);
+    e.setId(cm.getIdentifierSimple());
     e.getLinks().put("self", Utilities.changeFileExt(filename, "-map-v2.html"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, "-map-v2.html"));
+    conceptMapsFeed.getEntryList().add(e);
     page.getConceptMaps().put(cm.getIdentifierSimple(), e);
   }
 
@@ -3316,8 +3334,10 @@ public class Publisher {
     xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.xml")), cm, true);
     AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
     e.setResource(cm);
+    e.setId(cm.getIdentifierSimple());
     e.getLinks().put("self", Utilities.changeFileExt(filename, "-map-v3.html"));
     e.getLinks().put("path", Utilities.changeFileExt(filename, "-map-v3.html"));
+    conceptMapsFeed.getEntryList().add(e);
     page.getConceptMaps().put(cm.getIdentifierSimple(), e);
   }
 
@@ -3335,7 +3355,7 @@ public class Publisher {
     if (isGenerate) {
       addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);
 
-      String sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.html"), "codeSystem");
+      String sf = page.processPageIncludes(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx.html"), "codeSystem", null);
       sf = addSectionNumbers(filename+".html", "template-valueset", sf, Utilities.oidTail(cd.getOid()));
       TextFile.stringToFile(sf, page.getFolders().dstDir+filename);
       String src = page.processPageIncludesForBook(filename, TextFile.fileToString(page.getFolders().srcDir+"template-tx-book.html"), "codeSystem");

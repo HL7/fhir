@@ -116,7 +116,7 @@ separated from the parameter name by a colon. Modifiers are:</p>
   Searching for "gender:missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
   equates to not having the relevant element in the resource). Searching for "gender:missing=false"
   will return all the resources that have a value for the "gender" parameter. </li>
- <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behaviour, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
+ <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behavior, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
  <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes</li>
  <li>For reference: ":[type]" where [type] is the name of a type of resource</li>
 </ul>
@@ -230,7 +230,7 @@ though only a few servers are expected to offer this facility.
 <p>
 It as at the discretion of the server whether to pre-process names, addresses, 
 and contact details to remove separator characters prior to matching in order
-to ensure more consistent behaviour. For example, a server might remove all 
+to ensure more consistent behavior. For example, a server might remove all 
 spaces and "-" characters from phone numbers. What is most appropriate varies 
 depending on culture and context.
 </p>

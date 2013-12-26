@@ -182,6 +182,14 @@ public class XhtmlNode {
     return null;
   }
 
+  public XhtmlNode getFirstElement()
+  {
+    for (XhtmlNode n : childNodes)
+      if (n.getNodeType() == NodeType.Element) 
+        return n;
+    return null;
+  }
+
   public String allText() {
     StringBuilder b = new StringBuilder();
     for (XhtmlNode n : childNodes)

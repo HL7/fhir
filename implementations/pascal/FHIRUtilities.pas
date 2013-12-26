@@ -92,6 +92,20 @@ procedure BuildNarrative(vs : TFhirValueSet); overload;
 
 Function removeCaseAndAccents(s : String) : String;
 
+type
+  TFHIRElementHelper = class helper for TFhirOperationOutcome
+  public
+    procedure addExtension(url : String; t : TFhirType);
+  end;
+
+  TFHIROperationOutcomeHelper = class helper (TFHIRElementHelper) for TFhirOperationOutcome
+  public
+    function rule(level : TFhirIssueSeverity; source, typeCode, path : string; test : boolean; msg : string) : boolean;
+    function error(source, typeCode, path : string; test : boolean; msg : string) : boolean;
+    function warning(source, typeCode, path : string; test : boolean; msg : string) : boolean;
+    function hint(source, typeCode, path : string; test : boolean; msg : string) : boolean;
+  end;
+
 implementation
 
 
@@ -882,6 +896,128 @@ end;
 Function removeCaseAndAccents(s : String) : String;
 begin
   result := lowercase(s);
+end;
+
+{ TFHIROperationOutcomeHelper }
+
+
+function TFHIROperationOutcomeHelper.error(source, typeCode, path: string; test: boolean; msg: string): boolean;
+var
+  issue : TFhirOperationOutcomeIssue;
+  ex : TFhirExtension;
+begin
+  if not test then
+  begin
+    issue := TFhirOperationOutcomeIssue.create;
+    try
+      issue.severityST := IssueSeverityError;
+      issue.type_ := TFhirCoding.create;
+      issue.type_.systemST := 'http://hl7.org/fhir/issue-type';
+      issue.type_.codeST := typeCode;
+      issue.detailsST := msg;
+      issue.locationList.Append.value := path;
+      ex := issue.ExtensionList.Append;
+      ex.urlST := 'http://hl7.org/fhir/tools#issue-source';
+      ex.value := TFhirCode.create;
+      TFhirCode(ex.value).value := source;
+      self.issueList.add(issue.link);
+    finally
+      issue.free;
+    end;
+  end;
+  result := test;
+end;
+
+function TFHIROperationOutcomeHelper.hint(source, typeCode, path: string; test: boolean; msg: string): boolean;
+var
+  issue : TFhirOperationOutcomeIssue;
+  ex : TFhirExtension;
+begin
+  if not test then
+  begin
+    issue := TFhirOperationOutcomeIssue.create;
+    try
+      issue.severityST := IssueSeverityInformation;
+      issue.type_ := TFhirCoding.create;
+      issue.type_.systemST := 'http://hl7.org/fhir/issue-type';
+      issue.type_.codeST := typeCode;
+      issue.detailsST := msg;
+      issue.locationList.Append.value := path;
+      ex := issue.ExtensionList.Append;
+      ex.urlST := 'http://hl7.org/fhir/tools#issue-source';
+      ex.value := TFhirCode.create;
+      TFhirCode(ex.value).value := source;
+      self.issueList.add(issue.link);
+    finally
+      issue.free;
+    end;
+  end;
+  result := test;
+end;
+
+function TFHIROperationOutcomeHelper.rule(level: TFhirIssueSeverity; source, typeCode, path: string; test: boolean; msg: string): boolean;
+var
+  issue : TFhirOperationOutcomeIssue;
+  ex : TFhirExtension;
+begin
+  if not test then
+  begin
+    issue := TFhirOperationOutcomeIssue.create;
+    try
+      issue.severityST := level;
+      issue.type_ := TFhirCoding.create;
+      issue.type_.systemST := 'http://hl7.org/fhir/issue-type';
+      issue.type_.codeST := typeCode;
+      issue.detailsST := msg;
+      issue.locationList.Append.value := path;
+      ex := issue.ExtensionList.Append;
+      ex.urlST := 'http://hl7.org/fhir/tools#issue-source';
+      ex.value := TFhirCode.create;
+      TFhirCode(ex.value).value := source;
+      self.issueList.add(issue.link);
+    finally
+      issue.free;
+    end;
+  end;
+  result := test;
+end;
+
+function TFHIROperationOutcomeHelper.warning(source, typeCode, path: string; test: boolean; msg: string): boolean;
+var
+  issue : TFhirOperationOutcomeIssue;
+  ex : TFhirExtension;
+begin
+  if not test then
+  begin
+    issue := TFhirOperationOutcomeIssue.create;
+    try
+      issue.severityST := IssueSeverityWarning;
+      issue.type_ := TFhirCoding.create;
+      issue.type_.systemST := 'http://hl7.org/fhir/issue-type';
+      issue.type_.codeST := typeCode;
+      issue.detailsST := msg;
+      issue.locationList.Append.value := path;
+      ex := issue.ExtensionList.Append;
+      ex.urlST := 'http://hl7.org/fhir/tools#issue-source';
+      ex.value := TFhirCode.create;
+      TFhirCode(ex.value).value := source;
+      self.issueList.add(issue.link);
+    finally
+      issue.free;
+    end;
+  end;
+  result := test;
+end;
+
+{ TFHIRElementHelper }
+
+procedure TFHIRElementHelper.addExtension(url: String; t: TFhirType);
+var
+  ex : TFhirExtension;
+begin
+  ex := self.ExtensionList.Append;
+  ex.urlST := url;
+  ex.value := t; // nolink here (done outside)
 end;
 
 end.

@@ -1188,7 +1188,7 @@ end;
 
 function isNumeric(AChar: Char): Boolean;
 begin
-  Result := AChar in ['0'..'9'];
+  Result := CharInSet(AChar, ['0'..'9']);
 end;
 
 
