@@ -207,7 +207,7 @@ begin
   result := length(s) in [1..36];
   if result then
     for i := 1 to length(s) do
-      result := result and (s[i] in ['0'..'9', 'a'..'z', 'A'..'Z', '-', '.']);
+      result := result and CharInset(s[i], ['0'..'9', 'a'..'z', 'A'..'Z', '-', '.']);
 end;
 
 procedure iterateReferences(node : TFHIRObject; list : TFhirResourceReferenceList);

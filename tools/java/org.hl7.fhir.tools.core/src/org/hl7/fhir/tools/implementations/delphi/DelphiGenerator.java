@@ -1004,7 +1004,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
             "var\r\n"+
         "  child : IXMLDOMElement;\r\n");
 
-    prsrImpl.append(s.contains("item") ? "  item : IXMLDOMElement;\r\n" : "");
+    //prsrImpl.append(s.contains("item") ? "  item : IXMLDOMElement;\r\n" : "");
     prsrImpl.append(
         "begin\r\n"+
             "  result := "+tn+".create;\r\n"+
@@ -1062,8 +1062,16 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     s = workingComposerX.toString();
     prsrImpl.append(
         "procedure TFHIRXmlComposer.Compose"+tn.substring(5)+"(xml : TXmlBuilder; name : string; elem : "+tn+");\r\n");
-    if (s.contains("for i := "))
-      prsrImpl.append("var\r\n  i : integer;\r\n  ext : boolean;\r\n");
+    boolean var = false;
+    if (s.contains("for i := ")) {
+      prsrImpl.append("var\r\n  i : integer;\r\n");
+      var = true;
+    }
+    if (s.contains("ext := ")) {
+      if (!var) 
+        prsrImpl.append("var\r\n");
+      prsrImpl.append("  ext : boolean;\r\n");
+    }
     prsrImpl.append(
         "begin\r\n"+
         "  if (elem = nil) then\r\n    exit;\r\n");
@@ -1123,8 +1131,17 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     s = workingComposerJ.toString();
     prsrImpl.append(
         "procedure TFHIRJsonComposer.Compose"+tn.substring(5)+"(json : TJSONWriter; name : string; elem : "+tn+");\r\n");
-    if (s.contains("for i := ") || category == ClassCategory.Resource)
-      prsrImpl.append("var\r\n  i : integer;  ext : boolean;\r\n");
+    var = false;
+    if (s.contains("for i := ")) { // || category == ClassCategory.Resource) {
+      prsrImpl.append("var\r\n  i : integer;\r\n");
+      var = true;
+    }
+    if (s.contains("ext := ")) {
+      if (!var) 
+        prsrImpl.append("var\r\n");
+      prsrImpl.append("  ext : boolean;\r\n");
+    }
+    
     if (category == ClassCategory.Resource)
       prsrImpl.append(
           "begin\r\n"+
@@ -2281,7 +2298,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       if (pn.equals("Boolean"))
         prsrImpl.append("  attribute(xml, 'value', LCBooleanToString(value.value));\r\n");
       else if (!pn.equals("String"))
-        prsrImpl.append("  attribute(xml, 'value', toString(value.value));\r\n");
+        prsrImpl.append("  attribute(xml, 'value', asString(value.value));\r\n");
       else
         prsrImpl.append("  attribute(xml, 'value', value.value);\r\n");
       prsrImpl.append("  xml.open(name);\r\n");
@@ -2308,7 +2325,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       if (pn.equals("Boolean"))
         prsrImpl.append("    prop(json, name, value.value);\r\n");
       else if (!pn.equals("String"))
-        prsrImpl.append("    prop(json, name, toString(value.value));\r\n");
+        prsrImpl.append("    prop(json, name, asString(value.value));\r\n");
       else
         prsrImpl.append("    prop(json, name, value.value);\r\n");
       prsrImpl.append("end;\r\n\r\n");
@@ -2900,8 +2917,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrImpl.append("    result := false;\r\n");
     prsrImpl.append("end;\r\n\r\n");
 
-    prsrdefJ.append("    Function ParseResourceProperties(jsn : TJsonObject; resource : TFhirResource) : boolean;\r\n");
-    prsrImpl.append("Function TFHIRJsonParser.ParseResourceProperties(jsn : TJsonObject; resource : TFhirResource) : boolean;\r\n");
+    prsrdefJ.append("    procedure ParseResourceProperties(jsn : TJsonObject; resource : TFhirResource);\r\n");
+    prsrImpl.append("procedure TFHIRJsonParser.ParseResourceProperties(jsn : TJsonObject; resource : TFhirResource);\r\n");
     prsrImpl.append("begin\r\n");
     prsrImpl.append("  ParseBackboneElementProperties(jsn, resource);\r\n");
     prsrImpl.append("  if jsn.has('language') or jsn.has('_language') then\r\n");

@@ -86,7 +86,7 @@ begin
           end;
         else
           begin
-          if AStr[i] in [' '..'~'] then
+          if CharInSet(AStr[i], [' '..'~']) then
             b.Append(AStr[i])
           else
             b.Append('&#' + IntToStr(Ord(AStr[i])) + ';');
@@ -133,7 +133,7 @@ begin
         end;
       else
         begin
-        if AStr[i] in [' '..'~'] then
+        if CharInSet(AStr[i], [' '..'~']) then
           Result := Result + AStr[i]
         else
           Result := Result + '&#' + IntToStr(Ord(AStr[i])) + ';';
@@ -147,7 +147,6 @@ function FormatXMLToHTML(AStr : String):String;
 var
   LIsNewLine: Boolean;
   I: Integer;
-  LLen: Integer;
   LInAmp : Boolean;
   LInTag : boolean;
   LInAttr : Boolean;
@@ -224,7 +223,7 @@ begin
           end;
         else
           begin
-          if AStr[i] in [' '..'~'] then
+          if CharINSet(AStr[i], [' '..'~']) then
             b.Append(AStr[i])
           else
             b.Append('&#' + IntToStr(Ord(AStr[i])) + ';');

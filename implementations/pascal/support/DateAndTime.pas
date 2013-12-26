@@ -43,6 +43,7 @@ Const
   codes_TDateAndTimeTimezone : Array [TDateAndTimeTimezone] of String = ('Unknown', 'UTC', 'Local', 'Specified');
 
 Type
+{$M+}
 
   {@Class TDateAndTime
     This class is used to hold date and time information, along with precision and a timezone.
@@ -67,16 +68,17 @@ Type
     procedure SetAsXml(Value: String);
   Public
     constructor Create; Override;
-    constructor CreateHL7(value : String);
-    constructor CreateXML(value : String);
-    constructor CreateUTC(value : TDateTime);
     destructor Destroy; Override;
+
+    class function CreateHL7(value : String) : TDateAndTime;
+    class function CreateXML(value : String) : TDateAndTime;
+    class function CreateUTC(value : TDateTime) : TDateAndTime;
 
     Function Link : TDateAndTime; overload;
     Function Clone : TDateAndTime; overload;
     procedure Assign(source : TAdvObject); Override;
     function GetAsString: String;
-    function ToString: String;
+    function ToString: String; override;
     function GetDateTime: TDateTime;
     function GetYear: Integer;
     procedure SetYear(Year: Integer);
@@ -173,10 +175,10 @@ Type
     }
     function AsTz(hr, min : Integer):TDateAndTime;
 
-    {@member Equals
+    {@member Equal
       returns true if the timezone, precision, and actual instant are the same
     }
-    function Equals(other : TDateAndTime) : Boolean;
+    function Equal(other : TDateAndTime) : Boolean;
 
     {@member SameTime
       returns true if the specified instant is the same allowing for specified precision - corrects for timezone
@@ -482,16 +484,26 @@ begin
   Result.DateTime := trunc(sysutils.now);
 end;
 
-constructor TDateAndTime.CreateHL7(value: String);
+class function TDateAndTime.CreateHL7(value: String) : TDateAndTime;
 begin
-  Create;
-  AsHL7 := value;
+  result := TDateAndTime.Create;
+  try
+    result.AsHL7 := value;
+    result.Link;
+  finally
+    result.Free;
+  end;
 end;
 
-constructor TDateAndTime.CreateXML(value: String);
+class function TDateAndTime.CreateXML(value: String) : TDateAndTime;
 begin
-  Create;
-  AsXml := value;
+  result := TDateAndTime.Create;
+  try
+    result.AsXml := value;
+    result.Link;
+  finally
+    result.free;
+  end;
 end;
 
 Function sv(i, w : integer):String;
@@ -946,7 +958,7 @@ begin
   result := TDateAndTime(Inherited Link);
 end;
 
-function TDateAndTime.Equals(other: TDateAndTime): Boolean;
+function TDateAndTime.Equal(other: TDateAndTime): Boolean;
 var
   src : TDateAndTime;
 begin
@@ -1001,11 +1013,16 @@ begin
   end;
 end;
 
-constructor TDateAndTime.CreateUTC(value: TDateTime);
+class function TDateAndTime.CreateUTC(value: TDateTime) : TDateAndTime;
 begin
-  Create;
-  SetDateTime(value);
-  TimezoneType := dttzUTC;
+  result := Create;
+  try
+    result.SetDateTime(value);
+    result.TimezoneType := dttzUTC;
+    result.link;
+  finally
+    result.Free;
+  end;
 end;
 
 function TDateAndTime.ToString: String;

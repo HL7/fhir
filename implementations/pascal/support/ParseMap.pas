@@ -30,7 +30,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 interface
 
-uses Classes, AdvObjects, EncodeSupport, StringSupport;
+uses
+  Windows, Classes,
+  EncodeSupport, StringSupport,
+  AdvObjects;
 
 const
   HTTPUtilAnonymousItemName = 'ANONYMOUS';
@@ -42,7 +45,7 @@ type
     fItemList: TStringList;
     FSource: String;
   Public
-    constructor Create;
+    constructor Create; Override;
     destructor Destroy; Override;
     procedure addItem(itemname: String; const itemvalue: String);
     procedure RemoveItem(itemname: String);

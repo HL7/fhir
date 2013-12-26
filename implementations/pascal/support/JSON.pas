@@ -53,7 +53,7 @@ Type
   protected
     function nodeType : String;
   public
-    constructor create(path : String); virtual;
+    constructor create(path : String); overload;
     Function Link : TJsonNode; Overload;
     property path : String read FPath write FPath;
   end;
@@ -80,8 +80,8 @@ Type
     procedure SetObj(i: integer; const Value: TJsonObject);
     procedure SetValue(i: integer; const Value: String);
   public
-    constructor create(path : String); override;
-    destructor destroy; override;
+    constructor Create; override;
+    destructor Destroy; override;
     Function Link : TJsonArray; Overload;
 
     Property Count : integer read GetCount;
@@ -109,8 +109,8 @@ Type
     function GetArray(name: String): TJsonArray;
     function GetObject(name: String): TJsonObject;
   public
-    constructor create(path : String); override;
-    destructor destroy; override;
+    constructor Create; override;
+    destructor Destroy; override;
     Function Link : TJsonObject; Overload;
 
     Function has(name : String) : Boolean;
@@ -490,7 +490,7 @@ var
 begin
   repeat
     ch := getNextChar;
-  Until Not More Or (not (ch in [' ', #13, #10, #9]));
+  Until Not More Or not CharInSet(ch, [' ', #13, #10, #9]);
 
   If Not More Then
     FLexType := jltEof
@@ -537,7 +537,7 @@ begin
       Begin
       FLexType := jltNumber;
       FValue := ch;
-      while More and (ch in ['0'..'9', '.']) do
+      while More and CharInSet(ch, ['0'..'9', '.']) do
       Begin
         FValue := FValue + ch;
         ch := getNextChar;
@@ -794,6 +794,7 @@ var
   i : integer;
 begin
   i := 0;
+  obj := nil;
   while (ItemType <> jpitEnd) do
   begin
     case ItemType of
@@ -961,7 +962,7 @@ end;
 
 constructor TJsonNode.create(path: String);
 begin
-  inherited Create;
+  Create;
   self.path := path;
 end;
 
@@ -1002,7 +1003,7 @@ end;
 
 constructor TJsonArray.create;
 begin
-  inherited;
+  inherited Create;
   FItems := TAdvObjectList.Create;
 end;
 
@@ -1089,7 +1090,7 @@ end;
 
 constructor TJsonObject.create;
 begin
-  inherited;
+  inherited Create;
   FProperties := TJsonProperties.Create;
 end;
 

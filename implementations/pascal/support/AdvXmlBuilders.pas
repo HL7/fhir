@@ -48,8 +48,8 @@ Type
   protected
     procedure SetNamespace(const Value: String); override;
   Public
-    constructor create; override;
-    destructor destroy; override;
+    constructor Create; override;
+    destructor Destroy; override;
 
     procedure defineNS(abbrev, uri : String);
 

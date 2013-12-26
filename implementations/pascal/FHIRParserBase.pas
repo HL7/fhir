@@ -172,7 +172,7 @@ Type
     procedure ComposeXHtmlNode(s : TAdvStringBuilder; node: TFhirXHtmlNode; indent : integer); overload;
     function ResourceMediaType: String; virtual;
 
-    function toString(value : TDateAndTime):String;
+    function asString(value : TDateAndTime):String;
   public
     Constructor Create(lang : String); Virtual;
     Procedure Compose(stream : TStream; id, ver : String; oResource : TFhirResource; isPretty : Boolean); Overload; Virtual; Abstract;
@@ -459,9 +459,6 @@ end;
 
 
 function TFHIRJsonParserBase.ParseFeed(jsn : TJsonObject): TFHIRAtomFeed;
-var
-  cat : TFHIRAtomCategory;
-  i : integer;
 begin
   result := TFHIRAtomFeed.create;
   try
@@ -594,7 +591,7 @@ begin
     if jsn.has('contentType') then
       result.ContentType:= jsn['contentType'];
     if jsn.has('content') then
-      result.content.AsBytes := DecodeBase64(jsn['content']);
+      result.content.AsBytes := DecodeBase64(AnsiString(jsn['content']));
     if jsn.has('id') then
       result.xmlId:= jsn['id'];
     result.link;
@@ -629,7 +626,7 @@ end;
 
 procedure TFHIRJsonParserBase.iteratePrimitiveArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectPrimitiveHandler);
 var
-  i, t : integer;
+  i : integer;
 begin
   if (arr1 <> nil) or (arr2 <> nil) then
   begin
@@ -640,7 +637,7 @@ end;
 
 procedure TFHIRJsonParserBase.iterateEnumArray(arr1, arr2 : TJsonArray; ctxt : TFHIRObjectList; handler : TJsonObjectEnumHandler; Const aNames : Array Of String);
 var
-  i, t : integer;
+  i : integer;
 begin
   if (arr1 <> nil) or (arr2 <> nil) then
   begin
@@ -1029,7 +1026,7 @@ procedure TFHIRJsonComposerBase.ComposeBinary(json: TJSONWriter; binary: TFhirBi
 begin
   Prop(json, 'id', binary.xmlId);
   Prop(json, 'contentType', binary.ContentType);
-  Prop(json, 'content', StringReplace(EncodeBase64(binary.Content.Data, binary.Content.Size), #13#10, ''));
+  Prop(json, 'content', StringReplace(string(EncodeBase64(binary.Content.Data, binary.Content.Size)), #13#10, ''));
 end;
 
 procedure TFHIRJsonComposerBase.composeContained(json: TJSONWriter; oResource: TFhirResource);
@@ -1162,6 +1159,7 @@ var
   p : TFHIRXmlParser;
   xml : IXMLDOMElement;
 begin
+  result := nil;
   ss := TStringStream.Create(fragment, TEncoding.UTF8);
   try
     p := TFHIRXmlParser.Create(lang);
@@ -2220,7 +2218,7 @@ begin
     xml.Namespace := FHIR_NS;
   xml.AddAttribute('id', binary.xmlId);
   xml.AddAttribute('contentType', binary.ContentType);
-  xml.TagText('Binary', StringReplace(EncodeBase64(binary.Content.Data, binary.Content.Size), #13#10, ''));
+  xml.TagText('Binary', StringReplace(string(EncodeBase64(binary.Content.Data, binary.Content.Size)), #13#10, ''));
 end;
 
 procedure TFHIRComposer.ComposeXHtmlNode(s: TAdvStringBuilder; node: TFhirXHtmlNode; indent : integer);
@@ -2261,7 +2259,7 @@ begin
   try
     result.ContentType := GetAttribute(element, 'contentType');
     result.xmlId := GetAttribute(element, 'id');
-    result.Content.AsBytes := DecodeBase64(element.text);
+    result.Content.AsBytes := DecodeBase64(AnsiString(element.text));
     result.link;
   finally
     result.free;
@@ -2298,7 +2296,7 @@ begin
     result := TDateAndTime.createXml(s);
 end;
 
-function TFHIRComposer.toString(value: TDateAndTime): String;
+function TFHIRComposer.asString(value: TDateAndTime): String;
 begin
   if value = nil then
     result := ''

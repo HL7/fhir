@@ -76,6 +76,7 @@ Const
    HTTP_ERR_INTERNAL = 500;
 
 Type
+  {$M+}
   TFHIRUser = class (TAdvObject)
   private
     Fname: String;
@@ -85,8 +86,8 @@ Type
     FPatientList: TAdvStringList;
     FsessionLength: String;
   public
-    constructor create; Override;
-    destructor destroy; Override;
+    constructor Create; Override;
+    destructor Destroy; Override;
     function Link : TFHIRUser; overload;
     property login : String read Flogin write Flogin;
     property email : String read Femail write Femail;
