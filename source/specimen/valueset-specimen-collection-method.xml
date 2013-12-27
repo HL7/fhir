@@ -1,12 +1,13 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <name value="SpecimenType"/>
+  <name value="SpecimenCollectionMethod"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value=" This example value set defines a set of codes that can be used to indicate the method of collection of a specimen."/>
+  <description value=" This example value set defines a set of codes that can be used to indicate the method of collection of a specimen. 
+    It includes values from HL7 v2 table 0048"/>
   <status value="draft"/>
   <compose>
     <include>
@@ -76,6 +77,9 @@
           <valueString value="Finger stick"/>
         </extension>
       </code>      
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0488"/>
     </include>
   </compose>
 </ValueSet>
