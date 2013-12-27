@@ -617,7 +617,7 @@ Begin
     MemoryResize(FTable, FCapacity * SizeOf(TAdvHashEntry), Value * SizeOf(TAdvHashEntry));
 
     If Value > FCapacity Then
-      MemoryZero(Pointer(Integer(FTable) + (FCapacity * SizeOf(TAdvHashEntry))), (Value - FCapacity) * SizeOf(TAdvHashEntry));
+      MemoryZero(Pointer(NativeUInt(FTable) + (FCapacity * SizeOf(TAdvHashEntry))), (Value - FCapacity) * SizeOf(TAdvHashEntry));
 
     FCapacity := Value;
     FThreshold := Trunc(FCapacity * FBalance);

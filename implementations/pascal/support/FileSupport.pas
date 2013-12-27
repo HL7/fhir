@@ -154,7 +154,7 @@ End;
 
 Function FileExists(Const sFilename : String) : Boolean;
 Var
-  hHandle : Cardinal;
+  hHandle : NativeUInt;
   aFindData : TWin32FindData;
 Begin
   hHandle := Windows.FindFirstFile(PChar(sFileName), aFindData);

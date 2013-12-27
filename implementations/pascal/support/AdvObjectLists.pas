@@ -336,7 +336,7 @@ procedure TAdvObjectList.InternalEmpty(iIndex, iLength: integer);
 begin
   inherited;
 
-  MemoryZero(Pointer(integer(FObjectArray) + (iIndex * SizeOf(TAdvObject))),
+  MemoryZero(Pointer(NativeUInt(FObjectArray) + (iIndex * SizeOf(TAdvObject))),
     (iLength * SizeOf(TAdvObject)));
 end;
 

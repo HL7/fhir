@@ -253,7 +253,7 @@ Begin
     pTarget^ := EncodeBase64((iData Shr 8) And $3F);
     Inc(pTarget);
 
-    pSource := Pointer(Integer(pSource) + 3);
+    pSource := Pointer(NativeUInt(pSource) + 3);
   End;
 
   iTarget := SignedMod(iCount, 3);

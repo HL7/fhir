@@ -383,7 +383,7 @@ Begin
   MemoryResize(FProfileArray, FCapacity * SizeOf(PAdvProfileItem), Value * SizeOf(PAdvProfileItem));
 
   If Value > FCapacity Then
-    MemoryZero(Pointer(Integer(FProfileArray) + (FCapacity * SizeOf(PAdvProfileItem))), (Value - FCapacity) * SizeOf(PAdvProfileItem));
+    MemoryZero(Pointer(NativeUInt(FProfileArray) + (FCapacity * SizeOf(PAdvProfileItem))), (Value - FCapacity) * SizeOf(PAdvProfileItem));
 
   FCapacity := Value;
   FThreshold := Trunc(FCapacity * FBalance);

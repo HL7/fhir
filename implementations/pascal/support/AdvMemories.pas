@@ -164,7 +164,7 @@ End;
 
 Procedure TAdvMemoryStream.UpdateCurrentPointer;
 Begin 
-  FCurrentPointer := Pointer(Cardinal(FBuffer.Data) + FPosition);
+  FCurrentPointer := Pointer(NativeUInt(FBuffer.Data) + FPosition);
 End;  
 
 
