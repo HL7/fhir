@@ -87,7 +87,7 @@ public class SpecificationConceptLocator  implements ConceptLocator {
     if (!snomedCodes.containsKey(code))
       response = queryForTerm(code);
     if (snomedCodes.containsKey(code))
-      if (snomedCodes.get(code).has(display))
+      if (display == null || snomedCodes.get(code).has(display))
         return null;
       else 
         return new ValidationResult(IssueSeverity.warning, "Snomed Display Name for "+code+" must be one of '"+snomedCodes.get(code).summary()+"'");

@@ -38,7 +38,7 @@
     <coding>
         <system value="http://snomed.info/sct"/>
         <code value="104177005"/>
-        <display value="Blood culture for bacteria"/> 
+        <display value="Blood culture for bacteria, including anaerobic screen"/> 
     </coding>
   </name>
   <result>

@@ -28,8 +28,9 @@
       <coding>
         <system value="http://snomed.info/sct"/>
         <code value="429858000"/>
-        <display value="CT of head-neck"/>
+        <display value="Computed tomography (CT) of head and neck"/>
       </coding>
+      <text value="CT of head-neck"/>
     </name>
  </results>
  <!--The CT image was not available-->
@@ -38,7 +39,7 @@
      <coding>
        <system value="http://snomed.info/sct"/>
        <code value="188340000"/>
-       <display value="Malignant craniopharyngeal tumor"/> 
+       <display value="Malignant tumor of craniopharyngeal duct"/> 
      </coding>
  </codedDiagnosis>
 </DiagnosticReport>

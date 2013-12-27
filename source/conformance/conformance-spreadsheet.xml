@@ -411,8 +411,9 @@
     <Cell><Data ss:Type="String">Conformance.acceptUnknown</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">True if application accepts unknown elements</Data></Cell>
-    <Cell><Data ss:Type="String">Whether the application accepts unknown non-&quot;must understand&quot; elements as part of a resource. This does not include extensions, but genuine new additions to a resource</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">True if application accepts unknown elements </Data></Cell>
+    <Cell><Data ss:Type="String">Whether the application accepts unknown &quot;must understand&quot; elements as part of a resource. This does not include extensions, but genuine new additions to a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Conformance.format</Data></Cell>
@@ -1038,7 +1039,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>44</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1055,8 +1056,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>54</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

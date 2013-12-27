@@ -37,6 +37,7 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
@@ -2771,7 +2772,24 @@ public class PageProcessor implements Logger  {
         }
       }
     }
+    List<String> allowed = Arrays.asList("div", "h3", "h4", "h5", "i", "b", "code", "pre", "blockquote", "p", "a", "img", "table", "tr", "td", "ol", "ul", "li");
+    iterateAllChildNodes(doc, allowed);
   }
+  
+  private boolean iterateAllChildNodes(XhtmlNode node, List<String> allowed) {
+    for (XhtmlNode n : node.getChildNodes()) {
+      if (n.getNodeType() == NodeType.Element) {
+        if (!allowed.contains(n.getName())) {
+          log("Markup uses non permitted name "+n.getName(), LogMessageType.Error);
+          return false;
+        }
+        if (!iterateAllChildNodes(n, allowed))
+          return false;
+      }
+    }
+    return true;
+  }
+
   private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition) throws Exception {
     String filename;
     if (new CSFile(folders.sndBoxDir + name).exists())

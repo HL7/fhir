@@ -16,7 +16,7 @@
      <coding>
        <system value="http://snomed.info/sct"/>
        <code value="36225005"/>
-       <display value="Renal insufficiency due to procedure"/>
+       <display value="Acute renal insufficiency specified as due to procedure"/>
      </coding>
  </code>
  <category><!--Renal insufficiency could become a severe problem-->
