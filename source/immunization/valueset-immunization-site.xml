@@ -1,0 +1,36 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
+        contains concepts to support the medication process, in particular the process and reasons for dispensing.</p>
+      <p>Possible sources include:</p>
+      <ul>
+        <li>The HL7 immunization site value set</li>
+      </ul>
+      <p>The HL7 set is used here as the example terminology.</p>
+    </div>
+  </text>
+  <name value="Immunization Site of Administration Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set is provided as an exemplar"/>
+  <status value="draft"/>
+  <define>
+    <include>
+      <system value="2.16.840.1.113883.5.1052"/>
+      <concept>
+        <code value="LA"/>
+        <display value="left arm" />
+      </concept>
+      <concept>
+        <code value="RA"/>
+        <display value="right arm" />
+      </concept>
+  </define>
+</ValueSet>
+
