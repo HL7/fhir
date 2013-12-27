@@ -412,7 +412,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">True if application accepts unknown elements </Data></Cell>
-    <Cell><Data ss:Type="String">Whether the application accepts unknown &quot;must understand&quot; elements as part of a resource. This does not include extensions, but genuine new additions to a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined</Data></Cell>
+    <Cell><Data ss:Type="String">Whether the application accepts unknown elements as part of a resource. Note: This is not about extensions, but about unknown elements in a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence this element is about inter-version compatibility</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
@@ -1056,7 +1056,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
+     <ActiveRow>19</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
