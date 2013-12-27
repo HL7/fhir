@@ -7,19 +7,20 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Huang , Wendy</LastAuthor>
+  <LastAuthor>Joginder Madra</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-09-27T01:00:28Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2013-12-27T20:01:26Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7050</WindowHeight>
-  <WindowWidth>19440</WindowWidth>
+  <WindowHeight>9420</WindowHeight>
+  <WindowWidth>21420</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -141,6 +142,96 @@
    <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
+ <Worksheet ss:Name="Invariants">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
+    <Cell><Data ss:Type="String">Id</Data></Cell>
+    <Cell><Data ss:Type="String">Name</Data></Cell>
+    <Cell><Data ss:Type="String">Context</Data></Cell>
+    <Cell><Data ss:Type="String">English</Data></Cell>
+    <Cell><Data ss:Type="String">OCL</Data></Cell>
+    <Cell><Data ss:Type="String">XPath</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>2</SplitVertical>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveCol>0</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="32" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
@@ -443,7 +534,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ActImmunizationReason</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImmunizationReason</Data></Cell>
     <Cell><Data ss:Type="String">Administration Reasons</Data></Cell>
     <Cell><Data ss:Type="String">Reasons why a vaccine was administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
@@ -458,7 +549,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">ActNoImmunizationReason</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">NoImmunizationReason</Data></Cell>
     <Cell><Data ss:Type="String">Explanation of refusal / exemption</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Refusal or exemption reasons</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
@@ -530,14 +621,14 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s68"><Data ss:Type="String">Immunization.vaccinationProtocol</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Vaccine Administration Protocol</Data></Cell>
-    <Cell><Data ss:Type="String">Contains information about the protocol under which the vaccine was administered</Data></Cell>
+    <Cell><Data ss:Type="String">Contains information about the protocol(s) under which the vaccine was administered</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="s72"><Data ss:Type="String">outboundRelationship[typeCode=INST].target[classCode=SBADM]</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">(V2.x doesn't seem to provide for this)&#10;</Data></Cell>
@@ -585,7 +676,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Immunization.vaccinationProtocol.doseTarget</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">VaccinationProtocolDoseTarget</Data></Cell>
     <Cell><Data ss:Type="String">Targeted Disease</Data></Cell>
@@ -625,13 +716,12 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>27</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -639,104 +729,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>4</ActiveCol>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="188.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Name</Data></Cell>
-    <Cell><Data ss:Type="String">Context</Data></Cell>
-    <Cell><Data ss:Type="String">English</Data></Cell>
-    <Cell><Data ss:Type="String">OCL</Data></Cell>
-    <Cell><Data ss:Type="String">XPath</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <FreezePanes/>
-   <FrozenNoSplit/>
-   <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
-   <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
-   <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1008,60 +1010,69 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="9" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="153.75"/>
    <Column ss:StyleID="s85" ss:Width="258"/>
-   <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="106.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="81.75" ss:Span="1"/>
+   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">VaccineType</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The type of vaccine administered</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s64"><Data ss:Type="String">Vaccine Product Type Administered</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">valueset</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s64"><Data ss:Type="String">Vaccine Product Type Administered</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">ImmunizationSite</Data></Cell>
     <Cell><Data ss:Type="String">The site at which the vaccine was administered</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">valueset</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"><Data ss:Type="String">ImmunizationRoute</Data></Cell>
     <Cell><Data ss:Type="String">The route by which the vaccine was administered</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">valueset</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ActImmunizationReason</Data></Cell>
+    <Cell><Data ss:Type="String">ImmunizationReason</Data></Cell>
     <Cell><Data ss:Type="String">The reason why a vaccine was administered</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">valueset</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"><Data ss:Type="String">ActNoImmunizationReason</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">NoImmunizationReason</Data></Cell>
     <Cell><Data ss:Type="String">The reason why a vaccine administration was refused</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">valueset</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">VaccinationProtocolDoseTarget</Data></Cell>
     <Cell><Data ss:Type="String">The disease target of the vaccination protocol</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">valueset</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">VaccinationProtocolDoseStatus</Data></Cell>
     <Cell><Data ss:Type="String">The status of the vaccination protocol (i.e. should this count)</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">valueset</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">VaccinationProtocolDoseStatusReason</Data></Cell>
     <Cell><Data ss:Type="String">The reason for the determining if a vaccination should count or why vaccination should not count.</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">valueset</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Y</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1071,6 +1082,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1090,8 +1102,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

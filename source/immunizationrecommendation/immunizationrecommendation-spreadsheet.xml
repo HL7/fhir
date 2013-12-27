@@ -9,15 +9,15 @@
   <Author>Grahame</Author>
   <LastAuthor>Joginder Madra</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-06-28T22:54:37Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2013-12-24T22:04:53Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7050</WindowHeight>
-  <WindowWidth>20445</WindowWidth>
+  <WindowHeight>9420</WindowHeight>
+  <WindowWidth>21420</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -98,17 +98,9 @@
   <Style ss:ID="s78">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s79">
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="25" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="19" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="500.25"/>
@@ -197,7 +189,7 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Recommendation date</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">The date of the immunization recommendation</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">This is the date the immunization recommendation was created.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-15-date/time of the observation</Data></Cell>
@@ -232,7 +224,7 @@
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">Recommended dose number</Data></Cell>
-    <Cell><Data ss:Type="String">Recommended dose number</Data></Cell>
+    <Cell><Data ss:Type="String">This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">May need other dose concepts such as administered vs. valid</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -248,7 +240,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImmunizationForecastStatus</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImmunizationRecommendationStatus</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine administration status</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine administration status</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
@@ -277,7 +269,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImmunizationProfileDateCriterion</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImmunizationRecommendationDateCriterion</Data></Cell>
     <Cell><Data ss:Type="String">Date classification of recommendation</Data></Cell>
     <Cell><Data ss:Type="String">Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
@@ -322,7 +314,7 @@
     <Cell ss:StyleID="s62"/>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Dose Number</Data></Cell>
-    <Cell><Data ss:Type="String">Nominal position in a series</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 30973-2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -366,72 +358,13 @@
     <Cell ss:Index="14"><Data ss:Type="String">? No clear way to associate in V2.x or IG</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingPatientInformation</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
-    <Cell><Data ss:Type="String">520;150</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Supporting adverse event report</Data></Cell>
-    <Cell><Data ss:Type="String">Adverse event report information that supports the status and recommendation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.identifier</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:Index="6"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Adverse event report identifier</Data></Cell>
-    <Cell><Data ss:Type="String">Unique identifier of the adverse event report</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.reportType</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:Index="6" ss:StyleID="s62"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">AdverseEventReportType</Data></Cell>
-    <Cell><Data ss:Type="String">Adverse event report classification</Data></Cell>
-    <Cell><Data ss:Type="String">Advers event report classification</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">[tbd] : OBX-3-observation identifier = 31044-1 (seems to be only one LOINC code for 'reaction' -&gt; only one AdverseEventReportType?)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.reportDate</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:Index="6" ss:StyleID="s62"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Adverse event report date</Data></Cell>
-    <Cell><Data ss:Type="String">The date of the adverse event report</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-15-date/time of the observation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.text</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Adverse event report text</Data></Cell>
-    <Cell><Data ss:Type="String">The content of the adverse event report</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 31044-1</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingAdverseEventReport.reaction</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(AdverseReaction)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Documented reaction</Data></Cell>
-    <Cell><Data ss:Type="String">The documented reaction described in the adverse event report</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">IAM/IAR</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingPatientObservation</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation)|Resource(AdverseReaction)|Resource(AllergyIntolerance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting Patient Observation</Data></Cell>
-    <Cell><Data ss:Type="String">Patient observation that supports the status and recommendation</Data></Cell>
+    <Cell><Data ss:Type="String">Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">OBX If OBX is associated with ( RXA : RXA-5-administered code = '998^No vaccine administered^CVX' ), could contain the reason the vaccine was not administered&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -459,7 +392,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -467,14 +400,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -837,35 +771,38 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Width="168"/>
    <Column ss:StyleID="s77" ss:Width="273"/>
-   <Column ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="107.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="81.75" ss:Span="1"/>
+   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImmunizationForecastStatus</Data></Cell>
+    <Cell><Data ss:Type="String">ImmunizationRecommendationStatus</Data></Cell>
     <Cell><Data ss:Type="String">The patient's status with respect to a vaccination protocol</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
-    <Cell><Data ss:Type="String">#immunization-forecast-status</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">ImmunizationProfileDateCriterion</Data></Cell>
     <Cell><Data ss:Type="String">Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g. due date, latest to give date, etc.)</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">AdverseEventReportType</Data></Cell>
-    <Cell><Data ss:Type="String">Classifies an adverse event report</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell><Data ss:Type="String">vaccineType</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Vaccine that pertains to the recommendation</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Y</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -894,50 +831,12 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="immunization-forecast-status">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="2" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Row ss:AutoFitHeight="0" ss:StyleID="s79">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">DUE</Data></Cell>
-    <Cell><Data ss:Type="String">This immunization is due to be given now</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <Print>
-    <ValidPrinterInfo/>
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
-   </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
 </Workbook>
