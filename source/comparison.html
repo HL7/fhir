@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--[%setwiki http://wiki.hl7.org/index.php?title=FHIR_HL7_Standard_Relationship%]       
+[%settitle Relationship between FHIR and other HL7 Standards%]-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><title>foo</title>
+<!--[%file newheader%]-->
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="root"> </a>
+<h1>Appendix: The Relationship between FHIR and other HL7 Standards</h1>
+
+<p>
+<a href="http://www.hl7.org">Health Level Seven (HL7)</a> has been developing healthcare information exchange and related standards since 1987.  In that time, the organization has produced a number of standards families, many  used throughout the world to automate healthcare data sharing and improve patient care.  FHIR has been written to be implementable without any knowledge of these other specifications.  However, FHIR does leverage this prior experience, both in terms of applying best practices learned from experience and attempting to avoid some of the pitfalls of earlier work.
+</p>
+<p>
+This appendix describes the relationship of FHIR to some of HL7's other standard families.  It may be of interest to those coming to FHIR with previous experience with other HL7 standards as well as those who may need to support interoperability betwen FHIR solutions and implementations of other HL7 standards.
+</p>
+<p>
+<b>Notes:</b>
+</p>
+<ul>
+  <li> In addition to the major standards families identified below, HL7 produces numerous implementation guides, some of which have earned as much prominence as a standard family themselves.  The general guidance given below for each standard family should hold for all implementation guides based on that standard.  For example, the guidance listed for <a href="#cda">CDA</a> would apply to Consolidated CDA (CCDA), Continuity of Care Document (CCD) and other CDA profiles.</li>
+  <li>While this appendix focuses on the relationship between FHIR and other HL7 standards, relationships also exist to non-HL7 standards.  Some resources provide direct implementation of functionality from other standards including <a href="http://medical.nema.org">DICOM</a> (see the <a href="imagingstudy.html">ImagingStudy</a> resource) and <a href="http://www.ihe.net/">IHE</a> (e.g. the <a href="SecurityEvent"></a> and <a href="DocumentReference"></a> resources).  Many FHIR resources draw requirements from or provide mappings to other standards as well and implementers may find additional guidance on the usage of certain resources with external specifications as part of the implementation notes of individual resources.  As well, a wiki page to capture additional guidance on the use of FHIR with other specifications can be found <a href="http://wiki.hl7.org/index.php?title=FHIR_and_Other_Specifications">here</a></li>
+  <li>As will be seen in the discussion below, FHIR can satisfy the needs covered by all of the previous primary HL7 interoperability standards (v2, v3 and CDA).  In many cases, it also provides additional benefits in terms of ease of interoprability.  Therefore, the possibility exists that FHIR could supplant some or all of these standards.  That said, it is unclear how rapidly (or even if) the market will make such a migration.  It is likely that most of these standards will exist in parallel for quite some time.  Health Level Seven has committed to ongoing maintenance of prior standards for as long as the HL7 membership requires.</li>
+</ul>
+
+<h2>HL7 version 2</h2>
+<a name="v2"/>
+<p>
+HL7 version 2 (v2) was HL7's first information exchange standard and is one of its most widely adopted, being prominent in in-patient settings throughout the world.  (It is used in a variety of other contexts as well.)  HL7 v2 uses messages composed of re-useable segments to communicate healthcare-related information between a sending and receiving system as well as to invoke particular behavior (patient transfers, lab orders, etc.)  It also supports one-way communication through notifications, provides support for queries and other workflow.
+</p>
+<h3>v2 Similarities and Differences</h3>
+<p>
+<b>Event-based:</b> FHIR supports an event-based messaging paradigm similar to the v2 messaging structure (though unlike v2, FHIR supports other paradigms as well including documents, REST and other service models).  Refer to the <a href="message.html">Message</a> resource.
+</p>
+<p>
+<b>Granularity:</b> HL7 v2's "Segment" structure provides re-useable chunks of data that roughly correspond to FHIR's idea of <a href="resources.html">resources</a>.  However, v2 segments can't be independently manipulated.  As well, not all segments have the characteristics of independent identity held by FHIR resources.  Due to differences in scope and approach to extensibility, v2 segments and data types are frequently cluttered with data elements that are not used by (or even understood by) the majority of implementations
+</p>
+<p>
+Segments can be composed into repeating and/or optional collections called "groups" to represent full heathcare business objects.  For example, the "Order" component of an OMP (Pharmacy/Treatment Order Message) includes:
+</p>
+<ul>
+  <li>an ORC segment dealing with workflow aspects of the order</li>
+  <li>an RXO segment dealing with pharmacy-specific order aspects</li>
+  <li>optional TQ1 and TQ2 segments describing the timing of the order</li>
+  <li>optional NTE segments dealing with supplemental notes or rendering of the order</li>
+  <li>optional RXR segments describing route information</li>
+  <li>etc.</li>
+</ul>  
+<p>
+The v2 approach to granularity emphasizes re-use of "patterns" of information.  For example, timing and route information are not useful on their own, but they are useful in many circumstances.  Due to the 3-level nesting limit, separate segments are also required for data structures that would otherwise nest too deeply.  FHIR takes a different approach to re-useability, focusing on objects that can be maintained independently.  The <a href="MedicationPrescription.html">MedicationPrescription</a> resource encompasses all of the aspects of the above segments, with the exception of some of the workflow aspects of ORC which is handled by the <a href="Order.html">Order</a> resource.  The <a href="MedicationPrescription.html">MedicationPrescription</a> resource is itself complex, having nested structures for dosage instructions, dispensing instructions, etc. that are not simple data types.
+</p>
+<p>
+<b>Extensibility:</b> HL7 v2 provides an extensibility mechanism through the use of "Z-segments".  The meaning of these extensions is opaque without prior manual explanation by the sender.  Extensions are supposed to be restricted to data elements that do not affect the meaning of the "standard" segments.  FHIR <a href="extensibility.html">extensions</a>, on the other hand, can appear at any level (including within data types).  <a href="extensibility.html#modifierExtension">ModifierExtensions</a> may be used to in circumstances where an extension can change the meaning of other elements (e.g. the introduction of a negation indicator on a record).  Finally, the meaning of FHIR extensions is discoverable by resolving the URI that defines the extension.  The URI approach also ensures that extensions created by independent systems won't collide. (This can be an issue with Z-segments.)
+</p>
+<p>
+<b>Inter-version compatibility:</b> HL7 version 2 has strict processes for maintaining forward and backward compatibility.  Content can only be added to the end of existing fields, components, etc.  Applications are expected to ignore unexpected content or repetitions.  FHIR promises similar compatibility rules.  The path to an element within a FHIR instance will remain unchanged in future versions.  Specific rules on handling "new" elements (ignoring, checking for "must understand" indicators, etc. will be developed during the DSTU period.
+</p>
+<p>
+<b>Human readability:</b> In general, HL7 v2 instances do not provide for human readable versions of the content exchanged.  While some systems may make use of NTE segments to provide a human-readable rendering of all or part of a message payload, the rules for when or if this occurs is site-specific.  FHIR requires human readable content to be provided for each resource.
+</p>
+<p>
+<b>Update behavior:</b> HL7 v2 data is typically exchanged in "snapshot" mode - updates are communicated by sending a complete copy of the instance with the new data filled in.  However, some segments and messages in v2 support more sophisticated exchanges where only changed data is sent and codes or special values indicate what sort of change is to occur (e.g. add this address, remove this name).  Out-of-the-box, FHIR only functions using snapshot mode.  While the use of <a href="extensibility.html#modifierExtension">ModifierExtensions</a> to introduce equivalent behavior to v2 is possible, doing so would create interoperability issues and would make use of the resources difficult outside the messaging paradigm.
+</p>
+<p>
+<b>Optionality &amp; Profiles:</b> Both HL7 v2 and FHIR provide a similar degree of flexibility at the international standard level.  Most data elements are optional.  However, there are two differences.  FHIR resources are much more limited in terms of what elements are included in the core specification - only those elements that the vast majority of systems will support.  HL7 v2 tends to include many elements that are used in only very limited circumstances. FHIR uses extensions for those circumstances.  v2 and FHIR both provide formal mechanisms for defining profiles to give guidance on the use of the specification.  However, the v2 mechanism has not been widely used.  FHIR <a href="profile.html">Profiles</a> form an essential component of the methodology and are built into tooling, increasing the likelihood of their use.
+</p>
+
+<h3>v2 Interoperability Considerations</h3>
+<p>
+<b>Mapping:</b> One of the biggest challenges with HL7 v2 interoperability is the variation of implementation.  Even when identical scenarios are being handled in similar business environments, the data elements supported can vary and even the place where a givn data element is placed in an instace can vary.  As a result, defining consistent mapping rules between v2 and FHIR at an international or even regional level is not terribly realistic.  The FHIR mappings provided give a starting point for consideration, but mappings will generally need to be done on an implementation by implementation basis.
+</p>
+<p>
+<b>Extensions:</b><a name="v2-extensions"/> While some v2 elements will map to FHIR core, a large percentage will not.  Where a v2 element is not supported by core, an extension will be needed to share the information.  Where there is interest, HL7 may choose to publish and maintain extensions for v2 elements that are not supported as part of the core FHIR specification.  The FHIR extension registry <!-- Todo: Link --> should be searched prior to defining local extensions.  If time permits, the relevant HL7 WG should be contacted with a request to define additional v2 extensions if needed ones are not present.  If time does not permit, applications should ideally be architected to support both the locally define extension and eventually and HL7-defined extension as being equivalent.  For Z-segments, URIs should be defined to be specific to the system/environment that defined the Z-segment, not based on the name of the Z-segment itself (given that Z-segments with the same name but different meaning may exist).
+</p>
+<p>
+<b>Independent vs. Contained resources:</b><a name="v2-contained"/> Each HL7 v2 message will map to multiple resource instances - often 10s or even 100s of resource instances.  To maintain consistency with the v2 messaging paradigm, all resource data will typically be sent over the wire as part of the FHIR message rather than being sent by reference as would be typical in a RESTful implementation.  However, FHIR provides two different ways of communicating the resources as part of the message <a href="extras.html#bundle">bundle</a>.  They can either be sent as "full" resources as direct entries in the atom feed (meaning they are considered to be sufficiently populated to be able to stand on their own), or they can be sent as <a href="references.html#contained">contained</a> resources, meaning they are considered to be "owned" by one of the other resources and cannot be retrieved or otherwise manipulated on their own.  A v2 to FHIR conversion process will need to make the determination of what data elements must be present, at minimum, for a resource to exist as an independent rather than a contained resource.  In some cases, the determination will be done at the time of mapping.  In other cases, it may depend on the content of a particular instance.
+</p>
+<p>
+<b>Resource identification:</b><a name="v2-identification"/> V2 messages will often reference objects that have already been referred to in previous messages.  When converting the messages to FHIR, these references will need to point to the same resource URI.  Given that not all v2 message objects have identifiers in the message, this can be somewhat problematic.  An approach to handling this issue exists for FHIR <a href="http.html#transaction">transactions</a>.  However, the ramifications of using this approach in a messaging environment have not yet been resolved.  Implementers will need to explore their own strategies as part of early adoption.
+</p>
+<p>
+<b>Merging references and resources:</b><a name="v2-merging"/> v2 message instances may well reference the same "object" numerous times.  For example, a message containing a patient's medication history is likely to include references to the same clinicians and clinics/hospitals many times.  While in some cases, the data captured for a given object might be identical in all uses, in other cases the information might vary.  For example, the sending system might convey historical phone numbers for old records and current phone numbers for newer records.  Alternatively, the message design might allow expression of different amounts of detail in deifferent portions of the message or the sending application might simply be designed to convey different amounts of detail in different portions of the message (e.g. conveying phone number for an ordering clinician, but not for a data-entry clinician).  When converting to FHIR, all references to the same "object" will generally have a single resource identifier and be referenced only once in the instance - with the complete set of information needed/available.  This creates two challenges:
+</p>
+<ol>
+  <li><i>How does the conversion software recognize when two portions of a message are referencing the same object?</i>  While some references may have unique identifiers or names that are sufficient to confirm "same object", others may not - though some other combination of attributes may be sufficient.  The specific rules will need to be determined by the implementer performing the conversion</li>
+  <li><i>If multiple versions of data are present, what set of data should be used - or should multiple versions be sent with distinct history ids?  (And if the latter, what is the 'order' of the versions?</i>  If the order of the versions can be determined by data in the message (e.g. assuming older order dates have "older" demographics), dates can be specified on the entry <i>updated</i> element to indicate relative ordering.  If the ordering can't be determined, it will be difficult to merge the data into a single resource or represent it using multiple resources.</li>
+</ol>
+<p>
+<b>Generating human-readable content:</b><a name="v2-humanReadable"/> FHIR requires that every resource have a human readable <a href="narrative.html">narrative</a> that contains all information relevant to human decision-making.  When converting from v2, developers (likely with guidance from clinicians) will need to determine what information from the message should be rendered and how.
+</p>
+<p>
+<b>Nulls and update modes:</b><a name="v2-updateMode"/> In HL7 v2, "action" codes can determine whether particular segments represent information to be added, updated or deleted.  Fields can be populated with "null" (two consecutive double-quotes with no other characters) to note a field is to be deleted.  An omitted element or repetition is generally interpretted as "retain existing data unchanged".  This contrasts with the FHIR approach of requiring all data to be present as a snapshot.  Systems will either need to build in logic to generate a full snapshot of each resource or will need to introduce modifier extensions to allow similar behavior to v2.
+</p>
+
+
+<h2>HL7 version 3 (and ISO 21090)</h2>
+<a name="v3"/>
+<p>
+HL7 version 3 (v3) is the next generation of HL7's messaging standards.  It introduced a common reference information model, data type model and set of vocabulary as well as a formal standards development methodology.  In addition, it introduced the use of "documents" as an alternative architecture to messaging for sharing healthcare information (see <a href="#cda">CDA</a> below).  While nominally covering both, the term "v3" is typically used to refer to "v3 messaging".  The data types used as a basis for v3 have also been adopted by ISO as ISO 21090.  The HL7 Reference Information Model has also been adopted as an ISO standard
+</p>
+<p>
+V3 messaging has been adopted by a number of large projects, particularly in the electronic health record area, though it has not achieved the market penetration of HL7 v2.  The HL7 Reference Information Model and the ISO 21090 data types have also been used by other SDOs and projects that have not leveraged the full HL7 v3 methodology.  Most of the comments and guidance provided here will apply to those solutions as well.
+</p>
+
+<h3>v3 Similarities and Differences</h3>
+<p>
+<b>Reference model:</b> The use of the HL7 Reference Information Model is a core aspect of the HL7 v3 methodology and it is front and center in the specification and the wire format.  All data elements in HL7 v3 instances are derived from either the RIM or the ISO data types.  In FHIR, this is true of most resources and data type elements, but not all.  Some resources (<a href="profile.html">Profile</a>, <a href="conformance.html">Conformance</a>, <a href="valueset.html">ValueSet</a>, etc.) deal with content that is outside the RIM's scope and thus is not mapped to the RIM.  And in a few circumstances, adjustments have been made in the FHIR data types that are not yet supported in the HL7 v3 data types model.  The expectation is that these changes will be supported in the next version of the v3 data types model when it is created.  The main difference is that the wire format of FHIR is not driven by the RIM mappings.  This results in considerably more concise and intuitive instances.  It is possible to implement FHIR with absolutely no knowledge of the HL7 RIM.
+</p>
+<p>
+<b>Codes:</b> HL7 version 3 places considerable reliance on coded attributes to convey the meaning of instances.  Examples include classCode, moodCode, determinerCode, etc.  The allowed codes for these attributes are strictly controlled by HL7.  FHIR also has attributes that are limited to codes defined in the FHIR specification - those using the <a href="datatypes.html#code">code</a> data type.  However, these are generally limited to attributes with business meaning - status, contact types, etc.
+</p>
+<p>Both FHIR and v3 make use of value sets to define the sets of codes that can be used for attributes in particular contexts.  However, in FHIR, a <a href="valueset.html">ValueSet</a> is just another type of resource, meaning it can be sent as part of an instance just like any other piece of data.  (The same is true of <a href="profile.html">Profile</a>, <a href="conformance.html">Conformance</a> and other meta-level resources.)</p>
+<p>
+<b>Granularity &amp; referencing:</b> HL7 v3 models are broken into 3 main types - wrappers, payloads and Common Message Element Types (CMETs).  These are combined into interactions to define the set of content that can be sent over the wire at one time.  In some cases, the granularity of each of these models will exactly align with the granularity of FHIR resources, but not always.  V3 models are divided based on the expectation of re-use.  FHIR models are divided based on whether the objects they represent are considered to be able to "stand alone".  As well, in HL7 v3, numerous models can exist to represent the same essential underlying healthcare information construct.  For example, at the HL7 International level, there are 10 different CMETs for the concept of "Patient".  In addition, some payload models represent patient directly without using CMETs.  Further variation exists in the v3 models created by HL7 affiliates and other v3 implementers.  Each of these different CMETs have their own schemas and may use different element names, different levels of nesting and different constraints.  With FHIR, there is only one <a href="patient.html">Patient</a> resource.  Many profiles can be created on that resource, but all of them will use the same schema and support the same wire format.
+</p>
+<p>
+<b>Design by constraint:</b> The design methodology in HL7 version 3 is one of "design by constraint".  The idea is that all data needed for any sort of healthcare communication is represented in the HL7 RIM.  All other data models simply constrain the RIM to reflect the needs of particular domain spaces.  This starts at the international level with further refinement happening in individual countries, projects and finally specific implementations.  As models become closer to the implementer, they become less abstract.  The result is a tendency for v3 models to be extremely broad in their coverage and capability and also somewhat abstract.  They need to be in order to ensure that all possible implementations in the space covered by that model can be proper constraints on it.  As well, each model produces its own schema and, in most cases, constrained schemas are not strictly wire-compatible with the schemas of the model being constrained.
+</p>
+<p>FHIR takes a different approach.  FHIR resources do not attempt to represent all data elements that could possibly be used in a space.  Instead, only those data elements that are expected to be used by "most" implementations within the scope of the resource are considered part of the core resource definition.  (This is sometimes referred to as "The 80% rule" - if approximately 80% of systems maintaining the resource will support the element, then it's part of core).  All other data elements are expected to be handled using extensions.  <a href="profile.html">Profiles</a> are used both to constrain resources and to define extensions appropriate to narrower implementation spaces.  Wire format interoperability is retained across all profiles on a given resource.</p>
+<p>
+<b>Context conduction:</b> When conveying healthcare information between humans, much data can be inferred from context.  For example, if a report has an "author" noted on a cover page, it is generally inferred that each statement within the report is authored by that same person.  This inference grows more challenging when data needs to be analyzed by computers, whether for query, decision support or other analysis.  Thus far, the HL7 v3 methodology has provided three distinct mechanisms to allow data models to define how "context" should propagate through models, making explicit for computers what humans would normally understand intuitively.  FHIR has chosen a different path.  In FHIR, no context is conducted - everything is explicit.  If a report about a patient contains 100 observations all about that same patient, each observation will include a reference to the patient.  However, this is relatively painless because it's only a reference - an id and possibly a short display value.  One of the benefits of this approach is that each resource can be safely consumed and examined without concern for the context in which that resource was communicated.  The meaning of each resource instance is fully self-contained.
+</p>
+<p>
+<b>Null flavors:</b> In healthcare, it's quite common for data to be unkown, unavailable, have an exceptional value or otherwise fall outside the bounds of a "normal" value.  To deal with this, HL7 version 3 introduced the concept of "null flavor" on almost every attribute and data type property in its models.  These coded null flavors could be sent in place of or in addition to the data that would typically be sent for the attribute, association or data type property.  Examples include the ideas of "Unknown", "Not asked", "Positive infinity", "Trace amount", "Masked", "Other", etc.  Unless an element was explicitly marked as "mandatory" - meaning no null flavors were permitted, these null flavors could appear absolutely anywhere.
+</p>
+<p>
+FHIR approached the problem differently.  Null flavors are only introduced in the core specification in those circumstances where it is expected that most systems will need them.  Where needed, the flavors are constrained to those relevant to that element.
+</p>
+
+<h3>v3 Interoperability Considerations</h3>
+<p>
+<b>Using RIM mappings:</b> Most resource elements and data type properties include mappings to the RIM.  These mappings serve two purposes.  They help to define FHIR semantics in terms of HL7's reference models, helping to ensure that the Work Groups defining the data elements have a good and consistent understanding of the meaning of every element.  They also provide guidance for implementers of version 3 specifications that may be looking to migrate to or map between version 3 and FHIR.  However, for the latter use it's important to understand some limitations on the RIM mappings.  The RIM is a language which allows the same "idea" to be conveyed in a number of different ways with varying granularity and expressiveness.  Thus it's entirely possible for a RIM element to map to a core FHIR element even though its RIM representation is somewhat different than described in the mapping.  As well, not all v3 models adhere to good modeling practices, so some data elements that would appear to map to a FHIR element might not map if the information has not been well represented.  Therefore RIM mappings should be taken as a guide or aid, not an absolute.  Mappings must also be done in the context of the v3 specification being mapped.  (Also see <a href="#v3-abstractModels">Abstract models</a> below.)
+</p>
+<p>
+<b>V3 extensions:</b> While the core of the v3 methodology is "design by constraint", it still makes provision for the use of extensions - either in a foreign namespace or denoted by a special attribute.  When converting between v3 and FHIR, the use of such extensions will need to be taken into account.  As a rule, most v3 extensions will map to FHIR extensions, as the v3 design-by-constraint principle suggests that anything that would qualify as "core" in FHIR would already have been part of the base v3 specification.
+</p>
+<p>
+<b>Abstract models:</b><a name="v3-abstractModels"/> As previously noted, many of the v3 models created at the HL7 International level are quite abstract.  As a result, the models can be used to say a wide variety of things, often in a wide variety of different ways.  This makes defining a mapping between those specifications and FHIR (or any other specification) quite tricky.  For practical v3 &lt;-&gt; interoperability, mappings will need to be created at the level of message specifications, implemenation guides and/or templates that are more concrete and closer to the implementation level.  For example, mapping all of CDA to FHIR would be impossible given the expressive capability of the right-hand-side of the CDA model.  However, mapping the Consolidated CDA (CCDA) templates to FHIR is quite possible.
+</p>
+<p>
+<b>Context conduction:</b> As discussed above, HL7 v3 models rely on context conduction - either implicitly or explicitly controlled.  When converting to FHIR, the context will need to be propaged into each resource.
+</p>
+<p>
+<b>Update mode:</b> In HL7 v3 instances, updates are generally handled in snapshot mode, similar to the FHIR approach - if any information changes, the entire record is sent, including the modified data elements.  However, the v3 methodology does support the introduction of an "updateMode" property to allow only the changes to be sent for all or part of an instance.  Each element repetition is flagged with an updateMode to indicate whether the element is to be added, removed, updated, etc.  Additional updateModes allow further control over updates.  As with the <a href="#v2-updateMode">v2 discussion</a> above, implementers will need to 
+</p>
+<p>
+<b>Additional considerations:</b> Most of the implementation considerations for interoperating between FHIR and v2 also hold with v3.  Specifically: <a href="#v2-extensions">Extensions</a>, <a href="#v2-contained">Independent vs. Contained resources</a>, <a href="#v2-identification">Resource Identification</a>, <a href="#v2-merging">Merging references and resources</a> and <a href="#v2-humanReadable">Generating human-readable content</a>.
+</p>
+
+<h2>Clinical Document Architecture</h2>
+<a name="cda"/>
+<p>
+
+</p>
+<p>
+NOTE: While FHIR can be used to create documents, FHIR can also be used to convey traditional v3 CDA documents making use of the <a href="documentreference.html">DocumentReference</a> resource.
+</p>
+
+<h3>CDA Similarities and Differences</h3>
+<p>
+<b>Clinical document focus:</b> 
+</p>
+<p>
+<b>Human readability approach:</b> 
+</p>
+<p>
+<b>Clinical Statement vs. resources:</b> 
+</p>
+<p>
+<b>Mark-up language:</b> 
+</p>
+<p>
+<b>:</b> 
+</p>
+
+<h3>CDA Interoperability Considerations</h3>
+<p>
+<b>Human readable granularity:</b> 
+</p>
+<p>
+<b>Discrete to human-readable linkages:</b> 
+</p>
+<p>
+<b>Map specific templates and IGs:</b> 
+</p>
+
+
+<h2>Other HL7 Standards</h2>
+<p>
+Hl7 has produced a number of other standards that don't overlap with FHIR as closely as those listed above, primarily because they aren't focused solely on information exchange.  However, they deserve a brief mention:
+</p>
+
+<h3>EHR Functional Model (EHR-FM)</h3>
+<h3>CCOW</h3>
+<h3>Arden Syntax</h3>
+<h3>Virtual Medical Record</h3>
+
+
+</div>
+
+[%file newfooter%]
+
+    
+    
+</body>
+</html>
