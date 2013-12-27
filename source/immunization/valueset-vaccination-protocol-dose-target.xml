@@ -21,44 +21,43 @@
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
   <define>
-    <include>
-      <system value="TBD"/>
-      <concept>
-        <code value="crs"/>
-        <display value="Congenital Rubella Syndrome" />
-      </concept>
-      <concept>
-        <code value="dip"/>
-        <display value="Diptheria" />
-      </concept>
-      <concept>
-        <code value="mea"/>
-        <display value="Measles" />
-      </concept>
-      <concept>
-        <code value="mum"/>
-        <display value="Mumps" />
-      </concept>
-      <concept>
-        <code value="rub"/>
-        <display value="Rubella" />
-      </concept>
-      <concept>
-        <code value="tet"/>
-        <display value="Tetanus" />
-      </concept>
-      <concept>
-        <code value="hib"/>
-        <display value="Haemophilus influenzae type b" />
-      </concept>
-      <concept>
-        <code value="per"/>
-        <display value="Pertussis" />
-      </concept>
-      <concept>
-        <code value="pol"/>
-        <display value="Poliomyelitis" />
-      </concept>
+    <system value="http://hl7.org/fhir/vaccination-protocol-dose-target"/>
+    <concept>
+      <code value="crs"/>
+      <display value="Congenital Rubella Syndrome" />
+    </concept>
+    <concept>
+      <code value="dip"/>
+      <display value="Diptheria" />
+    </concept>
+    <concept>
+      <code value="mea"/>
+      <display value="Measles" />
+    </concept>
+    <concept>
+      <code value="mum"/>
+      <display value="Mumps" />
+    </concept>
+    <concept>
+      <code value="rub"/>
+      <display value="Rubella" />
+    </concept>
+    <concept>
+      <code value="tet"/>
+      <display value="Tetanus" />
+    </concept>
+    <concept>
+      <code value="hib"/>
+      <display value="Haemophilus influenzae type b" />
+    </concept>
+    <concept>
+      <code value="per"/>
+      <display value="Pertussis" />
+    </concept>
+    <concept>
+      <code value="pol"/>
+      <display value="Poliomyelitis" />
+    </concept>
   </define>
 </ValueSet>
 

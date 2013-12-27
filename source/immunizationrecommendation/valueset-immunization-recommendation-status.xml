@@ -21,18 +21,17 @@
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
   <define>
-    <include>
-      <system value="TBD"/>
-      <concept>
-       <code value="due"/>
-       <display value="due" />
-       <definition value="The patient is due for their next vaccination"/>
-      </concept>
-      <concept>
-        <code value="overdue"/>
-        <display value="overdue" />
-        <definition value="The patient is considered overdue for their next vaccination"/>
-      </concept>
+    <system value="http://hl7.org/fhir/immunization-recommendation-status"/>
+    <concept>
+     <code value="due"/>
+     <display value="due" />
+     <definition value="The patient is due for their next vaccination"/>
+    </concept>
+    <concept>
+      <code value="overdue"/>
+      <display value="overdue" />
+      <definition value="The patient is considered overdue for their next vaccination"/>
+    </concept>
   </define>
 </ValueSet>
 

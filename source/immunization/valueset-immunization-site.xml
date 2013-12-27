@@ -20,17 +20,12 @@
   </telecom>
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
-  <define>
+  <compose>
     <include>
-      <system value="2.16.840.1.113883.5.1052"/>
-      <concept>
-        <code value="LA"/>
-        <display value="left arm" />
-      </concept>
-      <concept>
-        <code value="RA"/>
-        <display value="right arm" />
-      </concept>
-  </define>
+      <system value="http://hl7.org/fhir/v3/vs/ActSite"/>
+      <code value="LA"/>
+      <code value="RA"/>
+    </include>
+  </compose>
 </ValueSet>
 

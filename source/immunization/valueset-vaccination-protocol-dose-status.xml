@@ -21,16 +21,15 @@
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
   <define>
-    <include>
-      <system value="TBD"/>
-      <concept>
-        <code value="count"/>
-        <display value="Counts" />
-      </concept>
-      <concept>
-        <code value="nocount"/>
-        <display value="Does not Count" />
-      </concept>
+    <system value="http://hl7.org/fhir/vaccination-protocol-dose-status"/>
+    <concept>
+      <code value="count"/>
+      <display value="Counts" />
+    </concept>
+    <concept>
+      <code value="nocount"/>
+      <display value="Does not Count" />
+    </concept>
   </define>
 </ValueSet>
 

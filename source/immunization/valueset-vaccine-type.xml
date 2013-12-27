@@ -21,22 +21,19 @@
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
   <define>
-    <include>
-      <system value="2.16.840.1.113883.5.145"/>
-      <concept>
-        <code value="120"/>
-        <display value="DTaP-Hib-IPV" />
-      </concept>
-      <concept>
-        <code value="05"/>
-        <display value="measles" />
-      </concept>
-      <concept>
-        <code value="03"/>
-        <display value="MMR" />
-      </concept>
-      
-    </include>
+    <system value="2.16.840.1.113883.5.145"/>
+    <concept>
+      <code value="120"/>
+      <display value="DTaP-Hib-IPV" />
+    </concept>
+    <concept>
+      <code value="05"/>
+      <display value="measles" />
+    </concept>
+    <concept>
+      <code value="03"/>
+      <display value="MMR" />
+    </concept>
   </define>
 </ValueSet>
 

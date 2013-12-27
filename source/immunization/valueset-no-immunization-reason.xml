@@ -20,25 +20,14 @@
   </telecom>
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
-  <define>
+  <compose>
     <include>
-      <system value="2.16.840.1.113883.1.11.19717"/>
-      <concept>
-        <code value="IMMUNE"/>
-        <display value="Immunity" />
-      </concept>
-      <concept>
-        <code value="MEDPREC"/>
-        <display value="Medical precaution" />
-      </concept>
-      <concept>
-        <code value="OSTOCK"/>
-        <display value="Product out of stock" />
-      </concept>
-      <concept>
-        <code value="PATOBJ"/>
-        <display value="Patient objection" />
-      </concept>
-  </define>
+      <system value="http://hl7.org/fhir/v3/vs/ActReason"/>
+      <code value="IMMUNE"/>
+      <code value="MEDPREC"/>
+      <code value="OSTOCK"/>
+      <code value="PATOBJ"/>
+    </include>
+  </compose>
 </ValueSet>
 

@@ -20,13 +20,11 @@
   </telecom>
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
-  <define>
+  <compose>
     <include>
-      <system value="2.16.840.1.113883.5.112"/>
-      <concept>
-        <code value="IM"/>
-        <display value="Injection, intramuscular" />
-      </concept>
-  </define>
+      <system value="http://hl7.org/fhir/v3/vs/RouteOfAdministration"/>
+      <code value="IM"/>
+    </include>
+  </compose>
 </ValueSet>
 

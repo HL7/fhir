@@ -21,23 +21,22 @@
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
   <define>
-    <include>
-      <system value="TBD"/>
-      <concept>
-       <code value="due"/>
-       <display value="due" />
-       <definition value="Date the next dose is considered due"/>
-      </concept>
-      <concept>
-        <code value="overdue"/>
-        <display value="overdue" />
-        <definition value="Date the next dose is considered overdue"/>
-      </concept>
-      <concept>
-        <code value="latest"/>
-        <display value="latest" />
-        <definition value="The latest date the next dose is to be given"/>
-      </concept>
+    <system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+    <concept>
+     <code value="due"/>
+     <display value="due" />
+     <definition value="Date the next dose is considered due"/>
+    </concept>
+    <concept>
+      <code value="overdue"/>
+      <display value="overdue" />
+      <definition value="Date the next dose is considered overdue"/>
+    </concept>
+    <concept>
+      <code value="latest"/>
+      <display value="latest" />
+      <definition value="The latest date the next dose is to be given"/>
+    </concept>
   </define>
 </ValueSet>
 

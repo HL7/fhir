@@ -21,28 +21,27 @@
   <description value="This value set is provided as an exemplar"/>
   <status value="draft"/>
   <define>
-    <include>
-      <system value="TBD"/>
-      <concept>
-        <code value="advstorage"/>
-        <display value="Adverse storgage condition" />
-      </concept>
-      <concept>
-        <code value="coldchbrk"/>
-        <display value="Cold chain break" />
-      </concept>
-      <concept>
-        <code value="explot"/>
-        <display value="Expired lot" />
-      </concept>
-      <concept>
-        <code value="outsidesched"/>
-        <display value="Administered outside recommended schedule" />
-      </concept>
-      <concept>
-        <code value="prodrecall"/>
-        <display value="Product recall" />
-      </concept>
+    <system value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>
+    <concept>
+      <code value="advstorage"/>
+      <display value="Adverse storgage condition" />
+    </concept>
+    <concept>
+      <code value="coldchbrk"/>
+      <display value="Cold chain break" />
+    </concept>
+    <concept>
+      <code value="explot"/>
+      <display value="Expired lot" />
+    </concept>
+    <concept>
+      <code value="outsidesched"/>
+      <display value="Administered outside recommended schedule" />
+    </concept>
+    <concept>
+      <code value="prodrecall"/>
+      <display value="Product recall" />
+    </concept>
   </define>
 </ValueSet>
 
