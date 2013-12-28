@@ -111,6 +111,7 @@
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="14" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="82.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -344,6 +345,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Container Capacity</Data></Cell>
     <Cell><Data ss:Type="String">The capacity (volume or other measure the container may contain.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String"> one of: SAC 16, SAC17 and SAC 20, or SAC 21 and SAC 20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.container.specimenQuantity</Data></Cell>
@@ -351,6 +353,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Specimen Container Quantity</Data></Cell>
     <Cell><Data ss:Type="String">The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SAC-23 (value) SAC-24 (units</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.container.additive</Data></Cell>
@@ -371,9 +374,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -381,14 +384,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>26</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

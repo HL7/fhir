@@ -20,6 +20,7 @@
   <WindowWidth>13680</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6195</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -443,7 +444,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -903,7 +903,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="diagnostic-order-priority">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="34.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="108" ss:Span="1"/>
@@ -918,9 +918,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">normal</Data></Cell>
-    <Cell><Data ss:Type="String">Normal</Data></Cell>
-    <Cell><Data ss:Type="String">The order has no particular priority with it</Data></Cell>
+    <Cell><Data ss:Type="String">routine</Data></Cell>
+    <Cell><Data ss:Type="String">Routine</Data></Cell>
+    <Cell><Data ss:Type="String">The order has a normal priority </Data></Cell>
     <Cell><Data ss:Type="String">This is the effective default if no code is specified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -936,6 +936,12 @@
     <Cell><Data ss:Type="String">The order is time-critical</Data></Cell>
     <Cell><Data ss:Type="String">Usually the patient's life depends on the outcome of the diagnostic investigation</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">asap</Data></Cell>
+    <Cell><Data ss:Type="String">ASAP</Data></Cell>
+    <Cell><Data ss:Type="String">The order should be acted on as soon as possible</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -944,10 +950,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
