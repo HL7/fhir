@@ -11,7 +11,9 @@
   <source>
     <reference value="Practitioner/example"/>
   </source>
-  <reason value="Standard admission testing"/>
+  <reasonCodeableConcept>
+    <text value="Standard admission testing"/>
+  </reasonCodeableConcept> 
   
   <!-- Institution local code meaning "do this today" -->
   <when>
