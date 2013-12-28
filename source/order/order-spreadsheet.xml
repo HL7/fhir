@@ -58,20 +58,28 @@
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s67">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s68">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s69">
+   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s71">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -80,14 +88,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s72">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -148,7 +148,7 @@
     <Cell><Data ss:Type="String">When the order was made</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ORC-9</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ORC-9</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -164,7 +164,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">May be left blank if the request reference identifies the patient, or if the request is not associated with a patient</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">PID-3</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">PID-3</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -193,7 +193,7 @@
     <Cell><Data ss:Type="String">Who is intended to fulfill the order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Unclear: MSH-5 / IPC-7 / BPO-8 / RXO-32 / RXE-40 / RXD-30 / RXG-11 / RXG-27 / PRT-8 (PRT-4-participation in { 'AP', 'DP', 'PO', 'RT' })&#10;</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Unclear: MSH-5 / IPC-7 / BPO-8 / RXO-32 / RXE-40 / RXD-30 / RXG-11 / RXG-27 / PRT-8 (PRT-4-participation in { 'AP', 'DP', 'PO', 'RT' })&#10;</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -202,7 +202,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept | Resource(Any)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Text - why the order was made</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
@@ -235,7 +235,7 @@
     <Cell><Data ss:Type="String">When order should be fulfilled</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">TQ1, TQ2</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">TQ1, TQ2</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -309,8 +309,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -319,12 +319,12 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s67" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -425,10 +425,10 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -478,46 +478,46 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Order.date</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Order.date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Order.subject</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Order.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">source</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Order.source</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Order.source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">target</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Order.target</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Order.target</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">authority</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Order.authority</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Order.authority</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">when_code</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Order.when.code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Order.when.code</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">when</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Order.when.schedule</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Order.when.schedule</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">detail</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Order.detail</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Order.detail</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -663,7 +663,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">RequestedTime</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">When a requested action should be performed</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">RequestCode</Data></Cell>
@@ -714,12 +714,12 @@
    <Column ss:Width="192"/>
    <Column ss:Width="138.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="28.6875">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Order</Data></Cell>
