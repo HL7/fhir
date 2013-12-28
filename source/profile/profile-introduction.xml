@@ -215,35 +215,35 @@ that enumerates the possible codes in the value set, and where there is no overl
 TODO: how does the discriminator work with resource references? - This is a open question under investigation during the current connectathon parallel to the ballot.
 </p>
 
-<p> Within a profile, a slice is defined using multiple <code>element</code>
-	entries that share a <code>path</code> but have distinct
-	<code>name</code>s. These entries together form a "slice group" that is:
+<p> Within a profile, a slice is defined using multiple <i>element</i>
+	entries that share a <i>path</i> but have distinct
+	<i>name</i>s. These entries together form a "slice group" that is:
 </p>
 
 <ol>
 	       
-	<li><strong>Initiated by a "slicing entry"</strong> That is, the first
-		<code>element</code> in a slice group must contain a
-		<code>slicing</code> property that defines the
-		<code>discriminator</code> for all members of the group.</li>
+	<li><b>Initiated by a "slicing entry"</b> That is, the first
+		<i>element</i> in a slice group must contain a
+		<i>slicing</i> property that defines the
+		<i>discriminator</i> for all members of the group.</li>
 
-	<li><strong>Mutually exclusive</strong>. This means that each
-		<code>element</code> in a slice group SHALL describe a
+	<li><b>Mutually exclusive</b>. This means that each
+		<i>element</i> in a slice group SHALL describe a
 		distinct set of  values for the group's
-		<code>discriminator</code>.  Because of this constraint, an 
+		<i>discriminator</i>.  Because of this constraint, an 
 	        element in a resource <em>instance</em> will never match more
-		than one <code>element</code> in a given slice group.</li>
+		than one <i>element</i> in a given slice group.</li>
 
-	<li><strong>Serialized as a group</strong>. The entries in a slice
+	<li><b>Serialized as a group</b>. The entries in a slice
 		group must be <em>adjacent</em> in a serialized Profile,
 		<em>or</em>, if there are any intervening elements, those
 		elements must be "compatible with" the group. Concretely, this
 		means that any intervening elements must have a
-		<code>path</code> that starts with the slice groups's
-		<code>path</code>.  For example, an <code>element</code> with a
-		<code>path</code> of <code>Observation.name.extension</code>
+		<i>path</i> that starts with the slice groups's
+		<i>path</i>.  For example, an <i>element</i> with a
+		<i>path</i> of <i>Observation.name.extension</i>
 		would be compatible with (and thus, would not "break up") a
-		slice group whose path was <code>Observation.name</code> </li>
+		slice group whose path was <i>Observation.name</i> </li>
 
 </ol>
 <p>
