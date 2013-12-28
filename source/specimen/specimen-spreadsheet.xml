@@ -214,7 +214,7 @@
     <Cell><Data ss:Type="String">Specimen.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Group|Device|Substance)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">The subject of the report</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Where the specimen came from. This may be the patient(s) or from the environment or  a device.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Must know the subject context</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role[classCode=&quot;PAT&quot;])</Data></Cell>
    </Row>
@@ -387,8 +387,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
