@@ -10,6 +10,11 @@
   <recommendation>
     <recommendationDate value="2013-03-01"/>
     <vaccineType id="396427003"/>
-    <forecastStatus value="DUE"/>
+    <forecastStatus>
+      <coding>
+        <system value="http://hl7.org/fhir/immunization-recommendation-status"/>
+        <code value="DUE"/>
+      </coding>
+    </forecastStatus>
   </recommendation>
 </ImmunizationRecommendation>
