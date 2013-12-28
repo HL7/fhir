@@ -12,7 +12,9 @@
     <reference value="Practitioner/f203"/>
     <display value="Juri van Gelder"/>
  </target>
- <reason value="It concerns a one-off order for consultation in order to evaluate the stairs walking ability of Roel."/>
+ <reasonCodeableConcept>
+   <text value="It concerns a one-off order for consultation in order to evaluate the stairs walking ability of Roel."/>
+ </reasonCodeableConcept>
  <!--<authority> and <payment> were registered in the EHR as "not applicable"-->
  <when>
   <code>
