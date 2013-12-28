@@ -403,40 +403,43 @@ public class ResourceValidator extends BaseValidator {
   }
 
   private void checkType(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent) {
-		if (e.getTypes().size() == 0) {
-			rule(errors, "structure", path, path.contains("."), "Must have a type on a base element");
-			rule(errors, "structure", path, e.getName().equals("extension") || e.getElements().size() > 0, "Must have a type unless sub-elements exist");
-		} else if (definitions.dataTypeIsSharedInfo(e.typeCode())) {
-		  try {
-        e.getElements().addAll(definitions.getElementDefn(e.typeCode()).getElements());
-      } catch (Exception e1) {
-        rule(errors, "structure", path, false, e1.getMessage());
+    if (e.getTypes().size() == 0) {
+      rule(errors, "structure", path, path.contains("."), "Must have a type on a base element");
+      rule(errors, "structure", path, e.getName().equals("extension") || e.getElements().size() > 0, "Must have a type unless sub-elements exist");
+    } else {
+      rule(errors, "structure", path, e.getTypes().size() == 1 || e.getName().endsWith("[x]"), "If an element has a choice of data types, it's name must end with [x]");
+      if (definitions.dataTypeIsSharedInfo(e.typeCode())) {
+        try {
+          e.getElements().addAll(definitions.getElementDefn(e.typeCode()).getElements());
+        } catch (Exception e1) {
+          rule(errors, "structure", path, false, e1.getMessage());
+        }
+      } else {
+        for (TypeRef t : e.getTypes()) 
+        {
+          String s = t.getName();
+          if (s.charAt(0) == '@') {
+            //TODO: validate path
+          } 
+          else 
+          {
+            if (s.charAt(0) == '#')
+              s = s.substring(1);
+            if (!t.isSpecialType()) {
+              rule(errors, "structure", path, typeExists(s, parent), "Illegal Type '" + s + "'");
+              if (t.isResourceReference()) {
+                for (String p : t.getParams()) {
+                  rule(errors, "structure", path,
+                      p.equals("Any")
+                      || definitions.hasResource(p),
+                      "Unknown resource type " + p);
+                }
+              }
+            }
+          }
+        }
       }
-		} else {
-			for (TypeRef t : e.getTypes()) 
-			{
-				String s = t.getName();
-				if (s.charAt(0) == '@') {
-					//TODO: validate path
-				} 
-				else 
-				{
-					if (s.charAt(0) == '#')
-						s = s.substring(1);
-					if (!t.isSpecialType()) {
-						rule(errors, "structure", path, typeExists(s, parent), "Illegal Type '" + s + "'");
-						if (t.isResourceReference()) {
-							for (String p : t.getParams()) {
-								rule(errors, "structure", path,
-										p.equals("Any")
-												|| definitions.hasResource(p),
-										"Unknown resource type " + p);
-							}
-						}
-					}
-				}
-			}
-		}
+    }
 
 	}
 
