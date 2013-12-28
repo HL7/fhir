@@ -365,6 +365,16 @@ public class BreadCrumbManager {
         }
         b.append("        <li><a href=\"index.html\">"+Utilities.fileTitle(name.substring(3))+"</a></li>");
         b.append("        <li><b>Instance</b></li>");
+      } else if (type.startsWith("sid:")) {        
+        String[] path = map.get("terminologies.html").split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length - 1; i++) {
+          focus = getChild(focus, path[i]);
+          b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><a href=\""+prefix+"terminologies.html\">Terminologies</a></li>");
+        b.append("        <li><a href=\""+prefix+"terminologies-systems.html\">Systems</a></li>");
+        b.append("        <li><b>SID: "+type.substring(4)+"</b></li>");
       } else {
         b.append("        <li>??? "+name+" / "+type+"</li>\r\n");
       }
@@ -418,6 +428,8 @@ public class BreadCrumbManager {
     }
     if (name.equals("index.html"))
       return "0";
+    if (name.startsWith("sid:"))
+      return getIndexPrefixForFile(name.substring(4))+".X";
     return "?.?";
   }
 

@@ -399,9 +399,9 @@
                     <display value="Peter Practitioner"/>
                 </prescriber>
 
-                <reasonForPrescribing>
+                <reasonCodeableConcept>
                   <text value="Management of Asthma"/>
-                </reasonForPrescribing>
+                </reasonCodeableConcept>
 
                 <!-- a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource-->

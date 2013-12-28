@@ -1132,6 +1132,12 @@ public class Publisher {
 	      producePage(n, page.getIni().getStringProperty("pages", n));
 	    }
 	  }
+	  int i = 0;
+	  for (String n : page.getIni().getPropertyNames("sid")) {
+      page.log(" ...sid "+n, LogMessageType.Process);
+      produceSid(i, n, page.getIni().getStringProperty("sid", n));
+      i++;
+	  }
 	  if (buildFlags.get("all")) {
 	    page.log(" ...check Fragments", LogMessageType.Process);
 	    checkFragments();
@@ -2097,6 +2103,7 @@ public class Publisher {
 
     String prefix = page.getBreadCrumbManager().getIndexPrefixForResource(resource.getName());
     SectionTracker st = new SectionTracker(prefix);
+    st.start("");
     page.getSectionTrackerCache().put(n, st);
 
     String src = TextFile.fileToString(page.getFolders().srcDir+ "template.html");
@@ -2546,6 +2553,18 @@ public class Publisher {
 		cachePage(file, src, logicalName);
 	}
 
+  private void produceSid(int i, String logicalName, String file) throws Exception {
+    String src = TextFile.fileToString(page.getFolders().srcDir + file);
+    src = page.processPageIncludes(file, src, "sid:"+logicalName, null);
+    // before we save this page out, we're going to figure out what it's index is, and number the headers if we can
+
+    String dstName = Utilities.path(page.getFolders().dstDir, "sid", logicalName, "index.html");
+    Utilities.createDirectory(Utilities.path(page.getFolders().dstDir, "sid", logicalName));
+    TextFile.stringToFile(src, dstName);    
+    src = addSectionNumbers(file, "sid:terminologies-systems", src, "3."+Integer.toString(i));
+    TextFile.stringToFile(src, dstName);    
+  }
+
   private String addSectionNumbers(String file, String logicalName, String src, String id) throws Exception {
     if (!page.getSectionTrackerCache().containsKey(logicalName)) {
 		  // String prefix = page.getNavigation().getIndexPrefixForFile(logicalName+".html");
@@ -2603,8 +2622,8 @@ public class Publisher {
       String v = st.getIndex(Integer.parseInt(node.getName().substring(1)));
       TocEntry t = new TocEntry(v, node.allText(), link);
       page.getToc().put(v, t);      
-      node.addText(" ");
-      XhtmlNode span = node.addTag("span");
+      node.addText(0, " ");
+      XhtmlNode span = node.addTag(0, "span");
       span.setAttribute("class", "sectioncount");
       span.addText(v);
       XhtmlNode a = span.addTag("a");

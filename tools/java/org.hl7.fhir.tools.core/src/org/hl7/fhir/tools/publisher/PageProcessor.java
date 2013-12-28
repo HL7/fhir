@@ -345,6 +345,8 @@ public class PageProcessor implements Logger  {
         src = s1+resourcesHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("txheader"))
         src = s1+txHeader(name, com.length > 1 ? com[1] : null)+s3;
+      else if (com[0].equals("cmpheader"))
+        src = s1+cmpHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("extheader"))
         src = s1+extHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("atomheader"))
@@ -1441,6 +1443,49 @@ public class PageProcessor implements Logger  {
     return b.toString();
   }
 
+  private String cmpHeader(String n, String mode) {
+    if (n.contains("-"))
+      n = n.substring(0, n.indexOf('-'));
+    StringBuilder b = new StringBuilder();
+    String pfx = "";
+    if ("l1".equals(mode))
+      pfx = "../";
+    if ("l2".equals(mode))
+      pfx = "../../";
+    if ("l3".equals(mode))
+      pfx = "../../../";
+    
+    b.append("<div class=\"navtop\">");
+    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
+    if (mode == null || mode.equals("content"))
+      b.append("<li class=\"selected\"><span>Comparison Appendix</span></li>");
+    else
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison.html\">Comparison Appendix</a></span></li>");
+    
+    if ("v2".equals(mode))
+      b.append("<li class=\"selected\"><span>V2 Messaging</span></li>");
+    else
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison-v2.html\">V2 Messaging</a></span></li>");
+    
+    if ("v3".equals(mode))
+      b.append("<li class=\"selected\"><span>V3 (Messaging)</span></li>");
+    else
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison-v3.html\">V3 (Messaging)</a></span></li>");
+    
+    if ("cda".equals(mode))
+      b.append("<li class=\"selected\"><span>CDA</span></li>");
+    else
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison-cda.html\">CDA</a></span></li>");
+    
+    if ("misc".equals(mode))
+      b.append("<li class=\"selected\"><span>Other</span></li>");
+    else
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison-other.html\">Other</a></span></li>");
+    b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
+    b.append("</ul></div>\r\n");
+    return b.toString();
+  }
+
   private String atomHeader(String n, String mode) {
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
@@ -1892,7 +1937,7 @@ public class PageProcessor implements Logger  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || com[0].equals("extheader") || com[0].equals("txheader") || com[0].equals("atomheader"))
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("formatsheader") || com[0].equals("resourcesheader") || com[0].equals("extheader") || com[0].equals("txheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+resHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
@@ -2153,7 +2198,7 @@ public class PageProcessor implements Logger  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("resourcesheader") || com[0].equals("formatsheader") || com[0].equals("extheader") || com[0].equals("txheader") || com[0].equals("atomheader"))
+      else if (com[0].equals("pageheader") || com[0].equals("dtheader") || com[0].equals("resourcesheader") || com[0].equals("formatsheader") || com[0].equals("extheader") || com[0].equals("txheader") || com[0].equals("cmpheader") || com[0].equals("atomheader"))
         src = s1+s3;
       else if (com[0].equals("resheader"))
         src = s1+s3;
@@ -2772,7 +2817,7 @@ public class PageProcessor implements Logger  {
         }
       }
     }
-    List<String> allowed = Arrays.asList("div", "h3", "h4", "h5", "i", "b", "code", "pre", "blockquote", "p", "a", "img", "table", "tr", "td", "ol", "ul", "li");
+    List<String> allowed = Arrays.asList("div", "h2", "h3", "h4", "h5", "i", "b", "code", "pre", "blockquote", "p", "a", "img", "table", "tr", "td", "ol", "ul", "li");
     iterateAllChildNodes(doc, allowed);
   }
   

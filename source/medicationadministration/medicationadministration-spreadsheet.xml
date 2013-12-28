@@ -92,14 +92,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s73">
-   <Alignment ss:Vertical="Top"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s74">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
@@ -230,141 +222,141 @@
     <Cell><Data ss:Type="String">Prov Mapping</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Administration of medication to a patient</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Administration of medication to a patient</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Describes the event of a patient being given a dose of a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.&#10;&#10;Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:Index="12" ss:StyleID="s73"><Data ss:Type="String">SubstanceAdministration</Data></Cell>
-    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="16" ss:StyleID="s73"/>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">SubstanceAdministration</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:Index="16" ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.identifier</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="Boolean">1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.identifier</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">External Identifier</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubstanceAdministration.id</Data></Cell>
     <Cell><Data ss:Type="String">RXA-25-Administered Barcode Identifier? (V2 def'n of RXA-25 refers to the 'give' occurrence; appears not to discuss 'administer' cardinality which would seem to be 0..*) &#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="Boolean">1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">MedicationAdministrationStatus</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationAdministrationStatus</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">in progress | on hold | completed | entered in error | stopped</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">SubstanceAdministration.statusCode</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXA-20-Completion Status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.patient</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.patient</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A link to a resource representing the person to whom the medication was given.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubstanceAdministration-&gt;subject-&gt;Patient</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.practitioner</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.practitioner</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Practitioner (responsible Health Care professional)</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The individual who is responsible for giving the medication to the patient.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s77"><Data ss:Type="String">RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation='AP' (RXA-10 is deprecated)&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.encounter</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.encounter</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Current Encounter / Admission</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">An link to a resource that identifies the particular occurrence of contact between patient and health care provider.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">SubstanceAdministration-&gt;component-&gt;EncounterEvent</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">PV1-19-Visit Number</Data></Cell>
     <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.prescription</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(MedicationPrescription)</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.prescription</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(MedicationPrescription)</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Prescription</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">A link to a resource that provides the original request, instruction and authority to perform the administration.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubstanceAdministration-&gt;InFullfillmentOf-&gt;SubstanceAdministration</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">ORC-3-Filler Order Number / ORC-2-Placer Order Number&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.wasNotGiven</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="Boolean">1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.wasNotGiven</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">True if asserting medication was not given</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Set this to true if the record is saying that the medication was NOT administered.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">SubstanceAdministration.actionNegationInd</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">SubstanceAdministration.actionNegationInd</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXA-20-Completion Status='NA'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.reasonNotGiven</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">MedicationAdministrationNegationReason</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.reasonNotGiven</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationAdministrationNegationReason</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Reason event is negated</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">A code indicating why the administration has been negated.&#10;&#10;Use only if isNegated is set to TRUE</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubstanceAdministration-&gt;Reason-&gt;Observation-&gt;Value</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXA-9-Administration Notes:RXA-20-Completion Status='NA'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.whenGiven</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.whenGiven</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Period</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Effective time</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubstanceAdministration.effectiveTime</Data></Cell>
@@ -373,29 +365,29 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration.medication</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Medication)</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Medication)</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Medication</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Note: do not use Medication.name to describe the administered medication. When the only available information is a text description of the medication, Medication.code.text should be used</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Note: do not use Medication.name to describe the administered medication. When the only available information is a text description of the medication, Medication.code.text should be used</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXA-5-Administered Code</Data></Cell>
     <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.administrationDevice</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Device)</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.administrationDevice</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Device)</Data></Cell>
+    <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Administration device</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">An identifier or a link to a resource that identifies a device used in administering the medication to the patient.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubstanceAdministration-&gt;device-&gt;Access  OR SubstanceAdministration-&gt;device-&gt;AssignedDevice</Data></Cell>
@@ -404,140 +396,140 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">right</Data></Cell>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Medicine administration instructions to the patient/carer</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Indicates how the medication is to be used by the patient</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">The RMIM has priority code on the act relationship.  How do we handle this?</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage.timing</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">Schedule</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Medication timing</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  &quot;Every  8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;;  &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RAS:TQ1</Data></Cell>
     <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage.site</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">MedicationAdministrationSite</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Entry site</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">A coded specification of the anatomic site where the medication first enters the body</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXR-2-Administration Site</Data></Cell>
     <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage.route</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">RouteOfAdministration</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Rout of administration</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject. </Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXR-1-Route</Data></Cell>
     <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.dosage.method</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">MedicationAdministrationMethod</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationAdministration.dosage.method</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationAdministrationMethod</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Administration method</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.&#10;&#10;Terminologies used often pre-coordinate this term with the route and or form of administration.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubstanceAdministration.methodCode</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXR-4-Administration Method</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage.quantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Dose quantity per dose</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">The amount of themedication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.  </Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">If the administration is not instantaneous (rate is present or timing has a duration), this represents the total amount administered over period of time of a single administration (as indicated by schedule)</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXA-6-Administered Amount / RXA-7.1-Administered Units.code / RXA-7.3-Administered Units.name of coding system (uri&lt;-&gt;code system mapping required)&#10;</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Expand notes on relationship between quantity and rate.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage.rate</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">Ratio</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Dose quantity per unit of time</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Identifies the speed with which the medication is introduced into the patient. Typically the rate for an infusion e.g. 200ml in 2 hours.  May also expressed as a rate per unit of time such as 100ml per hour - the duration is then not specified, or is specified in the quantity.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">If the rate changes over time, each change should be captured as a distinct &quot;dosage&quot; repetition.  This element should *not* be used to convey an average rate.</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s77"><Data ss:Type="String">RXA-12-Administered Per (Time Unit)</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">explain what happens if rate is not continuous</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationAdministration.dosage.maxDosePerPeriod</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">Ratio</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Total dose that should be consumed per unit of time</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"/>
     <Cell><Data ss:Type="String">RXE-4-Give Amount - Maximum / RXE-5-Give Units</Data></Cell>
     <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -557,9 +549,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -571,11 +563,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

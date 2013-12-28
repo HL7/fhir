@@ -14,9 +14,10 @@
     <reference value="Encounter/f201"/>
     <display value="Roel's encounter on April fourth 2013"/>
  </encounter>
- <reasonForPrescribing>
-   <text value="Condition/f201"/>
- </reasonForPrescribing> 
+ <reasonResource>
+   <reference value="Condition/f201"/>
+   <display value="fever"/>
+ </reasonResource> 
  <medication>
     <reference value="Medication/f203"/>
     <display value="Paracetamol"/>

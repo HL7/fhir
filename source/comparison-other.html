@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_HL7_Standard_Relationship%]       
+[%settitle Relationship between FHIR and Misc. HL7 Standards%]
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+[%cmpheader misc%]
+
+<h2>Other HL7 Standards</h2>
+<p>
+HL7 has produced a number of other standards that don't overlap with FHIR as closely as those listed above, primarily because they aren't focused solely on information exchange.  However, they deserve a brief mention:
+</p>
+
+<h3>EHR Functional Model (EHR-FM)</h3>
+<p>
+This specification defines a number of functional behaviors for Electronic Health Record systems.  FHIR is a healthcare information exchange standard that can be used to satisfy some of these functional behaviors.  Details on how FHIR fits into the EHR-FM can be found <a href="ehr-fm.html">here</a>
+</p>
+
+<h3>Context Management Specifications (CCOW)</h3>
+<p>
+CCOW is a standard for allowing independent systems to synchronize context on a single workstation, providing a seamless interface for the user of that workstation (e.g. ensuring consistent user authentication, display of the same patient, display of the same order, etc.)  In theory, FHIR resources could be used as an alternative CCOW implementation technology, however the business case for doing this is not clear.  CCOW profiles include V2 mappings.  These mappings can be used to help identify the equivalent FHIR data elements when establishing CCOW linkages in FHIR-based systems.
+</p>
+
+<h3>Arden Syntax</h3>
+<p>
+Arden Syntax is a language for defining decision support rules.  These rules make reference to data elements that are used as part of the decision making process.  However, the specification does not define how these data elements are identified.  FHIR element and extension identifiers would provide one mechanism for identifying the relevant data elements.
+</p>
+
+<h3>Virtual Medical Record</h3>
+<p>
+The Virtual Medical Record is a draft specification under development by HL7 that also serves the decision support space.  It defines a logical medical record that decision support rules can be constructed against.  At present, this model is a custom model created specifically for VMR.  However, the Decision Support work group is evaluating the possibility of using FHIR as a structure for future versions of the specification.
+</p>
+
+</div>
+
+[%file newfooter%]
+
+    
+    
+</body>
+</html>

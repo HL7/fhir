@@ -38,8 +38,8 @@ HL7 hosts one for public registration of FHIR profiles at (yet to be done).
 <div> 
 <h2>Boundaries and Relationships</h2> 
 <ul>
- <li>Profiles are used by <a href>Conformance Profiles</a> for specifying how resources are used</li>
- <li>Profiles use <a href="valuesets"></a> to specify the content of coded elements</li>
+ <li>Profiles are used by <a href="conformance.html">Conformance Profiles</a> for specifying how resources are used</li>
+ <li>Profiles use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
 </ul>
 
 <h3>Limitations of Use</h3>

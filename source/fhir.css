@@ -464,10 +464,10 @@ div.itoc p.link
 }
 
 span.sectioncount {
-color: silver;
-x-position: absolute;
-x-right: 0;
-x-margin-right: 30px;
+color: grey;
+x-x-position: absolute;
+x-x-right: 0;
+x-x-margin-right: 30px;
 }
 
 a.button {

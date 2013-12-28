@@ -19,13 +19,13 @@
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
-    <reasonForPrescribing>
+    <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="28036006"/>
             <display value="High density lipoprotein cholesterol level"/>
         </coding>
-    </reasonForPrescribing>
+    </reasonCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/f002"/>
         <display value="prescribed medication"/>

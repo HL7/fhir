@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/medicationprescription.xsd">
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>
@@ -19,13 +19,13 @@
         <reference value="Encounter/F004"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
-    <reasonForPrescribing>
+    <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="38341003"/>
             <display value="High blood pressure"/>
         </coding>
-    </reasonForPrescribing>
+    </reasonCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/F005"/>
         <display value="prescribed medication"/>

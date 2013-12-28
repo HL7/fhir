@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_HL7_Standard_Relationship%]       
+[%settitle Relationship between FHIR and CDA%]
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+<div class="col-9">
+
+[%cmpheader cda%]
+
+<h2>Clinical Document Architecture (CDA)</h2>
+<a name="cda"> </a>
+<p>
+CDA is HL7's most widely adopted V3 standard.  It provides both a standardized 
+header containing metadata about the document as well as the ability to convey 
+a wide variety of clinical content organized into various sections.  The document 
+content can be un-encoded, such as a PDF through to a fully encoded V3 instance.
+</p>
+<p>
+NOTE: While FHIR can be used to create <a href="documents.html">documents</a> using 
+the <a href="composition.html">Composition Resource</a>, FHIR can also be used to 
+exchange traditional CDA R2 documents making use of the <a href="documentreference.html">DocumentReference</a> 
+resource, and handling the CDA document itself as a binary attachment (as XDS does).
+</p>
+
+<h3>CDA Similarities and Differences</h3>
+<p>
+<b>Clinical document focus:</b> As its name implies, Clinical Document Architecture 
+is limited "clinical" use cases.  The CDA model does not support exchange of content 
+not deemed to have clinical relevance, such as financial information and is limited to 
+documents that deal with patients.  (In some cases, such as the HL7 Structured Product 
+Labeling standard, non-patient-specific CDA-like specifications are created to get 
+around this limitation.)  FHIR documents have no limitation on their content and can 
+have subjects other than patients.
+</p>
+<p>
+<b>Human readability approach:</b> CDA and FHIR both require that content be 
+human-readable and define specific rules for how the human readable text is presented.  
+One small difference is that in CDA, the human readable portion is defined for the 
+section, while for FHIR the text is on the resource the section points to.  However, 
+this produces no real difference in effect.  The other difference is that, for FHIR, 
+the human-readable aspect is not limited to the document - it's driven by the resource 
+itself.  This may result in slightly less flexibility in rendering approach if a document 
+is compiling existing resources.
+</p>
+<p>
+<b>Clinical Statement vs. resources:</b> In CDA, the "content" of the document is expressed 
+using a complex and extremely abstract model based on HL7's "Clinical Statement" project.  
+Its purpose is to allow implementers to express pretty much any clinical concept in any degree 
+of rigor and granularity.  (In practice, there are limitations built into the CDA model that 
+make the expression of certain clinical concepts challenging).  This model provides significant 
+power, but also presents challenges.  The first is that RIM modeling expertise is required in 
+order to express any particular piece of clinical information.  It isn't obvious how to 
+represent things like allergies or surgery or blood pressure "out of the box".  Templates are 
+required to support interoperability.  The second is that common clinical concepts can be (and 
+frequently are) modeled differently in different circumstances.  With FHIR, all clinical (and 
+non-clinical) content in a message is handled by referencing existing resource definitions.  
+These resources make it clear how to represent common structures like allergies and blood 
+pressure "out of the box" and ensure that there's only one way for core content to be 
+represented.  It does however create the limitation that an appropriate resource must have 
+been defined in order to share content.  In the early stages of FHIR development, it may be 
+necessary to make use of the <a href="other.html">Other</a> resource if an appropriate standard 
+resource has not yet been defined.
+</p>
+<p>
+<b>Templates and Profiles:</b> As discussed above, CDA relies on the presence of templates in 
+order to understand the meaning of instances.  (While the meaning can theoretically be determined 
+by looking at RIM attributes and codes, the reality is that this is often not safe or sufficient.  
+As such, pretty much every CDA instance includes <i>templateId</i> attribute values scattered 
+throughout the instance to define meaning.  With FHIR, meaning is defined by the resource.  
+<a href="profile.html">Profiles</a> can be used to define extensions, but they never refine the 
+meaning of core elements.  While the profiles used in constructing a particular instance can be 
+declared within the instance via <a href="extras.html#tag">tags</a>.  However, such declaration 
+is not required.
+</p>
+<p>
+<b>Mark-up language:</b> CDA defines its own XML syntax for narrative content, loosely based on 
+HTML.  FHIR makes use of a constrained set of XHTML which is somewhat more expressive than the CDA 
+markup.  Conversions from FHIR to CDA will need to take these constraints into account (or 
+alternatively provide a fully rendered version of the document).
+</p>
+
+<h3>CDA Interoperability Considerations</h3>
+<p>CDA is a type of V3 specification.  Therefore, all <a href="comparison-v3.html#V3-interoperability">considerations</a> 
+that apply to V3 messaging also apply to CDA.  In addition, the following topics are specific to CDA 
+implementations.</p>
+<p>
+<b>What to map:</b> The right-hand side (clinical content) portion of the CDA model qualifies as an 
+abstract model <a href="comparison-v3.html#V3-abstractModels">as discussed above</a>.  While the CDA header can reasonably 
+be mapped to the HL7 <a href="composition.html">Composition</a> resource and related resources, mappings 
+between FHIR and CDA should be done at the template level rather than the CDA specification itself.
+</p>
+<p>
+<b>Human readable granularity:</b> With FHIR, narrative only exists for the resources at the root of 
+each section.  With CDA, narrative exists for each section.  Usually this means the narrative in CDA 
+and FHIR will correspond.  However, in some cases, a section will contain other sub-sections.  In CDA, 
+these "container" sections can have narrative.  In FHIR, they cannot.  Applications will need to have some 
+way of managing this if converting.
+</p>
+<p>
+<b>Discrete to human-readable linkages:</b> To ensure semantic traceability, both FHIR and CDA allow 
+establishing linkages between text in the narrative and specific discrete elements in the encoded part 
+of a document.  If converting between FHIR and CDA, these linkages need to be converted as well.  However, 
+this is complicated by the fact that the granularity at which linkages can occur is different between the 
+two specifications.  In CDA, linkages can only occur at the level of a section or one of a couple of the 
+entry types.  With FHIR, linkages can occur at any level at all, including individual data type components 
+or even portions of extensions.  Converting from CDA to FHIR will be straight-forward, however there will 
+be information loss when converting the other way.
+</p>
+
+
+</div>
+
+[%file newfooter%]
+
+    
+    
+</body>
+</html>

@@ -22,7 +22,7 @@ validation. An expanded value set may also contain the original definition as we
 <div>
 <h2>Boundaries and Relationships</h2>
 <ul>
- <li>Value sets are used in <a href="profile.htm">Profiles</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
+ <li>Value sets are used in <a href="profile.html">Profiles</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
  <li>In addition, a specific <a href="datatypes.html#Coding">Coding</a> can reference the value set it was picked from</li>
  <li><a href="conceptmap.html">Concept Maps</a> describe mappings between value sets</li>
 </ul>

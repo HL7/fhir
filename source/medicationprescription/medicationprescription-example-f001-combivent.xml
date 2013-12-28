@@ -20,13 +20,13 @@
         <reference value="Encounter/f001"/>
         <display value="visit who leads to this priscription"/>
     </encounter>
-    <reasonForPrescribing>
+    <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="13645005"/>
             <display value="Chronic obstructive pulmonary disease"/>
         </coding>
-    </reasonForPrescribing>
+    </reasonCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/f001"/>
         <display value="prescribed medication"/>

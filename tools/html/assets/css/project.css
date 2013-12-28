@@ -284,9 +284,9 @@ body {
   padding: 2px 6px;
 }
 .sectioncount {
-  float: right;
-  color: #555555;
-  font-size: 12px;
+  x-float: right;
+  x-color: #555555;
+  x-font-size: 12px;
 }
 .sectioncount a {
   color: inherit;

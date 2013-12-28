@@ -19,13 +19,13 @@
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
-    <reasonForPrescribing>
+    <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="38341003"/>
             <display value="High blood pressure"/>
         </coding>
-    </reasonForPrescribing>
+    </reasonCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/f004"/>
         <display value="prescribed medication"/>

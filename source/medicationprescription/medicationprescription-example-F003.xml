@@ -19,19 +19,19 @@
         <reference value="encounter/F003"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
-    <reasonForPrescribing>
+    <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="444780001"/>
             <display value="High glucose level in blood"/>
         </coding>
-    </reasonForPrescribing>
+    </reasonCodeableConcept>
     <medication> <!-- Linked to a RESOURCE Medication -->
         <reference value="Medication/F003"/>
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstruction>
-        <timing>
+        <timingSchedule>
             <event>
                 <start value="2011-05-01"/>
             </event>
@@ -40,7 +40,7 @@
                 <duration value="1"/>
                 <units value="d"/>
             </repeat>
-        </timing>
+        </timingSchedule>
         <site>
             <coding>
                 <system value="http://snomed.info/sct"/>

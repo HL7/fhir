@@ -13,6 +13,12 @@ todo: compartments
     <page title="Outstanding Issues" filename="todo.html"/>
     <page title="Summary" filename="summary.html"/>
     <page title="Introduction" filename="overview.html"/>
+    <page title="Comparison" filename="comparison.html">
+      <page title="v2 Messaging" filename="comparison-v2.html"/>
+      <page title="v3 Messaging" filename="comparison-v3.html"/>
+      <page title="CDA" filename="comparison-cda.html"/>
+      <page title="Other Specifications" filename="comparison-other.html"/>
+    </page>
     <page title="Coming Challenges" filename="change.html"/>
     <page title="EHR FM map" filename="ehr-fm.html"/>
     <page title="Resource Definitions" filename="resources.html">
