@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<p>An order resource describes an order that an action be performed. An order is 
+<p>An order resource describes a request that an action be performed. An order is 
 expected to lead to one or more <a href="orderresponse.html">responses</a> that describe 
 the outcome of processing/handling the order. The order resource is focused on
 the process of actually requesting an action be performed; the actual action to 
