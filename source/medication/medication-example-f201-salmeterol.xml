@@ -29,6 +29,11 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="ug"/>
         </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+          <code value="PUFF"/>
+        </denominator>
       </amount>
     </ingredient>
     <ingredient>
@@ -41,6 +46,11 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="ug"/>
         </numerator>
+        <denominator>
+          <value value="1"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+          <code value="PUFF"/>
+        </denominator>
       </amount>
     </ingredient>
   </product>
