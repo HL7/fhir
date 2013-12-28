@@ -106,6 +106,7 @@ the <a href="patient.html">Patient resource</a> definition to see what resource 
   <li>About Resources: the <a href="narrative.html">Narrative</a> they all contain, and how <a href="references.html">Resources refer to each other</a></li>
   <li><a href="formats.html">Formats</a>: <a href="xml.html">XML</a> and <a href="json.html">JSON</a></li>
   <li>About <a href="extensibility.html">Extensibility</a>: a key way that the specification is kept simple</li>
+  <li>If you are coming to FHIR with a background in another HL7 standard (v2, v3 or CDA), <a href="comparison.html">The Relationship between FHIR and other HL7 Standards</a> may also be useful</li>
 </ul>
 
 <h4>Header Tabs</h4>
@@ -123,13 +124,61 @@ many more) and, where appropriate, with profiles that describe their use in spec
 notes that helps implementers understand the design rationale underlying them. 
 </p>
 
-<h3>The FHIR Wiki</h3>
+<h3>Style conventions</h3>
 <p>
-The FHIR project team also maintains a <a href="http://wiki.hl7.org/index.php?title=FHIR">wiki</a> where 
-development processes, methodology and design decisions are documented. [todo: LLOYD FILL IN MORE].
+This document uses some simple style conventions:
+<code>this content represents information that may go over the wire</code>
+<i>this is the name of a data element</i>
+</p>
+
+<h3>Finding Additional Information and Providing Feedback</h3>
+<p>While intended to be consumable by a variety of audiences, the FHIR specification is targeted to the implementation community - those who will actually
+write the software that uses the specification.  To help meet the needs of the implementation community, the editors have strived to keep the specification
+concise to reduce the amount of reading that must be done before writing useful code.  (The specification isn't nearly as brief as we'd like - sometimes
+the complexity of healthcare and the real world get in the way.)  For this reason, information that is not essential to the implementation process, such
+as rationale, considered alternatives, points of contention, future plans, etc. have been excluded from this specification.  As well, it is likely that
+from time-to-time, implementers will encounter situations where the specification is unclear or incomplete.  Finally, there will be circumstances where
+the specification may be broken or where a change could allow it to better meet implementer needs.
 </p>
 <p>
-LLOYD: reference to comparison with other specifications.
+HL7 has therefore provided a number of mechanisms through which additional information about FHIR can be sought and maintained and through which support
+and requests for change can be made.
+</p>
+
+<h4>Comments</h4>
+<p>
+Each page includes a "comments" section at the bottom of the page where questions and discussion about that particular portion of the FHIR specification can occur.
+The comments will be actively monitored by FHIR editors and HL7 work groups, so questions should be answered in a fairly timely fashion.
+This content will occasionally be currated to ensure ongoing relevance, particularly if the specification is subsequently updated to eliminate confusion that may have
+spawned an initial comment.
+</p>
+
+<h4>The FHIR Wiki</h4>
+<p>
+The FHIR project team also maintains a <a href="http://wiki.hl7.org/index.php?title=FHIR">wiki</a> where 
+development processes, methodology and design decisions are documented.  Implementers and others can also contribute to the wiki to provide additional guidance
+and supplemental information not found in the specification.  Note that wiki content is not authoritative and is not relevant for determining conformance to
+the FHIR specification.  As well, some wiki content may not be up to date with the most recent version of the FHIR specification.
+</p>
+<p>
+A wiki page exists for each page in the FHIR specification.  These pages will generally be used to capture background rationale, decision points and other
+information not relevent to implementers.  Additional pages defined include <a href="http://wiki.hl7.org/index.php?title=FHIR_Development_Process">FHIR methodology</a>, 
+use of the <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Authoring_Resources">FHIR design tools</a>, etc.  To
+explore the FHIR wiki, you can start at the <a href="http://wiki.hl7.org/index.php?title=FHIR">root page</a>
+</p>
+
+<h4>Formal Change requests</h4>
+<p>
+Formal requests for change can be submitted <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">here</a>.  
+(There's a link at the bottom of each page as well.)  These will be reviewed by the appropriate work group and a decision made on their incorporation into the
+specification, including which release (if any) they will be part of.
+</p>
+
+<h4>Additional Information sources/Engagement Mechanisms</h4>
+<p>
+In addition to the above mechanisms, HL7 provides a Stack Overflow tag, list servers and mass Skype chats to provide various levels of implementer support
+and engagement.  Instructions for accessing these other mechanisms (and instructions for how best to make use of them) can be found 
+<a href="http://wiki.hl7.org/index.php?title=FHIR#More_help_and_Asking_Questions">here</a>.
 </p>
 
 </div>
