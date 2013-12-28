@@ -35,13 +35,10 @@ The Diagnostic Report resources has the following aspects:
 <h3>Diagnostic Report Names</h3>
 
 <p>
-There is a wide variety of names associated with the various parts of a diagnostic report. Doctors 
-request for "tests" or "results" to be done. What the diagnostic service returns is variously called
-the "tests" or "results" or the "report". The individual data items are called "results" or "tests"
-both collectively and individually. Collections of individual data items are sometimes called "batteries"
-or "panels", which have various implications in different contexts. The naming confusion is worsened 
-because of the wide variety of forms that the result of a diagnostic investigation can take, as 
-described above. Languages other than English have their own variations on this theme.
+The terms, ‘tests, ‘results’, ‘panels’ and ‘batteries’ are often used interchangeably when describing 
+the various parts of a diagnostic report. This leads to a lot of confusion. The naming confusion is 
+worsened because of the wide variety of forms that the result of a diagnostic investigation can take, 
+as described above. Languages other than English have their own variations on this theme.
 </p>
 <p>
 This resource uses one particular set of terms. A practitioner "requests" a set of "tests". The
