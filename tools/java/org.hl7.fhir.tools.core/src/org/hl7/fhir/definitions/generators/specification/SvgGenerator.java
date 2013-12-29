@@ -901,6 +901,9 @@ public class SvgGenerator {
         if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
           AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
           return vs.getLinks().get("path").replace(File.separatorChar, '/');
+        } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
+            AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
+            return vs.getLinks().get("path").replace(File.separatorChar, '/');
         } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
           return bs.getReference().substring(23)+".html";
         else

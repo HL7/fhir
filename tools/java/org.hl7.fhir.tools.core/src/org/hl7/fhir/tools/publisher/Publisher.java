@@ -2225,6 +2225,11 @@ public class Publisher {
         throw new Exception("Value set example "+e.getPath().getAbsolutePath()+" has no identifier");
       addToResourceFeed(cm, cm.getIdentifierSimple(), conceptMapsFeed);
       page.getDefinitions().getConceptMaps().put(cm.getIdentifierSimple(), cm);
+      AtomEntry ae = new AtomEntry();
+      ae.getLinks().put("self", n+".html");
+      ae.getLinks().put("path", n+".html");
+      ae.setResource(cm);
+      page.getConceptMaps().put(cm.getIdentifierSimple(), ae);
     }
 
     Element el = xdoc.getDocumentElement();

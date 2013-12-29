@@ -377,6 +377,10 @@ public class PageProcessor implements Logger  {
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("v2xref"))
         src = s1 + xreferencesForV2(name, com[1]) + s3;      
+      else if (com[0].equals("conceptmaplistv2"))
+        src = s1 + conceptmaplist("http://hl7.org/fhir/v2/vs/"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
+      else if (com[0].equals("conceptmaplistv3"))
+        src = s1 + conceptmaplist("http://hl7.org/fhir/v3/vs/"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
       else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;
@@ -556,6 +560,59 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String conceptmaplist(String id, String level) {
+    List<AtomEntry<ConceptMap>> cmaps = new ArrayList<AtomEntry<ConceptMap>>();
+    for (AtomEntry<ConceptMap> e : conceptMaps.values()) {
+      ConceptMap cm = e.getResource();
+      if (cm.getSource().getReferenceSimple().equals(id) || cm.getTarget().getReferenceSimple().equals(id))
+        cmaps.add(e);
+    }
+    if (cmaps.size() == 0)
+      return "";
+    else {
+      String prefix = "../../";
+      if (level.equals("l3"))
+        prefix = "../../../";
+      StringBuilder b = new StringBuilder();
+      b.append("<p>Concept Maps for this value set:</p>");
+      b.append("<table class=\"grid\">\r\n");
+      for (AtomEntry<ConceptMap> ae : cmaps) {
+        ConceptMap cm = ae.getResource();
+        b.append(" <tr><td>");
+        if (cm.getSource().getReferenceSimple().equals(id)) {
+          b.append("to <a href=\""+prefix+getValueSetRef(cm.getTarget().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getTarget().getReferenceSimple()));
+        } else {
+          b.append("from <a href=\""+prefix+getValueSetRef(cm.getSource().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getSource().getReferenceSimple()));
+        }
+        b.append("</a></td><td><a href=\""+prefix+ae.getLinks().get("path")+"\">"+cm.getNameSimple()+"</a></td><td><a href=\""+prefix+Utilities.changeFileExt(ae.getLinks().get("path"), ".xml.html")+"\">XML</a></td><td><a href=\""+prefix+Utilities.changeFileExt(ae.getLinks().get("path"), ".json.html")+"\">JSON</a></td></tr>");
+      }
+      b.append("</table>\r\n");
+      return b.toString();
+    }
+  }
+
+  private String getValueSetRef(String ref) {
+    AtomEntry<ValueSet> vs = valueSets.get(ref);
+    if (vs == null) {
+      if (ref.equals("http://snomed.info/id"))
+        return "http://snomed.info";
+      else 
+        return ref;
+    } else
+      return vs.getLinks().get("path");
+  }
+
+  private String describeValueSetByRef(String ref) {
+    AtomEntry<ValueSet> vs = valueSets.get(ref);
+    if (vs == null) {
+      if (ref.equals("http://snomed.info/id"))
+        return "Snomed CT";
+      else 
+        return ref;
+    } else
+      return vs.getResource().getNameSimple();
   }
 
   private String xreferencesForV2(String name, String level) {

@@ -57,7 +57,6 @@ which proposals will be evaluated.
 A conformance statement is identified as being a requirements statement through the 
 presence of the <i>proposal</i> element.
 </p>
-<br/>
 
 <p>
 These three types of profiles can be used together.  A requirements statement can 

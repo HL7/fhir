@@ -179,6 +179,9 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
             if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
               AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
               write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a>");
+            } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
+                AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
+                write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a>");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/vs/"))
               write("<a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a>");
             else

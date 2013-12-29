@@ -425,6 +425,9 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
 				        AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
 				        write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
+	                AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
+	                write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
 				        write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
 				      else
