@@ -209,7 +209,7 @@ these regards.
 <p>
 An application MAY offer to expand value sets for other applications. In this 
 case, the standard way to produce a value set expansion is to perform a 
-<a href="query.html">query</a> on the value set with _query=expand:
+<a href="search.html">query</a> on the value set with _query=expand:
 </p>
 <pre>
   GET [service-url]/ValueSet/?_query=expand&amp;id=:valueSet&amp;...
@@ -232,7 +232,7 @@ should repeat the query each time the value set is used.
 An application may offer to provide code validation services for other 
 applications. In this case, the standard way for an application to 
 ask for validation is to perform a 
-<a href="query.html">query</a> on the value set with _query=validate:
+<a href="search.html">query</a> on the value set with _query=validate:
 </p>
 <pre>
   GET [service-url]/ValueSet/?_query=validate&amp;id=:valueSet&amp;system=:system&amp;version=:version&amp;code=:code&amp;...

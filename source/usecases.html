@@ -128,7 +128,7 @@ Any decision support may fall into multiple categories at once, depending on the
 <ol>
  <li>There is no particular support required from the FHIR specification, though there will be ongoing review of the contents of the resources to ensure that they support common decision support practices appropriately</li>
  <li>There is no suitable resource for this use yet. The <a href="alert.html">Alert</a> resource is intended or clinical notes about the patient, and is not intended for this use. A resource called "Alarm" is under preparation for this purpose </li>
- <li>A request for a decision support is understood as a <a href="query.html">query</a> using a named _query that takes a set of parameters. See below</li>
+ <li>A request for a decision support is understood as a <a href="search.html">search</a> using a named _query that takes a set of parameters. See below</li>
 </ol>
  
 <h3>Explicit Requests for Decisions</h3> 
@@ -137,7 +137,7 @@ When a query is made in order to get a decision made, the following consideratio
 </p>
 <p><b>Request</b></p>
 <ul>
-  <li>The request for a decision is made using one of the interaction patterns described for <a href="query.html">queries</a>: A RESTful search, a query posted to <a href="messaging.html#mailbox">/Mailbox</a>, a query <a href="messaging.html">message</a>, or the Asynchronous query pattern</li>
+  <li>The request for a decision is made using one of the interaction patterns described for <a href="search.html">search/query</a>: A RESTful search, a query posted to <a href="messaging.html#mailbox">/Mailbox</a>, a query <a href="messaging.html">message</a>, or the Asynchronous query pattern</li>
   <li>The request has a _query parameter that identifies the decision that is being requested</li>
   <li>The request also has a set of parameter values. These parameter values may be the data that describes the decision being made or they may be references to specific resources that contain the request. In general, 
     the more complex the decision request is, the more likely it is that a full resource is appropriate, particularly since this provides a ready made way to record and manage the requests themselves. </li>

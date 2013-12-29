@@ -277,6 +277,17 @@ public class BreadCrumbManager {
         }
         b.append("        <li><a href=\""+prefix+name.substring(0, name.indexOf("."))+".html\">"+name.substring(0, name.indexOf("."))+"</a></li>");
         b.append("        <li><b>Instance</b></li>");
+      } else if (type.equals("conceptmap-instance") && name.contains(".")) {
+        String[] path = map.get("terminologies-conceptmaps.html").split("\\.");
+        Page focus = home;
+        for (int i = 0; i < path.length; i++) {
+          focus = getChild(focus, path[i]);
+          if (focus.type == PageType.resource)
+            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+          else
+            b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
+        }
+        b.append("        <li><b>Example</b></li>");
       } else if (type.startsWith("res") && map.containsKey(Utilities.fileTitle(name))) {
         String[] path = map.get(Utilities.fileTitle(name)).split("\\.");
         Page focus = home;

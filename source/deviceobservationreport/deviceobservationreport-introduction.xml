@@ -3,14 +3,21 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-Todo
+This resource carries a set of data from a device that is observing a subject. Most commonly, the subject is a patient,
+and the device is something like a vital signs monitor, or a glucose measurement device, but other kinds of subjects
+and devices are expected as well. 
+</p>
+<p>
+This resource does not cater for:
+</p>
+<ul>
+ <li>Supporting real-time analytics and in particular, alarms that might be raised as a result of such analysis</li>
+ <li>Sending commands to a device</li>
+</ul>
+<p>
+This capability is expected to be subject of additional resources that are yet to be developed, and implmenter input on this is welcome.
 </p>
 </div>
-<!-- to add:
-
-at present, FHIR does not offer any solution designed for real-time analytics of data from machines. This resource may be used for that purpose during the trial use period, and implementers wishing to work on real time analytics are invited to participate in further developemnt of the standard
-
--->
 
 <div>
 <h2>Boundaries and Relationships</h2>

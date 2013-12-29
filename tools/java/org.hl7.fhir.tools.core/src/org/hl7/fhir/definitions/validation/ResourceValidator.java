@@ -134,7 +134,7 @@ public class ResourceValidator extends BaseValidator {
     String s = parent.getRoot().getMapping(ElementDefn.RIM_MAPPING);
     warning(errors, "required", parent.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
-    checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equals("n/a"));
+    checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equalsIgnoreCase("n/a"));
     
     if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
       ElementDefn id = parent.getRoot().getElementByName("identifier");
@@ -302,6 +302,12 @@ public class ResourceValidator extends BaseValidator {
             rule(errors, "structure", path, cd.getElementType() == ElementType.Simple, "Cannot use a binding from both code and Coding/CodeableConcept elements");
 			}
 		}
+
+    String s = e.getMapping(ElementDefn.RIM_MAPPING);
+    warning(errors, "required", path, !needsRimMapping || !Utilities.noString(s), "RIM Mapping is required");
+
+    needsRimMapping = needsRimMapping && !"n/a".equalsIgnoreCase(s);
+    
 		for (ElementDefn c : e.getElements()) {
 			checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping);
 		}

@@ -20,6 +20,7 @@
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6255</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -129,10 +130,10 @@
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R20C18"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R23C18"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="20" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="23" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="196.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="30"/>
@@ -353,9 +354,7 @@
     <Cell><Data ss:Type="String">DiagnosticReport.requestDetail</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">down</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Resource(DiagnosticOrder)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(DiagnosticOrder)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">What was requested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -447,7 +446,7 @@
     <Cell><Data ss:Type="String">DiagnosticReport.results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">right</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">350;25</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=ResultGroup</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -539,24 +538,67 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">OBX</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">DiagnosticReport.imagingStudy</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(ImagingStudy)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reference to full details of imaging associated with the diagnostic report</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">ImagingStudy and image are somewhat overlapping - typically, an image in the image list will also be found in the imaging study resource. However the imaging study and image lists cater to different types of displays for different types of purposes. Neither, either, or both may be provided</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="16" ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">DiagnosticReport.image</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Media|ImagingStudy)</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">360;125</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Key images associated with this report</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest)</Data><NamedCell
+    <Cell><Data ss:Type="String">A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Dicom, Slides, Scans</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">An imaging study is a list of images following a DICOM specification - only list one of these, or multiple images</Data><NamedCell
+    <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Many diagnostic services include images in the report as part of their service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">outboundRelationship[typeCode=COMP].target</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">outboundRelationship[typeCode=COMP].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16" ss:StyleID="s70"><Data ss:Type="String">OBX?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">DiagnosticReport.image.comment</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Comment about the image (e.g. explanation)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">The provider of the report should make a comment about each image they include in the report</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The comment sbould be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="16" ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">DiagnosticReport.image.link</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Media)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reference to the image source</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="16" ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">DiagnosticReport.conclusion</Data><NamedCell
@@ -631,13 +673,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -645,15 +686,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -755,7 +796,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
@@ -838,6 +879,11 @@
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.codedDiagnosis</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">image</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">DiagnosticReport.image.link</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -849,7 +895,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -944,7 +991,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="100.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="219.75"/>
@@ -999,6 +1046,13 @@
     <Cell><Data ss:Type="String">diagnosticreport-example-f202-bloodculture.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Bone Density</Data></Cell>
+    <Cell><Data ss:Type="String">Imaging Example (Bone Density DXA)</Data></Cell>
+    <Cell><Data ss:Type="Number">102</Data></Cell>
+    <Cell><Data ss:Type="String">diagnosticreport-example-dxa.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1007,10 +1061,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

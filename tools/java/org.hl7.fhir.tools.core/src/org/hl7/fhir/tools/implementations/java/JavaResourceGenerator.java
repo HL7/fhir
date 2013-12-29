@@ -741,7 +741,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.getTypes().get(0).isIdRef() || e.typeCode().equals("xml:lang"))) {
 	      jdoc(indent, "@return "+e.getDefinition());
 	      write(indent+"public "+getSimpleType(tn)+" get"+getTitle(getElementName(e.getName(), false))+"Simple() { \r\n");
-	      write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? null : this."+getElementName(e.getName(), true)+".getValue();\r\n");
+	      write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? "+(e.typeCode().equals("boolean") ? "false" : "null")+" : this."+getElementName(e.getName(), true)+".getValue();\r\n");
 	      write(indent+"}\r\n");
 	      write("\r\n");
 	      jdoc(indent, "@param value "+e.getDefinition());

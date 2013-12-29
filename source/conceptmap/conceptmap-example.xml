@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>A mapping between the FHIR and V3 AddressUse Code systems</p>
-    </div>
-  </text>
   <!-- this example, we elected to use a UUID. We could have used 
      an OID, or a URI - depends on how it will be used. -->
   <identifier value="256a5231-a2bb-49bd-9fea-f349d428b70d"/>

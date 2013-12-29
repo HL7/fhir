@@ -54,6 +54,223 @@ OBX|1|ST|60036^Oxacillin Screen&KB Zone|1|60416|||SUSCEPT||A~S|F||N|||^9315|
 OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
 analysis of this v2 message:
 
+
+
+OBX|4|CE|ORGANISM|1|Staaur^
+Staphylococcus aureus^Staaur|||||A~S|F|||||^10304|
+OBX|5|CE|CULTPOSNEG||POS|||POS|||F||||||
+OBR|2|xxxxx|xxxxxxx|60790^Susceptibility - Automated broth dilution (Billed)|||20120911072700||2002557|xxx||||2012091100||xxxxx||||000002012255101033^xxxxx||20120914165737||MB|F|^1^Staaur&Staphylococcus aureus&310783|1^^^20120911142558^^R~^^^^^R||60108|||||||||||||||||||||||
+OBX|1|ST|60504^Ampicillin&AST Interp|1|Resistant|||RESIST||A~S|F||N|||^9315|
+OBX|2|ST|60512^Cefazolin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||N|||^9315|
+OBX|3|ST|60512^Cefazolin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
+OBX|4|ST|60516^Cefoxitin&AST Dilutn|1|<=4|||SUSCEPT||A~S|F||N|||^9315|
+OBX|5|ST|60516^Cefoxitin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
+OBX|6|ST|60527^Clindamycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|7|ST|60527^Clindamycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|8|ST|61203^Daptomycin&AST Dilutn|1|<=1|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|9|ST|61203^Daptomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|10|ST|60532^Doxycycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^9315|
+OBX|11|ST|60532^Doxycycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
+OBX|12|ST|60533^Erythromycin&AST Dilutn|1|>=8|||RESIST||A~S|F||Y|||^9315|
+OBX|13|ST|60533^Erythromycin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^9315|
+OBX|14|ST|60536^Gentamicin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|15|ST|60536^Gentamicin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|16|ST|61007^Levofloxacin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|17|ST|61007^Levofloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|18|NM|60699^Linezolid&AST Dilutn|1|4|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|19|ST|60699^Linezolid&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|20|ST|61204^Moxifloxacin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^9315|
+OBX|21|ST|61204^Moxifloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
+OBX|22|NM|60551^Oxacillin&AST Dilutn|1|0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|23|ST|60551^Oxacillin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|24|ST|60552^Penicillin&AST Dilutn|1|>=2|||RESIST||A~S|F||Y|||^9315|
+OBX|25|ST|60552^Penicillin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^9315|
+OBX|26|ST|60697^Quinupristin/Dalfopristin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|27|ST|60697^Quinupristin/Dalfopristin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|28|ST|60555^Rifampin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|29|ST|60555^Rifampin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|30|ST|60558^Tetracycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|31|ST|60558^Tetracycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|32|ST|60561^Trimethoprim/Sulfamethoxazole&AST Dilutn|1|<=1/19|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|33|ST|60561^Trimethoprim/Sulfamethoxazole&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|34|NM|60563^Vancomycin&AST Dilutn|1|1|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|35|ST|60563^Vancomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|36|ST|60500^Susceptibilities Performed&AST Dilutn|1|Performed|||||A~S|F||N|||^9315|
+OBX|37|ST|60500^Susceptibilities Performed&AST Interp|1|Completed|||||A~S|F||N|||^9315|
+OBX|38|ST|2099930^D-Test&AST Interp|1|See Note|||||A~S|F||Y|||^9315|
+OBX|39|ST|2099935^Interpretative Information&AST Interp|1|See Note|||||A~S|F||Y|||^9315|
+NTE|1|L|D-Test:  Negative - This isolate does not demonstrate|
+NTE|2|L|inducible clindamycin resistance in vitro.|
+OBR|3|xxxx|xxxxxxx|60418^Susceptibility - Disk diffusion (Billed)|||20120911072700|||xxxxx||||2012091100||xxxxx||||000002012255101033^xxxxxx||20120914165737||MB|F|^1^Staaur&Staphylococcus aureus&310783|1^^^20120911142558^^R~^^^^^R||60108|||||||||||||||||||||||
+OBX|1|ST|60036^Oxacillin Screen&KB Zone|1|60416|||SUSCEPT||A~S|F||N|||^9315|
+OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+
+
+OBR|1|255337816|290741144^HNAM_ORDERID-MRSACULT-^HNAM_ORDERID|MRSACULT^Culture, MRSA^^632-0^Culture, MRSA|||20090807190000|||101022^Unit|||Y|2009080800|Wound^^Right hand wound^Hand R|00013442^ASHBY^TODD^R^^^PA||||000002009219104402^HNA_ACCN~21619128^HNA_ACCNID||20090810082544||MB|F||1^^^20090808040954^^R~^^^^^R|||||||||20090807195000||||||||||||||||
+NTE|1|L|Includes stain, anaerobic culture (if collected properly),|
+NTE|2|L|identification and susceptibility tests according to|
+NTE|3|L|Microbiology protocol.|
+OBX|1|TX|60011^GS||2+ Gram Positive Cocci ~2+ polymorphonuclear leukocytes (PMNs)|||||A~S|F|||||^19242|
+OBX|2|TX|60003^Final Report||4+ Staphylococcus aureus|||||A~S|F|||||^2319|
+OBX|3|CE|POS||GPC~SAUR|||||A~S|F|||||^2319|
+OBX|4|CE|ORGANISM|1|SAUR^Staphylococcus aureus^Staaur|||||A~S||||||^2319|
+OBX|5|CE|CULTPOSNEG||POS|||POS|||||||||
+OBR|2|255337816|290741144^HNAM_ORDERID-60790-^HNAM_ORDERID|60790^Susceptibility - Automated broth dilution (Billed)|||20090807190000||2002557|PMIC 106^Unit|||||REQUIRED|00013442^ASHBY^TODD^R^^^PA||||000002009219104402^HNA_ACCN~21619128^HNA_ACCNID||20090810082544||MB|F|^1^SAUR&Staphylococcus aureus&310783~^^&&8616519|1^^^20090808040954^^R~^^^^^R||60132|||||||||||||||||||||||
+OBX|1|ST|60504^Ampicillin&AST Interp|1|Resistant|||RESIST||A~S|F||N|||^2319|
+OBX|2|ST|60516^Cefoxitin&AST Dilutn|1|>=32|||RESIST||A~S|F||N|||^2319|
+OBX|3|ST|60516^Cefoxitin&AST Interp|1|Resistant|||RESIST||A~S|F||N|||^2319|
+OBX|4|ST|60527^Clindamycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|5|ST|60527^Clindamycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|6|ST|61203^Daptomycin&AST Dilutn|1|<=1|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|7|ST|61203^Daptomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|8|ST|60532^Doxycycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^2319|
+OBX|9|ST|60532^Doxycycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^2319|
+OBX|10|ST|60533^Erythromycin&AST Dilutn|1|>=8|||RESIST||A~S|F||Y|||^2319|
+OBX|11|ST|60533^Erythromycin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^2319|
+OBX|12|ST|60536^Gentamicin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|13|ST|60536^Gentamicin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|14|ST|61007^Levofloxacin&AST Dilutn|1|>=8|||RESIST||A~S|F||Y|||^2319|
+OBX|15|ST|61007^Levofloxacin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^2319|
+OBX|16|NM|60699^Linezolid&AST Dilutn|1|2|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|17|ST|60699^Linezolid&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|18|NM|61204^Moxifloxacin&AST Dilutn|1|2|||SUSCEPT||A~S|F||N|||^2319|
+OBX|19|ST|61204^Moxifloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^2319|
+OBX|20|ST|60551^Oxacillin&AST Dilutn|1|>=4|||RESIST||A~S|F||Y|||^10304|
+OBX|21|ST|60551^Oxacillin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^10304|
+OBX|22|ST|60552^Penicillin&AST Dilutn|1|>=2|||RESIST||A~S|F||Y|||^2319|
+OBX|23|ST|60552^Penicillin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^2319|
+OBX|24|ST|60697^Quinupristin/Dalfopristin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|25|ST|60697^Quinupristin/Dalfopristin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|26|ST|60555^Rifampin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|27|ST|60555^Rifampin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|28|ST|60558^Tetracycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|29|ST|60558^Tetracycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|30|ST|60561^Trimethoprim/Sulfamethoxazole&AST Dilutn|1|<=1/19|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|31|ST|60561^Trimethoprim/Sulfamethoxazole&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|32|ST|60563^Vancomycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|33|ST|60563^Vancomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|34|ST|60500^Susceptibilities Performed&AST Dilutn|1|Performed|||||A~S|F||N|||^2319|
+OBX|35|ST|60500^Susceptibilities Performed&AST Interp|1|Completed|||||A~S|F||N|||^2319|
+OBX|36|ST|2099930^D-Test&AST Interp|1|See Note|||||A~S|F||Y|||^2319|
+OBX|37|ST|2099935^Interpretative Information&AST Interp|1|See Note|||||A~S|F||Y|||^2319|
+NTE|1|L|D-Test:  Negative - This isolate does not demonstrate|
+NTE|2|L|inducible clindamycin resistance in vitro.|
+ 
+
+OBR|3|255337816|290741144^HNAM_ORDERID-60445-^HNAM_ORDERID|60445^Susceptibility - MecA Gene Detection by PCR (Billed)|||20090807190000||2049960|mecA P^Unit|||||REQUIRED|00013442^ASHBY^TODD^R^^^PA||||000002009219104402^HNA_ACCN~21619128^HNA_ACCNID||20090810082544||MB|F|^1^SAUR&Staphylococcus aureus&310783~^^&&8616519|1^^^20090808040954^^R~^^^^^R||60132|||||||||||||||||||||||
+OBX|1|ST|60693^mecA Gene&mecA Gene|1|Present|||||A~S|F||Y|||^10304|
+OBX|2|ST|2099935^Interpretative Information&mecA Gene|1|See Note|||||A~S|F||Y|||^10304|
+NTE|1|L|The absence of mec A gene in Staphylococcus species|
+NTE|2|L|indicates susceptibility to oxacillin/nafcillin.  The|
+NTE|3|L|presence of mecA gene in Staphylococcus species indicates|
+NTE|4|L|resistance to all beta-lactam antibiotics.  This test is|
+NTE|5|L|performed pursuant to an agreement with Roche Molecular|
+NTE|6|L|Systems Inc.  This test was developed and its performance|
+NTE|7|L|characteristics determined by ARUP Laboratories.  The U.S.|
+NTE|8|L|Food and Drug Administration has not approved or cleared|
+NTE|9|L|this test; however, FDA clearance or approval is not|
+NTE|10|L|currently required for clinical use.  The results are not|
+NTE|11|L|intended to be used as the sole means for clinical|
+NTE|12|L|diagnosis or patient management decisions.|
+ 
+
+OBR|1|25533782655|29074124455^HNAM_ORDERID-60132-^HNAM_ORDERID|60132^Culture, Wound^^632-0^Culture, Wound|||20100817190000|||101022^Unit|||Y|2010080800|Wound^^Right hand wound^Hand R|00013442^ASHBY^TODD^R^^^PA||||000002010219104402^HNA_ACCN~21619128^HNA_ACCNID||20100810082544||MB|F||1^^^20100808040954^^R~^^^^^R|||||||||20100807195000||||||||||||||||
+NTE|1|L|Includes stain, anaerobic culture (if collected properly),|
+NTE|2|L|identification and susceptibility tests according to|
+NTE|3|L|Microbiology protocol.|
+OBX|1|TX|60011^GS||2+ Gram Positive Cocci ~2+ polymorphonuclear leukocytes (PMNs)|||||A~S|F|||||^19242|
+OBX|2|TX|60003^Final Report||4+ Staphylococcus aureus|||||A~S|F|||||^2319|
+OBX|3|CE|POS||GPC~SAUR|||||A~S|F|||||^2319|
+OBX|4|CE|ORGANISM|1|SAUR^Staphylococcus aureus^Staaur|||||A~S||||||^2319|
+OBX|5|CE|CULTPOSNEG||POS|||POS|||||||||
+OBR|2|25533782655|29074124455^HNAM_ORDERID-60790-^HNAM_ORDERID|60790^Susceptibility - Automated broth dilution (Billed)|||20100807190000||2002557|PMIC 106^Unit|||||REQUIRED|00013442^ASHBY^TODD^R^^^PA||||000002010219104402^HNA_ACCN~21619128^HNA_ACCNID||20100810082544||MB|F|^1^SAUR&Staphylococcus aureus&310783~^^&&8616519|1^^^20100808040954^^R~^^^^^R||60132|||||||||||||||||||||||
+OBX|1|ST|60504^Ampicillin&AST Interp|1|Resistant|||RESIST||A~S|F||N|||^2319|
+OBX|2|ST|60516^Cefoxitin&AST Dilutn|1|>=32|||RESIST||A~S|F||N|||^2319|
+OBX|3|ST|60516^Cefoxitin&AST Interp|1|Resistant|||RESIST||A~S|F||N|||^2319|
+OBX|4|ST|60527^Clindamycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|5|ST|60527^Clindamycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|6|ST|61203^Daptomycin&AST Dilutn|1|<=1|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|7|ST|61203^Daptomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|8|ST|60532^Doxycycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^2319|
+OBX|9|ST|60532^Doxycycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^2319|
+OBX|10|ST|60533^Erythromycin&AST Dilutn|1|>=8|||RESIST||A~S|F||Y|||^2319|
+OBX|11|ST|60533^Erythromycin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^2319|
+OBX|12|ST|60536^Gentamicin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|13|ST|60536^Gentamicin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|14|ST|61007^Levofloxacin&AST Dilutn|1|>=8|||RESIST||A~S|F||Y|||^2319|
+OBX|15|ST|61007^Levofloxacin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^2319|
+OBX|16|NM|60699^Linezolid&AST Dilutn|1|2|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|17|ST|60699^Linezolid&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|18|NM|61204^Moxifloxacin&AST Dilutn|1|2|||SUSCEPT||A~S|F||N|||^2319|
+OBX|19|ST|61204^Moxifloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^2319|
+OBX|20|ST|60551^Oxacillin&AST Dilutn|1|>=4|||RESIST||A~S|F||Y|||^10304|
+OBX|21|ST|60551^Oxacillin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^10304|
+OBX|22|ST|60552^Penicillin&AST Dilutn|1|>=2|||RESIST||A~S|F||Y|||^2319|
+OBX|23|ST|60552^Penicillin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^2319|
+OBX|24|ST|60697^Quinupristin/Dalfopristin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|25|ST|60697^Quinupristin/Dalfopristin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|26|ST|60555^Rifampin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|27|ST|60555^Rifampin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|28|ST|60558^Tetracycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|29|ST|60558^Tetracycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|30|ST|60561^Trimethoprim/Sulfamethoxazole&AST Dilutn|1|<=1/19|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|31|ST|60561^Trimethoprim/Sulfamethoxazole&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|32|ST|60563^Vancomycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|33|ST|60563^Vancomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|34|ST|60500^Susceptibilities Performed&AST Dilutn|1|Performed|||||A~S|F||N|||^2319|
+OBX|35|ST|60500^Susceptibilities Performed&AST Interp|1|Completed|||||A~S|F||N|||^2319|
+OBX|36|ST|2099930^D-Test&AST Interp|1|See Note|||||A~S|F||Y|||^2319|
+OBX|37|ST|2099935^Interpretative Information&AST Interp|1|See Note|||||A~S|F||Y|||^2319|
+
+
+OBR|1|25533782677|29074124477^HNAM_ORDERID-60132-^HNAM_ORDERID|60132^Culture, Wound^^632-0^Culture, Wound|||20080817190000|||101022^Unit|||Y|2010080800|Wound^^Right hand wound^Hand R|00013442^ASHBY^TODD^R^^^PA||||000002010219104402^HNA_ACCN~21619128^HNA_ACCNID||20100810082544||MB|F||1^^^20100808040954^^R~^^^^^R|||||||||20100807195000||||||||||||||||
+NTE|1|L|Includes stain, anaerobic culture (if collected properly),|
+NTE|2|L|identification and susceptibility tests according to|
+NTE|3|L|Microbiology protocol.|
+OBX|1|TX|60011^GS||2+ Gram Positive Cocci ~2+ polymorphonuclear leukocytes (PMNs)|||||A~S|F|||||^19242|
+OBX|2|TX|60003^Final Report||4+ Staphylococcus aureus|||||A~S|F|||||^2319|
+OBX|3|CE|POS||GPC~SAUR|||||A~S|F|||||^2319|
+OBX|4|CE|ORGANISM|1|SAUR^Staphylococcus aureus^Staaur|||||A~S||||||^2319|
+OBX|5|CE|CULTPOSNEG||POS|||POS|||||||||
+OBR|2|25533782655|29074124455^HNAM_ORDERID-60790-^HNAM_ORDERID|60790^Susceptibility - Automated broth dilution (Billed)|||20100807190000||2002557|PMIC 106^Unit|||||REQUIRED|00013442^ASHBY^TODD^R^^^PA||||000002010219104402^HNA_ACCN~21619128^HNA_ACCNID||20100810082544||MB|F|^1^SAUR&Staphylococcus aureus&310783~^^&&8616519|1^^^20100808040954^^R~^^^^^R||60132|||||||||||||||||||||||
+OBX|1|ST|60504^Ampicillin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^2319|
+OBX|2|ST|60516^Cefoxitin&AST Dilutn|1|>=32|||SUSCEPT||A~S|F||N|||^2319|
+OBX|3|ST|60516^Cefoxitin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^2319|
+OBX|4|ST|60527^Clindamycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|5|ST|60527^Clindamycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|6|ST|61203^Daptomycin&AST Dilutn|1|<=1|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|7|ST|61203^Daptomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|8|ST|60532^Doxycycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^2319|
+OBX|9|ST|60532^Doxycycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^2319|
+OBX|10|ST|60533^Erythromycin&AST Dilutn|1|>=8|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|11|ST|60533^Erythromycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|12|ST|60536^Gentamicin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|13|ST|60536^Gentamicin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|14|ST|61007^Levofloxacin&AST Dilutn|1|>=8|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|15|ST|61007^Levofloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|16|NM|60699^Linezolid&AST Dilutn|1|2|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|17|ST|60699^Linezolid&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|18|NM|61204^Moxifloxacin&AST Dilutn|1|2|||SUSCEPT||A~S|F||N|||^2319|
+OBX|19|ST|61204^Moxifloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^2319|
+OBX|20|ST|60551^Oxacillin&AST Dilutn|1|>=4|||SUSCEPT||A~S|F||Y|||^10304|
+OBX|21|ST|60551^Oxacillin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^10304|
+OBX|22|ST|60552^Penicillin&AST Dilutn|1|>=2|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|23|ST|60552^Penicillin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|24|ST|60697^Quinupristin/Dalfopristin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|25|ST|60697^Quinupristin/Dalfopristin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|26|ST|60555^Rifampin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|27|ST|60555^Rifampin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|28|ST|60558^Tetracycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|29|ST|60558^Tetracycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|30|ST|60561^Trimethoprim/Sulfamethoxazole&AST Dilutn|1|<=1/19|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|31|ST|60561^Trimethoprim/Sulfamethoxazole&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|32|ST|60563^Vancomycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|33|ST|60563^Vancomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^2319|
+OBX|34|ST|60500^Susceptibilities Performed&AST Dilutn|1|Performed|||||A~S|F||N|||^2319|
+OBX|35|ST|60500^Susceptibilities Performed&AST Interp|1|Completed|||||A~S|F||N|||^2319|
+OBX|36|ST|2099930^D-Test&AST Interp|1|See Note|||||A~S|F||Y|||^2319|
+OBX|37|ST|2099935^Interpretative Information&AST Interp|1|See Note|||||A~S|F||Y|||^2319|
+
 -->
 <!-- lab report example: a CBC -->
 

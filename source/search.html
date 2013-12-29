@@ -1,28 +1,735 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+[%settitle RESTful API%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>RESTful Search - FHIR v<%version%></title>
-    <link rel="Stylesheet" href="fhir.css" type="text/css"/>
-    <link rel="Stylesheet" href="fhir-print.css" type="text/css" media="print" />
+[%file newheader%]
 </head>
-
 <body>
-<%header%>
-<%sidebar%>
+[%file newnavbar%]
 
-<%maindiv%>
-<%pageheader%>
+<div class="col-9">
 
-<h1>RESTful Search</h1>
-<p class="status">Status: This section is currently undergoing a rewrite.</p>
+<a name="base"> </a>
+<h2>Search / Query</h2>
+
+<p>
+One operation that is fundamental to the way FHIR works is to search (find 
+existing resources by filter criteria) or query (more detailed questions
+based on existing data). Search/query operations can span complexity 
+from a simple search based on indexed criteria, through to complex 
+decision support based requests, and finally complex queries that can only be 
+resolved by human intervention. This page documents the FHIR search framework,
+starting with the simple cases, and working through to the full complexity.
+Implementations need only implement the amount of complexity that they 
+require.
+</p>
+<p>
+In the simplest case, a search is executed by performing a GET operation
+in the RESTful framework:
+</p>
+<pre>
+ GET [base-url]/[resourcetype](?parameters)
+</pre>
+<p>
+For this RESTful search, the parameters are a series 
+of name=[value] pairs encoded in the URL or as an 
+application/x-www-form-urlencoded submission for a POST.  
+The server returns the results in the HTTP response as a bundle (in XML, an atom feed) 
+which includes the resources that are the results of the query. The server can also
+include additional resources in the result set, such as <a href="operationoutcome.html">OperationOutcome</a> 
+resources. Clients should ignore resources that don't have the expected type. 
+A HTTP status code of 403 signifies that the server refused to perform the query, 
+while some other 4xx or 5xx code signifies that some error occurred. 
+</p>
+<p>
+Search operations are executed in one of 3 defined contexts that control which set of resources are being searched:
+</p>
+<ul>
+ <li>A specified resource type</li>
+ <li>A specified <a href="extras.html#compartments">compartment</a>, perhaps with a specified resource type in that compartment</li>
+ <li>All resources</li>
+</ul>
+<p>
+Search/Query operations can also be initiated by other more complex and flexible
+methods described below, which change both the way the search/query is initiated, and 
+the results that are returned. 
+</p>
+<a name="standard"> </a>
+<h2>Standard Parameters</h2>
+<p>
+The search parameter _id refers to the logical id of the resource, and can be used when the search context specifies a resource type:
+</p>
+<pre>
+ GET [base-url]/patient?_id=23
+</pre>
+<p>
+This search finds the patient resource with the given id (there can only be one 
+resource for a given id). Functionally, this is equivalent to a <a href="http.html#read">simple
+read operation</a>:
+</p>
+<pre>
+ GET [base-url]/Patient/23
+</pre>
+<p>
+except that it returns a bundle with the requested resource, rather than the 
+resource itself. However additional parameters can be added which may provide
+additional functionality on top of this base read equivalence.
+</p>
+<h3>Parameters for each resource</h3>
+<p>
+In addition to the _id parameter which exists for all resources, each 
+FHIR resource type defines its own set of search parameters with 
+their names, types, and meanings. These search parameters are on the 
+same page as the resource definitions, and are also published as part
+of the standard conformance statement (<a href="conformance-base.xml.html">XML</a> or <a href="conformance-base.json.html">JSON</a>).
+</p>
+<p>
+Mostly, the defined search parameters correspond to a 
+single element in the resource, but this is not required, and some 
+search parameters refer to the same type of element in multiple 
+places, or refer to derived values.
+</p>
+<p>
+Some of the search parameters defined by the resources are associated 
+with more than one path in the resource. This means that the search 
+parameter matches if any of the paths contain matching content, and
+which ever path matches, the whole resource is returned in the 
+search results. The client may have to examine the resource to determine
+which path contains the match.
+</p>
+<p>
+Servers are not required to implement any of these search parameters
+(except for the _id parameter described above), and may define their own 
+additional parameters if they wish. 
+</p>
+
+<a name="ptypes" />
+<h3>Search Parameter Types</h3>
+<p>Each search parameter is defined a type that defines how the search parameter
+behaves. These are the defined parameter types:
+</p>
+<%codelist SearchParamType%>
+<p>
+The search parameters can also have "modifiers" appended to them that control
+their behavior. The kind of modifiers that can be used depend on the type
+of parameter.
+</p>
+
+<a name="modifiers" />
+<h4>Modifiers</h4>
+<p>Parameters are defined per resource, and their names may additionally specify a modifier as a suffix, 
+separated from the parameter name by a colon. Modifiers are:</p>
+<ul>
+ <li>For all parameters (except combination): ":missing". E.g. gender:missing=true (or false). 
+  Searching for "gender:missing=true" will return all the resources that don't have any value for the gender parameter (which usually 
+  equates to not having the relevant element in the resource). Searching for "gender:missing=false"
+  will return all the resources that have a value for the "gender" parameter. </li>
+ <li>For string: ":exact" (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), instead of the default behavior, which is that the search does partial matches. It is at the discretion of the server whether to do a left-partial search</li>
+ <li>For token: ":text" (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes</li>
+ <li>For reference: ":[type]" where [type] is the name of a type of resource</li>
+</ul>
+
+<a name="number" />
+<h4>number</h4>
+<p>
+The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value, 
+and have the usual meaning. Note that "=" must be escaped in the 
+value in a URL. Examples:
+</p>
+<table class="grid">
+ <tr><td>[parameter]=100</td><td>Values that equal 100, to 2 significant figures precision, so range [99.5 ... 100.5)</td></tr>
+ <tr><td>[parameter]=100.00</td><td>Values that equal 100, to 4 significant figures precision, so range [99.995 ... 100.005). Whole numbers also equal 100.00, but not 100.01</td></tr>
+ <tr><td>[parameter]=&lt;100</td><td>Values that are less than 100</td></tr>
+ <tr><td>[parameter]=&lt;=100</td><td>Values that are less or equal to 100</td></tr>
+ <tr><td>[parameter]=&gt;100</td><td>Values that are greater than 100</td></tr>
+ <tr><td>[parameter]=&gt;=100</td><td>Values that are greater or equal to 100</td></tr>
+</table>
+<p>
+For comparisons involving &lt; or &gt;, uncertainty does not factor, and the precision of the numbers is considered arbitrarily high.
+Note that the way these search parameters operate here is not the same as whether two numbers are equal to each other in a mathematical sense.
+</p>
+
+<a name="date" />
+<h4>date</h4>
+<p>
+A date parameter searches on a date/time or period. The prefixes &gt;, &gt;=, &lt;=, and &lt; may be used on the parameter value, 
+and have the usual meaning. However, as is usual for date/time related functionality, while the 
+concepts are relatively straight-forward, there are a number of subtleties involved in ensuring consistent behavior.
+</p>
+<ul>
+ <li>The date parameter format is yyyy-mm-ddThh:nn:ss(TZ) (the standard XML format). 
+   <ul>
+     <li>Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>, and <a href="datatypes.html#instant">instant</a> data types</li>
+     <li>e.g. Any degree of precision can be provided, but it SHALL be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if an hour is present, and you SHOULD provide a time zone if the time part is present</li>
+     <li>Some user agents may escape the ":" characters in the URL, and servers SHALL handle this correctly</li>
+   </ul>
+ </li>
+ <li>[parameter]=[date] searches for resources where the date is within
+   the period implied by the given value in [date]. "[parameter]=&gt;[date]" searches for all resources where the specified date is after [date]. 
+   "[parameter]=&lt;=[date]" searches for all resources where the specified date is in or before [date], etc. </li>
+ <li>The element the search refers to may have a datatype of <a href="datatypes.html#date">date</a>, 
+ <a href="datatypes.html#dateTime">dateTime</a>, <a href="datatypes.html#instant">instant</a>, 
+ <a href="datatypes.html#Period">Period</a>, or <a href="datatypes.html#Schedule">Schedule</a>. 
+ All of these time related types actually specify an interval of time, as does the search parameter itself.
+  <ul>
+    <li>For Period and Schedule, the fact that they refer to an interval of time is explicit (though the upper or lower bound may not actually be specified in resources)</li>
+ 	<li>For a date or a dateTime (and the search parameter), the interval is implicit. For example, the date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013.</li>
+    <li>An instant (which is the same as a fully specified dateTime with milliseconds) is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0.</li>
+   </ul>
+ </li>
+ <li>Date parameter searches are always matched based on the behavior of intervals, as follows:
+   <ul>
+     <li>For [parameter]=[date], the requirement is that the search interval fully contains the time of the target. i.e. [parameter]=2013-01-14 includes 2013-01-14T00:00 (obviously) and also 2013-01-14T10:00 but not 2013-01-15T00:00</li>
+	 <li>For "[parameter]=&lt;[date]", the requirement is that the interval of the time before [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
+	 <li>For "[parameter]=&gt;[date]", the requirement is that the interval of the time after [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
+	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
+   </ul>
+   Implicitly, a missing lower boundary is 'less than' any actual date.  A missing upper boundary is 'greater than' any actual date.
+   For instance, the period from 21-Jan 2013 onwards is included in matches for date=&gt;=2013-03-14 because it may include times after 14-Mar 2013.
+ </li>
+ <li>Similarly, when the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
+	<ul>
+		<li>Dates with just the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g. 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59]</li>
+		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59]</li>
+	</ul>
+ </li>
+ <li>Where possible, the system should correct for timezones when performing queries. Dates do not have time zones, and time zones 
+   should not be considered. Where both search parameters and resource element date times do not have time zones, the servers local
+   time zone should be assumed.
+ </li>
+ <li>
+   Note that for a Schedule data type, the specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies every second day between
+   31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is 
+   to keep the server load processing queries reasonable.
+ </li>
+</ul>
+<p>
+As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
+</p>
+<pre>
+ GET [base-url]/Patient/23/procedure?date=&gt;2010-01-01&amp;date=&lt;2011-12-31
+</pre>
 
 
+<a name="string" />
+<h4>string</h4>
+<p>
+The string parameter refer to simple string searches against sequences of characters. 
+Matches are case- and accent- insensitive. By default, a match exists if a portion of 
+the parameter value contains the specified string. It is at the discretion of the 
+server whether to do a left-partial search. The modifier :exact can be used to indicate
+that the match needs to be exact (the whole string, including casing and accents). For example:
+</p>
+<pre>
+ GET [base-url]/Patient?name=eve
+ GET [base-url]/Patient?name:exact=Eve
+</pre>
+<p>
+The first is a request to find any patients with "eve" in any part of the name. This would 
+include patients with the name "Eve", "Severine", etc. The second search would only return
+patients with the name "Eve".
+</p>
+<p>
+An additional modifier :text
+can be used to specify a search with advanced text handling (see <a href="#text">below</a>)
+though only a few servers are expected to offer this facility.
+</p>
+<p>
+It as at the discretion of the server whether to pre-process names, addresses, 
+and contact details to remove separator characters prior to matching in order
+to ensure more consistent behavior. For example, a server might remove all 
+spaces and "-" characters from phone numbers. What is most appropriate varies 
+depending on culture and context.
+</p>
 
-<%footer%>
+<a name="token" />
+<h4>token</h4>
+<p>
+A token type is a parameter that searches on a code or identifier value 
+where the value may have a URI that scopes its meaning (from a <a href="datatypes.html#Coding">Coding</a>, 
+a <a href="datatypes.html#CodeableConcept">CodeableConcept</a> or an <a href="datatypes.html#Identifier">Identifier</a> type, and also 
+from a <a href="datatypes.html#code">code</a> where the URI is implicit). 
+</p>
+<p>
+If the parameter has no modifier, the search is performed against
+the URI/value from a Coding or an Identifier. The syntax for the
+value is one of the following:
+</p>
+<ul>
+ <li><b>[parameter]=[code]</b> matches a code/value irrespective of it's system namespace</li>
+ <li><b>[parameter]=[namespace]|[code]</b> matches a code/value in the given system namespace </li>
+ <li><b>[parameter]=|[code]</b> matches a code/value that has no system namespace</li>
+</ul>
+<p>
+Note that the namespace URI and code both must be <a href="#escaping">escaped</a>.
+</p>
+<p>
+If the the modifier ":text", is used, the search parameter is processed as a 
+string that searches text associated with the code/value - either <i>CodeableConcept.text</i>,
+<i>Coding.display</i>, or <i>Identifier.label</i>.
+</p>
+<p>
+Here are some example searches:
+</p>
+<table>
+ <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
+ <tr><td><pre> GET [base-url]/Patient?identifier=http://acme.org/patient|2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has a code "male", irrespective of the system. Note that this usually isn't very useful - systems generally define symbols where overlap is coincidental and not informative</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender=http://hl7.org/fhir/v2/0001|M</pre></td><td>Search for any patient with a gender which is coded as "M" in the HL7 Administrative Gender table</td></tr>
+ <tr><td><pre> GET [base-url]/Patient?gender:text=male</pre></td><td>Search for any patient with a gender that has a text "male" associated with it (note: this will include "female")</td></tr>
+</table>
 
 
-<%/maindiv%>    
+<a name="chaining" />
+<a name="reference" />
+<h4>reference</h4>
+<p>
+A reference parameter refers to <a href="references.html">references between resources</a>, e.g. find all 
+Conditions where the subject reference is a particular patient, where the patient is selected by name or identifier.
+The interpretation of a <i>reference</i> parameter is either:
+</p>
+<ul>
+ <li><b>[parameter]=[id]</b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
+ <li><b>[parameter]=[url]</b> where the [url] is an absolute URL - a reference to a a resource by it's absolute location</li>
+</ul>
+<p>
+Note that if a relative reference resolves to the same value as a specified absolute URL, or vice versa, this is a match too.
+</p>
+<p>
+Some references are allowed to point to more than one type of resource. e.g. subject : Resource(Patient|Group|Device|..).
+In these cases, multiple different resources may have the same logical identifier. In this case, the client can specify 
+a type modifier after the name of the parameter to be explicit about the intended type:
+</p>
+<pre>
+ GET [base-url]/condition?subject:Patient=23
+</pre>
+<p>
+This searches for any conditions where the subject refers to the patient resource with the 
+logical identifier "23". The server SHOULD reject a query where the logical id refers to 
+more than one matching resource across different types. Note that the :[type] modifier 
+can't be used with a reference to a resource found on another server, since the server 
+would not usually know what type that resource has (but since these are absolute
+references, there can be no ambiguity about the type).
+</p>
+
+<h4>Chained parameters</h4>
+<p>
+In order to save a client from doing a series of search operations, 
+reference parameters may be "chained" by appending them with 
+a period (.) followed by the name of a search parameter defined for the target 
+resource. This can be done recursively, following a logical path 
+through a graph of related resources, separated by ".".
+For instance, given that 
+the resource <a href="diagnosticreport.html">DiagnosticReport</a> 
+has a search parameter named <i>subject</i>, which is usually a 
+reference to a <a href="patient.html">Patient</a> resource, and 
+the Patient resource includes a parameter <i>name</i> which 
+searches on patient name, then the search
+</p>
+<pre>
+ GET [base-url]/DiagnosticReport?subject.name="peter"
+</pre>
+<p>
+is a request to return all the lab reports that have a subject whose name includes "peter". Because 
+the Diagnostic Report subject can be one of a set of different resources, it's possible to limit
+the search to a particular type:
+</p>
+<pre>
+ GET [base-url]/DiagnosticReport?subject:Patient.name="peter"
+</pre>
+<p>
+Which is a request to return all the lab reports that have a subject which is a patient, whose name includes "peter". 
+</p>
+
+<p>
+Advanced Search Note: 
+Where a chained parameter searches a resource reference that may have more than one 
+different type of resource as its target, the parameter chain may end up referring 
+to search parameters with the same name on more than one kind of resource at once. 
+The parameter names defined in FHIR have consistent types wherever they are used. 
+Implementers defining their own names need to be sure that they do not create 
+unprocessable combinations. Servers SHOULD reject queries chained queries
+that lead to disjoint types along the path (e.g. the client has to specify
+the type explicitly using the syntax in the second example above).
+</p>
+
+<a name="composite" />
+<a name="combining" />
+<h3>Composite Search Parameters</h3>
+<p>
+The result of the search operation is the intersection of the resources that match the criteria specified by each 
+individual search parameter. If a parameter repeats, such as /patient?language=FR&amp;language=NL, then 
+this matches a patient who speaks both languages. If, instead, the search is to find patients that speak either 
+language, then this is a single parameter with multiple values, separated by a ',': "/patient?language=FR,NL". 
+</p>
+<p>
+This allows for simple combinations of and/or values, but doesn't allow a search based on 
+a pair of values, such as all observations with a sodium value >150 mmol/L (particularly
+as the end criteria of a chained search), or searching on Group.characteristic: you need 
+find a combination of key/value, not an intersection of separate matches on key and value. 
+Another example is spatial coordinates when doing geographical searches. 
+</p>
+<p>
+To allow these searches, a resource may also specify <i>composite</i> parameters 
+that take sequences of single values that match other defined parameters as an 
+argument. The matching parameter of each component in such a sequence 
+is documented in the definition of the parameter. These sequences are formed by 
+joining the single values with a "$".  Note that this sequence is a single 
+value and itself can be composed into a set of values, so that, for example, 
+multiple matching state-on-date parameters can be specified as 
+state-on-date=new$2013-05-04,active$2013-05-05.
+</p>
+<p>
+Modifiers are not used on composite parameters.
+<!--
+Future note: use \p and \m in query values? if we add a double = to parameter value for text, that would get rid 
+of :exact. 
+Won't try to get rid of type modifier - that's the real use for modifiers because it has to be in a chaining line. 
+Other modifier is :text on token - use "~"? or ""?
+-->
+</p>
+
+<a name="escaping" />
+<h3>Escaping Search Parameters</h3>
+<p>
+In the rules above, special rules are defined for the characters "$", ",", and "|". 
+As a consequence, if these characters appear in an actual parameter value,
+they must be differentiated from their use as separator characters. When 
+any of these characters appear in an actual parameter value, they must be 
+prepended by the character "\" (which also must be used to prepend itself).
+So "param=xxx$xxx" means a composite parameter, while "param=xx\$xx" means that
+the parameter has the literal value 'xx$xx'. The parameter value "xx\xx" is illegal,
+and the parameter value "param=xx\\xx" means a literal value of 'xx\xx'.
+</p>
+
+
+<a name="text" />
+<h3>Text Search Parameters</h3>
+<p>
+There are two special text search parameters, _text and _content, which search 
+on the narrative of the resource, and the entire content of the resource respectively. 
+These parameters SHOULD support a sophisticated search functionality of the type 
+offered by typical text indexing services is appropriate. 
+The value of the parameter is a text based query, which may involve searching
+multiple words with thesaurus and proximity considerations, and logical operations 
+such as AND, OR etc. For example:
+</p>
+<pre>
+ GET [base-url]/Condition?_text=(bone OR liver) and metastases
+</pre>
+<p>
+This searches for all Condition resources with the word "metastases" and either 
+"bone" or "liver" in the narrative. The server MAY choose to search 
+for related words as well. 
+</p>
+<a name="dstu"> </a>
+<blockquote>
+<p><b>DSTU Note</b>: The issues around standardizing text search are not fully resolved. 
+During the trial use period for this specification, we recommend that systems use 
+the rules specified by <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
+a forth coming release of the odata specification for the $search parameter</a>.
+Typical implementations would use Lucene, an sql-based full text search, 
+or some indexing service. Feedback about consistent implementation in this area
+is welcome.
+</p>
+</blockquote>
+
+<a name="tag" />
+<a name="tags" />
+<a name="profile" />
+<h3>Selecting resources by tag, profile or security label</h3>
+
+<p>
+Resources may have <a href="extras.html#tag">tags</a> affixed to them: either general tags, profile tags or
+security labels. Search supports the _tag, _profile and _security parameters to search for any tagged resource
+by the term (URI) within the specific tag scheme. For example:
+</p>
+<pre>
+ GET [base-url]/Condition?_tag=http://acme.org/fhir/tags/needs-review
+</pre>
+<p>
+This searches for all Condition resources with a tag "http://acme.org/fhir/tags/needs-review" in the
+general tag scheme "http://hl7.org/fhir/tag". In the same manner:</p>
+<pre>
+ GET [base-url]/DiagnosticReport?_profile=http://hl7.org/fhir/profile/lipid
+ GET [base-url]/DiagnosticReport?_profile=http://localhost/profile/lipid
+</pre>
+<p>
+restricts the search to only DiagnosticReport resources that are tagged that they conform to a particular profile.
+The reference to localhost refers to a local profile with the given logical id ("lipid") in this case.
+</p>
+<p>All three tag search parameter may have the modifiers ":partial" and ":text", which mean 
+to only match on the left side of the target tag term, or to search the label part of the tag respectively.
+</p>
+<p>
+Note that when a resource is submitted to a server as a create or an update, the server is 
+free to determine which profiles a resource conforms to, and add additional profile tags 
+as appropriate so that resources can be found by this operation.
+</p>
+
+<a name="return"> </a>
+<h2>Managing Returned Resources</h2>
+
+<h3>Relevance</h3>
+<p>
+Where a search specifies a non-deterministic sort, the search alogrithm
+may generate some kind of ranking score to indicate which resources meet
+the specified criteria better than others. The server can return this 
+score using the OpenSearch Relevence extension:
+</p>
+<pre class="spec">  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
+  &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
+    &lt;os:score xmlns:os="http://a9.com/-/opensearch/extensions/relevance/1.0/"&gt;[score]&lt;/os:score&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span><span style="color: Gray"> --&gt;</span>
+    &lt;content type="text/xml"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span><span style="color: Gray"> --&gt;</span>
+  &lt;/entry&gt;
+</pre>
+<p>
+[score] is a decimal number with a value between (and including) 0 and 1. 
+</p>
+
+<a name="sort" />
+<h3>Sorting</h3>
+<p>
+The client can indicate which order to return the results in 
+using the parameter "_sort", which can have a value of one of the search parameters. 
+The _sort parameter can repeat to indicate sort order, with the repeats indicating
+a lower sort priority sequentially.
+</p>
+<p>
+The _sort parameter takes one of two qualifiers, ":asc" and ":desc", which specify 
+ascending and descending sort order respectively. The default value is ":asc". 
+</p>
+<p>
+Notes:
+</p>
+<ul>
+ <li>When sorting, the actual sort value used is not returned explicitly 
+by the server for each resource, just the resource contents</li>
+ <li>To sort by relevance, use "_sort:asc=_score"</li>
+ <li>The server returns the sort it performs as part of the returned search parameters (see <a href="#conformance">below</a>)</li>
+ <li>A search parameter can refer to an element that repeat, and therefore
+there can be multiple values for a given search parameter for a single
+resource. In this case, the sort is based on the item in the set of
+multiple parameters that comes earliest in the specified sort order 
+when ordering the returned resources. </li>
+</ul>
+
+
+<h3>Page Count</h3>
+
+<p>
+In order to keep the load on clients, servers and the network 
+minimized, the server may choose to return the results in 
+a series of pages. The search result set contains the URLs
+that the client uses to request additional pages from the 
+search set. For a simple RESTful search, the page links are 
+<a href="http.html#paging">contained in the returned bundle as links</a>.
+</p>
+<p>
+Typically a server will provide its own parameters in the links
+that it uses to manage the state of the query as pages are 
+retrieved. These parameters do not need to be understood 
+or processed by the client.
+</p>
+
+<p>
+The parameter _count is defined as a hint to the server 
+regarding how many resources should be returned in a 
+single page. Servers SHALL not return more resources than 
+requested (even if they don't support paging) but are 
+allowed to return less than the client asked for. Note 
+that it is at the discretion of the search engine how to 
+handle ongoing updates to the resources while the search 
+is proceeding. 
+</p>
+
+<a name="include" />
+<h3>Including other resources in result (_include)</h3>
+<p>
+Clients may request that the engine return additional resources related to 
+the search results, in order to reduce the overall network query time. 
+A typical case where this is useful is where the client is querying on 
+some type of clinical resource, but for every such resource returned, 
+the client will also need the subject (patient) resource that the 
+clinical resource refers to. The client requests that the subject 
+resources be included in the results set by providing one or more 
+_include parameters.
+</p>
+<p>  
+Each _include parameter specifies a path to a url (usually a resource reference):
+</p>
+<pre>
+ GET [base-url]/MedicationDispense?_include=MedicationDispense.prescription
+    &amp;_include=MedicationPrescription.prescriber&amp;criteria...
+</pre>
+<p>
+For each returned resource, the server collects the elements described by the path, 
+and any resources they point to that the server also holds are added to the results.
+This search returns all the <a href="medicationprescription.html">Medication 
+Prescription</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
+for the matching <a href="medicationdispense.html">Medication Dispense</a> resources.
+</p>
+<p>
+Include paths are processed only in the context of a single resource - they can not include 
+paths such as Resource.name1.name2 where name2 is a name in a resource pointed to by name1.
+Include paths may include wild cards, such as MedicationDispense.results.*, or even _include=*,
+though both servers and clients need to take care not to request or return too many resources 
+when doing this.
+</p>
+<p>
+For servers, recursive and wildcard _includes are demanding and may slow the search 
+response time significantly. Servers are not obliged to honor requests to include 
+additional resources in the search results.
+</p>
+<h4>External References</h4>
+<p>
+If the _include path matches an url that points to a resource that the server itself does 
+not hold itself, the server may still elect to include the target of the uri reference in 
+the returned results as a Binary resource. For example, the include path may point to an 
+attachment which is by reference, like this:
+</p>
+<pre>
+ &lt;content&gt;
+   &lt;contentType&gt;image/jpeg&lt;/contentType&gt;
+   &lt;url&gt;http://example.org/images/2343434/234234.jpg&lt;/url&gt;
+ &lt;/content&gt;
+</pre>
+<p>
+The server can retrieve the target of this reference on behalf of the client, and add this to the 
+results for the convenience of the client. 
+</p>
+
+<a name="summary"> </a>
+<h3>Summary</h3>
+<p>
+The client can request the server to return a summary portion of the resources
+only using the parameter "_summary":
+</p>
+<pre>
+   GET [base-url]/ValueSet?_summary=true
+</pre>
+<p>
+The <i>_summary</i> parameter requests the server to return only the elements marked 
+as "summary" in their definition. This is used to reduce the total processing load on 
+server, client, and resources between them such as the network. It is most useful for 
+resources that can be large, particularly ones that include images or elements that
+may repeat many times. 
+</p>
+<p>
+Servers are not obliged to return just a summary, and summaries are not defined for 
+resources where there is no need for summarization. There is only one summary form
+defined for each resource in order to allow servers to store the summarized form in
+advance. 
+</p>
+
+<a name="conformance" />
+<h2>Server Conformance</h2>
+<p>
+In order to allow the client to be confident about what search parameters 
+were used as a criteria by the server, the server SHALL return the parameters 
+that were actually used to process the search. Applications processing search 
+results SHALL check these returned values where necessary. For example, if 
+the server did not support some of the filters specified in the search, a 
+client might manually apply those filters to the retrieved result set, 
+display a warning message to the user or take some other action. 
+</p>
+<p>
+In the case of a RESTful search, these parameters are encoded in the 
+self link in the atom feed that is returned:
+</p>
+<pre class="xml">
+  &lt;link rel="self" href="http://example.org/Patient?name=peter"/&gt;
+</pre>
+<p>
+In other respects, servers have considerable discretion with regards 
+to supporting search:
+</p>
+<ul>
+ <li>Servers can choose which parameters to support (other than _id above)</li>
+ <li>Servers can choose when and where to implement parameter chaining, and when and where they support the _include parameter</li>
+ <li>Servers are able to declare additional parameters in the profiles referenced from their conformance statements. Servers should define search parameters 
+    starting with a "-" character to ensure that the names they choose do not clash with future parameters defined by this specification</li>
+ <li>Servers are not required to enforce case sensitivity on parameter names, though the names are case sensitive (and URLs are generally case-sensitive)</li>
+ <li>Servers may choose how many results to return, though the client can use _count as above</li>
+ <li>Servers can choose how to sort the return results, though they SHOULD honour the _sort parameter</li>
+</ul>
+
+<hr/>
+<a name="advanced"> </a>
+<h2>Advanced Search/Query</h2>
+<p>
+The search framework described above is a useful framework 
+for providing a simple search based on indexed criteria, 
+but more sophistication is needed to handle precise 
+queries, complex decision support based requests, and 
+direct queries that have human resolution.
+</p>
+<p>
+More advanced search/query operations are specified by the 
+_query parameter:
+</p>
+<pre>
+   GET [base-url]/Patient?_query=name&amp;parameters...
+</pre>
+<p>
+The _query parameter names a custom search profile that
+describes a specific search/query operation. The named query
+may define additional parameters that are used with that 
+particular named query, and  will define their type and 
+behavior on repetition and omission. 
+</p>
+<p>
+FHIR defines some named queries:
+</p>
+<ul>
+ <li><a href="valueset.html#expansion">Value Set Expansion</a></li>
+</ul>
+<p>
+In addition, servers can define their own additional named
+queries to meet their own uses.
+</p>
+<p>
+There can only ever be one _query parameter in a set of search
+parameters. Servers processing search requests SHALL 
+refuse to process a search request if they do not recognize 
+the _query parameter value.
+</p>
+<p>
+Some named queries may have side effects such as creating 
+new clinical resources that may be persistent or transitory. 
+The general search defined above always searches existing 
+resources, and the only new resources that may be created 
+are <a href="securityevent.html">Security Event</a> resources 
+auditing the search.
+</p>
+
+<h2>Executing Search / Query</h2>
+<p>
+FHIR defines 3 different ways in which a search through a repository of 
+resources can be initiated:
+</p>
+<ul>
+ <li>Perform <a href="http.html#search">search</a> operation on a RESTful interface (as described above)</li>
+ <li>Send a <a href="messaging.html#query">query message</a>, and receive a query response</li>
+ <li>Use the <a href="query.html">query resource</a> on a RESTful interface<!--, create a query resource with an order, and wait for the order response (this allows asynchronous queries across a RESTful interface)--></li>
+</ul>
+<p>
+In all 3 cases, the basic operation is simple: given a set of parameters
+which are name/value pairs, perform a query against a repository of 
+resources, and return the set of matching resources, possibly with 
+some additional related resources. The second two search methods are
+implemented using the <i>Query</i> Resource.
+</p>
+
+</div>
+
+[%onthispage Search/Query#base|Standard Parameters#standard|Managing Returned Resources#return|Conformance#conformance|Advanced Query#advanced|Query Resource#query|Managing Search Results#currency%]
+
+[%file newfooter%]
 </body>
 </html>
+
+

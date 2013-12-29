@@ -1037,7 +1037,7 @@ public class ConceptMap extends Resource {
      * @return This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimentalSimple() { 
-      return this.experimental == null ? null : this.experimental.getValue();
+      return this.experimental == null ? false : this.experimental.getValue();
     }
 
     /**

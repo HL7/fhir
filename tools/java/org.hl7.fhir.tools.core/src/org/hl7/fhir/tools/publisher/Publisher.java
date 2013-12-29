@@ -2220,6 +2220,12 @@ public class Publisher {
     if (xdoc.getDocumentElement().getLocalName().equals("ConceptMap")) {
       XmlParser xml = new XmlParser();
       ConceptMap cm = (ConceptMap) xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+      if (cm.getText() == null || cm.getText().getDiv() == null) {
+        NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator());
+        gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps()); 
+        new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), cm, true, true); 
+        xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+      }
       new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
       if (cm.getIdentifier() == null)
         throw new Exception("Value set example "+e.getPath().getAbsolutePath()+" has no identifier");
@@ -2276,12 +2282,15 @@ public class Publisher {
 		  Utilities.copyFile(new CSFile(page.getFolders().dstDir + n + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + ".xml"));
 		
 		// now, we create an html page from the narrative
-    head = 
-      "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
-      "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n"+
-      "<p><a href=\""+n+".xml.html\">XML</a> <a href=\""+n+".json.html\">JSON</a></p>\r\n";
-    tail = "\r\n</body>\r\n</html>\r\n";
-    TextFile.stringToFile(head+narrative+tail, page.getFolders().dstDir + n + ".html");
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
+    html = page.processPageIncludes(n+".html", html, "resource-instance:"+resource.getName(), null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + n + ".html");
+//    head = 
+//      "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>"+Utilities.escapeXml(e.getDescription())+"</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"+
+//      "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<p>"+Utilities.escapeXml(e.getDescription())+"</p>\r\n"+
+//      "<p><a href=\""+n+".xml.html\">XML</a> <a href=\""+n+".json.html\">JSON</a></p>\r\n";
+//    tail = "\r\n</body>\r\n</html>\r\n";
+//    TextFile.stringToFile(head+narrative+tail, page.getFolders().dstDir + n + ".html");
     page.getEpub().registerFile(n+".html", e.getDescription(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n+".json.html", e.getDescription(), EPubManager.XHTML_TYPE);
     page.getEpub().registerFile(n+".xml.html", e.getDescription(), EPubManager.XHTML_TYPE);
@@ -3317,10 +3326,22 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v2 Map ("+b.toString()+")");
+    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator());
+    gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")), cm, true);
+    jsonToXhtml(Utilities.changeFileExt(filename, "-map-v2"), cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")));
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.xml")), cm, true);
+    cloneToXhtml(Utilities.changeFileExt(filename, "-map-v2"), cm.getNameSimple(), false, "conceptmap-instance");
+    
+    // now, we create an html page from the narrative
+    String narrative = new XhtmlComposer().compose(cm.getText().getDiv());
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
+    html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v2.html"), html, "conceptmap-instance", null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.html"));
+    
     AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
     e.setResource(cm);
     e.setId(cm.getIdentifierSimple());
@@ -3382,10 +3403,21 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v3 Map ("+b.toString()+")");
+    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator());
+    gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")), cm, true);
+    jsonToXhtml(Utilities.changeFileExt(filename, "-map-v3"), cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")));
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.xml")), cm, true);
+    cloneToXhtml(Utilities.changeFileExt(filename, "-map-v3"), cm.getNameSimple(), false, "conceptmap-instance");
+
+    // now, we create an html page from the narrative
+    String narrative = new XhtmlComposer().compose(cm.getText().getDiv());
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
+    html = page.processPageIncludes(Utilities.changeFileExt(filename, "-map-v3.html"), html, "conceptmap-instance", null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.html"));
+    
     AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
     e.setResource(cm);
     e.setId(cm.getIdentifierSimple());

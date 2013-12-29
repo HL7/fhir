@@ -12,7 +12,7 @@
 An application may offer to provide concept translation services for other 
 applications. In this case, the standard way for an application to 
 ask for concept translation is to perform a 
-<a href="query.html">query</a> on the value set with _query=translate:
+<a href="search.html">search</a> on the value set with _query=translate:
 </p>
 <pre>
   GET [service-url]/ConceptMap/?_query=translate&amp;identity=:valueSet&amp;system=:system&amp;version=:version&amp;code=:code&amp;...

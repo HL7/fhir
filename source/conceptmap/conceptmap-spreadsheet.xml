@@ -20,6 +20,7 @@
   <WindowWidth>18555</WindowWidth>
   <WindowTopX>19455</WindowTopX>
   <WindowTopY>8895</WindowTopY>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -305,7 +306,8 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(ValueSet)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Identifies the source value set which is being mapped</Data></Cell>
     <Cell><Data ss:Type="String">The source value set that specifies the concepts that are being mapped</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Should be a version specific reference</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
+    <Cell><Data ss:Type="String">Should be a version specific reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">ConceptMap.target</Data></Cell>
@@ -313,6 +315,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(ValueSet)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Provides context to the mappings</Data></Cell>
     <Cell><Data ss:Type="String">The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">ConceptMap.concept</Data></Cell>
@@ -435,11 +438,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -457,8 +459,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -590,6 +592,16 @@
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.concept.map.system</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">dependson</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept.dependsOn.concept</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">product</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept.map.product.concept</Data></Cell>
+   </Row>
    <Row ss:Index="24" ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s78"/>
    </Row>
@@ -664,10 +676,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

@@ -214,9 +214,9 @@ public class XhtmlNode {
     return getAttributes().get(name);
   }
 
-  public void setAttribute(String name, String value) {
+  public XhtmlNode setAttribute(String name, String value) {
     getAttributes().put(name, value);
-    
+    return this;    
   }
   
   public XhtmlNode copy() {

@@ -98,7 +98,7 @@ resources also SHALL:
 </p>
 <ol>
  <li><a href="extras.html#tags">Mark resources</a> with the tag declaring the profile(s) they conform to (this enables indexing by the profile)</li>
- <li>(if a server) support searching by the <a href="query.html#profile">_profile parameter</a> for the declared profiles</li>
+ <li>(if a server) support searching by the <a href="search.html#profile">_profile parameter</a> for the declared profiles</li>
 </ol>
 <p>
 Beyond these requirements, a producer of resources SHOULD ensure that any data that would reasonably be expected

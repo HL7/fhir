@@ -53,7 +53,8 @@ outcomes, and "results" - the individual pieces of atomic data. The results are 
 in a "group" which is a nested structure that can be used to define relationships between
 the individual data items.
 </p>
-<!-- profiles? -->
+
+
 </div>
 
 </div>

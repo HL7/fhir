@@ -476,6 +476,8 @@ public class PageProcessor implements Logger  {
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
         src = s1 + genValueSetsTable() + s3;
+      else if (com[0].equals("conceptmapslist"))
+        src = s1 + genConceptMapsTable() + s3;
       else if (com[0].equals("bindingtable-others"))
         src = s1 + genBindingTable(false) + s3;
       else if (com[0].equals("resimplall"))
@@ -598,9 +600,9 @@ public class PageProcessor implements Logger  {
         ConceptMap cm = ae.getResource();
         b.append(" <tr><td>");
         if (cm.getSource().getReferenceSimple().equals(id)) {
-          b.append("to <a href=\""+prefix+getValueSetRef(cm.getTarget().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getTarget().getReferenceSimple()));
+          b.append("to <a href=\""+getValueSetRef(prefix, cm.getTarget().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getTarget().getReferenceSimple()));
         } else {
-          b.append("from <a href=\""+prefix+getValueSetRef(cm.getSource().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getSource().getReferenceSimple()));
+          b.append("from <a href=\""+getValueSetRef(prefix, cm.getSource().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getSource().getReferenceSimple()));
         }
         b.append("</a></td><td><a href=\""+prefix+ae.getLinks().get("path")+"\">"+cm.getNameSimple()+"</a></td><td><a href=\""+prefix+Utilities.changeFileExt(ae.getLinks().get("path"), ".xml.html")+"\">XML</a></td><td><a href=\""+prefix+Utilities.changeFileExt(ae.getLinks().get("path"), ".json.html")+"\">JSON</a></td></tr>");
       }
@@ -609,7 +611,7 @@ public class PageProcessor implements Logger  {
     }
   }
 
-  private String getValueSetRef(String ref) {
+  private String getValueSetRef(String prefix, String ref) {
     AtomEntry<ValueSet> vs = valueSets.get(ref);
     if (vs == null) {
       if (ref.equals("http://snomed.info/id"))
@@ -617,7 +619,7 @@ public class PageProcessor implements Logger  {
       else 
         return ref;
     } else
-      return vs.getLinks().get("path");
+      return prefix+vs.getLinks().get("path");
   }
 
   private String describeValueSetByRef(String ref) {
@@ -1511,6 +1513,10 @@ public class PageProcessor implements Logger  {
       b.append("<li class=\"selected\"><span>v3 Namespaces</span></li>");
     else
       b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v3.html\">v3 Namespaces</a></span></li>");
+    if ("conceptmaps".equals(mode))
+      b.append("<li class=\"selected\"><span>Concept Maps</span></li>");
+    else
+      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-conceptmaps.html\">Concept Maps</a></span></li>");
     b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
     b.append("</ul></div>\r\n");
     return b.toString();
@@ -1684,6 +1690,27 @@ public class PageProcessor implements Logger  {
     s.append("</table>\r\n");
     return s.toString();
   }
+
+  private String genConceptMapsTable() throws Exception {
+    StringBuilder s = new StringBuilder();
+    s.append("<table class=\"codes\">\r\n");
+    s.append(" <tr><td><b>Name</b></td><td><b>Source</b></td><td><b>Target</b></td></tr>\r\n");
+    List<String> sorts = new ArrayList<String>();
+    sorts.addAll(conceptMaps.keySet());
+    Collections.sort(sorts);
+    
+    for (String sn : sorts) {
+      AtomEntry<ConceptMap> ae = conceptMaps.get(sn);
+      String n = sn.substring(23);
+      ConceptMap cm = ae.getResource();
+      s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+cm.getNameSimple()+"</a></td>"+
+          "<td><a href=\""+getValueSetRef("", cm.getSource().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getSource().getReferenceSimple())+"</a></td>"+
+          "<td><a href=\""+getValueSetRef("", cm.getTarget().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getTarget().getReferenceSimple())+"</a></td></tr>\r\n");
+    }
+    s.append("</table>\r\n");
+    return s.toString();
+  }
+
 
   private String genValueSetsTable() throws Exception {
     StringBuilder s = new StringBuilder();
@@ -2356,6 +2383,8 @@ public class PageProcessor implements Logger  {
         src = s1 + genCodeSystemsTable() + s3;
       else if (com[0].equals("valuesetslist"))
         src = s1 + genValueSetsTable() + s3;
+      else if (com[0].equals("conceptmapslist"))
+        src = s1 + genConceptMapsTable() + s3;
       else if (com[0].equals("bindingtable"))
         src = s1 + genBindingsTable() + s3;
       else if (com[0].equals("bindingtable-others"))
@@ -2689,7 +2718,7 @@ public class PageProcessor implements Logger  {
       if (resource.getName().equals("Query"))
         b.append("<p>Search Parameters for this resource. The standard parameters also apply as described above.</p>\r\n");
       else
-        b.append("<p>Search Parameters for this resource. The standard parameters also apply. See <a href=\"query.html#base\">Searching</a> for more information about searching in REST, Messaging, and services.</p>\r\n");
+        b.append("<p>Search Parameters for this resource. The standard parameters also apply. See <a href=\"search.html\">Searching</a> for more information about searching in REST, Messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Name / Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();
@@ -2746,7 +2775,7 @@ public class PageProcessor implements Logger  {
       if (!started)
         s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
       started = true;
-      s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
+      s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
       s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
       s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
       s.append("</tr>");
@@ -2755,8 +2784,6 @@ public class PageProcessor implements Logger  {
       started = true;
       for (String pn : definitions.getProfiles().keySet()) {
         ProfileDefn p = definitions.getProfiles().get(pn);
-
-
         if (!started)
           s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
         started = true;
@@ -2797,12 +2824,13 @@ public class PageProcessor implements Logger  {
     return s.toString();
   }
 
-  private static final String HTML_PREFIX = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
+  private static final String HTML_PREFIX1 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\">\r\n";
+  private static final String HTML_PREFIX2 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../schema/xhtml1-strict.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\"   >\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";
   
   public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition) throws Exception {
     if (!new CSFile(filename).exists()) {
-      TextFile.stringToFile(HTML_PREFIX+"\r\n<!-- content goes here -->\r\n\r\n"+HTML_SUFFIX, filename);
+      TextFile.stringToFile(HTML_PREFIX1+"\r\n<!-- content goes here -->\r\n\r\n"+HTML_SUFFIX, filename);
       return "";
     }
 
@@ -2812,15 +2840,15 @@ public class PageProcessor implements Logger  {
     others.put("definition", definition);
     cnt = processPageIncludes(filename, cnt, "notes", others).trim()+"\r\n";
     if (cnt.startsWith("<div")) {
-      if (!cnt.startsWith(HTML_PREFIX))
-        throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX.length()));
+      if (!cnt.startsWith(HTML_PREFIX1) && !cnt.startsWith(HTML_PREFIX2))
+        throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX1.length()));
       else if (!cnt.endsWith(HTML_SUFFIX))
         throw new Exception("unable to process end xhtml content "+filename+" : "+cnt.substring(cnt.length()-HTML_SUFFIX.length()));
       else {
-        res = cnt.substring(HTML_PREFIX.length(), cnt.length()-(HTML_SUFFIX.length()));
+        res = cnt.substring(HTML_PREFIX1.length(), cnt.length()-(HTML_SUFFIX.length()));
       }
     } else {
-      res = HTML_PREFIX+cnt+HTML_SUFFIX;
+      res = HTML_PREFIX1+cnt+HTML_SUFFIX;
       TextFile.stringToFile(res, filename);
     }
     if (checkHeaders) {

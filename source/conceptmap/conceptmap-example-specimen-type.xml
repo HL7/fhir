@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>A mapping between the FHIR and V3 AddressUse Code systems</p>
-    </div>
-  </text>
 
   <identifier value="http://hl7.org/fhir/conceptmap-example-specimen-type.html"/>
   
@@ -39,7 +33,7 @@
     <code value="ACNE"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309068002"/>
+      <code value="309068002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -49,7 +43,7 @@
     <code value="ACNFLD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119323008"/>
+      <code value="119323008"/>
       <equivalence value="equivalent"/>
       <comments value="HL7 term is a historical term. mapped to Pus"/>
       <product>
@@ -66,7 +60,7 @@
     <code value="AIRS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_446302006"/>
+      <code value="446302006"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -77,7 +71,7 @@
     <code value="ALL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119376003"/>
+      <code value="119376003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -93,7 +87,7 @@
     <code value="AMP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_408654003"/>
+      <code value="408654003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -109,7 +103,7 @@
     <code value="ANGI"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -121,7 +115,7 @@
     <code value="ARTC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -144,7 +138,7 @@
     <code value="ASP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119295008"/>
+      <code value="119295008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -193,7 +187,7 @@
     <code value="BBL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119304001"/>
+      <code value="119304001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -231,7 +225,7 @@
     <code value="BLEB"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309049000"/>
+      <code value="309049000"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -247,7 +241,7 @@
     <code value="BLIST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309049000"/>
+      <code value="309049000"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -263,7 +257,7 @@
     <code value="BOIL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119295008"/>
+      <code value="119295008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -284,7 +278,7 @@
     <code value="BON"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_430268003"/>
+      <code value="430268003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -306,7 +300,7 @@
     <code value="BPU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119300005"/>
+      <code value="119300005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -317,7 +311,7 @@
     <code value="BRN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119367005"/>
+      <code value="119367005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -328,7 +322,7 @@
     <code value="BRSH"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258415003"/>
+      <code value="258415003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -344,7 +338,7 @@
     <code value="BRTH"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119336008"/>
+      <code value="119336008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -355,7 +349,7 @@
     <code value="BRUS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309176002"/>
+      <code value="309176002"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -371,7 +365,7 @@
     <code value="BUB"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value=" 	_302795002"/>
+      <code value="302795002"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -392,7 +386,7 @@
     <code value="BULLA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258482009"/>
+      <code value="258482009"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -408,7 +402,7 @@
     <code value="BX"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258415003"/>
+      <code value="258415003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -424,7 +418,7 @@
     <code value="CALC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119350003"/>
+      <code value="119350003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -435,7 +429,7 @@
     <code value="CARBU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309051001"/>
+      <code value="309051001"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -451,7 +445,7 @@
     <code value="CAT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119311002"/>
+      <code value="119311002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -473,7 +467,7 @@
     <code value="CLIPP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119327009"/>
+      <code value="119327009"/>
       <equivalence value="equivalent"/>
       <comments value="Be more specific use either: 119326000^hair specimen or 119327009^nail specimen"/>
     </map>
@@ -485,7 +479,7 @@
     <code value="CNJT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119401005"/>
+      <code value="119401005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -496,7 +490,7 @@
     <code value="CNJT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_128160006"/>
+      <code value="128160006"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -507,7 +501,7 @@
     <code value="CNJT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258498002"/>
+      <code value="258498002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -518,7 +512,7 @@
     <code value="COL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119329007"/>
+      <code value="119329007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -529,7 +523,7 @@
     <code value="CONE"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_399713008"/>
+      <code value="399713008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -572,7 +566,7 @@
     <code value="CSITE"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258507003"/>
+      <code value="258507003"/>
       <equivalence value="equivalent"/>
       <comments value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora							"/>
       <product>
@@ -594,7 +588,7 @@
     <code value="CSMY"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309051001"/>
+      <code value="309051001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -605,7 +599,7 @@
     <code value="CST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258453008"/>
+      <code value="258453008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -627,7 +621,7 @@
     <code value="CTP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -639,7 +633,7 @@
     <code value="CVPS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258507003"/>
+      <code value="258507003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -650,7 +644,7 @@
     <code value="CVPT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
       <product>
@@ -667,7 +661,7 @@
     <code value="CYN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119368000"/>
+      <code value="119368000"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -683,7 +677,7 @@
     <code value="CYST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119368000"/>
+      <code value="119368000"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -705,7 +699,7 @@
     <code value="DCS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119335007"/>
+      <code value="119335007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -716,7 +710,7 @@
     <code value="DEC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258505006"/>
+      <code value="258505006"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -738,7 +732,7 @@
     <code value="DIA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119360007"/>
+      <code value="119360007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -749,7 +743,7 @@
     <code value="DISCHG"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258439008"/>
+      <code value="258439008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -760,7 +754,7 @@
     <code value="DIV"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="  	_119376003"/>
+      <code value="119376003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -776,7 +770,7 @@
     <code value="DRN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119306004"/>
+      <code value="119306004"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -787,7 +781,7 @@
     <code value="DRNG"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258455001"/>
+      <code value="258455001"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: not an acceptible specimen for micro - not specific enough term"/>
       <product>
@@ -804,7 +798,7 @@
     <code value="DRNGP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309051001"/>
+      <code value="309051001"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
       <product>
@@ -821,7 +815,7 @@
     <code value="EARW"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122580007"/>
+      <code value="122580007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -832,7 +826,7 @@
     <code value="EBRUSH"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309210009"/>
+      <code value="309210009"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -875,7 +869,7 @@
     <code value="EFFUS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258440005"/>
+      <code value="258440005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -886,7 +880,7 @@
     <code value="EFOD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119320006"/>
+      <code value="119320006"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -897,7 +891,7 @@
     <code value="EISO"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258536003"/>
+      <code value="258536003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -908,7 +902,7 @@
     <code value="ELT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119314005"/>
+      <code value="119314005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -919,7 +913,7 @@
     <code value="ENVIR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119324002"/>
+      <code value="119324002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -963,7 +957,7 @@
     <code value="ETA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119307008"/>
+      <code value="119307008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -984,7 +978,7 @@
     <code value="ETTP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -996,7 +990,7 @@
     <code value="ETTUB"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119307008"/>
+      <code value="119307008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -1028,7 +1022,7 @@
     <code value="EXG"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119336008"/>
+      <code value="119336008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1050,7 +1044,7 @@
     <code value="EXUDTE"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258441009"/>
+      <code value="258441009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1072,7 +1066,7 @@
     <code value="FBLOOD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119297000"/>
+      <code value="119297000"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -1088,7 +1082,7 @@
     <code value="FGA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_168139001"/>
+      <code value="168139001"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -1104,7 +1098,7 @@
     <code value="FIST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119370009"/>
+      <code value="119370009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1115,7 +1109,7 @@
     <code value="FLD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309051001"/>
+      <code value="309051001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1137,7 +1131,7 @@
     <code value="FLU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309051001"/>
+      <code value="309051001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1148,7 +1142,7 @@
     <code value="FLUID"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258442002"/>
+      <code value="258442002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1159,7 +1153,7 @@
     <code value="FOLEY"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -1171,7 +1165,7 @@
     <code value="FRS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="  	_258442002"/>
+      <code value="258442002"/>
       <equivalence value="equivalent"/>
       <comments value="this term is not specific enough, choose from terms that more accurately describe the specimen"/>
       <product>
@@ -1188,7 +1182,7 @@
     <code value="FSCLP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309502007"/>
+      <code value="309502007"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -1204,7 +1198,7 @@
     <code value="FUR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119295008"/>
+      <code value="119295008"/>
       <equivalence value="equivalent"/>
       <comments value="Further describe the sample as tissue or pus. or by the collection method. The term boil is not specifc to a body site - need to indicate source site (spm.8). preferred term is Aspirate_Boil"/>
       <product>
@@ -1221,7 +1215,7 @@
     <code value="GAS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119317003"/>
+      <code value="119317003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1232,7 +1226,7 @@
     <code value="GASA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_168137004"/>
+      <code value="168137004"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -1253,7 +1247,7 @@
     <code value="GASAN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119379005"/>
+      <code value="119379005"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -1269,7 +1263,7 @@
     <code value="GASBR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309213006"/>
+      <code value="309213006"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -1290,7 +1284,7 @@
     <code value="GASD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258459007"/>
+      <code value="258459007"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
       <product>
@@ -1312,7 +1306,7 @@
     <code value="GAST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258459007"/>
+      <code value="258459007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1323,7 +1317,7 @@
     <code value="GENV"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119394009"/>
+      <code value="119394009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1334,7 +1328,7 @@
     <code value="GRAFT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_440493002"/>
+      <code value="440493002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1345,7 +1339,7 @@
     <code value="GRANU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119376003"/>
+      <code value="119376003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -1361,7 +1355,7 @@
     <code value="GROSH"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119311002"/>
+      <code value="119311002"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -1384,7 +1378,7 @@
     <code value="GSPEC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309211008"/>
+      <code value="309211008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -1416,7 +1410,7 @@
     <code value="GTUBE"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258459007"/>
+      <code value="258459007"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
       <product>
@@ -1454,7 +1448,7 @@
     <code value="HBLUD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119297000"/>
+      <code value="119297000"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -1470,7 +1464,7 @@
     <code value="HEMAQ"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -1482,7 +1476,7 @@
     <code value="HEMO"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -1494,7 +1488,7 @@
     <code value="HERNI"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119376003"/>
+      <code value="119376003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1505,7 +1499,7 @@
     <code value="HEV"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="	_119306004"/>
+      <code value="119306004"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1516,7 +1510,7 @@
     <code value="HIC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="	_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
       <product>
@@ -1533,7 +1527,7 @@
     <code value="HYDC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309051001"/>
+      <code value="309051001"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -1560,7 +1554,7 @@
     <code value="ICYST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309075001"/>
+      <code value="309075001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1571,7 +1565,7 @@
     <code value="IDC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value=" 	_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -1583,7 +1577,7 @@
     <code value="IHG"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119337004"/>
+      <code value="119337004"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1594,7 +1588,7 @@
     <code value="ILEO"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258455001"/>
+      <code value="258455001"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
       <product>
@@ -1622,7 +1616,7 @@
     <code value="IMP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_439961009"/>
+      <code value="439961009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1633,7 +1627,7 @@
     <code value="INCI"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_438660002"/>
+      <code value="438660002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1655,7 +1649,7 @@
     <code value="INS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258614005"/>
+      <code value="258614005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1666,7 +1660,7 @@
     <code value="INTRD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -1678,7 +1672,7 @@
     <code value="IT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119307008"/>
+      <code value="119307008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1689,7 +1683,7 @@
     <code value="IUD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="  	_XX"/>
+      <code value="XX"/>
       <equivalence value="equivalent"/>
       <comments value="pending"/>
     </map>
@@ -1701,7 +1695,7 @@
     <code value="IVCAT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
       <product>
@@ -1718,7 +1712,7 @@
     <code value="IVFLD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258649003"/>
+      <code value="258649003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1729,7 +1723,7 @@
     <code value="IVTIP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1740,7 +1734,7 @@
     <code value="JEJU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258463000"/>
+      <code value="258463000"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
       <product>
@@ -1762,7 +1756,7 @@
     <code value="JNTFLD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119332005"/>
+      <code value="119332005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1773,7 +1767,7 @@
     <code value="JP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309051001"/>
+      <code value="309051001"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
       <product>
@@ -1790,7 +1784,7 @@
     <code value="KELOI"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_440674008"/>
+      <code value="440674008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -1806,7 +1800,7 @@
     <code value="KIDFLD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309051001"/>
+      <code value="309051001"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -1822,7 +1816,7 @@
     <code value="LAVG"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258607008"/>
+      <code value="258607008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -1838,7 +1832,7 @@
     <code value="LAVGG"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_168138009"/>
+      <code value="168138009"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -1859,7 +1853,7 @@
     <code value="LAVGP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_440137008"/>
+      <code value="440137008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1870,7 +1864,7 @@
     <code value="LAVPG"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_440674008"/>
+      <code value="440674008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -1891,7 +1885,7 @@
     <code value="LENS1"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_440473005"/>
+      <code value="440473005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1913,7 +1907,7 @@
     <code value="LESN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309049000"/>
+      <code value="309049000"/>
       <equivalence value="equivalent"/>
       <comments value="should be more specific what kind of lesion is observed - be more specific is it a wound, abscess, mass - specify! Ask SNOMED to mark it as a grouper term only (309049000)"/>
     </map>
@@ -1925,7 +1919,7 @@
     <code value="LIQ"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258442002"/>
+      <code value="258442002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -1947,7 +1941,7 @@
     <code value="LSAC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258450006"/>
+      <code value="258450006"/>
       <equivalence value="equivalent"/>
       <comments value="The HL7 term is a historical term Mapped to CSF obtained by lumbar puncture"/>
       <product>
@@ -1964,7 +1958,7 @@
     <code value="MAHUR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -1976,7 +1970,7 @@
     <code value="MASS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_420548004"/>
+      <code value="420548004"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -1992,7 +1986,7 @@
     <code value="MBLD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119345009"/>
+      <code value="119345009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2003,7 +1997,7 @@
     <code value="MUCOS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119376003"/>
+      <code value="119376003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2019,7 +2013,7 @@
     <code value="MUCUS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258483004"/>
+      <code value="258483004"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2030,7 +2024,7 @@
     <code value="NASDR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258474009"/>
+      <code value="258474009"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
       <product>
@@ -2063,7 +2057,7 @@
     <code value="NEPH"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_438660002"/>
+      <code value="438660002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2074,7 +2068,7 @@
     <code value="NGASP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_302794003"/>
+      <code value="302794003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -2095,7 +2089,7 @@
     <code value="NGAST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258459007"/>
+      <code value="258459007"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
       <product>
@@ -2122,7 +2116,7 @@
     <code value="NGS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_438660002"/>
+      <code value="438660002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2144,7 +2138,7 @@
     <code value="NSECR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_168141000"/>
+      <code value="168141000"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2155,7 +2149,7 @@
     <code value="ORH"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_123038009"/>
+      <code value="123038009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2166,8 +2160,7 @@
     <code value="ORL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value=" 	_XX"/>
-      <equivalence value="equivalent"/>
+      <equivalence value="unmatched"/>
       <comments value="be more precise use ulcer, tumor, vesicle"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2183,7 +2176,7 @@
     <code value="OTH"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_123038009"/>
+      <code value="123038009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2205,7 +2198,7 @@
     <code value="PCFL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122571007"/>
+      <code value="122571007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2216,7 +2209,7 @@
     <code value="PDSIT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_438660002"/>
+      <code value="438660002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2238,7 +2231,7 @@
     <code value="PELVA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119371008"/>
+      <code value="119371008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2270,7 +2263,7 @@
     <code value="PERIA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119371008"/>
+      <code value="119371008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2286,7 +2279,7 @@
     <code value="PILOC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119368000"/>
+      <code value="119368000"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2297,7 +2290,7 @@
     <code value="PINS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_438660002"/>
+      <code value="438660002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2308,7 +2301,7 @@
     <code value="PIS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258507003"/>
+      <code value="258507003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2319,7 +2312,7 @@
     <code value="PLAN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119301009"/>
+      <code value="119301009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2330,7 +2323,7 @@
     <code value="PLAS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119361006"/>
+      <code value="119361006"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2341,7 +2334,7 @@
     <code value="PLB"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119305000"/>
+      <code value="119305000"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2352,7 +2345,7 @@
     <code value="PLEVS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119364003"/>
+      <code value="119364003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -2368,7 +2361,7 @@
     <code value="PND"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258439008"/>
+      <code value="258439008"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term -though in this case more often used for discharge"/>
       <product>
@@ -2390,7 +2383,7 @@
     <code value="POL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119376003"/>
+      <code value="119376003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -2406,7 +2399,7 @@
     <code value="POPGS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_440493002"/>
+      <code value="440493002"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2422,7 +2415,7 @@
     <code value="POPLG"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_440493002"/>
+      <code value="440493002"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2449,7 +2442,7 @@
     <code value="PORTA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119311002"/>
+      <code value="119311002"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -2461,7 +2454,7 @@
     <code value="PPP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119362004"/>
+      <code value="119362004"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2472,7 +2465,7 @@
     <code value="PROST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_438660002"/>
+      <code value="438660002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2483,7 +2476,7 @@
     <code value="PRP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119363009"/>
+      <code value="119363009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2494,7 +2487,7 @@
     <code value="PSC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119368000"/>
+      <code value="119368000"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2505,7 +2498,7 @@
     <code value="PUNCT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119365002"/>
+      <code value="119365002"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -2521,7 +2514,7 @@
     <code value="PUS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119323008"/>
+      <code value="119323008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2532,7 +2525,7 @@
     <code value="PUSFR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119323008"/>
+      <code value="119323008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -2548,7 +2541,7 @@
     <code value="PUST"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119323008"/>
+      <code value="119323008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -2575,7 +2568,7 @@
     <code value="RANDU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_278020009"/>
+      <code value="278020009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2597,7 +2590,7 @@
     <code value="RECT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119339001"/>
+      <code value="119339001"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead: stool is what is expected, should use stool sample"/>
       <product>
@@ -2619,7 +2612,7 @@
     <code value="RECTA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119371008"/>
+      <code value="119371008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2635,7 +2628,7 @@
     <code value="RENALC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258420003"/>
+      <code value="258420003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2651,7 +2644,7 @@
     <code value="RENC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258453008"/>
+      <code value="258453008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2667,7 +2660,7 @@
     <code value="RES"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258603007"/>
+      <code value="258603007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2678,7 +2671,7 @@
     <code value="SAL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119342007"/>
+      <code value="119342007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2689,7 +2682,7 @@
     <code value="SCAR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119376003"/>
+      <code value="119376003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2700,7 +2693,7 @@
     <code value="SCLV"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
       <product>
@@ -2717,7 +2710,7 @@
     <code value="SCROA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119371008"/>
+      <code value="119371008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -2733,7 +2726,7 @@
     <code value="SECRE"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_432825001"/>
+      <code value="432825001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2744,7 +2737,7 @@
     <code value="SER"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119364003"/>
+      <code value="119364003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2755,7 +2748,7 @@
     <code value="SHU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119295008"/>
+      <code value="119295008"/>
       <equivalence value="equivalent"/>
       <comments value="Preferred is aspiration with sterile syringe from inflamed area. Specify body location of shunt site"/>
       <product>
@@ -2777,7 +2770,7 @@
     <code value="SHUNF"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_446861007"/>
+      <code value="446861007"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -2820,7 +2813,7 @@
     <code value="SKBP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309066003"/>
+      <code value="309066003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -2836,7 +2829,7 @@
     <code value="SKN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119325001"/>
+      <code value="119325001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2847,7 +2840,7 @@
     <code value="SMM"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_420548004"/>
+      <code value="420548004"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -2863,7 +2856,7 @@
     <code value="SNV"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119332005"/>
+      <code value="119332005"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2874,7 +2867,7 @@
     <code value="SPRM"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119349003"/>
+      <code value="119349003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2885,7 +2878,7 @@
     <code value="SPRP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -2897,7 +2890,7 @@
     <code value="SPRPB"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -2920,7 +2913,7 @@
     <code value="SPT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119334006"/>
+      <code value="119334006"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2931,7 +2924,7 @@
     <code value="SPTC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119335007"/>
+      <code value="119335007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2942,7 +2935,7 @@
     <code value="SPTT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258609006"/>
+      <code value="258609006"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2964,7 +2957,7 @@
     <code value="SPUTIN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258610001"/>
+      <code value="258610001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2975,7 +2968,7 @@
     <code value="SPUTSP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119335007"/>
+      <code value="119335007"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -2997,7 +2990,7 @@
     <code value="STL"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119339001"/>
+      <code value="119339001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3008,7 +3001,7 @@
     <code value="STONE"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119350003"/>
+      <code value="119350003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -3024,7 +3017,7 @@
     <code value="SUBMA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119371008"/>
+      <code value="119371008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -3040,7 +3033,7 @@
     <code value="SUBMX"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119371008"/>
+      <code value="119371008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -3056,7 +3049,7 @@
     <code value="SUMP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_446562005"/>
+      <code value="446562005"/>
       <equivalence value="equivalent"/>
       <comments value="Historical term - consider what is being drained and indicate that in SPM-4 instead"/>
       <product>
@@ -3073,7 +3066,7 @@
     <code value="SUP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122575003"/>
+      <code value="122575003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -3100,7 +3093,7 @@
     <code value="SWGZ"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -3112,7 +3105,7 @@
     <code value="TASP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122877000"/>
+      <code value="122877000"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -3133,7 +3126,7 @@
     <code value="TISS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119376003"/>
+      <code value="119376003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3144,7 +3137,7 @@
     <code value="TISU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122593002"/>
+      <code value="122593002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3155,7 +3148,7 @@
     <code value="TLC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -3167,7 +3160,7 @@
     <code value="TRAC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_438660002"/>
+      <code value="438660002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3178,7 +3171,7 @@
     <code value="TRANS"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258538002"/>
+      <code value="258538002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3189,7 +3182,7 @@
     <code value="TSERU"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119364003"/>
+      <code value="119364003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-5"/>
@@ -3205,7 +3198,7 @@
     <code value="TSTES"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119371008"/>
+      <code value="119371008"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-8"/>
@@ -3221,7 +3214,7 @@
     <code value="TTRA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258480001"/>
+      <code value="258480001"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -3237,7 +3230,7 @@
     <code value="TUBES"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119310001"/>
+      <code value="119310001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3248,7 +3241,7 @@
     <code value="TUMOR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258435002"/>
+      <code value="258435002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3270,7 +3263,7 @@
     <code value="UDENT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_123038009"/>
+      <code value="123038009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3281,7 +3274,7 @@
     <code value="UR"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122575003"/>
+      <code value="122575003"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3292,7 +3285,7 @@
     <code value="URC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122880004"/>
+      <code value="122880004"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3303,7 +3296,7 @@
     <code value="URINB"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122575003"/>
+      <code value="122575003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -3319,7 +3312,7 @@
     <code value="URINC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_446846006"/>
+      <code value="446846006"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3330,7 +3323,7 @@
     <code value="URINM"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258574006"/>
+      <code value="258574006"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -3351,7 +3344,7 @@
     <code value="URINN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_446277003"/>
+      <code value="446277003"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -3383,7 +3376,7 @@
     <code value="URT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122565001"/>
+      <code value="122565001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3415,7 +3408,7 @@
     <code value="USPEC"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_123038009"/>
+      <code value="123038009"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3426,7 +3419,7 @@
     <code value="VASTIP"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -3438,7 +3431,7 @@
     <code value="VENT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119312009"/>
+      <code value="119312009"/>
       <equivalence value="equivalent"/>
       <comments value="TBD in detail"/>
     </map>
@@ -3450,7 +3443,7 @@
     <code value="VITF"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258438000"/>
+      <code value="258438000"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3461,7 +3454,7 @@
     <code value="VOM"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122572000"/>
+      <code value="122572000"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3472,7 +3465,7 @@
     <code value="WASH"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_440674008"/>
+      <code value="440674008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3483,7 +3476,7 @@
     <code value="WASI"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122609004"/>
+      <code value="122609004"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3494,7 +3487,7 @@
     <code value="WAT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119318008"/>
+      <code value="119318008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3516,7 +3509,7 @@
     <code value="WEN"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_309075001"/>
+      <code value="309075001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3538,7 +3531,7 @@
     <code value="WND"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119365002"/>
+      <code value="119365002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3549,7 +3542,7 @@
     <code value="WNDA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119366001"/>
+      <code value="119366001"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3560,7 +3553,7 @@
     <code value="WNDD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122566000"/>
+      <code value="122566000"/>
       <equivalence value="equivalent"/>
       <product>
         <concept value="http://hl7.org/fhir/v2/element/SPM-7"/>
@@ -3576,7 +3569,7 @@
     <code value="WNDE"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_122568004"/>
+      <code value="122568004"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3587,7 +3580,7 @@
     <code value="WORM"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_258618008"/>
+      <code value="258618008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3598,7 +3591,7 @@
     <code value="WRT"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="	_309068002"/>
+      <code value="309068002"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    
@@ -3609,7 +3602,7 @@
     <code value="WWA"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="_119318008"/>
+      <code value="119318008"/>
       <equivalence value="equivalent"/>
     </map>
   </concept>    

@@ -55,7 +55,7 @@ with no matching responses (see below)</p>
 
 <h3>Using Orders with messaging</h3>
 
-<p>Two message types are defined for sending orders: synchronous and asynchronous.</p>
+<p>Two message event codes are defined for sending orders: synchronous and asynchronous.</p>
 
 <p>
 In a  <a href="messaging.html#synchronous">synchronous message</a>, an order message (i.e. a <a href="extras.html#bundle">bundle</a> with a
@@ -67,7 +67,7 @@ the response can be made in a timely fashion.
 </p>
 
 <p>
-For more general use, an asynchronous message type is also defined. With this type, 
+For more general use, an asynchronous message event code is also defined. With this code, 
 the requesting system sends the order message, and receives a simple acknowledgement message (only 
 a message resource) that acknowledges that the order was received. Then the receiving 
 system sends one or more response messages as the order is processed. Each of these response messages

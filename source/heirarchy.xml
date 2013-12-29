@@ -56,12 +56,14 @@ todo: compartments
       <page title="V3 Namespaces" filename="terminologies-v3.html" source="v3/template.html">
         <pages type="v3-vocab" filename="template-v3.html"/>
       </page>
+      <page title="Concept Maps" filename="terminologies-conceptmaps.html"/>
     </page>
     <page title="Ballot Intro" filename="ballot-intro.html"/>
   </page>
   
   <page title="Implementation" filename="implementation.html">
     <page title="RESTful API" filename="http.html"/>
+    <page title="Search" filename="search.html"/>
     <page title="Messaging" filename="messaging.html"/>
     <page title="Documents" filename="documents.html"/>
     <page title="Downloads" filename="downloads.html"/>

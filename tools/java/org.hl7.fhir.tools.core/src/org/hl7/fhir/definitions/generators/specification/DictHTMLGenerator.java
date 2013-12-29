@@ -88,7 +88,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRow("Requirements", null, e.getRequirements());
     tableRow("Aliases", null, toSeperatedString(e.getAliases()));
     if (e.isSummaryItem())
-      tableRow("Summary", "query.html#summary", Boolean.toString(e.isSummaryItem()));
+      tableRow("Summary", "search.html#summary", Boolean.toString(e.isSummaryItem()));
     tableRow("Comments", null, e.getComments());
     tableRowNE("Invariants", null, invariants(e.getInvariants(), e.getStatedInvariants()));
     tableRow("LOINC Code", null, e.getMapping(ElementDefn.LOINC_MAPPING));
