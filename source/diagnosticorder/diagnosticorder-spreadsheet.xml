@@ -350,9 +350,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">DiagnosticRequests</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Code for this item</Data><NamedCell
+    <Cell><Data ss:Type="String">Code to indicate the item (test or panel) being ordered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A code that identifies a particular diagnostic investigation that has been requested</Data><NamedCell
+    <Cell><Data ss:Type="String">A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">OBX-4</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -447,7 +451,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -465,7 +469,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
