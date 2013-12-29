@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Hugh Glover</LastAuthor>
+  <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-07-20T23:34:36Z</LastSaved>
+  <LastSaved>2013-12-28T19:53:01Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -98,139 +98,136 @@
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s74" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
+  <Style ss:ID="s73" ss:Parent="s63">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s75" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s76" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
    <Interior/>
   </Style>
   <Style ss:ID="s77" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
-   <NumberFormat ss:Format="@"/>
   </Style>
   <Style ss:ID="s78" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
-  </Style>
-  <Style ss:ID="s79" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
    <NumberFormat ss:Format="@"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
   </Style>
-  <Style ss:ID="s83">
+  <Style ss:ID="s82">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s84">
+  <Style ss:ID="s83">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#FDE9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s85">
+  <Style ss:ID="s84">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#993366"
     ss:Bold="1"/>
    <Interior ss:Color="#FDE9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s86">
+  <Style ss:ID="s85">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <NumberFormat ss:Format="Fixed"/>
   </Style>
-  <Style ss:ID="s87" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
+  <Style ss:ID="s86" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s88">
+  <Style ss:ID="s87">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s90">
+  <Style ss:ID="s89">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#993366"/>
   </Style>
-  <Style ss:ID="s91">
+  <Style ss:ID="s90">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s92">
+  <Style ss:ID="s91">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s93">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
+  <Style ss:ID="s92" ss:Parent="s62">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s93" ss:Parent="s62">
+   <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s94">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s95">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
   </Style>
-  <Style ss:ID="s95">
+  <Style ss:ID="s96">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#993366"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s96">
+  <Style ss:ID="s97">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s97" ss:Parent="s62">
+  <Style ss:ID="s98" ss:Parent="s62">
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s98">
+  <Style ss:ID="s99">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s99">
+  <Style ss:ID="s100">
    <Alignment ss:Horizontal="Center" ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s100" ss:Parent="s62">
+  <Style ss:ID="s101" ss:Parent="s62">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s101">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s102">
-   <Alignment ss:Vertical="Top"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -240,7 +237,7 @@
    <NamedRange ss:Name="Print_Titles"
     ss:RefersTo="='Data Elements'!C1,'Data Elements'!R1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="30" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="20" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="376.5"/>
    <Column ss:StyleID="s64" ss:Width="29.25"/>
@@ -257,8 +254,8 @@
    <Column ss:StyleID="s64" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="342"/>
    <Column ss:StyleID="s64" ss:Hidden="1" ss:AutoFitWidth="0" ss:Span="1"/>
    <Column ss:Index="17" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="321"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="267.75"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="209.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="267.75" ss:Span="1"/>
+   <Column ss:Index="20" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="209.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/><NamedCell
       ss:Name="Print_Titles"/></Cell>
@@ -295,6 +292,8 @@
     <Cell><Data ss:Type="String">Committee Notes</Data><NamedCell
       ss:Name="Print_Titles"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+    <Cell><Data ss:Type="String">RIM Mapping</Data><NamedCell
+      ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">ToDo</Data><NamedCell ss:Name="Print_Titles"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -313,12 +312,13 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Need to add confidentiality</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">Supply[moodCode=EVN]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationDispense.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="4"><Data ss:Type="Boolean">1</Data><NamedCell
+    <Cell ss:Index="4"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -332,15 +332,16 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">RXA-25-Administered Barcode Identifier? (no unique dispense ID provided in RXD segment; V2 def'n of RXA-25 refers to the 'give' occurrence; appears not to discuss 'dispense' cardinality which would seem to be 0..*)</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s72"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.id</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationDispense.status</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="4"><Data ss:Type="Boolean">1</Data><NamedCell
+    <Cell ss:Index="4"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">code</Data><NamedCell
+    <Cell ss:Index="7" ss:StyleID="s75"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationDispenseStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -353,44 +354,48 @@
     <Cell ss:Index="17"><Data ss:Type="String">Active - processed but not pickup&#10;Completed - process and pickup&#10;Aborted - process and put back in stock&#10;&#10;This is not related to partialFill whioch is really a partialFulfillment of the order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">(Not clear whether or how V2 provides for a snapshot of dispense status)</Data></Cell>
+    <Cell><Data ss:Type="String">.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">MedicationDispense.patient</Data><NamedCell
+    <Cell ss:StyleID="s76"><Data ss:Type="String">MedicationDispense.patient</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Resource(Patient)</Data><NamedCell
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Resource(Patient)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Patient</Data><NamedCell
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Who the dispense is for</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">A link to a resource representing the person to whom the medication will be given.</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">A link to a resource representing the person to whom the medication will be given.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">SubstanceAdministration-&gt;subject-&gt;Patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.participation[typeCode=SBJ].role[classCode=PAT]</Data></Cell>
+    <Cell><Data ss:Type="String">Why is patient optional?  Can this be used for non-patient med tranfers?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">MedicationDispense.dispenser</Data><NamedCell
+    <Cell ss:StyleID="s76"><Data ss:Type="String">MedicationDispense.dispenser</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Dispenser</Data><NamedCell
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Practitioner responsible for dispensing medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The individual reponsible for dispensing the medication</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The individual reponsible for dispensing the medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">RXD-10-Dispensing Provider / PRT-5-Participation Person: PRT-4-Participation='DP' (RXD-10 is deprecated)&#10;</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.participation[typeCode=PFM].role[classCode=ASSIGN]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationDispense.authorizingPrescription</Data><NamedCell
@@ -405,14 +410,15 @@
     <Cell ss:Index="14" ss:StyleID="s65"><Data ss:Type="String">CombinedMedicationDispense.inFulfillmentOf</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">ORC-3-Filler Order Number / ORC-2-Placer Order Number&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">.outboundRelationship[typeCode=FLFS].target[moodCode=RQO]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">down</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Medicine supply details</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">Details for individual dispensed medicationdetails</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -420,27 +426,30 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">How do we handle the sequence number when there are multiple instances of this event?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=SPLY, moodCode=EVN]</Data></Cell>
+    <Cell><Data ss:Type="String">Is multiple supply events per dispense record in the 80%?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.identifier</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">External identifier</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">External identifier for individual item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">.id</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.status</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.status</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="4"><Data ss:Type="Boolean">1</Data><NamedCell
+    <Cell ss:Index="4"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">code</Data><NamedCell
+    <Cell ss:Index="7" ss:StyleID="s75"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationDispenseStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -452,8 +461,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Active - processed but not pickup&#10;Completed - process and pickup&#10;Aborted - process and put back in stock&#10;&#10;This is not related to partialFill whioch is really a partialFulfillment of the order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">.status</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75" ss:StyleID="s83">
+   <Row ss:AutoFitHeight="0" ss:Height="75" ss:StyleID="s82">
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationDispense.dispense.type</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -461,24 +471,25 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s77"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationDispenseType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type of dispense</Data><NamedCell
+    <Cell><Data ss:Type="String">Trial fill, partial fill, emergency fill, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s85"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.code</Data><NamedCell
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s84"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">RXD-33-Dispense Type</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.quantity</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Quantity</Data><NamedCell
@@ -490,31 +501,33 @@
     <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">.quantity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.medication</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.medication</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">Resource(Medication)</Data><NamedCell
+    <Cell ss:Index="7" ss:StyleID="s75"><Data ss:Type="String">Resource(Medication)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Medication</Data><NamedCell
+    <Cell ss:StyleID="s75"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">What medication was supplied</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s102"><Data ss:Type="String">Note: do not use Medication.name to describe the dispensed medication. When the only available information is a text description of the medication, Medication.code.text should be used</Data><NamedCell
+    <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">Note: do not use Medication.name to describe the dispensed medication. When the only available information is a text description of the medication, Medication.code.text should be used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.AdministrationRequest.consumable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">RXD-2-Dispense/Give Code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.participation[typeCode=PRD].role</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.whenPrepared</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.whenPrepared</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Dispensing time</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">Dispense processing time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The time the dispense event occurred.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -523,9 +536,10 @@
     <Cell ss:Index="17"><Data ss:Type="String">This is time of dispense (preparation).  The time of supply to the patient is a separate attribute.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">RXD-3-Date/Time Dispensed</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.effectiveTime[xmi:type=IVL_TS].low</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.whenHandedOver</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.whenHandedOver</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Period</Data><NamedCell
@@ -539,9 +553,10 @@
     <Cell ss:Index="17"><Data ss:Type="String">The time of supply to the patient (pickup/handover in community or supply in inpatient).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">RXD-3-Date/Time Dispensed</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.effectiveTime[xmi:type=IVL_TS].high</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.destination</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.destination</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Resource(Location)</Data><NamedCell
@@ -555,9 +570,10 @@
     <Cell ss:Index="17"><Data ss:Type="String">for inpatient setting this is core, but this may not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials&#10;&#10;Will service delivery location be defined by another group?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">RXD-13-Dispense-to Location; RXD-30-Dispense to Pharmacy; RXD-31-Dispense to Pharmacy Address (V2 (in definition of RXD-13, RXD-30 and RXD-31) directs use of the PRT segment but there doesn't appear to be a standard code in Table 0912 suitable for PRT-4-Participation)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.participation[typeCode=DST].role</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.receiver</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.receiver</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
@@ -570,36 +586,39 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="19"><Data ss:Type="String">Is this really a practitioner?</Data></Cell>
+    <Cell ss:Index="19" ss:StyleID="s73"><Data ss:Type="String">.participation[typeCode=RCV].role</Data></Cell>
+    <Cell><Data ss:Type="String">Is this really a practitioner?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.dosage</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.dosage</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">right</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9" ss:StyleID="s86"><Data ss:Type="String">Medicine administration instructions to the patient/carer</Data><NamedCell
+    <Cell ss:Index="9" ss:StyleID="s85"><Data ss:Type="String">Medicine administration instructions to the patient/carer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Indicates how the medication is to be used by the patient</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Indicates how the medication is to be used by the patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">The RMIM has priority code on the act relationship.  How do we handle this?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">MedicationDispense.dispense.dosage.additionalInstructions</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+    <Cell ss:Index="7" ss:StyleID="s75"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Additional dosage instructions</Data><NamedCell
+    <Cell ss:StyleID="s75"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">E.g. &quot;Take with food&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Additional instructions such as &quot;Swallow with plenty of water&quot; which may or may not be coded.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">RXE-7.2-Provider's Administration Instructions.text / RXO-7.2-Provider's Administration Instructions.text / TQ1-10-Condition Text / TQ1-11-Text Instruction ?&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">.text</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">MedicationDispense.dispense.dosage.timing[x]</Data><NamedCell
@@ -607,117 +626,124 @@
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">dateTime|Period|Schedule</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9" ss:StyleID="s86"><Data ss:Type="String">Medication timing</Data><NamedCell
+    <Cell ss:Index="9" ss:StyleID="s85"><Data ss:Type="String">When medication should be administered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  &quot;Every  8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;;  &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  &quot;Every  8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;;  &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.AdministrationRequest.effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">RDS:TQ1</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.effectiveTime</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.dosage.site</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.dosage.site</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationAdministrationSite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Entry site</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Body site to administer to</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">A coded specification of the anatomic site where the medication first enters the body</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">A coded specification of the anatomic site where the medication first enters the body</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.AdministrationRequest.approachSiteCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">RXR-2-Administration Site</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.approachSiteCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.dosage.route</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.dosage.route</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">RouteOfAdministration</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Rout of administration</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">How drug should enter body</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject. </Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.AdministrationRequest.routeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">RXR-1-Route</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.routeCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">MedicationDispense.dispense.dosage.method</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">MedicationDispense.dispense.dosage.method</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s77"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">MedicationAdministrationMethod</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">MedicationAdministrationMethod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Administration method</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Technique for administering medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.&#10;&#10;Terminologies used often pre-coordinate this term with the route and or form of administration.</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.&#10;&#10;Terminologies used often pre-coordinate this term with the route and or form of administration.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">SubstanceAdministration.methodCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s72"><Data ss:Type="String">RXR-4-Administration Method</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.methodCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.dosage.quantity</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.dosage.quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9" ss:StyleID="s86"><Data ss:Type="String">Dose quantity per dose</Data><NamedCell
+    <Cell ss:Index="9" ss:StyleID="s85"><Data ss:Type="String">Amount of medication per dose</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">The amount of the therapeutic or other substance given at one administration event. </Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The amount of the therapeutic or other substance given at one administration event. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.AdministrationRequest.doseQuantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">RXE-23-Give Rate Amount / RXE-24.1-Give Rate Units.code / RXE-24.3-Give Rate Units.name of coding system&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">.doseQuantity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.dosage.rate</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.dosage.rate</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Ratio</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9" ss:StyleID="s86"><Data ss:Type="String">Dose quantity per unit of time</Data><NamedCell
+    <Cell ss:Index="9" ss:StyleID="s85"><Data ss:Type="String">Amount of medication per unit of time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.AdministrationRequest.rateQuantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">RXE-22-Give Per (Time Unit)&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">.rateQuantity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.dosage.maxDosePerPeriod</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.dosage.maxDosePerPeriod</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Ratio</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9" ss:StyleID="s86"><Data ss:Type="String">Total dose that should be consumed per unit of time</Data><NamedCell
+    <Cell ss:Index="9" ss:StyleID="s85"><Data ss:Type="String">Upper limit on medication per unit of time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CombinedMedicationRequest.component1.AdministrationRequest.maxDoseQuantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">RXE-4-Give Amount - Maximum / RXE-5-Give Units&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">.maxDoseQuantity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.substitution</Data><NamedCell
+    <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.substitution</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">right</Data><NamedCell
@@ -730,12 +756,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Significant discssion around this topic.  May not have it right yet.&#10;What about the attribution?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]</Data></Cell>
+    <Cell><Data ss:Type="String">Shouldn't substitution be captured on a product by product basis?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.substitution.type</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.substitution.type</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7" ss:StyleID="s76"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+    <Cell ss:Index="7" ss:StyleID="s77"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationIntendedSubstitutionType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -748,12 +776,13 @@
     <Cell ss:Index="17"><Data ss:Type="String">No substitution made or expected&#10;Subtitution made but not expected&#10;Substitution expected but not made&#10;Substitution made and expected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">RXE-9-Substitution Status? (perhaps RXO-9-Allow Substitutions?)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.substitution.reason</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.substitution.reason</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="7" ss:StyleID="s76"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+    <Cell ss:Index="7" ss:StyleID="s77"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">MedicationIntendedSubstitutionReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -763,9 +792,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">CombinedMedicationDispense.substitutionMade.reasonCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">.reasonCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.substitution.responsibleParty</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.substitution.responsibleParty</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
@@ -780,6 +810,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Who is this handled?  Elsewhere attribution is handled by FHIR</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">.participation[typeCode=PFM].role[classCode=ASSIGN]</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -797,20 +828,29 @@
     <VerticalResolution>300</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>3</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
-   <ActivePane>1</ActivePane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -822,12 +862,12 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="12" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s88" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s88" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s88" ss:AutoFitWidth="0" ss:Width="180"/>
-   <Column ss:StyleID="s88" ss:AutoFitWidth="0" ss:Width="310.5"/>
-   <Column ss:StyleID="s88" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s88" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   x:FullRows="1" ss:StyleID="s87" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="180"/>
+   <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="310.5"/>
+   <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -877,10 +917,10 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:Index="11" ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s90"/>
+    <Cell ss:Index="4" ss:StyleID="s89"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s90"/>
+    <Cell ss:Index="4" ss:StyleID="s89"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -912,10 +952,10 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -931,10 +971,10 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="47" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s92" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s92" ss:Width="106.5"/>
-   <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="4" ss:StyleID="s91" ss:Width="260.25"/>
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s91" ss:Width="106.5"/>
+   <Column ss:StyleID="s90" ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:Index="4" ss:StyleID="s90" ss:Width="260.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -945,13 +985,13 @@
     <Cell><Data ss:Type="String">destination</Data></Cell>
     <Cell><Data ss:Type="String">Return dispenses that should be sent to a secific destination</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.destination</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.destination</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">dispenser</Data></Cell>
     <Cell><Data ss:Type="String">Return all dispenses performed by a specific indiividual</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">MedicationDispense.dispenser</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">MedicationDispense.dispenser</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
@@ -963,33 +1003,33 @@
     <Cell><Data ss:Type="String">medication</Data></Cell>
     <Cell><Data ss:Type="String">Returns dispenses of this medicine</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.medication</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.medication</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">The identity of a patient to list dispenses  for</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">MedicationDispense.patient</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationDispense.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">prescription</Data></Cell>
     <Cell><Data ss:Type="String">The identity of a prescription to list dispenses from</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">MedicationDispense.authorizingPrescription</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">MedicationDispense.authorizingPrescription</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">responsibleparty</Data></Cell>
     <Cell><Data ss:Type="String">Return all dispenses with the specified responsibel party</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.substitution.responsibleParty</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.substitution.responsibleParty</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>
     <Cell><Data ss:Type="String">Status of the dispense</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.status</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.status</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1003,42 +1043,14 @@
     <Cell><Data ss:Type="String">whenhandedover</Data></Cell>
     <Cell><Data ss:Type="String">Date when medication handed over to patient (outpatient setting), or supplied to ward or clinic (inpatient setting)</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.whenHandedOver</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.whenHandedOver</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">whenprepared</Data></Cell>
     <Cell><Data ss:Type="String">Date when medication prepared</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">MedicationDispense.dispense.whenPrepared</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s94"/>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.whenPrepared</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1046,26 +1058,6 @@
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s74"/>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s74"/>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s93"/>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s65"/>
-    <Cell ss:Index="8" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s90"/>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1075,11 +1067,9 @@
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s90"/>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s65"/>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1096,7 +1086,18 @@
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s93"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s93"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s94"/>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1104,15 +1105,54 @@
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s65"/>
+    <Cell ss:Index="4" ss:StyleID="s89"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s89"/>
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="8" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s97"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s98"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s65"/>
@@ -1127,10 +1167,10 @@
     <Cell ss:Index="4" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s90"/>
+    <Cell ss:Index="4" ss:StyleID="s89"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s90"/>
+    <Cell ss:Index="4" ss:StyleID="s89"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1158,13 +1198,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s92" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s92" ss:Width="195.75"/>
-   <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="217.5"/>
-   <Column ss:StyleID="s92" ss:AutoFitWidth="0" ss:Width="81.75"/>
-   <Column ss:StyleID="s92" ss:AutoFitWidth="0" ss:Width="90"/>
-   <Column ss:StyleID="s92" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="274.5"/>
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s91" ss:Width="195.75"/>
+   <Column ss:StyleID="s90" ss:AutoFitWidth="0" ss:Width="217.5"/>
+   <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="81.75"/>
+   <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="90"/>
+   <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s90" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
@@ -1174,12 +1214,12 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s83"><Data ss:Type="String">MedicationDispenseType</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">MedicationDispenseType</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc. </Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActPharmacySupplyType</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">ActPharmacySupplyType&#160;</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">ActPharmacySupplyType&#160;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">MedicationDispenseStatus</Data></Cell>
@@ -1226,34 +1266,34 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">RIM Equivalent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">in progress</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">The dispense has started but has not yet completed.</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Active</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">The dispense has started but has not yet completed.</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">on hold</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Suspended</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">on hold</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Suspended</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">All actions that are implied by the dispense have occurred.</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Completed</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">All actions that are implied by the dispense have occurred.</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">entered in error</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">The dispense was entered in error and therefore nullified.</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Nullified</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">The dispense was entered in error and therefore nullified.</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Nullified</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">stopped</Data></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Actions implied by the dispense have been permanently halted, before all of them occurred.</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Aborted</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Actions implied by the dispense have been permanently halted, before all of them occurred.</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Aborted</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

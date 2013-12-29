@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-12-27T20:38:22Z</LastSaved>
+  <LastSaved>2013-12-28T18:17:06Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -73,9 +73,31 @@
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s68" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior/>
+  </Style>
+  <Style ss:ID="s69" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s72" ss:Parent="s28">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s74" ss:Parent="s63">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
@@ -84,45 +106,23 @@
   <Style ss:ID="s75">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s78">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s87" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
+  <Style ss:ID="s78" ss:Parent="s62">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s88" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
+  <Style ss:ID="s79">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s89">
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s90" ss:Parent="s28">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="19" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="20" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="500.25"/>
@@ -137,7 +137,7 @@
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="16" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="159.75"/>
-   <Row ss:Height="30" ss:StyleID="s66">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -157,242 +157,263 @@
     <Cell><Data ss:Type="String">CDA Mapping</Data></Cell>
     <Cell><Data ss:Type="String">C154 Mapping</Data></Cell>
    </Row>
-   <Row ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Immunization profile</Data></Cell>
     <Cell><Data ss:Type="String">A patient's point-of-time immunization status and recommendation with optional supporting justification</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"><Data ss:Type="String">SubstanceAdministration</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">VXU_V04</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">SubstanceAdministration[moodCode=RMD]</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">VXU_V04</Data></Cell>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.subject</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.identifier</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String">Business identifier</Data></Cell>
+    <Cell><Data ss:Type="String">A unique identifier assigned to this particular recommendation record.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.subject</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Who this profile is for</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">The patient who is the subject of the profile</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"><Data ss:Type="String">.partipication[ttypeCode=].role</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The patient who is the subject of the profile</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.partipication[typeCode=SUBJ].role</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">PID, PD1, NK1</Data></Cell>
    </Row>
-   <Row ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s89"/>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">right</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Vaccine administration recommendations</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine administration recommendations</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.outboundRelationship[typeCode='COMP'].target[classCode=SBADM, moodCode=RMD]</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.recommendationDate</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.date</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Date recommendation created</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">The date the immunization recommendation was created.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The date the immunization recommendation was created.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.partipication[typeCode=AUTH].time</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-15-date/time of the observation</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:Height="120">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.vaccineType</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">VaccineType</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Vaccine recommendation applies to</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Vaccine that pertains to the recommendation</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"/>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.vaccineType</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">VaccineType</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Vaccine recommendation applies to</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Vaccine that pertains to the recommendation</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.partipication[typeCode=CSM].role[classCode=ADMM].code</Data></Cell>
     <Cell ss:StyleID="s74"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">OBX-5-observation value : OBX-3-observation identifier </Font><Font
        html:Face="Symbol" x:Family="Swiss" html:Color="#000000">e</Font><Font
        html:Color="#000000"> { 30956-7 | 38890-0 }</Font></ss:Data></Cell>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:Index="17" ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:Index="17" ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.doseNumber</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.doseNumber</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Recommended dose number</Data></Cell>
     <Cell><Data ss:Type="String">This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">May need other dose concepts such as administered vs. valid</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">.inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=INT]].sequenceNumber</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 30973-2</Data></Cell>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:Index="17" ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:Index="17" ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:Height="105">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.forecastStatus</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">ImmunizationRecommendationStatus</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.forecastStatus</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">ImmunizationRecommendationStatus</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine administration status</Data></Cell>
     <Cell><Data ss:Type="String">Vaccine administration status</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"/>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=&quot;Immunization Forecast Status&quot;].value</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 59783-1</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:Height="165">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0;150</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s89"/>
+   <Row ss:AutoFitHeight="0" ss:Height="165">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0;150</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Dates governing proposed immunization</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.outboundRelationship[typeCode='LIMIT'].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion.code</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">ImmunizationRecommendationDateCriterion</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion.code</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">ImmunizationRecommendationDateCriterion</Data></Cell>
     <Cell><Data ss:Type="String">Type of date</Data></Cell>
     <Cell><Data ss:Type="String">Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">OBX-3-observation identifier</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBX-3-observation identifier</Data></Cell>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion.value</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.dateCriterion.value</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Recommended date</Data></Cell>
     <Cell><Data ss:Type="String">Date recommendation</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"/>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.value</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value</Data></Cell>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:Height="45">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">300;150</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">300;150</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Protocol used by recommendation</Data></Cell>
     <Cell><Data ss:Type="String">Contains information about the protocol under which the vaccine was administered</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s89"/>
-    <Cell ss:Index="13" ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:Index="11" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.inboundRelationship[typeCode=INST].source[classCode=SBADM, moodCode=DEF]</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol.doseSequence</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="6"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Number of dose within sequence</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 30973-2</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=DEF]].sequenceNumber</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 30973-2</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol.description</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Protocol details</Data></Cell>
     <Cell><Data ss:Type="String">Contains the description about the protocol under which the vaccine was administered</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 30956-7</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.text</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 30956-7</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol.authority</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:Index="6" ss:StyleID="s88"><Data ss:Type="String">Resource(Organization)</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:Index="6" ss:StyleID="s69"><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who is responsible for protocol</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the authority who published the protocol?  E.g. ACIP</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 59779-9</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=AUT]</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">OBX-5-observation value : OBX-3-observation identifier = 59779-9</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.protocol.series</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Name of vaccination series</Data></Cell>
     <Cell><Data ss:Type="String">One possible path to achieve presumed immunity against a disease - within the context of an authority</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s74"><Data ss:Type="String">RXA-5-administered code</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.title</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">RXA-5-administered code</Data></Cell>
    </Row>
-   <Row ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingImmunization</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingImmunization</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Immunization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Past immunizations supporting recommendation</Data></Cell>
     <Cell><Data ss:Type="String">Immunization event history that supports the status and recommendation</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">? No clear way to associate in V2.x or IG</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=&quot;immunization&quot;]</Data></Cell>
+    <Cell><Data ss:Type="String">? No clear way to associate in V2.x or IG</Data></Cell>
    </Row>
-   <Row ss:Height="270">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingPatientInformation</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+   <Row ss:AutoFitHeight="0" ss:Height="270">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.recommendation.supportingPatientInformation</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation | AdverseReaction | AllergyIntolerance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Patient observations supporting recommendation</Data></Cell>
     <Cell><Data ss:Type="String">Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">OBX If OBX is associated with ( RXA : RXA-5-administered code = '998^No vaccine administered^CVX' ), could contain the reason the vaccine was not administered&#10;</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]</Data></Cell>
+    <Cell><Data ss:Type="String">OBX If OBX is associated with ( RXA : RXA-5-administered code = '998^No vaccine administered^CVX' ), could contain the reason the vaccine was not administered&#10;</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:Index="2" ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -401,6 +422,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -549,10 +571,10 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -606,7 +628,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">ImmunizationRecommendation.subject</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">ImmunizationRecommendation.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">vaccine-type</Data></Cell>
@@ -617,44 +639,40 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s64"/>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s64"/>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s64"/>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s64"/>
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
-    <Cell ss:Index="9" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s65"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -670,35 +688,39 @@
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s65"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="5" ss:StyleID="s68"/>
+    <Cell ss:Index="5" ss:StyleID="s78"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="5" ss:StyleID="s78"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -792,7 +814,7 @@
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Width="221.25"/>
-   <Column ss:StyleID="s77" ss:Width="273"/>
+   <Column ss:StyleID="s79" ss:Width="273"/>
    <Column ss:AutoFitWidth="0" ss:Width="81.75" ss:Span="1"/>
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
@@ -807,15 +829,15 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ImmunizationRecommendationStatus</Data></Cell>
     <Cell><Data ss:Type="String">The patient's status with respect to a vaccination protocol</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-immunization-recommendation-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">ImmunizationRecommendationDateCriterion</Data></Cell>
     <Cell><Data ss:Type="String">Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g. due date, latest to give date, etc.)</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-immunization-recommendation-date-criterion</Data></Cell>
    </Row>
   </Table>

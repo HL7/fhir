@@ -137,7 +137,7 @@
    <Column ss:Index="12" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="21" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="170.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
+   <Row ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -157,7 +157,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">save</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">Procedure</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -173,7 +173,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="21"><Data ss:Type="String">Resource</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.identifier</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -190,16 +190,16 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Subject of this procedure</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Who procedure was performed on</Data></Cell>
     <Cell><Data ss:Type="String">The person on whom the procedure was performed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Patient)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -208,7 +208,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">Procedure.bodySite</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -217,7 +217,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">Procedure.indication</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -227,7 +227,7 @@
     <Cell ss:Index="13"><Data ss:Type="String">e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapuetic</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Condition) | CodeableConcept | string </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">300;0</Data></Cell>
@@ -235,7 +235,7 @@
     <Cell><Data ss:Type="String">Limited to 'real' people rather than equipment</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="44.0625">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer.person</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
@@ -244,7 +244,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="44.0625">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer.role</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -253,7 +253,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45.9375">
+   <Row ss:Height="120">
     <Cell><Data ss:Type="String">Procedure.date</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
@@ -262,7 +262,7 @@
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Period</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Procedure.encounter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
@@ -271,16 +271,16 @@
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="56.0625">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.outcome</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Outcome of the procedure</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">What was result of procedure?</Data></Cell>
     <Cell><Data ss:Type="String">What was the outcome of the procedure - did it resolve reasons why the procedure was performed? </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Observation) | CodeableConcept | string</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">Procedure.report</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(DiagnosticReport)</Data></Cell>
@@ -288,7 +288,7 @@
     <Cell><Data ss:Type="String">This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(DiagnosticReport)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.complication</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -296,7 +296,7 @@
     <Cell><Data ss:Type="String">Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">string</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="126">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">Procedure.followUp</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string </Data></Cell>
@@ -304,14 +304,14 @@
     <Cell><Data ss:Type="String">If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Careplan) | string </Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Procedure.relatedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">300;80</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A procedure that is related to this one</Data></Cell>
     <Cell><Data ss:Type="String">Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.relatedItem.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
@@ -320,18 +320,18 @@
     <Cell><Data ss:Type="String">The nature of the relationship</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">code</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.relatedItem.target</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(AdverseReaction | AllergyIntolerance | CarePlan | Condition | DeviceObservationReport | DiagnosticReport | FamilyHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationPrescription | MedicationStatement | Observation | Procedure)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The related item - e.g. a procedure</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Procedure | Prescription)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Procedure.notes</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Procedure notes</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Additional information about procedure</Data></Cell>
     <Cell><Data ss:Type="String">Any other notes about the procedure - e.g. the operative notes</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">string</Data></Cell>
    </Row>
@@ -342,7 +342,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -353,7 +352,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -366,12 +365,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

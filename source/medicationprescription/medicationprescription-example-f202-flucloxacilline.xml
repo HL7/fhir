@@ -23,7 +23,7 @@
     <display value="Flucloxacilline"/>
  </medication>
  <dosageInstruction>  
-  <dosageInstructionsText value="Flucloxacilline 12g/24h"/>
+  <text value="Flucloxacilline 12g/24h"/>
   <timingSchedule>
       <event>
           <start value="2013-03-11"/>

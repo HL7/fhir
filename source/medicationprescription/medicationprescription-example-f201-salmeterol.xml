@@ -20,7 +20,7 @@
     <display value="25ug Salmeterol + 250ug Fluticasone"/>
   </medication>
   <dosageInstruction>
-    <dosageInstructionsText value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
+    <text value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
     <timingSchedule>
       <!--2 months-->
       <event>

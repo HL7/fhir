@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
 <!-- still to do:
 
 practiceSettingCode - what is this?
@@ -12,6 +14,10 @@ are used in the context of XDS. The two resources may be used as a facade to an 
 XDS server, such as is used for the <a href="http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD)">IHE MHD</a> specification,
 or it can be used the other way around, where the XDS functionality is implemented using a FHIR based server as the storage mechanism.
 </p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
 <p>
 The FHIR DocumentReference and DocumentManifest is based on the functionality defined by XDS, but they differ from XDS in 
 some significant ways:
@@ -74,8 +80,10 @@ the relationships between the XDS tranasction and the FHIR resources.
  
  <tr>
   <td>Availability Status</td>
-  <td>Approved (available for patient care): DocumentReference/Manifest.status = current<br/> 
-      Deprecated (obsolete): DocumentReference/Manifest.status = superceded </td>
+  <td>
+    <p>Approved (available for patient care): DocumentReference/Manifest.status = current</p>
+    <p>Deprecated (obsolete): DocumentReference/Manifest.status = superceded</p>
+  </td>
  </tr>
 
  <tr>
@@ -114,11 +122,6 @@ In order to implement the XDS profile, a server SHALL keep a full version histor
 DocumentManifest, Patient, and Practitioner resources. This allows for Audit investigations, and also
 replication using stnadard pub/sub arrangements.
 </p>
+</div>
 
-
-
-<!--
--->
-<a name="resource"></a>
-<a name="profile"></a>
 </div>

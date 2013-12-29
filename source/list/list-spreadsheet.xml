@@ -125,7 +125,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="56.25"/>
@@ -173,6 +173,21 @@
     <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">Act[classCode&lt;ORG,moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">RIM harmonization proposal to move LIST under GROUPER&#10;&#10;RIM harmonization proposal to allow organizers to group roles as well as acts.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell><Data ss:Type="String">List.identifier</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">Business identifier</Data></Cell>
+    <Cell><Data ss:Type="String">Identifier for the List assigned for business purposes outside the context of FHIR.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s66"/>
+    <Cell ss:Index="13" ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">List.code</Data></Cell>
@@ -402,8 +417,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

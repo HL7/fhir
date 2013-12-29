@@ -4,7 +4,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Anaphylaxis Reaction to a bee sting</div>
   </text>
-  <reactionDate value="2012-09-17"/>
+  <date value="2012-09-17"/>
   <subject>
     <reference value="Patient/example"/>
   </subject>
@@ -24,8 +24,8 @@
     <severity value="moderate"/>
   </symptom>
   <exposure>
-    <exposureDate value="2012-09-17"/>
-    <exposureType value="coincidental"/>
+    <date value="2012-09-17"/>
+    <type value="coincidental"/>
     <substance>
       <reference value="Substance/example"/>
     </substance>

@@ -222,7 +222,7 @@ public class FHIRSimpleClientTest {
 	@Test
 	public void testCreateWithErrors() throws ParseException {
 		AdverseReaction adverseReaction = new AdverseReaction();
-		adverseReaction.setReactionDateSimple(new DateAndTime("2013-01-10"));
+		adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
 		//adverseReaction.setDidNotOccurFlagSimple(false);
 		AtomEntry<AdverseReaction> result = null;
 		try {
@@ -310,7 +310,7 @@ public class FHIRSimpleClientTest {
 		patientReference.setReferenceSimple(createdPatientEntry.getLinks().get("self"));
 		AdverseReaction adverseReaction = new AdverseReaction();
 		adverseReaction.setSubject(patientReference);
-		adverseReaction.setReactionDateSimple(new DateAndTime("2013-01-10"));
+		adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
 		adverseReaction.setDidNotOccurFlagSimple(false);
 		AtomEntry<AdverseReaction> adverseReactionEntry = testClient.create(AdverseReaction.class, adverseReaction);
 		AtomFeed batchFeed = new AtomFeed();

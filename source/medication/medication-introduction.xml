@@ -1,6 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-
+<div>
+<h2>Scope and Usage</h2>
 <p>
 Representing Medication in the majority of healthcare settings is a matter of identifying an item from a list and then conveying a reference 
 for the item selected either into a patient related resource or to other applications.  Additional information about the medication is frequently 
@@ -23,9 +24,6 @@ Depending on whether the medication is a product or a package, further details a
 has a form (tablet, suspension, etc.) and a list of ingredients with quantities. The ingredients may be other medications or 
 substances. A package has a container (vacuum packed box, jar, etc.) and a list of the products or other packages that are in the package.
 </p>
-    
-<p>
-todo: Is it necessary to assign an identifying code to a medication record so that a system's list of medication resources can also be used as a coding system?
-</p>
+</div>    
     
 </div>

@@ -2,9 +2,6 @@
 
 <div>
 <h2>Scope and Usage</h2>
-<p> 
-<%definition%> 
-</p> 
 <p>
 This specification describes a set of base resources that are used in many different
 contexts in healthcare. In order to make this manageable, applications and specifications need to be
@@ -79,8 +76,10 @@ find the profile when registered in profile repositories.
 
 <table class="grid">
  <tr><td>identifier</td><td>The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique URI, OID, or UUID)</td></tr>
- <tr><td>version</td><td>The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp. <br/>
-   Note that there may be multiple resource versions of the profile that have this same identifier. The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control</td></tr>
+ <tr><td>version</td><td>
+   <p>The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.</p>
+   <p>Note that there may be multiple resource versions of the profile that have this same identifier. The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control</p>
+   </td></tr>
  <tr><td>name</td><td>A free text natural language name identifying the Profile	</td></tr>
  <tr><td>publisher</td><td>Details of the individual or organization who accepts responsibility for publishing the profile. This helps establish the "authority/credibility" of the profile.</td></tr>
  <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>	
@@ -231,12 +230,12 @@ TODO: how does the discriminator work with resource references? - This is a open
 		<i>element</i> in a slice group SHALL describe a
 		distinct set of  values for the group's
 		<i>discriminator</i>.  Because of this constraint, an 
-	        element in a resource <em>instance</em> will never match more
+	        element in a resource <b>instance</b> will never match more
 		than one <i>element</i> in a given slice group.</li>
 
 	<li><b>Serialized as a group</b>. The entries in a slice
-		group must be <em>adjacent</em> in a serialized Profile,
-		<em>or</em>, if there are any intervening elements, those
+		group must be <b>adjacent</b> in a serialized Profile,
+		<b>or</b>, if there are any intervening elements, those
 		elements must be "compatible with" the group. Concretely, this
 		means that any intervening elements must have a
 		<i>path</i> that starts with the slice groups's
@@ -313,20 +312,22 @@ possible codes can be provided.
 Bindings have two properties that define how the set of codes is used: <i>isExtensible</i> and <i>conformance</i>.
 </p>
 <ul>
-  <li><b>isExtensible</b><a name="extensibility"> </a>indicates whether additional codes are allowed beyond those in the defined set of codes.<br/>
+  <li><p><b>isExtensible</b><a name="extensibility"> </a>indicates whether additional codes are allowed beyond those in the defined set of codes.</p>
     <table>
       <tr><td>false</td> <td>No additional codes are to be used beyond the list provided</td> </tr>
       <tr><td>true</td>  <td>Supplemental codes or plain text may be needed (this is common because it is reasonable to think that concepts will need to be used which won't be in the defined set of codes)</td></tr>
     </table>
   </li>
-  <li><b>Conformance</b><a name="conformance"> </a>indicates the expectations for implementers of the specification.  
-    There are three possible values:<br/><br/>
+  <li><p><b>Conformance</b><a name="conformance"> </a>indicates the expectations for implementers of the specification.  
+    There are three possible values:</p>
+    <p/>
     <table>
       <tr><td>required</td><td>
-        Only codes in the specified set are allowed.<br/>
+        <p>Only codes in the specified set are allowed.</p>
+        <p>
         If the strength is 'extensible', other codes may be used for concepts not covered by the 
         value set but cannot be used for concepts covered by the bound code list, even 
-        if a profile constrains out some of those codes).
+        if a profile constrains out some of those codes).</p>
       </td></tr>
       <tr><td>preferred</td><td>
         For greater interoperability, implementers are strongly encouraged to use the bound set of

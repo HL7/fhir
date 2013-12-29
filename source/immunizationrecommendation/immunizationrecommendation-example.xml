@@ -8,7 +8,7 @@
     <reference value="Patient/example"/>
   </subject>
   <recommendation>
-    <recommendationDate value="2013-03-01"/>
+    <date value="2013-03-01"/>
     <vaccineType id="396427003"/>
     <forecastStatus>
       <coding>

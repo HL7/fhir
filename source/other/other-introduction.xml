@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
 <p>
 <b>Other</b> is a special type of resource.  Unlike all other resources, it doesn't correspond to a 
 specific identifiable real-world concept.  Instead, it's a placeholder for any resource-like concept 
@@ -32,11 +34,15 @@ queried and analyzed by other conformant systems.
 Implementers don't really need to be concerned with one of the two categories their desired resource fits
 within.  If they need a resource and it doesn't yet exist, they should use Other.
 </p>
+</div>
 
+<div>
+<h2>Background and Context</h2>
 <p>
 Other defines only a minimal set of data elements - those necessary to identify what kind of resource it
 represents and those necessary to support resource <a href="extras.html#compartments">compartmenting</a>.  All other data elements
 are represented using the <a href="extensibility.html">extension</a> mechanism.
 </p>
+</div>
 
 </div>

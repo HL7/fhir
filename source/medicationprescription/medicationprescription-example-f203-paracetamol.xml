@@ -23,7 +23,7 @@
     <display value="Paracetamol"/>
  </medication>
  <dosageInstruction>  
-  <dosageInstructionsText value="Paracetamol 3xdaags 1000mg"/>
+  <text value="Paracetamol 3xdaags 1000mg"/>
   <!--No defined schedule (<timing>)-->
   <method>
     <coding>

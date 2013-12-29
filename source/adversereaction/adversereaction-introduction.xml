@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
 <p>
 Adverse Reaction resources are used to provide information about specific 
 reactions to a substance.  These are normally associated with an 
@@ -7,6 +9,10 @@ reactions to a substance.  These are normally associated with an
 but can be reported on their own when no assumption of further reactions 
 is being made, or when specific events are being described.
 </p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
 <p>
 An Adverse Reaction normally has a set of signs or symptoms that are 
 reported in the Symptom class. However, it is possible to convey that 
@@ -23,3 +29,6 @@ purely a statement of timing. Each exposure can indicate a
 substance that might be different from the reaction if needed.
 </p>
 </div>
+
+</div>
+

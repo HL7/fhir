@@ -1,46 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Protocol xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/protocol.xsd">
-  <extension id="arm-dose1">
+  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm" id="arm-dose1">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.name">
       <valueString value="0.5 mg Dose"/>
     </extension>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.description">
       <valueString value="Administering 0.5mg of [Drug A]"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm"/>
   </extension>
-  <extension id="arm-dose2">
+  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm" id="arm-dose2">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.name">
       <valueString value="dose2"/>
     </extension>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.description">
       <valueString value="Administering 1.0mg of [Drug A]"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm"/>
   </extension>
-  <extension id="epoch-screening">
+  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch" id="epoch-screening">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name">
       <valueString value="Screening"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch"/>
   </extension>
-  <extension id="epoch-single-blind-run-in">
+  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch" id="epoch-single-blind-run-in">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name">
       <valueString value="Single blind run-in"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch"/>
   </extension>
-  <extension id="epoch-treatment-phase">
+  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch" id="epoch-treatment-phase">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name">
       <valueString value="Treatment"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch"/>
   </extension>
-  <extension id="epoch-follow-up">
+  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch" id="epoch-follow-up">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name">
       <valueString value="Follow up"/>
     </extension>
-    <url value="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch"/>
   </extension>
   <type value="study"/>
   <status value="production"/>

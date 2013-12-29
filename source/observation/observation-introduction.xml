@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
 <p>
 Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns 
 and even capture demographic characteristics.  Fundamentally, observations are simple name/value pair assertions with little structure, 
@@ -16,7 +18,10 @@ patterns for observations. Expected uses for this resource include:
   <li>Social history: tobacco use, family supports, cognitive status</li>
   <li>Core characteristics: pregnancy status, death assertion</li>
 </ul>
+</div>
 
+<div>
+<h2>Background and Context</h2>
 <p>
 The observation resource has the following aspects:
 </p>
@@ -30,6 +35,7 @@ The observation resource has the following aspects:
  <li>interpretation, comments, and reference range: information to help understand the observed value</li>
  <li>method, issued, performer - additional information about how the test was performed that may help understand the observation. The method is often implicit in the Observation.name</li>
 </ul>  
+</div>
   
 </div>
 

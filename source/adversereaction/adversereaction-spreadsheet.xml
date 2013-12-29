@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-09-27T00:46:48Z</LastSaved>
+  <LastSaved>2013-12-28T16:48:43Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -78,7 +78,7 @@
    <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s69">
-   <Alignment ss:Vertical="Top"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
@@ -86,9 +86,10 @@
    <Protection/>
   </Style>
   <Style ss:ID="s70">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s72" ss:Parent="s64">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -96,21 +97,21 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s74">
-   <Alignment ss:Vertical="Top"/>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat ss:Format="#,##0"/>
    <Protection/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s74">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -118,11 +119,11 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s79">
    <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
@@ -163,7 +164,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
     <Cell><Data ss:Type="String">Prov Mapping</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell><Data ss:Type="String">AdverseReaction</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -172,13 +173,14 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Specific reactions to a substance</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN]</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">IAM-11-Onset Date (Does not allow for IAM-12-Onset Date Text)</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">Records an unexpected reaction suspected to be related to the exposure of the reaction subject to a substance</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">Used to track reactions when it is unknown the exact cause but there's a desire to flag/track potential causes.  Also used to capture reactions that are significant for inclusion in the health record or as evidence for an allergy or intolerance.</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN]</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">IAM-11-Onset Date (Does not allow for IAM-12-Onset Date Text)</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">AdverseReaction.identifier</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -188,14 +190,14 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">External Ids for this adverse reaction</Data></Cell>
     <Cell><Data ss:Type="String">This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">Need to allow connection to a wider workflow</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">.id</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">Need to allow connection to a wider workflow</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AdverseReaction.reactionDate</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">AdverseReaction.date</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -203,13 +205,14 @@
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">When the reaction occurred</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">effectiveTime</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">The date (and possibly time) when the reaction began</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">effectiveTime</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">AdverseReaction.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -217,14 +220,15 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Resource(Patient)</Data></Cell>
     <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">Who had the reaction</Data></Cell>
     <Cell><Data ss:Type="String">The subject of the adverse reaction</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=SBJ]</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">participation[typeCode=SBJ]</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">AdverseReaction.didNotOccurFlag</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -232,15 +236,17 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">To say that a reaction to substance did not occur</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">Indicates lack of reaction</Data></Cell>
+    <Cell><Data ss:Type="String">If true, indicates that no reaction occurred.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s69"><Data ss:Type="String">Generally only useful in conjunction with other positive reaction records.  I.e. &quot;Patient reacted to A and B, but did not react when exposed to C, therefore . . .&quot;</Data></Cell>
     <Cell><Data ss:Type="String">Note that the normal case is false, which is a double negative - it's not true that this reaction did not occur. The normal case is to assert that a reaction did happen</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">actionNegationInd</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="17" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">actionNegationInd</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Is recording a non-reaction really in the 80%?</Data></Cell>
+    <Cell ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">AdverseReaction.recorder</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -249,10 +255,11 @@
     <Cell><Data ss:Type="String">Resource(Practitioner|Patient)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Who recorded the reaction</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=AUT]</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">IAM-14-Reported By (if patient) / IAM-18-Statused By Person (if practitioner)&#10;</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">Identifies the individual responsible for the information in the reaction record.</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">participation[typeCode=AUT]</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">IAM-14-Reported By (if patient) / IAM-18-Statused By Person (if practitioner)&#10;</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -262,12 +269,13 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">300;0</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">What was reaction?</Data></Cell>
     <Cell><Data ss:Type="String">The signs and symptoms that were observed as part of the reaction</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Signs, Symptoms, Manifestations</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;symptom&gt;&gt;]</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">Signs, Symptoms, Manifestations</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;symptom&gt;&gt;]</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -278,11 +286,12 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">SymptomType</Data></Cell>
+    <Cell><Data ss:Type="String">E.g. Rash, vomiting</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the specific sign or symptom that was observed</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">value</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">IAR-1</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">value</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">IAR-1</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
@@ -295,40 +304,43 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">ReactionSeverity</Data></Cell>
     <Cell><Data ss:Type="String">severe | serious | moderate | minor</Data></Cell>
     <Cell><Data ss:Type="String">The severity of the sign or symptom</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;severity&gt;&gt;].value</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">AL1-4-Allergy Severity Code / IAM-4-Allergy Severity Code</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;severity&gt;&gt;].value</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">AL1-4-Allergy Severity Code / IAM-4-Allergy Severity Code</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">AdverseReaction.exposure</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">300;90</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">300;90</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">Suspected substance</Data></Cell>
     <Cell><Data ss:Type="String">An exposure to a substance that preceded a reaction occurrence</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">outboundRelationship[typeCode=SAS].target[classCode=EXPOS, moodCode=EVN]</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">Multiple repetitions are used to indicate multiple potential causes for the reaction</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">outboundRelationship[typeCode=SAS].target[classCode=EXPOS, moodCode=EVN]</Data></Cell>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">AdverseReaction.exposure.exposureDate</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell><Data ss:Type="String">AdverseReaction.exposure.date</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When the exposure occurred</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">effectiveTime</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">(V2 does not define distinct concepts of exposure date and reaction date)</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">Identifies the initial date of the exposure that is suspected to be related to the reaction</Data></Cell>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">effectiveTime</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">(V2 does not define distinct concepts of exposure date and reaction date)</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">AdverseReaction.exposure.exposureType</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">AdverseReaction.exposure.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -338,8 +350,8 @@
     <Cell><Data ss:Type="String">drugadmin | immuniz | coincidental</Data></Cell>
     <Cell><Data ss:Type="String">The type of exposure: Drug Administration, Immunization, Coincidental</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
@@ -352,12 +364,12 @@
     <Cell><Data ss:Type="String">CausalityExpectation</Data></Cell>
     <Cell><Data ss:Type="String">likely | unlikely | confirmed | unknown</Data></Cell>
     <Cell><Data ss:Type="String">A statement of how confident that the recorder was that this exposure caused the reaction</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;ReactionRelatedness&gt;, ].value&#10;&#10;Note: Observation also needs to have a subject of the Adverse Reaction itself (i.e. it's expressing relatedness of exposure &amp; reaction)</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">IAM-17-Allergy Clinical Status Code</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&lt;&lt;ReactionRelatedness&gt;, ].value&#10;&#10;Note: Observation also needs to have a subject of the Adverse Reaction itself (i.e. it's expressing relatedness of exposure &amp; reaction)</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">IAM-17-Allergy Clinical Status Code</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">AdverseReaction.exposure.substance</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -366,11 +378,11 @@
     <Cell><Data ss:Type="String">Resource(Substance)</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Presumed causative substance</Data></Cell>
-    <Cell><Data ss:Type="String">Substance(s) that is presumed to have caused the adverse reaction</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=EXPAGNT]</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">AL1-3 / IAM-3 Allergen Code/Mnemonic/Description</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">Substance that is presumed to have caused the adverse reaction</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"><Data ss:Type="String">participation[typeCode=EXPAGNT]</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">AL1-3 / IAM-3 Allergen Code/Mnemonic/Description</Data></Cell>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -378,10 +390,10 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="7" ss:StyleID="s69"/>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -389,10 +401,10 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="7" ss:StyleID="s69"/>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -400,10 +412,10 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="7" ss:StyleID="s69"/>
-    <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:Index="13" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="11" ss:StyleID="s69"/>
+    <Cell ss:Index="13" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
   </Table>
@@ -439,8 +451,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -450,14 +460,14 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s75" ss:Width="14.25"/>
-   <Column ss:StyleID="s75" ss:Width="126"/>
-   <Column ss:StyleID="s75" ss:Width="96"/>
-   <Column ss:StyleID="s75" ss:Width="234.75"/>
-   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s75" ss:Width="320.25"/>
+   <Column ss:StyleID="s74" ss:Width="14.25"/>
+   <Column ss:StyleID="s74" ss:Width="126"/>
+   <Column ss:StyleID="s74" ss:Width="96"/>
+   <Column ss:StyleID="s74" ss:Width="234.75"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s74" ss:Width="320.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -558,11 +568,11 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:Index="4" ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:Index="4" ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -605,6 +615,7 @@
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
+   <Column ss:Index="4" ss:Width="184.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
@@ -613,7 +624,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">symptom</Data></Cell>
-    <Cell><Data ss:Type="String">One of the symptoms of the reaction.</Data></Cell>
+    <Cell><Data ss:Type="String">One of the symptoms of the reaction</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">AdverseReaction.symptom.code</Data></Cell>
    </Row>
@@ -627,7 +638,7 @@
     <Cell><Data ss:Type="String">date</Data></Cell>
     <Cell><Data ss:Type="String">The date of the reaction</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">AdverseReaction.reactionDate</Data></Cell>
+    <Cell><Data ss:Type="String">AdverseReaction.date</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -757,7 +768,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -779,52 +789,52 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">Binding</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ReactionSeverity</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The severity of an adverse reaction.</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">#reactionSeverity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">#reactionSeverity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SymptomType</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The type of symptom.</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">http://apps.who.int/classifications/icd10/browse/2010/en</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ICD-10 Reaction codes</Data></Cell>
-    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://apps.who.int/classifications/icd10/browse/2010/en</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">ICD-10 Reaction codes</Data></Cell>
+    <Cell ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExposureType</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">The type of exposure that resulted in an adverse reaction</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">#exposureType</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s79"><Data ss:Type="String">The current set of codes is not exhaustive and is provided for future discussion.</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">#exposureType</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s78"><Data ss:Type="String">The current set of codes is not exhaustive and is provided for future discussion.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CausalityExpectation</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">How likely is it that the given exposure caused a reaction</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">#causalityExpectation</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">#causalityExpectation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s65"/>
-    <Cell ss:StyleID="s80"/>
-    <Cell ss:Index="5" ss:StyleID="s80"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:Index="5" ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s65"/>
-    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s65"/>
-    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

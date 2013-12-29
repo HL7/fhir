@@ -20,8 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>2640</WindowTopX>
   <WindowTopY>2880</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>3</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -229,7 +227,7 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">ProtocolStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Current status</Data><NamedCell
+    <Cell><Data ss:Type="String">draft | testing | review | production +</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -825,12 +823,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>32</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -838,15 +837,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1316,6 +1315,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>7</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1397,7 +1397,11 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s80"/>
+    <Cell><Data ss:Type="String">Study Protocol</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Profile for defining Study protocols</Data></Cell>
+    <Cell><Data ss:Type="String">protocol-study-profile-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell><Data ss:Type="String">protocol-study-profile-example.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1407,7 +1411,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1442,25 +1445,25 @@
     <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="6" ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC example1</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">ad-4833pnfp-341</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">protocol-cdisc-example1.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="6" ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC2</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC example2</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String" x:Ticked="1">048</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">protocol-cdisc-example2.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:StyleID="s74"/>
-    <Cell ss:Index="6" ss:StyleID="s74"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC3</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">CDISC example3</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">efc10262</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">protocol-cdisc-example3.xml</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

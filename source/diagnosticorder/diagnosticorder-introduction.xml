@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
 <p>
 A <i>Diagnostic Order</i> is a record of a request for a set of diagnostic investigations to be performed. 
 The investigation will lead to a <a href="diagnosticreport.html">Diagnostic Report</a> that summarizes the 
@@ -20,6 +22,10 @@ represents a diagnostic service that can perform the investigation as a request 
 The diagnostic service will update the request as the work is performed, and then finally
 issue a report that references the requests that it fulfills.
 </p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
 <p>
 Note that the Diagnostic Order itself is not a request to perform the 
 investigation - it is just a record of the fact that a request was made. 
@@ -27,6 +33,7 @@ The Diagnostic Request must be paired with an <a href="order.html">Order</a>
 resource to convey the actual instruction, or part of an explicit messaging
 or service workflow that carries the instruction.
 </p>
+</div>
 
 <!-- profiles? -->
 </div>

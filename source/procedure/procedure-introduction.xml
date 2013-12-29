@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
 <p>
 This resource is used to record the details of procedures performed on a patient. A procedure is an activity 
 that is performed with or on a patient as part of the provision of care. Examples include  surgical 
@@ -11,5 +13,6 @@ Note that many diagnostic processes are procedures that generate observations an
 the existence of the procedure is assumed, but where there are details of interest about how the 
 diagnostic procedure was performed, the procedure resource is used to describe the activity.
 </p>
+</div>
 
 </div>

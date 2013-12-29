@@ -878,7 +878,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">250;480</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Type and Profile for this element</Data><NamedCell
+    <Cell><Data ss:Type="String">Data type and Profile for this element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">The data type or resource that the value of this element is permitted to be</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1570,7 +1570,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>39</ActiveRow>
+     <ActiveRow>40</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

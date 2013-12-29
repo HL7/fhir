@@ -6,6 +6,8 @@ also from Russ, consider whether to put somewhere:
 I think that is a key concept, that having an allergy list as a distinct and separate element of clinical documentation is typical, even invariant.  And . 
 
 -->
+<div>
+<h2>Scope and Usage</h2>
 <p>
 Allergy/Intolerance resources are used to provide information about 
 adverse sensitivities to substances that lead to physiologic changes 
@@ -42,6 +44,10 @@ to an external substance that may be ordered by a provider in the course of
 their care but is not inherent to exposure to that substance for the general 
 population.
 </p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
 <p>
 Most of the details of the sensitivity can be found in the set of 
 <a href="adversereaction.html">reactions</a> that are associated with the resource,
@@ -52,5 +58,7 @@ when an single reaction has not provided enough evidence for a meaningful
 Allergy/Intolerance, or in specific views of events rather than in a general
 clinical record.
 </p>
+</div>
+
 </div>
 

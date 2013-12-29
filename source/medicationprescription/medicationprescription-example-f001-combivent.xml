@@ -32,7 +32,7 @@
         <display value="prescribed medication"/>
     </medication> 
     <dosageInstruction>
-        <dosageInstructionsText value="3 tot 4 maal daags 1 flacon"/>
+        <text value="3 tot 4 maal daags 1 flacon"/>
         <additionalInstructions>
           <text value="for use during pregnancy, contact physician"/>
         </additionalInstructions>

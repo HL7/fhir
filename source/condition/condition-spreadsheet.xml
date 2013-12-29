@@ -176,7 +176,8 @@
     <Cell><Data ss:Type="String">Condition.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Subject of this condition</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Who has the condition?</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the patient who the condition record is associated with</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">PID-3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -400,14 +401,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>12</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>6</ActiveCol>
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

@@ -1,29 +1,18 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
-<!--
 
--->
-<p>
+<div>
+<h2>Scope and Usage</h2>
+<p> 
 Appointment resources are used to provide information about 
-a meeting that may be in the future or past. An adverse sensitivity is defined as:
+a planned meeting that may be in the future or past.  They may be for a single meeting or
+for a series of repeating visits.  Examples include a scheduled surgery, a follow-up for a
+clinical visit, a scheduled conference call between clinicians to discuss a case, the reservation
+of a piece of diagnostic equipment for a particular use, etc.  The visit scheduled by an appointment
+may be in person or remote (by phone, video conference, etc.)  All that matters is that the time and
+usage of one or more individuals, locations and/or pieces of equipment is being fully or partially
+reserved for a designated period of time.
 </p>
-<blockquote>
-  <p>
-  A condition expected to result in undesirable physiologic reaction to an 
-  amount of a substance that would not produce a reaction in most individuals.  
-  The substance is the trigger of an immunologic response that produces the 
-  observed physiologic changes, or in some instances nonimmunologic mechanisms 
-  that produce clinically identical physiologic changes.  The immunologic 
-  response might be considered the actual cause of the reaction, but it is 
-  exposure to the trigger substance that is clinically observable.
-  </p>  
-</blockquote>  
-<p>
-This definition excludes clinically identical episodes that may be caused by 
-physical agents, such as heat, cold, sunlight, or vibration, by exercise activity, 
-or by infectious agents. Those conditions caused by physical agents or infectious 
-would be captured on the problem list (<a href="list.html">List</a>/<a href="condition.html">Condition</a> Resources). The allergy/intolerance list is a list of 
-conditions that represent a propensity unique to this individual for 
-a reaction upon future exposure to a specified substance. 
-</p>
+</div>
+
 </div>
 

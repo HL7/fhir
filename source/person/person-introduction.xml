@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
 <!-- PA original:
 <p>
 
@@ -11,10 +13,8 @@ Person himself. Examples of that are Guardian (SubjectofCare), ContactParty (Sub
 and multipleBirthInd (SubjectofCare).
 </p>
 -->
-
 <p>
-
-Ballot note: The Person resource is the minimal set of information to carry about a person 
+The Person resource is the minimal set of information to carry about a person 
 regardless of their role: the type of activity that a person is playing (patient, next of kin, practitioner, 
 employee, etc.). As such is it is suitable for Person registries that keep track of Persons regardless 
 of their role. The Person resource is referred to for person details for a variety of resources 
@@ -24,5 +24,25 @@ so the <i>Person</i> resource is kept lean. Most attributes are expected to be f
 resources. (e.g.: guardian on SubjectofCare, contact parties on SubjectOfCare &amp; Practitioner, 
 and multiple birth flag on SubjectofCare).
 </p>
+</div>
+
+<!-- (recommended): 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+</p>
+</div>
+-->
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
 
 </div>

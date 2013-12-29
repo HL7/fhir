@@ -2,9 +2,6 @@
 
 <div>
 <h2>Scope and Usage</h2>
-<p> 
-<%definition%> 
-</p> 
 <p>
 Conformance statements are used in one of three ways:
 </p>
@@ -57,6 +54,7 @@ which proposals will be evaluated.
 A conformance statement is identified as being a requirements statement through the 
 presence of the <i>proposal</i> element.
 </p>
+<p/>
 
 <p>
 These three types of profiles can be used together.  A requirements statement can 

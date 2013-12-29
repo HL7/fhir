@@ -1,6 +1,22 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Common usage includes:
+</p>
+<ul>
+ <li>the recording of non-prescription and/or recreational drugs</li>
+ <li>the recording of an intake medication list upon admission to hospital</li>
+ <li>the summarization of a patient's "active medications" in a patient profile</li>
+</ul>
+</div>
 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+<b>The Medication domain includes a number of related resources</b>
+</p>
 <table border="1" cellpadding="1" cellspacing="2" frame="box">
     <tr>
         <td><a href="medicationprescription.html">MedicationPrescription</a></td>
@@ -30,13 +46,6 @@ timespan and independent of specific events.  The existence of resource instance
 a Medication statement.  However, medication statements can also be captured on the basis of other information including an assertion by the 
 patient or a care-giver, the results of a lab test, etc.
 </p>
-<p>
-Common usage includes
-</p>
-<ul>
- <li>the recording of non-prescription and/or recreational drugs</li>
- <li>the recording of an intake medication list upon admission to hospital</li>
- <li>the summarization of a patient's "active medications" in a patient profile</li>
-</ul>
+</div>
 
 </div>

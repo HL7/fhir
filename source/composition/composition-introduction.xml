@@ -1,6 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<p>
+<div>
+<h2>Scope and Usage</h2>
+<p> 
 A Composition is also the basic structure from which <a href="documents.html">FHIR Documents</a> - 
 immutable bundles with attested narrative - are built. A single logical composition may be 
 associated with a series of derived documents, each of which is a frozen copy of the 
@@ -15,9 +17,12 @@ and a set of bedside nursing observations. These logical examples are all valid 
 Composition resource, but it is not required that all the resources are updated in 
 a single commit.
 </p>
+</div>
 
+<div>
+<h2>Background and Context</h2>
 <a name="status"> </a>
-<h2>Composition Status Codes</h2>
+<h3>Composition Status Codes</h3>
 <p>
 Every composition has a status, which describes the status of the content of the composition, taken from this list of codes:
 </p>
@@ -48,5 +53,6 @@ this is not safe.
 <p>
 Note: for RIM-centric readers, see the <a href="composition-status.html">v3 mapping for the codes</a> and the <a href="composition-mappings.html#http://hl7.org/v3">RIM mapping for the element</a>.
 </p>
+</div>
 
 </div>

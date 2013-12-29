@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
 <p>
 This resource summarizes a series of images or other instances generated as part of an 
 imaging study, and provides references to where the images are available
@@ -15,6 +17,7 @@ constructs, and informed by usage patterns already established through DICOM
 implementation practices, including XDS-I. It is not, however, necessary to 
 use DICOM infrastructure in order to use this resource.
 </p>
+</div>
 
 
 </div>
