@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1276,10 +1276,10 @@ public class JsonParser extends JsonParserBase {
       res.setComments(parseString(json.getString("comments")));
     if (json.has("_comments"))
       parseElementProperties(json.getJSONObject("_comments"), res.getComments());
-    if (json.has("produces")) {
-      JSONArray array = json.getJSONArray("produces");
+    if (json.has("product")) {
+      JSONArray array = json.getJSONArray("product");
       for (int i = 0; i < array.length(); i++) {
-        res.getProduces().add(parseConceptMapOtherConceptComponent(array.getJSONObject(i), owner));
+        res.getProduct().add(parseConceptMapOtherConceptComponent(array.getJSONObject(i), owner));
       }
     };
     return res;

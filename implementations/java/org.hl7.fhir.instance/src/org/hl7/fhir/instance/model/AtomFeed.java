@@ -67,4 +67,12 @@ public class AtomFeed extends AtomBase {
 		this.totalResults = totalResults;
 	}
 
+  public AtomEntry<? extends Resource> getById(String id) {
+    for (AtomEntry<? extends Resource> e : entryList) {
+      if (e.getId().equals(id))
+        return e;
+    }
+    return null;
+  }
+
 }

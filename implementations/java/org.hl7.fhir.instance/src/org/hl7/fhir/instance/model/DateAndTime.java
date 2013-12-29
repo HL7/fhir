@@ -259,7 +259,7 @@ public class DateAndTime {
 
 	public void setFraction(int fraction) throws Exception {
 		this.fraction = fraction;
-		if (this.fractions == 0)
+		if (this.fraction == 0)
 			throw new Exception("set 'fractions' before setting 'fraction'");
 	}
 
@@ -344,6 +344,19 @@ public class DateAndTime {
 			throw new ParseException("The date '"+xDate+"' is not a valid Date Time Format at character "+java.lang.Integer.toString(offset), offset);
 		}
 		return res;
+  }
+
+  public DateAndTime expandTime() {
+    time = true;
+    seconds = true;
+    timezone = true;
+    TimeZone tz = TimeZone.getDefault();
+    
+    int offset = tz.getOffset(new java.util.Date().getTime());
+    setTzHour(offset / (60 * 60 * 1000));
+    offset = offset - tzHour * 60 * 60 * 1000;
+    setTzMin(offset / (60 * 1000));
+    return this;
   }
 
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -489,7 +489,7 @@ public class ConceptMap extends Resource {
         /**
          * A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.
          */
-        protected List<OtherConceptComponent> produces = new ArrayList<OtherConceptComponent>();
+        protected List<OtherConceptComponent> product = new ArrayList<OtherConceptComponent>();
 
       public ConceptMapConceptMapComponent() {
         super();
@@ -641,19 +641,19 @@ public class ConceptMap extends Resource {
         }
 
         /**
-         * @return {@link #produces} (A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
+         * @return {@link #product} (A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
          */
-        public List<OtherConceptComponent> getProduces() { 
-          return this.produces;
+        public List<OtherConceptComponent> getProduct() { 
+          return this.product;
         }
 
     // syntactic sugar
         /**
-         * @return {@link #produces} (A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
+         * @return {@link #product} (A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
          */
-        public OtherConceptComponent addProduces() { 
+        public OtherConceptComponent addProduct() { 
           OtherConceptComponent t = new OtherConceptComponent();
-          this.produces.add(t);
+          this.product.add(t);
           return t;
         }
 
@@ -663,7 +663,7 @@ public class ConceptMap extends Resource {
           childrenList.add(new Property("code", "code", "Code that identifies the target concept.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("equivalence", "code", "equal | equivalent | wider | narrower | inexact | unmatched | disjoint.", 0, java.lang.Integer.MAX_VALUE, equivalence));
           childrenList.add(new Property("comments", "string", "Description of status/issues in mapping.", 0, java.lang.Integer.MAX_VALUE, comments));
-          childrenList.add(new Property("produces", "@ConceptMap.concept.dependsOn", "A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.", 0, java.lang.Integer.MAX_VALUE, produces));
+          childrenList.add(new Property("product", "@ConceptMap.concept.dependsOn", "A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.", 0, java.lang.Integer.MAX_VALUE, product));
         }
 
       public ConceptMapConceptMapComponent copy(ConceptMap e) {
@@ -672,9 +672,9 @@ public class ConceptMap extends Resource {
         dst.code = code == null ? null : code.copy();
         dst.equivalence = equivalence == null ? null : equivalence.copy();
         dst.comments = comments == null ? null : comments.copy();
-        dst.produces = new ArrayList<OtherConceptComponent>();
-        for (OtherConceptComponent i : produces)
-          dst.produces.add(i.copy(e));
+        dst.product = new ArrayList<OtherConceptComponent>();
+        for (OtherConceptComponent i : product)
+          dst.product.add(i.copy(e));
         return dst;
       }
 

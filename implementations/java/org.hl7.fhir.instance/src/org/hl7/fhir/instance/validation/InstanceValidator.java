@@ -6,10 +6,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -26,6 +24,7 @@ import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
@@ -53,6 +52,8 @@ import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.instance.utils.ConceptLocator;
+import org.hl7.fhir.instance.utils.ConceptLocator.ValidationResult;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -99,11 +100,15 @@ public class InstanceValidator extends BaseValidator {
   private boolean suppressLoincSnomedMessages;
   private ExtensionLocatorService extensions;
 
-  public InstanceValidator(String validationZip, ExtensionLocatorService extensions) throws Exception {
+
+  private ConceptLocator conceptLocator;
+
+  public InstanceValidator(String validationZip, ExtensionLocatorService extensions, ConceptLocator conceptLocator) throws Exception {
     super();
     source = Source.InstanceValidator;
     loadValidationResources(validationZip);
     this.extensions = (extensions == null ) ? new NullExtensionResolver() : extensions;
+    this.conceptLocator = conceptLocator;
   }  
 
   private void loadValidationResources(String name) throws Exception {
@@ -206,7 +211,6 @@ public class InstanceValidator extends BaseValidator {
   public void validateInstance(List<ValidationMessage> errors, Element elem) throws Exception {
     boolean feedHasAuthor = XMLUtil.getNamedChild(elem, "author") != null;
     if (elem.getLocalName().equals("feed")) {
-    	Set<String> selfLinks = new HashSet<String>();
       ChildIterator ci = new ChildIterator("", elem);
       while (ci.next()) {
         if (ci.name().equals("category"))
@@ -215,13 +219,8 @@ public class InstanceValidator extends BaseValidator {
           validateId(errors, ci.path(), ci.element(), true);
         else if (ci.name().equals("link"))
           validateLink(errors, ci.path(), ci.element(), false);
-        else if (ci.name().equals("entry")) {
-          String s = validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor);
-          if (s != null) {
-          	if (rule(errors, "structure", "feed", !selfLinks.contains(s), "Duplicate Self Links are not allowed in a feed (\""+s+"\")"))
-          		selfLinks.add(s);
-          }
-        }
+        else if (ci.name().equals("entry")) 
+          validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor);
       }
     }
     else
@@ -234,12 +233,12 @@ public class InstanceValidator extends BaseValidator {
     return errors;
   }
 
-  private String validateAtomEntry(List<ValidationMessage> errors, String path, Element element, boolean feedHasAuthor) throws Exception {
+  private void validateAtomEntry(List<ValidationMessage> errors, String path, Element element, boolean feedHasAuthor) throws Exception {
     rule(errors, "invalid", path, XMLUtil.getNamedChild(element, "title") != null, "Entry must have a title");
     rule(errors, "invalid", path, XMLUtil.getNamedChild(element, "updated") != null, "Entry must have a last updated time");
     rule(errors, "invalid", path, feedHasAuthor || XMLUtil.getNamedChild(element, "author") != null, "Entry must have an author because the feed doesn't");
 
-    String self = null;
+
 
     ChildIterator ci = new ChildIterator(path, element);
     while (ci.next()) {
@@ -247,17 +246,13 @@ public class InstanceValidator extends BaseValidator {
         validateTag(ci.path(), ci.element(), true);
       else if (ci.name().equals("id"))
         validateId(errors, ci.path(), ci.element(), true);
-      else if (ci.name().equals("link")) {
-      	if (ci.element().getAttribute("rel").equals("self") && ci.element().hasAttribute("href"))
-      		self = ci.element().getAttribute("href");
+      else if (ci.name().equals("link"))
         validateLink(errors, ci.path(), ci.element(), true);
-      }
       else if (ci.name().equals("content")) {
         Element r = XMLUtil.getFirstChild(ci.element());
         validate(errors, ci.path()+"/f:"+r.getLocalName(), r);
       }
     }
-    return self;
   }
 
   private void validate(List<ValidationMessage> errors, String path, Element elem) throws Exception {
@@ -762,7 +757,18 @@ public class InstanceValidator extends BaseValidator {
 
 
   private boolean checkCode(List<ValidationMessage> errors, String path, String code, String system, String display) {
-    if (system.startsWith("http://hl7.org/fhir")) {
+    if (conceptLocator != null && conceptLocator.verifiesSystem(system)) {
+      ValidationResult s = conceptLocator.validate(system, code, display);
+      if (s == null)
+        return true;
+      if (s.getSeverity() == IssueSeverity.information)
+        hint(errors, "code-unknown", path, s == null, s.getMessage());
+      else if (s.getSeverity() == IssueSeverity.warning)
+        warning(errors, "code-unknown", path, s == null, s.getMessage());
+      else
+        return rule(errors, "code-unknown", path, s == null, s.getMessage());
+      return true;
+    } else if (system.startsWith("http://hl7.org/fhir")) {
       if (system.equals("http://hl7.org/fhir/sid/icd-10"))
         return true; // else don't check ICD-10 (for now)
       else {

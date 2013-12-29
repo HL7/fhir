@@ -1675,7 +1675,7 @@ public class Publisher {
     while (c != null) {
       desc = c.getAttribute("desc");
       vs.setDescriptionSimple("FHIR Value set/code system definition for HL7 v2 table "+id+" ( "+desc+")");
-      vs.setNameSimple(desc);
+      vs.setNameSimple("v2 "+desc);
 
       Element g = XMLUtil.getFirstChild(c);
       while (g != null) {

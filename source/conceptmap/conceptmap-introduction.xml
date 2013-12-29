@@ -18,11 +18,6 @@ Further discussion of the issues involved in mapping between concept definition 
 and the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. 
 </p>
 
-<p>
-Mappings can be constructed in a hierarchical fashion, though the hierarchy is purely for presentation convenience - it can be used to match the hierarchy of the concepts defined in 
-the source system, or can also be used to group mappings into similar groups for ease of management purposes. The hierarchy has no meaning for mapping purposes. 
-</p>
-
 </div>
  
 

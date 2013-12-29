@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -859,8 +859,8 @@ public class XmlComposer extends XmlComposerBase {
       if (element.getEquivalence() != null)
         composeEnumeration("equivalence", element.getEquivalence(), new ConceptMap.ConceptEquivalenceEnumFactory());
       composeString("comments", element.getComments());
-      for (ConceptMap.OtherConceptComponent e : element.getProduces()) 
-        composeConceptMapOtherConceptComponent("produces", e);
+      for (ConceptMap.OtherConceptComponent e : element.getProduct()) 
+        composeConceptMapOtherConceptComponent("product", e);
       xml.close(FHIR_NS, name);
     }
   }

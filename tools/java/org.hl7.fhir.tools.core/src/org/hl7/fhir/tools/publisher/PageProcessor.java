@@ -381,7 +381,19 @@ public class PageProcessor implements Logger  {
         src = s1 + conceptmaplist("http://hl7.org/fhir/v2/vs/"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
       else if (com[0].equals("conceptmaplistv3"))
         src = s1 + conceptmaplist("http://hl7.org/fhir/v3/vs/"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;      
-      else if (com[0].equals("setwiki")) {
+      else if (com[0].equals("conceptmaplistvs")) {
+        BindingSpecification bs = definitions.getBindingByName(Utilities.fileTitle(file));
+        String ref;
+        if (bs == null) {
+          ref = "http://hl7.org/fhir/vs/"+Utilities.fileTitle(file);
+        } else {
+          ref = bs.getReference();
+          if (ref.startsWith("valueset-"))
+            ref = ref.substring(9);
+          ref = "http://hl7.org/fhir/vs/"+ref;
+        }
+        src = s1 + conceptmaplist(ref, com[1]) + s3;
+      }  else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;
       } else if (com[0].equals("settitle")) {
@@ -572,8 +584,12 @@ public class PageProcessor implements Logger  {
     if (cmaps.size() == 0)
       return "";
     else {
-      String prefix = "../../";
-      if (level.equals("l3"))
+      String prefix = "";
+      if (level.equals("l1"))
+        prefix = "../";
+      else if (level.equals("l2"))
+        prefix = "../../";
+      else if (level.equals("l3"))
         prefix = "../../../";
       StringBuilder b = new StringBuilder();
       b.append("<p>Concept Maps for this value set:</p>");

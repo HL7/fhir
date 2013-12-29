@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9765</WindowHeight>
+  <WindowHeight>9705</WindowHeight>
   <WindowWidth>18555</WindowWidth>
   <WindowTopX>19455</WindowTopX>
-  <WindowTopY>8835</WindowTopY>
+  <WindowTopY>8895</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -319,7 +319,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s70"><Data ss:Type="String">280;20</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Mappings for a concept from the source valueset</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">There can only be one mapping for each concept in the source value set, though there can be multiple different mappings for each code, with different dependencies</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped mutliple times with different comments or dependencies</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!ConceptMap.concept.name</Data></Cell>
@@ -399,7 +399,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ConceptMapEquivalence</Data></Cell>
-    <Cell><Data ss:Type="String">equal | equivalent | wider | narrower | inexact | unmatched | disjoint</Data></Cell>
+    <Cell><Data ss:Type="String">equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConceptMap.concept.map.comments</Data></Cell>
@@ -439,9 +439,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -449,6 +449,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -456,8 +457,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -726,7 +727,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="concept-equivalence">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="89.25"/>
    <Column ss:Width="468"/>
@@ -755,9 +756,21 @@
     <Cell><Data ss:Type="String">The target mapping is wider in meaning than the source concept</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">subsumes</Data></Cell>
+    <Cell><Data ss:Type="String">The target mapping subsumes the meaning of the source concept (e.g. the source is-a target)</Data></Cell>
+    <Cell><Data ss:Type="String">wider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">narrower</Data></Cell>
     <Cell><Data ss:Type="String">The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">specialises</Data></Cell>
+    <Cell><Data ss:Type="String">The target mapping specialises the meaning of the source concept (e.g. the target is-a source)</Data></Cell>
+    <Cell><Data ss:Type="String">narrower</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -786,8 +799,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1227,9 +1227,9 @@ public class JsonComposer extends JsonComposerBase {
       }
       composeStringCore("comments", element.getComments(), false);
       composeStringExtras("comments", element.getComments(), false);
-      if (element.getProduces().size() > 0) {
-        openArray("produces");
-        for (ConceptMap.OtherConceptComponent e : element.getProduces()) 
+      if (element.getProduct().size() > 0) {
+        openArray("product");
+        for (ConceptMap.OtherConceptComponent e : element.getProduct()) 
           composeConceptMapOtherConceptComponent(null, e);
         closeArray();
       };
