@@ -1,11 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Todo
+</p>
+</div>
 <!-- to add:
 
 at present, FHIR does not offer any solution designed for real-time analytics of data from machines. This resource may be used for that purpose during the trial use period, and implementers wishing to work on real time analytics are invited to participate in further developemnt of the standard
 
 -->
 
+<div>
+<h2>Boundaries and Relationships</h2>
 <p>
 There are 2 device related resources
 </p>
@@ -15,11 +23,14 @@ There are 2 device related resources
 </ul>
 
 <p>
-Note that this resource is entirely concerned with devices that report data; interacting with and
+Note that this resource is entirely concerned with devices that report data. Interacting with and
 controlling devices such as infusion pumps etc. is not in scope for this resource (no solution for this yet). 
 This resource is based on ISO 11073.
 </p>
+</div>
 
+<div>
+<h2>Background and Context</h2>
 <h3>Structure of a Device Data Resource</h3>
 
 <p>
@@ -39,5 +50,6 @@ using the following main structure:
 <p>
 Very simple devices may have only a single virtual device with a single channel and one metric, while complex devices may have multiple items at every level. 
 </p>
+</div>
  
 </div>
