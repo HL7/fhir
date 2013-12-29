@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -180,7 +180,7 @@ public class Specimen extends Resource {
         /**
          * Time when specimen was collected from subject - the physiologically relevant time.
          */
-        protected DateTime collectedTime;
+        protected Type collected;
 
         /**
          * The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.
@@ -193,17 +193,12 @@ public class Specimen extends Resource {
         protected CodeableConcept method;
 
         /**
-         * Anatomical location from which the specimen should be collected (if subject is a patient).
+         * Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.
          */
         protected CodeableConcept sourceSite;
 
       public SpecimenCollectionComponent() {
         super();
-      }
-
-      public SpecimenCollectionComponent(DateTime collectedTime) {
-        super();
-        this.collectedTime = collectedTime;
       }
 
         /**
@@ -249,34 +244,17 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #collectedTime} (Time when specimen was collected from subject - the physiologically relevant time.)
+         * @return {@link #collected} (Time when specimen was collected from subject - the physiologically relevant time.)
          */
-        public DateTime getCollectedTime() { 
-          return this.collectedTime;
+        public Type getCollected() { 
+          return this.collected;
         }
 
         /**
-         * @param value {@link #collectedTime} (Time when specimen was collected from subject - the physiologically relevant time.)
+         * @param value {@link #collected} (Time when specimen was collected from subject - the physiologically relevant time.)
          */
-        public SpecimenCollectionComponent setCollectedTime(DateTime value) { 
-          this.collectedTime = value;
-          return this;
-        }
-
-        /**
-         * @return Time when specimen was collected from subject - the physiologically relevant time.
-         */
-        public DateAndTime getCollectedTimeSimple() { 
-          return this.collectedTime == null ? null : this.collectedTime.getValue();
-        }
-
-        /**
-         * @param value Time when specimen was collected from subject - the physiologically relevant time.
-         */
-        public SpecimenCollectionComponent setCollectedTimeSimple(DateAndTime value) { 
-            if (this.collectedTime == null)
-              this.collectedTime = new DateTime();
-            this.collectedTime.setValue(value);
+        public SpecimenCollectionComponent setCollected(Type value) { 
+          this.collected = value;
           return this;
         }
 
@@ -311,14 +289,14 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #sourceSite} (Anatomical location from which the specimen should be collected (if subject is a patient).)
+         * @return {@link #sourceSite} (Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.)
          */
         public CodeableConcept getSourceSite() { 
           return this.sourceSite;
         }
 
         /**
-         * @param value {@link #sourceSite} (Anatomical location from which the specimen should be collected (if subject is a patient).)
+         * @param value {@link #sourceSite} (Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.)
          */
         public SpecimenCollectionComponent setSourceSite(CodeableConcept value) { 
           this.sourceSite = value;
@@ -329,10 +307,10 @@ public class Specimen extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("collector", "Resource(Practitioner)", "Person who collected the specimen.", 0, java.lang.Integer.MAX_VALUE, collector));
           childrenList.add(new Property("comment", "string", "To communicate any details or issues encountered during the specimen collection procedure.", 0, java.lang.Integer.MAX_VALUE, comment));
-          childrenList.add(new Property("collectedTime", "dateTime", "Time when specimen was collected from subject - the physiologically relevant time.", 0, java.lang.Integer.MAX_VALUE, collectedTime));
+          childrenList.add(new Property("collected[x]", "dateTime|Period", "Time when specimen was collected from subject - the physiologically relevant time.", 0, java.lang.Integer.MAX_VALUE, collected));
           childrenList.add(new Property("quantity", "Quantity", "The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value specifying the technique that is used to perform the procedure.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("sourceSite", "CodeableConcept", "Anatomical location from which the specimen should be collected (if subject is a patient).", 0, java.lang.Integer.MAX_VALUE, sourceSite));
+          childrenList.add(new Property("sourceSite", "CodeableConcept", "Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.", 0, java.lang.Integer.MAX_VALUE, sourceSite));
         }
 
       public SpecimenCollectionComponent copy(Specimen e) {
@@ -341,7 +319,7 @@ public class Specimen extends Resource {
         dst.comment = new ArrayList<String_>();
         for (String_ i : comment)
           dst.comment.add(i.copy());
-        dst.collectedTime = collectedTime == null ? null : collectedTime.copy();
+        dst.collected = collected == null ? null : collected.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.method = method == null ? null : method.copy();
         dst.sourceSite = sourceSite == null ? null : sourceSite.copy();
@@ -633,10 +611,10 @@ public class Specimen extends Resource {
     /**
      * Id for specimen.
      */
-    protected Identifier identifier;
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * The type of the specimen. This is sometimes called the "matrix".
+     * The type of the specimen.
      */
     protected CodeableConcept type;
 
@@ -646,14 +624,14 @@ public class Specimen extends Resource {
     protected List<SpecimenSourceComponent> source = new ArrayList<SpecimenSourceComponent>();
 
     /**
-     * The subject of the report.
+     * Where the specimen came from. This may be the patient(s) or from the environment or  a device.
      */
     protected ResourceReference subject;
 
     /**
      * The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
      */
-    protected List<Identifier> accessionIdentifier = new ArrayList<Identifier>();
+    protected Identifier accessionIdentifier;
 
     /**
      * Time when specimen was received for processing or testing.
@@ -688,27 +666,29 @@ public class Specimen extends Resource {
     /**
      * @return {@link #identifier} (Id for specimen.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #identifier} (Id for specimen.)
+     * @return {@link #identifier} (Id for specimen.)
      */
-    public Specimen setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
-     * @return {@link #type} (The type of the specimen. This is sometimes called the "matrix".)
+     * @return {@link #type} (The type of the specimen.)
      */
     public CodeableConcept getType() { 
       return this.type;
     }
 
     /**
-     * @param value {@link #type} (The type of the specimen. This is sometimes called the "matrix".)
+     * @param value {@link #type} (The type of the specimen.)
      */
     public Specimen setType(CodeableConcept value) { 
       this.type = value;
@@ -733,14 +713,14 @@ public class Specimen extends Resource {
     }
 
     /**
-     * @return {@link #subject} (The subject of the report.)
+     * @return {@link #subject} (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
      */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
     /**
-     * @param value {@link #subject} (The subject of the report.)
+     * @param value {@link #subject} (Where the specimen came from. This may be the patient(s) or from the environment or  a device.)
      */
     public Specimen setSubject(ResourceReference value) { 
       this.subject = value;
@@ -750,18 +730,16 @@ public class Specimen extends Resource {
     /**
      * @return {@link #accessionIdentifier} (The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
      */
-    public List<Identifier> getAccessionIdentifier() { 
+    public Identifier getAccessionIdentifier() { 
       return this.accessionIdentifier;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #accessionIdentifier} (The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
+     * @param value {@link #accessionIdentifier} (The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
      */
-    public Identifier addAccessionIdentifier() { 
-      Identifier t = new Identifier();
-      this.accessionIdentifier.add(t);
-      return t;
+    public Specimen setAccessionIdentifier(Identifier value) { 
+      this.accessionIdentifier = value;
+      return this;
     }
 
     /**
@@ -852,9 +830,9 @@ public class Specimen extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Id for specimen.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("type", "CodeableConcept", "The type of the specimen. This is sometimes called the 'matrix'.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "CodeableConcept", "The type of the specimen.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("source", "", "Parent specimen from which the focal specimen was a component.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Substance)", "The subject of the report.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Substance)", "Where the specimen came from. This may be the patient(s) or from the environment or  a device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("accessionIdentifier", "Identifier", "The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.", 0, java.lang.Integer.MAX_VALUE, accessionIdentifier));
         childrenList.add(new Property("receivedTime", "dateTime", "Time when specimen was received for processing or testing.", 0, java.lang.Integer.MAX_VALUE, receivedTime));
         childrenList.add(new Property("collection", "", "Details concerning the specimen collection.", 0, java.lang.Integer.MAX_VALUE, collection));
@@ -864,15 +842,15 @@ public class Specimen extends Resource {
 
       public Specimen copy() {
         Specimen dst = new Specimen();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.type = type == null ? null : type.copy();
         dst.source = new ArrayList<SpecimenSourceComponent>();
         for (SpecimenSourceComponent i : source)
           dst.source.add(i.copy(dst));
         dst.subject = subject == null ? null : subject.copy();
-        dst.accessionIdentifier = new ArrayList<Identifier>();
-        for (Identifier i : accessionIdentifier)
-          dst.accessionIdentifier.add(i.copy());
+        dst.accessionIdentifier = accessionIdentifier == null ? null : accessionIdentifier.copy();
         dst.receivedTime = receivedTime == null ? null : receivedTime.copy();
         dst.collection = collection == null ? null : collection.copy(dst);
         dst.treatment = new ArrayList<SpecimenTreatmentComponent>();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -612,7 +612,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     /**
      * Can be the reason or the indication for writing the prescription.
      */
-    protected CodeableConcept reasonForPrescribing;
+    protected Type reason;
 
     /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
@@ -773,17 +773,17 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #reasonForPrescribing} (Can be the reason or the indication for writing the prescription.)
+     * @return {@link #reason} (Can be the reason or the indication for writing the prescription.)
      */
-    public CodeableConcept getReasonForPrescribing() { 
-      return this.reasonForPrescribing;
+    public Type getReason() { 
+      return this.reason;
     }
 
     /**
-     * @param value {@link #reasonForPrescribing} (Can be the reason or the indication for writing the prescription.)
+     * @param value {@link #reason} (Can be the reason or the indication for writing the prescription.)
      */
-    public MedicationPrescription setReasonForPrescribing(CodeableConcept value) { 
-      this.reasonForPrescribing = value;
+    public MedicationPrescription setReason(Type value) { 
+      this.reason = value;
       return this;
     }
 
@@ -857,7 +857,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("prescriber", "Resource(Practitioner)", "The healthcare professional responsible for authorising the prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
         childrenList.add(new Property("encounter", "Resource(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("reasonForPrescribing", "CodeableConcept", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reasonForPrescribing));
+        childrenList.add(new Property("reason[x]", "CodeableConcept|Resource(Condition)", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("dosageInstruction", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("dispense", "", "Deals with details of the dispense part of the order.", 0, java.lang.Integer.MAX_VALUE, dispense));
@@ -874,7 +874,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         dst.patient = patient == null ? null : patient.copy();
         dst.prescriber = prescriber == null ? null : prescriber.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
-        dst.reasonForPrescribing = reasonForPrescribing == null ? null : reasonForPrescribing.copy();
+        dst.reason = reason == null ? null : reason.copy();
         dst.medication = medication == null ? null : medication.copy();
         dst.dosageInstruction = new ArrayList<MedicationPrescriptionDosageInstructionComponent>();
         for (MedicationPrescriptionDosageInstructionComponent i : dosageInstruction)

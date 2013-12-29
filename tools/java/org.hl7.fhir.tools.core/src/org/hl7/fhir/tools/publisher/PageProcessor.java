@@ -3044,26 +3044,21 @@ public class PageProcessor implements Logger  {
   }
 
   @Override
-public void log(String content, LogMessageType type) {
-//    if (notime) {
-//      System.out.println(content);
-//      notime = false;
-//    } else {
-    if (!(suppressedMessages.contains(content) && (type == LogMessageType.Hint || type == LogMessageType.Warning))) {
-      if (type == LogMessageType.Process) {
-        Date stop = new Date();
-        long l1 = start.getTime();
-        long l2 = stop.getTime();
-        long diff = l2 - l1;
-        long secs = diff / 1000;
-        MemoryMXBean mem = ManagementFactory.getMemoryMXBean();
-        // mem.gc();
-        long used = mem.getHeapMemoryUsage().getUsed() / (1024 * 1024);
-        System.out.println(String.format("%1$-74s", content)+" "+String.format("%1$3s", Long.toString(secs))+"sec "+String.format("%1$4s", Long.toString(used))+"MB");
-      } else
-        System.out.println(content);
-    }
-//    }
+  public void log(String content, LogMessageType type) {
+    if (suppressedMessages.contains(content) && (type == LogMessageType.Hint || type == LogMessageType.Warning))
+      return;
+    if (type == LogMessageType.Process) {
+      Date stop = new Date();
+      long l1 = start.getTime();
+      long l2 = stop.getTime();
+      long diff = l2 - l1;
+      long secs = diff / 1000;
+      MemoryMXBean mem = ManagementFactory.getMemoryMXBean();
+      // mem.gc();
+      long used = mem.getHeapMemoryUsage().getUsed() / (1024 * 1024);
+      System.out.println(String.format("%1$-74s", content)+" "+String.format("%1$3s", Long.toString(secs))+"sec "+String.format("%1$4s", Long.toString(used))+"MB");
+    } else
+      System.out.println(content);
   }
   
 //  public void logNoEoln(String content) {

@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <contained>
+    <DiagnosticOrder id="req">
+      <subject><!--It entails Roel's diagnostic report-->
+         <reference value="Patient/f201"/>
+         <display value="Roel"/>
+      </subject>
+      <orderer>
+         <reference value="Practitioner/f201"/>
+         <display value="Dokter Bronsig"/>
+      </orderer>
+      <encounter>         
+        <reference value="Encounter/f203"/>
+        <display value="Roel's encounter on March eleventh 2013"/>
+      </encounter>
+    </DiagnosticOrder>
+  </contained>
  <status value="final"/>
  <issued value="2013-03-11T10:28:00+01:00"/>
  <subject><!--It entails Roel's diagnostic report-->
@@ -12,14 +28,7 @@
  </performer>
  <!--No identifier was available-->
  <requestDetail>
-     <encounter>         
-        <reference value="Encounter/f203"/>
-        <display value="Roel's encounter on March eleventh 2013"/>
-     </encounter>
-     <requester>
-         <reference value="Practitioner/f201"/>
-         <display value="Dokter Bronsig"/>
-     </requester>
+   <reference value="#req"/>
  </requestDetail>
  <serviceCategory><!--Lab test-->
     <coding>

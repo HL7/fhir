@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -172,11 +172,6 @@ public class ConceptMap extends Resource {
 
     public static class ConceptMapConceptComponent extends BackboneElement {
         /**
-         * Name for this concept (if just a group).
-         */
-        protected String_ name;
-
-        /**
          * System that defines the concept being mapped.
          */
         protected Uri system;
@@ -187,54 +182,23 @@ public class ConceptMap extends Resource {
         protected Code code;
 
         /**
-         * Targets mapped to this concept.
+         * A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified concept can be resolved, and it has the specified value.
          */
-        protected List<ConceptMapConceptMapComponent> map = new ArrayList<ConceptMapConceptMapComponent>();
+        protected List<OtherConceptComponent> dependsOn = new ArrayList<OtherConceptComponent>();
 
         /**
-         * Mappings for sub concepts.
+         * A concept from the target value set that this concept maps to.
          */
-        protected List<ConceptMapConceptComponent> concept = new ArrayList<ConceptMapConceptComponent>();
+        protected List<ConceptMapConceptMapComponent> map = new ArrayList<ConceptMapConceptMapComponent>();
 
       public ConceptMapConceptComponent() {
         super();
       }
 
-        /**
-         * @return {@link #name} (Name for this concept (if just a group).)
-         */
-        public String_ getName() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (Name for this concept (if just a group).)
-         */
-        public ConceptMapConceptComponent setName(String_ value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return Name for this concept (if just a group).
-         */
-        public String getNameSimple() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value Name for this concept (if just a group).
-         */
-        public ConceptMapConceptComponent setNameSimple(String value) { 
-          if (value == null)
-            this.name = null;
-          else {
-            if (this.name == null)
-              this.name = new String_();
-            this.name.setValue(value);
-          }
-          return this;
-        }
+      public ConceptMapConceptComponent(Uri system) {
+        super();
+        this.system = system;
+      }
 
         /**
          * @return {@link #system} (System that defines the concept being mapped.)
@@ -262,13 +226,9 @@ public class ConceptMap extends Resource {
          * @param value System that defines the concept being mapped.
          */
         public ConceptMapConceptComponent setSystemSimple(String value) { 
-          if (value == null)
-            this.system = null;
-          else {
             if (this.system == null)
               this.system = new Uri();
             this.system.setValue(value);
-          }
           return this;
         }
 
@@ -309,7 +269,24 @@ public class ConceptMap extends Resource {
         }
 
         /**
-         * @return {@link #map} (Targets mapped to this concept.)
+         * @return {@link #dependsOn} (A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified concept can be resolved, and it has the specified value.)
+         */
+        public List<OtherConceptComponent> getDependsOn() { 
+          return this.dependsOn;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #dependsOn} (A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified concept can be resolved, and it has the specified value.)
+         */
+        public OtherConceptComponent addDependsOn() { 
+          OtherConceptComponent t = new OtherConceptComponent();
+          this.dependsOn.add(t);
+          return t;
+        }
+
+        /**
+         * @return {@link #map} (A concept from the target value set that this concept maps to.)
          */
         public List<ConceptMapConceptMapComponent> getMap() { 
           return this.map;
@@ -317,7 +294,7 @@ public class ConceptMap extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #map} (Targets mapped to this concept.)
+         * @return {@link #map} (A concept from the target value set that this concept maps to.)
          */
         public ConceptMapConceptMapComponent addMap() { 
           ConceptMapConceptMapComponent t = new ConceptMapConceptMapComponent();
@@ -325,43 +302,164 @@ public class ConceptMap extends Resource {
           return t;
         }
 
-        /**
-         * @return {@link #concept} (Mappings for sub concepts.)
-         */
-        public List<ConceptMapConceptComponent> getConcept() { 
-          return this.concept;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #concept} (Mappings for sub concepts.)
-         */
-        public ConceptMapConceptComponent addConcept() { 
-          ConceptMapConceptComponent t = new ConceptMapConceptComponent();
-          this.concept.add(t);
-          return t;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "Name for this concept (if just a group).", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("system", "uri", "System that defines the concept being mapped.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("code", "code", "Identifies concept being mapped.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("map", "", "Targets mapped to this concept.", 0, java.lang.Integer.MAX_VALUE, map));
-          childrenList.add(new Property("concept", "@ConceptMap.concept", "Mappings for sub concepts.", 0, java.lang.Integer.MAX_VALUE, concept));
+          childrenList.add(new Property("dependsOn", "", "A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified concept can be resolved, and it has the specified value.", 0, java.lang.Integer.MAX_VALUE, dependsOn));
+          childrenList.add(new Property("map", "", "A concept from the target value set that this concept maps to.", 0, java.lang.Integer.MAX_VALUE, map));
         }
 
       public ConceptMapConceptComponent copy(ConceptMap e) {
         ConceptMapConceptComponent dst = new ConceptMapConceptComponent();
-        dst.name = name == null ? null : name.copy();
         dst.system = system == null ? null : system.copy();
         dst.code = code == null ? null : code.copy();
+        dst.dependsOn = new ArrayList<OtherConceptComponent>();
+        for (OtherConceptComponent i : dependsOn)
+          dst.dependsOn.add(i.copy(e));
         dst.map = new ArrayList<ConceptMapConceptMapComponent>();
         for (ConceptMapConceptMapComponent i : map)
           dst.map.add(i.copy(e));
-        dst.concept = new ArrayList<ConceptMapConceptComponent>();
-        for (ConceptMapConceptComponent i : concept)
-          dst.concept.add(i.copy(e));
+        return dst;
+      }
+
+  }
+
+    public static class OtherConceptComponent extends BackboneElement {
+        /**
+         * A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.
+         */
+        protected Uri concept;
+
+        /**
+         * System for a concept in the referenced concept.
+         */
+        protected Uri system;
+
+        /**
+         * Code for a concept in the referenced concept.
+         */
+        protected Code code;
+
+      public OtherConceptComponent() {
+        super();
+      }
+
+      public OtherConceptComponent(Uri concept, Uri system, Code code) {
+        super();
+        this.concept = concept;
+        this.system = system;
+        this.code = code;
+      }
+
+        /**
+         * @return {@link #concept} (A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.)
+         */
+        public Uri getConcept() { 
+          return this.concept;
+        }
+
+        /**
+         * @param value {@link #concept} (A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.)
+         */
+        public OtherConceptComponent setConcept(Uri value) { 
+          this.concept = value;
+          return this;
+        }
+
+        /**
+         * @return A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.
+         */
+        public String getConceptSimple() { 
+          return this.concept == null ? null : this.concept.getValue();
+        }
+
+        /**
+         * @param value A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.
+         */
+        public OtherConceptComponent setConceptSimple(String value) { 
+            if (this.concept == null)
+              this.concept = new Uri();
+            this.concept.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #system} (System for a concept in the referenced concept.)
+         */
+        public Uri getSystem() { 
+          return this.system;
+        }
+
+        /**
+         * @param value {@link #system} (System for a concept in the referenced concept.)
+         */
+        public OtherConceptComponent setSystem(Uri value) { 
+          this.system = value;
+          return this;
+        }
+
+        /**
+         * @return System for a concept in the referenced concept.
+         */
+        public String getSystemSimple() { 
+          return this.system == null ? null : this.system.getValue();
+        }
+
+        /**
+         * @param value System for a concept in the referenced concept.
+         */
+        public OtherConceptComponent setSystemSimple(String value) { 
+            if (this.system == null)
+              this.system = new Uri();
+            this.system.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #code} (Code for a concept in the referenced concept.)
+         */
+        public Code getCode() { 
+          return this.code;
+        }
+
+        /**
+         * @param value {@link #code} (Code for a concept in the referenced concept.)
+         */
+        public OtherConceptComponent setCode(Code value) { 
+          this.code = value;
+          return this;
+        }
+
+        /**
+         * @return Code for a concept in the referenced concept.
+         */
+        public String getCodeSimple() { 
+          return this.code == null ? null : this.code.getValue();
+        }
+
+        /**
+         * @param value Code for a concept in the referenced concept.
+         */
+        public OtherConceptComponent setCodeSimple(String value) { 
+            if (this.code == null)
+              this.code = new Code();
+            this.code.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("concept", "uri", "A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.", 0, java.lang.Integer.MAX_VALUE, concept));
+          childrenList.add(new Property("system", "uri", "System for a concept in the referenced concept.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("code", "code", "Code for a concept in the referenced concept.", 0, java.lang.Integer.MAX_VALUE, code));
+        }
+
+      public OtherConceptComponent copy(ConceptMap e) {
+        OtherConceptComponent dst = new OtherConceptComponent();
+        dst.concept = concept == null ? null : concept.copy();
+        dst.system = system == null ? null : system.copy();
+        dst.code = code == null ? null : code.copy();
         return dst;
       }
 
@@ -369,14 +467,14 @@ public class ConceptMap extends Resource {
 
     public static class ConceptMapConceptMapComponent extends BackboneElement {
         /**
-         * If this code is not for use as a real concept.
+         * System of the target.
          */
         protected Uri system;
 
         /**
-         * Text to Display to the user.
+         * Code that identifies the target concept.
          */
-        protected String_ code;
+        protected Code code;
 
         /**
          * equal | equivalent | wider | narrower | inexact | unmatched | disjoint.
@@ -388,25 +486,29 @@ public class ConceptMap extends Resource {
          */
         protected String_ comments;
 
+        /**
+         * A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.
+         */
+        protected List<OtherConceptComponent> produces = new ArrayList<OtherConceptComponent>();
+
       public ConceptMapConceptMapComponent() {
         super();
       }
 
-      public ConceptMapConceptMapComponent(Uri system, Enumeration<ConceptEquivalence> equivalence) {
+      public ConceptMapConceptMapComponent(Enumeration<ConceptEquivalence> equivalence) {
         super();
-        this.system = system;
         this.equivalence = equivalence;
       }
 
         /**
-         * @return {@link #system} (If this code is not for use as a real concept.)
+         * @return {@link #system} (System of the target.)
          */
         public Uri getSystem() { 
           return this.system;
         }
 
         /**
-         * @param value {@link #system} (If this code is not for use as a real concept.)
+         * @param value {@link #system} (System of the target.)
          */
         public ConceptMapConceptMapComponent setSystem(Uri value) { 
           this.system = value;
@@ -414,53 +516,57 @@ public class ConceptMap extends Resource {
         }
 
         /**
-         * @return If this code is not for use as a real concept.
+         * @return System of the target.
          */
         public String getSystemSimple() { 
           return this.system == null ? null : this.system.getValue();
         }
 
         /**
-         * @param value If this code is not for use as a real concept.
+         * @param value System of the target.
          */
         public ConceptMapConceptMapComponent setSystemSimple(String value) { 
+          if (value == null)
+            this.system = null;
+          else {
             if (this.system == null)
               this.system = new Uri();
             this.system.setValue(value);
+          }
           return this;
         }
 
         /**
-         * @return {@link #code} (Text to Display to the user.)
+         * @return {@link #code} (Code that identifies the target concept.)
          */
-        public String_ getCode() { 
+        public Code getCode() { 
           return this.code;
         }
 
         /**
-         * @param value {@link #code} (Text to Display to the user.)
+         * @param value {@link #code} (Code that identifies the target concept.)
          */
-        public ConceptMapConceptMapComponent setCode(String_ value) { 
+        public ConceptMapConceptMapComponent setCode(Code value) { 
           this.code = value;
           return this;
         }
 
         /**
-         * @return Text to Display to the user.
+         * @return Code that identifies the target concept.
          */
         public String getCodeSimple() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
-         * @param value Text to Display to the user.
+         * @param value Code that identifies the target concept.
          */
         public ConceptMapConceptMapComponent setCodeSimple(String value) { 
           if (value == null)
             this.code = null;
           else {
             if (this.code == null)
-              this.code = new String_();
+              this.code = new Code();
             this.code.setValue(value);
           }
           return this;
@@ -534,12 +640,30 @@ public class ConceptMap extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #produces} (A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
+         */
+        public List<OtherConceptComponent> getProduces() { 
+          return this.produces;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #produces} (A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
+         */
+        public OtherConceptComponent addProduces() { 
+          OtherConceptComponent t = new OtherConceptComponent();
+          this.produces.add(t);
+          return t;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("system", "uri", "If this code is not for use as a real concept.", 0, java.lang.Integer.MAX_VALUE, system));
-          childrenList.add(new Property("code", "string", "Text to Display to the user.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("system", "uri", "System of the target.", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("code", "code", "Code that identifies the target concept.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("equivalence", "code", "equal | equivalent | wider | narrower | inexact | unmatched | disjoint.", 0, java.lang.Integer.MAX_VALUE, equivalence));
           childrenList.add(new Property("comments", "string", "Description of status/issues in mapping.", 0, java.lang.Integer.MAX_VALUE, comments));
+          childrenList.add(new Property("produces", "@ConceptMap.concept.dependsOn", "A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.", 0, java.lang.Integer.MAX_VALUE, produces));
         }
 
       public ConceptMapConceptMapComponent copy(ConceptMap e) {
@@ -548,6 +672,9 @@ public class ConceptMap extends Resource {
         dst.code = code == null ? null : code.copy();
         dst.equivalence = equivalence == null ? null : equivalence.copy();
         dst.comments = comments == null ? null : comments.copy();
+        dst.produces = new ArrayList<OtherConceptComponent>();
+        for (OtherConceptComponent i : produces)
+          dst.produces.add(i.copy(e));
         return dst;
       }
 
@@ -614,7 +741,7 @@ public class ConceptMap extends Resource {
     protected ResourceReference target;
 
     /**
-     * Mappings for a concept.
+     * Mappings for a concept from the source valueset.
      */
     protected List<ConceptMapConceptComponent> concept = new ArrayList<ConceptMapConceptComponent>();
 
@@ -622,10 +749,9 @@ public class ConceptMap extends Resource {
       super();
     }
 
-    public ConceptMap(String_ name, String_ description, Enumeration<ValuesetStatus> status, ResourceReference source, ResourceReference target) {
+    public ConceptMap(String_ name, Enumeration<ValuesetStatus> status, ResourceReference source, ResourceReference target) {
       super();
       this.name = name;
-      this.description = description;
       this.status = status;
       this.source = source;
       this.target = target;
@@ -814,9 +940,13 @@ public class ConceptMap extends Resource {
      * @param value A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.
      */
     public ConceptMap setDescriptionSimple(String value) { 
+      if (value == null)
+        this.description = null;
+      else {
         if (this.description == null)
           this.description = new String_();
         this.description.setValue(value);
+      }
       return this;
     }
 
@@ -991,7 +1121,7 @@ public class ConceptMap extends Resource {
     }
 
     /**
-     * @return {@link #concept} (Mappings for a concept.)
+     * @return {@link #concept} (Mappings for a concept from the source valueset.)
      */
     public List<ConceptMapConceptComponent> getConcept() { 
       return this.concept;
@@ -999,7 +1129,7 @@ public class ConceptMap extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #concept} (Mappings for a concept.)
+     * @return {@link #concept} (Mappings for a concept from the source valueset.)
      */
     public ConceptMapConceptComponent addConcept() { 
       ConceptMapConceptComponent t = new ConceptMapConceptComponent();
@@ -1021,7 +1151,7 @@ public class ConceptMap extends Resource {
         childrenList.add(new Property("date", "dateTime", "The date that the concept map status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("source", "Resource(ValueSet)", "The source value set that specifies the concepts that are being mapped.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("target", "Resource(ValueSet)", "The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.", 0, java.lang.Integer.MAX_VALUE, target));
-        childrenList.add(new Property("concept", "", "Mappings for a concept.", 0, java.lang.Integer.MAX_VALUE, concept));
+        childrenList.add(new Property("concept", "", "Mappings for a concept from the source valueset.", 0, java.lang.Integer.MAX_VALUE, concept));
       }
 
       public ConceptMap copy() {

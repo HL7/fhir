@@ -719,7 +719,9 @@ public class SvgGenerator {
       xml.text(")");
       xml.close("tspan");
       xml.close("text");
-    } else 
+    } else if (e.hasStatedType()) {
+      xml.element("text", e.getStatedType());      
+    } else
       xml.element("text", tn);
 
     if (attributes) {

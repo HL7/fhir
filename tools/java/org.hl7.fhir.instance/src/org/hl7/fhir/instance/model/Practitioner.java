@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * Demographics and qualification information for an individual who is directly or indirectly involved in the provisioning of healthcare.
+ * A person who is directly or indirectly involved in the provisioning of healthcare.
  */
 public class Practitioner extends Resource {
 
@@ -141,7 +141,7 @@ public class Practitioner extends Resource {
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * One or more addresses where the practitioner can be found or visited.
+     * The address where the practitioner can be found or visited.
      */
     protected Address address;
 
@@ -186,7 +186,7 @@ public class Practitioner extends Resource {
     protected List<ResourceReference> location = new ArrayList<ResourceReference>();
 
     /**
-     * Qualifications relevant to the provided service.
+     * Qualifications obtained by training and certification.
      */
     protected List<PractitionerQualificationComponent> qualification = new ArrayList<PractitionerQualificationComponent>();
 
@@ -249,14 +249,14 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #address} (One or more addresses where the practitioner can be found or visited.)
+     * @return {@link #address} (The address where the practitioner can be found or visited.)
      */
     public Address getAddress() { 
       return this.address;
     }
 
     /**
-     * @param value {@link #address} (One or more addresses where the practitioner can be found or visited.)
+     * @param value {@link #address} (The address where the practitioner can be found or visited.)
      */
     public Practitioner setAddress(Address value) { 
       this.address = value;
@@ -413,7 +413,7 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #qualification} (Qualifications relevant to the provided service.)
+     * @return {@link #qualification} (Qualifications obtained by training and certification.)
      */
     public List<PractitionerQualificationComponent> getQualification() { 
       return this.qualification;
@@ -421,7 +421,7 @@ public class Practitioner extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #qualification} (Qualifications relevant to the provided service.)
+     * @return {@link #qualification} (Qualifications obtained by training and certification.)
      */
     public PractitionerQualificationComponent addQualification() { 
       PractitionerQualificationComponent t = new PractitionerQualificationComponent();
@@ -451,7 +451,7 @@ public class Practitioner extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person in this role.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("telecom", "Contact", "A contact detail for the practitioner, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
-        childrenList.add(new Property("address", "Address", "One or more addresses where the practitioner can be found or visited.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("address", "Address", "The address where the practitioner can be found or visited.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
@@ -460,7 +460,7 @@ public class Practitioner extends Resource {
         childrenList.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
         childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("location", "Resource(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("qualification", "", "Qualifications relevant to the provided service.", 0, java.lang.Integer.MAX_VALUE, qualification));
+        childrenList.add(new Property("qualification", "", "Qualifications obtained by training and certification.", 0, java.lang.Integer.MAX_VALUE, qualification));
         childrenList.add(new Property("communication", "CodeableConcept", "A language the practitioner is able to use in patient communication.", 0, java.lang.Integer.MAX_VALUE, communication));
       }
 

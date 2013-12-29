@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -210,7 +210,7 @@ public class MessageHeader extends Resource {
 
   }
 
-    public static class MessageHeaderSourceComponent extends BackboneElement {
+    public static class MessageSourceComponent extends BackboneElement {
         /**
          * Human-readable name for the target system.
          */
@@ -236,11 +236,11 @@ public class MessageHeader extends Resource {
          */
         protected Uri endpoint;
 
-      public MessageHeaderSourceComponent() {
+      public MessageSourceComponent() {
         super();
       }
 
-      public MessageHeaderSourceComponent(String_ software, Uri endpoint) {
+      public MessageSourceComponent(String_ software, Uri endpoint) {
         super();
         this.software = software;
         this.endpoint = endpoint;
@@ -256,7 +256,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value {@link #name} (Human-readable name for the target system.)
          */
-        public MessageHeaderSourceComponent setName(String_ value) { 
+        public MessageSourceComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
@@ -271,7 +271,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value Human-readable name for the target system.
          */
-        public MessageHeaderSourceComponent setNameSimple(String value) { 
+        public MessageSourceComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -292,7 +292,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value {@link #software} (May include configuration or other information useful in debugging.)
          */
-        public MessageHeaderSourceComponent setSoftware(String_ value) { 
+        public MessageSourceComponent setSoftware(String_ value) { 
           this.software = value;
           return this;
         }
@@ -307,7 +307,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value May include configuration or other information useful in debugging.
          */
-        public MessageHeaderSourceComponent setSoftwareSimple(String value) { 
+        public MessageSourceComponent setSoftwareSimple(String value) { 
             if (this.software == null)
               this.software = new String_();
             this.software.setValue(value);
@@ -324,7 +324,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value {@link #version} (Can convey versions of multiple systems in situations where a message passes through multiple hands.)
          */
-        public MessageHeaderSourceComponent setVersion(String_ value) { 
+        public MessageSourceComponent setVersion(String_ value) { 
           this.version = value;
           return this;
         }
@@ -339,7 +339,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value Can convey versions of multiple systems in situations where a message passes through multiple hands.
          */
-        public MessageHeaderSourceComponent setVersionSimple(String value) { 
+        public MessageSourceComponent setVersionSimple(String value) { 
           if (value == null)
             this.version = null;
           else {
@@ -360,7 +360,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value {@link #contact} (An e-mail, phone, website or other contact point to use to resolve issues with message communications.)
          */
-        public MessageHeaderSourceComponent setContact(Contact value) { 
+        public MessageSourceComponent setContact(Contact value) { 
           this.contact = value;
           return this;
         }
@@ -375,7 +375,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value {@link #endpoint} (Identifies the routing target to send acknowledgements to.)
          */
-        public MessageHeaderSourceComponent setEndpoint(Uri value) { 
+        public MessageSourceComponent setEndpoint(Uri value) { 
           this.endpoint = value;
           return this;
         }
@@ -390,7 +390,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value Identifies the routing target to send acknowledgements to.
          */
-        public MessageHeaderSourceComponent setEndpointSimple(String value) { 
+        public MessageSourceComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
             this.endpoint.setValue(value);
@@ -406,8 +406,8 @@ public class MessageHeader extends Resource {
           childrenList.add(new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
-      public MessageHeaderSourceComponent copy(MessageHeader e) {
-        MessageHeaderSourceComponent dst = new MessageHeaderSourceComponent();
+      public MessageSourceComponent copy(MessageHeader e) {
+        MessageSourceComponent dst = new MessageSourceComponent();
         dst.name = name == null ? null : name.copy();
         dst.software = software == null ? null : software.copy();
         dst.version = version == null ? null : version.copy();
@@ -418,7 +418,7 @@ public class MessageHeader extends Resource {
 
   }
 
-    public static class MessageHeaderDestinationComponent extends BackboneElement {
+    public static class MessageDestinationComponent extends BackboneElement {
         /**
          * Human-readable name for the source system.
          */
@@ -434,11 +434,11 @@ public class MessageHeader extends Resource {
          */
         protected Uri endpoint;
 
-      public MessageHeaderDestinationComponent() {
+      public MessageDestinationComponent() {
         super();
       }
 
-      public MessageHeaderDestinationComponent(Uri endpoint) {
+      public MessageDestinationComponent(Uri endpoint) {
         super();
         this.endpoint = endpoint;
       }
@@ -453,7 +453,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value {@link #name} (Human-readable name for the source system.)
          */
-        public MessageHeaderDestinationComponent setName(String_ value) { 
+        public MessageDestinationComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
@@ -468,7 +468,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value Human-readable name for the source system.
          */
-        public MessageHeaderDestinationComponent setNameSimple(String value) { 
+        public MessageDestinationComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -489,7 +489,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value {@link #target} (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
          */
-        public MessageHeaderDestinationComponent setTarget(ResourceReference value) { 
+        public MessageDestinationComponent setTarget(ResourceReference value) { 
           this.target = value;
           return this;
         }
@@ -504,7 +504,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value {@link #endpoint} (Indicates where the message should be routed to.)
          */
-        public MessageHeaderDestinationComponent setEndpoint(Uri value) { 
+        public MessageDestinationComponent setEndpoint(Uri value) { 
           this.endpoint = value;
           return this;
         }
@@ -519,7 +519,7 @@ public class MessageHeader extends Resource {
         /**
          * @param value Indicates where the message should be routed to.
          */
-        public MessageHeaderDestinationComponent setEndpointSimple(String value) { 
+        public MessageDestinationComponent setEndpointSimple(String value) { 
             if (this.endpoint == null)
               this.endpoint = new Uri();
             this.endpoint.setValue(value);
@@ -533,8 +533,8 @@ public class MessageHeader extends Resource {
           childrenList.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
-      public MessageHeaderDestinationComponent copy(MessageHeader e) {
-        MessageHeaderDestinationComponent dst = new MessageHeaderDestinationComponent();
+      public MessageDestinationComponent copy(MessageHeader e) {
+        MessageDestinationComponent dst = new MessageDestinationComponent();
         dst.name = name == null ? null : name.copy();
         dst.target = target == null ? null : target.copy();
         dst.endpoint = endpoint == null ? null : endpoint.copy();
@@ -566,12 +566,12 @@ public class MessageHeader extends Resource {
     /**
      * The source application from which this message originated.
      */
-    protected MessageHeaderSourceComponent source;
+    protected MessageSourceComponent source;
 
     /**
      * The destination application which the message is intended for.
      */
-    protected List<MessageHeaderDestinationComponent> destination = new ArrayList<MessageHeaderDestinationComponent>();
+    protected List<MessageDestinationComponent> destination = new ArrayList<MessageDestinationComponent>();
 
     /**
      * The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.
@@ -607,7 +607,7 @@ public class MessageHeader extends Resource {
       super();
     }
 
-    public MessageHeader(Id identifier, Instant timestamp, Coding event, MessageHeaderSourceComponent source) {
+    public MessageHeader(Id identifier, Instant timestamp, Coding event, MessageSourceComponent source) {
       super();
       this.identifier = identifier;
       this.timestamp = timestamp;
@@ -712,14 +712,14 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #source} (The source application from which this message originated.)
      */
-    public MessageHeaderSourceComponent getSource() { 
+    public MessageSourceComponent getSource() { 
       return this.source;
     }
 
     /**
      * @param value {@link #source} (The source application from which this message originated.)
      */
-    public MessageHeader setSource(MessageHeaderSourceComponent value) { 
+    public MessageHeader setSource(MessageSourceComponent value) { 
       this.source = value;
       return this;
     }
@@ -727,7 +727,7 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #destination} (The destination application which the message is intended for.)
      */
-    public List<MessageHeaderDestinationComponent> getDestination() { 
+    public List<MessageDestinationComponent> getDestination() { 
       return this.destination;
     }
 
@@ -735,8 +735,8 @@ public class MessageHeader extends Resource {
     /**
      * @return {@link #destination} (The destination application which the message is intended for.)
      */
-    public MessageHeaderDestinationComponent addDestination() { 
-      MessageHeaderDestinationComponent t = new MessageHeaderDestinationComponent();
+    public MessageDestinationComponent addDestination() { 
+      MessageDestinationComponent t = new MessageDestinationComponent();
       this.destination.add(t);
       return t;
     }
@@ -856,8 +856,8 @@ public class MessageHeader extends Resource {
         dst.event = event == null ? null : event.copy();
         dst.response = response == null ? null : response.copy(dst);
         dst.source = source == null ? null : source.copy(dst);
-        dst.destination = new ArrayList<MessageHeaderDestinationComponent>();
-        for (MessageHeaderDestinationComponent i : destination)
+        dst.destination = new ArrayList<MessageDestinationComponent>();
+        for (MessageDestinationComponent i : destination)
           dst.destination.add(i.copy(dst));
         dst.enterer = enterer == null ? null : enterer.copy();
         dst.author = author == null ? null : author.copy();

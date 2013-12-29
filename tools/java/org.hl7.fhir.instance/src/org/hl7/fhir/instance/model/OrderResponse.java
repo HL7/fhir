@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -129,6 +129,11 @@ public class OrderResponse extends Resource {
     }
 
     /**
+     * Identifiers assigned to this order by the orderer or by the receiver.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * The order that this is a response to.
      */
     protected ResourceReference request;
@@ -176,6 +181,23 @@ public class OrderResponse extends Resource {
       super();
       this.request = request;
       this.code = code;
+    }
+
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
+     */
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
+     */
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -361,6 +383,7 @@ public class OrderResponse extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("request", "Resource(Order)", "The order that this is a response to.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("date", "dateTime", "When the response was made.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("who", "Resource(Practitioner|Organization)", "Who made the response.", 0, java.lang.Integer.MAX_VALUE, who));
@@ -373,6 +396,9 @@ public class OrderResponse extends Resource {
 
       public OrderResponse copy() {
         OrderResponse dst = new OrderResponse();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.request = request == null ? null : request.copy();
         dst.date = date == null ? null : date.copy();
         dst.who = who == null ? null : who.copy();

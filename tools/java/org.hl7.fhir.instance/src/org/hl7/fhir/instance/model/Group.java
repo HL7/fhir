@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -41,6 +41,7 @@ public class Group extends Resource {
     public enum GroupType {
         person, // Group contains "person" Patient resources.
         animal, // Group contains "animal" Patient resources.
+        practitioner, // Group contains healthcare practitioner resources.
         device, // Group contains Device resources.
         medication, // Group contains Medication resources.
         substance, // Group contains Substance resources.
@@ -52,6 +53,8 @@ public class Group extends Resource {
           return person;
         if ("animal".equals(codeString))
           return animal;
+        if ("practitioner".equals(codeString))
+          return practitioner;
         if ("device".equals(codeString))
           return device;
         if ("medication".equals(codeString))
@@ -64,6 +67,7 @@ public class Group extends Resource {
           switch (this) {
             case person: return "person";
             case animal: return "animal";
+            case practitioner: return "practitioner";
             case device: return "device";
             case medication: return "medication";
             case substance: return "substance";
@@ -81,6 +85,8 @@ public class Group extends Resource {
           return GroupType.person;
         if ("animal".equals(codeString))
           return GroupType.animal;
+        if ("practitioner".equals(codeString))
+          return GroupType.practitioner;
         if ("device".equals(codeString))
           return GroupType.device;
         if ("medication".equals(codeString))
@@ -94,6 +100,8 @@ public class Group extends Resource {
         return "person";
       if (code == GroupType.animal)
         return "animal";
+      if (code == GroupType.practitioner)
+        return "practitioner";
       if (code == GroupType.device)
         return "device";
       if (code == GroupType.medication)
@@ -469,7 +477,7 @@ public class Group extends Resource {
         childrenList.add(new Property("name", "string", "A label assigned to the group for human identification and communication.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("quantity", "integer", "A count of the number of resource instances that are part of the group.", 0, java.lang.Integer.MAX_VALUE, quantity));
         childrenList.add(new Property("characteristic", "", "Identifies the traits shared by members of the group.", 0, java.lang.Integer.MAX_VALUE, characteristic));
-        childrenList.add(new Property("member", "Resource(Patient|Practitioner|Device|Medication)", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
+        childrenList.add(new Property("member", "Resource(Patient|Practitioner|Device|Medication|Substance)", "Identifies the resource instances that are members of the group.", 0, java.lang.Integer.MAX_VALUE, member));
       }
 
       public Group copy() {

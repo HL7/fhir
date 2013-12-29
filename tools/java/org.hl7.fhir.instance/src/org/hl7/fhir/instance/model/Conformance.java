@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -2755,7 +2755,7 @@ public class Conformance extends Resource {
     protected Id fhirVersion;
 
     /**
-     * Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.
+     * Whether the application accepts unknown elements as part of a resource. Note: This is not about extensions, but about unknown elements in a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence this element is about inter-version compatibility.
      */
     protected Boolean acceptUnknown;
 
@@ -3156,14 +3156,14 @@ public class Conformance extends Resource {
     }
 
     /**
-     * @return {@link #acceptUnknown} (Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.)
+     * @return {@link #acceptUnknown} (Whether the application accepts unknown elements as part of a resource. Note: This is not about extensions, but about unknown elements in a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence this element is about inter-version compatibility.)
      */
     public Boolean getAcceptUnknown() { 
       return this.acceptUnknown;
     }
 
     /**
-     * @param value {@link #acceptUnknown} (Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.)
+     * @param value {@link #acceptUnknown} (Whether the application accepts unknown elements as part of a resource. Note: This is not about extensions, but about unknown elements in a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence this element is about inter-version compatibility.)
      */
     public Conformance setAcceptUnknown(Boolean value) { 
       this.acceptUnknown = value;
@@ -3171,14 +3171,14 @@ public class Conformance extends Resource {
     }
 
     /**
-     * @return Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.
+     * @return Whether the application accepts unknown elements as part of a resource. Note: This is not about extensions, but about unknown elements in a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence this element is about inter-version compatibility.
      */
     public boolean getAcceptUnknownSimple() { 
       return this.acceptUnknown == null ? null : this.acceptUnknown.getValue();
     }
 
     /**
-     * @param value Whether the application accepts unknown non-"must understand" elements as part of a resource. This does not include extensions, but genuine new additions to a resource.
+     * @param value Whether the application accepts unknown elements as part of a resource. Note: This is not about extensions, but about unknown elements in a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence this element is about inter-version compatibility.
      */
     public Conformance setAcceptUnknownSimple(boolean value) { 
         if (this.acceptUnknown == null)
@@ -3296,7 +3296,7 @@ public class Conformance extends Resource {
         childrenList.add(new Property("software", "", "Describes the software that is covered by this conformance statement.  Used when the profile describes the capabilities of a particular software version, independent of an installation.", 0, java.lang.Integer.MAX_VALUE, software));
         childrenList.add(new Property("implementation", "", "Used when the statement describes the capabilities of a specific implementation instance - i.e. a particular installation, rather than the capabilities of a software program.", 0, java.lang.Integer.MAX_VALUE, implementation));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this conformance statement is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
-        childrenList.add(new Property("acceptUnknown", "boolean", "Whether the application accepts unknown non-'must understand' elements as part of a resource. This does not include extensions, but genuine new additions to a resource.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
+        childrenList.add(new Property("acceptUnknown", "boolean", "Whether the application accepts unknown elements as part of a resource. Note: This is not about extensions, but about unknown elements in a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence this element is about inter-version compatibility.", 0, java.lang.Integer.MAX_VALUE, acceptUnknown));
         childrenList.add(new Property("format", "code", "The formats supported by this implementation.", 0, java.lang.Integer.MAX_VALUE, format));
         childrenList.add(new Property("profile", "Resource(Profile)", "A list of profiles supported by the system. Supported by the system means for a server, that the system hosts/produces a set of resources that conform to a particular profile, that it allows clients to search by this profile, and that these will find the appropriate data. For a client, it means that the client will search by this profile, and process the data following the guidance implicit in the profile.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("rest", "", "Defines the restful capabilities of the solution, if any.", 0, java.lang.Integer.MAX_VALUE, rest));

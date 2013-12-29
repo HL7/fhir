@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -275,9 +275,10 @@ public class Immunization extends Resource {
         super();
       }
 
-      public ImmunizationVaccinationProtocolComponent(Integer doseSequence, CodeableConcept doseStatus) {
+      public ImmunizationVaccinationProtocolComponent(Integer doseSequence, CodeableConcept doseTarget, CodeableConcept doseStatus) {
         super();
         this.doseSequence = doseSequence;
+        this.doseTarget = doseTarget;
         this.doseStatus = doseStatus;
       }
 
@@ -589,9 +590,9 @@ public class Immunization extends Resource {
     protected List<ImmunizationReactionComponent> reaction = new ArrayList<ImmunizationReactionComponent>();
 
     /**
-     * Contains information about the protocol under which the vaccine was administered.
+     * Contains information about the protocol(s) under which the vaccine was administered.
      */
-    protected ImmunizationVaccinationProtocolComponent vaccinationProtocol;
+    protected List<ImmunizationVaccinationProtocolComponent> vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
 
     public Immunization() {
       super();
@@ -942,18 +943,20 @@ public class Immunization extends Resource {
     }
 
     /**
-     * @return {@link #vaccinationProtocol} (Contains information about the protocol under which the vaccine was administered.)
+     * @return {@link #vaccinationProtocol} (Contains information about the protocol(s) under which the vaccine was administered.)
      */
-    public ImmunizationVaccinationProtocolComponent getVaccinationProtocol() { 
+    public List<ImmunizationVaccinationProtocolComponent> getVaccinationProtocol() { 
       return this.vaccinationProtocol;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #vaccinationProtocol} (Contains information about the protocol under which the vaccine was administered.)
+     * @return {@link #vaccinationProtocol} (Contains information about the protocol(s) under which the vaccine was administered.)
      */
-    public Immunization setVaccinationProtocol(ImmunizationVaccinationProtocolComponent value) { 
-      this.vaccinationProtocol = value;
-      return this;
+    public ImmunizationVaccinationProtocolComponent addVaccinationProtocol() { 
+      ImmunizationVaccinationProtocolComponent t = new ImmunizationVaccinationProtocolComponent();
+      this.vaccinationProtocol.add(t);
+      return t;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -974,7 +977,7 @@ public class Immunization extends Resource {
         childrenList.add(new Property("doseQuantity", "Quantity", "The quantity of vaccine product that was administered.", 0, java.lang.Integer.MAX_VALUE, doseQuantity));
         childrenList.add(new Property("explanation", "", "Reasons why a vaccine was administered or refused.", 0, java.lang.Integer.MAX_VALUE, explanation));
         childrenList.add(new Property("reaction", "", "Categorical data indicating that an adverse event is associated in time to an immunization.", 0, java.lang.Integer.MAX_VALUE, reaction));
-        childrenList.add(new Property("vaccinationProtocol", "", "Contains information about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, vaccinationProtocol));
+        childrenList.add(new Property("vaccinationProtocol", "", "Contains information about the protocol(s) under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, vaccinationProtocol));
       }
 
       public Immunization copy() {
@@ -997,7 +1000,9 @@ public class Immunization extends Resource {
         dst.reaction = new ArrayList<ImmunizationReactionComponent>();
         for (ImmunizationReactionComponent i : reaction)
           dst.reaction.add(i.copy(dst));
-        dst.vaccinationProtocol = vaccinationProtocol == null ? null : vaccinationProtocol.copy(dst);
+        dst.vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
+        for (ImmunizationVaccinationProtocolComponent i : vaccinationProtocol)
+          dst.vaccinationProtocol.add(i.copy(dst));
         return dst;
       }
 

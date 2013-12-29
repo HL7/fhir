@@ -34,6 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ValueSet;
 
 /**
@@ -70,6 +71,8 @@ public class Definitions {
 	private Map<String, ProfileDefn> profiles = new HashMap<String, ProfileDefn>();
   private Map<String, String> diagrams = new HashMap<String, String>();
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
+  private Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
+  
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
   private Map<String, ArrayList<String>> statusCodes = new HashMap<String, ArrayList<String>>();
@@ -277,6 +280,10 @@ public class Definitions {
       Collections.sort(sortedNames);
     }
     return sortedNames;
+  }
+
+  public Map<String, ConceptMap> getConceptMaps() {
+    return conceptMaps;
   }
 
   public Map<String, ValueSet> getValuesets() {

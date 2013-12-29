@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -93,6 +93,8 @@ public class ValueSet extends Resource {
         isa, // The property value has a concept that has an is-a relationship with the value.
         isnota, // The property value has a concept that does not have an is-a relationship with the value.
         regex, // The property value representation matches the regex specified in the value.
+        in, // The property value is in the set of codes or concepts identified by the value.
+        notIn, // The property value is not in the set of codes or concepts identified by the value.
         Null; // added to help the parsers
         public static FilterOperator fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -105,6 +107,10 @@ public class ValueSet extends Resource {
           return isnota;
         if ("regex".equals(codeString))
           return regex;
+        if ("in".equals(codeString))
+          return in;
+        if ("not in".equals(codeString))
+          return notIn;
         throw new Exception("Unknown FilterOperator code '"+codeString+"'");
         }
         public String toCode() {
@@ -113,6 +119,8 @@ public class ValueSet extends Resource {
             case isa: return "is-a";
             case isnota: return "is-not-a";
             case regex: return "regex";
+            case in: return "in";
+            case notIn: return "not in";
             default: return "?";
           }
         }
@@ -131,6 +139,10 @@ public class ValueSet extends Resource {
           return FilterOperator.isnota;
         if ("regex".equals(codeString))
           return FilterOperator.regex;
+        if ("in".equals(codeString))
+          return FilterOperator.in;
+        if ("not in".equals(codeString))
+          return FilterOperator.notIn;
         throw new Exception("Unknown FilterOperator code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -142,6 +154,10 @@ public class ValueSet extends Resource {
         return "is-not-a";
       if (code == FilterOperator.regex)
         return "regex";
+      if (code == FilterOperator.in)
+        return "in";
+      if (code == FilterOperator.notIn)
+        return "not in";
       return "?";
       }
     }

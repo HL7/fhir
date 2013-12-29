@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -99,6 +99,11 @@ public class Order extends Resource {
   }
 
     /**
+     * Identifiers assigned to this order by the orderer or by the receiver.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * When the order was made.
      */
     protected DateTime date;
@@ -121,7 +126,7 @@ public class Order extends Resource {
     /**
      * Text - why the order was made.
      */
-    protected String_ reason;
+    protected Type reason;
 
     /**
      * If required by policy.
@@ -140,6 +145,23 @@ public class Order extends Resource {
 
     public Order() {
       super();
+    }
+
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
+     */
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
+     */
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -226,36 +248,15 @@ public class Order extends Resource {
     /**
      * @return {@link #reason} (Text - why the order was made.)
      */
-    public String_ getReason() { 
+    public Type getReason() { 
       return this.reason;
     }
 
     /**
      * @param value {@link #reason} (Text - why the order was made.)
      */
-    public Order setReason(String_ value) { 
+    public Order setReason(Type value) { 
       this.reason = value;
-      return this;
-    }
-
-    /**
-     * @return Text - why the order was made.
-     */
-    public String getReasonSimple() { 
-      return this.reason == null ? null : this.reason.getValue();
-    }
-
-    /**
-     * @param value Text - why the order was made.
-     */
-    public Order setReasonSimple(String value) { 
-      if (value == null)
-        this.reason = null;
-      else {
-        if (this.reason == null)
-          this.reason = new String_();
-        this.reason.setValue(value);
-      }
       return this;
     }
 
@@ -308,11 +309,12 @@ public class Order extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("date", "dateTime", "When the order was made.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("subject", "Resource(Patient)", "Patient this order is about.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("source", "Resource(Practitioner)", "Who initiated the order.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("target", "Resource(Organization|Device)", "Who is intended to fulfill the order.", 0, java.lang.Integer.MAX_VALUE, target));
-        childrenList.add(new Property("reason", "string", "Text - why the order was made.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("reason[x]", "CodeableConcept|Resource(Any)", "Text - why the order was made.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("authority", "Resource(Any)", "If required by policy.", 0, java.lang.Integer.MAX_VALUE, authority));
         childrenList.add(new Property("when", "", "When order should be fulfilled.", 0, java.lang.Integer.MAX_VALUE, when));
         childrenList.add(new Property("detail", "Resource(Any)", "What action is being ordered.", 0, java.lang.Integer.MAX_VALUE, detail));
@@ -320,6 +322,9 @@ public class Order extends Resource {
 
       public Order copy() {
         Order dst = new Order();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.date = date == null ? null : date.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.source = source == null ? null : source.copy();

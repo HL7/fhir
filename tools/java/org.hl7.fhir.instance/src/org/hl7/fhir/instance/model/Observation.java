@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -196,23 +196,58 @@ public class Observation extends Resource {
 
     public static class ObservationReferenceRangeComponent extends BackboneElement {
         /**
+         * The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.
+         */
+        protected Quantity low;
+
+        /**
+         * The value of the high bound of the reference range. If this is omitted, the high bound of the reference range is assumed to be meaningless. E.g. >5.
+         */
+        protected Quantity high;
+
+        /**
          * Code for the meaning of the reference range.
          */
         protected CodeableConcept meaning;
 
         /**
-         * Actual value of the reference range.  May be a quantity (<20mg/L), a range (10-20 umol/L), or some text.
+         * The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.
          */
-        protected Type range;
+        protected Period age;
 
       public ObservationReferenceRangeComponent() {
         super();
       }
 
-      public ObservationReferenceRangeComponent(Type range) {
-        super();
-        this.range = range;
-      }
+        /**
+         * @return {@link #low} (The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.)
+         */
+        public Quantity getLow() { 
+          return this.low;
+        }
+
+        /**
+         * @param value {@link #low} (The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.)
+         */
+        public ObservationReferenceRangeComponent setLow(Quantity value) { 
+          this.low = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #high} (The value of the high bound of the reference range. If this is omitted, the high bound of the reference range is assumed to be meaningless. E.g. >5.)
+         */
+        public Quantity getHigh() { 
+          return this.high;
+        }
+
+        /**
+         * @param value {@link #high} (The value of the high bound of the reference range. If this is omitted, the high bound of the reference range is assumed to be meaningless. E.g. >5.)
+         */
+        public ObservationReferenceRangeComponent setHigh(Quantity value) { 
+          this.high = value;
+          return this;
+        }
 
         /**
          * @return {@link #meaning} (Code for the meaning of the reference range.)
@@ -230,103 +265,41 @@ public class Observation extends Resource {
         }
 
         /**
-         * @return {@link #range} (Actual value of the reference range.  May be a quantity (<20mg/L), a range (10-20 umol/L), or some text.)
+         * @return {@link #age} (The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.)
          */
-        public Type getRange() { 
-          return this.range;
+        public Period getAge() { 
+          return this.age;
         }
 
         /**
-         * @param value {@link #range} (Actual value of the reference range.  May be a quantity (<20mg/L), a range (10-20 umol/L), or some text.)
+         * @param value {@link #age} (The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.)
          */
-        public ObservationReferenceRangeComponent setRange(Type value) { 
-          this.range = value;
+        public ObservationReferenceRangeComponent setAge(Period value) { 
+          this.age = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("low", "Quantity", "The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.", 0, java.lang.Integer.MAX_VALUE, low));
+          childrenList.add(new Property("high", "Quantity", "The value of the high bound of the reference range. If this is omitted, the high bound of the reference range is assumed to be meaningless. E.g. >5.", 0, java.lang.Integer.MAX_VALUE, high));
           childrenList.add(new Property("meaning", "CodeableConcept", "Code for the meaning of the reference range.", 0, java.lang.Integer.MAX_VALUE, meaning));
-          childrenList.add(new Property("range[x]", "Quantity|Range|string", "Actual value of the reference range.  May be a quantity (<20mg/L), a range (10-20 umol/L), or some text.", 0, java.lang.Integer.MAX_VALUE, range));
+          childrenList.add(new Property("age", "Period", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, java.lang.Integer.MAX_VALUE, age));
         }
 
       public ObservationReferenceRangeComponent copy(Observation e) {
         ObservationReferenceRangeComponent dst = new ObservationReferenceRangeComponent();
+        dst.low = low == null ? null : low.copy();
+        dst.high = high == null ? null : high.copy();
         dst.meaning = meaning == null ? null : meaning.copy();
-        dst.range = range == null ? null : range.copy();
-        return dst;
-      }
-
-  }
-
-    public static class ObservationComponentComponent extends BackboneElement {
-        /**
-         * Identifies what type of sub-observation was performed.
-         */
-        protected CodeableConcept name;
-
-        /**
-         * The information determined as a result of making the sub-observation.
-         */
-        protected Type value;
-
-      public ObservationComponentComponent() {
-        super();
-      }
-
-      public ObservationComponentComponent(CodeableConcept name, Type value) {
-        super();
-        this.name = name;
-        this.value = value;
-      }
-
-        /**
-         * @return {@link #name} (Identifies what type of sub-observation was performed.)
-         */
-        public CodeableConcept getName() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (Identifies what type of sub-observation was performed.)
-         */
-        public ObservationComponentComponent setName(CodeableConcept value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #value} (The information determined as a result of making the sub-observation.)
-         */
-        public Type getValue() { 
-          return this.value;
-        }
-
-        /**
-         * @param value {@link #value} (The information determined as a result of making the sub-observation.)
-         */
-        public ObservationComponentComponent setValue(Type value) { 
-          this.value = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "CodeableConcept", "Identifies what type of sub-observation was performed.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string", "The information determined as a result of making the sub-observation.", 0, java.lang.Integer.MAX_VALUE, value));
-        }
-
-      public ObservationComponentComponent copy(Observation e) {
-        ObservationComponentComponent dst = new ObservationComponentComponent();
-        dst.name = name == null ? null : name.copy();
-        dst.value = value == null ? null : value.copy();
+        dst.age = age == null ? null : age.copy();
         return dst;
       }
 
   }
 
     /**
-     * Identifies what type of observation was performed. Sometimes called code.
+     * Describes what was observed. Sometimes called this is called the observation "code".
      */
     protected CodeableConcept name;
 
@@ -386,19 +359,19 @@ public class Observation extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The specimen that was used when this observation was made.
+     */
+    protected ResourceReference specimen;
+
+    /**
      * Who was responsible for asserting the observed value as "true".
      */
-    protected ResourceReference performer;
+    protected List<ResourceReference> performer = new ArrayList<ResourceReference>();
 
     /**
      * Guidance on how to interpret the value by comparison to a normal or recommended range.
      */
     protected List<ObservationReferenceRangeComponent> referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
-
-    /**
-     * Component observation.
-     */
-    protected List<ObservationComponentComponent> component = new ArrayList<ObservationComponentComponent>();
 
     public Observation() {
       super();
@@ -412,14 +385,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #name} (Identifies what type of observation was performed. Sometimes called code.)
+     * @return {@link #name} (Describes what was observed. Sometimes called this is called the observation "code".)
      */
     public CodeableConcept getName() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (Identifies what type of observation was performed. Sometimes called code.)
+     * @param value {@link #name} (Describes what was observed. Sometimes called this is called the observation "code".)
      */
     public Observation setName(CodeableConcept value) { 
       this.name = value;
@@ -668,18 +641,35 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
+     * @return {@link #specimen} (The specimen that was used when this observation was made.)
      */
-    public ResourceReference getPerformer() { 
-      return this.performer;
+    public ResourceReference getSpecimen() { 
+      return this.specimen;
     }
 
     /**
-     * @param value {@link #performer} (Who was responsible for asserting the observed value as "true".)
+     * @param value {@link #specimen} (The specimen that was used when this observation was made.)
      */
-    public Observation setPerformer(ResourceReference value) { 
-      this.performer = value;
+    public Observation setSpecimen(ResourceReference value) { 
+      this.specimen = value;
       return this;
+    }
+
+    /**
+     * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
+     */
+    public List<ResourceReference> getPerformer() { 
+      return this.performer;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #performer} (Who was responsible for asserting the observed value as "true".)
+     */
+    public ResourceReference addPerformer() { 
+      ResourceReference t = new ResourceReference();
+      this.performer.add(t);
+      return t;
     }
 
     /**
@@ -699,26 +689,9 @@ public class Observation extends Resource {
       return t;
     }
 
-    /**
-     * @return {@link #component} (Component observation.)
-     */
-    public List<ObservationComponentComponent> getComponent() { 
-      return this.component;
-    }
-
-    // syntactic sugar
-    /**
-     * @return {@link #component} (Component observation.)
-     */
-    public ObservationComponentComponent addComponent() { 
-      ObservationComponentComponent t = new ObservationComponentComponent();
-      this.component.add(t);
-      return t;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("name", "CodeableConcept", "Identifies what type of observation was performed. Sometimes called code.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes called this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string", "The information determined as a result of making the observation.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
@@ -729,10 +702,10 @@ public class Observation extends Resource {
         childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates where on the subject's body the observation was made.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the simple observation.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient|Group|Device)", "The thing the observation is being made about.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Location)", "The thing the observation is being made about.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("specimen", "Resource(Specimen)", "The specimen that was used when this observation was made.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("performer", "Resource(Practitioner|Device|Organization)", "Who was responsible for asserting the observed value as 'true'.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("referenceRange", "", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
-        childrenList.add(new Property("component", "", "Component observation.", 0, java.lang.Integer.MAX_VALUE, component));
       }
 
       public Observation copy() {
@@ -749,13 +722,13 @@ public class Observation extends Resource {
         dst.method = method == null ? null : method.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.performer = performer == null ? null : performer.copy();
+        dst.specimen = specimen == null ? null : specimen.copy();
+        dst.performer = new ArrayList<ResourceReference>();
+        for (ResourceReference i : performer)
+          dst.performer.add(i.copy());
         dst.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
         for (ObservationReferenceRangeComponent i : referenceRange)
           dst.referenceRange.add(i.copy(dst));
-        dst.component = new ArrayList<ObservationComponentComponent>();
-        for (ObservationComponentComponent i : component)
-          dst.component.add(i.copy(dst));
         return dst;
       }
 

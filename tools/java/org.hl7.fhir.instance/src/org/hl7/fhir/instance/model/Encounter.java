@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -275,7 +275,7 @@ public class Encounter extends Resource {
         protected CodeableConcept admitSource;
 
         /**
-         * Period of hospitalization.
+         * Period during which the patient was admitted.
          */
         protected Period period;
 
@@ -315,7 +315,7 @@ public class Encounter extends Resource {
         protected ResourceReference dischargeDiagnosis;
 
         /**
-         * Is readmission?.
+         * Is this hospitalization a readmission?.
          */
         protected Boolean reAdmission;
 
@@ -369,14 +369,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #period} (Period of hospitalization.)
+         * @return {@link #period} (Period during which the patient was admitted.)
          */
         public Period getPeriod() { 
           return this.period;
         }
 
         /**
-         * @param value {@link #period} (Period of hospitalization.)
+         * @param value {@link #period} (Period during which the patient was admitted.)
          */
         public EncounterHospitalizationComponent setPeriod(Period value) { 
           this.period = value;
@@ -495,14 +495,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return {@link #reAdmission} (Is readmission?.)
+         * @return {@link #reAdmission} (Is this hospitalization a readmission?.)
          */
         public Boolean getReAdmission() { 
           return this.reAdmission;
         }
 
         /**
-         * @param value {@link #reAdmission} (Is readmission?.)
+         * @param value {@link #reAdmission} (Is this hospitalization a readmission?.)
          */
         public EncounterHospitalizationComponent setReAdmission(Boolean value) { 
           this.reAdmission = value;
@@ -510,14 +510,14 @@ public class Encounter extends Resource {
         }
 
         /**
-         * @return Is readmission?.
+         * @return Is this hospitalization a readmission?.
          */
         public boolean getReAdmissionSimple() { 
           return this.reAdmission == null ? null : this.reAdmission.getValue();
         }
 
         /**
-         * @param value Is readmission?.
+         * @param value Is this hospitalization a readmission?.
          */
         public EncounterHospitalizationComponent setReAdmissionSimple(boolean value) { 
           if (value == false)
@@ -535,7 +535,7 @@ public class Encounter extends Resource {
           childrenList.add(new Property("preAdmissionIdentifier", "Identifier", "Pre-admission identifier.", 0, java.lang.Integer.MAX_VALUE, preAdmissionIdentifier));
           childrenList.add(new Property("origin", "Resource(Location)", "The location the patient came from before admission.", 0, java.lang.Integer.MAX_VALUE, origin));
           childrenList.add(new Property("admitSource", "CodeableConcept", "Where patient was admitted from (physician referral, transfer).", 0, java.lang.Integer.MAX_VALUE, admitSource));
-          childrenList.add(new Property("period", "Period", "Period of hospitalization.", 0, java.lang.Integer.MAX_VALUE, period));
+          childrenList.add(new Property("period", "Period", "Period during which the patient was admitted.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("accomodation", "", "Where the patient stays during this encounter.", 0, java.lang.Integer.MAX_VALUE, accomodation));
           childrenList.add(new Property("diet", "CodeableConcept", "Dietary restrictions for the patient.", 0, java.lang.Integer.MAX_VALUE, diet));
           childrenList.add(new Property("specialCourtesy", "CodeableConcept", "Special courtesies (VIP, board member).", 0, java.lang.Integer.MAX_VALUE, specialCourtesy));
@@ -543,7 +543,7 @@ public class Encounter extends Resource {
           childrenList.add(new Property("destination", "Resource(Location)", "Location the patient is discharged to.", 0, java.lang.Integer.MAX_VALUE, destination));
           childrenList.add(new Property("dischargeDisposition", "CodeableConcept", "Disposition patient released to.", 0, java.lang.Integer.MAX_VALUE, dischargeDisposition));
           childrenList.add(new Property("dischargeDiagnosis", "Resource(Any)", "The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.", 0, java.lang.Integer.MAX_VALUE, dischargeDiagnosis));
-          childrenList.add(new Property("reAdmission", "boolean", "Is readmission?.", 0, java.lang.Integer.MAX_VALUE, reAdmission));
+          childrenList.add(new Property("reAdmission", "boolean", "Is this hospitalization a readmission?.", 0, java.lang.Integer.MAX_VALUE, reAdmission));
         }
 
       public EncounterHospitalizationComponent copy(Encounter e) {
@@ -573,7 +573,7 @@ public class Encounter extends Resource {
 
     public static class EncounterHospitalizationAccomodationComponent extends BackboneElement {
         /**
-         * Bed.
+         * The bed that is assigned to the patient.
          */
         protected ResourceReference bed;
 
@@ -587,14 +587,14 @@ public class Encounter extends Resource {
       }
 
         /**
-         * @return {@link #bed} (Bed.)
+         * @return {@link #bed} (The bed that is assigned to the patient.)
          */
         public ResourceReference getBed() { 
           return this.bed;
         }
 
         /**
-         * @param value {@link #bed} (Bed.)
+         * @param value {@link #bed} (The bed that is assigned to the patient.)
          */
         public EncounterHospitalizationAccomodationComponent setBed(ResourceReference value) { 
           this.bed = value;
@@ -618,7 +618,7 @@ public class Encounter extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("bed", "Resource(Location)", "Bed.", 0, java.lang.Integer.MAX_VALUE, bed));
+          childrenList.add(new Property("bed", "Resource(Location)", "The bed that is assigned to the patient.", 0, java.lang.Integer.MAX_VALUE, bed));
           childrenList.add(new Property("period", "Period", "Period during which the patient was assigned the bed.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 

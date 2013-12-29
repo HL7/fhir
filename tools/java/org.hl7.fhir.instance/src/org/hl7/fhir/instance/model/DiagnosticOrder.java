@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ public class DiagnosticOrder extends Resource {
         inProgress, // The work to fulfill the order is happening.
         review, // The work is complete, and the outcomes are being reviewed for approval.
         completed, // The work has been complete, the report(s) released, and no further work is planned.
-        onHold, // The request has been held by originating system/user request.
+        suspended, // The request has been held by originating system/user request.
         rejected, // The receiving system has declined to fulfill the request.
         failed, // The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
         Null; // added to help the parsers
@@ -64,8 +64,8 @@ public class DiagnosticOrder extends Resource {
           return review;
         if ("completed".equals(codeString))
           return completed;
-        if ("on hold".equals(codeString))
-          return onHold;
+        if ("suspended".equals(codeString))
+          return suspended;
         if ("rejected".equals(codeString))
           return rejected;
         if ("failed".equals(codeString))
@@ -80,7 +80,7 @@ public class DiagnosticOrder extends Resource {
             case inProgress: return "in progress";
             case review: return "review";
             case completed: return "completed";
-            case onHold: return "on hold";
+            case suspended: return "suspended";
             case rejected: return "rejected";
             case failed: return "failed";
             default: return "?";
@@ -105,8 +105,8 @@ public class DiagnosticOrder extends Resource {
           return DiagnosticOrderStatus.review;
         if ("completed".equals(codeString))
           return DiagnosticOrderStatus.completed;
-        if ("on hold".equals(codeString))
-          return DiagnosticOrderStatus.onHold;
+        if ("suspended".equals(codeString))
+          return DiagnosticOrderStatus.suspended;
         if ("rejected".equals(codeString))
           return DiagnosticOrderStatus.rejected;
         if ("failed".equals(codeString))
@@ -126,8 +126,8 @@ public class DiagnosticOrder extends Resource {
         return "review";
       if (code == DiagnosticOrderStatus.completed)
         return "completed";
-      if (code == DiagnosticOrderStatus.onHold)
-        return "on hold";
+      if (code == DiagnosticOrderStatus.suspended)
+        return "suspended";
       if (code == DiagnosticOrderStatus.rejected)
         return "rejected";
       if (code == DiagnosticOrderStatus.failed)
@@ -137,26 +137,30 @@ public class DiagnosticOrder extends Resource {
     }
 
     public enum DiagnosticOrderPriority {
-        normal, // The order has no particular priority with it.
+        routine, // The order has a normal priority.
         urgent, // The order should be urgently.
         stat, // The order is time-critical.
+        asap, // The order should be acted on as soon as possible.
         Null; // added to help the parsers
         public static DiagnosticOrderPriority fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("normal".equals(codeString))
-          return normal;
+        if ("routine".equals(codeString))
+          return routine;
         if ("urgent".equals(codeString))
           return urgent;
         if ("stat".equals(codeString))
           return stat;
+        if ("asap".equals(codeString))
+          return asap;
         throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case normal: return "normal";
+            case routine: return "routine";
             case urgent: return "urgent";
             case stat: return "stat";
+            case asap: return "asap";
             default: return "?";
           }
         }
@@ -167,21 +171,25 @@ public class DiagnosticOrder extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("normal".equals(codeString))
-          return DiagnosticOrderPriority.normal;
+        if ("routine".equals(codeString))
+          return DiagnosticOrderPriority.routine;
         if ("urgent".equals(codeString))
           return DiagnosticOrderPriority.urgent;
         if ("stat".equals(codeString))
           return DiagnosticOrderPriority.stat;
+        if ("asap".equals(codeString))
+          return DiagnosticOrderPriority.asap;
         throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == DiagnosticOrderPriority.normal)
-        return "normal";
+      if (code == DiagnosticOrderPriority.routine)
+        return "routine";
       if (code == DiagnosticOrderPriority.urgent)
         return "urgent";
       if (code == DiagnosticOrderPriority.stat)
         return "stat";
+      if (code == DiagnosticOrderPriority.asap)
+        return "asap";
       return "?";
       }
     }
@@ -310,7 +318,7 @@ public class DiagnosticOrder extends Resource {
 
     public static class DiagnosticOrderItemComponent extends BackboneElement {
         /**
-         * A code that identifies a particular diagnostic investigation that has been requested.
+         * A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.
          */
         protected CodeableConcept code;
 
@@ -344,14 +352,14 @@ public class DiagnosticOrder extends Resource {
       }
 
         /**
-         * @return {@link #code} (A code that identifies a particular diagnostic investigation that has been requested.)
+         * @return {@link #code} (A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.)
          */
         public CodeableConcept getCode() { 
           return this.code;
         }
 
         /**
-         * @param value {@link #code} (A code that identifies a particular diagnostic investigation that has been requested.)
+         * @param value {@link #code} (A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.)
          */
         public DiagnosticOrderItemComponent setCode(CodeableConcept value) { 
           this.code = value;
@@ -445,7 +453,7 @@ public class DiagnosticOrder extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation that has been requested.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("specimen", "Resource(Specimen)", "If the item is related to a specific speciment.", 0, java.lang.Integer.MAX_VALUE, specimen));
           childrenList.add(new Property("bodySite", "CodeableConcept", "Anatomical location where the request test should be performed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("status", "code", "The status of this individual item within the order.", 0, java.lang.Integer.MAX_VALUE, status));

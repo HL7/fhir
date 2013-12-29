@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -275,7 +275,12 @@ public class Location extends Resource {
   }
 
     /**
-     * Name of the location which identifies it to its users.
+     * Unique code or number identifying the location to its users.
+     */
+    protected Identifier identifier;
+
+    /**
+     * Name of the location as used by humans. Needs not be unique.
      */
     protected String_ name;
 
@@ -333,20 +338,30 @@ public class Location extends Resource {
       super();
     }
 
-    public Location(String_ name) {
-      super();
-      this.name = name;
+    /**
+     * @return {@link #identifier} (Unique code or number identifying the location to its users.)
+     */
+    public Identifier getIdentifier() { 
+      return this.identifier;
     }
 
     /**
-     * @return {@link #name} (Name of the location which identifies it to its users.)
+     * @param value {@link #identifier} (Unique code or number identifying the location to its users.)
+     */
+    public Location setIdentifier(Identifier value) { 
+      this.identifier = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #name} (Name of the location as used by humans. Needs not be unique.)
      */
     public String_ getName() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (Name of the location which identifies it to its users.)
+     * @param value {@link #name} (Name of the location as used by humans. Needs not be unique.)
      */
     public Location setName(String_ value) { 
       this.name = value;
@@ -354,19 +369,23 @@ public class Location extends Resource {
     }
 
     /**
-     * @return Name of the location which identifies it to its users.
+     * @return Name of the location as used by humans. Needs not be unique.
      */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value Name of the location which identifies it to its users.
+     * @param value Name of the location as used by humans. Needs not be unique.
      */
     public Location setNameSimple(String value) { 
+      if (value == null)
+        this.name = null;
+      else {
         if (this.name == null)
           this.name = new String_();
         this.name.setValue(value);
+      }
       return this;
     }
 
@@ -585,7 +604,8 @@ public class Location extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("name", "string", "Name of the location which identifies it to its users.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("identifier", "Identifier", "Unique code or number identifying the location to its users.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("name", "string", "Name of the location as used by humans. Needs not be unique.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("description", "string", "Description of the Location, which helps in finding or referencing the place.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of function performed at the location.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("telecom", "Contact", "The contact details of the main communication devices present at the location.", 0, java.lang.Integer.MAX_VALUE, telecom));
@@ -600,6 +620,7 @@ public class Location extends Resource {
 
       public Location copy() {
         Location dst = new Location();
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
         dst.type = type == null ? null : type.copy();

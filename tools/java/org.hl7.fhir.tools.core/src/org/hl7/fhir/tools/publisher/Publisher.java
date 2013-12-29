@@ -96,6 +96,7 @@ import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.SourceParser;
+import org.hl7.fhir.definitions.validation.ConceptMapValidator;
 import org.hl7.fhir.definitions.validation.ProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
@@ -739,14 +740,14 @@ public class Publisher {
    int warningCount = 0;
    for (ValidationMessage e : errors) {
      if (e.getLevel() == IssueSeverity.information) {
-       System.out.println(e.summary());
+       page.log(e.summary(), LogMessageType.Hint);
        page.getQa().hint(e.summary());
        hintCount++;
      }
     }
    for (ValidationMessage e : errors) {
      if (e.getLevel() == IssueSeverity.warning) {
-       System.out.println(e.summary());
+       page.log(e.summary(), LogMessageType.Warning);
        page.getQa().warning(e.summary());
        warningCount++;
      }
@@ -754,11 +755,11 @@ public class Publisher {
    int errorCount = 0;
    for (ValidationMessage e : errors) {
      if (e.getLevel() == IssueSeverity.error || e.getLevel() == IssueSeverity.fatal) {
-       System.out.println(e.summary());
+       page.log(e.summary(), LogMessageType.Error);
        errorCount++;
      }
 		}
-   System.out.println("Errors: "+Integer.toString(errorCount)+". Warnings: "+Integer.toString(warningCount)+". Hints: "+Integer.toString(hintCount));
+   page.log("Errors: "+Integer.toString(errorCount)+". Warnings: "+Integer.toString(warningCount)+". Hints: "+Integer.toString(hintCount), LogMessageType.Process);
 
    return errorCount == 0;
 	}	
@@ -1148,7 +1149,7 @@ public class Publisher {
 
       produceV2();
       produceV3();
-      
+	  
       page.log(" ...collections ", LogMessageType.Process);
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed, true);
@@ -2216,6 +2217,16 @@ public class Publisher {
 		  if (vs.getDefine() != null) 
 	      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
 		}
+    if (xdoc.getDocumentElement().getLocalName().equals("ConceptMap")) {
+      XmlParser xml = new XmlParser();
+      ConceptMap cm = (ConceptMap) xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+      new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
+      if (cm.getIdentifier() == null)
+        throw new Exception("Value set example "+e.getPath().getAbsolutePath()+" has no identifier");
+      addToResourceFeed(cm, cm.getIdentifierSimple(), conceptMapsFeed);
+      page.getDefinitions().getConceptMaps().put(cm.getIdentifierSimple(), cm);
+    }
+
     Element el = xdoc.getDocumentElement();
     el = XMLUtil.getNamedChild(el, "text");
     el = XMLUtil.getNamedChild(el, "div");
@@ -2348,8 +2359,27 @@ public class Publisher {
     e.setAuthorUri("http://hl7.org/fhir");
     e.setResource(vs);
     if (vs.getText() == null || vs.getText().getDiv() == null)
-      throw new Exception("Example Resource "+id+" does not have any narrative");
+      throw new Exception("Example Value Set "+id+" does not have any narrative");
     e.setSummary(vs.getText().getDiv());
+    dest.getEntryList().add(e);
+  }
+
+  private void addToResourceFeed(ConceptMap cm, String id, AtomFeed dest) throws Exception {
+    if (dest.getById("http://hl7.org/fhir/conceptmap/" + id) != null)
+      throw new Exception("Attempt to add duplicate concept map "+id);
+    
+    AtomEntry<ConceptMap> e = new AtomEntry<ConceptMap>();
+    e.setId("http://hl7.org/fhir/conceptmap/" + id);
+    e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/conceptmap/" + id);
+    e.setTitle("Concept Map \"" + id+ "\" to support automated processing");
+    e.setUpdated(new DateAndTime(page.getGenDate()));
+    e.setPublished(new DateAndTime(page.getGenDate()));
+    e.setAuthorName("HL7, Inc (FHIR Project)");
+    e.setAuthorUri("http://hl7.org/fhir");
+    e.setResource(cm);
+    if (cm.getText() == null || cm.getText().getDiv() == null)
+      throw new Exception("Example Concept Map "+id+" does not have any narrative");
+    e.setSummary(cm.getText().getDiv());
     dest.getEntryList().add(e);
   }
 

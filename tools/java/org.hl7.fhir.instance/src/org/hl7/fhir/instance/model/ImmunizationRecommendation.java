@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -38,43 +38,9 @@ import java.util.*;
  */
 public class ImmunizationRecommendation extends Resource {
 
-    public enum ImmunizationForecastStatus {
-        dUE, // This immunization is due to be given now.
-        Null; // added to help the parsers
-        public static ImmunizationForecastStatus fromCode(String codeString) throws Exception {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("DUE".equals(codeString))
-          return dUE;
-        throw new Exception("Unknown ImmunizationForecastStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case dUE: return "DUE";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ImmunizationForecastStatusEnumFactory implements EnumFactory {
-    public Enum<?> fromCode(String codeString) throws Exception {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("DUE".equals(codeString))
-          return ImmunizationForecastStatus.dUE;
-        throw new Exception("Unknown ImmunizationForecastStatus code '"+codeString+"'");
-        }
-    public String toCode(Enum<?> code) throws Exception {
-      if (code == ImmunizationForecastStatus.dUE)
-        return "DUE";
-      return "?";
-      }
-    }
-
     public static class ImmunizationRecommendationRecommendationComponent extends BackboneElement {
         /**
-         * The date of the immunization recommendation.
+         * The date the immunization recommendation was created.
          */
         protected DateTime recommendationDate;
 
@@ -84,17 +50,17 @@ public class ImmunizationRecommendation extends Resource {
         protected CodeableConcept vaccineType;
 
         /**
-         * Recommended dose number.
+         * This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
         protected Integer doseNumber;
 
         /**
          * Vaccine administration status.
          */
-        protected Enumeration<ImmunizationForecastStatus> forecastStatus;
+        protected CodeableConcept forecastStatus;
 
         /**
-         * Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.
+         * Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.
          */
         protected List<ImmunizationRecommendationRecommendationDateCriterionComponent> dateCriterion = new ArrayList<ImmunizationRecommendationRecommendationDateCriterionComponent>();
 
@@ -109,20 +75,15 @@ public class ImmunizationRecommendation extends Resource {
         protected List<ResourceReference> supportingImmunization = new ArrayList<ResourceReference>();
 
         /**
-         * Adverse event report information that supports the status and recommendation.
+         * Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.
          */
-        protected List<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent> supportingAdverseEventReport = new ArrayList<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent>();
-
-        /**
-         * Patient observation that supports the status and recommendation.
-         */
-        protected List<ResourceReference> supportingPatientObservation = new ArrayList<ResourceReference>();
+        protected List<ResourceReference> supportingPatientInformation = new ArrayList<ResourceReference>();
 
       public ImmunizationRecommendationRecommendationComponent() {
         super();
       }
 
-      public ImmunizationRecommendationRecommendationComponent(DateTime recommendationDate, CodeableConcept vaccineType, Enumeration<ImmunizationForecastStatus> forecastStatus) {
+      public ImmunizationRecommendationRecommendationComponent(DateTime recommendationDate, CodeableConcept vaccineType, CodeableConcept forecastStatus) {
         super();
         this.recommendationDate = recommendationDate;
         this.vaccineType = vaccineType;
@@ -130,14 +91,14 @@ public class ImmunizationRecommendation extends Resource {
       }
 
         /**
-         * @return {@link #recommendationDate} (The date of the immunization recommendation.)
+         * @return {@link #recommendationDate} (The date the immunization recommendation was created.)
          */
         public DateTime getRecommendationDate() { 
           return this.recommendationDate;
         }
 
         /**
-         * @param value {@link #recommendationDate} (The date of the immunization recommendation.)
+         * @param value {@link #recommendationDate} (The date the immunization recommendation was created.)
          */
         public ImmunizationRecommendationRecommendationComponent setRecommendationDate(DateTime value) { 
           this.recommendationDate = value;
@@ -145,14 +106,14 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return The date of the immunization recommendation.
+         * @return The date the immunization recommendation was created.
          */
         public DateAndTime getRecommendationDateSimple() { 
           return this.recommendationDate == null ? null : this.recommendationDate.getValue();
         }
 
         /**
-         * @param value The date of the immunization recommendation.
+         * @param value The date the immunization recommendation was created.
          */
         public ImmunizationRecommendationRecommendationComponent setRecommendationDateSimple(DateAndTime value) { 
             if (this.recommendationDate == null)
@@ -177,14 +138,14 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #doseNumber} (Recommended dose number.)
+         * @return {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).)
          */
         public Integer getDoseNumber() { 
           return this.doseNumber;
         }
 
         /**
-         * @param value {@link #doseNumber} (Recommended dose number.)
+         * @param value {@link #doseNumber} (This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).)
          */
         public ImmunizationRecommendationRecommendationComponent setDoseNumber(Integer value) { 
           this.doseNumber = value;
@@ -192,14 +153,14 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return Recommended dose number.
+         * @return This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
         public int getDoseNumberSimple() { 
           return this.doseNumber == null ? null : this.doseNumber.getValue();
         }
 
         /**
-         * @param value Recommended dose number.
+         * @param value This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
          */
         public ImmunizationRecommendationRecommendationComponent setDoseNumberSimple(int value) { 
           if (value == -1)
@@ -215,37 +176,20 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * @return {@link #forecastStatus} (Vaccine administration status.)
          */
-        public Enumeration<ImmunizationForecastStatus> getForecastStatus() { 
+        public CodeableConcept getForecastStatus() { 
           return this.forecastStatus;
         }
 
         /**
          * @param value {@link #forecastStatus} (Vaccine administration status.)
          */
-        public ImmunizationRecommendationRecommendationComponent setForecastStatus(Enumeration<ImmunizationForecastStatus> value) { 
+        public ImmunizationRecommendationRecommendationComponent setForecastStatus(CodeableConcept value) { 
           this.forecastStatus = value;
           return this;
         }
 
         /**
-         * @return Vaccine administration status.
-         */
-        public ImmunizationForecastStatus getForecastStatusSimple() { 
-          return this.forecastStatus == null ? null : this.forecastStatus.getValue();
-        }
-
-        /**
-         * @param value Vaccine administration status.
-         */
-        public ImmunizationRecommendationRecommendationComponent setForecastStatusSimple(ImmunizationForecastStatus value) { 
-            if (this.forecastStatus == null)
-              this.forecastStatus = new Enumeration<ImmunizationForecastStatus>();
-            this.forecastStatus.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #dateCriterion} (Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.)
+         * @return {@link #dateCriterion} (Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.)
          */
         public List<ImmunizationRecommendationRecommendationDateCriterionComponent> getDateCriterion() { 
           return this.dateCriterion;
@@ -253,7 +197,7 @@ public class ImmunizationRecommendation extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #dateCriterion} (Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.)
+         * @return {@link #dateCriterion} (Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.)
          */
         public ImmunizationRecommendationRecommendationDateCriterionComponent addDateCriterion() { 
           ImmunizationRecommendationRecommendationDateCriterionComponent t = new ImmunizationRecommendationRecommendationDateCriterionComponent();
@@ -294,50 +238,32 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #supportingAdverseEventReport} (Adverse event report information that supports the status and recommendation.)
+         * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.)
          */
-        public List<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent> getSupportingAdverseEventReport() { 
-          return this.supportingAdverseEventReport;
+        public List<ResourceReference> getSupportingPatientInformation() { 
+          return this.supportingPatientInformation;
         }
 
     // syntactic sugar
         /**
-         * @return {@link #supportingAdverseEventReport} (Adverse event report information that supports the status and recommendation.)
+         * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.)
          */
-        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent addSupportingAdverseEventReport() { 
-          ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent t = new ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent();
-          this.supportingAdverseEventReport.add(t);
-          return t;
-        }
-
-        /**
-         * @return {@link #supportingPatientObservation} (Patient observation that supports the status and recommendation.)
-         */
-        public List<ResourceReference> getSupportingPatientObservation() { 
-          return this.supportingPatientObservation;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #supportingPatientObservation} (Patient observation that supports the status and recommendation.)
-         */
-        public ResourceReference addSupportingPatientObservation() { 
+        public ResourceReference addSupportingPatientInformation() { 
           ResourceReference t = new ResourceReference();
-          this.supportingPatientObservation.add(t);
+          this.supportingPatientInformation.add(t);
           return t;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("recommendationDate", "dateTime", "The date of the immunization recommendation.", 0, java.lang.Integer.MAX_VALUE, recommendationDate));
+          childrenList.add(new Property("recommendationDate", "dateTime", "The date the immunization recommendation was created.", 0, java.lang.Integer.MAX_VALUE, recommendationDate));
           childrenList.add(new Property("vaccineType", "CodeableConcept", "Vaccine that pertains to the recommendation.", 0, java.lang.Integer.MAX_VALUE, vaccineType));
-          childrenList.add(new Property("doseNumber", "integer", "Recommended dose number.", 0, java.lang.Integer.MAX_VALUE, doseNumber));
-          childrenList.add(new Property("forecastStatus", "code", "Vaccine administration status.", 0, java.lang.Integer.MAX_VALUE, forecastStatus));
-          childrenList.add(new Property("dateCriterion", "", "Vaccine date recommentations - e.g. earliest date to administer, latest date to administer, etc.", 0, java.lang.Integer.MAX_VALUE, dateCriterion));
+          childrenList.add(new Property("doseNumber", "integer", "This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).", 0, java.lang.Integer.MAX_VALUE, doseNumber));
+          childrenList.add(new Property("forecastStatus", "CodeableConcept", "Vaccine administration status.", 0, java.lang.Integer.MAX_VALUE, forecastStatus));
+          childrenList.add(new Property("dateCriterion", "", "Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.", 0, java.lang.Integer.MAX_VALUE, dateCriterion));
           childrenList.add(new Property("protocol", "", "Contains information about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, protocol));
           childrenList.add(new Property("supportingImmunization", "Resource(Immunization)", "Immunization event history that supports the status and recommendation.", 0, java.lang.Integer.MAX_VALUE, supportingImmunization));
-          childrenList.add(new Property("supportingAdverseEventReport", "", "Adverse event report information that supports the status and recommendation.", 0, java.lang.Integer.MAX_VALUE, supportingAdverseEventReport));
-          childrenList.add(new Property("supportingPatientObservation", "Resource(Observation)", "Patient observation that supports the status and recommendation.", 0, java.lang.Integer.MAX_VALUE, supportingPatientObservation));
+          childrenList.add(new Property("supportingPatientInformation", "Resource(Observation|AdverseReaction|AllergyIntolerance)", "Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.", 0, java.lang.Integer.MAX_VALUE, supportingPatientInformation));
         }
 
       public ImmunizationRecommendationRecommendationComponent copy(ImmunizationRecommendation e) {
@@ -353,12 +279,9 @@ public class ImmunizationRecommendation extends Resource {
         dst.supportingImmunization = new ArrayList<ResourceReference>();
         for (ResourceReference i : supportingImmunization)
           dst.supportingImmunization.add(i.copy());
-        dst.supportingAdverseEventReport = new ArrayList<ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent>();
-        for (ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent i : supportingAdverseEventReport)
-          dst.supportingAdverseEventReport.add(i.copy(e));
-        dst.supportingPatientObservation = new ArrayList<ResourceReference>();
-        for (ResourceReference i : supportingPatientObservation)
-          dst.supportingPatientObservation.add(i.copy());
+        dst.supportingPatientInformation = new ArrayList<ResourceReference>();
+        for (ResourceReference i : supportingPatientInformation)
+          dst.supportingPatientInformation.add(i.copy());
         return dst;
       }
 
@@ -449,7 +372,7 @@ public class ImmunizationRecommendation extends Resource {
 
     public static class ImmunizationRecommendationRecommendationProtocolComponent extends BackboneElement {
         /**
-         * Nominal position in a series.
+         * Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
          */
         protected Integer doseSequence;
 
@@ -473,14 +396,14 @@ public class ImmunizationRecommendation extends Resource {
       }
 
         /**
-         * @return {@link #doseSequence} (Nominal position in a series.)
+         * @return {@link #doseSequence} (Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.)
          */
         public Integer getDoseSequence() { 
           return this.doseSequence;
         }
 
         /**
-         * @param value {@link #doseSequence} (Nominal position in a series.)
+         * @param value {@link #doseSequence} (Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.)
          */
         public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequence(Integer value) { 
           this.doseSequence = value;
@@ -488,14 +411,14 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return Nominal position in a series.
+         * @return Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
          */
         public int getDoseSequenceSimple() { 
           return this.doseSequence == null ? null : this.doseSequence.getValue();
         }
 
         /**
-         * @param value Nominal position in a series.
+         * @param value Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
          */
         public ImmunizationRecommendationRecommendationProtocolComponent setDoseSequenceSimple(int value) { 
           if (value == -1)
@@ -597,7 +520,7 @@ public class ImmunizationRecommendation extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("doseSequence", "integer", "Nominal position in a series.", 0, java.lang.Integer.MAX_VALUE, doseSequence));
+          childrenList.add(new Property("doseSequence", "integer", "Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.", 0, java.lang.Integer.MAX_VALUE, doseSequence));
           childrenList.add(new Property("description", "string", "Contains the description about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("authority", "Resource(Organization)", "Indicates the authority who published the protocol?  E.g. ACIP.", 0, java.lang.Integer.MAX_VALUE, authority));
           childrenList.add(new Property("series", "string", "One possible path to achieve presumed immunity against a disease - within the context of an authority.", 0, java.lang.Integer.MAX_VALUE, series));
@@ -609,192 +532,6 @@ public class ImmunizationRecommendation extends Resource {
         dst.description = description == null ? null : description.copy();
         dst.authority = authority == null ? null : authority.copy();
         dst.series = series == null ? null : series.copy();
-        return dst;
-      }
-
-  }
-
-    public static class ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent extends BackboneElement {
-        /**
-         * Unique identifier of the adverse event report.
-         */
-        protected List<Id> identifier = new ArrayList<Id>();
-
-        /**
-         * Advers event report classification.
-         */
-        protected CodeableConcept reportType;
-
-        /**
-         * The date of the adverse event report.
-         */
-        protected DateTime reportDate;
-
-        /**
-         * The content of the adverse event report.
-         */
-        protected String_ text;
-
-        /**
-         * The documented reaction described in the adverse event report.
-         */
-        protected List<ResourceReference> reaction = new ArrayList<ResourceReference>();
-
-      public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #identifier} (Unique identifier of the adverse event report.)
-         */
-        public List<Id> getIdentifier() { 
-          return this.identifier;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #identifier} (Unique identifier of the adverse event report.)
-         */
-        public Id addIdentifier() { 
-          Id t = new Id();
-          this.identifier.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #identifier} (Unique identifier of the adverse event report.)
-         */
-        public Id addIdentifierSimple(String value) { 
-          Id t = new Id();
-          t.setValue(value);
-          this.identifier.add(t);
-          return t;
-        }
-
-        /**
-         * @return {@link #reportType} (Advers event report classification.)
-         */
-        public CodeableConcept getReportType() { 
-          return this.reportType;
-        }
-
-        /**
-         * @param value {@link #reportType} (Advers event report classification.)
-         */
-        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setReportType(CodeableConcept value) { 
-          this.reportType = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #reportDate} (The date of the adverse event report.)
-         */
-        public DateTime getReportDate() { 
-          return this.reportDate;
-        }
-
-        /**
-         * @param value {@link #reportDate} (The date of the adverse event report.)
-         */
-        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setReportDate(DateTime value) { 
-          this.reportDate = value;
-          return this;
-        }
-
-        /**
-         * @return The date of the adverse event report.
-         */
-        public DateAndTime getReportDateSimple() { 
-          return this.reportDate == null ? null : this.reportDate.getValue();
-        }
-
-        /**
-         * @param value The date of the adverse event report.
-         */
-        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setReportDateSimple(DateAndTime value) { 
-          if (value == null)
-            this.reportDate = null;
-          else {
-            if (this.reportDate == null)
-              this.reportDate = new DateTime();
-            this.reportDate.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #text} (The content of the adverse event report.)
-         */
-        public String_ getText() { 
-          return this.text;
-        }
-
-        /**
-         * @param value {@link #text} (The content of the adverse event report.)
-         */
-        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setText(String_ value) { 
-          this.text = value;
-          return this;
-        }
-
-        /**
-         * @return The content of the adverse event report.
-         */
-        public String getTextSimple() { 
-          return this.text == null ? null : this.text.getValue();
-        }
-
-        /**
-         * @param value The content of the adverse event report.
-         */
-        public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent setTextSimple(String value) { 
-          if (value == null)
-            this.text = null;
-          else {
-            if (this.text == null)
-              this.text = new String_();
-            this.text.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #reaction} (The documented reaction described in the adverse event report.)
-         */
-        public List<ResourceReference> getReaction() { 
-          return this.reaction;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #reaction} (The documented reaction described in the adverse event report.)
-         */
-        public ResourceReference addReaction() { 
-          ResourceReference t = new ResourceReference();
-          this.reaction.add(t);
-          return t;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("identifier", "id", "Unique identifier of the adverse event report.", 0, java.lang.Integer.MAX_VALUE, identifier));
-          childrenList.add(new Property("reportType", "CodeableConcept", "Advers event report classification.", 0, java.lang.Integer.MAX_VALUE, reportType));
-          childrenList.add(new Property("reportDate", "dateTime", "The date of the adverse event report.", 0, java.lang.Integer.MAX_VALUE, reportDate));
-          childrenList.add(new Property("text", "string", "The content of the adverse event report.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("reaction", "Resource(AdverseReaction)", "The documented reaction described in the adverse event report.", 0, java.lang.Integer.MAX_VALUE, reaction));
-        }
-
-      public ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent copy(ImmunizationRecommendation e) {
-        ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent dst = new ImmunizationRecommendationRecommendationSupportingAdverseEventReportComponent();
-        dst.identifier = new ArrayList<Id>();
-        for (Id i : identifier)
-          dst.identifier.add(i.copy());
-        dst.reportType = reportType == null ? null : reportType.copy();
-        dst.reportDate = reportDate == null ? null : reportDate.copy();
-        dst.text = text == null ? null : text.copy();
-        dst.reaction = new ArrayList<ResourceReference>();
-        for (ResourceReference i : reaction)
-          dst.reaction.add(i.copy());
         return dst;
       }
 

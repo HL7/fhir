@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Dec 10, 2013 15:07+1100 for FHIR v0.12
+// Generated on Sun, Dec 29, 2013 14:57+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -119,7 +119,7 @@ public class Questionnaire extends Resource {
         protected CodeableConcept name;
 
         /**
-         * Header for the group, used for display purposes.
+         * Text that is displayed above the contents of the group.
          */
         protected String_ header;
 
@@ -168,14 +168,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #header} (Header for the group, used for display purposes.)
+         * @return {@link #header} (Text that is displayed above the contents of the group.)
          */
         public String_ getHeader() { 
           return this.header;
         }
 
         /**
-         * @param value {@link #header} (Header for the group, used for display purposes.)
+         * @param value {@link #header} (Text that is displayed above the contents of the group.)
          */
         public GroupComponent setHeader(String_ value) { 
           this.header = value;
@@ -183,14 +183,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return Header for the group, used for display purposes.
+         * @return Text that is displayed above the contents of the group.
          */
         public String getHeaderSimple() { 
           return this.header == null ? null : this.header.getValue();
         }
 
         /**
-         * @param value Header for the group, used for display purposes.
+         * @param value Text that is displayed above the contents of the group.
          */
         public GroupComponent setHeaderSimple(String value) { 
           if (value == null)
@@ -327,7 +327,7 @@ public class Questionnaire extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "CodeableConcept", "Structured name for a section of a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("header", "string", "Header for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, header));
+          childrenList.add(new Property("header", "string", "Text that is displayed above the contents of the group.", 0, java.lang.Integer.MAX_VALUE, header));
           childrenList.add(new Property("text", "string", "Additional text for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("ordered", "boolean", "Whether the contents of this group have a meaningful order.", 0, java.lang.Integer.MAX_VALUE, ordered));
           childrenList.add(new Property("subject", "Resource(Any)", "More specific subject this section's answers are about, details the subject given in Questionnaire.", 0, java.lang.Integer.MAX_VALUE, subject));
@@ -360,7 +360,7 @@ public class Questionnaire extends Resource {
         protected CodeableConcept name;
 
         /**
-         * Text of the question as it may appear on screen or on a form.
+         * Text of the question as it is shown to the user.
          */
         protected String_ text;
 
@@ -414,14 +414,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #text} (Text of the question as it may appear on screen or on a form.)
+         * @return {@link #text} (Text of the question as it is shown to the user.)
          */
         public String_ getText() { 
           return this.text;
         }
 
         /**
-         * @param value {@link #text} (Text of the question as it may appear on screen or on a form.)
+         * @param value {@link #text} (Text of the question as it is shown to the user.)
          */
         public QuestionComponent setText(String_ value) { 
           this.text = value;
@@ -429,14 +429,14 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return Text of the question as it may appear on screen or on a form.
+         * @return Text of the question as it is shown to the user.
          */
         public String getTextSimple() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
-         * @param value Text of the question as it may appear on screen or on a form.
+         * @param value Text of the question as it is shown to the user.
          */
         public QuestionComponent setTextSimple(String value) { 
           if (value == null)
@@ -567,7 +567,7 @@ public class Questionnaire extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "CodeableConcept", "Structured name for the question that identifies this question within the Questionnaire or Group.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("text", "string", "Text of the question as it may appear on screen or on a form.", 0, java.lang.Integer.MAX_VALUE, text));
+          childrenList.add(new Property("text", "string", "Text of the question as it is shown to the user.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("answer[x]", "decimal|integer|boolean|date|string|dateTime|instant", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, answer));
           childrenList.add(new Property("choice", "Coding", "Selections made by the user from the list of options.", 0, java.lang.Integer.MAX_VALUE, choice));
           childrenList.add(new Property("options", "Resource(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));
