@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Patrick</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2013-12-28T18:43:46Z</LastSaved>
+  <LastSaved>2013-12-29T12:43:08Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6255</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -676,7 +676,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -689,12 +689,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -796,7 +795,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
@@ -832,7 +831,7 @@
     <Cell><Data ss:Type="String">DiagnosticReport.performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">identifier</Data></Cell>
+    <Cell><Data ss:Type="String">reportid</Data></Cell>
     <Cell><Data ss:Type="String">An identifier for the report</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.reportId</Data></Cell>
@@ -857,7 +856,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
-    <Cell><Data ss:Type="String">The name/code of the report</Data></Cell>
+    <Cell><Data ss:Type="String">The name of the report (e.g. the code for the report as a whole, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result)</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.results.name</Data></Cell>
    </Row>
@@ -874,7 +873,7 @@
     <Cell><Data ss:Type="String">DiagnosticReport.results.result | DiagnosticReport.results.group.result</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">diagnosis</Data></Cell>
     <Cell><Data ss:Type="String">A coded diagnosis on the report</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">DiagnosticReport.codedDiagnosis</Data></Cell>
@@ -884,6 +883,11 @@
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">DiagnosticReport.image.link</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">request</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">DiagnosticReport.requestDetail</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -892,11 +896,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>6</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1061,7 +1065,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

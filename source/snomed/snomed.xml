@@ -77,22 +77,332 @@
     <display value="Atopic allergy"/>
     <display value="Atopy (disorder)"/>
   </concept>
+  <concept id="11585000" display="Bubo (morphologic abnormality)">
+    <display value="Bubo"/>
+    <display value="Bubo, NOS"/>
+    <display value="Bubo (morphologic abnormality)"/>
+  </concept>
+  <concept id="119295008" display="Aspirate">
+    <display value="Specimen obtained by aspiration"/>
+    <display value="Aspirate"/>
+    <display value="Specimen obtained by aspiration (specimen)"/>
+  </concept>
+  <concept id="119297000" display="Blood specimen (specimen)">
+    <display value="Blood sample"/>
+    <display value="Blood specimen"/>
+    <display value="Blood specimen (specimen)"/>
+  </concept>
+  <concept id="119300005" display="Specimen from blood product (specimen)">
+    <display value="Specimen from blood product"/>
+    <display value="Specimen from blood product (specimen)"/>
+  </concept>
+  <concept id="119301009" display="Plant specimen (specimen)">
+    <display value="Plant specimen"/>
+    <display value="Plant specimen (specimen)"/>
+  </concept>
+  <concept id="119304001" display="Blood bag specimen (specimen)">
+    <display value="Blood bag specimen"/>
+    <display value="Blood bag specimen (specimen)"/>
+  </concept>
+  <concept id="119305000" display="Plasma bag specimen (specimen)">
+    <display value="Plasma bag specimen"/>
+    <display value="Plasma bag specimen (specimen)"/>
+  </concept>
+  <concept id="119306004" display="Drain device specimen (specimen)">
+    <display value="Drain device specimen"/>
+    <display value="Drain device specimen (specimen)"/>
+  </concept>
+  <concept id="119307008" display="Specimen from endotracheal tube (specimen)">
+    <display value="Endotracheal secretion sample"/>
+    <display value="Endotracheal fluid sample"/>
+    <display value="Endotracheal aspirate"/>
+    <display value="Endotracheal tube specimen"/>
+    <display value="Specimen from endotracheal tube (specimen)"/>
+    <display value="Specimen from endotracheal tube"/>
+    <display value="Endotracheal tube specimen (specimen)"/>
+  </concept>
+  <concept id="119310001" display="Tube specimen (specimen)">
+    <display value="Tube specimen"/>
+    <display value="Tube specimen (specimen)"/>
+  </concept>
+  <concept id="119311002" display="Catheter specimen (specimen)">
+    <display value="Catheter specimen"/>
+    <display value="Catheter specimen (specimen)"/>
+  </concept>
+  <concept id="119312009" display="Catheter tip specimen">
+    <display value="Catheter tip specimen"/>
+    <display value="Catheter tip specimen (specimen)"/>
+  </concept>
+  <concept id="119314005" display="Electrode specimen (specimen)">
+    <display value="Electrode specimen"/>
+    <display value="Electrode specimen (specimen)"/>
+  </concept>
+  <concept id="119317003" display="Gaseous material specimen (specimen)">
+    <display value="Gaseous material specimen"/>
+    <display value="Gaseous material specimen (specimen)"/>
+  </concept>
+  <concept id="119318008" display="Water specimen (specimen)">
+    <display value="Water sample"/>
+    <display value="Water specimen"/>
+    <display value="Water specimen (specimen)"/>
+  </concept>
+  <concept id="119320006" display="Food specimen (specimen)">
+    <display value="Foodstuff sample"/>
+    <display value="Food specimen"/>
+    <display value="Food specimen (specimen)"/>
+  </concept>
+  <concept id="119323008" display="Pus sample">
+    <display value="Pus sample"/>
+    <display value="Pus specimen"/>
+    <display value="Pus specimen (specimen)"/>
+  </concept>
+  <concept id="119324002" display="Specimen of unknown material (specimen)">
+    <display value="Specimen of unknown material"/>
+    <display value="Specimen of unknown material (specimen)"/>
+  </concept>
+  <concept id="119325001" display="Skin (tissue) specimen (specimen)">
+    <display value="Skin sample"/>
+    <display value="Skin specimen"/>
+    <display value="Skin (tissue) specimen"/>
+    <display value="Skin (tissue) specimen (specimen)"/>
+  </concept>
+  <concept id="119326000" display="Hair specimen (specimen)">
+    <display value="Hair sample"/>
+    <display value="Hair specimen"/>
+    <display value="Hair specimen (specimen)"/>
+  </concept>
+  <concept id="119327009" display="Nail specimen (specimen)">
+    <display value="Nail sample"/>
+    <display value="Nail specimen"/>
+    <display value="Nail specimen (specimen)"/>
+  </concept>
+  <concept id="119329007" display="Colostrum specimen (specimen)">
+    <display value="Colostrum sample"/>
+    <display value="Colostrum specimen"/>
+    <display value="Colostrum specimen (specimen)"/>
+  </concept>
+  <concept id="119332005" display="Synovial fluid specimen (specimen)">
+    <display value="Synovial fluid specimen"/>
+    <display value="Joint fluid sample"/>
+    <display value="Synovial fluid sample"/>
+    <display value="Synovial fluid specimen (specimen)"/>
+  </concept>
+  <concept id="119334006" display="Sputum specimen (specimen)">
+    <display value="Sputum sample"/>
+    <display value="Sputum specimen"/>
+    <display value="Sputum specimen (specimen)"/>
+  </concept>
+  <concept id="119335007" display="Coughed sputum specimen (specimen)">
+    <display value="Sputum - coughed sample"/>
+    <display value="Coughed sputum specimen"/>
+    <display value="Coughed sputum specimen (specimen)"/>
+  </concept>
+  <concept id="119336008" display="Exhaled air specimen (specimen)">
+    <display value="Exhaled air specimen"/>
+    <display value="Exhaled air specimen (specimen)"/>
+  </concept>
+  <concept id="119337004" display="Inhaled gas specimen (specimen)">
+    <display value="Inhaled gas specimen"/>
+    <display value="Inhaled gas specimen (specimen)"/>
+  </concept>
+  <concept id="119339001" display="Stool specimen (specimen)">
+    <display value="Faeces sample"/>
+    <display value="Feces sample"/>
+    <display value="Stool sample"/>
+    <display value="Stool specimen"/>
+    <display value="Faeces specimen"/>
+    <display value="Feces specimen"/>
+    <display value="Stool specimen (specimen)"/>
+  </concept>
+  <concept id="119342007" display="Saliva specimen (specimen)">
+    <display value="Saliva specimen"/>
+    <display value="Saliva specimen (specimen)"/>
+  </concept>
+  <concept id="119345009" display="Menstrual blood specimen (specimen)">
+    <display value="Menstrual blood specimen"/>
+    <display value="Menstrual blood specimen (specimen)"/>
+  </concept>
+  <concept id="119349003" display="Spermatozoa specimen (specimen)">
+    <display value="Spermatozoa specimen"/>
+    <display value="Spermatozoa specimen (specimen)"/>
+  </concept>
+  <concept id="119350003" display="Calculus specimen (specimen)">
+    <display value="Calculus sample"/>
+    <display value="Stone sample"/>
+    <display value="Calculus specimen"/>
+    <display value="Calculus specimen (specimen)"/>
+  </concept>
+  <concept id="119360007" display="Dialysis fluid specimen (specimen)">
+    <display value="Dialysis fluid sample"/>
+    <display value="Dialysis fluid specimen"/>
+    <display value="Dialysis fluid specimen (specimen)"/>
+  </concept>
+  <concept id="119361006" display="Plasma specimen (specimen)">
+    <display value="Plasma sample"/>
+    <display value="Plasma specimen"/>
+    <display value="Plasma specimen (specimen)"/>
+  </concept>
+  <concept id="119362004" display="Platelet poor plasma specimen (specimen)">
+    <display value="Platelet poor plasma specimen"/>
+    <display value="Platelet poor plasma specimen (specimen)"/>
+  </concept>
+  <concept id="119363009" display="Platelet rich plasma specimen (specimen)">
+    <display value="Platelet rich plasma specimen"/>
+    <display value="Platelet rich plasma specimen (specimen)"/>
+  </concept>
+  <concept id="119364003" display="Serum specimen">
+    <display value="Serum sample"/>
+    <display value="Serum specimen"/>
+    <display value="Serum specimen (specimen)"/>
+  </concept>
+  <concept id="119365002" display="Specimen from wound (specimen)">
+    <display value="Specimen from wound"/>
+    <display value="Specimen from wound (specimen)"/>
+  </concept>
+  <concept id="119366001" display="Specimen from wound abscess (specimen)">
+    <display value="Specimen from wound abscess"/>
+    <display value="Specimen from wound abscess (specimen)"/>
+  </concept>
+  <concept id="119367005" display="Specimen from burn injury (specimen)">
+    <display value="Specimen from burn injury"/>
+    <display value="Specimen from burn injury (specimen)"/>
+  </concept>
+  <concept id="119368000" display="Specimen from cyst (specimen)">
+    <display value="Specimen from cyst"/>
+    <display value="Specimen from cyst (specimen)"/>
+  </concept>
+  <concept id="119370009" display="Specimen from fistula (specimen)">
+    <display value="Specimen from fistula"/>
+    <display value="Specimen from fistula (specimen)"/>
+  </concept>
+  <concept id="119371008" display="Specimen from abscess (specimen)">
+    <display value="Specimen from abscess"/>
+    <display value="Specimen from abscess (specimen)"/>
+  </concept>
+  <concept id="119376003" display="Tissue specimen">
+    <display value="Tissue specimen"/>
+    <display value="Tissue specimen (specimen)"/>
+  </concept>
+  <concept id="119379005" display="Specimen from stomach (specimen)">
+    <display value="Specimen from stomach"/>
+    <display value="Specimen from stomach (specimen)"/>
+  </concept>
+  <concept id="119394009" display="Specimen from vagina">
+    <display value="Specimen from vagina"/>
+    <display value="Specimen from vagina (specimen)"/>
+  </concept>
+  <concept id="119401005" display="Specimen from conjunctiva (specimen)">
+    <display value="Specimen from conjunctiva"/>
+    <display value="Specimen from conjunctiva (specimen)"/>
+  </concept>
   <concept id="120220003" display="Injection to forearm">
     <display value="Injection to forearm"/>
     <display value="Injection to forearm (procedure)"/>
+  </concept>
+  <concept id="122462000" display="Drainage procedure (procedure)">
+    <display value="Drainage"/>
+    <display value="Drainage procedure"/>
+    <display value="Drainage procedure (procedure)"/>
+  </concept>
+  <concept id="122565001" display="Urinary catheter specimen (specimen)">
+    <display value="Urinary catheter specimen"/>
+    <display value="Urinary catheter specimen (specimen)"/>
+  </concept>
+  <concept id="122566000" display="Fluid specimen from wound (specimen)">
+    <display value="Wound fluid sample"/>
+    <display value="Fluid specimen from wound"/>
+    <display value="Fluid specimen from wound (specimen)"/>
+  </concept>
+  <concept id="122568004" display="Exudate specimen from wound (specimen)">
+    <display value="Exudate specimen from wound"/>
+    <display value="Exudate specimen from wound (specimen)"/>
+  </concept>
+  <concept id="122571007" display="Pericardial fluid specimen (specimen)">
+    <display value="Heart sac fluid sample"/>
+    <display value="Pericardial fluid specimen"/>
+    <display value="Pericardial fluid specimen (specimen)"/>
+  </concept>
+  <concept id="122572000" display="Vomitus specimen (specimen)">
+    <display value="Vomit sample"/>
+    <display value="Vomitus specimen"/>
+    <display value="Vomitus specimen (specimen)"/>
+  </concept>
+  <concept id="122575003" display="Urine sample">
+    <display value="Urine sample"/>
+    <display value="Urine specimen"/>
+    <display value="Urine specimen (specimen)"/>
+  </concept>
+  <concept id="122580007" display="Cerumen specimen (specimen)">
+    <display value="Cerumen specimen"/>
+    <display value="Cerumen specimen (specimen)"/>
+  </concept>
+  <concept id="122593002" display="Tissue specimen obtained from ulcer (specimen)">
+    <display value="Tissue specimen obtained from ulcer"/>
+    <display value="Tissue specimen obtained from ulcer (specimen)"/>
+  </concept>
+  <concept id="122609004" display="Specimen from lung obtained by bronchial washing procedure (specimen)">
+    <display value="Bronchial washings"/>
+    <display value="Specimen from lung obtained by bronchial washing procedure"/>
+    <display value="Specimen from lung obtained by bronchial washing procedure (specimen)"/>
   </concept>
   <concept id="122869004" display="Measurement">
     <display value="Measurement"/>
     <display value="Measurement procedure"/>
     <display value="Measurement procedure (procedure)"/>
   </concept>
+  <concept id="122877000" display="Upper respiratory fluid specimen obtained by tracheal aspiration (specimen)">
+    <display value="Upper respiratory fluid specimen obtained by tracheal aspiration"/>
+    <display value="Upper respiratory fluid specimen obtained by tracheal aspiration (specimen)"/>
+  </concept>
+  <concept id="122880004" display="Urine specimen obtained by clean catch procedure (specimen)">
+    <display value="Urine specimen obtained by clean catch procedure"/>
+    <display value="Urine specimen obtained by clean catch procedure (specimen)"/>
+  </concept>
+  <concept id="123038009" display="Specimen (specimen)">
+    <display value="Specimen"/>
+    <display value="Specimen (specimen)"/>
+  </concept>
+  <concept id="127490009" display="Gastrostomy route (qualifier value)">
+    <display value="Gastrostomy use"/>
+    <display value="Gastrostomy"/>
+    <display value="Gastrostomy route (qualifier value)"/>
+    <display value="Gastrostomy route"/>
+  </concept>
+  <concept id="127492001" display="Nasogastric route (qualifier value)">
+    <display value="Nasogastric use"/>
+    <display value="NG - Nasogastric use"/>
+    <display value="Nasogastric"/>
+    <display value="NG - Nasogastric route"/>
+    <display value="Nasogastric route (qualifier value)"/>
+    <display value="Nasogastric route"/>
+  </concept>
   <concept id="127850001" display="Wife">
     <display value="Wife"/>
     <display value="Wife (person)"/>
   </concept>
+  <concept id="128160006" display="Tissue specimen from conjunctiva (specimen)">
+    <display value="Tissue specimen from conjunctiva"/>
+    <display value="Tissue specimen from conjunctiva (specimen)"/>
+  </concept>
+  <concept id="129112001" display="Aspiration from trachea (procedure)">
+    <display value="Aspiration from trachea"/>
+    <display value="Tracheal suction"/>
+    <display value="Aspiration from trachea (procedure)"/>
+  </concept>
+  <concept id="12921003" display="Pelvic structure (body structure)">
+    <display value="Pelvic region"/>
+    <display value="Pelvis"/>
+    <display value="Pelvis, NOS"/>
+    <display value="Pelvic structure"/>
+    <display value="Pelvic structure (body structure)"/>
+  </concept>
   <concept id="129266000" display="Measurement - action">
     <display value="Measurement - action"/>
     <display value="Measurement - action (qualifier value)"/>
+  </concept>
+  <concept id="129300006" display="Puncture - action (qualifier value)">
+    <display value="Puncture - action"/>
+    <display value="Puncture - action (qualifier value)"/>
   </concept>
   <concept id="13645005" display="COLD">
     <display value="Chronic obstructive lung disease"/>
@@ -114,6 +424,18 @@
     <display value="COLD - Chronic obstructive lung disease"/>
     <display value="Chronic obstructive pulmonary disease"/>
     <display value="Chronic obstructive lung disease (disorder)"/>
+  </concept>
+  <concept id="13648007" display="Urethral structure (body structure)">
+    <display value="Urethra"/>
+    <display value="Urethra, NOS"/>
+    <display value="Urethral structure"/>
+    <display value="Urethral structure (body structure)"/>
+  </concept>
+  <concept id="14766002" display="Aspiration (procedure)">
+    <display value="Aspiration"/>
+    <display value="Removal by suction"/>
+    <display value="Aspiration procedure"/>
+    <display value="Aspiration (procedure)"/>
   </concept>
   <concept id="14803004" display="Transient">
     <display value="Transitory"/>
@@ -149,6 +471,10 @@
     <display value="Body mass index 30+ - obesity"/>
     <display value="Body mass index 30+ - obesity (finding)"/>
   </concept>
+  <concept id="16404004" display="Induced">
+    <display value="Induced"/>
+    <display value="Induced (qualifier value)"/>
+  </concept>
   <concept id="166698001" display="Serum bicarbonate level normal">
     <display value="Serum bicarbonate level normal"/>
     <display value="Serum bicarbonate level normal (finding)"/>
@@ -161,6 +487,25 @@
   <concept id="166717003" display="Serum creatinine raised">
     <display value="Serum creatinine raised"/>
     <display value="Serum creatinine raised (finding)"/>
+  </concept>
+  <concept id="168137004" display="Gastric aspirate sample (specimen)">
+    <display value="Gastric aspirate sample"/>
+    <display value="Stomach aspirate sample"/>
+    <display value="Gastric aspirate sample (specimen)"/>
+  </concept>
+  <concept id="168138009" display="Gastric lavage aspirate sample">
+    <display value="Gastric lavage aspirate sample"/>
+    <display value="Gastric washings"/>
+    <display value="Gastric washing"/>
+    <display value="Gastric lavage aspirate sample (specimen)"/>
+  </concept>
+  <concept id="168139001" display="Peritoneal fluid sample (specimen)">
+    <display value="Peritoneal fluid sample"/>
+    <display value="Peritoneal fluid sample (specimen)"/>
+  </concept>
+  <concept id="168141000" display="Nasal fluid sample (specimen)">
+    <display value="Nasal fluid sample"/>
+    <display value="Nasal fluid sample (specimen)"/>
   </concept>
   <concept id="169068008" display="CT of neck">
     <display value="Computed tomography of neck (procedure)"/>
@@ -185,12 +530,26 @@
     <display value="Incision of retropharyngeal abscess"/>
     <display value="Incision of retropharyngeal abscess (procedure)"/>
   </concept>
+  <concept id="173830003" display="Gastric lavage (procedure)">
+    <display value="Irrigation of stomach"/>
+    <display value="Washing out stomach contents"/>
+    <display value="Gastric irrigation"/>
+    <display value="Pumping stomach out"/>
+    <display value="Stomach washout"/>
+    <display value="Gastric lavage"/>
+    <display value="Gastric washout"/>
+    <display value="Gastric lavage (procedure)"/>
+  </concept>
   <concept id="17401000" display="Cardiac valve">
     <display value="Heart valve structure"/>
     <display value="Cardiac valve"/>
     <display value="Cardiac valve, NOS"/>
     <display value="Cardiac valve structure"/>
     <display value="Cardiac valve structure (body structure)"/>
+  </concept>
+  <concept id="176178006" display="Diagnostic cystoscopy (procedure)">
+    <display value="Diagnostic cystoscopy"/>
+    <display value="Diagnostic cystoscopy (procedure)"/>
   </concept>
   <concept id="17621005" display="Normal">
     <display value="Normal"/>
@@ -232,6 +591,13 @@
     <display value="Malignant tumour of craniopharyngeal duct"/>
     <display value="Malignant tumor of craniopharyngeal duct (disorder)"/>
   </concept>
+  <concept id="18911002" display="Penile structure (body structure)">
+    <display value="Penis structure"/>
+    <display value="Penis"/>
+    <display value="Penis, NOS"/>
+    <display value="Penile structure"/>
+    <display value="Penile structure (body structure)"/>
+  </concept>
   <concept id="190372001" display="Type I diabetes mellitus maturity onset">
     <display value="Type I diabetes mellitus maturity onset"/>
     <display value="Insulin-dependent diabetes maturity onset"/>
@@ -248,6 +614,37 @@
     <display value="Ischemic heart disease - angina"/>
     <display value="Ischaemic heart disease - angina"/>
     <display value="Angina (disorder)"/>
+  </concept>
+  <concept id="20233005" display="Scrotal structure (body structure)">
+    <display value="Scrotum"/>
+    <display value="Scrotum, NOS"/>
+    <display value="Scrotal structure"/>
+    <display value="Scrotal structure (body structure)"/>
+  </concept>
+  <concept id="20255002" display="Blush">
+    <display value="Blushing, function (observable entity)"/>
+    <display value="Blushing, function"/>
+    <display value="Flushing"/>
+    <display value="Blushing"/>
+    <display value="Blush"/>
+    <display value="Flush"/>
+    <display value="Blushing (function)"/>
+  </concept>
+  <concept id="2095001" display="Nasal sinus structure (body structure)">
+    <display value="Accessory sinus"/>
+    <display value="Accessory sinus, NOS"/>
+    <display value="Paranasal sinus, NOS"/>
+    <display value="Nasal sinus, NOS"/>
+    <display value="Paranasal sinus"/>
+    <display value="Nasal sinus"/>
+    <display value="Nasal sinus structure"/>
+    <display value="Nasal sinus structure (body structure)"/>
+  </concept>
+  <concept id="21306003" display="Jejunal structure (body structure)">
+    <display value="Jejunum"/>
+    <display value="Jejunum, NOS"/>
+    <display value="Jejunal structure"/>
+    <display value="Jejunal structure (body structure)"/>
   </concept>
   <concept id="22298006" display="Heart attack">
     <display value="MI - Myocardial infarction"/>
@@ -266,6 +663,15 @@
     <display value="Renal nurse"/>
     <display value="Renal nurse (occupation)"/>
   </concept>
+  <concept id="225109005" display="Collection of nephrostomy urine specimen (procedure)">
+    <display value="Collection of nephrostomy urine specimen"/>
+    <display value="Collection of nephrostomy urine specimen (procedure)"/>
+  </concept>
+  <concept id="225271002" display="Collection of mid-stream specimen of urine (procedure)">
+    <display value="Collection of mid-stream specimen of urine"/>
+    <display value="MSU - Collection of mid-stream specimen of urine"/>
+    <display value="Collection of mid-stream specimen of urine (procedure)"/>
+  </concept>
   <concept id="225304007" display="Following the program plan">
     <display value="Following the program plan"/>
     <display value="Implementing proposed interventions"/>
@@ -276,6 +682,16 @@
   <concept id="229774002" display="Carer">
     <display value="Carer"/>
     <display value="Carer (occupation)"/>
+  </concept>
+  <concept id="235157009" display="Endoscopic brushings of gastrointestinal tract (procedure)">
+    <display value="Endoscopic brushings of gastrointestinal tract"/>
+    <display value="Endoscopic brushings of GIT"/>
+    <display value="Endoscopic brushings of gastrointestinal tract (procedure)"/>
+  </concept>
+  <concept id="240977001" display="Biopsy of skin">
+    <display value="Biopsy of skin"/>
+    <display value="Skin biopsy"/>
+    <display value="Biopsy of skin (procedure)"/>
   </concept>
   <concept id="241541005" display="High resolution CT of lungs">
     <display value="High resolution computed tomography of lungs (procedure)"/>
@@ -317,9 +733,26 @@
     <display value="NSCLC - Non-small cell lung cancer"/>
     <display value="Non-small cell lung cancer (disorder)"/>
   </concept>
+  <concept id="255560000" display="Intravenous (qualifier value)">
+    <display value="Intravenous"/>
+    <display value="IV - Intravenous"/>
+    <display value="Intravenous (qualifier value)"/>
+  </concept>
+  <concept id="255587001" display="Peak (qualifier value)">
+    <display value="Peak"/>
+    <display value="Peak (qualifier value)"/>
+  </concept>
+  <concept id="255588006" display="Trough (qualifier value)">
+    <display value="Trough"/>
+    <display value="Trough (qualifier value)"/>
+  </concept>
   <concept id="255604002" display="Mild">
     <display value="Mild"/>
     <display value="Mild (qualifier value)"/>
+  </concept>
+  <concept id="257351008" display="Shunt (physical object)">
+    <display value="Shunt"/>
+    <display value="Shunt (physical object)"/>
   </concept>
   <concept id="258219007" display="Stage 2">
     <display value="Stage 2"/>
@@ -327,10 +760,165 @@
     <display value="Second stage"/>
     <display value="Stage 2 (qualifier value)"/>
   </concept>
+  <concept id="258415003" display="Biopsy sample (specimen)">
+    <display value="Biopsy sample"/>
+    <display value="Biopsy sample (specimen)"/>
+  </concept>
+  <concept id="258420003" display="Cyst tissue (specimen)">
+    <display value="Cyst tissue"/>
+    <display value="Cyst tissue (specimen)"/>
+  </concept>
+  <concept id="258431006" display="Scrapings">
+    <display value="Scrapings"/>
+    <display value="Scrapings (specimen)"/>
+  </concept>
+  <concept id="258435002" display="Tumor tissue sample (specimen)">
+    <display value="Tumour tissue"/>
+    <display value="Tumour tissue sample"/>
+    <display value="Tumor tissue"/>
+    <display value="Tumor tissue sample"/>
+    <display value="Tumor tissue sample (specimen)"/>
+  </concept>
+  <concept id="258438000" display="Vitreous humor sample (specimen)">
+    <display value="Vitreous fluid specimen"/>
+    <display value="Vitreous humor sample"/>
+    <display value="Vitreous humour sample"/>
+    <display value="Vitreous humor sample (specimen)"/>
+  </concept>
+  <concept id="258439008" display="Discharge specimen (specimen)">
+    <display value="Discharge specimen (specimen)"/>
+    <display value="Discharge specimen"/>
+    <display value="Discharge - sample"/>
+    <display value="Discharge"/>
+    <display value="Dx - Discharge"/>
+    <display value="Discharge - sample (specimen)"/>
+  </concept>
+  <concept id="258440005" display="Effusion sample (specimen)">
+    <display value="Effusion sample"/>
+    <display value="Effusion sample (specimen)"/>
+  </concept>
+  <concept id="258441009" display="Exudate sample (specimen)">
+    <display value="Exudate sample"/>
+    <display value="Exudate sample (specimen)"/>
+  </concept>
+  <concept id="258442002" display="Fluid sample (specimen)">
+    <display value="Fluid sample cell count"/>
+    <display value="Fluid sample"/>
+    <display value="Fluid specimen"/>
+    <display value="Fluid sample (specimen)"/>
+  </concept>
+  <concept id="258450006" display="Cerebrospinal fluid sample (specimen)">
+    <display value="Cerebrospinal fluid specimen"/>
+    <display value="Cerebrospinal fluid sample"/>
+    <display value="CSF - Cerebrospinal fluid sample"/>
+    <display value="Cerebrospinal fluid sample (specimen)"/>
+  </concept>
+  <concept id="258453008" display="Cyst fluid sample (specimen)">
+    <display value="Cyst fluid sample"/>
+    <display value="Cyst fluid sample (specimen)"/>
+  </concept>
+  <concept id="258455001" display="Drainage fluid sample (specimen)">
+    <display value="Drainage fluid sample"/>
+    <display value="Drainage fluid sample (specimen)"/>
+  </concept>
+  <concept id="258459007" display="Gastric fluid sample (specimen)">
+    <display value="Gastric fluid sample"/>
+    <display value="Gastric juice sample"/>
+    <display value="Gastric fluid sample (specimen)"/>
+  </concept>
+  <concept id="258463000" display="Jejunal fluid sample (specimen)">
+    <display value="Jejunal fluid sample"/>
+    <display value="Jejunal fluid sample (specimen)"/>
+  </concept>
+  <concept id="258474009" display="Sinus fluid sample (specimen)">
+    <display value="Sinus fluid sample"/>
+    <display value="Sinus fluid sample (specimen)"/>
+  </concept>
+  <concept id="258480001" display="Transtracheal aspirate sample (specimen)">
+    <display value="Transtracheal aspirate sample"/>
+    <display value="Transtracheal secretion sample"/>
+    <display value="Transtracheal aspirate"/>
+    <display value="Transtracheal fluid sample"/>
+    <display value="Transtracheal aspirate sample (specimen)"/>
+  </concept>
+  <concept id="258482009" display="Vesicle fluid sample (specimen)">
+    <display value="Blister fluid sample"/>
+    <display value="Vesicle fluid sample"/>
+    <display value="Vesicle fluid sample (specimen)"/>
+  </concept>
+  <concept id="258483004" display="Mucus sample (specimen)">
+    <display value="Mucus sample"/>
+    <display value="Mucus sample (specimen)"/>
+  </concept>
+  <concept id="258498002" display="Conjunctival swab (specimen)">
+    <display value="Conjunctival swab"/>
+    <display value="Conjunctival swab (specimen)"/>
+  </concept>
+  <concept id="258505006" display="Skin ulcer swab (specimen)">
+    <display value="Skin ulcer swab"/>
+    <display value="Skin ulcer swab (specimen)"/>
+  </concept>
+  <concept id="258507003" display="Swab of line insertion site (specimen)">
+    <display value="Swab of line insertion site"/>
+    <display value="Swab of line insertion site (specimen)"/>
+  </concept>
+  <concept id="258536003" display="Incubator swab (specimen)">
+    <display value="Incubator swab"/>
+    <display value="Incubator swab (specimen)"/>
+  </concept>
+  <concept id="258538002" display="Transudate sample (specimen)">
+    <display value="Transudate sample"/>
+    <display value="Transudate sample (specimen)"/>
+  </concept>
+  <concept id="258574006" display="Mid-stream urine sample (specimen)">
+    <display value="Mid-stream urine sample"/>
+    <display value="MSU - Mid-stream urine sample"/>
+    <display value="Mid-stream urine sample (specimen)"/>
+  </concept>
+  <concept id="258603007" display="Respiratory sample (specimen)">
+    <display value="Respiratory sample"/>
+    <display value="Respiratory sample (specimen)"/>
+  </concept>
+  <concept id="258607008" display="Bronchoalveolar lavage fluid sample (specimen)">
+    <display value="Bronchoalveolar lavage fluid sample"/>
+    <display value="BALF - Bronchoalveolar lavage fluid"/>
+    <display value="Bronchoalveolar lavage fluid"/>
+    <display value="Bronchoalveolar lavage fluid sample (specimen)"/>
+  </concept>
+  <concept id="258609006" display="Sputum specimen obtained by aspiration from trachea (specimen)">
+    <display value="Sputum specimen obtained by aspiration from trachea (specimen)"/>
+    <display value="Sputum specimen obtained by aspiration from trachea"/>
+    <display value="Sputum - tracheostomy aspirate sample"/>
+    <display value="Sputum - tracheostomy aspirate sample (specimen)"/>
+  </concept>
+  <concept id="258610001" display="Sputum specimen obtained by sputum induction (specimen)">
+    <display value="Sputum specimen obtained by sputum induction (specimen)"/>
+    <display value="Sputum specimen obtained by sputum induction"/>
+    <display value="Sputum - induced sample"/>
+    <display value="Sputum - induced sample (specimen)"/>
+  </concept>
+  <concept id="258614005" display="Insect sample (specimen)">
+    <display value="Insect sample"/>
+    <display value="Insect sample (specimen)"/>
+  </concept>
+  <concept id="258618008" display="Helminth sample (specimen)">
+    <display value="Helminth sample"/>
+    <display value="Helminth sample (specimen)"/>
+  </concept>
+  <concept id="258649003" display="Intravenous infusion fluid sample (specimen)">
+    <display value="Intravenous infusion fluid sample"/>
+    <display value="Intravenous infusion fluid sample (specimen)"/>
+  </concept>
   <concept id="258710007" display="degrees C">
     <display value="degrees C"/>
     <display value="degrees Celsius"/>
     <display value="degrees C (qualifier value)"/>
+  </concept>
+  <concept id="25990002" display="Renal pelvis structure (body structure)">
+    <display value="Renal pelvis"/>
+    <display value="Renal pelvis, NOS"/>
+    <display value="Renal pelvis structure"/>
+    <display value="Renal pelvis structure (body structure)"/>
   </concept>
   <concept id="270427003" display="Patient-initiated encounter">
     <display value="Patient-initiated encounter"/>
@@ -358,6 +946,10 @@
     <display value="Urinalysis procedure"/>
     <display value="Urinalysis (procedure)"/>
   </concept>
+  <concept id="272626006" display="Respiratory organ (body structure)">
+    <display value="Respiratory organ"/>
+    <display value="Respiratory organ (body structure)"/>
+  </concept>
   <concept id="272676008" display="Sphenoid bone">
     <display value="Entire sphenoid bone"/>
     <display value="Sphenoid bone"/>
@@ -376,11 +968,35 @@
     <display value="Fluid balance regulation"/>
     <display value="Fluid balance regulation (procedure)"/>
   </concept>
+  <concept id="278020009" display="Spot urine sample (specimen)">
+    <display value="Spot urine sample"/>
+    <display value="Spot urine sample (specimen)"/>
+  </concept>
   <concept id="278110001" display="Radiographic imaging">
     <display value="Radiographic imaging - action"/>
     <display value="Radiographic imaging"/>
     <display value="Radiology techniques"/>
     <display value="Radiographic imaging - action (qualifier value)"/>
+  </concept>
+  <concept id="278450005" display="Finger stick">
+    <display value="Finger stick"/>
+    <display value="Finger puncture"/>
+    <display value="Finger-prick sampling"/>
+    <display value="Finger-prick sampling (procedure)"/>
+  </concept>
+  <concept id="279107003" display="Central nervous system space (body structure)">
+    <display value="Central nervous system space"/>
+    <display value="Central nervous system space (body structure)"/>
+  </concept>
+  <concept id="27925004" display="Nodule (morphologic abnormality)">
+    <display value="Nodule"/>
+    <display value="Nodule, NOS"/>
+    <display value="Nodule (morphologic abnormality)"/>
+  </concept>
+  <concept id="279572002" display="Testicular structure (body structure)">
+    <display value="Testicle structure"/>
+    <display value="Testicular structure"/>
+    <display value="Testicular structure (body structure)"/>
   </concept>
   <concept id="280193007" display="Retropharyngeal space">
     <display value="Retropharyngeal space"/>
@@ -405,11 +1021,46 @@
     <display value="Potassium supplementation"/>
     <display value="Potassium supplementation (substance)"/>
   </concept>
+  <concept id="285570007" display="Taking of swab (procedure)">
+    <display value="Taking of swab"/>
+    <display value="Taking of swab (procedure)"/>
+  </concept>
   <concept id="28995006" display="TW">
     <display value="Treated with"/>
     <display value="TW"/>
     <display value="Treated by"/>
     <display value="Treated with (attribute)"/>
+  </concept>
+  <concept id="29240004" display="Autopsy">
+    <display value="Autopsy examination"/>
+    <display value="Autopsy examination, NOS"/>
+    <display value="Autopsy, NOS"/>
+    <display value="Necropsy, NOS"/>
+    <display value="Autopsy"/>
+    <display value="Necropsy"/>
+    <display value="Autopsy examination (procedure)"/>
+  </concept>
+  <concept id="302794003" display="Nasogastric aspirate (specimen)">
+    <display value="Nasogastric aspirate"/>
+    <display value="Nasogastric tube aspirate"/>
+    <display value="NGT - Nasogastric tube aspirate"/>
+    <display value="Nasogastric aspirate (specimen)"/>
+  </concept>
+  <concept id="302795002" display="Lymph node aspirate (specimen)">
+    <display value="Lymph node aspirate"/>
+    <display value="Lymph node aspirate (specimen)"/>
+  </concept>
+  <concept id="303112003" display="Fetal period (qualifier value)">
+    <display value="Fetal period"/>
+    <display value="Fetal period (qualifier value)"/>
+  </concept>
+  <concept id="303113008" display="Postmortem period (qualifier value)">
+    <display value="Postmortem period"/>
+    <display value="Postmortem period (qualifier value)"/>
+  </concept>
+  <concept id="303949008" display="Lumbar spinal cerebrospinal fluid pathway (body structure)">
+    <display value="Lumbar spinal cerebrospinal fluid pathway"/>
+    <display value="Lumbar spinal cerebrospinal fluid pathway (body structure)"/>
   </concept>
   <concept id="305956004" display="Referral by physician">
     <display value="Referral from physician"/>
@@ -441,12 +1092,55 @@
     <display value="Superficial forearm vein"/>
     <display value="Superficial forearm vein (body structure)"/>
   </concept>
+  <concept id="309049000" display="Lesion sample (specimen)">
+    <display value="Lesion sample"/>
+    <display value="Lesion sample (specimen)"/>
+  </concept>
+  <concept id="309051001" display="Body fluid sample (specimen)">
+    <display value="Body fluid specimen"/>
+    <display value="Body fluid sample"/>
+    <display value="Body fluid sample (specimen)"/>
+  </concept>
+  <concept id="309066003" display="Skin biopsy sample (specimen)">
+    <display value="Skin biopsy sample"/>
+    <display value="Skin biopsy sample (specimen)"/>
+  </concept>
+  <concept id="309068002" display="Skin lesion sample">
+    <display value="Skin lesion sample"/>
+    <display value="Skin lesion sample (specimen)"/>
+  </concept>
+  <concept id="309075001" display="Skin cyst sample (specimen)">
+    <display value="Skin cyst sample"/>
+    <display value="Skin cyst sample (specimen)"/>
+  </concept>
+  <concept id="309176002" display="Bronchial brushings sample (specimen)">
+    <display value="Bronchial brushings sample"/>
+    <display value="Bronchial brushings sample (specimen)"/>
+  </concept>
   <concept id="3092008" display="Staphylococcus aureus">
     <display value="Staphylococcus aureus"/>
     <display value="Micrococcus pyogenes var. aureus"/>
     <display value="Staphylococcus pyogenes aureus"/>
     <display value="Staphylococcus pyogenes citreus"/>
     <display value="Staphylococcus aureus (organism)"/>
+  </concept>
+  <concept id="309210009" display="Esophageal brushings sample (specimen)">
+    <display value="Oesophageal brushings sample"/>
+    <display value="Esophageal brushings sample"/>
+    <display value="Esophageal brushings sample (specimen)"/>
+  </concept>
+  <concept id="309211008" display="Gastric biopsy sample (specimen)">
+    <display value="Specimen from stomach obtained by biopsy"/>
+    <display value="Gastric biopsy sample"/>
+    <display value="Gastric biopsy sample (specimen)"/>
+  </concept>
+  <concept id="309213006" display="Gastric brushings sample (specimen)">
+    <display value="Gastric brushings sample"/>
+    <display value="Gastric brushings sample (specimen)"/>
+  </concept>
+  <concept id="309502007" display="Fetus specimen (specimen)">
+    <display value="Fetus specimen"/>
+    <display value="Fetus specimen (specimen)"/>
   </concept>
   <concept id="309902002" display="Clinical oncology department">
     <display value="Clinical oncology department"/>
@@ -464,6 +1158,13 @@
   <concept id="310512001" display="Medical oncologist">
     <display value="Medical oncologist"/>
     <display value="Medical oncologist (occupation)"/>
+  </concept>
+  <concept id="31113003" display="Diverticulum (morphologic abnormality)">
+    <display value="Diverticulum"/>
+    <display value="Diverticulum, NOS"/>
+    <display value="Diverticula"/>
+    <display value="Diverticulosis"/>
+    <display value="Diverticulum (morphologic abnormality)"/>
   </concept>
   <concept id="3127006" display="5-FU">
     <display value="Fluorouracil (product)"/>
@@ -535,21 +1236,50 @@
     <display value="Flucloxacillin 1g injection (pdr for recon)"/>
     <display value="Flucloxacillin 1g injection (pdr for recon) (substance)"/>
   </concept>
+  <concept id="32361000" display="Popliteal fossa structure (body structure)">
+    <display value="Popliteal fossa structure"/>
+    <display value="Popliteal fossa"/>
+    <display value="Popliteal fossa structure (body structure)"/>
+  </concept>
   <concept id="325267004" display="Tolbutamide 500mg tablet">
     <display value="Tolbutamide 500mg tablet (product)"/>
     <display value="Tolbutamide 500mg tablet"/>
     <display value="Tolbutamide 500mg tablet (substance)"/>
+  </concept>
+  <concept id="32849002" display="Esophageal structure (body structure)">
+    <display value="Oesophageal structure"/>
+    <display value="Esophageal structure"/>
+    <display value="Esophagus"/>
+    <display value="Esophagus, NOS"/>
+    <display value="Oesophagus, NOS"/>
+    <display value="Oesophagus"/>
+    <display value="Esophageal structure (body structure)"/>
   </concept>
   <concept id="33526004" display="Laboratory reporting, computer">
     <display value="Laboratory reporting, electronic"/>
     <display value="Laboratory reporting, computer"/>
     <display value="Laboratory reporting, electronic (procedure)"/>
   </concept>
+  <concept id="339008" display="Blister (morphologic abnormality)">
+    <display value="Blister"/>
+    <display value="Bulla"/>
+    <display value="Blister, NOS"/>
+    <display value="Bleb"/>
+    <display value="Blisters"/>
+    <display value="Blistering"/>
+    <display value="Blister (morphologic abnormality)"/>
+  </concept>
   <concept id="34068001" display="Heart valve replacement">
     <display value="Replacement of unspecified heart valve"/>
     <display value="Heart valve replacement, NOS"/>
     <display value="Heart valve replacement"/>
     <display value="Heart valve replacement (procedure)"/>
+  </concept>
+  <concept id="34402009" display="Rectum structure (body structure)">
+    <display value="Rectum structure"/>
+    <display value="Rectum"/>
+    <display value="Rectum, NOS"/>
+    <display value="Rectum structure (body structure)"/>
   </concept>
   <concept id="34608000" display="ALT measurement">
     <display value="Alanine aminotransferase measurement"/>
@@ -563,6 +1293,10 @@
     <display value="Partial lobectomy of lung"/>
     <display value="Partial lobectomy of lung (procedure)"/>
   </concept>
+  <concept id="360020006" display="Extirpation - action">
+    <display value="Extirpation - action"/>
+    <display value="Extirpation - action (qualifier value)"/>
+  </concept>
   <concept id="36048009" display="Glucose measurement">
     <display value="Glucose measurement"/>
     <display value="Glucose measurement, NOS"/>
@@ -572,6 +1306,11 @@
     <display value="Entire head and neck"/>
     <display value="Head and neck"/>
     <display value="Entire head and neck (body structure)"/>
+  </concept>
+  <concept id="36213007" display="Endoscopy and brush biopsy (procedure)">
+    <display value="Endoscopy and brush biopsy"/>
+    <display value="Endoscopic brush biopsy"/>
+    <display value="Endoscopy and brush biopsy (procedure)"/>
   </concept>
   <concept id="36225005" display="Acute renal failure due to procedure">
     <display value="Acute renal failure due to procedure"/>
@@ -700,6 +1439,14 @@
     <display value="Injection"/>
     <display value="Injection (qualifier value)"/>
   </concept>
+  <concept id="386144009" display="Line insertion site (morphologic abnormality)">
+    <display value="Line insertion site (morphologic abnormality)"/>
+    <display value="Line insertion site"/>
+  </concept>
+  <concept id="386147002" display="Smear procedure">
+    <display value="Smear procedure (procedure)"/>
+    <display value="Smear procedure"/>
+  </concept>
   <concept id="386359008" display="Medication administration: oral">
     <display value="Medication administration: oral (procedure)"/>
     <display value="Medication administration: oral"/>
@@ -729,6 +1476,14 @@
     <display value="Burn of ear, NOS"/>
     <display value="Burn of ear (disorder)"/>
   </concept>
+  <concept id="391040000" display="At risk of osteoporotic fracture (finding)">
+    <display value="At risk of osteoporotic fracture (finding)"/>
+    <display value="At risk of osteoporotic fracture"/>
+  </concept>
+  <concept id="394802001" display="General medicine">
+    <display value="General medicine (qualifier value)"/>
+    <display value="General medicine"/>
+  </concept>
   <concept id="394848005" display="Normal priority">
     <display value="Normal priority (qualifier value)"/>
     <display value="Normal priority"/>
@@ -755,6 +1510,17 @@
     <display value="Lung, NOS"/>
     <display value="Lung structure (body structure)"/>
   </concept>
+  <concept id="397158004" display="Perianal region structure (body structure)">
+    <display value="Perianal region structure (body structure)"/>
+    <display value="Perianal region structure"/>
+    <display value="Perianal region"/>
+  </concept>
+  <concept id="397394009" display="Bronchoalveolar lavage (procedure)">
+    <display value="Bronchoalveolar lavage (procedure)"/>
+    <display value="Bronchoalveolar lavage"/>
+    <display value="BAL procedure"/>
+    <display value="BAL - Bronchoalveolar lavage"/>
+  </concept>
   <concept id="39748002" display="Bilirubin, direct measurement">
     <display value="Bilirubin, conjugated measurement, serum"/>
     <display value="Bilirubin, direct measurement"/>
@@ -769,6 +1535,10 @@
     <display value="Diaphragmatic hernia"/>
     <display value="Diaphragmatic hernia, NOS"/>
     <display value="Diaphragmatic hernia (disorder)"/>
+  </concept>
+  <concept id="399713008" display="Specimen from uterine cervix obtained by cone biopsy (specimen)">
+    <display value="Specimen from uterine cervix obtained by cone biopsy (specimen)"/>
+    <display value="Specimen from uterine cervix obtained by cone biopsy"/>
   </concept>
   <concept id="405608006" display="Teaching hospital">
     <display value="Academic medical center (environment)"/>
@@ -790,10 +1560,22 @@
     <display value="Rosuvastatin 10mg tablet (product)"/>
     <display value="Rosuvastatin 10mg tablet"/>
   </concept>
+  <concept id="408478003" display="Critical care medicine">
+    <display value="Critical care medicine (qualifier value)"/>
+    <display value="Critical care medicine"/>
+  </concept>
+  <concept id="408654003" display="Specimen obtained by amputation">
+    <display value="Specimen obtained by amputation (specimen)"/>
+    <display value="Specimen obtained by amputation"/>
+  </concept>
   <concept id="409402009" display="EGFR inhibitor">
     <display value="Epidermal growth factor receptor inhibitor (substance)"/>
     <display value="Epidermal growth factor receptor inhibitor"/>
     <display value="EGFR inhibitor"/>
+  </concept>
+  <concept id="410001006" display="Military medicine">
+    <display value="Military medicine (qualifier value)"/>
+    <display value="Military medicine"/>
   </concept>
   <concept id="410158009" display="Physical therapy assessment">
     <display value="Physical therapy assessment (regime/therapy)"/>
@@ -812,6 +1594,36 @@
     <display value="Body mass index 20-24 - normal (finding)"/>
     <display value="Body mass index 20-24 - normal"/>
   </concept>
+  <concept id="41329004" display="Polyp (morphologic abnormality)">
+    <display value="Polyp"/>
+    <display value="Polyp, NOS"/>
+    <display value="Polyp (morphologic abnormality)"/>
+  </concept>
+  <concept id="413651001" display="Bioptics">
+    <display value="Bioptics (procedure)"/>
+    <display value="Bioptics"/>
+  </concept>
+  <concept id="4147007" display="Mass (morphologic abnormality)">
+    <display value="Localised mass"/>
+    <display value="Mass (morphologic abnormality)"/>
+    <display value="Mass"/>
+    <display value="Localized mass, NOS"/>
+    <display value="Mass, NOS"/>
+    <display value="Lump, NOS"/>
+    <display value="Localized mass"/>
+    <display value="Lump"/>
+  </concept>
+  <concept id="414781009" display="Mucous membrane structure (body structure)">
+    <display value="Mucous membrane structure (body structure)"/>
+    <display value="Mucous membrane structure"/>
+    <display value="MM - Mucous membrane"/>
+    <display value="Mucous membrane"/>
+    <display value="Tunica mucosa"/>
+  </concept>
+  <concept id="41570003" display="Carbuncle (morphologic abnormality)">
+    <display value="Carbuncle"/>
+    <display value="Carbuncle (morphologic abnormality)"/>
+  </concept>
   <concept id="415945006" display="Oral temperature">
     <display value="Oral temperature (observable entity)"/>
     <display value="Oral temperature"/>
@@ -822,16 +1634,32 @@
     <display value="Respiratory disease specialist"/>
     <display value="Respiratory disease specialist (occupation)"/>
   </concept>
+  <concept id="41695006" display="Scalp structure (body structure)">
+    <display value="Scalp structure"/>
+    <display value="Scalp"/>
+    <display value="Scalp, NOS"/>
+    <display value="Epicranium"/>
+    <display value="Scalp structure (body structure)"/>
+  </concept>
   <concept id="419099009" display="Dead">
     <display value="Dead (finding)"/>
     <display value="Dead"/>
     <display value="Died"/>
     <display value="Has died"/>
   </concept>
+  <concept id="419954003" display="Ileostomy route (qualifier value)">
+    <display value="Ileostomy route (qualifier value)"/>
+    <display value="Ileostomy route"/>
+  </concept>
   <concept id="420317006" display="Inhaler">
     <display value="Inhaler (product)"/>
     <display value="Inhaler"/>
     <display value="Inhaler (qualifier value)"/>
+  </concept>
+  <concept id="420548004" display="Specimen from mass lesion (specimen)">
+    <display value="Specimen from mass lesion (specimen)"/>
+    <display value="Specimen from mass"/>
+    <display value="Specimen from mass lesion"/>
   </concept>
   <concept id="421606006" display="Aerosol spray">
     <display value="Aerosol spray (product)"/>
@@ -872,9 +1700,61 @@
     <display value="Computed tomography (CT) of head and neck"/>
     <display value="Computed tomography of head and neck"/>
   </concept>
+  <concept id="430268003" display="Specimen from bone (specimen)">
+    <display value="Specimen from bone (specimen)"/>
+    <display value="Specimen from bone"/>
+  </concept>
+  <concept id="430823004" display="Examination of midstream urine specimen">
+    <display value="Examination of midstream urine specimen (procedure)"/>
+    <display value="Examination of midstream urine specimen"/>
+  </concept>
+  <concept id="431938005" display="Structure of urinary tract proper (body structure)">
+    <display value="Structure of urinary tract proper (body structure)"/>
+    <display value="Structure of urinary tract proper"/>
+  </concept>
+  <concept id="432825001" display="Body secretion specimen (specimen)">
+    <display value="Body secretion specimen (specimen)"/>
+    <display value="Body secretion specimen"/>
+  </concept>
+  <concept id="4335006" display="Upper jaw region structure (body structure)">
+    <display value="Upper jaw region"/>
+    <display value="Upper jaw region structure"/>
+    <display value="Upper jaw region structure (body structure)"/>
+    <display value="Upper jaw"/>
+  </concept>
+  <concept id="438660002" display="Specimen from prosthetic device (specimen)">
+    <display value="Specimen from prosthetic device (specimen)"/>
+    <display value="Specimen from prosthetic device"/>
+  </concept>
+  <concept id="439336003" display="Brush biopsy (procedure)">
+    <display value="Brush biopsy (procedure)"/>
+    <display value="Brush biopsy"/>
+  </concept>
   <concept id="439401001" display="Diagnosis">
     <display value="Diagnosis (observable entity)"/>
     <display value="Diagnosis"/>
+  </concept>
+  <concept id="439961009" display="Implant submitted as specimen (specimen)">
+    <display value="Implant submitted as specimen (specimen)"/>
+    <display value="Implant submitted as specimen"/>
+  </concept>
+  <concept id="440137008" display="Specimen obtained by peritoneal lavage (specimen)">
+    <display value="Specimen obtained by peritoneal lavage (specimen)"/>
+    <display value="Specimen obtained by peritoneal lavage"/>
+  </concept>
+  <concept id="440473005" display="Contact lens submitted as specimen (specimen)">
+    <display value="Contact lens submitted as specimen (specimen)"/>
+    <display value="Contact lens submitted as specimen"/>
+  </concept>
+  <concept id="440493002" display="Graft specimen from patient (specimen)">
+    <display value="Graft specimen from patient (specimen)"/>
+    <display value="Graft sample"/>
+    <display value="Graft specimen from patient"/>
+  </concept>
+  <concept id="440674008" display="Specimen obtained by lavage (specimen)">
+    <display value="Specimen obtained by lavage (specimen)"/>
+    <display value="Wash out specimen"/>
+    <display value="Specimen obtained by lavage"/>
   </concept>
   <concept id="443357004" display="pT1a category">
     <display value="pT1a category (finding)"/>
@@ -884,6 +1764,54 @@
     <display value="Glucose in blood specimen above reference range (finding)"/>
     <display value="Glucose in blood specimen above reference range"/>
     <display value="High glucose level in blood"/>
+  </concept>
+  <concept id="445085009" display="Tunneled central venous catheter (physical object)">
+    <display value="Tunneled central venous catheter (physical object)"/>
+    <display value="Tunneled central venous catheter"/>
+  </concept>
+  <concept id="44567001" display="Tracheal structure (body structure)">
+    <display value="Tracheal structure"/>
+    <display value="Trachea"/>
+    <display value="Trachea, NOS"/>
+    <display value="Windpipe"/>
+    <display value="Tracheal structure (body structure)"/>
+  </concept>
+  <concept id="446277003" display="Urine specimen obtained from nephrostomy tube after percutaneous insertion (specimen)">
+    <display value="Urine specimen obtained from nephrostomy tube after percutaneous insertion (specimen)"/>
+    <display value="Urine specimen obtained from nephrostomy tube after percutaneous insertion"/>
+  </concept>
+  <concept id="446302006" display="Air sample">
+    <display value="Air sample (specimen)"/>
+    <display value="Air sample"/>
+  </concept>
+  <concept id="446562005" display="Body fluid specimen obtained via sump drain (specimen)">
+    <display value="Body fluid specimen obtained via sump drain (specimen)"/>
+    <display value="Body fluid specimen obtained via sump drain"/>
+  </concept>
+  <concept id="446846006" display="Urine specimen obtained via indwelling urinary catheter (specimen)">
+    <display value="Urine specimen obtained via indwelling urinary catheter (specimen)"/>
+    <display value="Urine specimen obtained via indwelling urinary catheter"/>
+  </concept>
+  <concept id="446860008" display="Collection of cerebrospinal fluid via ventriculoperitoneal shunt (procedure)">
+    <display value="Collection of cerebrospinal fluid via ventriculoperitoneal shunt (procedure)"/>
+    <display value="Collection of cerebrospinal fluid via ventriculoperitoneal shunt"/>
+  </concept>
+  <concept id="446861007" display="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt (specimen)">
+    <display value="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt (specimen)"/>
+    <display value="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt"/>
+  </concept>
+  <concept id="45647009" display="Granuloma (morphologic abnormality)">
+    <display value="Granuloma"/>
+    <display value="Granuloma, NOS"/>
+    <display value="Histiocytic granuloma"/>
+    <display value="Epithelioid granuloma"/>
+    <display value="Granuloma (morphologic abnormality)"/>
+  </concept>
+  <concept id="45710003" display="Sputum">
+    <display value="Sputum"/>
+    <display value="Expectoration, NOS"/>
+    <display value="Expectoration"/>
+    <display value="Sputum (substance)"/>
   </concept>
   <concept id="45896001" display="AST measurement">
     <display value="Aspartate aminotransferase measurement"/>
@@ -897,6 +1825,11 @@
     <display value="Chloride measurement"/>
     <display value="Chloride measurement, NOS"/>
     <display value="Chloride measurement (procedure)"/>
+  </concept>
+  <concept id="47002008" display="Pustule">
+    <display value="Pustule"/>
+    <display value="Pustule, NOS"/>
+    <display value="Pustule (morphologic abnormality)"/>
   </concept>
   <concept id="47625008" display="IV use">
     <display value="Intravenous use"/>
@@ -937,11 +1870,23 @@
     <display value="pT1 stage"/>
     <display value="pT1"/>
   </concept>
+  <concept id="54535009" display="Cone biopsy of cervix (procedure)">
+    <display value="Conisation of uterine cervix"/>
+    <display value="Cone biopsy of cervix (procedure)"/>
+    <display value="Cone biopsy of cervix"/>
+    <display value="Cone biopsy of cervix, NOS"/>
+    <display value="Conization of uterine cervix"/>
+  </concept>
   <concept id="55235003" display="C-reactive protein level">
     <display value="C-reactive protein level"/>
     <display value="CRP - C-reactive protein level"/>
     <display value="C-reactive protein measurement (procedure)"/>
     <display value="C-reactive protein measurement"/>
+  </concept>
+  <concept id="55434001" display="Hydrocele (disorder)">
+    <display value="Hydrocele (disorder)"/>
+    <display value="Hydrocele"/>
+    <display value="Hydrocele, NOS"/>
   </concept>
   <concept id="55607006" display="Problem">
     <display value="Problem (finding)"/>
@@ -962,6 +1907,22 @@
     <display value="cis-Platinum compound"/>
     <display value="cis-Diamminedichloroplatinum"/>
   </concept>
+  <concept id="5713008" display="Submandibular triangle structure (body structure)">
+    <display value="Submandibular triangle"/>
+    <display value="Submandibular area"/>
+    <display value="Trigone submandibulare"/>
+    <display value="Submaxillary region"/>
+    <display value="Submandibular trigone"/>
+    <display value="Regio submaxillaris"/>
+    <display value="Submandibular triangle structure"/>
+    <display value="Submandibular triangle structure (body structure)"/>
+  </concept>
+  <concept id="58088002" display="Urine specimen collection, suprapubic (procedure)">
+    <display value="SPA - Collection of suprapubic aspirate"/>
+    <display value="Collection of suprapubic aspirate"/>
+    <display value="Urine specimen collection, suprapubic (procedure)"/>
+    <display value="Urine specimen collection, suprapubic"/>
+  </concept>
   <concept id="58108001" display="Golden retriever">
     <display value="Golden retriever (organism)"/>
     <display value="Golden retriever"/>
@@ -971,6 +1932,12 @@
     <display value="Potassium measurement"/>
     <display value="Potassium measurement, NOS"/>
   </concept>
+  <concept id="59843005" display="Furuncle (morphologic abnormality)">
+    <display value="Furuncle (morphologic abnormality)"/>
+    <display value="Furuncle"/>
+    <display value="Boil"/>
+    <display value="Furunculus"/>
+  </concept>
   <concept id="60621009" display="Quetelet index">
     <display value="Body mass index"/>
     <display value="Body mass index, NOS"/>
@@ -978,6 +1945,13 @@
     <display value="BMI - Body mass index"/>
     <display value="Quetelet index"/>
     <display value="Body mass index (observable entity)"/>
+  </concept>
+  <concept id="64033007" display="Kidney structure (body structure)">
+    <display value="Kidney"/>
+    <display value="Kidney, NOS"/>
+    <display value="Renal structure"/>
+    <display value="Kidney structure"/>
+    <display value="Kidney structure (body structure)"/>
   </concept>
   <concept id="64915003" display="Operation on heart">
     <display value="Operative procedure on heart"/>
@@ -988,11 +1962,37 @@
     <display value="Operation on heart"/>
     <display value="Operation on heart (procedure)"/>
   </concept>
+  <concept id="66051006" display="Pyloric antrum structure (body structure)">
+    <display value="Pyloric antrum"/>
+    <display value="Antrum of stomach"/>
+    <display value="Gastric antrum"/>
+    <display value="Pyloric antrum structure"/>
+    <display value="Pyloric antrum structure (body structure)"/>
+  </concept>
   <concept id="6736007" display="Moderate">
     <display value="Moderate"/>
     <display value="Midgrade"/>
     <display value="Moderate (severity modifier)"/>
     <display value="Moderate (severity modifier) (qualifier value)"/>
+  </concept>
+  <concept id="67889009" display="Lavage">
+    <display value="Irrigation"/>
+    <display value="Irrigation, NOS"/>
+    <display value="Lavage, NOS"/>
+    <display value="Lavage"/>
+    <display value="Irrigation (procedure)"/>
+  </concept>
+  <concept id="6853008" display="Nasogastric tube aspiration (procedure)">
+    <display value="Aspirating nasogastric tube"/>
+    <display value="Nasogastric tube aspiration"/>
+    <display value="Suction of nasogastric tube"/>
+    <display value="Nasogastric tube aspiration (procedure)"/>
+  </concept>
+  <concept id="6902008" display="Popliteal region structure (body structure)">
+    <display value="Popliteal region"/>
+    <display value="Poples"/>
+    <display value="Popliteal region structure"/>
+    <display value="Popliteal region structure (body structure)"/>
   </concept>
   <concept id="69480007" display="GTP measurement">
     <display value="Gamma glutamyl transferase measurement"/>
@@ -1003,11 +2003,31 @@
     <display value="Gamma-glutamyl transferase level"/>
     <display value="Gamma glutamyl transferase measurement (procedure)"/>
   </concept>
+  <concept id="69695003" display="Stomach structure (body structure)">
+    <display value="Stomach"/>
+    <display value="Stomach, NOS"/>
+    <display value="Ventriculus"/>
+    <display value="Gizzard"/>
+    <display value="Stomach structure"/>
+    <display value="Stomach structure (body structure)"/>
+  </concept>
   <concept id="70901006" display="Creatinine measurement">
     <display value="Creatinine measurement"/>
     <display value="Creatinine measurement, NOS"/>
     <display value="Creatinine measurement (procedure)"/>
   </concept>
+  <concept id="71252005" display="Cervix uteri structure (body structure)">
+    <display value="Uterine cervix"/>
+    <display value="Uterine cervix, NOS"/>
+    <display value="Cervix uteri including exocervix and endocervix"/>
+    <display value="Cervix uteri, NOS"/>
+    <display value="Cervix, NOS"/>
+    <display value="Cervix uteri"/>
+    <display value="Cervix"/>
+    <display value="Cervix uteri structure"/>
+    <display value="Cervix uteri structure (body structure)"/>
+  </concept>
+  <concept id="71341001:272741003=7771000" display="Bone structure of femur (body structure) where Laterality (attribute) = Levo-"/>
   <concept id="71878006" display="Calcium level">
     <display value="Calcium measurement"/>
     <display value="Calcium measurement, NOS"/>
@@ -1044,6 +2064,40 @@
     <display value="Cholesterol measurement"/>
     <display value="Cholesterol measurement (procedure)"/>
   </concept>
+  <concept id="77386006" display="Pregnant">
+    <display value="Pregnancy confirmed"/>
+    <display value="Pregnancy"/>
+    <display value="Pregnancy, NOS"/>
+    <display value="Gestation, NOS"/>
+    <display value="Pregnancy not delivered"/>
+    <display value="Gestation"/>
+    <display value="Pregnant"/>
+    <display value="Patient currently pregnant"/>
+    <display value="Patient currently pregnant (finding)"/>
+  </concept>
+  <concept id="7800008" display="Punctate">
+    <display value="Punctate"/>
+    <display value="Punctate (qualifier value)"/>
+  </concept>
+  <concept id="78533007" display="Irrigation of urinary bladder (procedure)">
+    <display value="Irrigation of urinary bladder"/>
+    <display value="Simple bladder irrigation"/>
+    <display value="Bladder irrigation"/>
+    <display value="Irrigation of urinary bladder (procedure)"/>
+  </concept>
+  <concept id="79121003" display="Biopsy of stomach (procedure)">
+    <display value="Biopsy of stomach"/>
+    <display value="Biopsy of stomach, NOS"/>
+    <display value="Gastric biopsy"/>
+    <display value="Biopsy of stomach (procedure)"/>
+  </concept>
+  <concept id="7970006" display="Allograft">
+    <display value="Allograft"/>
+    <display value="Homologous graft"/>
+    <display value="Allogeneic graft"/>
+    <display value="Homograft"/>
+    <display value="Allograft (substance)"/>
+  </concept>
   <concept id="80146002" display="Appendectomy">
     <display value="Appendectomy"/>
     <display value="Appendectomy, NOS"/>
@@ -1054,11 +2108,28 @@
     <display value="Appendicectomy"/>
     <display value="Appendectomy (procedure)"/>
   </concept>
+  <concept id="80657008" display="Bronchoscopy with brush biopsy (procedure)">
+    <display value="Bronchoscopy with brush biopsy"/>
+    <display value="Bronchoscopy with bronchial brushings"/>
+    <display value="Bronchoscopy with brush biopsy (procedure)"/>
+  </concept>
+  <concept id="81723002" display="Amputation">
+    <display value="Amputation"/>
+    <display value="Amputation, NOS"/>
+    <display value="Amputation (procedure)"/>
+  </concept>
   <concept id="83030008" display="Retropharyngeal area">
     <display value="Retropharyngeal area"/>
     <display value="Retropharyngeal space"/>
     <display value="Structure of retropharyngeal area"/>
     <display value="Structure of retropharyngeal area (body structure)"/>
+  </concept>
+  <concept id="83670000" display="Peritoneal cavity structure (body structure)">
+    <display value="Peritoneal cavity"/>
+    <display value="Peritoneal cavity, NOS"/>
+    <display value="Greater peritoneal cavity"/>
+    <display value="Peritoneal cavity structure"/>
+    <display value="Peritoneal cavity structure (body structure)"/>
   </concept>
   <concept id="86184003" display="Holter monitor">
     <display value="Electrocardiographic monitor and recorder"/>
@@ -1072,6 +2143,11 @@
     <display value="Urate measurement, NOS"/>
     <display value="Urate measurement"/>
     <display value="Uric acid measurement (procedure)"/>
+  </concept>
+  <concept id="86273004" display="Biopsy (procedure)">
+    <display value="Biopsy"/>
+    <display value="Biopsy, NOS"/>
+    <display value="Biopsy (procedure)"/>
   </concept>
   <concept id="8745002" display="Gram-positive bacteria">
     <display value="Gram-positive bacterium"/>
@@ -1108,9 +2184,23 @@
     <display value="Oral temperature taking"/>
     <display value="Oral temperature taking (procedure)"/>
   </concept>
+  <concept id="89837001" display="Urinary bladder structure (body structure)">
+    <display value="Bladder structure"/>
+    <display value="Urinary bladder"/>
+    <display value="Urinary bladder, NOS"/>
+    <display value="Bladder, NOS"/>
+    <display value="Bladder"/>
+    <display value="Urinary bladder structure"/>
+    <display value="Urinary bladder structure (body structure)"/>
+  </concept>
   <concept id="90105005" display="Biopsy of soft tissue of forearm, superficial">
     <display value="Biopsy of soft tissue of forearm, superficial"/>
     <display value="Biopsy of soft tissue of forearm, superficial (procedure)"/>
+  </concept>
+  <concept id="9454009" display="Structure of subclavian vein (body structure)">
+    <display value="Subclavian vein"/>
+    <display value="Structure of subclavian vein"/>
+    <display value="Structure of subclavian vein (body structure)"/>
   </concept>
   <concept id="9632001" display="Nursing procedure">
     <display value="Nursing procedure"/>

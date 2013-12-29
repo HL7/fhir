@@ -2221,7 +2221,7 @@ public class Publisher {
       XmlParser xml = new XmlParser();
       ConceptMap cm = (ConceptMap) xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
       if (cm.getText() == null || cm.getText().getDiv() == null) {
-        NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator());
+        NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator());
         gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps()); 
         new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), cm, true, true); 
         xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
@@ -3254,10 +3254,6 @@ public class Publisher {
         }        
       }
     }
-    if (!Utilities.noString(cd.getV2Map()))
-      generateConceptMapV2(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/"+Utilities.fileTitle(filename));
-    if (!Utilities.noString(cd.getV3Map()))
-      generateConceptMapV3(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/"+Utilities.fileTitle(filename));
     
     new ValueSetValidator(page.getDefinitions(), filename).validate(vs, true);
     cd.setReferredValueSet(vs);
@@ -3326,15 +3322,16 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v2 Map ("+b.toString()+")");
-    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator());
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator());
     gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")), cm, true);
-    jsonToXhtml(Utilities.changeFileExt(filename, "-map-v2"), cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")));
+    String n = Utilities.changeFileExt(filename, "-map-v2");
+    jsonToXhtml(n, cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")));
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.xml")), cm, true);
-    cloneToXhtml(Utilities.changeFileExt(filename, "-map-v2"), cm.getNameSimple(), false, "conceptmap-instance");
+    cloneToXhtml(n, cm.getNameSimple(), false, "conceptmap-instance");
     
     // now, we create an html page from the narrative
     String narrative = new XhtmlComposer().compose(cm.getText().getDiv());
@@ -3349,6 +3346,9 @@ public class Publisher {
     e.getLinks().put("path", Utilities.changeFileExt(filename, "-map-v2.html"));
     conceptMapsFeed.getEntryList().add(e);
     page.getConceptMaps().put(cm.getIdentifierSimple(), e);
+    page.getEpub().registerFile(n+".html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(n+".json.html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(n+".xml.html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
   }
 
   private void generateConceptMapV3(BindingSpecification cd, String filename, String src, String srcCS) throws Exception {
@@ -3403,14 +3403,15 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v3 Map ("+b.toString()+")");
-    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator());
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator());
     gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")), cm, true);
-    jsonToXhtml(Utilities.changeFileExt(filename, "-map-v3"), cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")));
+    String n = Utilities.changeFileExt(filename, "-map-v3");
+    jsonToXhtml(n, cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")));
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.xml")), cm, true);
-    cloneToXhtml(Utilities.changeFileExt(filename, "-map-v3"), cm.getNameSimple(), false, "conceptmap-instance");
+    cloneToXhtml(n, cm.getNameSimple(), false, "conceptmap-instance");
 
     // now, we create an html page from the narrative
     String narrative = new XhtmlComposer().compose(cm.getText().getDiv());
@@ -3425,6 +3426,9 @@ public class Publisher {
     e.getLinks().put("path", Utilities.changeFileExt(filename, "-map-v3.html"));
     conceptMapsFeed.getEntryList().add(e);
     page.getConceptMaps().put(cm.getIdentifierSimple(), e);
+    page.getEpub().registerFile(n+".html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(n+".json.html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerFile(n+".xml.html", cm.getNameSimple(), EPubManager.XHTML_TYPE);
   }
 
   private void generateCodeSystemPart2(String filename, BindingSpecification cd) throws Exception {
@@ -3435,6 +3439,11 @@ public class Publisher {
       e = page.getValueSets().get(cd.getUri());
     ValueSet vs = (ValueSet) e.getResource();
 
+    if (!Utilities.noString(cd.getV2Map()))
+      generateConceptMapV2(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/"+Utilities.fileTitle(filename));
+    if (!Utilities.noString(cd.getV3Map()))
+      generateConceptMapV3(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/"+Utilities.fileTitle(filename));
+    
     new NarrativeGenerator("", page.getConceptLocator()).generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     
 

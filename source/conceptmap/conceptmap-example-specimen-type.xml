@@ -1683,8 +1683,7 @@
     <code value="IUD"/>
     <map>
       <system value="http://snomed.info/sct"/>
-      <code value="XX"/>
-      <equivalence value="equivalent"/>
+      <equivalence value="unmatched"/>
       <comments value="pending"/>
     </map>
   </concept>    

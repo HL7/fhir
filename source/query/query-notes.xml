@@ -91,40 +91,6 @@ that use the query resource and/or definitions in other ways, though such
 usages are not described in FHIR.
 </p>
 -->
-<a name="currency"> </a>
-<h2>Search/Query Result Currency</h2>
-
-<p>
-The results of a search/query operation are only guaranteed to be current
-at the moment the operation is executed. After the operation is executed,
-ongoing actions performed on the resources against which the query was
-executed will render the results increasingly stale. The significance
-of this depends on the nature of the search, and the kind of use that 
-is being made of the results. 
-</p>
-<p>
-This is particularly relevant when the server is returning the results
-in a series of pages. It is at the discretion of the search engine 
-how to handle ongoing updates to the resources while the search 
-is proceeding. 
-</p>
-<p>
-Query result sets may include resources created by the processing of the 
-search. Typically, these are the results of queries for decision support,
-value set expansion, etc., and represent the outcome of processing the 
-query. In order to be usable in the scenarios above, these resources
-have a defined structure and have the same metadata as any other resource,
-including a known identity, but they have the same currency issues as
-the results from a query. 
-</p>
-<p>
-Applications handling the results of an operation that creates 
-resources should use these resources with careful consideration 
-of their currency. Though the resources may be retained for audit 
-purposes, implementers must be careful not to reuse these as if
-they are current.
-</p>
-
 
 <!--
 <p>

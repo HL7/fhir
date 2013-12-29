@@ -75,6 +75,8 @@ public class SpecificationConceptLocator  implements ConceptLocator {
 
   private ValueSetDefineConceptComponent locateSnomed(String code) throws Exception {
     if (!snomedCodes.containsKey(code))
+      queryForTerm(code);
+    if (!snomedCodes.containsKey(code))
       return null;
     ValueSetDefineConceptComponent cc = new ValueSetDefineConceptComponent();
     cc.setCodeSimple(code);

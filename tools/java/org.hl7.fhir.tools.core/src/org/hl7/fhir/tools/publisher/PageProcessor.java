@@ -1921,7 +1921,7 @@ public class PageProcessor implements Logger  {
       EventDefn e = definitions.getEvents().get(c);
       if (e.getUsages().size() == 1) {
         EventUsage u = e.getUsages().get(0);
-        s.append(" <tr><td>"+e.getCode()+"</td><td>"+(e.getCategory() == null ? "??" : e.getCategory().toString())+"</td><td>"+e.getDefinition()+"</td>");
+        s.append(" <tr><td>"+e.getCode()+"<a name=\""+e.getCode()+"\"> </a></td><td>"+(e.getCategory() == null ? "??" : e.getCategory().toString())+"</td><td>"+e.getDefinition()+"</td>");
         s.append("<td>"+describeMsg(u.getRequestResources(), u.getRequestAggregations())+"</td><td>"+
             describeMsg(u.getResponseResources(), u.getResponseAggregations())+"</td><td>"+
             combineNotes(e.getFollowUps(), u.getNotes())+"</td></tr>\r\n");
@@ -2775,7 +2775,10 @@ public class PageProcessor implements Logger  {
       if (!started)
         s.append("<p>Example Index:</p>\r\n<table class=\"list\">\r\n");
       started = true;
-      s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
+      if (e.getFileTitle().equals("conformance-base") || e.getFileTitle().equals("conformance-base2") || e.getFileTitle().equals("profiles-resources"))
+        s.append("<tr><td>"+Utilities.escapeXml(e.getDescription())+"</td>");
+      else
+        s.append("<tr><td><a href=\""+e.getFileTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
       s.append("<td><a href=\""+e.getFileTitle()+".xml.html\">XML</a></td>");
       s.append("<td><a href=\""+e.getFileTitle()+".json.html\">JSON</a></td>");
       s.append("</tr>");

@@ -126,6 +126,7 @@ public class NarrativeGenerator {
         }
       }
       
+      String display;
       if (ok) {
         // simple 
         XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
@@ -137,16 +138,25 @@ public class NarrativeGenerator {
           tr.addTag("td").addTag("b").addText("Comments");
         for (ConceptMapConceptComponent ccl : cm.getConcept()) {
           tr = tbl.addTag("tr");
-          tr.addTag("td").addText(ccl.getCodeSimple());
+          XhtmlNode td = tr.addTag("td");
+          td.addText(ccl.getCodeSimple());
+          display = getDisplayForConcept(ccl.getSystemSimple(), ccl.getCodeSimple(), codeSystems);
+          if (display != null)
+            td.addText(" ("+display+")");
           ConceptMapConceptMapComponent ccm = ccl.getMap().get(0); 
           tr.addTag("td").addText(ccm.getEquivalenceSimple().toString());
-          tr.addTag("td").addText(ccm.getCodeSimple());
+          td = tr.addTag("td");
+          td.addText(ccm.getCodeSimple());
+          display = getDisplayForConcept(ccm.getSystemSimple(), ccm.getCodeSimple(), codeSystems);
+          if (display != null)
+            td.addText(" ("+display+")");
           if (comments)
             tr.addTag("td").addText(ccm.getCommentsSimple());
         }
       } else {
         XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
         XhtmlNode tr = tbl.addTag("tr");
+        XhtmlNode td;
         tr.addTag("td").setAttribute("colspan", Integer.toString(sources.size())).addTag("b").addText("Source Concept");
         tr.addTag("td").addTag("b").addText("Equivalence");
         tr.addTag("td").setAttribute("colspan", Integer.toString(targets.size())).addTag("b").addText("Destination Concept");
@@ -183,24 +193,43 @@ public class NarrativeGenerator {
         
         for (ConceptMapConceptComponent ccl : cm.getConcept()) {
           tr = tbl.addTag("tr");
+          td = tr.addTag("td");
           if (sources.get("code").size() == 1) 
-            tr.addTag("td").addText(ccl.getCodeSimple());
+            td.addText(ccl.getCodeSimple());
           else
-            tr.addTag("td").addText(ccl.getSystemSimple()+" / "+ccl.getCodeSimple());
+            td.addText(ccl.getSystemSimple()+" / "+ccl.getCodeSimple());
+          display = getDisplayForConcept(ccl.getSystemSimple(), ccl.getCodeSimple(), codeSystems);
+          if (display != null)
+            td.addText(" ("+display+")");
           
           for (String s : sources.keySet()) {
-            if (!s.equals("code")) 
-              tr.addTag("td").addText(getCode(ccl.getDependsOn(), s, sources.get(s).size() != 1));
+            if (!s.equals("code")) { 
+              td = tr.addTag("td");
+              td.addText(getCode(ccl.getDependsOn(), s, sources.get(s).size() != 1));
+              display = getDisplay(ccl.getDependsOn(), s, codeSystems);
+              if (display != null)
+                td.addText(" ("+display+")");
+            }
           }
           ConceptMapConceptMapComponent ccm = ccl.getMap().get(0); 
           tr.addTag("td").addText(ccm.getEquivalenceSimple().toString());
+          td = tr.addTag("td");
           if (targets.get("code").size() == 1) 
-            tr.addTag("td").addText(ccm.getCodeSimple());
+            td.addText(ccm.getCodeSimple());
           else
-          tr.addTag("td").addText(ccm.getSystemSimple()+" / "+ccm.getCodeSimple());
+            td.addText(ccm.getSystemSimple()+" / "+ccm.getCodeSimple());
+          display = getDisplayForConcept(ccm.getSystemSimple(), ccm.getCodeSimple(), codeSystems);
+          if (display != null)
+            td.addText(" ("+display+")");
+
           for (String s : targets.keySet()) {
-            if (!s.equals("code")) 
-              tr.addTag("td").addText(getCode(ccm.getProduct(), s, targets.get(s).size() != 1));
+            if (!s.equals("code")) { 
+              td = tr.addTag("td");
+              td.addText(getCode(ccm.getProduct(), s, targets.get(s).size() != 1));
+              display = getDisplay(ccm.getProduct(), s, codeSystems);
+              if (display != null)
+                td.addText(" ("+display+")");
+            }
           }
           if (comments)
             tr.addTag("td").addText(ccm.getCommentsSimple());
@@ -217,6 +246,38 @@ public class NarrativeGenerator {
   
   
   
+  private String getDisplay(List<OtherConceptComponent> list, String s, Map<String, AtomEntry<ValueSet>> codeSystems) {
+    for (OtherConceptComponent c : list) {
+      if (s.equals(c.getConceptSimple()))
+        return getDisplayForConcept(c.getSystemSimple(), c.getCodeSimple(), codeSystems);
+    }
+    return null;
+  }
+
+  private String getDisplayForConcept(String system, String code, Map<String, AtomEntry<ValueSet>> codeSystems) {
+    if (code == null)
+      return null;
+    if (codeSystems.containsKey(system)) {
+      ValueSet vs = codeSystems.get(system).getResource();
+      return getDisplayForConcept(code, vs.getDefine().getConcept(), vs.getDefine().getCaseSensitiveSimple());
+    } else if (conceptLocator != null) {
+      ValueSetDefineConceptComponent cl = conceptLocator.locate(system, code);
+      return cl == null ? null : cl.getDisplaySimple();
+    } else
+      return null;
+  }
+
+  private String getDisplayForConcept(String code, List<ValueSetDefineConceptComponent> concept, boolean cs) {
+    for (ValueSetDefineConceptComponent t : concept) {
+      if ((cs && code.equals(t.getCodeSimple()) || (!cs && code.equalsIgnoreCase(t.getCodeSimple()))))
+          return t.getDisplaySimple();
+      String disp = getDisplayForConcept(code, t.getConcept(), cs);
+      if (disp != null)
+        return disp;
+    }
+    return null;
+  }
+
   private String getDescForConcept(String s) {
     if (s.startsWith("http://hl7.org/fhir/v2/element/"))
         return "v2 "+s.substring("http://hl7.org/fhir/v2/element/".length()); 

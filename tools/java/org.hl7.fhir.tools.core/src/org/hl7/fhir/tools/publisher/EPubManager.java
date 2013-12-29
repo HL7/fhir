@@ -349,6 +349,8 @@ public class EPubManager implements FileNotifier {
   }
 
   private String collapse(String base, String path) throws Exception {
+    String mBase = base;
+    String mPath = path;
     if (base.contains(File.separator))
       base = base.substring(0, base.lastIndexOf(File.separator));
     else
@@ -356,7 +358,7 @@ public class EPubManager implements FileNotifier {
     while (path.startsWith("../")) {
       path = path.substring(3);
       if (Utilities.noString(base)) 
-        throw new Exception("error in path - ../ out of zone");
+        throw new Exception("error in path - ../ out of zone in link "+mPath+" in base "+mBase);
       else if (!base.contains(File.separator))
         base = null;
       else
