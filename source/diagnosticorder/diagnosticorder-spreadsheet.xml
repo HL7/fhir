@@ -268,7 +268,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DiagnosticOrderPriority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">routine | urgent | stat</Data><NamedCell
+    <Cell><Data ss:Type="String">routine | urgent | stat | asap</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The clinical priority associated with this order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -447,9 +447,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -457,6 +457,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -464,8 +465,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
