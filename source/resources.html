@@ -66,6 +66,7 @@ Every resource starts with a common set of elements (for documentation of this f
 <pre class="spec">
 &lt;<a href="#content" title="A Resource Definition for FHIR" class="dict"><b>[Name]</b></a> xmlns="http://hl7.org/fhir"&gt;  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
  &lt;<a href="extensibility.html" title="See Extensions" class="dict"><b>extension</b></a>&gt;<font color="Gray">&lt;!-- <font color="brown"><b>0..*</b></font> </font> <font color="darkgreen"><a href="extensibility.html">Extension</a></font>   <a href="extensibility.html"><font color="navy">See Extensions</font></a> <font color="Gray"> --&gt;</font>&lt;/extension&gt;
+ &lt;<a href="extensibility.html" title="See Extensions" class="dict"><b>modifierExtension</b></a>&gt;<font color="Gray">&lt;!-- <font color="brown"><b>0..*</b></font> </font> <font color="darkgreen"><a href="extensibility.html">Extension</a></font>   <a href="extensibility.html"><font color="navy">See Extensions</font></a> <font color="Gray"> --&gt;</font>&lt;/modifierExtension&gt;
  &lt;<a title="The base human language of the resource content. The value can be any valid value following BCP 47" class="dict" href="base-definitions.html#Resource.language"><b>language</b></a> value="[<span style="color: darkgreen"><a href="datatypes.html#code">code</a></span>]"/&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: navy">Human language of the content (BCP-47)</span><span style="color: Gray"> --&gt;</span>
  &lt;<a href="narrative.html#Narrative" title="Text summary of resource content, for human interpretation" class="dict"><b>text</b></a>&gt;<font color="Gray">&lt;!--</font> <font color="brown"><b>1..1</b></font> <font color="darkgreen"><a href="narrative.html#Narrative">Narrative</a></font> <font color="navy">Text summary of resource content, for human interpretation</font><font color="Gray"> --&gt;</font>&lt;/text&gt;
  &lt;<a href="references.html#contained" title="See Contained Resources" class="dict"><b>contained</b></a>&gt;<font color="Gray">&lt;!-- <font color="brown"><b>0..*</b></font> </font> <font color="darkgreen"><a href="references.html#contained">Resource</a></font>   <a href="references.html#contained"><font color="navy">Contained Resources</font></a> <font color="Gray"> --&gt;</font>&lt;/contained&gt;
@@ -112,7 +113,7 @@ The metadata properties are key aspects of a resource and how it behaves. For im
 <p>
 Logical and Version ids are case sensitive. Ids are always opaque, and systems need not and should not attempt to determine their internal structure. 
 An id SHALL always be represented in the same way in resource references and URLs. Ids can be up to 36 characters 
-long, and contain any combination of ASCII letters, numerals, "-" and ".".
+long, and contain any combination of lowercase ASCII letters, numerals, "-" and ".".
 </p>
 <p>
 Note: these data elements are represented outside the resource because:
@@ -173,7 +174,7 @@ which version of FHIR an implementation is using.
 </p>
 <p>
 In a typical scenario, mixed versions may need to exist, so applications SHOULD ignore elements 
-that they do not recognize unless they are extensions with an isModifier element with value="true". 
+that they do not recognize unless they are modifierExtensions.
 However, in a healthcare context, many application vendors are unwilling to 
 consider this approach because of concerns about clinical risk or 
 technical limitations in their software (i.e. schema based processing). 

@@ -28,39 +28,51 @@ Resources contain two types of references:
 <p>
 There are 3 cases where elements inside a resource reference each other:
 </p>
-<ul>
- <li>Between a ResourceReference and an <a href="references.html#contained">contained resource</a></li>
- <li>Between elements in the narrative and structured data elements</li>
- <li>An &lt;img src=""/&gt; reference in the narrative, referring to an image found in the resource (as a contained <a href="media.html">Media</a> or <a href="extras.html#binary">Binary</a> resource)</li>
-</ul>
-<p>
-These references are done using an id/idref based approach, where a source element indicates that it 
-has the same content as the target element. The target element has an attribute "id" which SHALL 
-have a unique value within the resource with regard to any other id attributes. The "id" attribute is not in any namespace.
-The source element reference SHALL refer to an attribute in the same resource. 
-</p>
-<div class="example">
+<p><b>Between a ResourceReference and a contained resource</b><br />
+The ResourceReference's reference element refers to the id of the contained resource using
+a fragment identifier, relative to the resource.
+<em>See below under 'Contained Resources' for an example.</em></p>
+
+<p><b>Between elements in the narrative and structured data elements</b><br />
+This is done using an id/idref based approach, where a source element indicates that it 
+has the same content as the target element. All references between the xhtml elements and the data elements must 
+be understood to establish a "derived from" relationship, where the derived content (whether text or data) refers 
+to the source content.  Note that this means some references may be forward references (references to 
+elements defined later in the instance):</p>
 <pre class="xml">
-  &lt;example&gt;
-    &lt;target id="a1"&gt;
-      &lt;child&gt;...&lt;/child&gt;
-    &lt;/target&gt;
-    &lt;-- other stuff --&gt;
-    &lt;source idref="a1"&gt;
-  &lt;/example&gt;
+&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;... &lt;span idref=&quot;dob&quot;/&gt;30-11-1972&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;birthDate id=&quot;dob&quot; value=&quot;1972-11-30&quot; /&gt;
 </pre>
-</div>
+
+<p><b>An &lt;img src=""/&gt; reference in the narrative</b><br />
+The image source may be referring to an image found in the resource 
+(as a contained <a href="media.html">Media</a> or <a href="extras.html#binary">Binary</a> resource):</p>
+<pre class="xml">
+&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;... &lt;img src=&quot;#pic1&quot;/&gt;. ....&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;contained&gt;
+    &lt;Binary id=&quot;pic1&quot; contentType=&quot;image/gif&quot;&gt;MEKH....SD/Z&lt;/Binary&gt;
+  &lt;/contained&gt;
+</pre>
+
 <p>
-In a single resource, this works like xml:id/idref, but there is an important difference: the 
+In all three cases, the target element has an attribute "id" which SHALL 
+have a unique value <em>within the resource</em> with regard to any other id attributes: the 
 uniqueness and resolution scope of these id references is within the resource that contains them. If multiple
 resources are combined into a single piece of XML, such as an <a href="xml.html#atom">atom feed</a>, duplicate 
 values may occur between resources. This SHALL be managed by applications reading the resources.
-</p>
-<p>
-Note that all references between the xhtml elements and the data elements must be understood to 
-establish a "derived from" relationship, where the derived content (whether text or data) refers 
-to the source content.  Note that this means some references may be forward references (references to 
-elements defined later in the instance).
+The "id" attribute is not in any namespace. The source element reference SHALL refer to an attribute in the same resource. 
 </p>
 <p>
 Note that internal references work exactly the same in way in JSON, based on the JSON property id which is equivalent 
@@ -227,7 +239,7 @@ The same example in JSON:
   "information: {
     ... other attributes ...
     "custodian" : {
-      "reference" : { "value" : "#org1" }
+      "reference" : "#org1"
 	}
     ... other attributes ...
   }
@@ -271,9 +283,7 @@ Some notes about use and interpretation of contained resources:
 When processing bundles, applications should always search the resources in the 
 bundle first when a <a href="#Resource">resource reference</a> is encountered. 
 </p>
-<p>
-If the resource reference is absolute:
-</p>
+<h4>Absolute References</h4>
 <div class="example">
 <pre class="xml" fragment="ResourceReference">
   &lt;institution&gt;

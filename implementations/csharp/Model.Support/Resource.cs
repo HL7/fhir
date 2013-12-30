@@ -29,8 +29,10 @@
 
 
 
+using Hl7.Fhir.Validation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -38,8 +40,30 @@ namespace Hl7.Fhir.Model
 {
     // Resource is not a subclass of Composite, since it
     // cannot be used in places where you can use composites.
-    public abstract partial class Resource : IExtendable
-    {            
+    [InvokeIValidatableObject]
+    public abstract partial class Resource : IExtendable, Hl7.Fhir.Validation.IValidatableObject
+    {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // TODO: Contained resources share the same internal id resolution space as the parent
+            // resource -> verify id uniqueness
+            var result = new List<ValidationResult>();
+          
+            if (Contained != null)
+            {
+                foreach (var contained in Contained)
+                {
+                    if (contained.Contained != null && contained.Contained.Any())
+                        result.Add(new ValidationResult("Contained resources cannot contain nested contained resources"));
+
+                    if (contained.Text != null)
+                        result.Add(new ValidationResult("Contained resources should not contain narrative"));
+
+                }
+            }
+
+            return result;
+        }
     }
 }
 

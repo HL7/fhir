@@ -114,9 +114,9 @@ namespace Hl7.Fhir.Model
             if (LastUpdated == null)
                 result.Add(new ValidationResult("Entry must have an updated date"));
 
-            if (Resource == null)
-                result.Add(new ValidationResult("Entry must contain Resource data, Content may not be null"));
-            else
+            //if (Resource == null)
+            //    result.Add(new ValidationResult("Entry must contain Resource data, Content may not be null"));
+            if( Resource != null) 
                 Validator.TryValidateObject(this.Resource, ValidationContextFactory.Create(this.Resource, null), result, true);
 
             return result;

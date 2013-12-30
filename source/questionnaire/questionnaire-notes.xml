@@ -43,7 +43,7 @@ such Questionnaires using other, more specific, Resources increases the ability 
 answers in the form of structured FHIR data. This provides an upgrade path to the questionnaire designer and communicating systems, where capable systems may use FHIR data to answer (sets of) 
 questions, whereas other systems can simply continue to supply the direct answers as input by the user.</p>
 
-<h3>Providing Questions and Answers</h3>
+<h3>Providing Questions and/or Answers</h3>
 <p>The Questionnaire has been specifically designed to be able to contain both a form's questions and answers. The Group and Question construct has elements to carry textual data
 of the form like headings, explanatory text, actual question text and the text of (multiple)choice options. As such, the Questionnaire can be used to:</p>
 <ul><li>only contain answers
@@ -53,4 +53,17 @@ of the form like headings, explanatory text, actual question text and the text o
 <p>This third case can be useful to make Questionnaire serve as a kind of form "template", where FHIR clients receive the empty form, display it to the user, get answers from the users 
 and then return the combined questions and answers to the server. The <a href="questionnaire-extensions.html">questionnaire core 
 extensions</a> provide additional means for control over repeating sections and expected answer format.</p>
+
+<h3>Structure of the Questionnaire</h3>
+<p>A Questionnaire is built out of three components:</p>
+<ul><li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire, 
+like the subject, date authored etcetera. The Questionnaire contains one "main" Group, which contains all the content of the questionnaire.</li>
+<li>This Group, can contain <em>either</em> nested Groups (to represent sections and subsections on a questionnaire form) or Questions.
+This way, any form containing sections or subsections can be represented, down to the actual questions.</li>
+<li>The Questions themselves may be simple questions with a promp text and one expected answer, but they may also contain nested groups, 
+each containing sets of nested questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
+depending on the answers of a parent question, e.g. a Question "Did the patient receive treatment in the past six months?", would contain a nested
+group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from 
+the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian NSW blue book</a></li>
+</ul>
 </div>

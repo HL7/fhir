@@ -39,7 +39,7 @@ using Hl7.Fhir.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace Hl7.Fhir.Model
-{
+{    
     [InvokeIValidatableObject]
     public class Bundle : Hl7.Fhir.Validation.IValidatableObject
     {

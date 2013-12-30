@@ -196,6 +196,25 @@ namespace Hl7.Fhir.Tests
         }
 
         [TestMethod]
+        public void TestContainedConstraints()
+        {
+            var pat = new Patient();
+            var patn = new Patient();
+            pat.Contained = new List<Resource> { patn } ;
+            patn.Contained = new List<Resource> { new Patient() };
+
+            validateErrorOrFail(pat);
+
+            patn.Contained = null;
+            Validator.ValidateObject(pat, new ValidationContext(pat), true);
+
+            patn.Text = new Narrative();
+            patn.Text.Div = "<div />";
+
+            validateErrorOrFail(pat);
+        }
+
+        [TestMethod]
         public void TypedResourceEntry()
         {
             var pe = new ResourceEntry<Patient>();

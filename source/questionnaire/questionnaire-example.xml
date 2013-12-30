@@ -54,7 +54,7 @@
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="53786006"/>
-          <display value="pT category"/>
+          <display value="pT1 category"/>
         </coding>
       </name>
       <valueCodeableConcept>

@@ -20,6 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>45</WindowTopX>
   <WindowTopY>2085</WindowTopY>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -132,6 +133,19 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -560,7 +574,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -843,17 +856,17 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="76.5"/>
-   <Column ss:AutoFitWidth="0" ss:Width="219.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="44.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="351"/>
+   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="44.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="228"/>
    <Column ss:AutoFitWidth="0" ss:Width="68.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Identity</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Filename</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">In Book</Data></Cell>
@@ -872,6 +885,13 @@
     <Cell><Data ss:Type="String">questionnaire-example-f201-lifelines.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">BlueBook</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world NSW My Personal Health Record example</Data></Cell>
+    <Cell><Data ss:Type="String">bb</Data></Cell>
+    <Cell><Data ss:Type="String">questionnaire-example-bluebook.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -880,10 +900,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
