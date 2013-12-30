@@ -30,8 +30,6 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
@@ -48,16 +46,7 @@ import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpEntityEnclosingRequest;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
@@ -85,24 +74,16 @@ import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
 import org.hl7.fhir.definitions.parsers.TypeParser;
-import org.hl7.fhir.instance.client.EFhirClientException;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
-import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
-import org.hl7.fhir.instance.utils.ConceptLocator;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
-import org.hl7.fhir.instance.utils.ValueSetExpander;
-import org.hl7.fhir.instance.utils.ValueSetExpanderSimple;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -110,14 +91,11 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
-import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
-import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -337,20 +315,20 @@ public class PageProcessor implements Logger  {
         src = s1+genRestrictions(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dictionary"))
         src = s1+dictForDt(com[1])+s3;
-      else if (com[0].equals("dtheader"))
-        src = s1+dtHeader(name, com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("formatsheader"))
-        src = s1+formatsHeader(name, com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("resourcesheader"))
-        src = s1+resourcesHeader(name, com.length > 1 ? com[1] : null)+s3;
+//      else if (com[0].equals("dtheader"))
+//        src = s1+dtHeader(name, com.length > 1 ? com[1] : null)+s3;
+//      else if (com[0].equals("formatsheader"))
+//        src = s1+formatsHeader(name, com.length > 1 ? com[1] : null)+s3;
+//      else if (com[0].equals("resourcesheader"))
+//        src = s1+resourcesHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("txheader"))
         src = s1+txHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("cmpheader"))
         src = s1+cmpHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("extheader"))
         src = s1+extHeader(name, com.length > 1 ? com[1] : null)+s3;
-      else if (com[0].equals("atomheader"))
-        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
+//      else if (com[0].equals("atomheader"))
+//        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
         src = s1+codelist(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resheader"))
@@ -1387,96 +1365,89 @@ public class PageProcessor implements Logger  {
     return "<div class=\"navtop\"><ul class=\"navtop\"><li class=\"spacerright\" style=\"width: 500px\"><span>&nbsp;</span></li></ul></div>\r\n";
   }
   
-  private String dtHeader(String n, String mode) {
-    if (n.contains("-"))
-      n = n.substring(0, n.indexOf('-'));
-    StringBuilder b = new StringBuilder();
-    b.append("<div class=\"navtop\">");
-    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
-    if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Content</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
-    if ("examples".equals(mode))
-      b.append("<li class=\"selected\"><span>Examples</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
-    if ("definitions".equals(mode))
-      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
-    if ("mappings".equals(mode))
-        b.append("<li class=\"selected\"><span>Mappings</span></li>");
-      else
-        b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.html\">Mappings</a></span></li>");
-    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-    b.append("</ul></div>\r\n");
-    return b.toString();
-  }
+//  private String dtHeader(String n, String mode) {
+//    if (n.contains("-"))
+//      n = n.substring(0, n.indexOf('-'));
+//    StringBuilder b = new StringBuilder();
+//    b.append("<div class=\"navtop\">");
+//    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
+//    if (mode == null || mode.equals("content"))
+//      b.append("<li class=\"selected\"><span>Content</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
+//    if ("examples".equals(mode))
+//      b.append("<li class=\"selected\"><span>Examples</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
+//    if ("definitions".equals(mode))
+//      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
+//    if ("mappings".equals(mode))
+//        b.append("<li class=\"selected\"><span>Mappings</span></li>");
+//      else
+//        b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.html\">Mappings</a></span></li>");
+//    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
+//    b.append("</ul></div>\r\n");
+//    return b.toString();
+//  }
 
-  private String resourcesHeader(String n, String mode) {
-    if (n.contains("-"))
-      n = n.substring(0, n.indexOf('-'));
-    StringBuilder b = new StringBuilder();
-    b.append("<div class=\"navtop\">");
-    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
-    if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Content</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
-    if ("definitions".equals(mode))
-      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
-    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-    b.append("</ul></div>\r\n");
-    return b.toString();
-  }
+//  private String resourcesHeader(String n, String mode) {
+//      if (n.contains("-"))
+//      n = n.substring(0, n.indexOf('-'));
+//    StringBuilder b = new StringBuilder();
+//    b.append("<div class=\"navtop\">");
+//    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
+//    if (mode == null || mode.equals("content"))
+//      b.append("<li class=\"selected\"><span>Content</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
+//    if ("definitions".equals(mode))
+//      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
+//    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
+//    b.append("</ul></div>\r\n");
+//    return b.toString();
+//  }
 
-  private String formatsHeader(String n, String mode) {
-    if (n.contains("-"))
-      n = n.substring(0, n.indexOf('-'));
-    StringBuilder b = new StringBuilder();
-    b.append("<div class=\"navtop\">");
-    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
-    if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Content</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
-    if ("examples".equals(mode))
-      b.append("<li class=\"selected\"><span>Examples</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
-    if ("definitions".equals(mode))
-      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
-    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-    b.append("</ul></div>\r\n");
-    return b.toString();
-  }
+//  private String formatsHeader(String n, String mode) {
+//    if (n.contains("-"))
+//      n = n.substring(0, n.indexOf('-'));
+//    StringBuilder b = new StringBuilder();
+//    b.append("<div class=\"navtop\">");
+//    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
+//    if (mode == null || mode.equals("content"))
+//      b.append("<li class=\"selected\"><span>Content</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
+//    if ("examples".equals(mode))
+//      b.append("<li class=\"selected\"><span>Examples</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
+//    if ("definitions".equals(mode))
+//      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
+//    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
+//    b.append("</ul></div>\r\n");
+//    return b.toString();
+//  }
 
   private String extHeader(String n, String mode) {
+    StringBuilder b = new StringBuilder();
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
-    StringBuilder b = new StringBuilder();
-    b.append("<div class=\"navtop\">");
-    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
-    if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Content</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
-    if ("examples".equals(mode))
-      b.append("<li class=\"selected\"><span>Examples</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
-    if ("definitions".equals(mode))
-      b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
-    b.append("<li class=\"spacerright\" style=\"width: 270px\"><span>&nbsp;</span></li>");
-    b.append("</ul></div>\r\n");
-    return b.toString();
+
+    b.append("<ul class=\"nav nav-tabs\">");
+    
+    b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
+    b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
+
+    b.append("</ul>\r\n");
+
+    return b.toString();   
   }
 
   private String txHeader(String n, String mode) {
@@ -1490,35 +1461,15 @@ public class PageProcessor implements Logger  {
       pfx = "../../";
     if ("l3".equals(mode))
       pfx = "../../../";
-    
-    b.append("<div class=\"navtop\">");
-    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
-    if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Using Codes</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies.html\">Using Codes</a></span></li>");
-    if ("systems".equals(mode))
-      b.append("<li class=\"selected\"><span>Systems</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-systems.html\">Systems</a></span></li>");
-    if ("valuesets".equals(mode))
-      b.append("<li class=\"selected\"><span>Value Sets</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-valuesets.html\">Value Sets</a></span></li>");
-    if ("v2".equals(mode))
-      b.append("<li class=\"selected\"><span>v2 Tables</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v2.html\">v2 Tables</a></span></li>");
-    if ("v3".equals(mode))
-      b.append("<li class=\"selected\"><span>v3 Namespaces</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-v3.html\">v3 Namespaces</a></span></li>");
-    if ("conceptmaps".equals(mode))
-      b.append("<li class=\"selected\"><span>Concept Maps</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"terminologies-conceptmaps.html\">Concept Maps</a></span></li>");
-    b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
-    b.append("</ul></div>\r\n");
+
+    b.append("<ul class=\"nav nav-tabs\">");    
+    b.append(makeHeaderTab("Using Codes", pfx + "terminologies.html", mode==null || "content".equals(mode)));
+    b.append(makeHeaderTab("Systems", pfx + "terminologies-systems.html", "systems".equals(mode)));
+    b.append(makeHeaderTab("Value Sets", pfx + "terminologies-valuesets.html", "valuesets".equals(mode)));
+    b.append(makeHeaderTab("v2 Tables", pfx + "terminologies-v2.html", "v2".equals(mode)));
+    b.append(makeHeaderTab("v3 Namespaces", pfx + "terminologies-v3.html", "v3".equals(mode)));
+    b.append(makeHeaderTab("Concept Maps", pfx + "terminologies-conceptmaps.html", "conceptmaps".equals(mode)));
+    b.append("</ul>\r\n");
     return b.toString();
   }
 
@@ -1533,56 +1484,36 @@ public class PageProcessor implements Logger  {
       pfx = "../../";
     if ("l3".equals(mode))
       pfx = "../../../";
+
+    b.append("<ul class=\"nav nav-tabs\">");    
+    b.append(makeHeaderTab("Comparison Appendix", pfx + "comparison.html", mode==null || "content".equals(mode)));
+    b.append(makeHeaderTab("V2 Messaging", pfx + "comparison-v2.html", "v2".equals(mode)));
+    b.append(makeHeaderTab("V3 (Messaging)", pfx + "comparison-v3.html", "v3".equals(mode)));
+    b.append(makeHeaderTab("CDA", pfx + "comparison-cda.html", "cda".equals(mode)));
+    b.append(makeHeaderTab("Other", pfx + "comparison-other.html", "misc".equals(mode)));
     
-    b.append("<div class=\"navtop\">");
-    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
-    if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Comparison Appendix</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison.html\">Comparison Appendix</a></span></li>");
-    
-    if ("v2".equals(mode))
-      b.append("<li class=\"selected\"><span>V2 Messaging</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison-v2.html\">V2 Messaging</a></span></li>");
-    
-    if ("v3".equals(mode))
-      b.append("<li class=\"selected\"><span>V3 (Messaging)</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison-v3.html\">V3 (Messaging)</a></span></li>");
-    
-    if ("cda".equals(mode))
-      b.append("<li class=\"selected\"><span>CDA</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison-cda.html\">CDA</a></span></li>");
-    
-    if ("misc".equals(mode))
-      b.append("<li class=\"selected\"><span>Other</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+pfx+"comparison-other.html\">Other</a></span></li>");
-    b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
-    b.append("</ul></div>\r\n");
+    b.append("</ul>\r\n");
     return b.toString();
   }
 
-  private String atomHeader(String n, String mode) {
-    if (n.contains("-"))
-      n = n.substring(0, n.indexOf('-'));
-    StringBuilder b = new StringBuilder();
-    b.append("<div class=\"navtop\">");
-    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
-    if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Content</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
-    if ("examples".equals(mode))
-      b.append("<li class=\"selected\"><span>Examples</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
-    b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
-    b.append("</ul></div>\r\n");
-    return b.toString();
-  }
+//  private String atomHeader(String n, String mode) {
+//    if (n.contains("-"))
+//      n = n.substring(0, n.indexOf('-'));
+//    StringBuilder b = new StringBuilder();
+//    b.append("<div class=\"navtop\">");
+//    b.append("<ul class=\"navtop\"><li class=\"spacerleft\"><span>&nbsp;</span></li>");
+//    if (mode == null || mode.equals("content"))
+//      b.append("<li class=\"selected\"><span>Content</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
+//    if ("examples".equals(mode))
+//      b.append("<li class=\"selected\"><span>Examples</span></li>");
+//    else
+//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
+//    b.append("<li class=\"spacerright\" style=\"width: 370px\"><span>&nbsp;</span></li>");
+//    b.append("</ul></div>\r\n");
+//    return b.toString();
+//  }
 
   private String codelist(String n, String mode) throws Exception {
     BindingSpecification bs = definitions.getBindingByName(mode);
@@ -1608,54 +1539,42 @@ public class PageProcessor implements Logger  {
     return b.toString();
   }
 
+  private String makeHeaderTab(String tabName, String path, Boolean selected)
+  {
+    StringBuilder b = new StringBuilder();
+    
+    if(!selected)
+    {
+      b.append("<li>");
+      b.append(String.format("<a href=\"%s\">%s</a>", path, tabName));
+    }
+    else
+    {
+      b.append("<li class=\"active\">");
+      b.append(String.format("<a href=\"#\">%s</a>", tabName));
+    }
+
+    b.append("</li>");
+    
+    return b.toString();    
+  }
+  
   private String resHeader(String n, String title, String mode) {
+    StringBuilder b = new StringBuilder();
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
-    StringBuilder b = new StringBuilder();
-    b.append("<div class=\"navtop\">");
-    b.append("<ul class=\"navtop\">");
-    b.append("<li class=\"spacerleft\"><span>&nbsp;</span></li>");
-    if (mode == null || mode.equals("content"))
-      b.append("<li class=\"selected\"><span>Content</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+".html\">Content</a></span></li>");
-    String pages = ini.getStringProperty("resource-pages", title.toLowerCase());
-    if (!Utilities.noString(pages)) {
-      for (String p : pages.split(",")) {
-        String t = ini.getStringProperty("page-titles", p);
-        if (t.equals(mode)) 
-          b.append("<li class=\"selected\"><span>"+t+"</span></li>");
-        else
-          b.append("<li class=\"nselected\"><span><a href=\""+p+"\">"+t+"</a></span></li>");
-      }
-    }
-    if ("examples".equals(mode))
-      b.append("<li class=\"selected\"><span>Examples</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-examples.html\">Examples</a></span></li>");
-    if ("definitions".equals(mode))
-        b.append("<li class=\"selected\"><span>Formal Definitions</span></li>");
-      else
-        b.append("<li class=\"nselected\"><span><a href=\""+n+"-definitions.html\">Formal Definitions</a></span></li>");
 
-    if ("mappings".equals(mode))
-        b.append("<li class=\"selected\"><span>Mappings</span></li>");
-      else
-        b.append("<li class=\"nselected\"><span><a href=\""+n+"-mappings.html\">Mappings</a></span></li>");
+    b.append("<ul class=\"nav nav-tabs\">");
+    
+    b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
+    b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
 
-//    if ("explanations".equals(mode))
-//      b.append("<li class=\"selected\"><span>Design Notes</span></li>");
-//    else
-//      b.append("<li class=\"nselected\"><span><a href=\""+n+"-explanations.html\">Design Notes</a></span></li>");
-    
-    if ("profiles".equals(mode))
-      b.append("<li class=\"selected\"><span>Profiles</span></li>");
-    else
-      b.append("<li class=\"nselected\"><span><a href=\""+n+"-profiles.html\">Profiles</a></span></li>");
-    
-    b.append("<li class=\"spacerright\"><span>&nbsp;</span></li>");
-    b.append("</ul></div>\r\n");
-    return b.toString();
+    b.append("</ul>\r\n");
+
+    return b.toString();   
   }
 
   private String genCodeSystemsTable() throws Exception {
