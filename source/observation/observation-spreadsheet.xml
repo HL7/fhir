@@ -880,7 +880,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">ObservationRangeMeaning</Data></Cell>
-    <Cell><Data ss:Type="String">The meaning of this range</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the meaning/use of this range of this range</Data></Cell>
     <Cell><Data ss:Type="String">Code for the meaning of the reference range</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, or perhaps what state this reference range applies to (i.e. age, hormonal cycles, etc.)</Data></Cell>
     <Cell><Data ss:Type="String">This is SHOULD be populated if there is more than one range</Data></Cell>
@@ -960,9 +960,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -970,6 +970,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -977,8 +978,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>20</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
