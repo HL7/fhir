@@ -34,6 +34,7 @@ import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.IXMLWriter;
 
 public class XhtmlComposer {
@@ -207,6 +208,53 @@ public class XhtmlComposer {
     for (XhtmlNode n : node.getChildNodes())
       compose(xml, n);
     xml.close(XHTML_NS, node.getName());
+  }
+
+  public String composePlainText(XhtmlNode x) {
+    StringBuilder b = new StringBuilder();
+    composePlainText(x, b, false);
+    return b.toString();
+  }
+
+  private boolean composePlainText(XhtmlNode x, StringBuilder b, boolean lastWS) {
+    if (x.getNodeType() == NodeType.Text) {
+      String s = x.getContent();
+      if (!lastWS & (s.startsWith(" ") || s.startsWith("\r") || s.startsWith("\n") || s.endsWith("\t"))) {
+        b.append(" ");
+        lastWS = true;
+      }
+      String st = s.trim().replace("\r", " ").replace("\n", " ").replace("\t", " ");
+      while (st.contains("  "))
+        st = st.replace("  ", " ");
+      if (!Utilities.noString(st)) {
+        b.append(st);
+        lastWS = false;
+        if (!lastWS & (s.endsWith(" ") || s.endsWith("\r") || s.endsWith("\n") || s.endsWith("\t"))) {
+          b.append(" ");
+          lastWS = true;
+        }
+      }
+      return lastWS;
+    } else if (x.getNodeType() == NodeType.Element) {
+      if (x.getName().equals("li")) {
+        b.append("* ");
+        lastWS = true;
+      }
+      
+      for (XhtmlNode n : x.getChildNodes()) {
+        lastWS = composePlainText(n, b, lastWS);
+      }
+      if (x.getName().equals("p")) {
+        b.append("\r\n\r\n");
+        lastWS = true;
+      }
+      if (x.getName().equals("br") || x.getName().equals("li")) {
+        b.append("\r\n");
+        lastWS = true;
+      }
+      return lastWS;
+    } else
+      return lastWS;
   }
   
 }

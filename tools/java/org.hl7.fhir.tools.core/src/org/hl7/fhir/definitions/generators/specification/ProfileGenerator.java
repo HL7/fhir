@@ -104,6 +104,8 @@ public class ProfileGenerator {
       throw new Exception("profile evidence is not supported any more ("+p.getName()+")");
     if (profile.hasMetadata("comments"))
       throw new Exception("profile comments is not supported any more ("+p.getName()+")");
+    if (profile.hasMetadata("requirements"))
+      p.setRequirementsSimple(profile.metadata("requirements"));
 
     if (profile.hasMetadata("date"))
       p.setDate(Factory.newDateTime(profile.metadata("date").substring(0, 10)));

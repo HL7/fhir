@@ -108,6 +108,7 @@ public class ResourceDefn  {
    }
    
    private boolean forFutureUse = false;
+  private String requirements;
    
    public boolean isForFutureUse()
    {
@@ -145,6 +146,15 @@ public class ResourceDefn  {
 
   public List<RegisteredProfile> getProfiles() {
     return profiles;
+  }
+
+  public void setRequirements(String text) {
+    this.requirements = text;
+    
+  }
+
+  public String getRequirements() {
+    return requirements;
   }
 
 

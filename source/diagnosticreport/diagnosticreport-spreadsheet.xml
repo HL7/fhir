@@ -20,7 +20,7 @@
   <WindowWidth>9570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6255</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -896,7 +896,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -908,7 +907,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="149.25"/>
    <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="336.75"/>
@@ -938,14 +937,6 @@
     <Cell ss:StyleID="s74"/>
     <Cell><Data ss:Type="String">valueset-report-names</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">LOINC Codes for Diagnostic Reports</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticRequests</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Codes for tests/services that can be performed by diagnostic services</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-diagnostic-requests</Data></Cell>
-    <Cell><Data ss:Type="String">LOINC Order Codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">DiagnosticServiceSection</Data></Cell>
@@ -986,8 +977,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -995,7 +986,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="100.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="219.75"/>
@@ -1057,6 +1048,13 @@
     <Cell><Data ss:Type="String">diagnosticreport-example-dxa.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Micro Isolate and Sensitivities</Data></Cell>
+    <Cell><Data ss:Type="String">An example of a complex Micro Isolate and Sensitivities</Data></Cell>
+    <Cell><Data ss:Type="String">micro</Data></Cell>
+    <Cell><Data ss:Type="String">diagnosticreport-micro1.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1065,11 +1063,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

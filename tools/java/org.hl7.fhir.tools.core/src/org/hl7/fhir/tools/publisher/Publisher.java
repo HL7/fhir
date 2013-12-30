@@ -2307,6 +2307,7 @@ public class Publisher {
 		p.putMetadata("status", "draft");
 		p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
 		p.getResources().add(root);
+		p.putMetadata("requirements", root.getRequirements());
 		ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
 		Profile rp = pgen.generate(p, xmlSpec, mode);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);

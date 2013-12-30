@@ -10,7 +10,7 @@
         <li>LOINC Method List: this is less incomplete, but not designed to be used as a formal code system</li>      
       </ul>
     </div>
-  </text>
+  </text> 
   <name value="Observation Methods"/>
   <publisher value="FHIR Project team"/>
   <telecom>  

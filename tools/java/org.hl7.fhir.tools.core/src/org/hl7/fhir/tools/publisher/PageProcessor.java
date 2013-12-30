@@ -2862,7 +2862,7 @@ public class PageProcessor implements Logger  {
    
   }
 
-  private void checkFormat(String filename, String res) throws Exception {
+  private void checkFormat(String filename, String res, ResourceDefn r) throws Exception {
     XhtmlNode doc = new XhtmlParser().parse("<div>"+res+"</div>", null).getFirstElement();
     if (!doc.getName().equals("div"))
       log("file \""+filename+"\": root element should be 'div'", LogMessageType.Error);
@@ -2889,9 +2889,10 @@ public class PageProcessor implements Logger  {
               return;
             } else { 
               if (scope == null) {
-                if (s.equals("Scope and Usage")) 
+                if (s.equals("Scope and Usage")) { 
                   scope = x;
-                else {
+                  r.setRequirements(new XhtmlComposer().composePlainText(x));
+                } else {
                   log("file \""+filename+"\": 'Scope and Usage' must come first", LogMessageType.Error);
                   return;
                 }

@@ -1016,6 +1016,10 @@
     <display value="Pulmonary vascular structure"/>
     <display value="Pulmonary vascular structure (body structure)"/>
   </concept>
+  <concept id="281657000" display="Travel vaccinations">
+    <display value="Travel vaccinations"/>
+    <display value="Travel vaccinations (procedure)"/>
+  </concept>
   <concept id="284093001" display="Potassium supplementation">
     <display value="Potassium supplementation (product)"/>
     <display value="Potassium supplementation"/>
@@ -1688,6 +1692,11 @@
     <display value="Staphylococcus aureus bacteremia"/>
     <display value="Bacteraemia due to Staphylococcus aureus"/>
     <display value="Bacteremia due to Staphylococcus aureus (finding)"/>
+  </concept>
+  <concept id="429060002" display="Procedure to meet occupational requirement">
+    <display value="Procedure to meet occupational requirement (regime/therapy)"/>
+    <display value="Procedure to meet occupational requirement"/>
+    <display value="Procedure to meet occupational requirement (procedure)"/>
   </concept>
   <concept id="42950004" display="Iron level">
     <display value="Iron level"/>

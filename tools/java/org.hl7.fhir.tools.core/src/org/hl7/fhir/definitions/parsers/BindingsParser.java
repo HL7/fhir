@@ -54,10 +54,10 @@ public class BindingsParser {
 
 	public List<BindingSpecification> parse() throws Exception {
 		List<BindingSpecification> results = new ArrayList<BindingSpecification>();
-		BindingSpecification n = new BindingSpecification();
-		n.setName("*unbound*");
-		n.setBinding(BindingSpecification.Binding.Unbound);
-		results.add(n);
+//		BindingSpecification n = new BindingSpecification();
+//		n.setName("*unbound*");
+//		n.setBinding(BindingSpecification.Binding.Unbound);
+//		results.add(n);
 		
 		xls = new XLSXmlParser(file, filename);
 		Sheet sheet = xls.getSheets().get("Bindings");

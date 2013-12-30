@@ -1,32 +1,29 @@
 <ValueSet xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
-        contains concepts to support the medication process, in particular the process and reasons for dispensing.</p>
-      <p>Possible sources include:</p>
-      <ul>
-        <li>The HL7 no immunnization reason value set</li>
-      </ul>
-      <p>The HL7 set is used here as the example terminology.</p>
-    </div>
-  </text>
   <name value="Immunization Reasons for Not Immunizing Codes"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="This value set is provided as an exemplar"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
+        contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/vs/ActReason"/>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
       <code value="IMMUNE"/>
       <code value="MEDPREC"/>
       <code value="OSTOCK"/>
       <code value="PATOBJ"/>
+    </include>
+    <include>
+      <system value="http://snomed.info"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="310376006"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>
