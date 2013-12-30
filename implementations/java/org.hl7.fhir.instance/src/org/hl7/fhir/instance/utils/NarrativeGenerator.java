@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
+import org.hl7.fhir.instance.model.ConceptMap.OtherConceptComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestOperationComponent;
@@ -21,6 +23,8 @@ import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceOperationComponent;
 import org.hl7.fhir.instance.model.Conformance.SystemRestfulOperation;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulOperation;
+import org.hl7.fhir.instance.model.Contact;
+import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
@@ -49,6 +53,261 @@ public class NarrativeGenerator {
     super();
     this.prefix = prefix;
     this.conceptLocator = conceptLocator;
+  }
+
+  public void generate(ConceptMap cm, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets, Map<String, AtomEntry<ConceptMap>> maps) throws Exception {
+    XhtmlNode x = new XhtmlNode();
+    x.setNodeType(NodeType.Element);
+    x.setName("div");
+    x.addTag("h2").addText(cm.getNameSimple()+" ("+cm.getIdentifierSimple()+")");
+
+    XhtmlNode p = x.addTag("p");
+    p.addText("Mapping from ");
+    AddVsRef(cm.getSource().getReferenceSimple(), p, codeSystems, valueSets);
+    p.addText(" to ");
+    AddVsRef(cm.getTarget().getReferenceSimple(), p, codeSystems, valueSets);
+    
+    p = x.addTag("p");
+    if (cm.getExperimentalSimple())
+      p.addText(Utilities.capitalize(cm.getStatusSimple().toString())+" (not intended for production usage). ");
+    else
+      p.addText(Utilities.capitalize(cm.getStatusSimple().toString())+". ");
+    p.addText("Published on "+cm.getDateSimple().toHumanDisplay()+" by "+cm.getPublisherSimple());
+    if (!cm.getTelecom().isEmpty()) {
+      p.addText(" (");
+      boolean first = true;
+      for (Contact c : cm.getTelecom()) {
+        if (first) 
+          first = false;
+        else
+          p.addText(", ");
+        addTelecom(p, c);
+      }
+      p.addText(")");
+    }
+    p.addText(". ");
+    p.addText(cm.getCopyrightSimple());
+    if (!Utilities.noString(cm.getDescriptionSimple())) 
+      x.addTag("p").addText(cm.getDescriptionSimple());
+
+    x.addTag("br");
+
+    if (!cm.getConcept().isEmpty()) {
+      ConceptMapConceptComponent cc = cm.getConcept().get(0);
+      String src = cc.getSystemSimple();
+      boolean comments = false;
+      boolean ok = cc.getMap().size() == 1;
+      Map<String, HashSet<String>> sources = new HashMap<String, HashSet<String>>();
+      sources.put("code", new HashSet<String>());
+      Map<String, HashSet<String>> targets = new HashMap<String, HashSet<String>>();
+      targets.put("code", new HashSet<String>());
+      if (ok) {
+        String dst = cc.getMap().get(0).getSystemSimple();
+        for (ConceptMapConceptComponent ccl : cm.getConcept()) {
+          ok = ok && src.equals(ccl.getSystemSimple()) && ccl.getMap().size() == 1 && dst.equals(ccl.getMap().get(0).getSystemSimple()) && ccl.getDependsOn().isEmpty() && ccl.getMap().get(0).getProduct().isEmpty();
+          if (ccl.getSystemSimple() != null)
+            sources.get("code").add(ccl.getSystemSimple());
+          for (OtherConceptComponent d : ccl.getDependsOn()) {
+            if (!sources.containsKey(d.getConceptSimple()))
+              sources.put(d.getConceptSimple(), new HashSet<String>());
+            sources.get(d.getConceptSimple()).add(d.getSystemSimple());
+          }
+          for (ConceptMapConceptMapComponent ccm : ccl.getMap()) {
+            comments = comments || !Utilities.noString(ccm.getCommentsSimple());
+            if (ccm.getSystemSimple() != null)
+              targets.get("code").add(ccm.getSystemSimple());
+            for (OtherConceptComponent d : ccm.getProduct()) {
+              if (!targets.containsKey(d.getConceptSimple()))
+                targets.put(d.getConceptSimple(), new HashSet<String>());
+              targets.get(d.getConceptSimple()).add(d.getSystemSimple());
+            }
+            
+          }
+        }
+      }
+      
+      String display;
+      if (ok) {
+        // simple 
+        XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
+        XhtmlNode tr = tbl.addTag("tr");
+        tr.addTag("td").addTag("b").addText("Source Code");
+        tr.addTag("td").addTag("b").addText("Equivalence");
+        tr.addTag("td").addTag("b").addText("Destination Code");
+        if (comments)
+          tr.addTag("td").addTag("b").addText("Comments");
+        for (ConceptMapConceptComponent ccl : cm.getConcept()) {
+          tr = tbl.addTag("tr");
+          XhtmlNode td = tr.addTag("td");
+          td.addText(ccl.getCodeSimple());
+          display = getDisplayForConcept(ccl.getSystemSimple(), ccl.getCodeSimple(), codeSystems);
+          if (display != null)
+            td.addText(" ("+display+")");
+          ConceptMapConceptMapComponent ccm = ccl.getMap().get(0); 
+          tr.addTag("td").addText(ccm.getEquivalenceSimple().toString());
+          td = tr.addTag("td");
+          td.addText(ccm.getCodeSimple());
+          display = getDisplayForConcept(ccm.getSystemSimple(), ccm.getCodeSimple(), codeSystems);
+          if (display != null)
+            td.addText(" ("+display+")");
+          if (comments)
+            tr.addTag("td").addText(ccm.getCommentsSimple());
+        }
+      } else {
+        XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
+        XhtmlNode tr = tbl.addTag("tr");
+        XhtmlNode td;
+        tr.addTag("td").setAttribute("colspan", Integer.toString(sources.size())).addTag("b").addText("Source Concept");
+        tr.addTag("td").addTag("b").addText("Equivalence");
+        tr.addTag("td").setAttribute("colspan", Integer.toString(targets.size())).addTag("b").addText("Destination Concept");
+        if (comments)
+          tr.addTag("td").addTag("b").addText("Comments");
+        tr = tbl.addTag("tr");
+        if (sources.get("code").size() == 1) 
+          tr.addTag("td").addTag("b").addText("Code "+sources.get("code").toString()+"");
+        else 
+          tr.addTag("td").addTag("b").addText("Code");
+        for (String s : sources.keySet()) {
+          if (!s.equals("code")) {
+            if (sources.get(s).size() == 1)
+              tr.addTag("td").addTag("b").addText(getDescForConcept(s) +" "+sources.get(s).toString());
+            else 
+              tr.addTag("td").addTag("b").addText(getDescForConcept(s));
+          }
+        }
+        tr.addTag("td");
+        if (targets.get("code").size() == 1) 
+          tr.addTag("td").addTag("b").addText("Code "+targets.get("code").toString());
+        else 
+          tr.addTag("td").addTag("b").addText("Code");
+        for (String s : targets.keySet()) {
+          if (!s.equals("code")) {
+            if (targets.get(s).size() == 1)
+              tr.addTag("td").addTag("b").addText(getDescForConcept(s) +" "+targets.get(s).toString()+"");
+            else 
+              tr.addTag("td").addTag("b").addText(getDescForConcept(s));
+          }
+        }
+        if (comments)
+          tr.addTag("td");
+        
+        for (ConceptMapConceptComponent ccl : cm.getConcept()) {
+          tr = tbl.addTag("tr");
+          td = tr.addTag("td");
+          if (sources.get("code").size() == 1) 
+            td.addText(ccl.getCodeSimple());
+          else
+            td.addText(ccl.getSystemSimple()+" / "+ccl.getCodeSimple());
+          display = getDisplayForConcept(ccl.getSystemSimple(), ccl.getCodeSimple(), codeSystems);
+          if (display != null)
+            td.addText(" ("+display+")");
+          
+          for (String s : sources.keySet()) {
+            if (!s.equals("code")) { 
+              td = tr.addTag("td");
+              td.addText(getCode(ccl.getDependsOn(), s, sources.get(s).size() != 1));
+              display = getDisplay(ccl.getDependsOn(), s, codeSystems);
+              if (display != null)
+                td.addText(" ("+display+")");
+            }
+          }
+          ConceptMapConceptMapComponent ccm = ccl.getMap().get(0); 
+          tr.addTag("td").addText(ccm.getEquivalenceSimple().toString());
+          td = tr.addTag("td");
+          if (targets.get("code").size() == 1) 
+            td.addText(ccm.getCodeSimple());
+          else
+            td.addText(ccm.getSystemSimple()+" / "+ccm.getCodeSimple());
+          display = getDisplayForConcept(ccm.getSystemSimple(), ccm.getCodeSimple(), codeSystems);
+          if (display != null)
+            td.addText(" ("+display+")");
+
+          for (String s : targets.keySet()) {
+            if (!s.equals("code")) { 
+              td = tr.addTag("td");
+              td.addText(getCode(ccm.getProduct(), s, targets.get(s).size() != 1));
+              display = getDisplay(ccm.getProduct(), s, codeSystems);
+              if (display != null)
+                td.addText(" ("+display+")");
+            }
+          }
+          if (comments)
+            tr.addTag("td").addText(ccm.getCommentsSimple());
+        }
+      }
+    }
+   
+    
+    if (cm.getText() == null)
+      cm.setText(new Narrative());
+    cm.getText().setDiv(x);
+    cm.getText().setStatusSimple(NarrativeStatus.generated);
+  }
+  
+  
+  
+  private String getDisplay(List<OtherConceptComponent> list, String s, Map<String, AtomEntry<ValueSet>> codeSystems) {
+    for (OtherConceptComponent c : list) {
+      if (s.equals(c.getConceptSimple()))
+        return getDisplayForConcept(c.getSystemSimple(), c.getCodeSimple(), codeSystems);
+    }
+    return null;
+  }
+
+  private String getDisplayForConcept(String system, String code, Map<String, AtomEntry<ValueSet>> codeSystems) {
+    if (code == null)
+      return null;
+    if (codeSystems.containsKey(system)) {
+      ValueSet vs = codeSystems.get(system).getResource();
+      return getDisplayForConcept(code, vs.getDefine().getConcept(), vs.getDefine().getCaseSensitiveSimple());
+    } else if (conceptLocator != null) {
+      ValueSetDefineConceptComponent cl = conceptLocator.locate(system, code);
+      return cl == null ? null : cl.getDisplaySimple();
+    } else
+      return null;
+  }
+
+  private String getDisplayForConcept(String code, List<ValueSetDefineConceptComponent> concept, boolean cs) {
+    for (ValueSetDefineConceptComponent t : concept) {
+      if ((cs && code.equals(t.getCodeSimple()) || (!cs && code.equalsIgnoreCase(t.getCodeSimple()))))
+          return t.getDisplaySimple();
+      String disp = getDisplayForConcept(code, t.getConcept(), cs);
+      if (disp != null)
+        return disp;
+    }
+    return null;
+  }
+
+  private String getDescForConcept(String s) {
+    if (s.startsWith("http://hl7.org/fhir/v2/element/"))
+        return "v2 "+s.substring("http://hl7.org/fhir/v2/element/".length()); 
+    return s;
+  }
+
+  private String getCode(List<OtherConceptComponent> list, String s, boolean withSystem) {
+    for (OtherConceptComponent c : list) {
+      if (s.equals(c.getConceptSimple()))
+        if (withSystem)
+          return c.getSystemSimple()+" / "+c.getCodeSimple();
+        else
+          return c.getCodeSimple();
+    }
+    return null;
+  }
+
+  private void addTelecom(XhtmlNode p, Contact c) {
+    if (c.getSystemSimple() == ContactSystem.phone) {
+      p.addText("Phone: "+c.getValueSimple());
+    } else if (c.getSystemSimple() == ContactSystem.fax) {
+      p.addText("Fax: "+c.getValueSimple());
+    } else if (c.getSystemSimple() == ContactSystem.email) {
+      p.addTag("a").setAttribute("href",  "mailto:"+c.getValueSimple()).addText(c.getValueSimple());
+    } else if (c.getSystemSimple() == ContactSystem.url) {
+      if (c.getValueSimple().length() > 30)
+        p.addTag("a").setAttribute("href", c.getValueSimple()).addText(c.getValueSimple().substring(0, 30)+"...");
+      else
+        p.addTag("a").setAttribute("href", c.getValueSimple()).addText(c.getValueSimple());
+    }    
   }
 
   /**
@@ -367,14 +626,18 @@ public class NarrativeGenerator {
     AtomEntry<? extends Resource> vs = valueSets.get(value);
     if (vs == null) 
       vs = codeSystems.get(value); 
-    if (vs == null)
-      li.addText(value);
-    else {
+    if (vs != null) {
       String ref= vs.getLinks().get("path");
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", prefix+ref.replace("\\", "/"));
       a.addText(value);
-    }    
+    } else if (value.equals("http://snomed.info/sct") || value.equals("http://snomed.info/id")) {
+      XhtmlNode a = li.addTag("a");
+      a.setAttribute("href", value);
+      a.addText("SNOMED-CT");      
+    }
+    else 
+      li.addText(value);
   }
 
   private  void genInclude(XhtmlNode ul, ConceptSetComponent inc, String type, Map<String, AtomEntry<ValueSet>> codeSystems) throws Exception {

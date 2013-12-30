@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -589,7 +589,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -619,17 +618,18 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="9" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="179.25"/>
    <Column ss:Width="249.75"/>
-   <Column ss:Width="47.25"/>
-   <Column ss:Width="132.75"/>
+   <Column ss:Width="47.25" ss:Span="1"/>
+   <Column ss:Index="5" ss:Width="132.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Comments</Data></Cell>
@@ -638,39 +638,40 @@
     <Cell><Data ss:Type="String">SubstanceType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Type of the substance</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-substance-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubstanceStatus</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Substance status</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">valueset-substance-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceQuantityMode</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Mode of the quantity element</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-substance-mode</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="5" ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:Index="6" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
     <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
    </Row>
@@ -682,6 +683,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -701,7 +703,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

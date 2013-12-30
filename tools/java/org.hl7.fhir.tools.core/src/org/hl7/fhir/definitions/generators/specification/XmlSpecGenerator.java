@@ -423,11 +423,11 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 				      write("<span style=\"color: navy\"><a href=\""+bs.getReference().substring(1)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a></span>");
 				    else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
 				      if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-				        AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-				        write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+				        AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
+				        write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
 	                AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-	                write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
+	                write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
 				      } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
 				        write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem) + "</a>");
 				      else
