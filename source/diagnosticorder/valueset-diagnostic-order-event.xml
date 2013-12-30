@@ -1,0 +1,20 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Diagnostic Order Event Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Additional information about an event that occurred to a diagnostic order"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <code value="440622005"/>
+      <code value="394838008"/>
+      <code value="26895000"/>
+    </include>
+  </compose>
+</ValueSet>
+

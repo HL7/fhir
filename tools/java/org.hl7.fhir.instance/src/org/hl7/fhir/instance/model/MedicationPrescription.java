@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -116,7 +116,7 @@ public class MedicationPrescription extends Resource {
         /**
          * Free text dosage instructions for cases where the instructions are too complex to code.
          */
-        protected String_ dosageInstructionsText;
+        protected String_ text;
 
         /**
          * Additional instructions such as "Swallow with plenty of water" which may or may not be coded.
@@ -165,37 +165,37 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       }
 
         /**
-         * @return {@link #dosageInstructionsText} (Free text dosage instructions for cases where the instructions are too complex to code.)
+         * @return {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.)
          */
-        public String_ getDosageInstructionsText() { 
-          return this.dosageInstructionsText;
+        public String_ getText() { 
+          return this.text;
         }
 
         /**
-         * @param value {@link #dosageInstructionsText} (Free text dosage instructions for cases where the instructions are too complex to code.)
+         * @param value {@link #text} (Free text dosage instructions for cases where the instructions are too complex to code.)
          */
-        public MedicationPrescriptionDosageInstructionComponent setDosageInstructionsText(String_ value) { 
-          this.dosageInstructionsText = value;
+        public MedicationPrescriptionDosageInstructionComponent setText(String_ value) { 
+          this.text = value;
           return this;
         }
 
         /**
          * @return Free text dosage instructions for cases where the instructions are too complex to code.
          */
-        public String getDosageInstructionsTextSimple() { 
-          return this.dosageInstructionsText == null ? null : this.dosageInstructionsText.getValue();
+        public String getTextSimple() { 
+          return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Free text dosage instructions for cases where the instructions are too complex to code.
          */
-        public MedicationPrescriptionDosageInstructionComponent setDosageInstructionsTextSimple(String value) { 
+        public MedicationPrescriptionDosageInstructionComponent setTextSimple(String value) { 
           if (value == null)
-            this.dosageInstructionsText = null;
+            this.text = null;
           else {
-            if (this.dosageInstructionsText == null)
-              this.dosageInstructionsText = new String_();
-            this.dosageInstructionsText.setValue(value);
+            if (this.text == null)
+              this.text = new String_();
+            this.text.setValue(value);
           }
           return this;
         }
@@ -326,7 +326,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("dosageInstructionsText", "string", "Free text dosage instructions for cases where the instructions are too complex to code.", 0, java.lang.Integer.MAX_VALUE, dosageInstructionsText));
+          childrenList.add(new Property("text", "string", "Free text dosage instructions for cases where the instructions are too complex to code.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Additional instructions such as 'Swallow with plenty of water' which may or may not be coded.", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
           childrenList.add(new Property("timing[x]", "dateTime|Period|Schedule", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'.", 0, java.lang.Integer.MAX_VALUE, timing));
           childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
@@ -339,7 +339,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
       public MedicationPrescriptionDosageInstructionComponent copy(MedicationPrescription e) {
         MedicationPrescriptionDosageInstructionComponent dst = new MedicationPrescriptionDosageInstructionComponent();
-        dst.dosageInstructionsText = dosageInstructionsText == null ? null : dosageInstructionsText.copy();
+        dst.text = text == null ? null : text.copy();
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.timing = timing == null ? null : timing.copy();
         dst.site = site == null ? null : site.copy();

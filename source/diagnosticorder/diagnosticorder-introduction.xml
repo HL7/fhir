@@ -29,7 +29,7 @@ issue a report that references the requests that it fulfills.
 <p>
 Note that the Diagnostic Order itself is not a request to perform the 
 investigation - it is just a record of the fact that a request was made. 
-The Diagnostic Request must be paired with an <a href="order.html">Order</a>
+The Diagnostic Order must be paired with an <a href="order.html">Order</a>
 resource to convey the actual instruction, or part of an explicit messaging
 or service workflow that carries the instruction.
 </p>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ public class ImmunizationRecommendation extends Resource {
         /**
          * The date the immunization recommendation was created.
          */
-        protected DateTime recommendationDate;
+        protected DateTime date;
 
         /**
          * Vaccine that pertains to the recommendation.
@@ -83,42 +83,42 @@ public class ImmunizationRecommendation extends Resource {
         super();
       }
 
-      public ImmunizationRecommendationRecommendationComponent(DateTime recommendationDate, CodeableConcept vaccineType, CodeableConcept forecastStatus) {
+      public ImmunizationRecommendationRecommendationComponent(DateTime date, CodeableConcept vaccineType, CodeableConcept forecastStatus) {
         super();
-        this.recommendationDate = recommendationDate;
+        this.date = date;
         this.vaccineType = vaccineType;
         this.forecastStatus = forecastStatus;
       }
 
         /**
-         * @return {@link #recommendationDate} (The date the immunization recommendation was created.)
+         * @return {@link #date} (The date the immunization recommendation was created.)
          */
-        public DateTime getRecommendationDate() { 
-          return this.recommendationDate;
+        public DateTime getDate() { 
+          return this.date;
         }
 
         /**
-         * @param value {@link #recommendationDate} (The date the immunization recommendation was created.)
+         * @param value {@link #date} (The date the immunization recommendation was created.)
          */
-        public ImmunizationRecommendationRecommendationComponent setRecommendationDate(DateTime value) { 
-          this.recommendationDate = value;
+        public ImmunizationRecommendationRecommendationComponent setDate(DateTime value) { 
+          this.date = value;
           return this;
         }
 
         /**
          * @return The date the immunization recommendation was created.
          */
-        public DateAndTime getRecommendationDateSimple() { 
-          return this.recommendationDate == null ? null : this.recommendationDate.getValue();
+        public DateAndTime getDateSimple() { 
+          return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value The date the immunization recommendation was created.
          */
-        public ImmunizationRecommendationRecommendationComponent setRecommendationDateSimple(DateAndTime value) { 
-            if (this.recommendationDate == null)
-              this.recommendationDate = new DateTime();
-            this.recommendationDate.setValue(value);
+        public ImmunizationRecommendationRecommendationComponent setDateSimple(DateAndTime value) { 
+            if (this.date == null)
+              this.date = new DateTime();
+            this.date.setValue(value);
           return this;
         }
 
@@ -256,7 +256,7 @@ public class ImmunizationRecommendation extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("recommendationDate", "dateTime", "The date the immunization recommendation was created.", 0, java.lang.Integer.MAX_VALUE, recommendationDate));
+          childrenList.add(new Property("date", "dateTime", "The date the immunization recommendation was created.", 0, java.lang.Integer.MAX_VALUE, date));
           childrenList.add(new Property("vaccineType", "CodeableConcept", "Vaccine that pertains to the recommendation.", 0, java.lang.Integer.MAX_VALUE, vaccineType));
           childrenList.add(new Property("doseNumber", "integer", "This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).", 0, java.lang.Integer.MAX_VALUE, doseNumber));
           childrenList.add(new Property("forecastStatus", "CodeableConcept", "Vaccine administration status.", 0, java.lang.Integer.MAX_VALUE, forecastStatus));
@@ -268,7 +268,7 @@ public class ImmunizationRecommendation extends Resource {
 
       public ImmunizationRecommendationRecommendationComponent copy(ImmunizationRecommendation e) {
         ImmunizationRecommendationRecommendationComponent dst = new ImmunizationRecommendationRecommendationComponent();
-        dst.recommendationDate = recommendationDate == null ? null : recommendationDate.copy();
+        dst.date = date == null ? null : date.copy();
         dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
         dst.doseNumber = doseNumber == null ? null : doseNumber.copy();
         dst.forecastStatus = forecastStatus == null ? null : forecastStatus.copy();
@@ -538,6 +538,11 @@ public class ImmunizationRecommendation extends Resource {
   }
 
     /**
+     * A unique identifier assigned to this particular recommendation record.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * The patient who is the subject of the profile.
      */
     protected ResourceReference subject;
@@ -554,6 +559,23 @@ public class ImmunizationRecommendation extends Resource {
     public ImmunizationRecommendation(ResourceReference subject) {
       super();
       this.subject = subject;
+    }
+
+    /**
+     * @return {@link #identifier} (A unique identifier assigned to this particular recommendation record.)
+     */
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #identifier} (A unique identifier assigned to this particular recommendation record.)
+     */
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -590,12 +612,16 @@ public class ImmunizationRecommendation extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "A unique identifier assigned to this particular recommendation record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Resource(Patient)", "The patient who is the subject of the profile.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("recommendation", "", "Vaccine administration recommendations.", 0, java.lang.Integer.MAX_VALUE, recommendation));
       }
 
       public ImmunizationRecommendation copy() {
         ImmunizationRecommendation dst = new ImmunizationRecommendation();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.subject = subject == null ? null : subject.copy();
         dst.recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
         for (ImmunizationRecommendationRecommendationComponent i : recommendation)

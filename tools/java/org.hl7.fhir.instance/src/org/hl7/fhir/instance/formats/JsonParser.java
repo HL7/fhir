@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -751,10 +751,10 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
       }
     };
-    if (json.has("reactionDate"))
-      res.setReactionDate(parseDateTime(json.getString("reactionDate")));
-    if (json.has("_reactionDate"))
-      parseElementProperties(json.getJSONObject("_reactionDate"), res.getReactionDate());
+    if (json.has("date"))
+      res.setDate(parseDateTime(json.getString("date")));
+    if (json.has("_date"))
+      parseElementProperties(json.getJSONObject("_date"), res.getDate());
     if (json.has("subject"))
       res.setSubject(parseResourceReference(json.getJSONObject("subject")));
     if (json.has("didNotOccurFlag"))
@@ -793,14 +793,14 @@ public class JsonParser extends JsonParserBase {
   private AdverseReaction.AdverseReactionExposureComponent parseAdverseReactionAdverseReactionExposureComponent(JSONObject json, AdverseReaction owner) throws Exception {
     AdverseReaction.AdverseReactionExposureComponent res = new AdverseReaction.AdverseReactionExposureComponent();
     parseBackboneProperties(json, res);
-    if (json.has("exposureDate"))
-      res.setExposureDate(parseDateTime(json.getString("exposureDate")));
-    if (json.has("_exposureDate"))
-      parseElementProperties(json.getJSONObject("_exposureDate"), res.getExposureDate());
-    if (json.has("exposureType"))
-      res.setExposureType(parseEnumeration(json.getString("exposureType"), AdverseReaction.ExposureType.Null, new AdverseReaction.ExposureTypeEnumFactory()));
-    if (json.has("_exposureType"))
-      parseElementProperties(json.getJSONObject("_exposureType"), res.getExposureType());
+    if (json.has("date"))
+      res.setDate(parseDateTime(json.getString("date")));
+    if (json.has("_date"))
+      parseElementProperties(json.getJSONObject("_date"), res.getDate());
+    if (json.has("type"))
+      res.setType(parseEnumeration(json.getString("type"), AdverseReaction.ExposureType.Null, new AdverseReaction.ExposureTypeEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getJSONObject("_type"), res.getType());
     if (json.has("causalityExpectation"))
       res.setCausalityExpectation(parseEnumeration(json.getString("causalityExpectation"), AdverseReaction.CausalityExpectation.Null, new AdverseReaction.CausalityExpectationEnumFactory()));
     if (json.has("_causalityExpectation"))
@@ -813,6 +813,12 @@ public class JsonParser extends JsonParserBase {
   private Alert parseAlert(JSONObject json) throws Exception {
     Alert res = new Alert();
     parseResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JSONArray array = json.getJSONArray("identifier");
+      for (int i = 0; i < array.length(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
+      }
+    };
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getJSONObject("category")));
     if (json.has("status"))
@@ -2076,10 +2082,16 @@ public class JsonParser extends JsonParserBase {
       res.setDiagnostic(diagnostic);
     if (json.has("results"))
       res.setResults(parseDiagnosticReportResultGroupComponent(json.getJSONObject("results"), res));
+    if (json.has("imagingStudy")) {
+      JSONArray array = json.getJSONArray("imagingStudy");
+      for (int i = 0; i < array.length(); i++) {
+        res.getImagingStudy().add(parseResourceReference(array.getJSONObject(i)));
+      }
+    };
     if (json.has("image")) {
       JSONArray array = json.getJSONArray("image");
       for (int i = 0; i < array.length(); i++) {
-        res.getImage().add(parseResourceReference(array.getJSONObject(i)));
+        res.getImage().add(parseDiagnosticReportDiagnosticReportImageComponent(array.getJSONObject(i), res));
       }
     };
     if (json.has("conclusion"))
@@ -2120,6 +2132,18 @@ public class JsonParser extends JsonParserBase {
         res.getResult().add(parseResourceReference(array.getJSONObject(i)));
       }
     };
+    return res;
+  }
+
+  private DiagnosticReport.DiagnosticReportImageComponent parseDiagnosticReportDiagnosticReportImageComponent(JSONObject json, DiagnosticReport owner) throws Exception {
+    DiagnosticReport.DiagnosticReportImageComponent res = new DiagnosticReport.DiagnosticReportImageComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("comment"))
+      res.setComment(parseString(json.getString("comment")));
+    if (json.has("_comment"))
+      parseElementProperties(json.getJSONObject("_comment"), res.getComment());
+    if (json.has("link"))
+      res.setLink(parseResourceReference(json.getJSONObject("link")));
     return res;
   }
 
@@ -2768,6 +2792,12 @@ public class JsonParser extends JsonParserBase {
   private Immunization parseImmunization(JSONObject json) throws Exception {
     Immunization res = new Immunization();
     parseResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JSONArray array = json.getJSONArray("identifier");
+      for (int i = 0; i < array.length(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
+      }
+    };
     if (json.has("date"))
       res.setDate(parseDateTime(json.getString("date")));
     if (json.has("_date"))
@@ -2890,6 +2920,12 @@ public class JsonParser extends JsonParserBase {
   private ImmunizationRecommendation parseImmunizationRecommendation(JSONObject json) throws Exception {
     ImmunizationRecommendation res = new ImmunizationRecommendation();
     parseResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JSONArray array = json.getJSONArray("identifier");
+      for (int i = 0; i < array.length(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
+      }
+    };
     if (json.has("subject"))
       res.setSubject(parseResourceReference(json.getJSONObject("subject")));
     if (json.has("recommendation")) {
@@ -2904,10 +2940,10 @@ public class JsonParser extends JsonParserBase {
   private ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent parseImmunizationRecommendationImmunizationRecommendationRecommendationComponent(JSONObject json, ImmunizationRecommendation owner) throws Exception {
     ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent res = new ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent();
     parseBackboneProperties(json, res);
-    if (json.has("recommendationDate"))
-      res.setRecommendationDate(parseDateTime(json.getString("recommendationDate")));
-    if (json.has("_recommendationDate"))
-      parseElementProperties(json.getJSONObject("_recommendationDate"), res.getRecommendationDate());
+    if (json.has("date"))
+      res.setDate(parseDateTime(json.getString("date")));
+    if (json.has("_date"))
+      parseElementProperties(json.getJSONObject("_date"), res.getDate());
     if (json.has("vaccineType"))
       res.setVaccineType(parseCodeableConcept(json.getJSONObject("vaccineType")));
     if (json.has("doseNumber"))
@@ -2974,6 +3010,12 @@ public class JsonParser extends JsonParserBase {
   private List_ parseList_(JSONObject json) throws Exception {
     List_ res = new List_();
     parseResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JSONArray array = json.getJSONArray("identifier");
+      for (int i = 0; i < array.length(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
+      }
+    };
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getJSONObject("code")));
     if (json.has("subject"))
@@ -3240,10 +3282,10 @@ public class JsonParser extends JsonParserBase {
       res.setWhenGiven(parsePeriod(json.getJSONObject("whenGiven")));
     if (json.has("medication"))
       res.setMedication(parseResourceReference(json.getJSONObject("medication")));
-    if (json.has("administrationDevice")) {
-      JSONArray array = json.getJSONArray("administrationDevice");
+    if (json.has("device")) {
+      JSONArray array = json.getJSONArray("device");
       for (int i = 0; i < array.length(); i++) {
-        res.getAdministrationDevice().add(parseResourceReference(array.getJSONObject(i)));
+        res.getDevice().add(parseResourceReference(array.getJSONObject(i)));
       }
     };
     if (json.has("dosage")) {
@@ -3428,10 +3470,10 @@ public class JsonParser extends JsonParserBase {
   private MedicationPrescription.MedicationPrescriptionDosageInstructionComponent parseMedicationPrescriptionMedicationPrescriptionDosageInstructionComponent(JSONObject json, MedicationPrescription owner) throws Exception {
     MedicationPrescription.MedicationPrescriptionDosageInstructionComponent res = new MedicationPrescription.MedicationPrescriptionDosageInstructionComponent();
     parseBackboneProperties(json, res);
-    if (json.has("dosageInstructionsText"))
-      res.setDosageInstructionsText(parseString(json.getString("dosageInstructionsText")));
-    if (json.has("_dosageInstructionsText"))
-      parseElementProperties(json.getJSONObject("_dosageInstructionsText"), res.getDosageInstructionsText());
+    if (json.has("text"))
+      res.setText(parseString(json.getString("text")));
+    if (json.has("_text"))
+      parseElementProperties(json.getJSONObject("_text"), res.getText());
     if (json.has("additionalInstructions"))
       res.setAdditionalInstructions(parseCodeableConcept(json.getJSONObject("additionalInstructions")));
     Type timing = parseType("timing", json);
@@ -3505,10 +3547,10 @@ public class JsonParser extends JsonParserBase {
       res.setWhenGiven(parsePeriod(json.getJSONObject("whenGiven")));
     if (json.has("medication"))
       res.setMedication(parseResourceReference(json.getJSONObject("medication")));
-    if (json.has("administrationDevice")) {
-      JSONArray array = json.getJSONArray("administrationDevice");
+    if (json.has("device")) {
+      JSONArray array = json.getJSONArray("device");
       for (int i = 0; i < array.length(); i++) {
-        res.getAdministrationDevice().add(parseResourceReference(array.getJSONObject(i)));
+        res.getDevice().add(parseResourceReference(array.getJSONObject(i)));
       }
     };
     if (json.has("dosage")) {
@@ -3903,6 +3945,12 @@ public class JsonParser extends JsonParserBase {
   private Other parseOther(JSONObject json) throws Exception {
     Other res = new Other();
     parseResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JSONArray array = json.getJSONArray("identifier");
+      for (int i = 0; i < array.length(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.getJSONObject(i)));
+      }
+    };
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getJSONObject("code")));
     if (json.has("subject"))
@@ -4265,6 +4313,10 @@ public class JsonParser extends JsonParserBase {
       res.setDate(parseDateTime(json.getString("date")));
     if (json.has("_date"))
       parseElementProperties(json.getJSONObject("_date"), res.getDate());
+    if (json.has("requirements"))
+      res.setRequirements(parseString(json.getString("requirements")));
+    if (json.has("_requirements"))
+      parseElementProperties(json.getJSONObject("_requirements"), res.getRequirements());
     if (json.has("fhirVersion"))
       res.setFhirVersion(parseId(json.getString("fhirVersion")));
     if (json.has("_fhirVersion"))

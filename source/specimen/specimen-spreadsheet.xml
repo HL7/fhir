@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -66,10 +65,6 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s69" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior/>
-  </Style>
   <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
@@ -95,6 +90,11 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s75" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -158,7 +158,7 @@
     <Cell><Data ss:Type="String">Id for specimen</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">SPM-2-specimen ID</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">SPM-2</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -174,7 +174,7 @@
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">The type can change the way that a spceimen is handled, and drives what kind of analyses can properly be performed on the specimen. It is frequently used in diagnostic work flow decision making systems</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">SPM-4 and possibly SPM-5</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -204,6 +204,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">not explicit in v2.x SPM segment, but can be&#10;derived as child,if SPM-3 Specimen parent ID is filled in</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.source.target</Data></Cell>
@@ -226,6 +227,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Accession Identifier</Data></Cell>
     <Cell><Data ss:Type="String">The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures. </Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SPM-30 (v2.7+)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.receivedTime</Data></Cell>
@@ -233,6 +235,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Received Time</Data></Cell>
     <Cell><Data ss:Type="String">Time when specimen was received for processing or testing</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SPM-18</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.collection</Data></Cell>
@@ -261,6 +264,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">dateTime|Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Collection time</Data></Cell>
     <Cell><Data ss:Type="String">Time when specimen was collected from subject - the physiologically relevant time</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SPM-17</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.collection.quantity</Data></Cell>
@@ -268,6 +272,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The quantity of specimen collected</Data></Cell>
     <Cell><Data ss:Type="String">The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample </Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SPM-12</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.collection.method</Data></Cell>
@@ -276,6 +281,7 @@
     <Cell><Data ss:Type="String">SpecimenCollectionMethod</Data></Cell>
     <Cell><Data ss:Type="String">Specimen Collection Method</Data></Cell>
     <Cell><Data ss:Type="String">A coded value specifying the technique that is used to perform the procedure</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SPM-7</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.collection.sourceSite</Data></Cell>
@@ -284,6 +290,7 @@
     <Cell><Data ss:Type="String">BodySite</Data></Cell>
     <Cell><Data ss:Type="String">Site of the source of the specimen</Data></Cell>
     <Cell><Data ss:Type="String">Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SPM-8 and SPM-9</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.treatment</Data></Cell>
@@ -311,6 +318,7 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Specimen additive</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SPM-6</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.container</Data></Cell>
@@ -324,7 +332,8 @@
     <Cell><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Id for container</Data></Cell>
-    <Cell><Data ss:Type="String">Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc</Data></Cell>
+    <Cell><Data ss:Type="String">Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SAC-3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.container.description</Data></Cell>
@@ -339,6 +348,7 @@
     <Cell><Data ss:Type="String">SpecimenContainerType</Data></Cell>
     <Cell><Data ss:Type="String">Specimen Container Type</Data></Cell>
     <Cell><Data ss:Type="String">The type of container associated with the specimen (eg slide, aliquot, etc)</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SPM-27</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.container.capacity</Data></Cell>
@@ -362,6 +372,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Container Additive</Data></Cell>
     <Cell><Data ss:Type="String">Additive associated with the container</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">SAC-27</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -371,6 +382,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -392,8 +404,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -770,7 +782,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

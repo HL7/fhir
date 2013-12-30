@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -92,7 +92,9 @@ public class ConceptMap extends Resource {
         equal, // The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identifical or irrelevant (i.e. intensionally identical).
         equivalent, // The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).
         wider, // The target mapping is wider in meaning than the source concept.
+        subsumes, // The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).
         narrower, // The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
+        specialises, // The target mapping specialises the meaning of the source concept (e.g. the target is-a source).
         inexact, // The target mapping overlaps with the source concept, but both source and target cover additional meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
         unmatched, // There is no match for this concept in the destination concept system.
         disjoint, // This is an explicit assertion that there is no mapping between the source and target concept.
@@ -106,8 +108,12 @@ public class ConceptMap extends Resource {
           return equivalent;
         if ("wider".equals(codeString))
           return wider;
+        if ("subsumes".equals(codeString))
+          return subsumes;
         if ("narrower".equals(codeString))
           return narrower;
+        if ("specialises".equals(codeString))
+          return specialises;
         if ("inexact".equals(codeString))
           return inexact;
         if ("unmatched".equals(codeString))
@@ -121,7 +127,9 @@ public class ConceptMap extends Resource {
             case equal: return "equal";
             case equivalent: return "equivalent";
             case wider: return "wider";
+            case subsumes: return "subsumes";
             case narrower: return "narrower";
+            case specialises: return "specialises";
             case inexact: return "inexact";
             case unmatched: return "unmatched";
             case disjoint: return "disjoint";
@@ -141,8 +149,12 @@ public class ConceptMap extends Resource {
           return ConceptEquivalence.equivalent;
         if ("wider".equals(codeString))
           return ConceptEquivalence.wider;
+        if ("subsumes".equals(codeString))
+          return ConceptEquivalence.subsumes;
         if ("narrower".equals(codeString))
           return ConceptEquivalence.narrower;
+        if ("specialises".equals(codeString))
+          return ConceptEquivalence.specialises;
         if ("inexact".equals(codeString))
           return ConceptEquivalence.inexact;
         if ("unmatched".equals(codeString))
@@ -158,8 +170,12 @@ public class ConceptMap extends Resource {
         return "equivalent";
       if (code == ConceptEquivalence.wider)
         return "wider";
+      if (code == ConceptEquivalence.subsumes)
+        return "subsumes";
       if (code == ConceptEquivalence.narrower)
         return "narrower";
+      if (code == ConceptEquivalence.specialises)
+        return "specialises";
       if (code == ConceptEquivalence.inexact)
         return "inexact";
       if (code == ConceptEquivalence.unmatched)
@@ -477,7 +493,7 @@ public class ConceptMap extends Resource {
         protected Code code;
 
         /**
-         * equal | equivalent | wider | narrower | inexact | unmatched | disjoint.
+         * equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint.
          */
         protected Enumeration<ConceptEquivalence> equivalence;
 
@@ -573,14 +589,14 @@ public class ConceptMap extends Resource {
         }
 
         /**
-         * @return {@link #equivalence} (equal | equivalent | wider | narrower | inexact | unmatched | disjoint.)
+         * @return {@link #equivalence} (equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint.)
          */
         public Enumeration<ConceptEquivalence> getEquivalence() { 
           return this.equivalence;
         }
 
         /**
-         * @param value {@link #equivalence} (equal | equivalent | wider | narrower | inexact | unmatched | disjoint.)
+         * @param value {@link #equivalence} (equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint.)
          */
         public ConceptMapConceptMapComponent setEquivalence(Enumeration<ConceptEquivalence> value) { 
           this.equivalence = value;
@@ -588,14 +604,14 @@ public class ConceptMap extends Resource {
         }
 
         /**
-         * @return equal | equivalent | wider | narrower | inexact | unmatched | disjoint.
+         * @return equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint.
          */
         public ConceptEquivalence getEquivalenceSimple() { 
           return this.equivalence == null ? null : this.equivalence.getValue();
         }
 
         /**
-         * @param value equal | equivalent | wider | narrower | inexact | unmatched | disjoint.
+         * @param value equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint.
          */
         public ConceptMapConceptMapComponent setEquivalenceSimple(ConceptEquivalence value) { 
             if (this.equivalence == null)
@@ -661,7 +677,7 @@ public class ConceptMap extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "System of the target.", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("code", "code", "Code that identifies the target concept.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("equivalence", "code", "equal | equivalent | wider | narrower | inexact | unmatched | disjoint.", 0, java.lang.Integer.MAX_VALUE, equivalence));
+          childrenList.add(new Property("equivalence", "code", "equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint.", 0, java.lang.Integer.MAX_VALUE, equivalence));
           childrenList.add(new Property("comments", "string", "Description of status/issues in mapping.", 0, java.lang.Integer.MAX_VALUE, comments));
           childrenList.add(new Property("product", "@ConceptMap.concept.dependsOn", "A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.", 0, java.lang.Integer.MAX_VALUE, product));
         }

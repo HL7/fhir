@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -683,7 +683,7 @@ public class Profile extends Resource {
          * @return This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
          */
         public boolean getPublishSimple() { 
-          return this.publish == null ? null : this.publish.getValue();
+          return this.publish == null ? false : this.publish.getValue();
         }
 
         /**
@@ -1037,7 +1037,7 @@ public class Profile extends Resource {
          * @return If the matching elements have to occur in the same order as defined in the profile.
          */
         public boolean getOrderedSimple() { 
-          return this.ordered == null ? null : this.ordered.getValue();
+          return this.ordered == null ? false : this.ordered.getValue();
         }
 
         /**
@@ -1612,7 +1612,7 @@ public class Profile extends Resource {
          * @return If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.
          */
         public boolean getMustSupportSimple() { 
-          return this.mustSupport == null ? null : this.mustSupport.getValue();
+          return this.mustSupport == null ? false : this.mustSupport.getValue();
         }
 
         /**
@@ -1648,7 +1648,7 @@ public class Profile extends Resource {
          * @return If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
          */
         public boolean getIsModifierSimple() { 
-          return this.isModifier == null ? null : this.isModifier.getValue();
+          return this.isModifier == null ? false : this.isModifier.getValue();
         }
 
         /**
@@ -2199,7 +2199,7 @@ public class Profile extends Resource {
          * @return If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
         public boolean getIsExtensibleSimple() { 
-          return this.isExtensible == null ? null : this.isExtensible.getValue();
+          return this.isExtensible == null ? false : this.isExtensible.getValue();
         }
 
         /**
@@ -2673,6 +2673,11 @@ public class Profile extends Resource {
     protected DateTime date;
 
     /**
+     * The Scope and Usage that this profile was created to meet.
+     */
+    protected String_ requirements;
+
+    /**
      * The version of the FHIR specification on which this profile is based.
      */
     protected Id fhirVersion;
@@ -2963,7 +2968,7 @@ public class Profile extends Resource {
      * @return This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimentalSimple() { 
-      return this.experimental == null ? null : this.experimental.getValue();
+      return this.experimental == null ? false : this.experimental.getValue();
     }
 
     /**
@@ -3012,6 +3017,42 @@ public class Profile extends Resource {
         if (this.date == null)
           this.date = new DateTime();
         this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #requirements} (The Scope and Usage that this profile was created to meet.)
+     */
+    public String_ getRequirements() { 
+      return this.requirements;
+    }
+
+    /**
+     * @param value {@link #requirements} (The Scope and Usage that this profile was created to meet.)
+     */
+    public Profile setRequirements(String_ value) { 
+      this.requirements = value;
+      return this;
+    }
+
+    /**
+     * @return The Scope and Usage that this profile was created to meet.
+     */
+    public String getRequirementsSimple() { 
+      return this.requirements == null ? null : this.requirements.getValue();
+    }
+
+    /**
+     * @param value The Scope and Usage that this profile was created to meet.
+     */
+    public Profile setRequirementsSimple(String value) { 
+      if (value == null)
+        this.requirements = null;
+      else {
+        if (this.requirements == null)
+          this.requirements = new String_();
+        this.requirements.setValue(value);
       }
       return this;
     }
@@ -3115,6 +3156,7 @@ public class Profile extends Resource {
         childrenList.add(new Property("status", "code", "The status of the profile.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date that this version of the profile was published.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("requirements", "string", "The Scope and Usage that this profile was created to meet.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this profile is based.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("structure", "", "A constraint statement about what contents a resource or data type may have.", 0, java.lang.Integer.MAX_VALUE, structure));
@@ -3137,6 +3179,7 @@ public class Profile extends Resource {
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
+        dst.requirements = requirements == null ? null : requirements.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
         dst.mapping = new ArrayList<ProfileMappingComponent>();
         for (ProfileMappingComponent i : mapping)

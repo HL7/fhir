@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -457,7 +457,7 @@ public class Condition extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Subject of this condition.
+     * Indicates the patient who the condition record is associated with.
      */
     protected ResourceReference subject;
 
@@ -565,14 +565,14 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #subject} (Subject of this condition.)
+     * @return {@link #subject} (Indicates the patient who the condition record is associated with.)
      */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
     /**
-     * @param value {@link #subject} (Subject of this condition.)
+     * @param value {@link #subject} (Indicates the patient who the condition record is associated with.)
      */
     public Condition setSubject(ResourceReference value) { 
       this.subject = value;
@@ -872,7 +872,7 @@ public class Condition extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient)", "Subject of this condition.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Resource(Patient)", "Indicates the patient who the condition record is associated with.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which the condition was first asserted.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("asserter", "Resource(Practitioner|Patient)", "Person who takes responsibility for asserting the existence of the condition as part of the electronic record.", 0, java.lang.Integer.MAX_VALUE, asserter));
         childrenList.add(new Property("dateAsserted", "date", "Estimated or actual date the condition/problem/diagnosis was first detected/suspected.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));

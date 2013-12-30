@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -141,7 +141,7 @@ public class Practitioner extends Resource {
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * The address where the practitioner can be found or visited.
+     * The postal address where the practitioner can be found or visited or to which mail can be delivered.
      */
     protected Address address;
 
@@ -249,14 +249,14 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #address} (The address where the practitioner can be found or visited.)
+     * @return {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
      */
     public Address getAddress() { 
       return this.address;
     }
 
     /**
-     * @param value {@link #address} (The address where the practitioner can be found or visited.)
+     * @param value {@link #address} (The postal address where the practitioner can be found or visited or to which mail can be delivered.)
      */
     public Practitioner setAddress(Address value) { 
       this.address = value;
@@ -451,7 +451,7 @@ public class Practitioner extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person in this role.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("name", "HumanName", "A name associated with the person.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("telecom", "Contact", "A contact detail for the practitioner, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
-        childrenList.add(new Property("address", "Address", "The address where the practitioner can be found or visited.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("address", "Address", "The postal address where the practitioner can be found or visited or to which mail can be delivered.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));

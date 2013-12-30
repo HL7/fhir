@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -1018,7 +1018,7 @@ public class Conformance extends Resource {
          * @return Server adds CORS headers when responding to reuqests - this enables javascript applications to yuse the server.
          */
         public boolean getCorsSimple() { 
-          return this.cors == null ? null : this.cors.getValue();
+          return this.cors == null ? false : this.cors.getValue();
         }
 
         /**
@@ -1358,7 +1358,7 @@ public class Conformance extends Resource {
          * @return A flag for whether the server is able to return past versions as part of the vRead operation.
          */
         public boolean getReadHistorySimple() { 
-          return this.readHistory == null ? null : this.readHistory.getValue();
+          return this.readHistory == null ? false : this.readHistory.getValue();
         }
 
         /**
@@ -1394,7 +1394,7 @@ public class Conformance extends Resource {
          * @return If the update operation is used (client) or allowed (server) to a new location where a resource doesn't already exist. This means that the server allows the client to create new identities on the server.
          */
         public boolean getUpdateCreateSimple() { 
-          return this.updateCreate == null ? null : this.updateCreate.getValue();
+          return this.updateCreate == null ? false : this.updateCreate.getValue();
         }
 
         /**
@@ -3044,7 +3044,7 @@ public class Conformance extends Resource {
      * @return This conformance statement was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimentalSimple() { 
-      return this.experimental == null ? null : this.experimental.getValue();
+      return this.experimental == null ? false : this.experimental.getValue();
     }
 
     /**
@@ -3174,7 +3174,7 @@ public class Conformance extends Resource {
      * @return Whether the application accepts unknown elements as part of a resource. Note: This is not about extensions, but about unknown elements in a resource - these can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence this element is about inter-version compatibility.
      */
     public boolean getAcceptUnknownSimple() { 
-      return this.acceptUnknown == null ? null : this.acceptUnknown.getValue();
+      return this.acceptUnknown == null ? false : this.acceptUnknown.getValue();
     }
 
     /**

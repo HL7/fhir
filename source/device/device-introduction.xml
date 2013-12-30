@@ -6,6 +6,11 @@
 This resource is primarily used for recording which device performed an action and can also be used to track device location. It is also used for prescribing and dispensing devices for patient use. 
 If the device is implanted in a patient, then the patient element will be present, and there would be no location. 
 </p>
+<p>
+Devices that are implanted in a patient differ from medications in that they are not "used up" - they remain active in the patient in an ongoing fashion.
+The <a href="medication.html">Medication resource</a> SHOULD not be used to represented implanted devices.
+</p>
+
 </div>
 
 <div>

@@ -2151,6 +2151,8 @@ public class Publisher {
 		// File(page.getFolders().dstDir+n+".json"));
 
 		tmp.delete();
+		// because we'll pick up a little more information as we process the resource
+    generateProfile(resource, n, xml, GenerationMode.Resource);
 
 	}
 
@@ -2345,6 +2347,10 @@ public class Publisher {
 	}
 
   private void addToResourceFeed(Profile profile, String id, AtomFeed dest) throws Exception {
+    AtomEntry<? extends org.hl7.fhir.instance.model.Resource> byId = dest.getById("http://hl7.org/fhir/profile/" + id);
+    if (byId != null)
+      dest.getEntryList().remove(byId);
+   
     AtomEntry e = new AtomEntry();
     e.setId("http://hl7.org/fhir/profile/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/" + id+ ".profile.xml");
@@ -2451,10 +2457,10 @@ public class Publisher {
     
 		String intro = null;
     if (profile.getMetadata().containsKey("introduction"))
-      intro = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("introduction").get(0), true, null);
+      intro = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("introduction").get(0), true, null, null);
     String notes = null;
     if (profile.getMetadata().containsKey("notes"))
-      notes = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("notes").get(0), false, null);
+      notes = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("notes").get(0), false, null, null);
 		
 		String exXml = "<p><i>No Example Provided</i></p>";
 		if (examplePath != null) {

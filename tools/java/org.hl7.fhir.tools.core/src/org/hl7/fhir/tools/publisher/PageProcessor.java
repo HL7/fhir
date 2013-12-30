@@ -2582,7 +2582,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("status"))
         src = s1+resource.getStatus()+s3;
       else if (com[0].equals("introduction")) 
-        src = s1+loadXmlNotes(name, "introduction", true, resource.getRoot().getDefinition())+s3;
+        src = s1+loadXmlNotes(name, "introduction", true, resource.getRoot().getDefinition(), resource)+s3;
       else if (com[0].equals("examples")) 
         src = s1+produceExamples(resource)+s3;
       else if (com[0].equals("profiles")) 
@@ -2610,7 +2610,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("plural"))
         src = s1+Utilities.pluralizeMe(name)+s3;
       else if (com[0].equals("notes")) {
-        src = s1+loadXmlNotes(name, "notes", false, null)+s3;
+        src = s1+loadXmlNotes(name, "notes", false, null, resource)+s3;
       } else if (com[0].equals("dictionary"))
         src = s1+dict+s3;
       else if (com[0].equals("mappings"))
@@ -2634,7 +2634,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
       else if (com[0].equals("example-header"))
-        src = s1 + loadXmlNotesFromFile(Utilities.path(folders.srcDir, name.toLowerCase(), name+"-examples-header.xml"), false, null)+s3;
+        src = s1 + loadXmlNotesFromFile(Utilities.path(folders.srcDir, name.toLowerCase(), name+"-examples-header.xml"), false, null, resource)+s3;
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("resref"))
@@ -2831,7 +2831,7 @@ public class PageProcessor implements Logger  {
   private static final String HTML_PREFIX2 = "<div xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.w3.org/1999/xhtml ../schema/xhtml1-strict.xsd\" xmlns=\"http://www.w3.org/1999/xhtml\"   >\r\n";
   private static final String HTML_SUFFIX = "</div>\r\n";
   
-  public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition) throws Exception {
+  public String loadXmlNotesFromFile(String filename, boolean checkHeaders, String definition, ResourceDefn r) throws Exception {
     if (!new CSFile(filename).exists()) {
       TextFile.stringToFile(HTML_PREFIX1+"\r\n<!-- content goes here -->\r\n\r\n"+HTML_SUFFIX, filename);
       return "";
@@ -2855,7 +2855,7 @@ public class PageProcessor implements Logger  {
       TextFile.stringToFile(res, filename);
     }
     if (checkHeaders) {
-      checkFormat(filename, res);
+      checkFormat(filename, res, r);
       
     }
     return res;
@@ -2891,7 +2891,8 @@ public class PageProcessor implements Logger  {
               if (scope == null) {
                 if (s.equals("Scope and Usage")) { 
                   scope = x;
-                  r.setRequirements(new XhtmlComposer().composePlainText(x));
+                  if (r != null) 
+                    r.setRequirements(new XhtmlComposer().composePlainText(x));
                 } else {
                   log("file \""+filename+"\": 'Scope and Usage' must come first", LogMessageType.Error);
                   return;
@@ -2940,13 +2941,13 @@ public class PageProcessor implements Logger  {
     return true;
   }
 
-  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition) throws Exception {
+  private String loadXmlNotes(String name, String suffix, boolean checkHeaders, String definition, ResourceDefn resource) throws Exception {
     String filename;
     if (new CSFile(folders.sndBoxDir + name).exists())
       filename = folders.sndBoxDir + name+File.separatorChar+name+"-"+suffix+".xml";
     else
       filename = folders.srcDir + name+File.separatorChar+name+"-"+suffix+".xml";
-    return loadXmlNotesFromFile(filename, checkHeaders, definition);
+    return loadXmlNotesFromFile(filename, checkHeaders, definition, resource);
   }
 
   String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master) throws Exception {

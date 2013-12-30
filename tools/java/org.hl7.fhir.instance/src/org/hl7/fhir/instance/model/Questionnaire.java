@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -258,7 +258,7 @@ public class Questionnaire extends Resource {
          * @return Whether the contents of this group have a meaningful order.
          */
         public boolean getOrderedSimple() { 
-          return this.ordered == null ? null : this.ordered.getValue();
+          return this.ordered == null ? false : this.ordered.getValue();
         }
 
         /**

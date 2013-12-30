@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * Allergy/Intolerance.
+ * Indicates the patient has a susceptability to an an adverse reaction upon exposure to a specified substance.
  */
 public class AllergyIntolerance extends Resource {
 
@@ -230,12 +230,12 @@ public class AllergyIntolerance extends Resource {
     protected Enumeration<Sensitivitystatus> status;
 
     /**
-     * Who the sensitivity is for.
+     * The patient who has the allergy or intolerance.
      */
     protected ResourceReference subject;
 
     /**
-     * Who recorded the sensitivity.
+     * Indicates who has responsibility for the record.
      */
     protected ResourceReference recorder;
 
@@ -420,14 +420,14 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #subject} (Who the sensitivity is for.)
+     * @return {@link #subject} (The patient who has the allergy or intolerance.)
      */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
     /**
-     * @param value {@link #subject} (Who the sensitivity is for.)
+     * @param value {@link #subject} (The patient who has the allergy or intolerance.)
      */
     public AllergyIntolerance setSubject(ResourceReference value) { 
       this.subject = value;
@@ -435,14 +435,14 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
-     * @return {@link #recorder} (Who recorded the sensitivity.)
+     * @return {@link #recorder} (Indicates who has responsibility for the record.)
      */
     public ResourceReference getRecorder() { 
       return this.recorder;
     }
 
     /**
-     * @param value {@link #recorder} (Who recorded the sensitivity.)
+     * @param value {@link #recorder} (Indicates who has responsibility for the record.)
      */
     public AllergyIntolerance setRecorder(ResourceReference value) { 
       this.recorder = value;
@@ -505,8 +505,8 @@ public class AllergyIntolerance extends Resource {
         childrenList.add(new Property("sensitivityType", "code", "Type of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, sensitivityType));
         childrenList.add(new Property("recordedDate", "dateTime", "Date when the sensitivity was recorded.", 0, java.lang.Integer.MAX_VALUE, recordedDate));
         childrenList.add(new Property("status", "code", "Status of the sensitivity.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("subject", "Resource(Patient)", "Who the sensitivity is for.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("recorder", "Resource(Practitioner|Patient)", "Who recorded the sensitivity.", 0, java.lang.Integer.MAX_VALUE, recorder));
+        childrenList.add(new Property("subject", "Resource(Patient)", "The patient who has the allergy or intolerance.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("recorder", "Resource(Practitioner|Patient)", "Indicates who has responsibility for the record.", 0, java.lang.Integer.MAX_VALUE, recorder));
         childrenList.add(new Property("substance", "Resource(Substance)", "The substance that causes the sensitivity.", 0, java.lang.Integer.MAX_VALUE, substance));
         childrenList.add(new Property("reaction", "Resource(AdverseReaction)", "Reactions associated with the sensitivity.", 0, java.lang.Integer.MAX_VALUE, reaction));
         childrenList.add(new Property("sensitivityTest", "Resource(Observation)", "Observations that confirm or refute the sensitivity.", 0, java.lang.Integer.MAX_VALUE, sensitivityTest));

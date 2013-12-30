@@ -20,6 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -98,7 +99,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="14" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="13" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="239.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="157.5"/>
@@ -183,14 +184,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">Description of the substance</Data></Cell>
     <Cell><Data ss:Type="String">A description of the substance - it's appearance, handling requirements, and other usage notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Substance.status</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">SubstanceStatus</Data></Cell>
-    <Cell><Data ss:Type="String">Don't know ?? </Data></Cell>
-    <Cell><Data ss:Type="String">Don't know</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Substance.instance</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -270,7 +263,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -290,8 +282,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -451,7 +443,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="35" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="34" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
@@ -468,12 +460,6 @@
     <Cell><Data ss:Type="String">The type of the substance</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Substance.type</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">status</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Substance.status</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
@@ -603,6 +589,7 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -622,8 +609,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -780,20 +767,20 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Dust</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Dust Mite Example</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">f201</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">substance-example-f201-dust.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Staphylococcus</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Staphylococcus Example</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">f202</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">substance-example-f202-staphylococcus.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Potassium</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Potassium Example</Data></Cell>
     <Cell><Data ss:Type="String">f203</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">substance-example-f203-potassium.xml</Data></Cell>
    </Row>
@@ -808,7 +795,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

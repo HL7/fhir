@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-12-11T03:13:01Z</LastSaved>
+  <LastSaved>2013-12-30T12:03:06Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -315,7 +315,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
@@ -437,10 +437,10 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Period|dateTime</Data></Cell>
+    <Cell><Data ss:Type="String">dateTime | Period</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Relevant time/time-period</Data></Cell>
-    <Cell><Data ss:Type="String">The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;.</Data></Cell>
+    <Cell><Data ss:Type="String">Physiologically Relevant time/time-period for observation</Data></Cell>
+    <Cell><Data ss:Type="String">The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"><Data ss:Type="String">Knowing when an observation was deemed true is important to its relevance as well as determining trends</Data></Cell>
     <Cell><Data ss:Type="String">At least a date should be present unless this observation is a historical report</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">effectiveTime</Data></Cell>
@@ -960,7 +960,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -977,8 +977,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1508,7 +1508,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:Width="60.75"/>
    <Column ss:Width="356.25"/>
@@ -1529,74 +1529,87 @@
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2"><Data ss:Type="String">EEG Example</Data></Cell>
+    <Cell><Data ss:Type="String">example-eeg</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-eeg.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Glucose</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - glucose</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">f001</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f001-glucose.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Excess</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - excess</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">f002</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f002-excess.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Carbon Dioxide</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - CO2</Data></Cell>
     <Cell><Data ss:Type="String">f003</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f003-co2.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Erytrocyte Hemoglobin </Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - hemoglobin</Data></Cell>
     <Cell><Data ss:Type="String">f004</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f004-hemoglobin.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Hemoglobin</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - hemoglobin</Data></Cell>
     <Cell><Data ss:Type="String">f005</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f005-hemoglobin.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BMI</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - bmi</Data></Cell>
     <Cell><Data ss:Type="String">f201</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f201-bmi.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Temperature</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - temperature</Data></Cell>
     <Cell><Data ss:Type="String">f202</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f202-temperature.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Bicarbonate</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - CO2</Data></Cell>
     <Cell><Data ss:Type="String">f203</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f203-bicarbonate.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Creatinine</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - creatinine</Data></Cell>
     <Cell><Data ss:Type="String">f204</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f204-creatinine.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">eGFR</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - egfr</Data></Cell>
     <Cell><Data ss:Type="String">f205</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f205-egfr.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Staphylococcus</Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - staphylococcus</Data></Cell>
     <Cell><Data ss:Type="String">f206</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example-f206-staphylococcus.xml</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1610,7 +1623,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

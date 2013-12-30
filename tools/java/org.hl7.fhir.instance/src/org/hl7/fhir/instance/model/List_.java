@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -154,7 +154,7 @@ public class List_ extends Resource {
          * @return True if this item is marked as deleted in the list.
          */
         public boolean getDeletedSimple() { 
-          return this.deleted == null ? null : this.deleted.getValue();
+          return this.deleted == null ? false : this.deleted.getValue();
         }
 
         /**
@@ -244,6 +244,11 @@ public class List_ extends Resource {
   }
 
     /**
+     * Identifier for the List assigned for business purposes outside the context of FHIR.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * This code defines the purpose of the list - why it was created.
      */
     protected CodeableConcept code;
@@ -290,6 +295,23 @@ public class List_ extends Resource {
     public List_(Enumeration<ListMode> mode) {
       super();
       this.mode = mode;
+    }
+
+    /**
+     * @return {@link #identifier} (Identifier for the List assigned for business purposes outside the context of FHIR.)
+     */
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifier for the List assigned for business purposes outside the context of FHIR.)
+     */
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -392,7 +414,7 @@ public class List_ extends Resource {
      * @return Whether items in the list have a meaningful order.
      */
     public boolean getOrderedSimple() { 
-      return this.ordered == null ? null : this.ordered.getValue();
+      return this.ordered == null ? false : this.ordered.getValue();
     }
 
     /**
@@ -475,6 +497,7 @@ public class List_ extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifier for the List assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("code", "CodeableConcept", "This code defines the purpose of the list - why it was created.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("source", "Resource(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were.", 0, java.lang.Integer.MAX_VALUE, source));
@@ -487,6 +510,9 @@ public class List_ extends Resource {
 
       public List_ copy() {
         List_ dst = new List_();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.source = source == null ? null : source.copy();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -513,7 +513,7 @@ public class Encounter extends Resource {
          * @return Is this hospitalization a readmission?.
          */
         public boolean getReAdmissionSimple() { 
-          return this.reAdmission == null ? null : this.reAdmission.getValue();
+          return this.reAdmission == null ? false : this.reAdmission.getValue();
         }
 
         /**

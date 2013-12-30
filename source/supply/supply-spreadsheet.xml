@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>930</WindowTopX>
   <WindowTopY>11610</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -239,7 +238,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">SupplyStatus</Data></Cell>
-    <Cell><Data ss:Type="String">Requested | Dispensed | Received</Data></Cell>
+    <Cell><Data ss:Type="String">requested | dispensed | received | failed | cancelled</Data></Cell>
     <Cell><Data ss:Type="String">Status of the supply request</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./statusCode</Data></Cell>
    </Row>
@@ -317,7 +316,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">SupplyDispenseStatus</Data></Cell>
-    <Cell><Data ss:Type="String">Active/Completed/Aborted</Data></Cell>
+    <Cell><Data ss:Type="String">in progress | dispensed | abandoned</Data></Cell>
     <Cell><Data ss:Type="String">A code specifying the state of the dispense event.</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -493,6 +492,7 @@
     <PaperSizeIndex>9</PaperSizeIndex>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -513,8 +513,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -821,7 +821,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -17397,7 +17396,8 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>1</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R6C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -17443,8 +17443,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R4C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -23,7 +23,7 @@
   <status value="received"/>
   <event>
     <status value="requested"/>
-    <date value="2013-05-02T16:16:00"/>
+    <dateTime value="2013-05-02T16:16:00"/>
   </event>
   <item>
     <code>

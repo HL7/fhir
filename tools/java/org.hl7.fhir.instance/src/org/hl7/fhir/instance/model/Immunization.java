@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -196,7 +196,7 @@ public class Immunization extends Resource {
          * @return Self-reported indicator.
          */
         public boolean getReportedSimple() { 
-          return this.reported == null ? null : this.reported.getValue();
+          return this.reported == null ? false : this.reported.getValue();
         }
 
         /**
@@ -510,6 +510,11 @@ public class Immunization extends Resource {
   }
 
     /**
+     * A unique identifier assigned to this adverse reaction record.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * Date vaccine administered or was to be administered.
      */
     protected DateTime date;
@@ -608,6 +613,23 @@ public class Immunization extends Resource {
     }
 
     /**
+     * @return {@link #identifier} (A unique identifier assigned to this adverse reaction record.)
+     */
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #identifier} (A unique identifier assigned to this adverse reaction record.)
+     */
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
+    }
+
+    /**
      * @return {@link #date} (Date vaccine administered or was to be administered.)
      */
     public DateTime getDate() { 
@@ -688,7 +710,7 @@ public class Immunization extends Resource {
      * @return Indicates if the vaccination was refused.
      */
     public boolean getRefusedIndicatorSimple() { 
-      return this.refusedIndicator == null ? null : this.refusedIndicator.getValue();
+      return this.refusedIndicator == null ? false : this.refusedIndicator.getValue();
     }
 
     /**
@@ -720,7 +742,7 @@ public class Immunization extends Resource {
      * @return True if this administration was reported rather than directly administered.
      */
     public boolean getReportedSimple() { 
-      return this.reported == null ? null : this.reported.getValue();
+      return this.reported == null ? false : this.reported.getValue();
     }
 
     /**
@@ -961,6 +983,7 @@ public class Immunization extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "A unique identifier assigned to this adverse reaction record.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("date", "dateTime", "Date vaccine administered or was to be administered.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("vaccineType", "CodeableConcept", "Vaccine that was administered or was to be administered.", 0, java.lang.Integer.MAX_VALUE, vaccineType));
         childrenList.add(new Property("subject", "Resource(Patient)", "The patient to whom the vaccine was to be administered.", 0, java.lang.Integer.MAX_VALUE, subject));
@@ -982,6 +1005,9 @@ public class Immunization extends Resource {
 
       public Immunization copy() {
         Immunization dst = new Immunization();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.date = date == null ? null : date.copy();
         dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
         dst.subject = subject == null ? null : subject.copy();

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -37,6 +37,11 @@ import java.util.*;
  * Other is a conformant for handling resource concepts not yet defined for FHIR or outside HL7's scope of interest.
  */
 public class Other extends Resource {
+
+    /**
+     * Identifier assigned to the resource for business purposes, outside the context of FHIR.
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * Identifies the 'type' of resource - equivalent to the resource name for other resources.
@@ -65,6 +70,23 @@ public class Other extends Resource {
     public Other(CodeableConcept code) {
       super();
       this.code = code;
+    }
+
+    /**
+     * @return {@link #identifier} (Identifier assigned to the resource for business purposes, outside the context of FHIR.)
+     */
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifier assigned to the resource for business purposes, outside the context of FHIR.)
+     */
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -150,6 +172,7 @@ public class Other extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the resource for business purposes, outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("code", "CodeableConcept", "Identifies the 'type' of resource - equivalent to the resource name for other resources.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Resource(Any)", "Identifies the patient, practitioner, device or any other resource that is the 'focus' of this resoruce.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("author", "Resource(Practitioner|Patient|RelatedPerson)", "Indicates who was responsible for creating the resource instance.", 0, java.lang.Integer.MAX_VALUE, author));
@@ -158,6 +181,9 @@ public class Other extends Resource {
 
       public Other copy() {
         Other dst = new Other();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.author = author == null ? null : author.copy();

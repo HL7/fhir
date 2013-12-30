@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -89,6 +89,11 @@ public class Alert extends Resource {
     }
 
     /**
+     * Identifier assigned to the alert for external use (outside the FHIR environment).
+     */
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
+
+    /**
      * Allows an alert to be divided into different categories like clinical, administrative etc.
      */
     protected CodeableConcept category;
@@ -122,6 +127,23 @@ public class Alert extends Resource {
       this.status = status;
       this.subject = subject;
       this.note = note;
+    }
+
+    /**
+     * @return {@link #identifier} (Identifier assigned to the alert for external use (outside the FHIR environment).)
+     */
+    public List<Identifier> getIdentifier() { 
+      return this.identifier;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #identifier} (Identifier assigned to the alert for external use (outside the FHIR environment).)
+     */
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -235,6 +257,7 @@ public class Alert extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the alert for external use (outside the FHIR environment).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("category", "CodeableConcept", "Allows an alert to be divided into different categories like clinical, administrative etc.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("status", "code", "Supports basic workflow.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("subject", "Resource(Patient)", "The person who this alert concerns.", 0, java.lang.Integer.MAX_VALUE, subject));
@@ -244,6 +267,9 @@ public class Alert extends Resource {
 
       public Alert copy() {
         Alert dst = new Alert();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.category = category == null ? null : category.copy();
         dst.status = status == null ? null : status.copy();
         dst.subject = subject == null ? null : subject.copy();

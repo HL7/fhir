@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -235,7 +235,7 @@ public class Coding extends Type {
      * @return Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.
      */
     public boolean getPrimarySimple() { 
-      return this.primary == null ? null : this.primary.getValue();
+      return this.primary == null ? false : this.primary.getValue();
     }
 
     /**

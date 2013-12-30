@@ -213,7 +213,7 @@ public class XhtmlComposer {
   public String composePlainText(XhtmlNode x) {
     StringBuilder b = new StringBuilder();
     composePlainText(x, b, false);
-    return b.toString();
+    return b.toString().trim();
   }
 
   private boolean composePlainText(XhtmlNode x, StringBuilder b, boolean lastWS) {

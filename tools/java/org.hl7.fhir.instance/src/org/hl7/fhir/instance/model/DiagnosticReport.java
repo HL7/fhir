@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -245,6 +245,92 @@ public class DiagnosticReport extends Resource {
 
   }
 
+    public static class DiagnosticReportImageComponent extends BackboneElement {
+        /**
+         * A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.
+         */
+        protected String_ comment;
+
+        /**
+         * Reference to the image source.
+         */
+        protected ResourceReference link;
+
+      public DiagnosticReportImageComponent() {
+        super();
+      }
+
+      public DiagnosticReportImageComponent(ResourceReference link) {
+        super();
+        this.link = link;
+      }
+
+        /**
+         * @return {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.)
+         */
+        public String_ getComment() { 
+          return this.comment;
+        }
+
+        /**
+         * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.)
+         */
+        public DiagnosticReportImageComponent setComment(String_ value) { 
+          this.comment = value;
+          return this;
+        }
+
+        /**
+         * @return A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.
+         */
+        public String getCommentSimple() { 
+          return this.comment == null ? null : this.comment.getValue();
+        }
+
+        /**
+         * @param value A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.
+         */
+        public DiagnosticReportImageComponent setCommentSimple(String value) { 
+          if (value == null)
+            this.comment = null;
+          else {
+            if (this.comment == null)
+              this.comment = new String_();
+            this.comment.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #link} (Reference to the image source.)
+         */
+        public ResourceReference getLink() { 
+          return this.link;
+        }
+
+        /**
+         * @param value {@link #link} (Reference to the image source.)
+         */
+        public DiagnosticReportImageComponent setLink(ResourceReference value) { 
+          this.link = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("comment", "string", "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.", 0, java.lang.Integer.MAX_VALUE, comment));
+          childrenList.add(new Property("link", "Resource(Media)", "Reference to the image source.", 0, java.lang.Integer.MAX_VALUE, link));
+        }
+
+      public DiagnosticReportImageComponent copy(DiagnosticReport e) {
+        DiagnosticReportImageComponent dst = new DiagnosticReportImageComponent();
+        dst.comment = comment == null ? null : comment.copy();
+        dst.link = link == null ? null : link.copy();
+        return dst;
+      }
+
+  }
+
     /**
      * The status of the diagnostic report as a whole.
      */
@@ -291,9 +377,14 @@ public class DiagnosticReport extends Resource {
     protected ResultGroupComponent results;
 
     /**
-     * A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest).
+     * One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
      */
-    protected List<ResourceReference> image = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> imagingStudy = new ArrayList<ResourceReference>();
+
+    /**
+     * A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
+     */
+    protected List<DiagnosticReportImageComponent> image = new ArrayList<DiagnosticReportImageComponent>();
 
     /**
      * Concise and clinically contextualised narrative interpretation of the diagnostic report.
@@ -496,18 +587,35 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest).)
+     * @return {@link #imagingStudy} (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
-    public List<ResourceReference> getImage() { 
+    public List<ResourceReference> getImagingStudy() { 
+      return this.imagingStudy;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #imagingStudy} (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
+     */
+    public ResourceReference addImagingStudy() { 
+      ResourceReference t = new ResourceReference();
+      this.imagingStudy.add(t);
+      return t;
+    }
+
+    /**
+     * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).)
+     */
+    public List<DiagnosticReportImageComponent> getImage() { 
       return this.image;
     }
 
     // syntactic sugar
     /**
-     * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest).)
+     * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).)
      */
-    public ResourceReference addImage() { 
-      ResourceReference t = new ResourceReference();
+    public DiagnosticReportImageComponent addImage() { 
+      DiagnosticReportImageComponent t = new DiagnosticReportImageComponent();
       this.image.add(t);
       return t;
     }
@@ -593,7 +701,8 @@ public class DiagnosticReport extends Resource {
         childrenList.add(new Property("serviceCategory", "CodeableConcept", "The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
         childrenList.add(new Property("diagnostic[x]", "dateTime|Period", "The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient.", 0, java.lang.Integer.MAX_VALUE, diagnostic));
         childrenList.add(new Property("results", "", "A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.", 0, java.lang.Integer.MAX_VALUE, results));
-        childrenList.add(new Property("image", "Resource(Media|ImagingStudy)", "A list of key images associated with this report. The images are generally created during the diagnostic process, and maybe directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image));
+        childrenList.add(new Property("imagingStudy", "Resource(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
+        childrenList.add(new Property("image", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image));
         childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualised narrative interpretation of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
         childrenList.add(new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis));
         childrenList.add(new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm));
@@ -612,9 +721,12 @@ public class DiagnosticReport extends Resource {
         dst.serviceCategory = serviceCategory == null ? null : serviceCategory.copy();
         dst.diagnostic = diagnostic == null ? null : diagnostic.copy();
         dst.results = results == null ? null : results.copy(dst);
-        dst.image = new ArrayList<ResourceReference>();
-        for (ResourceReference i : image)
-          dst.image.add(i.copy());
+        dst.imagingStudy = new ArrayList<ResourceReference>();
+        for (ResourceReference i : imagingStudy)
+          dst.imagingStudy.add(i.copy());
+        dst.image = new ArrayList<DiagnosticReportImageComponent>();
+        for (DiagnosticReportImageComponent i : image)
+          dst.image.add(i.copy(dst));
         dst.conclusion = conclusion == null ? null : conclusion.copy();
         dst.codedDiagnosis = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : codedDiagnosis)

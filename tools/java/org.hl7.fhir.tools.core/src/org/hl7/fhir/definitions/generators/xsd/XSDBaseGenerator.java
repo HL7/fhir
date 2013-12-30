@@ -431,11 +431,18 @@ public class XSDBaseGenerator {
   private void genRegex() throws IOException {
     while (regexQueue.size() > 0) {
       String n = regexQueue.keySet().iterator().next();
-      write("  <xs:simpleType name=\""+n+"\">\r\n");
+      write("  <xs:simpleType name=\""+n+"-primitive\">\r\n");
       write("     <xs:restriction base=\"xs:string\">\r\n");
       write("      <xs:pattern value=\""+regexQueue.get(n)+"\"/>\r\n");
       write("    </xs:restriction>\r\n");
       write("  </xs:simpleType>\r\n");    
+      write("    <xs:complexType name=\""+n+"\">\r\n");
+      write("      <xs:complexContent>\r\n");
+      write("        <xs:extension base=\"Element\">\r\n");
+      write("          <xs:attribute name=\"value\" type=\""+n+"-primitive\" use=\"optional\"/>\r\n");
+      write("        </xs:extension>\r\n");
+      write("      </xs:complexContent>\r\n");
+      write("    </xs:complexType>\r\n\r\n");    
       regexQueue.remove(n);
     }
 

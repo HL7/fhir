@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -279,7 +279,7 @@ public class ValueSet extends Resource {
          * @return If code comparison is case sensitive when codes within this systemare compared to each other.
          */
         public boolean getCaseSensitiveSimple() { 
-          return this.caseSensitive == null ? null : this.caseSensitive.getValue();
+          return this.caseSensitive == null ? false : this.caseSensitive.getValue();
         }
 
         /**
@@ -420,7 +420,7 @@ public class ValueSet extends Resource {
          * @return If this code is not for use as a real concept.
          */
         public boolean getAbstractSimple() { 
-          return this.abstract_ == null ? null : this.abstract_.getValue();
+          return this.abstract_ == null ? false : this.abstract_.getValue();
         }
 
         /**
@@ -1594,7 +1594,7 @@ public class ValueSet extends Resource {
      * @return This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimentalSimple() { 
-      return this.experimental == null ? null : this.experimental.getValue();
+      return this.experimental == null ? false : this.experimental.getValue();
     }
 
     /**
@@ -1630,7 +1630,7 @@ public class ValueSet extends Resource {
      * @return Whether this is intended to be used with an extensible binding or not.
      */
     public boolean getExtensibleSimple() { 
-      return this.extensible == null ? null : this.extensible.getValue();
+      return this.extensible == null ? false : this.extensible.getValue();
     }
 
     /**

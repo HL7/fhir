@@ -41,17 +41,17 @@ The Diagnostic Report resources has the following aspects:
 <h3>Diagnostic Report Names</h3>
 
 <p>
-The terms, tests, results, panels and batteries are often used interchangeably when describing 
+The words "tests", "results", "observations", "panels" and "batteries" are often used interchangeably when describing 
 the various parts of a diagnostic report. This leads to a lot of confusion. The naming confusion is 
 worsened because of the wide variety of forms that the result of a diagnostic investigation can take, 
 as described above. Languages other than English have their own variations on this theme.
 </p>
 <p>
 This resource uses one particular set of terms. A practitioner "requests" a set of "tests". The
-diagnostic service returns a "report" which contains a "narrative" - a written summary of the 
-outcomes, and "results" - the individual pieces of atomic data. The results are assembled
-in a "group" which is a nested structure that can be used to define relationships between
-the individual data items.
+diagnostic service returns a "report" which may contain a "narrative" - a written summary of the 
+outcomes, and/or "results" - the individual pieces of atomic data which each are "observations". 
+The results are assembled in a "group" which is a nested structure that can be used to 
+represent relationships between the individual data items.
 </p>
 
 

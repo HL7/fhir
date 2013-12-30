@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * A record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient, or another clinician.
+ * A record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient or another clinician.
  */
 public class MedicationStatement extends Resource {
 
@@ -220,24 +220,22 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * A link to a resource representing the person to whom the medication was given.
+     * The person or animal who is /was taking the medication.
      */
     protected ResourceReference patient;
 
     /**
-     * Set this to true if the record is saying that the medication was NOT administered.
+     * Set this to true if the record is saying that the medication was NOT taken.
      */
     protected Boolean wasNotGiven;
 
     /**
-     * A code indicating why the administration has been negated.
-
-Use only if isNegated is set to TRUE.
+     * A code indicating why the medication was not taken.
      */
     protected List<CodeableConcept> reasonNotGiven = new ArrayList<CodeableConcept>();
 
     /**
-     * An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.
+     * The interval of time during which it is being asserted that the patient was taking the medication.
      */
     protected Period whenGiven;
 
@@ -249,10 +247,10 @@ Use only if isNegated is set to TRUE.
     /**
      * An identifier or a link to a resource that identifies a device used in administering the medication to the patient.
      */
-    protected List<ResourceReference> administrationDevice = new ArrayList<ResourceReference>();
+    protected List<ResourceReference> device = new ArrayList<ResourceReference>();
 
     /**
-     * Indicates how the medication is to be used by the patient.
+     * Indicates how the medication is/was used by the patient.
      */
     protected List<MedicationStatementDosageComponent> dosage = new ArrayList<MedicationStatementDosageComponent>();
 
@@ -278,14 +276,14 @@ Use only if isNegated is set to TRUE.
     }
 
     /**
-     * @return {@link #patient} (A link to a resource representing the person to whom the medication was given.)
+     * @return {@link #patient} (The person or animal who is /was taking the medication.)
      */
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
     /**
-     * @param value {@link #patient} (A link to a resource representing the person to whom the medication was given.)
+     * @param value {@link #patient} (The person or animal who is /was taking the medication.)
      */
     public MedicationStatement setPatient(ResourceReference value) { 
       this.patient = value;
@@ -293,14 +291,14 @@ Use only if isNegated is set to TRUE.
     }
 
     /**
-     * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.)
+     * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT taken.)
      */
     public Boolean getWasNotGiven() { 
       return this.wasNotGiven;
     }
 
     /**
-     * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.)
+     * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT taken.)
      */
     public MedicationStatement setWasNotGiven(Boolean value) { 
       this.wasNotGiven = value;
@@ -308,14 +306,14 @@ Use only if isNegated is set to TRUE.
     }
 
     /**
-     * @return Set this to true if the record is saying that the medication was NOT administered.
+     * @return Set this to true if the record is saying that the medication was NOT taken.
      */
     public boolean getWasNotGivenSimple() { 
-      return this.wasNotGiven == null ? null : this.wasNotGiven.getValue();
+      return this.wasNotGiven == null ? false : this.wasNotGiven.getValue();
     }
 
     /**
-     * @param value Set this to true if the record is saying that the medication was NOT administered.
+     * @param value Set this to true if the record is saying that the medication was NOT taken.
      */
     public MedicationStatement setWasNotGivenSimple(boolean value) { 
       if (value == false)
@@ -329,9 +327,7 @@ Use only if isNegated is set to TRUE.
     }
 
     /**
-     * @return {@link #reasonNotGiven} (A code indicating why the administration has been negated.
-
-Use only if isNegated is set to TRUE.)
+     * @return {@link #reasonNotGiven} (A code indicating why the medication was not taken.)
      */
     public List<CodeableConcept> getReasonNotGiven() { 
       return this.reasonNotGiven;
@@ -339,9 +335,7 @@ Use only if isNegated is set to TRUE.)
 
     // syntactic sugar
     /**
-     * @return {@link #reasonNotGiven} (A code indicating why the administration has been negated.
-
-Use only if isNegated is set to TRUE.)
+     * @return {@link #reasonNotGiven} (A code indicating why the medication was not taken.)
      */
     public CodeableConcept addReasonNotGiven() { 
       CodeableConcept t = new CodeableConcept();
@@ -350,14 +344,14 @@ Use only if isNegated is set to TRUE.)
     }
 
     /**
-     * @return {@link #whenGiven} (An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     * @return {@link #whenGiven} (The interval of time during which it is being asserted that the patient was taking the medication.)
      */
     public Period getWhenGiven() { 
       return this.whenGiven;
     }
 
     /**
-     * @param value {@link #whenGiven} (An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.)
+     * @param value {@link #whenGiven} (The interval of time during which it is being asserted that the patient was taking the medication.)
      */
     public MedicationStatement setWhenGiven(Period value) { 
       this.whenGiven = value;
@@ -380,24 +374,24 @@ Use only if isNegated is set to TRUE.)
     }
 
     /**
-     * @return {@link #administrationDevice} (An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
+     * @return {@link #device} (An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
      */
-    public List<ResourceReference> getAdministrationDevice() { 
-      return this.administrationDevice;
+    public List<ResourceReference> getDevice() { 
+      return this.device;
     }
 
     // syntactic sugar
     /**
-     * @return {@link #administrationDevice} (An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
+     * @return {@link #device} (An identifier or a link to a resource that identifies a device used in administering the medication to the patient.)
      */
-    public ResourceReference addAdministrationDevice() { 
+    public ResourceReference addDevice() { 
       ResourceReference t = new ResourceReference();
-      this.administrationDevice.add(t);
+      this.device.add(t);
       return t;
     }
 
     /**
-     * @return {@link #dosage} (Indicates how the medication is to be used by the patient.)
+     * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
     public List<MedicationStatementDosageComponent> getDosage() { 
       return this.dosage;
@@ -405,7 +399,7 @@ Use only if isNegated is set to TRUE.)
 
     // syntactic sugar
     /**
-     * @return {@link #dosage} (Indicates how the medication is to be used by the patient.)
+     * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
     public MedicationStatementDosageComponent addDosage() { 
       MedicationStatementDosageComponent t = new MedicationStatementDosageComponent();
@@ -416,13 +410,13 @@ Use only if isNegated is set to TRUE.)
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication was given.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
-        childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration has been negated.\n\nUse only if isNegated is set to TRUE.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
-        childrenList.add(new Property("whenGiven", "Period", "An interval of time during which the administration takes place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.", 0, java.lang.Integer.MAX_VALUE, whenGiven));
+        childrenList.add(new Property("patient", "Resource(Patient)", "The person or animal who is /was taking the medication.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT taken.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
+        childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
+        childrenList.add(new Property("whenGiven", "Period", "The interval of time during which it is being asserted that the patient was taking the medication.", 0, java.lang.Integer.MAX_VALUE, whenGiven));
         childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
-        childrenList.add(new Property("administrationDevice", "Resource(Device)", "An identifier or a link to a resource that identifies a device used in administering the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, administrationDevice));
-        childrenList.add(new Property("dosage", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
+        childrenList.add(new Property("device", "Resource(Device)", "An identifier or a link to a resource that identifies a device used in administering the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, device));
+        childrenList.add(new Property("dosage", "", "Indicates how the medication is/was used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
       public MedicationStatement copy() {
@@ -437,9 +431,9 @@ Use only if isNegated is set to TRUE.)
           dst.reasonNotGiven.add(i.copy());
         dst.whenGiven = whenGiven == null ? null : whenGiven.copy();
         dst.medication = medication == null ? null : medication.copy();
-        dst.administrationDevice = new ArrayList<ResourceReference>();
-        for (ResourceReference i : administrationDevice)
-          dst.administrationDevice.add(i.copy());
+        dst.device = new ArrayList<ResourceReference>();
+        for (ResourceReference i : device)
+          dst.device.add(i.copy());
         dst.dosage = new ArrayList<MedicationStatementDosageComponent>();
         for (MedicationStatementDosageComponent i : dosage)
           dst.dosage.add(i.copy(dst));

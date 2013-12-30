@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -87,7 +87,7 @@ public class Medication extends Resource {
         protected CodeableConcept form;
 
         /**
-         * The ingredients of the medication.
+         * Identifies a particular constituent of interest in the product.
          */
         protected List<MedicationProductIngredientComponent> ingredient = new ArrayList<MedicationProductIngredientComponent>();
 
@@ -111,7 +111,7 @@ public class Medication extends Resource {
         }
 
         /**
-         * @return {@link #ingredient} (The ingredients of the medication.)
+         * @return {@link #ingredient} (Identifies a particular constituent of interest in the product.)
          */
         public List<MedicationProductIngredientComponent> getIngredient() { 
           return this.ingredient;
@@ -119,7 +119,7 @@ public class Medication extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #ingredient} (The ingredients of the medication.)
+         * @return {@link #ingredient} (Identifies a particular constituent of interest in the product.)
          */
         public MedicationProductIngredientComponent addIngredient() { 
           MedicationProductIngredientComponent t = new MedicationProductIngredientComponent();
@@ -130,7 +130,7 @@ public class Medication extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tables; carton.", 0, java.lang.Integer.MAX_VALUE, form));
-          childrenList.add(new Property("ingredient", "", "The ingredients of the medication.", 0, java.lang.Integer.MAX_VALUE, ingredient));
+          childrenList.add(new Property("ingredient", "", "Identifies a particular constituent of interest in the product.", 0, java.lang.Integer.MAX_VALUE, ingredient));
         }
 
       public MedicationProductComponent copy(Medication e) {
@@ -275,7 +275,7 @@ public class Medication extends Resource {
 
     public static class MedicationPackageContentComponent extends BackboneElement {
         /**
-         * The product that is in the package.
+         * Identifies one of the items in the package.
          */
         protected ResourceReference item;
 
@@ -294,14 +294,14 @@ public class Medication extends Resource {
       }
 
         /**
-         * @return {@link #item} (The product that is in the package.)
+         * @return {@link #item} (Identifies one of the items in the package.)
          */
         public ResourceReference getItem() { 
           return this.item;
         }
 
         /**
-         * @param value {@link #item} (The product that is in the package.)
+         * @param value {@link #item} (Identifies one of the items in the package.)
          */
         public MedicationPackageContentComponent setItem(ResourceReference value) { 
           this.item = value;
@@ -325,7 +325,7 @@ public class Medication extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("item", "Resource(Medication)", "The product that is in the package.", 0, java.lang.Integer.MAX_VALUE, item));
+          childrenList.add(new Property("item", "Resource(Medication)", "Identifies one of the items in the package.", 0, java.lang.Integer.MAX_VALUE, item));
           childrenList.add(new Property("amount", "Quantity", "The amount of the product that is in the package.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
@@ -359,17 +359,17 @@ public class Medication extends Resource {
     protected ResourceReference manufacturer;
 
     /**
-     * product | package.
+     * Medications are either a single administrable product or a package that contains one or more products.
      */
     protected Enumeration<MedicationKind> kind;
 
     /**
-     * If is a product.
+     * Information that only applies to products (not packages).
      */
     protected MedicationProductComponent product;
 
     /**
-     * Specifies Ingredient / Product / Package.
+     * Information that only applies to packages (not products).
      */
     protected MedicationPackageComponent package_;
 
@@ -447,7 +447,7 @@ public class Medication extends Resource {
      * @return Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).
      */
     public boolean getIsBrandSimple() { 
-      return this.isBrand == null ? null : this.isBrand.getValue();
+      return this.isBrand == null ? false : this.isBrand.getValue();
     }
 
     /**
@@ -480,14 +480,14 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #kind} (product | package.)
+     * @return {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.)
      */
     public Enumeration<MedicationKind> getKind() { 
       return this.kind;
     }
 
     /**
-     * @param value {@link #kind} (product | package.)
+     * @param value {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.)
      */
     public Medication setKind(Enumeration<MedicationKind> value) { 
       this.kind = value;
@@ -495,14 +495,14 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return product | package.
+     * @return Medications are either a single administrable product or a package that contains one or more products.
      */
     public MedicationKind getKindSimple() { 
       return this.kind == null ? null : this.kind.getValue();
     }
 
     /**
-     * @param value product | package.
+     * @param value Medications are either a single administrable product or a package that contains one or more products.
      */
     public Medication setKindSimple(MedicationKind value) { 
       if (value == null)
@@ -516,14 +516,14 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #product} (If is a product.)
+     * @return {@link #product} (Information that only applies to products (not packages).)
      */
     public MedicationProductComponent getProduct() { 
       return this.product;
     }
 
     /**
-     * @param value {@link #product} (If is a product.)
+     * @param value {@link #product} (Information that only applies to products (not packages).)
      */
     public Medication setProduct(MedicationProductComponent value) { 
       this.product = value;
@@ -531,14 +531,14 @@ public class Medication extends Resource {
     }
 
     /**
-     * @return {@link #package_} (Specifies Ingredient / Product / Package.)
+     * @return {@link #package_} (Information that only applies to packages (not products).)
      */
     public MedicationPackageComponent getPackage() { 
       return this.package_;
     }
 
     /**
-     * @param value {@link #package_} (Specifies Ingredient / Product / Package.)
+     * @param value {@link #package_} (Information that only applies to packages (not products).)
      */
     public Medication setPackage(MedicationPackageComponent value) { 
       this.package_ = value;
@@ -551,9 +551,9 @@ public class Medication extends Resource {
         childrenList.add(new Property("code", "CodeableConcept", "A code (or set of codes) that identify this medication.   Usage note: This could be a standard drug code such as a drug regulator code, RxNorm code, SNOMED code, etc. It could also be a local formulary code, optionally with translations to the standard drug codes.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("isBrand", "boolean", "Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is).", 0, java.lang.Integer.MAX_VALUE, isBrand));
         childrenList.add(new Property("manufacturer", "Resource(Organization)", "Describes the details of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
-        childrenList.add(new Property("kind", "code", "product | package.", 0, java.lang.Integer.MAX_VALUE, kind));
-        childrenList.add(new Property("product", "", "If is a product.", 0, java.lang.Integer.MAX_VALUE, product));
-        childrenList.add(new Property("package", "", "Specifies Ingredient / Product / Package.", 0, java.lang.Integer.MAX_VALUE, package_));
+        childrenList.add(new Property("kind", "code", "Medications are either a single administrable product or a package that contains one or more products.", 0, java.lang.Integer.MAX_VALUE, kind));
+        childrenList.add(new Property("product", "", "Information that only applies to products (not packages).", 0, java.lang.Integer.MAX_VALUE, product));
+        childrenList.add(new Property("package", "", "Information that only applies to packages (not products).", 0, java.lang.Integer.MAX_VALUE, package_));
       }
 
       public Medication copy() {

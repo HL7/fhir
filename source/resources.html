@@ -115,6 +115,13 @@ An id SHALL always be represented in the same way in resource references and URL
 long, and contain any combination of ASCII letters, numerals, "-" and ".".
 </p>
 <p>
+Note: these data elements are represented outside the resource because:
+</p>
+<ul>
+ <li>They are almost always explicit in the envelope that carries the exchange content, and in particular they are in the http and atom headers</li>
+ <li>They will change as resources are managed, moved, or replicated, even when the content itself does not (though changing the logical id of a resource may require changing the content of other resources that reference it)</li>
+</ul>
+<p>
 The full identity of a resource is an absolute URL constructed from the server address at which it is found, the resource type, and the Logical Id, such
 as http://test.fhir.org/rest/Patient/123 (where 123 is the Logical Id). Note that implementations SHOULD NOT assume that the identity of a resource 
 is always resolvable to a literal server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 

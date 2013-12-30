@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -666,7 +666,7 @@ public class CarePlan extends Resource {
          * @return If true, indicates that the described activity is one that must NOT be engaged in when following the plan.
          */
         public boolean getProhibitedSimple() { 
-          return this.prohibited == null ? null : this.prohibited.getValue();
+          return this.prohibited == null ? false : this.prohibited.getValue();
         }
 
         /**

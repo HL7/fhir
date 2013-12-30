@@ -202,7 +202,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Resource(Organization|Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Organization|Device|Practitioner)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Who is intended to fulfill the order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
@@ -323,7 +323,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

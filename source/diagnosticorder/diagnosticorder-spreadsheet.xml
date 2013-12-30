@@ -20,7 +20,7 @@
   <WindowWidth>13680</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6195</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -105,10 +105,10 @@
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R42C16"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R43C16"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="29" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="156"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="30"/>
@@ -305,8 +305,22 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">DiagnosticOrder.event.description</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">DIagnosticOrderEventDescription</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">More information about the event and it's context</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Additional information about the event that occurred - e.g. if the status remained unchanged</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17" ss:StyleID="s66"/>
+   </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DiagnosticOrder.event.date</Data><NamedCell
+    <Cell><Data ss:Type="String">DiagnosticOrder.event.dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data><NamedCell
@@ -426,13 +440,13 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:Index="24" ss:AutoFitHeight="0">
+   <Row ss:Index="25" ss:AutoFitHeight="0">
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:Index="29" ss:AutoFitHeight="0">
+   <Row ss:Index="30" ss:AutoFitHeight="0">
     <Cell ss:Index="13" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
   </Table>
@@ -451,9 +465,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -461,15 +475,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -577,60 +591,9 @@
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">orderer</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.orderer</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">identifier</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.identifier</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.encounter</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">status</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.status</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">specimen</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.specimen | DiagnosticOrder.item.specimen</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">past-status</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.event.status</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.event.date</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">status-date</Data></Cell>
-    <Cell><Data ss:Type="String">A combination of past-status and date</Data></Cell>
-    <Cell><Data ss:Type="String">composite</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">past-status &amp; date</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">actor</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.event.actor | DiagnosticOrder.item.event.actor</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.item.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">bodysite</Data></Cell>
@@ -638,9 +601,29 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.item.bodySite</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">item-status</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.item.status</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.item.code</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">event-date</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.event.dateTime</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.encounter</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">identifier</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.identifier</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">item-date</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.item.event.dateTime</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">item-past-status</Data></Cell>
@@ -648,15 +631,46 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.item.event.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">item-date</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.item.event.date</Data></Cell>
+    <Cell><Data ss:Type="String">item-status</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.item.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">item-status-date</Data></Cell>
     <Cell><Data ss:Type="String">A combination of item-past-status and item-date</Data></Cell>
     <Cell><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">item-past-status &amp; item-date</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">orderer</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.orderer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">event-status</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.event.status</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">specimen</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.specimen | DiagnosticOrder.item.specimen</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.status</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">event-status-date</Data></Cell>
+    <Cell><Data ss:Type="String">A combination of past-status and date</Data></Cell>
+    <Cell><Data ss:Type="String">composite</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">event-status &amp; event-date</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">DiagnosticOrder.subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s63"/>
@@ -705,10 +719,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -721,15 +736,14 @@
    x:FullRows="1" ss:StyleID="s73" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="149.25"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="336.75"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="52.5"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="84"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="126.75"/>
+   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="52.5" ss:Span="1"/>
+   <Column ss:Index="5" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="126.75"/>
    <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="346.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Definition</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Binding Strength</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
    </Row>
@@ -737,7 +751,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">DiagnosticOrderStatus</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The status of a diagnostic order</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell><Data ss:Type="String">#diagnostic-order-status</Data></Cell>
     <Cell ss:StyleID="s72"/>
    </Row>
@@ -745,23 +759,24 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">DiagnosticOrderPriority</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The clinical priority of a diagnostic order</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">code list</Data></Cell>
-    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell><Data ss:Type="String">#diagnostic-order-priority</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">DiagnosticRequests</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Codes for tests/services that can be performed by diagnostic services</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell><Data ss:Type="String">valueset-diagnostic-requests</Data></Cell>
     <Cell><Data ss:Type="String">LOINC Order Codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">DIagnosticOrderEventDescription</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Additional information about an event that occurred to a diagnostic order - e.g. if the status remained unchanged</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-diagnostic-order-event</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="6" ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"/>
@@ -787,11 +802,10 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>

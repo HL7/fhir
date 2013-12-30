@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sun, Dec 29, 2013 17:30+1100 for FHIR v0.12
+// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -188,7 +188,7 @@ public class Group extends Resource {
          * @return If true, indicates the characteristic is one that is NOT held by members of the group.
          */
         public boolean getExcludeSimple() { 
-          return this.exclude == null ? null : this.exclude.getValue();
+          return this.exclude == null ? false : this.exclude.getValue();
         }
 
         /**
@@ -334,7 +334,7 @@ public class Group extends Resource {
      * @return If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals.
      */
     public boolean getActualSimple() { 
-      return this.actual == null ? null : this.actual.getValue();
+      return this.actual == null ? false : this.actual.getValue();
     }
 
     /**
