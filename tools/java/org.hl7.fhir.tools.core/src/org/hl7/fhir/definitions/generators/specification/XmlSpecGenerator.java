@@ -318,7 +318,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 					+ Utilities.escapeXml(elem.getDefinition())
 					+ "\">div</b>" +  ((elem.isModifier() || elem.isMustSupport()) ? "</span>" : "") 
 					+ (defPage == null ? "</span>" : "</a>") 
-					+ " xmlns=\"http://www.w3.org/1999/xhtml\"&lt; <span style=\"color: Gray\">&lt;!--</span> <span style=\"color: navy\">"
+					+ " xmlns=\"http://www.w3.org/1999/xhtml\"&gt; <span style=\"color: Gray\">&lt;!--</span> <span style=\"color: navy\">"
 					+ Utilities.escapeXml(elem.getShortDefn())+getIsSummaryFlag(elem)
 					+ "</span><span style=\"color: Gray\">&lt; --&gt;</span> &lt;/div&gt;\r\n");
 		}

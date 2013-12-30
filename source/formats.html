@@ -39,7 +39,7 @@ The XML syntax uses the following notation:
    &lt;<u><b title="Formal Definition (SHALL be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
    &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type2</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
    &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
-     &lt;<b>nameD</b> &gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
+     &lt;<b>nameD</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
    &lt;/nameC&gt;
  &lt;name&gt;
 </pre>
@@ -69,7 +69,6 @@ Notes:
    </li>
  <li>Each element name in the pseudo-syntax is also a hyperlink to the formal definition of the element in the data dictionary that underlies the exchange formats. </li>
  <li>If the element name is underlined, then applications are required to <a href="conformance-rules.html#mustSupport">support</a> and/or <a href="conformance-rules.html#ismodifier">understand</a> it</li>
- <li>The character set for a resource is always Unicode, encoded in UTF-8.</li>
  <li>Any of the elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <a name="element-rules"> </a>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>

@@ -32,50 +32,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Hl7.Fhir.Model
 {
     public partial class XHtml
     {
-        public static XHtml Parse(string value)
-        {
-            return new XHtml(XHtml.ParseValue(value));
-        }
-
-        public static bool TryParseValue( string value, out string result)
-        {
-            if (value == null) throw new ArgumentNullException("value");
-
-            try
-            {
-                // Catch incorrect Xhtml content
-                //if (value != null)
-                //    XElement.Parse(value);
-
-                result = value;
-                return true;
-            }
-            catch
-            {
-                result = null;
-                return false;
-            }
-        }
-
-        public static string ParseValue(string value)
-        {
-            string result = null;
-
-            if (TryParseValue(value, out result))
-                return result;
-            else 
-                throw new FormatException("Content is not valid xhtml");
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
+        public const string XHTML = "http://www.w3.org/1999/xhtml";
+        public static readonly XNamespace XHTMLNS = (XNamespace)XHtml.XHTML;
     }
   
 }

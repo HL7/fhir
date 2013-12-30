@@ -24,7 +24,7 @@ The XML syntax is closely based on the <a href="formats.html">XML notation</a>:
    &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
    &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="deeppink" title="Condition">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
    &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
-     &lt;<b>nameD</b> &gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
+     &lt;<b>nameD</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant records</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
    &lt;/nameC&gt;
  &lt;name&gt;
 </pre>
@@ -35,14 +35,16 @@ Notes:
  <li>To build a valid XML instance of a resource, simply replace the contents of the elements and attributes with valid content as described by the cardinality, type rules and content description found in the comment in each element</li>
  <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
  <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles</li>
- <li>Specifying the character encoding in the XML is optional but recommended.</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespaces that occur in FHIR resources are where some external content model is explicitly introduced into the resource content model. For example, <a href="narrative.html">XHTML is found in every resource</a></li>
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
- <li>The formal MIME-type for FHIR resources represented in XML is application/xml+fhir</li>
- <li>XML comments, processing instructions and formatting are not part of the contents of a resource. Processing Instrutions SHOULD not be included, and SHALL not be required in order to properly understand and/or present the data or narrative of the resource. Applications MAY preserve these when handling resources, but are not required to do so. Note that digital signatures may depend on them (depending on the canonicalisation method used)</li>
+  <li>XML comments, processing instructions and formatting are not part of the contents of a resource.</li>
+  <li>Specifying the character encoding using a the &lt;?xml encoding="" ?&gt; processing instruction is optional but recommended. Other processing Instructions 
+  SHOULD not be included, except and SHALL not be required in order to properly understand and/or present the data or narrative of the resource. 
+  Applications MAY preserve these when handling resources, but are not required to do so. 
+  Note that digital signatures may depend on them (depending on the canonicalisation method used)</li>
 </ul>
 <p>
 When represented as XML, resources may be validated by schema and schematron (see below), but 
@@ -119,9 +121,9 @@ In XML <a href="extras.html#bundle">bundles</a> are represented using an Atom fo
  <li>xml:base elements SHOULD NOT be used and implementations do not need to support it</li>
  <li>The entry.content is optional, but SHALL always be present except in the special case of a transaction response</li>
  <li>The entire bundle can be signed with a single Enveloped Digital Signature as described in the Atom specification (section 5.1)</li>
- <li>The mime type for a bundle when represented in XML is application/atom+xml</li>
  <li>The feed.link element with relationship "self" is assigned no particular meaning the FHIR specification, except in the case of a search operation, but may be used to provide a reference to the source of the feed</li>
  <li>The feed.link elements with relationship "first", "last", "previous" and "next" are used to implement paging in the RESTful interface and allow a client to browse through a multi-page result. See <a href="search.html">search/query</a></li>
+ <li>The feed.link element "fhir-base" is used to resolve relative urls in a bundle, see <a href="references.html#atom-rel">relative references</a></li>
 </ul>
 
 <a name="atom-deleted"> </a>
@@ -140,7 +142,7 @@ in an atom feed as defined by <a href="http://www.rfc-editor.org/rfc/rfc6721.txt
   <span style="color:Gray;">... other entries ...</span>
 </pre>
 <p>
-A deleted resource returns a 410 error if it is accessed through the RESTful interface. 
+A deleted resource returns a 410 Gone error if it is accessed through the RESTful interface. 
 </p>
 
 <a name="atom-impl"> </a>
@@ -176,7 +178,7 @@ as it would be specified in HTTP:
 </pre>
 <p>
 Binary resources can also be embedded as <a href="references.html#contained">contained resources</a>.  
-If there's a desire to capture metadata about a binary object, an appropriate resource type must be used such as
+If there is a desire to capture metadata about a binary object, an appropriate resource type must be used such as
 <a href="documentreference.html">DocumentReference</a> or <a href="media.html">Media</a>.
 </p>
 
@@ -201,7 +203,7 @@ that incorporates the rules for all resources.
 <p>
 XML that is exchanged SHALL be valid against the w3c schema and Schematron, though being 
 valid against the schema and Schematron is not sufficient to be a conformant instance: 
-rhis specification makes several rules that cannot be checked by either mechanism. 
+this specification makes several rules that cannot be checked by either mechanism. 
 Exchanged content SHALL not specify the schema or even the schema instance namespace in 
 the resource itself. 
 </p>
