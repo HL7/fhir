@@ -52,11 +52,11 @@
         <reference value="Organization/f001"/>
         <display value="Burgers University Medical Centre"/>
     </performer>
-    <reportId>
+    <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
         <value value="nr1239044"/>
-    </reportId>
+    </identifier>
     <requestDetail>
       <reference value="#req"/>
     </requestDetail>

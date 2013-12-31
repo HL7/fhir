@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -146,7 +145,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">A homogeneous material with a definite composition used in healthcare</Data></Cell>
+    <Cell><Data ss:Type="String">A homogeneous material with a definite composition </Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s67"/>
     <Cell ss:Index="13" ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -173,7 +172,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">SubstanceType</Data></Cell>
-    <Cell><Data ss:Type="String">Type of the substance</Data></Cell>
+    <Cell><Data ss:Type="String">What kind of substance this is</Data></Cell>
     <Cell><Data ss:Type="String">A code (or set of codes) that identify this substance</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This could be a reference to an externally defined code.  It could also be a locally assigned code (e.g. a formulary),  optionally with translations to the standard drug codes</Data></Cell>
    </Row>
@@ -181,7 +180,7 @@
     <Cell><Data ss:Type="String">Substance.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Description of the substance</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Textual description of the substance, comments</Data></Cell>
     <Cell><Data ss:Type="String">A description of the substance - it's appearance, handling requirements, and other usage notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -263,12 +262,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -276,6 +276,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -283,7 +284,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -683,7 +684,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

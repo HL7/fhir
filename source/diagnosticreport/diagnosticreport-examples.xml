@@ -1127,10 +1127,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2005-01-27T06:40:17"/>
         <results>
           <name>
@@ -2332,10 +2332,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-08T07:45:17"/>
         <results>
           <name>
@@ -3353,10 +3353,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-15T07:20:17"/>
         <results>
           <name>
@@ -4369,10 +4369,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-22T07:45:17"/>
         <results>
           <name>
@@ -5368,10 +5368,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-03T09:45:17"/>
         <results>
           <name>
@@ -6369,10 +6369,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-03T20:30:17"/>
         <results>
           <name>
@@ -7370,10 +7370,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-05T07:15:17"/>
         <results>
           <name>
@@ -8375,10 +8375,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2005-01-27T06:40:17"/>
         <results>
           <name>
@@ -9408,10 +9408,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-08T07:45:17"/>
         <results>
           <name>
@@ -10429,10 +10429,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-15T07:20:17"/>
         <results>
           <name>
@@ -11445,10 +11445,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-22T07:45:17"/>
         <results>
           <name>
@@ -12444,10 +12444,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-03T09:45:17"/>
         <results>
           <name>
@@ -13445,10 +13445,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-03T20:30:17"/>
         <results>
           <name>
@@ -14446,10 +14446,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2004-12-05T07:15:17"/>
         <results>
           <name>
@@ -15045,10 +15045,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2005-11-07T21:44:17"/>
         <results>
           <name>
@@ -15165,10 +15165,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="5234342"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2005-03-07T14:02:17"/>
         <results>
           <name>
@@ -15258,10 +15258,10 @@
           <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
           <display value="Acme Laboratory, Inc"/>
         </performer>
-        <reportId>
+        <identifier>
           <system value="http://acme.com/lab/reports"/>
           <value value="23412355"/>
-        </reportId>
+        </identifier>
         <diagnosticDateTime value="2012-05-21T10:45:00"/>
         <results>
           <name>

@@ -29,7 +29,7 @@ The Diagnostic Report resource does not yet provide full support for detailed st
 The Diagnostic Report resources has the following aspects:
 </p>
 <ul>
- <li>status, issued, reportId, performer, serviceCategory: information about the diagnostic report itself</li>
+ <li>status, issued, identifier, performer, serviceCategory: information about the diagnostic report itself</li>
  <li>subject, diagnostic[x]: information about the subject of the report</li>
  <li>requestDetails.*: A set of request information to allow the report to connected to clinical work flows</li>
  <li>results.* &amp; specimen details: a heirachical tree of groups of results. The actual atomic result data are delegated to the <a href="observation.html">common Observation

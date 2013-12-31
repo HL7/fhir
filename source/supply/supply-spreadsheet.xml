@@ -93,11 +93,6 @@
    <Alignment ss:Vertical="Top"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s74" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior/>
-   <NumberFormat ss:Format="@"/>
-  </Style>
   <Style ss:ID="s75" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -258,7 +253,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource(Patient)</Data></Cell>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Patient for whom the item is supplied</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">A link to a resource representing the person whom the ordered item is for</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -335,7 +330,7 @@
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">SupplyItemType</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Type of dispense</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Category of dispense event</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc. </Data></Cell>
     <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s81"/>
@@ -496,9 +491,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -510,11 +505,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

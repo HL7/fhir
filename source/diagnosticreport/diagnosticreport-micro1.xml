@@ -638,10 +638,10 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
   <performer>
     <display value="Todd Ashby"/> <!-- of course, in practive, this would be a real reference -->
   </performer>
-  <reportId>
+  <identifier>
     <system value="http://hnam.org/identifiers/orders"/> <!-- seems like a likely choice -->
     <value value="290741144"/>
-  </reportId>
+  </identifier>
   <requestDetail>
     <reference value="#req"/>
   </requestDetail>
