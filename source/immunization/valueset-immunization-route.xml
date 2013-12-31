@@ -11,7 +11,7 @@
   <status value="draft"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/vs/RouteOfAdministration"/>
+      <system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
       <code value="IM"/>
       <code value="PO"/>
       <code value="NASINHL"/>

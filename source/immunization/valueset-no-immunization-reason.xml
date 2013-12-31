@@ -18,7 +18,7 @@
       <code value="PATOBJ"/>
     </include>
     <include>
-      <system value="http://snomed.info"/>
+      <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>
         <op value="is-a"/>

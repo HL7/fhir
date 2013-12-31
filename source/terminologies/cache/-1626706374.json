@@ -1,0 +1,1 @@
+{"resourceType":"OperationOutcome","text":{"status":"generated","div":"<div>\n      <p>The filter &quot;Type = Method&quot; was not understood in the context of http://loinc.org</p>\n    </div>"},"issue":[{"severity":"error","details":"The filter \"Type = Method\" was not understood in the context of http://loinc.org"}]}
