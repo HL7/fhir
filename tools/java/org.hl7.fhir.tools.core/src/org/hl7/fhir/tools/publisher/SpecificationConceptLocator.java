@@ -1,5 +1,8 @@
 package org.hl7.fhir.tools.publisher;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URLEncoder;
@@ -8,6 +11,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,12 +21,25 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.hl7.fhir.instance.client.EFhirClientException;
+import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.client.FHIRSimpleClient;
+import org.hl7.fhir.instance.formats.JsonComposer;
+import org.hl7.fhir.instance.formats.JsonParser;
+import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
+import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
+import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.ConceptLocator;
 import org.hl7.fhir.instance.utils.ConceptLocator.ValidationResult;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -57,7 +74,13 @@ public class SpecificationConceptLocator  implements ConceptLocator {
   private Map<String, Concept> loincCodes = new HashMap<String, Concept>();
   private boolean triedServer = false;
   private boolean serverOk = false;
+  private String cache;
   
+  public SpecificationConceptLocator(String cache) {
+    super();
+    this.cache = cache;
+  }
+
   @Override
   public ValueSetDefineConceptComponent locate(String system, String code) {
     if (system.equals("http://snomed.info/sct"))
@@ -258,5 +281,52 @@ public class SpecificationConceptLocator  implements ConceptLocator {
       loincCodes.put(code.getAttribute("id"), c);
       code = XMLUtil.getNextSibling(code);
     }
+  }
+
+  @Override
+  public List<ValueSetExpansionContainsComponent> expand(ConceptSetComponent inc) throws Exception {
+//    return null;
+    ValueSet vs = new ValueSet();
+    vs.setCompose(new ValueSetComposeComponent());
+    vs.getCompose().getInclude().add(inc);
+    ByteArrayOutputStream b = new  ByteArrayOutputStream();
+    new JsonComposer().compose(b, vs, false);
+    String hash = Integer.toString(new String(b.toByteArray()).hashCode());
+    String fn = Utilities.path(cache, hash+".json");
+    if (new File(fn).exists()) {
+      ResourceOrFeed r = new JsonParser().parseGeneral(new FileInputStream(fn));
+      if (r.getResource() != null)
+        throw new Exception(((OperationOutcome) r.getResource()).getIssue().get(0).getDetailsSimple());
+      else
+        return ((ValueSet) r.getFeed().getEntryList().get(0).getResource()).getExpansion().getContains();
+    }
+    vs.setIdentifierSimple("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()); // that's all we're going to set
+    
+        
+    if (!triedServer || serverOk) {
+      try {
+        triedServer = true;
+        serverOk = false;
+        // for this, we use the FHIR client
+        FHIRClient client = new FHIRSimpleClient();
+        //client.initialize("http://fhir.healthintersections.com.au/open");
+        client.initialize("http://localhost:960/open");
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("_query", "expand");
+        params.put("limit", "500");
+        AtomFeed result = client.searchPost(ValueSet.class, vs, params);
+        serverOk = true;
+        new JsonComposer().compose(new FileOutputStream(fn), result, false);
+        return ((ValueSet) result.getEntryList().get(0).getResource()).getExpansion().getContains();
+      } catch (EFhirClientException e) {
+        serverOk = true;
+        new JsonComposer().compose(new FileOutputStream(fn), e.getServerErrors().get(0), false);
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetailsSimple());
+      } catch (Exception e) {
+        serverOk = false;
+        throw e;
+      }
+    } else
+      throw new Exception("Server is not available");
   }
 }

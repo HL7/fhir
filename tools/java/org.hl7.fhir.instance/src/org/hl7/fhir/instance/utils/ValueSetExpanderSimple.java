@@ -26,14 +26,16 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   private List<ValueSetExpansionContainsComponent> codes = new ArrayList<ValueSet.ValueSetExpansionContainsComponent>();
   private Map<String, ValueSetExpansionContainsComponent> map = new HashMap<String, ValueSet.ValueSetExpansionContainsComponent>();
   private ValueSet focus;
+  private ConceptLocator locator;
 
 	private ValueSetExpanderFactory factory;
   
-  public ValueSetExpanderSimple(Map<String, ValueSet> valuesets, Map<String, ValueSet> codesystems, ValueSetExpanderFactory factory) {
+  public ValueSetExpanderSimple(Map<String, ValueSet> valuesets, Map<String, ValueSet> codesystems, ValueSetExpanderFactory factory, ConceptLocator locator) {
     super();
     this.valuesets = valuesets;
     this.codesystems = codesystems;
     this.factory = factory;
+    this.locator = locator;
   }
   
   public ValueSet expand(ValueSet source) throws Exception {
@@ -82,13 +84,21 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
 	private void includeCodes(ConceptSetComponent inc) throws Exception {
     if (inc.getSystemSimple().equals("http://snomed.info/sct"))
-      throw new Exception("Snomed Expansion is not yet supported (which release?)");
+      if (locator != null) {
+        addCodes(locator.expand(inc));
+        return;
+      } else
+        throw new Exception("Snomed Expansion is not yet supported (which release?)");
     if (inc.getSystemSimple().equals("http://loinc.org"))
-      throw new Exception("LOINC Expansion is not yet supported (todo)");
+      if (locator != null) {
+        addCodes(locator.expand(inc));
+        return;
+      } else
+        throw new Exception("LOINC Expansion is not yet supported (todo)");
 	    
 	  ValueSet cs = codesystems.get(inc.getSystemSimple());
 	  if (cs == null)
-	  	throw new Exception("unable to find value set "+inc.getSystemSimple().toString());
+	  	throw new Exception("unable to find code system "+inc.getSystemSimple().toString());
 	  if (inc.getCode().size() == 0 && inc.getFilter().size() == 0) {
 	    // special case - add all the code system
 	    for (ValueSetDefineConceptComponent def : cs.getDefine().getConcept()) {
@@ -99,7 +109,10 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  for (Code c : inc.getCode()) {
 	  	addCode(inc.getSystemSimple(), c.getValue(), getCodeDisplay(cs, c.getValue()));
 	  }
-	  for (ConceptSetFilterComponent fc : inc.getFilter()) {
+	  if (inc.getFilter().size() > 1)
+	    throw new Exception("Multiple filters not handled yet"); // need to and them, and this isn't done yet. But this shouldn't arise in non loinc and snomed value sets
+    if (inc.getFilter().size() == 1) {
+	    ConceptSetFilterComponent fc = inc.getFilter().get(0);
 	  	if ("concept".equals(fc.getPropertySimple()) && fc.getOpSimple() == FilterOperator.isa) {
 	  		// special: all non-abstract codes in the target code system under the value
 	  		ValueSetDefineConceptComponent def = getConceptForCode(cs.getDefine().getConcept(), fc.getValueSimple());
@@ -111,7 +124,15 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  }
   }
 
-	private void addCodeAndDescendents(String system, ValueSetDefineConceptComponent def) {
+	private void addCodes(List<ValueSetExpansionContainsComponent> expand) throws Exception {
+	  if (expand.size() > 500) 
+	    throw new Exception("Too many codes to display (>"+Integer.toString(expand.size())+")");
+    for (ValueSetExpansionContainsComponent c : expand) {
+      addCode(c.getSystemSimple(), c.getCodeSimple(), c.getDisplaySimple());
+    }   
+  }
+
+  private void addCodeAndDescendents(String system, ValueSetDefineConceptComponent def) {
 		if (!ToolingExtensions.hasDeprecated(def)) {  
 			if (def.getAbstract() == null || !def.getAbstractSimple())
 				addCode(system, def.getCodeSimple(), def.getDisplaySimple());

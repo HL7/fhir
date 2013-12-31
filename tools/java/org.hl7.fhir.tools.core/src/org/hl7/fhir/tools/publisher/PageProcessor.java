@@ -133,7 +133,7 @@ public class PageProcessor implements Logger  {
   private BindingNameRegistry registry;
   private String id; // technical identifier associated with the page being built
   private EPubManager epub;
-  private SpecificationConceptLocator conceptLocator = new SpecificationConceptLocator();
+  private SpecificationConceptLocator conceptLocator;
 ;
   
   public final static String PUB_NOTICE =
@@ -2145,16 +2145,17 @@ public class PageProcessor implements Logger  {
     if (!hasDynamicContent(vs))
       return "";
     try {
-      ValueSetExpansionCache cache = new ValueSetExpansionCache(definitions.getValuesets(), definitions.getCodeSystems());
+      ValueSetExpansionCache cache = new ValueSetExpansionCache(definitions.getValuesets(), definitions.getCodeSystems(), conceptLocator);
       ValueSet exp = cache.getExpander().expand(vs);
       exp.setCompose(null);
       exp.setDefine(null);
-      exp.setText(null);
+      exp.setText(null); 
       exp.setDescriptionSimple("Value Set Contents (Expansion) for "+vs.getNameSimple()+" at "+Config.DATE_FORMAT().format(new Date()));
       new NarrativeGenerator(prefix, conceptLocator).generate(exp, codeSystems, valueSets, conceptMaps);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
-      return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
+      return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+e.getMessage()+"</div>";
+//      return "<!-- This value set could not be expanded by the publication tooling: "+e.getMessage()+" -->";
     }
   }
 
@@ -3053,6 +3054,7 @@ public class PageProcessor implements Logger  {
 
   public void setFolders(FolderManager folders) {
     this.folders = folders;
+    conceptLocator = new SpecificationConceptLocator(Utilities.path(folders.srcDir, "terminologies", "cache"));
     epub = new EPubManager(this);
   }
 

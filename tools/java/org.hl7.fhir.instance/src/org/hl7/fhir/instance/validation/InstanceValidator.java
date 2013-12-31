@@ -96,7 +96,7 @@ public class InstanceValidator extends BaseValidator {
   private Map<String, Profile> types = new HashMap<String, Profile>();
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
-  private ValueSetExpansionCache cache = new ValueSetExpansionCache(valuesets, codesystems);
+  private ValueSetExpansionCache cache;
   private boolean suppressLoincSnomedMessages;
   private ExtensionLocatorService extensions;
 
@@ -109,6 +109,7 @@ public class InstanceValidator extends BaseValidator {
     loadValidationResources(validationZip);
     this.extensions = (extensions == null ) ? new NullExtensionResolver() : extensions;
     this.conceptLocator = conceptLocator;
+    cache = new ValueSetExpansionCache(valuesets, codesystems, conceptLocator);
   }  
 
   private void loadValidationResources(String name) throws Exception {
@@ -648,10 +649,10 @@ public class InstanceValidator extends BaseValidator {
                 } catch (Exception e) {
                   if (e.getMessage() == null)
                     warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": --Null--");
-                  else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct"))
-                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
-                  else if (!e.getMessage().contains("unable to find value set http://loinc.org"))
-                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
+//                  else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct"))
+//                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
+//                  else if (!e.getMessage().contains("unable to find value set http://loinc.org"))
+//                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
                   else
                     warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
                 }
@@ -729,10 +730,10 @@ public class InstanceValidator extends BaseValidator {
             } catch (Exception e) {
               if (e.getMessage() == null) {
                 warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": --Null--");
-              } else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct")) {
-                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
-              } else if (!e.getMessage().contains("unable to find value set http://loinc.org")) { 
-                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
+//              } else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct")) {
+//                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
+//              } else if (!e.getMessage().contains("unable to find value set http://loinc.org")) { 
+//                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
               } else
                 warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
             }

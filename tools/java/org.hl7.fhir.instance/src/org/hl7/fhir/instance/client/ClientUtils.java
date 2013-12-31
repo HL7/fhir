@@ -3,6 +3,8 @@ package org.hl7.fhir.instance.client;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -11,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.io.IOUtils;
@@ -71,18 +74,50 @@ public class ClientUtils {
 		return issueResourceRequest(resourceFormat, httpPost, payload);
 	}
 	
-	public static AtomFeed issueGetFeedRequest(URI resourceUri, String feedFormat) {
-		HttpGet httpget = new HttpGet(resourceUri);
-		configureFhirRequest(httpget, feedFormat);
-		HttpResponse response = sendRequest(httpget);
-		return unmarshalFeed(response, feedFormat);
-	}
-	
-	public static AtomFeed postBatchRequest(URI resourceUri, byte[] payload, String feedFormat) {
+  public static AtomFeed issueGetFeedRequest(URI resourceUri, String feedFormat) {
+    HttpGet httpget = new HttpGet(resourceUri);
+    configureFhirRequest(httpget, feedFormat);
+    HttpResponse response = sendRequest(httpget);
+    return unmarshalFeed(response, feedFormat);
+  }
+  
+  public static AtomFeed issuePostFeedRequest(URI resourceUri, Map<String, String> parameters, String resourceName, Resource resource, String feedFormat) throws Exception {
+    HttpPost httppost = new HttpPost(resourceUri);
+    configureFhirRequest(httppost, null);
+    String boundary = "----WebKitFormBoundarykbMUo6H8QaUnYtRy";
+    httppost.addHeader("Content-Type", "multipart/form-data; boundary="+boundary);
+    httppost.addHeader("Accept", feedFormat);
+    HttpResponse response = sendPayload(httppost, encodeFormSubmission(parameters, resourceName, resource, boundary));
+    return unmarshalFeed(response, feedFormat);
+  }
+  
+	private static byte[] encodeFormSubmission(Map<String, String> parameters, String resourceName, Resource resource, String boundary) throws Exception {
+	  ByteArrayOutputStream b = new ByteArrayOutputStream();
+	  OutputStreamWriter w = new OutputStreamWriter(b, "UTF-8");  
+	  for (String name : parameters.keySet()) {
+	    w.write("--");
+	    w.write(boundary);
+	    w.write("\r\nContent-Disposition: form-data; name=\""+name+"\"\r\n\r\n");
+	    w.write(parameters.get(name)+"\r\n");
+	  }
+    w.write("--");
+    w.write(boundary);
+    w.write("\r\nContent-Disposition: form-data; name=\""+resourceName+"\"\r\n\r\n");
+    w.close(); 
+    new JsonComposer().compose(b, resource, false);
+    w = new OutputStreamWriter(b, "UTF-8");  
+    w.write("\r\n--");
+    w.write(boundary);
+    w.write("--");
+    w.close();
+    return b.toByteArray();
+  }
+
+  public static AtomFeed postBatchRequest(URI resourceUri, byte[] payload, String feedFormat) {
 		HttpPost httpPost = new HttpPost(resourceUri);
 		configureFhirRequest(httpPost, feedFormat);
 		HttpResponse response = sendPayload(httpPost, payload);
-        return unmarshalFeed(response, feedFormat);
+		return unmarshalFeed(response, feedFormat);
 	}
 	
 	public static boolean issueDeleteRequest(URI resourceUri) {
@@ -131,8 +166,10 @@ public class ClientUtils {
 	 */
 	protected static void configureFhirRequest(HttpRequest request, String format) {
 		request.addHeader("User-Agent", "Java FHIR Client for FHIR");
-		request.addHeader("Accept",format);
-		request.addHeader("Content-Type", format + ";charset=" + DEFAULT_CHARSET);
+		if (format != null) {
+		  request.addHeader("Accept",format);
+		  request.addHeader("Content-Type", format + ";charset=" + DEFAULT_CHARSET);
+		}
 		request.addHeader("Accept-Charset", DEFAULT_CHARSET);
 	}
 	

@@ -41,27 +41,27 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveSearchUri(Class<T> resourceClass, Map<String,String> parameters) {
-		return appendHttpParameters(baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/search"), parameters);
+		return appendHttpParameters(baseServiceUri.resolve(resourceClass.getSimpleName() +"/_search"), parameters);
 	}
 	
 	public <T extends Resource> URI resolveValidateUri(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/validate/@"+id);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/validate/@"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClass(Class<T> resourceClass) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase());
+		return baseServiceUri.resolve(resourceClass.getSimpleName());
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndId(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/@"+id);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/@"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndIdAndVersion(Class<T> resourceClass, String id, String version) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/@"+id+"/history/@"+version);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/@"+id+"/history/@"+version);
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceId(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/@" + id + "/history");
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/@" + id + "/history");
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForAllResources(Calendar since) {//TODO Only add _since parameters if it is non-null
@@ -73,7 +73,7 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/history");
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/history");
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass, Calendar since) {

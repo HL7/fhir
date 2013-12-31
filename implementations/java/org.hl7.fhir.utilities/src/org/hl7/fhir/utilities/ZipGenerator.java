@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -51,7 +52,7 @@ public class ZipGenerator {
 	public ZipGenerator(String filename) throws Exception {
 		dest = new FileOutputStream(filename);
 		out = new ZipOutputStream(new BufferedOutputStream(dest));
-
+    out.setLevel(Deflater.BEST_COMPRESSION);
 	}
 
 	public void close() throws Exception {
@@ -166,9 +167,8 @@ public class ZipGenerator {
     byte data[] = new byte[BUFFER];
     FileInputStream fi = new FileInputStream(actualPath);
     BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
+    out.setLevel(0);
     ZipEntry entry = new ZipEntry(statedPath);
-//    entry.setMethod(ZipEntry.STORED);
-//    entry.setSize(new File(actualPath).length());
     names.add(statedPath);
     out.putNextEntry(entry);
     int count;
@@ -176,6 +176,7 @@ public class ZipGenerator {
       out.write(data, 0, count);
     }
     origin.close();
+    out.setLevel(Deflater.BEST_COMPRESSION);
   }
 
 }
