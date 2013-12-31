@@ -43,7 +43,7 @@ namespace Hl7.Fhir.Model
     [InvokeIValidatableObject]
     public abstract partial class Resource : IExtendable, Hl7.Fhir.Validation.IValidatableObject
     {
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             // TODO: Contained resources share the same internal id resolution space as the parent
             // resource -> verify id uniqueness

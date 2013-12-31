@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17880</WindowHeight>
+  <WindowHeight>15990</WindowHeight>
   <WindowWidth>19785</WindowWidth>
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -86,13 +86,13 @@
   <Style ss:ID="s72">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s76">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -100,7 +100,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -427,7 +427,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -524,7 +523,7 @@
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="116.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="251.25"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="78.75"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="78.75"/>
    <Column ss:Width="203.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -584,13 +583,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="137.25"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="180"/>
-   <Column ss:Index="5" ss:StyleID="s74" ss:Width="257.25"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="224.25"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="260.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="137.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="180"/>
+   <Column ss:Index="5" ss:StyleID="s75" ss:Width="257.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="224.25"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="260.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -598,13 +597,13 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33">
     <Cell ss:StyleID="s71"><Data ss:Type="String">PatientRelationshipType</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">The nature of the relationship between a patient and the related person</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">n</Data></Cell>
     <Cell><Data ss:Type="String">valueset-relatedperson-relationshiptype</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -635,11 +634,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

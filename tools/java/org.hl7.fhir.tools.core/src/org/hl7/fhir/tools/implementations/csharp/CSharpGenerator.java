@@ -34,6 +34,7 @@ import java.util.List;
 
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
+import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -118,11 +119,12 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 			
 		List<CompositeTypeDefn> allComplexTypes = new ArrayList<CompositeTypeDefn>();
 		allComplexTypes.addAll(definitions.getLocalCompositeTypes());
-		allComplexTypes.addAll(definitions.getResources());
+			
+		for( ResourceDefn res : definitions.getResources())
+		  if(!res.isFuture()) allComplexTypes.add(res);
 		
 		for( CompositeTypeDefn composite : allComplexTypes )
 		{		  
-	  
 		  // Generate model for all other classes
 			String compositeFilename = modelDir + GeneratorUtils.generateCSharpTypeName(composite.getName()) + ".cs";	
 			new CSharpModelGenerator(definitions)

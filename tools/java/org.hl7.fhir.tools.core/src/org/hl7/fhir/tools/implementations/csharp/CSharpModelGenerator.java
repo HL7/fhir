@@ -130,6 +130,8 @@ public class CSharpModelGenerator extends GenBlock
 		ln("using Hl7.Fhir.Introspection;");
 		ln("using Hl7.Fhir.Validation;");
 		ln("using System.Linq;");
+		ln("using System.Runtime.Serialization;");
+		
 		ln();
 		ln("/*");
 		ln(Config.FULL_LICENSE_CODE);
@@ -340,7 +342,8 @@ public class CSharpModelGenerator extends GenBlock
     }
     
 		if(needsNativeProperty) addPrimitiveValidators(tref.getName());
-		
+
+		ln("[DataMember]");
 		ln("public ");
 			
 		String memberCsType;
@@ -422,6 +425,7 @@ public class CSharpModelGenerator extends GenBlock
 	    csType = "IEnumerable<" + csType + ">";
 
 	  ln("[NotMapped]");
+	  ln("[IgnoreDataMemberAttribute]");
 	  ln("public " + csType + " " + simpleMemberName);
 	  bs("{");
 	    ln("get { return " + memberName + " != null ? ");
@@ -485,25 +489,19 @@ public class CSharpModelGenerator extends GenBlock
 	
 	private void compositeClassHeader(CompositeTypeDefn composite) throws Exception
 	{
-	  boolean representsPrimitive = hasPrimitiveValueElement(composite);
-
 	  // Avoid generating type attributes with names for the abstract baseclasses Element
 	  // since that's both a primitive and a composite type
 		if( composite.isComposite() && !composite.isAbstract() )
-	  //if( composite.isComposite() )
 		{
-		 // if(!representsPrimitive)
 		    ln("[FhirType(\"" + composite.getName() + "\")]" );
-		 // else
-		 //   ln("[FhirPrimitiveType(\"" + composite.getName() + "\")]" );
 		}
-		//else if( composite.isResource() && !composite.isAbstract() )
 		else if( composite.isResource() && !composite.isAbstract() )
 		{
 			ln("[FhirType(\"" + composite.getName() + "\", IsResource=true)]" );
 		}
 		
 		//ln("[Serializable]");
+		ln("[DataContract]");
 		ln( "public ");
 			if( composite.isAbstract() ) nl("abstract ");
 			nl("partial class " + GeneratorUtils.generateCSharpTypeName(composite.getName()) );
@@ -511,17 +509,8 @@ public class CSharpModelGenerator extends GenBlock
 		// Derive from appropriate baseclass
 		if( composite.getBaseType() != null ) 
 		{
-			nl( " : " ); 
-						
-//			if(composite.isComposite())
-//			{
-//			  if(!representsPrimitive)
-//			    nl("ComplexElement");
-//			  else
-//			    nl("PrimitiveElement");
-//			}
-//			else
-			  nl(GeneratorUtils.buildFullyScopedTypeName(composite.getBaseType()));
+			nl( " : " ); 						
+		  nl(GeneratorUtils.buildFullyScopedTypeName(composite.getBaseType()));
 		}
 	}
 	

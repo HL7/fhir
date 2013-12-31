@@ -230,10 +230,11 @@ are defined at [location still to be finalized].
 For each extension, the first thing to do is to fill out the <a href="extensibility.html#define">definitional properties of the
 extension</a>:
 </p>
+
 <table class="codes">
  <tr><td>Code</td><td>"name-qualifier"</td></tr>
  <tr><td>Context</td><td>This extension can be used anywhere a HumanName.part appears</td></tr>
- <tr><td>Short Defn</td><td>(one of the codes) AD | SP | BR | CL | IN | LS | MID | PFX | SFX</td></tr>
+ <tr><td>Short Defn</td><td>(one of the codes) LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN</td></tr>
  <tr><td>Definition</td><td>A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</td></tr>
  <tr><td>Comments</td><td>Used to indicate additional information about the name part and how it should be used</td></tr>
  <tr><td>Cardinality</td><td>0..* (this is always optional, but more than one can be used if required)</td></tr>
@@ -280,7 +281,7 @@ and their associated bindings. In this case, the profile looks like this:
     &lt;contextType value="datatype" /&gt;
     &lt;context value="HumanName.given;HumanName.prefix;HumanName.family;HumanName.suffix" /&gt;
     &lt;definition>
-      &lt;short value="AD | SP | BR | CL | IN | LS | MID | PFX | SFX" /&gt;
+      &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
       &lt;formal value="A set of codes each of which specifies a certain subcategory
           of the name part in addition to the main name part type" /&gt;
       &lt;comments value="Used to indicate additional information about the
@@ -318,7 +319,7 @@ Note that usually you would build the actual profile using some tool. This examp
 </p>
 <h4>Register the Extension</h4>
 <p>
-For this example, it is registered at <a href="http://hl7.org/fhir/Profileiso-21090?format=text/html">http://hl7.org/fhir/Profileiso-21090</a>.
+For this example, it is registered at <a href="http://hl7.org/fhir/Profile/iso-21090?_format=text/html">http://hl7.org/fhir/Profile/iso-21090</a>.
 This is the url that will appear in the definition element when the extension is used.
 </p>
 <h4>Use it in the instance</h4>
@@ -332,7 +333,7 @@ fragment identifier.
 &lt;name&gt;
   &lt;use value=&quot;official&quot; /&gt;
   &lt;given value=&quot;Östlund&quot;&gt;
-     &lt;extension url=&quot;http://hl7.org/fhir/Profileiso-21090#name-qualifier&quot; &gt;
+     &lt;extension url=&quot;http://hl7.org/fhir/Profile/iso-21090#name-qualifier&quot; &gt;
         &lt;valueCode value=&quot;MID&quot; /&gt;
      &lt;/extension&gt;
   &lt;/given&gt;

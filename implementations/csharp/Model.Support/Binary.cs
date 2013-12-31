@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Hl7.Fhir.Validation;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 
 /*
   Copyright (c) 2011-2012, HL7, Inc
@@ -41,9 +42,10 @@ namespace Hl7.Fhir.Model
     /// </summary>
     public partial class Binary : Hl7.Fhir.Model.Resource, Hl7.Fhir.Validation.IValidatableObject
     {
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var result = new List<ValidationResult>();
+            result.AddRange(base.Validate(validationContext));
 
             if (Content == null)
                 result.Add(new ValidationResult("Entry must contain (possibly 0-length) data in Content element"));

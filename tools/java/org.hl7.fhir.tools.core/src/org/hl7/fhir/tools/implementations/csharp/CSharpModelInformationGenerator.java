@@ -143,7 +143,7 @@ public class CSharpModelInformationGenerator extends GenBlock
     	ln("new List<string>");
 			bs("{");	
 				for( ResourceDefn resource : definitions.getResources() )
-				  if(!resource.isAbstract())
+				  if(!resource.isAbstract() && !resource.isFuture())
 				    ln("\"" + resource.getName() + "\",");
       es("};");
     es();
@@ -158,11 +158,14 @@ public class CSharpModelInformationGenerator extends GenBlock
 			bs("{");
 				for( TypeDefn type : definitions.getType() )
 				{
-					String cSharpName;
-
-					cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);
-					
-					ln( tuple("\"" + type.getName() + "\"", "typeof(" + cSharpName + ")" ) );	
+				  if(type instanceof ResourceDefn && !((ResourceDefn)type).isFuture() )
+				  {
+  					String cSharpName;
+  
+  					cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);
+  					
+  					ln( tuple("\"" + type.getName() + "\"", "typeof(" + cSharpName + ")" ) );
+				  }
 				}
 			es("};");
 		es();
@@ -173,15 +176,12 @@ public class CSharpModelInformationGenerator extends GenBlock
 			bs("{");
 				for( TypeDefn type : definitions.getType() )
 				{
-					String cSharpName;
-
-//Primitives now get converted to "real" elements types					
-//					if( type.isPrimitive() )
-//						cSharpName = GeneratorUtils.mapPrimitiveToFhirCSharpType(type.getName());
-//					else
-						cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);
-					
-					ln( tuple("typeof(" + cSharpName + ")", "\"" + type.getName() + "\"" ) );	
+          if(type instanceof ResourceDefn && !((ResourceDefn)type).isFuture() )
+          {
+            String cSharpName;
+ 						cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);				
+  					ln( tuple("typeof(" + cSharpName + ")", "\"" + type.getName() + "\"" ) );
+          }
 				}
 			es("};");
 		es();
