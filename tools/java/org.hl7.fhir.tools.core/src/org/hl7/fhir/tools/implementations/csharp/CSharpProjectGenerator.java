@@ -51,6 +51,11 @@ public class CSharpProjectGenerator
 		templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.Portable40.csproj.template"); 	
 		outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
 		TextFile.writeAllLines(destDir + "Hl7.Fhir.Portable40.csproj", outputLines);
+		
+		// Generate Portable45 project (profile 78)
+		templateContents = TextFile.readAllLines(destDir + "Hl7.Fhir.Portable45.csproj.template"); 	
+		outputLines = replaceTemplateVar( templateContents, "@@@MODELFILES@@@", itemGroup);
+		TextFile.writeAllLines(destDir + "Hl7.Fhir.Portable45.csproj", outputLines);
 	}
 	
 	
