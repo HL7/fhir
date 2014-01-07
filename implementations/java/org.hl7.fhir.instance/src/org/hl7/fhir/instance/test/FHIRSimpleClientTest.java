@@ -208,7 +208,9 @@ public class FHIRSimpleClientTest {
 				fail();
 			} else {
 				Patient updatedResource = (Patient)result.getResource();
-				assertTrue(modifiedBirthday.getValue().equals(updatedResource.getBirthDate().getValue()));
+				assertEquals(modifiedBirthday.getValue().getYear(),updatedResource.getBirthDate().getValue().getYear());
+				assertEquals(modifiedBirthday.getValue().getMonth(),updatedResource.getBirthDate().getValue().getMonth());
+				assertEquals(modifiedBirthday.getValue().getDay(),updatedResource.getBirthDate().getValue().getDay());
 			}
 			modifiedBirthday = new DateTime();
 			modifiedBirthday.setValue(new DateAndTime("2008-08-08"));
@@ -218,7 +220,9 @@ public class FHIRSimpleClientTest {
 				fail();
 			} else {
 				Patient updatedResource = (Patient)result.getResource();
-				assertTrue(modifiedBirthday.getValue().equals(updatedResource.getBirthDate().getValue()));
+				assertEquals(modifiedBirthday.getValue().getYear(),updatedResource.getBirthDate().getValue().getYear());
+				assertEquals(modifiedBirthday.getValue().getMonth(),updatedResource.getBirthDate().getValue().getMonth());
+				assertEquals(modifiedBirthday.getValue().getDay(),updatedResource.getBirthDate().getValue().getDay());
 			}
 			unloadPatientResource();
 		} catch (ParseException e) {
