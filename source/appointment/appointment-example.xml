@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Appointment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/appointment.xsd">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to Bee Stings</div>
-  </text>
-  <recordedDate value="2012-09-17"/>
-	<status value="busy"/>
-	<participationStatus value="tentative" />
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
-  <recorder>
-    <reference value="Practitioner/example"/>
-  </recorder>
-	<start value="2013-12-10T11:00:00Z" />
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>
+	</text>
+	<priority value="5">
+	</priority>
+	<status value="normal" />
+	<description value="Discussion on the results of your recent MRI" />
+	<start value="2013-12-10T09:00:00Z" />
+	<end value="2013-12-10T11:00:00Z" />
+	<timezone value="AEST" />
+	<location>
+		<reference value="Location/1" />
+	</location>
+	<comment value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
+	<participant>
+		<individual>
+			<reference value="Patient/example" />
+			<display value="Peter James Chalmers" />
+		</individual>
+		<required value="required" />
+		<status value="accepted" />
+	</participant>
+	<participant>
+		<type>
+			<coding>
+				<code value="attending"/>
+			</coding>
+		</type>
+		<individual>
+			<reference value="Practitioner/example" />
+			<display value="Dr Adam Careful" />
+		</individual>
+		<required value="required" />
+		<status value="accepted" />
+	</participant>
+	<recorder>
+		<reference value="Practitioner/example"/>
+			<display value="Dr Adam Careful" />
+	</recorder>
+	<recordedDate value="2012-09-17"/>
 </Appointment>

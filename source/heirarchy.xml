@@ -125,6 +125,10 @@ todo: compartments
     <page type="resource" resource="Supply"/>
     <page type="resource" resource="Order"/>
     <page type="resource" resource="OrderResponse"/>
+    <page type="resource" resource="Appointment"/>
+    <page type="resource" resource="AppointmentResponse"/>
+    <page type="resource" resource="Availability"/>
+    <page type="resource" resource="Slot"/>
   </page>
   <page title="Infrastructure" filename="infrastructure.html">
     <page type="resource" resource="List"/>
