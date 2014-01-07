@@ -21,8 +21,20 @@
   <item id="Appointment">
     <translation lang="en">Appointment</translation>
   </item>
-  
-  <item id="ConceptMap">
+
+  <item id="AppointmentResponse">
+    <translation lang="en">Appointment Response</translation>
+  </item>
+
+  <item id="Availability">
+    <translation lang="en">Availability</translation>
+  </item>
+
+  <item id="Slot">
+    <translation lang="en">Slot</translation>
+  </item>
+
+	<item id="ConceptMap">
     <translation lang="en">ConceptMap</translation>
   </item>  
 
