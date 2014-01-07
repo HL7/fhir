@@ -89,6 +89,14 @@
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
+  <Style ss:ID="s73" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s74">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
@@ -105,14 +113,6 @@
   </Style>
   <Style ss:ID="s78">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s79" ss:Parent="s62">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -161,7 +161,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">A container for slot(s) of time that may be available for booking appointments</Data></Cell>
+    <Cell><Data ss:Type="String">(informative) A container for slot(s) of time that may be available for booking appointments</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">BEGIN:VFREEBUSY  …  END:VFREEBUSY&#10;(If your fhir server provides this information via calDAV, then you may want to include addressing information in a URL section, and with the search, a DTSTART and DTEND component can be included to indicate the range of time that has been covered in the collection of slots, where these overlap the resources period values. For all slots that reference this resource, include a FREEBUSY row for each slot)</Data></Cell>
@@ -208,7 +208,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The period of time that the slots that are attached to this availability resource cover (even if none exist)</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">DTSTART:20131201T003000Z&#10;DTEND:2014030101T003000Z</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s73"><Data ss:Type="String">DTSTART:20131201T003000Z&#10;DTEND:2014030101T003000Z</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Availability.comment</Data></Cell>
@@ -232,7 +232,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="17" ss:StyleID="s67"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Availability.authorDate</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
@@ -243,7 +243,7 @@
     <Cell><Data ss:Type="String">When this availability was created, or last revised</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">DTSTAMP:19970901T083000Z&#10;(Server may consider updating this date to the latest date on the slots)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">DTSTAMP:19970901T083000Z&#10;(Server may consider updating this date to the latest date on the slots)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="17" ss:StyleID="s67"/>
    </Row>
@@ -266,7 +266,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -281,7 +281,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

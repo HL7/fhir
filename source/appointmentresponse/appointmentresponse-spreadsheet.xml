@@ -10,7 +10,7 @@
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-01-06T01:24:45Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -85,21 +85,21 @@
   <Style ss:ID="s69">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s72">
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s76" ss:Parent="s62">
+  <Style ss:ID="s73" ss:Parent="s62">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s74">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -107,13 +107,13 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s82">
+  <Style ss:ID="s79">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s83">
+  <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
@@ -164,7 +164,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">A scheduled appointment response for a patient and/or practitioner(s) where a service may take place</Data></Cell>
+    <Cell><Data ss:Type="String">(informative) A response to a scheduled appointment for a patient and/or practitioner(s)</Data></Cell>
     <Cell><Data ss:Type="String">A scheduled appointment for a patient and/or practitioner(s) where a service may take place.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13" ss:StyleID="s68"/>
@@ -212,7 +212,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">ParticipantType</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Role of participant in the appointment</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Role of participant in the appointment</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s62"/>
@@ -231,8 +231,8 @@
     <Cell><Data ss:Type="String">A Person of device that is participating in the appointment</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Should this be multiple? And move to a child enitity</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="18" ss:StyleID="s67"/>
    </Row>
@@ -336,7 +336,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -344,13 +344,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -360,14 +361,14 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s77" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s77" ss:Width="14.25"/>
-   <Column ss:StyleID="s77" ss:Width="126"/>
-   <Column ss:StyleID="s77" ss:Width="96"/>
-   <Column ss:StyleID="s77" ss:Width="234.75"/>
-   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s77" ss:Width="320.25"/>
+   <Column ss:StyleID="s74" ss:Width="14.25"/>
+   <Column ss:StyleID="s74" ss:Width="126"/>
+   <Column ss:StyleID="s74" ss:Width="96"/>
+   <Column ss:StyleID="s74" ss:Width="234.75"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s74" ss:Width="320.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -468,11 +469,11 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:Index="4" ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:Index="4" ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -673,18 +674,18 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ParticipantStatus</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">The Participation status of an appointment</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#participantstatus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -845,11 +846,11 @@
     <Cell><Data ss:Type="String">Example</Data></Cell>
     <Cell><Data ss:Type="String">General Person Example</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">appointmentresponse-example.xml</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">appointmentresponse-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s83"/>
+    <Cell ss:Index="3" ss:StyleID="s80"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
