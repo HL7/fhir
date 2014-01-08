@@ -122,6 +122,10 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
       }
       closeArray();
     }
+    if (feed.getTotalResults() != null) {
+	prop("totalResults", feed.getTotalResults());
+    }
+
 		if (feed.getUpdated() != null)
 			prop("updated", feed.getUpdated().toString());
 		if (feed.getTags().size() > 0) {
