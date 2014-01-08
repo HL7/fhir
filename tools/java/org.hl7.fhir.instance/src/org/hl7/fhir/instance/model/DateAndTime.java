@@ -51,6 +51,9 @@ public class DateAndTime {
 		int offset = 0;
 		try {
 			int yearlength = s.startsWith("-") ? s.substring(1).indexOf("-") + 1 : s.indexOf("-");
+			if (yearlength == -1) {
+			  yearlength = 4;
+			}
 			setYear(readField(s, 0, yearlength));
 			offset = yearlength;
 			if (s.length() >= yearlength + 3)
