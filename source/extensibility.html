@@ -139,14 +139,14 @@ Extending a patient with an opt-in status for a clinical trial, with
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://acme.org/fhir/profiles/@main#trial-status&quot; &gt;
-    &lt;extension url=&quot;http://acme.org/fhir/profiles/@main#trial-status-code&quot; &gt;	  
+  &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status&quot; &gt;
+    &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status-code&quot; &gt;	  
       &lt;valueCode value=&quot;unsure&quot; /&gt;	  
     &lt;/extension&gt;
-    &lt;extension url=&quot;http://acme.org/fhir/profiles/@main#trial-status-date&quot; &gt;	  
+    &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status-date&quot; &gt;	  
       &lt;valueDate value=&quot;2009-03-14&quot; /&gt;	  
     &lt;/extension&gt;
-    &lt;extension url=&quot;http://acme.org/fhir/profiles/@main#trial-status-who&quot; &gt;	  
+    &lt;extension url=&quot;http://acme.org/fhir/Profile/main#trial-status-who&quot; &gt;	  
       &lt;valueResource&gt;	  
         &lt;reference value=&quot;Practitioner/example&quot; /&gt;	  	    
       &lt;/valueResource&gt;	  
@@ -163,18 +163,18 @@ or in JSON:
   "resource-type" : "Patient",
   "extension" : [
     {
-      "url" : "http://acme.org/fhir/profiles/@main#trial-status",
+      "url" : "http://acme.org/fhir/Profile/main#trial-status",
       "extension" : [
         {
-          "url" : "http://acme.org/fhir/profiles/@main#trial-status-code",
+          "url" : "http://acme.org/fhir/Profile/main#trial-status-code",
           "valueCode" : "unsure"
         }, 
         {
-          "url" : "http://acme.org/fhir/profiles/@main#trial-status-date",
+          "url" : "http://acme.org/fhir/Profile/main#trial-status-date",
           "valueDate" : "2009-03-14"
         }, 
         {
-          "url" : "http://acme.org/fhir/profiles/@main#trial-status-who",
+          "url" : "http://acme.org/fhir/Profile/main#trial-status-who",
           "valueResource" : {
             "reference" : "Practitioner/example"
           }

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3.org/2005/Atom ../../publish/fhir-atom.xsd">
+    
+    <title>XDS Submission - prepared by Health Intersections Test Script</title>
+    <id>urn:uuid:02f06039-da24-4585-953b-0e9da4e79f41</id>
+    <updated>2013-07-01T13:11:33Z</updated>
+    <author>
+        <name>XDS --&gt; FHIR Reference Bridge</name>
+        <uri>http://www.healthintersections.com.au/xds2fhir.js</uri>
+    </author>
+    <entry xmlns="http://www.w3.org/2005/Atom">
+        <title>Document Reference (XDS Entry)</title>
+        <id>cid:docref_id@hl7.org</id>
+        <link href="cid:docref_vid@hl7.org" rel="self"/>
+        <updated>2013-07-01T13:11:33Z</updated>
+        <content type="text/xml">
+            <DocumentReference xmlns="http://hl7.org/fhir">
+                <extension url="http://hl7.org/fhir/xds#practiceSettingCode">
+                    <valueCodeableConcept>
+                        <coding>
+                            <system value="http://ihe.net/connectathon/practiceSettingCodes"/>
+                            <code value="General Medicine"/>
+                            <display value="General Medicine"/>
+                        </coding>
+                    </valueCodeableConcept>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">
+                        <a href="cid:bin_vid@hl7.org">Document: urn:oid:129.6.58.92.88336</a>undefined, created 24/12/2005</div>
+                </text>
+                <masterIdentifier>
+                    <system value="urn:ietf:rfc:3986"/>
+                    <value value="urn:oid:129.6.58.92.88336"/>
+                </masterIdentifier>
+                <subject>
+                    <reference value="cid:patient_id@hl7.org" />
+                </subject>
+                <type>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="34108-1"/>
+                            <display value="Outpatient Note"/>
+                        </coding>                   
+                </type>
+                <author>
+                    <reference value="cid:prac1_id@hl7.org"/>
+                </author>
+                <author>
+                    <reference value="cid:prac2_id@hl7.org"/>
+                </author>
+                <created value="2005-12-24"/>
+                <indexed value="2013-07-01T23:11:33+10:00"/>
+                <status value="current"/>
+                <description value="Physical"/>
+                <confidentiality>
+                    <coding>
+                        <system value="http://ihe.net/xds/connectathon/confidentialityCodes"/>
+                        <code value="1.3.6.1.4.1.21367.2006.7.101"/>
+                        <display value="Clinical-Staff"/>
+                    </coding>
+                </confidentiality>
+                <primaryLanguage value="en-us"/>
+                <mimeType value="text/plain"/>
+                <location value="cid:bin_vid@hl7.org"/>
+                <context>
+                    <period>
+                        <start value="2004-12-23T08:00:00"/>
+                        <end value="2004-12-23T08:01:00"/>
+                    </period>
+                </context>
+            </DocumentReference>
+        </content>
+    </entry>
+    <entry xmlns="http://www.w3.org/2005/Atom">
+        <title>patient record</title>
+        <id>cid:patient_id@hl7.org</id>
+        <link href="http://localhost/patient/search?identifier=89765a87b" rel="search" />
+        <updated>2013-07-01T13:11:33Z</updated>
+        <content type="text/xml">
+            <Patient xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Person DOE, John, M, dob: 27/05/1956</div>
+                </text>
+                <identifier>
+                    <system value="usual"/>
+                    <value value="MRN"/>
+                </identifier>
+                <name>
+                    <use value="usual"/>
+                    <text value="DOE, John"/>
+                    <family value="Doe"/>
+                    <given value="John"/>
+                </name>
+                <birthDate value="1956-05-27"/>
+                
+            </Patient>
+        </content>
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">Person DOE, John, M, dob: 27/05/1956</div>
+        </summary>
+    </entry>
+    <entry xmlns="http://www.w3.org/2005/Atom">
+        <title>Author</title>
+        <id>cid:prac1_id@hl7.org</id>
+        <link href="cid:prac1_vid@hl7.org" rel="self"/>
+        <updated>2013-07-01T13:11:33Z</updated>
+        <content type="text/xml">
+            <Practitioner xmlns="http://hl7.org/fhir">
+                <extension url="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats">
+                    <valueResource>
+                        <display value="Parma Community"/>
+                    </valueResource>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
+                </text>
+                <identifier>
+                    <system value="usual"/>
+                </identifier>
+                <name>
+                    <use value="usual"/>
+                    <family value="Smitty"/>
+                    <given value="Gerald"/>
+                </name>
+                
+                <organization>
+                    <display value="Cleveland Clinic"/>
+                </organization>
+                <role>
+                    <coding>
+                        <code value="Attending"/>
+                    </coding>
+                </role>
+                <specialty>
+                    <coding>
+                        <code value="Orthopedic"/>
+                    </coding>
+                </specialty>
+            </Practitioner>
+        </content>
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
+        </summary>
+    </entry>
+    <entry xmlns="http://www.w3.org/2005/Atom">
+        <title>Author</title>
+        <id>cid:prac2_id@hl7.org</id>
+        <updated>2013-07-01T13:11:33Z</updated>
+        <content type="text/xml">
+            <Practitioner xmlns="http://hl7.org/fhir">
+                <extension url="http://healthintersections.com.au/fhir/extensions#xds-author-institution-repeats">
+                    <valueResource>
+                        <display value="Berea Community"/>
+                    </valueResource>
+                </extension>
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
+                </text>
+                <identifier>
+                    <system value="usual"/>
+                </identifier>
+                <name>
+                    <use value="usual"/>
+                    <family value="Dopplemeyer"/>
+                    <given value="Sherry"/>
+                </name>
+                
+                <organization>
+                    <display value="Cleveland Clinic"/>
+                </organization>
+                <role>
+                    <coding>
+                        <code value="Primary Surgon"/>
+                    </coding>
+                </role>
+                <specialty>
+                    <coding>
+                        <code value="Orthopedic"/>
+                    </coding>
+                </specialty>
+            </Practitioner>
+        </content>
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">Author Person @ Cleveland Clinic</div>
+        </summary>
+    </entry>
+    <entry xmlns="http://www.w3.org/2005/Atom">
+        <title>binary document</title>
+        <id>cid:bin_id@hl7.org</id>
+        <link href="cid:bin_vid@hl7.org" rel="self"/>
+        <updated>2013-07-01T13:11:33Z</updated>
+        <content type="text/xml">
+            <Binary contentType="text/plain" xmlns="http://hl7.org/fhir">YXNkYXNkYXNkYXNkYXNk</Binary>
+        </content>
+    </entry>
+</feed>
