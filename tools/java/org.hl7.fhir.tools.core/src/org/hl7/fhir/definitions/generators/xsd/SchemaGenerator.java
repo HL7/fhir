@@ -84,7 +84,7 @@ public class SchemaGenerator {
 	  single.write("  Generated on " + genDate + " for FHIR v" + version + " \r\n");
 	  single.write("-->\r\n");
 	  single.write("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://hl7.org/fhir\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" "
-	      + "targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
+	      + "xmlns:xml=\"http://www.w3.org/XML/1998/namespace\" targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
 
     xsdb = new XSDBaseGenerator(single);
     xsdb.setDefinitions(definitions);
