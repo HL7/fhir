@@ -48,6 +48,7 @@ namespace Hl7.Fhir.Model
         public const string ATOM_LINKREL_SEARCH = "search";
         public const string ATOM_LINKREL_PREDVERSION = "predecessor-version";
         public const string ATOM_LINKREL_FHIRBASE = "fhir-base";
+        public const string ATOM_LINKREL_RELATED = "related";
 
 
         public UriLinkList() : base() { }
@@ -68,81 +69,46 @@ namespace Hl7.Fhir.Model
 
         public Uri PreviousLink
         {
-            get
-            {
-                return getEntry(ATOM_LINKREL_PREVIOUS);
-            }
-
-            set
-            {
-                setEntry(ATOM_LINKREL_PREVIOUS, value);
-            }
+            get { return getEntry(ATOM_LINKREL_PREVIOUS); }
+            set { setEntry(ATOM_LINKREL_PREVIOUS, value); }
         }
 
         public Uri NextLink
         {
-            get
-            {
-                return getEntry(ATOM_LINKREL_NEXT);
-            }
-
-            set
-            {
-                setEntry(ATOM_LINKREL_NEXT, value);
-            }
+            get{ return getEntry(ATOM_LINKREL_NEXT); }
+            set{ setEntry(ATOM_LINKREL_NEXT, value); }
         }
 
         public Uri LastLink
         {
-            get
-            {
-                return getEntry(ATOM_LINKREL_LAST);
-            }
-
-            set
-            {
-                setEntry(ATOM_LINKREL_LAST, value);
-            }
+            get { return getEntry(ATOM_LINKREL_LAST); }
+            set { setEntry(ATOM_LINKREL_LAST, value); }
         }
 
         public Uri SearchLink
         {
-            get
-            {
-                return getEntry(ATOM_LINKREL_SEARCH);
-            }
-
-            set
-            {
-                setEntry(ATOM_LINKREL_SEARCH, value);
-            }
+            get { return getEntry(ATOM_LINKREL_SEARCH); }
+            set { setEntry(ATOM_LINKREL_SEARCH, value); }
         }
 
         public Uri PredecessorVersionLink
         {
-            get
-            {
-                return getEntry(ATOM_LINKREL_PREDVERSION);
-            }
-
-            set
-            {
-                setEntry(ATOM_LINKREL_PREDVERSION, value);
-            }
+            get { return getEntry(ATOM_LINKREL_PREDVERSION); }
+            set { setEntry(ATOM_LINKREL_PREDVERSION, value); }
         }
 
         public Uri Base
         {
-            get
-            {
-                return getEntry(ATOM_LINKREL_FHIRBASE);
-            }
-
-            set
-            {
-                setEntry(ATOM_LINKREL_FHIRBASE, value);
-            }
+            get { return getEntry(ATOM_LINKREL_FHIRBASE); }
+            set { setEntry(ATOM_LINKREL_FHIRBASE, value); }
         }
+
+        public Uri Related
+        {
+            get { return getEntry(ATOM_LINKREL_RELATED); }
+            set { setEntry(ATOM_LINKREL_RELATED, value); }
+        }
+
 
         private Uri getEntry(string rel)
         {
