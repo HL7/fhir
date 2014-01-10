@@ -60,7 +60,7 @@ namespace Hl7.Fhir.Model
     }
 
     [InvokeIValidatableObject]
-    public abstract class ResourceEntry : BundleEntry, Hl7.Fhir.Validation.IValidatableObject
+    public class ResourceEntry : BundleEntry, Hl7.Fhir.Validation.IValidatableObject
     {
         public Resource Resource { get; set; }
 
@@ -79,9 +79,26 @@ namespace Hl7.Fhir.Model
         /// <returns></returns>
         public static ResourceEntry Create(Resource resource)
         {
-            Type typedREType = typeof(ResourceEntry<>).MakeGenericType(resource.GetType());
-            var result = (ResourceEntry)Activator.CreateInstance(typedREType);
+            if (resource == null) throw new ArgumentNullException("resource");
+ 
+            var result = ResourceEntry.Create(resource.GetType());
             result.Resource = resource;
+
+            return result;
+        }
+
+        /// <summary>
+        /// Creates an instance of a typed ResourceEntry&lt;T&gt;, based on the actual type of the passed resource parameter
+        /// </summary>
+        /// <param name="resource"></param>
+        /// <returns></returns>
+        public static ResourceEntry Create(Type type)
+        {
+            if (type == null) throw new ArgumentNullException("type");
+            if (!typeof(Resource).IsAssignableFrom(type)) throw new ArgumentException("type", "Must be a subtype of Resource");
+            
+            Type typedREType = typeof(ResourceEntry<>).MakeGenericType(type);
+            var result = (ResourceEntry)Activator.CreateInstance(typedREType);
 
             return result;
         }
