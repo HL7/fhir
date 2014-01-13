@@ -113,42 +113,64 @@ public class FHIRSimpleClient implements FHIRClient {
 		if(useOptionsVerb) {
 			conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat()).getResource();//TODO fix this
 		} else {
-			conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat()).getResource();//TODO fix this.
+			conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat()).getResource();
 		}
 		return conformance;
 	}
 
 	@Override
 	public <T extends Resource> AtomEntry<T> read(Class<T> resourceClass, String id) {//TODO Change this to AddressableResource
-		AtomEntry<T> result = null;
+		ResourceRequest<T> result = null;
 		try {
 			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id), getPreferredResourceFormat());
+			result.addErrorStatus(410);//gone
+			result.addErrorStatus(404);//unknown
+			result.addSuccessStatus(200);//Only one for now
+			if(result.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
+			}
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this resource", e);
 		}
-		return result;
+		return result.getPayload();
 	}
 
 	@Override
 	public <T extends Resource> AtomEntry<T> vread(Class<T> resourceClass, String id, String version) {
-		AtomEntry<T> result = null;
+		ResourceRequest<T> result = null;
 		try {
 			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndIdAndVersion(resourceClass, id, version), getPreferredResourceFormat());
+			result.addErrorStatus(410);//gone
+			result.addErrorStatus(404);//unknown
+			result.addErrorStatus(405);//unknown
+			result.addSuccessStatus(200);//Only one for now
+			if(result.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
+			}
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this version of the resource", e);
 		}
-		return result;
+		return result.getPayload();
 	}
 
 	@Override
 	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id) {
-		AtomEntry<T> result = null;
+		ResourceRequest<T> result = null;
 		try {
 			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			result.addErrorStatus(410);//gone
+			result.addErrorStatus(404);//unknown
+			result.addErrorStatus(405);
+			result.addErrorStatus(422);//Unprocessable Entity
+			result.addSuccessStatus(200);
+			result.addSuccessStatus(201);
+			if(result.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
+			}
 		} catch(Exception e) {
 			throw new EFhirClientException("An error has occurred while trying to update this resource", e);
 		}
-		return result;
+		return result.getPayload();
 	}
 
 	@Override
@@ -161,15 +183,20 @@ public class FHIRSimpleClient implements FHIRClient {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public <T extends Resource> AtomEntry<T> create(Class<T> resourceClass, T resource) {
-		AtomEntry<T> createdEntry = null;
+	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource) {
+		ResourceRequest<T> resourceRequest = null;
 		try {
-			createdEntry = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			resourceRequest.addSuccessStatus(201);
+			if(resourceRequest.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server responded with HTTP error code " + resourceRequest.getHttpStatus(), (OperationOutcome)resourceRequest.getPayload().getResource());
+			}
 		} catch(Exception e) {
 			handleException("An error has occurred while trying to create this resource", e);
 		}
-		return createdEntry;
+		return (AtomEntry<OperationOutcome>)resourceRequest.getPayload();
 	}
 
 	@Override
@@ -238,13 +265,22 @@ public class FHIRSimpleClient implements FHIRClient {
 		return transactionResult;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends Resource> AtomEntry<OperationOutcome> validate(Class<T> resourceClass, T resource, String id) {
+		ResourceRequest<T> result = null;
 		try {
-			return ClientUtils.issuePostRequest(resourceAddress.resolveValidateUri(resourceClass, id), ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
-		} catch (Exception e) {
-			throw new EFhirClientException(e);
+			result = ClientUtils.issuePostRequest(resourceAddress.resolveValidateUri(resourceClass, id), ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			result.addErrorStatus(400);//gone
+			result.addErrorStatus(422);//Unprocessable Entity
+			result.addSuccessStatus(200);//OK
+			if(result.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
+			}
+		} catch(Exception e) {
+			throw new EFhirClientException("An error has occurred while trying to validate this resource", e);
 		}
+		return (AtomEntry<OperationOutcome>)result.getPayload();
 	}
 
 	/**

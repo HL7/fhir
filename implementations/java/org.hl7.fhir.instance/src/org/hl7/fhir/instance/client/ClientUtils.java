@@ -53,22 +53,22 @@ public class ClientUtils {
 	public static String DEFAULT_CHARSET = "UTF-8";
 	public static final String HEADER_LOCATION = "location";
 	
-	public static <T extends Resource> AtomEntry<T> issueOptionsRequest(URI optionsUri, String resourceFormat) {
+	public static <T extends Resource> ResourceRequest<T> issueOptionsRequest(URI optionsUri, String resourceFormat) {
 		HttpOptions options = new HttpOptions(optionsUri);
 		return issueResourceRequest(resourceFormat, options);
 	}
 	
-	public static <T extends Resource> AtomEntry<T> issueGetResourceRequest(URI resourceUri, String resourceFormat) {
+	public static <T extends Resource> ResourceRequest<T> issueGetResourceRequest(URI resourceUri, String resourceFormat) {
 		HttpGet httpget = new HttpGet(resourceUri);
 		return issueResourceRequest(resourceFormat, httpget);
 	}
 	
-	public static <T extends Resource> AtomEntry<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat) {
+	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat) {
 		HttpPut httpPut = new HttpPut(resourceUri);
 		return issueResourceRequest(resourceFormat, httpPut, payload);
 	}
 	
-	public static <T extends Resource> AtomEntry<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat) {
+	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat) {
 		HttpPost httpPost = new HttpPost(resourceUri);
 		return issueResourceRequest(resourceFormat, httpPost, payload);
 	}
@@ -102,7 +102,7 @@ public class ClientUtils {
 	 * Request/Response Helper methods
 	 ***********************************************************/
 	
-	protected static <T extends Resource> AtomEntry<T> issueResourceRequest(String resourceFormat, HttpUriRequest request) {
+	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request) {
 		return issueResourceRequest(resourceFormat, request, null);
 	}
 	
@@ -111,7 +111,7 @@ public class ClientUtils {
 	 * @param options
 	 * @return
 	 */
-	protected static <T extends Resource> AtomEntry<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload) {
+	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload) {
 		configureFhirRequest(request, resourceFormat);
 		HttpResponse response = null;
 		if(request instanceof HttpEntityEnclosingRequest && payload != null) {
@@ -122,7 +122,8 @@ public class ClientUtils {
 			response = sendRequest(request);
 		}
 		T resource = unmarshalResource(response, resourceFormat);
-		return buildAtomEntry(response, resource);
+		AtomEntry<T> atomEntry = buildAtomEntry(response, resource);
+		return new ResourceRequest<T>(atomEntry, response.getStatusLine().getStatusCode());
 	}
 	
 	/**
@@ -189,7 +190,7 @@ public class ClientUtils {
 		T resource = null;
 		InputStream instream = null;
 		HttpEntity entity = response.getEntity();
-		if (entity != null) {
+		if (entity != null && entity.getContentLength() > 0) {
 			try {
 			    instream = entity.getContent();
 //			    System.out.println(writeInputStreamAsString(instream));
@@ -203,10 +204,13 @@ public class ClientUtils {
 			}
 		}
 		if(resource instanceof OperationOutcome) {
-			throw new EFhirClientException((OperationOutcome)resource);
-		} else {
-			return resource;
+			if(((OperationOutcome) resource).getIssue().size() > 0) {
+				throw new EFhirClientException((OperationOutcome)resource);
+			} else {
+				System.out.println(((OperationOutcome) resource).getText().getDiv().allText());//TODO change to formal logging
+			}
 		}
+		return resource;
 	}
 	
 	/**
@@ -225,7 +229,7 @@ public class ClientUtils {
 			if (entity != null) {
 			    instream = entity.getContent();
 			    //String myString = IOUtils.toString(instream, "UTF-8");
-			    if(contentType.contains(ResourceFormat.RESOURCE_XML.getHeader())) {
+			    if(contentType.contains(ResourceFormat.RESOURCE_XML.getHeader()) || contentType.contains("text/xml+fhir")) {
 			    	error = (OperationOutcome)getParser(ResourceFormat.RESOURCE_XML.getHeader()).parseGeneral(instream).getResource();
 			    } else {
 			    	feed = getParser(format).parseGeneral(instream).getFeed();

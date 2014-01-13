@@ -22,6 +22,9 @@ import org.junit.Test;
 public class ResourceAddressTest {
 	
 	private ResourceAddress resource;
+	private String basePath = "http://fhir.healthintersections.com.au/open";
+	private String fullNonVersionedPath = "http://fhir.healthintersections.com.au/open/Patient/318";
+	private String fullVersionedPath = "http://fhir.healthintersections.com.au/open/Patient/318/_history/1";
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -33,7 +36,7 @@ public class ResourceAddressTest {
 
 	@Before
 	public void setUp() throws Exception {
-		resource = new ResourceAddress("http://hl7connect.healthintersections.com.au/svc/fhir");
+		resource = new ResourceAddress("http://fhir.healthintersections.com.au/open");
 	}
 
 	@After
@@ -42,17 +45,18 @@ public class ResourceAddressTest {
 
 	@Test
 	public void testParseCreateLocation() {
-		ResourceAddress.ResourceVersionedIdentifier versionedIdentifier = resource.parseCreateLocation("http://hl7connect.healthintersections.com.au/svc/fhir/@318/history/@1");
-		assertEquals("http://hl7connect.healthintersections.com.au/svc/fhir", versionedIdentifier.getServiceRoot());
+		ResourceAddress.ResourceVersionedIdentifier versionedIdentifier = resource.parseCreateLocation(fullVersionedPath);
+		assertEquals(basePath, versionedIdentifier.getServiceRoot());
+		assertEquals("Patient", versionedIdentifier.getResourceType());
 		assertEquals("318",versionedIdentifier.getId());
 		assertEquals("1", versionedIdentifier.getVersionId());
-		assertEquals("http://hl7connect.healthintersections.com.au/svc/fhir/@318", versionedIdentifier.getResourcePath());
+		assertEquals(fullNonVersionedPath, versionedIdentifier.getResourcePath());
 	}
 	
 	@Test
 	public void testBuildURIValidURLNoEndSlash() {
 		try {
-			assertEquals(new URI("http://hl7connect.healthintersections.com.au/svc/fhir/"), ResourceAddress.buildAbsoluteURI("http://hl7connect.healthintersections.com.au/svc/fhir"));
+			assertEquals(new URI(basePath + "/"), ResourceAddress.buildAbsoluteURI(basePath));
 		} catch(Exception e) {
 			fail("Error validating URI");
 		}

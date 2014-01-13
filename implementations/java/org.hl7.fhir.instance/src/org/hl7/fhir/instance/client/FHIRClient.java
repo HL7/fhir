@@ -179,7 +179,7 @@ public interface FHIRClient {
 	 * @param resource
 	 * @return
 	 */
-	public <T extends Resource> AtomEntry<T> create(Class<T> resourceClass, T resource);
+	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource);
 	
 	/**
 	 * Retrieve the update history for a resource with given id since last update time. 
