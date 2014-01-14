@@ -57,7 +57,7 @@ public class FHIRSimpleClientTest {
 	private static void configureForFurore() {
 		connectUrl = "http://spark.furore.com/fhir/";
 		//connectUrl = "http://fhirlab.furore.com/fhir";
-		userAgent = "Furore Spark";
+		userAgent = "Spark2";
 	}
 	
 	private static void configureForHealthIntersection() {
@@ -204,6 +204,9 @@ public class FHIRSimpleClientTest {
 			modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
 			originalPatientEntry.getResource().setBirthDate(modifiedBirthday);
 			AtomEntry<Patient> updatedResult = testClient.update(Patient.class, originalPatientEntry.getResource(), testPatientId);
+			if(updatedResult.getResource() == null) {
+				updatedResult = testClient.read(Patient.class, testPatientId);
+			}
 			String resourceId = getEntryId(updatedResult);
 			String resourceType = getResourceType(updatedResult);
 			String entryVersion = getEntryVersion(updatedResult);
@@ -226,10 +229,11 @@ public class FHIRSimpleClientTest {
 		if(result.getResource() != null) {
 			assertEquals(0, result.getResource().getIssue().size());
 		}
+		String resourceId = getEntryId(result);
 		String resourceType = getResourceType(result);
 		String entryVersion = getEntryVersion(result);
 		assertEquals("Patient", resourceType);
-		assertEquals("1", entryVersion);
+		assertNotNull(resourceId);
 	}
 	
 	@Test
@@ -252,7 +256,7 @@ public class FHIRSimpleClientTest {
 				assertEquals(1, e.getServerErrors().size());
 				e.printStackTrace();
 			}
-			if(result.getResource().getIssue().size() == 0) {
+			if(result.getResource() != null && result.getResource().getIssue().size() == 0) {
 				fail();
 			}
 		} catch (ParseException e) {

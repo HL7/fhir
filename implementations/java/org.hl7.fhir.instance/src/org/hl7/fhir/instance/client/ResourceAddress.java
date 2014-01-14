@@ -41,11 +41,13 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveSearchUri(Class<T> resourceClass, Map<String,String> parameters) {
-		return appendHttpParameters(baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/_search"), parameters);
+		//return appendHttpParameters(baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/_search"), parameters);
+		return appendHttpParameters(baseServiceUri.resolve(resourceClass.getSimpleName() +"/_search"), parameters);
 	}
 	
 	public <T extends Resource> URI resolveValidateUri(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/_validate/"+id);
+		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/_validate/"+id);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/_validate/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClass(Class<T> resourceClass) {
@@ -54,15 +56,18 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndId(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/"+id);
+		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/"+id);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndIdAndVersion(Class<T> resourceClass, String id, String version) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/"+id+"/_history/"+version);
+		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/"+id+"/_history/"+version);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/"+id+"/_history/"+version);
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceId(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/" + id + "/_history");
+		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/" + id + "/_history");
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/" + id + "/_history");
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForAllResources(Calendar since) {//TODO Only add _since parameters if it is non-null
@@ -74,7 +79,8 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/_history");
+		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/_history");
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/_history");
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass, Calendar since) {
@@ -156,7 +162,8 @@ public class ResourceAddress {
 	}
 	
 	public static String buildRelativePathFromResourceType(ResourceType resourceType) {
-		return resourceType.toString().toLowerCase()+"/";
+		//return resourceType.toString().toLowerCase()+"/";
+		return resourceType.toString() + "/";
 	}
 	
 	public static String buildRelativePathFromResourceType(ResourceType resourceType, String id) {
