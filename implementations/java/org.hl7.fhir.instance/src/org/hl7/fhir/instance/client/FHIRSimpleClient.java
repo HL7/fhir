@@ -32,6 +32,7 @@ import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.Map;
 
+import org.apache.http.HttpHost;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
@@ -71,10 +72,15 @@ public class FHIRSimpleClient implements FHIRClient {
 	private ResourceAddress resourceAddress;
 	private ResourceFormat preferredResourceFormat;
 	private FeedFormat preferredFeedFormat;
+	private HttpHost proxy;
 	
 	public FHIRSimpleClient() {
 		preferredResourceFormat = ResourceFormat.RESOURCE_XML;
 		preferredFeedFormat = FeedFormat.FEED_XML;
+	}
+	
+	public void configureProxy(String proxyHost, int proxyPort) {
+		proxy = new HttpHost(proxyHost, proxyPort);
 	}
 	
 	@Override
@@ -111,9 +117,9 @@ public class FHIRSimpleClient implements FHIRClient {
 	public Conformance getConformanceStatement(boolean useOptionsVerb) {
 		Conformance conformance = null;
 		if(useOptionsVerb) {
-			conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat()).getResource();//TODO fix this
+			conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getResource();//TODO fix this
 		} else {
-			conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat()).getResource();
+			conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat(), proxy).getResource();
 		}
 		return conformance;
 	}
@@ -122,7 +128,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomEntry<T> read(Class<T> resourceClass, String id) {//TODO Change this to AddressableResource
 		ResourceRequest<T> result = null;
 		try {
-			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id), getPreferredResourceFormat());
+			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id), getPreferredResourceFormat(), proxy);
 			result.addErrorStatus(410);//gone
 			result.addErrorStatus(404);//unknown
 			result.addSuccessStatus(200);//Only one for now
@@ -139,7 +145,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomEntry<T> vread(Class<T> resourceClass, String id, String version) {
 		ResourceRequest<T> result = null;
 		try {
-			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndIdAndVersion(resourceClass, id, version), getPreferredResourceFormat());
+			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndIdAndVersion(resourceClass, id, version), getPreferredResourceFormat(), proxy);
 			result.addErrorStatus(410);//gone
 			result.addErrorStatus(404);//unknown
 			result.addErrorStatus(405);//unknown
@@ -157,7 +163,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id) {
 		ResourceRequest<T> result = null;
 		try {
-			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), proxy);
 			result.addErrorStatus(410);//gone
 			result.addErrorStatus(404);//unknown
 			result.addErrorStatus(405);
@@ -176,7 +182,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	@Override
 	public <T extends Resource> boolean delete(Class<T> resourceClass, String id) {
 		try {
-			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id));
+			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id), proxy);
 		} catch(Exception e) {
 			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
 		}
@@ -188,7 +194,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource) {
 		ResourceRequest<T> resourceRequest = null;
 		try {
-			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), proxy);
 			resourceRequest.addSuccessStatus(201);
 			if(resourceRequest.isUnsuccessfulRequest()) {
 				throw new EFhirClientException("Server responded with HTTP error code " + resourceRequest.getHttpStatus(), (OperationOutcome)resourceRequest.getPayload().getResource());
@@ -203,7 +209,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass, String id) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate), getPreferredFeedFormat());
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource", e);
 		}
@@ -214,7 +220,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate), getPreferredFeedFormat());
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource type", e);
 		}
@@ -225,7 +231,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Class<T> resourceClass, String id) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id), getPreferredFeedFormat());
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource", e);
 		}
@@ -236,7 +242,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate), getPreferredFeedFormat());
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history since last update",e);
 		}
@@ -247,7 +253,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed search(Class<T> resourceClass, Map<String, String> parameters) {
 		AtomFeed searchResults = null;
 		try {
-			searchResults = ClientUtils.issueGetFeedRequest(resourceAddress.resolveSearchUri(resourceClass, parameters), getPreferredFeedFormat());
+			searchResults = ClientUtils.issueGetFeedRequest(resourceAddress.resolveSearchUri(resourceClass, parameters), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("Error performing search with parameters " + parameters, e);
 		}
@@ -258,7 +264,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public AtomFeed transaction(AtomFeed batch) {
 		AtomFeed transactionResult = null;
 		try {
-			transactionResult = ClientUtils.postBatchRequest(resourceAddress.getBaseServiceUri(), ClientUtils.getFeedAsByteArray(batch, false, isJson(getPreferredFeedFormat())), getPreferredFeedFormat());
+			transactionResult = ClientUtils.postBatchRequest(resourceAddress.getBaseServiceUri(), ClientUtils.getFeedAsByteArray(batch, false, isJson(getPreferredFeedFormat())), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error occurred trying to process this transaction request", e);
 		}
@@ -270,7 +276,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomEntry<OperationOutcome> validate(Class<T> resourceClass, T resource, String id) {
 		ResourceRequest<T> result = null;
 		try {
-			result = ClientUtils.issuePostRequest(resourceAddress.resolveValidateUri(resourceClass, id), ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			result = ClientUtils.issuePostRequest(resourceAddress.resolveValidateUri(resourceClass, id), ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), proxy);
 			result.addErrorStatus(400);//gone
 			result.addErrorStatus(422);//Unprocessable Entity
 			result.addSuccessStatus(200);//OK

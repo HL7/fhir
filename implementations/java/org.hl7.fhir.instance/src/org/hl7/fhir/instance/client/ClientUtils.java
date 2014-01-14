@@ -53,43 +53,43 @@ public class ClientUtils {
 	public static String DEFAULT_CHARSET = "UTF-8";
 	public static final String HEADER_LOCATION = "location";
 	
-	public static <T extends Resource> ResourceRequest<T> issueOptionsRequest(URI optionsUri, String resourceFormat) {
+	public static <T extends Resource> ResourceRequest<T> issueOptionsRequest(URI optionsUri, String resourceFormat, HttpHost proxy) {
 		HttpOptions options = new HttpOptions(optionsUri);
-		return issueResourceRequest(resourceFormat, options);
+		return issueResourceRequest(resourceFormat, options, proxy);
 	}
 	
-	public static <T extends Resource> ResourceRequest<T> issueGetResourceRequest(URI resourceUri, String resourceFormat) {
+	public static <T extends Resource> ResourceRequest<T> issueGetResourceRequest(URI resourceUri, String resourceFormat, HttpHost proxy) {
 		HttpGet httpget = new HttpGet(resourceUri);
-		return issueResourceRequest(resourceFormat, httpget);
+		return issueResourceRequest(resourceFormat, httpget, proxy);
 	}
 	
-	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat) {
+	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy) {
 		HttpPut httpPut = new HttpPut(resourceUri);
-		return issueResourceRequest(resourceFormat, httpPut, payload);
+		return issueResourceRequest(resourceFormat, httpPut, payload, proxy);
 	}
 	
-	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat) {
+	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy) {
 		HttpPost httpPost = new HttpPost(resourceUri);
-		return issueResourceRequest(resourceFormat, httpPost, payload);
+		return issueResourceRequest(resourceFormat, httpPost, payload, proxy);
 	}
 	
-	public static AtomFeed issueGetFeedRequest(URI resourceUri, String feedFormat) {
+	public static AtomFeed issueGetFeedRequest(URI resourceUri, String feedFormat, HttpHost proxy) {
 		HttpGet httpget = new HttpGet(resourceUri);
 		configureFhirRequest(httpget, feedFormat);
-		HttpResponse response = sendRequest(httpget);
+		HttpResponse response = sendRequest(httpget, proxy);
 		return unmarshalFeed(response, feedFormat);
 	}
 	
-	public static AtomFeed postBatchRequest(URI resourceUri, byte[] payload, String feedFormat) {
+	public static AtomFeed postBatchRequest(URI resourceUri, byte[] payload, String feedFormat, HttpHost proxy) {
 		HttpPost httpPost = new HttpPost(resourceUri);
 		configureFhirRequest(httpPost, feedFormat);
-		HttpResponse response = sendPayload(httpPost, payload);
+		HttpResponse response = sendPayload(httpPost, payload, proxy);
         return unmarshalFeed(response, feedFormat);
 	}
 	
-	public static boolean issueDeleteRequest(URI resourceUri) {
+	public static boolean issueDeleteRequest(URI resourceUri, HttpHost proxy) {
 		HttpDelete deleteRequest = new HttpDelete(resourceUri);
-		HttpResponse response = sendRequest(deleteRequest);
+		HttpResponse response = sendRequest(deleteRequest, proxy);
 		int responseStatusCode = response.getStatusLine().getStatusCode();
 		boolean deletionSuccessful = false;
 		if(responseStatusCode == HttpStatus.SC_NO_CONTENT) {
@@ -102,8 +102,8 @@ public class ClientUtils {
 	 * Request/Response Helper methods
 	 ***********************************************************/
 	
-	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request) {
-		return issueResourceRequest(resourceFormat, request, null);
+	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, HttpHost proxy) {
+		return issueResourceRequest(resourceFormat, request, null, proxy);
 	}
 	
 	/**
@@ -111,15 +111,15 @@ public class ClientUtils {
 	 * @param options
 	 * @return
 	 */
-	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload) {
+	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload, HttpHost proxy) {
 		configureFhirRequest(request, resourceFormat);
 		HttpResponse response = null;
 		if(request instanceof HttpEntityEnclosingRequest && payload != null) {
-			response = sendPayload((HttpEntityEnclosingRequestBase)request, payload);
+			response = sendPayload((HttpEntityEnclosingRequestBase)request, payload, proxy);
 		} else if (request instanceof HttpEntityEnclosingRequest && payload == null){
 			throw new EFhirClientException("PUT and POST requests require a non-null payload");
 		} else {
-			response = sendRequest(request);
+			response = sendRequest(request, proxy);
 		}
 		T resource = unmarshalResource(response, resourceFormat);
 		AtomEntry<T> atomEntry = buildAtomEntry(response, resource);
@@ -146,12 +146,13 @@ public class ClientUtils {
 	 * @param payload
 	 * @return
 	 */
-	protected static HttpResponse sendPayload(HttpEntityEnclosingRequestBase request, byte[] payload) {
+	protected static HttpResponse sendPayload(HttpEntityEnclosingRequestBase request, byte[] payload, HttpHost proxy) {
 		HttpResponse response = null;
 		try {
 			HttpClient httpclient = new DefaultHttpClient();
-			org.apache.http.HttpHost proxy = new org.apache.http.HttpHost("127.0.0.1", 8888);
-			httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
+			if(proxy != null) {
+				httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
+			}
 			request.setEntity(new ByteArrayEntity(payload));
 			response = httpclient.execute(request);
 		} catch(IOException ioe) {
@@ -166,12 +167,13 @@ public class ClientUtils {
 	 * @param payload
 	 * @return
 	 */
-	protected static HttpResponse sendRequest(HttpUriRequest request) {
+	protected static HttpResponse sendRequest(HttpUriRequest request, HttpHost proxy) {
 		HttpResponse response = null;
 		try {
 			HttpClient httpclient = new DefaultHttpClient();
-			org.apache.http.HttpHost proxy = new org.apache.http.HttpHost("127.0.0.1", 8888);
-			httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
+			if(proxy != null) {
+				httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
+			}
 			response = httpclient.execute(request);
 		} catch(IOException ioe) {
 			throw new EFhirClientException("Error sending Http Request", ioe);

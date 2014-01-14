@@ -51,8 +51,7 @@ public class FHIRSimpleClientTest {
 	private String testPatientId;
 	private String testPatientVersion;
 	private boolean logResource = true;
-	
-	
+	private boolean useProxy = true;
 	
 	private static void configureForFurore() {
 		connectUrl = "http://spark.furore.com/fhir/";
@@ -83,6 +82,9 @@ public class FHIRSimpleClientTest {
 	public void setUp() throws Exception {
 		testClient = new FHIRSimpleClient();
 		testClient.initialize(connectUrl);
+		if(useProxy) {
+			((FHIRSimpleClient)testClient).configureProxy("127.0.0.1", 8888);
+		}
 	}
 
 	@After
