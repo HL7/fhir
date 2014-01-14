@@ -86,8 +86,12 @@ namespace Hl7.Fhir.Model
             // FhirParsers needs this constructor to be public
         }
 
+
         public Tag(string term, Uri scheme, string label=null)
         {
+            if (term == null) throw new ArgumentNullException("term");
+            if (scheme == null) throw new ArgumentNullException("scheme");
+
             this.Term = term;
             this.Scheme = scheme;
             this.Label = label;
@@ -132,6 +136,22 @@ namespace Hl7.Fhir.Model
 
             return hash;
         }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            result.Append(this.Term);
+
+            if(this.Scheme != null)
+                result.AppendFormat("@{0}", this.Scheme);
+
+            if(this.Label != null)
+                result.AppendFormat(" ({0})", this.Label);
+
+            return result.ToString();
+        }
+
     }
 }
 

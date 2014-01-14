@@ -60,7 +60,7 @@ namespace Hl7.Fhir.Model
     }
 
     [InvokeIValidatableObject]
-    public class ResourceEntry : BundleEntry, Hl7.Fhir.Validation.IValidatableObject
+    public abstract class ResourceEntry : BundleEntry, Hl7.Fhir.Validation.IValidatableObject
     {
         public Resource Resource { get; set; }
 

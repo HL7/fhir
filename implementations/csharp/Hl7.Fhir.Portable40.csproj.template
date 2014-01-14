@@ -53,6 +53,7 @@
     <Compile Include="Model.Support\FhirDateTime.cs" />
     <Compile Include="Model.Support\FhirUri.cs" />
     <Compile Include="Model.Support\IExtendable.cs" />
+    <Compile Include="Model.Support\Identifier.cs" />
     <Compile Include="Model.Support\Initializers.cs" />
     <Compile Include="Model.Support\Instant.cs" />
     <Compile Include="Model.Support\ModelInfo.cs" />

@@ -29,14 +29,9 @@ namespace Hl7.Fhir.Validation
 
             var count = 1;
 
-            if (value is IEnumerable)
+            if (value is IList)
             {
-                var list = value as ICollection;
-
-                if(list != null)
-                    count = list.Count;
-                else
-                    return new ValidationResult("Cannot validate cardinality on an IEnumerable");
+               count = ((IList)value).Count;
             }
 
             if (count < Min) return new ValidationResult(
