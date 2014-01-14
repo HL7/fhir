@@ -84,8 +84,10 @@ public class TextFile {
   public static String streamToString(InputStream input) throws Exception {
     InputStreamReader sr = new InputStreamReader(input, "UTF-8");    
     StringBuilder b = new StringBuilder();
-    while (sr.ready()) {
-      char c = (char) sr.read();
+    //while (sr.ready()) { Commented out by Claude Nanjo (1/14/2014) - sr.ready() always returns false - please remove if change does not impact other areas of codebase
+    int i = -1;
+    while((i = sr.read()) > -1) {
+      char c = (char) i;
       b.append(c);
     }
     sr.close();

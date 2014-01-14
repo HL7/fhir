@@ -123,7 +123,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_JSON);
 			Conformance stmt = testClient.getConformanceStatement(true);
-			assertEquals("HL7Connect", stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
 			printResourceToSystemOut(stmt, true);
 		} catch(Exception e) {
 			e.printStackTrace();
