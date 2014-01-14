@@ -141,10 +141,10 @@ namespace Hl7.Fhir.Tests
             var e = new ResourceEntry<Patient>();
             e.Id = new Uri("http://someserver.org/fhir/patient/@1");
             e.Title = "Some title";
-            e.LastUpdated = DateTimeOffset.Now;
 
             // Validates mandatory fields?
             validateErrorOrFail(e);
+            e.LastUpdated = DateTimeOffset.Now;
             e.Resource = new Patient();
             Validator.ValidateObject(e, new ValidationContext(e), true);
 

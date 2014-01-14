@@ -48,9 +48,9 @@ namespace Hl7.Fhir.Tests
         [TestMethod]
         public void TagEquality()
         {
-            var t1 = new Tag("dog",(string)null);
-            var t2 = new Tag("dog", new Uri("http://knmi.nl") );
-            var t3 = new Tag("dog", "http://knmi.nl");
+            var t1 = new Tag("dog","http://nu.nl/tag");
+            var t2 = new Tag("dog", new Uri("http://knmi.nl/tag") );
+            var t3 = new Tag("dog", "http://knmi.nl/tag");
 
             Assert.AreNotEqual(t1, t2);
             Assert.AreNotEqual(t1, t3);
