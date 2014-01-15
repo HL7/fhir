@@ -114,6 +114,15 @@ namespace Hl7.Fhir.Tests
             Validator.ValidateObject(issue, new ValidationContext(issue), true);
         }
 
+        [TestMethod]
+        public void TestEmptyCollectionValidation()
+        {
+            var p = new Patient();
+            p.Identifier = new List<Identifier>();
+            p.Identifier.Add(null);
+
+            validateErrorOrFail(p);
+        }
 
         [TestMethod]
         public void TestContainedConstraints()

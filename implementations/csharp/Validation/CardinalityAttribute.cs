@@ -31,7 +31,10 @@ namespace Hl7.Fhir.Validation
 
             if (value is IList)
             {
-               count = ((IList)value).Count;
+                var list = value as IList;
+                foreach(var elem in list)
+                   if(elem == null) return new ValidationResult("Repeating element cannot have empty/null values");
+                count = list.Count;
             }
 
             if (count < Min) return new ValidationResult(

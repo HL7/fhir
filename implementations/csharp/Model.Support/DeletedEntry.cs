@@ -43,6 +43,15 @@ namespace Hl7.Fhir.Model
     [InvokeIValidatableObject]
     public class DeletedEntry : BundleEntry, Hl7.Fhir.Validation.IValidatableObject
     {
+        public DeletedEntry()
+        {
+        }
+
+        public DeletedEntry(DateTimeOffset when)
+        {
+            When = when;
+        }
+
         public DateTimeOffset? When { get; set; }
 
         public override string Summary

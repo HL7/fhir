@@ -24,6 +24,11 @@ namespace Hl7.Fhir.Validation
             return Validator.TryValidateObject(entry, ValidationContextFactory.Create(entry, null), validationResults, true);
         }
 
+        public static bool TryValidate(Bundle bundle, ICollection<ValidationResult> validationResults)
+        {
+            return Validator.TryValidateObject(bundle, ValidationContextFactory.Create(bundle, null), validationResults, true);
+        }
+
         public static void Validate(ResourceEntry entry)
         {
             Validator.ValidateObject(entry, ValidationContextFactory.Create(entry, null), true);
@@ -38,5 +43,11 @@ namespace Hl7.Fhir.Validation
         {
             Validator.ValidateObject(element, ValidationContextFactory.Create(element, null), true);
         }
+
+        public static void Validate(Bundle bundle)
+        {
+            Validator.ValidateObject(bundle, ValidationContextFactory.Create(bundle, null), true);
+        }
     }
+
 }

@@ -74,8 +74,11 @@ namespace Hl7.Fhir.Introspection
             {
                 foreach (var element in list)
                 {
-                    var context = ValidationContextFactory.Create(element, null);
-                    Validator.TryValidateObject(element, context, result, true);
+                    if (element != null)
+                    {
+                        var context = ValidationContextFactory.Create(element, null);
+                        Validator.TryValidateObject(element, context, result, true);
+                    }
                 }
             }
             else

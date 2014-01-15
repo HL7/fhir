@@ -63,6 +63,21 @@ namespace Hl7.Fhir.Model
             Tags = new List<Tag>();
         }
 
+        public Bundle(Uri id, string title, DateTimeOffset lastUpdated) : this()
+        {
+            Id = id;
+            Title = title;
+            LastUpdated = lastUpdated;
+        }
+
+        public Bundle(string title, DateTimeOffset lastUpdated)
+            : this()
+        {
+            Id = new Uri("urn:uuid:" + Guid.NewGuid());
+            Title = title;
+            LastUpdated = lastUpdated;
+        }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var result = new List<ValidationResult>();

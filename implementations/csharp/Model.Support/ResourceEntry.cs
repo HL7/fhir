@@ -43,6 +43,24 @@ namespace Hl7.Fhir.Model
     [InvokeIValidatableObject]
     public class ResourceEntry<T> : ResourceEntry, Hl7.Fhir.Validation.IValidatableObject where T : Resource, new()
     {
+        public ResourceEntry(Uri id, string title, DateTimeOffset lastUpdated, T resource) : this()
+        {
+            Id = id;
+            Title = title;
+            LastUpdated = lastUpdated;
+            Resource = resource;
+        }
+
+        public ResourceEntry(Uri id, DateTimeOffset lastUpdated, T resource)
+            : this(id, String.Format("{0} resource with id {1}", typeof(T).Name, id), lastUpdated, resource)
+        {
+        }
+
+
+        public ResourceEntry() : base()
+        {
+        }
+
         public new T Resource
         { 
             get { return (T)((ResourceEntry)this).Resource; }

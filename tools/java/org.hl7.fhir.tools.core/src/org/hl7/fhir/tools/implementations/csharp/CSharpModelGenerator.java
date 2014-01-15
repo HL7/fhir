@@ -331,9 +331,11 @@ public class CSharpModelGenerator extends GenBlock
     }
     
     // a. If min > 0 -> element(s) must be present -> we need to validate
-    // b1. If max == -1 -> a list with any length, no additional validation requirements beyond min
-    // b2. If max == 1 -> a single element, no additional validation requirements beyond min
-    if(member.getMinCardinality() > 0 || (member.getMaxCardinality() != -1 && member.getMaxCardinality() != 1) )
+    // b. If max != 1 -> it's a list with no, or any cardinality -> validate (also because this checks lists have no null elements)
+//    // b1. If max == -1 -> a list with any length, no additional validation requirements beyond min
+//    // b2. If max == 1 -> a single element, no additional validation requirements beyond min
+//    if(member.getMinCardinality() > 0 || (member.getMaxCardinality() != -1 && member.getMaxCardinality() != 1) )
+    if(member.getMinCardinality() > 0 || member.getMaxCardinality() != 1)
     {
       ln("[Cardinality(");
       nl("Min=" + Integer.toString(member.getMinCardinality()));
