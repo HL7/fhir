@@ -5,7 +5,7 @@
 Notes:
 </h2>
 <ul>
- <li>This conformance resource provides for an application to describe its use of the RESTful
+ <li>The Conformance resource provides for an application to describe its use of the RESTful
   paradigm messaging events, or FHIR documents. Usually, an application would only describe one, 
   but more than one may be described</li>
  <li>RESTful conformance rules:
@@ -41,14 +41,13 @@ Notes:
 <h3>Supporting Profiles</h3>
 <a name="tags"> </a>
 <p>
-A conformance profile declares two different kinds of profiles that for the functionality it describes. 
-The first is at the path Conformance.rest.resource.profile - the resource profiles, and the other is 
-at Conformance.profile - the system profiles. 
+A conformance profile declares two different kinds of profiles for the functionality it describes. 
+The Resource Profiles are specified using Conformance.rest.resource.profile element and the System Profiles are specified using Conformance.profile element. 
 </p>
 <h4>Resource Profiles</h4>
 <p>
 These profiles describe the general features that are supported by the system for each kind of 
-resource. Typically, this is the superset of all the different use-cases the system implements. 
+resource. Typically, this is the superset of all the different use-cases implemented by the system. 
 This is a resource-level perspective of the system functionality. 
 </p>
 <h4>System Profiles</h4>
@@ -59,21 +58,20 @@ Some examples of the uses for system profiles:
 <ul>
  <li>A Laboratory service producing a set of different reports - general chemistry, blood count, etc. Typical labs would support several hundred different reports</li>
  <li>A care manager which handles a set of different types of care plans and associated clinical resources</li>
- <li>A medications formulary that handles several different levels of sophistication in it's medication representations</li>
+ <li>A medications formulary that handles several different levels of sophistication in its medication representations</li>
 </ul> 
 <p>
 Typically, these profiles are a series of variations on the same set of resources - different use cases leading to handling 
 the resources that represent them differently. These use-cases described above all pertain to system that produce and publish
-data, but the same concept applies to systems that consume data:
+data, but the same concept applies to systems that consume data. For instance:
 </p>
 <ul>
  <li>An expert service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
- <li>todo - another case</li>
 </ul>
 <p>
-For a producer and a consumer system to exchange data successfully based on 
+For producer and a consumer systems to exchange data successfully based on 
 one of these system supported profiles, it's not enough to know that the
-two systems happen to have system profiles that overlap for the use case 
+systems happen to have system profiles that overlap for the use case 
 of interest; the consumer must be able to filter the total set of resources
 made available by the producer system and deal only with the ones relevant
 to the use case. 

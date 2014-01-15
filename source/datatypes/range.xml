@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7710</WindowHeight>
-  <WindowWidth>24135</WindowWidth>
-  <WindowTopX>4320</WindowTopX>
-  <WindowTopY>2895</WindowTopY>
+  <WindowHeight>7080</WindowHeight>
+  <WindowWidth>23835</WindowWidth>
+  <WindowTopX>4470</WindowTopX>
+  <WindowTopY>3375</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -107,8 +107,8 @@
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Set of values bounded by low and high</Data></Cell>
     <Cell><Data ss:Type="String">A set of ordered Quantities defined by a low and high limit. </Data></Cell>
-    <Cell><Data ss:Type="String">Need to be able to specify ranges of values or time periods</Data></Cell>
-    <Cell><Data ss:Type="String">The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. i.e. 1.99 is not in the range 2 -&gt; 3</Data></Cell>
+    <Cell><Data ss:Type="String">Need to be able to specify ranges of values</Data></Cell>
+    <Cell><Data ss:Type="String">The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -&gt; 3</Data></Cell>
     <Cell><Data ss:Type="String">IVL&lt;QTY[not(type=&quot;TS&quot;)]&gt; [lowClosed=&quot;true&quot; and highClosed=&quot;true&quot;]or URG&lt;QTY[not(type=&quot;TS&quot;)]&gt;</Data></Cell>
     <Cell><Data ss:Type="String">NR and also possibly SN (but see also quantity)</Data></Cell>
    </Row>
@@ -119,7 +119,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Low limit </Data></Cell>
     <Cell><Data ss:Type="String">The low limit. The boundary is inclusive.</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">If the low element is missing, the meaning is that the low boundary is not known.</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">If the low element is missing, the low boundary is not known.</Data></Cell>
     <Cell><Data ss:Type="String">./low</Data></Cell>
     <Cell><Data ss:Type="String">NR.1</Data></Cell>
    </Row>
@@ -130,7 +130,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">High limit </Data></Cell>
     <Cell><Data ss:Type="String">The high limit. The boundary is inclusive. </Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">If the high element is missing, the meaning is that the high boundary is not known. </Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">If the high element is missing, the high boundary is not known. </Data></Cell>
     <Cell><Data ss:Type="String">./high</Data></Cell>
     <Cell><Data ss:Type="String">NR.2</Data></Cell>
    </Row>
@@ -146,8 +146,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

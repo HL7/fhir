@@ -153,9 +153,7 @@ public class ProfileGenerator {
 
 //    for (BindingSpecification b : profile.getBindings()) 
 //      p.getBinding().add(generateBinding(b, p));
-    XhtmlNode div = new XhtmlNode();
-    div.setName("div");
-    div.setNodeType(NodeType.Element);
+    XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.getChildNodes().add(new XhtmlParser().parseFragment(html));
     p.setText(new Narrative());
     p.getText().setStatusSimple(NarrativeStatus.generated);

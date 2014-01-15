@@ -28,14 +28,14 @@ Every composition has a status, which describes the status of the content of the
 </p>
 <table class="grid">
  <tr> <td><b>Code</b></td> <td><b>Definition</b></td> </tr>
- <tr> <td>preliminary</td> <td>This is an preliminary composition (also known as initial or interim). The content may be incomplete or unverified.</td> </tr>
+ <tr> <td>preliminary</td> <td>This is a preliminary composition (also known as initial or interim). The content may be incomplete or unverified.</td> </tr>
  <tr> <td>final</td> <td>The composition is complete and verified by an appropriate person and no further work is planned</td> </tr>
- <tr> <td>appended</td> <td>The composition has been modified subsequent to being marked/released as "final" and is complete and verified by an authorised person. The modifications added new information to the composition, but did not revise existing content</td> </tr>
- <tr> <td>amended</td> <td>The composition content or the referenced resources have been modified subsequent to being released as "final" and the composition is complete and verified by an authorised person</td> </tr>
+ <tr> <td>appended</td> <td>The composition has been modified subsequent to being marked and/or released as "final" and is complete and verified by an authorized person. The modifications added new information to the composition, but did not revise existing content</td> </tr>
+ <tr> <td>amended</td> <td>The composition content or the referenced resources have been modified subsequent to being released as "final" and the composition is complete and verified by an authorized person</td> </tr>
  <tr> <td>retracted</td> <td>The composition was originally created/issued in error and this is an amendment that marks that the entire composition and any past versions or copies should not be considered as valid</td> </tr>
 </table>
 <p>
-A composition status generally only moves down through this list - it moves from preliminary to final and then it may progress to either appended or amended. 
+Composition status generally only moves down through this list - it moves from preliminary to final and then it may progress to either appended or amended. 
 Note that in many workflows, only final compositions are made available and the preliminary status is not used. 
 </p>
 <p>

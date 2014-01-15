@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-A diagnostic report is used for the set of information that is typically provided by a diagnostic service 
+A diagnostic report is the set of information that is typically provided by a diagnostic service 
 when investigations are complete. The information includes a mix of atomic results, text reports, images,
 and codes. The mix varies depending on the nature of the diagnostic procedure, and sometimes on the nature
 of the outcomes for a particular investigation. 
@@ -26,15 +26,15 @@ The Diagnostic Report resource does not yet provide full support for detailed st
 <div>
 <h2>Background and Context</h2>
 <p>
-The Diagnostic Report resources has the following aspects:
+The Diagnostic Report resource has the following aspects:
 </p>
 <ul>
  <li>status, issued, identifier, performer, serviceCategory: information about the diagnostic report itself</li>
  <li>subject, diagnostic[x]: information about the subject of the report</li>
  <li>requestDetails.*: A set of request information to allow the report to connected to clinical work flows</li>
- <li>results.* &amp; specimen details: a heirachical tree of groups of results. The actual atomic result data are delegated to the <a href="observation.html">common Observation
+ <li>results.* &amp; specimen details: a hierarchical tree of groups of results. The actual atomic result data are delegated to the <a href="observation.html">common Observation
     resource</a> to make it easier to reuse them in a wider context</li>
- <li>conclusion, codedDiagnosic: support for structured reporting</li>
+ <li>conclusion, codedDiagnosis: support for structured reporting</li>
  <li>images, representation: image and media representations of the report and supporting images</li>
 </ul>
 
@@ -42,7 +42,7 @@ The Diagnostic Report resources has the following aspects:
 
 <p>
 The words "tests", "results", "observations", "panels" and "batteries" are often used interchangeably when describing 
-the various parts of a diagnostic report. This leads to a lot of confusion. The naming confusion is 
+the various parts of a diagnostic report. This leads to much confusion. The naming confusion is 
 worsened because of the wide variety of forms that the result of a diagnostic investigation can take, 
 as described above. Languages other than English have their own variations on this theme.
 </p>

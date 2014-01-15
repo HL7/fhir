@@ -274,7 +274,7 @@
     <Cell><Data ss:Type="String">The role that the participant played</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s66"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">attestor: </Font></B><Font
+      xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">attester: </Font></B><Font
        html:Color="#000000">.[self::participation]/typeCode='RESP'</Font><B><Font
         html:Color="#000000">&#10;author: </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='AUT'</Font><B><Font
         html:Color="#000000">&#10;cc: </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='IRCP'</Font><B><Font
@@ -284,7 +284,7 @@
         html:Color="#000000">verifier: </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='VRF'&#10;</Font><B><Font
         html:Color="#000000">source: </Font></B><Font html:Color="#000000">.[self::outboundRelationship]/typeCode=''</Font></ss:Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Figure out how to handle: application, daemon for RIM mappings.  Figure out better mapping for attestor, perhaps after RIM harmonization proposal&#10;</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Figure out how to handle: application, daemon for RIM mappings.  Figure out better mapping for attester, perhaps after RIM harmonization proposal&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -365,7 +365,7 @@
     <Cell><Data ss:Type="String">How the entity was used during the activity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Figure out how to handle: application, daemon for RIM mappings.  Figure out better mapping for attestor, perhaps after RIM harmonization proposal&#10;</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Figure out how to handle: application, daemon for RIM mappings.  Figure out better mapping for attester, perhaps after RIM harmonization proposal&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">

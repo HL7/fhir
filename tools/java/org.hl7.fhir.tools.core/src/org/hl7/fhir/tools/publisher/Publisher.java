@@ -282,7 +282,7 @@ public class Publisher {
 		if (hasParam(args, "-name"))
 		  pub.page.setPublicationType(getNamedParam(args, "-name"));
 		if (pub.web) {
-      pub.page.setPublicationType("Ballot Reconciliation Master");
+      pub.page.setPublicationType("DSTU Candidate (QA Version)");
       pub.page.setPublicationNotice(PageProcessor.PUB_NOTICE);
       
 		}
@@ -505,7 +505,7 @@ public class Publisher {
       genConfOp(conf, res, TypeRestfulOperation.read);
 	  }
 	  
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator());
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
     gen.generate(conf);    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir +"conformance-"+name+".xml"), conf, true, true);
     cloneToXhtml("conformance-"+name+"", "Basic Conformance Statement", true, "resource-instance:Conformance");
@@ -1022,7 +1022,7 @@ public class Publisher {
 					String src = TextFile.fileToString(fn.getAbsolutePath());
 					String srcn = src
 							.replace(
-									"Warning: This version of FHIR is the DSTU Reconciliation version (see the <a href=\"history.html\">Version History</a>)",
+									"Warning: This version of FHIR is the DSTU Candidate version (see the <a href=\"history.html\">Version History</a>)",
 									"This is an old version of FHIR retained for archive purposes. Do not use for anything else");
 					if (!srcn.equals(src))
 						c++;
@@ -1596,8 +1596,8 @@ public class Publisher {
           }
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator());
-    gen.generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    gen.generate(vs);
     new ValueSetValidator(page.getDefinitions(), "v3: "+id).validate(vs, false);
     return vs;
 
@@ -2093,9 +2093,10 @@ public class Publisher {
 	  for (RegisteredProfile p : resource.getProfiles())
 		  p.setResource(produceProfile(p.getDestFilename(), p.getProfile(), p.getExamplePath(), p.getExample(), resource.getName()));
 
+	  Profile profile = (Profile) profileFeed.getById("http://hl7.org/fhir/profile/" + resource.getName().toLowerCase()).getResource();
 	  for (Example e : resource.getExamples()) {
 		  try {
-			  processExample(e, resource);
+			  processExample(e, resource, profile);
 		  } catch (Exception ex) {
 			  throw new Exception("processing "+e.getFileTitle(), ex);
 			  //		    throw new Exception(ex.getMessage()+" processing "+e.getFileTitle());
@@ -2179,7 +2180,7 @@ public class Publisher {
 		page.getEpub().registerFile(n+".xml.html", description, EPubManager.XHTML_TYPE);
 	}
 
-	private void processExample(Example e, ResourceDefn resource) throws Exception {
+	private void processExample(Example e, ResourceDefn resource, Profile profile) throws Exception {
 		if (e.getType() == ExampleType.Tool)
 			return;
 
@@ -2201,9 +2202,29 @@ public class Publisher {
 		  xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://hl7.org/fhir", xdoc.getDocumentElement().getLocalName());
 		}
 
-		if (xdoc.getDocumentElement().getLocalName().equals("ValueSet")) {
-		  XmlParser xml = new XmlParser();
-		  ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+		// check the narrative. We generate auto-narrative. If the resource didn't have it's own original narrative, then we save it anyway
+		String narrative;
+		org.hl7.fhir.instance.model.Resource r;
+		try {
+		    XmlParser xml = new XmlParser();
+		    r = xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+		    boolean wantSave = r.getText() == null || r.getText().getDiv() == null;
+		    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+		    gen.generate(r, profile);
+		    narrative = new XhtmlComposer().compose(r.getText().getDiv());
+		    if (wantSave) {
+		      new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), r, true, true); 
+		      xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+		    };
+		} catch (Exception ex) {
+		  XhtmlNode xhtml = new XhtmlNode(NodeType.Element, "div");
+		  xhtml.addTag("p").setAttribute("style", "color: maroon").addText("Error processing narrative: "+ex.getMessage());
+		  narrative = new XhtmlComposer().compose(xhtml);
+		  r = null;
+		}
+    
+		if (r instanceof ValueSet) {
+		  ValueSet vs = (ValueSet) r;
 	    new ValueSetValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(vs, false);
 	    if (vs.getIdentifier() == null)
 	      throw new Exception("Value set example "+e.getPath().getAbsolutePath()+" has no identifier");
@@ -2218,16 +2239,8 @@ public class Publisher {
 		  page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
 		  if (vs.getDefine() != null) 
 	      page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
-		}
-    if (xdoc.getDocumentElement().getLocalName().equals("ConceptMap")) {
-      XmlParser xml = new XmlParser();
-      ConceptMap cm = (ConceptMap) xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-      if (cm.getText() == null || cm.getText().getDiv() == null) {
-        NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator());
-        gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps()); 
-        new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), cm, true, true); 
-        xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-      }
+		} else if (r instanceof ConceptMap) {
+      ConceptMap cm = (ConceptMap) r;
       new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
       if (cm.getIdentifier() == null)
         throw new Exception("Value set example "+e.getPath().getAbsolutePath()+" has no identifier");
@@ -2239,12 +2252,7 @@ public class Publisher {
       ae.setResource(cm);
       page.getConceptMaps().put(cm.getIdentifierSimple(), ae);
     }
-
-    Element el = xdoc.getDocumentElement();
-    el = XMLUtil.getNamedChild(el, "text");
-    el = XMLUtil.getNamedChild(el, "div");
-    String narrative = XMLUtil.elementToString(el); 
-    
+   
     String json;
 		// generate the json version (use the java reference platform)
     try {
@@ -3144,7 +3152,7 @@ public class Publisher {
       vs.getText().setStatusSimple(NarrativeStatus.empty);
     }
     if (vs.getText().getDiv() == null) {
-      vs.getText().setDiv(new XhtmlNode());
+      vs.getText().setDiv(new XhtmlNode(NodeType.Element));
       vs.getText().getDiv().setName("div");
     }
 
@@ -3171,7 +3179,7 @@ public class Publisher {
     ValueSet vs = (ValueSet) ae.getResource();
     
     if (vs.getText().getDiv().allChildrenAreText() && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-      new NarrativeGenerator("", page.getConceptLocator()).generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+      new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps()).generate(vs);
     new ValueSetValidator(page.getDefinitions(), name).validate(vs, true);
     
     if (isGenerate) {
@@ -3329,8 +3337,8 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v2 Map ("+b.toString()+")");
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator());
-    gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    gen.generate(cm);
     
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v2.json")), cm, true);
@@ -3410,8 +3418,8 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v3 Map ("+b.toString()+")");
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator());
-    gen.generate(cm, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    gen.generate(cm);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir+Utilities.changeFileExt(filename, "-map-v3.json")), cm, true);
     String n = Utilities.changeFileExt(filename, "-map-v3");
@@ -3451,7 +3459,7 @@ public class Publisher {
     if (!Utilities.noString(cd.getV3Map()))
       generateConceptMapV3(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/"+Utilities.fileTitle(filename));
     
-    new NarrativeGenerator("", page.getConceptLocator()).generate(vs, page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps()).generate(vs);
     
 
     if (isGenerate) {

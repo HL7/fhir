@@ -138,8 +138,8 @@ public class PageProcessor implements Logger  {
   
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
-          "This is the ballot reconciliation version, and will change frequently as ballot reconciliation is performed.\r\n"+ 
-          "There's also a <a href=\"http://www.healthintersections.com.au/fhir/index.htm\">stable version</a> for the <a href=\"http://www.ihic2013.org.au/\">IHIC Connectathon</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> is also available.\r\n"+
+          "This is the DSTU candidate version, for QA review.\r\n"+ 
+          "There's also the <a href=\"http://www.healthintersections.com.au/fhir/index.htm\">version that was balloted for DSTU</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> is also available.\r\n"+
           "</p>\r\n";
   
 //  private boolean notime;
@@ -2151,7 +2151,7 @@ public class PageProcessor implements Logger  {
       exp.setDefine(null);
       exp.setText(null); 
       exp.setDescriptionSimple("Value Set Contents (Expansion) for "+vs.getNameSimple()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator(prefix, conceptLocator).generate(exp, codeSystems, valueSets, conceptMaps);
+      new NarrativeGenerator(prefix, conceptLocator, codeSystems, valueSets, conceptMaps).generate(exp);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+e.getMessage()+"</div>";

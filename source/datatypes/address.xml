@@ -167,7 +167,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Structure</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">A postal address</Data></Cell>
-    <Cell><Data ss:Type="String">There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for addresses all around the world </Data></Cell>
+    <Cell><Data ss:Type="String">There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world </Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Need to be able to record postal addresses, along with notes about their use</Data></Cell>
     <Cell><Data ss:Type="String">Note: address is for postal addresses, not physical locations</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">AD</Data></Cell>
@@ -181,10 +181,10 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">AddressUse</Data></Cell>
     <Cell><Data ss:Type="String">home | work | temp | old - purpose of this address</Data></Cell>
-    <Cell><Data ss:Type="String">The use of this address</Data></Cell>
+    <Cell><Data ss:Type="String">The purpose of this address</Data></Cell>
     <Cell><Data ss:Type="String">Home, Work</Data></Cell>
     <Cell><Data ss:Type="String">Allows an appropriate address to be chosen from a list of many</Data></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is not temporary or old unless it explicitly says that it is</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old address etc for a current/permanent one. Applications can assume that an address is current unless it explicitly says that it is temporary or old</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">unique(./use)</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.7</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">./AddressPurpose</Data></Cell>
@@ -255,7 +255,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Country (can be ISO 3166 3 letter code)</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Country. ISO 3166 3 letter codes can be used in place of a full country name.</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Country - a nation as commonly understood or generally accepted</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">ISO 3166 3 letter codes can be used in place of a full country name.</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">AD.part[parttype = CNT]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">XAD.6</Data></Cell>
     <Cell><Data ss:Type="String">country name</Data></Cell>
@@ -285,7 +286,7 @@
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
+    <VerticalResolution>300</VerticalResolution>
    </Print>
    <Selected/>
    <FreezePanes/>
@@ -299,17 +300,17 @@
      <Number>3</Number>
     </Pane>
     <Pane>
-     <Number>2</Number>
-     <ActiveRow>0</ActiveRow>
-    </Pane>
-    <Pane>
      <Number>1</Number>
      <ActiveCol>4</ActiveCol>
     </Pane>
     <Pane>
+     <Number>2</Number>
+     <ActiveRow>0</ActiveRow>
+    </Pane>
+    <Pane>
      <Number>0</Number>
      <ActiveRow>8</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

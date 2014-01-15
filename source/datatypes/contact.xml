@@ -133,7 +133,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Structure</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Technology mediated contact details (phone, fax, email, etc)</Data></Cell>
-    <Cell><Data ss:Type="String">All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">All kinds of technology mediated contact details for a person or organization, including telephone, email, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Need to track phone, fax, mobile, sms numbers, email addresses, twitter tags, etc.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">TEL</Data></Cell>
     <Cell><Data ss:Type="String">XTN</Data></Cell>
@@ -158,7 +158,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">The actual contact details</Data></Cell>
     <Cell><Data ss:Type="String">The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).</Data></Cell>
     <Cell><Data ss:Type="String">Need to support legacy numbers that are not in a tightly controlled format </Data></Cell>
-    <Cell><Data ss:Type="String">additional out of band data such as extensions, or notes about use of the contact are sometimes included in the value</Data></Cell>
+    <Cell><Data ss:Type="String">Additional out of band data such as extensions, or notes about use of the contact are sometimes included in the value</Data></Cell>
     <Cell><Data ss:Type="String">./url</Data></Cell>
     <Cell><Data ss:Type="String">XTN.1 (or XTN.12)</Data></Cell>
     <Cell><Data ss:Type="String">./Value</Data></Cell>
@@ -170,9 +170,9 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ContactUse</Data></Cell>
     <Cell><Data ss:Type="String">home | work | temp | old | mobile - purpose of this address</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the context for the address</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the purpose for the address</Data></Cell>
     <Cell><Data ss:Type="String">Need to track the way a person uses this contact, so a user can choose which is appropriate for their purpose</Data></Cell>
-    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is not temporary or old unless it explicitly says that it is</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary or old contact etc for a current/permanent one. Applications can assume that a contact is current unless it explicitly says that it is temporary or old</Data></Cell>
     <Cell><Data ss:Type="String">unique(./use)</Data></Cell>
     <Cell><Data ss:Type="String">XTN.2 - but often indicated by field</Data></Cell>
     <Cell><Data ss:Type="String">./ContactPointPurpose</Data></Cell>
@@ -199,8 +199,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

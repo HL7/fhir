@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-12-28T22:23:12Z</LastSaved>
+  <LastSaved>2014-01-15T09:40:43Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -93,6 +93,23 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s73" ss:Parent="s64">
+   <Alignment ss:Vertical="Top"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s74" ss:Parent="s64">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
   <Style ss:ID="s75">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
@@ -120,23 +137,6 @@
   <Style ss:ID="s86">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s96">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s97" ss:Parent="s64">
-   <Alignment ss:Vertical="Top"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s98" ss:Parent="s64">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="12" x:FullColumns="1"
@@ -155,7 +155,7 @@
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="16" ss:StyleID="s65" ss:Width="89.25"/>
-   <Row ss:Height="30" ss:StyleID="s67">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -174,7 +174,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
     <Cell><Data ss:Type="String">Prov Mapping</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -183,7 +183,7 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Drug, food, environmental and others</Data></Cell>
-    <Cell><Data ss:Type="String">Indicates the patient has a susceptability to an an adverse reaction upon exposure to a specified substance</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the patient has a susceptibility to an adverse reaction upon exposure to a specified substance</Data></Cell>
     <Cell><Data ss:Type="String">Adverse Sensitivity</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">Observation[moodCode=EVN, code&lt;AllergyIntolerance]</Data></Cell>
@@ -191,7 +191,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="150">
+   <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">AllergyIntolerance.identifier</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -199,14 +199,14 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">External Ids for this item</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">External Ids for this item</Data></Cell>
     <Cell><Data ss:Type="String">This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.id</Data></Cell>
-    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">AllergyIntolerance.criticality</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -222,7 +222,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">AllergyIntolerance.sensitivityType</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -234,11 +234,11 @@
     <Cell><Data ss:Type="String">Type of the sensitivity</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"/>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;sensitivity&quot;].value</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">IAM-9-Sensitivity to Causative Agent Code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">IAM-9-Sensitivity to Causative Agent Code</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">AllergyIntolerance.recordedDate</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -250,11 +250,11 @@
     <Cell><Data ss:Type="String">Date when the sensitivity was recorded</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"/>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.participation[typeCode=AUT].time</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">IAM-20-Statused at Date/Time</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">IAM-20-Statused at Date/Time</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">AllergyIntolerance.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -266,11 +266,11 @@
     <Cell><Data ss:Type="String">Status of the sensitivity</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"/>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.status (suspected/confirmed differentiated by uncertaintyCode)</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">IAM-17-Allergy Clinical Status Code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">IAM-17-Allergy Clinical Status Code</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">AllergyIntolerance.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -281,11 +281,11 @@
     <Cell><Data ss:Type="String">Who the sensitivity is for</Data></Cell>
     <Cell><Data ss:Type="String">The patient who has the allergy or intolerance</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.participation[typeCode=SBJ].role[classCode=PAT]</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="120">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">AllergyIntolerance.recorder</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -301,7 +301,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">AllergyIntolerance.substance</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -317,7 +317,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">AllergyIntolerance.reaction</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -327,11 +327,11 @@
     <Cell ss:Index="8"><Data ss:Type="String">Reactions associated with the sensitivity</Data></Cell>
     <Cell><Data ss:Type="String">Reactions associated with the sensitivity</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">.outboundRelationship[typeCode=SPRT].target[classCode=OBS, moodCode=EVN, code&lt;AdverseReaction]</Data></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">IAM-7-Allergy Unique Identifier (Overloaded concept)</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">IAM-7-Allergy Unique Identifier (Overloaded concept)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">AllergyIntolerance.sensitivityTest</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -352,6 +352,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>-4</HorizontalResolution>
@@ -377,6 +378,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

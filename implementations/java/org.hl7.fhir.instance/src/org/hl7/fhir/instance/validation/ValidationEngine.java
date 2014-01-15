@@ -84,7 +84,7 @@ public class ValidationEngine {
     for (ValidationMessage vm : outputs) {
       op.getIssue().add(vm.asIssue(op));
     }
-    new NarrativeGenerator("", null).generate(op);
+    new NarrativeGenerator("", null, null, null, null).generate(op);
     outcome = op;
   }
 

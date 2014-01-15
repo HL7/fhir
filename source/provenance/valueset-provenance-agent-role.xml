@@ -46,7 +46,7 @@
       <definition value="A person who verifies the correctness and appropriateness of activity"/>
     </concept>
     <concept>
-      <code value="attestor"/>
+      <code value="attester"/>
       <definition value="A verifier who attests to the accuracy of the resource"/>
     </concept>
     <concept>

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:22:02Z</Created>
-  <LastSaved>2013-12-01T20:41:17Z</LastSaved>
+  <LastSaved>2014-01-15T11:58:34Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -139,8 +139,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">An identifier intended for computation</Data></Cell>
     <Cell><Data ss:Type="String">A technical identifier - identifies some entity uniquely and unambiguously</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Need to be able to identify things with confidence and be sure that the identification is not subject to misinterpretation</Data></Cell>
-    <Cell><Data ss:Type="String">the Identifier class is a little looser than II because it allows URIs as well as registered OIDs or GUIDs</Data></Cell>
-    <Cell><Data ss:Type="String">II - see see identifier pattern at http://wiki.hl7.org/index.php?title=Common_Design_Patterns#Identifier_Pattern for relevant discussion</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">II - see see identifier pattern at http://wiki.hl7.org/index.php?title=Common_Design_Patterns#Identifier_Pattern for relevant discussion. The Identifier class is a little looser than the v3 type II because it allows URIs as well as registered OIDs or GUIDs</Data></Cell>
     <Cell><Data ss:Type="String">CX / EI (occasionally, more often EI maps to a resource id or a URL)</Data></Cell>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
    </Row>
@@ -152,9 +151,9 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">IdentifierUse</Data></Cell>
     <Cell><Data ss:Type="String">usual | official | temp | secondary (If known)&#10;</Data></Cell>
-    <Cell><Data ss:Type="String">The use of this identifier</Data></Cell>
+    <Cell><Data ss:Type="String">The purpose of this identifier</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers</Data></Cell>
-    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is not temporary unless it explicitly says that it is</Data></Cell>
+    <Cell><Data ss:Type="String">This is labeled as &quot;Is Modifier&quot; because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">N/A - this is sometimes implied by context</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">CX.5</Data></Cell>
     <Cell ss:StyleID="s68"/>
@@ -170,7 +169,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Description of identifier</Data></Cell>
-    <Cell><Data ss:Type="String">A label for the identifier that can be displayed to a human so they can recognize the identifier</Data></Cell>
+    <Cell><Data ss:Type="String">A text string for the identifier that can be displayed to a human so they can recognize the identifier</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Allows humans to make use of identifiers when the identifier system is not known</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -188,7 +187,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">The namespace for the identifier</Data></Cell>
     <Cell><Data ss:Type="String">Establishes the namespace in which set of possible id values is unique.</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://www.acme.com/identifiers/patient or urn:ietf:rfc:3986 if the id itself is a full uri</Data></Cell>
-    <Cell><Data ss:Type="String">There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with.</Data></Cell>
+    <Cell><Data ss:Type="String">There are many sequences of identifiers.  To perform matching, we need to know what sequence we're dealing with. The system identifies a particular sequence or set of unique identifiers</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">II.root</Data></Cell>
     <Cell><Data ss:Type="String">CX.4 / EI-2-4</Data></Cell>
     <Cell><Data ss:Type="String">./IdentifierType</Data></Cell>
@@ -200,7 +199,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">The value that is unique</Data></Cell>
     <Cell><Data ss:Type="String">The portion of the identifier typically displayed to the user and which is unique within the context of the system.</Data></Cell>
     <Cell><Data ss:Type="Number">123456</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">if the value is actually a full uri, then the system SHALL be urn:ietf:rfc:3986</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986</Data></Cell>
     <Cell><Data ss:Type="String">II.extension or II.root if system indicates OID or GUID</Data></Cell>
     <Cell><Data ss:Type="String">CX.1 / EI.1</Data></Cell>
     <Cell><Data ss:Type="String">./Value</Data></Cell>
@@ -212,8 +211,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Time period when id was valid for use</Data></Cell>
-    <Cell><Data ss:Type="String">Time period during which identifier was valid for use</Data></Cell>
+    <Cell><Data ss:Type="String">Time period when id is/was valid for use</Data></Cell>
+    <Cell><Data ss:Type="String">Time period during which identifier is/was valid for use</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -254,24 +253,24 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>5</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
     </Pane>
     <Pane>
-     <Number>2</Number>
-     <ActiveRow>0</ActiveRow>
-    </Pane>
-    <Pane>
      <Number>1</Number>
      <ActiveCol>4</ActiveCol>
     </Pane>
     <Pane>
+     <Number>2</Number>
+     <ActiveRow>0</ActiveRow>
+    </Pane>
+    <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -335,7 +334,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s70"><Data ss:Type="String">IdentifierUse</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Identifies the use for this identifier, if known&#10;</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Identifies the purpose for this identifier, if known&#10;</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">#identifier-use</Data></Cell>
    </Row>
@@ -350,8 +349,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

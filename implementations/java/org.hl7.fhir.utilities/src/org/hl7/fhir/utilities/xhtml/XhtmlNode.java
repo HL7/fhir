@@ -44,6 +44,17 @@ public class XhtmlNode {
   private String content;
 
 
+  public XhtmlNode(NodeType nodeType, String name) {
+    super();
+    this.nodeType = nodeType;
+    this.name = name;
+  }
+
+  public XhtmlNode(NodeType nodeType) {
+    super();
+    this.nodeType = nodeType;
+  }
+
   public NodeType getNodeType() {
     return nodeType;
   }
@@ -83,8 +94,7 @@ public class XhtmlNode {
 
     if (!(nodeType == NodeType.Element || nodeType == NodeType.Document)) 
       throw new Error("Wrong node type. is "+nodeType.toString());
-    XhtmlNode node = new XhtmlNode();
-    node.setNodeType(NodeType.Element);
+    XhtmlNode node = new XhtmlNode(NodeType.Element);
     node.setName(name);
     childNodes.add(node);
     return node;
@@ -95,8 +105,7 @@ public class XhtmlNode {
 
     if (!(nodeType == NodeType.Element || nodeType == NodeType.Document)) 
       throw new Error("Wrong node type. is "+nodeType.toString());
-    XhtmlNode node = new XhtmlNode();
-    node.setNodeType(NodeType.Element);
+    XhtmlNode node = new XhtmlNode(NodeType.Element);
     node.setName(name);
     childNodes.add(index, node);
     return node;
@@ -106,8 +115,7 @@ public class XhtmlNode {
   {
     if (!(nodeType == NodeType.Element || nodeType == NodeType.Document)) 
       throw new Error("Wrong node type");
-    XhtmlNode node = new XhtmlNode();
-    node.setNodeType(NodeType.Comment);
+    XhtmlNode node = new XhtmlNode(NodeType.Comment);
     node.setContent(content);
     childNodes.add(node);
     return node;
@@ -117,8 +125,7 @@ public class XhtmlNode {
   {
     if (!(nodeType == NodeType.Document)) 
       throw new Error("Wrong node type");
-    XhtmlNode node = new XhtmlNode();
-    node.setNodeType(NodeType.DocType);
+    XhtmlNode node = new XhtmlNode(NodeType.DocType);
     node.setContent(content);
     childNodes.add(node);
     return node;
@@ -128,8 +135,7 @@ public class XhtmlNode {
   {
     if (!(nodeType == NodeType.Document)) 
       throw new Error("Wrong node type");
-    XhtmlNode node = new XhtmlNode();
-    node.setNodeType(NodeType.Instruction);
+    XhtmlNode node = new XhtmlNode(NodeType.Instruction);
     node.setContent(content);
     childNodes.add(node);
     return node;
@@ -143,8 +149,7 @@ public class XhtmlNode {
   	if (!(nodeType == NodeType.Element || nodeType == NodeType.Document)) 
   		throw new Error("Wrong node type");
   	if (content != null) {
-  		XhtmlNode node = new XhtmlNode();
-  		node.setNodeType(NodeType.Text);
+  		XhtmlNode node = new XhtmlNode(NodeType.Text);
   		node.setContent(content);
   		childNodes.add(node);
   		return node;
@@ -159,8 +164,7 @@ public class XhtmlNode {
     if (content == null)
       throw new Error("Content cannot be null");
     
-    XhtmlNode node = new XhtmlNode();
-    node.setNodeType(NodeType.Text);
+    XhtmlNode node = new XhtmlNode(NodeType.Text);
     node.setContent(content);
     childNodes.add(index, node);
     return node;
@@ -220,8 +224,7 @@ public class XhtmlNode {
   }
   
   public XhtmlNode copy() {
-  	XhtmlNode dst = new XhtmlNode();
-  	dst.nodeType = nodeType;
+  	XhtmlNode dst = new XhtmlNode(nodeType);
   	dst.name = name;
   	for (String n : Attributes.keySet()) {
   		dst.Attributes.put(n, Attributes.get(n));

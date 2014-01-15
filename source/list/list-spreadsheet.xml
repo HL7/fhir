@@ -229,7 +229,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource(Practitioner|Patient|Device)</Data></Cell>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Who/what defined the list contents</Data></Cell>
+    <Cell><Data ss:Type="String">Who and/or what defined the list contents</Data></Cell>
     <Cell><Data ss:Type="String">The entity responsible for deciding what the contents of the list were</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Allows follow-up as well as context</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">The primary and important source is the entity that made the decisions what items are in the list. This may be software or user</Data></Cell>

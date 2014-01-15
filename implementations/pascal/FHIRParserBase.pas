@@ -717,7 +717,7 @@ end;
 
 function TFHIRXmlComposerBase.MimeType: String;
 begin
-  result := 'text/xml+fhir; charset=UTF-8';
+  result := 'application/xml+fhir; charset=UTF-8';
 end;
 
 procedure TFHIRXmlComposerBase.commentsStart(xml: TXmlBuilder; value: TFhirBase);
@@ -1522,15 +1522,18 @@ begin
       xml.TagText('id', entry.originalId);
       xml.Close('source');
     end;
-    xml.AddAttribute('type', 'text/xml');
-    xml.Open('content');
-    xml.Namespace := FHIR_NS;
-    if entry.resource is TFhirBinary then
-      ComposeBinary(xml, TFhirBinary(entry.resource))
-    else
-      ComposeResource(xml, entry.id, tail(entry.links.rel['self']), entry.resource);
-    xml.Namespace := ATOM_NS;
-    xml.Close('content');
+    if entry.resource <> nil then
+    begin
+      xml.AddAttribute('type', 'text/xml');
+      xml.Open('content');
+      xml.Namespace := FHIR_NS;
+      if entry.resource is TFhirBinary then
+        ComposeBinary(xml, TFhirBinary(entry.resource))
+      else
+        ComposeResource(xml, entry.id, tail(entry.links.rel['self']), entry.resource);
+      xml.Namespace := ATOM_NS;
+      xml.Close('content');
+    end;
     if entry.summary <> nil then
     begin
       xml.AddAttribute('type', 'xhtml');
@@ -2012,7 +2015,7 @@ end;
 
 function TFHIRComposer.ResourceMediaType: String;
 begin
-  result := 'text/xml; charset=UTF-8';
+  result := 'application/xml+fhir; charset=UTF-8';
 end;
 
 function URLTail(s : String):String;

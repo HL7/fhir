@@ -17,10 +17,9 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>10560</WindowHeight>
-  <WindowWidth>30315</WindowWidth>
+  <WindowWidth>29040</WindowWidth>
   <WindowTopX>5865</WindowTopX>
   <WindowTopY>6870</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -113,7 +112,7 @@
     <Cell ss:Index="7"><Data ss:Type="String">Code defined by a terminology system </Data></Cell>
     <Cell><Data ss:Type="String">A reference to a code defined by a terminology system </Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.</Data></Cell>
-    <Cell><Data ss:Type="String">Codes may defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the v3 core principles for more information.  Ordering of codings is undefined and SHALL not be used to infer meaning.</Data></Cell>
+    <Cell><Data ss:Type="String">Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the V3 Core Principles for more information.  Ordering of codings is undefined and SHALL not be used to infer meaning.</Data></Cell>
     <Cell><Data ss:Type="String">union(., ./translation)</Data></Cell>
     <Cell><Data ss:Type="String">C*E.1-8, C*E.10-22</Data></Cell>
    </Row>
@@ -122,8 +121,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Plain text representation of the concept</Data></Cell>
-    <Cell><Data ss:Type="String">A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user or concept</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The codes from the terminologies do not always capture the correct meaning with all the nuances of the human, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source</Data></Cell>
+    <Cell><Data ss:Type="String">A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">The codes from the terminologies do not always capture the correct meaning with all the nuances of the human using them, or sometimes there is no appropriate code at all. In these cases, the text is used to capture the full meaning of the source</Data></Cell>
     <Cell><Data ss:Type="String">Very often the text is the same as a displayName of one of the codings</Data></Cell>
     <Cell><Data ss:Type="String">./originalText[mediaType/code=&quot;text/plain&quot;]/data</Data></Cell>
     <Cell><Data ss:Type="String">C*E.9. But note many systems use C*E.2 for this</Data></Cell>
@@ -137,13 +136,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <LeftColumnVisible>8</LeftColumnVisible>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>12</ActiveCol>
-     <RangeSelection>R2C13:R4C13</RangeSelection>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -182,7 +180,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

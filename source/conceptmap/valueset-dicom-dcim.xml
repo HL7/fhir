@@ -5388,13 +5388,13 @@
       </tr>  
       <tr>
         <td><a name="122231">122231</a></td>
-        <td>Comparative Average 10 Year CHD Risk</td>
-        <td>Framingham Study Comparative Average 10 Year CHD Risk</td>
+        <td>Comparrative Average 10 Year CHD Risk</td>
+        <td>Framingham Study Comparrative Average 10 Year CHD Risk</td>
       </tr>  
       <tr>
         <td><a name="122232">122232</a></td>
-        <td>Comparative Low 10 Year CHD Risk</td>
-        <td>Framingham Study Comparative Low 10 Year CHD Risk</td>
+        <td>Comparrative Low 10 Year CHD Risk</td>
+        <td>Framingham Study Comparrative Low 10 Year CHD Risk</td>
       </tr>  
       <tr>
         <td><a name="122233">122233</a></td>
@@ -13757,13 +13757,13 @@
     </concept>  
     <concept>
       <code value="122231"/>
-      <display value="Comparative Average 10 Year CHD Risk"/>
-      <definition value="Framingham Study Comparative Average 10 Year CHD Risk"/>
+      <display value="Comparrative Average 10 Year CHD Risk"/>
+      <definition value="Framingham Study Comparrative Average 10 Year CHD Risk"/>
     </concept>  
     <concept>
       <code value="122232"/>
-      <display value="Comparative Low 10 Year CHD Risk"/>
-      <definition value="Framingham Study Comparative Low 10 Year CHD Risk"/>
+      <display value="Comparrative Low 10 Year CHD Risk"/>
+      <definition value="Framingham Study Comparrative Low 10 Year CHD Risk"/>
     </concept>  
     <concept>
       <code value="122233"/>

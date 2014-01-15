@@ -34,7 +34,7 @@ documents, REST and other service models).  Refer to the <a href="messageheader.
 <p>
 <b>Granularity:</b> HL7 V2's "Segment" structure provides re-useable chunks of data that 
 roughly correspond to FHIR's idea of <a href="resources.html">resources</a>.  However, V2 
-segments can't be independently manipulated.  As well, not all segments have the characteristics 
+segments can't be independently manipulated.  Addtionally, not all segments have the characteristics 
 of independent identity held by FHIR resources.  Due to differences in scope and approach to 
 extensibility, V2 segments and data types are frequently cluttered with data elements that are not 
 used by (or even understood by) the majority of implementations
@@ -183,7 +183,8 @@ process will need to be aware of the scope and management processes around the i
 <b>Generating human-readable content:</b><a name="V2-humanReadable"> </a> FHIR requires that every 
 resource have a human readable <a href="narrative.html">narrative</a> that contains all information 
 relevant to human decision-making.  When converting from V2, developers (likely with guidance from 
-clinicians) will need to determine what information from the message should be rendered and how.
+clinicians) will need to determine what information from the message should be rendered and how
+to generate this content.
 </p>
 <p>
 <b>Nulls and update modes:</b><a name="V2-updateMode"> </a>In HL7 V2, "action" codes can determine 

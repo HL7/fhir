@@ -11,7 +11,7 @@
 <h3>Device Identifiers</h3>
 
 <p>
-Nearly all devices are assigned one or more identifiers, which are usually printed or affixed to the device using either barcodes or rfids. 
+Nearly all devices are assigned one or more identifiers, which are usually printed or affixed to the device using either barcodes or RFIDs. 
 The identifiers can come from the manufacturer (often called the "serial number", various institution and registries. Any of 
 these identifiers assigned to the device can and should be recorded in the device resource. The different identifiers are 
 differentiated by their use, label, and system values.
@@ -24,7 +24,7 @@ The most important of the identifiers is the
 Unique Device Identification Database</a> (GUDID). The UDI has its own element (<i>udi</i>). The UDI may identify an instance of a device uniquely, or it may just identify the type of the device. 
 A portion of the UDI - the DI part - can be extracted from the UDI when required, and used 
 to look up information about the device through the GUDID.
-Where the device has an assigned UDI, the other details carried in the resource (lot, expiry date etc) SHALL be 
+Where the device has an assigned UDI, the other details carried in the resource (e.g. lot, expiry date etc) SHALL be 
 consistent with the information encoded  in the UDI or registered in the GUDID.
 </p>
 <p>

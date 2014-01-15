@@ -21,7 +21,7 @@
 <h1>Data Types</h1>
 
 <p>
-The FHIR specification defines a set of types that are used for the 
+The FHIR specification defines a set of data types that are used for the 
 resource elements. There are two categories of data type: simple / primitive types, imported from XML schema, and complex types, which are re-usable clusters of elements.
 This page describes the data types. See also the <a href="datatypes-examples.html">Examples</a>, <a href="datatypes-definitions.html">Formal Definitions</a> and 
 <a href="datatypes-mappings.html">Mappings</a>.
@@ -122,7 +122,7 @@ allowed by FHIR</i>
 In addition to having a value as described above, these primitive data types can also have an identity (e.g. xml:id), 
 and they may have <a href="extensibility.html">extensions</a> like any other element in a resource. Note that the 
 value option is optional and might not be present, following the <a href="formats.html#element-rules">standard rules for all elements</a>.
-For instance, a primitive element might have no value, and a <a href="general-extensions.html#data-absent-reason">data-absent-reason extension</a> instead.
+For instance, a primitive element might have no value, and include a <a href="general-extensions.html#data-absent-reason">data-absent-reason extension</a> instead.
 </p>
 <p>
 In XML, these types are represented as XML Elements with the value of the type in the value attribute. 
@@ -155,6 +155,7 @@ a set of rules about which elements SHALL have values, and what the possible
 values are.
 </p>
 
+<p><b>UML Diagrams of the Data types</b></p>
 
 [%diagram datatypes/types.diagram%]
 
@@ -184,15 +185,15 @@ character set and/or the correct character set may be able to be determined by i
 </p>
 <p>The actual content of the 
 Attachment can be conveyed directly using the <i>data</i> element
-or a <i>url</i> reference can be provided. If both are provided, the reference SHALL 
+or a <i>URL</i> reference can be provided. If both are provided, the reference SHALL 
 point to the same content as found in the data. The reference can never be reused to point to
 some different data (i.e. the reference is version specific). The
-<i>url</i> reference SHALL point to a location that resolves to actual data; some
-URIs such as cid: meet this requirement. If the url is a relative reference, it is interpreted
+<i>URL</i> reference SHALL point to a location that resolves to actual data; some
+URIs such as cid: meet this requirement. If the URL is a relative reference, it is interpreted
 in the same way as a <a href="references.html#references">resource reference</a>.
 </p>
 <p>
-The <i>hash</i> is included so that applications can verify that the content returned by the url has not changed. 
+The <i>hash</i> is included so that applications can verify that the content returned by the URL has not changed. 
 </p>
 <p>
 In many cases where Attachment is used, the cardinality is &gt;1. A valid use of repeats is to convey the same content in different mime types and languages.
@@ -203,7 +204,7 @@ The language element describes the language of the attachment using the <a href=
 <p><b>Constraints</b></p>
 [%dt.constraints Attachment%]
 <p>
-If neither <i>data</i> nor a <i>url</i> 
+If neither <i>data</i> nor a <i>URL</i> 
 is provided, the value should be understood as an assertion that no content for 
 the specified <i>mimeType</i> and/or <i>language</i> is available for the reason stated.
 </p>
@@ -239,13 +240,13 @@ value. The Value Set reference provides context information about the selection 
 code. 
 </p>
 <p>
-The <i>system</i> is a URI that references the code system defines the <i>code</i>. 
+The <i>system</i> is a URI that references the code system that defines the <i>code</i>. 
 The URI may be: 
 </p>
 <ul>
  <li>a URI defined in the <a href="terminologies-systems.html">the named systems list</a></li>
  <li>an OID (urn:oid:) or a UUID (urn:uuid:). OIDs and UUIDs may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a></li>
- <li>a url that references a definition of the system directly, which may be a reference to a code system defined as part of <a href="valueset.html">ValueSet</a> resource (i.e. the value in <i>ValueSet.define.system</i>)</li>
+ <li>a URL that references a definition of the system directly, which may be a reference to a code system defined as part of <a href="valueset.html">ValueSet</a> resource (i.e. the value in <i>ValueSet.define.system</i>)</li>
  <li>or any other URI that uniquely identifies the code system definition</li>
 </ul>
 <p>
@@ -260,7 +261,7 @@ The correct value to use in the <i>system</i> for a given code system can be det
 </ul>
 <p>
 A code system version may also be supplied. If the meaning of codes within the code system is consistent across releases, this is not required. 
-The version SHOULD be exchanged when this the system does not maintain consistent definitions across releases.
+The version SHOULD be exchanged when this the system does not maintain consistent definitions across versions.
 If a value set is referenced, and the value set defines the code system, and the code system definition specifies a version, the version SHALL be the same as in the value set. 
 Note that the following systems SHOULD always have a version specified:
 </p>
@@ -277,7 +278,7 @@ See the <a href="valueset.html#versioning">discussion of code system versions in
 If present, the <i>code</i> SHALL be a syntactically correct symbol as defined by the <i>system</i>.
 In some code systems such as SNOMED CT, the symbol may be an expression composed of other predefined symbol (e.g. post-coordination). 
 Note that codes are case sensitive unless specified otherwise by the code system. The <i>display</i> 
-is a text representation of the code defined by the <i>system</i> and can be used to display 
+is a text representation of the code defined by the <i>system</i> and is used to display 
 the meaning of the code by an application that is not aware of the <i>system</i>. 
 </p>
 <p>
@@ -305,14 +306,14 @@ If the version information is missing, or the <i>system</i>, <i>version</i> or t
 how they codes are related can only be determined by consulting the definitions of the system(s) and any <a href="conceptmap.html">mappings</a> available.
 </p>
 <p>
-A coding may be marked as a "primary" if a user picked the particular coded value 
-explicitly in a user interface (e.g., the user picks an item in a picklist). A primary
-would the preferred choice for performing translations etc. 
+A coding may be marked as a "primary" if a user selected the particular coded value 
+in a user interface (e.g. the user selects an item in a picklist). A primary
+is the preferred choice for performing translations etc. 
 </p>
 <p>
 A reference to a <a href="valueset.html">value set</a> may be provided to help a user or system processing the code
-to understand the context in which the code arose - in some contexts, the possible
-set of codes from which the code was chosen from influences how the code should be 
+to understand the context in which the code arose. In some contexts, the possible
+set of codes from which the code was chosen influences how the code should be 
 interpreted. A value set reference is not an acceptable substitute for a logical
 URI in the system, and the system URI SHALL not contain a reference to a value set. 
 (If the value set defines its own codes, then the correct value for the 
@@ -372,18 +373,18 @@ Coding is used in the following places: [%dtusage Coding%]
  <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e.g a list of references to codes defned by codes systems)</li>
 </ul>
 <p>
-The <i>Coding</i> data type corresponds to the simple case of picking 
+The <i>Coding</i> data type corresponds to the simple case of selecting 
 a single code from a code list. However this type is rarely used in the 
 FHIR specifications; long experience with exchanging coded values in
 HL7 shows that in the general case, systems need to able to exchange
 multiple translation codes, and/or an original text. 
 </p>
 <p>
-The Coding data type is used directly  when there is certainty that the value 
-must be picked directly from one of the available codes, and the list of 
-possible codes is agreed by all participants. This is not usually the case
+The <i>Coding</i> data type is used directly  when there is certainty that the value 
+must be selected directly from one of the available codes, and the list of 
+possible codes is agreed to by all participants. This is not usually the case
 in the context of FHIR - general interoperabiity - so Coding is mostly used
-in extensions, which are usually defined for a well-controlled context of use.
+in extensions, which are usually intended to be defined for a well-controlled context of use.
 </p>
 </blockquote>
 
@@ -404,8 +405,8 @@ provision of text. This is a common pattern in healthcare data.
 Each <i>coding</i> is a representation of the concept as described above. The concept may be coded multiple times in different code systems (or even 
 multiple times in the same code systems, where multiple forms are possible, such as 
 with SNOMED CT). The different codings may have slightly different granularity due to the differences 
-in the definitions of the underlying codes. There is no meaning associated with the ordering of Codings within a CodeableConcept. 
-A typical use of CodeableConcept is to send the local code that the concept was coded with, and also one or more translations to publicly defined 
+in the definitions of the underlying codes. There is no meaning associated with the ordering of <i>coding</i> within a <i>CodeableConcept</i>. 
+A typical use of <i>CodeableConcept</i> is to send the local code that the concept was coded with, and also one or more translations to publicly defined 
 code systems such as LOINC or SNOMED CT. Sending local codes is useful and important for the purposes of debugging and integrity auditing.  
 </p>
 <p>
@@ -413,7 +414,7 @@ Whether or not <i>coding</i> elements are present, the <i>text</i>
 is the representation of the concept as entered or chosen by the user, and which most closely 
 represents the intended meaning of the user or concept. Very often the <i>text</i> 
 is the same as a <i>display</i> of one of the codings. One of the codings 
-may be flagged as the primary - the code that the user actually chose directly. 
+may be flagged as the primary - the code or concept that the user actually selected directly. 
 When none of the <i>coding</i> elements is marked as primary, the text (if present)
 is the preferred source of meaning. 
 </p>
@@ -457,7 +458,7 @@ The units may additionally be coded in some formal way using the <i>code</i> and
 If the units are able to be coded in UCUM and a code is provided, it SHOULD be a UCUM code. 
 If a UCUM unit is provided in the <i>code</i> then a canonical value can be generated for 
 purposes of comparison between quantities. Note that the <i>units</i> element will often 
-contain text that is actually a valid UCUM unit, but it cannot be assumed that it does. 
+contain text that is actually a valid UCUM unit, but it cannot be assumed that doesthe units element actually contains a valid UCUM unit. 
 </p>
 
 <div class="use">
@@ -501,7 +502,7 @@ Ranges are typically used in instructions.
 <p>
 The <i>units</i> and <i>code</i>/<i>system</i> elements of the <i>low</i> or <i>high</i> elements SHALL match. 
 If the <i>low</i> or <i>high</i> elements are missing, the meaning
-is that the low or high boundaries are not known and therefore neither is the range.
+is that the low or high boundaries are not known and therefore neither is the complete range.
 </p>
 <p>
 The <i>range</i> flag on the <i>low</i> or <i>high</i> elements cannot be present. Note that the Range type should not be 
@@ -528,7 +529,7 @@ Ratio
 See also <a href="datatypes-examples.html#Ratio">Examples</a>, <a href="datatypes-definitions.html#Ratio">Formal Definitions</a> and <a href="datatypes-mappings.html#Ratio">Mappings</a>.
 </p>
 <p>
-A ratio of two Quantity values - a numerator and a denominator.
+A relationship between two Quantity values expressed as a numerator and a denominator.
 </p>
 [%dt Ratio%]
 <p>
@@ -566,7 +567,7 @@ Period
 See also <a href="datatypes-examples.html#Period">Examples</a>, <a href="datatypes-definitions.html#Period">Formal Definitions</a> and <a href="datatypes-mappings.html#Period">Mappings</a>.
 </p>
 <p>
-A time period defined by a start and end time.
+A time period defined by a start and end date/time.
 </p>
 <p>
 A period specifies a range of times. The context
@@ -633,7 +634,9 @@ Identifier
 See also <a href="datatypes-examples.html#Identifier">Examples</a>, <a href="datatypes-definitions.html#Identifier">Formal Definitions</a> and <a href="datatypes-mappings.html#Identifier">Mappings</a>.
 </p>
 <p>
-A logical identifier that is or can be used to identify an object or entity. Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
+A numeric or alphanumeric string that is associated with a single object or entity within a given system. 
+Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
+Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
 Identifiers are associated with objects, and may be changed or retired due to human or system process and
 errors. 
 </p>
@@ -650,8 +653,8 @@ and have a consistent meaning wherever it appears. Both <i>system</i> and <i>val
 FHIR defines <a href="terminologies-systems.html">some useful URIs directly</a>. OIDs (urn:oid:) and UUIDs (urn:uuid:) 
 may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> and should be if the 
 content is shared or exchanged across institutional boundaries. If the identifier itself 
-is naturally globally unique (i.e. an OID, a UUID, or a URI with no trailing local part), 
-then the <i>system</i> SHALL be "urn:ietf:rfc:3986", and the URI would be in the <i>value</i>.
+is naturally globally unique (e.g. an OID, a UUID, or a URI with no trailing local part), 
+then the <i>system</i> SHALL be "urn:ietf:rfc:3986", and the URI is in the <i>value</i>.
 </p>
 <p>
 In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode), 
@@ -681,8 +684,8 @@ A name of a human with text, parts and usage information.
 <p>
 Names may be changed or repudiated.  People may have different names in different 
 contexts. Names may be divided into parts of different type that have variable 
-significance depending on context, though the division into parts does not always 
-matter. With personal names, the different parts may or may not be imbued with
+significance depending on context, though the division into parts is not always 
+significant. With personal names, the different parts may or may not be imbued with
 some implicit meaning; various cultures associate different importance with the 
 name parts and the degree to which systems SHALL care about name parts around the 
 world varies widely.
@@ -699,7 +702,7 @@ The <i>text</i> element specifies the entire name as it should be represented. T
 may be provided instead of or as well as specific parts. Applications updating a name
 SHALL ensure either that the text and the parts are in agreement, or that only one
 of the two is present. Systems that do not support as many name parts as are 
-provided in an instance they are processing may wish to append some of the parts together 
+provided in an instance may wish to append some of the parts together 
 using spaces
 </p>
 <p>
@@ -726,7 +729,7 @@ Address
 See also <a href="datatypes-examples.html#Address">Examples</a>, <a href="datatypes-definitions.html#Address">Formal Definitions</a> and <a href="datatypes-mappings.html#Address">Mappings</a>.
 </p>
 <p>
-A postal address. There are a variety of postal address formats defined around the world. 
+A postal address. There is a variety of postal address formats defined around the world. 
 Postal addresses are often also used to record a location that can be
 visited to find a patient or person.
 </p>
@@ -785,7 +788,7 @@ Schedule
 See also <a href="datatypes-examples.html#Schedule">Examples</a>, <a href="datatypes-definitions.html#Schedule">Formal Definitions</a> and <a href="datatypes-mappings.html#Schedule">Mappings</a>.
 </p>
 <p>
-A schedule that specifies an event that may occur multiple times. Schedules are not used for recording when things did happen, but when they are expected or requested to occur.
+Specifies an event that may occur multiple times. Schedules are not used for recording when things did happen, but when they are expected or requested to occur.
 A schedule can be either a list of events - periods on which the event occurs, 
 or a single event with repeating criteria, or just repeating criteria with no actual event. 
 </p>
@@ -802,8 +805,8 @@ specified, the event is assumed to last a limited but unknown time as clinically
 <p>
 If the schedule has repeating criteria, the repeat can occur a given number of times per 
 the specified duration or in relation to some real world event. Also, if the event repeats,
-a time to end the schedule can be specified, either by specifying a count number of times 
-it can occur or a date at which to end the schedule. If no end condition is specified, 
+a time to end the schedule can be specified, either with a count of the number of times 
+it can occur or a date/time at which to end the schedule. If no end condition is specified, 
 the Schedule will terminate on some criteria that are expressed elsewhere. 
 </p>
 
@@ -820,7 +823,7 @@ Schedule is used in the following places: [%dtusage Schedule%]
 <a name="open"> </a>
 <h2>Open Type Element</h2>
 <p>
-Some elements have no specified type. The type is represented by the wildcard symbol "*". In these cases, the element type may be one of the following:
+Some elements do not have a specified type. The type is represented by the wildcard symbol "*". In these cases, the element type may be one of the following:
 </p>
 <ul class="dense">
  <li><a href="datatypes.html#integer">integer</a></li>
@@ -863,10 +866,10 @@ The following types are defined as part of the data types, but are documented el
 [%diagram datatypes/types3.diagram%]
 
 <ul>
- <li><b><a href="resources.html#metadata">Resource</a></b> - The conceptual base class for all resources</li>
+ <li><b><a href="resources.html#metadata">Resource</a></b> - the conceptual base class for all resources</li>
  <li><b><a href="references.html#Resource">ResourceReference</a></b> - for references from one resource to another</li>
  <li><b><a href="extensibility.html">Extension</a></b> - used to convey additional data in a resource</li>
- <li><b><a href="narrative.html#Narrative">Narrative</a></b> - Conveys a human-readable representation of the content of a resource</li>
+ <li><b><a href="narrative.html#Narrative">Narrative</a></b> - conveys a human-readable representation of the content of a resource</li>
 </ul>
 
 </div>

@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6570</WindowHeight>
-  <WindowWidth>23175</WindowWidth>
-  <WindowTopX>4950</WindowTopX>
-  <WindowTopY>5700</WindowTopY>
+  <WindowHeight>5940</WindowHeight>
+  <WindowWidth>22875</WindowWidth>
+  <WindowTopX>5100</WindowTopX>
+  <WindowTopY>6180</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -114,8 +114,8 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Structure</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A schedule that specifies an event that may occur multiple times</Data></Cell>
-    <Cell><Data ss:Type="String">A schedule that specifies an event that may occur multiple times. Schedules are not used for recording when things did happen, but when they are expected or requested to occur.</Data></Cell>
-    <Cell><Data ss:Type="String">Need to able to track schedules. There are several different ways to do scheduling: one or more specified times, a simple rules like three times a day, or to say, x before/after meals</Data></Cell>
+    <Cell><Data ss:Type="String">Specifies an event that may occur multiple times. Schedules are used for to reord when things are expected or requested to occur.</Data></Cell>
+    <Cell><Data ss:Type="String">Need to able to track schedules. There are several different ways to do scheduling: one or more specified times, a simple rules like three times a day, or  before/after meals</Data></Cell>
     <Cell><Data ss:Type="String">  A schedule can be either a list of events - intervals on which the event occurs, or a single event with repeating criteria or just repeating criteria with no actual event. </Data></Cell>
     <Cell><Data ss:Type="String">QSET&lt;TS&gt; (GTS)</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
@@ -156,7 +156,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">EventTiming</Data></Cell>
     <Cell><Data ss:Type="String">HS | WAKE | AC | ACM | ACD | ACV | PC | PCM | PCD | PCV - common life events</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies the occurrence of daily life that determine timing</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies the occurrence of daily life that determines timing</Data></Cell>
     <Cell><Data ss:Type="String">Timings are frequently determined by occurrences such as waking, eating and sleep</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">EIVL.event</Data></Cell>
    </Row>
@@ -196,7 +196,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When to stop repeats</Data></Cell>
-    <Cell><Data ss:Type="String">When to stop repeats</Data></Cell>
+    <Cell><Data ss:Type="String">When to stop repeating the schedule</Data></Cell>
     <Cell><Data ss:Type="String">Repetitions may be limited by end time or total occurrences</Data></Cell>
     <Cell><Data ss:Type="String">An end need not be specified</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
@@ -213,7 +213,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>10</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
@@ -262,7 +262,7 @@
     <Cell><Data ss:Type="String">Schedule.repeat</Data></Cell>
     <Cell ss:StyleID="s63"><ss:Data ss:Type="String"
       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">At most, only one of </Font><I><Font
-        html:Color="#000000">count</Font></I><Font html:Color="#000000"> and </Font><I><Font
+        html:Color="#000000">count</Font></I><Font html:Color="#000000"> or </Font><I><Font
         html:Color="#000000">end</Font></I><Font html:Color="#000000"> can be present</Font></ss:Data></Cell>
     <Cell><Data ss:Type="String">not count.oclIsDefined and end.oclIsDefined</Data></Cell>
     <Cell><Data ss:Type="String">not(exists(f:count) and exists(f:end))</Data></Cell>
@@ -291,8 +291,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

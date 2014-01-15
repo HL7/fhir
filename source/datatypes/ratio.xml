@@ -98,7 +98,7 @@
     <Cell ss:StyleID="s65"/>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">A ratio of two Quantity values - a numerator and a denominator</Data></Cell>
-    <Cell><Data ss:Type="String">A ratio of two Quantity values - a numerator and a denominator. </Data></Cell>
+    <Cell><Data ss:Type="String">A relationship of two Quantity values - expressed as a numerator and a denominator. </Data></Cell>
     <Cell><Data ss:Type="String">Need to able to capture ratios for some measurements (titers) and some rates (costs)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">RTO</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
@@ -131,7 +131,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>

@@ -627,7 +627,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">A categorisation for the type of the document. This may be implied by or derived from the code specified in the Document Type</Data></Cell>
+    <Cell><Data ss:Type="String">A categorization for the type of the document. This may be implied by or derived from the code specified in the Document Type</Data></Cell>
     <Cell><Data ss:Type="String">XDSDocumentEntry.classCode</Data></Cell>
     <Cell><Data ss:Type="String">XDSDocumentEntry.typeCode</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s83"/>

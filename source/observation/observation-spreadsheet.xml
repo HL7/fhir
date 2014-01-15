@@ -608,7 +608,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Resource(Patient|Group|Device|Location)</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Who/what this is about</Data></Cell>
+    <Cell><Data ss:Type="String">Who and/or what this is about</Data></Cell>
     <Cell><Data ss:Type="String">The thing the observation is being made about</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"><Data ss:Type="String">Observations have no value if you don't know who or what they're about.</Data></Cell>
     <Cell><Data ss:Type="String">The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated</Data></Cell>
@@ -1183,7 +1183,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">performer</Data></Cell>
-    <Cell><Data ss:Type="String">Who/what performed the observation</Data></Cell>
+    <Cell><Data ss:Type="String">Who and/or what performed the observation</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s66"/>
@@ -1657,12 +1657,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The observation is complete and verified by an authorised person</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The observation is complete and verified by an authorized person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The observation has been modified subsequent to being Final, and is complete and verified by an authorised person</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The observation has been modified subsequent to being Final, and is complete and verified by an authorized person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="19.5">
     <Cell><Data ss:Type="Number">5</Data></Cell>

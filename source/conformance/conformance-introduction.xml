@@ -25,7 +25,7 @@ presence of the <i>implementation</i> element.
 
 <h3>Describe software solution capabilities</h3>
 <p>
-In this scenario, the conformance statement describes the generic capabilities of a 
+In this scenario, the conformance statement describes generic capabilities of a 
 software application or component solution.  The solution might be available for
 purchase or other acquisition and might be deployed and configured at any number of
 independent sites.  Because it is not dependent on any particular implementation, the

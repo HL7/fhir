@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7770</WindowHeight>
-  <WindowWidth>23955</WindowWidth>
-  <WindowTopX>1590</WindowTopX>
-  <WindowTopY>5295</WindowTopY>
+  <WindowHeight>7140</WindowHeight>
+  <WindowWidth>23655</WindowWidth>
+  <WindowTopX>1740</WindowTopX>
+  <WindowTopY>5775</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -150,7 +150,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Number of sample points at each time point</Data></Cell>
-    <Cell><Data ss:Type="String">The Number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once</Data></Cell>
+    <Cell><Data ss:Type="String">The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">If there is more than one dimension, the code for the type of data will define the meaning of the dimensions (typically ECG data)</Data></Cell>
     <Cell><Data ss:Type="String">N/A (fixed to 1)</Data></Cell>
    </Row>
@@ -160,7 +160,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">((-{0,1}\d*\.{0,1}\d+)|[EUL])( ((-{0,1}\d*\.{0,1}\d+)|[EUL]))*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Decimal values with spaces, or &quot;E&quot; | &quot;U&quot; | &quot;L&quot;</Data></Cell>
-    <Cell><Data ss:Type="String">A series of data points separated by a single space (character u20). The special values &quot;E&quot; (error), &quot;L&quot; (below detection limit) and &quot;U&quot; (above detection limit) can also be used</Data></Cell>
+    <Cell><Data ss:Type="String">A series of data points which are decimal values separated by a single space (character u20). The special values &quot;E&quot; (error), &quot;L&quot; (below detection limit) and &quot;U&quot; (above detection limit) can also be used in place of a decimal value</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SLIST.digits</Data></Cell>
    </Row>
   </Table>
@@ -175,8 +175,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

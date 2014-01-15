@@ -69,7 +69,7 @@ todo: compartments
     <page title="Downloads" filename="downloads.html"/>
     <page title="Using Resources" filename="use.html"/>
     <page title="Support" filename="support.html"/>
-    <page title="Managing Resouce Identity" filename="managing.html"/>
+    <page title="Managing Resource Identity" filename="managing.html"/>
     <page title="Services / SOA" filename="services.html"/>
     <page title="Interaction Patterns" filename="pushpull.html"/>
     <page title="Common Usages" filename="usecases.html"/>

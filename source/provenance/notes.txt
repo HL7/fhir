@@ -21,7 +21,7 @@ todo:
    type (Org, Person, Provider, Patient, Application, Record, Document+)
    id
    desc
-   role (code: author | performer | overseer | enterer | attestor | source | informant | cc: | application | daemon | )
+   role (code: author | performer | overseer | enterer | attester | source | informant | cc: | application | daemon | )
 
 
 
@@ -57,7 +57,7 @@ source information:
  CDA
   confidentiaility policy
   informant
-  attestor
+  attester
 
  W3C Provenance
   information source (person, organization, policy, resource)

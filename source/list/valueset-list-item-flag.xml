@@ -38,7 +38,7 @@ and suitable for the circumstances of its use."/>
     <concept>
       <code value="03"/>
       <display value="Cancelled"/>
-      <definition value="The prescription for this medicine item was cancelled by an authorised health care provider. The patient may be advised to complete the course of the prescribed medicine. This advice is a clinical decision made based on assessment of the patient‟s clinical condition."/>
+      <definition value="The prescription for this medicine item was cancelled by an authorized health care provider. The patient may be advised to complete the course of the prescribed medicine. This advice is a clinical decision made based on assessment of the patient‟s clinical condition."/>
     </concept>
     <concept>
       <code value="04"/>

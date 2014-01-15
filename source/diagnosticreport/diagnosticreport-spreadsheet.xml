@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2013-12-29T12:43:08Z</LastSaved>
+  <LastSaved>2014-01-15T13:07:51Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -188,7 +188,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">A Diagnostic report - a combination of request information, atomic results, images, interpretation, and formatted reports</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -313,9 +313,9 @@
     <Cell><Data ss:Type="String">Laboratory, Service, Practitioner, Department, Company</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Need to know who to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis</Data><NamedCell
+    <Cell><Data ss:Type="String">Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">This is not necessarily the source of the atomic data items - it's the entity that takes responsibility for the clinical report</Data><NamedCell
+    <Cell><Data ss:Type="String">This is not necessarily the source of the atomic data items - it is the entity that takes responsibility for the clinical report</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">participation[typeCode=AUT].role[classCode=ASSIGN].scoper</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -379,9 +379,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DiagnosticServiceSection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Biochemistry, Haematology etc.</Data><NamedCell
+    <Cell><Data ss:Type="String">Biochemistry, Hematology etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI</Data><NamedCell
+    <Cell><Data ss:Type="String">The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Department, Sub-department, service, discipline</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -404,14 +404,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Physiologically Relevant time/time-period for report</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The time or time-period the observed value are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself</Data><NamedCell
+    <Cell><Data ss:Type="String">The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Observation time, Effective Time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Need to know where in the patient history to file/present this report</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">If the diagnostic procedure was performed on the patient, this is the time it was peformed. If there is specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic</Data><NamedCell
+    <Cell><Data ss:Type="String">If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -454,7 +454,7 @@
     <Cell><Data ss:Type="String">A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Data</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Need to be able to report groups of results, where the result grouping is arbitrary, but meaningful. This structure is recursive - groups can can contain groups. The base group doesn't usually contain a group name, but nested groups always do</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Need to be able to report groups of results, where the result grouping is arbitrary, but meaningful. This structure is recursive - groups can contain groups. The base group does not usually contain a group name, but nested groups always do</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">outboundRelationship[typeCode=COMP].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -507,11 +507,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Nested Report Group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping</Data><NamedCell
+    <Cell><Data ss:Type="String">A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Battery, Organiser</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Nested report groups beyond the first level are not used often, but arise in structured pathology reports, and where there is more than one sensitivity assessment per discovered organism</Data><NamedCell
+    <Cell ss:Index="13"><Data ss:Type="String">Nested report groups beyond the first level are not used often, but arise in structured pathology reports, and where there are more than one sensitivity assessment per discovered organism</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">outboundRelationship[typeCode=COMP].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -579,11 +579,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Comment about the image (e.g. explanation)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features</Data><NamedCell
+    <Cell><Data ss:Type="String">A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">The provider of the report should make a comment about each image they include in the report</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">The provider of the report should make a comment about each image included in the report</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The comment sbould be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion</Data><NamedCell
+    <Cell><Data ss:Type="String">The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16" ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -607,12 +607,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Clinical Interpretation of test results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Concise and clinically contextualised narrative interpretation of the diagnostic report</Data><NamedCell
+    <Cell><Data ss:Type="String">Concise and clinically contextualized narrative interpretation of the diagnostic report</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Report</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Need to be able to provide a conclusion that is not lost amongst the basic result data</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Typically, a report is either [all data, no narrative (e.g. Core lab)] or [a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density)], or [all narative (e.g. typical imaging report, histopathology)]. In all these cases, the narrative goes in &quot;text&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">Typically, a report is either [all data, no narrative (e.g. Core lab)] or [a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density)], or [all narrative (e.g. typical imaging report, histopathology)]. In all of these cases, the narrative goes in &quot;text&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">inboundRelationship[typeCode=&quot;SPRT&quot;].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -648,7 +648,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Gives Laboratory the ablilty to provide its own fully formatted report for clinical fidelity</Data><NamedCell
+    <Cell ss:Index="12"><Data ss:Type="String">Gives Laboratory the ability to provide its own fully formatted report for clinical fidelity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Application/pdf is recommended as the most reliable and interoperable in this context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -676,9 +676,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -686,14 +686,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1141,22 +1143,22 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The report is complete and verified by an authorised person</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The report is complete and verified by an authorized person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">corrected</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The report has been modified subsequent to being Final, and is complete and verified by an authorised person</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The report has been modified subsequent to being Final, and is complete and verified by an authorized person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The report has been modified subsequent to being Final, and is complete and verified by an authorised person, and data has been changed</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The report has been modified subsequent to being Final, and is complete and verified by an authorized person, and data has been changed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">appended</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The report has been modified subsequent to being Final, and is complete and verified by an authorised person. New content has been added, but existing content hasn't changed</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>

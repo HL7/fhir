@@ -17,7 +17,7 @@ excludes AdverseReactions and AllergyIntolerances as those are handled
 with their own resources.
 </p>
 <p>
-Condition may be used to record positive aspects of the health state
+The Condition resource may be used to record positive aspects of the health state
 of a patient (e.g. pregnancy) as well as the major use, which is for problems/concerns (e.g. hypertension).
 </p>
 <p>

@@ -13,7 +13,7 @@ Notes:
  <li>If <i>MessageHeader.source.endpoint</i> and <i>MessageHeader.destination.endpoint</i>, are literal URLs, then they SHOULD identify
   the addresses to which messages can be be delivered. If they are logical URIs (i.e. non-dereferenceable), 
   message delivery intermediaries must know how to deliver the message to the destination application. </li>
- <li>The author and the receiver are not the actual technical systems - these are the human or organisations that make use of the technical systems</li>
+ <li>The author and the receiver are not the actual technical systems - these are the human or organizations that make use of the technical systems</li>
  <li>A receiver is not obligated to reject messages which do not explicitly identify it as receiver (e.g. a tracker will get messages that are destined for some other system)</li>
 </ul>  
 

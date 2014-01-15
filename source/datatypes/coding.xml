@@ -20,7 +20,6 @@
   <WindowWidth>25815</WindowWidth>
   <WindowTopX>2310</WindowTopX>
   <WindowTopY>2625</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -125,9 +124,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A reference to a code defined by a terminology system </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Referring to codes is a ubiquitous task in healthcare models</Data><NamedCell
+    <Cell ss:Index="10"><Data ss:Type="String">References to codes are very common in healthcare models</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Codes may be defined very casually in enumerations or code lists, up to very formal definitions such as SNOMED CT - see the v3 core principles for more information</Data><NamedCell
+    <Cell><Data ss:Type="String">Codes may be defined very casually in enumerations or code lists, up to very formal definitions such as SNOMED CT - see the V3 Core Principles for more information</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CV</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CE/CNE/CWE subset one of the sets of component 1-3 or 4-6</Data><NamedCell
@@ -146,7 +145,7 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Need to be unambiguous about the source of the definition of the symbol</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The identity is a uri. It may be an OID or a UUID, which SHALL be references to the HL7 OID registry, or a URI which either comes from HL7's list of FHIR defined special URIs or from some system defined elsewhere, in which case the URI should de-reference to establish the system unambiguously</Data><NamedCell
+    <Cell><Data ss:Type="String">The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">./codeSystem</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -162,7 +161,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Version of the system - if relevant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged</Data><NamedCell
+    <Cell><Data ss:Type="String">The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./codeSystemVersion</Data><NamedCell
@@ -198,10 +197,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Representation defined by the system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A representation of the meaning of the code in the system, following the rules laid out by the system. </Data><NamedCell
+    <Cell><Data ss:Type="String">A representation of the meaning of the code in the system, following the rules of the system. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Need to be able to carry a human-readable meaning of the code for readers that do not recognize the system</Data><NamedCell
+    <Cell><Data ss:Type="String">Need to be able to carry a human-readable meaning of the code for readers that do not know  the system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CV.displayName</Data><NamedCell
@@ -218,11 +217,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">If this code was chosen directly by the user</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes</Data><NamedCell
+    <Cell><Data ss:Type="String">Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">This has been identified as a clinical safety criteria - that this exact code was chosen explicitly, rather than inferred by the system based on some rules or language processing</Data><NamedCell
+    <Cell ss:Index="10"><Data ss:Type="String">This has been identified as a clinical safety criterium - that this exact code was chosen explicitly, rather than inferred by the system based on some rules or language processing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Amongst a set of alternatives, a directly chosen coding is the most appropriate starting point for new translations</Data><NamedCell
+    <Cell><Data ss:Type="String">Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">CD.codingRationale</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -235,7 +234,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Resource(ValueSet)</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Set this coding was chosen from</Data></Cell>
     <Cell><Data ss:Type="String">The set of possible coded values this coding was chosen from or constrained by</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">The value set may influence the codes that the user can pick. Also, referencing the value set directly makes it easier to share ad-hoc code systems used across healthcare</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">The value set may influence the codes that the user can select. Also, referencing the value set directly makes it easier to share ad-hoc code systems used across healthcare</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">CD.valueSet / CD.valueSetVersion</Data></Cell>
     <Cell><Data ss:Type="String">C*E.16 - .19</Data></Cell>
    </Row>
@@ -247,11 +246,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -277,7 +277,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">Value set doesn't substitute for system</Data></Cell>
-    <Cell><Data ss:Type="String">If a valueSet is provided, a system URI SHALL also be provided.</Data></Cell>
+    <Cell><Data ss:Type="String">If a valueSet is provided, a system URI Is required</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not (exists(f:valueSet) and exists(f:code)) or exists(f:system)</Data></Cell>
    </Row>
   </Table>
@@ -288,12 +288,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -20,7 +20,6 @@
   <WindowWidth>18555</WindowWidth>
   <WindowTopX>19455</WindowTopX>
   <WindowTopY>8895</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -277,7 +276,7 @@
     <Cell><Data ss:Type="String">The status of the concept map</Data></Cell>
     <Cell><Data ss:Type="String">Identify when/if the concept map should be used.</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Allows filtering of ConceptMaps that are appropriate for use vs. not</Data></Cell>
+    <Cell><Data ss:Type="String">Allows filtering of ConceptMaps that are appropriate for use</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -287,7 +286,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">If for testing purposes, not real usage</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Allows filtering of ConceptMaps that are appropriate for use vs. not</Data></Cell>
+    <Cell><Data ss:Type="String">Allows filtering of ConceptMaps that are appropriate for use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">ConceptMap.date</Data></Cell>
@@ -438,10 +437,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -459,8 +459,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>27</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -676,7 +676,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -61,8 +61,7 @@ public class XhtmlParser {
   
 
   public XhtmlNode parseHtmlNode(XmlPullParser xpp) throws Exception {
-    XhtmlNode res = new XhtmlNode();
-    res.setNodeType(NodeType.Element);
+    XhtmlNode res = new XhtmlNode(NodeType.Element);
     res.setName(xpp.getName());
     
     for (int i = 0; i < xpp.getAttributeCount(); i++) {
@@ -743,8 +742,7 @@ public class XhtmlParser {
     readChar();
     String n = readName().toLowerCase();
     readToTagEnd();
-    XhtmlNode result = new XhtmlNode();
-    result.setNodeType(NodeType.Element);
+    XhtmlNode result = new XhtmlNode(NodeType.Element);
     result.setName(n);
     unwindPoint = null;
     List<XhtmlNode> p = new ArrayList<XhtmlNode>();

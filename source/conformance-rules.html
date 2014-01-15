@@ -26,11 +26,11 @@ Note: This spec uses the conformance verbs SHALL, SHOULD, and MAY as defined in 
 </p>
 <p>
 Because of its general nature and wide applicability, the rules made in this specification are generally fairly loose.
-As a consequence (unlike RFC 2119), this specification allows that different applications may not able to be interoperate 
-because of the way that they use optional features. So that applications can manage this, this specification provides 
+As a consequence (unlike RFC 2119), this specification allows that different applications may not be able to be interoperate 
+because of how they use optional features. To allow applications to manage this, FHIR provides 
 a conformance layer that implementers and  national/regional programs can use to provide a computable statement about 
 how the resources and their exchange paradigms are used to solve particular use cases. 
-The conformance layer itself is implemented using resources:
+The conformance layer itself is implemented using the following resources:
 </p>
 <table class="grid">
  <tr> <td><a href="valueset.html">Value Set</a></td> <td>Defines a set of coded values (see "<a href="terminologies.html">Using Codes</a>" for more details)</td>  </tr>
@@ -47,10 +47,10 @@ to this base specification:
  <li><a href="downloads.html#refimpl">Reference Platforms (conformant code in various languages)</a></li>
 </ul> 
 <p>
-Note that none of these are able to check complete conformance to this specification.
+Note that none of these tools are able to check complete conformance to this specification.
 </p>
 <p>
-The data elements defined in resources and data types have 3 properties that are 
+Data elements defined in resources and data types have 3 properties that are 
 directly related to conformance: Cardinality, Is-Modifier, and Must-Support.
 These interact to place conformance requirements on implementations. 
 </p>
@@ -77,7 +77,7 @@ Resources are used in many contexts, often quite removed from their primary
 use case, and sometimes even basic information is sometimes very incomplete. For this reason,
 the only elements that have a minimum cardinality of 1 are those where they
 are necessary to any understanding of the element that contains them. 
-The minimum cardinalities should not be taken as a guide to which elements
+The minimum cardinalities should not be taken as a guide to what elements
 are expected to be present in any particular use of the resource, including their normal/primary usage purpose.
 This specification may publish additional profiles that define which elements are required in 
 which situation, or alternatively, such profiles might be published by jurisdictions, vendors, or projects.
@@ -86,7 +86,7 @@ which situation, or alternatively, such profiles might be published by jurisdict
 For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
 Unless the element definition (either in this specification or the extension) defines a meaning 
 to the order explicitly, the meaning of the order is not defined, and implementations are allowed 
-to reorder the elements. Note that you cannot define a meaning for the order of the elements in 
+to reorder the elements. Note that it is not possible to define a meaning for the order of the elements in 
 a profile. When there is no definition of the meaning of the order, implementations that need 
 to choose a single element from a list of elements for some use SHALL do so based on the semantics 
 of the content of the elements that repeats. Profiles and Implementation guides may often make 
@@ -104,13 +104,13 @@ the base resource contents in this specification, or when profiles declare exten
 An element is labeled "Is-Modifier = true" if the value it contains may change the 
 interpretation of the element that contains it (including if the element is the resource as a whole). Typical examples of 
 elements that are labeled "Is-Modifier" are elements such as "status", "active", "refuted", or "certainty". 
-Whether and element is a Modifier cannot be changed when element usage is described in a 
+Whether an element is a modifier cannot be changed when element usage is described in a 
 <a href="profile.html">Resource Profile</a>.
 When an element is labeled as Is-Modifier, the documentation must be clear about why 
 it is a modifier.
 </p>
 <p>
-A typical example of an modifier element is one that negates the element that contains it. For 
+A typical example of a modifier element is one that negates the element that contains it. For 
 instance, in the following element definition:
 </p>
 <pre class="spec">&lt;<a ok="true" title="Specific reactions to a substance." class="dict" ><b>AdverseReaction</b></a> xmlns="http://hl7.org/fhir"&gt;
@@ -122,7 +122,7 @@ instance, in the following element definition:
 &lt;/AdverseReaction&gt;
 </pre>
 <p>
-the element "didNotOccurFlag" affects the entire meaning of the resource - if it is set to true, the whole resource must be understood differently, and so it is not safe for implementations to ignore it. 
+The element "didNotOccurFlag" affects the entire meaning of the resource - if it is set to true, the whole resource must be understood differently, and so it is not safe for implementations to ignore it. 
 </p>
 <p>
 Generally, elements labeled "Is-Modifier = true" also have a minimum cardinality of 1, to introduce

@@ -219,7 +219,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">ConditionCategory</Data></Cell>
     <Cell><Data ss:Type="String">E.g. complaint | symptom | finding | diagnosis</Data></Cell>
-    <Cell><Data ss:Type="String">A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition</Data></Cell>
+    <Cell><Data ss:Type="String">A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">'problem' if from PRB-3. 'diagnosis' if from DG1 segment in PV1 message</Data></Cell>
    </Row>
@@ -301,7 +301,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">0;150</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Supporting evidence</Data></Cell>
     <Cell><Data ss:Type="String">Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">The evidence may be a simple lost of coded symptoms/manifestations, or references to observations or formal assessments, or both</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Condition.evidence.code</Data></Cell>
@@ -401,6 +401,14 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>6</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>10</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

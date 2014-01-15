@@ -271,9 +271,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">DocumentClass</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Categorisation of Document</Data><NamedCell
+    <Cell><Data ss:Type="String">Categorization of Document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A categorisation for the type of the document. This may be implied by or derived from the code specified in the Document Type</Data><NamedCell
+    <Cell><Data ss:Type="String">A categorization for the type of the document. This may be implied by or derived from the code specified in the Document Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Helps humans to assess whether the document is of interest when viewing an index of documents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -292,7 +292,7 @@
     <Cell><Data ss:Type="String">Resource(Practitioner|Device|Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Who/what authored the document</Data><NamedCell
+    <Cell><Data ss:Type="String">Who and/or what authored the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for adding the information to the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -317,7 +317,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the organization or group who is responsible for ongoing maintenance of and access to the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Identifies the logical organisation to go to find the current version, where to report issues, etc. This is different to the physical location of the document, which is the technical location of the document, which host may be delegated to the management of some other organization</Data><NamedCell
+    <Cell ss:Index="11"><Data ss:Type="String">Identifies the logical organization to go to find the current version, where to report issues, etc. This is different to the physical location of the document, which is the technical location of the document, which host may be delegated to the management of some other organization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -18,14 +18,14 @@ then there would be a single base group containing a group for each specimen.
 </li>
 <li>
 There is rarely a need for more than two levels of groups. Known uses of 3 levels include the antibody code for a 
-goup of antibody related test, or the organism code for a group of isolate/sensitivities, or a set of perinatal 
+group of antibody related tests, or the organism code for a group of isolates/sensitivities, or a set of perinatal 
 measurements on a single fetus.
 </li>
 <li>
 Applications consuming diagnostic reports must take careful note of updated reports, and ensure that withdrawn reports are appropriately handled. 
 </li>
 <li>
-For applications providing diagnostic reports, a report shouldn't be final until all the individual data items
+For applications providing diagnostic reports, a report should not be final until all the individual data items
 reported with it are final or amended. If a report is withdrawn, all the results should be withdrawn by replacing 
 every result value with the Concept "withdrawn" in the internal terminology <a href="terminologies.html">"Special values"</a> 
 (url = "http://hl7.org/fhir/special-values"), and setting the conclusion (if provided) and the text narrative to some 
@@ -39,25 +39,25 @@ narrative. </li>
 This resource provides for 3 different ways of presenting the Diagnostic Report:
 </p>
 <ul>
- <li>As atomic data items: a heirarchical set of grouped references to Observation resources, one or more images, and possibly with a conclusion and/or one or more coded diagnoses</li>
+ <li>As atomic data items: a hierarchical set of grouped references to Observation resources, one or more images, and possibly with a conclusion and/or one or more coded diagnoses</li>
  <li>As narrative: an XHTML presentation in the standard resource narrative</li>
- <li>in a "presented form": A rich text representation of the report - typically a PDF</li>
+ <li>As a "presented form": A rich text representation of the report - typically a PDF</li>
 </ul>
 <p>
-Note that the conclusion and the coded diagnoses are part of the atomic data, and SHOULD be duplicated in the narrative and the presented form if it is present. 
-The narrative the presented form serve the same function: a representation of the report for a human. The presented form is included since diagnostic service reports 
+Note that the conclusion and the coded diagnoses are part of the atomic data, and SHOULD be duplicated in the narrative and in the presented form if the latter is present. 
+The narrative and the presented form serve the same function: a representation of the report for a human. The presented form is included since diagnostic service reports 
 often contain presentation features that are not easy to reproduce in the HTML narrative. Whether or not the presented form is included, the narrative must be a 
 clinically safe view of the diagnostic report; at a minimum, this could be fulfilled by a note indicating that the narrative is not proper representation of 
-the report, and the presented form must be used, or a generated view from the atomic data. However consumers of the report will best be served if the 
+the report, and that the presented form must be used, or a generated view from the atomic data. However consumers of the report will best be served if the 
 narrative contains clinically relevant data from the form. Commonly, the following patterns are used:
 </p>
 <ul>
- <li>Simple Laboratory Reports: A single set of atomic observations, and a tabular presentation in narrative. Typically this is encountered in high volume areas such as Biochemistry and Heamatology</li>
- <li>Histopathology Report: A document report in a presented form and the narrative. Possibly a few key iamges, and some coded diagnoses for registries. If the service is performing a structured report, some atomic data may be included</li>
+ <li>Simple Laboratory Reports: A single set of atomic observations, and a tabular presentation in narrative. Typically this is encountered in high volume areas such as Biochemistry and Hematology</li>
+ <li>Histopathology Report: A document report in a presented form and the narrative. Possibly a few key images, and some coded diagnoses for registries. If the service is creating a structured report, some atomic data may be included</li>
  <li>imaging Report; A document report in a presented form and the narrative, with an imaging study reference and possibly some key images. Some imaging reports such as a Bone Density Scan may include some atomic data</li>
 </ul>
 <p>
-Note that the nature of reports from the various different disciplines that provide diagnostic reports are changing quickly, 
+Note that the nature of reports from the various disciplines that provide diagnostic reports are changing quickly, 
 as expert systems provide improved narrative reporting in high volume reports, structured reporting brings additional 
 data to areas that have classically been narrative based, and the nature of the imaging and laboratory procedures are 
 merging. As a consequence the patterns described above are only examples of how a diagnostic report can be used.

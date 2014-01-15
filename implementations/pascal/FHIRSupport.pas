@@ -393,6 +393,7 @@ Type
     FLocation: String;
     FCategories : TFHIRAtomCategoryList;
     FOrigin: String;
+    FId: String;
     procedure SetFeed(const Value: TFHIRAtomFeed);
     procedure SeTFhirResource(const Value: TFhirResource);
   public
@@ -461,6 +462,11 @@ Type
       The originalId of the resource - if known
     }
     Property originalId : String read ForiginalId write ForiginalId;
+
+    {@member Id
+      The underlying id, if there is one. Only used internally - not represented on the wire
+    }
+    Property Id : String read FId write FId;
 
     {@member versionId
       The ETag to go in the response
@@ -662,6 +668,12 @@ Type
     }
     {!script nolink}
     function makeBinary : TFhirBinary;
+
+    {@member makeBinary
+      make a new Binary resource
+    }
+    {!script nolink}
+    function makeBinaryContent(source : TAdvBuffer; mimeType : String) : TFhirBinary;
 
     {@member makeRequest
       make a new Fhir request (for a conversion parameter)
@@ -1093,6 +1105,13 @@ end;
 function TFHIRFactory.makeBinary: TFhirBinary;
 begin
   result := TFhirBinary.create;
+end;
+
+function TFHIRFactory.makeBinaryContent(source: TAdvBuffer; mimeType: String): TFhirBinary;
+begin
+  result := makeBinary;
+  result.Content.Assign(source);
+  result.ContentType := mimeType;
 end;
 
 function TFHIRFactory.makeReference(id: String): TFhirResourceReference;

@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -143,14 +142,14 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">DeviceKind</Data></Cell>
     <Cell><Data ss:Type="String">What kind of device this is</Data></Cell>
-    <Cell><Data ss:Type="String">Describes what kind of device that this </Data></Cell>
+    <Cell><Data ss:Type="String">A kind of this device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device.manufacturer</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Name of device manufacturer</Data></Cell>
-    <Cell><Data ss:Type="String">The name of the manufacturer</Data></Cell>
+    <Cell><Data ss:Type="String">A name of the manufacturer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Device.model</Data></Cell>
@@ -186,7 +185,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Lot number of manufacture</Data></Cell>
-    <Cell><Data ss:Type="String">Lot number of manufacture</Data></Cell>
+    <Cell><Data ss:Type="String">Lot number assigned by the manufacturer</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Alphanumeric Maximum 20</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -202,7 +201,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Organization responsible for device</Data></Cell>
-    <Cell><Data ss:Type="String">The organization that is responsible for the provision and ongoing maintenance of the device</Data></Cell>
+    <Cell><Data ss:Type="String">An organization that is responsible for the provision and ongoing maintenance of the device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Device.location</Data></Cell>
@@ -216,6 +215,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If the resource is affixed to a person</Data></Cell>
+    <Cell><Data ss:Type="String">Patient information, if the resource is affixed to a person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Device.contact</Data></Cell>
@@ -231,7 +231,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Network address to contact device</Data></Cell>
     <Cell><Data ss:Type="String">A network address on which the device may be contacted directly</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">if the device is running a FHIR server, the network address should  be the root URL from which a conformance statement may be retrieved</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">If the device is running a FHIR server, the network address should  be the root URL from which a conformance statement may be retrieved</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -241,6 +241,21 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Selected/>
+   <TopRowVisible>2</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>10</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -307,7 +322,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -362,12 +376,14 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">location</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">A location, where the resource is found</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Device.location</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">Patient information, if the resource is affixed to a person</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">Device.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -392,8 +408,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

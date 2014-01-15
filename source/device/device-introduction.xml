@@ -7,8 +7,8 @@ This resource is primarily used for recording which device performed an action a
 If the device is implanted in a patient, then the patient element will be present, and there would be no location. 
 </p>
 <p>
-Devices that are implanted in a patient differ from medications in that they are not "used up" - they remain active in the patient in an ongoing fashion.
-The <a href="medication.html">Medication resource</a> SHOULD not be used to represented implanted devices.
+Devices that are implanted in a patient differ from medications because they are not "used up" - they remain active in a patient in an ongoing fashion.
+The <a href="medication.html">Medication resource</a> SHOULD not be used to represent implanted devices.
 </p>
 
 </div>

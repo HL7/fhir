@@ -38,6 +38,7 @@ uses
   DateSupport,
 
   TextUtilities,
+  ZLib,
 
   FHIRSupport,
   FHIRParserBase,
@@ -59,7 +60,8 @@ function GetEmailAddress(contacts : TFhirContactList):String;
 Function RecogniseFHIRResourceName(Const sName : String; out aType : TFhirResourceType): boolean;
 Function RecogniseFHIRResourceManagerName(Const sName : String; out aType : TFhirResourceType): boolean;
 Function RecogniseFHIRFormat(Const sName : String): TFHIRFormat;
-function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream): TFHIRParser;
+function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream): TFHIRParser; overload;
+function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes): TFHIRParser; overload;
 Function FhirGUIDToString(aGuid : TGuid):String;
 function ParseXhtml(lang : String; content : String):TFhirXHtmlNode;
 function geTFhirResourceNarrativeAsText(resource : TFhirResource) : String;
@@ -127,6 +129,9 @@ type
     function hint(source, typeCode, path : string; test : boolean; msg : string) : boolean;
   end;
 
+function ZCompressBytes(const s: TBytes): TBytes;
+function ZDecompressBytes(const s: TBytes): TBytes;
+
 implementation
 
 
@@ -144,6 +149,18 @@ begin
   else
     result := TFHIRJsonParser;
 
+end;
+
+function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes): TFHIRParser;
+var
+  mem : TBytesStream;
+begin
+  mem := TBytesStream.Create(content);
+  try
+    result := MakeParser(lang, aformat, mem);
+  finally
+    mem.Free;
+  end;
 end;
 
 function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream): TFHIRParser;
@@ -1159,6 +1176,30 @@ begin
     if Item(i).systemST = type_ then
       result := Item(i).valueST;
 end;
+
+
+function ZCompressBytes(const s: TBytes): TBytes;
+begin
+  ZCompress(s, result);
+end;
+
+function ZDecompressBytes(const s: TBytes): TBytes;
+var
+  buffer: Pointer;
+  size  : Integer;
+begin
+  {$IFDEF WIN64}
+  ZDecompress(s, result);
+  {$ELSE}
+  ZDecompress(Pointer(s[0]),Length(s),buffer,size);
+
+  SetLength(result,size);
+  Move(buffer^,result[0],size);
+
+  FreeMem(buffer);
+  {$ENDIF}
+end;
+
 
 end.
 

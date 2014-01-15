@@ -182,7 +182,7 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A set of resources composed into a single coherent clinical statement with clinical attestation</Data></Cell>
     <Cell><Data ss:Type="String">A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. &#10;</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">To support documents, and also to capture than EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement</Data></Cell>
     <Cell><Data ss:Type="String">While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical</Data></Cell>
     <Cell><Data ss:Type="String">Document[classCode=&quot;DOC&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]</Data></Cell>
     <Cell><Data ss:Type="String">ClinicalDocument</Data></Cell>
@@ -199,7 +199,7 @@
     <Cell><Data ss:Type="String">Logical Identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">see discussion in resource definition for how these relate</Data></Cell>
+    <Cell><Data ss:Type="String">See discussion in resource definition for how these relate</Data></Cell>
     <Cell><Data ss:Type="String">Document.id / Document.setId</Data></Cell>
     <Cell><Data ss:Type="String">.setId</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -236,7 +236,7 @@
     <Cell><Data ss:Type="String">Composition editing time</Data></Cell>
     <Cell><Data ss:Type="String">The composition editing time, when the composition was last logically changed by the author</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">instant is used for tracking, organizing versions and searching.</Data></Cell>
+    <Cell><Data ss:Type="String">Instant is used for tracking, organizing versions and searching.</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">The Last Modified Date on the composition may be after the instant of the document was attested without being changed</Data></Cell>
     <Cell><Data ss:Type="String">.effectiveTime[type=&quot;TS&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.effectiveTime</Data></Cell>
@@ -256,8 +256,7 @@
     <Cell><Data ss:Type="String">Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Key metadata element describing the composition, used in searching/filtering.</Data></Cell>
-    <Cell><Data ss:Type="String">./code</Data></Cell>
-    <Cell><Data ss:Type="String">./code</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">./code</Data></Cell>
     <Cell><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -271,8 +270,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">DocumentClass</Data></Cell>
-    <Cell><Data ss:Type="String">Categorisation of Composition</Data></Cell>
-    <Cell><Data ss:Type="String">A categorisation for the type of the composition. This may be implied by or derived from the code specified in the Composition Type</Data></Cell>
+    <Cell><Data ss:Type="String">Categorization of Composition</Data></Cell>
+    <Cell><Data ss:Type="String">A categorization for the type of the composition. This may be implied by or derived from the code specified in the Composition Type</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code</Data></Cell>
@@ -361,10 +360,10 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Resource(Patient|Practitioner|Group|Device|Location)</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Who/what the composition is about</Data></Cell>
-    <Cell><Data ss:Type="String">Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)</Data></Cell>
+    <Cell><Data ss:Type="String">Who and/or what the composition is about</Data></Cell>
+    <Cell><Data ss:Type="String">Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">Essential metadata for searching for the composition, identifies who/what the composition/document is about</Data></Cell>
+    <Cell><Data ss:Type="String">Essential metadata for searching for the composition. Identifies who and/or what the composition/document is about</Data></Cell>
     <Cell><Data ss:Type="String">For clinical documents, this is usually the patient.</Data></Cell>
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]</Data></Cell>
     <Cell><Data ss:Type="String">.recordTarget</Data></Cell>
@@ -398,7 +397,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Resource(Practitioner|Device|Patient|RelatedPerson)</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Who/what authored the composition</Data></Cell>
+    <Cell><Data ss:Type="String">Who and/or what authored the composition</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.)</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the content.</Data></Cell>
@@ -440,7 +439,7 @@
     <Cell><Data ss:Type="String">The type of attestation the authenticator offers</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the level of officialness of the attestation.</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">Use more than one code where a single attestor has more than one mode (professional and legal are often paired)</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Use more than one code where a single attester has more than one mode (professional and legal are often paired)</Data></Cell>
     <Cell><Data ss:Type="String">unique(./modeCode)</Data></Cell>
     <Cell><Data ss:Type="String">implied by .authenticator/.legalAuthenticator</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -587,8 +586,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Full details for the event(s) the composition concents</Data></Cell>
-    <Cell><Data ss:Type="String">Full details for the event(s) the composition/documentation concents</Data></Cell>
+    <Cell><Data ss:Type="String">Full details for the event(s) the composition consents</Data></Cell>
+    <Cell><Data ss:Type="String">Full details for the event(s) the composition/documentation consents</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;SUBJ&quot;].target</Data></Cell>
@@ -707,7 +706,7 @@
     <Cell><Data ss:Type="String">!Composition.section.author</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Who/what authored the section</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Who and/or what authored the section</Data></Cell>
     <Cell><Data ss:Type="String">Identifies who is responsible for the information in the section.  (Not necessarily who typed it in.)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Identifies who is responsible for the content.</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">./participation[typeCode=&quot;AUT&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()]</Data></Cell>
@@ -782,7 +781,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -795,12 +794,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1232,7 +1230,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">preliminary</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">This is an preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified</Data></Cell>
     <Cell><Data ss:Type="String">Compositions are sometimes shared prior to being finalised</Data></Cell>
     <Cell><Data ss:Type="String">~ActStatus.active</Data></Cell>
    </Row>
@@ -1245,14 +1243,14 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">appended</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person. The modifications added new information to the composition or document, but did not revise existing content</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorized person. The modifications added new information to the composition or document, but did not revise existing content</Data></Cell>
     <Cell><Data ss:Type="String">If systems are not able to be sure whether existing information has changed or not, they should use the status &quot;amended&quot;</Data></Cell>
     <Cell><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorised person</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">The composition or document has been modified subsequent to being released as &quot;final&quot;, and is complete and verified by an authorized person</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">&lt;ActStatus.completed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">

@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10440</WindowHeight>
-  <WindowWidth>26535</WindowWidth>
-  <WindowTopX>1590</WindowTopX>
-  <WindowTopY>1830</WindowTopY>
+  <WindowHeight>9810</WindowHeight>
+  <WindowWidth>26235</WindowWidth>
+  <WindowTopX>1740</WindowTopX>
+  <WindowTopY>2310</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -134,7 +134,7 @@
     <Cell><Data ss:Type="String">Mime type of the content, with charset etc.</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate</Data></Cell>
     <Cell><Data ss:Type="String">text/plain; charset=UTF-8, image/png</Data></Cell>
-    <Cell><Data ss:Type="String">Processors of the data need to be able to tell what the data is</Data></Cell>
+    <Cell><Data ss:Type="String">Processors of the data need to be able to know how to interpret the data</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./mediaType, ./charset</Data></Cell>
     <Cell><Data ss:Type="String">ED.2+ED.3/RP.2+RP.3. Note conversion may be needed if old style values are being used</Data></Cell>
    </Row>
@@ -146,7 +146,7 @@
     <Cell><Data ss:Type="String">Human language of the content (BCP-47)</Data></Cell>
     <Cell><Data ss:Type="String">The human language of the content. The value can be any valid value according to BCP 47</Data></Cell>
     <Cell><Data ss:Type="String">en-AU</Data></Cell>
-    <Cell><Data ss:Type="String">Users need to be able to pick between the languages in a set of attachments</Data></Cell>
+    <Cell><Data ss:Type="String">Users need to be able to choose between the languages in a set of attachments</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./language</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="44.25">
@@ -168,7 +168,7 @@
     <Cell><Data ss:Type="String">An alternative location where the data can be accessed</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">http://www.acme.com/logo-small.png</Data></Cell>
     <Cell><Data ss:Type="String">The data needs to be transmitted by reference</Data></Cell>
-    <Cell><Data ss:Type="String">If both data and url are provided, the url SHALL point to the same content as the data contains. Urls may be relative references or may be made to transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it SHALL resolve to actual data. </Data></Cell>
+    <Cell><Data ss:Type="String">If both data and url are provided, the url SHALL point to the same content as the data contains. Urls may be relative references or may reference transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it SHALL resolve to actual data. </Data></Cell>
     <Cell><Data ss:Type="String">./reference/literal</Data></Cell>
     <Cell><Data ss:Type="String">RP.1+RP.2 - if they refer to a URL (see v2.6)</Data></Cell>
    </Row>
@@ -189,7 +189,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Hash of the data (sha-1, base64ed )</Data></Cell>
     <Cell><Data ss:Type="String">The calculated hash of the data using SHA-1. Represented using base64</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Included so that applications can verify that the contents of a location have not changed and also so that a signature of the xml content can implicitly sign the content of an image without having to include the data in the instance or reference the url in the signature</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Included so that applications can verify that the contents of a location have not changed and so that a signature of the content can implicitly sign the content of an image without having to include the data in the instance or reference the url in the signature</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">.integrityCheck[parent::ED/integrityCheckAlgorithm=&quot;SHA-1&quot;]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -226,14 +226,15 @@
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
+    <VerticalResolution>300</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
