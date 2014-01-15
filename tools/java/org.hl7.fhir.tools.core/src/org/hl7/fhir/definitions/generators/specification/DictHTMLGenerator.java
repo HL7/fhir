@@ -104,7 +104,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  
 	  StringBuilder b = new StringBuilder();
 	  BindingSpecification cd =  definitions.getBindingByName(e.getBindingName());
-    b.append(cd.getName()+" : ");
+    b.append(cd.getName()+": ");
     b.append(TerminologyNotesGenerator.describeBinding(cd, page));
 //    if (cd.getBinding() == Binding.Unbound)
 //      b.append(" (Not Bound to any codes)");

@@ -193,7 +193,7 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">FamilyHistory</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -217,7 +217,7 @@
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">External Id(s) for this record</Data></Cell>
-    <Cell><Data ss:Type="String">This records identifiers associated with this family history record that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
+    <Cell><Data ss:Type="String">This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Need to allow connection to a wider workflow</Data></Cell>
     <Cell ss:StyleID="s72"/>
@@ -422,8 +422,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

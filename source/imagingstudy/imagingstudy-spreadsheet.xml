@@ -326,7 +326,7 @@
     <Cell><Data ss:Type="String">ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0056</Data></Cell>
     <Cell><Data ss:Type="String">InstanceAvailability</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Availability of study (online, offline or nearlnie)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Availability of study (online, offline or nearline)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -580,7 +580,7 @@
     <Cell><Data ss:Type="String">ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0056</Data></Cell>
     <Cell><Data ss:Type="String">InstanceAvailability</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Availability of series (online, offline or nearlnie)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Availability of series (online, offline or nearline)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -758,7 +758,7 @@
     <Cell><Data ss:Type="String">ONLINE | OFFLINE | NEARLINE | UNAVAILABLE (0008,0056)</Data></Cell>
     <Cell><Data ss:Type="String">0008,0056</Data></Cell>
     <Cell><Data ss:Type="String">InstanceAvailability</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Availability of instance (online, offline or nearlnie)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Availability of instance (online, offline or nearline)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="15" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -898,9 +898,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -908,15 +908,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>39</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>41</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

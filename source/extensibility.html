@@ -34,7 +34,7 @@ As such, extensibility is a fundamental part of the design of this
 specification. Every element in a resource may have extension child elements 
 to represent additional information that is not part of the basic definition 
 of the resource. Applications should not reject resources merely because
-because they contain extensions, though they may need to reject resources 
+they contain extensions, though they may need to reject resources 
 because of the specific contents of the extensions.
 </p>
 <p>
@@ -257,7 +257,7 @@ are not required to check for unknown extensions.
 <div class="example">
 <p>
 Example: Because of a lack of clinical consensus, there's no element on <a href="procedure.html">Procedure</a> 
-for any expression of certaintly around the expression of the Allergy/Intolerance. Some systems mark their entries 
+for any expression of certainty around the expression of the Allergy/Intolerance. Some systems mark their entries 
 as "unlikely" or "probable". Applications are allowed to extend a resource with data like this: 
 </p>
 <pre class="xml">
@@ -282,7 +282,7 @@ all with the data - it can ignore it if that is safe in its own context,
 though this would not usually be the case.
 </p>
 <p>
-Whan an application that doesn't understand this extension tries
+When an application that doesn't understand this extension tries
 to process this resource, it is required to either refuse to process 
 the resource (or containing element), or provide an appropriate warning to its users. Either
 of these courses of action is potentially difficult. One option is to 
@@ -380,7 +380,7 @@ that around the information.
 For this reason, local requirements that manifest as extensions are an obstacle to 
 integration. The more the requirements are shared (i.e. regional or national scale),
 the less impact they will have. The consistent representation, definition and registration of 
-extensions that this specifiation defines cannot resolve that problem - it only provides a framework 
+extensions that this specification defines cannot resolve that problem - it only provides a framework 
 within which such local variations can be handled more easily. 
 </p>
 <p>
@@ -446,7 +446,7 @@ Each extension is defined using the following fields:
 <table class="codes">
  <tr><td>Code</td><td>Required</td><td>The name that is used as a code in a resource to identify this extension - unique in the context of the defining profile</td></tr>
  <tr><td>Context</td><td>Required</td><td>The context of this extension. See above. The context has two parts: a type, and a path which supplies the details</td></tr>
- <tr><td>Short Defn</td><td>Required</td><td>A brief description of the extension used in the XML descriptions when the extension is referenced in a profile</td></tr>
+ <tr><td>Short Definition</td><td>Required</td><td>A brief description of the extension used in the XML descriptions when the extension is referenced in a profile</td></tr>
  <tr><td>Definition</td><td>Required</td><td>A formal statement of the meaning of the content of the field</td></tr>
  <tr><td>Requirements</td><td>Optional</td><td>Identifies the reason the extension is needed</td></tr>
  <tr><td>Comments</td><td>Optional</td><td>Additional other information about the extension, including information such as use notes</td></tr>

@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p> 
-A patient encounter is further characterized by the setting in which it takes place, amongst them are ambulatory,
+A patient encounter is further characterized by the setting in which it takes place. Amongst them are ambulatory,
  emergency, home health, inpatient and virtual encounters. An Encounter encompasses the lifecycle from pre-admission, 
  the actual encounter (for ambulatory encounters), and admission, stay and discharge (for inpatient encounters). 
 During the encounter the patient may move from practitioner to practitioner and location to location.
@@ -16,9 +16,9 @@ application of business rules.
 </p>
 <p>
 There is also substantial variance from organization to organization (and between jurisdictions and countries) 
-on which business events translate to the start of a new Encounter, or what level of aggregation is used for Encounter. I.e. Each
+on which business events translate to the start of a new Encounter, or what level of aggregation is used for Encounter. For example, each
 single visit of a practitioner during a hospitalization may lead to a new instance of Encounter, but depending on
-use and systems involved, it may well be that this is aggregated to a single instance for the whole hospitalization.
+local practice and the systems involved, it may well be that this is aggregated to a single instance for a whole hospitalization.
 Even more aggregation may occur where jurisdictions introduce groups of Encounters for financial or other reasons.
 Encounters can be aggregated or grouped under other Encounters using the <i>partOf</i> element. 
 See <a href="#examples">below</a> for examples.

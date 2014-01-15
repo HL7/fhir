@@ -20,7 +20,6 @@
   <WindowWidth>21420</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -358,7 +357,7 @@
     <Cell><Data ss:Type="String">Who ordered vaccination?</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Clinician who ordered the vaccination</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">other participants - delegate to Provenance resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Other participants - delegate to Provenance resource</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">outboundRelationship.target[classCode=SBADM].participation[typeCode=AUT].COCT_MT090102UV</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">ORC-12-ordering provider</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -680,12 +679,13 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -693,14 +693,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1083,7 +1084,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

@@ -22,7 +22,7 @@ Outstanding issues:
 
 <p>
 FHIR resources can be used to build clinical documents that represent a composition:
-a set of coherent information that is a statement about healthcare information, 
+a set of coherent information that is a statement of healthcare information, 
 particularly including clinical observations and services. 
 
 A clinical document is an immutable set of resources with a fixed presentation 
@@ -52,7 +52,7 @@ in the bundle, followed by a series of other resources referenced from the <i>Co
 resource that provides guidance on how they fit together. The bundle gathers all the content
 of the document into a single XML document which may be signed and managed as required. The 
 resources include both human readable and computer processable portions. In addition, the bundle 
-may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a> and 
+may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a> 
 <a href="provenance.html">provenance</a> statements, and a signature.
 </p>
 <p>
@@ -66,9 +66,9 @@ The composition resource is the foundation of the clinical document. It:
 <p>
 Any resource referenced directly in the Composition SHALL be included in the bundle when the document 
 is assembled. Other resources that these referenced resources refer to may also be included in the 
-bundle if the document construction system chooses to. Including these additional resources will
+bundle if the document construction system chooses to so do. Including these additional resources will
 make the document bigger, but will save applications from needing to retrieve the linked resources
-if they wish to while processing the document. So whether these linked resources should be included or 
+if they need them while processing the document. Thus, whether these linked resources should be included or 
 not depends on the implementation environment.
 </p>
 <p>
@@ -105,9 +105,9 @@ element</a> that contains a KeyName element whose value is a URI that matches th
 element value for the matching attester resource.
 </p>
 <p>
-Once assembled into a bundle, the document is immutable - it's content can never be changed,
+Once assembled into a bundle, the document is immutable - its content can never be changed,
 and the document id can never be reused. Note that the document may be represented in either
-XML or JSON, and interconverted between these, or have it's character encoding changed, all
+XML or JSON, and interconverted between these, or have its character encoding changed, all
 the while remaining the same document. However the content (the set of attested resources,
 and their order) and the presentation of the document cannot change. Any additional 
 documents derived from the same composition SHALL have a different document id. 
@@ -153,7 +153,7 @@ apply to the collated narrative. This is done by asserting stylesheet links on t
 <p>
 The uri can be an absolute reference to a CSS stylesheet, or
 a relative reference to a Binary resource that carries a 
-CSS stylsheet. Stylesheet references can only refer to 
+CSS stylesheet. Stylesheet references can only refer to 
 a CSS stylesheet - other forms of stylesheet are not acceptable. 
 </p>
 <p>
@@ -283,7 +283,7 @@ of posting to them:
    
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end point for managing
    composition resources. This can be used while building a document, or after breaking a document up into 
-   it's constituent resources, or when using compositions separately from documents</td> </tr>
+   its constituent resources, or when using compositions separately from documents</td> </tr>
    
  <tr> <td><a href="extras.html#binary">[baseurl]/Binary</a></td> <td>Document Bundle</td> <td>Just store the entire document as 
    a sequence of bytes, and return exactly that sequence when requested. There is no way to find content in the /Binary end-point,

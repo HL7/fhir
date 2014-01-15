@@ -20,7 +20,6 @@
   <WindowWidth>21420</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -407,7 +406,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation | AdverseReaction | AllergyIntolerance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Patient observations supporting recommendation</Data></Cell>
-    <Cell><Data ss:Type="String">Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.</Data></Cell>
+    <Cell><Data ss:Type="String">Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]</Data></Cell>
     <Cell><Data ss:Type="String">OBX If OBX is associated with ( RXA : RXA-5-administered code = '998^No vaccine administered^CVX' ), could contain the reason the vaccine was not administered&#10;</Data></Cell>
    </Row>
@@ -430,10 +429,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -450,9 +450,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2C1:R19C1</RangeSelection>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -802,7 +801,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
