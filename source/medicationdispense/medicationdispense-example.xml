@@ -33,14 +33,8 @@
     <medication>
       <reference value="Medication/example"/>
     </medication>
-    <whenPrepared>
-      <start value="2012-05-30T16:20:00"/>
-      <end value="2012-05-30T16:20:00"/>
-    </whenPrepared>
-    <whenHandedOver>
-      <start value="2012-05-31T10:20:00"/>
-      <end value="2012-05-31T10:20:00"/>
-    </whenHandedOver>
+    <whenPrepared value="2012-05-30T16:20:00"/>
+    <whenHandedOver value="2012-05-31T10:20:00"/>
   </dispense>
   <substitution>
     <type>

@@ -520,34 +520,34 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.whenPrepared</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Period</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Dispense processing time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The time the dispense event occurred.</Data><NamedCell
+    <Cell><Data ss:Type="String">The time when the dispensed product was packaged and reviewed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">This is time of dispense (preparation).  The time of supply to the patient is a separate attribute.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">RXD-3-Date/Time Dispensed</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">RXD-3-Date/Time Dispensed</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">.effectiveTime[xmi:type=IVL_TS].low</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.whenHandedOver</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Period</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Handover time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The time the dispense event occurred.</Data><NamedCell
+    <Cell><Data ss:Type="String">The time the dispensed product was provided to the patient or their representative.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">The time of supply to the patient (pickup/handover in community or supply in inpatient).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">RXD-3-Date/Time Dispensed</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">RXD-3-Date/Time Dispensed</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">.effectiveTime[xmi:type=IVL_TS].high</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -849,7 +849,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -866,8 +866,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
