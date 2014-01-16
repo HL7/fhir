@@ -41,32 +41,26 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveSearchUri(Class<T> resourceClass, Map<String,String> parameters) {
-		//return appendHttpParameters(baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/_search"), parameters);
 		return appendHttpParameters(baseServiceUri.resolve(resourceClass.getSimpleName() +"/_search"), parameters);
 	}
 	
 	public <T extends Resource> URI resolveValidateUri(Class<T> resourceClass, String id) {
-		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/_validate/"+id);
 		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/_validate/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClass(Class<T> resourceClass) {
-		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase());
 		return baseServiceUri.resolve(resourceClass.getSimpleName());
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndId(Class<T> resourceClass, String id) {
-		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/"+id);
 		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndIdAndVersion(Class<T> resourceClass, String id, String version) {
-		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() +"/"+id+"/_history/"+version);
 		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/"+id+"/_history/"+version);
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceId(Class<T> resourceClass, String id) {
-		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/" + id + "/_history");
 		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/" + id + "/_history");
 	}
 	
@@ -79,7 +73,6 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass) {
-		//return baseServiceUri.resolve(resourceClass.getSimpleName().toLowerCase() + "/_history");
 		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/_history");
 	}
 	
@@ -87,8 +80,20 @@ public class ResourceAddress {
 		return appendHttpParameter(resolveGetHistoryForResourceType(resourceClass), "_since", getCalendarDateInIsoTimeFormat(since));
 	}
 	
-	public <T extends Resource> URI resolveGetServerTags() {
+	public <T extends Resource> URI resolveGetAllTags() {
 		return baseServiceUri.resolve("_tags");
+	}
+	
+	public <T extends Resource> URI resolveGetAllTagsForResourceType(Class<T> resourceClass) {
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/_tags");
+	}
+	
+	public <T extends Resource> URI resolveGetTagsForResource(Class<T> resourceClass, String id) {
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/" + id + "/_tags");
+	}
+	
+	public <T extends Resource> URI resolveGetTagsForResourceVersion(Class<T> resourceClass, String id, String version) {
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/"+id+"/_history/"+version + "/_tags");
 	}
 	
 	public URI resolveMetadataUri() {

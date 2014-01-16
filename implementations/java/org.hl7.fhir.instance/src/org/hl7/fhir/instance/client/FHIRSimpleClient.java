@@ -291,10 +291,40 @@ public class FHIRSimpleClient implements FHIRClient {
 		return (AtomEntry<OperationOutcome>)result.getPayload();
 	}
 	
-	public List<AtomCategory> getServerTags() {
+	public List<AtomCategory> getAllTags() {
 		AtomFeed result = null;
 		try {
-			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetServerTags(), getPreferredResourceFormat(), proxy);
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetAllTags(), getPreferredResourceFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to read this version of the resource", e);
+		}
+		return result.getTags();
+	}
+	
+	public <T extends Resource> List<AtomCategory> getAllTagsForResourceType(Class<T> resourceClass) {
+		AtomFeed result = null;
+		try {
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetAllTagsForResourceType(resourceClass), getPreferredResourceFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to read this version of the resource", e);
+		}
+		return result.getTags();
+	}
+	
+	public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id) {
+		AtomFeed result = null;
+		try {
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetTagsForResource(resource, id), getPreferredResourceFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to read this version of the resource", e);
+		}
+		return result.getTags();
+	}
+	
+	public <T extends Resource> List<AtomCategory> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
+		AtomFeed result = null;
+		try {
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetTagsForResourceVersion(resource, id, versionId), getPreferredResourceFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this version of the resource", e);
 		}

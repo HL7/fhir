@@ -479,9 +479,31 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testGetServerTags() {
-		List<AtomCategory> tags = testClient.getServerTags();
+	public void testGetAllTags() {
+		List<AtomCategory> tags = testClient.getAllTags();
 		assertTrue(tags != null && tags.size() > 0);
+	}
+	
+	@Test
+	public void testGetAllTagsForResourceType() {
+		List<AtomCategory> tags = testClient.getAllTagsForResourceType(Patient.class);
+		assertTrue(tags != null && tags.size() > 0);
+	}
+	
+	@Test
+	public void testGetTagsForResource() {
+		loadPatientResource();
+		List<AtomCategory> tags = testClient.getTagsForResource(Patient.class, testPatientId);
+		assertTrue(tags != null && tags.size() == 0);
+		unloadPatientResource();
+	}
+	
+	@Test
+	public void testGetTagsForResourceVersion() {
+		loadPatientResource();
+		List<AtomCategory> tags = testClient.getTagsForResourceVersion(Patient.class, testPatientId, testPatientVersion);
+		assertTrue(tags != null && tags.size() == 0);
+		unloadPatientResource();
 	}
 
 /*

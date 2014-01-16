@@ -255,7 +255,30 @@ public interface FHIRClient {
 	public AtomFeed transaction(AtomFeed batch);
 	
 	/**
-	 * Returns list of tags for server
+	 * Get a list of all tags on server 
+	 * 
+	 * GET [base]/_tags
 	 */
-	public List<AtomCategory> getServerTags();
+	public List<AtomCategory> getAllTags();
+	
+	/**
+	 * Get a list of all tags used for the nominated resource type 
+	 * 
+	 * GET [base]/[type]/_tags
+	 */
+	public <T extends Resource> List<AtomCategory> getAllTagsForResourceType(Class<T> resourceClass);
+	
+	/**
+	 * Get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries 
+	 * 
+	 * GET [base]/[type]/[id]/_tags
+	 */
+	public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id);
+	
+	/**
+	 * Get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries
+	 * 
+	 * GET [base]/[type]/[id]/_history/[vid]/_tags
+	 */
+	public <T extends Resource> List<AtomCategory> getTagsForResourceVersion(Class<T> resource, String id, String versionId);
 }
