@@ -23,13 +23,13 @@ in one section. A summary:
 <ul class="dense">
  <li>Communications Security - all exchange of production data should be secured using TLS/SSL (e.g. https)</li>
  <li>Authentication - Users/Clients may be authenticated in any way desired. For web-centric use, OAuth is recommended</li>
- <li>Authorization/Access Control - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not do so at present</li>
+ <li>Authorization/Access Control - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
  <li>Audit - FHIR defines <a href="provenance.html">provenance</a> and <a href="securityevent.html">security event</a> resources suitable for tracking the origins, authorship, history, status and access of resources</li>
  <li>Digital Signatures - FHIR includes several specifically reserved locations for digital signatures</li>
  <li>Attachments - FHIR allows for binary resources and attachments. These have their own concerns</li>
  <li><a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect that way resources are handled</li>
  <li>Data Management Policies - FHIR defines a set of capabilities to support data exchange.
-     Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA for exchange between instutions). 
+     Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA for exchange between institutions). 
      It is the responsibility of implementers to ensure that relevant regulations and other requirements are met</li>
 </ul>
 <p>
@@ -79,7 +79,7 @@ The security system includes the following subsystems:
 <ul>
  <li>Authentication: Identifies and Authenticates the user</li>
  <li>Access Control decision engine: decides whether FHIR operations are allowed</li>
- <li>Audit Log: records actions to allow for subsequent review and detection of intrusion or innappropriate usage</li>
+ <li>Audit Log: records actions to allow for subsequent review and detection of intrusion or inappropriate usage</li>
 </ul>
 
 <p>
@@ -145,7 +145,7 @@ Authorization/Access Control
 
 <p>
 Correctly identifying people, devices, locations and organizations is one of the foundations that any security system is built on. 
-Most uses of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
+Most applications of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
 the relevant resources and the underlying systems. Note that this isn't necessary: there is nothing in FHIR that requires or relies 
 on any security being in place, or any particular implementation. But real world usage will generally require this. 
 </p>

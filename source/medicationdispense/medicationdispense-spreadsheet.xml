@@ -388,7 +388,7 @@
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Practitioner responsible for dispensing medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The individual reponsible for dispensing the medication</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The individual responsible for dispensing the medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">RXD-10-Dispensing Provider / PRT-5-Participation Person: PRT-4-Participation='DP' (RXD-10 is deprecated)&#10;</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">.participation[typeCode=PFM].role[classCode=ASSIGN]</Data></Cell>

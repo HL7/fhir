@@ -23,7 +23,7 @@
     <reference value="http://hl7.org/fhir/v2/vs/0487"/>
   </source>
   <target>
-    <!-- standard Snomed value set for all of snomed -->
+    <!-- standard SNOMED-CT value set for all of SNOMED-CT -->
     <reference value="http://snomed.info/id"/>
   </target>
   
@@ -1908,7 +1908,7 @@
       <system value="http://snomed.info/sct"/>
       <code value="309049000"/>
       <equivalence value="equivalent"/>
-      <comments value="should be more specific what kind of lesion is observed - be more specific is it a wound, abscess, mass - specify! Ask SNOMED to mark it as a grouper term only (309049000)"/>
+      <comments value="should be more specific what kind of lesion is observed - be more specific is it a wound, abscess, mass - specify! Ask SNOMED CT to mark it as a grouper term only (309049000)"/>
     </map>
   </concept>    
 

@@ -195,11 +195,10 @@ record on a patient from an HL7 v2 message, and the only information about the p
 first name and lastname (REL-7.2 &amp; RES-7.3). In the absence of a controlled practitioner directory, 
 this is not enough information to create an identified <a href="practitioner.html">Practitioner</a> 
 resource - more than one practitioner might have the same name. 
-name. 
 </p>
 <p>
 In these circumstances, the resource is placed directly in line in the resource. <b>This SHOULD NOT be 
-done when the content can be identified properly, as once identification is lost, it is extremely difficult 
+done when the content can be identified properly, as once the identification is lost, it is extremely difficult 
 (and context dependent) to restore it again.</b>
 </p>
 <div class="example">
@@ -268,7 +267,7 @@ Some notes about use and interpretation of contained resources:
 
 <ul>
   <li>Contained resources share the same internal id resolution space as the parent resource</li>
-  <li>Contained resources SHALL NOT not contain additional contained resources</li>
+  <li>Contained resources SHALL NOT contain additional contained resources</li>
   <li>Contained resources SHOULD not contain any narrative</li>
   <li>Resources that are contained inline also "inherit" context from their parent resource. For instance, if 
     the parent resource contains a "subject", and the contained resource also has a subject element defined, 
@@ -400,7 +399,7 @@ Note that the application SHOULD not assume that the base
 service root is actually resolvable. In some circumstances, it will. 
 If the bundle has just been received from a server as a result of 
 a search or a history operation, the service root URL SHOULD match
-the URL that that client used (it is allowed not to in order to 
+the URL that the client used (it is allowed not to in order to 
 cater for proxies of various kinds). However in other 
 circumstances, where the bundle itself has been exchanged onwards
 from the point of origin, and/or stored as an entity in its own 

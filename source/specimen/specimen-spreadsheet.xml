@@ -172,7 +172,7 @@
     <Cell><Data ss:Type="String">Kind of material that forms the specimen</Data></Cell>
     <Cell><Data ss:Type="String">Kind of material that forms the specimen</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">The type can change the way that a spceimen is handled, and drives what kind of analyses can properly be performed on the specimen. It is frequently used in diagnostic work flow decision making systems</Data></Cell>
+    <Cell><Data ss:Type="String">The type can change the way that a specimen is handled, and drives what kind of analyses can properly be performed on the specimen. It is frequently used in diagnostic work flow decision making systems</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">SPM-4 and possibly SPM-5</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -317,7 +317,7 @@
     <Cell><Data ss:Type="String">Specimen.treatment.additive</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Material used in processing step</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Material used in the processing step</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">SPM-6</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -325,13 +325,13 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">down</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Direct container of specimen (tube/slide, etc)</Data></Cell>
-    <Cell><Data ss:Type="String">The container holding the specimen.  The recursive nature of containers; ie blood in tube in tray in rack is not addressed here. </Data></Cell>
+    <Cell><Data ss:Type="String">The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here. </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.container.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Id for container</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Id for the container</Data></Cell>
     <Cell><Data ss:Type="String">Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">SAC-3</Data></Cell>
    </Row>
@@ -339,7 +339,7 @@
     <Cell><Data ss:Type="String">Specimen.container.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Textual description of container</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Textual description of the container</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen.container.type</Data></Cell>
@@ -347,7 +347,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">SpecimenContainerType</Data></Cell>
     <Cell><Data ss:Type="String">Kind of container directly associated with specimen</Data></Cell>
-    <Cell><Data ss:Type="String">The type of container associated with the specimen (eg slide, aliquot, etc)</Data></Cell>
+    <Cell><Data ss:Type="String">The type of container associated with the specimen (e.g. slide, aliquot, etc)</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">SPM-27</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

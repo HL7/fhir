@@ -181,14 +181,14 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Textual description of the substance, comments</Data></Cell>
-    <Cell><Data ss:Type="String">A description of the substance - it's appearance, handling requirements, and other usage notes</Data></Cell>
+    <Cell><Data ss:Type="String">A description of the substance - its appearance, handling requirements, and other usage notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Substance.instance</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">left</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If this describes a specific package/container of the substance</Data></Cell>
-    <Cell><Data ss:Type="String">Substance may be used to desribe a kind of substance, or a specific package/container of the substance: an instance</Data></Cell>
+    <Cell><Data ss:Type="String">Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Substance.instance.identifier</Data></Cell>

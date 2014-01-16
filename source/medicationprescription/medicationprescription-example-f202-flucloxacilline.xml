@@ -41,7 +41,7 @@
     <coding>
        <system value="http://snomed.info/sct"/>
        <code value="323493005"/>
-       <display value="Injected floxacillin"/><!--SNOMED code maps to 1 gram whilst the patient receives 12 grams-->
+       <display value="Injected floxacillin"/><!--SNOMED CT code maps to 1 gram whilst the patient receives 12 grams-->
     </coding>
   </method>
   <maxDosePerPeriod><!--12g/24h-->

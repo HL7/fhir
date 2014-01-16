@@ -197,7 +197,7 @@
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">External Ids for this item</Data></Cell>
-    <Cell><Data ss:Type="String">This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
+    <Cell><Data ss:Type="String">This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s68"><Data ss:Type="String">.id</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">UID</Data></Cell>

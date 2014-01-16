@@ -1970,7 +1970,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">number</Data></Cell>
     <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">Search parameter SHALL be a number (an whole number, or a decimal)</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Search parameter SHALL be a number (a whole number, or a decimal)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>

@@ -36,7 +36,7 @@ whether the destination system will pull the data.
 </p>
 <table class="grid">
   <tr> <td>Push</td> <td>As new information becomes available, the source system sends the information to the 
-    destination. It expects the destination system to maintain and index it as it receives it. 
+    destination. It expects the destination system to maintain and index the information on receipt. 
     The source system must trust the destination system to manage access/security appropriately</td> </tr>
   <tr> <td>Pull</td> <td>The source system maintains and indexes data. When the destination system
     wants or needs the information, it must retrieve it form the source system. Either the 
@@ -52,7 +52,7 @@ on a regular basis, and when it finds any, it can push it at the destination.
 <p>
 Which combination of push, pull and interface repositories is appropriate for any given 
 context depends on a host of factors around deployment architecture, network and business 
-topology, security policies etc. However it is often constrained by the capabilities of 
+topology, security policies, etc. However, it is often constrained by the capabilities of 
 the various systems and the standards used in the exchange.
 </p>
 <p>
@@ -62,7 +62,7 @@ The FHIR specification supports and enables both push and pull:
  <li><b>REST</b>: The REST API can be used in either fashion - this is discussed in more depth below</li>
  <li><b>Messages</b>: FHIR defines message events for both push and pull</li>
  <li><b>Services</b>: Services may be defined to support either model</li>
- <li><b>Documents</b>: This question doesn't apply, because documents are bundles that are exchanged using one of the other 3 methods</li>
+ <li><b>Documents</b>: This question doesn't apply, because documents are bundles that are exchanged using one either REST, messages, or services</li>
 </ul>
 
 <h3>Push and Pull on a RESTful interface</h3>

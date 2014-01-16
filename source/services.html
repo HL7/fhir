@@ -35,13 +35,12 @@ or consumer.
 <p>
 Though FHIR Resources are primarily designed with for the <a href="http.html">RESTful HTTP-based implementation</a>,
 it is not necessary to use a RESTful interface when exchanging the resources; one way that they can be exchanged 
-is in the context of services. Service Oriented Architecture (SOA) is an architecture pattern using services t
-o encapsulate and provide discreet pieces of application functionality to each other. Services communicate 
+is in the context of services. Service Oriented Architecture (SOA) is an architecture pattern using services to encapsulate and provide discreet pieces of application functionality to each other. Services communicate 
 by invoking public interfaces and exchanging information (as parameters and outputs) in accordance to a 
 well-defined service contract. 
 </p>
 <p>
-FHIR resources or <a href="extras.html#bundle">bundles</a> may be used as the parameters or ouputs of service interfaces.
+FHIR resources or <a href="extras.html#bundle">bundles</a> may be used as the parameters or outputs of service interfaces.
 </p>
 <p>
 Generally, the definition of particular services is a domain or context specific task, and it is anticipated
@@ -96,7 +95,7 @@ be exchanged with REST, the metadata will be required.
 </p>
 <p><b>Resource Identity</b></p>
 <p>
-All resources have a single identity (the full URL, and a logical id which may be maintained
+All resources have a single identity (the full URL), and a logical id which may be maintained
 as the resource moves from server to server (see <a href="managing.html">"Managing Resource Identity"</a> for further 
 discussion). Since this identity is used by any reference to the resource, it must be exchanged 
 with the resource so that references from other resources to the one being exchanged can 
@@ -139,14 +138,14 @@ Services that exchange resources SHOULD include version information when the res
 When using <a href="http.html">RESTful exchange</a>, <a href="messaging.html">messaging</a>, and <a href="documents.html">document based</a> 
 exchange, the <a href="conformance.html">conformance statement</a> allows authoring and reading 
 applications to describe how they use a resource. The conformance statement supports trading partner
-negotation from specification time through to run-time discovery. The conformance statement doesn't
+negotiation from specification time through to run-time discovery. The conformance statement doesn't
 provide any equivalent way to make declarations about services, though this might be added in 
 the future if common requirements emerge. Services are expected to make appropriate arrangements
 around discovery and compatibility, though it is expected that these will vary considerably. 
 </p>
 <p>
 Services that exchange resources MAY choose to provide support for describing and 
-echanging descriptions of service implementations.
+changing descriptions of service implementations.
 </p>
 
 <a name="architecture"> </a>
@@ -175,7 +174,7 @@ carry this extra weight of choice and obligation, even when it might not be nece
 <p>
 All resources represent the various states of the record and real world entities involved
 in a transaction explicitly. This is necessary for use in RESTful and document contexts,
-where the is no explicit transaction. Service interactions are typically associated with
+where there is no explicit transaction. Service interactions are typically associated with
 implicit semantics - a request to change the status of a particular resource to something
 else, for example. The fact that resources carry this state explicitly as well as the 
 transaction fixing state implicitly creates duplication between the two, and this will

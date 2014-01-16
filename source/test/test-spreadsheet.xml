@@ -99,8 +99,8 @@
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
-    <Cell><Data ss:Type="String">Snomed Qualifier Code</Data></Cell>
-    <Cell><Data ss:Type="String">Loinc Qualifier Code</Data></Cell>
+    <Cell><Data ss:Type="String">SNOMED CT Qualifier Code</Data></Cell>
+    <Cell><Data ss:Type="String">LOINC Qualifier Code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Test</Data></Cell>

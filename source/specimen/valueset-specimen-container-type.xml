@@ -6,7 +6,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="Containers which may hold specimens or specimen containers - all snomed specimen containers"/>
+  <description value="Containers which may hold specimens or specimen containers - all SNOMED CT specimen containers"/>
   <status value="draft"/>
   <compose>  
     <include>

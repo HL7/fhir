@@ -178,7 +178,7 @@
   </xs:element>
   <xs:element name="type">
     <xs:annotation>
-      <xs:documentation>This must be a valid FHIR data type as desribed above, or "Extension: x,y,z" which indicates that the extension codes x,y, and z will be contained in the extension</xs:documentation>
+      <xs:documentation>This must be a valid FHIR data type as described above, or "Extension: x,y,z" which indicates that the extension codes x,y, and z will be contained in the extension</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">

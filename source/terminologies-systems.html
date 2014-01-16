@@ -42,14 +42,14 @@ here, the correct URI may be determined by working through the following list, i
 
  <tr>
    <td>http://snomed.info/sct <a name="http://snomed.info/sct"> </a></td>
-   <td>SNOMED CT: (<a href="http://ihtsdo.org">IHTSDO</a>) Concept IDs, Expressions and Snomed Legacy codes (e.g. SCTV3 codes).</td>
+   <td>SNOMED CT: (<a href="http://ihtsdo.org">IHTSDO</a>) Concept IDs, Expressions and SNOMED Legacy codes (e.g. SCTV3 codes).</td>
    <td>This identifies a code defined in the SNOMED CT ecosystem managed by <a href="http://www.ihtsdo.org">IHTSDO</a>. 
      Note that SNOMED CT is a distributed code systems, and there is no single distribution that contains all defined SNOMED CT codes in all contexts of use. 
      <br/>Rules:
      <ul>
       <li>Description Ids are not valid.</li>
-      <li>Other identifiers associated with Snomed Concepts using the RF2 identifier infrastructure are not valid in this namespace</li>
-      <li>Expressions use the compositional grammar defined in the <a href="http://ihtsdo.org/fileadmin/user_upload/doc/download/doc_TechnicalImplementationGuide_Current-en-US_INT_20130731.pdf">Snomed Technical Implementation Guide</a>. Expressions SHOULD NOT contain terms, only concept IDs. </li>
+      <li>Other identifiers associated with SNOMED CT Concepts using the RF2 identifier infrastructure are not valid in this namespace</li>
+      <li>Expressions use the compositional grammar defined in the <a href="http://ihtsdo.org/fileadmin/user_upload/doc/download/doc_TechnicalImplementationGuide_Current-en-US_INT_20130731.pdf">SNOMED CT Technical Implementation Guide</a>. Expressions SHOULD NOT contain terms, only concept IDs. </li>
      </ul>
      <br/>OID=2.16.840.1.113883.6.96</td>
  </tr>
@@ -111,7 +111,7 @@ here, the correct URI may be determined by working through the following list, i
    <td><a href="valueset-dicom-dcim.html">http://nema.org/dicom/dicm</a> <a name="http://nema.org/dicom/dicm"> </a></td>
    <td>DICOM Code Definitions (DCM)<br/>
    the meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard</td>
-   <td><br/>v2/Dicom code="DCM". OID=1.2.840.10008.2.16.4</td>
+   <td><br/>v2/DICOM code="DCM". OID=1.2.840.10008.2.16.4</td>
  </tr> 
 </table>
  
@@ -126,7 +126,7 @@ here, the correct URI may be determined by working through the following list, i
 <ul>
  <li>the HL7 OID Registry</li>
  <li>the documentation associated with the identifier</li>
- <li>consulting the owner of the identfier</li>
+ <li>consulting the owner of the identifier</li>
  <li>asking on the HL7 vocabulary mailing list</li>
 </ul>
 
@@ -212,13 +212,13 @@ WY: urn:oid:2.16.840.1.113883.4.3.56	<!-- Wyoming --> <br/>
 <p>
 <b>Important Note:</b> This list of names is incomplete and subject to change.
 Some values may be dropped and others will likely be added in the coming months as HL7
-institutes a formal processes around URIs in vocabulary.
+institutes formal processes around URIs in vocabulary.
 </p>
 
 <p>
 Note that some of the URNs in this list follow the URN specification in <a href="http://tools.ietf.org/html/rfc5141">RFC 5141</a> for referring to 
 standards published by ISO, such as urn:std:iso:11073:10101. Where ISO standards define codes with meanings, and there is no entry in the list above,
-and they are not registered in the HL7 OID registry, The default URN for the code system is that defined by the RFC 5141.
+and they are not registered in the HL7 OID registry, the default URN for the code system is that defined by the RFC 5141.
 </p>
 
 

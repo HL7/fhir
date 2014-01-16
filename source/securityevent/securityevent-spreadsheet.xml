@@ -185,7 +185,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifier for a family of the event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">This identifies the audited function. For &quot;Execute&quot; Event Action Code audit records, this identifies the application function performed.</Data><NamedCell
+    <Cell><Data ss:Type="String">This identifies the performed function. For &quot;Execute&quot; Event Action Code audit records, this identifies the application function performed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">e.g., a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -294,7 +294,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">RoleIdCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">DicomRoleId</Data><NamedCell
+    <Cell><Data ss:Type="String">DICOMRoleId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">User roles (e.g. local RBAC codes)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -377,7 +377,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Indicator that the user is or is not the requestor, or initiator, for the event being audited.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">This value is used to distinguish between requestor-users and recipient-users. For example, one person may initiate a report-output to be sent to a another user </Data><NamedCell
+    <Cell><Data ss:Type="String">This value is used to distinguish between requestor-users and recipient-users. For example, one person may initiate a report-output to be sent to another user </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">There can only be one initiator. If the initiator is not clear, then do not choose any one participant as the initiator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -573,7 +573,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ParticipantObjectIDTypeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">DicomObjectIdType</Data><NamedCell
+    <Cell><Data ss:Type="String">DICOMObjectIdType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Describes the identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -615,7 +615,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">For some detailed audit analysis it may be necessary to indicate a more granular type of participant, based on the application role it serves</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">See Rfc 3881 for rules concerning matches between role and type</Data><NamedCell
+    <Cell><Data ss:Type="String">See RFC 3881 for rules concerning matches between role and type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -740,8 +740,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -784,7 +784,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">Participant Identification</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">SecurityEvent.participant</Data></Cell>
-    <Cell><Data ss:Type="String">Either an userId or a reference, but not both</Data></Cell>
+    <Cell><Data ss:Type="String">Either a userId or a reference, but not both</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:userId) != exists(f:reference)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1226,7 +1226,7 @@
     <Cell><Data ss:Type="String">valueset-security-event-sub-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DicomRoleId</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DICOMRoleId</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Role(s) the user plays (from RBAC)</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -1234,7 +1234,7 @@
     <Cell ss:Index="7" ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DicomMediaType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DICOMMediaType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Used when the event is about exporting/importing onto media</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -1250,7 +1250,7 @@
     <Cell ss:Index="7" ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DicomAlertType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DICOMAlertType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The type of source where event originated</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -1259,7 +1259,7 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DicomObjectIdType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">DICOMObjectIdType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Describes the identifier</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">value set</Data></Cell>

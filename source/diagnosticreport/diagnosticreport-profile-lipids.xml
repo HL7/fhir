@@ -248,9 +248,9 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="Default"><Data ss:Type="String">http://loinc.org#57698-3|Lipid panel with direct LDL - Serum or Plasma</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Fix the name of the report to an appropriate LOINC code</Data></Cell>
-    <Cell><Data ss:Type="String">Loinc Code for Lipid Panel with LDL</Data></Cell>
-    <Cell><Data ss:Type="String">Loinc Code for Lipid Panel with LDL</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Loinc code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL</Data></Cell>
+    <Cell><Data ss:Type="String">LOINC Code for Lipid Panel with LDL</Data></Cell>
+    <Cell><Data ss:Type="String">LOINC Code for Lipid Panel with LDL</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.results.group</Data></Cell>
@@ -379,7 +379,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s74" ss:HRef="http://loinc.org/#35200-5|Cholesterol"><Data
       ss:Type="String">http://loinc.org#35200-5|Cholesterol</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single Loinc Code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
     <Cell><Data ss:Type="String">Cholesterol</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
@@ -593,7 +593,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s74" ss:HRef="http://loinc.org/#35217-9|Triglyceride"><Data
       ss:Type="String">http://loinc.org#35217-9|Triglyceride</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single Loinc Code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
     <Cell><Data ss:Type="String">Triglyceride</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s71">
@@ -774,7 +774,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s74" ss:HRef="http://loinc.org/#2085-9|HDL Cholesterol"><Data
       ss:Type="String">http://loinc.org#2085-9|HDL Cholesterol</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single Loinc Code</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Fix value to a single LOINC Code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">HDL Cholesterol</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>

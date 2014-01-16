@@ -16,7 +16,7 @@
       <code value="8480-6"/>
       <display value="Systolic blood pressure"/>
     </coding>
-    <!-- Snomed Codes - becoming more commonsysto -->
+    <!-- SNOMED CT Codes - becoming more commonsysto -->
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="271649006"/>

@@ -717,7 +717,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Organization that is the custodian of the patient record</Data></Cell>
     <Cell><Data ss:Type="String">Organization that is the custodian of the patient record</Data></Cell>
-    <Cell><Data ss:Type="String">Need to know who recognises this patient record, manages and updates it</Data></Cell>
+    <Cell><Data ss:Type="String">Need to know who recognizes this patient record, manages and updates it</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -1266,7 +1266,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Dicom</Data></Cell>
+    <Cell><Data ss:Type="String">DICOM</Data></Cell>
     <Cell><Data ss:Type="String">Taken from a DICOM sample</Data></Cell>
     <Cell><Data ss:Type="String">dicom</Data></Cell>
     <Cell><Data ss:Type="String">patient-example-dicom.xml</Data></Cell>

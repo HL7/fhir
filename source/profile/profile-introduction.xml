@@ -247,7 +247,7 @@ TODO: how does the discriminator work with resource references? - This is a open
 </ol>
 <p>
 The value of the discriminator is either a simple 
-name - the name of a child element, or an URI, which identifies an extension that serves
+name - the name of a child element, or a URI, which identifies an extension that serves
 as the discriminator.
 </p>
 <p>

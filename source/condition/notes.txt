@@ -60,7 +60,7 @@ PROBLEM LIST - NO KNOWN PROBLEMS
                                      <id root="84a64e5c-eeff-4447-95b5-a0b754967ab7"/>
                                      <code code="55607006" displayName="Problem"
                                            codeSystem="2.16.840.1.113883.6.96"
-                                           codeSystemName="SNOMED CT" />
+                                           codeSystemName="SNOMED-CT" />
 <text>
 <reference value="#noproblems1"/>
 </text>
@@ -72,7 +72,7 @@ PROBLEM LIST - NO KNOWN PROBLEMS
                                      <value xsi:type="CD"
                                            code="55607006"
                                            codeSystem="2.16.840.1.113883.6.96"
-                                           codeSystemName="SNOMED CT"
+                                           codeSystemName="SNOMED-CT"
                                            displayName="Problem" />
                                 </observation>
                            </entryRelationship>

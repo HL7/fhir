@@ -6,7 +6,7 @@
       <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains medicvation form concepts.</p>
       <p>Possible sources include:</p>
       <ul>
-        <li>Snomed CT - Children of SCTID: xxxxxxxx "xxxxxxxxxxxxxx"</li>
+        <li>SNOMED CT - Children of SCTID: xxxxxxxx "xxxxxxxxxxxxxx"</li>
         <li>ISO 11239 - Medication form</li>
 <!--        <li>NCIt - Children of NCIt concept C66729 "route of administration" (note: this covers SDTM and FDA route of administration concepts)</li>
         <li>EDQM - Route of administration</li>
@@ -14,19 +14,19 @@
       <p>Snomed is being used here as the example terminology.</p>
     </div>
   </text>
-  <name value="Snomed Form Codes"/>
+  <name value="SNOMED CT Form Codes"/>
   <publisher value="FHIR Project team"/>
   <telecom>  
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="This value set includes all Form codes from Snomed - provided as an exemplar"/>
+  <description value="This value set includes all Form codes from SNOMED CT - provided as an exemplar"/>
   <status value="draft"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <!-- Snomed CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value" -->
+        <!-- SNOMED CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value" -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="284009009"/>

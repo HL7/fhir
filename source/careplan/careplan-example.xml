@@ -6,7 +6,7 @@
            <p> A simple care plan to indicate a patient taking their weight once a day because of obesity.
             Some Notes: </p>
             <ul>
-            <li>It would be good to have some way of specifying/coding a goal. eg what the target weight is</li>
+            <li>It would be good to have some way of specifying/coding a goal. e.g. what the target weight is</li>
             <li>In the codeable concepts I've been lazy and just put the text. There should, of course, be a code behind these</li>
         </ul>
         </div>

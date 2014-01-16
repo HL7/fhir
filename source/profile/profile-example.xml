@@ -27,7 +27,7 @@
  <i class="inherited">&lt;<span title="The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI."><b>serviceCategory</b></span>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>0..1</b></span> <span style="color: darkgreen"><a href="http://hl7.org/fhir/datatypes.html#CodeableConcept">CodeableConcept</a></span> <span style="color: navy"><a style="color: navy" href="valueset-diagnostic-service-sections.html">Biochemistry, Haematology etc.</a></span><span style="color: Gray"> --&gt;</span>&lt;/serviceCategory&gt;</i>
  <i class="inherited">&lt;<span title="The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient."><b>diagnostic[x]</b></span>&gt;<span style="color: Gray">&lt;!--</span> <span style="color: brown"><b>1..1</b></span> <span style="color: darkgreen"><a href="http://hl7.org/fhir/datatypes.html#dateTime">dateTime</a>|<a href="http://hl7.org/fhir/datatypes.html#Period">Period</a></span> <span style="color: navy">Diagnostically relevant time of diagnostic report</span><span style="color: Gray"> --&gt;</span>&lt;/diagnostic[x]&gt;</i>
  &lt;<span title="Lipid Lab Results."><b>results</b></span>&gt;  <span style="color: Gray">&lt;!-- <span style="color: brown"><b>1..1</b></span> Lipid Lab Results --&gt;</span>
-  &lt;<span title="Loinc Code for Lipid Panel with LDL.">name</span>&gt;
+  &lt;<span title="LOINC Code for Lipid Panel with LDL.">name</span>&gt;
     &lt;coding&gt;
       &lt;code value=&quot;http://loinc.org&quot;/&gt;
       &lt;system value=&quot;57698-3&quot;/&gt;
@@ -551,9 +551,9 @@
     <element>
       <path value="DiagnosticReport.results.name"/>
       <definition>
-        <short value="Loinc Code for Lipid Panel with LDL"/>
-        <formal value="Loinc Code for Lipid Panel with LDL."/>
-        <comments value="Loinc code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
+        <short value="LOINC Code for Lipid Panel with LDL"/>
+        <formal value="LOINC Code for Lipid Panel with LDL."/>
+        <comments value="LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
         <min value="1"/>
         <max value="1"/>
         <type>

@@ -22,7 +22,7 @@ Notes about the Query resource:
 </li>
  <li>Parameter names are mandatory, and values are optional. Parameters with missing values are ignored when processing the query</li>
  <li>Parameter names do not need to be unique. The interpretation of multiple search parameters is as described above</li>
- <li>There SHALL be at least one parameter provided with a search - a search request without any request cannot be processed</li>
+ <li>There SHALL be at least one parameter provided with a search - a search request without any parameters cannot be processed</li>
  <li>The search engine SHALL return the parameters used to process the search so the client knows what search was performed</li>
  <li>The links to first, previous, next and last pages in the query result set are provided at the discretion of the server. 
  The client performs a new query using those parameters to retrieve the specified pages. If no parameters are returned, there is no link to follow</li>
@@ -36,14 +36,14 @@ Notes about the Query resource:
 <p>
 In order to initiate a message-based query, a sender sends a message consisting
 of a <a href="messaging.html">Message</a> resource, and a <i>Query</i> resource.
-The message resource routes the message to the correct destination, and the 
+The message header resource routes the message to the correct destination, and the 
 query contains the parameters of the search that is requested. See 
 <a href="query-examples.html">the examples</a> for an example query request 
 message.
 </p>
 <p>
 The receiver processes the message, and then returns a message with a message
-header, a query with a response details, and either an error in the query 
+header, a query with response details, and either an error in the query 
 response, or a set of resources that meet the 
 query criteria. See <a href="query-examples.html">the examples</a> for an 
 example query response message.

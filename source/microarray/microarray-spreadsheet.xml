@@ -521,7 +521,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell><Data ss:Type="String">Patient described by the the microarray</Data></Cell>
+    <Cell><Data ss:Type="String">Patient described by the microarray</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">union</Data></Cell>
     <Cell><Data ss:Type="String">Microarray.subject.patient</Data></Cell>

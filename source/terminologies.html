@@ -90,11 +90,11 @@ Note the following additional rules about these codes:
 <a name="codeable"> </a>
 <h3>Complex Coded Data Types</h3>
 <p>
-Elements with type <a href="datatypes.html#CodeableConcept">CodeableConcept</a> or <a href="datatypes.html#Coding">Coding</a>, 
+Elements with type <a href="datatypes.html#CodeableConcept">CodeableConcept</a> or <a href="datatypes.html#Coding">Coding</a> 
 are bound to a value set that defines a list of coded values that can be used. Because of the size and complexity of 
 these value sets, schemas are not used to enforce the correct use of valid coded values. Instead, 
 formal definitions of the value sets are provided using the <a href="valueset.html">Value Set</a> resource, and a cascading set of 
-rules is used to control how tightly the actual coded values that can be used are controlled by the value set.
+rules is used to control how tightly the actual coded values are controlled by the value set.
 In the base FHIR specification, the binding may be called "incomplete" or "example". 
 </p>
 

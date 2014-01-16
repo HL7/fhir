@@ -253,7 +253,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Human language description of the concept map</Data></Cell>
     <Cell><Data ss:Type="String">A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.</Data></Cell>
-    <Cell><Data ss:Type="String">Human understandibility</Data></Cell>
+    <Cell><Data ss:Type="String">Human understandability</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">The description is not intended to describe the semantics of the concept map. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes.</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
@@ -844,7 +844,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Speciment Type</Data></Cell>
-    <Cell><Data ss:Type="String">Specimen Type v2 -&gt; Snomed Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">Specimen Type v2 -&gt; SNOMED-CT Mapping</Data></Cell>
     <Cell><Data ss:Type="Number">102</Data></Cell>
     <Cell><Data ss:Type="String">conceptmap-example-specimen-type.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>

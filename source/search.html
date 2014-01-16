@@ -107,7 +107,7 @@ additional parameters if they wish.
 
 <a name="ptypes" />
 <h3>Search Parameter Types</h3>
-<p>Each search parameter is defined a type that defines how the search parameter
+<p>Each search parameter is defined with a type that defines how the search parameter
 behaves. These are the defined parameter types:
 </p>
 <%codelist SearchParamType%>
@@ -185,7 +185,7 @@ concepts are relatively straight-forward, there are a number of subtleties invol
 	 <li>For "[parameter]=&lt;[date]", the requirement is that the interval of the time before [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
 	    For instance, the resource time 2013-01-14 is included in the set of values that come before 2013-01-14T10:00, because it includes the part of 14-Jan 2013 before 10am </li>
 	 <li>For "[parameter]=&gt;[date]", the requirement is that the interval of the time after [date] intersects (i.e. overlaps) with the interval of time in the relevant resource element. 
-	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am </li>
+	    For instance, the resource time 2013-01-14 is included in the set of values that come after 2013-01-14T10:00, because it includes the part of 14-Jan 2013 after 10am</li>
    </ul>
    Implicitly, a missing lower boundary is 'less than' any actual date.  A missing upper boundary is 'greater than' any actual date.
    For instance, the period from 21-Jan 2013 onwards is included in matches for date=&gt;=2013-03-14 because it may include times after 14-Mar 2013.
@@ -207,7 +207,7 @@ concepts are relatively straight-forward, there are a number of subtleties invol
  </li>
 </ul>
 <p>
-As an example, the following search searches for all the procedures in a patient compartment that occurred over a 2 year period:
+As an example, the following query searches for all the procedures in a patient compartment that occurred over a 2 year period:
 </p>
 <pre>
  GET [base-url]/Patient/23/procedure?date=&gt;2010-01-01&amp;date=&lt;2011-12-31
@@ -238,7 +238,7 @@ can be used to specify a search with advanced text handling (see <a href="#text"
 though only a few servers are expected to offer this facility.
 </p>
 <p>
-It as at the discretion of the server whether to pre-process names, addresses, 
+It is at the discretion of the server whether to pre-process names, addresses, 
 and contact details to remove separator characters prior to matching in order
 to ensure more consistent behavior. For example, a server might remove all 
 spaces and "-" characters from phone numbers. What is most appropriate varies 
@@ -293,7 +293,7 @@ The interpretation of a <i>reference</i> parameter is either:
 </p>
 <ul>
  <li><b>[parameter]=[id]</b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
- <li><b>[parameter]=[url]</b> where the [url] is an absolute URL - a reference to a a resource by it's absolute location</li>
+ <li><b>[parameter]=[url]</b> where the [url] is an absolute URL - a reference to a resource by it's absolute location</li>
 </ul>
 <p>
 Note that if a relative reference resolves to the same value as a specified absolute URL, or vice versa, this is a match too.
@@ -430,7 +430,7 @@ for related words as well.
 <p><b>DSTU Note</b>: The issues around standardizing text search are not fully resolved. 
 During the trial use period for this specification, we recommend that systems use 
 the rules specified by <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
-a forth coming release of the odata specification for the $search parameter</a>.
+a forth coming release of the OData specification for the $search parameter</a>.
 Typical implementations would use Lucene, an sql-based full text search, 
 or some indexing service. Feedback about consistent implementation in this area
 is welcome.
@@ -475,10 +475,10 @@ as appropriate so that resources can be found by this operation.
 
 <h3>Relevance</h3>
 <p>
-Where a search specifies a non-deterministic sort, the search alogrithm
+Where a search specifies a non-deterministic sort, the search algorithm
 may generate some kind of ranking score to indicate which resources meet
 the specified criteria better than others. The server can return this 
-score using the OpenSearch Relevence extension:
+score using the OpenSearch Relevance extension:
 </p>
 <pre class="spec">  <span style="float: right"><a title="Documentation for this format" href="formats.html"><img src="help.png" alt="doco"/></a></span>
   &lt;entry&gt;<span style="color:Gray;">&lt;!-- Zero+ --&gt;</span>
@@ -573,7 +573,7 @@ Prescription</a> resources and their <a href="practitioner.html">prescribing Pra
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources.
 </p>
 <p>
-Include paths are processed only in the context of a single resource - they can not include 
+Include paths are processed only in the context of a single resource - they cannot include 
 paths such as Resource.name1.name2 where name2 is a name in a resource pointed to by name1.
 Include paths may include wild cards, such as MedicationDispense.results.*, or even _include=*,
 though both servers and clients need to take care not to request or return too many resources 
@@ -586,7 +586,7 @@ additional resources in the search results.
 </p>
 <h4>External References</h4>
 <p>
-If the _include path matches an url that points to a resource that the server itself does 
+If the _include path matches a url that points to a resource that the server itself does 
 not hold itself, the server may still elect to include the target of the uri reference in 
 the returned results as a Binary resource. For example, the include path may point to an 
 attachment which is by reference, like this:
@@ -654,7 +654,7 @@ to supporting search:
     starting with a "-" character to ensure that the names they choose do not clash with future parameters defined by this specification</li>
  <li>Servers are not required to enforce case sensitivity on parameter names, though the names are case sensitive (and URLs are generally case-sensitive)</li>
  <li>Servers may choose how many results to return, though the client can use _count as above</li>
- <li>Servers can choose how to sort the return results, though they SHOULD honour the _sort parameter</li>
+ <li>Servers can choose how to sort the return results, though they SHOULD honor the _sort parameter</li>
 </ul>
 
 <hr/>

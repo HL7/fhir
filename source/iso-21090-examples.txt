@@ -338,7 +338,7 @@ this number is only used for identifying the account associated with this patien
 7.6.7.7.5  Record identifier 
 <example xsi:type="II" root="D6A7AB37-4220-4D80-9052-8A4959A203E3" 
 reliability="ISS" scope="VER"/>
-An UUID issued by the sending system associated with the particular version of the record being represented 
+A UUID issued by the sending system associated with the particular version of the record being represented 
 in the instance.
 7.6.7.7.6  Lab number 
 <example xsi:type="II" root="2.16.840.1.113883.19.5.34" extension="2345344" 
@@ -871,7 +871,7 @@ Primarily in the British Imperial culture people tend to have an
 abbreviation of their professional organization as part of their 
 credential suffices.
 2    HON  Honorific
-An honorific such as ?The Right Honourable? or 
+An honorific such as ?The Right Honorable? or 
 ?Weledelgeleerde Heer?.
 1   BR  Birth
 A name that a person was given at birth or established as a 

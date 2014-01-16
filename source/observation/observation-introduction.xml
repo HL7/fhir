@@ -28,7 +28,7 @@ The observation resource has the following aspects:
 <ul>
  <li>status and reliability (mandatory) - all users of observations SHALL be sure of the status of the observation</li>
  <li>name (mandatory) - describes what was observed. Sometimes called this is called the observation "code"</li>
- <li>identifier - Unique identifier for this particular observation so it can be recognised in all contexts where it is represented</li>
+ <li>identifier - Unique identifier for this particular observation so it can be recognized in all contexts where it is represented</li>
  <li>value - the actual value that was observed</li>
  <li>subject, bodysite - the patient, or group of patients, location, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified, though this is often implicit in the Observation.name</li>
  <li>applies[x] - the time or period that this observation was made on the subject. Each observation has multiple times - prepared, made, reported etc - but the important time is when the data relates to the patient condition</li>

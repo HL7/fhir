@@ -7,7 +7,7 @@
     <value value="http://hl7.org/fhir"/>
   </telecom>
   <description value="Specimen type : HL7 v2 table 0487.  
-    An alternate value set could be all Snomed descendents of 123038009 (Specimen)"/>
+    An alternate value set could be all SNOMED CT descendents of 123038009 (Specimen)"/>
   <status value="draft"/>
   <compose>
     <include>

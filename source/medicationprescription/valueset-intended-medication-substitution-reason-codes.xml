@@ -18,7 +18,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="This value set includes some introduction (procedure) codes from Snomed - provided as an exemplar"/>
+  <description value="This value set includes some introduction (procedure) codes from SNOMED CT - provided as an exemplar"/>
   <status value="draft"/>
   <compose>
     <include>

@@ -389,7 +389,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Dispenser</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The individual reponsible for dispensing the medication</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The individual responsible for dispensing the medication</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>

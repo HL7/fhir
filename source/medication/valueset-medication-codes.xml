@@ -6,10 +6,10 @@
       <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains medictation concepts.</p>
       <p>Possible sources include:</p>
       <ul>
-        <li>Snomed CT - Children of SCTID: xxxxxxxx "xxxxxxxxxxxxxx"</li>
+        <li>SNOMED CT - Children of SCTID: xxxxxxxx "xxxxxxxxxxxxxx"</li>
         <li>ISO 11615 - Identification of Medicinal Products</li>
      </ul>
-      <p>Snomed is being used here as the example terminology.</p>
+      <p>SNOMED CT is being used here as the example terminology.</p>
     </div>
   </text>
   <name value="Snomed Medication Codes"/>
@@ -24,7 +24,7 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <!-- Snomed CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value" -->
+        <!-- SNOMED CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value" -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="284009009"/>

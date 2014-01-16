@@ -54,13 +54,13 @@ statements, and in particular:
 </p>
 <ul>
  <li>Which Security Labels are able to be used</li>
- <li>What do if a resource has an unrecognised security label on it</li>
+ <li>What do if a resource has an unrecognized security label on it</li>
  <li>Authoring obligations around security labels</li>
  <li>Operational implications of security labels</li>
 </ul>
 <p>
 This specification defines a basic set of labels for the most common
-use cases trading partnersm and also a wider array of security labels
+use cases trading partners, and also a wider array of security labels
 that allow much finer grained management of the information.
 </p>
 
@@ -73,7 +73,7 @@ following properties:
 <table>
   <tr> <td>Scheme</td> <td>http://hl7.org/fhir/tag/security</td> <td>Fixed Value for a security label</td> </tr>
   <tr> <td>Term</td> <td>a URI that identifies the security label</td> <td> Usually of the form [system]#[code], where system is a <a href="terminologies-systems.html">code system uri</a> and code is an value from the code system</td> </tr>
-  <tr> <td>Label</td> <td>The display name for the code</td> <td>optional - for display to a human (mostly used when a system doesn't recognise the Term)</td> </tr>
+  <tr> <td>Label</td> <td>The display name for the code</td> <td>optional - for display to a human (mostly used when a system doesn't recognize the Term)</td> </tr>
 </table>
 
 <div class="example">
@@ -183,8 +183,8 @@ to the applicable Mutual Trust Framework agreement as described above.
      whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>
       <li>In the absence of a confidentiality code, the basic confidentiality of a resource may be implied by its definition and content. e.g. a patient's condition is far more likely to be confidential than a practitioner resource, and a Diagnostic Report with an HIV test is always highly confidential, where as a routine electrolytes is rarely particularly confidential</li>
-      <li>A few resources have a confidentiality code in the resource itself. This should always be understood as the original intended confidentiality, where as a confidentiality tag is the current confidentality of the content. e.g. the confidentiality may change in response to patient concern <!-- Todo: See if we can drop these confidentiality elements and replace with the tagging structure --></li>
-      <li>The confidentality of a bundle is always as confidential as the most confidential resource in the bundle</li>
+      <li>A few resources have a confidentiality code in the resource itself. This should always be understood as the original intended confidentiality, where as a confidentiality tag is the current confidentiality of the content. e.g. the confidentiality may change in response to patient concern <!-- Todo: See if we can drop these confidentiality elements and replace with the tagging structure --></li>
+      <li>The confidentiality of a bundle is always as confidential as the most confidential resource in the bundle</li>
      </ul>
      The additional more specific labels below are defined to support very specific fine-grained access control, and should 
      always be used in association with an appropriate confidentiality label. 
@@ -197,19 +197,19 @@ to the applicable Mutual Trust Framework agreement as described above.
     <br/>Notes:
     <ul>
      <li>This may be applied to the <a href="patient.html">Patient</a> resource, with implied behavior for the <a href="extras.html#compartment">entire patient compartment</a>, or it may be applied to individual resources</li>
-     <li>Resources affected by this label are more likely to be the subject of active audit maintanance or additional security policy</li>
+     <li>Resources affected by this label are more likely to be the subject of active audit maintenance or additional security policy</li>
     </ul>
    </td>
  </tr>
  <tr>
    <td>Staff: http://hl7.org/fhir/v3/ActCode#EMP</td>
    <td>
-    Use on a <a href="patient.html">Patient</a> resource and resources with a subject of that patientto indicate that the patient is a staff member of the institution. This is a variation on 
+    Use on a <a href="patient.html">Patient</a> resource and resources with a subject of that patient to indicate that the patient is a staff member of the institution. This is a variation on 
     being a celebrity.
     <br/>Notes:
     <ul>
      <li>This may be applied to the <a href="patient.html">Patient</a> resource, with implied behavior for the <a href="extras.html#compartment">entire patient compartment</a>, or it may be applied to individual resources</li>
-     <li>Resources affected by this label are (even) more likely to be the subject of active audit maintanance or additional security policy</li>
+     <li>Resources affected by this label are (even) more likely to be the subject of active audit maintenance or additional security policy</li>
     </ul>
    </td>
  </tr>
@@ -335,7 +335,7 @@ community or project
 IT resource by conveying the completeness, 
 veracity, reliability, trustworthiness, and 
 provenance of an IT resource
-<br/>Example Uses: Anonymised, signed, patient reported
+<br/>Example Uses: Anonymized, signed, patient reported
 
 </td> </tr>
 

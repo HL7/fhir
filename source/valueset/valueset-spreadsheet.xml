@@ -216,7 +216,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Logical id for this version of the value set</Data></Cell>
     <Cell><Data ss:Type="String">The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">There may be multiple resource versions of the value set that have this same identifier</Data></Cell>
+    <Cell><Data ss:Type="String">There may be multiple resource versions of the value set that have the same identifier</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -273,7 +273,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Human language description of the value set</Data></Cell>
     <Cell><Data ss:Type="String">A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Human understandibility</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Human understandability</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes.</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
@@ -349,7 +349,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Version of this system</Data></Cell>
-    <Cell><Data ss:Type="String">The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked</Data></Cell>
+    <Cell><Data ss:Type="String">The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
@@ -357,7 +357,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If code comparison is case sensitive</Data></Cell>
-    <Cell><Data ss:Type="String">If code comparison is case sensitive when codes within this systemare compared to each other</Data></Cell>
+    <Cell><Data ss:Type="String">If code comparison is case sensitive when codes within this system are compared to each other</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software</Data></Cell>
    </Row>
@@ -422,9 +422,9 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Import the contents of another value set</Data></Cell>
-    <Cell><Data ss:Type="String">Includes the contents of the referenced value set as part of the contents of this value set</Data></Cell>
+    <Cell><Data ss:Type="String">Includes the contents of the referenced value set as a part of the contents of this value set</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
-    <Cell><Data ss:Type="String">The value set URI is either a logical reference to a defined value set such as a Snomed reference set, or a literal reference to a value set definition (not an expansion). If the reference is a logical one, it may not reference a actual FHIR value set resource; in this case, the referenced definition of a set of coded values needs to be clear about how versions are resolved</Data></Cell>
+    <Cell><Data ss:Type="String">The value set URI is either a logical reference to a defined value set such as a SNOMED CT reference set, or a literal reference to a value set definition (not an expansion). If the reference is a logical one, it may not reference a actual FHIR value set resource; in this case, the referenced definition of a set of coded values needs to be clear about how versions are resolved</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -480,7 +480,7 @@
     <Cell><Data ss:Type="String">!</Data></Cell>
     <Cell><Data ss:Type="String">Code or concept from system</Data></Cell>
     <Cell><Data ss:Type="String">Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">expressions are allowed if defined by the underlying code system</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Expressions are allowed if defined by the underlying code system</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
@@ -512,7 +512,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">FilterOperator</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">= | is-a | is-not-a | regex | in | not in</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The kind of operation to perform as part of the filter criteria</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The kind of operation to perform as a part of the filter criteria</Data></Cell>
     <Cell ss:StyleID="s75"/>
     <Cell ss:Index="14"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
@@ -534,7 +534,7 @@
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@ValueSet.compose.include</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Explicitly exclude codes</Data></Cell>
     <Cell><Data ss:Type="String">Exclude one or more codes from the value set</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">usually this is used to selectively exclude codes that were included by subsumption in the inclusions</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Usually this is used to selectively exclude codes that were included by subsumption in the inclusions</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -848,7 +848,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FilterOperator</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">The kind of operation to perform as part of a property based filter</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The kind of operation to perform as a part of a property based filter</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">#filter-operator</Data></Cell>
     <Cell ss:StyleID="s64"/>

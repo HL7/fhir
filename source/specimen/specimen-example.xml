@@ -26,7 +26,7 @@
    Type is a loosely defined field because there is such a lot of variation in how it is used.
    The principal variation is how much information that could be represented elsewhere is also 
    represented here. For instance, here's some possible types:
-     lithium heparin plasma   (+ .container.additive) (e.g. snomed 446272009)
+     lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
      transfusion bag of blood (+ container.type) 
      Peritoneal lavage        (+ collection.sourceSite)
    If the type includes other fields, it would be normal not to populate the other fields

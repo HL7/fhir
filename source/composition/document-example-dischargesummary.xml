@@ -371,7 +371,7 @@
 
                 <!-- The medication. This is currently modelled as a contained resource within the prescription, but could also be a separate
                     resource either within the document bundle, or a reference to the medication on a server. The latter
-                    (ie where the medication terminology is hosted on a publically available server and simply referenced from the
+                    (i.e. where the medication terminology is hosted on a publically available server and simply referenced from the
                 MedicationPrescription resource is particularly attractive... -->
                 <contained>
                     <Medication id="med1">

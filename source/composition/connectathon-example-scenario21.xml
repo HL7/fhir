@@ -25,7 +25,7 @@
                     <div xmlns="http://www.w3.org/1999/xhtml">A Progress note...</div>
                 </text>
                 <instant value='2013-06-06T12:30:00'/>  <!-- the time this document was created -->
-                <!-- What type of document is this - eg Discharge Summary, referral, Consultation note -->
+                <!-- What type of document is this - e.g. Discharge Summary, referral, Consultation note -->
                 <type>
                     <coding>
                         <!-- Using an XDS system? hmmmm... -->
@@ -159,7 +159,7 @@
                 <valueString value="This is a record of my consult..."/>
                 <status value="final"/>
                 <reliability value="ok"/>
-                <!-- All the other details of the Observation (ie progress note) here -->
+                <!-- All the other details of the Observation (i.e. progress note) here -->
             </Observation>
         </content>
     </entry>

@@ -3,7 +3,7 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Value set "Loinc Codes for Cholesterol": This is an example value set that includes 
+      <p>Value set "LOINC Codes for Cholesterol": This is an example value set that includes 
         all the LOINC codes for serum cholesterol from v2.36. 
         Developed by: FHIR project team (example)</p>
       <p>Published for testing on 13-June 2012</p>
@@ -26,7 +26,7 @@
     Could also be a UUID too -->
   <version value="20120613"/>
   <!-- set of loinc codes for cholesterol for LONC 2.36 -->
-  <name value="Loinc Codes for Cholesterol"/>
+  <name value="LOINC Codes for Cholesterol"/>
   <publisher value="FHIR project team (example)"/>
   <telecom>
     <system value="url"/>
