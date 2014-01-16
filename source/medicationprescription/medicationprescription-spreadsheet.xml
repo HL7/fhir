@@ -346,7 +346,7 @@
     <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Who ordered the medication(s)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The healthcare professional responsible for authorising the prescription</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The healthcare professional responsible for authorizing the prescription</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">RXE-13-Ordering Provider's DEA Number / RXO-14-Ordering Provider's DEA Number / RXE-14-Pharmacist/Treatment Supplier's Verifier ID / RXO-15-Pharmacist/Treatment Supplier's Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation='OP' (all but last deprecated)&#10;</Data><NamedCell
@@ -545,7 +545,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Amount of medication per dose</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The amount of the therapeutic or other substance given at one administration event. </Data><NamedCell
+    <Cell><Data ss:Type="String">The amount of therapeutic or other substance given at one administration event. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Note that this specifies the quantity of the specified medication, not the quantity of active ingredient(s).  The prescribed strength can be calculated by multiplying the doseQuantity by the strength of each active ingredient in the prescribed Medication.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -577,7 +577,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Upper limit on medication per unit of time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.</Data><NamedCell
+    <Cell><Data ss:Type="String">The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This is intended for use as an adjunct to the dosage when there is an upper cap.  For example &quot;2 tablets ever 4 hours to a maximum of 8/day&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -672,7 +672,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Days supply per dispense</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. &#10;In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors. &#10;</Data><NamedCell
+    <Cell><Data ss:Type="String">Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. &#10;In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors. &#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">CombinedMedicationRequest.component2.dispense.expectedUseTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -685,7 +685,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8" ss:StyleID="s64"><Data ss:Type="String">Any restrictions on medication substitution?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates whether or not substitution can or should as part of the dispense.  In some cases substitution must  happen, in other cases substitution must not happen, and in others it does not matter.  This block explains the prescribers intent.  If nothing is specified substitution may be done.</Data><NamedCell
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -715,7 +715,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Why should substitution (not) be made</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates the reason for the substitution why substitution must or must not be performed.</Data><NamedCell
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Indicates the reason for the substitution, or why substitution must or must not be performed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">CombinedMedicationRequest.subjectOf.SubstitutionPermission.reasonCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -738,7 +738,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>24</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -755,7 +755,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1184,7 +1185,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s64"><Data ss:Type="String">MedicationAsNeededReason</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">A coded concept identiying the pre-condition that should hold prior to consuming a medication dose.  For example &quot;pain&quot;, &quot;30 minutes prior to sexual intercourse&quot;, etc.</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">A coded concept identifying the pre-condition that should hold prior to consuming a medication dose.  For example &quot;pain&quot;, &quot;30 minutes prior to sexual intercourse&quot;, etc.</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s83"/>
     <Cell ss:Index="6" ss:StyleID="s82"/>
