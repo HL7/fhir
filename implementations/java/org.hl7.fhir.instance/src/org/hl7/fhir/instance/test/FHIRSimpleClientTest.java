@@ -19,6 +19,7 @@ import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.client.ResourceAddress;
 import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.model.AdverseReaction;
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Code;
@@ -56,7 +57,7 @@ public class FHIRSimpleClientTest {
 	private static void configureForFurore() {
 		connectUrl = "http://spark.furore.com/fhir/";
 		//connectUrl = "http://fhirlab.furore.com/fhir";
-		userAgent = "Spark2";
+		userAgent = "Spark.Service";
 	}
 	
 	private static void configureForHealthIntersection() {
@@ -475,6 +476,12 @@ public class FHIRSimpleClientTest {
 		} catch(Exception e) {
 			fail();
 		}
+	}
+	
+	@Test
+	public void testGetServerTags() {
+		List<AtomCategory> tags = testClient.getServerTags();
+		assertTrue(tags != null && tags.size() > 0);
 	}
 
 /*

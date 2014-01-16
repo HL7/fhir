@@ -30,9 +30,11 @@ package org.hl7.fhir.instance.client;
 
 import java.net.URISyntaxException;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpHost;
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
@@ -287,6 +289,16 @@ public class FHIRSimpleClient implements FHIRClient {
 			throw new EFhirClientException("An error has occurred while trying to validate this resource", e);
 		}
 		return (AtomEntry<OperationOutcome>)result.getPayload();
+	}
+	
+	public List<AtomCategory> getServerTags() {
+		AtomFeed result = null;
+		try {
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetServerTags(), getPreferredResourceFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to read this version of the resource", e);
+		}
+		return result.getTags();
 	}
 
 	/**

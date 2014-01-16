@@ -31,8 +31,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.net.URISyntaxException;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
@@ -252,4 +254,8 @@ public interface FHIRClient {
 	 */
 	public AtomFeed transaction(AtomFeed batch);
 	
+	/**
+	 * Returns list of tags for server
+	 */
+	public List<AtomCategory> getServerTags();
 }

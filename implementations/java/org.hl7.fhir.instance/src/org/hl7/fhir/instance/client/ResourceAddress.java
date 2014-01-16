@@ -87,6 +87,10 @@ public class ResourceAddress {
 		return appendHttpParameter(resolveGetHistoryForResourceType(resourceClass), "_since", getCalendarDateInIsoTimeFormat(since));
 	}
 	
+	public <T extends Resource> URI resolveGetServerTags() {
+		return baseServiceUri.resolve("_tags");
+	}
+	
 	public URI resolveMetadataUri() {
 		return baseServiceUri.resolve("metadata");
 	}
