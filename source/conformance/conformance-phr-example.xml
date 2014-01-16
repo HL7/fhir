@@ -44,7 +44,7 @@
       </service>
       <description value="We recommend that PHR servers use standard OAuth using a 
         standard 3rd party provider. We are not testing the ability to provide an 
-        OAuth authentication/authorisation service itself, and nor is providing 
+        OAuth authentication/authorization service itself, and nor is providing 
         any security required for the connectathon at all"/>
     </security>
     <resource>
