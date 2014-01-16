@@ -164,8 +164,8 @@ might not be available to the viewer due to technical problems or policy decisio
 <p>
 Unless otherwise agreed in local trading partner agreements, applications 
 displaying the collated narrative SHOULD use the stylesheets specified by the 
-document. Parties entering into a trading agreement to do something else should 
-consider the implications it will have on their long term scope for document 
+document. Parties entering into a trading agreement to do otherwise should 
+consider the implications this action will have on their long term scope for document 
 exchange very carefully. If the parties agree to use stylesheets that are 
 not contained in the document, then it may be that they will never be able 
 to share their documents safely in a more general context, such as a regional 
@@ -204,12 +204,12 @@ obligations that they must satisfy.
 A document constructor is an application that creates a document. An author 
 is a human, organization, or device that uses the constructor to create a 
 document. Between them, the constructor and the author may create new 
-content resources and/or assemble already existing content resources while doing so. 
+content resources and/or assemble already existing content resources while performing their tasks. 
 They also have the following responsibilities:
 </p>
 <ul>
- <li>The document SHALL contain valid composition that conforms to the rules described here and that only links to other valid resources</li>
- <li>The content of document SHALL conform to any declared <a href="profile.html">Profiles</a> (see below).</li>
+ <li>To assure that the document SHALL contain valid composition that conforms to the rules described here and that only links to other valid resources</li>
+ <li>To assure that the content of document SHALL conform to any declared <a href="profile.html">Profiles</a> (see below).</li>
  <li>Ensure that the attesters are properly aware of the presentation of the document to which they are attesting</li>
 </ul>
 
@@ -217,9 +217,9 @@ They also have the following responsibilities:
 <p>
 A document processor is an application and/or human user that receives documents, and extracts data from them, 
 or makes decisions because of them. The documents may be received directly from a document constructor, accessed 
-via a document management system or forward by a third party. The document processor is responsible for 
+via a document management system or forwarded by a third party. The document processor is responsible for 
 ensuring that received documents are processed and/or rendered in accordance to this specification. A 
-document processor has the following obligations:
+document processor has the obligation to assure that the following rules are followed:
 </p>
 <ul>
  <li>When storing/transmitting a document, any method may be used as long as the bundled document can be 
@@ -252,7 +252,7 @@ that atom:source has no use for Documents, and therefore there is no need
 to create the atom:source elements. 
 </p>
 <p>
-Whether documents are signed with a enveloped or a detached signature, applications
+Whether documents are signed with an enveloped or a detached signature, applications
 processing documents need to relate the document to an existing document participant.
 For this reasons, the keyName in the signature SHOULD contain a uri that points 
 directly to one of the document participants (person, device, or organization)
@@ -292,9 +292,9 @@ of posting to them:
    
  <tr> <td><a href="http.html#transaction">[baseurl]</a> (e.g. a transaction)</td> <td>Document Bundle</td> <td>Ignore the 
    fact that the bundle is a document, and process all the resources that it contains as individual resources. Clients SHOULD
-   not expect that a document submitted using this method will be able to reassembled exactly by the server (e.g. even if the
-   server can re-assemble the document (see below), it cannot be expected to be in the same order etc, and so a document signature is 
-   very likely to be invalid)</td> </tr>
+   not expect that a server that receives a document submitted using this method will be able to reassemble the document exactly (e.g. even if the
+   server can reassemble the document (see below), the result cannot be expected to be in the same order etc, and thus a document signature will
+   very likely be invalid)</td> </tr>
    
  <tr> <td><a href="messaging.html#mailbox">[baseurl]/Mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
  document to the server for processing. The exact processing the server performs is at the discretion of the
@@ -302,10 +302,10 @@ of posting to them:
   <ul>
     <li>Resend the document elsewhere</li>
     <li>Break it up into individually accessible resources and make them available on a RESTful interface</li>
-    <li>Retain the document in it's binary form and make it available on /Binary, and perhaps also create a DocumentReference</li>
+    <li>Retain the document in its binary form and make it available on /Binary, and perhaps also create a DocumentReference</li>
   </ul>
   The server is not obliged to process the document in any particular fashion. The client does not know what action
-  the server takes, only that the server has accepted responsibility for the document. 
+  the server will take, only that the server has accepted responsibility for the document. 
   <br/><br/>
   Implementation Profiles should be careful when making rules about what happens when a document is submitted to the 
   mailbox, as it would be easy to make rules such that a server cannot conform to more than one profile at a time.
