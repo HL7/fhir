@@ -106,9 +106,9 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     XmlPullParser xpp = loadXml(input);
     ResourceOrFeed r = new ResourceOrFeed();
     
-    if (xpp.getNamespace().equals(FHIR_NS))
+    if (xpp.getNamespace().equals(FHIR_NS) && !xpp.getName().equalsIgnoreCase("TagList"))
       r.resource = parseResource(xpp);
-    else if (xpp.getNamespace().equals(ATOM_NS)) 
+    else if (xpp.getNamespace().equals(ATOM_NS) || (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("TagList"))) 
       r.feed = parseFeed(xpp);
     else
       throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
@@ -164,14 +164,14 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   }
 
   private AtomFeed parseFeed(XmlPullParser xpp) throws Exception {
-    if (!xpp.getNamespace().equals(ATOM_NS))
+    if (!(xpp.getNamespace().equals(ATOM_NS) || (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("TagList"))))
       throw new Exception("This does not appear to be an atom feed (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
     return parseAtom(xpp);
   }
 
   private AtomFeed parseAtom(XmlPullParser xpp) throws Exception {
     AtomFeed res = new AtomFeed();
-    if (!xpp.getName().equals("feed"))
+    if (!(xpp.getName().equals("feed")||xpp.getName().equals("TagList")))
       throw new Exception("This does not appear to be an atom feed (wrong name '"+xpp.getName()+"') (@ /)");
     xpp.next();
     
