@@ -44,7 +44,7 @@ The following rules apply to digital signature:
    for this use</li>
  <li>Whether the representation of the Provenance resource is xml or json, the signature is a base64 of the 
    <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#sec-Signature">XML signature</a></li>
- <li>The signature is always a signature of the target resource XML representation using a stated canonicalisation</li> 
+ <li>The signature is always a signature of the target resource XML representation using a stated canonicalization</li> 
 </ul>
 The signature is only added to support , and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.			
  
