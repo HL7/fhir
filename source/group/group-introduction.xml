@@ -6,7 +6,7 @@
 <h3>Use Cases</h3>
 <p>The group resource is used in one of two ways:</p>
 <ol>
-  <li>To define a group of specific people, animals, devices, etc. that is being tracked, examined or otherwise referenced as part of healthcare-related activities; and</li>
+  <li>To define a group of specific people, animals, devices, etc. that is being tracked, examined or otherwise referenced as part of healthcare-related activities</li>
   <li>To define a set of *possible* people, animals, devices, etc. that are of interest for some intended future healthcare-related activities</li>
 </ol>
 
