@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -494,7 +495,7 @@ public class FHIRSimpleClientTest {
 	public void testGetTagsForResource() {
 		loadPatientResource();
 		List<AtomCategory> tags = testClient.getTagsForResource(Patient.class, testPatientId);
-		assertTrue(tags != null && tags.size() == 0);
+		assertTrue(tags != null && tags.size() > 0);
 		unloadPatientResource();
 	}
 	
@@ -502,7 +503,7 @@ public class FHIRSimpleClientTest {
 	public void testGetTagsForResourceVersion() {
 		loadPatientResource();
 		List<AtomCategory> tags = testClient.getTagsForResourceVersion(Patient.class, testPatientId, testPatientVersion);
-		assertTrue(tags != null && tags.size() == 0);
+		assertTrue(tags != null && tags.size() > 0);
 		unloadPatientResource();
 	}
 
@@ -675,9 +676,17 @@ public class FHIRSimpleClientTest {
 	
 	private void loadPatientResource() {
 		Patient testPatient = buildPatient();
-		AtomEntry<OperationOutcome> result = testClient.create(Patient.class, testPatient);
+		List<AtomCategory> tags = generateCategoryHeader();
+		AtomEntry<OperationOutcome> result = testClient.create(Patient.class, testPatient, tags);
 		testPatientId = getEntryId(result);
 		testPatientVersion = getEntryVersion(result);
+	}
+	
+	private List<AtomCategory> generateCategoryHeader() {
+		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+		tags.add(new AtomCategory("http://client/scheme", "http://client/scheme/tag/123","tag 123"));
+		tags.add(new AtomCategory("http://client/scheme", "http://client/scheme/tag/456","tag 456"));
+		return tags;
 	}
 	
 	private void unloadPatientResource() {

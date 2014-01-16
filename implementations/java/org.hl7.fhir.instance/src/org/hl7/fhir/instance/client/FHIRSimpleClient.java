@@ -29,11 +29,14 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.client;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.Header;
 import org.apache.http.HttpHost;
+import org.apache.http.message.BasicHeader;
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
@@ -160,12 +163,21 @@ public class FHIRSimpleClient implements FHIRClient {
 		}
 		return result.getPayload();
 	}
-
+	
 	@Override
 	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id) {
+		return update(resourceClass, resource, id, null);
+	}
+
+	@Override
+	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id, List<AtomCategory> tags) {
 		ResourceRequest<T> result = null;
 		try {
-			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), proxy);
+			List<Header> headers = null;
+			if(tags != null && tags.size() > 0) {
+				headers = buildCategoryHeaders(tags);
+			}
+			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
 			result.addErrorStatus(410);//gone
 			result.addErrorStatus(404);//unknown
 			result.addErrorStatus(405);
@@ -191,12 +203,21 @@ public class FHIRSimpleClient implements FHIRClient {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource) {
+		return create(resourceClass, resource, null);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource, List<AtomCategory> tags) {
 		ResourceRequest<T> resourceRequest = null;
 		try {
-			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), proxy);
+			List<Header> headers = null;
+			if(tags != null && tags.size() > 0) {
+				headers = buildCategoryHeaders(tags);
+			}
+			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
 			resourceRequest.addSuccessStatus(201);
 			if(resourceRequest.isUnsuccessfulRequest()) {
 				throw new EFhirClientException("Server responded with HTTP error code " + resourceRequest.getHttpStatus(), (OperationOutcome)resourceRequest.getPayload().getResource());
@@ -358,6 +379,14 @@ public class FHIRSimpleClient implements FHIRClient {
 			isJson = true;
 		}
 		return isJson;
+	}
+	
+	protected List<Header> buildCategoryHeaders(List<AtomCategory> tags) {
+		List<Header> headers = new ArrayList<Header>();
+		for(AtomCategory tag : tags) {
+			headers.add(new BasicHeader("Category",tag.getTerm() + ";scheme=\"" + tag.getScheme() + "\";label=\"" + tag.getLabel() + "\""));
+		}
+		return headers;
 	}
 
 }

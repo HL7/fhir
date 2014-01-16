@@ -11,13 +11,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
-import org.apache.http.HttpHost;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -63,14 +65,23 @@ public class ClientUtils {
 		return issueResourceRequest(resourceFormat, httpget, proxy);
 	}
 	
+	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
+		HttpPut httpPut = new HttpPut(resourceUri);
+		return issueResourceRequest(resourceFormat, httpPut, payload, headers, proxy);
+	}
+	
 	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy) {
 		HttpPut httpPut = new HttpPut(resourceUri);
-		return issueResourceRequest(resourceFormat, httpPut, payload, proxy);
+		return issueResourceRequest(resourceFormat, httpPut, payload, null, proxy);
+	}
+	
+	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
+		HttpPost httpPost = new HttpPost(resourceUri);
+		return issueResourceRequest(resourceFormat, httpPost, payload, headers, proxy);
 	}
 	
 	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy) {
-		HttpPost httpPost = new HttpPost(resourceUri);
-		return issueResourceRequest(resourceFormat, httpPost, payload, proxy);
+		return issuePostRequest(resourceUri, payload, resourceFormat, null, proxy);
 	}
 	
 	public static AtomFeed issueGetFeedRequest(URI resourceUri, String feedFormat, HttpHost proxy) {
@@ -112,7 +123,16 @@ public class ClientUtils {
 	 * @return
 	 */
 	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload, HttpHost proxy) {
-		configureFhirRequest(request, resourceFormat);
+		return issueResourceRequest(resourceFormat, request, payload, null, proxy);
+	}
+	
+	/**
+	 * @param resourceFormat
+	 * @param options
+	 * @return
+	 */
+	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload, List<Header> headers, HttpHost proxy) {
+		configureFhirRequest(request, resourceFormat, headers);
 		HttpResponse response = null;
 		if(request instanceof HttpEntityEnclosingRequest && payload != null) {
 			response = sendPayload((HttpEntityEnclosingRequestBase)request, payload, proxy);
@@ -133,10 +153,25 @@ public class ClientUtils {
 	 * @param request
 	 */
 	protected static void configureFhirRequest(HttpRequest request, String format) {
+		configureFhirRequest(request, format, null);
+	}
+	
+	/**
+	 * Method adds required request headers.
+	 * TODO handle JSON request as well.
+	 * 
+	 * @param request
+	 */
+		protected static void configureFhirRequest(HttpRequest request, String format, List<Header> headers) {
 		request.addHeader("User-Agent", "Java FHIR Client for FHIR");
 		request.addHeader("Accept",format);
 		request.addHeader("Content-Type", format + ";charset=" + DEFAULT_CHARSET);
 		request.addHeader("Accept-Charset", DEFAULT_CHARSET);
+		if(headers != null) {
+			for(Header header : headers) {
+				request.addHeader(header);
+			}
+		}
 	}
 	
 	/**

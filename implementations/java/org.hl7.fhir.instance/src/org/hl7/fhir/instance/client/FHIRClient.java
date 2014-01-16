@@ -165,6 +165,16 @@ public interface FHIRClient {
 	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id);
 	
 	/**
+	 * Update an existing resource by its id or create it if it is a new resource, not present on the server
+	 * 
+	 * @param resourceClass
+	 * @param resource
+	 * @param id
+	 * @return
+	 */
+	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id, List<AtomCategory> tags);
+	
+	/**
 	 * Delete the resource with the given ID.
 	 * 
 	 * @param resourceClass
@@ -182,6 +192,16 @@ public interface FHIRClient {
 	 * @return
 	 */
 	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource);
+	
+	/**
+	 * Create a new resource with a server assigned id. Return the newly created
+	 * resource with the id the server assigned. Associates tags with newly created resource.
+	 * 
+	 * @param resourceClass
+	 * @param resource
+	 * @return
+	 */
+	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource, List<AtomCategory> tags);
 	
 	/**
 	 * Retrieve the update history for a resource with given id since last update time. 
