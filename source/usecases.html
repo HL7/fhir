@@ -148,7 +148,7 @@ When a query is made in order to get a decision made, the following consideratio
 <p><b>Response</b></p>
 <ul>
  <li>If the decision support engine is unable to provide the requested decision, it returns an <a href="operationoutcome.html">Operation Outcome Resource</a> describing the issue</li>
- <li>Otherwise it returns a resource the represents the decision, along with other resources as supporting information, as described by the the resource, or applicable profiles</li>
+ <li>Otherwise it returns a resource the represents the decision, along with other resources as supporting information, as described by the resource, or applicable profiles</li>
  <li>In princple, the decision provider can choose to make a copy of the returned decision resource available through a normal RESTful interface, or it can choose not to. This decision may be constrained by applicable profiles, policy decision, or the innate nature of the query</li>
  <li>If either the decision provider or the requester choose to retain a copy of the decision, they must ensure that the (lack of) currency of the decision is appropriately considered when it is used</li>
 </ul>
