@@ -56,7 +56,7 @@ an HTML page) are preferred over symbolic references but this is not required.
 <p>
 If the end user application provides functionality to the user that allows the user to 
 affix arbitrary text tags to the resource for their own purpose, the application can 
-automatically construct a term by appending the mime encoding of the Label to the base
+automatically construct a term by appending the Url encoded Label to the base
 URL "http://hl7.org/fhir/tag/text/". When applications processing resources see this
 base URL, they can automatically know that this is a pure text label with no formal
 meaning.
@@ -137,9 +137,9 @@ grouping of resources which share a common property. Compartments have two princ
  <li>Provide a definitional basis for applying access control to resources quickly</li>
 </ul>
 <p>
-Compartments define how particular instances of the compartment are defined and identified,
-and how systems know whether resources are in the compartment or not. Here is a list of 
-the compartments defined by this specification:
+Compartment definitions describe how particular compartment instances are named and identified,
+and how systems know which resources are in the compartment. The following compartments are 
+defined by this specification:
 </p>
 <%compartmentlist%>
 <p>

@@ -84,7 +84,8 @@ find the profile when registered in profile repositories.
  <tr><td>publisher</td><td>Details of the individual or organization who accepts responsibility for publishing the profile. This helps establish the "authority/credibility" of the profile.</td></tr>
  <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>	
  <tr><td>description</td><td>A free text natural language description of the profile and its use</td></tr>	
- <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of templates</td></tr>
+ <tr><td>requirements</td><td>The Scope and Usage that this profile was created to meet</td></tr>	
+ <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
  <tr><td>status</td><td>The status of the profile	allows filtering of profiles that are appropriate for use vs. not. See the <a href="resource-profile-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</td></tr>
  <tr><td>date</td><td>The date that this version of the profile was published	</td></tr>
@@ -94,7 +95,7 @@ find the profile when registered in profile repositories.
 <p>Notes:</p>
 <ul>
 <li>The name of the profile is not required to be globally unique, but the name should have some scoping information (i.e. Acme Inc. (USA), Allergy List)</li>
-<li>Multiple codes may be assigned to the profile. These may either describe the template, the focus of the template or both. They are solely to help find the profile by searching for structured concepts.</li>
+<li>Multiple codes may be assigned to the profile. These may either describe the profile, the focus of the profile or both. They are solely to help find the profile by searching for structured concepts.</li>
 
 </ul>  
 <h3>Structure</h3>
@@ -269,9 +270,9 @@ a particular path or a data type), and then defines it using the same details us
 profile the structural elements.
 </p>
 <p>
-Note that in the case of a profile that defines an extension, and then uses it, this will
-mean that there will be duplication between the definition of the extension, and the
-definitions in the structure where it is used.
+Note that in the case of a profile that defines an extension, and then uses it, the
+extension will appear both in the extension definition section, and in one or more places
+in the structure defined by the profile.
 </p>
 <p>
 For further discussion of defining and using extensions, along with some examples, 

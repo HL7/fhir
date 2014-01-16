@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8715</WindowHeight>
-  <WindowWidth>19410</WindowWidth>
+  <WindowHeight>16185</WindowHeight>
+  <WindowWidth>29505</WindowWidth>
   <WindowTopX>-120</WindowTopX>
-  <WindowTopY>135</WindowTopY>
+  <WindowTopY>540</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -561,8 +561,7 @@
     <Cell><Data ss:Type="String">Profile.structure.element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="4" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">=Element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -657,8 +656,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">The definition associated with this element definition is the master for all the slices</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -746,7 +744,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Concise definition for xml presentation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A concise definition that  is shown in the concise XML format that summarizes profiles</Data><NamedCell
+    <Cell><Data ss:Type="String">A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">May change the term to provide language more appropriate to the context of the profile or to reflect slicing</Data><NamedCell
@@ -1047,7 +1045,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Reference to invariant about presence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A reference to an invariant that may make additional statements about the cardinality in the instance</Data><NamedCell
+    <Cell><Data ss:Type="String">A reference to an invariant that may make additional statements about the cardinality or value in the instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1566,7 +1564,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>43</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1574,7 +1572,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1582,8 +1579,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>45</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>49</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1594,7 +1591,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="26" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="25" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s75" ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="118.5"/>
    <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="309.75"/>
@@ -1606,12 +1603,6 @@
     <Cell><Data ss:Type="String">English</Data></Cell>
     <Cell><Data ss:Type="String">OCL</Data></Cell>
     <Cell><Data ss:Type="String">XPath</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Profile.structure</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Provide either a profile reference or constraints on the resource elements (but not both)</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:profile) != exists(f:element)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -1646,7 +1637,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">SHALL define at least one resource constraint, extension definition or binding</Data></Cell>
+    <Cell><Data ss:Type="String">SHALL define at least one structure constraint or extension definition</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:structure) or exists(f:extensionDefn)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -1688,7 +1679,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
-    <Cell><Data ss:Type="String">Structure names where multiple structures exist with the same type</Data></Cell>
+    <Cell><Data ss:Type="String">Where multiple structures exist with the same type, they SHALL have names</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:structure[not(f:name)]) = count(distinct-values(f:structure[not(f:name)]/f:type/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1774,7 +1765,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1787,11 +1778,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
+     <ActiveRow>9</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2204,7 +2194,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">mapping</Data></Cell>
-    <Cell><Data ss:Type="String">The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used, though this </Data></Cell>
+    <Cell><Data ss:Type="String">The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -2222,7 +2212,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

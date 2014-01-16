@@ -133,7 +133,7 @@
     <Cell><Data ss:Type="String">A response to an order</Data></Cell>
     <Cell><Data ss:Type="String">A response to an order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Thre might be more than one response to an order</Data></Cell>
+    <Cell><Data ss:Type="String">There might be more than one response to an order</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -147,7 +147,7 @@
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Identifiers assigned to this order by the orderer or by the receiver</Data></Cell>
-    <Cell><Data ss:Type="String">Identifiers assigned to this order. The identifiers are usually assigmed by the system responding to the order, but they may be provided or added to by other systems</Data></Cell>
+    <Cell><Data ss:Type="String">Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>

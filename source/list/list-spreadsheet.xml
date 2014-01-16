@@ -215,7 +215,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">If all resources have the same subject</Data></Cell>
     <Cell><Data ss:Type="String">The common subject (or patient) of the resources that are in the list, if there is one</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">The primary purpose of listing the subject explicitly it to help with finding the right list</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">The primary purpose of listing the subject explicitly is to help with finding the right list</Data></Cell>
     <Cell><Data ss:Type="String">Some purely aribitrary lists do not have a common subject, so this is optional</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -232,7 +232,7 @@
     <Cell><Data ss:Type="String">Who and/or what defined the list contents</Data></Cell>
     <Cell><Data ss:Type="String">The entity responsible for deciding what the contents of the list were</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Allows follow-up as well as context</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">The primary and important source is the entity that made the decisions what items are in the list. This may be software or user</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">The primary source is the entity that made the decisions what items are in the list. This may be software or user</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">.participation[typeCode&lt;AUT].role[classCode=REL].player[classCode=PSN,determinerCode=INST]&#10;or&#10;.participation[typeCode&lt;AUT].role[classCode=REL].player[classCode=DEV,determinerCode=INST]</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -264,7 +264,7 @@
     <Cell><Data ss:Type="String">Whether items in the list have a meaningful order</Data></Cell>
     <Cell><Data ss:Type="String">Whether items in the list have a meaningful order</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries.</Data></Cell>
-    <Cell><Data ss:Type="String">Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. This is marked as &quot;is modified&quot; because whether the list is ordered or not has may change how the results are processed or displayed</Data></Cell>
+    <Cell><Data ss:Type="String">Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. This is marked as &quot;is modifier&quot; because whether the list is ordered or not may change how the results are processed or displayed</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].sequenceNumber &gt; 1 </Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -278,7 +278,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">ListMode</Data></Cell>
     <Cell><Data ss:Type="String">working | snapshot | changes</Data></Cell>
-    <Cell><Data ss:Type="String">How this list was prepared - whether it is a working list that is suitable for being maintained in an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted</Data></Cell>
+    <Cell><Data ss:Type="String">How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">Lists are used in various ways, and it must be known in what way it is safe to use them</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">.outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value</Data></Cell>
     <Cell ss:StyleID="s66"/>

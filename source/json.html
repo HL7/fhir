@@ -31,7 +31,7 @@ support in their <a href="conformance.html">Conformance Statement</a>.
 The JSON representation is described relative to the XML representation:
 </p>
 <ul>
- <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including for elements that may repeat. Property names are case sensitive</li>
+ <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including elements that may repeat. Property names are case sensitive</li>
  <li>Just as in XML, JSON property attributes never have empty values; omit a value if it is empty</li>
  <li>JSON whitespace is not part of the contents of a resource. Applications MAY preserve the whitespace when handling resources, but are not required to do so. Note that digital signatures may depend on the whitespace</li>
 </ul>
@@ -40,10 +40,10 @@ The JSON representation is described relative to the XML representation:
 <ul>
  <li>There are no namespaces in the JSON representation</li>
  <li>The type of the resource is represented differently in JSON</li>
- <li>The order of properties of an object not significant in the JSON representation, though order within an array SHALL be maintained</li>
+ <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
  <li>JSON does not have a notion of attributes versus elements, so attributes (xml:id, value) are handled differently</li>
- <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that arrays are used when the item might repeat, even if they does not repeat in a specific instance</li>
- <li>The XHTML &lt;div&gt; element in the Narrative datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content etc. The XHTML most still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
+ <li>JSON has a notation for arrays, which are used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
+ <li>The XHTML &lt;div&gt; element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML S still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
 </ul>
 <p>These differences - particularly the repeating element one, which cannot be avoided - mean that generic XML --&gt; JSON converters are not 
 able to perform correctly. The <a href="downloads.html#refimpl">reference platforms</a> provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.</p>
@@ -57,7 +57,7 @@ done by using an array type. Note that:
 </p>
 <ul>
  <li>The name of the array is singular - the same as the XML element</li>
- <li>An item that may repeat is represented as an array even in the case that it doesn't so that the process of parsing the resource is the same either way</li>
+ <li>An item that may repeat is represented as an array even in the case that it doesn't repeat so that the process of parsing the resource is the same either way</li>
  </ul>
 <pre class="xml">
  &lt;<b>coding</b>&gt;
@@ -88,12 +88,12 @@ done by using an array type. Note that:
 FHIR elements with primitive values are represented in two parts:
 </p>
 <ul>
- <li>A json property with the name of the element, which has a JSON type of number, boolean, or string</li>
- <li>a json property with "_" prepended to the name of the element, which, if present, contains the value's xml:id and/or extensions</li>
+ <li>A JSON property with the name of the element, which has a JSON type of number, boolean, or string</li>
+ <li>a JSON property with "_" prepended to the name of the element, which, if present, contains the value's xml:id and/or extensions</li>
 </ul>
 <p>
 The FHIR types <a href="datatypes.html#integer">integer</a> and <a href="datatypes.html#decimal">decimal</a> are represented as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
-as a JSON boolean, and all other types are represented as a JSON String which has the same content as that specified for the relevant data type. Whitespace is always significant 
+as a JSON boolean, and all other types are represented as a JSON string which has the same content as that specified for the relevant data type. Whitespace is always significant 
 (i.e. no leading and trailing spaces for non-strings).</p>
 <pre class="xml">
  &lt;<b>code</b> value="abc"/&gt; &lt;!-- code --&gt;
@@ -137,7 +137,7 @@ If the value has an id attribute, or extensions, then this is represented as fol
 <p>Note: If the primitive has an id attribute or extension, but no value, only the property with the "_" is rendered.</p>
 <p>
 In the case where the primitive element may repeat, it is represented 
-in two arrays. null values are used to fill out both arrays so 
+in two arrays. JSON null values are used to fill out both arrays so 
 that the id and/or extension are aligned with the matching value in 
 the first array, as demonstrated in this example:
 </p>
@@ -258,7 +258,7 @@ There is <a href="json-edge-cases.json">a sample file</a> with many edge cases t
 
 <p>
 In JSON <a href="extras.html#bundle">bundles</a> are represented using a JSON format that is tailored to the specific needs for bundles. 
-Each element in the Xml feed definition has a JSON corresponding JSON object member with the same name. For convenience, a bundle has a 
+Each element in the XML feed definition has a JSON corresponding JSON object member with the same name. For convenience, a bundle has a 
 "resourceType" property with the value of "Bundle" ("resourceType" is used for consistency with resources, even though a bundle is 
 not a resource, but a container of resources). Here is an example feed returning search results for a person query:
 </p>
@@ -303,13 +303,14 @@ not a resource, but a container of resources). Here is an example feed returning
     &quot;summary&quot; : &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;(text summary)&lt;/div&gt;&quot;,
   },
   ... other entries ....
-  ]
+  ],
+  &quot;signature&quot; : &quot;&lt;signature xmlns=\&quot;http://www.w3.org/2000/09/xmldsig\&quot;&gt;...&lt;/signature&gt;&quot;
 }
 </pre>
 
 <p>
 Note that property names for elements that can repeat are not pluralized for consistency of overall approach (as described above). 
-The mime type for a json bundle is also application/json+fhir.
+The mime type for a JSON bundle is also application/json+fhir.
 </p>
 
 <a name="json-bundle-delete"> </a>
@@ -340,7 +341,7 @@ The entry is known to be deleted because a date of deletion is given. An id SHAL
 <a name="binary"> </a>
 <h4>Binary Resources</h4>
 <p>
-When a <a href="extras.html#binary">binary resource</a> is represented in an JSON bundle, 
+When a <a href="extras.html#binary">binary resource</a> is represented in a JSON bundle, 
 it is represented as base64 encoded content along with a content-type, which is the mime-type 
 as it would be specified in HTTP, like this:
 </p>
@@ -355,7 +356,7 @@ as it would be specified in HTTP, like this:
 <a name="sig"> </a>
 <h4>Signatures</h4>
 <p>
-If a bundle has a signature, the signature as a JSON property "signature", 
+If a bundle has a signature, the signature has a JSON property "signature", 
 whose property value is an XML string that is a valid
 <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#sec-Signature">XML signature</a>
 element.

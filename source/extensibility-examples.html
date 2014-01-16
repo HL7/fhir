@@ -78,7 +78,7 @@ and their associated bindings. In this case, the profile looks like this:
 
 <pre class="xml" fragment="Profile">
 &lt;Profile xmlns="http://hl7.org/fhir">
-  &lt;name value="ISO 21090 Data Type Extensions" /&gt;
+  &lt;name value="Example Extension Definition" /&gt;
   &lt;!-- snip other metadata -->
   &lt;extensionDefn>
     &lt;code value="participation-agreement" /&gt;
@@ -279,7 +279,10 @@ and their associated bindings. In this case, the profile looks like this:
   &lt;extensionDefn>
     &lt;code value="name-qualifier" /&gt;
     &lt;contextType value="datatype" /&gt;
-    &lt;context value="HumanName.given;HumanName.prefix;HumanName.family;HumanName.suffix" /&gt;
+    &lt;context value="HumanName.given" /&gt;
+    &lt;context value="HumanName.prefix" /&gt;
+    &lt;context value="HumanName.family" /&gt;
+    &lt;context value="HumanName.suffix" /&gt;
     &lt;definition>
       &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
       &lt;formal value="A set of codes each of which specifies a certain subcategory

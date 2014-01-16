@@ -32,8 +32,6 @@ such as JSON are equally valid.
 <p>
 The XML syntax uses the following notation:
 </p>
-[%svg uml-example%]
-
 <pre class="spec">
  &lt;<b>Name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt; 
    &lt;<u><b title="Formal Definition (SHALL be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
@@ -52,7 +50,7 @@ Notes:
  <li>Elements are assigned a cardinality that specifies how many times the element may or must appear. If the cardinality is shown in 
     <font color="deeppink">Pink</font> then there is an additional condition that impacts on the allowed cardinality. This is available as a mouse-over text, or in the formal definitions</li>
  <li>Unless elements have children defined directly (as nameC does above) they are assigned one or more types. All of the types are defined in <a href="datatypes.html">the data types</a> except for "Resource" and "Narrative" that are documented below. The type names are hyperlinked</li>
- <li>Some data types that have children have the same set of children as some other element defined in the resource. In that case, the type of that element is represented as @[path] where [path] is the element that has the defined children</li>
+ <li>Some data types that have children have the same set of children as some other element defined in the resource. In that case, the type of that element has a reference to [path] where [path] is the element that has the defined children</li>
  <li>When a logical element can have more than one type, its name takes the form nnn[x]. The "nnn" part of the name is constant, and 
    the [x] is replaced with the title-cased name of the type that is actually used. In XML, for example this would like:
    
@@ -71,7 +69,7 @@ Notes:
  <li>If the element name is underlined, then applications are required to <a href="conformance-rules.html#mustSupport">support</a> and/or <a href="conformance-rules.html#ismodifier">understand</a> it</li>
  <li>Any of the elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <a name="element-rules"> </a>
- <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, an id attribute that is the <a href="references.html#idref">link target</a> of <a href="narrative.html#narrative">narrative</a>, or 1 or more <a href="extensibility.html">extensions</a></li>
+ <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
  <li>In addition to this descriptive syntax, other definitional forms are available, including W3C schema and Schematron</li>
 </ul>

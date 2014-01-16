@@ -34,7 +34,7 @@ Notes:
 <ul>
  <li>To build a valid XML instance of a resource, simply replace the contents of the elements and attributes with valid content as described by the cardinality, type rules and content description found in the comment in each element</li>
  <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
- <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles</li>
+ <li>Note that the only properties that are represented as attributes are those defined in underlying specifications such as <a href="#atom">Atom (see below)</a>, which is used as the XML representation for bundles, and attributes are also used for primitive values</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespaces that occur in FHIR resources are where some external content model is explicitly introduced into the resource content model. For example, <a href="narrative.html">XHTML is found in every resource</a></li>
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#idref">the target of an internal reference</a>. The id attribute is not shown in this format</li>
@@ -69,7 +69,7 @@ In XML <a href="extras.html#bundle">bundles</a> are represented using an Atom fo
   &lt;link rel="next" href="<span style="color:navy;">[paging: url for next page of result]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
   &lt;link rel="last" href="<span style="color:navy;">[paging: url for last page of result]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
   &lt;link rel="fhir-base" href="<span style="color:navy;">[base path to resolve local urls in this bundle]</span>"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;">0..1</span><span style="color: Gray"> --&gt;</span>
-  &lt;os:totalResults xmlns:os="http://a9.com/-/spec/opensearch/1.1/"/&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#primitive">integer</a></span> <span style="color:navy;">
+  &lt;os:totalResults xmlns:os="http://a9.com/-/spec/opensearch/1.1/"&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>0..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#primitive">integer</a></span> <span style="color:navy;">
               Paging: the total number of results</span><span style="color: Gray"> --&gt;</span>&lt;/os:totalResults&gt;
   &lt;updated&gt;<span style="color:Gray;">&lt;!-- </span><span style="color: brown;"><b>1..1</b></span> <span style="color:darkgreen;"><a href="datatypes.html#instant">instant</a></span> <span style="color:navy;">When the bundle was built</span><span style="color: Gray"> --&gt;</span>&lt;/updated&gt;
   &lt;author&gt;<span style="color:Gray;">&lt;!-- 0..1 Who created resource? --&gt;</span>
@@ -106,7 +106,7 @@ In XML <a href="extras.html#bundle">bundles</a> are represented using an Atom fo
 <a name="atom-notes"> </a>
 <h4>Notes</h4>
 <ul>
- <li>Logically, a bundle is a set of resources that are prepared to be sent somewhere for consumption - a "feed". There is no implication that the feed is a standing arrangement (though this is not precluded)</li>
+ <li>Logically, a bundle is a set of resources that are prepared to be sent somewhere for consumption - a "feed"</li>
  <li>The order of elements does not matter in an atom feed (but not entries: the order of the entries is important and may have some meaning associated with it). The order of elements in the atom namespace as documented above does not need to be followed, though it is followed by the FHIR reference platforms</li>
  <li>The title for the feed and the entry are arbitrary human-readable content. The title of the entry SHOULD be derived from information present in the resource itself.  
    Systems may ignore content present in the title</li> 

@@ -40,7 +40,7 @@ When a resource is packaged in a <a href="extras.html#bundle">bundle</a> (e.g. f
 <a href="services.html">exchanged in a service </a>, the id is included along 
 with the resource. When systems using FHIR resources are deployed in an implementation
 context where there is more than two systems exchanging resources, the way that
-resources are identified with URLs needs to managed carefully
+resources are identified with URLs needs to be managed carefully.
 </p>
 
 <p>
@@ -93,7 +93,7 @@ in a <a href="extras.html#bundle">bundle</a>), but other arrangements are possib
 </p>
 <p>
 Another scenario is for a client to retrieve a resource from a server, and make its own local persistent
-copy. If the local resource has a life-cycle of its own (i.e. is it not just a cached resource), then it 
+copy. If the local resource has a life-cycle of its own (i.e. it is not just a cached resource), then it 
 needs to have its own identity; i.e. the resource must be re-identified. The simplest case is that the
 client only is keeping local copies of resources from a single server. In these cases, the client can 
 simply replace the root URL and keep the logical id of the resource the same. In fact, if the server

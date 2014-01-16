@@ -666,9 +666,10 @@ public class NarrativeGenerator {
     XhtmlNode td = tr.addTag("td");
     String s = Utilities.padLeft("", '.', i*2);
     td.addText(s);
+    td.addText(c.getCodeSimple());
     XhtmlNode a = td.addTag("a");
     a.setAttribute("name", Utilities.nmtokenize(c.getCodeSimple()));
-    a.addText(c.getCodeSimple());
+    a.addText(" ");
     
     td = tr.addTag("td");
     if (c.getDisplaySimple() != null)

@@ -255,7 +255,7 @@ The update interaction is performed by an HTTP PUT command as shown:
 <p>
 If the interaction is successful, the server SHALL return either a 200 OK if the resource was updated, or a 201 Created if the resource was created,
 with a Last-Modified header, and a Location and Content-Location header that refers to the specific version created by the 
-update interaction.
+update interaction. The server MAY send an OperationOutcome resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.
 </p>
 <p>
 Servers are permitted to reject update interactions because of integrity concerns or business 
@@ -297,8 +297,10 @@ is performed by an HTTP DELETE command as shown:
 <p>
 A delete interaction means that <a href="#read">non-version specific reads</a> of a resource 
 return a 410 error and that the resource is no longer found through search interactions. Upon successful
-deletion the server should return 204 (No Content). If the server refuses to delete resources of 
-that type on principle, then it should return the status code 
+deletion the server should return 204 (No Content). The server MAY send an OperationOutcome resource with hints and warnings about the deletion; if one is sent it SHALL not include any errors.
+</p>
+<p>
+If the server refuses to delete resources of that type on principle, then it should return the status code 
 405 method not allowed. If the server refuses to delete a resource because of reasons specific 
 to that resource, such as referential integrity, it should return the status code 409 Conflict.
 If the resource cannot be deleted because it does not exist on the server, the server SHALL return 404 (Not found).
@@ -331,7 +333,9 @@ a Location header which contains the new <a href="resources.html#metadata">Logic
   Location: [base]/[type]/[id]/_history/[vid]
 </pre>
 <p>
-Where [id] and [vid] are the newly created id and version id for the resource.
+Where [id] and [vid] are the newly created id and version id for the resource. The server MAY send an OperationOutcome resource with hints and warnings about the resource; if one is sent it SHALL not include any errors.
+</p>
+<p>
 When the payload data is incorrect and cannot be used to create a new resource, the server returns a 400 Bad Request.
 </p>
 <p>
@@ -387,7 +391,7 @@ If the search fails, the return value is a status code 4xx or 5xx with an <a hre
 If the search succeeds, the return content is an <a href="extras.html#bundle">Bundle</a> containing the results of the search as a list of resources
 in a defined order. The result list can be long, so servers may use paging. If they do, they SHALL use the method described 
 in <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed Paging and Archiving)</a> (also <a href="#paging">see below</a>) for breaking the 
-list into pages if appropriate.
+list into pages if appropriate. The server MAY also return an OperationOutcome resource with additional information about the search; if one is sent it SHALL not include any errors.
 </p>
 
 <a name="validate"> </a>
@@ -538,9 +542,12 @@ transaction, with the following properties:
 <ul>
  <li>The server assigned id in entry.id</li>
  <li>If <a href="#vread">vread</a> is supported, the specific version reference in a "self" link on the entry</li>
- <li>The client assigned id in a "related" link on the entry</li>
- <li>No entry.content or entry.summary</li>
+ <li>The client assigned id in a "alternate" link on the entry</li>
+ <li>entry.content and entry.summary are not required</li>
 </ul>
+<p>
+The server MAY also return an OperationOutcome resource with additional information about the transaction; if one is sent it SHALL not include any errors if the transaction was successful.
+</p>
 <p>
 The application constructing a bundle may not be sure whether a particular resource will already exist
 at the time that the transaction is executed; this is typically the case with reference resources such 

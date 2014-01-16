@@ -239,7 +239,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Name of the location as used by humans</Data></Cell>
-    <Cell><Data ss:Type="String">Name of the location as used by humans. Needs not be unique.</Data></Cell>
+    <Cell><Data ss:Type="String">Name of the location as used by humans. Does not need to be unique.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:Index="13" ss:StyleID="Default"><Data ss:Type="String">name</Data></Cell>
     <Cell ss:StyleID="Default"/>

@@ -224,8 +224,10 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
         AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
         return cd.getDefinition()+" (<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">Value Set Definition</a>)";
-      } else
-        return cd.getDescription()+" (<a href=\""+cd.getReference()+".html\">Value Set Definition</a>)";
+      } else if (cd.getReferredValueSet() != null)
+        return cd.getDescription()+" (<a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getIdentifierSimple()+"</a>)";
+      else
+      return cd.getDescription()+" (<a href=\""+cd.getReference()+".html\">Value Set Definition</a>)";
     }
     if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
       if (Utilities.noString(cd.getReference())) 

@@ -997,7 +997,7 @@ public class PageProcessor implements Logger  {
     String[] parts = string.split("\\|");
     return
         "<tr><td colspan=\"3\"><hr/></td></tr>\r\n"+
-        "<tr><th colspan=\"3\"><a name=\""+parts[0].toLowerCase().replace(" ", "")+"\">"+parts[0]+"</a></th></tr>\r\n"+
+        "<tr><th colspan=\"3\">"+parts[0]+"<a name=\""+parts[0].toLowerCase().replace(" ", "")+"\"> </a></th></tr>\r\n"+
         "<tr><td colspan=\"3\">"+Utilities.escapeXml(parts[1])+"</td></tr>\r\n";
   }
 
@@ -2636,9 +2636,9 @@ public class PageProcessor implements Logger  {
       StringBuilder b = new StringBuilder();
       b.append("<h2>Search Parameters</h2>\r\n");
       if (resource.getName().equals("Query"))
-        b.append("<p>Search Parameters for this resource. The standard parameters also apply as described above.</p>\r\n");
+        b.append("<p>Search parameters for this resource. The standard parameters also apply as described above.</p>\r\n");
       else
-        b.append("<p>Search Parameters for this resource. The standard parameters also apply. See <a href=\"search.html\">Searching</a> for more information about searching in REST, Messaging, and services.</p>\r\n");
+        b.append("<p>Search parameters for this resource. The standard parameters also apply. See <a href=\"search.html\">Searching</a> for more information about searching in REST, messaging, and services.</p>\r\n");
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Name / Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>\r\n");
       List<String> names = new ArrayList<String>();

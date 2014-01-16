@@ -5,7 +5,7 @@
 <h2>List Mode &amp; Item Deleted</h2>
 
 <p>
-There are several different kinds of use for a List resource:
+There are several different kinds of uses for a List resource:
 </p>
 <%codelist ListMode%>
 
@@ -46,11 +46,11 @@ confused about which flags belongs with which item on space-poor displays (e.g. 
 
 <p>
 This means that the narrative content of the list will be limited to the
-version of the contained resources at the time the list was last updated.  (It may be
+version of the contained resources at the time the list was last updated. It may be
 even earlier if the narrative isn't updated to reflect the most recent version
 of all referenced resources at each update.  Best practice for 'working' lists is to update 
 the narrative to reflect the most recent content of all list elements each time the list
-is revised).  Lists should therefore not be
+is revised.  Lists should therefore not be
 relied on as a real-time view of the referenced content.  There are a few
 possible approaches to work around this issue:
 </p>

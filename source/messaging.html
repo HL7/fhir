@@ -60,7 +60,7 @@ specification does provide a direct delivery mechanism below.
 This specification assumes that content will be delivered from one application to 
 another by some delivery mechanism, and then one or more responses will be returned 
 to the source application. The agreements around the content of the messages and
-the behavior of the two applications the "contract" that describes the exchange.
+the behavior of the two applications form the "contract" that describes the exchange.
 The contract will add regional and local agreements to the rules defined in this 
 specification.
 </p>
@@ -95,7 +95,7 @@ must be determined by the content, or the context.
 <a name="patterns"> </a>
 <h3>Message Exchange Patterns</h3>
 <p>
-Each FHIR message has one or more response messages. There must be at least 
+Each FHIR request message has one or more response messages. There must be at least 
 one response message so that the sender can know that the message was properly
 received. Multiple response SHALL not be returned for messages of consequence,
 and SHOULD not be returned for notifications. 
@@ -273,17 +273,17 @@ no obligation to do anything particular with the resources except as required by
 the message resource. A server may choose to retain the resources and make them available on a RESTful interface, but 
 is not required to do so.</p>
 
-<h4>Submitting query messages and documents</h4>
+<h3>Submitting query messages and documents</h3>
 <p>
 The mailbox can also be used to accept queries or documents. In the case of documents, the document is "accepted" 
 (the server takes responsibility for custody of the received document) 
 or an HTTP error is returned. The server is under no obligation to perform any particular processing of the document
 except as 
-specific trading partner agreements dictate. In the case of queries, the server a bundle containing 
+specific trading partner agreements dictate. In the case of queries, the server receives a bundle containing 
 a query and a set of other related resources, processes the query, and returns a bundle with a query which is a response,
 and any additional resources that are part of the query response.
 </p>
-<h4>Result of submission</h4>
+<h3>Result of submission</h3>
 <p>Depending on the semantics of the event code or processing done on the query or document, a server may return 
 a status code 200 OK, 201 Created, 202 Accepted or 204 No Content. If the server returns 200 OK, it SHALL return a 
 bundle with the outcome of the event or document processing. In case of errors, the client SHALL interpret a 
@@ -334,7 +334,7 @@ a administration resource has been created or updated, as does the REST API.
 On the other hand, there are differences in the capabilities offered - while
 a patient merge can be implemented as a series of RESTful operations performed
 by the client that update all resources linked to the patient, when a message 
-command to merge patient records are all is processed, the server will do all
+command to merge patient records is processed, the server will do all
 the work, and is also able to merge in areas not exposed on the RESTful API.
 The REST API, however, provides a set of basic operations on all resources
 that would need special definitions in the messaging framework - definitions that
@@ -348,7 +348,7 @@ sets of functionality in order to satisfy a wider range of implementers.
 <p>
 As a resource that can be used with the RESTful framework, the MessageHeader
 resource has the normal resource end-point (/MessageHeader), which is
-used to manage a set of static messages resources. This could be used to 
+used to manage a set of static message resources. This could be used to 
 make an archive of past messages available. <b>Creating or updating MessageHeader resources
 in this fashion does not represent the actual occurrence of any event, nor can it trigger
 any logic associated with the actual event.</b> It is just for managing a set of message resources.

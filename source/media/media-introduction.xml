@@ -21,7 +21,7 @@ That WADO-RS service may include rendering the image with annotations and displa
 from an associated DICOM presentation state.
 
 Although the Media resource is allowed to contain images collected by a DICOM based system, DICOM images would preferentially be made available in a FHIR ecosystem
-by provision of an  resource with references to a <a href="ftp://medical.nema.org/medical/dicom/supps/LB/sup161_lb.pdf">WADO-RS server</a>.
+by provision of a resource with references to a <a href="ftp://medical.nema.org/medical/dicom/final/sup161_ft.pdf">WADO-RS server</a>.
 </p>
 </div>
 

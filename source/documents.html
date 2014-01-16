@@ -117,7 +117,7 @@ documents derived from the same composition SHALL have a different document id.
 <h3>Document Presentation</h3>
 <p>
 When the document is presented for human consumption, applications must present the 
-collated narrative portions of following resources in order:
+collated narrative portions of the following resources in order:
 </p>
 <ol>
  <li>The Composition resource</li>
@@ -278,8 +278,8 @@ of posting to them:
 <table class="grid">
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td>[baseurl]/Document</td> <td>Document Bundle</td> <td>This works like a normal end point 
-   for managing a type of resource, but it works with whole document bundles. The search parameters
-   exposed by this end-point are those of the composition resource</td> </tr>
+   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, an update gets a bundle, and a search returns a bundle of bundles. The search parameters
+   exposed by this end-point are those of the composition resource from the document bundle</td> </tr>
    
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end point for managing
    composition resources. This can be used while building a document, or after breaking a document up into 

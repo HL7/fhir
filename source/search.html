@@ -601,6 +601,13 @@ attachment which is by reference, like this:
 The server can retrieve the target of this reference on behalf of the client, and add this to the 
 results for the convenience of the client. 
 </p>
+<h4>Paging</h4>
+<p>
+When returning paged results for a query with _include resources, all _include resources that are 
+related to the primary resources returned for the page SHOULD also be returned as part of that 
+same page, even if some of those resource instances have previously been returned on previous 
+pages.  This allows both sender and receiver to avoid caching results of other pages.
+</p>
 
 <a name="summary"> </a>
 <h3>Summary</h3>

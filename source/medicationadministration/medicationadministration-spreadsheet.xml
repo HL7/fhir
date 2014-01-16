@@ -290,7 +290,7 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Encounter administered as part of</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">The visit or admission the or othercontact between patient and health care provider the immunization was performed as part of.</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell><Data ss:Type="String">SubstanceAdministration-&gt;component-&gt;EncounterEvent</Data></Cell>
@@ -330,7 +330,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.reasonNotGiven</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -343,8 +343,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s69"><Data ss:Type="String">MedicationAdministration.whenGiven</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:Index="4" ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:StyleID="s70"/>
@@ -352,7 +351,6 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">SubstanceAdministration.effectiveTime</Data></Cell>
     <Cell><Data ss:Type="String">RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration&#10;</Data></Cell>
-    <Cell><Data ss:Type="String">This should be two types: period and dateTime</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">MedicationAdministration.medication</Data></Cell>
@@ -394,7 +392,7 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s76"><Data ss:Type="String">Medicine administration instructions to the patient/carer</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Provides details of how the medication was administered</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Provides details of how much of the medication was administered</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s76"/>
@@ -558,7 +556,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -575,7 +573,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -647,8 +646,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

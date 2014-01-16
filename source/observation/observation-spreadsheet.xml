@@ -243,7 +243,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Simple observations</Data></Cell>
     <Cell><Data ss:Type="String">Simple assertions and measurements made about a patient, device or other subject</Data></Cell>
-    <Cell><Data ss:Type="String">Vital Signs</Data></Cell>
+    <Cell><Data ss:Type="String">Vital Signs, Measurement</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.</Data></Cell>
     <Cell><Data ss:Type="String">Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to describe aggregate collections of observations such as Lab reports, etc</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN]</Data></Cell>
@@ -283,7 +283,7 @@
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">ObservationType</Data></Cell>
     <Cell><Data ss:Type="String">Type of observation (code / type)</Data></Cell>
-    <Cell><Data ss:Type="String">Describes what was observed. Sometimes called this is called the observation &quot;code&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">Describes what was observed. Sometimes this is called the observation &quot;code&quot;</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"><Data ss:Type="String">Knowing what kind of observation is being made is essential to understanding the observation.</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">./code</Data></Cell>
@@ -324,7 +324,7 @@
     <Cell><Data ss:Type="String">Actual result</Data></Cell>
     <Cell><Data ss:Type="String">The information determined as a result of making the observation</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"><Data ss:Type="String">A result with no value isn't much use.  (Though an exceptional value such as 'unknown' may still be useful.)</Data></Cell>
-    <Cell><Data ss:Type="String">The datatype for this element should be determined by Observation.name. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.name. The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data></Cell>
+    <Cell><Data ss:Type="String">The datatype for this element should be determined by Observation.name. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.name defines a coded value. The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">value</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">./value</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">OBX.2, OBX.5, OBX.6</Data></Cell>
@@ -883,7 +883,7 @@
     <Cell><Data ss:Type="String">Indicates the meaning/use of this range of this range</Data></Cell>
     <Cell><Data ss:Type="String">Code for the meaning of the reference range</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, or perhaps what state this reference range applies to (i.e. age, hormonal cycles, etc.)</Data></Cell>
-    <Cell><Data ss:Type="String">This is SHOULD be populated if there is more than one range</Data></Cell>
+    <Cell><Data ss:Type="String">This SHOULD be populated if there is more than one range</Data></Cell>
     <Cell><Data ss:Type="String">interpretationCode</Data></Cell>
     <Cell><Data ss:Type="String">./interpretationCode</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">OBX-10-nature of abnormal test?</Data></Cell>
@@ -918,7 +918,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Period</Data></Cell>
+    <Cell><Data ss:Type="String">Range</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Applicable age range, if relevant</Data></Cell>
     <Cell><Data ss:Type="String">The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so</Data></Cell>
@@ -960,9 +960,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>18</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -970,7 +970,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -978,7 +977,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1014,7 +1014,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">reference range</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">Observation.referenceRange</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Must have a least a low or a high (and no comparators)</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Must have at least a low or a high (and no comparators)</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">(exists(f:low) or exists(f:high)) and not(exists(f:low/f:comparator)) and not(exists(f:high/f:comparator))</Data></Cell>
    </Row>
@@ -1053,8 +1053,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -147,7 +147,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A resource that describes a message that is exchanged between systems</Data></Cell>
-    <Cell><Data ss:Type="String">The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the MessageHeader resource instance is the first resource in the bundle</Data></Cell>
+    <Cell><Data ss:Type="String">The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle</Data></Cell>
     <Cell><Data ss:Type="String">Many implementations are not prepared to use REST and need a messaging based infrastructure</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Message</Data></Cell>
     <Cell><Data ss:Type="String">MSH / MSA / ERR</Data></Cell>
@@ -199,7 +199,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">id</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Id of original message</Data></Cell>
-    <Cell><Data ss:Type="String">The id of the message that this a response to</Data></Cell>
+    <Cell><Data ss:Type="String">The id of the message that this message is a response to</Data></Cell>
     <Cell><Data ss:Type="String">Allows receiver to know what message is being responded to</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">./acknowledges.id[isNormalDatatype()]</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">MSA-2-message control ID</Data></Cell>
@@ -408,7 +408,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -421,12 +421,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

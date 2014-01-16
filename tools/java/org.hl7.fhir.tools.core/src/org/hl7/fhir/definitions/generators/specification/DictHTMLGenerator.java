@@ -76,7 +76,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	}
 
 	private void writeEntry(String path, String cardinality, String type, String conceptDomain, ElementDefn e) throws Exception {
-		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"></a><b>"+path+"</b></td></tr>\r\n");
+		write("  <tr><td colspan=\"2\" class=\"structure\"><b>"+path+"</b><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a></td></tr>\r\n");
 		tableRow("Definition", null, e.getDefinition());
 		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
 		tableRowNE("Binding", "terminologies.html", describeBinding(e));
@@ -209,7 +209,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		      boolean firstp = true;
 		      for (String p : t.getParams()) {
 		        if (!firstp)
-		          b.append("|");
+		          b.append(" | ");
 		        if (definitions.getFutureResources().containsKey(p))
 		          b.append("<span title=\"This resource is not been defined yet\">"+p+"</span>");
 		        else
@@ -224,7 +224,11 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	}
 
   private String typeLink(String name) throws Exception {
-    return GeneratorUtils.getSrcFile(name)+ ".html#" + name;
+    String srcFile = GeneratorUtils.getSrcFile(name);
+    if (srcFile.equalsIgnoreCase(name))
+      return srcFile+ ".html";
+    else
+      return srcFile+ ".html#" + name;
   }
 	
 }

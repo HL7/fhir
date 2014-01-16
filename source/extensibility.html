@@ -340,13 +340,13 @@ primitive value is not present:
 </p>
 <pre class="xml">
 &lt;uri&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/nullFlavor&quot;&gt;
-    &lt;valueCode=&quot;UNK&quot;/&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/Profile/general-extensions#data-absent-reason&quot;&gt;
+    &lt;valueCode=&quot;unknown&quot;/&gt;
   &lt;/extension&gt;
 &lt;/uri&gt;
 </pre>
 <p>
-In this example, instead of a value, a v3 nullFlavor is provided. Note that 
+In this example, instead of a value, a <a href="general-extensions.html">data missing code</a> is provided. Note that 
 it is not required that this particular extension be used. This extension 
 is <b>not</b> a modifier extension, because the primitive data type has no
 value. 
@@ -444,19 +444,20 @@ Extensions SHALL only be used on a target for which they are defined.
 Each extension is defined using the following fields:
 </p>
 <table class="codes">
- <tr><td>Code</td><td>Required</td><td>The name that is used as a code in a resource to identify this extension - unique in the context of the defining profile</td></tr>
- <tr><td>Context</td><td>Required</td><td>The context of this extension. See above. The context has two parts: a type, and a path which supplies the details</td></tr>
- <tr><td>Short Definition</td><td>Required</td><td>A brief description of the extension used in the XML descriptions when the extension is referenced in a profile</td></tr>
- <tr><td>Definition</td><td>Required</td><td>A formal statement of the meaning of the content of the field</td></tr>
- <tr><td>Requirements</td><td>Optional</td><td>Identifies the reason the extension is needed</td></tr>
- <tr><td>Comments</td><td>Optional</td><td>Additional other information about the extension, including information such as use notes</td></tr>
- <tr><td>Cardinality</td><td>Required</td><td>The cardinality of this extension.<br/> Specifying a minimum cardinality of 1 means that if the source system declares that it conforms to an extension that declares a type including this extension, this extension must be included in the resource.  Cardinality can be constrained but not loosened in profiles that reference this extension</td></tr>
- <tr><td>Type</td><td>Required</td><td>The type(s) of the extension. This SHALL be a valid FHIR data type as described above, or "Extension: x,y,z" which indicates that the extension codes x,y, and z will be contained in the extension</td></tr>
- <tr><td>XPaths</td><td>Optional</td><td>One or more XPath statements that SHALL evaluate to true when the extension is used</td></tr>
- <tr><td>Is Modifier</td><td>Required</td><td>Whether the extension changes the meaning or interpretation of the element containing the extension (or any descendant of that element). Extensions defined as IsModifier=true are always represented in <i>modifierExtension</i> elements, and extensions defined as IsModifier=false are always represented in <i>Extension</i> elements</td></tr>
- <tr><td>RIM Mapping</td><td>Conditional</td><td>The formal mapping from this extension to the RIM. Required for HL7-defined extensions that apply to resources with RIM mappings, but optional in other contexts</td></tr>
- <tr><td>v2 Mapping</td><td>Optional</td><td>Mapping to a v2 segment/field/etc., if desired and appropriate. </td></tr>
- <tr><td>Binding</td><td>Conditional</td><td>For the types CodeableConcept and Coding. See <a href="terminologies.html">Terminologies</a></td></tr>
+ <tr><td>Field</td><td>Required?</td><td>Path in Profile (from Profile.extensionDefn)</td><td>Description</td></tr>
+ <tr><td>Code</td><td>Required</td><td>.code</td><td>The name that is used as a code in a resource to identify this extension - unique in the context of the defining profile</td></tr>
+ <tr><td>Context</td><td>Required</td><td>.contextType and .context</td><td>The context of this extension. See above. The context has two parts: a type, and a path which supplies the details</td></tr>
+ <tr><td>Short Definition</td><td>Required</td><td>.definition.short</td><td>A brief description of the extension used in the XML descriptions when the extension is referenced in a profile</td></tr>
+ <tr><td>Definition</td><td>Required</td><td>.definition.formal</td><td>A formal statement of the meaning of the content of the field</td></tr>
+ <tr><td>Requirements</td><td>Optional</td><td>.definition.requirements</td><td>Identifies the reason the extension is needed</td></tr>
+ <tr><td>Comments</td><td>Optional</td><td>.definition.comments</td><td>Additional other information about the extension, including information such as use notes</td></tr>
+ <tr><td>Cardinality</td><td>Required</td><td>.definition.min / .definition.max</td><td>The cardinality of this extension.<br/> Specifying a minimum cardinality of 1 means that if the source system declares that it conforms to an extension that declares a type including this extension, this extension must be included in the resource.  Cardinality can be constrained but not loosened in profiles that reference this extension</td></tr>
+ <tr><td>Type</td><td>Required</td><td>.definition.type</td><td>The type(s) of the extension. This SHALL be a valid FHIR data type as described above, or empty, if the extension will contain other extensions</td></tr>
+ <tr><td>XPaths</td><td>Optional</td><td>.definition.constraint</td><td>One or more XPath statements that SHALL evaluate to true when the extension is used</td></tr>
+ <tr><td>Is Modifier</td><td>Required</td><td>.definition.isModifier</td><td>Whether the extension changes the meaning or interpretation of the element containing the extension (or any descendant of that element). Extensions defined as IsModifier=true are always represented in <i>modifierExtension</i> elements, and extensions defined as IsModifier=false are always represented in <i>Extension</i> elements</td></tr>
+ <tr><td>RIM Mapping</td><td>Conditional</td><td>.definition.mapping...</td><td>The formal mapping from this extension to the RIM. Required for HL7-defined extensions that apply to resources with RIM mappings, but optional in other contexts</td></tr>
+ <tr><td>v2 Mapping</td><td>Optional</td><td>.definition.mapping...</td><td>Mapping to a v2 segment/field/etc., if desired and appropriate. </td></tr>
+ <tr><td>Binding</td><td>Conditional</td><td>.definition.binding</td><td>For the types CodeableConcept and Coding. See <a href="terminologies.html">Terminologies</a></td></tr>
 </table>
 <p>
 Notes:
