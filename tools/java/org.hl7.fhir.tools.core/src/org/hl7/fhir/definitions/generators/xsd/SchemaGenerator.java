@@ -85,6 +85,7 @@ public class SchemaGenerator {
 	  single.write("-->\r\n");
 	  single.write("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns=\"http://hl7.org/fhir\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" "
 	      + "xmlns:xml=\"http://www.w3.org/XML/1998/namespace\" targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
+	  single.write("  <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml=\"http://www.w3.org/XML/1998/namespace\", however this causes performance issues with other tools and thus is not in the base schemas. -->\r\n");
 
     xsdb = new XSDBaseGenerator(single);
     xsdb.setDefinitions(definitions);
