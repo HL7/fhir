@@ -506,6 +506,40 @@ public class FHIRSimpleClientTest {
 		assertTrue(tags != null && tags.size() > 0);
 		unloadPatientResource();
 	}
+	
+	@Test
+	public void testDeleteTagsForResource() {
+		loadPatientResource();
+		boolean success = testClient.deleteTagsForResource(Patient.class, testPatientId);
+		assertTrue(success);
+		unloadPatientResource();
+	}
+	
+	@Test
+	public void testDeleteTagsForResourceVersion() {
+		loadPatientResource();
+		boolean success = testClient.deleteTagsForResourceVersion(Patient.class, testPatientId, testPatientVersion);
+		assertTrue(success);
+		unloadPatientResource();
+	}
+	
+	@Test
+	public void testCreateTagsForResource() {
+		loadPatientResource();
+		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+		tags.add(new AtomCategory("http://scheme.com", "http://term.com", "Some good ole term"));
+		testClient.createTags(tags, Patient.class, testPatientId);
+		unloadPatientResource();
+	}
+	
+	@Test
+	public void testCreateTagsForResourceVersion() {
+		loadPatientResource();
+		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+		tags.add(new AtomCategory("http://scheme.com", "http://term.com", "Some good ole term"));
+		testClient.createTags(tags, Patient.class, testPatientId, testPatientVersion);
+		unloadPatientResource();
+	}
 
 /*
 	@Test

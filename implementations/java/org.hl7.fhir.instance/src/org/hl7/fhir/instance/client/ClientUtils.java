@@ -39,6 +39,7 @@ import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.Parser;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.OperationOutcome;
@@ -325,6 +326,31 @@ public class ClientUtils {
 	 * Other general helper methods
 	 * ****************************************************************/
 	 
+	public  static <T extends Resource>  byte[] getTagListAsByteArray(List<AtomCategory> tags, boolean pretty, boolean isJson) {
+		ByteArrayOutputStream baos = null;
+		byte[] byteArray = null;
+		try {
+			baos = new ByteArrayOutputStream();
+			Composer composer = null;
+			if(isJson) {
+				composer = new JsonComposer();
+			} else {
+				composer = new XmlComposer();
+			}
+			composer.compose(baos, tags, pretty);
+			byteArray =  baos.toByteArray();
+			baos.close();
+		} catch (Exception e) {
+			try{
+				baos.close();
+			}catch(Exception ex) {
+				throw new EFhirClientException("Error closing output stream", ex);
+			}
+			throw new EFhirClientException("Error converting output stream to byte array", e);
+		}
+		return byteArray;
+	}
+	
 	public  static <T extends Resource>  byte[] getResourceAsByteArray(T resource, boolean pretty, boolean isJson) {
 		ByteArrayOutputStream baos = null;
 		byte[] byteArray = null;

@@ -301,4 +301,35 @@ public interface FHIRClient {
 	 * GET [base]/[type]/[id]/_history/[vid]/_tags
 	 */
 	public <T extends Resource> List<AtomCategory> getTagsForResourceVersion(Class<T> resource, String id, String versionId);
+	
+	/**
+	 * Remove all tags in the provided list from the list of tags for the nominated resource
+	 * 
+	 * DELETE [base]/[type]/[id]/_tags
+	 */
+	public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id);
+	
+	/**
+	 * Remove tags in the provided list from the list of tags for the nominated version of the resource
+	 * 
+	 * DELETE [base]/[type]/[id]/_history/[vid]/_tags
+	 */
+	public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, String version);
+	
+	/**
+	 * Affix tags in the list to the nominated resource
+	 * 
+	 * POST [base]/[type]/[id]/_tags
+	 * @return
+	 */
+	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id);
+	
+	/**
+	 * Affix tags in the list to the nominated version of the resource
+	 * 
+	 * POST [base]/[type]/[id]/_history/[vid]/_tags
+	 * 
+	 * @return
+	 */
+	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version);
 }

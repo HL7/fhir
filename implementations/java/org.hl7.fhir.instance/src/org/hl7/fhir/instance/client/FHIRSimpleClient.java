@@ -312,6 +312,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		return (AtomEntry<OperationOutcome>)result.getPayload();
 	}
 	
+	@Override
 	public List<AtomCategory> getAllTags() {
 		AtomFeed result = null;
 		try {
@@ -322,6 +323,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		return result.getTags();
 	}
 	
+	@Override
 	public <T extends Resource> List<AtomCategory> getAllTagsForResourceType(Class<T> resourceClass) {
 		AtomFeed result = null;
 		try {
@@ -332,6 +334,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		return result.getTags();
 	}
 	
+	@Override
 	public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id) {
 		AtomFeed result = null;
 		try {
@@ -342,6 +345,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		return result.getTags();
 	}
 	
+	@Override
 	public <T extends Resource> List<AtomCategory> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
 		AtomFeed result = null;
 		try {
@@ -350,6 +354,57 @@ public class FHIRSimpleClient implements FHIRClient {
 			handleException("An error has occurred while trying to read this version of the resource", e);
 		}
 		return result.getTags();
+	}
+	
+	@Override
+	public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id) {
+		try {
+			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResource(resourceClass, id), proxy);
+		} catch(Exception e) {
+			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
+		}
+
+	}
+	
+	@Override
+	public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, String version) {
+		try {
+			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResourceVersion(resourceClass, id, version), proxy);
+		} catch(Exception e) {
+			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
+		}
+	}
+	
+	@Override
+	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id) {
+		ResourceRequest<OperationOutcome> resourceRequest = null;
+		try {
+			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetTagsForResource(resourceClass, id),ClientUtils.getTagListAsByteArray(tags, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), null, proxy);
+			resourceRequest.addSuccessStatus(201);
+			resourceRequest.addSuccessStatus(200);
+			if(resourceRequest.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server responded with HTTP error code " + resourceRequest.getHttpStatus(), (OperationOutcome)resourceRequest.getPayload().getResource());
+			}
+		} catch(Exception e) {
+			handleException("An error has occurred while trying to create this resource", e);
+		}
+		return (AtomEntry<OperationOutcome>)resourceRequest.getPayload();
+	}
+	
+	@Override
+	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version) {
+		ResourceRequest<OperationOutcome> resourceRequest = null;
+		try {
+			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetTagsForResourceVersion(resourceClass, id, version),ClientUtils.getTagListAsByteArray(tags, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), null, proxy);
+			resourceRequest.addSuccessStatus(201);
+			resourceRequest.addSuccessStatus(200);
+			if(resourceRequest.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server responded with HTTP error code " + resourceRequest.getHttpStatus(), (OperationOutcome)resourceRequest.getPayload().getResource());
+			}
+		} catch(Exception e) {
+			handleException("An error has occurred while trying to create this resource", e);
+		}
+		return (AtomEntry<OperationOutcome>)resourceRequest.getPayload();
 	}
 
 	/**
