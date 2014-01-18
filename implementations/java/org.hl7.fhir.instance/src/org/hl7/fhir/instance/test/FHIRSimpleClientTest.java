@@ -176,6 +176,7 @@ public class FHIRSimpleClientTest {
 		loadPatientResource();
 		AtomEntry<Patient> fetchedPatient = testClient.read(Patient.class, testPatientId);
 		assertEqualDate(fetchedPatient.getResource().getBirthDate().getValue(),testDateAndTime);
+		assertEquals(2, fetchedPatient.getTags().size());
 		unloadPatientResource();
 	}
 
@@ -185,6 +186,7 @@ public class FHIRSimpleClientTest {
 			loadPatientResource();
 			AtomEntry<Patient> fetchedPatient = testClient.vread(Patient.class, testPatientId, testPatientVersion);
 			assertEqualDate(fetchedPatient.getResource().getBirthDate().getValue(),testDateAndTime);
+			assertEquals(2, fetchedPatient.getTags().size());
 			unloadPatientResource();
 		} catch(EFhirClientException e) {
 			List<OperationOutcome> outcomes = e.getServerErrors();
@@ -301,15 +303,20 @@ public class FHIRSimpleClientTest {
 	
 	@Test
 	public void testGetHistoryForResourcesOfTypeSinceCalendarDate() {
-		Calendar testDate = GregorianCalendar.getInstance();
-		testDate.add(Calendar.MINUTE, -10);
-		Patient patient = buildPatient();
-		AtomEntry<OperationOutcome> createdEntry = testClient.create(Patient.class, patient);
-		testClient.update(Patient.class, patient, getEntryId(createdEntry));
-		AtomFeed feed = testClient.history(testDate, Patient.class);
-		assertNotNull(feed);
-		assertTrue(feed.getEntryList().size() > 0);
-		testClient.delete(Patient.class, getEntryId(createdEntry));
+		try {
+			Calendar testDate = GregorianCalendar.getInstance();
+			testDate.add(Calendar.MINUTE, -10);
+			Patient patient = buildPatient();
+			AtomEntry<OperationOutcome> createdEntry = testClient.create(Patient.class, patient);
+			testClient.update(Patient.class, patient, getEntryId(createdEntry));
+			AtomFeed feed = testClient.history(testDate, Patient.class);
+			assertNotNull(feed);
+			assertTrue(feed.getEntryList().size() > 0);
+			testClient.delete(Patient.class, getEntryId(createdEntry));
+		} catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 
 	@Test
@@ -507,21 +514,22 @@ public class FHIRSimpleClientTest {
 		unloadPatientResource();
 	}
 	
-	@Test
-	public void testDeleteTagsForResource() {
-		loadPatientResource();
-		boolean success = testClient.deleteTagsForResource(Patient.class, testPatientId);
-		assertTrue(success);
-		unloadPatientResource();
-	}
-	
-	@Test
-	public void testDeleteTagsForResourceVersion() {
-		loadPatientResource();
-		boolean success = testClient.deleteTagsForResourceVersion(Patient.class, testPatientId, testPatientVersion);
-		assertTrue(success);
-		unloadPatientResource();
-	}
+//	@Test
+//	public void testDeleteTagsForResource() {
+//		loadPatientResource();
+//		boolean success = testClient.deleteTagsForResource(Patient.class, testPatientId);
+//		assertTrue(success);
+//		unloadPatientResource();
+//	}
+//	
+//	@Test
+//	public void testDeleteTagsForResourceVersion() {
+//		loadPatientResource();
+//		List<AtomCategory> tags = generateCategoryHeader();
+//		boolean success = testClient.deleteTagsForResourceVersion(Patient.class, testPatientId, tags, testPatientVersion);
+//		assertTrue(success);
+//		unloadPatientResource();
+//	}
 	
 	@Test
 	public void testCreateTagsForResource() {

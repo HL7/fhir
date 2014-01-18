@@ -9,6 +9,7 @@ import java.net.URI;
 import java.net.URLConnection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -298,9 +299,30 @@ public class ClientUtils {
 		if(location != null) {
 			entry.getLinks().put("self", location);//TODO Make sure this is right.
 		}
+		List<AtomCategory> tags = parseTags(response);
+		entry.getTags().addAll(tags);
 		//entry.setCategory(resource.getClass().getSimpleName());
 		entry.setResource(resource);
 		return entry;
+	}
+	
+	/**
+	 * Naive Category Header Parser. May be replaces by core code.
+	 * 
+	 * @param response
+	 * @return
+	 */
+	protected static List<AtomCategory> parseTags(HttpResponse response) {
+		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+		Header[] categoryHeaders = response.getHeaders("Category");
+		for(Header categoryHeader : categoryHeaders) {
+			if(categoryHeader == null || categoryHeader.getValue().trim().isEmpty()) {
+				continue;
+			}
+			List<AtomCategory> categories = new TagParser().parse(categoryHeader.getValue());
+			tags.addAll(categories);
+		}
+		return tags;
 	}
 	
 	/*****************************************************************

@@ -307,14 +307,14 @@ public interface FHIRClient {
 	 * 
 	 * DELETE [base]/[type]/[id]/_tags
 	 */
-	public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id);
+	//public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id);
 	
 	/**
 	 * Remove tags in the provided list from the list of tags for the nominated version of the resource
 	 * 
 	 * DELETE [base]/[type]/[id]/_history/[vid]/_tags
 	 */
-	public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, String version);
+	//public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, List<AtomCategory> tags, String version);
 	
 	/**
 	 * Affix tags in the list to the nominated resource

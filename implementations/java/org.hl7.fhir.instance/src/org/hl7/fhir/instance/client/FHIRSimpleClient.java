@@ -356,24 +356,24 @@ public class FHIRSimpleClient implements FHIRClient {
 		return result.getTags();
 	}
 	
-	@Override
-	public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id) {
-		try {
-			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResource(resourceClass, id), proxy);
-		} catch(Exception e) {
-			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
-		}
-
-	}
-	
-	@Override
-	public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, String version) {
-		try {
-			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResourceVersion(resourceClass, id, version), proxy);
-		} catch(Exception e) {
-			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
-		}
-	}
+//	@Override
+//	public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id) {
+//		try {
+//			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResource(resourceClass, id), proxy);
+//		} catch(Exception e) {
+//			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
+//		}
+//
+//	}
+//	
+//	@Override
+//	public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, List<AtomCategory> tags, String version) {
+//		try {
+//			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResourceVersion(resourceClass, id, version), proxy);
+//		} catch(Exception e) {
+//			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
+//		}
+//	}
 	
 	@Override
 	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id) {
