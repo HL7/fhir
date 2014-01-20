@@ -1,0 +1,69 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+      
+[%settitle Tags, Bundles, Compartments%]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>DSTU Considerations</h2>
+
+<p>
+<b>Attention Implementers, Regulators, standards development organizations and other users (and potential users) of this specification</b>
+</p>
+<p>
+FHIR is being published as a Draft Standard for Trial Use (DSTU).  The DSTU label has been used with prior HL7 specifications with different intentions.
+As well, those making use of FHIR may not be familiar with HL7 standards processes.  For this reason, the FHIR Governance is providing the following 
+guidance for the users of the FHIR specification to make clear our intentions.
+</p>
+<p>
+The FHIR specification is "draft".  It has been subject to significant review through ballot and other HL7 processes and many aspects of it have been 
+implemented and subjected to interoperability testing through Connectathons and early adoption.  However, the degree of testing has varied.  Some resources 
+have been well tested in a variety of environments, others have received relatively little real-world exercise.  In general, the infrastructure should be 
+considered to be more stable than the resources themselves.  In some cases, there are known issues such as the inelegance of representing complex observations 
+such as "blood pressure" or a document that consists primarily of unencoded data.  Guidance from early implementation will help address these areas.
+</p>
+<p>
+Regardless of the degree of prior implementation, all aspects of the FHIR specification are potentially subject to change.  These changes may be minor 
+(clarifications of definitions, etc.) or major (refactoring of resources, changes to serialization rules, eliminating or adding data types, etc.)  There is no 
+commitment to backward or forward compatibility during the DSTU process.  Changes will not be made without cause, however the interests of long-term 
+implementability will generally trump the impact on early adopters when determining what changes should be made.
+</p>
+<p>
+This specification has been promoted to DSTU because it is felt that the specification, as is, is implementable and that more value can be gleaned from 
+implementer experience than from subsequent review as part of the ballot process.  Implementers who are willing to accept the risk of change (perhaps 
+for the benefit of early implementation experience, first mover advantage and the ability to leverage FHIR's intrinsic benefits) are encouraged to implement 
+FHIR in real-world systems.  However, those implementers should be aware that local adaptations may be necessary to meet real-world requirements.  Furthermore, 
+such implementers should architect their solutions to be tolerant of changes to the specification and, where necessary, to manage interoperability with systems 
+that may be using different versions of the specification or different local adaptations.
+</p>
+<p>
+It is the FHIR Management Group's expectation that at least two DSTU releases (roughly a year apart) will be published prior to balloting the specification as a 
+Normative specification.  Once the specification becomes Normative, all stated commitments to backwards compatibility will come into play.  The normative 
+specification will include all infrastructure components of FHIR as well as those resources that have been implemented in a sufficient number of diverse 
+environments.  Some resources may be left as "informative" within the normative release until such time as sufficient implementation experience has been gained.  
+Backwards compatibility rules will not be binding on these informative resources.
+</p>
+<p>
+During the DSTU period, requests for change may be submitted using the HL7 gForge tracker which can be found here: TODO.  Where possible, updates to the 
+"development" version of the specification will be made in a timely fashion (ideally within 2 weeks or less).  A list of these proposed changes will be published 
+as a continuously updated supplement to the official DSTU publication.  Implementers should be aware that the changes are not considered "official" until such 
+time as they are balloted and approved as part of a subsequent DSTU or Normative publication.  Change requests might be fixes to allow implementation, 
+clarifications or enhancements.  In addition, HL7 will be developing and introducing additional resources and profiles as part of the FHIR specification.
+</p>
+<p>
+SDOs and regulatory bodies that are interested in making use of the FHIR specification should feel free to do so, but should consider and plan for the possibility 
+that the specification will evolve and change prior to becoming normative. 
+</p>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>
