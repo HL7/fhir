@@ -45,7 +45,7 @@
 	extensions can be used to introduce this additional complexity.
  </li>
  <li>
-   Although the search parameter value is labelled as a token, it can be used 
+   Although the search parameter <i>value</i> is labelled as a token, it can be used 
    to search against multiple different parameter types:
    <table class="grid">
     <tr> <td>CodeableConcept</td> <td>Use normal token based matching</td> </tr>
