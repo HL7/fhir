@@ -7,17 +7,17 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Hugh Glover</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-12-29T23:08:30Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-01-22T18:24:21Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11610</WindowHeight>
-  <WindowWidth>27885</WindowWidth>
+  <WindowHeight>9675</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -571,18 +571,17 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">MedicationDispense.dispense.receiver</Data><NamedCell
       ss:Name="_FilterDatabase"/><NamedCell ss:Name="Print_Titles"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient|Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who collected the medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Identifies the person who picked up the medication.</Data><NamedCell
+    <Cell><Data ss:Type="String">Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s65"><Data ss:Type="String">CombinedMedicationDispense.SupplyEvent.receiver</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s73"><Data ss:Type="String">.participation[typeCode=RCV].role</Data></Cell>
-    <Cell><Data ss:Type="String">Is this really a practitioner?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s79"><Data ss:Type="String">MedicationDispense.dispense.dosage</Data><NamedCell
@@ -849,9 +848,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -859,6 +858,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -866,8 +866,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
