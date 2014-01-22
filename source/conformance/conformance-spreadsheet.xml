@@ -434,7 +434,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Profiles supported by the system</Data></Cell>
-    <Cell><Data ss:Type="String">A list of profiles supported by the system. For a server, “supported by the system” means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.</Data></Cell>
+    <Cell><Data ss:Type="String">A list of profiles supported by the system. For a server, &quot;supported by the system&quot; means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Supported profiles are different to the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports- this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).&#10;&#10;Typical supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However they do not need to describe more than one resource</Data></Cell>
@@ -1046,9 +1046,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>60</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1056,6 +1056,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1063,7 +1064,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>74</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
