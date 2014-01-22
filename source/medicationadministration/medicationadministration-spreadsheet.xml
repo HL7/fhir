@@ -10,14 +10,14 @@
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-12-28T18:58:02Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12120</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>9600</WindowHeight>
+  <WindowWidth>19380</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -401,20 +401,20 @@
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">MedicationAdministration.dosage.timing</Data></Cell>
+    <Cell><Data ss:Type="String">MedicationAdministration.dosage.timing[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell><Data ss:Type="String">Schedule</Data></Cell>
+    <Cell><Data ss:Type="String">dataTime|Period</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s76"><Data ss:Type="String">When dose(s) were given</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  &quot;Every  8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;;  &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period)</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">This is generally only relevant if the administration record represents a summary of multiple administrations</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">RAS:TQ1</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Is this in the 80% for an administration record?  If so, need to explain how</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Is this in the 80% for an administration record?  If so, need to explain how.&#10;2014/01/22 HG: Changed data type</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
    </Row>
@@ -556,9 +556,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -566,15 +566,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
      <ActiveRow>14</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
