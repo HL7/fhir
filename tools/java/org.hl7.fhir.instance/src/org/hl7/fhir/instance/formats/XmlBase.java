@@ -33,11 +33,19 @@ import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URI;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.utilities.Utilities;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
+
+import com.sun.org.apache.bcel.internal.generic.CALOAD;
 
 public abstract class XmlBase {
   protected static final String FHIR_NS = "http://hl7.org/fhir";

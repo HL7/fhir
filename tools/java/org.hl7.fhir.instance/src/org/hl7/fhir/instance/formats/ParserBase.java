@@ -60,14 +60,13 @@ public abstract class ParserBase extends XmlBase {
     return new DateAndTime(value);
   }
 
+  protected BigDecimal parseDecimalPrimitive(BigDecimal value) {
+    return value;
+  }
+
   protected BigDecimal parseDecimalPrimitive(String value) {
     return new BigDecimal(value);
   }
-
-  protected BigDecimal parseDecimalPrimitive(Double value) {
-    return new BigDecimal(value);
-  }
-
 
   protected String parseUriPrimitive(String value) throws Exception {
   	 return value;
