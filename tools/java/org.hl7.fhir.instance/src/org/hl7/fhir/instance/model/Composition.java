@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -39,10 +39,10 @@ import java.util.*;
 public class Composition extends Resource {
 
     public enum CompositionStatus {
-        preliminary, // This is an preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
+        preliminary, // This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
         final_, // The composition or document is complete and verified by an appropriate person, and no further work is planned.
-        appended, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorised person. The modifications added new information to the composition or document, but did not revise existing content.
-        amended, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorised person.
+        appended, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorized person. The modifications added new information to the composition or document, but did not revise existing content.
+        amended, // The composition or document has been modified subsequent to being released as "final", and is complete and verified by an authorized person.
         enteredInError, // The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.
         Null; // added to help the parsers
         public static CompositionStatus fromCode(String codeString) throws Exception {
@@ -291,7 +291,7 @@ public class Composition extends Resource {
         protected Period period;
 
         /**
-         * Full details for the event(s) the composition/documentation concents.
+         * Full details for the event(s) the composition/documentation consents.
          */
         protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
 
@@ -332,7 +332,7 @@ public class Composition extends Resource {
         }
 
         /**
-         * @return {@link #detail} (Full details for the event(s) the composition/documentation concents.)
+         * @return {@link #detail} (Full details for the event(s) the composition/documentation consents.)
          */
         public List<ResourceReference> getDetail() { 
           return this.detail;
@@ -340,7 +340,7 @@ public class Composition extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #detail} (Full details for the event(s) the composition/documentation concents.)
+         * @return {@link #detail} (Full details for the event(s) the composition/documentation consents.)
          */
         public ResourceReference addDetail() { 
           ResourceReference t = new ResourceReference();
@@ -352,7 +352,7 @@ public class Composition extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a 'History and Physical Report' in which the procedure being documented is necessarily a 'History and Physical' act.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("period", "Period", "The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time.", 0, java.lang.Integer.MAX_VALUE, period));
-          childrenList.add(new Property("detail", "Resource(Any)", "Full details for the event(s) the composition/documentation concents.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("detail", "Resource(Any)", "Full details for the event(s) the composition/documentation consents.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
       public CompositionEventComponent copy(Composition e) {
@@ -493,7 +493,7 @@ public class Composition extends Resource {
     protected CodeableConcept type;
 
     /**
-     * A categorisation for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.
+     * A categorization for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.
      */
     protected CodeableConcept class_;
 
@@ -513,7 +513,7 @@ public class Composition extends Resource {
     protected Coding confidentiality;
 
     /**
-     * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).
+     * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
      */
     protected ResourceReference subject;
 
@@ -623,14 +623,14 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #class_} (A categorisation for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.)
+     * @return {@link #class_} (A categorization for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.)
      */
     public CodeableConcept getClass_() { 
       return this.class_;
     }
 
     /**
-     * @param value {@link #class_} (A categorisation for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.)
+     * @param value {@link #class_} (A categorization for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.)
      */
     public Composition setClass_(CodeableConcept value) { 
       this.class_ = value;
@@ -721,14 +721,14 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
+     * @return {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
     public ResourceReference getSubject() { 
       return this.subject;
     }
 
     /**
-     * @param value {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).)
+     * @param value {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
     public Composition setSubject(ResourceReference value) { 
       this.subject = value;
@@ -836,11 +836,11 @@ public class Composition extends Resource {
         childrenList.add(new Property("identifier", "Identifier", "Logical Identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("instant", "instant", "The composition editing time, when the composition was last logically changed by the author.", 0, java.lang.Integer.MAX_VALUE, instant));
         childrenList.add(new Property("type", "CodeableConcept", "Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("class", "CodeableConcept", "A categorisation for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.", 0, java.lang.Integer.MAX_VALUE, class_));
+        childrenList.add(new Property("class", "CodeableConcept", "A categorization for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.", 0, java.lang.Integer.MAX_VALUE, class_));
         childrenList.add(new Property("title", "string", "Official human-readable label for the composition.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("confidentiality", "Coding", "The code specifying the level of confidentiality of the Composition.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
-        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device|Location)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device|Location)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("author", "Resource(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for the information in the composition.  (Not necessarily who typed it in.).", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("attester", "", "A participant who has attested to the accuracy of the composition/document.", 0, java.lang.Integer.MAX_VALUE, attester));
         childrenList.add(new Property("custodian", "Resource(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.", 0, java.lang.Integer.MAX_VALUE, custodian));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -887,7 +887,7 @@ public class ImagingStudy extends Resource {
         protected Integer numberOfInstances;
 
         /**
-         * Availability of series (online, offline or nearlnie).
+         * Availability of series (online, offline or nearline).
          */
         protected Enumeration<InstanceAvailability> availability;
 
@@ -1091,14 +1091,14 @@ public class ImagingStudy extends Resource {
         }
 
         /**
-         * @return {@link #availability} (Availability of series (online, offline or nearlnie).)
+         * @return {@link #availability} (Availability of series (online, offline or nearline).)
          */
         public Enumeration<InstanceAvailability> getAvailability() { 
           return this.availability;
         }
 
         /**
-         * @param value {@link #availability} (Availability of series (online, offline or nearlnie).)
+         * @param value {@link #availability} (Availability of series (online, offline or nearline).)
          */
         public ImagingStudySeriesComponent setAvailability(Enumeration<InstanceAvailability> value) { 
           this.availability = value;
@@ -1106,14 +1106,14 @@ public class ImagingStudy extends Resource {
         }
 
         /**
-         * @return Availability of series (online, offline or nearlnie).
+         * @return Availability of series (online, offline or nearline).
          */
         public InstanceAvailability getAvailabilitySimple() { 
           return this.availability == null ? null : this.availability.getValue();
         }
 
         /**
-         * @param value Availability of series (online, offline or nearlnie).
+         * @param value Availability of series (online, offline or nearline).
          */
         public ImagingStudySeriesComponent setAvailabilitySimple(InstanceAvailability value) { 
           if (value == null)
@@ -1237,7 +1237,7 @@ public class ImagingStudy extends Resource {
           childrenList.add(new Property("uid", "oid", "Formal identifier for this series.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("description", "string", "A description of the series.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("numberOfInstances", "integer", "Sequence that contains attributes from the.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));
-          childrenList.add(new Property("availability", "code", "Availability of series (online, offline or nearlnie).", 0, java.lang.Integer.MAX_VALUE, availability));
+          childrenList.add(new Property("availability", "code", "Availability of series (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
           childrenList.add(new Property("url", "uri", "WADO-RS URI where Series is available.", 0, java.lang.Integer.MAX_VALUE, url));
           childrenList.add(new Property("bodySite", "Coding", "Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed.", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("dateTime", "dateTime", "When the series started.", 0, java.lang.Integer.MAX_VALUE, dateTime));
@@ -1598,7 +1598,7 @@ public class ImagingStudy extends Resource {
     protected ResourceReference referrer;
 
     /**
-     * Availability of study (online, offline or nearlnie).
+     * Availability of study (online, offline or nearline).
      */
     protected Enumeration<InstanceAvailability> availability;
 
@@ -1829,14 +1829,14 @@ public class ImagingStudy extends Resource {
     }
 
     /**
-     * @return {@link #availability} (Availability of study (online, offline or nearlnie).)
+     * @return {@link #availability} (Availability of study (online, offline or nearline).)
      */
     public Enumeration<InstanceAvailability> getAvailability() { 
       return this.availability;
     }
 
     /**
-     * @param value {@link #availability} (Availability of study (online, offline or nearlnie).)
+     * @param value {@link #availability} (Availability of study (online, offline or nearline).)
      */
     public ImagingStudy setAvailability(Enumeration<InstanceAvailability> value) { 
       this.availability = value;
@@ -1844,14 +1844,14 @@ public class ImagingStudy extends Resource {
     }
 
     /**
-     * @return Availability of study (online, offline or nearlnie).
+     * @return Availability of study (online, offline or nearline).
      */
     public InstanceAvailability getAvailabilitySimple() { 
       return this.availability == null ? null : this.availability.getValue();
     }
 
     /**
-     * @param value Availability of study (online, offline or nearlnie).
+     * @param value Availability of study (online, offline or nearline).
      */
     public ImagingStudy setAvailabilitySimple(InstanceAvailability value) { 
       if (value == null)
@@ -2095,7 +2095,7 @@ public class ImagingStudy extends Resource {
         childrenList.add(new Property("order", "Resource(DiagnosticOrder)", "A list of the diagnostic orders that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, order));
         childrenList.add(new Property("modality", "code", "A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).", 0, java.lang.Integer.MAX_VALUE, modality));
         childrenList.add(new Property("referrer", "Resource(Practitioner)", "The requesting/referring physician.", 0, java.lang.Integer.MAX_VALUE, referrer));
-        childrenList.add(new Property("availability", "code", "Availability of study (online, offline or nearlnie).", 0, java.lang.Integer.MAX_VALUE, availability));
+        childrenList.add(new Property("availability", "code", "Availability of study (online, offline or nearline).", 0, java.lang.Integer.MAX_VALUE, availability));
         childrenList.add(new Property("url", "uri", "WADO-RS URI where Study is available.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("numberOfSeries", "integer", "Number of Series in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfSeries));
         childrenList.add(new Property("numberOfInstances", "integer", "Number of SOP Instances in Study.", 0, java.lang.Integer.MAX_VALUE, numberOfInstances));

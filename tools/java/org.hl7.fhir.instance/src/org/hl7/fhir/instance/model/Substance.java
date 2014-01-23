@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * A homogeneous material with a definite composition used in healthcare.
+ * A homogeneous material with a definite composition.
  */
 public class Substance extends Resource {
 
@@ -212,17 +212,12 @@ public class Substance extends Resource {
     protected CodeableConcept type;
 
     /**
-     * A description of the substance - it's appearance, handling requirements, and other usage notes.
+     * A description of the substance - its appearance, handling requirements, and other usage notes.
      */
     protected String_ description;
 
     /**
-     * Don't know.
-     */
-    protected CodeableConcept status;
-
-    /**
-     * Substance may be used to desribe a kind of substance, or a specific package/container of the substance: an instance.
+     * Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.
      */
     protected SubstanceInstanceComponent instance;
 
@@ -256,14 +251,14 @@ public class Substance extends Resource {
     }
 
     /**
-     * @return {@link #description} (A description of the substance - it's appearance, handling requirements, and other usage notes.)
+     * @return {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.)
      */
     public String_ getDescription() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (A description of the substance - it's appearance, handling requirements, and other usage notes.)
+     * @param value {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.)
      */
     public Substance setDescription(String_ value) { 
       this.description = value;
@@ -271,14 +266,14 @@ public class Substance extends Resource {
     }
 
     /**
-     * @return A description of the substance - it's appearance, handling requirements, and other usage notes.
+     * @return A description of the substance - its appearance, handling requirements, and other usage notes.
      */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A description of the substance - it's appearance, handling requirements, and other usage notes.
+     * @param value A description of the substance - its appearance, handling requirements, and other usage notes.
      */
     public Substance setDescriptionSimple(String value) { 
       if (value == null)
@@ -292,29 +287,14 @@ public class Substance extends Resource {
     }
 
     /**
-     * @return {@link #status} (Don't know.)
-     */
-    public CodeableConcept getStatus() { 
-      return this.status;
-    }
-
-    /**
-     * @param value {@link #status} (Don't know.)
-     */
-    public Substance setStatus(CodeableConcept value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #instance} (Substance may be used to desribe a kind of substance, or a specific package/container of the substance: an instance.)
+     * @return {@link #instance} (Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.)
      */
     public SubstanceInstanceComponent getInstance() { 
       return this.instance;
     }
 
     /**
-     * @param value {@link #instance} (Substance may be used to desribe a kind of substance, or a specific package/container of the substance: an instance.)
+     * @param value {@link #instance} (Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.)
      */
     public Substance setInstance(SubstanceInstanceComponent value) { 
       this.instance = value;
@@ -341,9 +321,8 @@ public class Substance extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "CodeableConcept", "A code (or set of codes) that identify this substance.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("description", "string", "A description of the substance - it's appearance, handling requirements, and other usage notes.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("status", "CodeableConcept", "Don't know.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("instance", "", "Substance may be used to desribe a kind of substance, or a specific package/container of the substance: an instance.", 0, java.lang.Integer.MAX_VALUE, instance));
+        childrenList.add(new Property("description", "string", "A description of the substance - its appearance, handling requirements, and other usage notes.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("instance", "", "Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.", 0, java.lang.Integer.MAX_VALUE, instance));
         childrenList.add(new Property("ingredient", "", "A substance can be composed of other substances.", 0, java.lang.Integer.MAX_VALUE, ingredient));
       }
 
@@ -351,7 +330,6 @@ public class Substance extends Resource {
         Substance dst = new Substance();
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
-        dst.status = status == null ? null : status.copy();
         dst.instance = instance == null ? null : instance.copy(dst);
         dst.ingredient = new ArrayList<SubstanceIngredientComponent>();
         for (SubstanceIngredientComponent i : ingredient)

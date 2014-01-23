@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -129,6 +129,11 @@ public class MedicationPrescription extends Resource {
         protected Type timing;
 
         /**
+         * If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
+         */
+        protected Type asNeeded;
+
+        /**
          * A coded specification of the anatomic site where the medication first enters the body.
          */
         protected CodeableConcept site;
@@ -146,7 +151,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected CodeableConcept method;
 
         /**
-         * The amount of the therapeutic or other substance given at one administration event.
+         * The amount of therapeutic or other substance given at one administration event.
          */
         protected Quantity doseQuantity;
 
@@ -156,7 +161,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected Ratio rate;
 
         /**
-         * The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
+         * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
          */
         protected Ratio maxDosePerPeriod;
 
@@ -231,6 +236,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
+         * @return {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         */
+        public Type getAsNeeded() { 
+          return this.asNeeded;
+        }
+
+        /**
+         * @param value {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         */
+        public MedicationPrescriptionDosageInstructionComponent setAsNeeded(Type value) { 
+          this.asNeeded = value;
+          return this;
+        }
+
+        /**
          * @return {@link #site} (A coded specification of the anatomic site where the medication first enters the body.)
          */
         public CodeableConcept getSite() { 
@@ -280,14 +300,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @return {@link #doseQuantity} (The amount of the therapeutic or other substance given at one administration event.)
+         * @return {@link #doseQuantity} (The amount of therapeutic or other substance given at one administration event.)
          */
         public Quantity getDoseQuantity() { 
           return this.doseQuantity;
         }
 
         /**
-         * @param value {@link #doseQuantity} (The amount of the therapeutic or other substance given at one administration event.)
+         * @param value {@link #doseQuantity} (The amount of therapeutic or other substance given at one administration event.)
          */
         public MedicationPrescriptionDosageInstructionComponent setDoseQuantity(Quantity value) { 
           this.doseQuantity = value;
@@ -310,14 +330,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
          */
         public Ratio getMaxDosePerPeriod() { 
           return this.maxDosePerPeriod;
         }
 
         /**
-         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
          */
         public MedicationPrescriptionDosageInstructionComponent setMaxDosePerPeriod(Ratio value) { 
           this.maxDosePerPeriod = value;
@@ -329,12 +349,13 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           childrenList.add(new Property("text", "string", "Free text dosage instructions for cases where the instructions are too complex to code.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Additional instructions such as 'Swallow with plenty of water' which may or may not be coded.", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
           childrenList.add(new Property("timing[x]", "dateTime|Period|Schedule", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'.", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
           childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("doseQuantity", "Quantity", "The amount of the therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, doseQuantity));
+          childrenList.add(new Property("doseQuantity", "Quantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, doseQuantity));
           childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
-          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
+          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
       public MedicationPrescriptionDosageInstructionComponent copy(MedicationPrescription e) {
@@ -342,6 +363,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         dst.text = text == null ? null : text.copy();
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.timing = timing == null ? null : timing.copy();
+        dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
         dst.method = method == null ? null : method.copy();
@@ -379,7 +401,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
 
         /**
          * Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. 
-In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
+In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
          */
         protected Duration expectedSupplyDuration;
 
@@ -478,7 +500,7 @@ UsageNotes: For example, the number of times the prescribed quantity is to be su
 
         /**
          * @return {@link #expectedSupplyDuration} (Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. 
-In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.)
+In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.)
          */
         public Duration getExpectedSupplyDuration() { 
           return this.expectedSupplyDuration;
@@ -486,7 +508,7 @@ In some situations, this attribute may be used instead of quantity to identify t
 
         /**
          * @param value {@link #expectedSupplyDuration} (Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. 
-In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.)
+In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.)
          */
         public MedicationPrescriptionDispenseComponent setExpectedSupplyDuration(Duration value) { 
           this.expectedSupplyDuration = value;
@@ -499,7 +521,7 @@ In some situations, this attribute may be used instead of quantity to identify t
           childrenList.add(new Property("validityPeriod", "Period", "Design Comments: This indicates the validity period of a prescription (stale dating the Prescription) \nIt reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations. \nRationale: Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.", 0, java.lang.Integer.MAX_VALUE, validityPeriod));
           childrenList.add(new Property("numberOfRepeatsAllowed", "integer", "An integer indicating the number of repeats of the Dispense. \nUsageNotes: For example, the number of times the prescribed quantity is to be supplied including the initial standard fill.", 0, java.lang.Integer.MAX_VALUE, numberOfRepeatsAllowed));
           childrenList.add(new Property("quantity", "Quantity", "The amount that is to be dispensed.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("expectedSupplyDuration", "Duration", "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. \nIn some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued. E.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.", 0, java.lang.Integer.MAX_VALUE, expectedSupplyDuration));
+          childrenList.add(new Property("expectedSupplyDuration", "Duration", "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. \nIn some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.", 0, java.lang.Integer.MAX_VALUE, expectedSupplyDuration));
         }
 
       public MedicationPrescriptionDispenseComponent copy(MedicationPrescription e) {
@@ -521,7 +543,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         protected CodeableConcept type;
 
         /**
-         * Indicates the reason for the substitution why substitution must or must not be performed.
+         * Indicates the reason for the substitution, or why substitution must or must not be performed.
          */
         protected CodeableConcept reason;
 
@@ -550,14 +572,14 @@ In some situations, this attribute may be used instead of quantity to identify t
         }
 
         /**
-         * @return {@link #reason} (Indicates the reason for the substitution why substitution must or must not be performed.)
+         * @return {@link #reason} (Indicates the reason for the substitution, or why substitution must or must not be performed.)
          */
         public CodeableConcept getReason() { 
           return this.reason;
         }
 
         /**
-         * @param value {@link #reason} (Indicates the reason for the substitution why substitution must or must not be performed.)
+         * @param value {@link #reason} (Indicates the reason for the substitution, or why substitution must or must not be performed.)
          */
         public MedicationPrescriptionSubstitutionComponent setReason(CodeableConcept value) { 
           this.reason = value;
@@ -567,7 +589,7 @@ In some situations, this attribute may be used instead of quantity to identify t
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "A code signifying whether a different drug should be dispensed from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("reason", "CodeableConcept", "Indicates the reason for the substitution why substitution must or must not be performed.", 0, java.lang.Integer.MAX_VALUE, reason));
+          childrenList.add(new Property("reason", "CodeableConcept", "Indicates the reason for the substitution, or why substitution must or must not be performed.", 0, java.lang.Integer.MAX_VALUE, reason));
         }
 
       public MedicationPrescriptionSubstitutionComponent copy(MedicationPrescription e) {
@@ -600,7 +622,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     protected ResourceReference patient;
 
     /**
-     * The healthcare professional responsible for authorising the prescription.
+     * The healthcare professional responsible for authorizing the prescription.
      */
     protected ResourceReference prescriber;
 
@@ -630,7 +652,7 @@ In some situations, this attribute may be used instead of quantity to identify t
     protected MedicationPrescriptionDispenseComponent dispense;
 
     /**
-     * Indicates whether or not substitution can or should as part of the dispense.  In some cases substitution must  happen, in other cases substitution must not happen, and in others it does not matter.  This block explains the prescribers intent.  If nothing is specified substitution may be done.
+     * Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.
      */
     protected MedicationPrescriptionSubstitutionComponent substitution;
 
@@ -743,14 +765,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #prescriber} (The healthcare professional responsible for authorising the prescription.)
+     * @return {@link #prescriber} (The healthcare professional responsible for authorizing the prescription.)
      */
     public ResourceReference getPrescriber() { 
       return this.prescriber;
     }
 
     /**
-     * @param value {@link #prescriber} (The healthcare professional responsible for authorising the prescription.)
+     * @param value {@link #prescriber} (The healthcare professional responsible for authorizing the prescription.)
      */
     public MedicationPrescription setPrescriber(ResourceReference value) { 
       this.prescriber = value;
@@ -835,14 +857,14 @@ In some situations, this attribute may be used instead of quantity to identify t
     }
 
     /**
-     * @return {@link #substitution} (Indicates whether or not substitution can or should as part of the dispense.  In some cases substitution must  happen, in other cases substitution must not happen, and in others it does not matter.  This block explains the prescribers intent.  If nothing is specified substitution may be done.)
+     * @return {@link #substitution} (Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.)
      */
     public MedicationPrescriptionSubstitutionComponent getSubstitution() { 
       return this.substitution;
     }
 
     /**
-     * @param value {@link #substitution} (Indicates whether or not substitution can or should as part of the dispense.  In some cases substitution must  happen, in other cases substitution must not happen, and in others it does not matter.  This block explains the prescribers intent.  If nothing is specified substitution may be done.)
+     * @param value {@link #substitution} (Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.)
      */
     public MedicationPrescription setSubstitution(MedicationPrescriptionSubstitutionComponent value) { 
       this.substitution = value;
@@ -855,13 +877,13 @@ In some situations, this attribute may be used instead of quantity to identify t
         childrenList.add(new Property("dateWritten", "dateTime", "The date (and perhaps time) when the prescription was written.", 0, java.lang.Integer.MAX_VALUE, dateWritten));
         childrenList.add(new Property("status", "code", "A code specifying the state of the order.  Generally this will be active or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("prescriber", "Resource(Practitioner)", "The healthcare professional responsible for authorising the prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
+        childrenList.add(new Property("prescriber", "Resource(Practitioner)", "The healthcare professional responsible for authorizing the prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
         childrenList.add(new Property("encounter", "Resource(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Resource(Condition)", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("dosageInstruction", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("dispense", "", "Deals with details of the dispense part of the order.", 0, java.lang.Integer.MAX_VALUE, dispense));
-        childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should as part of the dispense.  In some cases substitution must  happen, in other cases substitution must not happen, and in others it does not matter.  This block explains the prescribers intent.  If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));
+        childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));
       }
 
       public MedicationPrescription copy() {

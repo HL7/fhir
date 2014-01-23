@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -280,7 +280,7 @@ public class Location extends Resource {
     protected Identifier identifier;
 
     /**
-     * Name of the location as used by humans. Needs not be unique.
+     * Name of the location as used by humans. Does not need to be unique.
      */
     protected String_ name;
 
@@ -354,14 +354,14 @@ public class Location extends Resource {
     }
 
     /**
-     * @return {@link #name} (Name of the location as used by humans. Needs not be unique.)
+     * @return {@link #name} (Name of the location as used by humans. Does not need to be unique.)
      */
     public String_ getName() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (Name of the location as used by humans. Needs not be unique.)
+     * @param value {@link #name} (Name of the location as used by humans. Does not need to be unique.)
      */
     public Location setName(String_ value) { 
       this.name = value;
@@ -369,14 +369,14 @@ public class Location extends Resource {
     }
 
     /**
-     * @return Name of the location as used by humans. Needs not be unique.
+     * @return Name of the location as used by humans. Does not need to be unique.
      */
     public String getNameSimple() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value Name of the location as used by humans. Needs not be unique.
+     * @param value Name of the location as used by humans. Does not need to be unique.
      */
     public Location setNameSimple(String value) { 
       if (value == null)
@@ -605,7 +605,7 @@ public class Location extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Unique code or number identifying the location to its users.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("name", "string", "Name of the location as used by humans. Needs not be unique.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("name", "string", "Name of the location as used by humans. Does not need to be unique.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("description", "string", "Description of the Location, which helps in finding or referencing the place.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of function performed at the location.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("telecom", "Contact", "The contact details of the main communication devices present at the location.", 0, java.lang.Integer.MAX_VALUE, telecom));

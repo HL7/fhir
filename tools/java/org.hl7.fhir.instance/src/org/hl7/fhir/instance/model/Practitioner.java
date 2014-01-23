@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -166,7 +166,7 @@ public class Practitioner extends Resource {
     protected ResourceReference organization;
 
     /**
-     * Roles which this practitioner is authorized perform for the organization.
+     * Roles which this practitioner is authorized to perform for the organization.
      */
     protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
 
@@ -347,7 +347,7 @@ public class Practitioner extends Resource {
     }
 
     /**
-     * @return {@link #role} (Roles which this practitioner is authorized perform for the organization.)
+     * @return {@link #role} (Roles which this practitioner is authorized to perform for the organization.)
      */
     public List<CodeableConcept> getRole() { 
       return this.role;
@@ -355,7 +355,7 @@ public class Practitioner extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #role} (Roles which this practitioner is authorized perform for the organization.)
+     * @return {@link #role} (Roles which this practitioner is authorized to perform for the organization.)
      */
     public CodeableConcept addRole() { 
       CodeableConcept t = new CodeableConcept();
@@ -456,7 +456,7 @@ public class Practitioner extends Resource {
         childrenList.add(new Property("birthDate", "dateTime", "The date and time of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("organization", "Resource(Organization)", "The organization that the practitioner represents.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("role", "CodeableConcept", "Roles which this practitioner is authorized perform for the organization.", 0, java.lang.Integer.MAX_VALUE, role));
+        childrenList.add(new Property("role", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, role));
         childrenList.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
         childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("location", "Resource(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));

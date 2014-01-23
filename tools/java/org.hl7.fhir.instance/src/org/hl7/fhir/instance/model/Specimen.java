@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -340,7 +340,7 @@ public class Specimen extends Resource {
         protected CodeableConcept procedure;
 
         /**
-         * Specimen additive.
+         * Material used in the processing step.
          */
         protected List<ResourceReference> additive = new ArrayList<ResourceReference>();
 
@@ -400,7 +400,7 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #additive} (Specimen additive.)
+         * @return {@link #additive} (Material used in the processing step.)
          */
         public List<ResourceReference> getAdditive() { 
           return this.additive;
@@ -408,7 +408,7 @@ public class Specimen extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #additive} (Specimen additive.)
+         * @return {@link #additive} (Material used in the processing step.)
          */
         public ResourceReference addAdditive() { 
           ResourceReference t = new ResourceReference();
@@ -420,7 +420,7 @@ public class Specimen extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("description", "string", "Textual description of procedure.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("procedure", "CodeableConcept", "A coded value specifying the procedure used to process the specimen.", 0, java.lang.Integer.MAX_VALUE, procedure));
-          childrenList.add(new Property("additive", "Resource(Substance)", "Specimen additive.", 0, java.lang.Integer.MAX_VALUE, additive));
+          childrenList.add(new Property("additive", "Resource(Substance)", "Material used in the processing step.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
 
       public SpecimenTreatmentComponent copy(Specimen e) {
@@ -437,22 +437,22 @@ public class Specimen extends Resource {
 
     public static class SpecimenContainerComponent extends BackboneElement {
         /**
-         * Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc.
+         * Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.
          */
         protected List<Identifier> identifier = new ArrayList<Identifier>();
 
         /**
-         * Textual description of container.
+         * Textual description of the container.
          */
         protected String_ description;
 
         /**
-         * The type of container associated with the specimen (eg slide, aliquot, etc).
+         * The type of container associated with the specimen (e.g. slide, aliquot, etc).
          */
         protected CodeableConcept type;
 
         /**
-         * The capacity (volume or other measure the container may contain.
+         * The capacity (volume or other measure) the container may contain.
          */
         protected Quantity capacity;
 
@@ -471,7 +471,7 @@ public class Specimen extends Resource {
       }
 
         /**
-         * @return {@link #identifier} (Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc.)
+         * @return {@link #identifier} (Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.)
          */
         public List<Identifier> getIdentifier() { 
           return this.identifier;
@@ -479,7 +479,7 @@ public class Specimen extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #identifier} (Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc.)
+         * @return {@link #identifier} (Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.)
          */
         public Identifier addIdentifier() { 
           Identifier t = new Identifier();
@@ -488,14 +488,14 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #description} (Textual description of container.)
+         * @return {@link #description} (Textual description of the container.)
          */
         public String_ getDescription() { 
           return this.description;
         }
 
         /**
-         * @param value {@link #description} (Textual description of container.)
+         * @param value {@link #description} (Textual description of the container.)
          */
         public SpecimenContainerComponent setDescription(String_ value) { 
           this.description = value;
@@ -503,14 +503,14 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return Textual description of container.
+         * @return Textual description of the container.
          */
         public String getDescriptionSimple() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
-         * @param value Textual description of container.
+         * @param value Textual description of the container.
          */
         public SpecimenContainerComponent setDescriptionSimple(String value) { 
           if (value == null)
@@ -524,14 +524,14 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #type} (The type of container associated with the specimen (eg slide, aliquot, etc).)
+         * @return {@link #type} (The type of container associated with the specimen (e.g. slide, aliquot, etc).)
          */
         public CodeableConcept getType() { 
           return this.type;
         }
 
         /**
-         * @param value {@link #type} (The type of container associated with the specimen (eg slide, aliquot, etc).)
+         * @param value {@link #type} (The type of container associated with the specimen (e.g. slide, aliquot, etc).)
          */
         public SpecimenContainerComponent setType(CodeableConcept value) { 
           this.type = value;
@@ -539,14 +539,14 @@ public class Specimen extends Resource {
         }
 
         /**
-         * @return {@link #capacity} (The capacity (volume or other measure the container may contain.)
+         * @return {@link #capacity} (The capacity (volume or other measure) the container may contain.)
          */
         public Quantity getCapacity() { 
           return this.capacity;
         }
 
         /**
-         * @param value {@link #capacity} (The capacity (volume or other measure the container may contain.)
+         * @param value {@link #capacity} (The capacity (volume or other measure) the container may contain.)
          */
         public SpecimenContainerComponent setCapacity(Quantity value) { 
           this.capacity = value;
@@ -585,10 +585,10 @@ public class Specimen extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("identifier", "Identifier", "Id for container. There may be muliple; a manufacturer's bar code, lab assigned identifier, etc.", 0, java.lang.Integer.MAX_VALUE, identifier));
-          childrenList.add(new Property("description", "string", "Textual description of container.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("type", "CodeableConcept", "The type of container associated with the specimen (eg slide, aliquot, etc).", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("capacity", "Quantity", "The capacity (volume or other measure the container may contain.", 0, java.lang.Integer.MAX_VALUE, capacity));
+          childrenList.add(new Property("identifier", "Identifier", "Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("description", "string", "Textual description of the container.", 0, java.lang.Integer.MAX_VALUE, description));
+          childrenList.add(new Property("type", "CodeableConcept", "The type of container associated with the specimen (e.g. slide, aliquot, etc).", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("capacity", "Quantity", "The capacity (volume or other measure) the container may contain.", 0, java.lang.Integer.MAX_VALUE, capacity));
           childrenList.add(new Property("specimenQuantity", "Quantity", "The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.", 0, java.lang.Integer.MAX_VALUE, specimenQuantity));
           childrenList.add(new Property("additive", "Resource(Substance)", "Additive associated with the container.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
@@ -614,7 +614,7 @@ public class Specimen extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * The type of the specimen.
+     * Kind of material that forms the specimen.
      */
     protected CodeableConcept type;
 
@@ -629,7 +629,7 @@ public class Specimen extends Resource {
     protected ResourceReference subject;
 
     /**
-     * The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
+     * The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
      */
     protected Identifier accessionIdentifier;
 
@@ -649,7 +649,7 @@ public class Specimen extends Resource {
     protected List<SpecimenTreatmentComponent> treatment = new ArrayList<SpecimenTreatmentComponent>();
 
     /**
-     * The container holding the specimen. May be recursive; ie blood in tube in tray in rack.
+     * The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
      */
     protected List<SpecimenContainerComponent> container = new ArrayList<SpecimenContainerComponent>();
 
@@ -681,14 +681,14 @@ public class Specimen extends Resource {
     }
 
     /**
-     * @return {@link #type} (The type of the specimen.)
+     * @return {@link #type} (Kind of material that forms the specimen.)
      */
     public CodeableConcept getType() { 
       return this.type;
     }
 
     /**
-     * @param value {@link #type} (The type of the specimen.)
+     * @param value {@link #type} (Kind of material that forms the specimen.)
      */
     public Specimen setType(CodeableConcept value) { 
       this.type = value;
@@ -728,14 +728,14 @@ public class Specimen extends Resource {
     }
 
     /**
-     * @return {@link #accessionIdentifier} (The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
+     * @return {@link #accessionIdentifier} (The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
      */
     public Identifier getAccessionIdentifier() { 
       return this.accessionIdentifier;
     }
 
     /**
-     * @param value {@link #accessionIdentifier} (The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
+     * @param value {@link #accessionIdentifier} (The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.)
      */
     public Specimen setAccessionIdentifier(Identifier value) { 
       this.accessionIdentifier = value;
@@ -811,7 +811,7 @@ public class Specimen extends Resource {
     }
 
     /**
-     * @return {@link #container} (The container holding the specimen. May be recursive; ie blood in tube in tray in rack.)
+     * @return {@link #container} (The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.)
      */
     public List<SpecimenContainerComponent> getContainer() { 
       return this.container;
@@ -819,7 +819,7 @@ public class Specimen extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #container} (The container holding the specimen. May be recursive; ie blood in tube in tray in rack.)
+     * @return {@link #container} (The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.)
      */
     public SpecimenContainerComponent addContainer() { 
       SpecimenContainerComponent t = new SpecimenContainerComponent();
@@ -830,14 +830,14 @@ public class Specimen extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Id for specimen.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("type", "CodeableConcept", "The type of the specimen.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "CodeableConcept", "Kind of material that forms the specimen.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("source", "", "Parent specimen from which the focal specimen was a component.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Substance)", "Where the specimen came from. This may be the patient(s) or from the environment or  a device.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("accessionIdentifier", "Identifier", "The identifier(s) assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.", 0, java.lang.Integer.MAX_VALUE, accessionIdentifier));
+        childrenList.add(new Property("accessionIdentifier", "Identifier", "The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.", 0, java.lang.Integer.MAX_VALUE, accessionIdentifier));
         childrenList.add(new Property("receivedTime", "dateTime", "Time when specimen was received for processing or testing.", 0, java.lang.Integer.MAX_VALUE, receivedTime));
         childrenList.add(new Property("collection", "", "Details concerning the specimen collection.", 0, java.lang.Integer.MAX_VALUE, collection));
         childrenList.add(new Property("treatment", "", "Details concerning treatment and processing steps for the specimen.", 0, java.lang.Integer.MAX_VALUE, treatment));
-        childrenList.add(new Property("container", "", "The container holding the specimen. May be recursive; ie blood in tube in tray in rack.", 0, java.lang.Integer.MAX_VALUE, container));
+        childrenList.add(new Property("container", "", "The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.", 0, java.lang.Integer.MAX_VALUE, container));
       }
 
       public Specimen copy() {

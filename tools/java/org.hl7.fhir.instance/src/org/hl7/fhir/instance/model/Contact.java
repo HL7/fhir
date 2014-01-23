@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * All kinds of technology mediated contact details for a person or organisation, including telephone, email, etc.
+ * All kinds of technology mediated contact details for a person or organization, including telephone, email, etc.
  */
 public class Contact extends Type {
 
@@ -173,7 +173,7 @@ public class Contact extends Type {
     protected String_ value;
 
     /**
-     * Identifies the context for the address.
+     * Identifies the purpose for the address.
      */
     protected Enumeration<ContactUse> use;
 
@@ -259,14 +259,14 @@ public class Contact extends Type {
     }
 
     /**
-     * @return {@link #use} (Identifies the context for the address.)
+     * @return {@link #use} (Identifies the purpose for the address.)
      */
     public Enumeration<ContactUse> getUse() { 
       return this.use;
     }
 
     /**
-     * @param value {@link #use} (Identifies the context for the address.)
+     * @param value {@link #use} (Identifies the purpose for the address.)
      */
     public Contact setUse(Enumeration<ContactUse> value) { 
       this.use = value;
@@ -274,14 +274,14 @@ public class Contact extends Type {
     }
 
     /**
-     * @return Identifies the context for the address.
+     * @return Identifies the purpose for the address.
      */
     public ContactUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
-     * @param value Identifies the context for the address.
+     * @param value Identifies the purpose for the address.
      */
     public Contact setUseSimple(ContactUse value) { 
       if (value == null)
@@ -313,7 +313,7 @@ public class Contact extends Type {
         super.listChildren(childrenList);
         childrenList.add(new Property("system", "code", "Telecommunications form for contact - what communications system is required to make use of the contact.", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("value", "string", "The actual contact details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).", 0, java.lang.Integer.MAX_VALUE, value));
-        childrenList.add(new Property("use", "code", "Identifies the context for the address.", 0, java.lang.Integer.MAX_VALUE, use));
+        childrenList.add(new Property("use", "code", "Identifies the purpose for the address.", 0, java.lang.Integer.MAX_VALUE, use));
         childrenList.add(new Property("period", "Period", "Time period when the contact was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
       }
 

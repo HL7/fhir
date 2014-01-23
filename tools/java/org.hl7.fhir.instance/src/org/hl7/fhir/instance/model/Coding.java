@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ public class Coding extends Type {
     protected Uri system;
 
     /**
-     * The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged.
+     * The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
      */
     protected String_ version;
 
@@ -54,12 +54,12 @@ public class Coding extends Type {
     protected Code code;
 
     /**
-     * A representation of the meaning of the code in the system, following the rules laid out by the system.
+     * A representation of the meaning of the code in the system, following the rules of the system.
      */
     protected String_ display;
 
     /**
-     * Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.
+     * Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
      */
     protected Boolean primary;
 
@@ -109,14 +109,14 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged.)
+     * @return {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.)
      */
     public String_ getVersion() { 
       return this.version;
     }
 
     /**
-     * @param value {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged.)
+     * @param value {@link #version} (The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.)
      */
     public Coding setVersion(String_ value) { 
       this.version = value;
@@ -124,14 +124,14 @@ public class Coding extends Type {
     }
 
     /**
-     * @return The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged.
+     * @return The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
      */
     public String getVersionSimple() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged.
+     * @param value The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.
      */
     public Coding setVersionSimple(String value) { 
       if (value == null)
@@ -181,14 +181,14 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #display} (A representation of the meaning of the code in the system, following the rules laid out by the system.)
+     * @return {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.)
      */
     public String_ getDisplay() { 
       return this.display;
     }
 
     /**
-     * @param value {@link #display} (A representation of the meaning of the code in the system, following the rules laid out by the system.)
+     * @param value {@link #display} (A representation of the meaning of the code in the system, following the rules of the system.)
      */
     public Coding setDisplay(String_ value) { 
       this.display = value;
@@ -196,14 +196,14 @@ public class Coding extends Type {
     }
 
     /**
-     * @return A representation of the meaning of the code in the system, following the rules laid out by the system.
+     * @return A representation of the meaning of the code in the system, following the rules of the system.
      */
     public String getDisplaySimple() { 
       return this.display == null ? null : this.display.getValue();
     }
 
     /**
-     * @param value A representation of the meaning of the code in the system, following the rules laid out by the system.
+     * @param value A representation of the meaning of the code in the system, following the rules of the system.
      */
     public Coding setDisplaySimple(String value) { 
       if (value == null)
@@ -217,14 +217,14 @@ public class Coding extends Type {
     }
 
     /**
-     * @return {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.)
+     * @return {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).)
      */
     public Boolean getPrimary() { 
       return this.primary;
     }
 
     /**
-     * @param value {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.)
+     * @param value {@link #primary} (Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).)
      */
     public Coding setPrimary(Boolean value) { 
       this.primary = value;
@@ -232,14 +232,14 @@ public class Coding extends Type {
     }
 
     /**
-     * @return Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.
+     * @return Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
      */
     public boolean getPrimarySimple() { 
       return this.primary == null ? false : this.primary.getValue();
     }
 
     /**
-     * @param value Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.
+     * @param value Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).
      */
     public Coding setPrimarySimple(boolean value) { 
       if (value == false)
@@ -270,10 +270,10 @@ public class Coding extends Type {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("system", "uri", "The identification of the code system that defines the meaning of the symbol in the code.", 0, java.lang.Integer.MAX_VALUE, system));
-        childrenList.add(new Property("version", "string", "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and when it is not, the version SHOULD be exchanged.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("version", "string", "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured. and When the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("code", "code", "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("display", "string", "A representation of the meaning of the code in the system, following the rules laid out by the system.", 0, java.lang.Integer.MAX_VALUE, display));
-        childrenList.add(new Property("primary", "boolean", "Indicates that this code was chosen by a user directly - i.e. off a pick list of available codes.", 0, java.lang.Integer.MAX_VALUE, primary));
+        childrenList.add(new Property("display", "string", "A representation of the meaning of the code in the system, following the rules of the system.", 0, java.lang.Integer.MAX_VALUE, display));
+        childrenList.add(new Property("primary", "boolean", "Indicates that this code was chosen by a user directly - i.e. off a pick list of available items (codes or displays).", 0, java.lang.Integer.MAX_VALUE, primary));
         childrenList.add(new Property("valueSet", "Resource(ValueSet)", "The set of possible coded values this coding was chosen from or constrained by.", 0, java.lang.Integer.MAX_VALUE, valueSet));
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -44,12 +44,12 @@ public class Device extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Describes what kind of device that this.
+     * A kind of this device.
      */
     protected CodeableConcept type;
 
     /**
-     * The name of the manufacturer.
+     * A name of the manufacturer.
      */
     protected String_ manufacturer;
 
@@ -74,12 +74,12 @@ public class Device extends Resource {
     protected String_ udi;
 
     /**
-     * Lot number of manufacture.
+     * Lot number assigned by the manufacturer.
      */
     protected String_ lotNumber;
 
     /**
-     * The organization that is responsible for the provision and ongoing maintenance of the device.
+     * An organization that is responsible for the provision and ongoing maintenance of the device.
      */
     protected ResourceReference owner;
 
@@ -89,7 +89,7 @@ public class Device extends Resource {
     protected ResourceReference location;
 
     /**
-     * If the resource is affixed to a person.
+     * Patient information, if the resource is affixed to a person.
      */
     protected ResourceReference patient;
 
@@ -130,14 +130,14 @@ public class Device extends Resource {
     }
 
     /**
-     * @return {@link #type} (Describes what kind of device that this.)
+     * @return {@link #type} (A kind of this device.)
      */
     public CodeableConcept getType() { 
       return this.type;
     }
 
     /**
-     * @param value {@link #type} (Describes what kind of device that this.)
+     * @param value {@link #type} (A kind of this device.)
      */
     public Device setType(CodeableConcept value) { 
       this.type = value;
@@ -145,14 +145,14 @@ public class Device extends Resource {
     }
 
     /**
-     * @return {@link #manufacturer} (The name of the manufacturer.)
+     * @return {@link #manufacturer} (A name of the manufacturer.)
      */
     public String_ getManufacturer() { 
       return this.manufacturer;
     }
 
     /**
-     * @param value {@link #manufacturer} (The name of the manufacturer.)
+     * @param value {@link #manufacturer} (A name of the manufacturer.)
      */
     public Device setManufacturer(String_ value) { 
       this.manufacturer = value;
@@ -160,14 +160,14 @@ public class Device extends Resource {
     }
 
     /**
-     * @return The name of the manufacturer.
+     * @return A name of the manufacturer.
      */
     public String getManufacturerSimple() { 
       return this.manufacturer == null ? null : this.manufacturer.getValue();
     }
 
     /**
-     * @param value The name of the manufacturer.
+     * @param value A name of the manufacturer.
      */
     public Device setManufacturerSimple(String value) { 
       if (value == null)
@@ -325,14 +325,14 @@ public class Device extends Resource {
     }
 
     /**
-     * @return {@link #lotNumber} (Lot number of manufacture.)
+     * @return {@link #lotNumber} (Lot number assigned by the manufacturer.)
      */
     public String_ getLotNumber() { 
       return this.lotNumber;
     }
 
     /**
-     * @param value {@link #lotNumber} (Lot number of manufacture.)
+     * @param value {@link #lotNumber} (Lot number assigned by the manufacturer.)
      */
     public Device setLotNumber(String_ value) { 
       this.lotNumber = value;
@@ -340,14 +340,14 @@ public class Device extends Resource {
     }
 
     /**
-     * @return Lot number of manufacture.
+     * @return Lot number assigned by the manufacturer.
      */
     public String getLotNumberSimple() { 
       return this.lotNumber == null ? null : this.lotNumber.getValue();
     }
 
     /**
-     * @param value Lot number of manufacture.
+     * @param value Lot number assigned by the manufacturer.
      */
     public Device setLotNumberSimple(String value) { 
       if (value == null)
@@ -361,14 +361,14 @@ public class Device extends Resource {
     }
 
     /**
-     * @return {@link #owner} (The organization that is responsible for the provision and ongoing maintenance of the device.)
+     * @return {@link #owner} (An organization that is responsible for the provision and ongoing maintenance of the device.)
      */
     public ResourceReference getOwner() { 
       return this.owner;
     }
 
     /**
-     * @param value {@link #owner} (The organization that is responsible for the provision and ongoing maintenance of the device.)
+     * @param value {@link #owner} (An organization that is responsible for the provision and ongoing maintenance of the device.)
      */
     public Device setOwner(ResourceReference value) { 
       this.owner = value;
@@ -391,14 +391,14 @@ public class Device extends Resource {
     }
 
     /**
-     * @return {@link #patient} (If the resource is affixed to a person.)
+     * @return {@link #patient} (Patient information, if the resource is affixed to a person.)
      */
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
     /**
-     * @param value {@link #patient} (If the resource is affixed to a person.)
+     * @param value {@link #patient} (Patient information, if the resource is affixed to a person.)
      */
     public Device setPatient(ResourceReference value) { 
       this.patient = value;
@@ -461,16 +461,16 @@ public class Device extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this device by various organizations. The most likely organizations to assign identifiers are the manufacturer and the owner, though regulatory agencies may also assign an identifier. The identifiers identify the particular device, not the kind of device.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("type", "CodeableConcept", "Describes what kind of device that this.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("manufacturer", "string", "The name of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
+        childrenList.add(new Property("type", "CodeableConcept", "A kind of this device.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("manufacturer", "string", "A name of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         childrenList.add(new Property("model", "string", "The 'model' - an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.", 0, java.lang.Integer.MAX_VALUE, model));
         childrenList.add(new Property("version", "string", "The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("expiry", "date", "Date of expiry of this device (if applicable).", 0, java.lang.Integer.MAX_VALUE, expiry));
         childrenList.add(new Property("udi", "string", "FDA Mandated Unique Device Identifier. Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.", 0, java.lang.Integer.MAX_VALUE, udi));
-        childrenList.add(new Property("lotNumber", "string", "Lot number of manufacture.", 0, java.lang.Integer.MAX_VALUE, lotNumber));
-        childrenList.add(new Property("owner", "Resource(Organization)", "The organization that is responsible for the provision and ongoing maintenance of the device.", 0, java.lang.Integer.MAX_VALUE, owner));
+        childrenList.add(new Property("lotNumber", "string", "Lot number assigned by the manufacturer.", 0, java.lang.Integer.MAX_VALUE, lotNumber));
+        childrenList.add(new Property("owner", "Resource(Organization)", "An organization that is responsible for the provision and ongoing maintenance of the device.", 0, java.lang.Integer.MAX_VALUE, owner));
         childrenList.add(new Property("location", "Resource(Location)", "The resource may be found in a literal location (i.e. GPS coordinates), a logical place (i.e. 'in/with the patient'), or a coded location.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("patient", "Resource(Patient)", "If the resource is affixed to a person.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("patient", "Resource(Patient)", "Patient information, if the resource is affixed to a person.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("contact", "Contact", "Contact details for an organization or a particular human that is responsible for the device.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("url", "uri", "A network address on which the device may be contacted directly.", 0, java.lang.Integer.MAX_VALUE, url));
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -317,7 +317,7 @@ public class Profile extends Resource {
     public enum ExtensionContext {
         resource, // The context is all elements matching a particular resource element path.
         datatype, // The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
-        mapping, // The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used, though this.
+        mapping, // The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
         extension, // The context is a particular extension from a particular profile.  Expressed as uri#name, where uri identifies the profile and #name identifies the extension code.
         Null; // added to help the parsers
         public static ExtensionContext fromCode(String codeString) throws Exception {
@@ -1101,7 +1101,7 @@ public class Profile extends Resource {
 
     public static class ElementDefinitionComponent extends BackboneElement {
         /**
-         * A concise definition that  is shown in the concise XML format that summarizes profiles.
+         * A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
          */
         protected String_ short_;
 
@@ -1146,7 +1146,7 @@ public class Profile extends Resource {
         protected String_ nameReference;
 
         /**
-         * Specifies a value that SHALL hold for this element in the instance.
+         * Specifies a primitive value that SHALL hold for this element in the instance.
          */
         protected org.hl7.fhir.instance.model.Type value;
 
@@ -1161,7 +1161,7 @@ public class Profile extends Resource {
         protected Integer maxLength;
 
         /**
-         * A reference to an invariant that may make additional statements about the cardinality in the instance.
+         * A reference to an invariant that may make additional statements about the cardinality or value in the instance.
          */
         protected List<Id> condition = new ArrayList<Id>();
 
@@ -1204,14 +1204,14 @@ public class Profile extends Resource {
       }
 
         /**
-         * @return {@link #short_} (A concise definition that  is shown in the concise XML format that summarizes profiles.)
+         * @return {@link #short_} (A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).)
          */
         public String_ getShort() { 
           return this.short_;
         }
 
         /**
-         * @param value {@link #short_} (A concise definition that  is shown in the concise XML format that summarizes profiles.)
+         * @param value {@link #short_} (A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).)
          */
         public ElementDefinitionComponent setShort(String_ value) { 
           this.short_ = value;
@@ -1219,14 +1219,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return A concise definition that  is shown in the concise XML format that summarizes profiles.
+         * @return A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
          */
         public String getShortSimple() { 
           return this.short_ == null ? null : this.short_.getValue();
         }
 
         /**
-         * @param value A concise definition that  is shown in the concise XML format that summarizes profiles.
+         * @param value A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
          */
         public ElementDefinitionComponent setShortSimple(String value) { 
             if (this.short_ == null)
@@ -1484,14 +1484,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #value} (Specifies a value that SHALL hold for this element in the instance.)
+         * @return {@link #value} (Specifies a primitive value that SHALL hold for this element in the instance.)
          */
         public org.hl7.fhir.instance.model.Type getValue() { 
           return this.value;
         }
 
         /**
-         * @param value {@link #value} (Specifies a value that SHALL hold for this element in the instance.)
+         * @param value {@link #value} (Specifies a primitive value that SHALL hold for this element in the instance.)
          */
         public ElementDefinitionComponent setValue(org.hl7.fhir.instance.model.Type value) { 
           this.value = value;
@@ -1550,7 +1550,7 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #condition} (A reference to an invariant that may make additional statements about the cardinality in the instance.)
+         * @return {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
          */
         public List<Id> getCondition() { 
           return this.condition;
@@ -1558,7 +1558,7 @@ public class Profile extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #condition} (A reference to an invariant that may make additional statements about the cardinality in the instance.)
+         * @return {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
          */
         public Id addCondition() { 
           Id t = new Id();
@@ -1567,7 +1567,7 @@ public class Profile extends Resource {
         }
 
         /**
-         * @param value {@link #condition} (A reference to an invariant that may make additional statements about the cardinality in the instance.)
+         * @param value {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
          */
         public Id addConditionSimple(String value) { 
           Id t = new Id();
@@ -1695,7 +1695,7 @@ public class Profile extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("short", "string", "A concise definition that  is shown in the concise XML format that summarizes profiles.", 0, java.lang.Integer.MAX_VALUE, short_));
+          childrenList.add(new Property("short", "string", "A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).", 0, java.lang.Integer.MAX_VALUE, short_));
           childrenList.add(new Property("formal", "string", "The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.", 0, java.lang.Integer.MAX_VALUE, formal));
           childrenList.add(new Property("comments", "string", "Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));
           childrenList.add(new Property("requirements", "string", "Explains why this element is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
@@ -1704,10 +1704,10 @@ public class Profile extends Resource {
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("nameReference", "string", "Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.", 0, java.lang.Integer.MAX_VALUE, nameReference));
-          childrenList.add(new Property("value[x]", "*", "Specifies a value that SHALL hold for this element in the instance.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "*", "Specifies a primitive value that SHALL hold for this element in the instance.", 0, java.lang.Integer.MAX_VALUE, value));
           childrenList.add(new Property("example[x]", "*", "An example value for this element.", 0, java.lang.Integer.MAX_VALUE, example));
           childrenList.add(new Property("maxLength", "integer", "Indicates the shortest length that SHALL be supported by conformant instances without truncation.", 0, java.lang.Integer.MAX_VALUE, maxLength));
-          childrenList.add(new Property("condition", "id", "A reference to an invariant that may make additional statements about the cardinality in the instance.", 0, java.lang.Integer.MAX_VALUE, condition));
+          childrenList.add(new Property("condition", "id", "A reference to an invariant that may make additional statements about the cardinality or value in the instance.", 0, java.lang.Integer.MAX_VALUE, condition));
           childrenList.add(new Property("constraint", "", "Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.", 0, java.lang.Integer.MAX_VALUE, constraint));
           childrenList.add(new Property("mustSupport", "boolean", "If true, conformant resource authors SHALL be capable of providing a value for the element and resource consumers SHALL be capable of extracting and doing something useful with the data element.  If false, the element may be ignored and not supported.", 0, java.lang.Integer.MAX_VALUE, mustSupport));
           childrenList.add(new Property("isModifier", "boolean", "If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.", 0, java.lang.Integer.MAX_VALUE, isModifier));

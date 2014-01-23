@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -75,7 +75,7 @@ public class ImmunizationRecommendation extends Resource {
         protected List<ResourceReference> supportingImmunization = new ArrayList<ResourceReference>();
 
         /**
-         * Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.
+         * Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.
          */
         protected List<ResourceReference> supportingPatientInformation = new ArrayList<ResourceReference>();
 
@@ -238,7 +238,7 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
-         * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.)
+         * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
          */
         public List<ResourceReference> getSupportingPatientInformation() { 
           return this.supportingPatientInformation;
@@ -246,7 +246,7 @@ public class ImmunizationRecommendation extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.)
+         * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
          */
         public ResourceReference addSupportingPatientInformation() { 
           ResourceReference t = new ResourceReference();
@@ -263,7 +263,7 @@ public class ImmunizationRecommendation extends Resource {
           childrenList.add(new Property("dateCriterion", "", "Vaccine date recommendations - e.g. earliest date to administer, latest date to administer, etc.", 0, java.lang.Integer.MAX_VALUE, dateCriterion));
           childrenList.add(new Property("protocol", "", "Contains information about the protocol under which the vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, protocol));
           childrenList.add(new Property("supportingImmunization", "Resource(Immunization)", "Immunization event history that supports the status and recommendation.", 0, java.lang.Integer.MAX_VALUE, supportingImmunization));
-          childrenList.add(new Property("supportingPatientInformation", "Resource(Observation|AdverseReaction|AllergyIntolerance)", "Patient Information that supports the status and recommendation.  This includes patient obersvations, advserse reactions and allergy/intolerance information.", 0, java.lang.Integer.MAX_VALUE, supportingPatientInformation));
+          childrenList.add(new Property("supportingPatientInformation", "Resource(Observation|AdverseReaction|AllergyIntolerance)", "Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.", 0, java.lang.Integer.MAX_VALUE, supportingPatientInformation));
         }
 
       public ImmunizationRecommendationRecommendationComponent copy(ImmunizationRecommendation e) {

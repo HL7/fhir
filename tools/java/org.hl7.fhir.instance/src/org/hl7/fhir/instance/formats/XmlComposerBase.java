@@ -31,6 +31,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 
 import java.io.OutputStream;
+import java.util.List;
 
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -97,6 +98,28 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 		writer.setPretty(pretty);
 		writer.start();
 		compose(writer, feed, htmlPretty);
+		writer.close();
+	}
+	
+	/**
+	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
+	 */
+	public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty) throws Exception {
+		XMLWriter writer = new XMLWriter(stream, "UTF-8");
+		writer.setPretty(pretty);
+		writer.start();
+		compose(writer, tags, pretty);
+		writer.close();
+	}
+	
+	/**
+	 * Compose a tag list to a stream, possibly using pretty presentation for a human reader, and maybe a different choice in the xhtml narrative (used in the spec in one place, but should not be used in production)
+	 */
+	public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty, boolean htmlPretty) throws Exception {
+		XMLWriter writer = new XMLWriter(stream, "UTF-8");
+		writer.setPretty(pretty);
+		writer.start();
+		compose(writer, tags, htmlPretty);
 		writer.close();
 	}
 
@@ -236,6 +259,22 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 		xml = writer;
 		xml.setDefaultNamespace(FHIR_NS);
 		composeResource(resource);
+	}
+	
+	public void compose(IXMLWriter writer, List<AtomCategory> tags, boolean htmlPretty) throws Exception {
+		this.htmlPretty = htmlPretty;
+		xml = writer;
+		xml.setDefaultNamespace(FHIR_NS);
+
+		xml.open(FHIR_NS, "taglist");
+		for (AtomCategory cat : tags) {
+			xml.attribute("scheme", cat.getScheme());
+			xml.attribute("term", cat.getTerm());
+			if (!Utilities.noString(cat.getLabel()))
+				xml.attribute("label", cat.getLabel());
+			xml.element("category", null);
+		}
+		xml.close(FHIR_NS, "taglist");
 	}
 
 	protected abstract void composeResource(Resource resource) throws Exception;

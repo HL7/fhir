@@ -29,25 +29,141 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * A supply -  request and provision.
+ * A supply - a  request for something, and provision of what is supplied.
  */
 public class Supply extends Resource {
 
+    public enum ValuesetSupplyStatus {
+        requested, // Supply has been requested, but not dispensed.
+        dispensed, // Supply is part of a pharmacy order and has been dispensed.
+        received, // Supply has been received by the requestor.
+        failed, // The supply will not be completed because the supplier was unable or unwilling to supply the item.
+        cancelled, // The orderer of the supply cancelled the request.
+        Null; // added to help the parsers
+        public static ValuesetSupplyStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("requested".equals(codeString))
+          return requested;
+        if ("dispensed".equals(codeString))
+          return dispensed;
+        if ("received".equals(codeString))
+          return received;
+        if ("failed".equals(codeString))
+          return failed;
+        if ("cancelled".equals(codeString))
+          return cancelled;
+        throw new Exception("Unknown ValuesetSupplyStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case requested: return "requested";
+            case dispensed: return "dispensed";
+            case received: return "received";
+            case failed: return "failed";
+            case cancelled: return "cancelled";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ValuesetSupplyStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("requested".equals(codeString))
+          return ValuesetSupplyStatus.requested;
+        if ("dispensed".equals(codeString))
+          return ValuesetSupplyStatus.dispensed;
+        if ("received".equals(codeString))
+          return ValuesetSupplyStatus.received;
+        if ("failed".equals(codeString))
+          return ValuesetSupplyStatus.failed;
+        if ("cancelled".equals(codeString))
+          return ValuesetSupplyStatus.cancelled;
+        throw new Exception("Unknown ValuesetSupplyStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == ValuesetSupplyStatus.requested)
+        return "requested";
+      if (code == ValuesetSupplyStatus.dispensed)
+        return "dispensed";
+      if (code == ValuesetSupplyStatus.received)
+        return "received";
+      if (code == ValuesetSupplyStatus.failed)
+        return "failed";
+      if (code == ValuesetSupplyStatus.cancelled)
+        return "cancelled";
+      return "?";
+      }
+    }
+
+    public enum ValuesetSupplyDispenseStatus {
+        inProgress, // Supply has been requested, but not dispensed.
+        dispensed, // Supply is part of a pharmacy order and has been dispensed.
+        abandoned, // Dispensing was not completed.
+        Null; // added to help the parsers
+        public static ValuesetSupplyDispenseStatus fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("in progress".equals(codeString))
+          return inProgress;
+        if ("dispensed".equals(codeString))
+          return dispensed;
+        if ("abandoned".equals(codeString))
+          return abandoned;
+        throw new Exception("Unknown ValuesetSupplyDispenseStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case inProgress: return "in progress";
+            case dispensed: return "dispensed";
+            case abandoned: return "abandoned";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ValuesetSupplyDispenseStatusEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("in progress".equals(codeString))
+          return ValuesetSupplyDispenseStatus.inProgress;
+        if ("dispensed".equals(codeString))
+          return ValuesetSupplyDispenseStatus.dispensed;
+        if ("abandoned".equals(codeString))
+          return ValuesetSupplyDispenseStatus.abandoned;
+        throw new Exception("Unknown ValuesetSupplyDispenseStatus code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == ValuesetSupplyDispenseStatus.inProgress)
+        return "in progress";
+      if (code == ValuesetSupplyDispenseStatus.dispensed)
+        return "dispensed";
+      if (code == ValuesetSupplyDispenseStatus.abandoned)
+        return "abandoned";
+      return "?";
+      }
+    }
+
     public static class SupplyDispenseComponent extends BackboneElement {
         /**
-         * Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.
+         * Identifier assigned by the dispensing facility when the dispense occurs.
          */
         protected Identifier identifier;
 
         /**
          * A code specifying the state of the dispense event.
          */
-        protected Code status;
+        protected Enumeration<ValuesetSupplyDispenseStatus> status;
 
         /**
          * Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
@@ -65,7 +181,7 @@ public class Supply extends Resource {
         protected ResourceReference suppliedItem;
 
         /**
-         * The individual reponsible for dispensing the medication.
+         * The individual responsible for dispensing the medication.
          */
         protected ResourceReference supplier;
 
@@ -75,7 +191,7 @@ public class Supply extends Resource {
         protected Period whenPrepared;
 
         /**
-         * The time the dispense event occurred.
+         * The time the dispensed item was sent or handed to the patient (or agent).
          */
         protected Period whenHandedOver;
 
@@ -94,14 +210,14 @@ public class Supply extends Resource {
       }
 
         /**
-         * @return {@link #identifier} (Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.)
+         * @return {@link #identifier} (Identifier assigned by the dispensing facility when the dispense occurs.)
          */
         public Identifier getIdentifier() { 
           return this.identifier;
         }
 
         /**
-         * @param value {@link #identifier} (Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.)
+         * @param value {@link #identifier} (Identifier assigned by the dispensing facility when the dispense occurs.)
          */
         public SupplyDispenseComponent setIdentifier(Identifier value) { 
           this.identifier = value;
@@ -111,14 +227,14 @@ public class Supply extends Resource {
         /**
          * @return {@link #status} (A code specifying the state of the dispense event.)
          */
-        public Code getStatus() { 
+        public Enumeration<ValuesetSupplyDispenseStatus> getStatus() { 
           return this.status;
         }
 
         /**
          * @param value {@link #status} (A code specifying the state of the dispense event.)
          */
-        public SupplyDispenseComponent setStatus(Code value) { 
+        public SupplyDispenseComponent setStatus(Enumeration<ValuesetSupplyDispenseStatus> value) { 
           this.status = value;
           return this;
         }
@@ -126,19 +242,19 @@ public class Supply extends Resource {
         /**
          * @return A code specifying the state of the dispense event.
          */
-        public String getStatusSimple() { 
+        public ValuesetSupplyDispenseStatus getStatusSimple() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value A code specifying the state of the dispense event.
          */
-        public SupplyDispenseComponent setStatusSimple(String value) { 
+        public SupplyDispenseComponent setStatusSimple(ValuesetSupplyDispenseStatus value) { 
           if (value == null)
             this.status = null;
           else {
             if (this.status == null)
-              this.status = new Code();
+              this.status = new Enumeration<ValuesetSupplyDispenseStatus>();
             this.status.setValue(value);
           }
           return this;
@@ -190,14 +306,14 @@ public class Supply extends Resource {
         }
 
         /**
-         * @return {@link #supplier} (The individual reponsible for dispensing the medication.)
+         * @return {@link #supplier} (The individual responsible for dispensing the medication.)
          */
         public ResourceReference getSupplier() { 
           return this.supplier;
         }
 
         /**
-         * @param value {@link #supplier} (The individual reponsible for dispensing the medication.)
+         * @param value {@link #supplier} (The individual responsible for dispensing the medication.)
          */
         public SupplyDispenseComponent setSupplier(ResourceReference value) { 
           this.supplier = value;
@@ -220,14 +336,14 @@ public class Supply extends Resource {
         }
 
         /**
-         * @return {@link #whenHandedOver} (The time the dispense event occurred.)
+         * @return {@link #whenHandedOver} (The time the dispensed item was sent or handed to the patient (or agent).)
          */
         public Period getWhenHandedOver() { 
           return this.whenHandedOver;
         }
 
         /**
-         * @param value {@link #whenHandedOver} (The time the dispense event occurred.)
+         * @param value {@link #whenHandedOver} (The time the dispensed item was sent or handed to the patient (or agent).)
          */
         public SupplyDispenseComponent setWhenHandedOver(Period value) { 
           this.whenHandedOver = value;
@@ -268,14 +384,14 @@ public class Supply extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility when the dispense occurs.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("status", "code", "A code specifying the state of the dispense event.", 0, java.lang.Integer.MAX_VALUE, status));
           childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("quantity", "Quantity", "The amount of supply that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("suppliedItem", "Resource(Medication|Substance|Device)", "Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, suppliedItem));
-          childrenList.add(new Property("supplier", "Resource(Practitioner)", "The individual reponsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, supplier));
+          childrenList.add(new Property("supplier", "Resource(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, supplier));
           childrenList.add(new Property("whenPrepared", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
-          childrenList.add(new Property("whenHandedOver", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
+          childrenList.add(new Property("whenHandedOver", "Period", "The time the dispensed item was sent or handed to the patient (or agent).", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
           childrenList.add(new Property("destination", "Resource(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
           childrenList.add(new Property("receiver", "Resource(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
         }
@@ -300,27 +416,27 @@ public class Supply extends Resource {
   }
 
     /**
-     * Category of supply.
+     * Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.
      */
-    protected CodeableConcept name;
+    protected CodeableConcept kind;
 
     /**
-     * Unique identifier for this kind of supply.
+     * Unique identifier for this supply request.
      */
     protected Identifier identifier;
 
     /**
-     * Status of the supply.
+     * Status of the supply request.
      */
-    protected Code status;
+    protected Enumeration<ValuesetSupplyStatus> status;
 
     /**
-     * The item which was ordered.
+     * The item that is requested to be supplied.
      */
     protected ResourceReference orderedItem;
 
     /**
-     * A link to a resource representing the person to whom the medication will be given.
+     * A link to a resource representing the person whom the ordered item is for.
      */
     protected ResourceReference patient;
 
@@ -334,29 +450,29 @@ public class Supply extends Resource {
     }
 
     /**
-     * @return {@link #name} (Category of supply.)
+     * @return {@link #kind} (Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.)
      */
-    public CodeableConcept getName() { 
-      return this.name;
+    public CodeableConcept getKind() { 
+      return this.kind;
     }
 
     /**
-     * @param value {@link #name} (Category of supply.)
+     * @param value {@link #kind} (Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.)
      */
-    public Supply setName(CodeableConcept value) { 
-      this.name = value;
+    public Supply setKind(CodeableConcept value) { 
+      this.kind = value;
       return this;
     }
 
     /**
-     * @return {@link #identifier} (Unique identifier for this kind of supply.)
+     * @return {@link #identifier} (Unique identifier for this supply request.)
      */
     public Identifier getIdentifier() { 
       return this.identifier;
     }
 
     /**
-     * @param value {@link #identifier} (Unique identifier for this kind of supply.)
+     * @param value {@link #identifier} (Unique identifier for this supply request.)
      */
     public Supply setIdentifier(Identifier value) { 
       this.identifier = value;
@@ -364,50 +480,50 @@ public class Supply extends Resource {
     }
 
     /**
-     * @return {@link #status} (Status of the supply.)
+     * @return {@link #status} (Status of the supply request.)
      */
-    public Code getStatus() { 
+    public Enumeration<ValuesetSupplyStatus> getStatus() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (Status of the supply.)
+     * @param value {@link #status} (Status of the supply request.)
      */
-    public Supply setStatus(Code value) { 
+    public Supply setStatus(Enumeration<ValuesetSupplyStatus> value) { 
       this.status = value;
       return this;
     }
 
     /**
-     * @return Status of the supply.
+     * @return Status of the supply request.
      */
-    public String getStatusSimple() { 
+    public ValuesetSupplyStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value Status of the supply.
+     * @param value Status of the supply request.
      */
-    public Supply setStatusSimple(String value) { 
+    public Supply setStatusSimple(ValuesetSupplyStatus value) { 
       if (value == null)
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Code();
+          this.status = new Enumeration<ValuesetSupplyStatus>();
         this.status.setValue(value);
       }
       return this;
     }
 
     /**
-     * @return {@link #orderedItem} (The item which was ordered.)
+     * @return {@link #orderedItem} (The item that is requested to be supplied.)
      */
     public ResourceReference getOrderedItem() { 
       return this.orderedItem;
     }
 
     /**
-     * @param value {@link #orderedItem} (The item which was ordered.)
+     * @param value {@link #orderedItem} (The item that is requested to be supplied.)
      */
     public Supply setOrderedItem(ResourceReference value) { 
       this.orderedItem = value;
@@ -415,14 +531,14 @@ public class Supply extends Resource {
     }
 
     /**
-     * @return {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     * @return {@link #patient} (A link to a resource representing the person whom the ordered item is for.)
      */
     public ResourceReference getPatient() { 
       return this.patient;
     }
 
     /**
-     * @param value {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     * @param value {@link #patient} (A link to a resource representing the person whom the ordered item is for.)
      */
     public Supply setPatient(ResourceReference value) { 
       this.patient = value;
@@ -448,17 +564,17 @@ public class Supply extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("name", "CodeableConcept", "Category of supply.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("identifier", "Identifier", "Unique identifier for this kind of supply.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "Status of the supply.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("orderedItem", "Resource(Medication|Substance|Device)", "The item which was ordered.", 0, java.lang.Integer.MAX_VALUE, orderedItem));
-        childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("kind", "CodeableConcept", "Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.", 0, java.lang.Integer.MAX_VALUE, kind));
+        childrenList.add(new Property("identifier", "Identifier", "Unique identifier for this supply request.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("status", "code", "Status of the supply request.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("orderedItem", "Resource(Medication|Substance|Device)", "The item that is requested to be supplied.", 0, java.lang.Integer.MAX_VALUE, orderedItem));
+        childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person whom the ordered item is for.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("dispense", "", "Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.", 0, java.lang.Integer.MAX_VALUE, dispense));
       }
 
       public Supply copy() {
         Supply dst = new Supply();
-        dst.name = name == null ? null : name.copy();
+        dst.kind = kind == null ? null : kind.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.status = status == null ? null : status.copy();
         dst.orderedItem = orderedItem == null ? null : orderedItem.copy();

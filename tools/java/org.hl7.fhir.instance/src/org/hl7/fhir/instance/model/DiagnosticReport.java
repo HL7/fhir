@@ -29,22 +29,22 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * The findings and interpretation of diagnostic  tests performed on patients and/or specimens. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
+ * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.
  */
 public class DiagnosticReport extends Resource {
 
     public enum DiagnosticReportStatus {
         registered, // The existence of the report is registered, but there is nothing yet available.
         partial, // This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.
-        final_, // The report is complete and verified by an authorised person.
-        corrected, // The report has been modified subsequent to being Final, and is complete and verified by an authorised person.
-        amended, // The report has been modified subsequent to being Final, and is complete and verified by an authorised person, and data has been changed.
-        appended, // The report has been modified subsequent to being Final, and is complete and verified by an authorised person. New content has been added, but existing content hasn't changed.
+        final_, // The report is complete and verified by an authorized person.
+        corrected, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person.
+        amended, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person, and data has been changed.
+        appended, // The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.
         cancelled, // The report is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
         enteredInError, // The report has been withdrawn following previous Final release.
         Null; // added to help the parsers
@@ -140,7 +140,7 @@ public class DiagnosticReport extends Resource {
         protected ResourceReference specimen;
 
         /**
-         * A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.
+         * A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.
          */
         protected List<ResultGroupComponent> group = new ArrayList<ResultGroupComponent>();
 
@@ -189,7 +189,7 @@ public class DiagnosticReport extends Resource {
         }
 
         /**
-         * @return {@link #group} (A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.)
+         * @return {@link #group} (A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.)
          */
         public List<ResultGroupComponent> getGroup() { 
           return this.group;
@@ -197,7 +197,7 @@ public class DiagnosticReport extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #group} (A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.)
+         * @return {@link #group} (A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.)
          */
         public ResultGroupComponent addGroup() { 
           ResultGroupComponent t = new ResultGroupComponent();
@@ -226,7 +226,7 @@ public class DiagnosticReport extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "CodeableConcept", "A code or name that describes this group of results. For the base group, this is the report name.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("specimen", "Resource(Specimen)", "Details about the individual specimen to which these 'Result group' test results refer.", 0, java.lang.Integer.MAX_VALUE, specimen));
-          childrenList.add(new Property("group", "@DiagnosticReport.results", "A sub-group in a report group. Sub groups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.", 0, java.lang.Integer.MAX_VALUE, group));
+          childrenList.add(new Property("group", "@DiagnosticReport.results", "A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.", 0, java.lang.Integer.MAX_VALUE, group));
           childrenList.add(new Property("result", "Resource(Observation)", "Specific detailed result, including both the value of the result item and additional information that may be useful for clinical interpretation. Results include whatever specific data items pathology labs report as part of the clinical service; it is not confined to measurements.", 0, java.lang.Integer.MAX_VALUE, result));
         }
 
@@ -247,7 +247,7 @@ public class DiagnosticReport extends Resource {
 
     public static class DiagnosticReportImageComponent extends BackboneElement {
         /**
-         * A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.
+         * A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
         protected String_ comment;
 
@@ -266,14 +266,14 @@ public class DiagnosticReport extends Resource {
       }
 
         /**
-         * @return {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.)
+         * @return {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.)
          */
         public String_ getComment() { 
           return this.comment;
         }
 
         /**
-         * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.)
+         * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.)
          */
         public DiagnosticReportImageComponent setComment(String_ value) { 
           this.comment = value;
@@ -281,14 +281,14 @@ public class DiagnosticReport extends Resource {
         }
 
         /**
-         * @return A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.
+         * @return A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
         public String getCommentSimple() { 
           return this.comment == null ? null : this.comment.getValue();
         }
 
         /**
-         * @param value A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.
+         * @param value A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
         public DiagnosticReportImageComponent setCommentSimple(String value) { 
           if (value == null)
@@ -318,7 +318,7 @@ public class DiagnosticReport extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("comment", "string", "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewers attention to important features.", 0, java.lang.Integer.MAX_VALUE, comment));
+          childrenList.add(new Property("comment", "string", "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.", 0, java.lang.Integer.MAX_VALUE, comment));
           childrenList.add(new Property("link", "Resource(Media)", "Reference to the image source.", 0, java.lang.Integer.MAX_VALUE, link));
         }
 
@@ -354,7 +354,7 @@ public class DiagnosticReport extends Resource {
     /**
      * The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.
      */
-    protected Identifier reportId;
+    protected Identifier identifier;
 
     /**
      * Details concerning a test requested.
@@ -362,12 +362,12 @@ public class DiagnosticReport extends Resource {
     protected List<ResourceReference> requestDetail = new ArrayList<ResourceReference>();
 
     /**
-     * The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI.
+     * The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.
      */
     protected CodeableConcept serviceCategory;
 
     /**
-     * The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient.
+     * The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
      */
     protected Type diagnostic;
 
@@ -387,7 +387,7 @@ public class DiagnosticReport extends Resource {
     protected List<DiagnosticReportImageComponent> image = new ArrayList<DiagnosticReportImageComponent>();
 
     /**
-     * Concise and clinically contextualised narrative interpretation of the diagnostic report.
+     * Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
     protected String_ conclusion;
 
@@ -510,17 +510,17 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #reportId} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
+     * @return {@link #identifier} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
      */
-    public Identifier getReportId() { 
-      return this.reportId;
+    public Identifier getIdentifier() { 
+      return this.identifier;
     }
 
     /**
-     * @param value {@link #reportId} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
+     * @param value {@link #identifier} (The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.)
      */
-    public DiagnosticReport setReportId(Identifier value) { 
-      this.reportId = value;
+    public DiagnosticReport setIdentifier(Identifier value) { 
+      this.identifier = value;
       return this;
     }
 
@@ -542,14 +542,14 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #serviceCategory} (The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI.)
+     * @return {@link #serviceCategory} (The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.)
      */
     public CodeableConcept getServiceCategory() { 
       return this.serviceCategory;
     }
 
     /**
-     * @param value {@link #serviceCategory} (The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI.)
+     * @param value {@link #serviceCategory} (The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.)
      */
     public DiagnosticReport setServiceCategory(CodeableConcept value) { 
       this.serviceCategory = value;
@@ -557,14 +557,14 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #diagnostic} (The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient.)
+     * @return {@link #diagnostic} (The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.)
      */
     public Type getDiagnostic() { 
       return this.diagnostic;
     }
 
     /**
-     * @param value {@link #diagnostic} (The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient.)
+     * @param value {@link #diagnostic} (The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.)
      */
     public DiagnosticReport setDiagnostic(Type value) { 
       this.diagnostic = value;
@@ -621,14 +621,14 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #conclusion} (Concise and clinically contextualised narrative interpretation of the diagnostic report.)
+     * @return {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.)
      */
     public String_ getConclusion() { 
       return this.conclusion;
     }
 
     /**
-     * @param value {@link #conclusion} (Concise and clinically contextualised narrative interpretation of the diagnostic report.)
+     * @param value {@link #conclusion} (Concise and clinically contextualized narrative interpretation of the diagnostic report.)
      */
     public DiagnosticReport setConclusion(String_ value) { 
       this.conclusion = value;
@@ -636,14 +636,14 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return Concise and clinically contextualised narrative interpretation of the diagnostic report.
+     * @return Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
     public String getConclusionSimple() { 
       return this.conclusion == null ? null : this.conclusion.getValue();
     }
 
     /**
-     * @param value Concise and clinically contextualised narrative interpretation of the diagnostic report.
+     * @param value Concise and clinically contextualized narrative interpretation of the diagnostic report.
      */
     public DiagnosticReport setConclusionSimple(String value) { 
       if (value == null)
@@ -696,14 +696,14 @@ public class DiagnosticReport extends Resource {
         childrenList.add(new Property("issued", "dateTime", "The date and/or time that this version of the report was released from the source diagnostic service.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Location)", "The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("performer", "Resource(Practitioner|Organization)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("reportId", "Identifier", "The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.", 0, java.lang.Integer.MAX_VALUE, reportId));
+        childrenList.add(new Property("identifier", "Identifier", "The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("requestDetail", "Resource(DiagnosticOrder)", "Details concerning a test requested.", 0, java.lang.Integer.MAX_VALUE, requestDetail));
-        childrenList.add(new Property("serviceCategory", "CodeableConcept", "The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
-        childrenList.add(new Property("diagnostic[x]", "dateTime|Period", "The diagnostically relevant time for this report - that is, the point in time at which the observations that are reported in this diagnostic report relate to the patient.", 0, java.lang.Integer.MAX_VALUE, diagnostic));
+        childrenList.add(new Property("serviceCategory", "CodeableConcept", "The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
+        childrenList.add(new Property("diagnostic[x]", "dateTime|Period", "The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, diagnostic));
         childrenList.add(new Property("results", "", "A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.", 0, java.lang.Integer.MAX_VALUE, results));
         childrenList.add(new Property("imagingStudy", "Resource(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
         childrenList.add(new Property("image", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image));
-        childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualised narrative interpretation of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
+        childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualized narrative interpretation of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
         childrenList.add(new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis));
         childrenList.add(new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm));
       }
@@ -714,7 +714,7 @@ public class DiagnosticReport extends Resource {
         dst.issued = issued == null ? null : issued.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.performer = performer == null ? null : performer.copy();
-        dst.reportId = reportId == null ? null : reportId.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.requestDetail = new ArrayList<ResourceReference>();
         for (ResourceReference i : requestDetail)
           dst.requestDetail.add(i.copy());

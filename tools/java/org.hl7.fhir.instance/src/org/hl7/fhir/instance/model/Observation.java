@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -41,8 +41,8 @@ public class Observation extends Resource {
     public enum ObservationStatus {
         registered, // The existence of the observation is registered, but there is no result yet available.
         preliminary, // This is an initial or interim observation: data may be incomplete or unverified.
-        final_, // The observation is complete and verified by an authorised person.
-        amended, // The observation has been modified subsequent to being Final, and is complete and verified by an authorised person.
+        final_, // The observation is complete and verified by an authorized person.
+        amended, // The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.
         cancelled, // The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
         enteredInError, // The observation has been withdrawn following previous Final release.
         Null; // added to help the parsers
@@ -213,7 +213,7 @@ public class Observation extends Resource {
         /**
          * The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.
          */
-        protected Period age;
+        protected Range age;
 
       public ObservationReferenceRangeComponent() {
         super();
@@ -267,14 +267,14 @@ public class Observation extends Resource {
         /**
          * @return {@link #age} (The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.)
          */
-        public Period getAge() { 
+        public Range getAge() { 
           return this.age;
         }
 
         /**
          * @param value {@link #age} (The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.)
          */
-        public ObservationReferenceRangeComponent setAge(Period value) { 
+        public ObservationReferenceRangeComponent setAge(Range value) { 
           this.age = value;
           return this;
         }
@@ -284,7 +284,7 @@ public class Observation extends Resource {
           childrenList.add(new Property("low", "Quantity", "The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.", 0, java.lang.Integer.MAX_VALUE, low));
           childrenList.add(new Property("high", "Quantity", "The value of the high bound of the reference range. If this is omitted, the high bound of the reference range is assumed to be meaningless. E.g. >5.", 0, java.lang.Integer.MAX_VALUE, high));
           childrenList.add(new Property("meaning", "CodeableConcept", "Code for the meaning of the reference range.", 0, java.lang.Integer.MAX_VALUE, meaning));
-          childrenList.add(new Property("age", "Period", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, java.lang.Integer.MAX_VALUE, age));
+          childrenList.add(new Property("age", "Range", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, java.lang.Integer.MAX_VALUE, age));
         }
 
       public ObservationReferenceRangeComponent copy(Observation e) {
@@ -299,7 +299,7 @@ public class Observation extends Resource {
   }
 
     /**
-     * Describes what was observed. Sometimes called this is called the observation "code".
+     * Describes what was observed. Sometimes this is called the observation "code".
      */
     protected CodeableConcept name;
 
@@ -319,7 +319,7 @@ public class Observation extends Resource {
     protected String_ comments;
 
     /**
-     * The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time".
+     * The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.
      */
     protected Type applies;
 
@@ -385,14 +385,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #name} (Describes what was observed. Sometimes called this is called the observation "code".)
+     * @return {@link #name} (Describes what was observed. Sometimes this is called the observation "code".)
      */
     public CodeableConcept getName() { 
       return this.name;
     }
 
     /**
-     * @param value {@link #name} (Describes what was observed. Sometimes called this is called the observation "code".)
+     * @param value {@link #name} (Describes what was observed. Sometimes this is called the observation "code".)
      */
     public Observation setName(CodeableConcept value) { 
       this.name = value;
@@ -466,14 +466,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #applies} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time".)
+     * @return {@link #applies} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.)
      */
     public Type getApplies() { 
       return this.applies;
     }
 
     /**
-     * @param value {@link #applies} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time".)
+     * @param value {@link #applies} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.)
      */
     public Observation setApplies(Type value) { 
       this.applies = value;
@@ -691,11 +691,11 @@ public class Observation extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes called this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string", "The information determined as a result of making the observation.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
-        childrenList.add(new Property("applies[x]", "Period|dateTime", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'.", 0, java.lang.Integer.MAX_VALUE, applies));
+        childrenList.add(new Property("applies[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, applies));
         childrenList.add(new Property("issued", "instant", "Date/Time this was made available.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("status", "code", "The status of the result value.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("reliability", "code", "An estimate of the degree to which quality issues have impacted on the value reported.", 0, java.lang.Integer.MAX_VALUE, reliability));

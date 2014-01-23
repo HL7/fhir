@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -201,9 +201,14 @@ public class DiagnosticOrder extends Resource {
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
+         * Additional information about the event that occurred - e.g. if the status remained unchanged.
+         */
+        protected CodeableConcept description;
+
+        /**
          * The date/time at which the event occurred.
          */
-        protected DateTime date;
+        protected DateTime dateTime;
 
         /**
          * The person who was responsible for performing or recording the action.
@@ -214,10 +219,10 @@ public class DiagnosticOrder extends Resource {
         super();
       }
 
-      public DiagnosticOrderEventComponent(Enumeration<DiagnosticOrderStatus> status, DateTime date) {
+      public DiagnosticOrderEventComponent(Enumeration<DiagnosticOrderStatus> status, DateTime dateTime) {
         super();
         this.status = status;
-        this.date = date;
+        this.dateTime = dateTime;
       }
 
         /**
@@ -253,34 +258,49 @@ public class DiagnosticOrder extends Resource {
         }
 
         /**
-         * @return {@link #date} (The date/time at which the event occurred.)
+         * @return {@link #description} (Additional information about the event that occurred - e.g. if the status remained unchanged.)
          */
-        public DateTime getDate() { 
-          return this.date;
+        public CodeableConcept getDescription() { 
+          return this.description;
         }
 
         /**
-         * @param value {@link #date} (The date/time at which the event occurred.)
+         * @param value {@link #description} (Additional information about the event that occurred - e.g. if the status remained unchanged.)
          */
-        public DiagnosticOrderEventComponent setDate(DateTime value) { 
-          this.date = value;
+        public DiagnosticOrderEventComponent setDescription(CodeableConcept value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #dateTime} (The date/time at which the event occurred.)
+         */
+        public DateTime getDateTime() { 
+          return this.dateTime;
+        }
+
+        /**
+         * @param value {@link #dateTime} (The date/time at which the event occurred.)
+         */
+        public DiagnosticOrderEventComponent setDateTime(DateTime value) { 
+          this.dateTime = value;
           return this;
         }
 
         /**
          * @return The date/time at which the event occurred.
          */
-        public DateAndTime getDateSimple() { 
-          return this.date == null ? null : this.date.getValue();
+        public DateAndTime getDateTimeSimple() { 
+          return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value The date/time at which the event occurred.
          */
-        public DiagnosticOrderEventComponent setDateSimple(DateAndTime value) { 
-            if (this.date == null)
-              this.date = new DateTime();
-            this.date.setValue(value);
+        public DiagnosticOrderEventComponent setDateTimeSimple(DateAndTime value) { 
+            if (this.dateTime == null)
+              this.dateTime = new DateTime();
+            this.dateTime.setValue(value);
           return this;
         }
 
@@ -302,14 +322,16 @@ public class DiagnosticOrder extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("status", "code", "The status for the event.", 0, java.lang.Integer.MAX_VALUE, status));
-          childrenList.add(new Property("date", "dateTime", "The date/time at which the event occurred.", 0, java.lang.Integer.MAX_VALUE, date));
+          childrenList.add(new Property("description", "CodeableConcept", "Additional information about the event that occurred - e.g. if the status remained unchanged.", 0, java.lang.Integer.MAX_VALUE, description));
+          childrenList.add(new Property("dateTime", "dateTime", "The date/time at which the event occurred.", 0, java.lang.Integer.MAX_VALUE, dateTime));
           childrenList.add(new Property("actor", "Resource(Practitioner|Device)", "The person who was responsible for performing or recording the action.", 0, java.lang.Integer.MAX_VALUE, actor));
         }
 
       public DiagnosticOrderEventComponent copy(DiagnosticOrder e) {
         DiagnosticOrderEventComponent dst = new DiagnosticOrderEventComponent();
         dst.status = status == null ? null : status.copy();
-        dst.date = date == null ? null : date.copy();
+        dst.description = description == null ? null : description.copy();
+        dst.dateTime = dateTime == null ? null : dateTime.copy();
         dst.actor = actor == null ? null : actor.copy();
         return dst;
       }
@@ -517,7 +539,7 @@ public class DiagnosticOrder extends Resource {
     protected Enumeration<DiagnosticOrderPriority> priority;
 
     /**
-     * A summary of the events of interest that have occurred as the request is processed.
+     * A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed.
      */
     protected List<DiagnosticOrderEventComponent> event = new ArrayList<DiagnosticOrderEventComponent>();
 
@@ -723,7 +745,7 @@ public class DiagnosticOrder extends Resource {
     }
 
     /**
-     * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed.)
+     * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed.)
      */
     public List<DiagnosticOrderEventComponent> getEvent() { 
       return this.event;
@@ -731,7 +753,7 @@ public class DiagnosticOrder extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed.)
+     * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed.)
      */
     public DiagnosticOrderEventComponent addEvent() { 
       DiagnosticOrderEventComponent t = new DiagnosticOrderEventComponent();
@@ -766,7 +788,7 @@ public class DiagnosticOrder extends Resource {
         childrenList.add(new Property("specimen", "Resource(Specimen)", "One or more specimens that the diagnostic investigation is about.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("status", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("priority", "code", "The clinical priority associated with this order.", 0, java.lang.Integer.MAX_VALUE, priority));
-        childrenList.add(new Property("event", "", "A summary of the events of interest that have occurred as the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
+        childrenList.add(new Property("event", "", "A summary of the events of interest that have occurred as the request is processed. E.g. when the order was made, various processing steps (specimens received), when it was completed.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("item", "", "The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.", 0, java.lang.Integer.MAX_VALUE, item));
       }
 

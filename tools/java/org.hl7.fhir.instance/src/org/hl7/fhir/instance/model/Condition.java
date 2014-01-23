@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -452,7 +452,7 @@ public class Condition extends Resource {
   }
 
     /**
-     * This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     * This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
@@ -482,7 +482,7 @@ public class Condition extends Resource {
     protected CodeableConcept code;
 
     /**
-     * A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition.
+     * A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.
      */
     protected CodeableConcept category;
 
@@ -548,7 +548,7 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -556,7 +556,7 @@ public class Condition extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
@@ -661,14 +661,14 @@ public class Condition extends Resource {
     }
 
     /**
-     * @return {@link #category} (A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition.)
+     * @return {@link #category} (A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.)
      */
     public CodeableConcept getCategory() { 
       return this.category;
     }
 
     /**
-     * @param value {@link #category} (A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition.)
+     * @param value {@link #category} (A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.)
      */
     public Condition setCategory(CodeableConcept value) { 
       this.category = value;
@@ -871,13 +871,13 @@ public class Condition extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Resource(Patient)", "Indicates the patient who the condition record is associated with.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which the condition was first asserted.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("asserter", "Resource(Practitioner|Patient)", "Person who takes responsibility for asserting the existence of the condition as part of the electronic record.", 0, java.lang.Integer.MAX_VALUE, asserter));
         childrenList.add(new Property("dateAsserted", "date", "Estimated or actual date the condition/problem/diagnosis was first detected/suspected.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
         childrenList.add(new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition. E.g. finding | Condition | diagnosis | concern | condition.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("category", "CodeableConcept", "A category assigned to the condition. E.g. complaint | symptom | finding | diagnosis.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("status", "code", "The clinical status of the condition.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("certainty", "CodeableConcept", "The degree of confidence that this condition is correct.", 0, java.lang.Integer.MAX_VALUE, certainty));
         childrenList.add(new Property("severity", "CodeableConcept", "A subjective assessment of the severity of the condition as evaluated by the clinician.", 0, java.lang.Integer.MAX_VALUE, severity));

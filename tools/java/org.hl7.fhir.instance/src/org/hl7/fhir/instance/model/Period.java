@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * A time period defined by a start and end time.
+ * A time period defined by a start and end date and optionally time.
  */
 public class Period extends Type {
 
@@ -44,7 +44,7 @@ public class Period extends Type {
     protected DateTime start;
 
     /**
-     * The end of the period. If the high is missing, it means that the period is ongoing.
+     * The end of the period. If the end of the period is missing, it means that the period is ongoing.
      */
     protected DateTime end;
 
@@ -89,14 +89,14 @@ public class Period extends Type {
     }
 
     /**
-     * @return {@link #end} (The end of the period. If the high is missing, it means that the period is ongoing.)
+     * @return {@link #end} (The end of the period. If the end of the period is missing, it means that the period is ongoing.)
      */
     public DateTime getEnd() { 
       return this.end;
     }
 
     /**
-     * @param value {@link #end} (The end of the period. If the high is missing, it means that the period is ongoing.)
+     * @param value {@link #end} (The end of the period. If the end of the period is missing, it means that the period is ongoing.)
      */
     public Period setEnd(DateTime value) { 
       this.end = value;
@@ -104,14 +104,14 @@ public class Period extends Type {
     }
 
     /**
-     * @return The end of the period. If the high is missing, it means that the period is ongoing.
+     * @return The end of the period. If the end of the period is missing, it means that the period is ongoing.
      */
     public DateAndTime getEndSimple() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
-     * @param value The end of the period. If the high is missing, it means that the period is ongoing.
+     * @param value The end of the period. If the end of the period is missing, it means that the period is ongoing.
      */
     public Period setEndSimple(DateAndTime value) { 
       if (value == null)
@@ -127,7 +127,7 @@ public class Period extends Type {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("start", "dateTime", "The start of the period. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, start));
-        childrenList.add(new Property("end", "dateTime", "The end of the period. If the high is missing, it means that the period is ongoing.", 0, java.lang.Integer.MAX_VALUE, end));
+        childrenList.add(new Property("end", "dateTime", "The end of the period. If the end of the period is missing, it means that the period is ongoing.", 0, java.lang.Integer.MAX_VALUE, end));
       }
 
       public Period copy() {

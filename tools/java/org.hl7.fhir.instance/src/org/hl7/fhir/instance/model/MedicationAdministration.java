@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -108,9 +108,14 @@ public class MedicationAdministration extends Resource {
 
     public static class MedicationAdministrationDosageComponent extends BackboneElement {
         /**
-         * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
+         * The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).
          */
-        protected Schedule timing;
+        protected Type timing;
+
+        /**
+         * If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
+         */
+        protected Type asNeeded;
 
         /**
          * A coded specification of the anatomic site where the medication first entered the body.  E.g. "left arm".
@@ -149,17 +154,32 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       }
 
         /**
-         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         * @return {@link #timing} (The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).)
          */
-        public Schedule getTiming() { 
+        public Type getTiming() { 
           return this.timing;
         }
 
         /**
-         * @param value {@link #timing} (The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
+         * @param value {@link #timing} (The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).)
          */
-        public MedicationAdministrationDosageComponent setTiming(Schedule value) { 
+        public MedicationAdministrationDosageComponent setTiming(Type value) { 
           this.timing = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         */
+        public Type getAsNeeded() { 
+          return this.asNeeded;
+        }
+
+        /**
+         * @param value {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         */
+        public MedicationAdministrationDosageComponent setAsNeeded(Type value) { 
+          this.asNeeded = value;
           return this;
         }
 
@@ -259,7 +279,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("timing", "Schedule", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'.", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("timing[x]", "dateTime|Period", "The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
           childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first entered the body.  E.g. 'left arm'.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.   E.g. topical, intravenous, etc.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication was introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
@@ -271,6 +292,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       public MedicationAdministrationDosageComponent copy(MedicationAdministration e) {
         MedicationAdministrationDosageComponent dst = new MedicationAdministrationDosageComponent();
         dst.timing = timing == null ? null : timing.copy();
+        dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
         dst.method = method == null ? null : method.copy();
@@ -303,7 +325,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected ResourceReference practitioner;
 
     /**
-     * The visit or admission the or othercontact between patient and health care provider the immunization was performed as part of.
+     * The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.
      */
     protected ResourceReference encounter;
 
@@ -338,7 +360,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected List<ResourceReference> device = new ArrayList<ResourceReference>();
 
     /**
-     * Provides details of how the medication was administered.
+     * Provides details of how much of the medication was administered.
      */
     protected List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
 
@@ -435,14 +457,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #encounter} (The visit or admission the or othercontact between patient and health care provider the immunization was performed as part of.)
+     * @return {@link #encounter} (The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.)
      */
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
     /**
-     * @param value {@link #encounter} (The visit or admission the or othercontact between patient and health care provider the immunization was performed as part of.)
+     * @param value {@link #encounter} (The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.)
      */
     public MedicationAdministration setEncounter(ResourceReference value) { 
       this.encounter = value;
@@ -565,7 +587,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #dosage} (Provides details of how the medication was administered.)
+     * @return {@link #dosage} (Provides details of how much of the medication was administered.)
      */
     public List<MedicationAdministrationDosageComponent> getDosage() { 
       return this.dosage;
@@ -573,7 +595,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
 
     // syntactic sugar
     /**
-     * @return {@link #dosage} (Provides details of how the medication was administered.)
+     * @return {@link #dosage} (Provides details of how much of the medication was administered.)
      */
     public MedicationAdministrationDosageComponent addDosage() { 
       MedicationAdministrationDosageComponent t = new MedicationAdministrationDosageComponent();
@@ -587,14 +609,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         childrenList.add(new Property("status", "code", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("patient", "Resource(Patient)", "The person or animal to whom the medication was given.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("practitioner", "Resource(Practitioner)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, practitioner));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "The visit or admission the or othercontact between patient and health care provider the immunization was performed as part of.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("encounter", "Resource(Encounter)", "The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("prescription", "Resource(MedicationPrescription)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("wasNotGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
         childrenList.add(new Property("whenGiven", "Period", "An interval of time during which the administration took place.  For many administrations, such as swallowing a tablet the lower and upper values of the interval will be the same.", 0, java.lang.Integer.MAX_VALUE, whenGiven));
         childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("device", "Resource(Device)", "The device used in administering the medication to the patient.  E.g. a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
-        childrenList.add(new Property("dosage", "", "Provides details of how the medication was administered.", 0, java.lang.Integer.MAX_VALUE, dosage));
+        childrenList.add(new Property("dosage", "", "Provides details of how much of the medication was administered.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
       public MedicationAdministration copy() {

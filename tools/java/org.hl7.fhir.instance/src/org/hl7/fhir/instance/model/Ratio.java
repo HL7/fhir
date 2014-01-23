@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * A ratio of two Quantity values - a numerator and a denominator.
+ * A relationship of two Quantity values - expressed as a numerator and a denominator.
  */
 public class Ratio extends Type {
 

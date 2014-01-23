@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -77,114 +77,6 @@ public class JsonComposer extends JsonComposerBase {
       writeNull(name);
   }    
 
-  private void composeIntegerCore(String name, Integer value, boolean inArray) throws Exception {
-    if (value != null) {
-        prop(name, java.lang.Integer.valueOf(value.getValue()));
-    }    
-    else if (inArray) 
-      writeNull(name); 
-  }    
-
-  private void composeIntegerExtras(String name, Integer value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
-      open(inArray ? null : "_"+name);
-      composeElement(value);
-      close();
-    }
-    else if (inArray) 
-      writeNull(name); 
-  }
-
-  private void composeDateTimeCore(String name, DateTime value, boolean inArray) throws Exception {
-    if (value != null && value.getValue() != null) {
-        prop(name, toString(value.getValue()));
-    }    
-    else if (inArray) 
-      writeNull(name); 
-  }    
-
-  private void composeDateTimeExtras(String name, DateTime value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
-      open(inArray ? null : "_"+name);
-      composeElement(value);
-      close();
-    }
-    else if (inArray) 
-      writeNull(name); 
-  }
-
-  private void composeCodeCore(String name, Code value, boolean inArray) throws Exception {
-    if (value != null && !Utilities.noString(value.getValue())) {
-        prop(name, toString(value.getValue()));
-    }    
-    else if (inArray) 
-      writeNull(name); 
-  }    
-
-  private void composeCodeExtras(String name, Code value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
-      open(inArray ? null : "_"+name);
-      composeElement(value);
-      close();
-    }
-    else if (inArray) 
-      writeNull(name); 
-  }
-
-  private void composeDateCore(String name, Date value, boolean inArray) throws Exception {
-    if (value != null && value.getValue() != null) {
-        prop(name, toString(value.getValue()));
-    }    
-    else if (inArray) 
-      writeNull(name); 
-  }    
-
-  private void composeDateExtras(String name, Date value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
-      open(inArray ? null : "_"+name);
-      composeElement(value);
-      close();
-    }
-    else if (inArray) 
-      writeNull(name); 
-  }
-
-  private void composeDecimalCore(String name, Decimal value, boolean inArray) throws Exception {
-    if (value != null && value.getValue() != null) {
-        prop(name, value.getValue());
-    }    
-    else if (inArray) 
-      writeNull(name); 
-  }    
-
-  private void composeDecimalExtras(String name, Decimal value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
-      open(inArray ? null : "_"+name);
-      composeElement(value);
-      close();
-    }
-    else if (inArray) 
-      writeNull(name); 
-  }
-
-  private void composeUriCore(String name, Uri value, boolean inArray) throws Exception {
-    if (value != null && value.getValue() != null) {
-        prop(name, toString(value.getValue()));
-    }    
-    else if (inArray) 
-      writeNull(name); 
-  }    
-
-  private void composeUriExtras(String name, Uri value, boolean inArray) throws Exception {
-    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
-      open(inArray ? null : "_"+name);
-      composeElement(value);
-      close();
-    }
-    else if (inArray) 
-      writeNull(name); 
-  }
-
   private void composeIdCore(String name, Id value, boolean inArray) throws Exception {
     if (value != null && !Utilities.noString(value.getValue())) {
         prop(name, toString(value.getValue()));
@@ -212,6 +104,42 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeBase64BinaryExtras(String name, Base64Binary value, boolean inArray) throws Exception {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+      open(inArray ? null : "_"+name);
+      composeElement(value);
+      close();
+    }
+    else if (inArray) 
+      writeNull(name); 
+  }
+
+  private void composeDateTimeCore(String name, DateTime value, boolean inArray) throws Exception {
+    if (value != null && value.getValue() != null) {
+        prop(name, toString(value.getValue()));
+    }    
+    else if (inArray) 
+      writeNull(name); 
+  }    
+
+  private void composeDateTimeExtras(String name, DateTime value, boolean inArray) throws Exception {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+      open(inArray ? null : "_"+name);
+      composeElement(value);
+      close();
+    }
+    else if (inArray) 
+      writeNull(name); 
+  }
+
+  private void composeIntegerCore(String name, Integer value, boolean inArray) throws Exception {
+    if (value != null) {
+        prop(name, java.lang.Integer.valueOf(value.getValue()));
+    }    
+    else if (inArray) 
+      writeNull(name); 
+  }    
+
+  private void composeIntegerExtras(String name, Integer value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -293,6 +221,60 @@ public class JsonComposer extends JsonComposerBase {
       writeNull(name); 
   }
 
+  private void composeCodeCore(String name, Code value, boolean inArray) throws Exception {
+    if (value != null && !Utilities.noString(value.getValue())) {
+        prop(name, toString(value.getValue()));
+    }    
+    else if (inArray) 
+      writeNull(name); 
+  }    
+
+  private void composeCodeExtras(String name, Code value, boolean inArray) throws Exception {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+      open(inArray ? null : "_"+name);
+      composeElement(value);
+      close();
+    }
+    else if (inArray) 
+      writeNull(name); 
+  }
+
+  private void composeDateCore(String name, Date value, boolean inArray) throws Exception {
+    if (value != null && value.getValue() != null) {
+        prop(name, toString(value.getValue()));
+    }    
+    else if (inArray) 
+      writeNull(name); 
+  }    
+
+  private void composeDateExtras(String name, Date value, boolean inArray) throws Exception {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+      open(inArray ? null : "_"+name);
+      composeElement(value);
+      close();
+    }
+    else if (inArray) 
+      writeNull(name); 
+  }
+
+  private void composeUriCore(String name, Uri value, boolean inArray) throws Exception {
+    if (value != null && value.getValue() != null) {
+        prop(name, toString(value.getValue()));
+    }    
+    else if (inArray) 
+      writeNull(name); 
+  }    
+
+  private void composeUriExtras(String name, Uri value, boolean inArray) throws Exception {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+      open(inArray ? null : "_"+name);
+      composeElement(value);
+      close();
+    }
+    else if (inArray) 
+      writeNull(name); 
+  }
+
   private void composeInstantCore(String name, Instant value, boolean inArray) throws Exception {
     if (value != null && value.getValue() != null) {
         prop(name, toString(value.getValue()));
@@ -302,6 +284,24 @@ public class JsonComposer extends JsonComposerBase {
   }    
 
   private void composeInstantExtras(String name, Instant value, boolean inArray) throws Exception {
+    if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
+      open(inArray ? null : "_"+name);
+      composeElement(value);
+      close();
+    }
+    else if (inArray) 
+      writeNull(name); 
+  }
+
+  private void composeDecimalCore(String name, Decimal value, boolean inArray) throws Exception {
+    if (value != null && value.getValue() != null) {
+        prop(name, value.getValue());
+    }    
+    else if (inArray) 
+      writeNull(name); 
+  }    
+
+  private void composeDecimalExtras(String name, Decimal value, boolean inArray) throws Exception {
     if (value != null && (!Utilities.noString(value.getXmlId()) || value.hasExtensions())) {
       open(inArray ? null : "_"+name);
       composeElement(value);
@@ -894,6 +894,148 @@ public class JsonComposer extends JsonComposerBase {
           composeResourceReference(null, e);
         closeArray();
       };
+    }
+  }
+
+  private void composeAppointment(String name, Appointment element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeIntegerCore("priority", element.getPriority(), false);
+      composeIntegerExtras("priority", element.getPriority(), false);
+      composeCodeCore("status", element.getStatus(), false);
+      composeCodeExtras("status", element.getStatus(), false);
+      composeStringCore("description", element.getDescription(), false);
+      composeStringExtras("description", element.getDescription(), false);
+      composeInstantCore("start", element.getStart(), false);
+      composeInstantExtras("start", element.getStart(), false);
+      composeInstantCore("end", element.getEnd(), false);
+      composeInstantExtras("end", element.getEnd(), false);
+      composeSchedule("schedule", element.getSchedule());
+      composeStringCore("timezone", element.getTimezone(), false);
+      composeStringExtras("timezone", element.getTimezone(), false);
+      if (element.getSlot().size() > 0) {
+        openArray("slot");
+        for (ResourceReference e : element.getSlot()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composeResourceReference("location", element.getLocation());
+      composeStringCore("comment", element.getComment(), false);
+      composeStringExtras("comment", element.getComment(), false);
+      composeResourceReference("order", element.getOrder());
+      if (element.getParticipant().size() > 0) {
+        openArray("participant");
+        for (Appointment.AppointmentParticipantComponent e : element.getParticipant()) 
+          composeAppointmentAppointmentParticipantComponent(null, e);
+        closeArray();
+      };
+      composeResourceReference("recorder", element.getRecorder());
+      composeDateTimeCore("recordedDate", element.getRecordedDate(), false);
+      composeDateTimeExtras("recordedDate", element.getRecordedDate(), false);
+    }
+  }
+
+  private void composeAppointmentAppointmentParticipantComponent(String name, Appointment.AppointmentParticipantComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      if (element.getType().size() > 0) {
+        openArray("type");
+        for (CodeableConcept e : element.getType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getIndividual().size() > 0) {
+        openArray("individual");
+        for (ResourceReference e : element.getIndividual()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      if (element.getRequired() != null) {
+        composeEnumerationCore("required", element.getRequired(), new Appointment.ParticipantrequiredEnumFactory(), false);
+        composeEnumerationExtras("required", element.getRequired(), new Appointment.ParticipantrequiredEnumFactory(), false);
+      }
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new Appointment.ParticipationstatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Appointment.ParticipationstatusEnumFactory(), false);
+      }
+      if (element.getObservation().size() > 0) {
+        openArray("observation");
+        for (ResourceReference e : element.getObservation()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeAppointmentResponse(String name, AppointmentResponse element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeResourceReference("appointment", element.getAppointment());
+      if (element.getParticipantType().size() > 0) {
+        openArray("participantType");
+        for (CodeableConcept e : element.getParticipantType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getIndividual().size() > 0) {
+        openArray("individual");
+        for (ResourceReference e : element.getIndividual()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      if (element.getParticipantStatus() != null) {
+        composeEnumerationCore("participantStatus", element.getParticipantStatus(), new AppointmentResponse.ParticipantstatusEnumFactory(), false);
+        composeEnumerationExtras("participantStatus", element.getParticipantStatus(), new AppointmentResponse.ParticipantstatusEnumFactory(), false);
+      }
+      composeStringCore("comment", element.getComment(), false);
+      composeStringExtras("comment", element.getComment(), false);
+      composeInstantCore("start", element.getStart(), false);
+      composeInstantExtras("start", element.getStart(), false);
+      composeInstantCore("end", element.getEnd(), false);
+      composeInstantExtras("end", element.getEnd(), false);
+      composeSchedule("schedule", element.getSchedule());
+      composeStringCore("timezone", element.getTimezone(), false);
+      composeStringExtras("timezone", element.getTimezone(), false);
+      composeResourceReference("recorder", element.getRecorder());
+      composeDateTimeCore("recordedDate", element.getRecordedDate(), false);
+      composeDateTimeExtras("recordedDate", element.getRecordedDate(), false);
+    }
+  }
+
+  private void composeAvailability(String name, Availability element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("type", element.getType());
+      composeResourceReference("individual", element.getIndividual());
+      composePeriod("period", element.getPeriod());
+      composeStringCore("comment", element.getComment(), false);
+      composeStringExtras("comment", element.getComment(), false);
+      composeResourceReference("author", element.getAuthor());
+      composeDateTimeCore("authorDate", element.getAuthorDate(), false);
+      composeDateTimeExtras("authorDate", element.getAuthorDate(), false);
     }
   }
 
@@ -1866,8 +2008,9 @@ public class JsonComposer extends JsonComposerBase {
         composeEnumerationCore("status", element.getStatus(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatus(), new DiagnosticOrder.DiagnosticOrderStatusEnumFactory(), false);
       }
-      composeDateTimeCore("date", element.getDate(), false);
-      composeDateTimeExtras("date", element.getDate(), false);
+      composeCodeableConcept("description", element.getDescription());
+      composeDateTimeCore("dateTime", element.getDateTime(), false);
+      composeDateTimeExtras("dateTime", element.getDateTime(), false);
       composeResourceReference("actor", element.getActor());
       close();
     }
@@ -1911,7 +2054,7 @@ public class JsonComposer extends JsonComposerBase {
       composeDateTimeExtras("issued", element.getIssued(), false);
       composeResourceReference("subject", element.getSubject());
       composeResourceReference("performer", element.getPerformer());
-      composeIdentifier("reportId", element.getReportId());
+      composeIdentifier("identifier", element.getIdentifier());
       if (element.getRequestDetail().size() > 0) {
         openArray("requestDetail");
         for (ResourceReference e : element.getRequestDetail()) 
@@ -2923,7 +3066,8 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeSchedule("timing", element.getTiming());
+      composeType("timing", element.getTiming());
+      composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
       composeCodeableConcept("method", element.getMethod());
@@ -2973,8 +3117,10 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("type", element.getType());
       composeQuantity("quantity", element.getQuantity());
       composeResourceReference("medication", element.getMedication());
-      composePeriod("whenPrepared", element.getWhenPrepared());
-      composePeriod("whenHandedOver", element.getWhenHandedOver());
+      composeDateTimeCore("whenPrepared", element.getWhenPrepared(), false);
+      composeDateTimeExtras("whenPrepared", element.getWhenPrepared(), false);
+      composeDateTimeCore("whenHandedOver", element.getWhenHandedOver(), false);
+      composeDateTimeExtras("whenHandedOver", element.getWhenHandedOver(), false);
       composeResourceReference("destination", element.getDestination());
       if (element.getReceiver().size() > 0) {
         openArray("receiver");
@@ -2998,6 +3144,7 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
       composeType("timing", element.getTiming());
+      composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
       composeCodeableConcept("method", element.getMethod());
@@ -3069,6 +3216,7 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("text", element.getText(), false);
       composeCodeableConcept("additionalInstructions", element.getAdditionalInstructions());
       composeType("timing", element.getTiming());
+      composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
       composeCodeableConcept("method", element.getMethod());
@@ -3144,6 +3292,7 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       composeSchedule("timing", element.getTiming());
+      composeType("asNeeded", element.getAsNeeded());
       composeCodeableConcept("site", element.getSite());
       composeCodeableConcept("route", element.getRoute());
       composeCodeableConcept("method", element.getMethod());
@@ -3277,7 +3426,7 @@ public class JsonComposer extends JsonComposerBase {
       composeQuantity("low", element.getLow());
       composeQuantity("high", element.getHigh());
       composeCodeableConcept("meaning", element.getMeaning());
-      composePeriod("age", element.getAge());
+      composeRange("age", element.getAge());
       close();
     }
   }
@@ -3373,8 +3522,7 @@ public class JsonComposer extends JsonComposerBase {
       composeDateTimeCore("date", element.getDate(), false);
       composeDateTimeExtras("date", element.getDate(), false);
       composeResourceReference("who", element.getWho());
-      composeResourceReference("authority", element.getAuthority());
-      composeMoney("cost", element.getCost());
+      composeType("authority", element.getAuthority());
       if (element.getCode() != null) {
         composeEnumerationCore("code", element.getCode(), new OrderResponse.OrderOutcomeCodeEnumFactory(), false);
         composeEnumerationExtras("code", element.getCode(), new OrderResponse.OrderOutcomeCodeEnumFactory(), false);
@@ -4466,6 +4614,34 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeSlot(String name, Slot element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("type", element.getType());
+      composeResourceReference("availability", element.getAvailability());
+      if (element.getFreeBusyType() != null) {
+        composeEnumerationCore("freeBusyType", element.getFreeBusyType(), new Slot.SlotstatusEnumFactory(), false);
+        composeEnumerationExtras("freeBusyType", element.getFreeBusyType(), new Slot.SlotstatusEnumFactory(), false);
+      }
+      composeInstantCore("start", element.getStart(), false);
+      composeInstantExtras("start", element.getStart(), false);
+      composeInstantCore("end", element.getEnd(), false);
+      composeInstantExtras("end", element.getEnd(), false);
+      composeStringCore("comment", element.getComment(), false);
+      composeStringExtras("comment", element.getComment(), false);
+      composeResourceReference("author", element.getAuthor());
+      composeDateTimeCore("authorDate", element.getAuthorDate(), false);
+      composeDateTimeExtras("authorDate", element.getAuthorDate(), false);
+    }
+  }
+
   private void composeSpecimen(String name, Specimen element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -4590,7 +4766,6 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeableConcept("type", element.getType());
       composeStringCore("description", element.getDescription(), false);
       composeStringExtras("description", element.getDescription(), false);
-      composeCodeableConcept("status", element.getStatus());
       composeSubstanceSubstanceInstanceComponent("instance", element.getInstance());
       if (element.getIngredient().size() > 0) {
         openArray("ingredient");
@@ -4627,10 +4802,12 @@ public class JsonComposer extends JsonComposerBase {
     if (element != null) {
       prop("resourceType", name);
       composeResourceElements(element);
-      composeCodeableConcept("name", element.getName());
+      composeCodeableConcept("kind", element.getKind());
       composeIdentifier("identifier", element.getIdentifier());
-      composeCodeCore("status", element.getStatus(), false);
-      composeCodeExtras("status", element.getStatus(), false);
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new Supply.ValuesetSupplyStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Supply.ValuesetSupplyStatusEnumFactory(), false);
+      }
       composeResourceReference("orderedItem", element.getOrderedItem());
       composeResourceReference("patient", element.getPatient());
       if (element.getDispense().size() > 0) {
@@ -4647,8 +4824,10 @@ public class JsonComposer extends JsonComposerBase {
       open(name);
       composeBackbone(element);
       composeIdentifier("identifier", element.getIdentifier());
-      composeCodeCore("status", element.getStatus(), false);
-      composeCodeExtras("status", element.getStatus(), false);
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new Supply.ValuesetSupplyDispenseStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Supply.ValuesetSupplyDispenseStatusEnumFactory(), false);
+      }
       composeCodeableConcept("type", element.getType());
       composeQuantity("quantity", element.getQuantity());
       composeResourceReference("suppliedItem", element.getSuppliedItem());
@@ -4869,6 +5048,12 @@ public class JsonComposer extends JsonComposerBase {
       composeAlert("Alert", (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance("AllergyIntolerance", (AllergyIntolerance)resource);
+    else if (resource instanceof Appointment)
+      composeAppointment("Appointment", (Appointment)resource);
+    else if (resource instanceof AppointmentResponse)
+      composeAppointmentResponse("AppointmentResponse", (AppointmentResponse)resource);
+    else if (resource instanceof Availability)
+      composeAvailability("Availability", (Availability)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan("CarePlan", (CarePlan)resource);
     else if (resource instanceof Composition)
@@ -4951,6 +5136,8 @@ public class JsonComposer extends JsonComposerBase {
       composeRelatedPerson("RelatedPerson", (RelatedPerson)resource);
     else if (resource instanceof SecurityEvent)
       composeSecurityEvent("SecurityEvent", (SecurityEvent)resource);
+    else if (resource instanceof Slot)
+      composeSlot("Slot", (Slot)resource);
     else if (resource instanceof Specimen)
       composeSpecimen("Specimen", (Specimen)resource);
     else if (resource instanceof Substance)
@@ -4972,6 +5159,12 @@ public class JsonComposer extends JsonComposerBase {
       composeAlert(name, (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance(name, (AllergyIntolerance)resource);
+    else if (resource instanceof Appointment)
+      composeAppointment(name, (Appointment)resource);
+    else if (resource instanceof AppointmentResponse)
+      composeAppointmentResponse(name, (AppointmentResponse)resource);
+    else if (resource instanceof Availability)
+      composeAvailability(name, (Availability)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan(name, (CarePlan)resource);
     else if (resource instanceof Composition)
@@ -5054,6 +5247,8 @@ public class JsonComposer extends JsonComposerBase {
       composeRelatedPerson(name, (RelatedPerson)resource);
     else if (resource instanceof SecurityEvent)
       composeSecurityEvent(name, (SecurityEvent)resource);
+    else if (resource instanceof Slot)
+      composeSlot(name, (Slot)resource);
     else if (resource instanceof Specimen)
       composeSpecimen(name, (Specimen)resource);
     else if (resource instanceof Substance)
@@ -5110,30 +5305,6 @@ public class JsonComposer extends JsonComposerBase {
        composeAddress(prefix+"Address", (Address) type);
     else if (type instanceof HumanName)
        composeHumanName(prefix+"HumanName", (HumanName) type);
-    else if (type instanceof Integer) {
-      composeIntegerCore(prefix+"Integer", (Integer) type, false);
-      composeIntegerExtras(prefix+"Integer", (Integer) type, false);
-    }
-    else if (type instanceof DateTime) {
-      composeDateTimeCore(prefix+"DateTime", (DateTime) type, false);
-      composeDateTimeExtras(prefix+"DateTime", (DateTime) type, false);
-    }
-    else if (type instanceof Code) {
-      composeCodeCore(prefix+"Code", (Code) type, false);
-      composeCodeExtras(prefix+"Code", (Code) type, false);
-    }
-    else if (type instanceof Date) {
-      composeDateCore(prefix+"Date", (Date) type, false);
-      composeDateExtras(prefix+"Date", (Date) type, false);
-    }
-    else if (type instanceof Decimal) {
-      composeDecimalCore(prefix+"Decimal", (Decimal) type, false);
-      composeDecimalExtras(prefix+"Decimal", (Decimal) type, false);
-    }
-    else if (type instanceof Uri) {
-      composeUriCore(prefix+"Uri", (Uri) type, false);
-      composeUriExtras(prefix+"Uri", (Uri) type, false);
-    }
     else if (type instanceof Id) {
       composeIdCore(prefix+"Id", (Id) type, false);
       composeIdExtras(prefix+"Id", (Id) type, false);
@@ -5141,6 +5312,14 @@ public class JsonComposer extends JsonComposerBase {
     else if (type instanceof Base64Binary) {
       composeBase64BinaryCore(prefix+"Base64Binary", (Base64Binary) type, false);
       composeBase64BinaryExtras(prefix+"Base64Binary", (Base64Binary) type, false);
+    }
+    else if (type instanceof DateTime) {
+      composeDateTimeCore(prefix+"DateTime", (DateTime) type, false);
+      composeDateTimeExtras(prefix+"DateTime", (DateTime) type, false);
+    }
+    else if (type instanceof Integer) {
+      composeIntegerCore(prefix+"Integer", (Integer) type, false);
+      composeIntegerExtras(prefix+"Integer", (Integer) type, false);
     }
     else if (type instanceof Oid) {
       composeOidCore(prefix+"Oid", (Oid) type, false);
@@ -5158,9 +5337,25 @@ public class JsonComposer extends JsonComposerBase {
       composeUuidCore(prefix+"Uuid", (Uuid) type, false);
       composeUuidExtras(prefix+"Uuid", (Uuid) type, false);
     }
+    else if (type instanceof Code) {
+      composeCodeCore(prefix+"Code", (Code) type, false);
+      composeCodeExtras(prefix+"Code", (Code) type, false);
+    }
+    else if (type instanceof Date) {
+      composeDateCore(prefix+"Date", (Date) type, false);
+      composeDateExtras(prefix+"Date", (Date) type, false);
+    }
+    else if (type instanceof Uri) {
+      composeUriCore(prefix+"Uri", (Uri) type, false);
+      composeUriExtras(prefix+"Uri", (Uri) type, false);
+    }
     else if (type instanceof Instant) {
       composeInstantCore(prefix+"Instant", (Instant) type, false);
       composeInstantExtras(prefix+"Instant", (Instant) type, false);
+    }
+    else if (type instanceof Decimal) {
+      composeDecimalCore(prefix+"Decimal", (Decimal) type, false);
+      composeDecimalExtras(prefix+"Decimal", (Decimal) type, false);
     }
     else
       throw new Exception("Unhanded type");

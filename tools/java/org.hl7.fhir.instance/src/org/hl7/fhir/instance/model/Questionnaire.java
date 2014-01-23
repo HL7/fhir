@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -626,17 +626,17 @@ public class Questionnaire extends Resource {
     protected CodeableConcept name;
 
     /**
-     * This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     * This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.
+     * Encounter during which this questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.
      */
     protected ResourceReference encounter;
 
     /**
-     * A group of questions to a possibly similarly grouped set of question in the questionnaire.
+     * A group of questions to a possibly similarly grouped set of questions in the questionnaire.
      */
     protected GroupComponent group;
 
@@ -775,7 +775,7 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #identifier} (This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     public List<Identifier> getIdentifier() { 
       return this.identifier;
@@ -783,7 +783,7 @@ public class Questionnaire extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #identifier} (This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
     public Identifier addIdentifier() { 
       Identifier t = new Identifier();
@@ -792,14 +792,14 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #encounter} (Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     * @return {@link #encounter} (Encounter during which this questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
     public ResourceReference getEncounter() { 
       return this.encounter;
     }
 
     /**
-     * @param value {@link #encounter} (Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     * @param value {@link #encounter} (Encounter during which this questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
      */
     public Questionnaire setEncounter(ResourceReference value) { 
       this.encounter = value;
@@ -807,14 +807,14 @@ public class Questionnaire extends Resource {
     }
 
     /**
-     * @return {@link #group} (A group of questions to a possibly similarly grouped set of question in the questionnaire.)
+     * @return {@link #group} (A group of questions to a possibly similarly grouped set of questions in the questionnaire.)
      */
     public GroupComponent getGroup() { 
       return this.group;
     }
 
     /**
-     * @param value {@link #group} (A group of questions to a possibly similarly grouped set of question in the questionnaire.)
+     * @param value {@link #group} (A group of questions to a possibly similarly grouped set of questions in the questionnaire.)
      */
     public Questionnaire setGroup(GroupComponent value) { 
       this.group = value;
@@ -829,9 +829,9 @@ public class Questionnaire extends Resource {
         childrenList.add(new Property("author", "Resource(Practitioner|Patient|RelatedPerson)", "Person who received the answers to the questions in the Questionnaire and recorded them in the system.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("source", "Resource(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject. Only used when this is not the subject him/herself.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("name", "CodeableConcept", "Structured name for a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL refernce to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which this questionnaireanswers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("group", "", "A group of questions to a possibly similarly grouped set of question in the questionnaire.", 0, java.lang.Integer.MAX_VALUE, group));
+        childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("encounter", "Resource(Encounter)", "Encounter during which this questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("group", "", "A group of questions to a possibly similarly grouped set of questions in the questionnaire.", 0, java.lang.Integer.MAX_VALUE, group));
       }
 
       public Questionnaire copy() {

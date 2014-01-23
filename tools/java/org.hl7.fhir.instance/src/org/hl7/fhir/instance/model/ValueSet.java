@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -169,12 +169,12 @@ public class ValueSet extends Resource {
         protected Uri system;
 
         /**
-         * The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
+         * The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
          */
         protected String_ version;
 
         /**
-         * If code comparison is case sensitive when codes within this systemare compared to each other.
+         * If code comparison is case sensitive when codes within this system are compared to each other.
          */
         protected Boolean caseSensitive;
 
@@ -225,14 +225,14 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return {@link #version} (The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.)
+         * @return {@link #version} (The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.)
          */
         public String_ getVersion() { 
           return this.version;
         }
 
         /**
-         * @param value {@link #version} (The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.)
+         * @param value {@link #version} (The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.)
          */
         public ValueSetDefineComponent setVersion(String_ value) { 
           this.version = value;
@@ -240,14 +240,14 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
+         * @return The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
          */
         public String getVersionSimple() { 
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
-         * @param value The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
+         * @param value The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.
          */
         public ValueSetDefineComponent setVersionSimple(String value) { 
           if (value == null)
@@ -261,14 +261,14 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return {@link #caseSensitive} (If code comparison is case sensitive when codes within this systemare compared to each other.)
+         * @return {@link #caseSensitive} (If code comparison is case sensitive when codes within this system are compared to each other.)
          */
         public Boolean getCaseSensitive() { 
           return this.caseSensitive;
         }
 
         /**
-         * @param value {@link #caseSensitive} (If code comparison is case sensitive when codes within this systemare compared to each other.)
+         * @param value {@link #caseSensitive} (If code comparison is case sensitive when codes within this system are compared to each other.)
          */
         public ValueSetDefineComponent setCaseSensitive(Boolean value) { 
           this.caseSensitive = value;
@@ -276,14 +276,14 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return If code comparison is case sensitive when codes within this systemare compared to each other.
+         * @return If code comparison is case sensitive when codes within this system are compared to each other.
          */
         public boolean getCaseSensitiveSimple() { 
           return this.caseSensitive == null ? false : this.caseSensitive.getValue();
         }
 
         /**
-         * @param value If code comparison is case sensitive when codes within this systemare compared to each other.
+         * @param value If code comparison is case sensitive when codes within this system are compared to each other.
          */
         public ValueSetDefineComponent setCaseSensitiveSimple(boolean value) { 
           if (value == false)
@@ -316,8 +316,8 @@ public class ValueSet extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "URI to identify the code system.", 0, java.lang.Integer.MAX_VALUE, system));
-          childrenList.add(new Property("version", "string", "The version of this code system that the defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need t obe maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.", 0, java.lang.Integer.MAX_VALUE, version));
-          childrenList.add(new Property("caseSensitive", "boolean", "If code comparison is case sensitive when codes within this systemare compared to each other.", 0, java.lang.Integer.MAX_VALUE, caseSensitive));
+          childrenList.add(new Property("version", "string", "The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked.", 0, java.lang.Integer.MAX_VALUE, version));
+          childrenList.add(new Property("caseSensitive", "boolean", "If code comparison is case sensitive when codes within this system are compared to each other.", 0, java.lang.Integer.MAX_VALUE, caseSensitive));
           childrenList.add(new Property("concept", "", "Concepts in the code system.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
@@ -551,7 +551,7 @@ public class ValueSet extends Resource {
 
     public static class ValueSetComposeComponent extends BackboneElement {
         /**
-         * Includes the contents of the referenced value set as part of the contents of this value set.
+         * Includes the contents of the referenced value set as a part of the contents of this value set.
          */
         protected List<Uri> import_ = new ArrayList<Uri>();
 
@@ -570,7 +570,7 @@ public class ValueSet extends Resource {
       }
 
         /**
-         * @return {@link #import_} (Includes the contents of the referenced value set as part of the contents of this value set.)
+         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
         public List<Uri> getImport() { 
           return this.import_;
@@ -578,7 +578,7 @@ public class ValueSet extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #import_} (Includes the contents of the referenced value set as part of the contents of this value set.)
+         * @return {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
         public Uri addImport() { 
           Uri t = new Uri();
@@ -587,7 +587,7 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @param value {@link #import_} (Includes the contents of the referenced value set as part of the contents of this value set.)
+         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
          */
         public Uri addImportSimple(String value) { 
           Uri t = new Uri();
@@ -632,7 +632,7 @@ public class ValueSet extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as part of the contents of this value set.", 0, java.lang.Integer.MAX_VALUE, import_));
+          childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as a part of the contents of this value set.", 0, java.lang.Integer.MAX_VALUE, import_));
           childrenList.add(new Property("include", "", "Include one or more codes from a code system.", 0, java.lang.Integer.MAX_VALUE, include));
           childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
@@ -825,7 +825,7 @@ public class ValueSet extends Resource {
         protected Code property;
 
         /**
-         * The kind of operation to perform as part of the filter criteria.
+         * The kind of operation to perform as a part of the filter criteria.
          */
         protected Enumeration<FilterOperator> op;
 
@@ -878,14 +878,14 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return {@link #op} (The kind of operation to perform as part of the filter criteria.)
+         * @return {@link #op} (The kind of operation to perform as a part of the filter criteria.)
          */
         public Enumeration<FilterOperator> getOp() { 
           return this.op;
         }
 
         /**
-         * @param value {@link #op} (The kind of operation to perform as part of the filter criteria.)
+         * @param value {@link #op} (The kind of operation to perform as a part of the filter criteria.)
          */
         public ConceptSetFilterComponent setOp(Enumeration<FilterOperator> value) { 
           this.op = value;
@@ -893,14 +893,14 @@ public class ValueSet extends Resource {
         }
 
         /**
-         * @return The kind of operation to perform as part of the filter criteria.
+         * @return The kind of operation to perform as a part of the filter criteria.
          */
         public FilterOperator getOpSimple() { 
           return this.op == null ? null : this.op.getValue();
         }
 
         /**
-         * @param value The kind of operation to perform as part of the filter criteria.
+         * @param value The kind of operation to perform as a part of the filter criteria.
          */
         public ConceptSetFilterComponent setOpSimple(FilterOperator value) { 
             if (this.op == null)
@@ -944,7 +944,7 @@ public class ValueSet extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("property", "code", "A code that identifies a property defined in the code system.", 0, java.lang.Integer.MAX_VALUE, property));
-          childrenList.add(new Property("op", "code", "The kind of operation to perform as part of the filter criteria.", 0, java.lang.Integer.MAX_VALUE, op));
+          childrenList.add(new Property("op", "code", "The kind of operation to perform as a part of the filter criteria.", 0, java.lang.Integer.MAX_VALUE, op));
           childrenList.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 

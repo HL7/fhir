@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle of which the MessageHeader resource instance is the first resource in the bundle.
+ * The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
  */
 public class MessageHeader extends Resource {
 
@@ -90,7 +90,7 @@ public class MessageHeader extends Resource {
 
     public static class MessageHeaderResponseComponent extends BackboneElement {
         /**
-         * The id of the message that this a response to.
+         * The id of the message that this message is a response to.
          */
         protected Id identifier;
 
@@ -115,14 +115,14 @@ public class MessageHeader extends Resource {
       }
 
         /**
-         * @return {@link #identifier} (The id of the message that this a response to.)
+         * @return {@link #identifier} (The id of the message that this message is a response to.)
          */
         public Id getIdentifier() { 
           return this.identifier;
         }
 
         /**
-         * @param value {@link #identifier} (The id of the message that this a response to.)
+         * @param value {@link #identifier} (The id of the message that this message is a response to.)
          */
         public MessageHeaderResponseComponent setIdentifier(Id value) { 
           this.identifier = value;
@@ -130,14 +130,14 @@ public class MessageHeader extends Resource {
         }
 
         /**
-         * @return The id of the message that this a response to.
+         * @return The id of the message that this message is a response to.
          */
         public String getIdentifierSimple() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
         /**
-         * @param value The id of the message that this a response to.
+         * @param value The id of the message that this message is a response to.
          */
         public MessageHeaderResponseComponent setIdentifierSimple(String value) { 
             if (this.identifier == null)
@@ -195,7 +195,7 @@ public class MessageHeader extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("identifier", "id", "The id of the message that this a response to.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("identifier", "id", "The id of the message that this message is a response to.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("code", "code", "Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("details", "Resource(OperationOutcome)", "Full details of any issues found in the message.", 0, java.lang.Integer.MAX_VALUE, details));
         }

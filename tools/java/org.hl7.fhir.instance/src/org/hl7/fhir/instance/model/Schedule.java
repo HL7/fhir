@@ -29,13 +29,13 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 import java.math.*;
 /**
- * A schedule that specifies an event that may occur multiple times. Schedules are not used for recording when things did happen, but when they are expected or requested to occur.
+ * Specifies an event that may occur multiple times. Schedules are used for to reord when things are expected or requested to occur.
  */
 public class Schedule extends Type {
 
@@ -234,7 +234,7 @@ public class Schedule extends Type {
         protected Integer frequency;
 
         /**
-         * Identifies the occurrence of daily life that determine timing.
+         * Identifies the occurrence of daily life that determines timing.
          */
         protected Enumeration<EventTiming> when;
 
@@ -254,7 +254,7 @@ public class Schedule extends Type {
         protected Integer count;
 
         /**
-         * When to stop repeats.
+         * When to stop repeating the schedule.
          */
         protected DateTime end;
 
@@ -305,14 +305,14 @@ public class Schedule extends Type {
         }
 
         /**
-         * @return {@link #when} (Identifies the occurrence of daily life that determine timing.)
+         * @return {@link #when} (Identifies the occurrence of daily life that determines timing.)
          */
         public Enumeration<EventTiming> getWhen() { 
           return this.when;
         }
 
         /**
-         * @param value {@link #when} (Identifies the occurrence of daily life that determine timing.)
+         * @param value {@link #when} (Identifies the occurrence of daily life that determines timing.)
          */
         public ScheduleRepeatComponent setWhen(Enumeration<EventTiming> value) { 
           this.when = value;
@@ -320,14 +320,14 @@ public class Schedule extends Type {
         }
 
         /**
-         * @return Identifies the occurrence of daily life that determine timing.
+         * @return Identifies the occurrence of daily life that determines timing.
          */
         public EventTiming getWhenSimple() { 
           return this.when == null ? null : this.when.getValue();
         }
 
         /**
-         * @param value Identifies the occurrence of daily life that determine timing.
+         * @param value Identifies the occurrence of daily life that determines timing.
          */
         public ScheduleRepeatComponent setWhenSimple(EventTiming value) { 
           if (value == null)
@@ -441,14 +441,14 @@ public class Schedule extends Type {
         }
 
         /**
-         * @return {@link #end} (When to stop repeats.)
+         * @return {@link #end} (When to stop repeating the schedule.)
          */
         public DateTime getEnd() { 
           return this.end;
         }
 
         /**
-         * @param value {@link #end} (When to stop repeats.)
+         * @param value {@link #end} (When to stop repeating the schedule.)
          */
         public ScheduleRepeatComponent setEnd(DateTime value) { 
           this.end = value;
@@ -456,14 +456,14 @@ public class Schedule extends Type {
         }
 
         /**
-         * @return When to stop repeats.
+         * @return When to stop repeating the schedule.
          */
         public DateAndTime getEndSimple() { 
           return this.end == null ? null : this.end.getValue();
         }
 
         /**
-         * @param value When to stop repeats.
+         * @param value When to stop repeating the schedule.
          */
         public ScheduleRepeatComponent setEndSimple(DateAndTime value) { 
           if (value == null)
@@ -479,11 +479,11 @@ public class Schedule extends Type {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("frequency", "integer", "Indicates how often the event should occur.", 0, java.lang.Integer.MAX_VALUE, frequency));
-          childrenList.add(new Property("when", "code", "Identifies the occurrence of daily life that determine timing.", 0, java.lang.Integer.MAX_VALUE, when));
+          childrenList.add(new Property("when", "code", "Identifies the occurrence of daily life that determines timing.", 0, java.lang.Integer.MAX_VALUE, when));
           childrenList.add(new Property("duration", "decimal", "How long each repetition should last.", 0, java.lang.Integer.MAX_VALUE, duration));
           childrenList.add(new Property("units", "code", "The units of time for the duration.", 0, java.lang.Integer.MAX_VALUE, units));
           childrenList.add(new Property("count", "integer", "A total count of the desired number of repetitions.", 0, java.lang.Integer.MAX_VALUE, count));
-          childrenList.add(new Property("end", "dateTime", "When to stop repeats.", 0, java.lang.Integer.MAX_VALUE, end));
+          childrenList.add(new Property("end", "dateTime", "When to stop repeating the schedule.", 0, java.lang.Integer.MAX_VALUE, end));
         }
 
       public ScheduleRepeatComponent copy(Schedule e) {

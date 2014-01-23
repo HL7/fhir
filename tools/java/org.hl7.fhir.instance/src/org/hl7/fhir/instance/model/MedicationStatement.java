@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -43,6 +43,11 @@ public class MedicationStatement extends Resource {
          * The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  "Every  8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:";  "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
          */
         protected Schedule timing;
+
+        /**
+         * If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
+         */
+        protected Type asNeeded;
 
         /**
          * A coded specification of the anatomic site where the medication first enters the body.
@@ -62,7 +67,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected CodeableConcept method;
 
         /**
-         * The amount of the therapeutic or other substance given at one administration event.
+         * The amount of therapeutic or other substance given at one administration event.
          */
         protected Quantity quantity;
 
@@ -72,7 +77,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected Ratio rate;
 
         /**
-         * The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
+         * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
          */
         protected Ratio maxDosePerPeriod;
 
@@ -92,6 +97,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          */
         public MedicationStatementDosageComponent setTiming(Schedule value) { 
           this.timing = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         */
+        public Type getAsNeeded() { 
+          return this.asNeeded;
+        }
+
+        /**
+         * @param value {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         */
+        public MedicationStatementDosageComponent setAsNeeded(Type value) { 
+          this.asNeeded = value;
           return this;
         }
 
@@ -145,14 +165,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @return {@link #quantity} (The amount of the therapeutic or other substance given at one administration event.)
+         * @return {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
         /**
-         * @param value {@link #quantity} (The amount of the therapeutic or other substance given at one administration event.)
+         * @param value {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
         public MedicationStatementDosageComponent setQuantity(Quantity value) { 
           this.quantity = value;
@@ -175,14 +195,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
          */
         public Ratio getMaxDosePerPeriod() { 
           return this.maxDosePerPeriod;
         }
 
         /**
-         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
          */
         public MedicationStatementDosageComponent setMaxDosePerPeriod(Ratio value) { 
           this.maxDosePerPeriod = value;
@@ -192,17 +212,19 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("timing", "Schedule", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'.", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
           childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("quantity", "Quantity", "The amount of the therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("quantity", "Quantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
-          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
+          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
       public MedicationStatementDosageComponent copy(MedicationStatement e) {
         MedicationStatementDosageComponent dst = new MedicationStatementDosageComponent();
         dst.timing = timing == null ? null : timing.copy();
+        dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
         dst.method = method == null ? null : method.copy();

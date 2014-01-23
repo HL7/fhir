@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for addresses all around the world.
+ * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
  */
 public class Address extends Type {
 
@@ -97,7 +97,7 @@ public class Address extends Type {
     }
 
     /**
-     * The use of this address.
+     * The purpose of this address.
      */
     protected Enumeration<AddressUse> use;
 
@@ -128,7 +128,7 @@ P.O. Box number, delivery hints, and similar address information.
     protected String_ zip;
 
     /**
-     * Country. ISO 3166 3 letter codes can be used in place of a full country name.
+     * Country - a nation as commonly understood or generally accepted.
      */
     protected String_ country;
 
@@ -142,14 +142,14 @@ P.O. Box number, delivery hints, and similar address information.
     }
 
     /**
-     * @return {@link #use} (The use of this address.)
+     * @return {@link #use} (The purpose of this address.)
      */
     public Enumeration<AddressUse> getUse() { 
       return this.use;
     }
 
     /**
-     * @param value {@link #use} (The use of this address.)
+     * @param value {@link #use} (The purpose of this address.)
      */
     public Address setUse(Enumeration<AddressUse> value) { 
       this.use = value;
@@ -157,14 +157,14 @@ P.O. Box number, delivery hints, and similar address information.
     }
 
     /**
-     * @return The use of this address.
+     * @return The purpose of this address.
      */
     public AddressUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
-     * @param value The use of this address.
+     * @param value The purpose of this address.
      */
     public Address setUseSimple(AddressUse value) { 
       if (value == null)
@@ -352,14 +352,14 @@ P.O. Box number, delivery hints, and similar address information.)
     }
 
     /**
-     * @return {@link #country} (Country. ISO 3166 3 letter codes can be used in place of a full country name.)
+     * @return {@link #country} (Country - a nation as commonly understood or generally accepted.)
      */
     public String_ getCountry() { 
       return this.country;
     }
 
     /**
-     * @param value {@link #country} (Country. ISO 3166 3 letter codes can be used in place of a full country name.)
+     * @param value {@link #country} (Country - a nation as commonly understood or generally accepted.)
      */
     public Address setCountry(String_ value) { 
       this.country = value;
@@ -367,14 +367,14 @@ P.O. Box number, delivery hints, and similar address information.)
     }
 
     /**
-     * @return Country. ISO 3166 3 letter codes can be used in place of a full country name.
+     * @return Country - a nation as commonly understood or generally accepted.
      */
     public String getCountrySimple() { 
       return this.country == null ? null : this.country.getValue();
     }
 
     /**
-     * @param value Country. ISO 3166 3 letter codes can be used in place of a full country name.
+     * @param value Country - a nation as commonly understood or generally accepted.
      */
     public Address setCountrySimple(String value) { 
       if (value == null)
@@ -404,13 +404,13 @@ P.O. Box number, delivery hints, and similar address information.)
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("use", "code", "The use of this address.", 0, java.lang.Integer.MAX_VALUE, use));
+        childrenList.add(new Property("use", "code", "The purpose of this address.", 0, java.lang.Integer.MAX_VALUE, use));
         childrenList.add(new Property("text", "string", "A full text representation of the address.", 0, java.lang.Integer.MAX_VALUE, text));
         childrenList.add(new Property("line", "string", "This component contains the house number, apartment number, street name, street direction, \nP.O. Box number, delivery hints, and similar address information.", 0, java.lang.Integer.MAX_VALUE, line));
         childrenList.add(new Property("city", "string", "The name of the city, town, village or other community or delivery center.", 0, java.lang.Integer.MAX_VALUE, city));
         childrenList.add(new Property("state", "string", "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).", 0, java.lang.Integer.MAX_VALUE, state));
         childrenList.add(new Property("zip", "string", "A postal code designating a region defined by the postal service.", 0, java.lang.Integer.MAX_VALUE, zip));
-        childrenList.add(new Property("country", "string", "Country. ISO 3166 3 letter codes can be used in place of a full country name.", 0, java.lang.Integer.MAX_VALUE, country));
+        childrenList.add(new Property("country", "string", "Country - a nation as commonly understood or generally accepted.", 0, java.lang.Integer.MAX_VALUE, country));
         childrenList.add(new Property("period", "Period", "Time period when address was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
       }
 

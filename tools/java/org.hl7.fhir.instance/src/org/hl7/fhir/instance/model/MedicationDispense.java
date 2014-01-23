@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -131,14 +131,14 @@ public class MedicationDispense extends Resource {
         protected ResourceReference medication;
 
         /**
-         * The time the dispense event occurred.
+         * The time when the dispensed product was packaged and reviewed.
          */
-        protected Period whenPrepared;
+        protected DateTime whenPrepared;
 
         /**
-         * The time the dispense event occurred.
+         * The time the dispensed product was provided to the patient or their representative.
          */
-        protected Period whenHandedOver;
+        protected DateTime whenHandedOver;
 
         /**
          * Identification of the facility/location where the medication was shipped to, as part of the dispense event.
@@ -146,7 +146,7 @@ public class MedicationDispense extends Resource {
         protected ResourceReference destination;
 
         /**
-         * Identifies the person who picked up the medication.
+         * Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.
          */
         protected List<ResourceReference> receiver = new ArrayList<ResourceReference>();
 
@@ -256,32 +256,74 @@ public class MedicationDispense extends Resource {
         }
 
         /**
-         * @return {@link #whenPrepared} (The time the dispense event occurred.)
+         * @return {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.)
          */
-        public Period getWhenPrepared() { 
+        public DateTime getWhenPrepared() { 
           return this.whenPrepared;
         }
 
         /**
-         * @param value {@link #whenPrepared} (The time the dispense event occurred.)
+         * @param value {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.)
          */
-        public MedicationDispenseDispenseComponent setWhenPrepared(Period value) { 
+        public MedicationDispenseDispenseComponent setWhenPrepared(DateTime value) { 
           this.whenPrepared = value;
           return this;
         }
 
         /**
-         * @return {@link #whenHandedOver} (The time the dispense event occurred.)
+         * @return The time when the dispensed product was packaged and reviewed.
          */
-        public Period getWhenHandedOver() { 
+        public DateAndTime getWhenPreparedSimple() { 
+          return this.whenPrepared == null ? null : this.whenPrepared.getValue();
+        }
+
+        /**
+         * @param value The time when the dispensed product was packaged and reviewed.
+         */
+        public MedicationDispenseDispenseComponent setWhenPreparedSimple(DateAndTime value) { 
+          if (value == null)
+            this.whenPrepared = null;
+          else {
+            if (this.whenPrepared == null)
+              this.whenPrepared = new DateTime();
+            this.whenPrepared.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.)
+         */
+        public DateTime getWhenHandedOver() { 
           return this.whenHandedOver;
         }
 
         /**
-         * @param value {@link #whenHandedOver} (The time the dispense event occurred.)
+         * @param value {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.)
          */
-        public MedicationDispenseDispenseComponent setWhenHandedOver(Period value) { 
+        public MedicationDispenseDispenseComponent setWhenHandedOver(DateTime value) { 
           this.whenHandedOver = value;
+          return this;
+        }
+
+        /**
+         * @return The time the dispensed product was provided to the patient or their representative.
+         */
+        public DateAndTime getWhenHandedOverSimple() { 
+          return this.whenHandedOver == null ? null : this.whenHandedOver.getValue();
+        }
+
+        /**
+         * @param value The time the dispensed product was provided to the patient or their representative.
+         */
+        public MedicationDispenseDispenseComponent setWhenHandedOverSimple(DateAndTime value) { 
+          if (value == null)
+            this.whenHandedOver = null;
+          else {
+            if (this.whenHandedOver == null)
+              this.whenHandedOver = new DateTime();
+            this.whenHandedOver.setValue(value);
+          }
           return this;
         }
 
@@ -301,7 +343,7 @@ public class MedicationDispense extends Resource {
         }
 
         /**
-         * @return {@link #receiver} (Identifies the person who picked up the medication.)
+         * @return {@link #receiver} (Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
          */
         public List<ResourceReference> getReceiver() { 
           return this.receiver;
@@ -309,7 +351,7 @@ public class MedicationDispense extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #receiver} (Identifies the person who picked up the medication.)
+         * @return {@link #receiver} (Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.)
          */
         public ResourceReference addReceiver() { 
           ResourceReference t = new ResourceReference();
@@ -341,10 +383,10 @@ public class MedicationDispense extends Resource {
           childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("quantity", "Quantity", "The amount of medication that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
-          childrenList.add(new Property("whenPrepared", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
-          childrenList.add(new Property("whenHandedOver", "Period", "The time the dispense event occurred.", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
+          childrenList.add(new Property("whenPrepared", "dateTime", "The time when the dispensed product was packaged and reviewed.", 0, java.lang.Integer.MAX_VALUE, whenPrepared));
+          childrenList.add(new Property("whenHandedOver", "dateTime", "The time the dispensed product was provided to the patient or their representative.", 0, java.lang.Integer.MAX_VALUE, whenHandedOver));
           childrenList.add(new Property("destination", "Resource(Location)", "Identification of the facility/location where the medication was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
-          childrenList.add(new Property("receiver", "Resource(Practitioner)", "Identifies the person who picked up the medication.", 0, java.lang.Integer.MAX_VALUE, receiver));
+          childrenList.add(new Property("receiver", "Resource(Patient|Practitioner)", "Identifies the person who picked up the medication.  This will usually be a patient or their carer, but some cases exist where it can be a healthcare professional.", 0, java.lang.Integer.MAX_VALUE, receiver));
           childrenList.add(new Property("dosage", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
         }
 
@@ -381,6 +423,11 @@ public class MedicationDispense extends Resource {
         protected Type timing;
 
         /**
+         * If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.
+         */
+        protected Type asNeeded;
+
+        /**
          * A coded specification of the anatomic site where the medication first enters the body.
          */
         protected CodeableConcept site;
@@ -398,7 +445,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected CodeableConcept method;
 
         /**
-         * The amount of the therapeutic or other substance given at one administration event.
+         * The amount of therapeutic or other substance given at one administration event.
          */
         protected Quantity quantity;
 
@@ -408,7 +455,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         protected Ratio rate;
 
         /**
-         * The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.
+         * The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.
          */
         protected Ratio maxDosePerPeriod;
 
@@ -443,6 +490,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          */
         public MedicationDispenseDispenseDosageComponent setTiming(Type value) { 
           this.timing = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         */
+        public Type getAsNeeded() { 
+          return this.asNeeded;
+        }
+
+        /**
+         * @param value {@link #asNeeded} (If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.)
+         */
+        public MedicationDispenseDispenseDosageComponent setAsNeeded(Type value) { 
+          this.asNeeded = value;
           return this;
         }
 
@@ -496,14 +558,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @return {@link #quantity} (The amount of the therapeutic or other substance given at one administration event.)
+         * @return {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
         public Quantity getQuantity() { 
           return this.quantity;
         }
 
         /**
-         * @param value {@link #quantity} (The amount of the therapeutic or other substance given at one administration event.)
+         * @param value {@link #quantity} (The amount of therapeutic or other substance given at one administration event.)
          */
         public MedicationDispenseDispenseDosageComponent setQuantity(Quantity value) { 
           this.quantity = value;
@@ -526,14 +588,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         }
 
         /**
-         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         * @return {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.)
          */
         public Ratio getMaxDosePerPeriod() { 
           return this.maxDosePerPeriod;
         }
 
         /**
-         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.)
+         * @param value {@link #maxDosePerPeriod} (The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.)
          */
         public MedicationDispenseDispenseDosageComponent setMaxDosePerPeriod(Ratio value) { 
           this.maxDosePerPeriod = value;
@@ -544,18 +606,20 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           super.listChildren(childrenList);
           childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Additional instructions such as 'Swallow with plenty of water' which may or may not be coded.", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
           childrenList.add(new Property("timing[x]", "dateTime|Period|Schedule", "The timing schedule for giving the medication to the patient.  The Schedule data type allows many different expressions, for example.  'Every  8 hours'; 'Three times a day'; '1/2 an hour before breakfast for 10 days from 23-Dec 2011:';  '15 Oct 2013, 17 Oct 2013 and 1 Nov 2013'.", 0, java.lang.Integer.MAX_VALUE, timing));
+          childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If set to true or if specified as a CodeableConcept, indicates that the medication is only taken when needed within the specified schedule rather than at every scheduled dose.  If a CodeableConcept is present, it indicates the pre-condition for taking the Medication.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
           childrenList.add(new Property("site", "CodeableConcept", "A coded specification of the anatomic site where the medication first enters the body.", 0, java.lang.Integer.MAX_VALUE, site));
           childrenList.add(new Property("route", "CodeableConcept", "A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.", 0, java.lang.Integer.MAX_VALUE, route));
           childrenList.add(new Property("method", "CodeableConcept", "A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  Examples:  Slow Push; Deep IV.\n\nTerminologies used often pre-coordinate this term with the route and or form of administration.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("quantity", "Quantity", "The amount of the therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("quantity", "Quantity", "The amount of therapeutic or other substance given at one administration event.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("rate", "Ratio", "Identifies the speed with which the substance is introduced into the subject. Typically the rate for an infusion. 200ml in 2 hours.", 0, java.lang.Integer.MAX_VALUE, rate));
-          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that my be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
+          childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
       public MedicationDispenseDispenseDosageComponent copy(MedicationDispense e) {
         MedicationDispenseDispenseDosageComponent dst = new MedicationDispenseDispenseDosageComponent();
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.timing = timing == null ? null : timing.copy();
+        dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
         dst.method = method == null ? null : method.copy();
@@ -678,7 +742,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected ResourceReference patient;
 
     /**
-     * The individual reponsible for dispensing the medication.
+     * The individual responsible for dispensing the medication.
      */
     protected ResourceReference dispenser;
 
@@ -768,14 +832,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
-     * @return {@link #dispenser} (The individual reponsible for dispensing the medication.)
+     * @return {@link #dispenser} (The individual responsible for dispensing the medication.)
      */
     public ResourceReference getDispenser() { 
       return this.dispenser;
     }
 
     /**
-     * @param value {@link #dispenser} (The individual reponsible for dispensing the medication.)
+     * @param value {@link #dispenser} (The individual responsible for dispensing the medication.)
      */
     public MedicationDispense setDispenser(ResourceReference value) { 
       this.dispenser = value;
@@ -836,7 +900,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "A code specifying the state of the set of dispense events.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("patient", "Resource(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("dispenser", "Resource(Practitioner)", "The individual reponsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, dispenser));
+        childrenList.add(new Property("dispenser", "Resource(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, dispenser));
         childrenList.add(new Property("authorizingPrescription", "Resource(MedicationPrescription)", "Indicates the medication order that is being dispensed against.", 0, java.lang.Integer.MAX_VALUE, authorizingPrescription));
         childrenList.add(new Property("dispense", "", "Indicates the details of the dispense event such as the days supply and quantity of medication dispensed.", 0, java.lang.Integer.MAX_VALUE, dispense));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but doesn't happen, in other cases substitution is not expected but does happen.  This block explains what substitition did or did not happen and why.", 0, java.lang.Integer.MAX_VALUE, substitution));

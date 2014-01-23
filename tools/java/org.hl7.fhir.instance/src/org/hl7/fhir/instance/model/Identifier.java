@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -97,12 +97,12 @@ public class Identifier extends Type {
     }
 
     /**
-     * The use of this identifier.
+     * The purpose of this identifier.
      */
     protected Enumeration<IdentifierUse> use;
 
     /**
-     * A label for the identifier that can be displayed to a human so they can recognize the identifier.
+     * A text string for the identifier that can be displayed to a human so they can recognize the identifier.
      */
     protected String_ label;
 
@@ -117,7 +117,7 @@ public class Identifier extends Type {
     protected String_ value;
 
     /**
-     * Time period during which identifier was valid for use.
+     * Time period during which identifier is/was valid for use.
      */
     protected Period period;
 
@@ -131,14 +131,14 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #use} (The use of this identifier.)
+     * @return {@link #use} (The purpose of this identifier.)
      */
     public Enumeration<IdentifierUse> getUse() { 
       return this.use;
     }
 
     /**
-     * @param value {@link #use} (The use of this identifier.)
+     * @param value {@link #use} (The purpose of this identifier.)
      */
     public Identifier setUse(Enumeration<IdentifierUse> value) { 
       this.use = value;
@@ -146,14 +146,14 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return The use of this identifier.
+     * @return The purpose of this identifier.
      */
     public IdentifierUse getUseSimple() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
-     * @param value The use of this identifier.
+     * @param value The purpose of this identifier.
      */
     public Identifier setUseSimple(IdentifierUse value) { 
       if (value == null)
@@ -167,14 +167,14 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #label} (A label for the identifier that can be displayed to a human so they can recognize the identifier.)
+     * @return {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.)
      */
     public String_ getLabel() { 
       return this.label;
     }
 
     /**
-     * @param value {@link #label} (A label for the identifier that can be displayed to a human so they can recognize the identifier.)
+     * @param value {@link #label} (A text string for the identifier that can be displayed to a human so they can recognize the identifier.)
      */
     public Identifier setLabel(String_ value) { 
       this.label = value;
@@ -182,14 +182,14 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return A label for the identifier that can be displayed to a human so they can recognize the identifier.
+     * @return A text string for the identifier that can be displayed to a human so they can recognize the identifier.
      */
     public String getLabelSimple() { 
       return this.label == null ? null : this.label.getValue();
     }
 
     /**
-     * @param value A label for the identifier that can be displayed to a human so they can recognize the identifier.
+     * @param value A text string for the identifier that can be displayed to a human so they can recognize the identifier.
      */
     public Identifier setLabelSimple(String value) { 
       if (value == null)
@@ -275,14 +275,14 @@ public class Identifier extends Type {
     }
 
     /**
-     * @return {@link #period} (Time period during which identifier was valid for use.)
+     * @return {@link #period} (Time period during which identifier is/was valid for use.)
      */
     public Period getPeriod() { 
       return this.period;
     }
 
     /**
-     * @param value {@link #period} (Time period during which identifier was valid for use.)
+     * @param value {@link #period} (Time period during which identifier is/was valid for use.)
      */
     public Identifier setPeriod(Period value) { 
       this.period = value;
@@ -306,11 +306,11 @@ public class Identifier extends Type {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("use", "code", "The use of this identifier.", 0, java.lang.Integer.MAX_VALUE, use));
-        childrenList.add(new Property("label", "string", "A label for the identifier that can be displayed to a human so they can recognize the identifier.", 0, java.lang.Integer.MAX_VALUE, label));
+        childrenList.add(new Property("use", "code", "The purpose of this identifier.", 0, java.lang.Integer.MAX_VALUE, use));
+        childrenList.add(new Property("label", "string", "A text string for the identifier that can be displayed to a human so they can recognize the identifier.", 0, java.lang.Integer.MAX_VALUE, label));
         childrenList.add(new Property("system", "uri", "Establishes the namespace in which set of possible id values is unique.", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("value", "string", "The portion of the identifier typically displayed to the user and which is unique within the context of the system.", 0, java.lang.Integer.MAX_VALUE, value));
-        childrenList.add(new Property("period", "Period", "Time period during which identifier was valid for use.", 0, java.lang.Integer.MAX_VALUE, period));
+        childrenList.add(new Property("period", "Period", "Time period during which identifier is/was valid for use.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("assigner", "Resource(Organization)", "Organization that issued/manages the identifier.", 0, java.lang.Integer.MAX_VALUE, assigner));
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Dec 30, 2013 18:26+1100 for FHIR v0.12
+// Generated on Wed, Jan 22, 2014 22:45-0600 for FHIR v0.12
 
 import java.util.*;
 
@@ -99,17 +99,17 @@ public class DocumentManifest extends Resource {
     protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
-     * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).
+     * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).
      */
     protected List<ResourceReference> subject = new ArrayList<ResourceReference>();
 
     /**
-     * A patient, practitioner, or organization that this set of documents is intended for.
+     * A patient, practitioner, or organization for which this set of documents is intended.
      */
     protected List<ResourceReference> recipient = new ArrayList<ResourceReference>();
 
     /**
-     * Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there's only one - but it may be wider.
+     * Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.
      */
     protected CodeableConcept type;
 
@@ -134,7 +134,7 @@ public class DocumentManifest extends Resource {
     protected Enumeration<DocumentReferenceStatus> status;
 
     /**
-     * If this document manifest replaces another.
+     * Whether this document manifest replaces another.
      */
     protected ResourceReference supercedes;
 
@@ -196,7 +196,7 @@ public class DocumentManifest extends Resource {
     }
 
     /**
-     * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).)
+     * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
     public List<ResourceReference> getSubject() { 
       return this.subject;
@@ -204,7 +204,7 @@ public class DocumentManifest extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).)
+     * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
     public ResourceReference addSubject() { 
       ResourceReference t = new ResourceReference();
@@ -213,7 +213,7 @@ public class DocumentManifest extends Resource {
     }
 
     /**
-     * @return {@link #recipient} (A patient, practitioner, or organization that this set of documents is intended for.)
+     * @return {@link #recipient} (A patient, practitioner, or organization for which this set of documents is intended.)
      */
     public List<ResourceReference> getRecipient() { 
       return this.recipient;
@@ -221,7 +221,7 @@ public class DocumentManifest extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #recipient} (A patient, practitioner, or organization that this set of documents is intended for.)
+     * @return {@link #recipient} (A patient, practitioner, or organization for which this set of documents is intended.)
      */
     public ResourceReference addRecipient() { 
       ResourceReference t = new ResourceReference();
@@ -230,14 +230,14 @@ public class DocumentManifest extends Resource {
     }
 
     /**
-     * @return {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there's only one - but it may be wider.)
+     * @return {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
      */
     public CodeableConcept getType() { 
       return this.type;
     }
 
     /**
-     * @param value {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there's only one - but it may be wider.)
+     * @param value {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
      */
     public DocumentManifest setType(CodeableConcept value) { 
       this.type = value;
@@ -366,14 +366,14 @@ public class DocumentManifest extends Resource {
     }
 
     /**
-     * @return {@link #supercedes} (If this document manifest replaces another.)
+     * @return {@link #supercedes} (Whether this document manifest replaces another.)
      */
     public ResourceReference getSupercedes() { 
       return this.supercedes;
     }
 
     /**
-     * @param value {@link #supercedes} (If this document manifest replaces another.)
+     * @param value {@link #supercedes} (Whether this document manifest replaces another.)
      */
     public DocumentManifest setSupercedes(ResourceReference value) { 
       this.supercedes = value;
@@ -452,14 +452,14 @@ public class DocumentManifest extends Resource {
         super.listChildren(childrenList);
         childrenList.add(new Property("masterIdentifier", "Identifier", "A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document, including version independent, source record and workflow related identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device)", "Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (I.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subjecti allowed here (unusual use case).", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("recipient", "Resource(Patient|Practitioner|Organization)", "A patient, practitioner, or organization that this set of documents is intended for.", 0, java.lang.Integer.MAX_VALUE, recipient));
-        childrenList.add(new Property("type", "CodeableConcept", "Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there's only one - but it may be wider.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("subject", "Resource(Patient|Practitioner|Group|Device)", "Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("recipient", "Resource(Patient|Practitioner|Organization)", "A patient, practitioner, or organization for which this set of documents is intended.", 0, java.lang.Integer.MAX_VALUE, recipient));
+        childrenList.add(new Property("type", "CodeableConcept", "Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("author", "Resource(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for adding the information to the document.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("created", "dateTime", "When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated etc).", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("source", "uri", "Identifies the source system, application, or software that produced the document manifest.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("status", "code", "The status of this document manifest.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("supercedes", "Resource(DocumentManifest)", "If this document manifest replaces another.", 0, java.lang.Integer.MAX_VALUE, supercedes));
+        childrenList.add(new Property("supercedes", "Resource(DocumentManifest)", "Whether this document manifest replaces another.", 0, java.lang.Integer.MAX_VALUE, supercedes));
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the 'title'.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("confidentiality", "CodeableConcept", "A code specifying the level of confidentiality of this set of Documents.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
         childrenList.add(new Property("content", "Resource(DocumentReference|Binary|Media)", "The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed.", 0, java.lang.Integer.MAX_VALUE, content));
