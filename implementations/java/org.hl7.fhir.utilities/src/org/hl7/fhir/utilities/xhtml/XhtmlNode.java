@@ -43,6 +43,9 @@ public class XhtmlNode {
   private List<XhtmlNode> childNodes = new ArrayList<XhtmlNode>();
   private String content;
 
+  public XhtmlNode() {
+    super();
+  }
 
   public XhtmlNode(NodeType nodeType, String name) {
     super();
