@@ -309,6 +309,8 @@ public class PageProcessor implements Logger  {
       String[] com = s2.split(" ");
       if (com.length == 2 && com[0].equals("dt")) 
         src = s1+xmlForDt(com[1], file)+tsForDt(com[1])+s3;
+      else if (com[0].equals("disqus"))
+        src = s1+disqusScript()+s3;
       else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
@@ -552,6 +554,33 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String disqusScript() 
+  {
+    String fhirDisqusAccount = ini.getStringProperty("FHIR", "disqus");
+    
+    if(fhirDisqusAccount != null)
+    {
+      StringBuilder b = new StringBuilder();
+      b.append("<div class=\"container\">");
+      b.append("<hr />");
+      b.append("<div id=\"disqus_thread\"></div>");
+      b.append("<script type=\"text/javascript\">");
+      b.append("var disqus_shortname = '" + fhirDisqusAccount + "';");
+      b.append("(function() {");
+      b.append("var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;");
+      b.append("dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';");
+      b.append("(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();");
+      b.append("</script>");
+      b.append("<noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>");
+      b.append("<a href=\"http://disqus.com\" class=\"dsq-brlink\">comments powered by <span class=\"logo-disqus\">Disqus</span></a>");
+      b.append("</div>");
+      return b.toString();
+    }
+    else
+      return "";
+        
   }
 
   private String conceptmaplist(String id, String level) {
@@ -1923,7 +1952,10 @@ public class PageProcessor implements Logger  {
   private String genReferenceImplList() {
     StringBuilder s = new StringBuilder();
     for (PlatformGenerator gen : referenceImplementations) {
-      s.append("<tr><td><a href=\""+gen.getName()+".zip\">"+gen.getTitle()+"</a></td><td>"+Utilities.escapeXml(gen.getDescription())+"</td></tr>\r\n");
+      if(!"csharp".equals(gen.getName()))
+        s.append("<tr><td><a href=\""+gen.getName()+".zip\">"+gen.getTitle()+"</a></td><td>"+Utilities.escapeXml(gen.getDescription())+"</td></tr>\r\n");
+      else
+        s.append("<tr><td><a href=\"http://github.com/ewoutkramer/fhir-net-api\">.NET</a></td><td>"+gen.getDescription()+"</td></tr>\r\n");
     }
     return s.toString();
   }
@@ -2261,6 +2293,8 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
+      else if (com[0].equals("disqus"))
+        src = s1+s3;
       else if (com[0].equals("header"))
         src = s1+s3;
       else if (com[0].equals("newheader"))
@@ -2475,6 +2509,8 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
+      else if (com[0].equals("disqus"))
+        src = s1+disqusScript()+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(resource.getName())+s3;
       else if (com[0].equals("maponthispage"))
@@ -2898,6 +2934,8 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
+      else if (com[0].equals("disqus"))
+        src = s1+disqusScript()+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(profile.metadata("name"))+s3;
       else if (com[0].equals("header"))

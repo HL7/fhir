@@ -65,11 +65,10 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
 	  
 	@Override
 	public String getDescription() {
-		return ".NET library with classes corresponding to the resource definitions and datatypes. " +
-				"This assembly is used as part of the reference open-source FHIR support library. " +
-		    "To get the support library (which includes parsers, serializers and a FHIR http client), " +
-		    "use NuGet to find package \"Hl7.Fhir\"." +
-				"The source for this full library can be found at http://github.com/ewoutkramer/fhir-net-api";
+		return "The source code for the .NET library can be found on " +
+				"<a href=\"http://github.com/ewoutkramer/fhir-net-api\">GitHub</a>. " +
+				"The pre-compiled assembly is published as a " +
+				"<a href=\"http://www.nuget.org/packages/Hl7.Fhir\">NuGet package</a>";
 	}
 
 	@Override
