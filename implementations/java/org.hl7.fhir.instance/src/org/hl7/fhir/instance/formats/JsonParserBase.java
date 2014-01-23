@@ -43,9 +43,8 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 /**
  * General parser for JSON content. You instantiate an JsonParser of these, but you 
  * actually use parse or parseGeneral defined on this class
@@ -54,21 +53,22 @@ import org.json.JSONObject;
  */
 public abstract class JsonParserBase extends ParserBase implements Parser {
 
-  abstract protected Resource parseResource(JSONObject json) throws Exception;
+  abstract protected Resource parseResource(JsonObject json) throws Exception;
+  private static com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
 
-  private JSONObject loadJson(InputStream input) throws Exception {
-    return new JSONObject(TextFile.streamToString(input));
+  private JsonObject loadJson(InputStream input) throws Exception {
+    return parser.parse(TextFile.streamToString(input)).getAsJsonObject();
   }
   
   /**
    * Parse content that may be either a resource or a bundle
    */
   public ResourceOrFeed parseGeneral(InputStream input) throws Exception {
-    JSONObject json = loadJson(input);
+    JsonObject json = loadJson(input);
     ResourceOrFeed r = new ResourceOrFeed();
     
     if (json.has("feed"))
-      r.feed = parseAtom(json.getJSONObject("feed"));
+      r.feed = parseAtom(json.getAsJsonObject("feed"));
     else  
       r.resource = parseResource(json);
     return r;    
@@ -78,7 +78,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
    * Parse content that is known to be a resource
    */
   public Resource parse(InputStream input) throws Exception {
-    JSONObject json = loadJson(input);
+    JsonObject json = loadJson(input);
   
     return parseResource(json);
   }
@@ -86,102 +86,102 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
   /**
    * parse xml that is known to be a resource, and that has already been read into a JSON object  
    */
-  public Resource parse(JSONObject json) throws Exception {
+  public Resource parse(JsonObject json) throws Exception {
     return parseResource(json);
   }
 
-  protected void parseElementProperties(JSONObject json, Element e) throws Exception {
+  protected void parseElementProperties(JsonObject json, Element e) throws Exception {
     if (json != null && json.has("_id"))
-      e.setXmlId(json.getString("_id"));
+      e.setXmlId(json.get("_id").getAsString());
     if (!Utilities.noString(e.getXmlId()))
       idMap.put(e.getXmlId(), e);
   }
 
-  protected abstract void parseResourceProperties(JSONObject json, Resource r) throws Exception;
+  protected abstract void parseResourceProperties(JsonObject json, Resource r) throws Exception;
   
   protected XhtmlNode parseXhtml(String value) throws Exception {
     XhtmlParser prsr = new XhtmlParser();
     return prsr.parse(value, "div").getChildNodes().get(0);
   }
 
-  protected Resource parseBinary(JSONObject json) throws Exception {
+  protected Resource parseBinary(JsonObject json) throws Exception {
     Binary res = new Binary();
     parseResourceProperties(json, res);
-    res.setContentType(json.getString("contentType"));
-    res.setContent(Base64.decodeBase64(json.getString("content").getBytes()));
+    res.setContentType(json.get("contentType").getAsString());
+    res.setContent(Base64.decodeBase64(json.get("content").getAsString().getBytes()));
     return res;
   }
 
-  private AtomFeed parseAtom(JSONObject json) throws Exception {
+  private AtomFeed parseAtom(JsonObject json) throws Exception {
     AtomFeed res = new AtomFeed();
     if (json.has("title"))
-      res.setTitle(json.getString("title"));
+      res.setTitle(json.get("title").getAsString());
     if (json.has("id"))
-      res.setId(json.getString("id"));
+      res.setId(json.get("id").getAsString());
     if (json.has("updated"))
-      res.setUpdated(new DateAndTime(json.getString("updated")));
+      res.setUpdated(new DateAndTime(json.get("updated").getAsString()));
     if (json.has("author")) {
-      JSONObject author = json.getJSONArray("author").getJSONObject(0);
+      JsonObject author = json.getAsJsonArray("author").get(0).getAsJsonObject();
       if (author.has("name"))
-        res.setAuthorName(author.getString("name"));
+        res.setAuthorName(author.get("name").getAsString());
       if (author.has("uri"))
-        res.setAuthorUri(author.getString("uri"));
+        res.setAuthorUri(author.get("uri").getAsString());
     }
     if (json.has("link")) {
-      JSONArray array = json.getJSONArray("link");
-      for (int i = 0; i < array.length(); i++) {
-        parseLink(res.getLinks(), array.getJSONObject(i));
+      JsonArray array = json.getAsJsonArray("link");
+      for (int i = 0; i < array.size(); i++) {
+        parseLink(res.getLinks(), array.get(i).getAsJsonObject());
       }
     }
     if (json.has("category")) {
-      JSONObject cat = json.getJSONArray("category").getJSONObject(0);
+      JsonObject cat = json.getAsJsonArray("category").get(0).getAsJsonObject();
       if (cat.has("term") && cat.has("scheme"))
-        res.getTags().add(new AtomCategory(cat.getString("scheme"), cat.getString("term"), cat.has("label") ? cat.getString("label") : null));
+        res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
     }
-    JSONArray array = json.getJSONArray("entry");
-    for (int i = 0; i < array.length(); i++) {
-      res.getEntryList().add(parseEntry(array.getJSONObject(i)));
+    JsonArray array = json.getAsJsonArray("entry");
+    for (int i = 0; i < array.size(); i++) {
+      res.getEntryList().add(parseEntry(array.get(i).getAsJsonObject()));
     }
     return res;  
   }
 
-  private void parseLink(Map<String, String> links, JSONObject json) throws Exception {
+  private void parseLink(Map<String, String> links, JsonObject json) throws Exception {
     if (json.has("href") && json.has("rel"))
-    links.put(json.getString("rel"), json.getString("href"));    
+    links.put(json.get("rel").getAsString(), json.get("href").getAsString());    
   }
 
-  private <T extends Resource> AtomEntry<T> parseEntry(JSONObject json) throws Exception {
+  private <T extends Resource> AtomEntry<T> parseEntry(JsonObject json) throws Exception {
     AtomEntry<T> res = new AtomEntry<T>();
     if (json.has("title"))
-      res.setTitle(json.getString("title"));
+      res.setTitle(json.get("title").getAsString());
     if (json.has("id"))
-      res.setId(json.getString("id"));
+      res.setId(json.get("id").getAsString());
     if (json.has("updated"))
-      res.setUpdated(new DateAndTime(json.getString("updated")));
+      res.setUpdated(new DateAndTime(json.get("updated").getAsString()));
     if (json.has("published"))
-      res.setPublished(new DateAndTime(json.getString("published")));
+      res.setPublished(new DateAndTime(json.get("published").getAsString()));
     if (json.has("link")) {
-      JSONArray array = json.getJSONArray("link");
-      for (int i = 0; i < array.length(); i++) {
-        parseLink(res.getLinks(), array.getJSONObject(i));
+      JsonArray array = json.getAsJsonArray("link");
+      for (int i = 0; i < array.size(); i++) {
+        parseLink(res.getLinks(), array.get(i).getAsJsonObject());
       }
     }
     if (json.has("author")) {
-      JSONObject author = json.getJSONArray("author").getJSONObject(0);
+      JsonObject author = json.getAsJsonArray("author").get(0).getAsJsonObject();
       if (author.has("name"))
-        res.setAuthorName(author.getString("name"));
+        res.setAuthorName(author.get("name").getAsString());
       if (author.has("uri"))
-        res.setAuthorUri(author.getString("uri"));
+        res.setAuthorUri(author.get("uri").getAsString());
     }
     if (json.has("category")) {
-      JSONObject cat = json.getJSONArray("category").getJSONObject(0);
+      JsonObject cat = json.getAsJsonArray("category").get(0).getAsJsonObject();
       if (cat.has("term") && cat.has("scheme"))
-        res.getTags().add(new AtomCategory(cat.getString("scheme"), cat.getString("term"), cat.has("label") ? cat.getString("label") : null));
+        res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
     }
     if (json.has("summary"))
-      res.setSummary(new XhtmlParser().parse(json.getString("summary"), "div").getChildNodes().get(0));
+      res.setSummary(new XhtmlParser().parse(json.get("summary").getAsString(), "div").getChildNodes().get(0));
     if (json.has("content"))
-      res.setResource((T)new JsonParser().parse(json.getJSONObject("content")));//TODO Architecture needs to be refactor to prevent this unsafe cast and better support generics
+      res.setResource((T)new JsonParser().parse(json.getAsJsonObject("content")));//TODO Architecture needs to be refactor to prevent this unsafe cast and better support generics
     return res;
   }
   

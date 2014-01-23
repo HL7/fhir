@@ -90,20 +90,20 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     for (ElementDefn n : definitions.getTypes().values()) {
       generate(n, JavaGenClass.Type);
       String an = n.getName().equals("ResourceReference") ? "Resource" : n.getName();
-      regt.append("    else if (json.has(prefix+\""+an+"\"))\r\n      return parse"+n.getName()+"(json.getJSONObject(prefix+\""+an+"\"));\r\n");
+      regt.append("    else if (json.has(prefix+\""+an+"\"))\r\n      return parse"+n.getName()+"(json.getAsJsonObject(prefix+\""+an+"\"));\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regn.append("    if (json.has(prefix+\""+an+"\"))\r\n      return true;\r\n");
     }
 
     for (DefinedCode n : definitions.getConstraints().values()) {
       generateConstraint(n);
-      regt.append("    else if (json.has(prefix+\""+n.getCode()+"\"))\r\n      return parse"+n.getCode()+"(json.getJSONObject(prefix+\""+n.getCode()+"\"));\r\n");
+      regt.append("    else if (json.has(prefix+\""+n.getCode()+"\"))\r\n      return parse"+n.getCode()+"(json.getAsJsonObject(prefix+\""+n.getCode()+"\"));\r\n");
       regf.append("    else if (type.equals(\""+n.getCode()+"\"))\r\n      return parse"+n.getCode()+"(xpp);\r\n");
       regn.append("    if (json.has(prefix+\""+n.getCode()+"\"))\r\n      return true;\r\n");
     }
     for (ElementDefn n : definitions.getStructures().values()) {
       generate(n, JavaGenClass.Structure);
-      regt.append("    else if (json.has(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json.getJSONObject(prefix+\""+n.getName()+"\"));\r\n");
+      regt.append("    else if (json.has(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json.getAsJsonObject(prefix+\""+n.getName()+"\"));\r\n");
       regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
       regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
@@ -122,9 +122,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       String n = upFirst(cd.getCode());
       String t = n;
       regt.append("    else if (json.has(prefix+\""+n+"\") || json.has(\"_\"+prefix+\""+n+"\")) {\r\n");
-      regt.append("      Type t = json.has(prefix+\""+n+"\") ? parse"+t+"(json.get"+getJsonPrimitive(cd.getCode(), true)+"(prefix+\""+n+"\")) : new "+getPrimitiveTypeModelName(cd.getCode())+"();\r\n");
+      regt.append("      Type t = json.has(prefix+\""+n+"\") ? parse"+t+"(json.get(prefix+\""+n+"\").getAs"+getAsJsonPrimitive(cd.getCode(), true)+"()) : new "+getPrimitiveTypeModelName(cd.getCode())+"();\r\n");
       regt.append("      if (json.has(\"_\"+prefix+\""+n+"\"))\r\n");
-      regt.append("        parseElementProperties(json.getJSONObject(\"_\"+prefix+\""+n+"\"), t);\r\n");
+      regt.append("        parseElementProperties(json.getAsJsonObject(\"_\"+prefix+\""+n+"\"), t);\r\n");
       regt.append("      return t;\r\n");
       regt.append("    }\r\n");
       
@@ -137,45 +137,45 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   }
 
   private void genElement() throws Exception {
-    write("  protected void parseElementProperties(JSONObject json, Element element) throws Exception {\r\n");
+    write("  protected void parseElementProperties(JsonObject json, Element element) throws Exception {\r\n");
     write("    super.parseElementProperties(json, element);\r\n");
     write("    if (json != null && json.has(\"extension\")) {\r\n");
-    write("      JSONArray array = json.getJSONArray(\"extension\");\r\n");
-    write("      for (int i = 0; i < array.length(); i++) {\r\n");
-    write("        element.getExtensions().add(parseExtension(array.getJSONObject(i)));\r\n");
+    write("      JsonArray array = json.getAsJsonArray(\"extension\");\r\n");
+    write("      for (int i = 0; i < array.size(); i++) {\r\n");
+    write("        element.getExtensions().add(parseExtension(array.get(i).getAsJsonObject()));\r\n");
     write("      }\r\n");
     write("    };\r\n");    
     write("  }\r\n");
     write("\r\n");
-    write("  protected void parseBackboneProperties(JSONObject json, BackboneElement element) throws Exception {\r\n");
+    write("  protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws Exception {\r\n");
     write("    parseElementProperties(json, element);\r\n");
     write("    if (json != null && json.has(\"modifierExtension\")) {\r\n");
-    write("      JSONArray array = json.getJSONArray(\"modifierExtension\");\r\n");
-    write("      for (int i = 0; i < array.length(); i++) {\r\n");
-    write("        element.getModifierExtensions().add(parseExtension(array.getJSONObject(i)));\r\n");
+    write("      JsonArray array = json.getAsJsonArray(\"modifierExtension\");\r\n");
+    write("      for (int i = 0; i < array.size(); i++) {\r\n");
+    write("        element.getModifierExtensions().add(parseExtension(array.get(i).getAsJsonObject()));\r\n");
     write("      }\r\n");
     write("    };\r\n");    
     write("  }\r\n");
     write("\r\n");
-    write("  protected void parseTypeProperties(JSONObject json, Element element) throws Exception {\r\n");
+    write("  protected void parseTypeProperties(JsonObject json, Element element) throws Exception {\r\n");
     write("    parseElementProperties(json, element);\r\n");
     write("  }\r\n");
     write("\r\n");
   }
 
   private void genResource() throws Exception {
-    write("  protected void parseResourceProperties(JSONObject json, Resource res) throws Exception {\r\n");
+    write("  protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {\r\n");
     write("    parseBackboneProperties(json, res); \r\n");
     write("    if (json.has(\"language\"))\r\n");
-    write("      res.setLanguage(parseCode(json.getString(\"language\")));\r\n");
+    write("      res.setLanguage(parseCode(json.get(\"language\").getAsString()));\r\n");
     write("    if (json.has(\"_language\"))\r\n");
-    write("      parseElementProperties(json.getJSONObject(\"_language\"), res.getLanguage());\r\n");
+    write("      parseElementProperties(json.getAsJsonObject(\"_language\"), res.getLanguage());\r\n");
     write("    if (json.has(\"text\"))\r\n");
-    write("      res.setText(parseNarrative(json.getJSONObject(\"text\")));\r\n");
+    write("      res.setText(parseNarrative(json.getAsJsonObject(\"text\")));\r\n");
     write("    if (json.has(\"contained\")) {\r\n");
-    write("      JSONArray array = json.getJSONArray(\"contained\");\r\n");
-    write("      for (int i = 0; i < array.length(); i++) {\r\n");
-    write("        res.getContained().add(parseResource(array.getJSONObject(i)));\r\n");
+    write("      JsonArray array = json.getAsJsonArray(\"contained\");\r\n");
+    write("      for (int i = 0; i < array.size(); i++) {\r\n");
+    write("        res.getContained().add(parseResource(array.get(i).getAsJsonObject()));\r\n");
     write("      }\r\n");
     write("    };\r\n");    
     write("  }\r\n");
@@ -202,24 +202,21 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 
   private void generatePrimitive(DefinedCode dc) throws Exception {
     String tn = getPrimitiveTypeModelName(dc.getCode());
-    String jpn = getJsonPrimitive(dc.getCode(), false);
+    String jpn = getAsJsonPrimitive(dc.getCode(), false);
     write("  private "+tn+" parse"+upFirst(dc.getCode())+"("+jpn+" v) throws Exception {\r\n");
     write("    "+tn+" res = new "+tn+"();\r\n");
     write("    if (v != null)\r\n");
-//    if (dc.getCode().equals("boolean"))
-//      write("      res.setValue(json.getBoolean(\"value\"));\r\n");
-//    else
-      write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(v));\r\n");
+    write("      res.setValue(parse"+upFirst(dc.getCode())+"Primitive(v));\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
   }
 
-  private String getJsonPrimitive(String code, boolean shrt) {
+  private String getAsJsonPrimitive(String code, boolean shrt) {
     if ("boolean".equals(code))
       return shrt ? "Boolean" : "java.lang.Boolean";
     if ("decimal".equals(code))
-      return shrt ? "Double" : "java.lang.Double";
+      return shrt ? "BigDecimal" : "java.math.BigDecimal";
     if ("integer".equals(code))
       return shrt ? "Long" : "java.lang.Long";
     else         
@@ -239,8 +236,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("import org.hl7.fhir.instance.model.*;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
 
-    write("import org.json.JSONObject;\r\n");
-    write("import org.json.JSONArray;\r\n");
+    write("import com.google.gson.JsonObject;\r\n");
+    write("import com.google.gson.JsonArray;\r\n");
   //  write("import java.util.*;\r\n");
     write("\r\n");
     write("public class JsonParser extends JsonParserBase {\r\n");
@@ -304,11 +301,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     String pn = tn.contains("<") ? "\""+tn.substring(tn.indexOf('<')+1).replace(">", "") + "\"" : "";
     
     if (tn.contains(".")) {
-      write("  private "+tn+" parse"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(JSONObject json, "+pathClass(tn)+" owner) throws Exception {\r\n");
+      write("  private "+tn+" parse"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(JsonObject json, "+pathClass(tn)+" owner) throws Exception {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
       bUseOwner = true;
     } else {
-      write("  private "+tn+" parse"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(JSONObject json) throws Exception {\r\n");
+      write("  private "+tn+" parse"+upFirst(tn).replace(".", "").replace("<", "_").replace(">", "")+"(JsonObject json) throws Exception {\r\n");
       write("    "+tn+" res = new "+tn+"("+pn+");\r\n");
     }
     if (clss == JavaGenClass.Resource)
@@ -351,8 +348,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         BindingSpecification cd = definitions.getBindingByName(e.getBindingName());
         if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.Binding.CodeList) {
           String en = typeNames.get(e); // getCodeListType(cd.getBinding());
-          prsr = "parseEnumeration(json.getString(\""+name+"\"), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
-          aprsr = "parseEnumeration(array.getString(i), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+          prsr = "parseEnumeration(json.get(\""+name+"\").getAsString(), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
+          aprsr = "parseEnumeration(array.get(i).getAsString(), "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
           anprsr = "parseEnumeration(null, "+en+".Null, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
           // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative.NarrativeStatusEnumFactory())
         } else {   
@@ -362,36 +359,36 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
             tn = "Extension";
           }
           if (tn.equals("char[]")) {
-            prsr = "parseXhtml(json.getString(\""+name+"\"))";
+            prsr = "parseXhtml(json.get(\""+name+"\").getAsString())";
           } else if (tn.contains("Resource(")) {
-            prsr = "parseResourceReference(json.getJSONObject(\""+name+"\"))";
-            aprsr = "parseResourceReference(array.getJSONObject(i))";
+            prsr = "parseResourceReference(json.getAsJsonObject(\""+name+"\"))";
+            aprsr = "parseResourceReference(array.get(i).getAsJsonObject())";
             anprsr = "parseResourceReference(null)";
           } else if (tn.startsWith(context) && !tn.equals(context) && !definitions.hasType(tn)) {
             if (bUseOwner) {
-              prsr = "parse"+upFirst(tn)+"(json.getJSONObject(\""+name+"\"), owner)";
-              aprsr = "parse"+upFirst(tn)+"(array.getJSONObject(i), owner)";
+              prsr = "parse"+upFirst(tn)+"(json.getAsJsonObject(\""+name+"\"), owner)";
+              aprsr = "parse"+upFirst(tn)+"(array.get(i).getAsJsonObject(), owner)";
               anprsr = "parse"+upFirst(tn)+"(null)";
             } else {
-              prsr = "parse"+upFirst(tn)+"(json.getJSONObject(\""+name+"\"), res)";
-              aprsr = "parse"+upFirst(tn)+"(array.getJSONObject(i), res)";
+              prsr = "parse"+upFirst(tn)+"(json.getAsJsonObject(\""+name+"\"), res)";
+              aprsr = "parse"+upFirst(tn)+"(array.get(i).getAsJsonObject(), res)";
               anprsr = "parse"+upFirst(tn)+"(null)";
             }
           } else if ("Uri".equalsIgnoreCase(tn)) {
-            prsr = "parseUri(json.getString(\""+name+"\"))";
-            aprsr = "parseUri(array.getString(i))";
+            prsr = "parseUri(json.get(\""+name+"\").getAsString())";
+            aprsr = "parseUri(array.get(i).getAsString())";
             anprsr = "parse"+upFirst(tn)+"(null)";
           } else if ("Instant".equals(tn)) {
-            prsr = "parseInstant(json.getString(\""+name+"\"))";
-            aprsr = "parseInstant(array.getString(i))";
+            prsr = "parseInstant(json.get(\""+name+"\").getAsString())";
+            aprsr = "parseInstant(array.get(i).getAsString())";
             anprsr = "parse"+upFirst(tn)+"(null)";
           } else if (isPrimitive(e)){
-            prsr = "parse"+upFirst(tn)+"(json.get"+getJsonPrimitive(e.typeCode(), true)+"(\""+name+"\"))";
-            aprsr = "parse"+upFirst(tn)+"(array.get"+getJsonPrimitive(e.typeCode(), true)+"(i))";
+            prsr = "parse"+upFirst(tn)+"(json.get(\""+name+"\").getAs"+getAsJsonPrimitive(e.typeCode(), true)+"())";
+            aprsr = "parse"+upFirst(tn)+"(array.get(i).getAs"+getAsJsonPrimitive(e.typeCode(), true)+"())";
             anprsr = "parse"+upFirst(tn)+"(null)";
           } else {
-            prsr = "parse"+upFirst(tn)+"(json.getJSONObject(\""+name+"\"))";
-            aprsr = "parse"+upFirst(tn)+"(array.getJSONObject(i))";
+            prsr = "parse"+upFirst(tn)+"(json.getAsJsonObject(\""+name+"\"))";
+            aprsr = "parse"+upFirst(tn)+"(array.get(i).getAsJsonObject())";
             anprsr = "parse"+upFirst(tn)+"(null)";
           }
         }
@@ -399,24 +396,24 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         if (e.unbounded()) {
           if (isPrimitive(e)) {
             write("    if (json.has(\""+name+"\")) {\r\n");
-            write("      JSONArray array = json.getJSONArray(\""+name+"\");\r\n");
-            write("      for (int i = 0; i < array.length(); i++) {\r\n");
+            write("      JsonArray array = json.getAsJsonArray(\""+name+"\");\r\n");
+            write("      for (int i = 0; i < array.size(); i++) {\r\n");
             write("        res.get"+upFirst(name)+"().add("+aprsr+");\r\n");
             write("      }\r\n");
             write("    };\r\n");          
             write("    if (json.has(\"_"+name+"\")) {\r\n");
-            write("      JSONArray array = json.getJSONArray(\"_"+name+"\");\r\n");
-            write("      for (int i = 0; i < array.length(); i++) {\r\n");
+            write("      JsonArray array = json.getAsJsonArray(\"_"+name+"\");\r\n");
+            write("      for (int i = 0; i < array.size(); i++) {\r\n");
             write("        if (i == res.get"+upFirst(name)+"().size())\r\n");
             write("          res.get"+upFirst(name)+"().add("+anprsr+");\r\n");
-            write("        if (array.get(i) instanceof JSONObject) \r\n");
-            write("          parseElementProperties(array.getJSONObject(i), res.get"+upFirst(name)+"().get(i));\r\n");
+            write("        if (array.get(i) instanceof JsonObject) \r\n");
+            write("          parseElementProperties(array.get(i).getAsJsonObject(), res.get"+upFirst(name)+"().get(i));\r\n");
             write("      }\r\n");
             write("    };\r\n");          
           } else {
             write("    if (json.has(\""+name+"\")) {\r\n");
-            write("      JSONArray array = json.getJSONArray(\""+name+"\");\r\n");
-            write("      for (int i = 0; i < array.length(); i++) {\r\n");
+            write("      JsonArray array = json.getAsJsonArray(\""+name+"\");\r\n");
+            write("      for (int i = 0; i < array.size(); i++) {\r\n");
             write("        res.get"+upFirst(name)+"().add("+aprsr+");\r\n");
             write("      }\r\n");
             write("    };\r\n");
@@ -426,7 +423,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
           write("      res.set"+upFirst(getElementName(name, false))+"("+prsr+");\r\n");
           if (isPrimitive(e)) {
             write("    if (json.has(\"_"+name+"\"))\r\n");
-            write("      parseElementProperties(json.getJSONObject(\"_"+name+"\"), res.get"+upFirst(getElementName(name, false))+"());\r\n");
+            write("      parseElementProperties(json.getAsJsonObject(\"_"+name+"\"), res.get"+upFirst(getElementName(name, false))+"());\r\n");
           }
         }
     }
@@ -458,8 +455,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   
   private void finish() throws Exception {
     write("  @Override\r\n");
-    write("  protected Resource parseResource(JSONObject json) throws Exception {\r\n");
-    write("    String t = json.getString(\"resourceType\");\r\n");
+    write("  protected Resource parseResource(JsonObject json) throws Exception {\r\n");
+    write("    String t = json.get(\"resourceType\").getAsString();\r\n");
     write("    if (Utilities.noString(t))\r\n");
     write("      throw new Exception(\"Unable to find resource type - maybe not a FHIR resource?\");\r\n");
     write("    "+reg.toString().substring(9));
@@ -467,7 +464,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("      return parseBinary(json);\r\n");
     write("    throw new Exception(\"Unknown.Unrecognised resource type\");\r\n");
     write("  }\r\n\r\n");
-    write("  protected Type parseType(String prefix, JSONObject json) throws Exception {\r\n");
+    write("  protected Type parseType(String prefix, JsonObject json) throws Exception {\r\n");
     write("    "+regt.toString().substring(9));
     write("    return null;\r\n");
     write("  }\r\n\r\n");
@@ -477,7 +474,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 //    write("    throw new Exception(\"Unknown type \"+type);\r\n");
 //    write("  }\r\n\r\n");
 //
-    write("  private boolean hasTypeName(JSONObject json, String prefix) {\r\n");
+    write("  private boolean hasTypeName(JsonObject json, String prefix) {\r\n");
     write("    "+regn.toString());
     write("    return false;\r\n");
     write("  }\r\n");
