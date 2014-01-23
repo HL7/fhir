@@ -595,7 +595,7 @@ public class Publisher {
 	        Collections.sort(codes);
 	        for (String s : codes) {
 	          DefinedCode c = page.getDefinitions().getKnownResources().get(s);
-            c.setId(getCodeId("resorucetype", s));
+            c.setId(getCodeId("resourcetype", s));
 	          bs.getCodes().add(c);	
 	        }
 	      }
