@@ -218,6 +218,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
   private String getJsonPrimitive(String code, boolean shrt) {
     if ("boolean".equals(code))
       return shrt ? "Boolean" : "java.lang.Boolean";
+    if ("decimal".equals(code))
+      return shrt ? "Double" : "java.lang.Double";
+    if ("integer".equals(code))
+      return shrt ? "Long" : "java.lang.Long";
     else         
       return "String";
   }

@@ -38,6 +38,14 @@ public abstract class ParserBase extends XmlBase {
       value = value.substring(1);
 	return java.lang.Integer.parseInt(value);
   }
+  protected int parseIntegerPrimitive(java.lang.Long value) {
+    if (value < java.lang.Integer.MIN_VALUE || value > java.lang.Integer.MAX_VALUE) {
+        throw new IllegalArgumentException
+            (value + " cannot be cast to int without changing its value.");
+    }
+    return value.intValue();
+  }
+
 
   protected DateAndTime parseDateTimePrimitive(String value) throws ParseException {
     return new DateAndTime(value);
@@ -55,6 +63,11 @@ public abstract class ParserBase extends XmlBase {
   protected BigDecimal parseDecimalPrimitive(String value) {
     return new BigDecimal(value);
   }
+
+  protected BigDecimal parseDecimalPrimitive(Double value) {
+    return new BigDecimal(value);
+  }
+
 
   protected String parseUriPrimitive(String value) throws Exception {
   	 return value;
