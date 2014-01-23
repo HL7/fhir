@@ -130,6 +130,15 @@ body {
   margin-top: 16px;
   color: maroon;
 }
+#hl7-search {
+  line-height: 50px;
+  float: right;
+  margin-top: 16px;
+  color: maroon;
+}
+#hl7-search a {
+  color: inherit;
+}
 #hl7-logo {
   float: right;
   margin-left: 6px;
