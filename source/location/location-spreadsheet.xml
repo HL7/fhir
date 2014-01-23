@@ -10,15 +10,15 @@
   <LastAuthor>Ewout Kramer</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-12-10T09:11:21Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6345</WindowHeight>
-  <WindowWidth>9600</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
+  <WindowHeight>9030</WindowHeight>
+  <WindowWidth>19290</WindowWidth>
+  <WindowTopX>1200</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -271,14 +271,14 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Location.telecom</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Contact</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Contact details of the location</Data></Cell>
-    <Cell><Data ss:Type="String">The contact details of the main communication devices present at the location</Data></Cell>
+    <Cell><Data ss:Type="String">The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="Default"/>
@@ -296,7 +296,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">If locations can be visited, we need to keep track of their address</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">This was kept as 0..1 as there is no use property on the address, so wouldn't be able to identify different address types</Data></Cell>
     <Cell><Data ss:Type="String">addr</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -420,9 +420,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -430,15 +430,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

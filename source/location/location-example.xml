@@ -13,6 +13,21 @@
   <telecom>
     <system value="phone"/>
     <value value="2328"/>
+		<use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="2329"/>
+		<use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="second wing admissions"/>
+  </telecom>
+  <telecom>
+    <system value="url"/>
+    <value value="http://sampleorg.com/southwing"/>
+		<use value="work"/>
   </telecom>
   <address>
         <use value="work"/>
