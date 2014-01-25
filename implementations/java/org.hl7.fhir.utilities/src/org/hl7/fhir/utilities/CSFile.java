@@ -44,28 +44,27 @@ public class CSFile extends File {
   public CSFile(String pathname) throws IOException {	  
     super(pathname);
     
-    if (exists() && getParent() != null) 
-    {
-      String n = getName();
-      File f = new File(getParent());
-      String[] l = f.list();
-      boolean ok = false;
-      for (String n1 : l) {
-        if (n1.equals(n))
-          ok = true;
-      }
-      if (!ok)
-        throw new Error("Case mismatch of file "+ pathname);
-    }
+//    if (exists() && getParent() != null) 
+//    {
+//      String n = getName();
+//      File f = new File(getParent());
+//      String[] l = f.list();
+//      boolean ok = false;
+//      for (String n1 : l) {
+//        if (n1.equals(n))
+//          ok = true;
+//      }
+//      if (!ok)
+//        throw new Error("Case mismatch of file "+ pathname);
+//    }
     
     //EK: Original code above looked extremely wasteful: every single
     //attempt to open a file triggers a directory listing
-//    if (exists()) 
-//    {
-//    	if(!this.getCanonicalFile().getName().equals(this.getName()))
-//    		throw new Error("Case mismatch of file "+ pathname);
-//    }
-
+    if (exists()) 
+    {
+    	if(!this.getCanonicalFile().getName().equals(this.getName()))
+    		throw new Error("Case mismatch of file "+ pathname);
+    }
   }
 
   
