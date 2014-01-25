@@ -45,7 +45,8 @@ public class ResourceAddressTest {
 	public void testParseCreateLocation() {
 		ResourceAddress.ResourceVersionedIdentifier versionedIdentifier = resource.parseCreateLocation(fullVersionedPath);
 		assertEquals(basePath, versionedIdentifier.getServiceRoot());
-		assertEquals("Patient", versionedIdentifier.getResourceType());
+		fail("Next line does not compile - EK");
+	//	assertEquals("Patient", versionedIdentifier.getResourceType());
 		assertEquals("318",versionedIdentifier.getId());
 		assertEquals("1", versionedIdentifier.getVersionId());
 		assertEquals(fullNonVersionedPath, versionedIdentifier.getResourcePath());

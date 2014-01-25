@@ -31,6 +31,7 @@ package org.hl7.fhir.definitions.parsers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -552,7 +553,9 @@ public class SourceParser {
 			definitions.getEvents().put(defn.getCode(), defn);
 	}
 
-  public boolean checkFile(String purpose, String dir, String file, List<String> errors, String category) {
+  public boolean checkFile(String purpose, String dir, String file, List<String> errors, String category)
+    throws IOException
+  {
     CSFile f = new CSFile(dir+file);
     if (!f.exists()) {
       errors.add("Unable to find "+purpose+" file "+file+" in "+dir);

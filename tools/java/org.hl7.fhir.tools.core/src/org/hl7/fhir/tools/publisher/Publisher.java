@@ -39,7 +39,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -101,7 +100,6 @@ import org.hl7.fhir.definitions.validation.ProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.JsonComposer;
-import org.hl7.fhir.instance.formats.XmlBase;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -136,7 +134,6 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
-import org.hl7.fhir.instance.test.ToolsHelper;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.InstanceValidator;
@@ -148,11 +145,11 @@ import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
@@ -643,7 +640,9 @@ public class Publisher {
 //		page.getReferenceImplementations().add(new ECoreOclGenerator());
 	}
 
-  public boolean checkFile(String purpose, String dir, String file, List<String> errors, String category) {
+  public boolean checkFile(String purpose, String dir, String file, List<String> errors, String category) 
+    throws IOException
+  {
     CSFile f = new CSFile(dir+file);
     if (!f.exists()) {
       errors.add("Unable to find "+purpose+" file "+file+" in "+dir);
