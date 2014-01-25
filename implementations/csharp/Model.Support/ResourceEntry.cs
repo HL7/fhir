@@ -34,7 +34,7 @@ using System.Linq;
 using System.Text;
 using Hl7.Fhir.Model;
 using System.IO;
-
+using System.Reflection;
 using Hl7.Fhir.Validation;
 using System.ComponentModel.DataAnnotations;
 
@@ -113,8 +113,14 @@ namespace Hl7.Fhir.Model
         public static ResourceEntry Create(Type type)
         {
             if (type == null) throw new ArgumentNullException("type");
-            if (!typeof(Resource).IsAssignableFrom(type)) throw new ArgumentException("type", "Must be a subtype of Resource");
-            
+
+#if !PORTABLE45
+            var isResource = typeof(Resource).IsAssignableFrom(type);
+#else
+            var isResource = typeof(Resource).GetTypeInfo().IsAssignableFrom(type.GetTypeInfo());
+#endif
+            if (!isResource) throw new ArgumentException("type", "Must be a subtype of Resource");
+
             Type typedREType = typeof(ResourceEntry<>).MakeGenericType(type);
             var result = (ResourceEntry)Activator.CreateInstance(typedREType);
 
