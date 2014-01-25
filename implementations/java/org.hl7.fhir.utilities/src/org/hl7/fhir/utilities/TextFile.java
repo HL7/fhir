@@ -39,6 +39,12 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Set of static helper functions to read lines from files, create files from lists of lines,
+ * read files into a single string and create files from a single string.
+ * @author Ewout
+ *
+ */
 public class TextFile {
 
 	public static List<String> readAllLines(String path) throws IOException

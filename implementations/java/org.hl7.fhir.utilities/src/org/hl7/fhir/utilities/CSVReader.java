@@ -34,6 +34,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Baseclass for readers that read data from files in comma separated file format
+ * @author Ewout
+ *
+ */
 public class CSVReader extends InputStreamReader {
 	
 	public CSVReader(InputStream in) throws UnsupportedEncodingException {
@@ -49,11 +54,11 @@ public class CSVReader extends InputStreamReader {
 			return false;
 	}
 
-	protected String getColumn(String[] titles, String[] values, String column) throws Exception {
+	protected static String getColumn(String[] titles, String[] values, String column) throws Exception {
 		int c = -1;
-		String s = "";
+	//	String s = "";
 		for (int i = 0; i < titles.length; i++) {
-			s = s + ","+titles[i];
+		//	s = s + ","+titles[i];
 			if (titles[i].equalsIgnoreCase(column))
 				c = i;
 		}
@@ -65,6 +70,13 @@ public class CSVReader extends InputStreamReader {
 			return values[c];
 	}
 
+	
+	/**
+	 * Split one line in a CSV file into its rows. Comma's appearing in double quoted strings will
+	 * not be seen as a separator.
+	 * @return
+	 * @throws Exception
+	 */
 	protected String[] parseLine() throws Exception {
 		List<String> res = new ArrayList<String>();
 		StringBuilder b = new StringBuilder();

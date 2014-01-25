@@ -1,5 +1,10 @@
 package org.hl7.fhir.utilities;
 
+/**
+ * Encapsulates StringBuilder to build strings of values separated by comma
+ * @author Ewout
+ */
+
 public class CommaSeparatedStringBuilder {
 
   boolean first = true;

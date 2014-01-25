@@ -29,18 +29,23 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.utilities;
 
 import java.io.File;
+import java.io.IOException;
 
-
+/**
+ * Extends the usual Java File to make it case-sensitive: if the file to be opened has
+ * a different casing in the filesystem (but is found anyway base Windows is case-insensitive), 
+ * the constructor will throw. Allows early detection of miscased filenames.
+ * @author Ewout
+ *
+ */
 public class CSFile extends File {
-
-  /**
-   * 
-   */
   private static final long serialVersionUID = -2017155765132460726L;
 
-  public CSFile(String pathname) {
+  public CSFile(String pathname) throws IOException {	  
     super(pathname);
-    if (exists() && getParent() != null) {
+    
+    if (exists() && getParent() != null) 
+    {
       String n = getName();
       File f = new File(getParent());
       String[] l = f.list();
@@ -52,6 +57,15 @@ public class CSFile extends File {
       if (!ok)
         throw new Error("Case mismatch of file "+ pathname);
     }
+    
+    //EK: Original code above looked extremely wasteful: every single
+    //attempt to open a file triggers a directory listing
+//    if (exists()) 
+//    {
+//    	if(!this.getCanonicalFile().getName().equals(this.getName()))
+//    		throw new Error("Case mismatch of file "+ pathname);
+//    }
+
   }
 
   

@@ -33,6 +33,11 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * TextStream writer that helps to write indented text. ln_i() indents, ln_o() outdents.
+ * @author Ewout
+ *
+ */
 public class TextStreamWriter extends OutputStreamWriter {
 
   public TextStreamWriter(OutputStream out) throws UnsupportedEncodingException {

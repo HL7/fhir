@@ -35,6 +35,13 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * A file processor that reads a templated source file with markers ([%columnname%]), reads data
+ * from a CSV file and inserts data from that CSV file into those markers. Supports loops to
+ * interate through the CSV file.
+ * @author Ewout
+ *
+ */
 public class CSVProcessor {
 
   public class DataReader extends CSVReader {

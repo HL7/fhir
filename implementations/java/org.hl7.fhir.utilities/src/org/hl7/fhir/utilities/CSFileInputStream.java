@@ -31,6 +31,13 @@ package org.hl7.fhir.utilities;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+
+/**
+ * A FileInputStream which works (only) on CSFile instead of File.
+ * @author Ewout
+ *
+ */
 
 public class CSFileInputStream extends FileInputStream {
 
@@ -40,7 +47,7 @@ public class CSFileInputStream extends FileInputStream {
       throw new Error("Must use CSFile. used "+arg0.getClass().getName()+" for "+arg0.getAbsolutePath());
   }
 
-  public CSFileInputStream(String arg0) throws FileNotFoundException {
+  public CSFileInputStream(String arg0) throws FileNotFoundException, IOException {
     super(new CSFile(arg0));
   }
 

@@ -171,8 +171,10 @@ public class Utilities {
 		}
 	}
 
-  public static boolean checkFolder(String dir, List<String> errors) {
-    if (!new CSFile(dir).exists()) {
+  public static boolean checkFolder(String dir, List<String> errors)
+  	throws IOException
+  {
+	  if (!new CSFile(dir).exists()) {
       errors.add("Unable to find directory "+dir);
       return false;
     } else {
@@ -180,7 +182,9 @@ public class Utilities {
     }
   }
 
-  public static boolean checkFile(String purpose, String dir, String file, List<String> errors) {
+  public static boolean checkFile(String purpose, String dir, String file, List<String> errors) 
+  	throws IOException
+  {
     if (!new CSFile(dir+file).exists()) {
       errors.add("Unable to find "+purpose+" file "+file+" in "+dir);
       return false;
@@ -214,7 +218,7 @@ public class Utilities {
     return s.toString();
   }
 
-  public static void clearDirectory(String folder) {
+  public static void clearDirectory(String folder) throws IOException {
 	  String[] files = new CSFile(folder).list();
 	  if (files != null) {
 		  for (String f : files) {
@@ -226,7 +230,7 @@ public class Utilities {
 	  }
   }
 
-  public static void createDirectory(String path) {
+  public static void createDirectory(String path) throws IOException{
     new CSFile(path).mkdirs();    
   }
 
