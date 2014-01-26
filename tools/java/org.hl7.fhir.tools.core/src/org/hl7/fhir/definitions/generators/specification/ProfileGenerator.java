@@ -27,7 +27,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
  */
-import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.Set;
@@ -42,10 +41,7 @@ import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.SearchParameter;
-import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Factory;
@@ -72,7 +68,6 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
-//import org.hl7.fhir.instance.model.Factory;
 
 public class ProfileGenerator {
 
@@ -268,9 +263,14 @@ public class ProfileGenerator {
     throw new Exception("unknown value ContextType."+type.toString());
   }
 
-  private Profile.ElementComponent defineElement(ProfileDefn pd, Profile p, Profile.ProfileStructureComponent c, ElementDefn e, String path, GenerationMode mode, Set<String> slices) throws Exception {
+  private Profile.ElementComponent defineElement(ProfileDefn pd, Profile p, Profile.ProfileStructureComponent c, 
+      ElementDefn e, String path, GenerationMode mode, Set<String> slices) throws Exception {
     Profile.ElementComponent ce = new Profile.ElementComponent();
     c.getElement().add(ce);
+    
+    // EK: Added code to remove [x] from the path
+   // if(path.endsWith("[x]")) path = path.substring(0, path.length()-3);
+    
     ce.setPath(Factory.newString_(path));
     if (e.isXmlAttribute())
       ce.addRepresentationSimple(PropertyRepresentation.xmlAttr);
@@ -302,15 +302,35 @@ public class ProfileGenerator {
     // no purpose here
     ce.getDefinition().setMin(Factory.newInteger(e.getMinCardinality()));
     ce.getDefinition().setMax(Factory.newString_(e.getMaxCardinality() == null ? "*" : e.getMaxCardinality().toString()));
-    if (e.typeCode().startsWith("@")) {
+
+    if (e.typeCode().startsWith("@")) 
+    {
       ce.getDefinition().setNameReferenceSimple(e.typeCode().substring(1));
-    } else {
-      for (TypeRef t : e.getTypes()) {
-        TypeRefComponent type = new Profile.TypeRefComponent();
-        type.setCode(Factory.newCode(t.summaryFormal()));
-        ce.getDefinition().getType().add(type);
+    } 
+    else 
+    {
+      for (TypeRef t : e.getTypes()) 
+      {
+        // If this is Resource(A|B|C), duplicate the ResourceReference for each
+        if(t.hasParams() && "Resource".equals(t.getName()))
+        {
+          for(String param : t.getParams())
+          {    
+            TypeRefComponent type = new Profile.TypeRefComponent();
+            type.setCode(Factory.newCode("ResourceReference"));
+            type.setProfileSimple("#" + param.toLowerCase() );
+            ce.getDefinition().getType().add(type);            
+          }
+        }
+        else
+        {
+          TypeRefComponent type = new Profile.TypeRefComponent();
+          type.setCode(Factory.newCode(t.summaryFormal()));
+          ce.getDefinition().getType().add(type);
+        }
       }
     }
+    
     // ce.setConformance(getType(e.getConformance()));
     if (!"".equals(e.getCondition())) {
       Id cond = Factory.newId(e.getCondition());
@@ -359,7 +379,10 @@ public class ProfileGenerator {
     }
 
     Set<String> containedSlices = new HashSet<String>();
-    if (e.getElementByName("extension") != null) {
+    
+    // Element is a sliced extension array...
+    if (e.getElementByName("extension") != null)
+    {
       ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension"));
       ex.setNameSimple("base extension");
       ex.setSlicing(new Profile.ElementSlicingComponent());
@@ -376,12 +399,15 @@ public class ProfileGenerator {
           elem.getDefinition().getType().get(0).setProfileSimple(t);
           }
       }
-    } else if (mode != GenerationMode.Element && e.getTypes().size() > 0) {
+    }
+    else if (mode != GenerationMode.Element && e.getTypes().size() > 0) {
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension")));
     }
       
-    if ((mode == GenerationMode.Resource) || (mode == GenerationMode.Backbone && e.getTypes().size() == 0)) {
-      if (e.getElementByName("modifierExtension") != null) {
+    if ((mode == GenerationMode.Resource) || (mode == GenerationMode.Backbone && e.getTypes().size() == 0))
+    {
+      if (e.getElementByName("modifierExtension") != null) 
+      {
         ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("modifierExtension"));
         ex.setNameSimple("base modifier extension");
         ex.setSlicing(new Profile.ElementSlicingComponent());
@@ -398,7 +424,9 @@ public class ProfileGenerator {
             elem.getDefinition().getType().get(0).setProfileSimple(t);
           }
         }
-      } else {
+      } 
+      else
+      {
         c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("modifierExtension")));
       }
     }
