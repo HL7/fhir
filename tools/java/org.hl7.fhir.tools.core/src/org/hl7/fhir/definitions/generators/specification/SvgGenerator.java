@@ -818,16 +818,30 @@ public class SvgGenerator {
       xml.attribute("fill", "black");
       xml.attribute("class", "diagram-class-detail");
       xml.open("text");
-      if (i == 0) {
+      
+      // Start the first line with the name and ':' of the attribute
+      if (i == 0) 
+      {
         xml.attribute("xlink:href", baseUrl(path)+path+"."+e.getName().replace("[", "_").replace("]", "_"));
         xml.open("a");
         xml.element("title", e.getEnhancedDefinition());
         xml.text(e.getName());
         xml.close("a");
         xml.text(" : ");
-      } else 
+      } 
+      
+      // We're on the next line(s) of the attribute, indent first
+      else 
         xml.text("     ");
+      
+      // Continue constructing types. If you wonder why the types don't show
+      // up multiple times: 'prog' suppresses printing new stuff until we've
+      // actually arrived at our position in the list of types where we 
+      // left off when we wrapped to the next line. YUCK YUCK YUCK
       encodeTypes(xml, e.getTypes(), prog);
+      
+      // No more lines to do, add the rest of the text
+      // (and pray that that fits)
       if (prog.done) {
         xml.text(" "+e.describeCardinality());
         if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
@@ -931,20 +945,20 @@ public class SvgGenerator {
     int cursor = 0;
     int count = 0;
     int start = 0;
-    boolean flag = true;
+    boolean writeToOutput = true;
     
-    public void init() {
+    public void startLine() {
       count = 0;    
       start = cursor;
     }
     
     public void attribute(XMLWriter xml, String name, String value) throws IOException {
-      if (flag)
+      if (writeToOutput)
         xml.attribute(name, value);
     }
 
     public void element(XMLWriter xml, String name, String content) throws IOException {
-      if (flag) {
+      if (writeToOutput) {
         xml.element(name, content);
         cursor = cursor + content.length();
       }
@@ -952,7 +966,7 @@ public class SvgGenerator {
     }
 
     public void text(XMLWriter xml, String content) throws IOException {
-      if (flag) {
+      if (writeToOutput) {
         xml.text(content);
         cursor = cursor + content.length();
       }
@@ -961,37 +975,57 @@ public class SvgGenerator {
 
     public boolean breaktext(XMLWriter xml, String content, String coming) throws IOException {
       text(xml, content);
-      if (flag) {
-       if (cursor + coming.length() - start > 40)
-         flag = false;
-      } else {
+      
+      // Recalculate whether we need to wrap by now
+      if (writeToOutput) 
+      {
+        if (cursor + coming.length() - start > 40)
+        {
+          // Line will get too long the next time around, so
+          // stop writing output
+          writeToOutput = false;
+          return true;  // we need to stop rendering for this line
+        }
+      } 
+      else 
+      {
+        // We've reached the point where we last stopped
+        // writing to output (=on the previous line), so
+        // start writing again
         if (count == cursor)
-          flag = true;
+          writeToOutput = true;
       }
       return false;
     }
 
     public void close() {
-      done = flag;      
+      done = writeToOutput;      
     }
 
   }
   
   private void encodeTypes(XMLWriter xml, List<TypeRef> types, TypeCodingProgress prog)  throws Exception {
     boolean first = true;
-    prog.init();
-    for (TypeRef tr : types) {
-      if (!first) {
+    
+    prog.startLine();
+    
+    for (TypeRef tr : types) 
+    {
+      if (!first) 
+      {
         if (prog.breaktext(xml, "|", tr.getName()))
           return;
       }
+      
       if (tr.getName().equals("*"))
         prog.attribute(xml, "xlink:href", "datatypes.html#open");
       else if (tr.getName().startsWith("@")) 
         prog.attribute(xml, "title", "@"+tr.getName().substring(1));
       else
         prog.attribute(xml, "xlink:href", GeneratorUtils.getSrcFile(tr.getName()) + ".html#" + tr.getName());
+      
       prog.element(xml, "a", tr.getName());
+      
       if (tr.getParams().size() > 0) {
         prog.text(xml, "(");
         boolean firstP = true;
