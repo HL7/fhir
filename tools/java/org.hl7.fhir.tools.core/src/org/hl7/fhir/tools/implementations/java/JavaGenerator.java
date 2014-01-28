@@ -83,7 +83,7 @@ public String getName() {
 
   @Override
 public String getDescription() {
-    return "Resource Definitions, XML & Json parsers, validation & value set tooling. The java reference implementation depends on XmlPull (http://www.xmlpull.org/), the Java JSON library (http://json.org), the Apache Commons Codec library (http://commons.apache.org/codec/), and Saxon 9 (for validation).";
+    return "Resource Definitions, XML & Json parsers, validation & value set tooling. The java reference implementation depends on XmlPull ([[http://www.xmlpull.org/]]), the Java JSON library ([[http://json.org]]), the Apache Commons Codec library ([[http://commons.apache.org/codec/]]), and Saxon 9 (for validation).";
   }
 
   @Override

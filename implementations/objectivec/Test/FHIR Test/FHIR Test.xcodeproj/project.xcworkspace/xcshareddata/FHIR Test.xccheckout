@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0F04BA82-91FF-49D7-99B3-4DC242BCBD24</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FHIR Test</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7448902E-9A23-467F-91F4-FAE31FCAA2F8</key>
+		<string>http://fisheye.marc-hi.ca/git/FHIR_Generator.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FHIR Test/FHIR Test.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7448902E-9A23-467F-91F4-FAE31FCAA2F8</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://fisheye.marc-hi.ca/git/FHIR_Generator.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7448902E-9A23-467F-91F4-FAE31FCAA2F8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7448902E-9A23-467F-91F4-FAE31FCAA2F8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Fhir Test Project</string>
+		</dict>
+	</array>
+</dict>
+</plist>

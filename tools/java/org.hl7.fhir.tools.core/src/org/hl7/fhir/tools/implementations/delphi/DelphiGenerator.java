@@ -3102,7 +3102,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
   @Override
   public String getDescription() {
-    return "Resource Definitions and XML & JSON parsers. Delphi 5+. Depends on IndySoap (http://sourceforge.net/projects/indysoap/). For a full server see [(todo)]";
+    return "Resource Definitions and XML & JSON parsers. Delphi 5+. Depends on IndySoap ([[http://sourceforge.net/projects/indysoap/]]). For a full server see [[http://github.com/grahamegrieve/fhirserver]]";
   }
 
   @Override

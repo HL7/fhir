@@ -1953,7 +1953,7 @@ public class PageProcessor implements Logger  {
     StringBuilder s = new StringBuilder();
     for (PlatformGenerator gen : referenceImplementations) {
       if(!"csharp".equals(gen.getName()))
-        s.append("<tr><td><a href=\""+gen.getName()+".zip\">"+gen.getTitle()+"</a></td><td>"+Utilities.escapeXml(gen.getDescription())+"</td></tr>\r\n");
+        s.append("<tr><td><a href=\""+gen.getName()+".zip\">"+gen.getTitle()+"</a></td><td>"+Utilities.genMarkdown(gen.getDescription())+"</td></tr>\r\n");
       else
         s.append("<tr><td><a href=\"http://github.com/ewoutkramer/fhir-net-api\">.NET</a></td><td>"+gen.getDescription()+"</td></tr>\r\n");
     }

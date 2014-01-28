@@ -519,4 +519,16 @@ public class Utilities {
   public static String encodeUri(String v) {
     return v.replace(" ", "%20");
   }
+
+
+  public static String genMarkdown(String text) {
+    text = escapeXml(text);
+    while (text.contains("[[")) {
+      String left = text.substring(0, text.indexOf("[["));
+      String url = text.substring(text.indexOf("[[")+2, text.indexOf("]]"));
+      String right = text.substring(text.indexOf("]]")+2);
+      text = left+"<a href=\""+url+"\">"+url+"</a>"+right;
+    }
+    return text; 
+  }
 }

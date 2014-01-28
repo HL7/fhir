@@ -87,10 +87,14 @@ public class XLSXmlParser {
   }
 
   private Document parseXml(InputStream in) throws Exception {
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    return builder.parse(in);
+    try {
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setNamespaceAware(true);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      return builder.parse(in);
+    } catch (Exception e) {
+      throw new Exception("Error processing "+name+": "+e.getMessage(), e);
+    }
   }
 
   private void readXml() throws Exception {

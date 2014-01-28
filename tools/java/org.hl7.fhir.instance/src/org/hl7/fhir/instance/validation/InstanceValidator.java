@@ -358,7 +358,7 @@ public class InstanceValidator extends BaseValidator {
           type = "ResourceReference";
       } else {
         if (child.getDefinition().getType().size() > 1)
-          throw new Exception("multiple types?");
+          throw new Exception("multiple types ("+describeTypes(child.getDefinition().getType())+") @ "+path+"/f:"+ci.name());
         if (child.getDefinition().getType().size() == 1)
           type = child.getDefinition().getType().get(0).getCodeSimple();
         if (type != null) {
@@ -398,6 +398,14 @@ public class InstanceValidator extends BaseValidator {
           validateElement(errors, profile, structure, ci.path(), child, null, null, ci.element(), type);
       }
     }
+  }
+
+  private String describeTypes(List<TypeRefComponent> types) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (TypeRefComponent t : types) {
+      b.append(t.getCodeSimple());
+    }
+    return b.toString();
   }
 
   private void checkExtension(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent container, String parentType) throws Exception {
