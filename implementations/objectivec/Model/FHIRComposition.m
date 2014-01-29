@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
  * A set of resources composed into a single coherent clinical statement with clinical attestation
@@ -34,7 +34,7 @@
 #import "FHIRComposition.h"
 
 #import "FHIRIdentifier.h"
-#import "FHIRInstant.h"
+#import "FHIRDateTime.h"
 #import "FHIRCodeableConcept.h"
 #import "FHIRString.h"
 #import "FHIRCode.h"
@@ -48,24 +48,24 @@
 
 @implementation FHIRComposition
 
-- (NSDate *)instant
+- (NSString *)date
 {
-    if(self.instantElement)
+    if(self.dateElement)
     {
-        return [self.instantElement value];
+        return [self.dateElement value];
     }
     return nil;
 }
 
-- (void )setInstant:(NSDate *)instant
+- (void )setDate:(NSString *)date
 {
-    if(instant)
+    if(date)
     {
-        [self setInstantElement:[[FHIRInstant alloc] initWithValue:instant]];
+        [self setDateElement:[[FHIRDateTime alloc] initWithValue:date]];
     }
     else
     {
-        [self setInstantElement:nil];
+        [self setDateElement:nil];
     }
 }
 
@@ -111,8 +111,8 @@
     
     if(self.identifier != nil )
         [result addValidationRange:[self.identifier validate]];
-    if(self.instantElement != nil )
-        [result addValidationRange:[self.instantElement validate]];
+    if(self.dateElement != nil )
+        [result addValidationRange:[self.dateElement validate]];
     if(self.type != nil )
         [result addValidationRange:[self.type validate]];
     if(self.class_ != nil )

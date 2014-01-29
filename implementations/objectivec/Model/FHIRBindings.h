@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 
 /*
@@ -66,9 +66,6 @@ typedef enum
     kResourceTypeAdverseReaction, // The AdverseReaction resource
     kResourceTypeAlert, // The Alert resource
     kResourceTypeAllergyIntolerance, // The AllergyIntolerance resource
-    kResourceTypeAppointment, // The Appointment resource
-    kResourceTypeAppointmentResponse, // The AppointmentResponse resource
-    kResourceTypeAvailability, // The Availability resource
     kResourceTypeCarePlan, // The CarePlan resource
     kResourceTypeComposition, // The Composition resource
     kResourceTypeConceptMap, // The ConceptMap resource
@@ -110,12 +107,12 @@ typedef enum
     kResourceTypeQuestionnaire, // The Questionnaire resource
     kResourceTypeRelatedPerson, // The RelatedPerson resource
     kResourceTypeSecurityEvent, // The SecurityEvent resource
-    kResourceTypeSlot, // The Slot resource
     kResourceTypeSpecimen, // The Specimen resource
     kResourceTypeSubstance, // The Substance resource
     kResourceTypeSupply, // The Supply resource
     kResourceTypeValueSet, // The ValueSet resource
     kResourceTypeBinary, // The Binary resource
+    kResourceTypeAppointment, // The Appointment resource
 } kResourceType;
 
 

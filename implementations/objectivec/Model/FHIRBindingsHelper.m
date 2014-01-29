@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 
 
@@ -145,12 +145,6 @@
         result = kResourceTypeAlert;
     else if( [value isEqualToString:@"AllergyIntolerance"])
         result = kResourceTypeAllergyIntolerance;
-    else if( [value isEqualToString:@"Appointment"])
-        result = kResourceTypeAppointment;
-    else if( [value isEqualToString:@"AppointmentResponse"])
-        result = kResourceTypeAppointmentResponse;
-    else if( [value isEqualToString:@"Availability"])
-        result = kResourceTypeAvailability;
     else if( [value isEqualToString:@"CarePlan"])
         result = kResourceTypeCarePlan;
     else if( [value isEqualToString:@"Composition"])
@@ -233,8 +227,6 @@
         result = kResourceTypeRelatedPerson;
     else if( [value isEqualToString:@"SecurityEvent"])
         result = kResourceTypeSecurityEvent;
-    else if( [value isEqualToString:@"Slot"])
-        result = kResourceTypeSlot;
     else if( [value isEqualToString:@"Specimen"])
         result = kResourceTypeSpecimen;
     else if( [value isEqualToString:@"Substance"])
@@ -245,6 +237,8 @@
         result = kResourceTypeValueSet;
     else if( [value isEqualToString:@"Binary"])
         result = kResourceTypeBinary;
+    else if( [value isEqualToString:@"Appointment"])
+        result = kResourceTypeAppointment;
     else
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kResourceType" userInfo:nil];
     
@@ -264,12 +258,6 @@
         return @"Alert";
     else if( name==kResourceTypeAllergyIntolerance )
         return @"AllergyIntolerance";
-    else if( name==kResourceTypeAppointment )
-        return @"Appointment";
-    else if( name==kResourceTypeAppointmentResponse )
-        return @"AppointmentResponse";
-    else if( name==kResourceTypeAvailability )
-        return @"Availability";
     else if( name==kResourceTypeCarePlan )
         return @"CarePlan";
     else if( name==kResourceTypeComposition )
@@ -352,8 +340,6 @@
         return @"RelatedPerson";
     else if( name==kResourceTypeSecurityEvent )
         return @"SecurityEvent";
-    else if( name==kResourceTypeSlot )
-        return @"Slot";
     else if( name==kResourceTypeSpecimen )
         return @"Specimen";
     else if( name==kResourceTypeSubstance )
@@ -364,6 +350,8 @@
         return @"ValueSet";
     else if( name==kResourceTypeBinary )
         return @"Binary";
+    else if( name==kResourceTypeAppointment )
+        return @"Appointment";
     else
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kResourceType" userInfo:nil];
 }
@@ -998,166 +986,6 @@
         return @"unknown";
     else
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSensitivityType" userInfo:nil];
-}
-/*
- * Conversion of kAppointmentStatusfrom string
- */
-+ (kAppointmentStatus )parseAppointmentStatusString:(NSString *)value
-{
-    kAppointmentStatus result;
-    
-    if( [value isEqualToString:@"busy"])
-        result = kAppointmentStatusBusy;
-    else if( [value isEqualToString:@"free"])
-        result = kAppointmentStatusFree;
-    else if( [value isEqualToString:@"tentative"])
-        result = kAppointmentStatusTentative;
-    else if( [value isEqualToString:@"outofoffice"])
-        result = kAppointmentStatusOutofoffice;
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kAppointmentStatus" userInfo:nil];
-    
-    return result;
-}
-
-/*
- * Conversion of AppointmentStatusto string
- */
-+ (NSString *)stringAppointmentStatus:(kAppointmentStatus )name
-{
-    if( name==kAppointmentStatusBusy )
-        return @"busy";
-    else if( name==kAppointmentStatusFree )
-        return @"free";
-    else if( name==kAppointmentStatusTentative )
-        return @"tentative";
-    else if( name==kAppointmentStatusOutofoffice )
-        return @"outofoffice";
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kAppointmentStatus" userInfo:nil];
-}
-/*
- * Conversion of kParticipantRequiredfrom string
- */
-+ (kParticipantRequired )parseParticipantRequiredString:(NSString *)value
-{
-    kParticipantRequired result;
-    
-    if( [value isEqualToString:@"required"])
-        result = kParticipantRequiredRequired;
-    else if( [value isEqualToString:@"optional"])
-        result = kParticipantRequiredOptional;
-    else if( [value isEqualToString:@"information-only"])
-        result = kParticipantRequiredInformationOnly;
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kParticipantRequired" userInfo:nil];
-    
-    return result;
-}
-
-/*
- * Conversion of ParticipantRequiredto string
- */
-+ (NSString *)stringParticipantRequired:(kParticipantRequired )name
-{
-    if( name==kParticipantRequiredRequired )
-        return @"required";
-    else if( name==kParticipantRequiredOptional )
-        return @"optional";
-    else if( name==kParticipantRequiredInformationOnly )
-        return @"information-only";
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kParticipantRequired" userInfo:nil];
-}
-/*
- * Conversion of kParticipationStatusfrom string
- */
-+ (kParticipationStatus )parseParticipationStatusString:(NSString *)value
-{
-    kParticipationStatus result;
-    
-    if( [value isEqualToString:@"accepted"])
-        result = kParticipationStatusAccepted;
-    else if( [value isEqualToString:@"declined"])
-        result = kParticipationStatusDeclined;
-    else if( [value isEqualToString:@"tentative"])
-        result = kParticipationStatusTentative;
-    else if( [value isEqualToString:@"in-process"])
-        result = kParticipationStatusInProcess;
-    else if( [value isEqualToString:@"completed"])
-        result = kParticipationStatusCompleted;
-    else if( [value isEqualToString:@"needs-action"])
-        result = kParticipationStatusNeedsAction;
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kParticipationStatus" userInfo:nil];
-    
-    return result;
-}
-
-/*
- * Conversion of ParticipationStatusto string
- */
-+ (NSString *)stringParticipationStatus:(kParticipationStatus )name
-{
-    if( name==kParticipationStatusAccepted )
-        return @"accepted";
-    else if( name==kParticipationStatusDeclined )
-        return @"declined";
-    else if( name==kParticipationStatusTentative )
-        return @"tentative";
-    else if( name==kParticipationStatusInProcess )
-        return @"in-process";
-    else if( name==kParticipationStatusCompleted )
-        return @"completed";
-    else if( name==kParticipationStatusNeedsAction )
-        return @"needs-action";
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kParticipationStatus" userInfo:nil];
-}
-/*
- * Conversion of kParticipantStatusfrom string
- */
-+ (kParticipantStatus )parseParticipantStatusString:(NSString *)value
-{
-    kParticipantStatus result;
-    
-    if( [value isEqualToString:@"accepted"])
-        result = kParticipantStatusAccepted;
-    else if( [value isEqualToString:@"declined"])
-        result = kParticipantStatusDeclined;
-    else if( [value isEqualToString:@"tentative"])
-        result = kParticipantStatusTentative;
-    else if( [value isEqualToString:@"in-process"])
-        result = kParticipantStatusInProcess;
-    else if( [value isEqualToString:@"completed"])
-        result = kParticipantStatusCompleted;
-    else if( [value isEqualToString:@"needs-action"])
-        result = kParticipantStatusNeedsAction;
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kParticipantStatus" userInfo:nil];
-    
-    return result;
-}
-
-/*
- * Conversion of ParticipantStatusto string
- */
-+ (NSString *)stringParticipantStatus:(kParticipantStatus )name
-{
-    if( name==kParticipantStatusAccepted )
-        return @"accepted";
-    else if( name==kParticipantStatusDeclined )
-        return @"declined";
-    else if( name==kParticipantStatusTentative )
-        return @"tentative";
-    else if( name==kParticipantStatusInProcess )
-        return @"in-process";
-    else if( name==kParticipantStatusCompleted )
-        return @"completed";
-    else if( name==kParticipantStatusNeedsAction )
-        return @"needs-action";
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kParticipantStatus" userInfo:nil];
 }
 /*
  * Conversion of kCarePlanStatusfrom string
@@ -1819,6 +1647,8 @@
         result = kSearchParamTypeReference;
     else if( [value isEqualToString:@"composite"])
         result = kSearchParamTypeComposite;
+    else if( [value isEqualToString:@"variable"])
+        result = kSearchParamTypeVariable;
     else
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSearchParamType" userInfo:nil];
     
@@ -1842,6 +1672,8 @@
         return @"reference";
     else if( name==kSearchParamTypeComposite )
         return @"composite";
+    else if( name==kSearchParamTypeVariable )
+        return @"variable";
     else
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSearchParamType" userInfo:nil];
 }
@@ -3712,88 +3544,6 @@
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kQuestionnaireStatus" userInfo:nil];
 }
 /*
- * Conversion of kSecurityEventActionfrom string
- */
-+ (kSecurityEventAction )parseSecurityEventActionString:(NSString *)value
-{
-    kSecurityEventAction result;
-    
-    if( [value isEqualToString:@"C"])
-        result = kSecurityEventActionC;
-    else if( [value isEqualToString:@"R"])
-        result = kSecurityEventActionR;
-    else if( [value isEqualToString:@"U"])
-        result = kSecurityEventActionU;
-    else if( [value isEqualToString:@"D"])
-        result = kSecurityEventActionD;
-    else if( [value isEqualToString:@"E"])
-        result = kSecurityEventActionE;
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventAction" userInfo:nil];
-    
-    return result;
-}
-
-/*
- * Conversion of SecurityEventActionto string
- */
-+ (NSString *)stringSecurityEventAction:(kSecurityEventAction )name
-{
-    if( name==kSecurityEventActionC )
-        return @"C";
-    else if( name==kSecurityEventActionR )
-        return @"R";
-    else if( name==kSecurityEventActionU )
-        return @"U";
-    else if( name==kSecurityEventActionD )
-        return @"D";
-    else if( name==kSecurityEventActionE )
-        return @"E";
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventAction" userInfo:nil];
-}
-/*
- * Conversion of kSecurityEventParticipantNetworkTypefrom string
- */
-+ (kSecurityEventParticipantNetworkType )parseSecurityEventParticipantNetworkTypeString:(NSString *)value
-{
-    kSecurityEventParticipantNetworkType result;
-    
-    if( [value isEqualToString:@"1"])
-        result = kSecurityEventParticipantNetworkTypeN1;
-    else if( [value isEqualToString:@"2"])
-        result = kSecurityEventParticipantNetworkTypeN2;
-    else if( [value isEqualToString:@"3"])
-        result = kSecurityEventParticipantNetworkTypeN3;
-    else if( [value isEqualToString:@"4"])
-        result = kSecurityEventParticipantNetworkTypeN4;
-    else if( [value isEqualToString:@"5"])
-        result = kSecurityEventParticipantNetworkTypeN5;
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventParticipantNetworkType" userInfo:nil];
-    
-    return result;
-}
-
-/*
- * Conversion of SecurityEventParticipantNetworkTypeto string
- */
-+ (NSString *)stringSecurityEventParticipantNetworkType:(kSecurityEventParticipantNetworkType )name
-{
-    if( name==kSecurityEventParticipantNetworkTypeN1 )
-        return @"1";
-    else if( name==kSecurityEventParticipantNetworkTypeN2 )
-        return @"2";
-    else if( name==kSecurityEventParticipantNetworkTypeN3 )
-        return @"3";
-    else if( name==kSecurityEventParticipantNetworkTypeN4 )
-        return @"4";
-    else if( name==kSecurityEventParticipantNetworkTypeN5 )
-        return @"5";
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventParticipantNetworkType" userInfo:nil];
-}
-/*
  * Conversion of kSecurityEventObjectRolefrom string
  */
 + (kSecurityEventObjectRole )parseSecurityEventObjectRoleString:(NSString *)value
@@ -3909,6 +3659,47 @@
         return @"24";
     else
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventObjectRole" userInfo:nil];
+}
+/*
+ * Conversion of kSecurityEventActionfrom string
+ */
++ (kSecurityEventAction )parseSecurityEventActionString:(NSString *)value
+{
+    kSecurityEventAction result;
+    
+    if( [value isEqualToString:@"C"])
+        result = kSecurityEventActionC;
+    else if( [value isEqualToString:@"R"])
+        result = kSecurityEventActionR;
+    else if( [value isEqualToString:@"U"])
+        result = kSecurityEventActionU;
+    else if( [value isEqualToString:@"D"])
+        result = kSecurityEventActionD;
+    else if( [value isEqualToString:@"E"])
+        result = kSecurityEventActionE;
+    else
+        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventAction" userInfo:nil];
+    
+    return result;
+}
+
+/*
+ * Conversion of SecurityEventActionto string
+ */
++ (NSString *)stringSecurityEventAction:(kSecurityEventAction )name
+{
+    if( name==kSecurityEventActionC )
+        return @"C";
+    else if( name==kSecurityEventActionR )
+        return @"R";
+    else if( name==kSecurityEventActionU )
+        return @"U";
+    else if( name==kSecurityEventActionD )
+        return @"D";
+    else if( name==kSecurityEventActionE )
+        return @"E";
+    else
+        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventAction" userInfo:nil];
 }
 /*
  * Conversion of kSecurityEventObjectTypefrom string
@@ -4029,6 +3820,47 @@
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventObjectLifecycle" userInfo:nil];
 }
 /*
+ * Conversion of kSecurityEventParticipantNetworkTypefrom string
+ */
++ (kSecurityEventParticipantNetworkType )parseSecurityEventParticipantNetworkTypeString:(NSString *)value
+{
+    kSecurityEventParticipantNetworkType result;
+    
+    if( [value isEqualToString:@"1"])
+        result = kSecurityEventParticipantNetworkTypeN1;
+    else if( [value isEqualToString:@"2"])
+        result = kSecurityEventParticipantNetworkTypeN2;
+    else if( [value isEqualToString:@"3"])
+        result = kSecurityEventParticipantNetworkTypeN3;
+    else if( [value isEqualToString:@"4"])
+        result = kSecurityEventParticipantNetworkTypeN4;
+    else if( [value isEqualToString:@"5"])
+        result = kSecurityEventParticipantNetworkTypeN5;
+    else
+        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventParticipantNetworkType" userInfo:nil];
+    
+    return result;
+}
+
+/*
+ * Conversion of SecurityEventParticipantNetworkTypeto string
+ */
++ (NSString *)stringSecurityEventParticipantNetworkType:(kSecurityEventParticipantNetworkType )name
+{
+    if( name==kSecurityEventParticipantNetworkTypeN1 )
+        return @"1";
+    else if( name==kSecurityEventParticipantNetworkTypeN2 )
+        return @"2";
+    else if( name==kSecurityEventParticipantNetworkTypeN3 )
+        return @"3";
+    else if( name==kSecurityEventParticipantNetworkTypeN4 )
+        return @"4";
+    else if( name==kSecurityEventParticipantNetworkTypeN5 )
+        return @"5";
+    else
+        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventParticipantNetworkType" userInfo:nil];
+}
+/*
  * Conversion of kSecurityEventOutcomefrom string
  */
 + (kSecurityEventOutcome )parseSecurityEventOutcomeString:(NSString *)value
@@ -4064,43 +3896,6 @@
         return @"12";
     else
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSecurityEventOutcome" userInfo:nil];
-}
-/*
- * Conversion of kSlotStatusfrom string
- */
-+ (kSlotStatus )parseSlotStatusString:(NSString *)value
-{
-    kSlotStatus result;
-    
-    if( [value isEqualToString:@"BUSY"])
-        result = kSlotStatusBUSY;
-    else if( [value isEqualToString:@"FREE"])
-        result = kSlotStatusFREE;
-    else if( [value isEqualToString:@"BUSY-UNAVAILABLE"])
-        result = kSlotStatusBUSYUNAVAILABLE;
-    else if( [value isEqualToString:@"BUSY-TENTATIVE"])
-        result = kSlotStatusBUSYTENTATIVE;
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSlotStatus" userInfo:nil];
-    
-    return result;
-}
-
-/*
- * Conversion of SlotStatusto string
- */
-+ (NSString *)stringSlotStatus:(kSlotStatus )name
-{
-    if( name==kSlotStatusBUSY )
-        return @"BUSY";
-    else if( name==kSlotStatusFREE )
-        return @"FREE";
-    else if( name==kSlotStatusBUSYUNAVAILABLE )
-        return @"BUSY-UNAVAILABLE";
-    else if( name==kSlotStatusBUSYTENTATIVE )
-        return @"BUSY-TENTATIVE";
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSlotStatus" userInfo:nil];
 }
 /*
  * Conversion of kHierarchicalRelationshipTypefrom string
@@ -4204,47 +3999,6 @@
         return @"cancelled";
     else
         @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kSupplyStatus" userInfo:nil];
-}
-/*
- * Conversion of kCodeSelectionModefrom string
- */
-+ (kCodeSelectionMode )parseCodeSelectionModeString:(NSString *)value
-{
-    kCodeSelectionMode result;
-    
-    if( [value isEqualToString:@"code"])
-        result = kCodeSelectionModeCode;
-    else if( [value isEqualToString:@"children"])
-        result = kCodeSelectionModeChildren;
-    else if( [value isEqualToString:@"descendants"])
-        result = kCodeSelectionModeDescendants;
-    else if( [value isEqualToString:@"all"])
-        result = kCodeSelectionModeAll;
-    else if( [value isEqualToString:@"system"])
-        result = kCodeSelectionModeSystem;
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kCodeSelectionMode" userInfo:nil];
-    
-    return result;
-}
-
-/*
- * Conversion of CodeSelectionModeto string
- */
-+ (NSString *)stringCodeSelectionMode:(kCodeSelectionMode )name
-{
-    if( name==kCodeSelectionModeCode )
-        return @"code";
-    else if( name==kCodeSelectionModeChildren )
-        return @"children";
-    else if( name==kCodeSelectionModeDescendants )
-        return @"descendants";
-    else if( name==kCodeSelectionModeAll )
-        return @"all";
-    else if( name==kCodeSelectionModeSystem )
-        return @"system";
-    else
-        @throw [NSException exceptionWithName:@"Unrecognized" reason:@"Unrecognized kCodeSelectionMode" userInfo:nil];
 }
 /*
  * Conversion of kValueSetStatusfrom string

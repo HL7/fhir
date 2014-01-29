@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
  * null
@@ -39,11 +39,19 @@
 
 #import "FHIRComposition.h"
 
+@class FHIRString;
 @class FHIRCodeableConcept;
 @class FHIRResourceReference;
 @class FHIRSectionComponent;
 
 @interface FHIRSectionComponent : FHIRElement
+
+/*
+ * Label for section
+ */
+@property (nonatomic, strong) FHIRString *titleElement;
+
+@property (nonatomic, strong) NSString *title;
 
 /*
  * Classification of section (recommended)

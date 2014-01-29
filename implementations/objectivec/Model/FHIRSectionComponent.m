@@ -26,13 +26,14 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
  * null
  */
 #import "FHIRSectionComponent.h"
 
+#import "FHIRString.h"
 #import "FHIRCodeableConcept.h"
 #import "FHIRResourceReference.h"
 #import "FHIRSectionComponent.h"
@@ -41,12 +42,36 @@
 
 @implementation FHIRSectionComponent
 
+- (NSString *)title
+{
+    if(self.titleElement)
+    {
+        return [self.titleElement value];
+    }
+    return nil;
+}
+
+- (void )setTitle:(NSString *)title
+{
+    if(title)
+    {
+        [self setTitleElement:[[FHIRString alloc] initWithValue:title]];
+    }
+    else
+    {
+        [self setTitleElement:nil];
+    }
+}
+
+
 - (FHIRErrorList *)validate
 {
     FHIRErrorList *result = [[FHIRErrorList alloc] init];
     
     [result addValidation:[super validate]];
     
+    if(self.titleElement != nil )
+        [result addValidationRange:[self.titleElement validate]];
     if(self.code != nil )
         [result addValidationRange:[self.code validate]];
     if(self.subject != nil )

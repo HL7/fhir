@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 
 #import "FHIRBindings.h"
@@ -41,8 +41,6 @@
 #import "FHIRAdverseReaction.h"
 #import "FHIRAlert.h"
 #import "FHIRAllergyIntolerance.h"
-#import "FHIRAppointment.h"
-#import "FHIRAppointmentResponse.h"
 #import "FHIRCarePlan.h"
 #import "FHIRComposition.h"
 #import "FHIRConceptMap.h"
@@ -72,7 +70,6 @@
 #import "FHIRQuery.h"
 #import "FHIRQuestionnaire.h"
 #import "FHIRSecurityEvent.h"
-#import "FHIRSlot.h"
 #import "FHIRSpecimen.h"
 #import "FHIRSupply.h"
 #import "FHIRValueSet.h"
@@ -153,22 +150,6 @@
 
 + (kSensitivityType )parseSensitivityTypeString:(NSString *)value;
 + (NSString *)stringSensitivityType:(kSensitivityType )name;
-
-
-+ (kAppointmentStatus )parseAppointmentStatusString:(NSString *)value;
-+ (NSString *)stringAppointmentStatus:(kAppointmentStatus )name;
-
-
-+ (kParticipantRequired )parseParticipantRequiredString:(NSString *)value;
-+ (NSString *)stringParticipantRequired:(kParticipantRequired )name;
-
-
-+ (kParticipationStatus )parseParticipationStatusString:(NSString *)value;
-+ (NSString *)stringParticipationStatus:(kParticipationStatus )name;
-
-
-+ (kParticipantStatus )parseParticipantStatusString:(NSString *)value;
-+ (NSString *)stringParticipantStatus:(kParticipantStatus )name;
 
 
 + (kCarePlanStatus )parseCarePlanStatusString:(NSString *)value;
@@ -395,16 +376,12 @@
 + (NSString *)stringQuestionnaireStatus:(kQuestionnaireStatus )name;
 
 
-+ (kSecurityEventAction )parseSecurityEventActionString:(NSString *)value;
-+ (NSString *)stringSecurityEventAction:(kSecurityEventAction )name;
-
-
-+ (kSecurityEventParticipantNetworkType )parseSecurityEventParticipantNetworkTypeString:(NSString *)value;
-+ (NSString *)stringSecurityEventParticipantNetworkType:(kSecurityEventParticipantNetworkType )name;
-
-
 + (kSecurityEventObjectRole )parseSecurityEventObjectRoleString:(NSString *)value;
 + (NSString *)stringSecurityEventObjectRole:(kSecurityEventObjectRole )name;
+
+
++ (kSecurityEventAction )parseSecurityEventActionString:(NSString *)value;
++ (NSString *)stringSecurityEventAction:(kSecurityEventAction )name;
 
 
 + (kSecurityEventObjectType )parseSecurityEventObjectTypeString:(NSString *)value;
@@ -415,12 +392,12 @@
 + (NSString *)stringSecurityEventObjectLifecycle:(kSecurityEventObjectLifecycle )name;
 
 
++ (kSecurityEventParticipantNetworkType )parseSecurityEventParticipantNetworkTypeString:(NSString *)value;
++ (NSString *)stringSecurityEventParticipantNetworkType:(kSecurityEventParticipantNetworkType )name;
+
+
 + (kSecurityEventOutcome )parseSecurityEventOutcomeString:(NSString *)value;
 + (NSString *)stringSecurityEventOutcome:(kSecurityEventOutcome )name;
-
-
-+ (kSlotStatus )parseSlotStatusString:(NSString *)value;
-+ (NSString *)stringSlotStatus:(kSlotStatus )name;
 
 
 + (kHierarchicalRelationshipType )parseHierarchicalRelationshipTypeString:(NSString *)value;
@@ -433,10 +410,6 @@
 
 + (kSupplyStatus )parseSupplyStatusString:(NSString *)value;
 + (NSString *)stringSupplyStatus:(kSupplyStatus )name;
-
-
-+ (kCodeSelectionMode )parseCodeSelectionModeString:(NSString *)value;
-+ (NSString *)stringCodeSelectionMode:(kCodeSelectionMode )name;
 
 
 + (kValueSetStatus )parseValueSetStatusString:(NSString *)value;

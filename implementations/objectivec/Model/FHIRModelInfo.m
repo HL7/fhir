@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 
 #import "FHIRSearchParamDefinition.h"
@@ -71,10 +71,6 @@
 #import "FHIRAdverseReactionExposureComponent.h"
 #import "FHIRAlert.h"
 #import "FHIRAllergyIntolerance.h"
-#import "FHIRAppointment.h"
-#import "FHIRAppointmentParticipantComponent.h"
-#import "FHIRAppointmentResponse.h"
-#import "FHIRAvailability.h"
 #import "FHIRCarePlan.h"
 #import "FHIRCarePlanGoalComponent.h"
 #import "FHIRCarePlanParticipantComponent.h"
@@ -217,7 +213,6 @@
 #import "FHIRSecurityEventEventComponent.h"
 #import "FHIRSecurityEventParticipantNetworkComponent.h"
 #import "FHIRSecurityEventParticipantComponent.h"
-#import "FHIRSlot.h"
 #import "FHIRSpecimen.h"
 #import "FHIRSpecimenCollectionComponent.h"
 #import "FHIRSpecimenSourceComponent.h"
@@ -237,6 +232,7 @@
 #import "FHIRValueSetDefineConceptComponent.h"
 #import "FHIRValueSetExpansionComponent.h"
 #import "FHIRBinary.h"
+#import "FHIRAppointment.h"
 
 @interface FHIRModelInfo()
 @property (nonatomic, strong) NSArray *supportedResources;
@@ -274,9 +270,6 @@
             @"AdverseReaction",
             @"Alert",
             @"AllergyIntolerance",
-            @"Appointment",
-            @"AppointmentResponse",
-            @"Availability",
             @"CarePlan",
             @"Composition",
             @"ConceptMap",
@@ -318,12 +311,12 @@
             @"Questionnaire",
             @"RelatedPerson",
             @"SecurityEvent",
-            @"Slot",
             @"Specimen",
             @"Substance",
             @"Supply",
             @"ValueSet",
             @"Binary",
+            @"Appointment",
         ]];
         
         [self setVersion:@"0.12"];
@@ -368,10 +361,6 @@
             @"AdverseReactionExposureComponent" : [FHIRAdverseReactionExposureComponent class],
             @"Alert" : [FHIRAlert class],
             @"AllergyIntolerance" : [FHIRAllergyIntolerance class],
-            @"Appointment" : [FHIRAppointment class],
-            @"AppointmentParticipantComponent" : [FHIRAppointmentParticipantComponent class],
-            @"AppointmentResponse" : [FHIRAppointmentResponse class],
-            @"Availability" : [FHIRAvailability class],
             @"CarePlan" : [FHIRCarePlan class],
             @"CarePlanGoalComponent" : [FHIRCarePlanGoalComponent class],
             @"CarePlanParticipantComponent" : [FHIRCarePlanParticipantComponent class],
@@ -514,7 +503,6 @@
             @"SecurityEventEventComponent" : [FHIRSecurityEventEventComponent class],
             @"SecurityEventParticipantNetworkComponent" : [FHIRSecurityEventParticipantNetworkComponent class],
             @"SecurityEventParticipantComponent" : [FHIRSecurityEventParticipantComponent class],
-            @"Slot" : [FHIRSlot class],
             @"Specimen" : [FHIRSpecimen class],
             @"SpecimenCollectionComponent" : [FHIRSpecimenCollectionComponent class],
             @"SpecimenSourceComponent" : [FHIRSpecimenSourceComponent class],
@@ -534,6 +522,7 @@
             @"ValueSetDefineConceptComponent" : [FHIRValueSetDefineConceptComponent class],
             @"ValueSetExpansionComponent" : [FHIRValueSetExpansionComponent class],
             @"Binary" : [FHIRBinary class],
+            @"Appointment" : [FHIRAppointment class],
         }];
         
         [self setOcTypeToFhirString:@{
@@ -576,10 +565,6 @@
             @"FHIRAdverseReactionExposureComponent" : @"AdverseReactionExposureComponent",
             @"FHIRAlert" : @"Alert",
             @"FHIRAllergyIntolerance" : @"AllergyIntolerance",
-            @"FHIRAppointment" : @"Appointment",
-            @"FHIRAppointmentParticipantComponent" : @"AppointmentParticipantComponent",
-            @"FHIRAppointmentResponse" : @"AppointmentResponse",
-            @"FHIRAvailability" : @"Availability",
             @"FHIRCarePlan" : @"CarePlan",
             @"FHIRCarePlanGoalComponent" : @"CarePlanGoalComponent",
             @"FHIRCarePlanParticipantComponent" : @"CarePlanParticipantComponent",
@@ -722,7 +707,6 @@
             @"FHIRSecurityEventEventComponent" : @"SecurityEventEventComponent",
             @"FHIRSecurityEventParticipantNetworkComponent" : @"SecurityEventParticipantNetworkComponent",
             @"FHIRSecurityEventParticipantComponent" : @"SecurityEventParticipantComponent",
-            @"FHIRSlot" : @"Slot",
             @"FHIRSpecimen" : @"Specimen",
             @"FHIRSpecimenCollectionComponent" : @"SpecimenCollectionComponent",
             @"FHIRSpecimenSourceComponent" : @"SpecimenSourceComponent",
@@ -742,6 +726,7 @@
             @"FHIRValueSetDefineConceptComponent" : @"ValueSetDefineConceptComponent",
             @"FHIRValueSetExpansionComponent" : @"ValueSetExpansionComponent",
             @"FHIRBinary" : @"Binary",
+            @"FHIRAppointment" : @"Appointment",
         }];
         
         [self setSearchParameters:@[
@@ -759,18 +744,6 @@
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAllergyIntolerance" name:@"subject" description:@"The subject that the sensitivity is about" type:kSearchParamTypeReference compositeParams: nil path: @[@"AllergyIntolerance.subject", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAllergyIntolerance" name:@"date" description:@"Recorded date/time." type:kSearchParamTypeDate compositeParams: nil path: @[@"AllergyIntolerance.recordedDate", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAllergyIntolerance" name:@"type" description:@"The type of sensitivity" type:kSearchParamTypeToken compositeParams: nil path: @[@"AllergyIntolerance.sensitivityType", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointment" name:@"partstatus" description:@"The Participation status of the subject, or other participant on the appointment" type:kSearchParamTypeToken compositeParams: nil path: @[@"Appointment.participant.status", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointment" name:@"_id" description:@"The logical resource id associated with the resource (must be supported by all servers)" type:kSearchParamTypeToken compositeParams: nil path: nil], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointment" name:@"status" description:@"The overall status of the appointment" type:kSearchParamTypeString compositeParams: nil path: @[@"Appointment.status", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointment" name:@"subject" description:@"The subject that the sensitivity is about" type:kSearchParamTypeReference compositeParams: nil path: @[@"Appointment.participant.individual", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointment" name:@"date" description:@"Appointment date/time." type:kSearchParamTypeDate compositeParams: nil path: @[@"Appointment.start", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointmentResponse" name:@"partstatus" description:@"The overall status of the appointment" type:kSearchParamTypeString compositeParams: nil path: @[@"AppointmentResponse.participantStatus", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointmentResponse" name:@"_id" description:@"The logical resource id associated with the resource (must be supported by all servers)" type:kSearchParamTypeToken compositeParams: nil path: nil], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointmentResponse" name:@"subject" description:@"The subject that the appointment response replies for" type:kSearchParamTypeReference compositeParams: nil path: @[@"AppointmentResponse.individual", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAppointmentResponse" name:@"appointment" description:@"The appointment that the response is attached to" type:kSearchParamTypeReference compositeParams: nil path: @[@"AppointmentResponse.appointment", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAvailability" name:@"individual" description:@"The individual to find an availability for" type:kSearchParamTypeReference compositeParams: nil path: @[@"Availability.individual", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAvailability" name:@"_id" description:@"The logical resource id associated with the resource (must be supported by all servers)" type:kSearchParamTypeToken compositeParams: nil path: nil], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRAvailability" name:@"slottype" description:@"The type of appointments that can be booked into associated slot(s)" type:kSearchParamTypeToken compositeParams: nil path: @[@"Availability.type", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRCarePlan" name:@"activitycode" description:@"Detail type of activity" type:kSearchParamTypeToken compositeParams: nil path: @[@"CarePlan.activity.simple.code", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRCarePlan" name:@"patient" description:@"Who care plan is for" type:kSearchParamTypeReference compositeParams: nil path: @[@"CarePlan.patient", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRCarePlan" name:@"_id" description:@"The logical resource id associated with the resource (must be supported by all servers)" type:kSearchParamTypeToken compositeParams: nil path: nil], 
@@ -787,9 +760,9 @@
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRComposition" name:@"context" description:@"Code(s) that apply to the event being documented" type:kSearchParamTypeToken compositeParams: nil path: @[@"Composition.event.code", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRComposition" name:@"class" description:@"Categorization of Composition" type:kSearchParamTypeToken compositeParams: nil path: @[@"Composition.class", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRComposition" name:@"section-type" description:@"Classification of section (recommended)" type:kSearchParamTypeToken compositeParams: nil path: @[@"Composition.section.code", ]], 
+            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRComposition" name:@"date" description:@"Composition editing time" type:kSearchParamTypeDate compositeParams: nil path: @[@"Composition.date", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRComposition" name:@"type" description:@"Kind of composition (LOINC if possible)" type:kSearchParamTypeToken compositeParams: nil path: @[@"Composition.type", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRComposition" name:@"identifier" description:@"Logical identifier of composition (version-independent)" type:kSearchParamTypeToken compositeParams: nil path: @[@"Composition.identifier", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRComposition" name:@"instant" description:@"Composition editing time" type:kSearchParamTypeDate compositeParams: nil path: @[@"Composition.instant", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRConceptMap" name:@"dependson" description:@"Reference to element/field/valueset provides the context" type:kSearchParamTypeToken compositeParams: nil path: @[@"ConceptMap.concept.dependsOn.concept", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRConceptMap" name:@"status" description:@"Status of the concept map" type:kSearchParamTypeToken compositeParams: nil path: @[@"ConceptMap.status", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRConceptMap" name:@"date" description:@"The concept map publication date" type:kSearchParamTypeDate compositeParams: nil path: @[@"ConceptMap.date", ]], 
@@ -1164,11 +1137,6 @@
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSecurityEvent" name:@"action" description:@"Type of action performed during the event" type:kSearchParamTypeToken compositeParams: nil path: @[@"SecurityEvent.event.action", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSecurityEvent" name:@"object-type" description:@"Object type being audited" type:kSearchParamTypeToken compositeParams: nil path: @[@"SecurityEvent.object.type", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSecurityEvent" name:@"user" description:@"Unique identifier for the user" type:kSearchParamTypeToken compositeParams: nil path: @[@"SecurityEvent.participant.userId", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSlot" name:@"_id" description:@"The logical resource id associated with the resource (must be supported by all servers)" type:kSearchParamTypeToken compositeParams: nil path: nil], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSlot" name:@"start" description:@"Appointment date/time." type:kSearchParamTypeDate compositeParams: nil path: @[@"Slot.start", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSlot" name:@"slottype" description:@"The type of appointments that can be booked into the slot" type:kSearchParamTypeToken compositeParams: nil path: @[@"Slot.type", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSlot" name:@"fbtype" description:@"The free/busy status of the appointment" type:kSearchParamTypeToken compositeParams: nil path: @[@"Slot.freeBusyType", ]], 
-            [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSlot" name:@"availability" description:@"The Availability Resource that we are seeking a slot within" type:kSearchParamTypeReference compositeParams: nil path: @[@"Slot.availability", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSpecimen" name:@"_id" description:@"The logical resource id associated with the resource (must be supported by all servers)" type:kSearchParamTypeToken compositeParams: nil path: nil], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSpecimen" name:@"subject" description:@"The subject of the specimen" type:kSearchParamTypeReference compositeParams: nil path: @[@"Specimen.subject", ]], 
             [[FHIRSearchParamDefinition alloc] initWithResource:@"FHIRSubstance" name:@"substance" description:@"A component of the substance" type:kSearchParamTypeReference compositeParams: nil path: @[@"Substance.ingredient.substance", ]], 

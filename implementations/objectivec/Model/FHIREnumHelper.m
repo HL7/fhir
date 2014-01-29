@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
   Copyright (c) 2011-2013, HL7, Inc.
@@ -56,7 +56,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 #import "FHIREnumHelper.h"
 #import "FHIRBindingsHelper.h"
@@ -139,22 +139,6 @@
     else if(enumType == kEnumTypeSensitivityType)
     {
         return [FHIRBindingsHelper parseSensitivityTypeString:value];
-    }
-    else if(enumType == kEnumTypeAppointmentStatus)
-    {
-        return [FHIRBindingsHelper parseAppointmentStatusString:value];
-    }
-    else if(enumType == kEnumTypeParticipantRequired)
-    {
-        return [FHIRBindingsHelper parseParticipantRequiredString:value];
-    }
-    else if(enumType == kEnumTypeParticipationStatus)
-    {
-        return [FHIRBindingsHelper parseParticipationStatusString:value];
-    }
-    else if(enumType == kEnumTypeParticipantStatus)
-    {
-        return [FHIRBindingsHelper parseParticipantStatusString:value];
     }
     else if(enumType == kEnumTypeCarePlanStatus)
     {
@@ -380,17 +364,13 @@
     {
         return [FHIRBindingsHelper parseQuestionnaireStatusString:value];
     }
-    else if(enumType == kEnumTypeSecurityEventAction)
-    {
-        return [FHIRBindingsHelper parseSecurityEventActionString:value];
-    }
-    else if(enumType == kEnumTypeSecurityEventParticipantNetworkType)
-    {
-        return [FHIRBindingsHelper parseSecurityEventParticipantNetworkTypeString:value];
-    }
     else if(enumType == kEnumTypeSecurityEventObjectRole)
     {
         return [FHIRBindingsHelper parseSecurityEventObjectRoleString:value];
+    }
+    else if(enumType == kEnumTypeSecurityEventAction)
+    {
+        return [FHIRBindingsHelper parseSecurityEventActionString:value];
     }
     else if(enumType == kEnumTypeSecurityEventObjectType)
     {
@@ -400,13 +380,13 @@
     {
         return [FHIRBindingsHelper parseSecurityEventObjectLifecycleString:value];
     }
+    else if(enumType == kEnumTypeSecurityEventParticipantNetworkType)
+    {
+        return [FHIRBindingsHelper parseSecurityEventParticipantNetworkTypeString:value];
+    }
     else if(enumType == kEnumTypeSecurityEventOutcome)
     {
         return [FHIRBindingsHelper parseSecurityEventOutcomeString:value];
-    }
-    else if(enumType == kEnumTypeSlotStatus)
-    {
-        return [FHIRBindingsHelper parseSlotStatusString:value];
     }
     else if(enumType == kEnumTypeHierarchicalRelationshipType)
     {
@@ -419,10 +399,6 @@
     else if(enumType == kEnumTypeSupplyStatus)
     {
         return [FHIRBindingsHelper parseSupplyStatusString:value];
-    }
-    else if(enumType == kEnumTypeCodeSelectionMode)
-    {
-        return [FHIRBindingsHelper parseCodeSelectionModeString:value];
     }
     else if(enumType == kEnumTypeValueSetStatus)
     {
@@ -479,14 +455,6 @@
         return [FHIRBindingsHelper stringCriticality:value];
     else if(enumType == kEnumTypeSensitivityType)
         return [FHIRBindingsHelper stringSensitivityType:value];
-    else if(enumType == kEnumTypeAppointmentStatus)
-        return [FHIRBindingsHelper stringAppointmentStatus:value];
-    else if(enumType == kEnumTypeParticipantRequired)
-        return [FHIRBindingsHelper stringParticipantRequired:value];
-    else if(enumType == kEnumTypeParticipationStatus)
-        return [FHIRBindingsHelper stringParticipationStatus:value];
-    else if(enumType == kEnumTypeParticipantStatus)
-        return [FHIRBindingsHelper stringParticipantStatus:value];
     else if(enumType == kEnumTypeCarePlanStatus)
         return [FHIRBindingsHelper stringCarePlanStatus:value];
     else if(enumType == kEnumTypeCarePlanActivityCategory)
@@ -599,28 +567,24 @@
         return [FHIRBindingsHelper stringQueryOutcome:value];
     else if(enumType == kEnumTypeQuestionnaireStatus)
         return [FHIRBindingsHelper stringQuestionnaireStatus:value];
-    else if(enumType == kEnumTypeSecurityEventAction)
-        return [FHIRBindingsHelper stringSecurityEventAction:value];
-    else if(enumType == kEnumTypeSecurityEventParticipantNetworkType)
-        return [FHIRBindingsHelper stringSecurityEventParticipantNetworkType:value];
     else if(enumType == kEnumTypeSecurityEventObjectRole)
         return [FHIRBindingsHelper stringSecurityEventObjectRole:value];
+    else if(enumType == kEnumTypeSecurityEventAction)
+        return [FHIRBindingsHelper stringSecurityEventAction:value];
     else if(enumType == kEnumTypeSecurityEventObjectType)
         return [FHIRBindingsHelper stringSecurityEventObjectType:value];
     else if(enumType == kEnumTypeSecurityEventObjectLifecycle)
         return [FHIRBindingsHelper stringSecurityEventObjectLifecycle:value];
+    else if(enumType == kEnumTypeSecurityEventParticipantNetworkType)
+        return [FHIRBindingsHelper stringSecurityEventParticipantNetworkType:value];
     else if(enumType == kEnumTypeSecurityEventOutcome)
         return [FHIRBindingsHelper stringSecurityEventOutcome:value];
-    else if(enumType == kEnumTypeSlotStatus)
-        return [FHIRBindingsHelper stringSlotStatus:value];
     else if(enumType == kEnumTypeHierarchicalRelationshipType)
         return [FHIRBindingsHelper stringHierarchicalRelationshipType:value];
     else if(enumType == kEnumTypeSupplyDispenseStatus)
         return [FHIRBindingsHelper stringSupplyDispenseStatus:value];
     else if(enumType == kEnumTypeSupplyStatus)
         return [FHIRBindingsHelper stringSupplyStatus:value];
-    else if(enumType == kEnumTypeCodeSelectionMode)
-        return [FHIRBindingsHelper stringCodeSelectionMode:value];
     else if(enumType == kEnumTypeValueSetStatus)
         return [FHIRBindingsHelper stringValueSetStatus:value];
     else if(enumType == kEnumTypeFilterOperator)

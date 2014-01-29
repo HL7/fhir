@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
  * null
@@ -60,7 +60,7 @@
 @property (nonatomic, strong) NSString *source;
 
 /*
- * number | date | string | token | reference | composite
+ * number | date | string | token | reference | composite | variable
  */
 @property (nonatomic, strong) FHIRCode/*<code>*/ *typeElement;
 

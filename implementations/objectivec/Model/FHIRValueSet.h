@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
  * A set of codes drawn from one or more code systems
@@ -50,19 +50,7 @@
 @interface FHIRValueSet : FHIRResource
 
 /*
- * The way in which the code is selected
- */
-typedef enum 
-{
-    kCodeSelectionModeCode, // Only this code is selected.
-    kCodeSelectionModeChildren, // Only the immediate children (codes with a is-a relationship) are selected, but not this code itself.
-    kCodeSelectionModeDescendants, // All descendants of this code are selected, but not this code itself.
-    kCodeSelectionModeAll, // This code and any descendants are selected.
-    kCodeSelectionModeSystem, // All codes from the specified code system.
-} kCodeSelectionMode;
-
-/*
- * The lifecycle status of a Value Set or Comcept Map
+ * The lifecycle status of a Value Set or Concept Map
  */
 typedef enum 
 {

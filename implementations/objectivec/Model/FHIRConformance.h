@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
  * A conformance statement
@@ -147,6 +147,7 @@ typedef enum
     kSearchParamTypeToken, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
     kSearchParamTypeReference, // A reference to another resource.
     kSearchParamTypeComposite, // A composite search parameter that combines a search on two values together.
+    kSearchParamTypeVariable, // A search parameter on an element that can have multiple types including quantity and codeableConcept.
 } kSearchParamType;
 
 /*

@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
  * Event record kept for security purposes
@@ -44,30 +44,6 @@
 @class FHIRSecurityEventObjectComponent;
 
 @interface FHIRSecurityEvent : FHIRResource
-
-/*
- * Indicator for type of action performed during the event that generated the audit.
- */
-typedef enum 
-{
-    kSecurityEventActionC, // Create a new database object, such as Placing an Order.
-    kSecurityEventActionR, // Display or print data, such as a Doctor Census.
-    kSecurityEventActionU, // Update data, such as Revise Patient Information.
-    kSecurityEventActionD, // Delete items, such as a doctor master file record.
-    kSecurityEventActionE, // Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation.
-} kSecurityEventAction;
-
-/*
- * The type of network access point that originated the audit event
- */
-typedef enum 
-{
-    kSecurityEventParticipantNetworkTypeN1, // Machine Name, including DNS name.
-    kSecurityEventParticipantNetworkTypeN2, // IP Address.
-    kSecurityEventParticipantNetworkTypeN3, // Telephone Number.
-    kSecurityEventParticipantNetworkTypeN4, // Email address.
-    kSecurityEventParticipantNetworkTypeN5, // URI (User directory, HTTP-PUT, ftp, etc.).
-} kSecurityEventParticipantNetworkType;
 
 /*
  * Code representing the functional application role of Participant Object being audited
@@ -101,6 +77,18 @@ typedef enum
 } kSecurityEventObjectRole;
 
 /*
+ * Indicator for type of action performed during the event that generated the audit.
+ */
+typedef enum 
+{
+    kSecurityEventActionC, // Create a new database object, such as Placing an Order.
+    kSecurityEventActionR, // Display or print data, such as a Doctor Census.
+    kSecurityEventActionU, // Update data, such as Revise Patient Information.
+    kSecurityEventActionD, // Delete items, such as a doctor master file record.
+    kSecurityEventActionE, // Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation.
+} kSecurityEventAction;
+
+/*
  * Code for the participant object type being audited
  */
 typedef enum 
@@ -132,6 +120,18 @@ typedef enum
     kSecurityEventObjectLifecycleN14, // Logical deletion.
     kSecurityEventObjectLifecycleN15, // Permanent erasure / Physical destruction.
 } kSecurityEventObjectLifecycle;
+
+/*
+ * The type of network access point that originated the audit event
+ */
+typedef enum 
+{
+    kSecurityEventParticipantNetworkTypeN1, // Machine Name, including DNS name.
+    kSecurityEventParticipantNetworkTypeN2, // IP Address.
+    kSecurityEventParticipantNetworkTypeN3, // Telephone Number.
+    kSecurityEventParticipantNetworkTypeN4, // Email address.
+    kSecurityEventParticipantNetworkTypeN5, // URI (User directory, HTTP-PUT, ftp, etc.).
+} kSecurityEventParticipantNetworkType;
 
 /*
  * Indicates whether the event succeeded or failed

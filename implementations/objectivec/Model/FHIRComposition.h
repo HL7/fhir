@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
  * A set of resources composed into a single coherent clinical statement with clinical attestation
@@ -39,7 +39,7 @@
 
 
 @class FHIRIdentifier;
-@class FHIRInstant;
+@class FHIRDateTime;
 @class FHIRCodeableConcept;
 @class FHIRString;
 @class FHIRCode;
@@ -82,9 +82,9 @@ typedef enum
 /*
  * Composition editing time
  */
-@property (nonatomic, strong) FHIRInstant *instantElement;
+@property (nonatomic, strong) FHIRDateTime *dateElement;
 
-@property (nonatomic, strong) NSDate *instant;
+@property (nonatomic, strong) NSString *date;
 
 /*
  * Kind of composition (LOINC if possible)

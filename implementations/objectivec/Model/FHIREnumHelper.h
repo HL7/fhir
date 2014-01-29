@@ -26,7 +26,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 /*
   Copyright (c) 2011-2013, HL7, Inc.
@@ -56,7 +56,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
- * Generated on Wed, Jan 29, 2014 07:56+1100 for FHIR v0.12
+ * Generated on Thu, Jan 30, 2014 05:26+1100 for FHIR v0.12
  */
 
 #import "FHIRBindings.h"
@@ -85,10 +85,6 @@ typedef enum
     kEnumTypeSensitivityStatus,
     kEnumTypeCriticality,
     kEnumTypeSensitivityType,
-    kEnumTypeAppointmentStatus,
-    kEnumTypeParticipantRequired,
-    kEnumTypeParticipationStatus,
-    kEnumTypeParticipantStatus,
     kEnumTypeCarePlanStatus,
     kEnumTypeCarePlanActivityCategory,
     kEnumTypeCarePlanGoalStatus,
@@ -145,17 +141,15 @@ typedef enum
     kEnumTypeProvenanceEntityRole,
     kEnumTypeQueryOutcome,
     kEnumTypeQuestionnaireStatus,
-    kEnumTypeSecurityEventAction,
-    kEnumTypeSecurityEventParticipantNetworkType,
     kEnumTypeSecurityEventObjectRole,
+    kEnumTypeSecurityEventAction,
     kEnumTypeSecurityEventObjectType,
     kEnumTypeSecurityEventObjectLifecycle,
+    kEnumTypeSecurityEventParticipantNetworkType,
     kEnumTypeSecurityEventOutcome,
-    kEnumTypeSlotStatus,
     kEnumTypeHierarchicalRelationshipType,
     kEnumTypeSupplyDispenseStatus,
     kEnumTypeSupplyStatus,
-    kEnumTypeCodeSelectionMode,
     kEnumTypeValueSetStatus,
     kEnumTypeFilterOperator,
 } kEnumType;
