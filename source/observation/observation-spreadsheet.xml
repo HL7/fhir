@@ -20,6 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>30</WindowTopY>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -957,7 +958,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1141,8 +1141,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">value</Data></Cell>
-    <Cell><Data ss:Type="String">The code or value of a result</Data></Cell>
-    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">The value of the observation, if the value has the type CodeableConcept, string, Quantity, or SampledData</Data></Cell>
+    <Cell><Data ss:Type="String">variable</Data></Cell>
     <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1281,6 +1281,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1300,7 +1301,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
