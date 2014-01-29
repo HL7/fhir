@@ -191,6 +191,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Primarily used for identification and definition of Medication, but also covers ingredients and packaging</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">ManufacturedProduct[classCode=ADMM]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Medication.name</Data><NamedCell
@@ -203,7 +205,9 @@
     <Cell><Data ss:Type="String">The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">RXO-1.2-Requested Give Code.text / RXE-2.2-Give Code.text / RXD-2.2-Dispense/Give Code.text / RXG-4.2-Give Code.text / RXA-5.2-Administered Code.text&#10;</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">.name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">RXO-1.2-Requested Give Code.text / RXE-2.2-Give Code.text / RXD-2.2-Dispense/Give Code.text / RXG-4.2-Give Code.text / RXA-5.2-Administered Code.text&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
@@ -225,7 +229,8 @@
     <Cell ss:Index="12" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">When defining a medication, the code is the &quot;identifying&quot; code for the medication. All the codings provided should be at the same level in the hierarchy (generic, formulation, generic strength, etc.). Codes that relate the medication across the hierarchy should be conveyed using the relationships inherent in Medication.package and Medication.product.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -241,6 +246,8 @@
     <Cell><Data ss:Type="String">Set to true if the item is attributable to a specific manufacturer (even if we don't know who that is) </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">true if .player.scopingRole[typeCode=MANU] exists</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Medication.manufacturer</Data><NamedCell
@@ -253,7 +260,9 @@
     <Cell><Data ss:Type="String">Describes the details of the manufacturer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name&#10;</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">.player.scopingRole[typeCode=MANU].scoper</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -269,6 +278,8 @@
     <Cell><Data ss:Type="String">Medications are either a single administrable product or a package that contains one or more products.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.player.classCode&#10;(CONT or not)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Medication.product</Data><NamedCell
@@ -279,6 +290,8 @@
     <Cell ss:Index="8"><Data ss:Type="String">Administrable medication details</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Information that only applies to products (not packages)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.player [classCode != CONT]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -293,7 +306,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Describes the form of the item.  Powder; tables; carton</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form&#10;</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">.formCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
@@ -308,6 +323,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">The ingredients need not be a complete list; usually only active ingredients are listed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.scopesRole[typeCode=INGR]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Should have an indicator distinguishing active &amp; inactive</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -321,7 +338,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The actual ingredient - either a substance (simple ingredient) or another medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">if substance: RXC-2-Component Code&#10;if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code&#10;</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">.player</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">if substance: RXC-2-Component Code&#10;if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="240">
@@ -334,7 +353,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">if substance: RXC-3-Component Amount &amp; RXC-4-Component Units&#10;if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum &amp; RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount &amp; RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum &amp; RXE-5-Give Units / RXE-4-Give Amount - Maximum &amp; RXE-5-Give Units / RXE-10-Dispense Amount &amp; RXE-10-Dispense Units&#10;</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">.quantity</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">if substance: RXC-3-Component Amount &amp; RXC-4-Component Units&#10;if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum &amp; RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount &amp; RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum &amp; RXE-5-Give Units / RXE-4-Give Amount - Maximum &amp; RXE-5-Give Units / RXE-10-Dispense Amount &amp; RXE-10-Dispense Units&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -355,7 +376,8 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.player[classCode=CONT]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Medication.package.container</Data><NamedCell
@@ -369,6 +391,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The kind of container that this package comes as</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Medication.package.content</Data><NamedCell
@@ -379,6 +403,8 @@
     <Cell ss:Index="8"><Data ss:Type="String">What is  in the package?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A set of components that go to make up the described item.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.scopesRole[typeCode=CONT]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
@@ -397,6 +423,8 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Identifies one of the items in the package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s63"><Data ss:Type="String">.player</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s71">
     <Cell ss:StyleID="s64"><Data ss:Type="String">Medication.package.content.amount</Data><NamedCell
@@ -414,6 +442,8 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">The amount of the product that is in the package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s63"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s63"><Data ss:Type="String">.quantity</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>

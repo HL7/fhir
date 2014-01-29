@@ -20,7 +20,6 @@
   <WindowWidth>10935</WindowWidth>
   <WindowTopX>8265</WindowTopX>
   <WindowTopY>6420</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -703,9 +702,10 @@
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="14" ss:StyleID="s72"/>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">subjectOf.CareEvent.performer.AssignedEntity</Data></Cell>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="17" ss:StyleID="s72"/>
+    <Cell><Data ss:Type="String">Need to rationalize this with circleOfCare from CarePlan</Data></Cell>
+    <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Patient.managingOrganization</Data></Cell>
@@ -789,20 +789,26 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>32</TopRowVisible>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
-   <ActivePane>1</ActivePane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>35</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1027,7 +1033,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

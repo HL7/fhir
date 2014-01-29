@@ -20,7 +20,6 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>4140</WindowTopX>
   <WindowTopY>1515</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -105,7 +104,7 @@
   <Style ss:ID="s73">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s76">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
  </Styles>
@@ -369,10 +368,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -385,12 +385,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -763,7 +760,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s67"><Data ss:Type="String">GroupKind</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Kind of particular resource</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Kind of particular resource.  E.g. cow, syringe, lake, etc.</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s73"/>
    </Row>
@@ -773,9 +770,9 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s73"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell ss:StyleID="s67"><Data ss:Type="String">GroupCharacteristicValue</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Value of descriptive member characteristic</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Value of descriptive member characteristic.  E.g. red, male, pneumonia, caucasian, etc.</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s73"/>
    </Row>
@@ -815,8 +812,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -964,7 +959,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
@@ -976,7 +971,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

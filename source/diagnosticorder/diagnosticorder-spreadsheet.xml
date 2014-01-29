@@ -101,6 +101,14 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
@@ -117,13 +125,13 @@
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="82.5"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.75" ss:Span="1"/>
    <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="132"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="75.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="290.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="666.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="224.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="16" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="164.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="722.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
+   <Row ss:Height="45" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -150,7 +158,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Notes on mapping</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DiagnosticOrder</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -165,9 +173,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Report, Test, Result, Results, Labs, Laboratory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Observation[classCode=OBS, moodCode=RQO, code&lt;&quot;diagnostic order&quot;]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">DiagnosticOrder.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -177,10 +187,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13" ss:StyleID="s77"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DiagnosticOrder.orderer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -190,9 +201,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The practitioner that holds legal responsibility for ordering the investigation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.participation[typeCode=AUT].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DiagnosticOrder.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -202,9 +215,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifiers assigned to this order by the order or by the receiver</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.id</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">DiagnosticOrder.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -214,9 +229,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">An encounter that provides additional informaton about the healthcare context in which this request is made</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">DiagnosticOrder.clinicalNotes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -228,9 +245,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.reasonCode.originalText</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">DiagnosticOrder.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -242,9 +261,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Many investigation requests will create a need for specimens, but the request itself is not actually about the specimens. This is provided for when the diagnostic investigation is requested on already existing specimens</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.participation[typeCode=SPC].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">DiagnosticOrder.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -258,9 +279,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Typically the system placing the order sets the status to requested. There after, the order is maintained by the receiver that updates the status as the request is handled</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.statusCode&#10;also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">DiagnosticOrder.priority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -274,9 +297,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">The Order resource also has a priority. Generally, these should be the same, but they can be different, for instance in the case where the clinician indicates that the order is urgent, but the subsequent workflow process overrule this priority for some reason. The effective default value is &quot;normal&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.priorityCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">DiagnosticOrder.event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -288,9 +313,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This is not the same as an audit trail - it is a view of the important things that happened in the past. Typically, there would only be one entry for any given status, and systems may not record all the status events</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.inboundRelationship[typeCode=FLFS].source</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">DiagnosticOrder.event.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -302,9 +329,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The status for the event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.statusCode&#10;also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">DiagnosticOrder.event.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -316,9 +345,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Additional information about the event that occurred - e.g. if the status remained unchanged</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.text</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DiagnosticOrder.event.dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -328,9 +359,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The date/time at which the event occurred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.effectiveTime</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DiagnosticOrder.event.actor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -340,9 +373,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The person who was responsible for performing or recording the action</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.participation[AUT or PFM]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">DiagnosticOrder.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -354,9 +389,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">There would always be at least one item in normal usage, but this is optional so that a workflow can quote order details without having to list the items</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=OBS]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -370,10 +407,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">OBX-4</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">OBX-4</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -385,9 +422,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">A single specimen should not appear in both DIagnosticOrder.specimen and DiagnosticOrder.item.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.participation[typeCode=SPC].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.bodySite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -401,9 +440,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">location</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">targetSiteCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">Is this approach or target site?</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -417,9 +460,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">If the request has multiple items that have their own life cycles, then the items will have their own status while the overall diagnostic order is (usually) &quot;in progress&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.statusCode&#10;also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -430,22 +475,24 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A summary of the events of interest that have occurred as this item of the request is processed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.inboundRelationship[typeCode=FLFS].source</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:Index="7" ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:Index="25" ss:AutoFitHeight="0">
+   <Row ss:Index="25">
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
-   <Row ss:Index="30" ss:AutoFitHeight="0">
+   <Row ss:Index="30">
     <Cell ss:Index="13" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
   </Table>
@@ -455,7 +502,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -465,7 +511,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -478,12 +524,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

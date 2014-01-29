@@ -57,14 +57,6 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s66">
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s68">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
@@ -76,6 +68,18 @@
   </Style>
   <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -98,7 +102,7 @@
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="218.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="172.5"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="172.5"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="175.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
@@ -273,16 +277,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The role that the participant played</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s66"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">attester: </Font></B><Font
-       html:Color="#000000">.[self::participation]/typeCode='RESP'</Font><B><Font
-        html:Color="#000000">&#10;author: </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='AUT'</Font><B><Font
-        html:Color="#000000">&#10;cc: </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='IRCP'</Font><B><Font
-        html:Color="#000000">&#10;enterer:  </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='ENT'&#10;</Font><B><Font
-        html:Color="#000000">informant: </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='INF'&#10;</Font><B><Font
-        html:Color="#000000">performer: </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='PRF'&#10;</Font><B><Font
-        html:Color="#000000">verifier: </Font></B><Font html:Color="#000000">.[self::participation]/typeCode='VRF'&#10;</Font><B><Font
-        html:Color="#000000">source: </Font></B><Font html:Color="#000000">.[self::outboundRelationship]/typeCode=''</Font></ss:Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s76"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">attester: .[self::participation]/typeCode='RESP'&#10;author: .[self::participation]/typeCode='AUT'&#10;cc: .[self::participation]/typeCode='IRCP'&#10;enterer:  .[self::participation]/typeCode='ENT'&#10;informant: .[self::participation]/typeCode='INF'&#10;performer: .[self::participation]/typeCode='PRF'&#10;verifier: .[self::participation]/typeCode='VRF'&#10;source: .[self::outboundRelationship]/typeCode=''</Font></ss:Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Figure out how to handle: application, daemon for RIM mappings.  Figure out better mapping for attester, perhaps after RIM harmonization proposal&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -301,12 +297,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">If the type is &quot;Resource&quot; then the resource itself was the participant. If the type is a type of resource, then the entity identified by the resource is the participant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s66"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><B><Font html:Color="#000000">person: </Font></B><Font
-       html:Color="#000000">./role[isNormalRole() and classCode='REL']/player[isNormalEntity and classCode='PER' and determinerCode='INST']&#10;</Font><B><Font
-        html:Color="#000000">agent: </Font></B><Font html:Color="#000000">./role[isNormalRole() and classCode='ASSIGNED' and player[isNormalEntity and classCode='PSN' and determinerCode='INST']]&#10;</Font><B><Font
-        html:Color="#000000">organization: </Font></B><Font html:Color="#000000">./role[isNormalRole() and classCode='ASSIGNED' and not(player)]/scoper[isNormalEntity and classCode='ORG' and determinerCode='INST']&#10;&#10;</Font><B><Font
-        html:Color="#000000">software: </Font></B><Font html:Color="#000000">./role[isNormalRole() and classCode='ASSIGNED']/scoper[isNormalEntity and classCode='DEV' and determinerCode='INST' and hasDomain(code, 'Software')]&#10;document: ./target[isNormalAct and subsumes('DOC', classCode) and moodCode='EVN']&#10;</Font></ss:Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s76"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">person: ./role[isNormalRole() and classCode='REL']/player[isNormalEntity and classCode='PER' and determinerCode='INST']&#10;agent: ./role[isNormalRole() and classCode='ASSIGNED' and player[isNormalEntity and classCode='PSN' and determinerCode='INST']]&#10;organization: ./role[isNormalRole() and classCode='ASSIGNED' and not(player)]/scoper[isNormalEntity and classCode='ORG' and determinerCode='INST']&#10;&#10;software: ./role[isNormalRole() and classCode='ASSIGNED']/scoper[isNormalEntity and classCode='DEV' and determinerCode='INST' and hasDomain(code, 'Software')]&#10;document: ./target[isNormalAct and subsumes('DOC', classCode) and moodCode='EVN']&#10;</Font></ss:Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Not sure how to make &quot;resource&quot; or &quot;record&quot; RIM mappings work</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -351,6 +343,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">An entity used in this activity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">./subjectOf</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Provenance.entity.role</Data><NamedCell
@@ -364,7 +358,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">How the entity was used during the activity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s76"><Data ss:Type="String">./typeCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Figure out how to handle: application, daemon for RIM mappings.  Figure out better mapping for attester, perhaps after RIM harmonization proposal&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -384,7 +379,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Entity.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">./target</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Not sure how to make &quot;resource&quot; or &quot;record&quot; RIM mappings work</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -400,6 +396,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">identity may be a reference to a resource or to something else, depending on the type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">./text/reference</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Provenance.entity.display</Data><NamedCell
@@ -411,6 +409,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Human-readable description of the entity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">./title</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Provenance.entity.agent</Data><NamedCell
@@ -421,6 +421,8 @@
     <Cell ss:Index="8"><Data ss:Type="String">Entity is attributed to this agent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">./author/role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -446,11 +448,16 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -463,12 +470,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

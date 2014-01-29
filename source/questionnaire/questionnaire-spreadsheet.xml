@@ -57,15 +57,6 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s66">
-   <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s67">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
@@ -146,6 +137,23 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s95">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s144">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
@@ -165,11 +173,11 @@
    <Column ss:Index="10" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="62.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="213.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="267.75" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="666.75"/>
+   <Column ss:Index="14" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="291.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="17" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="164.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="722.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
+   <Row ss:StyleID="s64">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -197,7 +205,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Notes on mapping</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="72">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -214,9 +222,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">Document[moodCode=DEF or EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Questionnaire.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -233,10 +243,11 @@
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">The information on questionnaires  may possibly gathered during multiple sessions and altered after considered being finished. Questionnaires with just questions may serve as template forms, with the applicable publication statuses</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14" ss:StyleID="s144"><Data ss:Type="String">.statusCode (also whether there's a revisionControlAct - and possibly mood to distinguish &quot;in progress&quot; from &quot;published)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="72">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.authored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -253,9 +264,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">May be different from the update time of the resource itself, because that is the status of the collection and authoring.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.participation[typeCode=AUT].time</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -269,9 +282,11 @@
     <Cell><Data ss:Type="String">Patient</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Must know the subject context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43.3125">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -288,9 +303,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Mapping a subject's answers to multiple choice options and determining what to put in the textual answer is a matter of interpretation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell><Data ss:Type="String">.participation[typeCode=AUT].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -303,11 +320,13 @@
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">When answering questions about a subject that is minor, incapable of answering or an animal, another human source is used to answer the questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.participation[typeCode=INF].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">source should be a reference to a Person resource too</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="28.6875">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -322,8 +341,10 @@
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Need to supply the type of form that was used to collect the answers in this questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.title</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="28.6875">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Questionnaire.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -340,9 +361,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Is this 80%?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Questionnaire.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -355,11 +376,13 @@
     <Cell><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Some institutions track questionnaires under a specific encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">Is this 80%? Is this 0..*?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="28.6875">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -375,8 +398,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The Questionnaire itself has one &quot;root&quot; group with the actual contents of the Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43.3125">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -390,8 +415,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Structured names identify the group so the answers can be identified, extracted and used.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43.3125">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.header</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -401,8 +428,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">When including text for the questionnaire with the answers, sections may have a section header</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.title</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43.3125">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -414,8 +443,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">When including text for the questionnaire, each section may contain additional explanations are background text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.text</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">!Questionnaire.group.repeats</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -429,8 +460,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">When repeats is not given, false is assumed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Not supported - MIF/templating layer</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">!Questionnaire.group.ordered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -446,8 +479,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">When ordered is not given, false is assumed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Not supported - MIF/templating layer</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.group.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -459,8 +494,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Sometimes a group of answers is about a specific participant, artifact or piece of information in the patient's care or record, e.g. a specific Problem, RelatedPerson, Allergy etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.participation[typeCode=SBJ].role&#10;or&#10;.outboundRelationship[typeCode=SUBJ].target</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -473,8 +510,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Reports can consist of complex nested groups</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -484,9 +523,10 @@
     <Cell><Data ss:Type="String">Set of questions within this group. The order of questions within the group is relevant</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Responses, Contents</Data></Cell>
     <Cell><Data ss:Type="String">Must register answers to questions</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN or DEF]</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.question.name</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -495,18 +535,20 @@
     <Cell><Data ss:Type="String">Code or name of the question</Data></Cell>
     <Cell><Data ss:Type="String">Structured name for the question that identifies this question within the Questionnaire or Group</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Structured name identifies the question so the answers can be extracted and used.</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.question.text</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Text of the question as it is shown to the user</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">When including text for the questionnaire, each question may contain its actual question display text</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">.code.display</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.question.answer[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -514,26 +556,29 @@
     <Cell ss:Index="8"><Data ss:Type="String">Single-valued answer to the question</Data></Cell>
     <Cell><Data ss:Type="String">Single-valued answer to the question</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Need to be able to retain a single-valued answer to a question</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">.value</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.question.choice</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Coding</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Selected options</Data></Cell>
     <Cell><Data ss:Type="String">Selections made by the user from the list of options</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">Not supported - MIF/templating layer to capture value set</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Questionnaire.group.question.options</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">Resource(ValueSet)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Valueset containing the possible options</Data></Cell>
     <Cell><Data ss:Type="String">Reference to a valueset containing the possible options</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">Not supported - MIF/templating layer to capture value set</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Questionnaire.group.question.data[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -541,24 +586,27 @@
     <Cell ss:Index="8"><Data ss:Type="String">Structured answer</Data></Cell>
     <Cell><Data ss:Type="String">Structured answer in the form of a FHIR Resource or datatype</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Depending on the system used to compose a Questionnaire instance,  it may be possible for such a system to supply answers in the form of structured FHIR data.</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=VALUE].target</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57.5625">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Questionnaire.group.question.remarks</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Remarks about the answer given</Data></Cell>
     <Cell><Data ss:Type="String">The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Many questionnaires allow you to include &quot;comments&quot; in addition to the answers given.</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s66"/>
+    <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value</Data></Cell>
+    <Cell ss:Index="18" ss:StyleID="s95"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Questionnaire.group.question.group</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@Questionnaire.group</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Nested questionnaire group</Data></Cell>
     <Cell><Data ss:Type="String">Nested group, containing nested question for this question. The order of groups within the question is relevant</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">It is useful to have &quot;sub-questions&quot;, questions which normally appear when certain answers are given and which collect additional details.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=DOCSECT, moodCode=EVN]</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -567,7 +615,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -577,9 +624,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>23</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -587,16 +634,12 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
-     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

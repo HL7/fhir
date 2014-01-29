@@ -20,7 +20,6 @@
   <WindowWidth>17490</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -331,7 +330,8 @@
     <Cell ss:Index="8"><Data ss:Type="String">The organization of which this organization forms a part</Data></Cell>
     <Cell><Data ss:Type="String">The organization of which this organization forms a part</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to track the hierarchy of organizations within an organization</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s73"><Data ss:Type="String">No equivalent in V2.x</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">.playedBy[classCode=Part].scoper</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">No equivalent in V2.x</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">n/a</Data></Cell>
     <Cell ss:StyleID="s75"/>
    </Row>
@@ -351,6 +351,7 @@
     <Cell><Data ss:Type="String">The type of contact</Data></Cell>
     <Cell><Data ss:Type="String">Indicates a purpose for which the contact can be reached</Data></Cell>
     <Cell><Data ss:Type="String">Need to distinguish between multiple contact persons.</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">./type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Organization.contact.name</Data></Cell>
@@ -424,7 +425,7 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="31.5">
     <Cell><Data ss:Type="String">Organization.location</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s76"/>
@@ -436,7 +437,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">Location(s) the organization uses to provide services</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">.scopedBy[classCode=LocatedEntity].scoper</Data></Cell>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s76"><Data ss:Type="String">./Sites</Data></Cell>
     <Cell ss:StyleID="s76"/>
@@ -464,11 +465,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <TopRowVisible>12</TopRowVisible>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -476,8 +477,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -534,7 +533,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

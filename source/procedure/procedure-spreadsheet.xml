@@ -41,14 +41,6 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s63" ss:Name="Normal 3">
-   <Alignment ss:Vertical="Bottom"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
   <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
@@ -137,7 +129,7 @@
    <Column ss:Index="12" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="21" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="170.25"/>
-   <Row ss:Height="30" ss:StyleID="s66">
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -157,7 +149,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">save</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Procedure</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -168,12 +160,12 @@
     <Cell><Data ss:Type="String">An action that is performed on a patient</Data></Cell>
     <Cell><Data ss:Type="String">An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="Default"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
+    <Cell ss:Index="14"><Data ss:Type="String">Procedure[moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="21"><Data ss:Type="String">Resource</Data></Cell>
    </Row>
-   <Row ss:Height="150">
+   <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.identifier</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -185,39 +177,42 @@
     <Cell><Data ss:Type="String">This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Need to allow connection to a wider workflow</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">.id</Data></Cell>
-    <Cell ss:StyleID="s63"/>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">.id</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:Index="17" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.subject</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Patient)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Who procedure was performed on</Data></Cell>
     <Cell><Data ss:Type="String">The person on whom the procedure was performed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Patient)</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Identification of the procedure</Data></Cell>
     <Cell><Data ss:Type="String">The specific procedure that is performed. Use text if the exact nature of the procedure can't be coded</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.code</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Procedure.bodySite</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Precise location details</Data></Cell>
     <Cell><Data ss:Type="String">Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.approachSiteCode</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Is this approach or target site?</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Procedure.indication</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -225,114 +220,131 @@
     <Cell><Data ss:Type="String">The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapuetic</Data></Cell>
+    <Cell><Data ss:Type="String">.reasonCode</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Condition) | CodeableConcept | string </Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">300;0</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The people who performed the procedure</Data></Cell>
     <Cell><Data ss:Type="String">Limited to 'real' people rather than equipment</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.participation[typeCode=PFM]</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer.person</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The reference to the practitioner</Data></Cell>
     <Cell><Data ss:Type="String">The practitioner who was involved in the procedure</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.role</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.performer.role</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The role the person was in</Data></Cell>
     <Cell><Data ss:Type="String">E.g. surgeon, anaethetist, endoscopist</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.functionCode</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">CodeableConcept</Data></Cell>
    </Row>
-   <Row ss:Height="120">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">Procedure.date</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The date the procedure was performed</Data></Cell>
-    <Cell><Data ss:Type="String">The dates over which the period was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.</Data></Cell>
+    <Cell><Data ss:Type="String">The dates over which the procedure was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.effectiveTime</Data></Cell>
+    <Cell><Data ss:Type="String">This should be choice of dateTime|Period</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Period</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Procedure.encounter</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The encounter when procedure performed</Data></Cell>
     <Cell><Data ss:Type="String">The encounter during which the procedure was performed</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Encounter)</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.outcome</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">What was result of procedure?</Data></Cell>
     <Cell><Data ss:Type="String">What was the outcome of the procedure - did it resolve reasons why the procedure was performed? </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=OUT].target.text</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Observation) | CodeableConcept | string</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Procedure.report</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(DiagnosticReport)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Any report that results from the procedure</Data></Cell>
     <Cell><Data ss:Type="String">This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN]</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(DiagnosticReport)</Data></Cell>
    </Row>
-   <Row ss:Height="150">
+   <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.complication</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Complication following the procedure</Data></Cell>
     <Cell><Data ss:Type="String">Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Need specialization of OUT for this.</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Need harmonization proposal for new ActRelationshipType code</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">string</Data></Cell>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Procedure.followUp</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string </Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Instructions for follow up</Data></Cell>
     <Cell><Data ss:Type="String">If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or potentially could be more complex in which case the CarePlan resource can be used</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=ACT, moodCode=INT].text</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Careplan) | string </Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Procedure.relatedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">300;80</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A procedure that is related to this one</Data></Cell>
     <Cell><Data ss:Type="String">Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=TRIG and target[classCode=PROC, moodCode=EVN]]</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Procedure.relatedItem.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ProcedureRelationshipType</Data></Cell>
     <Cell><Data ss:Type="String">caused-by | because-of</Data></Cell>
     <Cell><Data ss:Type="String">The nature of the relationship</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.inversionInd</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Existing codes sound like synonyms.  Suggest caused-by and caused</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">code</Data></Cell>
    </Row>
-   <Row ss:Height="150">
+   <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.relatedItem.target</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(AdverseReaction | AllergyIntolerance | CarePlan | Condition | DeviceObservationReport | DiagnosticReport | FamilyHistory | ImagingStudy | Immunization | ImmunizationRecommendation | MedicationAdministration | MedicationDispense | MedicationPrescription | MedicationStatement | Observation | Procedure)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The related item - e.g. a procedure</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.target</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Procedure | Prescription)</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.notes</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Additional information about procedure</Data></Cell>
     <Cell><Data ss:Type="String">Any other notes about the procedure - e.g. the operative notes</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">string</Data></Cell>
    </Row>
   </Table>
@@ -342,6 +354,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>

@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2013-11-17T21:29:27Z</LastSaved>
+  <LastSaved>2014-01-27T00:59:12Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -62,6 +62,14 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
   <Style ss:ID="s69">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
@@ -139,7 +147,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">SecurityEvent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -155,8 +163,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Based on ATNA (RFC 3881)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">ControlAct[moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">SecurityEvent.event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -170,8 +180,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The event must be identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">N/A (no nesting in v3)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">SecurityEvent.event.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -189,8 +201,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">e.g., a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.code (type, subtype and action are pre-coordinated or sent as translations)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">SecurityEvent.event.subtype</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -206,8 +220,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This field enables queries of messages by implementation-defined event categories </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.code (type, subtype and action are pre-coordinated or sent as translations)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">SecurityEvent.event.action</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -223,8 +239,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This broadly indicates what kind of action was done on the Participant Object</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.code (type, subtype and action are pre-coordinated or sent as translations)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">SecurityEvent.event.dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -240,8 +258,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">In a distributed system, some sort of common time base, e.g., an NTP [RFC1305] server, is a good implementation tactic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.effectiveTime</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">SecurityEvent.event.outcome</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -257,8 +277,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">In some cases a &quot;success&quot; may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.actionNegationInd</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SecurityEvent.event.outcomeDesc</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -270,8 +292,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A free text description of the outcome of the event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.outboundRelationship[typeCode=OUT].target.text</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">SecurityEvent.participant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -285,8 +309,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">There may be more than one user per event, for example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, or system process. However, only one user may be the initiator/requestor for the event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.participation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">SecurityEvent.participant.role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -302,8 +328,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This value ties an audited event to a user's role(s). It is an optional value that might be used to group events for analysis by user functional role categories</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.typeCode and/or .functionCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SecurityEvent.participant.reference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -316,8 +344,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This field ties an audit event to a specific resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">SecurityEvent.participant.userId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -334,8 +364,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">a unique value within the Audit Source ID. For node-based authentication &#45;- where only the system hardware or process, but not a human user, is identified &#45;- User ID would be the node name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.id</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell><Data ss:Type="String">SecurityEvent.participant.altId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -349,8 +380,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">In some situations a human user may authenticate with one identity but, to access a specific application system, may use a synonymous identify. For example, some &quot;single sign on&quot; implementations will do this. The alternative identifier would then be the original identify  used for authentication, and the User ID is the one known to and used by the application</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.id (distinguish id type by root)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">SecurityEvent.participant.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -364,8 +397,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The User ID and Authorization User ID may be internal or otherwise obscure values. This field assists the auditor in identifying the actual user</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.name</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">SecurityEvent.participant.requestor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -381,8 +416,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">There can only be one initiator. If the initiator is not clear, then do not choose any one participant as the initiator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">If participation.typeCode was author, then true</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">SecurityEvent.participant.media</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -392,14 +429,16 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Type of media</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Type of media involved. Used when the event is about exporting/importing onto media </Data><NamedCell
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Type of media involved. Used when the event is about exporting/importing onto media </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Usually, this is used instead of specifying a network address. This field is not used for Media Id (i.e. the serial number of a CD)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.player.description.mediaType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Do we need an element for Media Id (as opposed to type)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SecurityEvent.participant.network</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -409,14 +448,16 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Logical network location for application activity, if the activity has a network location</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.player.description.reference</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">SecurityEvent.participant.network.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">@NetWorkAccessPointID</Data><NamedCell
+    <Cell><Data ss:Type="String" x:Ticked="1">@NetworkAccessPointID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Identifier for the network access point of the user device</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -426,8 +467,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This could be a device id, IP address or some other identifier associated with a device</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">pre-coordinated into URL</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">SecurityEvent.participant.network.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -443,8 +486,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This datum identifies the type of network access point identifier of the user device for the audit event. It is an optional value that may be used to group events recorded on separate servers for analysis of access according to a network access point's type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">pre-coordinated into URL</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="225">
     <Cell><Data ss:Type="String">SecurityEvent.source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -458,6 +503,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Since multi-tier, distributed, or composite applications make source identification ambiguous, this collection of fields may repeat for each application or process actively involved in the event. For example, multiple value-sets can identify participating web servers, application processes, and database server threads in an n-tier distributed application. Passive event participants, e.g., low-level network transports, need not be identified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.participation[typeCode=INF].role[classCode=ASSIGN].player[classCode=DEV, determinerCode=INSTANCE]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!SecurityEvent.source.code</Data><NamedCell
@@ -468,8 +515,10 @@
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">SecurityEventSourceType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">N/A</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">SecurityEvent.source.site</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -485,8 +534,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">a hospital or other provider location within a multi-entity provider group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.scopedRole[classCode=LOCE].player.desc</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">SecurityEvent.source.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -500,8 +551,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This field ties the event to a specific source system. It may be used to group events for analysis according to where the event occurred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.id</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">SecurityEvent.source.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -517,8 +570,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This field indicates which type of source is identified by the Audit Source ID. It is an optional value that may be used to group events for analysis according to the type of source where the event occurred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">SecurityEvent.object</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -534,8 +589,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">required unless the values for Event Identification, Active Participant Identification, and Audit Source Identification are sufficient to document the entire auditable event. Because events may have more than one participant object, this group can be a repeating set of values.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.outboundRelationship[typeCode=SUBJ].target&#10;&#10;or&#10;&#10;.participation[typeCode=SBJ].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SecurityEvent.object.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -550,8 +607,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Identifier details depends on object type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.id.extension</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">SecurityEvent.object.reference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -564,8 +623,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies a specific instance of the participant object. The reference should always be version specific</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">[self]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">!SecurityEvent.object.idType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -579,8 +640,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Describes the identifier that is contained in Participant Object ID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Mapped from .id.root</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">SecurityEvent.object.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -598,8 +661,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This value is distinct from the user's role or any user relationship to the participant object</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">[self::Act].code&#10;or&#10;role.player.code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">SecurityEvent.object.role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -617,8 +682,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">See RFC 3881 for rules concerning matches between role and type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">role.code&#10;(not sure what this would mean for an Act)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">SecurityEvent.object.lifecycle</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -636,8 +703,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">This can be used to provide an audit trail for data, over time, as it passes through the system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">target of ObservationEvent[code=&quot;lifecycle&quot;].value</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">SecurityEvent.object.sensitivity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -655,8 +724,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Values from ATNA are institution- and implementation-defined text strings (in sensitivity.text). HL7 defines confidentiality codes for records, documents etc. that can also be used here</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.confidentialityCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">SecurityEvent.object.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -671,8 +742,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This field may be used in a query/report to identify audit events for a specific person, e.g., where multiple synonymous Participant Object IDs (patient number, medical record number, encounter number, etc.) have been used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.title</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">SecurityEvent.object.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -684,8 +756,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Text that describes the object in more detail</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.text</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">SecurityEvent.object.query</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -700,13 +774,16 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">For query events it may be necessary to capture the actual query input to the query process in order to identify the specific event. Because of differences among query implementations and data encoding for them, this is a base 64 encoded data blob. It may be subsequently decoded or interpreted by downstream audit analysis processing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">No mapping</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">SecurityEvent.object.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">ParticipantObjectDetail</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Additional Information about the Object</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.inboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SecurityEvent.object.detail.type</Data></Cell>
@@ -714,6 +791,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">@type</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Name of the property</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SecurityEvent.object.detail.value</Data></Cell>
@@ -721,6 +799,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">@value</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Property value</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.value</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -737,11 +816,25 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1234,7 +1327,7 @@
     <Cell ss:Index="7" ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DICOMMediaType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">!DICOMMediaType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Used when the event is about exporting/importing onto media</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -1250,7 +1343,7 @@
     <Cell ss:Index="7" ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DICOMAlertType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">!DICOMAlertType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">The type of source where event originated</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -1259,7 +1352,7 @@
     <Cell ss:StyleID="s62"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DICOMObjectIdType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">!DICOMObjectIdType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Describes the identifier</Data></Cell>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -1386,11 +1479,25 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

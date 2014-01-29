@@ -185,7 +185,7 @@
     <Cell><Data ss:Type="String">Business identifier</Data></Cell>
     <Cell><Data ss:Type="String">Identifier for the List assigned for business purposes outside the context of FHIR.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"/>
-    <Cell ss:Index="13" ss:StyleID="s66"/>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">.id</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>
@@ -217,7 +217,7 @@
     <Cell><Data ss:Type="String">The common subject (or patient) of the resources that are in the list, if there is one</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s66"><Data ss:Type="String">The primary purpose of listing the subject explicitly is to help with finding the right list</Data></Cell>
     <Cell><Data ss:Type="String">Some purely aribitrary lists do not have a common subject, so this is optional</Data></Cell>
-    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">.participation[typeCode&lt;SUB].role&#10;(and sometimes .player)</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
    </Row>

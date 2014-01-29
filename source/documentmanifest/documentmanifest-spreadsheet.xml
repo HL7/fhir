@@ -140,9 +140,9 @@
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="133.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="258"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="410.25"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="171.75"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
+   <Row ss:Height="45" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Card.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Inv.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -167,7 +167,7 @@
     <Cell><Data ss:Type="String">Committee Notes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DocumentManifest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -180,8 +180,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A manifest that defines a set of documents</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Act[classCode=FOLDER, moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">DocumentManifest.masterIdentifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -191,9 +193,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">id [need a list semantic to indicate order matters]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">DocumentManifest.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -210,7 +214,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">TXA-16-Unique Document File Name?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="120">
     <Cell><Data ss:Type="String">DocumentManifest.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -220,9 +224,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">DocumentManifest.recipient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -234,9 +240,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">How the recipient receives the document set or is notified of it is up to the implementation. This element is just a statement of intent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.participation[typeCode=IRCP].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s70">
+   <Row ss:Height="75" ss:StyleID="s70">
     <Cell ss:StyleID="s65"><Data ss:Type="String">DocumentManifest.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -251,9 +259,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">.code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">DocumentManifest.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -269,9 +279,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.participation[typeCode=AUT].role</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">DocumentManifest.created</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -287,9 +299,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Creation time is used for tracking, organizing versions and searching. This is the creation time of the document set, not the documents on which it is based</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.participation[typeCode=AUT].time</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DocumentManifest.source</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -302,9 +316,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Identifies the source system, application, or software that produced the document manifest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">.participation[typeCode=PFM].time</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DocumentManifest.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -319,9 +335,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The status of this document manifest </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">.statusCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">DocumentManifest.supercedes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -333,8 +351,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Whether this document manifest replaces another</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">.outboundRelationship[typeCode=RPLC].target</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">DocumentManifest.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -351,9 +371,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">What the document is about, rather than a terse summary of the document. It is commonly the case that records do not have a title and are collectively referred to by the display name of Record code (e.g. a &quot;consultation&quot; or &quot;progress note&quot;).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.title</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s70">
+   <Row ss:Height="30" ss:StyleID="s70">
     <Cell ss:StyleID="s65"><Data ss:Type="String">DocumentManifest.confidentiality</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -372,15 +393,17 @@
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The document set is at least as confidential as the most confidential of the documents in it</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">.confidentialityCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">DocumentManifest.content</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(DocumentReference|Binary|Media)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Contents of this set of documents</Data></Cell>
     <Cell><Data ss:Type="String">The list of resources that describe the parts of this document reference. Usually, these would be document references, but direct references to binary attachments and images are also allowed</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -389,7 +412,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -397,11 +419,25 @@
     <VerticalResolution>300</VerticalResolution>
    </Print>
    <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -314,7 +314,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)&#10;&#10;For age, you'd hang an observation off the role</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">FamilyHistory.relation.note</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -329,7 +329,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="56.0625">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -341,6 +341,7 @@
     <Cell ss:Index="11" ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION, value&lt;Diagnosis]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="56.0625">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.type</Data></Cell>
@@ -356,9 +357,9 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">.value</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42">
+   <Row ss:Height="90">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.outcome</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -372,22 +373,25 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">outboundRelationship[typeCode=OUTC)].target[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION].value</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.onset[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Age | Range | string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When condition first manifested</Data></Cell>
     <Cell><Data ss:Type="String">Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Age of onset of a condition in relatives is predictive of risk for the patient</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;Subject Age at measurement&quot;, value&lt;Diagnosis].value[@xsi:typeCode='TS' or 'IVL_TS']&#10;&#10;Use originalText for string&#10;</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Define/find appropriate observation code</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.note</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Extra information about condition</Data></Cell>
     <Cell><Data ss:Type="String">An area where general notes can be placed about this specific condition.</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -407,7 +411,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -421,11 +425,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

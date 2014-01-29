@@ -148,7 +148,7 @@
     <Cell><Data ss:Type="String">Business identifier</Data></Cell>
     <Cell><Data ss:Type="String">Identifier assigned to the alert for external use (outside the FHIR environment)</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s67"/>
-    <Cell ss:Index="13" ss:StyleID="s67"/>
+    <Cell ss:Index="13" ss:StyleID="s67"><Data ss:Type="String">.id</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
    </Row>
@@ -231,7 +231,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -239,12 +239,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

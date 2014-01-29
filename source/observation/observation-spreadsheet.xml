@@ -403,7 +403,7 @@
     <Cell><Data ss:Type="String">Comments about result</Data></Cell>
     <Cell><Data ss:Type="String">May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Need to be able to provide free text additional information</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s70"/>
+    <Cell ss:Index="13" ss:StyleID="s70"><Data ss:Type="String">subjectOf.observationEvent[code=&quot;annotation&quot;].value</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)</Data></Cell>
     <Cell ss:StyleID="s70"/>
@@ -652,7 +652,7 @@
     <Cell><Data ss:Type="String">The specimen that was used when this observation was made </Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Observations are not made on specimens themselves; they are made on a subject, but usually by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources are often used in contexts that track the specimen explicity (e.g. Diagnostic Report)</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">participation[typeCode=SPC].specimen</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s70"/>
@@ -923,6 +923,7 @@
     <Cell><Data ss:Type="String">Applicable age range, if relevant</Data></Cell>
     <Cell><Data ss:Type="String">The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Some analytes vary greatly over age</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=&quot;age&quot;].value</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="Default"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
     <Cell ss:StyleID="s63"/>
@@ -960,7 +961,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -973,12 +974,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

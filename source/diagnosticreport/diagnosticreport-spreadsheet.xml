@@ -549,7 +549,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">ImagingStudy and image are somewhat overlapping - typically, an image in the image list will also be found in the imaging study resource. However the imaging study and image lists cater to different types of displays for different types of purposes. Neither, either, or both may be provided</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#DGIMG&quot;, classCode) and moodCode=&quot;EVN&quot; and isNormalAct()]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">DiagnosticReport.image</Data><NamedCell
@@ -568,7 +572,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">outboundRelationship[typeCode=COMP].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s70"><Data ss:Type="String">OBX?</Data><NamedCell
+    <Cell><Data ss:Type="String">./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#DGIMG&quot;, classCode) and moodCode=&quot;EVN&quot; and isNormalAct()]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OBX?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -585,7 +591,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#DGIMG&quot;, classCode) and moodCode=&quot;EVN&quot; and isNormalAct()]/inboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and subsumesCode(&quot;ActCode#ANNGEN&quot;) and moodCode=&quot;EVN&quot; and isNormalAct()]/value[@xsi:type='ST']</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">DiagnosticReport.image.link</Data><NamedCell
@@ -597,7 +607,11 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.value.reference</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#DGIMG&quot;, classCode) and moodCode=&quot;EVN&quot; and isNormalAct()]/value[@xsi:type='ED']/reference</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">DiagnosticReport.conclusion</Data><NamedCell
@@ -676,9 +690,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -686,16 +700,12 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

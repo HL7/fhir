@@ -58,7 +58,7 @@
    <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s66">
-   <Alignment ss:Vertical="Top"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
@@ -66,20 +66,12 @@
    <Protection/>
   </Style>
   <Style ss:ID="s67">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s68">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s69">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s70">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -87,13 +79,13 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s72">
+  <Style ss:ID="s71">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s72">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
  </Styles>
@@ -146,10 +138,10 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">A homogeneous material with a definite composition </Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s67"/>
-    <Cell ss:Index="13" ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+    <Cell ss:Index="11" ss:StyleID="s66"/>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">Material</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -161,10 +153,10 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Name of the substance</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s67"/>
-    <Cell ss:Index="13" ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+    <Cell ss:Index="11" ss:StyleID="s66"/>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">.name</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -175,6 +167,7 @@
     <Cell><Data ss:Type="String">What kind of substance this is</Data></Cell>
     <Cell><Data ss:Type="String">A code (or set of codes) that identify this substance</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This could be a reference to an externally defined code.  It could also be a locally assigned code (e.g. a formulary),  optionally with translations to the standard drug codes</Data></Cell>
+    <Cell><Data ss:Type="String">.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Substance.description</Data></Cell>
@@ -182,6 +175,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Textual description of the substance, comments</Data></Cell>
     <Cell><Data ss:Type="String">A description of the substance - its appearance, handling requirements, and other usage notes</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.player.desc</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Substance.instance</Data></Cell>
@@ -189,6 +183,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">left</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">If this describes a specific package/container of the substance</Data></Cell>
     <Cell><Data ss:Type="String">Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.player.determinerCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Substance.instance.identifier</Data></Cell>
@@ -200,10 +195,10 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Identifier of the package/container</Data></Cell>
     <Cell><Data ss:Type="String">Identifier associated with the package/container (usually a label affixed directly)</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s67"/>
-    <Cell ss:Index="13" ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+    <Cell ss:Index="11" ss:StyleID="s66"/>
+    <Cell ss:Index="13" ss:StyleID="s66"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
     <Cell ss:Index="17" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -212,20 +207,23 @@
     <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When no longer valid to use</Data></Cell>
     <Cell><Data ss:Type="String">When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.expiryTime</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Substance.instance.quantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Quantity</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Amount of substance in the package</Data></Cell>
     <Cell><Data ss:Type="String">The amount of the substance</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.player.quantity</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Substance.ingredient</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">right</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Composition information about the substance</Data></Cell>
     <Cell><Data ss:Type="String">A substance can be composed of other substances</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.player.scopesRole[classCode=INGR]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Substance.ingredient.quantity</Data></Cell>
@@ -233,6 +231,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Ratio</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Optional amount (concentration)</Data></Cell>
     <Cell><Data ss:Type="String">The amount of the ingredient in the substance - a concentration ratio</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.quantity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Substance.ingredient.substance</Data></Cell>
@@ -240,6 +239,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Substance)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A component of the substance</Data></Cell>
     <Cell><Data ss:Type="String">Another substance that is a component of this substance</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.player</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">!Substance.quantityMode</Data></Cell>
@@ -248,6 +248,7 @@
     <Cell><Data ss:Type="String">SubstanceQuantityMode</Data></Cell>
     <Cell><Data ss:Type="String">Absolute | Relative</Data></Cell>
     <Cell><Data ss:Type="String">Indicates whether the substance quantity (used for ingredients) are absolute values or values relative to each other (percentages)</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.quantity.unit = %</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -268,7 +269,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -276,15 +277,12 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -294,14 +292,14 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s67" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s68" ss:Width="14.25"/>
-   <Column ss:StyleID="s68" ss:Width="126"/>
-   <Column ss:StyleID="s68" ss:Width="96"/>
-   <Column ss:StyleID="s68" ss:Width="234.75"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="140.25"/>
-   <Column ss:StyleID="s68" ss:Width="320.25"/>
+   <Column ss:StyleID="s67" ss:Width="14.25"/>
+   <Column ss:StyleID="s67" ss:Width="126"/>
+   <Column ss:StyleID="s67" ss:Width="96"/>
+   <Column ss:StyleID="s67" ss:Width="234.75"/>
+   <Column ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="140.25"/>
+   <Column ss:StyleID="s67" ss:Width="320.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -401,11 +399,11 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:Index="4" ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:Index="4" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -633,48 +631,48 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Example</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Reference</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SubstanceType</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Type of the substance</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">valueset-substance-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceStatus</Data></Cell>
+    <Cell><Data ss:Type="String">!SubstanceStatus</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Substance status</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">valueset-substance-status</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">valueset-substance-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:Index="6" ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="6" ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s62"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s69"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -703,7 +701,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -764,27 +761,27 @@
     <Cell><Data ss:Type="String">Apitoxin</Data></Cell>
     <Cell><Data ss:Type="String">General Person Example</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">substance-example.xml</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">substance-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Dust</Data></Cell>
     <Cell><Data ss:Type="String">Dust Mite Example</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">f201</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">substance-example-f201-dust.xml</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">f201</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">substance-example-f201-dust.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Staphylococcus</Data></Cell>
     <Cell><Data ss:Type="String">Staphylococcus Example</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">f202</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">substance-example-f202-staphylococcus.xml</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">f202</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">substance-example-f202-staphylococcus.xml</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Potassium</Data></Cell>
     <Cell><Data ss:Type="String">Potassium Example</Data></Cell>
     <Cell><Data ss:Type="String">f203</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">substance-example-f203-potassium.xml</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">substance-example-f203-potassium.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

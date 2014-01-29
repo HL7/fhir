@@ -167,6 +167,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Information about the success/failure of an action</Data></Cell>
     <Cell><Data ss:Type="String">A collection of error, warning or information messages that result from a system action</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Can result from the failure of a REST call or be part of the response message returned from a request message.  If sent with extensions overriding particular issues, might even appear as part of a request message.</Data></Cell>
+    <Cell><Data ss:Type="String">Grouping is handled through multiple repetitions from whatever context references the outcomes (no specific grouper required)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s68"><Data ss:Type="String">OperationOutcome.issue</Data></Cell>
@@ -259,8 +260,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -322,7 +322,7 @@
     <Cell><Data ss:Type="String">.participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="60">
     <Cell><Data ss:Type="String">DocumentReference.policyManager</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -334,6 +334,10 @@
     <Cell><Data ss:Type="String">Manages access policies for the document</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A reference to a domain or server that manages policies under which the document is accessed and/or made available</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">N/A - New participation type required</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Harmonization proposal to define participation type.  (And evaluate whether this is in the 80%)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -770,14 +774,6 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>15</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>10</ActiveCol>
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

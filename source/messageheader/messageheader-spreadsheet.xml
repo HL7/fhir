@@ -361,7 +361,8 @@
     <Cell ss:Index="8"><Data ss:Type="String">Intended &quot;real-world&quot; recipient for the data</Data></Cell>
     <Cell><Data ss:Type="String">Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.</Data></Cell>
     <Cell><Data ss:Type="String">Allows routing beyond just the application level</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">PRT-5-Participation Person:PRT-4-Participation='WAYR' / PRT-8-Participation Organization:PRT-4-Participation='WAYR'&#10;</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText</Data></Cell>
+    <Cell><Data ss:Type="String">PRT-5-Participation Person:PRT-4-Participation='WAYR' / PRT-8-Participation Organization:PRT-4-Participation='WAYR'&#10;</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Is this in the 80%?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="405">
@@ -424,8 +425,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

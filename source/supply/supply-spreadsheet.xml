@@ -73,36 +73,22 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s70" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior/>
-  </Style>
   <Style ss:ID="s71" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat ss:Format="@"/>
   </Style>
-  <Style ss:ID="s72" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s73" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s75" ss:Parent="s62">
+  <Style ss:ID="s74" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s77" ss:Parent="s63">
+  <Style ss:ID="s76" ss:Parent="s63">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s77">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
@@ -110,16 +96,10 @@
   <Style ss:ID="s79">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#993366"
-    ss:Bold="1"/>
-  </Style>
-  <Style ss:ID="s80">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior/>
@@ -127,39 +107,54 @@
   <Style ss:ID="s82">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#993366"
-    ss:Bold="1"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s83">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
    <NumberFormat ss:Format="Fixed"/>
   </Style>
-  <Style ss:ID="s84">
+  <Style ss:ID="s83">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s85">
+  <Style ss:ID="s84">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s86" ss:Parent="s62">
+  <Style ss:ID="s85" ss:Parent="s62">
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
    <Interior/>
+  </Style>
+  <Style ss:ID="s86">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
   </Style>
   <Style ss:ID="s87">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
-  </Style>
-  <Style ss:ID="s88">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s89">
+  <Style ss:ID="s88">
    <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s119">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s120" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s121" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s122">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -178,7 +173,7 @@
    <Column ss:StyleID="s64" ss:Width="72"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="108.75"/>
    <Column ss:StyleID="s64" ss:Width="67.5"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s66">
+   <Row ss:Height="30" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -196,283 +191,286 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Supply</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">A supply -  request and provision</Data></Cell>
     <Cell><Data ss:Type="String">A supply - a  request for something, and provision of what is supplied</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="11" ss:StyleID="s119"/>
+    <Cell ss:Index="13" ss:StyleID="s119"><Data ss:Type="String">Supply[moodCode=RQO]</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Supply.kind</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">SupplyType</Data></Cell>
     <Cell><Data ss:Type="String">The kind of supply (central, non-stock, etc)</Data></Cell>
     <Cell><Data ss:Type="String">Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">./code</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.code</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="56.25">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Supply.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Unique identifier</Data></Cell>
     <Cell><Data ss:Type="String">Unique identifier for this supply request</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This is assigned by the orderer, and used to refer to this order in other external standards</Data></Cell>
+    <Cell><Data ss:Type="String">.id</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Supply.status</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">SupplyStatus</Data></Cell>
     <Cell><Data ss:Type="String">requested | dispensed | received | failed | cancelled</Data></Cell>
     <Cell><Data ss:Type="String">Status of the supply request</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">./statusCode</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">.statusCode, also existence of fulfillment events</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="150">
     <Cell><Data ss:Type="String">Supply.orderedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s70"><Data ss:Type="String">Resource(Medication|Substance|Device)</Data></Cell>
+    <Cell ss:Index="6" ss:StyleID="s74"><Data ss:Type="String">Resource(Medication|Substance|Device)</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s71"><Data ss:Type="String">Medication, Substance, or Device requested to be supplied</Data></Cell>
     <Cell><Data ss:Type="String">The item that is requested to be supplied</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Note that there's a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions</Data></Cell>
+    <Cell><Data ss:Type="String">.participation[typeCode=PRD].role</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="47.25">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Supply.patient</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Resource(Patient)</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Supply.patient</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Resource(Patient)</Data></Cell>
+    <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Patient for whom the item is supplied</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">A link to a resource representing the person whom the ordered item is for</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="13" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">A link to a resource representing the person whom the ordered item is for</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="13" ss:StyleID="s119"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense</Data></Cell>
+   <Row ss:Height="105">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">right</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Supply details</Data></Cell>
     <Cell><Data ss:Type="String">Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">.inboundRelationship[typeCode=FLFS].source[classCode=SPLY, moodCode=EVN]</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="17" ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.identifier</Data></Cell>
+   <Row ss:Height="75">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">External identifier</Data></Cell>
     <Cell><Data ss:Type="String">Identifier assigned by the dispensing facility when the dispense occurs</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">This is assigned by the dispenser, and used to refer to this order in other external standards</Data></Cell>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.status</Data></Cell>
+   <Row ss:Height="75">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense.status</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">SupplyDispenseStatus</Data></Cell>
     <Cell><Data ss:Type="String">in progress | dispensed | abandoned</Data></Cell>
     <Cell><Data ss:Type="String">A code specifying the state of the dispense event.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">.statusCode, also existence of fulfillment events</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="17" ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Supply.dispense.type</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">CodeableConcept</Data></Cell>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Supply.dispense.type</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">SupplyItemType</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Category of dispense event</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc. </Data></Cell>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s82"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s81"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Category of dispense event</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc. </Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">.code</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s80"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.quantity</Data></Cell>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense.quantity</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Quantity</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Amount dispensed</Data></Cell>
     <Cell><Data ss:Type="String">The amount of supply that has been dispensed. Includes unit of measure.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">.quantity</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="18" ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.suppliedItem</Data></Cell>
+   <Row ss:Height="60">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense.suppliedItem</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Medication|Substance|Device)</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource(Medication|Substance|Device)</Data></Cell>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Medication, Substance, or Device supplied</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s83"/>
-    <Cell ss:Index="14" ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s82"/>
+    <Cell><Data ss:Type="String">.participation[typeCode=PRD].role</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="22.5">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Supply.dispense.supplier</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Supply.dispense.supplier</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Dispenser</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">The individual responsible for dispensing the medication</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">The individual responsible for dispensing the medication</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell><Data ss:Type="String">.participation[typeCode=PFM].role</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="18" ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.whenPrepared</Data></Cell>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense.whenPrepared</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Dispensing time</Data></Cell>
     <Cell><Data ss:Type="String">The time the dispense event occurred.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s77"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">.effectiveTime.low</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="17" ss:StyleID="s76"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.whenHandedOver</Data></Cell>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense.whenHandedOver</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Period</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Handover time</Data></Cell>
     <Cell><Data ss:Type="String">The time the dispensed item was sent or handed to the patient (or agent).</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s77"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">.effectiveTime.high</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="17" ss:StyleID="s76"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.destination</Data></Cell>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense.destination</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Location)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource(Location)</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Where the Supply was sent</Data></Cell>
     <Cell><Data ss:Type="String">Identification of the facility/location where the Supply was shipped to, as part of the dispense event. </Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="s77"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell><Data ss:Type="String">.participation[typeCode=DST].role</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="17" ss:StyleID="s76"/>
+    <Cell ss:StyleID="s119"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Supply.dispense.receiver</Data></Cell>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Supply.dispense.receiver</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell><Data ss:Type="String">Who collected the Supply</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the person who picked up the Supply.</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="17" ss:StyleID="Default"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell><Data ss:Type="String">.participation[typeCode=RCV].role</Data></Cell>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:Index="17" ss:StyleID="s119"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -481,19 +479,19 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
-    <VerticalResolution>0</VerticalResolution>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -501,16 +499,12 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -519,12 +513,12 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="115.5"/>
-   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s84" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="115.5"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -625,10 +619,10 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
+    <Cell ss:StyleID="s84"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -694,29 +688,25 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Supply.patient</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Supply.patient</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">supplier</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Supply.dispense.supplier</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Supply.dispense.supplier</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">dispenseid</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Supply.dispense.identifier</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Supply.dispense.identifier</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">dispensestatus</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Supply.dispense.status</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s65"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s88"/>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Supply.dispense.status</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -724,23 +714,27 @@
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s78"/>
+    <Cell ss:Index="4" ss:StyleID="s86"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s87"/>
+    <Cell ss:Index="4" ss:StyleID="s77"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s87"/>
+    <Cell ss:Index="4" ss:StyleID="s86"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s87"/>
+    <Cell ss:Index="4" ss:StyleID="s86"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="4" ss:StyleID="s87"/>
+    <Cell ss:Index="4" ss:StyleID="s86"/>
+    <Cell ss:Index="9" ss:StyleID="s65"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="4" ss:StyleID="s86"/>
     <Cell ss:Index="9" ss:StyleID="s65"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -863,9 +857,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">SupplyType</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Category of supply</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">valueset-supply-type</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">valueset-supply-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SupplyStatus</Data></Cell>

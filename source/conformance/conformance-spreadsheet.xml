@@ -240,7 +240,6 @@
     <Cell><Data ss:Type="String">230;160</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">A conformance statement is a set of requirements for a desired implementation or a description of how a target application fulfills those requirements in a particular implementation</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">N/A (would map to MIF instead, but MIF has no equivalent)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Conformance.identifier</Data></Cell>
@@ -1046,9 +1045,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1060,11 +1059,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>8</ActiveCol>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

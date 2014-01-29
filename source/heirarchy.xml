@@ -10,6 +10,7 @@ todo: compartments
     <page title="License and Legal Terms" filename="license.html"/>
     <page title="Community and Credits" filename="credits.html"/>
     <page title="Version History" filename="history.html"/>
+    <page title="DSTU Considerations" filename="dstu.html"/>
     <page title="Outstanding Issues" filename="todo.html"/>
     <page title="Summary" filename="summary.html"/>
     <page title="Introduction" filename="overview.html"/>
@@ -125,10 +126,10 @@ todo: compartments
     <page type="resource" resource="Supply"/>
     <page type="resource" resource="Order"/>
     <page type="resource" resource="OrderResponse"/>
-    <page type="resource" resource="Appointment"/>
+<!--    <page type="resource" resource="Appointment"/>
     <page type="resource" resource="AppointmentResponse"/>
     <page type="resource" resource="Availability"/>
-    <page type="resource" resource="Slot"/>
+    <page type="resource" resource="Slot"/>-->
   </page>
   <page title="Infrastructure" filename="infrastructure.html">
     <page type="resource" resource="List"/>
@@ -143,6 +144,7 @@ todo: compartments
     <page type="resource" resource="OperationOutcome"/>
     <page type="resource" resource="Query"/>
     <page type="resource" resource="Conformance"/>
+<!--    <page type="resource" resource="Namespace"/>-->
     <page type="resource" resource="ValueSet"/>
     <page type="resource" resource="Profile"/>
     <page type="resource" resource="ConceptMap"/>
