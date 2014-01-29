@@ -17,7 +17,7 @@
 
         <content type="text/xml">
             <Composition xmlns="http://hl7.org/fhir">
-                <instant value="2013-02-01T12:30:02"/>
+                <date value="2013-02-01T12:30:02"/>
                 <type>
                     <coding>
                         <system value="www.loinc.org"/>
@@ -44,9 +44,7 @@
                 <!-- The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc. -->
 
                 <section>
-                    <code>
-                        <text value="Encounter Information"/>
-                    </code>
+                    <title value="Encounter Information"/>
                     <content>
                         <reference
                             value="http://hl7connect.healthintersections.com.au/svc/fhir/Encounter/example"
@@ -55,12 +53,12 @@
                 </section>
 
                 <section>
+                    <title value="Reason for admission"/>
                     <code>
                         <coding>
                             <system value="http://loinc.org"/>
                             <code value="46241-6"/>
                         </coding>
-                        <text value="Reason for admission"/>
                     </code>
                     <content>
                         <reference value="urn:guid:d0dd51d3-3ab2-4c84-b697-a630c3e40e7a"/>
@@ -70,12 +68,12 @@
 
                 <!-- Points to the list that groups the medications on discharge -->
                 <section>
+                    <title value="Medications on Discharge"/>
                     <code>
                         <coding>
                             <system value="http://loinc.org"/>
                             <code value="10183-2"/>
                         </coding>
-                        <text value="Medications on Discharge"/>
                     </code>
                     <content>
                         <reference value="urn:guid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
@@ -84,12 +82,12 @@
 
                 <!-- Points to the list that groups the allergies -->
                 <section>
+                    <title value="Known allergies"/>
                     <code>
                         <coding>
                             <system value="http://loinc.org"/>
                             <code value="48765-2"/>
                         </coding>
-                        <text value="Known allergies"/>
                     </code>
                     <content>
                         <reference value="urn:guid:68f86194-e6e1-4f65-b64a-5314256f8d7b"/>

@@ -24,7 +24,7 @@
                     <status value="generated"/>
                     <div xmlns="http://www.w3.org/1999/xhtml">A Progress note...</div>
                 </text>
-                <instant value='2013-06-06T12:30:00'/>  <!-- the time this document was created -->
+                <date value='2013-06-06T12:30:00'/>  <!-- the time this document was created -->
                 <!-- What type of document is this - e.g. Discharge Summary, referral, Consultation note -->
                 <type>
                     <coding>
@@ -51,6 +51,7 @@
                 </author>
                 <!-- The document sections. First the Presenting (Chief) Complaint  -->
                 <section>
+                    <title value="Primary complaint"/>
                     <code>
                         <coding>
                             <system value="http://loinc.org"/>
@@ -66,6 +67,7 @@
  
                 <!-- Assessment-->
                 <section>
+                    <title value="Assessment"/>
                     <code>
                         <coding>
                             <system value="http://loinc.org"/>
@@ -80,6 +82,7 @@
  
                 <!-- Physical Exam -->
                 <section>
+                    <title value="Exam"/>
                     <code>
                         <coding>
                             <system value="http://loinc.org"/>
@@ -94,6 +97,7 @@
  
                 <!-- Medications -->
                 <section>
+                    <title value="Current medications"/>
                     <code>
                         <coding>
                             <system value="http://loinc.org"/>

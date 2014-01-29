@@ -21,11 +21,11 @@ Outstanding issues:
 <h1>FHIR Documents</h1>
 
 <p>
-FHIR resources can be used to build clinical documents that represent a composition:
+FHIR resources can be used to build documents that represent a composition:
 a set of coherent information that is a statement of healthcare information, 
 particularly including clinical observations and services. 
 
-A clinical document is an immutable set of resources with a fixed presentation 
+A document is an immutable set of resources with a fixed presentation 
 that is authored and/or attested by humans, organizations and devices. 
 
 Documents built in this fashion may be exchanged between systems and also 
@@ -34,6 +34,12 @@ XDS.
 
 Applications claiming conformance to this framework claim to be conformant to 
 "FHIR documents". 
+
+FHIR documents may be 'clinical' (focused on patient healthcare information) but
+may also serve non-clinical purposes (e.g. practice guidelines, patient handouts, etc.)
+HL7 will develop profiles in the future giving additional guidance on appropriate 
+representation of clinical documents in general as well as specific types of clinical 
+documents (e.g. Consolidated CDA).
 </p>
 
 <p>

@@ -10,7 +10,7 @@
 	  <system value="http://healthintersections.com.au/test"/>
 	  <value value="1"/>
 	</identifier>
-	<instant value="2012-01-04T09:10:14Z"/>
+	<date value="2012-01-04T09:10:14Z"/>
 	<type>
 	  <coding>
 		<system value="http://loinc.org"/>
@@ -44,6 +44,7 @@
 	  <display value="Good Health Clinic"/>
 	</custodian>
   <section>
+    <title value="History of present illness"/>
     <code>
       <coding>
         <system value="http://loinc.org"/>
