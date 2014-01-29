@@ -282,6 +282,42 @@ Here are some example searches:
  <tr><td><pre> GET [base-url]/Patient?gender:text=male</pre></td><td>Search for any patient with a gender that has a text "male" associated with it (note: this will include "female")</td></tr>
 </table>
 
+<a name="variable" />
+<h4>variable</h4>
+<p>
+A variable type is a special case parameter that is used when an element that may have multiple types.
+For instance, <a href="observation-definitions.html#Observation.value_x_">Observation.value</a> 
+may have one of the following types:
+</p>
+<ul>
+ <li><a href="datatypes.html#Quantity">Quantity</a></li>
+ <li><a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
+ <li><a href="datatypes.html#Attachment">Attachment</a></li>
+ <li><a href="datatypes.html#Ratio">Ratio</a></li>
+ <li><a href="datatypes.html#Period">Period</a></li>
+ <li><a href="datatypes.html#SampledData">SampledData</a></li>
+ <li><a href="datatypes.html#string">string</a></li>
+</ul>
+<p>
+The syntax for the value may follow the form:
+</p>
+<ul>
+ <li><b>[parameter]=[number]|[namespace]|[code]</b> matches a quantity with the given unit. The number can include a comparator as defined for a number parameter above</li>
+</ul>
+<p>
+If the syntax does not follow this form, then the value should be interpreted as for a <a href="#token">token</a> parameter.
+An example search:
+</p>
+
+<table>
+ <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
+ <tr><td><pre> GET [base-url]/Observation?value=&lt;5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of &lt;5.4 mg where mg is understood as a UCUM unit</td></tr>
+</table>
+
+<p>
+The search processor may choose to perform a search based on <a href="datatypes.html#quantity">canonical units</a> (e.g. any value where the units can be converted to a value in mg in the case above)
+</p>
+
 
 <a name="chaining" />
 <a name="reference" />

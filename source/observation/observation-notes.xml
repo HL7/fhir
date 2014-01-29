@@ -9,7 +9,6 @@
      <li>valueQuantity</li>
      <li>valueCodeableConcept</li>
      <li>valueRatio</li>
-     <li>valueChoice</li>
      <li>valuePeriod</li>
      <li>valueSampleData</li>
      <li>valueString</li>

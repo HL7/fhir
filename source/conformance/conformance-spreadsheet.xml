@@ -648,7 +648,7 @@
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">SearchParamType</Data></Cell>
-    <Cell><Data ss:Type="String">number | date | string | token | reference | composite</Data></Cell>
+    <Cell><Data ss:Type="String">number | date | string | token | reference | composite | variable</Data></Cell>
     <Cell><Data ss:Type="String">The type of value a search parameter refers to, and how the content is interpreted</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -1045,9 +1045,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>40</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1055,14 +1055,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>45</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1952,7 +1953,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="search-param-type">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s87" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s87" ss:AutoFitWidth="0" ss:Width="84"
     ss:Span="1"/>
@@ -2000,6 +2001,11 @@
     <Cell><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">A composite search parameter that combines a search on two values together</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">variable</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">A search parameter on an element that can have multiple types including quantity and codeableConcept</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -2017,7 +2023,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1:R2</RangeSelection>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
