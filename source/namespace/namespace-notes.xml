@@ -1,0 +1,12 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h3>Dealing with duplicate entries</h3>
+<p>
+In some cases, the same code or identifier system might accidentally get created more than once in a registry (perhaps because someone failed to check
+for an existing entry before adding a new one or knows the same concept with a different name.  If this occurs, one of the system entries should be deleted
+and the remaining entry should have its information updated to include any identifiers present on the original entry (and possibly have its descriptive 
+information modified to include additional information gleaned from the duplicate entry).
+</p>
+
+
+</div>
