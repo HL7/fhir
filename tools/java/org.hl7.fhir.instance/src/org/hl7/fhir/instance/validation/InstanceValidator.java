@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -20,7 +19,6 @@ import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Contact;
-import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
@@ -28,16 +26,12 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
-import org.hl7.fhir.instance.model.Profile.ConstraintSeverity;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.instance.model.Profile.ElementSlicingComponent;
 import org.hl7.fhir.instance.model.Profile.ExtensionContext;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
-import org.hl7.fhir.instance.model.Profile.PropertyRepresentation;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Range;
@@ -59,7 +53,6 @@ import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xml.NamespaceContextMap;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 
@@ -347,20 +340,33 @@ public class InstanceValidator extends BaseValidator {
     while (ci.next()) {
       ElementComponent child = children.get(ci.name());
       String type = null;
-      if (ci.name().equals("extension")) {
+      if (ci.name().equals("extension")) 
+      {
         type = "Extension";
         child = definition; // it's going to be used as context below
-      } else if (child == null) {
+      } 
+      else if (child == null) 
+      {
         child = getDefinitionByTailNameChoice(children, ci.name());
         if (child != null)
           type = ci.name().substring(tail(child.getPathSimple()).length() - 3);
         if ("Resource".equals(type))
           type = "ResourceReference";
-      } else {
-        if (child.getDefinition().getType().size() > 1)
-          throw new Exception("multiple types ("+describeTypes(child.getDefinition().getType())+") @ "+path+"/f:"+ci.name());
-        if (child.getDefinition().getType().size() == 1)
-          type = child.getDefinition().getType().get(0).getCodeSimple();
+      } 
+      else 
+      {
+          if (child.getDefinition().getType().size() == 1)
+              type = child.getDefinition().getType().get(0).getCodeSimple();
+          else if (child.getDefinition().getType().size() > 1 )
+          {
+        	  TypeRefComponent trc = child.getDefinition().getType().get(0);
+        	  
+        	  if("ResourceReference".equals(trc.getCodeSimple()))
+        		  type = trc.getCodeSimple();
+        	  else
+        		  throw new Exception("multiple types ("+describeTypes(child.getDefinition().getType())+") @ "+path+"/f:"+ci.name());
+          }
+          
         if (type != null) {
           if (type.startsWith("Resource("))
             type = "ResourceReference";
@@ -382,7 +388,7 @@ public class InstanceValidator extends BaseValidator {
             checkCodeableConcept(errors, ci.path(), ci.element(), profile, child);
           else if (type.equals("Extension"))
             checkExtension(errors, ci.path(), ci.element(), profile, child, actualType);
-
+          
           if (type.equals("Resource"))
             validateContains(errors, ci.path(), child, definition, ci.element());
           else {

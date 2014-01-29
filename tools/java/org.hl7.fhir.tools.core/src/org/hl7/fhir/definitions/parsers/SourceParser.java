@@ -98,12 +98,10 @@ public class SourceParser {
 	private String termDir;
 	public String dtDir;
 	private String rootDir;
-	private boolean forPublication;
 	private BindingNameRegistry registry;
 
 	public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication) {
 		this.logger = logger;
-		this.forPublication = forPublication;
 		this.registry = new BindingNameRegistry(root, forPublication);
 		this.definitions = definitions;
 

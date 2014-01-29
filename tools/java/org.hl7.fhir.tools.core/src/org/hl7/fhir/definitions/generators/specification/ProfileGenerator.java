@@ -264,16 +264,18 @@ public class ProfileGenerator {
   }
 
   private Profile.ElementComponent defineElement(ProfileDefn pd, Profile p, Profile.ProfileStructureComponent c, 
-      ElementDefn e, String path, GenerationMode mode, Set<String> slices) throws Exception {
+    ElementDefn e, String path, GenerationMode mode, Set<String> slices) throws Exception 
+  {
     Profile.ElementComponent ce = new Profile.ElementComponent();
     c.getElement().add(ce);
-    
-    // EK: Added code to remove [x] from the path
-   // if(path.endsWith("[x]")) path = path.substring(0, path.length()-3);
-    
+        
     ce.setPath(Factory.newString_(path));
     if (e.isXmlAttribute())
       ce.addRepresentationSimple(PropertyRepresentation.xmlAttr);
+    
+    // If this element has a profile name, and this is the first of the
+    // slicing group, add a slicing group "entry" (= first slice member,
+    // which holds Slicing information)
     if (!Utilities.noString(e.getProfileName())) {
       if (!Utilities.noString(e.getDiscriminator()) && !slices.contains(path)) {
         ce.setSlicing(new Profile.ElementSlicingComponent());
@@ -287,6 +289,7 @@ public class ProfileGenerator {
       }
       ce.setName(Factory.newString_(e.getProfileName()));
     }
+    
     ce.setDefinition(new Profile.ElementDefinitionComponent());
     if (!"".equals(e.getComments()))
       ce.getDefinition().setComments(Factory.newString_(e.getComments()));
@@ -380,66 +383,53 @@ public class ProfileGenerator {
 
     Set<String> containedSlices = new HashSet<String>();
     
-    // Element is a sliced extension array...
-    if (e.getElementByName("extension") != null)
+    makeExtensionSlice("extension", mode, pd, p, c, e, path, containedSlices);
+    makeExtensionSlice("modifierExtension", mode, pd, p, c, e, path, containedSlices);
+        
+    if (mode == GenerationMode.Resource) {
+      c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("text")));
+      c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("contained")));
+    }
+        
+    for (ElementDefn child : e.getElements()) 
     {
-      ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension"));
-      ex.setNameSimple("base extension");
+      // We handled the "extension" element above, now render the other elements
+      if (!child.getName().equals("extension") &&
+          !child.getName().equals("modifierExtension") )
+        defineElement(pd, p, c, child, path+"."+child.getName(), GenerationMode.Backbone, containedSlices);
+    }
+    
+    return ce;
+  }
+
+  private void makeExtensionSlice(String extensionName, GenerationMode mode, ProfileDefn pd, Profile p, Profile.ProfileStructureComponent c, ElementDefn e, String path, Set<String> containedSlices)
+      throws URISyntaxException, Exception 
+   {
+    // Element has a sliced extension array...
+    if (e.getElementByName(extensionName) != null)
+    {
+      ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName(extensionName));
+      ex.setNameSimple("base " + extensionName);
       ex.setSlicing(new Profile.ElementSlicingComponent());
       ex.getSlicing().setDiscriminatorSimple("url");
       ex.getSlicing().setOrderedSimple(false);
       ex.getSlicing().setRulesSimple(ResourceSlicingRules.open);
       ex.setDefinition(null);
       c.getElement().add(ex);
-      containedSlices.add("extension");
+      containedSlices.add(extensionName);
       for (ElementDefn child : e.getElements()) {
-        if (child.getName().equals("extension")) {
+        if (child.getName().equals(extensionName)) {
           String t = child.getProfile();
           ElementComponent elem = defineElement(pd, p, c, child, path+"."+child.getName(), GenerationMode.Element, containedSlices);
           elem.getDefinition().getType().get(0).setProfileSimple(t);
-          }
-      }
-    }
-    else if (mode != GenerationMode.Element && e.getTypes().size() > 0) {
-      c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("extension")));
-    }
-      
-    if ((mode == GenerationMode.Resource) || (mode == GenerationMode.Backbone && e.getTypes().size() == 0))
-    {
-      if (e.getElementByName("modifierExtension") != null) 
-      {
-        ElementComponent ex = createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("modifierExtension"));
-        ex.setNameSimple("base modifier extension");
-        ex.setSlicing(new Profile.ElementSlicingComponent());
-        ex.getSlicing().setDiscriminatorSimple("url");
-        ex.getSlicing().setOrderedSimple(false);
-        ex.getSlicing().setRulesSimple(ResourceSlicingRules.open);
-        ex.setDefinition(null);
-        c.getElement().add(ex);
-        containedSlices.add("modifierExtension");
-        for (ElementDefn child : e.getElements()) {
-          if (child.getName().equals("modifierExtension")) {
-            String t = child.getProfile();
-            ElementComponent elem = defineElement(pd, p, c, child, path+"."+child.getName(), GenerationMode.Element, containedSlices);
-            elem.getDefinition().getType().get(0).setProfileSimple(t);
-          }
         }
-      } 
-      else
-      {
-        c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("modifierExtension")));
       }
     }
-    
-    if (mode == GenerationMode.Resource) {
-      c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("text")));
-      c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("contained")));
-    }
-    for (ElementDefn child : e.getElements()) {
-      if (!child.getName().equals("extension"))
-        defineElement(pd, p, c, child, path+"."+child.getName(), mode != GenerationMode.Element ? GenerationMode.Backbone : GenerationMode.Element, containedSlices);
-    }
-    return ce;
+    // If Element does not have a sliced extension array, we might want to
+    // add one anyway, since it's present in the base class
+    // of both Resource and Element and of anonymous nested classes 
+    else if(mode != GenerationMode.Backbone || e.getTypes().size() == 0)
+      c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName(extensionName)));      
   }
 
   private void addMapping(Profile p, ElementDefinitionComponent definition, String target, String map) {

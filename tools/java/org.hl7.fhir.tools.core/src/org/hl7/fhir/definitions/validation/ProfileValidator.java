@@ -35,6 +35,7 @@ import java.util.Stack;
 
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.TypeParser;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
@@ -195,7 +196,11 @@ public class ProfileValidator extends BaseValidator {
     for (TypeRefComponent t : e.getDefinition().getType()) {
       TypeParser tp = new TypeParser();
       try {
-        n.getTypes().addAll(tp.parse(t.getCode().getValue()));
+        List<TypeRef> splitTypes = tp.parse(t.getCode().getValue());
+        // Note: the base definitions can still contain a TypeRef.profile,
+        // since Resource(A|B|C) gets split up, with A, B, or C as the profile
+        n.setProfile(t.getProfileSimple());
+        n.getTypes().addAll(splitTypes);
       } catch (Exception ex) {
         errors.add("invalid type "+t+" on "+e.getPath()+" in underlying resource definition");
       }

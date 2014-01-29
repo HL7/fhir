@@ -29,6 +29,12 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.io.File;
 
+/**
+ * This class gives easy access to the paths used by the publisher to get to
+ * input files and store intermediate and output files
+ * @author Ewout
+ *
+ */
 public class FolderManager {
 
   

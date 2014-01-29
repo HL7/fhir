@@ -210,6 +210,10 @@ public class PageProcessor implements Logger  {
 	  return val; 
   }
 
+  private Boolean generateDisqus = false;
+  
+  public void enableDisqus() { generateDisqus = true; }
+  
   private String generateSideBar(String prefix) throws Exception {
     if (prevSidebars.containsKey(prefix))
       return prevSidebars.get(prefix);
@@ -558,16 +562,16 @@ public class PageProcessor implements Logger  {
 
   private String disqusScript() 
   {
-    String fhirDisqusAccount = ini.getStringProperty("FHIR", "disqus");
+    String fhirDisqusShortname = ini.getStringProperty("FHIR", "disqus");
     
-    if(fhirDisqusAccount != null)
+    if(generateDisqus && fhirDisqusShortname != null)
     {
       StringBuilder b = new StringBuilder();
       b.append("<div class=\"container\">");
       b.append("<hr />");
       b.append("<div id=\"disqus_thread\"></div>");
       b.append("<script type=\"text/javascript\">");
-      b.append("var disqus_shortname = '" + fhirDisqusAccount + "';");
+      b.append("var disqus_shortname = '" + fhirDisqusShortname + "';");
       b.append("(function() {");
       b.append("var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;");
       b.append("dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';");
