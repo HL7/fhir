@@ -70,6 +70,7 @@ public class WebMaker {
   }
 
   private static final String SEARCH_FORM_HOLDER = "<p id=\"srch\">&nbsp;</p>";
+  private static final String SEARCH_LINK = "<div id=\"hl7-search\"/>";
 
   public void produceHL7Copy() throws Exception {
     List<String> folderList = new ArrayList<String>();
@@ -89,6 +90,8 @@ public class WebMaker {
         String src = TextFile.fileToString(folders.dstDir+f);
         if (src.contains(SEARCH_FORM_HOLDER)) 
           src = src.replace(SEARCH_FORM_HOLDER, googleSearch());
+        if (src.contains(SEARCH_LINK)) 
+          src = src.replace(SEARCH_LINK, googleSearchLink());
         int i = src.indexOf("</body>");
         if (i > 0)
           src = src.substring(0, i) + google()+src.substring(i);
@@ -193,6 +196,7 @@ public class WebMaker {
 
   private String googleSearch() {
     return "<h3>Search the FHIR Specification:</h3>\r\n"+
+        "<a name=\"search\"/>\r\n"+
         "<div id=\"cse\" style=\"width: 100%;\">Loading</div>\r\n"+
         "<script src=\"http://www.google.com/jsapi\" type=\"text/javascript\"> </script>\r\n"+
         "<script type=\"text/javascript\"> \r\n"+
@@ -206,6 +210,12 @@ public class WebMaker {
         "</script>\r\n";
 
   }
+  
+  private String googleSearchLink() {
+    return "<div id=\"hl7-search\">\r\n"+
+        "  <a href=\"<%level%>index.html#search\">search</a>\r\n"+
+			"</div>";
+}
   private void makeArchives() throws Exception {
     for (String v : definitions.getPastVersions()) {
       extractZip(folders.archiveDir+"v"+v+".zip", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v"+v+File.separator);
