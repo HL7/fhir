@@ -10,7 +10,7 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2013-12-30T10:41:14Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -78,7 +78,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="35" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="36" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s62" ss:Width="313.5"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="60"/>
@@ -386,6 +386,12 @@
     <Cell><Data ss:Type="String">BUSY-UNAVAILABLE</Data></Cell>
     <Cell><Data ss:Type="String">BUSY-TENTATIVE</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Namespace.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -395,13 +401,6 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
-   <TopRowVisible>21</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>33</ActiveRow>
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

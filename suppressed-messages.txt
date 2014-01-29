@@ -3,6 +3,7 @@ information @ ResourceReference.reference: Name of child (reference) overlaps wi
 information @ ImmunizationRecommendation.recommendation: Name of child (recommendation) overlaps with name of parent (ImmunizationRecommendation) (src = ResourceValidator)
 information @ MedicationDispense.dispense: Name of child (dispense) overlaps with name of parent (MedicationDispense) (src = ResourceValidator)
 information @ SecurityEvent.event: Name of child (event) overlaps with name of parent (SecurityEvent) (src = ResourceValidator)
+warning @ Conformance: RIM Mapping is required (src = ResourceValidator)
 warning @ Medication: All resources should have an identifier (src = ResourceValidator)
 warning @ Profile: RIM Mapping is required (src = ResourceValidator)
 warning @ Provenance: All resources should have an identifier (src = ResourceValidator)

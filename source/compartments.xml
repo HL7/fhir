@@ -10,7 +10,7 @@
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2013-07-04T21:40:49Z</Created>
   <LastSaved>2014-01-06T04:40:41Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -130,23 +130,16 @@
     <Cell><Data ss:Type="String">recorder</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Appointment</Data></Cell>
+    <Cell><Data ss:Type="String">CarePlan</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">recorder</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AppointmentResponse</Data></Cell>
-    <Cell><Data ss:Type="String">recorder | individual</Data></Cell>
-    <Cell><Data ss:Type="String">recorder</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Availability</Data></Cell>
-    <Cell><Data ss:Type="String">individual | author</Data></Cell>
+    <Cell><Data ss:Type="String">Composition</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CarePlan</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
@@ -160,6 +153,10 @@
     <Cell><Data ss:Type="String">Device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceObservationReport</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">orderer</Data></Cell>
@@ -170,7 +167,7 @@
     <Cell><Data ss:Type="String">result.performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Composition</Data></Cell>
+    <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
@@ -180,9 +177,8 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
+    <Cell><Data ss:Type="String">Encounter</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FamilyHistory</Data></Cell>
@@ -270,11 +266,6 @@
     <Cell><Data ss:Type="String">{def}</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Picture</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">operator</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">{def}</Data></Cell>
    </Row>
@@ -306,11 +297,6 @@
     <Cell><Data ss:Type="String">reference.subject | reference.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Slot</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
@@ -325,35 +311,26 @@
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell><Data ss:Type="String">!Appointment</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">recorder</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!User</Data></Cell>
+    <Cell><Data ss:Type="String">!AppointmentResponse</Data></Cell>
+    <Cell><Data ss:Type="String">recorder | individual</Data></Cell>
+    <Cell><Data ss:Type="String">recorder</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!GVFVariant</Data></Cell>
-    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+    <Cell><Data ss:Type="String">!Availability</Data></Cell>
+    <Cell><Data ss:Type="String">individual | author</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!GVFMeta</Data></Cell>
-    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+    <Cell><Data ss:Type="String">!Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!SequencingAnalysis</Data></Cell>
+    <Cell><Data ss:Type="String">!GeneExpression</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Microarray</Data></Cell>
-    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Sequence</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!VCFVariant</Data></Cell>
-    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!GeneticAnalysis</Data></Cell>
@@ -361,29 +338,50 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!GeneExpression</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">!GVFMeta</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!VCFMeta</Data></Cell>
+    <Cell><Data ss:Type="String">!GVFVariant</Data></Cell>
     <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">!Microarray</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">!Namespace</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">!Remittance</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">!Sequence</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">!SequencingAnalysis</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!SequencingLab</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Remittance</Data></Cell>
+    <Cell><Data ss:Type="String">!Slot</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Claim</Data></Cell>
+    <Cell><Data ss:Type="String">!User</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DeviceObservationReport</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">!VCFMeta</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
+    <Cell><Data ss:Type="String">!VCFVariant</Data></Cell>
+    <Cell><Data ss:Type="String">subject.patient</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -399,11 +397,17 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
