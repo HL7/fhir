@@ -320,8 +320,7 @@ public class ProfileGenerator {
           for(String param : t.getParams())
           {    
             TypeRefComponent type = new Profile.TypeRefComponent();
-            type.setCode(Factory.newCode("ResourceReference"));
-            type.setProfileSimple("#" + param.toLowerCase() );
+            type.setCode(Factory.newCode("Resource("+ param+")"));
             ce.getDefinition().getType().add(type);            
           }
         }

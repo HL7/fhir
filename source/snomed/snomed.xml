@@ -1592,6 +1592,10 @@
     <display value="Assess physical therapist service"/>
     <display value="Physical therapy assessment (procedure)"/>
   </concept>
+  <concept id="410667008" display="Length (attribute)">
+    <display value="Length (attribute)"/>
+    <display value="Length"/>
+  </concept>
   <concept id="411106009" display="Fluticasone + salmeterol">
     <display value="Fluticasone propionate+salmeterol xinafoate (product)"/>
     <display value="Fluticasone propionate+salmeterol xinafoate"/>

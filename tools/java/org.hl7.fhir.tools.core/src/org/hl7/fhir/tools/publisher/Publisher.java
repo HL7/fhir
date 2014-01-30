@@ -574,6 +574,8 @@ public class Publisher {
       return Conformance.SearchParamType.token;
     case composite:
       return Conformance.SearchParamType.composite;
+    case variable:
+      return Conformance.SearchParamType.variable;
     }
     return null;
   }
