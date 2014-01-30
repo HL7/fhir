@@ -12,7 +12,7 @@
     <author>
       <name>FHIR Project Team</name>
     </author>
-    <content type="text/xml">
+    <content type="text/xml">4465e76f-7342-44c3-a3be-92304675fcba
       <DiagnosticReport xmlns="http://hl7.org/fhir">
         <text>
           <status value="generated"/>

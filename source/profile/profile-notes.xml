@@ -31,8 +31,8 @@ When the type of the element is fixed in the underlying resource definitions, it
   Each of these appears in the list with the order and cardinality specified. By this means, a list may be "sliced" into a series of different components.</li>
 
 <li>There can be more than one entry for each element path. The constraint specification can define multiple different constraints for any element and 
-  then use them in different places. In practice, this is useful when slicing a list and the differently named constraint profiles are invoked using the 
-  <i>values</i> element. The name of the element constraint SHALL be unique within the constraint specification for that resource. If a constraint does not 
+  then use them in different places. In practice, this is useful when slicing a list and the differently named constraint profiles are differentiated using the 
+  <i>value[x]</i> element. The name of the element constraint SHALL be unique within the constraint specification for that resource. If a constraint does not 
   have a name, it applies to the base resource and SHALL be found in the correct place in the structure.</li>
 <li>Closed is only relevant if the underlying element has a max cardinality > 1. </li> 
 <li>For an extension definition, the cardinality constraints are limits on the constraints of any reference to the extension in a profile. 
