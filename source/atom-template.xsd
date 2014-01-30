@@ -110,6 +110,7 @@ Copyright (c) 2011-2012, HL7, Inc
   <xs:complexType name="ContentType" mixed="true">
     <xs:choice>
       <xs:element ref="fhir:Binary"/>
+	  <xs:element ref="atom:feed" />
       <!--%atom.elements%-->
     </xs:choice>
     <xs:attribute name="type" type="xs:string"/>
