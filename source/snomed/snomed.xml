@@ -934,6 +934,11 @@
     <display value="Serum anion gap level"/>
     <display value="Serum anion gap measurement (procedure)"/>
   </concept>
+  <concept id="27113001" display="Body weight (observable entity)">
+    <display value="Body weight"/>
+    <display value="Body weight, NOS"/>
+    <display value="Body weight (observable entity)"/>
+  </concept>
   <concept id="271239003" display="Serum bicarbonate level">
     <display value="Serum bicarbonate level"/>
     <display value="Serum bicarbonate measurement"/>
