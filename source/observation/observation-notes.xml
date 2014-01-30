@@ -8,12 +8,12 @@
     <ul>
      <li>valueQuantity</li>
      <li>valueCodeableConcept</li>
+     <li>valueAttachment</li>
      <li>valueRatio</li>
      <li>valuePeriod</li>
-     <li>valueSampleData</li>
+     <li>valueSampledData</li>
      <li>valueString</li>
     </ul>
-    The element name is ""'value' + the type name"" with a capital on the first letter of the type
   </li>
   <li>
     The appliesDateTime or appliesPeriod is the time that the observation is most 
@@ -44,17 +44,7 @@
 	extensions can be used to introduce this additional complexity.
  </li>
  <li>
-   Although the search parameter <i>value</i> is labelled as a token, it can be used 
-   to search against multiple different parameter types:
-   <table class="grid">
-    <tr> <td>CodeableConcept</td> <td>Use normal token based matching</td> </tr>
-    <tr> <td>string</td> <td>Interpreted as a code with no system namespace</td> </tr>
-    <tr> <td>Quantity</td> <td>If the value of the parameter is a number (potentially with &lt; etc), it is a search on the value (todo: units, canonical?)</td> </tr>
-    <tr> <td>Attachment</td> <td>Not included in search results</td> </tr>
-    <tr> <td>Ratio</td> <td>Not included in search results</td> </tr>
-    <tr> <td>Period</td> <td>Not included in search results</td> </tr>
-    <tr> <td>SampledData</td> <td>Not included in search results</td> </tr>
-   </table>
+   The search parameter <i>value</i> is used to search against multiple different value types as a <a href="search.html#variable">variable parameter</a>. Values of type Attachment, Ratio, and Period are not included in search results
  </li>
 </ul>
 

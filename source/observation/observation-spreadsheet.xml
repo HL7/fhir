@@ -192,7 +192,7 @@
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="15" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="258"/>
    <Column ss:Index="17" ss:StyleID="s65" ss:Width="88.5"/>
-   <Row ss:Height="105" ss:StyleID="s67">
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -234,7 +234,7 @@
     <Cell><Data ss:Type="String">CCDA: Tobacco Use</Data></Cell>
     <Cell><Data ss:Type="String">CCDA: Vital Sign Observation</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -242,11 +242,11 @@
     <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell><Data ss:Type="String">Simple observations</Data></Cell>
-    <Cell><Data ss:Type="String">Simple assertions and measurements made about a patient, device or other subject</Data></Cell>
-    <Cell><Data ss:Type="String">Vital Signs, Measurement</Data></Cell>
+    <Cell><Data ss:Type="String">Measurements and simple assertions</Data></Cell>
+    <Cell><Data ss:Type="String">Measurements and simple assertions made about a patient, device or other subject</Data></Cell>
+    <Cell><Data ss:Type="String">Vital Signs, Measurement, Results, Tests</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.</Data></Cell>
-    <Cell><Data ss:Type="String">Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to describe aggregate collections of observations such as Lab reports, etc</Data></Cell>
+    <Cell><Data ss:Type="String">Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as Lab reports, etc</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Observation[isNormalAct() and subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and domainMember(&quot;SimpleObservationType&quot;, code)]</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">OBX</Data></Cell>
@@ -275,7 +275,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -314,7 +314,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:Height="300">
+   <Row ss:AutoFitHeight="0" ss:Height="300">
     <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -329,7 +329,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">value</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">./value</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">OBX.2, OBX.5, OBX.6</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Should have Range as a valid data type here</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s69"/>
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
@@ -354,7 +354,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Observation.interpretation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -393,7 +393,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -432,7 +432,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">Observation.applies[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -450,7 +450,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -467,7 +467,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -484,7 +484,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -502,7 +502,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Observation.bodySite</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -543,7 +543,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Observation.method</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -562,7 +562,7 @@
     <Cell><Data ss:Type="String">Is this in the 80%?</Data></Cell>
     <Cell ss:StyleID="s69"/>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Observation.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -601,7 +601,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -641,7 +641,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Observation.specimen</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -681,7 +681,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"/>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -721,7 +721,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:Height="180">
+   <Row ss:AutoFitHeight="0" ss:Height="180">
     <Cell><Data ss:Type="String">!Observation.normalValue[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="Number">2</Data></Cell>
@@ -759,7 +759,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">Observation.referenceRange</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -797,7 +797,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
@@ -835,7 +835,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
@@ -873,7 +873,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -913,7 +913,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -950,7 +950,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Observation.related</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">400;40</Data></Cell>
@@ -960,7 +960,7 @@
     <Cell><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived)</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Relationships established by OBX-4 usage</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Observation.related.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -971,7 +971,7 @@
     <Cell><Data ss:Type="String">A relationship type SHOULD be provided. If the relationship type is &quot;COMP&quot; (composed), then the observation should not be displayed/interpreted in the absence of the related observations</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Observation.related.target</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation)</Data></Cell>
@@ -985,11 +985,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1006,8 +1007,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
