@@ -244,16 +244,16 @@ public interface FHIRClient {
 	 */
 	public <T extends Resource> AtomFeed search(Class<T> resourceClass, Map<String, String> params);
 	
-  /**
+	/**
    * Return all results matching search query parameters for the given resource class.
    * This includes a resource as one of the parameters, and performs a post
-   * 
+	 * 
    * @param resourceClass
    * @param params
-   * @return
-   */
+	 * @return
+	 */
   public <T extends Resource> AtomFeed searchPost(Class<T> resourceClass, T resource, Map<String, String> params);
-  
+	
 	/**
 	 * Update or create a set of resources
 	 * 

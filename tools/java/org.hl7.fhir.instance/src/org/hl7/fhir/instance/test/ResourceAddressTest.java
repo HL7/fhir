@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +17,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+//import static org.junit.Assert.fail;
 
 public class ResourceAddressTest {
 	
@@ -45,8 +47,7 @@ public class ResourceAddressTest {
 	public void testParseCreateLocation() {
 		ResourceAddress.ResourceVersionedIdentifier versionedIdentifier = resource.parseCreateLocation(fullVersionedPath);
 		assertEquals(basePath, versionedIdentifier.getServiceRoot());
-		fail("Next line does not compile - EK");
-	//	assertEquals("Patient", versionedIdentifier.getResourceType());
+		assertEquals("Patient", versionedIdentifier.getResourceType());
 		assertEquals("318",versionedIdentifier.getId());
 		assertEquals("1", versionedIdentifier.getVersionId());
 		assertEquals(fullNonVersionedPath, versionedIdentifier.getResourcePath());

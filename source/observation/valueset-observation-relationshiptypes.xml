@@ -1,0 +1,53 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Observation Relationship Types"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Relationship type between two observations"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
+      <!-- for these codes, we provide an alternative definition. It is consistent with the  
+         underlying act relationship definition, but specific to it's use in this case -->
+      <code value="COMP">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#definition">
+          <valueString value="The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure)"/>
+        </extension>
+      </code>
+      <code value="MBR">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#definition">
+          <valueString value="The target observation is grouped into a logical group of observations (e.g. a battery, a panel of tests, a set of vital sign measurements)"/>
+        </extension>
+      </code>
+      <code value="DRIV">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#definition">
+          <valueString value="The target observation is part of the information from which this observation value is derived (e.g. calculated anion gap, Apgar score)"/>
+        </extension>
+      </code>
+      <code value="SEQL">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#definition">
+          <valueString value="This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test)"/>
+        </extension>
+      </code>
+      <code value="RPLC">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#definition">
+          <valueString value="This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete"/>
+        </extension>
+      </code>
+      <code value="QUALF">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#definition">
+          <valueString value="The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure)"/>
+        </extension>
+      </code>
+      <code value="INTF">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#definition">
+          <valueString value="The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value)"/>
+        </extension>
+      </code>
+    </include>
+  </compose>
+</ValueSet>

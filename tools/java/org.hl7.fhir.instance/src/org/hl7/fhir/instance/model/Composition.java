@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 23, 2014 11:33-0600 for FHIR v0.12
+// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -371,6 +371,11 @@ public class Composition extends Resource {
 
     public static class SectionComponent extends BackboneElement {
         /**
+         * The heading for this particular section.  This will be part of the rendered content for the document.
+         */
+        protected String_ title;
+
+        /**
          * A code identifying the kind of content contained within the section.
          */
         protected CodeableConcept code;
@@ -393,6 +398,42 @@ public class Composition extends Resource {
       public SectionComponent() {
         super();
       }
+
+        /**
+         * @return {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.)
+         */
+        public String_ getTitle() { 
+          return this.title;
+        }
+
+        /**
+         * @param value {@link #title} (The heading for this particular section.  This will be part of the rendered content for the document.)
+         */
+        public SectionComponent setTitle(String_ value) { 
+          this.title = value;
+          return this;
+        }
+
+        /**
+         * @return The heading for this particular section.  This will be part of the rendered content for the document.
+         */
+        public String getTitleSimple() { 
+          return this.title == null ? null : this.title.getValue();
+        }
+
+        /**
+         * @param value The heading for this particular section.  This will be part of the rendered content for the document.
+         */
+        public SectionComponent setTitleSimple(String value) { 
+          if (value == null)
+            this.title = null;
+          else {
+            if (this.title == null)
+              this.title = new String_();
+            this.title.setValue(value);
+          }
+          return this;
+        }
 
         /**
          * @return {@link #code} (A code identifying the kind of content contained within the section.)
@@ -458,6 +499,7 @@ public class Composition extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
+          childrenList.add(new Property("title", "string", "The heading for this particular section.  This will be part of the rendered content for the document.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("code", "CodeableConcept", "A code identifying the kind of content contained within the section.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("subject", "Resource(Patient|Group|Device)", "Identifies the primary subject of the section.", 0, java.lang.Integer.MAX_VALUE, subject));
           childrenList.add(new Property("content", "Resource(Any)", "Identifies the discrete data that provides the content for the section.", 0, java.lang.Integer.MAX_VALUE, content));
@@ -466,6 +508,7 @@ public class Composition extends Resource {
 
       public SectionComponent copy(Composition e) {
         SectionComponent dst = new SectionComponent();
+        dst.title = title == null ? null : title.copy();
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.content = content == null ? null : content.copy();
@@ -485,7 +528,7 @@ public class Composition extends Resource {
     /**
      * The composition editing time, when the composition was last logically changed by the author.
      */
-    protected Instant instant;
+    protected DateTime date;
 
     /**
      * Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.
@@ -551,9 +594,9 @@ public class Composition extends Resource {
       super();
     }
 
-    public Composition(Instant instant, CodeableConcept type, Enumeration<CompositionStatus> status, Coding confidentiality, ResourceReference subject) {
+    public Composition(DateTime date, CodeableConcept type, Enumeration<CompositionStatus> status, Coding confidentiality, ResourceReference subject) {
       super();
-      this.instant = instant;
+      this.date = date;
       this.type = type;
       this.status = status;
       this.confidentiality = confidentiality;
@@ -576,34 +619,34 @@ public class Composition extends Resource {
     }
 
     /**
-     * @return {@link #instant} (The composition editing time, when the composition was last logically changed by the author.)
+     * @return {@link #date} (The composition editing time, when the composition was last logically changed by the author.)
      */
-    public Instant getInstant() { 
-      return this.instant;
+    public DateTime getDate() { 
+      return this.date;
     }
 
     /**
-     * @param value {@link #instant} (The composition editing time, when the composition was last logically changed by the author.)
+     * @param value {@link #date} (The composition editing time, when the composition was last logically changed by the author.)
      */
-    public Composition setInstant(Instant value) { 
-      this.instant = value;
+    public Composition setDate(DateTime value) { 
+      this.date = value;
       return this;
     }
 
     /**
      * @return The composition editing time, when the composition was last logically changed by the author.
      */
-    public DateAndTime getInstantSimple() { 
-      return this.instant == null ? null : this.instant.getValue();
+    public DateAndTime getDateSimple() { 
+      return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The composition editing time, when the composition was last logically changed by the author.
      */
-    public Composition setInstantSimple(DateAndTime value) { 
-        if (this.instant == null)
-          this.instant = new Instant();
-        this.instant.setValue(value);
+    public Composition setDateSimple(DateAndTime value) { 
+        if (this.date == null)
+          this.date = new DateTime();
+        this.date.setValue(value);
       return this;
     }
 
@@ -834,7 +877,7 @@ public class Composition extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Logical Identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("instant", "instant", "The composition editing time, when the composition was last logically changed by the author.", 0, java.lang.Integer.MAX_VALUE, instant));
+        childrenList.add(new Property("date", "dateTime", "The composition editing time, when the composition was last logically changed by the author.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("type", "CodeableConcept", "Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("class", "CodeableConcept", "A categorization for the type of the composition. This may be implied by or derived from the code specified in the Composition Type.", 0, java.lang.Integer.MAX_VALUE, class_));
         childrenList.add(new Property("title", "string", "Official human-readable label for the composition.", 0, java.lang.Integer.MAX_VALUE, title));
@@ -852,7 +895,7 @@ public class Composition extends Resource {
       public Composition copy() {
         Composition dst = new Composition();
         dst.identifier = identifier == null ? null : identifier.copy();
-        dst.instant = instant == null ? null : instant.copy();
+        dst.date = date == null ? null : date.copy();
         dst.type = type == null ? null : type.copy();
         dst.class_ = class_ == null ? null : class_.copy();
         dst.title = title == null ? null : title.copy();

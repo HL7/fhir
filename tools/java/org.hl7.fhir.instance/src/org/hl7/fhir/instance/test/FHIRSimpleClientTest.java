@@ -161,18 +161,18 @@ public class FHIRSimpleClientTest {
 
 	@Test
 	public void testVread() throws ParseException {
-		loadPatientResource();
+			loadPatientResource();
 		AtomEntry<Patient> fetchedPatient = testClient.vread(Patient.class, testPatientId, "1");
 		assertEquals("2008-08-08", fetchedPatient.getResource().getBirthDate().getValue());
-		unloadPatientResource();
+			unloadPatientResource();
 	}
 
 	@Test
 	public void testUpdate() throws ParseException {
-		loadPatientResource();
+			loadPatientResource();
 		Patient modifiedPatient = testClient.read(Patient.class, testPatientId).getResource();
-		DateTime modifiedBirthday = new DateTime();
-		modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
+			DateTime modifiedBirthday = new DateTime();
+			modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
 		modifiedPatient.setBirthDate(modifiedBirthday);
 		AtomEntry<Patient> result = testClient.update(Patient.class, modifiedPatient, testPatientId);
 		if(((Resource)result.getResource()) instanceof OperationOutcome) {
@@ -191,7 +191,7 @@ public class FHIRSimpleClientTest {
 			Patient updatedResource = (Patient)result.getResource();
 			assertTrue(modifiedBirthday.getValue().equals(updatedResource.getBirthDate().getValue()));
 		}
-		unloadPatientResource();
+			unloadPatientResource();
 	}
 	
 	@Test
@@ -221,15 +221,15 @@ public class FHIRSimpleClientTest {
 	
 	@Test
 	public void testCreateWithErrors() throws ParseException {
-		AdverseReaction adverseReaction = new AdverseReaction();
-		adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
+			AdverseReaction adverseReaction = new AdverseReaction();
+			adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
 		//adverseReaction.setDidNotOccurFlagSimple(false);
 		AtomEntry<AdverseReaction> result = null;
-		try {
-			result = testClient.create(AdverseReaction.class, adverseReaction);
-		} catch (EFhirClientException e) {
-			assertEquals(1, e.getServerErrors().size());
-		}
+			try {
+				result = testClient.create(AdverseReaction.class, adverseReaction);
+			} catch (EFhirClientException e) {
+				assertEquals(1, e.getServerErrors().size());
+			}
 		if(result != null) {
 			fail();
 		}
@@ -258,12 +258,12 @@ public class FHIRSimpleClientTest {
 	
 	@Test
 	public void testGetHistoryForResourcesOfTypeSinceCalendarDate() throws ParseException {
-		Calendar testDate = GregorianCalendar.getInstance();
+			Calendar testDate = GregorianCalendar.getInstance();
 		testDate.add(Calendar.HOUR_OF_DAY, -1);
 		AtomEntry<Patient> createdEntry = testClient.create(Patient.class, buildPatient());
 		testClient.update(Patient.class, (Patient)createdEntry.getResource(), getPatientId(createdEntry));
-		AtomFeed feed = testClient.history(testDate, Patient.class);
-		assertNotNull(feed);
+			AtomFeed feed = testClient.history(testDate, Patient.class);
+			assertNotNull(feed);
 		assertTrue(feed.getEntryList().size() >= 1);
 		testClient.delete(Patient.class, getPatientId(createdEntry));
 	}
@@ -300,59 +300,59 @@ public class FHIRSimpleClientTest {
 		System.out.println(feed.getEntryList().size());
 		assertTrue(feed.getEntryList().size() > 0);
 	}
-
+	
 	@Test
 	public void testTransactionSuccess() throws ParseException {
-		Patient patient = buildPatient();
+			Patient patient = buildPatient();
 		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
 		createdPatientEntry.getResource().setBirthDateSimple(new DateAndTime("1966-01-10"));
-		ResourceReference patientReference = new ResourceReference();
+			ResourceReference patientReference = new ResourceReference();
 		patientReference.setReferenceSimple(createdPatientEntry.getLinks().get("self"));
-		AdverseReaction adverseReaction = new AdverseReaction();
-		adverseReaction.setSubject(patientReference);
-		adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
-		adverseReaction.setDidNotOccurFlagSimple(false);
+			AdverseReaction adverseReaction = new AdverseReaction();
+			adverseReaction.setSubject(patientReference);
+			adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
+			adverseReaction.setDidNotOccurFlagSimple(false);
 		AtomEntry<AdverseReaction> adverseReactionEntry = testClient.create(AdverseReaction.class, adverseReaction);
-		AtomFeed batchFeed = new AtomFeed();
+			AtomFeed batchFeed = new AtomFeed();
 		batchFeed.getEntryList().add(createdPatientEntry);
 		//batchFeed.getEntryList().add(adverseReactionEntry);
-		AtomFeed responseFeed = testClient.transaction(batchFeed);
-		assertNotNull(responseFeed);
-		assert(responseFeed.getEntryList().get(0).getResource() instanceof Patient);
+			AtomFeed responseFeed = testClient.transaction(batchFeed);
+			assertNotNull(responseFeed);
+			assert(responseFeed.getEntryList().get(0).getResource() instanceof Patient);
 	}
 	
 	@Test
 	public void testTransactionError() throws ParseException {
-		Patient patient = buildPatient();
+			Patient patient = buildPatient();
 		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
 		createdPatientEntry.getResource().setBirthDateSimple(new DateAndTime("1966-01-10"));
-		AtomFeed batchFeed = new AtomFeed();
+			AtomFeed batchFeed = new AtomFeed();
 		batchFeed.getEntryList().add(createdPatientEntry);
 		batchFeed.getEntryList().add(createdPatientEntry);
-		AtomFeed responseFeed = null;
-		try {
-			responseFeed = testClient.transaction(batchFeed);
-		} catch(EFhirClientException e) {
-			assertEquals(1, e.getServerErrors().size());
-		}
-		if(responseFeed != null) {
-			fail();
-		}
+			AtomFeed responseFeed = null;
+			try {
+				responseFeed = testClient.transaction(batchFeed);
+			} catch(EFhirClientException e) {
+				assertEquals(1, e.getServerErrors().size());
+			}
+			if(responseFeed != null) {
+				fail();
+			}
 	}
-
+	
 	private Patient buildPatient() throws ParseException {
 		Patient patient = new Patient();
-		DateTime birthday = new DateTime();
-		birthday.setValue(new DateAndTime("2008-08-08"));
-		patient.setBirthDate(birthday);
-		Code genderCode = new Code();
-		genderCode.setValue("F");
-		Coding genderCoding = new Coding();
-		genderCoding.setCode(genderCode);
-		genderCoding.setSystemSimple("http://hl7.org/fhir/v3/AdministrativeGender");
-		CodeableConcept female = new CodeableConcept();
-		female.getCoding().add(genderCoding);
-		patient.setGender(female);
+			DateTime birthday = new DateTime();
+			birthday.setValue(new DateAndTime("2008-08-08"));
+			patient.setBirthDate(birthday);
+			Code genderCode = new Code();
+			genderCode.setValue("F");
+			Coding genderCoding = new Coding();
+			genderCoding.setCode(genderCode);
+			genderCoding.setSystemSimple("http://hl7.org/fhir/v3/AdministrativeGender");
+			CodeableConcept female = new CodeableConcept();
+			female.getCoding().add(genderCoding);
+			patient.setGender(female);
 		return patient;
 	}
 	

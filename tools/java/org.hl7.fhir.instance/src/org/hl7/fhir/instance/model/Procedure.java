@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 23, 2014 11:33-0600 for FHIR v0.12
+// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -252,7 +252,7 @@ public class Procedure extends Resource {
     protected List<ProcedurePerformerComponent> performer = new ArrayList<ProcedurePerformerComponent>();
 
     /**
-     * The dates over which the period was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.
+     * The dates over which the procedure was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.
      */
     protected Period date;
 
@@ -400,14 +400,14 @@ public class Procedure extends Resource {
     }
 
     /**
-     * @return {@link #date} (The dates over which the period was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.)
+     * @return {@link #date} (The dates over which the procedure was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.)
      */
     public Period getDate() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The dates over which the period was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.)
+     * @param value {@link #date} (The dates over which the procedure was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.)
      */
     public Procedure setDate(Period value) { 
       this.date = value;
@@ -596,7 +596,7 @@ public class Procedure extends Resource {
         childrenList.add(new Property("bodySite", "CodeableConcept", "Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("indication", "CodeableConcept", "The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.", 0, java.lang.Integer.MAX_VALUE, indication));
         childrenList.add(new Property("performer", "", "Limited to 'real' people rather than equipment.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("date", "Period", "The dates over which the period was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("date", "Period", "The dates over which the procedure was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("encounter", "Resource(Encounter)", "The encounter during which the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("outcome", "string", "What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("report", "Resource(DiagnosticReport)", "This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.", 0, java.lang.Integer.MAX_VALUE, report));

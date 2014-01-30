@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 23, 2014 11:33-0600 for FHIR v0.12
+// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions may be ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
+ * A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
  */
 public class Questionnaire extends Resource {
 
@@ -129,22 +129,17 @@ public class Questionnaire extends Resource {
         protected String_ text;
 
         /**
-         * Whether the contents of this group have a meaningful order.
-         */
-        protected Boolean ordered;
-
-        /**
          * More specific subject this section's answers are about, details the subject given in Questionnaire.
          */
         protected ResourceReference subject;
 
         /**
-         * A sub-group within a group.
+         * A sub-group within a group. The ordering of groups within this group is relevant.
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
         /**
-         * Set of questions within this group.
+         * Set of questions within this group. The order of questions within the group is relevant.
          */
         protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
 
@@ -240,42 +235,6 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #ordered} (Whether the contents of this group have a meaningful order.)
-         */
-        public Boolean getOrdered() { 
-          return this.ordered;
-        }
-
-        /**
-         * @param value {@link #ordered} (Whether the contents of this group have a meaningful order.)
-         */
-        public GroupComponent setOrdered(Boolean value) { 
-          this.ordered = value;
-          return this;
-        }
-
-        /**
-         * @return Whether the contents of this group have a meaningful order.
-         */
-        public boolean getOrderedSimple() { 
-          return this.ordered == null ? false : this.ordered.getValue();
-        }
-
-        /**
-         * @param value Whether the contents of this group have a meaningful order.
-         */
-        public GroupComponent setOrderedSimple(boolean value) { 
-          if (value == false)
-            this.ordered = null;
-          else {
-            if (this.ordered == null)
-              this.ordered = new Boolean();
-            this.ordered.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #subject} (More specific subject this section's answers are about, details the subject given in Questionnaire.)
          */
         public ResourceReference getSubject() { 
@@ -291,7 +250,7 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #group} (A sub-group within a group.)
+         * @return {@link #group} (A sub-group within a group. The ordering of groups within this group is relevant.)
          */
         public List<GroupComponent> getGroup() { 
           return this.group;
@@ -299,7 +258,7 @@ public class Questionnaire extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #group} (A sub-group within a group.)
+         * @return {@link #group} (A sub-group within a group. The ordering of groups within this group is relevant.)
          */
         public GroupComponent addGroup() { 
           GroupComponent t = new GroupComponent();
@@ -308,7 +267,7 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #question} (Set of questions within this group.)
+         * @return {@link #question} (Set of questions within this group. The order of questions within the group is relevant.)
          */
         public List<QuestionComponent> getQuestion() { 
           return this.question;
@@ -316,7 +275,7 @@ public class Questionnaire extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #question} (Set of questions within this group.)
+         * @return {@link #question} (Set of questions within this group. The order of questions within the group is relevant.)
          */
         public QuestionComponent addQuestion() { 
           QuestionComponent t = new QuestionComponent();
@@ -329,10 +288,9 @@ public class Questionnaire extends Resource {
           childrenList.add(new Property("name", "CodeableConcept", "Structured name for a section of a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("header", "string", "Text that is displayed above the contents of the group.", 0, java.lang.Integer.MAX_VALUE, header));
           childrenList.add(new Property("text", "string", "Additional text for the group, used for display purposes.", 0, java.lang.Integer.MAX_VALUE, text));
-          childrenList.add(new Property("ordered", "boolean", "Whether the contents of this group have a meaningful order.", 0, java.lang.Integer.MAX_VALUE, ordered));
           childrenList.add(new Property("subject", "Resource(Any)", "More specific subject this section's answers are about, details the subject given in Questionnaire.", 0, java.lang.Integer.MAX_VALUE, subject));
-          childrenList.add(new Property("group", "@Questionnaire.group", "A sub-group within a group.", 0, java.lang.Integer.MAX_VALUE, group));
-          childrenList.add(new Property("question", "", "Set of questions within this group.", 0, java.lang.Integer.MAX_VALUE, question));
+          childrenList.add(new Property("group", "@Questionnaire.group", "A sub-group within a group. The ordering of groups within this group is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
+          childrenList.add(new Property("question", "", "Set of questions within this group. The order of questions within the group is relevant.", 0, java.lang.Integer.MAX_VALUE, question));
         }
 
       public GroupComponent copy(Questionnaire e) {
@@ -340,7 +298,6 @@ public class Questionnaire extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.header = header == null ? null : header.copy();
         dst.text = text == null ? null : text.copy();
-        dst.ordered = ordered == null ? null : ordered.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.group = new ArrayList<GroupComponent>();
         for (GroupComponent i : group)
@@ -390,7 +347,7 @@ public class Questionnaire extends Resource {
         protected String_ remarks;
 
         /**
-         * Nested group, containing nested question for this question.
+         * Nested group, containing nested question for this question. The order of groups within the question is relevant.
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
 
@@ -548,7 +505,7 @@ public class Questionnaire extends Resource {
         }
 
         /**
-         * @return {@link #group} (Nested group, containing nested question for this question.)
+         * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
          */
         public List<GroupComponent> getGroup() { 
           return this.group;
@@ -556,7 +513,7 @@ public class Questionnaire extends Resource {
 
     // syntactic sugar
         /**
-         * @return {@link #group} (Nested group, containing nested question for this question.)
+         * @return {@link #group} (Nested group, containing nested question for this question. The order of groups within the question is relevant.)
          */
         public GroupComponent addGroup() { 
           GroupComponent t = new GroupComponent();
@@ -573,7 +530,7 @@ public class Questionnaire extends Resource {
           childrenList.add(new Property("options", "Resource(ValueSet)", "Reference to a valueset containing the possible options.", 0, java.lang.Integer.MAX_VALUE, options));
           childrenList.add(new Property("data[x]", "*", "Structured answer in the form of a FHIR Resource or datatype.", 0, java.lang.Integer.MAX_VALUE, data));
           childrenList.add(new Property("remarks", "string", "The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.", 0, java.lang.Integer.MAX_VALUE, remarks));
-          childrenList.add(new Property("group", "@Questionnaire.group", "Nested group, containing nested question for this question.", 0, java.lang.Integer.MAX_VALUE, group));
+          childrenList.add(new Property("group", "@Questionnaire.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 
       public QuestionComponent copy(Questionnaire e) {

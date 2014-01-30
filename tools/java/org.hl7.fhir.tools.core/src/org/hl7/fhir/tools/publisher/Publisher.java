@@ -139,6 +139,7 @@ import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
+import org.hl7.fhir.tools.implementations.XSLTGenerator;
 import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
 import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
@@ -666,6 +667,8 @@ public class Publisher {
     page.getReferenceImplementations().add(new CSharpGenerator());
     page.getReferenceImplementations().add(new DelphiGenerator());
     page.getReferenceImplementations().add(new ObjectiveCGenerator());
+    page.getReferenceImplementations().add(new XSLTGenerator());
+    
     // page.getReferenceImplementations().add(new ECoreOclGenerator());
   }
 

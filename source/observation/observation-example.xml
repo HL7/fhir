@@ -1,54 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- This is a systolic blood pressure measurement.
- There would almost always be a partner observation that is a diastolic measurement
+ This is an example of a standard blood pressure measurement.
+
+ Blood Pressure is a regarded as a single observation, and 
+ presented that way in plain text: 120/80. Also, it is usually 
+ interpreted as a single value, though intepretation can also 
+ be offered to the parts individually
+
+ Technically, though, a blood pressure is a pair of component 
+ observations (refer to notes on LOINC code 55284-4)
+
+ This example shows the standard way to represent blood pressure - a 
+ single resource, with a narrative in the standard form, and two 
+ contained resources for the actual values 
 -->
 
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107 mmHg (normal)</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Blood pressure 107/60 mmHg (low)</div>
   </text>
+  
+  <!-- systolic blood pressure: name, value, and flags -->
+  <contained>
+    <Observation id="sbp">
+      <!-- 
+         Observations are often coded in multiple code systems. 
+         - Loinc provides a very specific code (though not usefully more specific in this particular case)
+         - snomed provides a clinically relevant code that is usually less granular than LOINC
+         - the source system provides it's own code, which may be less or more granular than LOINC
+       -->
+      <name>
+        <!-- LOINC - always recommended to have a LOINC code -->
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="8480-6"/>
+          <display value="Systolic blood pressure"/>
+        </coding>
+        <!-- SNOMED CT Codes - becoming more commonsysto -->
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="271649006"/>
+          <display value="Systolic blood pressure"/>
+        </coding>
+        <!-- Also, a local code specific to the source system -->
+        <coding>
+          <system value="http://acme.org/devices/clinical-codes"/>
+          <code value="bp-s"/>
+          <display value="Systolic Blood pressure"/>
+        </coding>
+        <!-- that shows the concept. The next two names only have a LOINC code --> 
+      </name>
+      <!-- no formal units in this example -->
+      <valueQuantity>
+        <value value="107"/>
+        <units value="mm[Hg]"/>
+      </valueQuantity>
+      <!-- the mandatory quality flags: -->
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>  
+  
+  <!-- diastolic blood pressure: name, value, and flags -->
+  <contained>
+    <Observation id="dbp">
+      <name>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="8462-4"/>
+          <display value="Diastolic blood pressure"/>
+        </coding>
+      </name>
+      <!-- no formal units in this example -->
+      <valueQuantity>
+        <value value="60"/>
+        <units value="mm[Hg]"/>
+      </valueQuantity>
+      <!-- the mandatory quality flags: -->
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>  
+  
+  
   <name>
-    <!-- LOINC - always recommended to have a LOINC code -->
     <coding>
       <system value="http://loinc.org"/>
-      <code value="8480-6"/>
-      <display value="Systolic blood pressure"/>
-    </coding>
-    <!-- SNOMED CT Codes - becoming more commonsysto -->
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="271649006"/>
-      <display value="Systolic blood pressure"/>
-    </coding>
-    <!-- Also, a local code specific to the source system -->
-    <coding>
-      <system value="http://acme.org/devices/clinical-codes"/>
-      <code value="bp-s"/>
-      <display value="Systolic Blood pressure"/>
+      <code value="55284-4"/>
+      <display value="Blood pressure systolic &amp; diastolic"/>
     </coding>
   </name>
-  <valueQuantity>
-    <value value="107"/>
-    <units value="mm[Hg]"/>
-  </valueQuantity>
+  
+  <!-- an interpretation offered to the combination observation
+  generally, it would only be appropriate to offer an interpretation
+  of an observation that has no value if it has "COMP" (component)
+  observations -->
   
   <interpretation>
     <coding>
       <system value="http://hl7.org/fhir/v2/0078"/>
-      <code value="N"/>
-      <display value="Normal (applies to non-numeric results)"/>
+      <code value="L"/>
+      <display value="Below low normal"/>
     </coding>
+    <text value="low"/>
   </interpretation>
   <appliesDateTime value="2012-09-17"/>
 
+  <!-- for an observation with components, these cannot disagree with the flags on the components -->
   <status value="final"/>
   <reliability value="ok"/>
   
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="187e0c12-8dd2-67e2-99b2-bf273c878281"/>
+    <value value="urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281"/>
   </identifier>
   
   <subject>
@@ -57,4 +122,26 @@
   <performer>
     <reference value="Practitioner/example"/>
   </performer>
+  <related>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
+        <code value="COMP"/>
+      </coding>
+    </type>
+    <target>
+      <reference value="#sbp"/>
+    </target>
+  </related>
+  <related>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
+        <code value="COMP"/>
+      </coding>
+    </type>
+    <target>
+      <reference value="#dbp"/>
+    </target>
+  </related>
 </Observation>

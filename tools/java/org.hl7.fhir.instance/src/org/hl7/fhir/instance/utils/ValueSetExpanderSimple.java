@@ -88,13 +88,13 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
         addCodes(locator.expand(inc));
         return;
       } else
-        throw new Exception("Snomed Expansion is not yet supported (which release?)");
+      throw new Exception("Snomed Expansion is not yet supported (which release?)");
     if (inc.getSystemSimple().equals("http://loinc.org"))
       if (locator != null) {
         addCodes(locator.expand(inc));
         return;
       } else
-        throw new Exception("LOINC Expansion is not yet supported (todo)");
+      throw new Exception("LOINC Expansion is not yet supported (todo)");
 	    
 	  ValueSet cs = codesystems.get(inc.getSystemSimple());
 	  if (cs == null)
@@ -132,7 +132,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     }   
   }
 
-  private void addCodeAndDescendents(String system, ValueSetDefineConceptComponent def) {
+	private void addCodeAndDescendents(String system, ValueSetDefineConceptComponent def) {
 		if (!ToolingExtensions.hasDeprecated(def)) {  
 			if (def.getAbstract() == null || !def.getAbstractSimple())
 				addCode(system, def.getCodeSimple(), def.getDisplaySimple());

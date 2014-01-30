@@ -388,6 +388,8 @@ public class SpreadsheetParser {
       return SearchType.token;
     if ("composite".equals(s))
       return SearchType.composite;
+    if ("variable".equals(s))
+      return SearchType.variable;
 		throw new Exception("Unknown Search Type '" + s + "': " + getLocation(row));
 	}
 

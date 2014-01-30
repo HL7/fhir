@@ -24,7 +24,7 @@ import org.hl7.fhir.instance.model.ResourceType;
  */
 public class ResourceAddress {
 	
-	public static final String REGEX_ID_WITH_HISTORY = "(.*)(/@)([^/]*)(/history/)(@)(\\d+)$";
+	public static final String REGEX_ID_WITH_HISTORY = "(.*)(/)([a-zA-Z]*)(/)(\\d+)(/_history/)(\\d+)$";
 	
 	private URI baseServiceUri;
 	
@@ -45,7 +45,7 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveValidateUri(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/validate/@"+id);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/_validate/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClass(Class<T> resourceClass) {
@@ -53,19 +53,19 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndId(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/@"+id);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/"+id);
 	}
 	
 	public <T extends Resource> URI resolveGetUriFromResourceClassAndIdAndVersion(Class<T> resourceClass, String id, String version) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/@"+id+"/history/@"+version);
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/"+id+"/_history/"+version);
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceId(Class<T> resourceClass, String id) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/@" + id + "/history");
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/" + id + "/_history");
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForAllResources(Calendar since) {//TODO Only add _since parameters if it is non-null
-		return appendHttpParameter(baseServiceUri.resolve("history"), "_since", getCalendarDateInIsoTimeFormat(since));
+		return appendHttpParameter(baseServiceUri.resolve("_history"), "_since", getCalendarDateInIsoTimeFormat(since));
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceId(Class<T> resourceClass, String id, Calendar since) {
@@ -73,11 +73,27 @@ public class ResourceAddress {
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass) {
-		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/history");
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/_history");
 	}
 	
 	public <T extends Resource> URI resolveGetHistoryForResourceType(Class<T> resourceClass, Calendar since) {
 		return appendHttpParameter(resolveGetHistoryForResourceType(resourceClass), "_since", getCalendarDateInIsoTimeFormat(since));
+	}
+	
+	public <T extends Resource> URI resolveGetAllTags() {
+		return baseServiceUri.resolve("_tags");
+	}
+	
+	public <T extends Resource> URI resolveGetAllTagsForResourceType(Class<T> resourceClass) {
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/_tags");
+	}
+	
+	public <T extends Resource> URI resolveGetTagsForResource(Class<T> resourceClass, String id) {
+		return baseServiceUri.resolve(resourceClass.getSimpleName() + "/" + id + "/_tags");
+	}
+	
+	public <T extends Resource> URI resolveGetTagsForResourceVersion(Class<T> resourceClass, String id, String version) {
+		return baseServiceUri.resolve(resourceClass.getSimpleName() +"/"+id+"/_history/"+version + "/_tags");
 	}
 	
 	public URI resolveMetadataUri() {
@@ -86,7 +102,7 @@ public class ResourceAddress {
 	
 	/**
 	 * For now, assume this type of location header structure.
-	 * Generalize later: http://hl7connect.healthintersections.com.au/svc/fhir/@318/history/@1
+	 * Generalize later: http://hl7connect.healthintersections.com.au/svc/fhir/318/_history/1
 	 * 
 	 * @param serviceBase
 	 * @param locationHeader
@@ -97,9 +113,10 @@ public class ResourceAddress {
 		ResourceVersionedIdentifier parsedHeader = null;
 		if(matcher.matches()){
 			String serviceRoot = matcher.group(1);
-			String id = matcher.group(3);
-			String version = matcher.group(6);
-			parsedHeader = new ResourceVersionedIdentifier(serviceRoot, id, version);
+			String resourceType = matcher.group(3);
+			String id = matcher.group(5);
+			String version = matcher.group(7);
+			parsedHeader = new ResourceVersionedIdentifier(serviceRoot, resourceType, id, version);
 		}
 		return parsedHeader;
 	}
@@ -154,7 +171,8 @@ public class ResourceAddress {
 	}
 	
 	public static String buildRelativePathFromResourceType(ResourceType resourceType) {
-		return resourceType.toString().toLowerCase()+"/";
+		//return resourceType.toString().toLowerCase()+"/";
+		return resourceType.toString() + "/";
 	}
 	
 	public static String buildRelativePathFromResourceType(ResourceType resourceType, String id) {
@@ -172,35 +190,32 @@ public class ResourceAddress {
 	public static class ResourceVersionedIdentifier {
 		
 		private String serviceRoot;
+		private String resourceType;
 		private String id;
 		private String version;
 		private URI resourceLocation;
 		
-		public ResourceVersionedIdentifier(String serviceRoot, String id, String version, URI resourceLocation) {
+		public ResourceVersionedIdentifier(String serviceRoot, String resourceType, String id, String version, URI resourceLocation) {
 			this.serviceRoot = serviceRoot;
+			this.resourceType = resourceType;
 			this.id = id;
 			this.version = version;
 			this.resourceLocation = resourceLocation;
 		}
 		
-		public ResourceVersionedIdentifier(String id, String version, URI resourceLocation) {
-			this.id = id;
-			this.version = version;
-			this.resourceLocation = resourceLocation;
+		public ResourceVersionedIdentifier(String resourceType, String id, String version, URI resourceLocation) {
+			this(null, resourceType, id, version, resourceLocation);
 		}
 		
-		public ResourceVersionedIdentifier(String serviceRoot, String id, String version) {
-			this.serviceRoot = serviceRoot;
-			this.id = id;
-			this.version = version;
+		public ResourceVersionedIdentifier(String serviceRoot, String resourceType, String id, String version) {
+			this(serviceRoot, resourceType, id, version, null);
 		}
 		
-		public ResourceVersionedIdentifier(String id, String version) {
-			this.id = id;
-			this.version = version;
+		public ResourceVersionedIdentifier(String resourceType, String id, String version) {
+			this(null, resourceType, id, version, null);
 		}
 		
-		public ResourceVersionedIdentifier(String id) {
+		public ResourceVersionedIdentifier(String resourceType, String id) {
 			this.id = id;
 		}
 		
@@ -220,6 +235,14 @@ public class ResourceAddress {
 			this.version = version;
 		}
 		
+		public String getResourceType() {
+			return resourceType;
+		}
+
+		public void setResourceType(String resourceType) {
+			this.resourceType = resourceType;
+		}
+		
 		public String getServiceRoot() {
 			return serviceRoot;
 		}
@@ -229,7 +252,7 @@ public class ResourceAddress {
 		}
 		
 		public String getResourcePath() {
-			return this.serviceRoot + "/@" + this.id;
+			return this.serviceRoot + "/" + this.resourceType + "/" + this.id;
 		}
 
 		public String getVersion() {

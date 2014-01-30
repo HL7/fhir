@@ -9,18 +9,17 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2013-12-30T12:03:06Z</LastSaved>
+  <LastSaved>2014-01-30T02:30:59Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12795</WindowHeight>
+  <WindowHeight>12735</WindowHeight>
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
-  <WindowTopY>30</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <WindowTopY>90</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -176,7 +175,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="22" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="25" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s65" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s66" ss:Width="198"/>
    <Column ss:StyleID="s65" ss:Width="29.25"/>
@@ -189,10 +188,11 @@
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135" ss:Span="2"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="216.75"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Column ss:Index="15" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="258"/>
    <Column ss:Index="17" ss:StyleID="s65" ss:Width="88.5"/>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s67">
+   <Row ss:Height="105" ss:StyleID="s67">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -234,7 +234,7 @@
     <Cell><Data ss:Type="String">CCDA: Tobacco Use</Data></Cell>
     <Cell><Data ss:Type="String">CCDA: Vital Sign Observation</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="150">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -275,7 +275,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Observation.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -314,7 +314,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="150">
+   <Row ss:Height="300">
     <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -323,9 +323,9 @@
     <Cell><Data ss:Type="String">Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">Actual result</Data></Cell>
-    <Cell><Data ss:Type="String">The information determined as a result of making the observation</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s70"><Data ss:Type="String">A result with no value isn't much use.  (Though an exceptional value such as 'unknown' may still be useful.)</Data></Cell>
-    <Cell><Data ss:Type="String">The datatype for this element should be determined by Observation.name. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.name defines a coded value. The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data></Cell>
+    <Cell><Data ss:Type="String">The information determined as a result of making the observation, if the information has a simple value</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s70"><Data ss:Type="String">An observation exists to have a value, though it may not if it is in error, or it represents a group of observations</Data></Cell>
+    <Cell><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.name. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.name defines a coded value. The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">value</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">./value</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">OBX.2, OBX.5, OBX.6</Data></Cell>
@@ -354,7 +354,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Observation.interpretation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -393,7 +393,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Observation.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -432,7 +432,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">Observation.applies[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -450,7 +450,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Observation.issued</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -467,7 +467,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Observation.status</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -484,7 +484,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="225">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">Observation.reliability</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -502,7 +502,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:Index="18" ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Observation.bodySite</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -543,7 +543,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Observation.method</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -562,7 +562,7 @@
     <Cell><Data ss:Type="String">Is this in the 80%?</Data></Cell>
     <Cell ss:StyleID="s69"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Observation.identifier</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -601,7 +601,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="195">
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">Observation.subject</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -641,7 +641,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="195">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">Observation.specimen</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -681,7 +681,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="165">
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">Observation.performer</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -721,7 +721,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">y</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="180">
+   <Row ss:Height="180">
     <Cell><Data ss:Type="String">!Observation.normalValue[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="Number">2</Data></Cell>
@@ -759,11 +759,11 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="150">
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">Observation.referenceRange</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">500;80</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">400;120</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Provides guide for interpretation</Data></Cell>
@@ -797,7 +797,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Observation.referenceRange.low</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
@@ -835,7 +835,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Observation.referenceRange.high</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
@@ -873,7 +873,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="135">
+   <Row ss:Height="135">
     <Cell><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -913,7 +913,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -950,6 +950,34 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"/>
    </Row>
+   <Row ss:Height="135">
+    <Cell><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">400;40</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Observations related to this observation</Data></Cell>
+    <Cell><Data ss:Type="String">Related observations - either components, or previous observations, or statements of derivation</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Some observations have important relationships to other observations (e.g Blood Pressure = systolic + diastolic), or are derived from other observations (e.g. calculated apgar score)</Data></Cell>
+    <Cell><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived)</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">Relationships established by OBX-4 usage</Data></Cell>
+   </Row>
+   <Row ss:Height="90">
+    <Cell><Data ss:Type="String">Observation.related.type</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">ObservationRelationshipType</Data></Cell>
+    <Cell><Data ss:Type="String">What kind of relationship exists with the target</Data></Cell>
+    <Cell><Data ss:Type="String">A code specifying the kind of relationship that exists with the target observation</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">May need to indicate whether this observation is composed of others, or merely derived from them</Data></Cell>
+    <Cell><Data ss:Type="String">A relationship type SHOULD be provided. If the relationship type is &quot;COMP&quot; (composed), then the observation should not be displayed/interpreted in the absence of the related observations</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">N/A</Data></Cell>
+   </Row>
+   <Row ss:Height="45">
+    <Cell><Data ss:Type="String">Observation.related.target</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Observation that is related to this one</Data></Cell>
+    <Cell><Data ss:Type="String">A reference to the observation that is related to this observation</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -957,11 +985,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -974,9 +1002,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1281,7 +1312,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1308,7 +1338,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="179.25"/>
    <Column ss:Width="249.75"/>
@@ -1369,6 +1399,12 @@
     <Cell ss:Index="5"><Data ss:Type="String">#observation-status</Data></Cell>
     <Cell ss:StyleID="Default"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">ObservationRelationshipType</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Codes specifying how two observations are related</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">valueset-observation-relationshiptypes</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1396,6 +1432,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -1521,7 +1558,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Blood pressure</Data></Cell>
-    <Cell><Data ss:Type="String">General Person Example</Data></Cell>
+    <Cell><Data ss:Type="String">Blood Pressure Measurement</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">observation-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
@@ -1617,12 +1654,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

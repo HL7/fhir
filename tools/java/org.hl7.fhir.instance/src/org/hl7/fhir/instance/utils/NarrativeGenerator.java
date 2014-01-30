@@ -119,12 +119,12 @@ public class NarrativeGenerator {
             addColumnHeadings(tbl.addTag("tr"), grandChildren);
           } else {
             XhtmlNode bq = x.addTag("blockquote");
-            bq.addTag("p").addTag("b").addText(p.getName());
+          bq.addTag("p").addTag("b").addText(p.getName());
             generateByProfile(v, allElements, child, grandChildren, bq, path+"."+p.getName());
-          }
         }
       }
     }
+  }
   }
 
   
@@ -150,7 +150,7 @@ public class NarrativeGenerator {
     //we can tell if e is a primitive because it has types
     return !e.getDefinition().getType().isEmpty();
   }
-
+  
   private ElementComponent getElementDefinition(List<ElementComponent> elements, String path) {
     for (ElementComponent element : elements)
       if (element.getPathSimple().equals(path))

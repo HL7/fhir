@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -355,8 +356,8 @@ public class InstanceValidator extends BaseValidator {
       } 
       else 
       {
-          if (child.getDefinition().getType().size() == 1)
-              type = child.getDefinition().getType().get(0).getCodeSimple();
+        if (child.getDefinition().getType().size() == 1)
+          type = child.getDefinition().getType().get(0).getCodeSimple();
           else if (child.getDefinition().getType().size() > 1 )
           {
         	  TypeRefComponent trc = child.getDefinition().getType().get(0);
@@ -388,7 +389,7 @@ public class InstanceValidator extends BaseValidator {
             checkCodeableConcept(errors, ci.path(), ci.element(), profile, child);
           else if (type.equals("Extension"))
             checkExtension(errors, ci.path(), ci.element(), profile, child, actualType);
-          
+
           if (type.equals("Resource"))
             validateContains(errors, ci.path(), child, definition, ci.element());
           else {

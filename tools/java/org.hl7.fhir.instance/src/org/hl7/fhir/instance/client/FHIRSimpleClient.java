@@ -140,7 +140,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		}
 		return result;
 	}
-
+	
 	@Override
 	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id) {
 		AtomEntry<T> result = null;
@@ -228,23 +228,23 @@ public class FHIRSimpleClient implements FHIRClient {
 		return searchResults;
 	}
 	
-  @Override
+	@Override
   public <T extends Resource> AtomFeed searchPost(Class<T> resourceClass, T resource, Map<String, String> parameters) {
     AtomFeed searchResults = null;
-    try {
+		try {
       searchResults = ClientUtils.issuePostFeedRequest(resourceAddress.resolveSearchUri(resourceClass, new HashMap<String, String>()), parameters, "src", resource, getPreferredFeedFormat());
-    } catch (Exception e) {
+		} catch (Exception e) {
       handleException("Error performing search with parameters " + parameters, e);
-    }
+		}
     return searchResults;
-  }
+	}
 	
 	@Override
 	public AtomFeed transaction(AtomFeed batch) {
 		AtomFeed transactionResult = null;
 		try {
 			transactionResult = ClientUtils.postBatchRequest(resourceAddress.getBaseServiceUri(), ClientUtils.getFeedAsByteArray(batch, false, isJson(getPreferredFeedFormat())), getPreferredFeedFormat());
-		} catch (Exception e) {
+		} catch(Exception e) {
 			handleException("An error occurred trying to process this transaction request", e);
 		}
 		return transactionResult;
@@ -287,6 +287,6 @@ public class FHIRSimpleClient implements FHIRClient {
 		}
 		return isJson;
 	}
-
+	
 
 }

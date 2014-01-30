@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 23, 2014 11:33-0600 for FHIR v0.12
+// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -235,6 +235,7 @@ public class Conformance extends Resource {
         token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
         reference, // A reference to another resource.
         composite, // A composite search parameter that combines a search on two values together.
+        variable, // A search parameter on an element that can have multiple types including quantity and codeableConcept.
         Null; // added to help the parsers
         public static SearchParamType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -251,6 +252,8 @@ public class Conformance extends Resource {
           return reference;
         if ("composite".equals(codeString))
           return composite;
+        if ("variable".equals(codeString))
+          return variable;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
         public String toCode() {
@@ -261,6 +264,7 @@ public class Conformance extends Resource {
             case token: return "token";
             case reference: return "reference";
             case composite: return "composite";
+            case variable: return "variable";
             default: return "?";
           }
         }
@@ -283,6 +287,8 @@ public class Conformance extends Resource {
           return SearchParamType.reference;
         if ("composite".equals(codeString))
           return SearchParamType.composite;
+        if ("variable".equals(codeString))
+          return SearchParamType.variable;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -298,6 +304,8 @@ public class Conformance extends Resource {
         return "reference";
       if (code == SearchParamType.composite)
         return "composite";
+      if (code == SearchParamType.variable)
+        return "variable";
       return "?";
       }
     }

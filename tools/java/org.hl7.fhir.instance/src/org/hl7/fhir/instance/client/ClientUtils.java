@@ -79,8 +79,8 @@ public class ClientUtils {
     configureFhirRequest(httpget, feedFormat);
     HttpResponse response = sendRequest(httpget);
     return unmarshalFeed(response, feedFormat);
-  }
-  
+	}
+	
   public static AtomFeed issuePostFeedRequest(URI resourceUri, Map<String, String> parameters, String resourceName, Resource resource, String feedFormat) throws Exception {
     HttpPost httppost = new HttpPost(resourceUri);
     configureFhirRequest(httppost, null);
@@ -89,8 +89,8 @@ public class ClientUtils {
     httppost.addHeader("Accept", feedFormat);
     HttpResponse response = sendPayload(httppost, encodeFormSubmission(parameters, resourceName, resource, boundary));
     return unmarshalFeed(response, feedFormat);
-  }
-  
+	}
+	
 	private static byte[] encodeFormSubmission(Map<String, String> parameters, String resourceName, Resource resource, String boundary) throws Exception {
 	  ByteArrayOutputStream b = new ByteArrayOutputStream();
 	  OutputStreamWriter w = new OutputStreamWriter(b, "UTF-8");  
@@ -111,13 +111,13 @@ public class ClientUtils {
     w.write("--");
     w.close();
     return b.toByteArray();
-  }
-
+	}
+	
   public static AtomFeed postBatchRequest(URI resourceUri, byte[] payload, String feedFormat) {
 		HttpPost httpPost = new HttpPost(resourceUri);
 		configureFhirRequest(httpPost, feedFormat);
 		HttpResponse response = sendPayload(httpPost, payload);
-		return unmarshalFeed(response, feedFormat);
+        return unmarshalFeed(response, feedFormat);
 	}
 	
 	public static boolean issueDeleteRequest(URI resourceUri) {
@@ -167,8 +167,8 @@ public class ClientUtils {
 	protected static void configureFhirRequest(HttpRequest request, String format) {
 		request.addHeader("User-Agent", "Java FHIR Client for FHIR");
 		if (format != null) {
-		  request.addHeader("Accept",format);
-		  request.addHeader("Content-Type", format + ";charset=" + DEFAULT_CHARSET);
+		request.addHeader("Accept",format);
+		request.addHeader("Content-Type", format + ";charset=" + DEFAULT_CHARSET);
 		}
 		request.addHeader("Accept-Charset", DEFAULT_CHARSET);
 	}
@@ -223,7 +223,7 @@ public class ClientUtils {
 		if (entity != null) {
 			try {
 			    instream = entity.getContent();
-			    //System.out.println(writeInputStreamAsString(instream));
+//			    System.out.println(writeInputStreamAsString(instream));
 			    resource = (T)getParser(format).parse(instream);
 			} catch(IOException ioe) {
 				throw new EFhirClientException("Error unmarshalling entity from Http Response", ioe);
@@ -234,11 +234,11 @@ public class ClientUtils {
 			}
 		}
 		if(resource instanceof OperationOutcome) {
-			throw new EFhirClientException((OperationOutcome)resource);
-		} else {
+				throw new EFhirClientException((OperationOutcome)resource);
+			} else {
 			return resource;
+			}
 		}
-	}
 	
 	/**
 	 * Unmarshals AtomFeed from response stream.

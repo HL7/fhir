@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 23, 2014 11:33-0600 for FHIR v0.12
+// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -167,7 +167,7 @@ public class OrderResponse extends Resource {
     protected Enumeration<OrderOutcomeCode> code;
 
     /**
-     * Additional description about the response - e.g. a text description prvided by a human user when making decisions about the order.
+     * Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.
      */
     protected String_ description;
 
@@ -317,14 +317,14 @@ public class OrderResponse extends Resource {
     }
 
     /**
-     * @return {@link #description} (Additional description about the response - e.g. a text description prvided by a human user when making decisions about the order.)
+     * @return {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.)
      */
     public String_ getDescription() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (Additional description about the response - e.g. a text description prvided by a human user when making decisions about the order.)
+     * @param value {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.)
      */
     public OrderResponse setDescription(String_ value) { 
       this.description = value;
@@ -332,14 +332,14 @@ public class OrderResponse extends Resource {
     }
 
     /**
-     * @return Additional description about the response - e.g. a text description prvided by a human user when making decisions about the order.
+     * @return Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.
      */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value Additional description about the response - e.g. a text description prvided by a human user when making decisions about the order.
+     * @param value Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.
      */
     public OrderResponse setDescriptionSimple(String value) { 
       if (value == null)
@@ -377,7 +377,7 @@ public class OrderResponse extends Resource {
         childrenList.add(new Property("who", "Resource(Practitioner|Organization|Device)", "The person, organization, or device credited with making the response.", 0, java.lang.Integer.MAX_VALUE, who));
         childrenList.add(new Property("authority[x]", "CodeableConcept|Resource(Any)", "A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.", 0, java.lang.Integer.MAX_VALUE, authority));
         childrenList.add(new Property("code", "code", "What this response says about the status of the original order.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("description", "string", "Additional description about the response - e.g. a text description prvided by a human user when making decisions about the order.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("description", "string", "Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("fulfillment", "Resource(Any)", "Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.", 0, java.lang.Integer.MAX_VALUE, fulfillment));
       }
 
