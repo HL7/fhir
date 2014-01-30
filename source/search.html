@@ -587,7 +587,7 @@ _include parameters.
 Each _include parameter specifies a path to a url (usually a resource reference):
 </p>
 <pre>
- GET [base-url]/MedicationDispense?_include=MedicationDispense.prescription
+ GET [base-url]/MedicationDispense?_include=MedicationDispense.authorizingPrescription
     &amp;_include=MedicationPrescription.prescriber&amp;criteria...
 </pre>
 <p>
@@ -597,16 +597,34 @@ This search returns all the <a href="medicationprescription.html">Medication
 Prescription</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources.
 </p>
+<h4>Include Paths</h4>
 <p>
-Include paths are processed only in the context of a single resource - they cannot include 
-paths such as Resource.name1.name2 where name2 is a name in a resource pointed to by name1.
-Include paths may include wild cards, such as MedicationDispense.results.*, or even _include=*,
-though both servers and clients need to take care not to request or return too many resources 
-when doing this.
+Include paths are processed only in the context of a single resource - they cannot navigate
+across resources. The path MedicationDispense.authorizingPrescription.prescriber
+is illegal, since authorizingPrescription references another resource and
+prescriber navigates further across that reference. On the other hand, a path like 
+CarePlan.activity.simple.performer navigates within a single resource (CarePlan) and
+therefore correct.</p>
+<p>
+When looking for the references indicated by an include path, all occurences of 
+the component last encountered 
+on the that path need to be considered, including occurences of that same 
+component reachable via deeper (nested) relations. An example is the include path
+Composition.section.content, where the content reference on the highest level 
+Section is included, but also those reachable via the nested section relationship. 
+Likewise, Questionnaire.group.subject will return all subject on all Groups, 
+including those reachable by the deeper path via the nested Question and 
+nested Groups within those questions.
 </p>
 <p>
-For servers, recursive and wildcard _includes are demanding and may slow the search 
-response time significantly. Servers are not obliged to honor requests to include 
+Include paths may include wild cards, such as MedicationDispense.results.*, or even _include=*,
+though both servers and clients need to take care not to request or return too many resources 
+when doing this. Most notably, re-applying inclusion paths over newly included resources
+might lead to cycles or the retrieval of the full patient's file: resources are
+organized into an interlinked network and broad _include paths may eventually traverse all
+possible paths within such a file. For servers, these recursive and wildcard _includes are demanding and may slow the search 
+response time significantly. Servers are expected to limit the
+number of iterations done and are not obliged to honor requests to include 
 additional resources in the search results.
 </p>
 <h4>External References</h4>
