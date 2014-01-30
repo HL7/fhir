@@ -661,8 +661,8 @@ The following operations provide specific support for tags: <a name="tag-ops"> <
  <tr><td><pre>GET [base]/[type]/[id]/_history/[vid]/_tags</pre></td><td valign="center">get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries</td></tr>
  <tr><td><pre>POST [base]/[type]/[id]/_tags</pre></td><td valign="center">Affix tags in the list to the nominated resource</td></tr>
  <tr><td><pre>POST [base]/[type]/[id]/_history/[vid]/_tags</pre></td><td valign="center">Affix tags in the list to the nominated version of the resource</td></tr>
- <tr><td><pre>DELETE [base]/[type]/[id]/_tags</pre></td><td valign="center">Remove all tags in the provided list from the list of tags for the nominated resource</td></tr>
- <tr><td><pre>DELETE [base]/[type]/[id]/_history/[vid]/_tags</pre></td><td valign="center">Remove tags in the provided list from the list of tags for the nominated version of the resource</td></tr>
+ <tr><td><pre>POST [base]/[type]/[id]/_tags/_delete</pre></td><td valign="center">Remove all tags in the provided list from the list of tags for the nominated resource</td></tr>
+ <tr><td><pre>POST [base]/[type]/[id]/_history/[vid]/_tags/_delete</pre></td><td valign="center">Remove tags in the provided list from the list of tags for the nominated version of the resource</td></tr>
 </table>  
 <p>
 The tags of an old version can still be changed. Note that changing the tags on a resource does not create a new version of the resource. A tag list 
@@ -941,12 +941,12 @@ These tables present a summary of the interactions described here.
 <tr><td>history-all</td><td>/_history</td> 		  			  <td>GET</td>          <td>N/A</td>          <td>N/A</td>      <td>O</td>      <td>N/A</td></tr>
 <tr><td>tags-all</td>	<td>/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>tags-type</td>	<td>/[type]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
-<tr><td rowspan="3">tags</td><td rowspan="3">/[type]/[id]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td rowspan="2">tags</td><td rowspan="2">/[type]/[id]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
-<tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
-<tr><td rowspan="3">tags-version</td><td rowspan="3">/[type]/[id]/_history/[vid]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
+<tr><td>tags-delete</td>	<td>/[type]/[id]/_tags/_delete</td><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
+<tr><td rowspan="2">tags-version</td><td rowspan="2">/[type]/[id]/_history/[vid]/_tags</td><td>GET</td><td>N/A</td><td>N/A</td><td>O</td><td>N/A</td></tr>
 <tr><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
-<tr><td>DELETE</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>tags-version-delete</td>	<td>/[type]/[id]/_history/[vid]/_tags/_delete</td><td>POST</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td></tr>
 <tr><td rowspan="2">mailbox</td>
 <td>/Mailbox (Message)</td><td>POST</td><td>R</td><td>Bundle</td><td>R</td><td>N/A</td></tr>
 <tr><td>/Mailbox (Document)</td><td>POST</td><td>R</td><td>Bundle</td><td>N/A</td><td>N/A</td></tr>
@@ -963,8 +963,8 @@ Note: N/A = not present, R = Required, O = optional.
 <tr><td>read</td>         <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>R</td>                <td>200, 404, 410</td></tr>
 <tr><td>vread</td>        <td>R</td>            <td>Resource</td>           <td>N/A</td>      <td>O</td>                <td>200, 404, 405</td></tr>
 <tr><td>conformance</td>  <td>R</td>            <td>Conformance</td>        <td>N/A</td>      <td>O</td>                <td>200, 404</td></tr>
-<tr><td>update</td>       <td>R</td>            <td>N/A</td>           <td>N/A</td>      <td>R</td>                <td>200, 201, 400, 404, 405, 409, 412, 422</td></tr>
-<tr><td>create</td>       <td>R</td>            <td>N/A</td>           <td>R</td>        <td>O</td>                <td>201, 400, 404, 405, 422</td></tr>
+<tr><td>update</td>       <td>N/A</td>            <td>N/A</td>           <td>N/A</td>      <td>R</td>                <td>200, 201, 400, 404, 405, 409, 412, 422</td></tr>
+<tr><td>create</td>       <td>N/A</td>            <td>N/A</td>           <td>R</td>        <td>O</td>                <td>201, 400, 404, 405, 422</td></tr>
 <tr><td>transaction</td>  <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200, 400, 404, 405, 409, 412, 422</td></tr>
 <tr><td>delete</td>       <td>N/A</td>          <td>N/A</td>                <td>N/A</td>      <td>N/A</td>              <td>204, 405, 404</td></tr>
 <tr><td>search</td>       <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200, 403</td></tr>
@@ -974,13 +974,13 @@ Note: N/A = not present, R = Required, O = optional.
 <tr><td>history-type</td> <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200</td></tr>
 <tr><td>history-all</td>  <td>R</td>            <td>Bundle</td>             <td>N/A</td>      <td>N/A</td>              <td>200</td></tr>
 <tr><td>tags-all</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200</td></tr>
-<tr><td>tags-type</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200</td></tr><tr><td rowspan="3">tags</td><td>R (GET)</td><td>TagList</td><td>N/A</td><td>N
+<tr><td>tags-type</td><td>R</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200</td></tr><tr><td rowspan="2">tags</td><td>R (GET)</td><td>TagList</td><td>N/A</td><td>N
 /A</td><td>200, 404, 410</td></tr>
 <tr><td>N/A (POST)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
-<tr><td>N/A (DELETE)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
-<tr><td rowspan="3">tags-version</td><td>R (GET)</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200, 404</td></tr>
+<tr><td>tags-delete</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
+<tr><td rowspan="2">tags-version</td><td>R (GET)</td><td>TagList</td><td>N/A</td><td>N/A</td><td>200, 404</td></tr>
 <tr><td>N/A (POST)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
-<tr><td>N/A (DELETE)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
+<tr><td>tags-version-delete</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
 <tr><td rowspan="2">mailbox</td>
 	<td>R (Message)</td><td>Bundle</td><td>N/A</td><td>N/A</td><td>200</td></tr>
 <tr><td>N/A (Document)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>204</td></tr>
