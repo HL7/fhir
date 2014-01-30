@@ -206,9 +206,9 @@
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="229.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="37.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="25.5" ss:Span="1"/>
-   <Column ss:Index="5" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="55.5"
-    ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:Index="5" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="55.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="82.5"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="55.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="214.5" ss:Span="1"/>
    <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="160.5"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="59.25"/>
@@ -221,8 +221,8 @@
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
     <Cell><Data ss:Type="String">Is Modifier</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
-    <Cell><Data ss:Type="String">UML</Data></Cell>
     <Cell><Data ss:Type="String">Binding</Data></Cell>
+    <Cell><Data ss:Type="String">UML</Data></Cell>
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
@@ -237,8 +237,8 @@
     <Cell><Data ss:Type="String">Conformance</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">230;160</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">A conformance statement</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">230;160</Data></Cell>
+    <Cell><Data ss:Type="String">A conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">A conformance statement is a set of requirements for a desired implementation or a description of how a target application fulfills those requirements in a particular implementation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -316,8 +316,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">yes</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">ConformanceStatementStatus</Data></Cell>
-    <Cell><Data ss:Type="String">draft | active | retired&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">ConformanceStatementStatus</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">draft | active | retired&#10;</Data></Cell>
     <Cell><Data ss:Type="String">The status of this conformance statement</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">This is not intended for use with actual conformance statements, but where conformance statements are used to describe possible or desired systems</Data></Cell>
@@ -343,8 +343,8 @@
     <Cell><Data ss:Type="String">Conformance.software</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">230;0</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Software that is covered by this conformance statement</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">230;0</Data></Cell>
+    <Cell><Data ss:Type="String">Software that is covered by this conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">Software that is covered by this conformance statement.  It is used when the profile describes the capabilities of a particular software version, independent of an installation.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -377,8 +377,8 @@
     <Cell><Data ss:Type="String">Conformance.implementation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">370;0</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">If this describes a specific instance</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">370;0</Data></Cell>
+    <Cell><Data ss:Type="String">If this describes a specific instance</Data></Cell>
     <Cell><Data ss:Type="String">Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -419,8 +419,8 @@
     <Cell><Data ss:Type="String">Conformance.format</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">MimeType</Data></Cell>
-    <Cell><Data ss:Type="String">formats supported (xml | json | mime type)</Data></Cell>
+    <Cell><Data ss:Type="String">MimeType</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">formats supported (xml | json | mime type)</Data></Cell>
     <Cell><Data ss:Type="String">A list of the formats supported by this implementation</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">&quot;xml&quot; or &quot;json&quot; are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here</Data></Cell>
    </Row>
@@ -445,8 +445,8 @@
     <Cell><Data ss:Type="String">Conformance.rest</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">230;430</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">If the endpoint is a RESTful one</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">230;430</Data></Cell>
+    <Cell><Data ss:Type="String">If the endpoint is a RESTful one</Data></Cell>
     <Cell><Data ss:Type="String">A definition of the restful capabilities of the solution, if any</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Multiple repetitions allow definition of both client and / or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements)</Data></Cell>
    </Row>
@@ -454,8 +454,8 @@
     <Cell><Data ss:Type="String">Conformance.rest.mode</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">RestfulConformanceMode</Data></Cell>
-    <Cell><Data ss:Type="String">client | server</Data></Cell>
+    <Cell><Data ss:Type="String">RestfulConformanceMode</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">client | server</Data></Cell>
     <Cell><Data ss:Type="String">Identifies whether this portion of the statement is describing ability to initiate or receive restful operations</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -468,8 +468,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.rest.security</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">500;330</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Information about security of implementation</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s71"><Data ss:Type="String">500;330</Data></Cell>
+    <Cell><Data ss:Type="String">Information about security of implementation</Data></Cell>
     <Cell><Data ss:Type="String">Information about security of implementation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -484,8 +484,8 @@
     <Cell><Data ss:Type="String">Conformance.rest.security.service</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">RestfulSecurityService</Data></Cell>
-    <Cell><Data ss:Type="String">OAuth | OAuth2 | NTLM | Basic | Kerberos</Data></Cell>
+    <Cell><Data ss:Type="String">RestfulSecurityService</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">OAuth | OAuth2 | NTLM | Basic | Kerberos</Data></Cell>
     <Cell><Data ss:Type="String">Types of security services are supported/required by the system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -498,16 +498,16 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.rest.security.certificate</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">up</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Certificates associated with security profiles</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">up</Data></Cell>
+    <Cell><Data ss:Type="String">Certificates associated with security profiles</Data></Cell>
     <Cell><Data ss:Type="String">Certificates associated with security profiles</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Conformance.rest.security.certificate.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">MimeType</Data></Cell>
-    <Cell><Data ss:Type="String">Mime type for certificate</Data></Cell>
+    <Cell><Data ss:Type="String">MimeType</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Mime type for certificate</Data></Cell>
     <Cell><Data ss:Type="String">Mime type for certificate</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -520,8 +520,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.rest.resource</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">230;560</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Resource served on the REST interface</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">230;560</Data></Cell>
+    <Cell><Data ss:Type="String">Resource served on the REST interface</Data></Cell>
     <Cell><Data ss:Type="String">A specification of the restful capabilities of the solution for a specific resource type</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Max of one repetition per resource type</Data></Cell>
    </Row>
@@ -529,8 +529,8 @@
     <Cell><Data ss:Type="String">Conformance.rest.resource.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">ResourceType</Data></Cell>
-    <Cell><Data ss:Type="String">A resource type that is supported</Data></Cell>
+    <Cell><Data ss:Type="String">ResourceType</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A resource type that is supported</Data></Cell>
     <Cell><Data ss:Type="String">A type of resource exposed via the restful interface</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -544,16 +544,16 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.rest.resource.operation</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">-20;560</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">What operations are supported?</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">-20;560</Data></Cell>
+    <Cell><Data ss:Type="String">What operations are supported?</Data></Cell>
     <Cell><Data ss:Type="String">Identifies a restful operation supported by the solution</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.rest.resource.operation.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">RestfulOperationType</Data></Cell>
-    <Cell><Data ss:Type="String">read | vread | update | delete | history-instance | validate | history-type | create | search-type</Data></Cell>
+    <Cell><Data ss:Type="String">RestfulOperationType</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">read | vread | update | delete | history-instance | validate | history-type | create | search-type</Data></Cell>
     <Cell><Data ss:Type="String">Coded identifier of the operation, supported by the system resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
@@ -594,8 +594,8 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">right</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String">Additional search params defined</Data></Cell>
     <Cell><Data ss:Type="String">Additional search parameters for implementations to support and/or make use of</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -647,8 +647,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">SearchParamType</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">number | date | string | token | reference | composite | variable</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">number | date | string | token | reference | composite | variable</Data></Cell>
     <Cell><Data ss:Type="String">The type of value a search parameter refers to, and how the content is interpreted</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
@@ -682,8 +681,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">ResourceType</Data></Cell>
-    <Cell ss:StyleID="Default"/>
-    <Cell><Data ss:Type="String">Types of resource (if a resource reference)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Types of resource (if a resource reference)</Data></Cell>
     <Cell><Data ss:Type="String">Types of resource (if a resource is referenced)</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
@@ -713,16 +711,16 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.rest.operation</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">-20;430</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">What operations are supported?</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">-20;430</Data></Cell>
+    <Cell><Data ss:Type="String">What operations are supported?</Data></Cell>
     <Cell><Data ss:Type="String">A specification of restful operations supported by the system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.rest.operation.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">RestfulOperationSystem</Data></Cell>
-    <Cell><Data ss:Type="String">transaction | search-system | history-system</Data></Cell>
+    <Cell><Data ss:Type="String">RestfulOperationSystem</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">transaction | search-system | history-system</Data></Cell>
     <Cell><Data ss:Type="String">A coded identifier of the operation, supported by the system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -737,8 +735,8 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="6" ss:StyleID="Default"><Data ss:Type="String">right</Data></Cell>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:Index="6" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">right</Data></Cell>
     <Cell><Data ss:Type="String">Definition of a named query</Data></Cell>
     <Cell><Data ss:Type="String">Definition of a named query and its parameters and their meaning</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -821,8 +819,8 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0;190</Data></Cell>
-    <Cell ss:Index="8" ss:StyleID="s73"><Data ss:Type="String">If messaging is supported</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s71"><Data ss:Type="String">0;190</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">If messaging is supported</Data></Cell>
     <Cell><Data ss:Type="String">A description of the messaging capabilities of the solution</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -836,8 +834,8 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">Actual endpoint being described</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Actual endpoint being described</Data></Cell>
     <Cell><Data ss:Type="String">An address to which messages and/or replies are to be sent.</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -850,8 +848,8 @@
     <Cell><Data ss:Type="String">Conformance.messaging.reliableCache</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">Reliable Message Cache Length</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Reliable Message Cache Length</Data></Cell>
     <Cell><Data ss:Type="String">Length if the receiver's reliable messaging cache (if a receiver) or how long the cache length on the receiver should be (if a sender)</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -864,8 +862,8 @@
     <Cell><Data ss:Type="String">Conformance.messaging.documentation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">Messaging interface behavior details</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Messaging interface behavior details</Data></Cell>
     <Cell><Data ss:Type="String">Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the conformance statement.  For example, process for becoming an authorized messaging exchange partner.</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -876,8 +874,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Conformance.messaging.event</Data></Cell>
     <Cell><Data ss:Type="String">1..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0;0</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Declare support for this event</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0;0</Data></Cell>
+    <Cell><Data ss:Type="String">Declare support for this event</Data></Cell>
     <Cell><Data ss:Type="String">A description of the solution's support for an event at this end point.</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -890,8 +888,8 @@
     <Cell><Data ss:Type="String">Conformance.messaging.event.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">MessageEvent</Data></Cell>
-    <Cell><Data ss:Type="String">Event type</Data></Cell>
+    <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Event type</Data></Cell>
     <Cell><Data ss:Type="String">A coded identifier of a supported messaging event</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -904,8 +902,8 @@
     <Cell><Data ss:Type="String">Conformance.messaging.event.category</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">MessageSignificanceCategory</Data></Cell>
-    <Cell><Data ss:Type="String">Consequence | Currency | Notification</Data></Cell>
+    <Cell><Data ss:Type="String">MessageSignificanceCategory</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Consequence | Currency | Notification</Data></Cell>
     <Cell><Data ss:Type="String">The impact of the content of the message</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -918,16 +916,16 @@
     <Cell><Data ss:Type="String">Conformance.messaging.event.mode</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">ConformanceEventMode</Data></Cell>
-    <Cell><Data ss:Type="String">sender | receiver</Data></Cell>
+    <Cell><Data ss:Type="String">ConformanceEventMode</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">sender | receiver</Data></Cell>
     <Cell><Data ss:Type="String">The mode of this event declaration - whether application is sender or receiver</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.messaging.event.protocol</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">MessageTransport</Data></Cell>
-    <Cell><Data ss:Type="String">http | ftp | mllp +</Data></Cell>
+    <Cell><Data ss:Type="String">MessageTransport</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">http | ftp | mllp +</Data></Cell>
     <Cell><Data ss:Type="String">A list of the messaging transport protocol(s) identifiers, supported by this endpoint</Data></Cell>
     <Cell ss:Index="15"><Data ss:Type="String">Loosen this to &quot;extensible&quot; once tooling supports that.</Data></Cell>
    </Row>
@@ -935,8 +933,8 @@
     <Cell><Data ss:Type="String">Conformance.messaging.event.focus</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">ResourceType</Data></Cell>
-    <Cell><Data ss:Type="String">Resource that's focus of message</Data></Cell>
+    <Cell><Data ss:Type="String">ResourceType</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Resource that's focus of message</Data></Cell>
     <Cell><Data ss:Type="String">A resource associated with the event.  This is the resource that defines the event.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This SHALL be provided if the event type supports multiple different resource types</Data></Cell>
    </Row>
@@ -944,24 +942,24 @@
     <Cell><Data ss:Type="String">Conformance.messaging.event.request</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource(Profile)</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">Profile that describes the request</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Profile that describes the request</Data></Cell>
     <Cell><Data ss:Type="String">Information about the request for this event</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Conformance.messaging.event.response</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource(Profile)</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">Profile that describes the response</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Profile that describes the response</Data></Cell>
     <Cell><Data ss:Type="String">Information about the response for this event</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Conformance.messaging.event.documentation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">Endpoint-specific event documentation</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Endpoint-specific event documentation</Data></Cell>
     <Cell><Data ss:Type="String">Guidance on how this event is handled, such as internal system trigger points, business rules, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -969,8 +967,8 @@
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">550;50</Data></Cell>
     <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">550;50</Data></Cell>
     <Cell><Data ss:Type="String">Document definition</Data></Cell>
     <Cell><Data ss:Type="String">A document definition</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -984,16 +982,16 @@
     <Cell><Data ss:Type="String">Conformance.document.mode</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">DocumentMode</Data></Cell>
-    <Cell><Data ss:Type="String">producer | consumer</Data></Cell>
+    <Cell><Data ss:Type="String">DocumentMode</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">producer | consumer</Data></Cell>
     <Cell><Data ss:Type="String">Mode of this document declaration - whether application is producer or consumer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Conformance.document.documentation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">Description of document support</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Description of document support</Data></Cell>
     <Cell><Data ss:Type="String">A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -1006,8 +1004,8 @@
     <Cell><Data ss:Type="String">Conformance.document.profile</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource(Profile)</Data></Cell>
-    <Cell ss:Index="7" ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">Constraint on a resource used in the document</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="8"><Data ss:Type="String">Constraint on a resource used in the document</Data></Cell>
     <Cell><Data ss:Type="String">A constraint on a resource used in the document</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
