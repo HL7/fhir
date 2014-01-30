@@ -32,8 +32,9 @@ The Diagnostic Report resource has the following aspects:
  <li>status, issued, identifier, performer, serviceCategory: information about the diagnostic report itself</li>
  <li>subject, diagnostic[x]: information about the subject of the report</li>
  <li>requestDetails.*: A set of request information to allow the report to connected to clinical work flows</li>
- <li>results.* &amp; specimen details: a hierarchical tree of groups of results. The actual atomic result data are delegated to the <a href="observation.html">common Observation
-    resource</a> to make it easier to reuse them in a wider context</li>
+ <li>results: a reference to 0 or more <a href="observation.html">Observation resources</a> which provide 
+    a hierarchical tree of groups of results</li>
+ <li>specimen details: the specimens on which the report is based</li>   
  <li>conclusion, codedDiagnosis: support for structured reporting</li>
  <li>images, representation: image and media representations of the report and supporting images</li>
 </ul>
@@ -50,7 +51,7 @@ as described above. Languages other than English have their own variations on th
 This resource uses one particular set of terms. A practitioner "requests" a set of "tests". The
 diagnostic service returns a "report" which may contain a "narrative" - a written summary of the 
 outcomes, and/or "results" - the individual pieces of atomic data which each are "observations". 
-The results are assembled in a "group" which is a nested structure that can be used to 
+The results are assembled in "groups" which are nested structures of Observations that can be used to 
 represent relationships between the individual data items.
 </p>
 

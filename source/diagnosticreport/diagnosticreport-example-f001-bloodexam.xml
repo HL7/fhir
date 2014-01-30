@@ -38,68 +38,62 @@
       </item>
     </DiagnosticOrder>
   </contained>
-    <status value="final"/>
-    <!-- OID: 2.16.840.1.113883.4.642.1.7 -->
-    <issued value="2013-05-15T19:32:52+01:00"/>
-    <!-- ISO 8601 -->
-    <subject>
-        <!-- Linked to a RESOURCE Patient -->
-        <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
-        <reference value="Patient/f001"/>
-        <display value="P. van den Heuvel"/>
-    </subject>
-    <performer>
-        <reference value="Organization/f001"/>
-        <display value="Burgers University Medical Centre"/>
-    </performer>
-    <identifier>
-        <use value="official"/>
-        <system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
-        <value value="nr1239044"/>
-    </identifier>
-    <requestDetail>
-      <reference value="#req"/>
-    </requestDetail>
-    <serviceCategory>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="252275004"/>
-            <display value="Haematology test"/>
-        </coding>
-        <coding>
-            <system value="http://hl7.org/fhir/v2/0074" />
-            <code value="HM" />
-        </coding>
-    </serviceCategory>
+  <name>
+      <coding>
+          <system value="http://loinc.org"/>
+          <code value="58410-2"/>
+          <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
+      </coding>
+  </name>
+  <status value="final"/>
+  <!-- OID: 2.16.840.1.113883.4.642.1.7 -->
+  <issued value="2013-05-15T19:32:52+01:00"/>
+  <!-- ISO 8601 -->
+  <subject>
+    <!-- Linked to a RESOURCE Patient -->
+    <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
+    <reference value="Patient/f001"/>
+    <display value="P. van den Heuvel"/>
+  </subject>
+  <performer>
+    <reference value="Organization/f001"/>
+    <display value="Burgers University Medical Centre"/>
+  </performer>
+  <identifier>
+    <use value="official"/>
+    <system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
+    <value value="nr1239044"/>
+  </identifier>
+  <requestDetail>
+    <reference value="#req"/>
+  </requestDetail>
+  <serviceCategory>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="252275004"/>
+      <display value="Haematology test"/>
+    </coding>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0074" />
+      <code value="HM" />
+    </coding>
+  </serviceCategory>
 
-    <diagnosticDateTime value="2013-04-02"/>
-    <results>
-        <name>
-            <coding>
-                <system value="http://loinc.org"/>
-                <code value="58410-2"/>
-                <display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
-            </coding>
-        </name>
-<!--        <specimen>
-            <reference value="Specimen/f001"/>
-            <display value="Blood sample"/>
-        </specimen>-->
-        <result>
-            <reference value="Observation/f001"/>
-        </result>
-        <result>
-            <reference value="Observation/f002"/>
-        </result>
-        <result>
-            <reference value="Observation/f003"/>
-        </result>
-        <result>
-            <reference value="Observation/f004"/>
-        </result>
-        <result>
-            <reference value="Observation/f005"/>
-        </result>
-    </results>
-    <conclusion value="Core lab"/>
+  <diagnosticDateTime value="2013-04-02"/>
+  <result>
+    <reference value="Observation/f001"/>
+  </result>
+  <result>
+    <reference value="Observation/f002"/>
+  </result>
+  <result>
+    <reference value="Observation/f003"/>
+  </result>
+  <result>
+    <reference value="Observation/f004"/>
+  </result>
+  <result>
+    <reference value="Observation/f005"/>
+  </result>
+  <conclusion value="Core lab"/>
 </DiagnosticReport>

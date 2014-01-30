@@ -20,7 +20,7 @@
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6135</WindowTopY>
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -105,20 +105,34 @@
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
   </Style>
   <Style ss:ID="s76">
-   <Borders/>
-  </Style>
-  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s77">
+   <Borders/>
+  </Style>
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -192,7 +206,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="LipidProfile">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="11" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="9" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s67" ss:AutoFitWidth="0" ss:Width="169.5"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="56.25"/>
@@ -236,14 +250,8 @@
     <Cell><Data ss:Type="String">The findings and interpretation of a general lipd lab profile</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">In this profile, mustSupport means that authoring systems must include the ability to report these elements, and processing systems must cater for them by either displaying them to the user or considering them appropriately in decision support systems</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.results</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">you have to this for structural reasons</Data></Cell>
-    <Cell><Data ss:Type="String">Lipid Lab Results</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.results.name</Data></Cell>
+    <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="9" ss:StyleID="Default"><Data ss:Type="String">http://loinc.org#57698-3|Lipid panel with direct LDL - Serum or Plasma</Data></Cell>
@@ -252,16 +260,9 @@
     <Cell><Data ss:Type="String">LOINC Code for Lipid Panel with LDL</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:Index="2"><Data ss:Type="String">DiagnosticReport.results.group</Data></Cell>
-    <Cell><Data ss:Type="String">0..0</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="Default"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">No sub-groups allowed</Data></Cell>
-    <Cell><Data ss:Type="String">No subgroups allowed</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Cholesterol</Data></Cell>
-    <Cell><Data ss:Type="String">DiagnosticReport.results.result</Data></Cell>
+    <Cell><Data ss:Type="String">DiagnosticReport.result</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
@@ -273,7 +274,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Triglyceride</Data></Cell>
-    <Cell><Data ss:Type="String">DiagnosticReport.results.result</Data></Cell>
+    <Cell><Data ss:Type="String">DiagnosticReport.result</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
@@ -285,7 +286,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">HDL Cholesterol</Data></Cell>
-    <Cell><Data ss:Type="String">DiagnosticReport.results.result</Data></Cell>
+    <Cell><Data ss:Type="String">DiagnosticReport.result</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
@@ -296,7 +297,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">LDL Cholesterol</Data></Cell>
-    <Cell><Data ss:Type="String">DiagnosticReport.results.result</Data></Cell>
+    <Cell><Data ss:Type="String">DiagnosticReport.result</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Y</Data></Cell>
@@ -329,11 +330,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -490,7 +492,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s76">
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
@@ -509,7 +511,7 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
@@ -518,14 +520,17 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:Index="14" ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:Index="14" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s76"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s77">
+    <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">0..0</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -535,7 +540,7 @@
    </PageSetup>
    <Unsynced/>
    <SplitHorizontal>1320</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -543,8 +548,9 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R18C2:R18C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -552,7 +558,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Triglyceride">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="13" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="190.5"/>
@@ -668,7 +674,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s76">
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
@@ -687,7 +693,7 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
@@ -696,12 +702,16 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:Index="14" ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:Index="14" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -714,8 +724,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>38</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R13C2:R13C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -723,7 +734,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="HDLCholesterol">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="12" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="13" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="110.25"/>
@@ -911,7 +922,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s76">
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
@@ -930,7 +941,7 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
@@ -939,12 +950,16 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:Index="14" ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:Index="14" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -957,8 +972,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R13C2:R13C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -966,7 +982,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="LDLCholesterol">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="110.25"/>
@@ -1181,7 +1197,7 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s76">
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.meaning</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
@@ -1201,7 +1217,7 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Observation.referenceRange.age</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..0</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Period</Data></Cell>
@@ -1210,12 +1226,16 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"/>
     <Cell ss:Index="12" ss:StyleID="s71"/>
-    <Cell ss:Index="14" ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
+    <Cell ss:Index="14" ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s79"><Data ss:Type="String">Observation.related</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">0..0</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1225,12 +1245,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R14C2:R14C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1277,7 +1297,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
     <Cell ss:StyleID="s67"><Data ss:Type="String">calculated</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Observation</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">LDL is Calculated</Data></Cell>

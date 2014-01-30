@@ -5,6 +5,13 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
     </div>
   </text>
+  <name>
+    <coding>
+      <system value="http://mater.org.au/brisbane/pathology/tests"/>
+      <code value="Mblcl"/>
+      <display value="Blood Cultures"/>
+    </coding>
+  </name>
   <status value="partial"/>
   <issued value="2013-10-07T17:18:16"/>
   <subject>
@@ -14,14 +21,6 @@
     <reference value="Organization/acme-lab"/>
   </performer>
   <diagnosticDateTime value="2013-03-04T18:00:00"/>
-  <results>
-    <name>
-      <coding>
-        <system value="http://mater.org.au/brisbane/pathology/tests"/>
-        <code value="Mblcl"/>
-        <display value="Blood Cultures"/>
-      </coding>
-    </name>
     <group>
       <name>
         <text value="Streptococcus lactis"/>
@@ -43,5 +42,4 @@
       </result>
     </group>
     <!-- repeat for group 2 -->
-  </results>
 </DiagnosticReport>

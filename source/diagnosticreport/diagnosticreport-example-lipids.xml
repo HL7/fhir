@@ -138,6 +138,14 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       </Observation>
     </contained> 
   <!-- first, various administrative/context stuff -->
+  <name>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="57698-3"/>
+      <display value="Lipid panel with direct LDL - Serum or Plasma"/>
+    </coding>
+    <text value="Lipid Panel"/>
+  </name>
   <status value="final"/> <!-- all this report is final -->
   <issued value="2013-01-27T11:45:33+11:00"/>
   <subject>
@@ -158,27 +166,17 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
     </coding>
   </serviceCategory>
   <diagnosticDateTime value="2011-03-04T08:30:00+11:00"/>
-  <results>
-    <name>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="57698-3"/>
-        <display value="Lipid panel with direct LDL - Serum or Plasma"/>
-      </coding>
-      <text value="Lipid Panel"/>
-    </name>
-    <!-- now the atomic results -->
-    <result>
-      <reference value="#cholesterol"/>
-    </result>  
-    <result>
-      <reference value="#triglyceride"/>
-    </result>
-    <result>
-      <reference value="#hdlcholesterol"/>
-    </result>
-    <result>
-      <reference value="#ldlcholesterol"/>
-    </result>
-  </results>
+  <!-- now the atomic results -->
+  <result>
+    <reference value="#cholesterol"/>
+  </result>  
+  <result>
+    <reference value="#triglyceride"/>
+  </result>
+  <result>
+    <reference value="#hdlcholesterol"/>
+  </result>
+  <result>
+    <reference value="#ldlcholesterol"/>
+  </result>
 </DiagnosticReport>

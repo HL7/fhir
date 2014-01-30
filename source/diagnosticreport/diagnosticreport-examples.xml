@@ -1118,6 +1118,13 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="25T"/>
+            <display value="E/LFT (MASTER)"/>
+          </coding>
+        </name>
         <status value="final"/>
         <issued value="2005-01-27T06:40:01Z"/>
         <subject>
@@ -1132,93 +1139,84 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2005-01-27T06:40:17"/>
-        <results>
-          <name>
-            <coding>
-              <system value="http://acme.com/labs/reports"/>
-              <code value="25T"/>
-              <display value="E/LFT (MASTER)"/>
-            </coding>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-          <result>
-            <reference value="#o25"/>
-          </result>
-          <result>
-            <reference value="#o26"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
+        <result>
+          <reference value="#o25"/>
+        </result>
+        <result>
+          <reference value="#o26"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -2323,6 +2321,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -2337,86 +2338,81 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-08T07:45:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-          <result>
-            <reference value="#o25"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
+        <result>
+          <reference value="#o25"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -3344,6 +3340,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -3358,87 +3357,82 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-15T07:20:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-          <result>
-            <reference value="#o25"/>
-          </result>
-          <!-- OBX|28|FT|TXT^^AUSPDI||                                Units  Ref Range\.br\ \.br\   SERUM CHEMISTRY\.br\ Sodium                 142      mmol/L 137-147\.br\ Serum Potassium        4.0      mmol/L 3.5-5.0\.br\ Chloride               105      mmol/L 96-109\.br\ Bicarbonate            28       mmol/L 25-33\.br\ Other Anions           13       mmol/L 4-17\.br\ Glucose                5.2      mmol/L 3.0-7.7\.br\ Urea                   6.4      mmol/L 2.0-7.0\.br\ Serum Creatinine       0.09     mmol/L 0.04-0.11\.br\ Serum Uric Acid        0.46 +++ mmol/L 0.14-0.35\.br\ Total Bilirubin        13       umol/L 2-20\.br\ Direct Bilirubin       6        umol/L 0-8\.br\ Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma 204 +++  U/L    30-115\.br\ Gamma G.T.             192 +++  U/L    0-45\.br\ ALT                    70 +     U/L    0-45\.br\ AST                    26       U/L    0-41\.br\ LD                     150      U/L    80-250\.br\ Serum Calcium          2.37     mmol/L 2.25-2.65\.br\ Corrected Calcium      2.47     mmol/L 2.25-2.65\.br\ Serum Phosphate        1.4      mmol/L 0.8-1.5\.br\ Total Protein          67       g/L    60-82\.br\ Serum Albumin          39       g/L    35-50\.br\ Globulins              28       g/L    20-40\.br\ Iron                   5 - -     umol/L 10-33\.br\ Cholesterol            4.4      mmol/L 3.6-6.7\.br\ \.br\ Revised NHF cholesterol guidelines (Nov.,2001):\.br\   Target below 4.0 mmol/L if high risk patient.\.br\   Consider lipid lowering treatment if cholesterol above 6.0 mmol/L\.br\   and no other risk factor of CHD.\.br\ \.br\ Triglycerides          1.1      mmol/L 0.3-4.0\.br\|| -->
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
+        <result>
+          <reference value="#o25"/>
+        </result>
+        <!-- OBX|28|FT|TXT^^AUSPDI||                                Units  Ref Range\.br\ \.br\   SERUM CHEMISTRY\.br\ Sodium                 142      mmol/L 137-147\.br\ Serum Potassium        4.0      mmol/L 3.5-5.0\.br\ Chloride               105      mmol/L 96-109\.br\ Bicarbonate            28       mmol/L 25-33\.br\ Other Anions           13       mmol/L 4-17\.br\ Glucose                5.2      mmol/L 3.0-7.7\.br\ Urea                   6.4      mmol/L 2.0-7.0\.br\ Serum Creatinine       0.09     mmol/L 0.04-0.11\.br\ Serum Uric Acid        0.46 +++ mmol/L 0.14-0.35\.br\ Total Bilirubin        13       umol/L 2-20\.br\ Direct Bilirubin       6        umol/L 0-8\.br\ Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma 204 +++  U/L    30-115\.br\ Gamma G.T.             192 +++  U/L    0-45\.br\ ALT                    70 +     U/L    0-45\.br\ AST                    26       U/L    0-41\.br\ LD                     150      U/L    80-250\.br\ Serum Calcium          2.37     mmol/L 2.25-2.65\.br\ Corrected Calcium      2.47     mmol/L 2.25-2.65\.br\ Serum Phosphate        1.4      mmol/L 0.8-1.5\.br\ Total Protein          67       g/L    60-82\.br\ Serum Albumin          39       g/L    35-50\.br\ Globulins              28       g/L    20-40\.br\ Iron                   5 - -     umol/L 10-33\.br\ Cholesterol            4.4      mmol/L 3.6-6.7\.br\ \.br\ Revised NHF cholesterol guidelines (Nov.,2001):\.br\   Target below 4.0 mmol/L if high risk patient.\.br\   Consider lipid lowering treatment if cholesterol above 6.0 mmol/L\.br\   and no other risk factor of CHD.\.br\ \.br\ Triglycerides          1.1      mmol/L 0.3-4.0\.br\|| -->
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -4360,6 +4354,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2004-12-21T00:00:01Z"/>
         <subject>
@@ -4374,87 +4371,82 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-22T07:45:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-          <result>
-            <reference value="#o25"/>
-          </result>
-          <!-- OBX|28|FT|PIT^^AUSPDI||001 Medical-Objects                                            07 01/07/1996\.br\002   \.br\003 Report Run Number: 1    Created:   19/04/2005     at    22:58:15\.br\004 Surgery: XXX    Reports: 23/02/2005 10:04:00  to  23/02/2005 10:04:00       \.br\009 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\010 ANDERSON,DR. THOMAS                          0191322W\.br\019 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\020 Your Ref.   Patient Name                   Lab Ref.       Test\.br\021             JONES,June                      04-4154148     E/LFT (MASTER)\.br\029 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\100 Start Patient  :      JONES,June                      \.br\101                       24 Sutherland Street, BUDERIM QLD 4556               \.br\104                       Birthdate: 08/01/1976     Age: Y29     Sex:F\.br\105                       Telephone: 07              \.br\109   \.br\110 Your Reference :      \.br\111 MO  Reference  :      04-4154148-25T-0\.br\112 Medicare Number:                \.br\115 Phone Enquiries:       (DR MARCUS WELBY)                           \.br\119   \.br\121 Referred by    :      WHITE,DR. WILSON                \.br\122 Copy to        :      ANDERSON,DR. THOMAS             \.br\123 Addressee      :      ANDERSON,DR. THOMAS               0191322W\.br\129   \.br\200 Start of Result:\.br\201 Specimen       :\.br\203 Requested      :      21/12/2004\.br\204 Collected      :      22/12/2004  07:45\.br\205 Name of Test   :      E/LFT (MASTER)                                       \.br\206 Reported       :      23/02/2005  10:04\.br\207 Confidential   :      N\.br\208 Test Category  :      N\.br\209   \.br\210 Normal Result  :      N\.br\299   \.br\301                               Units  Ref Range\.br\301 \.br\301   SERUM CHEMISTRY\.br\301 Sodium                 142     mmol/L 137-147\.br\301 Serum Potassium        4.0     mmol/L 3.5-5.0\.br\301 Chloride               107     mmol/L 96-109\.br\301 Bicarbonate            26      mmol/L 25-33\.br\301 Other Anions           13      mmol/L 4-17\.br\301 Glucose                6.3     mmol/L 3.0-7.7\.br\301 Urea                   6.7     mmol/L 2.0-7.0\.br\301 Serum Creatinine       0.08    mmol/L 0.04-0.11\.br\301 \R\FG04\R\Serum Uric Acid        0.40 ++ mmol/L 0.14-0.35\R\FG99\R\\.br\301 Total Bilirubin        9       umol/L 2-20\.br\301 Direct Bilirubin       4       umol/L 0-8\.br\301 \R\FG04\R\Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma 144 +   U/L    30-115\R\FG99\R\\.br\301 \R\FG04\R\Gamma G.T.             106 +++ U/L    0-45\R\FG99\R\\.br\301 ALT                    30      U/L    0-45\.br\301 AST                    18      U/L    0-41\.br\301 LD                     143     U/L    80-250\.br\301 Serum Calcium          2.28    mmol/L 2.25-2.65\.br\301 Corrected Calcium      2.32    mmol/L 2.25-2.65\.br\301 Serum Phosphate        1.3     mmol/L 0.8-1.5\.br\301 Total Protein          66      g/L    60-82\.br\301 Serum Albumin          41      g/L    35-50\.br\301 Globulins              25      g/L    20-40\.br\301 \R\FG04\R\Iron                   3 - - -   umol/L 10-33\R\FG99\R\\.br\301 Cholesterol            4.0     mmol/L 3.6-6.7\.br\301 \.br\301 Revised NHF cholesterol guidelines (Nov.,2001):\.br\301   Target below 4.0 mmol/L if high risk patient.\.br\301   Consider lipid lowering treatment if cholesterol above 6.0 mmol/L\.br\301   and no other risk factor of CHD.\.br\301 \.br\301 Triglycerides          1.0     mmol/L 0.3-4.0\.br\309   \.br\319   \.br\390 End of Report  :\.br\399 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\999 END OF LISTING - Run Number:1     19/04/2005  22:58:15\.br\|| -->
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
+        <result>
+          <reference value="#o25"/>
+        </result>
+        <!-- OBX|28|FT|PIT^^AUSPDI||001 Medical-Objects                                            07 01/07/1996\.br\002   \.br\003 Report Run Number: 1    Created:   19/04/2005     at    22:58:15\.br\004 Surgery: XXX    Reports: 23/02/2005 10:04:00  to  23/02/2005 10:04:00       \.br\009 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\010 ANDERSON,DR. THOMAS                          0191322W\.br\019 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\020 Your Ref.   Patient Name                   Lab Ref.       Test\.br\021             JONES,June                      04-4154148     E/LFT (MASTER)\.br\029 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\100 Start Patient  :      JONES,June                      \.br\101                       24 Sutherland Street, BUDERIM QLD 4556               \.br\104                       Birthdate: 08/01/1976     Age: Y29     Sex:F\.br\105                       Telephone: 07              \.br\109   \.br\110 Your Reference :      \.br\111 MO  Reference  :      04-4154148-25T-0\.br\112 Medicare Number:                \.br\115 Phone Enquiries:       (DR MARCUS WELBY)                           \.br\119   \.br\121 Referred by    :      WHITE,DR. WILSON                \.br\122 Copy to        :      ANDERSON,DR. THOMAS             \.br\123 Addressee      :      ANDERSON,DR. THOMAS               0191322W\.br\129   \.br\200 Start of Result:\.br\201 Specimen       :\.br\203 Requested      :      21/12/2004\.br\204 Collected      :      22/12/2004  07:45\.br\205 Name of Test   :      E/LFT (MASTER)                                       \.br\206 Reported       :      23/02/2005  10:04\.br\207 Confidential   :      N\.br\208 Test Category  :      N\.br\209   \.br\210 Normal Result  :      N\.br\299   \.br\301                               Units  Ref Range\.br\301 \.br\301   SERUM CHEMISTRY\.br\301 Sodium                 142     mmol/L 137-147\.br\301 Serum Potassium        4.0     mmol/L 3.5-5.0\.br\301 Chloride               107     mmol/L 96-109\.br\301 Bicarbonate            26      mmol/L 25-33\.br\301 Other Anions           13      mmol/L 4-17\.br\301 Glucose                6.3     mmol/L 3.0-7.7\.br\301 Urea                   6.7     mmol/L 2.0-7.0\.br\301 Serum Creatinine       0.08    mmol/L 0.04-0.11\.br\301 \R\FG04\R\Serum Uric Acid        0.40 ++ mmol/L 0.14-0.35\R\FG99\R\\.br\301 Total Bilirubin        9       umol/L 2-20\.br\301 Direct Bilirubin       4       umol/L 0-8\.br\301 \R\FG04\R\Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma 144 +   U/L    30-115\R\FG99\R\\.br\301 \R\FG04\R\Gamma G.T.             106 +++ U/L    0-45\R\FG99\R\\.br\301 ALT                    30      U/L    0-45\.br\301 AST                    18      U/L    0-41\.br\301 LD                     143     U/L    80-250\.br\301 Serum Calcium          2.28    mmol/L 2.25-2.65\.br\301 Corrected Calcium      2.32    mmol/L 2.25-2.65\.br\301 Serum Phosphate        1.3     mmol/L 0.8-1.5\.br\301 Total Protein          66      g/L    60-82\.br\301 Serum Albumin          41      g/L    35-50\.br\301 Globulins              25      g/L    20-40\.br\301 \R\FG04\R\Iron                   3 - - -   umol/L 10-33\R\FG99\R\\.br\301 Cholesterol            4.0     mmol/L 3.6-6.7\.br\301 \.br\301 Revised NHF cholesterol guidelines (Nov.,2001):\.br\301   Target below 4.0 mmol/L if high risk patient.\.br\301   Consider lipid lowering treatment if cholesterol above 6.0 mmol/L\.br\301   and no other risk factor of CHD.\.br\301 \.br\301 Triglycerides          1.0     mmol/L 0.3-4.0\.br\309   \.br\319   \.br\390 End of Report  :\.br\399 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\999 END OF LISTING - Run Number:1     19/04/2005  22:58:15\.br\|| -->
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -5359,6 +5351,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2004-12-03T00:00:01Z"/>
         <subject>
@@ -5373,83 +5368,78 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-03T09:45:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -6360,6 +6350,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -6374,83 +6367,78 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-03T20:30:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -7361,6 +7349,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -7375,83 +7366,78 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-05T07:15:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -8366,6 +8352,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -8380,86 +8369,81 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2005-01-27T06:40:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-          <result>
-            <reference value="#o25"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
+        <result>
+          <reference value="#o25"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -9399,6 +9383,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -9413,86 +9400,81 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-08T07:45:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-          <result>
-            <reference value="#o25"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
+        <result>
+          <reference value="#o25"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -10420,6 +10402,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -10434,87 +10419,82 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-15T07:20:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-          <result>
-            <reference value="#o25"/>
-          </result>
-          <!-- OBX|28|FT|TXT^^AUSPDI||                                Units  Ref Range\.br\ \.br\   SERUM CHEMISTRY\.br\ Sodium                 142      mmol/L 137-147\.br\ Serum Potassium        4.0      mmol/L 3.5-5.0\.br\ Chloride               105      mmol/L 96-109\.br\ Bicarbonate            28       mmol/L 25-33\.br\ Other Anions           13       mmol/L 4-17\.br\ Glucose                5.2      mmol/L 3.0-7.7\.br\ Urea                   6.4      mmol/L 2.0-7.0\.br\ Serum Creatinine       0.09     mmol/L 0.04-0.11\.br\ Serum Uric Acid        0.46 +++ mmol/L 0.14-0.35\.br\ Total Bilirubin        13       umol/L 2-20\.br\ Direct Bilirubin       6        umol/L 0-8\.br\ Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma 204 +++  U/L    30-115\.br\ Gamma G.T.             192 +++  U/L    0-45\.br\ ALT                    70 +     U/L    0-45\.br\ AST                    26       U/L    0-41\.br\ LD                     150      U/L    80-250\.br\ Serum Calcium          2.37     mmol/L 2.25-2.65\.br\ Corrected Calcium      2.47     mmol/L 2.25-2.65\.br\ Serum Phosphate        1.4      mmol/L 0.8-1.5\.br\ Total Protein          67       g/L    60-82\.br\ Serum Albumin          39       g/L    35-50\.br\ Globulins              28       g/L    20-40\.br\ Iron                   5 - -     umol/L 10-33\.br\ Cholesterol            4.4      mmol/L 3.6-6.7\.br\ \.br\ Revised NHF cholesterol guidelines (Nov.,2001):\.br\   Target below 4.0 mmol/L if high risk patient.\.br\   Consider lipid lowering treatment if cholesterol above 6.0 mmol/L\.br\   and no other risk factor of CHD.\.br\ \.br\ Triglycerides          1.1      mmol/L 0.3-4.0\.br\|| -->
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
+        <result>
+          <reference value="#o25"/>
+        </result>
+        <!-- OBX|28|FT|TXT^^AUSPDI||                                Units  Ref Range\.br\ \.br\   SERUM CHEMISTRY\.br\ Sodium                 142      mmol/L 137-147\.br\ Serum Potassium        4.0      mmol/L 3.5-5.0\.br\ Chloride               105      mmol/L 96-109\.br\ Bicarbonate            28       mmol/L 25-33\.br\ Other Anions           13       mmol/L 4-17\.br\ Glucose                5.2      mmol/L 3.0-7.7\.br\ Urea                   6.4      mmol/L 2.0-7.0\.br\ Serum Creatinine       0.09     mmol/L 0.04-0.11\.br\ Serum Uric Acid        0.46 +++ mmol/L 0.14-0.35\.br\ Total Bilirubin        13       umol/L 2-20\.br\ Direct Bilirubin       6        umol/L 0-8\.br\ Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma 204 +++  U/L    30-115\.br\ Gamma G.T.             192 +++  U/L    0-45\.br\ ALT                    70 +     U/L    0-45\.br\ AST                    26       U/L    0-41\.br\ LD                     150      U/L    80-250\.br\ Serum Calcium          2.37     mmol/L 2.25-2.65\.br\ Corrected Calcium      2.47     mmol/L 2.25-2.65\.br\ Serum Phosphate        1.4      mmol/L 0.8-1.5\.br\ Total Protein          67       g/L    60-82\.br\ Serum Albumin          39       g/L    35-50\.br\ Globulins              28       g/L    20-40\.br\ Iron                   5 - -     umol/L 10-33\.br\ Cholesterol            4.4      mmol/L 3.6-6.7\.br\ \.br\ Revised NHF cholesterol guidelines (Nov.,2001):\.br\   Target below 4.0 mmol/L if high risk patient.\.br\   Consider lipid lowering treatment if cholesterol above 6.0 mmol/L\.br\   and no other risk factor of CHD.\.br\ \.br\ Triglycerides          1.1      mmol/L 0.3-4.0\.br\|| -->
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -11436,6 +11416,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -11450,87 +11433,82 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-22T07:45:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-          <result>
-            <reference value="#o25"/>
-          </result>
-          <!-- OBX|28|FT|PIT^^AUSPDI||001 Medical-Objects                                            07 01/07/1996\.br\002   \.br\003 Report Run Number: 1    Created:   19/04/2005     at    22:58:15\.br\004 Surgery: XXX    Reports: 23/02/2005 10:04:00  to  23/02/2005 10:04:00       \.br\009 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\010 ANDERSON,DR. THOMAS                          0191322W\.br\019 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\020 Your Ref.   Patient Name                   Lab Ref.       Test\.br\021             JONES,June                      04-4154148     E/LFT (MASTER)\.br\029 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\100 Start Patient  :      JONES,June                      \.br\101                       24 Sutherland Street, BUDERIM QLD 4556               \.br\104                       Birthdate: 08/01/1976     Age: Y29     Sex:F\.br\105                       Telephone: 07              \.br\109   \.br\110 Your Reference :      \.br\111 MO  Reference  :      04-4154148-25T-0\.br\112 Medicare Number:                \.br\115 Phone Enquiries:       (DR MARCUS WELBY)                           \.br\119   \.br\121 Referred by    :      WHITE,DR. WILSON                \.br\122 Copy to        :      ANDERSON,DR. THOMAS             \.br\123 Addressee      :      ANDERSON,DR. THOMAS               0191322W\.br\129   \.br\200 Start of Result:\.br\201 Specimen       :\.br\203 Requested      :      21/12/2004\.br\204 Collected      :      22/12/2004  07:45\.br\205 Name of Test   :      E/LFT (MASTER)                                       \.br\206 Reported       :      23/02/2005  10:04\.br\207 Confidential   :      N\.br\208 Test Category  :      N\.br\209   \.br\210 Normal Result  :      N\.br\299   \.br\301                               Units  Ref Range\.br\301 \.br\301   SERUM CHEMISTRY\.br\301 Sodium                 142     mmol/L 137-147\.br\301 Serum Potassium        4.0     mmol/L 3.5-5.0\.br\301 Chloride               107     mmol/L 96-109\.br\301 Bicarbonate            26      mmol/L 25-33\.br\301 Other Anions           13      mmol/L 4-17\.br\301 Glucose                6.3     mmol/L 3.0-7.7\.br\301 Urea                   6.7     mmol/L 2.0-7.0\.br\301 Serum Creatinine       0.08    mmol/L 0.04-0.11\.br\301 \R\FG04\R\Serum Uric Acid        0.40 ++ mmol/L 0.14-0.35\R\FG99\R\\.br\301 Total Bilirubin        9       umol/L 2-20\.br\301 Direct Bilirubin       4       umol/L 0-8\.br\301 \R\FG04\R\Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma 144 +   U/L    30-115\R\FG99\R\\.br\301 \R\FG04\R\Gamma G.T.             106 +++ U/L    0-45\R\FG99\R\\.br\301 ALT                    30      U/L    0-45\.br\301 AST                    18      U/L    0-41\.br\301 LD                     143     U/L    80-250\.br\301 Serum Calcium          2.28    mmol/L 2.25-2.65\.br\301 Corrected Calcium      2.32    mmol/L 2.25-2.65\.br\301 Serum Phosphate        1.3     mmol/L 0.8-1.5\.br\301 Total Protein          66      g/L    60-82\.br\301 Serum Albumin          41      g/L    35-50\.br\301 Globulins              25      g/L    20-40\.br\301 \R\FG04\R\Iron                   3 - - -   umol/L 10-33\R\FG99\R\\.br\301 Cholesterol            4.0     mmol/L 3.6-6.7\.br\301 \.br\301 Revised NHF cholesterol guidelines (Nov.,2001):\.br\301   Target below 4.0 mmol/L if high risk patient.\.br\301   Consider lipid lowering treatment if cholesterol above 6.0 mmol/L\.br\301   and no other risk factor of CHD.\.br\301 \.br\301 Triglycerides          1.0     mmol/L 0.3-4.0\.br\309   \.br\319   \.br\390 End of Report  :\.br\399 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\999 END OF LISTING - Run Number:1     19/04/2005  22:58:15\.br\|| -->
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
+        <result>
+          <reference value="#o25"/>
+        </result>
+        <!-- OBX|28|FT|PIT^^AUSPDI||001 Medical-Objects                                            07 01/07/1996\.br\002   \.br\003 Report Run Number: 1    Created:   19/04/2005     at    22:58:15\.br\004 Surgery: XXX    Reports: 23/02/2005 10:04:00  to  23/02/2005 10:04:00       \.br\009 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\010 ANDERSON,DR. THOMAS                          0191322W\.br\019 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\020 Your Ref.   Patient Name                   Lab Ref.       Test\.br\021             JONES,June                      04-4154148     E/LFT (MASTER)\.br\029 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\100 Start Patient  :      JONES,June                      \.br\101                       24 Sutherland Street, BUDERIM QLD 4556               \.br\104                       Birthdate: 08/01/1976     Age: Y29     Sex:F\.br\105                       Telephone: 07              \.br\109   \.br\110 Your Reference :      \.br\111 MO  Reference  :      04-4154148-25T-0\.br\112 Medicare Number:                \.br\115 Phone Enquiries:       (DR MARCUS WELBY)                           \.br\119   \.br\121 Referred by    :      WHITE,DR. WILSON                \.br\122 Copy to        :      ANDERSON,DR. THOMAS             \.br\123 Addressee      :      ANDERSON,DR. THOMAS               0191322W\.br\129   \.br\200 Start of Result:\.br\201 Specimen       :\.br\203 Requested      :      21/12/2004\.br\204 Collected      :      22/12/2004  07:45\.br\205 Name of Test   :      E/LFT (MASTER)                                       \.br\206 Reported       :      23/02/2005  10:04\.br\207 Confidential   :      N\.br\208 Test Category  :      N\.br\209   \.br\210 Normal Result  :      N\.br\299   \.br\301                               Units  Ref Range\.br\301 \.br\301   SERUM CHEMISTRY\.br\301 Sodium                 142     mmol/L 137-147\.br\301 Serum Potassium        4.0     mmol/L 3.5-5.0\.br\301 Chloride               107     mmol/L 96-109\.br\301 Bicarbonate            26      mmol/L 25-33\.br\301 Other Anions           13      mmol/L 4-17\.br\301 Glucose                6.3     mmol/L 3.0-7.7\.br\301 Urea                   6.7     mmol/L 2.0-7.0\.br\301 Serum Creatinine       0.08    mmol/L 0.04-0.11\.br\301 \R\FG04\R\Serum Uric Acid        0.40 ++ mmol/L 0.14-0.35\R\FG99\R\\.br\301 Total Bilirubin        9       umol/L 2-20\.br\301 Direct Bilirubin       4       umol/L 0-8\.br\301 \R\FG04\R\Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma 144 +   U/L    30-115\R\FG99\R\\.br\301 \R\FG04\R\Gamma G.T.             106 +++ U/L    0-45\R\FG99\R\\.br\301 ALT                    30      U/L    0-45\.br\301 AST                    18      U/L    0-41\.br\301 LD                     143     U/L    80-250\.br\301 Serum Calcium          2.28    mmol/L 2.25-2.65\.br\301 Corrected Calcium      2.32    mmol/L 2.25-2.65\.br\301 Serum Phosphate        1.3     mmol/L 0.8-1.5\.br\301 Total Protein          66      g/L    60-82\.br\301 Serum Albumin          41      g/L    35-50\.br\301 Globulins              25      g/L    20-40\.br\301 \R\FG04\R\Iron                   3 - - -   umol/L 10-33\R\FG99\R\\.br\301 Cholesterol            4.0     mmol/L 3.6-6.7\.br\301 \.br\301 Revised NHF cholesterol guidelines (Nov.,2001):\.br\301   Target below 4.0 mmol/L if high risk patient.\.br\301   Consider lipid lowering treatment if cholesterol above 6.0 mmol/L\.br\301   and no other risk factor of CHD.\.br\301 \.br\301 Triglycerides          1.0     mmol/L 0.3-4.0\.br\309   \.br\319   \.br\390 End of Report  :\.br\399 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\.br\999 END OF LISTING - Run Number:1     19/04/2005  22:58:15\.br\|| -->
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -12435,6 +12413,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -12449,83 +12430,78 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-03T09:45:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -13436,6 +13412,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -13450,83 +13429,78 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-03T20:30:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -14437,6 +14411,9 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <text value="SERUM CHEMISTRY"/>
+        </name>
         <status value="final"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <subject>
@@ -14451,83 +14428,78 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2004-12-05T07:15:17"/>
-        <results>
-          <name>
-            <text value="SERUM CHEMISTRY"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-          <result>
-            <reference value="#o19"/>
-          </result>
-          <result>
-            <reference value="#o20"/>
-          </result>
-          <result>
-            <reference value="#o21"/>
-          </result>
-          <result>
-            <reference value="#o22"/>
-          </result>
-          <result>
-            <reference value="#o23"/>
-          </result>
-          <result>
-            <reference value="#o24"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
+        <result>
+          <reference value="#o19"/>
+        </result>
+        <result>
+          <reference value="#o20"/>
+        </result>
+        <result>
+          <reference value="#o21"/>
+        </result>
+        <result>
+          <reference value="#o22"/>
+        </result>
+        <result>
+          <reference value="#o23"/>
+        </result>
+        <result>
+          <reference value="#o24"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -15036,6 +15008,13 @@
             <reliability value="ok"/>
           </Observation>
         </contained>
+        <name>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="18769-0"/>
+            <display value="Microbial susceptibility tests Set"/>
+          </coding>
+        </name>
         <status value="final"/>
         <issued value="2005-11-07T23:38:01Z"/>
         <subject>
@@ -15050,72 +15029,63 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2005-11-07T21:44:17"/>
-        <results>
-          <name>
-            <coding>
-              <system value="http://loinc.org"/>
-              <code value="18769-0"/>
-              <display value="Microbial susceptibility tests Set"/>
-            </coding>
-          </name>
-          <specimen>
-            <display value="URINE, CLEAN CATCH/MIDSTREAM"/>
-          </specimen>
-          <result>
-            <reference value="#o1"/>
-          </result>
-          <result>
-            <reference value="#o2"/>
-          </result>
-          <result>
-            <reference value="#o3"/>
-          </result>
-          <result>
-            <reference value="#o4"/>
-          </result>
-          <result>
-            <reference value="#o5"/>
-          </result>
-          <result>
-            <reference value="#o6"/>
-          </result>
-          <result>
-            <reference value="#o7"/>
-          </result>
-          <result>
-            <reference value="#o8"/>
-          </result>
-          <result>
-            <reference value="#o9"/>
-          </result>
-          <result>
-            <reference value="#o10"/>
-          </result>
-          <result>
-            <reference value="#o11"/>
-          </result>
-          <result>
-            <reference value="#o12"/>
-          </result>
-          <result>
-            <reference value="#o13"/>
-          </result>
-          <result>
-            <reference value="#o14"/>
-          </result>
-          <result>
-            <reference value="#o15"/>
-          </result>
-          <result>
-            <reference value="#o16"/>
-          </result>
-          <result>
-            <reference value="#o17"/>
-          </result>
-          <result>
-            <reference value="#o18"/>
-          </result>
-        </results>
+        <specimen>
+          <display value="URINE, CLEAN CATCH/MIDSTREAM"/>
+        </specimen>
+        <result>
+          <reference value="#o1"/>
+        </result>
+        <result>
+          <reference value="#o2"/>
+        </result>
+        <result>
+          <reference value="#o3"/>
+        </result>
+        <result>
+          <reference value="#o4"/>
+        </result>
+        <result>
+          <reference value="#o5"/>
+        </result>
+        <result>
+          <reference value="#o6"/>
+        </result>
+        <result>
+          <reference value="#o7"/>
+        </result>
+        <result>
+          <reference value="#o8"/>
+        </result>
+        <result>
+          <reference value="#o9"/>
+        </result>
+        <result>
+          <reference value="#o10"/>
+        </result>
+        <result>
+          <reference value="#o11"/>
+        </result>
+        <result>
+          <reference value="#o12"/>
+        </result>
+        <result>
+          <reference value="#o13"/>
+        </result>
+        <result>
+          <reference value="#o14"/>
+        </result>
+        <result>
+          <reference value="#o15"/>
+        </result>
+        <result>
+          <reference value="#o16"/>
+        </result>
+        <result>
+          <reference value="#o17"/>
+        </result>
+        <result>
+          <reference value="#o18"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -15156,6 +15126,14 @@
             <reliability value="ok"/>
           </Observation>
         </contained>
+        <name>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="142080"/>
+            <display value="Rapid Plasma Reagin"/>
+          </coding>
+          <text value="RPR"/>
+        </name>
         <status value="final"/>
         <issued value="2005-03-07T14:02:01Z"/>
         <subject>
@@ -15170,19 +15148,9 @@
           <value value="5234342"/>
         </identifier>
         <diagnosticDateTime value="2005-03-07T14:02:17"/>
-        <results>
-          <name>
-            <coding>
-              <system value="http://acme.com/labs/reports"/>
-              <code value="142080"/>
-              <display value="Rapid Plasma Reagin"/>
-            </coding>
-            <text value="RPR"/>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">
@@ -15249,6 +15217,13 @@
             </referenceRange>
           </Observation>
         </contained>
+        <name>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="bchem2"/>
+            <display value="Specialist Biochemistry"/>
+          </coding>
+        </name>
         <status value="final"/>
         <issued value="2012-05-23T14:27:01Z"/>
         <subject>
@@ -15263,18 +15238,9 @@
           <value value="23412355"/>
         </identifier>
         <diagnosticDateTime value="2012-05-21T10:45:00"/>
-        <results>
-          <name>
-            <coding>
-              <system value="http://acme.com/labs/reports"/>
-              <code value="bchem2"/>
-              <display value="Specialist Biochemistry"/>
-            </coding>
-          </name>
-          <result>
-            <reference value="#o1"/>
-          </result>
-        </results>
+        <result>
+          <reference value="#o1"/>
+        </result>
       </DiagnosticReport>
     </content>
     <summary type="xhtml">

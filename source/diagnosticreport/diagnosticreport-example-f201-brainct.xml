@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <name>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="429858000"/>
+      <display value="Computed tomography (CT) of head and neck"/>
+    </coding>
+    <text value="CT of head-neck"/>
+  </name>
  <status value="final"/>
  <issued value="2012-12-01T12:00:00+01:00"/>
  <subject><!--It entails Roel's diagnostic report-->
@@ -23,16 +31,6 @@
      </coding>
  </serviceCategory>
  <diagnosticDateTime value="2012-12-01T12:00:00+01:00"/>
- <results>
-    <name>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="429858000"/>
-        <display value="Computed tomography (CT) of head and neck"/>
-      </coding>
-      <text value="CT of head-neck"/>
-    </name>
- </results>
  <!--The CT image was not available-->
  <conclusion value="CT brains: large tumor sphenoid/clivus."/>
  <codedDiagnosis>

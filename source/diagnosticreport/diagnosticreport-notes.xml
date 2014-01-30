@@ -1,5 +1,9 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+Examples of nested report groups: the antibodyhepatitis order panel code for a goup of hepatitis antibody related tests, or the organism code for a group of antibiotic isolate/sensitivities, or a set of perinatal measurements on a single fetus.
+
+
+
 <h2>
 Notes:
 </h2>
@@ -11,25 +15,22 @@ since detailed specimen information is not always available, and nor is the diag
 reports SHALL always include a <i>diagnostic[x]</i> element. Note that v2 messages often carry a diagnostically relevant time without carrying any specimen information.
 </li>
 <li>
-A report always contains a base group, which has the name of the report 
-itself. This base group can then contain a mix of results and sub-groups. The group has a code that can be used to indicate the 
-nature of the grouping (e.g. organism isolate/sensitivity or antibody functional testing).  If there are multiple specimens,
-then there would be a single base group containing a group for each specimen.
+A report always contains the name of the report itself. The report can also contain a set of observations, which can themselves be simple observations (e.g. atomic results) or can themselves be groups/panels of other observations. 
+The Observation.name is a code that indicates the nature of the observation or panel (e.g. individual measure, organism isolate/sensitivity or antibody functional testing).  When relevant, the observation can specify a particular
+specimen from which the result comes.
 </li>
 <li>
-There is rarely a need for more than two levels of groups. Known uses of 3 levels include the antibody code for a 
-group of antibody related tests, or the organism code for a group of isolates/sensitivities, or a set of perinatal 
-measurements on a single fetus.
+There is rarely a need for more than two levels of nesting in the Observation tree. One known use is for organism sensitivities - see <a href="diagnosticreport-micro1.html">this example</a>.
 </li>
 <li>
-Applications consuming diagnostic reports must take careful note of updated reports, and ensure that withdrawn reports are appropriately handled. 
+Applications consuming diagnostic reports must take careful note of updated reports, and ensure that retracted reports are appropriately handled. 
 </li>
 <li>
 For applications providing diagnostic reports, a report should not be final until all the individual data items
-reported with it are final or amended. If a report is withdrawn, all the results should be withdrawn by replacing 
-every result value with the Concept "withdrawn" in the internal terminology <a href="terminologies.html">"Special values"</a> 
+reported with it are final or amended. If a report is retracted, all the results should be retracted by replacing 
+every result value with the Concept "withdrawn" in the internal terminology <a href="special-values.html">"Special values"</a> 
 (url = "http://hl7.org/fhir/special-values"), and setting the conclusion (if provided) and the text narrative to some 
-text like "This report has been withdrawn" in the appropriate language. A reason for withdrawal may be provided in the 
+text like "This report has been withdrawn" in the appropriate language. A reason for retraction may be provided in the 
 narrative. </li>
 </ul>
 
@@ -39,7 +40,7 @@ narrative. </li>
 This resource provides for 3 different ways of presenting the Diagnostic Report:
 </p>
 <ul>
- <li>As atomic data items: a hierarchical set of grouped references to Observation resources, one or more images, and possibly with a conclusion and/or one or more coded diagnoses</li>
+ <li>As atomic data items: a hierarchical set of nested references to Observation resources, one or more images, and possibly with a conclusion and/or one or more coded diagnoses</li>
  <li>As narrative: an XHTML presentation in the standard resource narrative</li>
  <li>As a "presented form": A rich text representation of the report - typically a PDF</li>
 </ul>

@@ -123,23 +123,13 @@
     <reference value="Practitioner/example"/>
   </performer>
   <related>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
-        <code value="COMP"/>
-      </coding>
-    </type>
+    <type value="component"/>
     <target>
       <reference value="#sbp"/>
     </target>
   </related>
   <related>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
-        <code value="COMP"/>
-      </coding>
-    </type>
+    <type value="component"/>
     <target>
       <reference value="#dbp"/>
     </target>

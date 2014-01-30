@@ -151,6 +151,13 @@ GE LUNAR PRODIGY DENSITOMETER
 
   
 <!-- first, various administrative/context stuff -->
+  <name>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="38269-7"/>
+    </coding>
+    <text value="DXA BONE DENSITOMETRY"/>
+  </name>
   <status value="final"/> <!-- all this report is final -->
   <issued value="2008-06-18T09:23:00+10:00"/>
   <subject>
@@ -161,18 +168,9 @@ GE LUNAR PRODIGY DENSITOMETER
     <display value="Acme Imaging Diagnostics"/>
   </performer>
   <diagnosticDateTime value="2008-06-17"/>
-  <results>
-    <name>
-      <coding>
-        <system value="http://loinc.org"/>
-        <code value="38269-7"/>
-      </coding>
-      <text value="DXA BONE DENSITOMETRY"/>
-    </name>
-    <result>
-      <reference value="#r1"/>
-    </result>  
-  </results>
+  <result>
+    <reference value="#r1"/>
+  </result>  
   
   <!-- the imaging service marks this to help find categories of patient -->
   <codedDiagnosis>

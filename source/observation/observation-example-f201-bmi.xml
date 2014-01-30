@@ -163,23 +163,13 @@
     </meaning>
   </referenceRange>
   <related>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
-        <code value="DRIV"/>
-      </coding>
-    </type>
+    <type value="derived-from"/>
     <target>
       <reference value="#length"/>
     </target>
   </related>
   <related>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
-        <code value="DRIV"/>
-      </coding>
-    </type>
+    <type value="derived-from"/>
     <target>
       <reference value="#weight"/>
     </target>

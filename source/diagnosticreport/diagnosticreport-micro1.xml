@@ -69,6 +69,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
 -->
 
+  <!-- first, a series of atomic results matching the atomice result OBXs -->
   <contained>
     <Observation id="obx1-4">
       <name>
@@ -598,8 +599,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <reliability value="ok"/>
     </Observation>
   </contained>
-
-  
+ 
   <contained>
     <Observation id="obx3-1">
       <name>
@@ -620,6 +620,116 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </Observation>
   </contained>
 
+  
+  <!-- 
+    now, nested observations for the groups/panels
+
+    we're working bottom to top, so first we encounter an 
+    inner group: susceptibility measured by broth dilution 
+
+    Note that we don't have to work bottom to top - the contained 
+    resources can appear in any order, but since the root does have 
+    to appear last, we weill work up to it
+  -->
+  <contained>
+    <Observation id="obr-2"> 
+      <!-- OBR 2 -->
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/panels"/>
+          <code value="60790"/>
+          <display value="Susceptibility - Automated broth dilution (Billed)"/>
+        </coding>
+      </name>
+      <status value="final"/>
+      <reliability value="ok"/>
+      <!-- now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed -->
+      <related><type value="member"/><target><reference value="#obx2-1"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-2"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-4"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-6"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-8"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-10"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-12"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-14"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-16"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-18"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-20"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-22"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-24"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-26"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-28"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-30"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-32"/></target></related>
+      <related><type value="member"/><target><reference value="#obx2-34"/></target></related>
+      <related><type value="member"/><target><reference value="#nte-1"/></target></related>    
+    </Observation>
+  </contained>
+
+  <!-- now we encounter another inner group: susceptibility measured by disk diffusion -->
+  <contained>
+    <Observation id="obr-3"> 
+      <!-- OBR 3 -->
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/panels"/>
+          <code value="60418"/>
+          <display value="Susceptibility - Disk diffusion (Billed)"/>
+        </coding>
+      </name>
+      <status value="final"/>
+      <reliability value="ok"/>
+      <related><type value="member"/><target><reference value="#obx3-1"/></target></related>
+    </Observation>
+  </contained>
+
+  <!-- organism group: Staphylococcus aureus. You'd repeat at this level if you had more than one organism -->
+  <contained>
+    <Observation id="org1"> 
+      <!-- OBR 1 -->
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/organisms"/>
+          <code value="Staaur"/>
+        </coding>
+        <text value="Staphylococcus aureus Panel"/>
+      </name>
+      <status value="final"/>
+      <reliability value="ok"/>
+
+      <related>
+        <type value="member"/>
+        <target>
+          <reference value="#obx1-4"/>
+        </target>
+      </related>
+
+      <related>
+        <type value="member"/>
+        <target>
+          <reference value="#obx1-5"/>
+        </target>
+      </related>
+
+      <!-- group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped -->
+      <related>
+        <type value="member"/>
+        <target>
+          <reference value="#obr-2"/>
+        </target>
+      </related>
+
+      <!-- group - Disk diffusion -->
+      <related>
+        <type value="member"/>
+        <target>
+          <reference value="#obr-3"/>
+        </target>
+      </related>
+    </Observation>
+  </contained>
+
+  <!-- ORC information -->
   <contained>
     <DiagnosticOrder id="req">
       <subject>
@@ -630,6 +740,16 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </identifier>
     </DiagnosticOrder>
   </contained>
+
+  
+  <!-- start of the main resource -->
+  <name>
+   <coding>
+      <system value="http://loinc.org"/>
+      <code value="632-0"/>
+    </coding>
+    <text value="Culture, MRSA"/>
+  </name>
   <status value="final"/>
   <issued value="2009-08-10T08:25:44"/>
   <subject>
@@ -652,69 +772,5 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </coding>
   </serviceCategory>
   <diagnosticDateTime value="2009-08-07T19:00:00"/>
-  <results>  
-    <name>
-     <coding>
-        <system value="http://loinc.org"/>
-        <code value="632-0"/>
-      </coding>
-      <text value="Culture, MRSA"/>
-    </name>
-    <!-- organism group: Staphylococcus aureus. You'd repeat at this level if you had more than one organism -->
-    <group> <!-- OBR 1 -->
-      <name>
-        <coding>
-          <system value="http://acme.org/lab/codes/organisms"/>
-          <code value="Staaur"/>
-        </coding>
-        <text value="Staphylococcus aureus"/>
-      </name>
-      
-      <!-- group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped -->
-      <group> <!-- OBR 2 -->
-        <name>
-          <coding>
-            <system value="http://acme.org/lab/codes/panels"/>
-            <code value="60790"/>
-            <display value="Susceptibility - Automated broth dilution (Billed)"/>
-          </coding>
-        </name>
-        <!-- now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed -->
-        <result><reference value="#obx2-1"/></result>
-        <result><reference value="#obx2-2"/></result>
-        <result><reference value="#obx2-4"/></result>
-        <result><reference value="#obx2-6"/></result>
-        <result><reference value="#obx2-8"/></result>
-        <result><reference value="#obx2-10"/></result>
-        <result><reference value="#obx2-12"/></result>
-        <result><reference value="#obx2-14"/></result>
-        <result><reference value="#obx2-16"/></result>
-        <result><reference value="#obx2-18"/></result>
-        <result><reference value="#obx2-20"/></result>
-        <result><reference value="#obx2-22"/></result>
-        <result><reference value="#obx2-24"/></result>
-        <result><reference value="#obx2-26"/></result>
-        <result><reference value="#obx2-28"/></result>
-        <result><reference value="#obx2-30"/></result>
-        <result><reference value="#obx2-32"/></result>
-        <result><reference value="#obx2-34"/></result>
-        <result><reference value="#nte-1"/></result>
-      </group>
-      <!-- group - Disk diffusion -->
-      <group> <!-- OBR 3 -->
-        <name>
-          <coding>
-            <system value="http://acme.org/lab/codes/panels"/>
-            <code value="60418"/>
-            <display value="Susceptibility - Disk diffusion (Billed)"/>
-          </coding>
-        </name>
-        <result><reference value="#obx3-1"/></result>
-      </group>
-      <!-- the containment rules are different in a diagnostic report from a v2 lab message, and results (e.g. OBXs) have to 
-           come after the groups. Here's the first 2 OBXs as observations -->
-      <result><reference value="#obx1-4"/></result>
-      <result><reference value="#obx1-5"/></result>
-    </group>
-  </results>
+
 </DiagnosticReport>
