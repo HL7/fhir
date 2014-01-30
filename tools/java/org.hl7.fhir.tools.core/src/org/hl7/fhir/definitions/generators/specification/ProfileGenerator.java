@@ -320,14 +320,18 @@ public class ProfileGenerator {
           for(String param : t.getParams())
           {    
             TypeRefComponent type = new Profile.TypeRefComponent();
-            type.setCode(Factory.newCode("Resource("+ param+")"));
+            type.setCodeSimple("ResourceReference");
+            if (param.startsWith("http:"))
+              type.setProfileSimple(param);
+            else 
+              type.setProfileSimple("http://hl7.org/fhir/profiles/"+param);
             ce.getDefinition().getType().add(type);            
           }
         }
         else
         {
           TypeRefComponent type = new Profile.TypeRefComponent();
-          type.setCode(Factory.newCode(t.summaryFormal()));
+          type.setCodeSimple(t.summaryFormal());
           ce.getDefinition().getType().add(type);
         }
       }

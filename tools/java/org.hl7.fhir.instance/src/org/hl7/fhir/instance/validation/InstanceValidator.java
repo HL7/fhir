@@ -362,7 +362,7 @@ public class InstanceValidator extends BaseValidator {
           {
         	  TypeRefComponent trc = child.getDefinition().getType().get(0);
         	  
-        	  if(trc.getCodeSimple().startsWith("Resource("))
+        	  if(trc.getCodeSimple().equals("ResourceReference"))
         		  type = "ResourceReference";
         	  else
         		  throw new Exception("multiple types ("+describeTypes(child.getDefinition().getType())+") @ "+path+"/f:"+ci.name());

@@ -50,21 +50,21 @@ import org.hl7.fhir.utilities.ZipGenerator;
  * @author Andrew Willison
  * 
  */
-public class XSLTGenerator extends BaseGenerator implements PlatformGenerator {
+public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerator {
 
   @Override
   public String getName() {
-    return "xslt";
+    return "xmltools";
   }
 
   @Override
   public String getTitle() {
-    return "XSLT";
+    return "XML Tools";
   }
 
   @Override
   public String getDescription() {
-    return "Document Rendering Stylesheet";
+    return "Document Rendering Stylesheet, supplementary implementation schemas";
   }
 
   @Override

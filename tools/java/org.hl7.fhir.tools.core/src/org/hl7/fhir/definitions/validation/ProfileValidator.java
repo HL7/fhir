@@ -196,11 +196,13 @@ public class ProfileValidator extends BaseValidator {
     for (TypeRefComponent t : e.getDefinition().getType()) {
       TypeParser tp = new TypeParser();
       try {
-        List<TypeRef> splitTypes = tp.parse(t.getCode().getValue());
-        // Note: the base definitions can still contain a TypeRef.profile,
-        // since Resource(A|B|C) gets split up, with A, B, or C as the profile
-        n.setProfile(t.getProfileSimple());
-        n.getTypes().addAll(splitTypes);
+        TypeRef tr = new TypeRef();
+        if (t.getCodeSimple().equals("ResourceReference")) {
+          tr.setName("Resource");
+          tr.getParams().add(t.getProfileSimple()); // TODO: a uri, not a simple code. But stripping down to a simple codes losts information. Does this matter?
+        } else
+          tr.setName(t.getCodeSimple());
+        n.getTypes().add(tr);
       } catch (Exception ex) {
         errors.add("invalid type "+t+" on "+e.getPath()+" in underlying resource definition");
       }
