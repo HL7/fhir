@@ -282,9 +282,8 @@ see <a href="extensibility.html">Extensibility</a>.
 <h4>Using Extensions in Structures</h4>
 <p>
 Defining a extension means that it can be used in a resource somewhere. To actually
-use a resource, the extension list on the resource needs to be sliced. To do this,
-... (todo: fill out the details)
-</p>
+use a resource, the extension list on the resource needs to be sliced. This is shown in 
+<a href="extensibility-examples.html#sliceextensions">the extensibility examples</a></p>
 <p>
 Note that the minimum cardinality of an extension SHALL be a valid restriction
 on the minimum cardinality in the definition of the extension. if the minimum
