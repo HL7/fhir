@@ -288,9 +288,8 @@ public class Publisher {
     if (hasParam(args, "-name"))
       pub.page.setPublicationType(getNamedParam(args, "-name"));
     if (pub.web) {
-      pub.page.setPublicationType("DSTU Candidate (QA Version)");
+      pub.page.setPublicationType("DSTU Version");
       pub.page.setPublicationNotice(PageProcessor.PUB_NOTICE);
-      pub.page.enableDisqus();
     }
     try {
       pub.execute(args[0]);
@@ -448,6 +447,10 @@ public class Publisher {
     page.log(" ...vocab", LogMessageType.Process);
     analyseV2();
     analyseV3();
+    if (isGenerate) {
+      generateConformanceStatement(true, "base");
+      generateConformanceStatement(false, "base2");
+    }
     page.log(" ...resource ValueSet", LogMessageType.Process);
     ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
     if (isGenerate) {
@@ -466,6 +469,7 @@ public class Publisher {
     generateCodeSystemsPart2();
     generateValueSetsPart2();
     if (isGenerate) {
+      /// regenerate. TODO: this is silly - need to generate before so that xpaths are populated. but need to generate now to fill them properly
       generateConformanceStatement(true, "base");
       generateConformanceStatement(false, "base2");
     }
@@ -552,11 +556,10 @@ public class Publisher {
   private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameter i) {
     ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
     result.setNameSimple(i.getCode());
-    result.setSourceSimple("http://hl7.org/fhir/" + rn + "/search#" + i.getCode());
+    result.setDefinitionSimple("http://hl7.org/fhir/profiles/" + rn);
     result.setTypeSimple(getSearchParamType(i.getType()));
     result.setDocumentation(Factory.newString_(i.getDescription()));
-    i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths()));
-    result.setXpathSimple(i.getXPath());
+    i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
     return result;
   }
 
@@ -1055,7 +1058,7 @@ public class Publisher {
       if (!fn.isDirectory()) {
         if (f.endsWith(".html")) {
           String src = TextFile.fileToString(fn.getAbsolutePath());
-          String srcn = src.replace("Warning: This version of FHIR is the DSTU Candidate version (see the <a href=\"history.html\">Version History</a>)",
+          String srcn = src.replace("Warning: This is the FHIR DSTU version",
               "This is an old version of FHIR retained for archive purposes. Do not use for anything else");
           if (!srcn.equals(src))
             c++;
@@ -1198,18 +1201,18 @@ public class Publisher {
       cloneToXhtml("profiles-resources",
           "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", false, "summary-instance");
       jsonToXhtml("profiles-resources",
-          "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", resource2Json(profileFeed));
+          "Base Resources defined as profiles (implementation assistance, for for validation, derivation and product development)", resource2Json(profileFeed), "summary-instance");
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml"), typeFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-types.json"), typeFeed, true);
       cloneToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)", false,
           "summary-instance");
       jsonToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)",
-          resource2Json(typeFeed));
+          resource2Json(typeFeed), "summary-instance");
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "valuesets.xml", page.getFolders().dstDir + "examples" + File.separator + "valuesets.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, true);
       cloneToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", false, "summary-instance");
-      jsonToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", resource2Json(valueSetsFeed));
+      jsonToXhtml("valuesets", "Base Valuesets (implementation assistance, for validation, derivation and product development)", resource2Json(valueSetsFeed), "summary-instance");
 
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "conceptmaps.xml"), conceptMapsFeed, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "conceptmaps.xml", page.getFolders().dstDir + "examples" + File.separator + "conceptmaps.xml");
@@ -1217,7 +1220,7 @@ public class Publisher {
       cloneToXhtml("conceptmaps", "Base concept maps (implementation assistance, for validation, derivation and product development)", false,
           "summary-instance");
       jsonToXhtml("conceptmaps", "Base concept maps (implementation assistance, for validation, derivation and product development)",
-          resource2Json(conceptMapsFeed));
+          resource2Json(conceptMapsFeed), "summary-instance");
 
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml"), v2Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v2-tables.xml", page.getFolders().dstDir + "examples" + File.separator + "v2-tables.xml");
@@ -1225,14 +1228,14 @@ public class Publisher {
       cloneToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)", false,
           "summary-instance");
       jsonToXhtml("v2-tables", "V2 Tables defined as value sets (implementation assistance, for derivation and product development)",
-          resource2Json(v2Valuesets));
+          resource2Json(v2Valuesets), "summary-instance");
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml"), v3Valuesets, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "v3-codesystems.xml", page.getFolders().dstDir + "examples" + File.separator + "v3-codesystems.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json"), v3Valuesets, true);
       cloneToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)", false,
           "summary-instance");
       jsonToXhtml("v3-codesystems", "v3 Code Systems defined as value sets (implementation assistance, for derivation and product development)",
-          resource2Json(v3Valuesets));
+          resource2Json(v3Valuesets), "summary-instance");
 
       page.log("....validator", LogMessageType.Process);
       ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "validation.zip");
@@ -2013,7 +2016,7 @@ public class Publisher {
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
     addToResourceFeed(rp, c.getCode().toLowerCase(), typeFeed);
     cloneToXhtml("type-" + c.getCode() + ".profile", "Profile for " + c.getCode(), false, "profile-instance:type:" + c.getCode());
-    jsonToXhtml("type-" + c.getCode() + ".profile", "Profile for " + c.getCode(), resource2Json(rp));
+    jsonToXhtml("type-" + c.getCode() + ".profile", "Profile for " + c.getCode(), resource2Json(rp), "profile-instance:type:" + c.getCode());
   }
 
   private void produceTypeProfile(ElementDefn type) throws Exception {
@@ -2038,7 +2041,7 @@ public class Publisher {
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
     // + File.separator + "datatypes.html"));
     cloneToXhtml("type-" + type.getName() + ".profile", "Profile for " + type.getName(), false, "profile-instance:type:" + type.getName());
-    jsonToXhtml("type-" + type.getName() + ".profile", "Profile for " + type.getName(), resource2Json(rp));
+    jsonToXhtml("type-" + type.getName() + ".profile", "Profile for " + type.getName(), resource2Json(rp), "profile-instance:type:" + type.getName());
   }
 
   protected XmlPullParser loadXml(InputStream stream) throws Exception {
@@ -2240,8 +2243,11 @@ public class Publisher {
 
   }
 
-  private void jsonToXhtml(String n, String description, String json) throws Exception {
-    page.jsonToXhtml(n + ".json", n + ".json.html", n + ".json", n, description, 0, json);
+  private void jsonToXhtml(String n, String description, String json, String pageType) throws Exception {
+    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
+    html = page.processPageIncludes(n + ".xml.html", html, pageType, null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
     page.getEpub().registerFile(n + ".json.html", description, EPubManager.XHTML_TYPE);
   }
 
@@ -2295,11 +2301,14 @@ public class Publisher {
       boolean wantSave = r.getText() == null || r.getText().getDiv() == null;
       NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
       gen.generate(r, profile);
-      narrative = new XhtmlComposer().compose(r.getText().getDiv());
-      if (wantSave) {
-        new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), r, true, true);
-        xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-      }
+      if (r.getText() != null && r.getText().getDiv() != null) {
+        narrative = new XhtmlComposer().compose(r.getText().getDiv());
+        if (wantSave) {
+          new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), r, true, true);
+          xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+        }
+      } else
+        narrative = "&lt;-- No Narrative for this resource --&gt;";
       ;
     } catch (Exception ex) {
       XhtmlNode xhtml = new XhtmlNode(NodeType.Element, "div");
@@ -2349,15 +2358,14 @@ public class Publisher {
       json = t.getMessage();
     }
 
-    String head = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>" + Utilities.escapeXml(e.getDescription())
-        + "</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"
-        + "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\"" + n
-        + ".json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
-    String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
-    TextFile.stringToFile(head + Utilities.escapeXml(json) + tail, page.getFolders().dstDir + n + ".json.html");
+    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
+        + "\r\n</pre>\r\n</div>\r\n";
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
+    html = page.processPageIncludes(n + ".json.html", html, "resource-instance:" + resource.getName(), null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
+    
     page.getEpub().registerFile(n + ".json.html", e.getDescription(), EPubManager.XHTML_TYPE);
-    e.setJson("<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
-        + "\r\n</pre>\r\n</div>\r\n");
+    e.setJson(json);
 
     // reload it now, xml to xhtml of xml
     builder = factory.newDocumentBuilder();
@@ -2366,7 +2374,7 @@ public class Publisher {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()
         + " (id = \"" + e.getId() + "\")", 0, true, n + ".xml.html");
-    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
     html = page.processPageIncludes(n + ".xml.html", html, "resource-instance:" + resource.getName(), null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
     if (e.isInBook()) {
@@ -2419,7 +2427,7 @@ public class Publisher {
       addToResourceFeed(rp, root.getName().toLowerCase(), profileFeed);
     saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir + "html" + File.separator + n + ".html"));
     cloneToXhtml(n + ".profile", "Profile for " + n, true, "profile-instance:resource:" + root.getName());
-    jsonToXhtml(n + ".profile", "Profile for " + n, resource2Json(rp));
+    jsonToXhtml(n + ".profile", "Profile for " + n, resource2Json(rp), "profile-instance:resource:" + root.getName());
   }
 
   private void saveAsPureHtml(Profile resource, FileOutputStream stream) throws Exception {
@@ -2654,7 +2662,7 @@ public class Publisher {
     TextFile.stringToFile(html, page.getFolders().dstDir + title + ".profile.xml.html");
 
     page.getEpub().registerFile(title + ".profile.xml.html", "Profile", EPubManager.XHTML_TYPE);
-    jsonToXhtml(title + ".profile", "Profile for " + profile.metadata("description"), resource2Json(p));
+    jsonToXhtml(title + ".profile", "Profile for " + profile.metadata("description"), resource2Json(p), master == null ? "profile-instance" : "profile-instance:res:" + master);
     tmp.delete();
     return p;
   }
@@ -3305,7 +3313,7 @@ public class Publisher {
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir + name + ".xml"), vs, true);
       cloneToXhtml(name, "Definition for Value Set" + vs.getNameSimple(), false, "valueset-instance");
-      jsonToXhtml(name, "Definition for Value Set" + vs.getNameSimple(), resource2Json(vs));
+      jsonToXhtml(name, "Definition for Value Set" + vs.getNameSimple(), resource2Json(vs), "valueset-instance");
     }
   }
 
@@ -3453,7 +3461,7 @@ public class Publisher {
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.json")), cm, true);
     String n = Utilities.changeFileExt(filename, "-map-v2");
-    jsonToXhtml(n, cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.json")));
+    jsonToXhtml(n, cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.json")), "conceptmap-instance");
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v2.xml")), cm, true);
     cloneToXhtml(n, cm.getNameSimple(), false, "conceptmap-instance");
@@ -3536,7 +3544,7 @@ public class Publisher {
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")), cm, true);
     String n = Utilities.changeFileExt(filename, "-map-v3");
-    jsonToXhtml(n, cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")));
+    jsonToXhtml(n, cm.getNameSimple(), TextFile.fileToString(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")), "conceptmap-instance");
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.xml")), cm, true);
     cloneToXhtml(n, cm.getNameSimple(), false, "conceptmap-instance");
@@ -3588,7 +3596,7 @@ public class Publisher {
       XmlComposer xml = new XmlComposer();
       xml.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".xml")), vs, true);
       cloneToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getNameSimple(), false, "valueset-instance");
-      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getNameSimple(), resource2Json(vs));
+      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getNameSimple(), resource2Json(vs), "valueset-instance");
     }
   }
 

@@ -101,7 +101,7 @@ public class CCDAConverter {
 		} else
 			composition.setIdentifier(convert.makeIdentifierFromII(cda.getChild(doc, "id"))); // well, we fall back to id
 			
-		composition.setInstant(convert.makeInstantFromTS(cda.getChild(doc, "effectiveTime")));
+		composition.setDate(convert.makeDateTimeFromTS(cda.getChild(doc, "effectiveTime")));
 		composition.setType(convert.makeCodeableConceptFromCD(cda.getChild(doc, "code")));
 		composition.setConfidentiality(convert.makeCodingFromCV(cda.getChild(doc, "confidentialityCode")));
 		if (cda.getChild(doc, "confidentialityCode") != null)

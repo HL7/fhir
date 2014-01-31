@@ -13,7 +13,7 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  public ValueSet expand(ValueSet source) throws Exception {
 	  	if (expansions.containsKey(source.getIdentifierSimple()))
 	  		return expansions.get(source.getIdentifierSimple());
-	  	ValueSetExpander vse = new ValueSetExpanderSimple(valuesets, codesystems, ValueSetExpansionCache.this);
+	  	ValueSetExpander vse = new ValueSetExpanderSimple(valuesets, codesystems, ValueSetExpansionCache.this, locator);
 	  	ValueSet vs = vse.expand(source);
 	  	expansions.put(source.getIdentifierSimple(), vs);
 	  	return vs;
@@ -23,11 +23,13 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	private Map<String, ValueSet> valuesets;
 	private Map<String, ValueSet> codesystems;
 	private Map<String, ValueSet> expansions = new HashMap<String, ValueSet>();
+	private ConceptLocator locator;
 	
-	public ValueSetExpansionCache(Map<String, ValueSet> valuesets, Map<String, ValueSet> codesystems) {
+	public ValueSetExpansionCache(Map<String, ValueSet> valuesets, Map<String, ValueSet> codesystems, ConceptLocator locator) {
     super();
     this.valuesets = valuesets;
     this.codesystems = codesystems;
+    this.locator = locator;
   }
   
 	@Override

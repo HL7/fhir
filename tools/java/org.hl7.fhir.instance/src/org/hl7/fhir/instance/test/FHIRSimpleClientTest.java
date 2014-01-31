@@ -20,15 +20,20 @@ import org.hl7.fhir.instance.client.FHIRSimpleClient;
 import org.hl7.fhir.instance.client.ResourceAddress;
 import org.hl7.fhir.instance.client.ResourceFormat;
 import org.hl7.fhir.instance.model.AdverseReaction;
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Condition;
+import org.hl7.fhir.instance.model.Condition.ConditionStatus;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.DateTime;
+import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceReference;
@@ -40,17 +45,35 @@ import org.junit.Test;
 
 public class FHIRSimpleClientTest {
 	
-	private static String connectUrl1 = "http://hl7connect.healthintersections.com.au/svc/fhir/";
-	private static String connectUrl2 = "http://fhir.furore.com/fhir";
-	private static String connectUrl = connectUrl1;
+	private static String connectUrl = null;
+	private static String userAgent = null;
+	private static DateAndTime testDateAndTime = null;
 	
 	private FHIRClient testClient;
 	private String testPatientId;
+	private String testPatientVersion;
 	private boolean logResource = true;
+	private boolean useProxy = true;
+	
+	private static void configureForFurore() {
+		connectUrl = "http://spark.furore.com/fhir/";
+		//connectUrl = "http://fhirlab.furore.com/fhir";
+		userAgent = "Spark.Service";
+	}
+	
+	private static void configureForHealthIntersection() {
+		//connectUrl = "http://hl7connect.healthintersections.com.au/svc/fhir/";
+		connectUrl = "http://fhir.healthintersections.com.au/open";
+		//userAgent = "HL7Connect";
+		userAgent = "Reference Server";
+	}
 	
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		//configureForHealthIntersection();
+		configureForFurore();
+		testDateAndTime = new DateAndTime("2008-08-08");
 	}
 
 	@AfterClass
@@ -61,24 +84,20 @@ public class FHIRSimpleClientTest {
 	public void setUp() throws Exception {
 		testClient = new FHIRSimpleClient();
 		testClient.initialize(connectUrl);
+		if(useProxy) {
+			((FHIRSimpleClient)testClient).configureProxy("127.0.0.1", 8888);
+		}
 	}
 
 	@After
 	public void tearDown() throws Exception {	
 	}
 	
-	public void loadPatientResource() throws ParseException {
-		Patient testPatient = buildPatient();
-		AtomEntry<Patient> result = testClient.create(Patient.class, testPatient);
-		testPatientId = getPatientId(result);
-	}
-	
-	public void unloadPatientResource() {
-		testClient.delete(Patient.class, testPatientId);
-	}
+	/**************************************************************
+	 * START OF TEST SECTION
+	 **************************************************************/
 
 	@Test
-	@SuppressWarnings(value = "unused")
 	public void testFHIRSimpleClient() {
 		try {
 			FHIRClient client = new FHIRSimpleClient();
@@ -93,7 +112,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_XML);
 			Conformance stmt = testClient.getConformanceStatement();
-			assertEquals("HL7Connect", stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
 			printResourceToSystemOut(stmt, false);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -106,7 +125,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_JSON);
 			Conformance stmt = testClient.getConformanceStatement(true);
-			assertEquals("HL7Connect", stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
 			printResourceToSystemOut(stmt, true);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -119,7 +138,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_XML);
 			Conformance stmt = testClient.getConformanceStatement(true);
-			assertEquals("HL7Connect", stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
 			printResourceToSystemOut(stmt, false);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -132,7 +151,7 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_XML);
 			Conformance stmt = testClient.getConformanceStatement(false);
-			assertEquals("HL7Connect", stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
 			printResourceToSystemOut(stmt, false);
 		} catch(Exception e) {
 			fail(e.getMessage());
@@ -144,108 +163,134 @@ public class FHIRSimpleClientTest {
 		try {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_JSON);
 			Conformance stmt = testClient.getConformanceStatement(false);
-			assertEquals("HL7Connect", stmt.getSoftware().getName().getValue());
+			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
 			printResourceToSystemOut(stmt, false);
 		} catch(Exception e) {
+			e.printStackTrace();
 			fail(e.getMessage());
 		}
 	}
 
 	@Test
-	public void testRead() throws ParseException {
+	public void testRead() {
 		loadPatientResource();
 		AtomEntry<Patient> fetchedPatient = testClient.read(Patient.class, testPatientId);
-		assertEquals("2008-08-08", fetchedPatient.getResource().getBirthDate().getValue());
+		assertEqualDate(fetchedPatient.getResource().getBirthDate().getValue(),testDateAndTime);
+		assertEquals(2, fetchedPatient.getTags().size());
 		unloadPatientResource();
 	}
 
 	@Test
-	public void testVread() throws ParseException {
+	public void testVread() {
+		try {
 			loadPatientResource();
-		AtomEntry<Patient> fetchedPatient = testClient.vread(Patient.class, testPatientId, "1");
-		assertEquals("2008-08-08", fetchedPatient.getResource().getBirthDate().getValue());
+			AtomEntry<Patient> fetchedPatient = testClient.vread(Patient.class, testPatientId, testPatientVersion);
+			assertEqualDate(fetchedPatient.getResource().getBirthDate().getValue(),testDateAndTime);
+			assertEquals(2, fetchedPatient.getTags().size());
 			unloadPatientResource();
+		} catch(EFhirClientException e) {
+			List<OperationOutcome> outcomes = e.getServerErrors();
+			for(OperationOutcome outcome : outcomes) {
+				for(OperationOutcomeIssueComponent issue : outcome.getIssue()) {
+					System.out.println(issue.getDetailsSimple());
+				}
+			}
+			e.printStackTrace();
+			fail();
+		}
 	}
 
 	@Test
-	public void testUpdate() throws ParseException {
+	public void testUpdate() {
+		try {
 			loadPatientResource();
-		Patient modifiedPatient = testClient.read(Patient.class, testPatientId).getResource();
+			AtomEntry<Patient> originalPatientEntry = testClient.read(Patient.class, testPatientId);
+			String originalEntryVersion = getEntryVersion(originalPatientEntry);
 			DateTime modifiedBirthday = new DateTime();
 			modifiedBirthday.setValue(new DateAndTime("2002-09-09"));
-		modifiedPatient.setBirthDate(modifiedBirthday);
-		AtomEntry<Patient> result = testClient.update(Patient.class, modifiedPatient, testPatientId);
-		if(((Resource)result.getResource()) instanceof OperationOutcome) {
-			fail();
-		} else {
-			Patient updatedResource = (Patient)result.getResource();
-			assertTrue(modifiedBirthday.getValue().equals(updatedResource.getBirthDate().getValue()));
-		}
-		modifiedBirthday = new DateTime();
-		modifiedBirthday.setValue(new DateAndTime("2008-08-08"));
-		modifiedPatient.setBirthDate(modifiedBirthday);
-		result = testClient.update(Patient.class, modifiedPatient, testPatientId);
-		if(((Resource)result.getResource()) instanceof OperationOutcome) {
-			fail();
-		} else {
-			Patient updatedResource = (Patient)result.getResource();
-			assertTrue(modifiedBirthday.getValue().equals(updatedResource.getBirthDate().getValue()));
-		}
+			originalPatientEntry.getResource().setBirthDate(modifiedBirthday);
+			AtomEntry<Patient> updatedResult = testClient.update(Patient.class, originalPatientEntry.getResource(), testPatientId);
+			if(updatedResult.getResource() == null) {
+				updatedResult = testClient.read(Patient.class, testPatientId);
+			}
+			String resourceId = getEntryId(updatedResult);
+			String resourceType = getResourceType(updatedResult);
+			String entryVersion = getEntryVersion(updatedResult);
+			assertEquals(resourceId, testPatientId);
+			assertEquals("Patient", resourceType);
+			assertEquals(Integer.parseInt(originalEntryVersion) + 1, Integer.parseInt(entryVersion));
+			AtomEntry<Patient> fetchedUpdatedPatientEntry = testClient.read(Patient.class, testPatientId);
+			assertEqualDate(new DateAndTime("2002-09-09"), fetchedUpdatedPatientEntry.getResource().getBirthDateSimple());
 			unloadPatientResource();
+		} catch (ParseException e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 	
 	@Test
-	public void testValidate() throws ParseException {
-		loadPatientResource();
-		Patient patient = testClient.read(Patient.class, testPatientId).getResource();
-		DateTime modifiedBirthday = new DateTime();
-		modifiedBirthday.setValue(new DateAndTime("2009-08-08"));
-		patient.setBirthDate(modifiedBirthday);
-		AtomEntry<OperationOutcome> validate = testClient.validate(Patient.class, patient, testPatientId);
-		String issue = validate.getResource().getIssue().get(0).getDetailsSimple();
-		assertTrue(issue.equals("Bad Syntax in /fhir/patient/validate/@" + testPatientId));//TODO not sure why bad syntax
-		unloadPatientResource();
-	}
-	
-	@Test
-	public void testCreate() throws ParseException {
+	public void testCreate() {
 		Patient patientRequest = buildPatient();
-		AtomEntry<Patient> result = testClient.create(Patient.class, patientRequest);
-		Patient patient = (Patient)result.getResource();
-		assertEquals(patientRequest.getGender().getCoding().get(0).getCodeSimple(), patient.getGender().getCoding().get(0).getCodeSimple());
-		assertEquals(patientRequest.getBirthDate().getValue(), patient.getBirthDate().getValue());
-		ResourceAddress.ResourceVersionedIdentifier identifier = ResourceAddress.parseCreateLocation(result.getLinks().get("self"));
-		boolean success = testClient.delete(Patient.class, identifier.getId());
+		AtomEntry<OperationOutcome> result = testClient.create(Patient.class, patientRequest);
+		if(result.getResource() != null) {
+			assertEquals(0, result.getResource().getIssue().size());
+		}
+		String resourceId = getEntryId(result);
+		String resourceType = getResourceType(result);
+		String entryVersion = getEntryVersion(result);
+		assertEquals("Patient", resourceType);
+		assertNotNull(resourceId);
+	}
+	
+	@Test
+	public void testDelete() {
+		Patient patientRequest = buildPatient();
+		AtomEntry<OperationOutcome> result = testClient.create(Patient.class, patientRequest);
+		boolean success = testClient.delete(Patient.class, getEntryId(result));
 		assertTrue(success);
 	}
 	
 	@Test
-	public void testCreateWithErrors() throws ParseException {
+	public void testCreateWithErrors() {
+		try {
 			AdverseReaction adverseReaction = new AdverseReaction();
 			adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
-		//adverseReaction.setDidNotOccurFlagSimple(false);
-		AtomEntry<AdverseReaction> result = null;
+			AtomEntry<OperationOutcome> result = null;
 			try {
 				result = testClient.create(AdverseReaction.class, adverseReaction);
 			} catch (EFhirClientException e) {
 				assertEquals(1, e.getServerErrors().size());
+				e.printStackTrace();
 			}
-		if(result != null) {
+			if(result.getResource() != null && result.getResource().getIssue().size() == 0) {
+				fail();
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
 			fail();
 		}
 	}
 	
 	@Test
-	public void testDelete() throws ParseException {
-		Patient patientRequest = buildPatient();
-		AtomEntry<Patient> result = testClient.create(Patient.class, patientRequest);
-		boolean success = testClient.delete(Patient.class, getPatientId(result));
-		assertTrue(success);
+	public void testValidate() {
+		try {
+			loadPatientResource();
+			Patient patient = testClient.read(Patient.class, testPatientId).getResource();
+			DateTime modifiedBirthday = new DateTime();
+			modifiedBirthday.setValue(new DateAndTime("2009-08-08"));
+			patient.setBirthDate(modifiedBirthday);
+			AtomEntry<OperationOutcome> validate = testClient.validate(Patient.class, patient, testPatientId);
+			assertTrue(validate.getResource().getIssue().size() == 0);//TODO not sure why bad syntax
+			unloadPatientResource();
+		} catch (ParseException e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 	
 
 	@Test
-	public void testGetHistoryForResourceWithId() throws ParseException {
+	public void testGetHistoryForResourceWithId() {
 		loadPatientResource();
 		Patient patient = testClient.read(Patient.class, testPatientId).getResource();
 		testClient.update(Patient.class, patient, testPatientId);
@@ -257,40 +302,48 @@ public class FHIRSimpleClientTest {
 	
 	
 	@Test
-	public void testGetHistoryForResourcesOfTypeSinceCalendarDate() throws ParseException {
+	public void testGetHistoryForResourcesOfTypeSinceCalendarDate() {
+		try {
 			Calendar testDate = GregorianCalendar.getInstance();
-		testDate.add(Calendar.HOUR_OF_DAY, -1);
-		AtomEntry<Patient> createdEntry = testClient.create(Patient.class, buildPatient());
-		testClient.update(Patient.class, (Patient)createdEntry.getResource(), getPatientId(createdEntry));
+			testDate.add(Calendar.MINUTE, -10);
+			Patient patient = buildPatient();
+			AtomEntry<OperationOutcome> createdEntry = testClient.create(Patient.class, patient);
+			testClient.update(Patient.class, patient, getEntryId(createdEntry));
 			AtomFeed feed = testClient.history(testDate, Patient.class);
 			assertNotNull(feed);
-		assertTrue(feed.getEntryList().size() >= 1);
-		testClient.delete(Patient.class, getPatientId(createdEntry));
+			assertTrue(feed.getEntryList().size() > 0);
+			testClient.delete(Patient.class, getEntryId(createdEntry));
+		} catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
 	}
 
 	@Test
 	public void testHistoryForAllResourceTypes() {
 		Calendar testDate = GregorianCalendar.getInstance();
-		testDate.add(Calendar.HOUR_OF_DAY, -1);
+		testDate.add(Calendar.MINUTE, -30);
 		AtomFeed feed = testClient.history(testDate);
 		assertNotNull(feed);
 		assertTrue(feed.getEntryList().size() > 1);
 	}
 
 	@Test
-	public void testGetHistoryForResourceWithIdSinceCalendarDate() throws ParseException {
+	public void testGetHistoryForResourceWithIdSinceCalendarDate() {
 		Calendar testDate = GregorianCalendar.getInstance();
-		testDate.add(Calendar.HOUR_OF_DAY, -1);
-		AtomEntry<Patient> entry = testClient.create(Patient.class, buildPatient());
-		testClient.update(Patient.class, (Patient)entry.getResource(), getPatientId(entry));
-		testClient.update(Patient.class, (Patient)entry.getResource(), getPatientId(entry));
-		AtomFeed feed = testClient.history(testDate, Patient.class, getPatientId(entry));
+		testDate.add(Calendar.MINUTE, -10);
+		Patient patient = buildPatient();
+		AtomEntry<OperationOutcome> entry = testClient.create(Patient.class, buildPatient());
+		testClient.update(Patient.class, patient, getEntryId(entry));
+		testClient.update(Patient.class, patient, getEntryId(entry));
+		AtomFeed feed = testClient.history(testDate, Patient.class, getEntryId(entry));
 		assertNotNull(feed);
 		assertEquals(3, feed.getEntryList().size());
+		testClient.delete(Patient.class, getEntryId(entry));
 	}
 
 	@Test
-	public void testSearch() {
+	public void testSearchForSingleResource() {
 		Map<String, String> parameters = new HashMap<String, String>();
 		parameters.put("_count", "50");
 		parameters.put("gender", "F");
@@ -302,33 +355,122 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testTransactionSuccess() throws ParseException {
+	public void testSearchPatientByGivenName() {
+		try {
+			Map<String, String> searchMap = new HashMap<String, String>();
+			String firstName = "Jsuis_" +  + System.currentTimeMillis();
+			String lastName = "Malade";
+			String fullName = firstName + " " + lastName;
+			searchMap.put("given", firstName);
+			Patient patient = buildPatient(fullName, firstName, lastName);
+			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
+			AtomFeed feed = testClient.search(Patient.class, searchMap);
+			int resultSetSize = feed.getEntryList().size();
+			System.out.println(resultSetSize);
+			assertTrue(resultSetSize == 1);
+			testClient.delete(Patient.class, getEntryId(createdPatientEntry));
+		} catch(Exception e) {
+			fail();
+		}
+	}
+
+	@Test
+	public void testTransactionSuccess() {
+		try {
 			Patient patient = buildPatient();
-		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
-		createdPatientEntry.getResource().setBirthDateSimple(new DateAndTime("1966-01-10"));
+			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
+			patient.setBirthDateSimple(new DateAndTime("1966-01-10"));
 			ResourceReference patientReference = new ResourceReference();
-		patientReference.setReferenceSimple(createdPatientEntry.getLinks().get("self"));
+			AtomEntry<Patient> patientEntry = new AtomEntry<Patient>();
+			patientEntry.setResource(patient);
+			patientEntry.setId(getEntryPath(createdPatientEntry));
+			patientEntry.getLinks().put("self", createdPatientEntry.getLinks().get("self"));
+			patientReference.setReferenceSimple(getEntryPath(createdPatientEntry));
 			AdverseReaction adverseReaction = new AdverseReaction();
 			adverseReaction.setSubject(patientReference);
 			adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
 			adverseReaction.setDidNotOccurFlagSimple(false);
-		AtomEntry<AdverseReaction> adverseReactionEntry = testClient.create(AdverseReaction.class, adverseReaction);
+			AtomEntry<OperationOutcome> createdAdverseReactionEntry = testClient.create(AdverseReaction.class, adverseReaction);
+			AtomEntry<AdverseReaction> adverseReactionEntry = new AtomEntry<AdverseReaction>();
+			adverseReactionEntry.setResource(adverseReaction);
+			adverseReactionEntry.setId(getEntryPath(createdAdverseReactionEntry));
+			adverseReactionEntry.getLinks().put("self", createdAdverseReactionEntry.getLinks().get("self"));
 			AtomFeed batchFeed = new AtomFeed();
-		batchFeed.getEntryList().add(createdPatientEntry);
-		//batchFeed.getEntryList().add(adverseReactionEntry);
+			batchFeed.getEntryList().add(patientEntry);
+			batchFeed.getEntryList().add(adverseReactionEntry);
+			System.out.println(new String(ClientUtils.getFeedAsByteArray(batchFeed, false, false)));
 			AtomFeed responseFeed = testClient.transaction(batchFeed);
 			assertNotNull(responseFeed);
 			assert(responseFeed.getEntryList().get(0).getResource() instanceof Patient);
+		}catch(Exception e) {
+			fail();
+		}
 	}
 	
 	@Test
-	public void testTransactionError() throws ParseException {
+	public void testSimpleTransaction1() {
+		try {
 			Patient patient = buildPatient();
-		AtomEntry<Patient> createdPatientEntry = testClient.create(Patient.class, patient);
-		createdPatientEntry.getResource().setBirthDateSimple(new DateAndTime("1966-01-10"));
 			AtomFeed batchFeed = new AtomFeed();
-		batchFeed.getEntryList().add(createdPatientEntry);
-		batchFeed.getEntryList().add(createdPatientEntry);
+			AtomEntry<Patient> patientEntry = new AtomEntry<Patient>();
+			patientEntry.setId("cid:Patient/temp1");
+			patientEntry.setResource(patient);
+			batchFeed.getEntryList().add(patientEntry);
+			AtomFeed responseFeed = null;
+			try {
+				responseFeed = testClient.transaction(batchFeed);
+			} catch(EFhirClientException e) {
+				e.printStackTrace();
+				fail();
+			}
+			assertNotNull(responseFeed);
+			assertEquals(1, responseFeed.getEntryList().size());
+		} catch(Exception e) {
+			fail();
+		}
+	}
+	
+	@Test
+	public void testSimpleTransaction2() {
+		try {
+			Patient patient = buildPatient();
+			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
+			patient.setBirthDateSimple(new DateAndTime("1966-01-10"));
+			AtomFeed batchFeed = new AtomFeed();
+			AtomEntry<Patient> patientEntry = new AtomEntry<Patient>();
+			patientEntry.getLinks().put("self", createdPatientEntry.getLinks().get("self"));
+			patientEntry.setId(getEntryPath(createdPatientEntry));
+			patientEntry.setResource(patient);
+			batchFeed.getEntryList().add(patientEntry);
+			AtomFeed responseFeed = null;
+			try {
+				responseFeed = testClient.transaction(batchFeed);
+			} catch(EFhirClientException e) {
+				e.printStackTrace();
+				fail();
+			}
+			assertNotNull(responseFeed);
+			assertEquals(1, responseFeed.getEntryList().size());
+			testClient.delete(Patient.class, getEntryId(createdPatientEntry));
+		} catch(Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	@Test
+	public void testTransactionError() {
+		try {
+			Patient patient = buildPatient();
+			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
+			patient.setBirthDateSimple(new DateAndTime("1966-01-10"));
+			AtomFeed batchFeed = new AtomFeed();
+			AtomEntry<Patient> patientEntry = new AtomEntry<Patient>();
+			patientEntry.getLinks().put("self", createdPatientEntry.getLinks().get("self"));
+			patientEntry.setId(getEntryId(createdPatientEntry));
+			patientEntry.setResource(patient);
+			batchFeed.getEntryList().add(patientEntry);
+			batchFeed.getEntryList().add(patientEntry);
 			AtomFeed responseFeed = null;
 			try {
 				responseFeed = testClient.transaction(batchFeed);
@@ -338,10 +480,224 @@ public class FHIRSimpleClientTest {
 			if(responseFeed != null) {
 				fail();
 			}
+			testClient.delete(Patient.class, getEntryId(createdPatientEntry));
+		} catch(Exception e) {
+			fail();
+		}
 	}
 	
-	private Patient buildPatient() throws ParseException {
+	@Test
+	public void testGetAllTags() {
+		List<AtomCategory> tags = testClient.getAllTags();
+		assertTrue(tags != null && tags.size() > 0);
+	}
+	
+	@Test
+	public void testGetAllTagsForResourceType() {
+		List<AtomCategory> tags = testClient.getAllTagsForResourceType(Patient.class);
+		assertTrue(tags != null && tags.size() > 0);
+	}
+	
+	@Test
+	public void testGetTagsForResource() {
+		loadPatientResource();
+		List<AtomCategory> tags = testClient.getTagsForResource(Patient.class, testPatientId);
+		assertTrue(tags != null && tags.size() > 0);
+		unloadPatientResource();
+	}
+	
+	@Test
+	public void testGetTagsForResourceVersion() {
+		loadPatientResource();
+		List<AtomCategory> tags = testClient.getTagsForResourceVersion(Patient.class, testPatientId, testPatientVersion);
+		assertTrue(tags != null && tags.size() > 0);
+		unloadPatientResource();
+	}
+	
+//	@Test
+//	public void testDeleteTagsForResource() {
+//		loadPatientResource();
+//		boolean success = testClient.deleteTagsForResource(Patient.class, testPatientId);
+//		assertTrue(success);
+//		unloadPatientResource();
+//	}
+//	
+//	@Test
+//	public void testDeleteTagsForResourceVersion() {
+//		loadPatientResource();
+//		List<AtomCategory> tags = generateCategoryHeader();
+//		boolean success = testClient.deleteTagsForResourceVersion(Patient.class, testPatientId, tags, testPatientVersion);
+//		assertTrue(success);
+//		unloadPatientResource();
+//	}
+	
+	@Test
+	public void testCreateTagsForResource() {
+		loadPatientResource();
+		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+		tags.add(new AtomCategory("http://scheme.com", "http://term.com", "Some good ole term"));
+		testClient.createTags(tags, Patient.class, testPatientId);
+		unloadPatientResource();
+	}
+	
+	@Test
+	public void testCreateTagsForResourceVersion() {
+		loadPatientResource();
+		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+		tags.add(new AtomCategory("http://scheme.com", "http://term.com", "Some good ole term"));
+		testClient.createTags(tags, Patient.class, testPatientId, testPatientVersion);
+		unloadPatientResource();
+	}
+
+/*
+	@Test
+	public void testRetrievePatientConditionList() {
+		try {
+			Patient patient =  buildPatient();
+			AtomEntry<OperationOutcome> patientResult = testClient.create(Patient.class, buildPatient());
+			AtomEntry<OperationOutcome> condition = testClient.create(Condition.class, buildCondition(patient));
+			Map<String, String> searchParameters = new HashMap<String,String>();
+			System.out.println(getEntryPath(patient));
+			searchParameters.put("subject", "patient/"+getEntryId(patient));
+			System.out.println(patient.getLinks().get("self"));
+			AtomFeed conditions = testClient.search(Condition.class, searchParameters);
+			System.out.println(getEntryId(patient));
+			System.out.println(conditions.getEntryList().size());
+			assertTrue(conditions.getEntryList().size() > 0);
+			testClient.delete(Condition.class, getEntryId(condition));
+			testClient.delete(Patient.class, getEntryId(patient));
+		} catch(EFhirClientException e) {
+			List<OperationOutcome> outcomes = e.getServerErrors();
+			for(OperationOutcome outcome : outcomes) {
+				for(OperationOutcomeIssueComponent issue : outcome.getIssue()) {
+					System.out.println(issue.getDetailsSimple());
+				}
+			}
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	@Test
+	public void createNonDuplicatePatientConditionNoPreexisting() {
+		try {
+				//Create a patient resource
+			Patient patient = buildPatient();
+			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
+			//Search for Patient's conditions - none returned
+			Map<String,String> searchParameters = new HashMap<String,String>();
+			searchParameters.put("subject", "patient/@" + getEntryId(createdPatientEntry));
+			AtomFeed conditions = testClient.search(Condition.class, searchParameters);
+			//No pre-existing conditions
+			assertTrue(conditions.getEntryList().size() == 0);
+			//build new condition
+			Condition condition = buildCondition(createdPatientEntry);
+			//create condition
+			AtomEntry<Condition> createdConditionEntry = testClient.create(Condition.class, condition);
+			//fetch condition and ensure it has an ID
+			AtomEntry<Condition> retrievedConditionEntry = testClient.read(Condition.class, getEntryId(createdConditionEntry));
+			//Check that subject is patient
+			condition = retrievedConditionEntry.getResource();
+			String patientReference = condition.getSubject().getReferenceSimple();
+			System.out.println(patientReference);
+			assertTrue(patientReference.equalsIgnoreCase("patient/@"+getEntryId(createdPatientEntry)));
+			//Delete patient resource
+		} catch(EFhirClientException e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	@Test
+	public void createNonDuplicatePatientConditionPreexisting() {
+		try {
+			//Create a patient resource
+			Patient patient = buildPatient();
+			AtomEntry<OperationOutcome> createdPatientEntry = testClient.create(Patient.class, patient);
+			//Search for Patient's conditions - none returned
+			Map<String,String> searchParameters = new HashMap<String,String>();
+			searchParameters.put("subject", "patient/@" + getEntryId(createdPatientEntry));
+			AtomFeed conditions = testClient.search(Condition.class, searchParameters);
+			//No pre-existing conditions
+			assertTrue(conditions.getEntryList().size() == 0);
+			//build new condition
+			Condition condition1 = buildCondition(createdPatientEntry);
+			//build a condition that is not preexisting
+			CodeableConcept diabetesMellitus = createCodeableConcept("73211009", "http://snomed.info/id", "Diabetes mellitus (disorder)");
+			Condition condition2 = buildCondition(createdPatientEntry, diabetesMellitus);
+			//create condition
+			AtomEntry<OperationOutcome> createdConditionEntry1 = testClient.create(Condition.class, condition1);
+			//fetch condition and ensure it has an ID
+			AtomEntry<Condition> retrievedConditionEntry1 = testClient.read(Condition.class, getEntryId(createdConditionEntry1));
+			//Check that subject is patient
+			condition1 = retrievedConditionEntry1.getResource();
+			String patientReference = condition1.getSubject().getReferenceSimple();
+			assertTrue(patientReference.equalsIgnoreCase("patient/@"+getEntryId(createdPatientEntry)));
+			//Get all conditions for this patient
+			AtomFeed preexistingConditions = testClient.search(Condition.class, searchParameters);
+			assertTrue(preexistingConditions.getEntryList().size() == 1);
+			AtomEntry<Condition> preexistingConditionEntry = (AtomEntry<Condition>)preexistingConditions.getEntryList().get(0);
+			assertTrue(preexistingConditionEntry.getResource().getCode().getCoding().get(0).getCodeSimple().equalsIgnoreCase("29530003"));
+			assertNotNull(preexistingConditionEntry.getResource().getCode().getCoding().get(0).getSystemSimple().equalsIgnoreCase("http://snomed.info/id"));
+			assertTrue(preexistingConditionEntry.getResource().getCode().getCoding().get(0).getDisplaySimple().equalsIgnoreCase("Fungal granuloma (disorder)"));
+			//Add new condition
+			AtomEntry<Condition> createdConditionEntry2 = testClient.create(Condition.class, condition2);
+			preexistingConditions = testClient.search(Condition.class, searchParameters);
+			assertTrue(preexistingConditions.getEntryList().size() == 2);
+			//Delete patient resource
+		} catch(EFhirClientException e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+*/
+	/**************************************************************
+	 * END OF TEST SECTION
+	 **************************************************************/
+	
+	/**************************************************************
+	 * Helper Methods
+	 **************************************************************/
+	private CodeableConcept createCodeableConcept(String code, String system, String displayNameSimple) {
+		CodeableConcept conditionCode = new CodeableConcept();
+		Coding coding = conditionCode.addCoding();
+		coding.setCodeSimple(code);
+		coding.setSystemSimple(system);
+		coding.setDisplaySimple(displayNameSimple);
+		return conditionCode;
+	}
+	
+	private Condition buildCondition(AtomEntry<Patient> patientEntry) {
+		CodeableConcept conditionCode = createCodeableConcept("29530003", "http://snomed.info/id", "Fungal granuloma (disorder)");
+		return buildCondition(patientEntry, conditionCode);
+	}
+	
+	private Condition buildCondition(AtomEntry<Patient> patientEntry, CodeableConcept conditionCode) {
+		Condition condition = null;
+		try {
+			condition = new Condition();
+			ResourceReference patientReference = new ResourceReference();
+			patientReference.setReferenceSimple("patient/@"+getEntryId(patientEntry));
+			condition.setSubject(patientReference);
+			condition.setCode(conditionCode);
+			condition.setStatusSimple(ConditionStatus.confirmed);
+		} catch (Exception e) {
+			fail();
+		}
+		return condition;
+	}
+
+	private Patient buildPatient() {
+		return buildPatient("Jsuis Malade", "Jsuis", "Malade");
+	}
+	
+	private Patient buildPatient(String fullName, String givenName, String familyName) {
 		Patient patient = new Patient();
+		try {
+			HumanName name = patient.addName();
+			name.setTextSimple(fullName);
+			name.addGivenSimple(givenName);
+			name.addFamilySimple(familyName);
 			DateTime birthday = new DateTime();
 			birthday.setValue(new DateAndTime("2008-08-08"));
 			patient.setBirthDate(birthday);
@@ -353,17 +709,69 @@ public class FHIRSimpleClientTest {
 			CodeableConcept female = new CodeableConcept();
 			female.getCoding().add(genderCoding);
 			patient.setGender(female);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			fail();
+		}
 		return patient;
 	}
 	
-	private String getPatientId(AtomEntry<Patient> patient) {
-		ResourceAddress.ResourceVersionedIdentifier identifier = ResourceAddress.parseCreateLocation(patient.getLinks().get("self"));
-		return identifier.getId();
+	private void loadPatientResource() {
+		Patient testPatient = buildPatient();
+		List<AtomCategory> tags = generateCategoryHeader();
+		AtomEntry<OperationOutcome> result = testClient.create(Patient.class, testPatient, tags);
+		testPatientId = getEntryId(result);
+		testPatientVersion = getEntryVersion(result);
+	}
+	
+	private List<AtomCategory> generateCategoryHeader() {
+		List<AtomCategory> tags = new ArrayList<AtomCategory>();
+		tags.add(new AtomCategory("http://client/scheme", "http://client/scheme/tag/123","tag 123"));
+		tags.add(new AtomCategory("http://client/scheme", "http://client/scheme/tag/456","tag 456"));
+		return tags;
+	}
+	
+	private void unloadPatientResource() {
+		testClient.delete(Patient.class, testPatientId);
+	}
+	
+	private <T extends Resource> ResourceAddress.ResourceVersionedIdentifier getAtomEntryLink(AtomEntry<T> entry, String linkName) {
+		return ResourceAddress.parseCreateLocation(entry.getLinks().get(linkName));
+	}
+	
+	private <T extends Resource> ResourceAddress.ResourceVersionedIdentifier getAtomEntrySelfLink(AtomEntry<T> entry) {
+		return getAtomEntryLink(entry, "self");
+	}
+	
+	private <T extends Resource> String getEntryId(AtomEntry<T> entry) {
+		return getAtomEntrySelfLink(entry).getId();
+	}
+	
+	private <T extends Resource> String getEntryVersion(AtomEntry<T> entry) {
+		return getAtomEntrySelfLink(entry).getVersion();
+	}
+	
+	private <T extends Resource> String getResourceType(AtomEntry<T> entry) {
+		return getAtomEntrySelfLink(entry).getResourceType();
+	}
+	
+	private <T extends Resource> String getEntryPath(AtomEntry<T> entry) {
+		return getAtomEntrySelfLink(entry).getResourcePath();
+	}
+	
+	private <T extends Resource> String getResourceId(AtomEntry<T> entry) {
+		return getAtomEntrySelfLink(entry).getId();
 	}
 	
 	private <T extends Resource> void printResourceToSystemOut(T resource, boolean isJson) {
 		if(logResource) {
 			System.out.println(new String(ClientUtils.getResourceAsByteArray(resource, true, isJson)));
 		}
+	}
+	
+	private void assertEqualDate(DateAndTime OriginalDate, DateAndTime modifiedDate) {
+		assertEquals(modifiedDate.getYear(),OriginalDate.getYear());
+		assertEquals(modifiedDate.getMonth(),OriginalDate.getMonth());
+		assertEquals(modifiedDate.getDay(),OriginalDate.getDay());
 	}
 }

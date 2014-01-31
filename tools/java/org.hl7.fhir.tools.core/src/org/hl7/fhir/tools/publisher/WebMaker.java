@@ -71,6 +71,7 @@ public class WebMaker {
 
   private static final String SEARCH_FORM_HOLDER = "<p id=\"srch\">&nbsp;</p>";
   private static final String SEARCH_LINK = "<div id=\"hl7-search\"/>";
+  private static final String DISQUS_COMMMENT = "<!-- disqus -->";
 
   public void produceHL7Copy() throws Exception {
     List<String> folderList = new ArrayList<String>();
@@ -92,6 +93,8 @@ public class WebMaker {
           src = src.replace(SEARCH_FORM_HOLDER, googleSearch());
         if (src.contains(SEARCH_LINK)) 
           src = src.replace(SEARCH_LINK, googleSearchLink());
+        if (src.contains(DISQUS_COMMMENT)) 
+          src = src.replace(DISQUS_COMMMENT, disqusScript());
         int i = src.indexOf("</body>");
         if (i > 0)
           src = src.substring(0, i) + google()+src.substring(i);
@@ -146,6 +149,11 @@ public class WebMaker {
       }
     }
 
+    for (String n : definitions.sortedResourceNames()) {
+      buildRedirect(n, n.toLowerCase()+".profile.xml.html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"profiles"+File.separator+n);
+      buildRedirect(n, n.toLowerCase()+".html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n);
+    }
+    
     for (String n : ini.getPropertyNames("redirects")) {
       String dn = folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n;
       buildRedirect(n, ini.getStringProperty("redirects", n), dn);
@@ -281,6 +289,26 @@ public class WebMaker {
     zip.addFileName(filename, folders.dstDir+filename, false);
     zip.close();  
     
+  }
+
+  private String disqusScript() {
+    String fhirDisqusShortname = ini.getStringProperty("FHIR", "disqus");
+    
+    StringBuilder b = new StringBuilder();
+    b.append("<div class=\"container\">");
+    b.append("<hr />");
+    b.append("<div id=\"disqus_thread\"></div>");
+    b.append("<script type=\"text/javascript\">");
+    b.append("var disqus_shortname = '" + fhirDisqusShortname + "';");
+    b.append("(function() {");
+    b.append("var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;");
+    b.append("dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';");
+    b.append("(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();");
+    b.append("</script>");
+    b.append("<noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>");
+    b.append("<a href=\"http://disqus.com\" class=\"dsq-brlink\">comments powered by <span class=\"logo-disqus\">Disqus</span></a>");
+    b.append("</div>");
+    return b.toString();
   }
 
 

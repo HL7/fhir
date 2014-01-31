@@ -15,6 +15,8 @@ import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Enumeration;
+import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
@@ -80,7 +82,7 @@ public class NarrativeGenerator {
     } else if (r instanceof Conformance) {
       generate((Conformance) r);  
     } else {
-//      generateByProfile(r, profile);
+      generateByProfile(r, profile);
     }
   }
   
@@ -92,16 +94,16 @@ public class NarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative");
     try {
-      generateByProfile(r, ps.getElement(), ps.getElement().get(0), getChildrenForPath(ps.getElement(), r.getResourceType().toString()), x, r.getResourceType().toString());
+      generateByProfile(r, r, ps.getElement(), ps.getElement().get(0), getChildrenForPath(ps.getElement(), r.getResourceType().toString()), x, r.getResourceType().toString());
     } catch (Exception e) {
       x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
     }
     inject(r, x,  NarrativeStatus.generated);
   }
 
-  private void generateByProfile(Element e, List<ElementComponent> allElements, ElementComponent defn, List<ElementComponent> children,  XhtmlNode x, String path) throws Exception {
+  private void generateByProfile(Resource res, Element e, List<ElementComponent> allElements, ElementComponent defn, List<ElementComponent> children,  XhtmlNode x, String path) throws Exception {
     if (children.isEmpty()) {
-      renderLeaf(e, defn, x, false);
+      renderLeaf(res, e, defn, x, false);
     } else {
       for (Property p : e.children()) {
         ElementComponent child = getElementDefinition(children, path+"."+p.getName());
@@ -112,7 +114,7 @@ public class NarrativeGenerator {
             para.addTag("b").addText(p.getName());
             para.addText(": ");
             // generateByProfile(v, elements, child, para, path+"."+p.getName());
-            renderLeaf(v, child, para, false);
+            renderLeaf(res, v, child, para, false);
           } else if (canDoTable(grandChildren)) {
             x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
             XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
@@ -120,7 +122,7 @@ public class NarrativeGenerator {
           } else {
             XhtmlNode bq = x.addTag("blockquote");
           bq.addTag("p").addTag("b").addText(p.getName());
-            generateByProfile(v, allElements, child, grandChildren, bq, path+"."+p.getName());
+            generateByProfile(res, v, allElements, child, grandChildren, bq, path+"."+p.getName());
         }
       }
     }
@@ -158,7 +160,7 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private void renderLeaf(Element e, ElementComponent defn, XhtmlNode x, boolean title) throws Exception {
+  private void renderLeaf(Resource res, Element e, ElementComponent defn, XhtmlNode x, boolean title) throws Exception {
     if (e instanceof String_)
       x.addText(((String_) e).getValue());
     else if (e instanceof DateTime)
@@ -169,10 +171,34 @@ public class NarrativeGenerator {
       x.addText(((Boolean) e).getValue().toString());
     else if (e instanceof CodeableConcept) {
       renderCodeableConcept((CodeableConcept) e, x);
-    } else if (e instanceof ResourceReference)
-      x.addText(((ResourceReference) e).getReferenceSimple());
-    else 
+    } else if (e instanceof ResourceReference) {
+      ResourceReference r = (ResourceReference) e;
+      if (r.getDisplay() != null)
+        x.addText(r.getDisplaySimple());
+      else if (r.getReference() != null) {
+        Resource resT = getResourceByReference(res, r.getReferenceSimple()); 
+        if (resT != null) {
+          x.addText(displayResource(resT));          
+        } else {
+          x.addText(((ResourceReference) e).getReferenceSimple());
+        }
+      } else 
+        x.addText("null");
+    } else if (e instanceof Identifier) {
+      x.addText(((Identifier) e).getValueSimple());
+    } else if (e instanceof Period) {
+      Period p = (Period) e;
+      x.addText((p.getStartSimple() == null ? "??" : p.getStartSimple().toString()) + (p.getEndSimple() == null ? "(ongoing)" : p.getEndSimple().toString()));
+    } else 
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
+  }
+
+  private String displayResource(Resource resT) {
+    return "todo";
+  }
+
+  private Resource getResourceByReference(Resource res, String referenceSimple) {
+    return null;
   }
 
   private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x) {

@@ -11,8 +11,11 @@ import java.util.Map;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.Code;
+import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.Enumeration;
+import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
 import org.hl7.fhir.instance.model.ConceptMap.OtherConceptComponent;
@@ -25,6 +28,7 @@ import org.hl7.fhir.instance.model.Conformance.SystemRestfulOperation;
 import org.hl7.fhir.instance.model.Conformance.TypeRestfulOperation;
 import org.hl7.fhir.instance.model.Contact;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.DateTime;
 import org.hl7.fhir.instance.model.Element;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Narrative;
@@ -75,8 +79,9 @@ public class NarrativeGenerator {
       generate((OperationOutcome) r);
     } else if (r instanceof Conformance) {
       generate((Conformance) r);  
-    } else
-      generateByProfile(r, profile);
+    } else {
+//      generateByProfile(r, profile);
+    }
   }
   
   private void generateByProfile(Resource r, Profile profile) throws Exception {
@@ -87,35 +92,64 @@ public class NarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative");
     try {
-      generateByProfile(r, ps.getElement(), ps.getElement().get(0), x, r.getResourceType().toString());
+      generateByProfile(r, ps.getElement(), ps.getElement().get(0), getChildrenForPath(ps.getElement(), r.getResourceType().toString()), x, r.getResourceType().toString());
     } catch (Exception e) {
       x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
     }
     inject(r, x,  NarrativeStatus.generated);
   }
 
-  private void generateByProfile(Element e, List<ElementComponent> elements, ElementComponent defn, XhtmlNode x, String path) throws Exception {
-    // ok, we get the children
-    List<ElementComponent> children = getChildrenForPath(elements, path);   
+  private void generateByProfile(Element e, List<ElementComponent> allElements, ElementComponent defn, List<ElementComponent> children,  XhtmlNode x, String path) throws Exception {
     if (children.isEmpty()) {
-      XhtmlNode p = x.addTag("p");
-      p.addTag("b").addText(defn.getNameSimple());
-      renderLeaf(e, defn, p, false);
-//    } else if (children.size() == 1) {
-//      x.addTag("b").addText(defn.getNameSimple());
-//      renderLeaf(e, defn, x, true);
+      renderLeaf(e, defn, x, false);
     } else {
       for (Property p : e.children()) {
-        ElementComponent child = getElementDefinition(elements, path+"."+p.getName());
+        ElementComponent child = getElementDefinition(children, path+"."+p.getName());
+        List<ElementComponent> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
         for (Element v : p.getValues()) {
-          XhtmlNode bq = x.addTag("blokquote");
+          if (v instanceof org.hl7.fhir.instance.model.Type) {
+            XhtmlNode para = x.addTag("p");
+            para.addTag("b").addText(p.getName());
+            para.addText(": ");
+            // generateByProfile(v, elements, child, para, path+"."+p.getName());
+            renderLeaf(v, child, para, false);
+          } else if (canDoTable(grandChildren)) {
+            x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
+            XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
+            addColumnHeadings(tbl.addTag("tr"), grandChildren);
+          } else {
+            XhtmlNode bq = x.addTag("blockquote");
           bq.addTag("p").addTag("b").addText(p.getName());
-          generateByProfile(v, elements, child, bq, path+"."+p.getName()); 
+            generateByProfile(v, allElements, child, grandChildren, bq, path+"."+p.getName());
         }
       }
     }
   }
+  }
 
+  
+  private void addColumnHeadings(XhtmlNode tr, List<ElementComponent> grandChildren) {
+    for (ElementComponent e : grandChildren) 
+      tr.addTag("td").addTag("b").addText(Utilities.capitalize(tail(e.getPathSimple())));
+  }
+
+  private String tail(String path) {
+    return path.substring(path.lastIndexOf(".")+1);
+  }
+
+  private boolean canDoTable(List<ElementComponent> grandChildren) {
+    boolean result = true;
+    for (ElementComponent e : grandChildren) {
+      if (!isPrimitive(e))
+        return false;
+    }
+    return result;
+  }
+
+  private boolean isPrimitive(ElementComponent e) {
+    //we can tell if e is a primitive because it has types
+    return !e.getDefinition().getType().isEmpty();
+  }
   
   private ElementComponent getElementDefinition(List<ElementComponent> elements, String path) {
     for (ElementComponent element : elements)
@@ -127,14 +161,31 @@ public class NarrativeGenerator {
   private void renderLeaf(Element e, ElementComponent defn, XhtmlNode x, boolean title) throws Exception {
     if (e instanceof String_)
       x.addText(((String_) e).getValue());
+    else if (e instanceof DateTime)
+      x.addText(((DateTime) e).getValue().toHumanDisplay());
+    else if (e instanceof Enumeration)
+      x.addText(((Enumeration) e).getValue().toString()); // todo: look up a display name if there is one
+    else if (e instanceof Boolean)
+      x.addText(((Boolean) e).getValue().toString());
+    else if (e instanceof CodeableConcept) {
+      renderCodeableConcept((CodeableConcept) e, x);
+    } else if (e instanceof ResourceReference)
+      x.addText(((ResourceReference) e).getReferenceSimple());
     else 
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
+  }
+
+  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x) {
+    if (!Utilities.noString(cc.getTextSimple()))
+      x.addText(cc.getTextSimple());
+    else
+      x.addText("todo");
   }
 
   private List<ElementComponent> getChildrenForPath(List<ElementComponent> elements, String path) {
     List<ElementComponent> results = new ArrayList<Profile.ElementComponent>();
     for (ElementComponent e : elements) {
-      if (e.getPathSimple().startsWith(path+".") && !e.getPathSimple().substring(path.length()+1).contains("."))
+      if (e.getPathSimple().startsWith(path+".") && !e.getPathSimple().substring(path.length()+1).contains(".") && !(e.getPathSimple().endsWith(".extension") || e.getPathSimple().endsWith(".modifierExtension")))
         results.add(e);
     }
     return results;
@@ -342,7 +393,7 @@ public class NarrativeGenerator {
       r.getText().setStatusSimple(status);
     } else {
       XhtmlNode n = r.getText().getDiv();
-      n.addTag("br");
+      n.addTag("hr");
       n.getChildNodes().addAll(x.getChildNodes());
     }
   }
@@ -615,9 +666,10 @@ public class NarrativeGenerator {
     XhtmlNode td = tr.addTag("td");
     String s = Utilities.padLeft("", '.', i*2);
     td.addText(s);
+    td.addText(c.getCodeSimple());
     XhtmlNode a = td.addTag("a");
     a.setAttribute("name", Utilities.nmtokenize(c.getCodeSimple()));
-    a.addText(c.getCodeSimple());
+    a.addText(" ");
     
     td = tr.addTag("td");
     if (c.getDisplaySimple() != null)

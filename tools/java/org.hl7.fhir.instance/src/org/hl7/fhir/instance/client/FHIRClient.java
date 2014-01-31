@@ -31,8 +31,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.net.URISyntaxException;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
@@ -163,6 +165,16 @@ public interface FHIRClient {
 	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id);
 	
 	/**
+	 * Update an existing resource by its id or create it if it is a new resource, not present on the server
+	 * 
+	 * @param resourceClass
+	 * @param resource
+	 * @param id
+	 * @return
+	 */
+	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id, List<AtomCategory> tags);
+	
+	/**
 	 * Delete the resource with the given ID.
 	 * 
 	 * @param resourceClass
@@ -179,7 +191,17 @@ public interface FHIRClient {
 	 * @param resource
 	 * @return
 	 */
-	public <T extends Resource> AtomEntry<T> create(Class<T> resourceClass, T resource);
+	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource);
+	
+	/**
+	 * Create a new resource with a server assigned id. Return the newly created
+	 * resource with the id the server assigned. Associates tags with newly created resource.
+	 * 
+	 * @param resourceClass
+	 * @param resource
+	 * @return
+	 */
+	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource, List<AtomCategory> tags);
 	
 	/**
 	 * Retrieve the update history for a resource with given id since last update time. 
@@ -244,14 +266,14 @@ public interface FHIRClient {
 	 */
 	public <T extends Resource> AtomFeed search(Class<T> resourceClass, Map<String, String> params);
 	
-	/**
+  /**
    * Return all results matching search query parameters for the given resource class.
    * This includes a resource as one of the parameters, and performs a post
-	 * 
+   * 
    * @param resourceClass
    * @param params
-	 * @return
-	 */
+   * @return
+   */
   public <T extends Resource> AtomFeed searchPost(Class<T> resourceClass, T resource, Map<String, String> params);
 	
 	/**
@@ -262,4 +284,62 @@ public interface FHIRClient {
 	 */
 	public AtomFeed transaction(AtomFeed batch);
 	
+	/**
+	 * Get a list of all tags on server 
+	 * 
+	 * GET [base]/_tags
+	 */
+	public List<AtomCategory> getAllTags();
+	
+	/**
+	 * Get a list of all tags used for the nominated resource type 
+	 * 
+	 * GET [base]/[type]/_tags
+	 */
+	public <T extends Resource> List<AtomCategory> getAllTagsForResourceType(Class<T> resourceClass);
+	
+	/**
+	 * Get a list of all tags affixed to the nominated resource. This duplicates the HTTP header entries 
+	 * 
+	 * GET [base]/[type]/[id]/_tags
+	 */
+	public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id);
+	
+	/**
+	 * Get a list of all tags affixed to the nominated version of the resource. This duplicates the HTTP header entries
+	 * 
+	 * GET [base]/[type]/[id]/_history/[vid]/_tags
+	 */
+	public <T extends Resource> List<AtomCategory> getTagsForResourceVersion(Class<T> resource, String id, String versionId);
+	
+	/**
+	 * Remove all tags in the provided list from the list of tags for the nominated resource
+	 * 
+	 * DELETE [base]/[type]/[id]/_tags
+	 */
+	//public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id);
+	
+	/**
+	 * Remove tags in the provided list from the list of tags for the nominated version of the resource
+	 * 
+	 * DELETE [base]/[type]/[id]/_history/[vid]/_tags
+	 */
+	//public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, List<AtomCategory> tags, String version);
+	
+	/**
+	 * Affix tags in the list to the nominated resource
+	 * 
+	 * POST [base]/[type]/[id]/_tags
+	 * @return
+	 */
+	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id);
+	
+	/**
+	 * Affix tags in the list to the nominated version of the resource
+	 * 
+	 * POST [base]/[type]/[id]/_history/[vid]/_tags
+	 * 
+	 * @return
+	 */
+	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version);
 }

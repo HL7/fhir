@@ -29,10 +29,16 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.client;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.http.Header;
+import org.apache.http.HttpHost;
+import org.apache.http.message.BasicHeader;
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
@@ -72,10 +78,15 @@ public class FHIRSimpleClient implements FHIRClient {
 	private ResourceAddress resourceAddress;
 	private ResourceFormat preferredResourceFormat;
 	private FeedFormat preferredFeedFormat;
+	private HttpHost proxy;
 	
 	public FHIRSimpleClient() {
 		preferredResourceFormat = ResourceFormat.RESOURCE_XML;
 		preferredFeedFormat = FeedFormat.FEED_XML;
+	}
+	
+	public void configureProxy(String proxyHost, int proxyPort) {
+		proxy = new HttpHost(proxyHost, proxyPort);
 	}
 	
 	@Override
@@ -112,50 +123,81 @@ public class FHIRSimpleClient implements FHIRClient {
 	public Conformance getConformanceStatement(boolean useOptionsVerb) {
 		Conformance conformance = null;
 		if(useOptionsVerb) {
-			conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat()).getResource();//TODO fix this
+			conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getResource();//TODO fix this
 		} else {
-			conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat()).getResource();//TODO fix this.
+			conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat(), proxy).getResource();
 		}
 		return conformance;
 	}
 
 	@Override
 	public <T extends Resource> AtomEntry<T> read(Class<T> resourceClass, String id) {//TODO Change this to AddressableResource
-		AtomEntry<T> result = null;
+		ResourceRequest<T> result = null;
 		try {
-			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id), getPreferredResourceFormat());
+			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id), getPreferredResourceFormat(), proxy);
+			result.addErrorStatus(410);//gone
+			result.addErrorStatus(404);//unknown
+			result.addSuccessStatus(200);//Only one for now
+			if(result.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
+			}
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this resource", e);
 		}
-		return result;
+		return result.getPayload();
 	}
 
 	@Override
 	public <T extends Resource> AtomEntry<T> vread(Class<T> resourceClass, String id, String version) {
-		AtomEntry<T> result = null;
+		ResourceRequest<T> result = null;
 		try {
-			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndIdAndVersion(resourceClass, id, version), getPreferredResourceFormat());
+			result = ClientUtils.issueGetResourceRequest(resourceAddress.resolveGetUriFromResourceClassAndIdAndVersion(resourceClass, id, version), getPreferredResourceFormat(), proxy);
+			result.addErrorStatus(410);//gone
+			result.addErrorStatus(404);//unknown
+			result.addErrorStatus(405);//unknown
+			result.addSuccessStatus(200);//Only one for now
+			if(result.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
+			}
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this version of the resource", e);
 		}
-		return result;
+		return result.getPayload();
 	}
 	
 	@Override
 	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id) {
-		AtomEntry<T> result = null;
+		return update(resourceClass, resource, id, null);
+	}
+
+	@Override
+	public <T extends Resource> AtomEntry<T> update(Class<T> resourceClass, T resource, String id, List<AtomCategory> tags) {
+		ResourceRequest<T> result = null;
 		try {
-			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			List<Header> headers = null;
+			if(tags != null && tags.size() > 0) {
+				headers = buildCategoryHeaders(tags);
+			}
+			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
+			result.addErrorStatus(410);//gone
+			result.addErrorStatus(404);//unknown
+			result.addErrorStatus(405);
+			result.addErrorStatus(422);//Unprocessable Entity
+			result.addSuccessStatus(200);
+			result.addSuccessStatus(201);
+			if(result.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
+			}
 		} catch(Exception e) {
 			throw new EFhirClientException("An error has occurred while trying to update this resource", e);
 		}
-		return result;
+		return result.getPayload();
 	}
 
 	@Override
 	public <T extends Resource> boolean delete(Class<T> resourceClass, String id) {
 		try {
-			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id));
+			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id), proxy);
 		} catch(Exception e) {
 			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
 		}
@@ -163,21 +205,35 @@ public class FHIRSimpleClient implements FHIRClient {
 	}
 
 	@Override
-	public <T extends Resource> AtomEntry<T> create(Class<T> resourceClass, T resource) {
-		AtomEntry<T> createdEntry = null;
+	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource) {
+		return create(resourceClass, resource, null);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T extends Resource> AtomEntry<OperationOutcome> create(Class<T> resourceClass, T resource, List<AtomCategory> tags) {
+		ResourceRequest<T> resourceRequest = null;
 		try {
-			createdEntry = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
+			List<Header> headers = null;
+			if(tags != null && tags.size() > 0) {
+				headers = buildCategoryHeaders(tags);
+			}
+			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
+			resourceRequest.addSuccessStatus(201);
+			if(resourceRequest.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server responded with HTTP error code " + resourceRequest.getHttpStatus(), (OperationOutcome)resourceRequest.getPayload().getResource());
+			}
 		} catch(Exception e) {
 			handleException("An error has occurred while trying to create this resource", e);
 		}
-		return createdEntry;
+		return (AtomEntry<OperationOutcome>)resourceRequest.getPayload();
 	}
 
 	@Override
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass, String id) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate), getPreferredFeedFormat());
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource", e);
 		}
@@ -188,7 +244,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate), getPreferredFeedFormat());
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource type", e);
 		}
@@ -199,7 +255,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Class<T> resourceClass, String id) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id), getPreferredFeedFormat());
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource", e);
 		}
@@ -210,7 +266,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate), getPreferredFeedFormat());
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history since last update",e);
 		}
@@ -221,42 +277,146 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed search(Class<T> resourceClass, Map<String, String> parameters) {
 		AtomFeed searchResults = null;
 		try {
-			searchResults = ClientUtils.issueGetFeedRequest(resourceAddress.resolveSearchUri(resourceClass, parameters), getPreferredFeedFormat());
+			searchResults = ClientUtils.issueGetFeedRequest(resourceAddress.resolveSearchUri(resourceClass, parameters), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("Error performing search with parameters " + parameters, e);
 		}
 		return searchResults;
 	}
 	
-	@Override
+  @Override
   public <T extends Resource> AtomFeed searchPost(Class<T> resourceClass, T resource, Map<String, String> parameters) {
     AtomFeed searchResults = null;
-		try {
+    try {
       searchResults = ClientUtils.issuePostFeedRequest(resourceAddress.resolveSearchUri(resourceClass, new HashMap<String, String>()), parameters, "src", resource, getPreferredFeedFormat());
-		} catch (Exception e) {
+    } catch (Exception e) {
       handleException("Error performing search with parameters " + parameters, e);
-		}
+    }
     return searchResults;
-	}
+  }
 	
 	@Override
 	public AtomFeed transaction(AtomFeed batch) {
 		AtomFeed transactionResult = null;
 		try {
-			transactionResult = ClientUtils.postBatchRequest(resourceAddress.getBaseServiceUri(), ClientUtils.getFeedAsByteArray(batch, false, isJson(getPreferredFeedFormat())), getPreferredFeedFormat());
-		} catch(Exception e) {
+			transactionResult = ClientUtils.postBatchRequest(resourceAddress.getBaseServiceUri(), ClientUtils.getFeedAsByteArray(batch, false, isJson(getPreferredFeedFormat())), getPreferredFeedFormat(), proxy);
+		} catch (Exception e) {
 			handleException("An error occurred trying to process this transaction request", e);
 		}
 		return transactionResult;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends Resource> AtomEntry<OperationOutcome> validate(Class<T> resourceClass, T resource, String id) {
+		ResourceRequest<T> result = null;
 		try {
-			return ClientUtils.issuePostRequest(resourceAddress.resolveValidateUri(resourceClass, id), ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat());
-		} catch (Exception e) {
-			throw new EFhirClientException(e);
+			result = ClientUtils.issuePostRequest(resourceAddress.resolveValidateUri(resourceClass, id), ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), proxy);
+			result.addErrorStatus(400);//gone
+			result.addErrorStatus(422);//Unprocessable Entity
+			result.addSuccessStatus(200);//OK
+			if(result.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
+			}
+		} catch(Exception e) {
+			throw new EFhirClientException("An error has occurred while trying to validate this resource", e);
 		}
+		return (AtomEntry<OperationOutcome>)result.getPayload();
+	}
+	
+	@Override
+	public List<AtomCategory> getAllTags() {
+		AtomFeed result = null;
+		try {
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetAllTags(), getPreferredResourceFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to read this version of the resource", e);
+		}
+		return result.getTags();
+	}
+	
+	@Override
+	public <T extends Resource> List<AtomCategory> getAllTagsForResourceType(Class<T> resourceClass) {
+		AtomFeed result = null;
+		try {
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetAllTagsForResourceType(resourceClass), getPreferredResourceFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to read this version of the resource", e);
+		}
+		return result.getTags();
+	}
+	
+	@Override
+	public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id) {
+		AtomFeed result = null;
+		try {
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetTagsForResource(resource, id), getPreferredResourceFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to read this version of the resource", e);
+		}
+		return result.getTags();
+	}
+	
+	@Override
+	public <T extends Resource> List<AtomCategory> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
+		AtomFeed result = null;
+		try {
+			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetTagsForResourceVersion(resource, id, versionId), getPreferredResourceFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to read this version of the resource", e);
+		}
+		return result.getTags();
+	}
+	
+//	@Override
+//	public <T extends Resource> boolean deleteTagsForResource(Class<T> resourceClass, String id) {
+//		try {
+//			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResource(resourceClass, id), proxy);
+//		} catch(Exception e) {
+//			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
+//		}
+//
+//	}
+//	
+//	@Override
+//	public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, List<AtomCategory> tags, String version) {
+//		try {
+//			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResourceVersion(resourceClass, id, version), proxy);
+//		} catch(Exception e) {
+//			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
+//		}
+//	}
+	
+	@Override
+	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id) {
+		ResourceRequest<OperationOutcome> resourceRequest = null;
+		try {
+			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetTagsForResource(resourceClass, id),ClientUtils.getTagListAsByteArray(tags, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), null, proxy);
+			resourceRequest.addSuccessStatus(201);
+			resourceRequest.addSuccessStatus(200);
+			if(resourceRequest.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server responded with HTTP error code " + resourceRequest.getHttpStatus(), (OperationOutcome)resourceRequest.getPayload().getResource());
+			}
+		} catch(Exception e) {
+			handleException("An error has occurred while trying to create this resource", e);
+		}
+		return (AtomEntry<OperationOutcome>)resourceRequest.getPayload();
+	}
+	
+	@Override
+	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version) {
+		ResourceRequest<OperationOutcome> resourceRequest = null;
+		try {
+			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetTagsForResourceVersion(resourceClass, id, version),ClientUtils.getTagListAsByteArray(tags, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), null, proxy);
+			resourceRequest.addSuccessStatus(201);
+			resourceRequest.addSuccessStatus(200);
+			if(resourceRequest.isUnsuccessfulRequest()) {
+				throw new EFhirClientException("Server responded with HTTP error code " + resourceRequest.getHttpStatus(), (OperationOutcome)resourceRequest.getPayload().getResource());
+			}
+		} catch(Exception e) {
+			handleException("An error has occurred while trying to create this resource", e);
+		}
+		return (AtomEntry<OperationOutcome>)resourceRequest.getPayload();
 	}
 
 	/**
@@ -288,5 +448,12 @@ public class FHIRSimpleClient implements FHIRClient {
 		return isJson;
 	}
 	
+	protected List<Header> buildCategoryHeaders(List<AtomCategory> tags) {
+		List<Header> headers = new ArrayList<Header>();
+		for(AtomCategory tag : tags) {
+			headers.add(new BasicHeader("Category",tag.getTerm() + ";scheme=\"" + tag.getScheme() + "\";label=\"" + tag.getLabel() + "\""));
+		}
+		return headers;
+	}
 
 }

@@ -20,7 +20,6 @@ import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Contact;
-import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.HumanName;
 import org.hl7.fhir.instance.model.Identifier;
@@ -28,16 +27,12 @@ import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.BindingConformance;
-import org.hl7.fhir.instance.model.Profile.ConstraintSeverity;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
-import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.instance.model.Profile.ElementSlicingComponent;
 import org.hl7.fhir.instance.model.Profile.ExtensionContext;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
-import org.hl7.fhir.instance.model.Profile.PropertyRepresentation;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Range;
@@ -59,7 +54,6 @@ import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xml.NamespaceContextMap;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 
@@ -96,7 +90,7 @@ public class InstanceValidator extends BaseValidator {
   private Map<String, Profile> types = new HashMap<String, Profile>();
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
-  private ValueSetExpansionCache cache = new ValueSetExpansionCache(valuesets, codesystems);
+  private ValueSetExpansionCache cache;
   private boolean suppressLoincSnomedMessages;
   private ExtensionLocatorService extensions;
 
@@ -109,6 +103,7 @@ public class InstanceValidator extends BaseValidator {
     loadValidationResources(validationZip);
     this.extensions = (extensions == null ) ? new NullExtensionResolver() : extensions;
     this.conceptLocator = conceptLocator;
+    cache = new ValueSetExpansionCache(valuesets, codesystems, conceptLocator);
   }  
 
   private void loadValidationResources(String name) throws Exception {
@@ -346,20 +341,33 @@ public class InstanceValidator extends BaseValidator {
     while (ci.next()) {
       ElementComponent child = children.get(ci.name());
       String type = null;
-      if (ci.name().equals("extension")) {
+      if (ci.name().equals("extension")) 
+      {
         type = "Extension";
         child = definition; // it's going to be used as context below
-      } else if (child == null) {
+      } 
+      else if (child == null) 
+      {
         child = getDefinitionByTailNameChoice(children, ci.name());
         if (child != null)
           type = ci.name().substring(tail(child.getPathSimple()).length() - 3);
         if ("Resource".equals(type))
           type = "ResourceReference";
-      } else {
-        if (child.getDefinition().getType().size() > 1)
-          throw new Exception("multiple types?");
+      } 
+      else 
+      {
         if (child.getDefinition().getType().size() == 1)
           type = child.getDefinition().getType().get(0).getCodeSimple();
+          else if (child.getDefinition().getType().size() > 1 )
+          {
+        	  TypeRefComponent trc = child.getDefinition().getType().get(0);
+        	  
+        	  if(trc.getCodeSimple().equals("ResourceReference"))
+        		  type = "ResourceReference";
+        	  else
+        		  throw new Exception("multiple types ("+describeTypes(child.getDefinition().getType())+") @ "+path+"/f:"+ci.name());
+          }
+          
         if (type != null) {
           if (type.startsWith("Resource("))
             type = "ResourceReference";
@@ -397,6 +405,14 @@ public class InstanceValidator extends BaseValidator {
           validateElement(errors, profile, structure, ci.path(), child, null, null, ci.element(), type);
       }
     }
+  }
+
+  private String describeTypes(List<TypeRefComponent> types) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (TypeRefComponent t : types) {
+      b.append(t.getCodeSimple());
+    }
+    return b.toString();
   }
 
   private void checkExtension(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent container, String parentType) throws Exception {
@@ -648,10 +664,10 @@ public class InstanceValidator extends BaseValidator {
                 } catch (Exception e) {
                   if (e.getMessage() == null)
                     warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": --Null--");
-                  else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct"))
-                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
-                  else if (!e.getMessage().contains("unable to find value set http://loinc.org"))
-                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
+//                  else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct"))
+//                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
+//                  else if (!e.getMessage().contains("unable to find value set http://loinc.org"))
+//                    hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
                   else
                     warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
                 }
@@ -729,10 +745,10 @@ public class InstanceValidator extends BaseValidator {
             } catch (Exception e) {
               if (e.getMessage() == null) {
                 warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": --Null--");
-              } else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct")) {
-                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
-              } else if (!e.getMessage().contains("unable to find value set http://loinc.org")) { 
-                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
+//              } else if (!e.getMessage().contains("unable to find value set http://snomed.info/sct")) {
+//                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Snomed value set - not validated");
+//              } else if (!e.getMessage().contains("unable to find value set http://loinc.org")) { 
+//                hint(errors, "code-unknown", path, suppressLoincSnomedMessages, "Loinc value set - not validated");
               } else
                 warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
             }

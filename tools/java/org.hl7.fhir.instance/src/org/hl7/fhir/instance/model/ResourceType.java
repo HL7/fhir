@@ -27,8 +27,8 @@ public enum ResourceType {
     List,
     Questionnaire,
     Composition,
-    OperationOutcome,
     DeviceObservationReport,
+    OperationOutcome,
     Conformance,
     Media,
     FamilyHistory,
@@ -43,13 +43,12 @@ public enum ResourceType {
     Specimen,
     OrderResponse,
     Alert,
-    Patient,
     ConceptMap,
+    Patient,
     Practitioner,
     AdverseReaction,
     ImagingStudy,
     DiagnosticOrder,
-    Appointment,
     Binary;
 
     public String getPath() {;
@@ -106,10 +105,10 @@ public enum ResourceType {
       return "questionnaire";
     case Composition:
       return "composition";
-    case OperationOutcome:
-      return "operationoutcome";
     case DeviceObservationReport:
       return "deviceobservationreport";
+    case OperationOutcome:
+      return "operationoutcome";
     case Conformance:
       return "conformance";
     case Media:
@@ -138,10 +137,10 @@ public enum ResourceType {
       return "orderresponse";
     case Alert:
       return "alert";
-    case Patient:
-      return "patient";
     case ConceptMap:
       return "conceptmap";
+    case Patient:
+      return "patient";
     case Practitioner:
       return "practitioner";
     case AdverseReaction:
@@ -150,8 +149,6 @@ public enum ResourceType {
       return "imagingstudy";
     case DiagnosticOrder:
       return "diagnosticorder";
-    case Appointment:
-      return "appointment";
     case Binary:
       return "binary";
     }

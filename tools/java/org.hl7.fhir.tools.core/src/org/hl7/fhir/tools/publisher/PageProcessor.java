@@ -138,8 +138,7 @@ public class PageProcessor implements Logger  {
   
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
-          "This is the DSTU candidate version, for QA review.\r\n"+ 
-          "There's also the <a href=\"http://www.healthintersections.com.au/fhir/index.htm\">version that was balloted for DSTU</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> is also available.\r\n"+
+          "This is the 1st DSTU version of FHIR. There's also a <a href=\"http://hl7.org/fhir-develop\">developmental version</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a>.\r\n"+
           "</p>\r\n";
   
 //  private boolean notime;
@@ -210,10 +209,7 @@ public class PageProcessor implements Logger  {
 	  return val; 
   }
 
-  private Boolean generateDisqus = false;
-  
-  public void enableDisqus() { generateDisqus = true; }
-  
+ 
   private String generateSideBar(String prefix) throws Exception {
     if (prevSidebars.containsKey(prefix))
       return prevSidebars.get(prefix);
@@ -313,8 +309,6 @@ public class PageProcessor implements Logger  {
       String[] com = s2.split(" ");
       if (com.length == 2 && com[0].equals("dt")) 
         src = s1+xmlForDt(com[1], file)+tsForDt(com[1])+s3;
-      else if (com[0].equals("disqus"))
-        src = s1+disqusScript()+s3;
       else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
@@ -560,33 +554,6 @@ public class PageProcessor implements Logger  {
     return src;
   }
 
-  private String disqusScript() 
-  {
-    String fhirDisqusShortname = ini.getStringProperty("FHIR", "disqus");
-    
-    if(generateDisqus && fhirDisqusShortname != null)
-    {
-      StringBuilder b = new StringBuilder();
-      b.append("<div class=\"container\">");
-      b.append("<hr />");
-      b.append("<div id=\"disqus_thread\"></div>");
-      b.append("<script type=\"text/javascript\">");
-      b.append("var disqus_shortname = '" + fhirDisqusShortname + "';");
-      b.append("(function() {");
-      b.append("var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;");
-      b.append("dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';");
-      b.append("(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })();");
-      b.append("</script>");
-      b.append("<noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>");
-      b.append("<a href=\"http://disqus.com\" class=\"dsq-brlink\">comments powered by <span class=\"logo-disqus\">Disqus</span></a>");
-      b.append("</div>");
-      return b.toString();
-    }
-    else
-      return "";
-        
-  }
-
   private String conceptmaplist(String id, String level) {
     List<AtomEntry<ConceptMap>> cmaps = new ArrayList<AtomEntry<ConceptMap>>();
     for (AtomEntry<ConceptMap> e : conceptMaps.values()) {
@@ -774,7 +741,7 @@ public class PageProcessor implements Logger  {
     new XmlComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false, "v3:cs:"+name);
     new JsonComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path("v3", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs), "v3:cs:"+name);
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -786,7 +753,7 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false, "v3:vs:"+name);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
-    jsonToXhtml(Utilities.path(folders.dstDir, "vs", name, "v3-"+name+".json"), Utilities.path("v3", "vs", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(Utilities.path(folders.dstDir, "vs", name, "v3-"+name+".json"), Utilities.path("v3", "vs", name, "v3-"+name+".json.html"), "v3-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs), "v3:vs:"+name);
 
     return new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
@@ -799,7 +766,7 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false, "v2:tbl"+name);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".json"), vs, false);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path("v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), "v2-"+n[0]+"-"+n[1]+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 3, r2Json(vs));
+    jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json"), Utilities.path("v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".json.html"), "v2-"+n[0]+"-"+n[1]+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 3, r2Json(vs), "v2:tbl"+name);
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
@@ -812,7 +779,7 @@ public class PageProcessor implements Logger  {
     cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false, "v2:tbl"+name);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".json"), vs, false);
-    jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path("v2", name, "v2-"+name+".json.html"), "v2-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs));
+    jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".json"), Utilities.path("v2", name, "v2-"+name+".json.html"), "v2-"+name+".json", vs.getNameSimple(), vs.getDescriptionSimple(), 2, r2Json(vs), "v2:tbl"+name);
     addToValuesets(v2Valuesets, vs, vs.getIdentifierSimple());
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -844,33 +811,40 @@ public class PageProcessor implements Logger  {
     epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
   }
 
-  public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json) throws Exception {
+  public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json, String pageType) throws Exception {
 
-    FileOutputStream outs = new FileOutputStream(folders.dstDir+ dst);
-    OutputStreamWriter out = new OutputStreamWriter(outs);
-    
-    out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
-    out.write("<head>\r\n");
-    out.write(" <title>Example Instance for "+name+"</title>\r\n");
-    out.write(" <link rel=\"Stylesheet\" href=\"");
-    for (int i = 0; i < level; i++)
-      out.write("../");
-    out.write("fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n");
-    out.write("</head>\r\n");
-    out.write("<body>\r\n");
-    out.write("<p>&nbsp;</p>\r\n"); 
-    out.write("<div class=\"example\">\r\n");
-    out.write("<p>"+Utilities.escapeXml(description)+"</p>\r\n"); 
-    out.write("<p><a href=\""+link+"\">Raw JSON</a></p>\r\n"); 
-    out.write("<pre class=\"json\">\r\n");
-    out.write(Utilities.escapeXml(json));    
-    out.write("</pre>\r\n");
-    out.write("</div>\r\n");
-    out.write("</body>\r\n");
-    out.write("</html>\r\n");
-    out.flush();
-    outs.close();
-    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
+    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(description) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)+ "\r\n</pre>\r\n</div>\r\n";
+    String html = TextFile.fileToString(folders.srcDir + "template-example-json.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", json);
+    html = processPageIncludes(dst, html, pageType, null);
+    TextFile.stringToFile(html, getFolders().dstDir + dst);
+    getEpub().registerFile(dst, description, EPubManager.XHTML_TYPE);
+//
+//    
+//    FileOutputStream outs = new FileOutputStream(folders.dstDir+ dst);
+//    OutputStreamWriter out = new OutputStreamWriter(outs);
+//    
+//    out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n");
+//    out.write("<head>\r\n");
+//    out.write(" <title>Example Instance for "+name+"</title>\r\n");
+//    out.write(" <link rel=\"Stylesheet\" href=\"");
+//    for (int i = 0; i < level; i++)
+//      out.write("../");
+//    out.write("fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n");
+//    out.write("</head>\r\n");
+//    out.write("<body>\r\n");
+//    out.write("<p>&nbsp;</p>\r\n"); 
+//    out.write("<div class=\"example\">\r\n");
+//    out.write("<p>"+Utilities.escapeXml(description)+"</p>\r\n"); 
+//    out.write("<p><a href=\""+link+"\">Raw JSON</a></p>\r\n"); 
+//    out.write("<pre class=\"json\">\r\n");
+//    out.write(Utilities.escapeXml(json));    
+//    out.write("</pre>\r\n");
+//    out.write("</div>\r\n");
+//    out.write("</body>\r\n");
+//    out.write("</html>\r\n");
+//    out.flush();
+//    outs.close();
+//    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
   }
 
   
@@ -2297,8 +2271,6 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
-      else if (com[0].equals("disqus"))
-        src = s1+s3;
       else if (com[0].equals("header"))
         src = s1+s3;
       else if (com[0].equals("newheader"))
@@ -2513,8 +2485,6 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
-      else if (com[0].equals("disqus"))
-        src = s1+disqusScript()+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(resource.getName())+s3;
       else if (com[0].equals("maponthispage"))
@@ -2759,7 +2729,7 @@ public class PageProcessor implements Logger  {
         if (!rn.equals("Profile")) {
           for (RegisteredProfile p: definitions.getResourceByName(rn).getProfiles()) {
             s.append("<tr><td><a href=\""+p.getTitle()+".html\">"+Utilities.escapeXml(p.getName())+"</a>:"+Utilities.escapeXml(p.getDescription())+"</td>"+
-             "<td><a href=\""+p.getTitle()+".profile.xml\">XML</a></td><td><a href=\""+p.getTitle()+".profile.json\">JSON</a></td></tr>");
+             "<td><a href=\""+p.getTitle()+".profile.xml.html\">XML</a></td><td><a href=\""+p.getTitle()+".profile.json.html\">JSON</a></td></tr>");
           }
         }
       }
@@ -2938,8 +2908,6 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
-      else if (com[0].equals("disqus"))
-        src = s1+disqusScript()+s3;
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(profile.metadata("name"))+s3;
       else if (com[0].equals("header"))

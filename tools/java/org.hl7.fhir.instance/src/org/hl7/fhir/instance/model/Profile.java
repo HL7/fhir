@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
+// Generated on Fri, Jan 31, 2014 15:05+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -314,6 +314,88 @@ public class Profile extends Resource {
       }
     }
 
+    public enum SearchParamType {
+        number, // Search parameter SHALL be a number (a whole number, or a decimal).
+        date, // Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
+        string, // Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
+        token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
+        reference, // A reference to another resource.
+        composite, // A composite search parameter that combines a search on two values together.
+        variable, // A search parameter on an element that can have multiple types including quantity and codeableConcept.
+        Null; // added to help the parsers
+        public static SearchParamType fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("number".equals(codeString))
+          return number;
+        if ("date".equals(codeString))
+          return date;
+        if ("string".equals(codeString))
+          return string;
+        if ("token".equals(codeString))
+          return token;
+        if ("reference".equals(codeString))
+          return reference;
+        if ("composite".equals(codeString))
+          return composite;
+        if ("variable".equals(codeString))
+          return variable;
+        throw new Exception("Unknown SearchParamType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case number: return "number";
+            case date: return "date";
+            case string: return "string";
+            case token: return "token";
+            case reference: return "reference";
+            case composite: return "composite";
+            case variable: return "variable";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class SearchParamTypeEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("number".equals(codeString))
+          return SearchParamType.number;
+        if ("date".equals(codeString))
+          return SearchParamType.date;
+        if ("string".equals(codeString))
+          return SearchParamType.string;
+        if ("token".equals(codeString))
+          return SearchParamType.token;
+        if ("reference".equals(codeString))
+          return SearchParamType.reference;
+        if ("composite".equals(codeString))
+          return SearchParamType.composite;
+        if ("variable".equals(codeString))
+          return SearchParamType.variable;
+        throw new Exception("Unknown SearchParamType code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == SearchParamType.number)
+        return "number";
+      if (code == SearchParamType.date)
+        return "date";
+      if (code == SearchParamType.string)
+        return "string";
+      if (code == SearchParamType.token)
+        return "token";
+      if (code == SearchParamType.reference)
+        return "reference";
+      if (code == SearchParamType.composite)
+        return "composite";
+      if (code == SearchParamType.variable)
+        return "variable";
+      return "?";
+      }
+    }
+
     public enum ExtensionContext {
         resource, // The context is all elements matching a particular resource element path.
         datatype, // The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
@@ -587,6 +669,11 @@ public class Profile extends Resource {
          */
         protected List<ElementComponent> element = new ArrayList<ElementComponent>();
 
+        /**
+         * Additional search parameters for implementations to support and/or make use of.
+         */
+        protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
+
       public ProfileStructureComponent() {
         super();
       }
@@ -753,6 +840,23 @@ public class Profile extends Resource {
           return t;
         }
 
+        /**
+         * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
+         */
+        public List<ProfileStructureSearchParamComponent> getSearchParam() { 
+          return this.searchParam;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
+         */
+        public ProfileStructureSearchParamComponent addSearchParam() { 
+          ProfileStructureSearchParamComponent t = new ProfileStructureSearchParamComponent();
+          this.searchParam.add(t);
+          return t;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -760,6 +864,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("publish", "boolean", "This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.", 0, java.lang.Integer.MAX_VALUE, publish));
           childrenList.add(new Property("purpose", "string", "Human summary: why describe this resource?.", 0, java.lang.Integer.MAX_VALUE, purpose));
           childrenList.add(new Property("element", "", "Captures constraints on each element within the resource.", 0, java.lang.Integer.MAX_VALUE, element));
+          childrenList.add(new Property("searchParam", "", "Additional search parameters for implementations to support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
 
       public ProfileStructureComponent copy(Profile e) {
@@ -771,6 +876,9 @@ public class Profile extends Resource {
         dst.element = new ArrayList<ElementComponent>();
         for (ElementComponent i : element)
           dst.element.add(i.copy(e));
+        dst.searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
+        for (ProfileStructureSearchParamComponent i : searchParam)
+          dst.searchParam.add(i.copy(e));
         return dst;
       }
 
@@ -2420,6 +2528,225 @@ public class Profile extends Resource {
 
   }
 
+    public static class ProfileStructureSearchParamComponent extends BackboneElement {
+        /**
+         * The name of the standard or custom search parameter.
+         */
+        protected String_ name;
+
+        /**
+         * The type of value a search parameter refers to, and how the content is interpreted.
+         */
+        protected Enumeration<SearchParamType> type;
+
+        /**
+         * A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
+         */
+        protected String_ documentation;
+
+        /**
+         * An XPath expression that returns a set of elements for the search parameter.
+         */
+        protected String_ xpath;
+
+        /**
+         * Types of resource (if a resource is referenced).
+         */
+        protected List<Code> target = new ArrayList<Code>();
+
+      public ProfileStructureSearchParamComponent() {
+        super();
+      }
+
+      public ProfileStructureSearchParamComponent(String_ name, Enumeration<SearchParamType> type, String_ documentation) {
+        super();
+        this.name = name;
+        this.type = type;
+        this.documentation = documentation;
+      }
+
+        /**
+         * @return {@link #name} (The name of the standard or custom search parameter.)
+         */
+        public String_ getName() { 
+          return this.name;
+        }
+
+        /**
+         * @param value {@link #name} (The name of the standard or custom search parameter.)
+         */
+        public ProfileStructureSearchParamComponent setName(String_ value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of the standard or custom search parameter.
+         */
+        public String getNameSimple() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of the standard or custom search parameter.
+         */
+        public ProfileStructureSearchParamComponent setNameSimple(String value) { 
+            if (this.name == null)
+              this.name = new String_();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.)
+         */
+        public Enumeration<SearchParamType> getType() { 
+          return this.type;
+        }
+
+        /**
+         * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.)
+         */
+        public ProfileStructureSearchParamComponent setType(Enumeration<SearchParamType> value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return The type of value a search parameter refers to, and how the content is interpreted.
+         */
+        public SearchParamType getTypeSimple() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value The type of value a search parameter refers to, and how the content is interpreted.
+         */
+        public ProfileStructureSearchParamComponent setTypeSimple(SearchParamType value) { 
+            if (this.type == null)
+              this.type = new Enumeration<SearchParamType>();
+            this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.)
+         */
+        public String_ getDocumentation() { 
+          return this.documentation;
+        }
+
+        /**
+         * @param value {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.)
+         */
+        public ProfileStructureSearchParamComponent setDocumentation(String_ value) { 
+          this.documentation = value;
+          return this;
+        }
+
+        /**
+         * @return A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
+         */
+        public String getDocumentationSimple() { 
+          return this.documentation == null ? null : this.documentation.getValue();
+        }
+
+        /**
+         * @param value A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
+         */
+        public ProfileStructureSearchParamComponent setDocumentationSimple(String value) { 
+            if (this.documentation == null)
+              this.documentation = new String_();
+            this.documentation.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.)
+         */
+        public String_ getXpath() { 
+          return this.xpath;
+        }
+
+        /**
+         * @param value {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.)
+         */
+        public ProfileStructureSearchParamComponent setXpath(String_ value) { 
+          this.xpath = value;
+          return this;
+        }
+
+        /**
+         * @return An XPath expression that returns a set of elements for the search parameter.
+         */
+        public String getXpathSimple() { 
+          return this.xpath == null ? null : this.xpath.getValue();
+        }
+
+        /**
+         * @param value An XPath expression that returns a set of elements for the search parameter.
+         */
+        public ProfileStructureSearchParamComponent setXpathSimple(String value) { 
+          if (value == null)
+            this.xpath = null;
+          else {
+            if (this.xpath == null)
+              this.xpath = new String_();
+            this.xpath.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #target} (Types of resource (if a resource is referenced).)
+         */
+        public List<Code> getTarget() { 
+          return this.target;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #target} (Types of resource (if a resource is referenced).)
+         */
+        public Code addTarget() { 
+          Code t = new Code();
+          this.target.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #target} (Types of resource (if a resource is referenced).)
+         */
+        public Code addTargetSimple(String value) { 
+          Code t = new Code();
+          t.setValue(value);
+          this.target.add(t);
+          return t;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("documentation", "string", "A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.", 0, java.lang.Integer.MAX_VALUE, documentation));
+          childrenList.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, xpath));
+          childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
+        }
+
+      public ProfileStructureSearchParamComponent copy(Profile e) {
+        ProfileStructureSearchParamComponent dst = new ProfileStructureSearchParamComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        dst.xpath = xpath == null ? null : xpath.copy();
+        dst.target = new ArrayList<Code>();
+        for (Code i : target)
+          dst.target.add(i.copy());
+        return dst;
+      }
+
+  }
+
     public static class ProfileExtensionDefnComponent extends BackboneElement {
         /**
          * A unique code (within the profile) used to identify the extension.
@@ -2622,6 +2949,132 @@ public class Profile extends Resource {
 
   }
 
+    public static class ProfileQueryComponent extends BackboneElement {
+        /**
+         * The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.
+         */
+        protected String_ name;
+
+        /**
+         * Description of the query - the functionality it offers, and considerations about how it functions and to use it.
+         */
+        protected String_ documentation;
+
+        /**
+         * A parameter of a named query.
+         */
+        protected List<ProfileStructureSearchParamComponent> parameter = new ArrayList<ProfileStructureSearchParamComponent>();
+
+      public ProfileQueryComponent() {
+        super();
+      }
+
+      public ProfileQueryComponent(String_ name, String_ documentation) {
+        super();
+        this.name = name;
+        this.documentation = documentation;
+      }
+
+        /**
+         * @return {@link #name} (The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.)
+         */
+        public String_ getName() { 
+          return this.name;
+        }
+
+        /**
+         * @param value {@link #name} (The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.)
+         */
+        public ProfileQueryComponent setName(String_ value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.
+         */
+        public String getNameSimple() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.
+         */
+        public ProfileQueryComponent setNameSimple(String value) { 
+            if (this.name == null)
+              this.name = new String_();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #documentation} (Description of the query - the functionality it offers, and considerations about how it functions and to use it.)
+         */
+        public String_ getDocumentation() { 
+          return this.documentation;
+        }
+
+        /**
+         * @param value {@link #documentation} (Description of the query - the functionality it offers, and considerations about how it functions and to use it.)
+         */
+        public ProfileQueryComponent setDocumentation(String_ value) { 
+          this.documentation = value;
+          return this;
+        }
+
+        /**
+         * @return Description of the query - the functionality it offers, and considerations about how it functions and to use it.
+         */
+        public String getDocumentationSimple() { 
+          return this.documentation == null ? null : this.documentation.getValue();
+        }
+
+        /**
+         * @param value Description of the query - the functionality it offers, and considerations about how it functions and to use it.
+         */
+        public ProfileQueryComponent setDocumentationSimple(String value) { 
+            if (this.documentation == null)
+              this.documentation = new String_();
+            this.documentation.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #parameter} (A parameter of a named query.)
+         */
+        public List<ProfileStructureSearchParamComponent> getParameter() { 
+          return this.parameter;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #parameter} (A parameter of a named query.)
+         */
+        public ProfileStructureSearchParamComponent addParameter() { 
+          ProfileStructureSearchParamComponent t = new ProfileStructureSearchParamComponent();
+          this.parameter.add(t);
+          return t;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("documentation", "string", "Description of the query - the functionality it offers, and considerations about how it functions and to use it.", 0, java.lang.Integer.MAX_VALUE, documentation));
+          childrenList.add(new Property("parameter", "@Profile.structure.searchParam", "A parameter of a named query.", 0, java.lang.Integer.MAX_VALUE, parameter));
+        }
+
+      public ProfileQueryComponent copy(Profile e) {
+        ProfileQueryComponent dst = new ProfileQueryComponent();
+        dst.name = name == null ? null : name.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        dst.parameter = new ArrayList<ProfileStructureSearchParamComponent>();
+        for (ProfileStructureSearchParamComponent i : parameter)
+          dst.parameter.add(i.copy(e));
+        return dst;
+      }
+
+  }
+
     /**
      * The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).
      */
@@ -2696,6 +3149,11 @@ public class Profile extends Resource {
      * An extension defined as part of the profile.
      */
     protected List<ProfileExtensionDefnComponent> extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
+
+    /**
+     * Definition of a named query and its parameters and their meaning.
+     */
+    protected List<ProfileQueryComponent> query = new ArrayList<ProfileQueryComponent>();
 
     public Profile() {
       super();
@@ -3144,6 +3602,23 @@ public class Profile extends Resource {
       return t;
     }
 
+    /**
+     * @return {@link #query} (Definition of a named query and its parameters and their meaning.)
+     */
+    public List<ProfileQueryComponent> getQuery() { 
+      return this.query;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #query} (Definition of a named query and its parameters and their meaning.)
+     */
+    public ProfileQueryComponent addQuery() { 
+      ProfileQueryComponent t = new ProfileQueryComponent();
+      this.query.add(t);
+      return t;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -3161,6 +3636,7 @@ public class Profile extends Resource {
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("structure", "", "A constraint statement about what contents a resource or data type may have.", 0, java.lang.Integer.MAX_VALUE, structure));
         childrenList.add(new Property("extensionDefn", "", "An extension defined as part of the profile.", 0, java.lang.Integer.MAX_VALUE, extensionDefn));
+        childrenList.add(new Property("query", "", "Definition of a named query and its parameters and their meaning.", 0, java.lang.Integer.MAX_VALUE, query));
       }
 
       public Profile copy() {
@@ -3190,6 +3666,9 @@ public class Profile extends Resource {
         dst.extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
         for (ProfileExtensionDefnComponent i : extensionDefn)
           dst.extensionDefn.add(i.copy(dst));
+        dst.query = new ArrayList<ProfileQueryComponent>();
+        for (ProfileQueryComponent i : query)
+          dst.query.add(i.copy(dst));
         return dst;
       }
 

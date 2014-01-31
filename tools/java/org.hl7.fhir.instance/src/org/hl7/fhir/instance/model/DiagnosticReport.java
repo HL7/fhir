@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
+// Generated on Fri, Jan 31, 2014 15:05+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -128,123 +128,6 @@ public class DiagnosticReport extends Resource {
       }
     }
 
-    public static class ResultGroupComponent extends BackboneElement {
-        /**
-         * A code or name that describes this group of results. For the base group, this is the report name.
-         */
-        protected CodeableConcept name;
-
-        /**
-         * Details about the individual specimen to which these 'Result group' test results refer.
-         */
-        protected ResourceReference specimen;
-
-        /**
-         * A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.
-         */
-        protected List<ResultGroupComponent> group = new ArrayList<ResultGroupComponent>();
-
-        /**
-         * Specific detailed result, including both the value of the result item and additional information that may be useful for clinical interpretation. Results include whatever specific data items pathology labs report as part of the clinical service; it is not confined to measurements.
-         */
-        protected List<ResourceReference> result = new ArrayList<ResourceReference>();
-
-      public ResultGroupComponent() {
-        super();
-      }
-
-      public ResultGroupComponent(CodeableConcept name) {
-        super();
-        this.name = name;
-      }
-
-        /**
-         * @return {@link #name} (A code or name that describes this group of results. For the base group, this is the report name.)
-         */
-        public CodeableConcept getName() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (A code or name that describes this group of results. For the base group, this is the report name.)
-         */
-        public ResultGroupComponent setName(CodeableConcept value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #specimen} (Details about the individual specimen to which these 'Result group' test results refer.)
-         */
-        public ResourceReference getSpecimen() { 
-          return this.specimen;
-        }
-
-        /**
-         * @param value {@link #specimen} (Details about the individual specimen to which these 'Result group' test results refer.)
-         */
-        public ResultGroupComponent setSpecimen(ResourceReference value) { 
-          this.specimen = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #group} (A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.)
-         */
-        public List<ResultGroupComponent> getGroup() { 
-          return this.group;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #group} (A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.)
-         */
-        public ResultGroupComponent addGroup() { 
-          ResultGroupComponent t = new ResultGroupComponent();
-          this.group.add(t);
-          return t;
-        }
-
-        /**
-         * @return {@link #result} (Specific detailed result, including both the value of the result item and additional information that may be useful for clinical interpretation. Results include whatever specific data items pathology labs report as part of the clinical service; it is not confined to measurements.)
-         */
-        public List<ResourceReference> getResult() { 
-          return this.result;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #result} (Specific detailed result, including both the value of the result item and additional information that may be useful for clinical interpretation. Results include whatever specific data items pathology labs report as part of the clinical service; it is not confined to measurements.)
-         */
-        public ResourceReference addResult() { 
-          ResourceReference t = new ResourceReference();
-          this.result.add(t);
-          return t;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "CodeableConcept", "A code or name that describes this group of results. For the base group, this is the report name.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("specimen", "Resource(Specimen)", "Details about the individual specimen to which these 'Result group' test results refer.", 0, java.lang.Integer.MAX_VALUE, specimen));
-          childrenList.add(new Property("group", "@DiagnosticReport.results", "A subgroup in a report group. Subgroups can be grouped in arbitrary ways. The group.name defines the purpose and interpretation of the grouping.", 0, java.lang.Integer.MAX_VALUE, group));
-          childrenList.add(new Property("result", "Resource(Observation)", "Specific detailed result, including both the value of the result item and additional information that may be useful for clinical interpretation. Results include whatever specific data items pathology labs report as part of the clinical service; it is not confined to measurements.", 0, java.lang.Integer.MAX_VALUE, result));
-        }
-
-      public ResultGroupComponent copy(DiagnosticReport e) {
-        ResultGroupComponent dst = new ResultGroupComponent();
-        dst.name = name == null ? null : name.copy();
-        dst.specimen = specimen == null ? null : specimen.copy();
-        dst.group = new ArrayList<ResultGroupComponent>();
-        for (ResultGroupComponent i : group)
-          dst.group.add(i.copy(e));
-        dst.result = new ArrayList<ResourceReference>();
-        for (ResourceReference i : result)
-          dst.result.add(i.copy());
-        return dst;
-      }
-
-  }
-
     public static class DiagnosticReportImageComponent extends BackboneElement {
         /**
          * A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
@@ -332,6 +215,11 @@ public class DiagnosticReport extends Resource {
   }
 
     /**
+     * A code or name that describes this diagnostic report.
+     */
+    protected CodeableConcept name;
+
+    /**
      * The status of the diagnostic report as a whole.
      */
     protected Enumeration<DiagnosticReportStatus> status;
@@ -372,9 +260,14 @@ public class DiagnosticReport extends Resource {
     protected Type diagnostic;
 
     /**
-     * A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.
+     * Details about the specimens on which this Disagnostic report is based.
      */
-    protected ResultGroupComponent results;
+    protected List<ResourceReference> specimen = new ArrayList<ResourceReference>();
+
+    /**
+     * Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").
+     */
+    protected List<ResourceReference> result = new ArrayList<ResourceReference>();
 
     /**
      * One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
@@ -405,14 +298,29 @@ public class DiagnosticReport extends Resource {
       super();
     }
 
-    public DiagnosticReport(Enumeration<DiagnosticReportStatus> status, DateTime issued, ResourceReference subject, ResourceReference performer, Type diagnostic, ResultGroupComponent results) {
+    public DiagnosticReport(CodeableConcept name, Enumeration<DiagnosticReportStatus> status, DateTime issued, ResourceReference subject, ResourceReference performer, Type diagnostic) {
       super();
+      this.name = name;
       this.status = status;
       this.issued = issued;
       this.subject = subject;
       this.performer = performer;
       this.diagnostic = diagnostic;
-      this.results = results;
+    }
+
+    /**
+     * @return {@link #name} (A code or name that describes this diagnostic report.)
+     */
+    public CodeableConcept getName() { 
+      return this.name;
+    }
+
+    /**
+     * @param value {@link #name} (A code or name that describes this diagnostic report.)
+     */
+    public DiagnosticReport setName(CodeableConcept value) { 
+      this.name = value;
+      return this;
     }
 
     /**
@@ -572,18 +480,37 @@ public class DiagnosticReport extends Resource {
     }
 
     /**
-     * @return {@link #results} (A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.)
+     * @return {@link #specimen} (Details about the specimens on which this Disagnostic report is based.)
      */
-    public ResultGroupComponent getResults() { 
-      return this.results;
+    public List<ResourceReference> getSpecimen() { 
+      return this.specimen;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #specimen} (Details about the specimens on which this Disagnostic report is based.)
+     */
+    public ResourceReference addSpecimen() { 
+      ResourceReference t = new ResourceReference();
+      this.specimen.add(t);
+      return t;
     }
 
     /**
-     * @param value {@link #results} (A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.)
+     * @return {@link #result} (Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
      */
-    public DiagnosticReport setResults(ResultGroupComponent value) { 
-      this.results = value;
-      return this;
+    public List<ResourceReference> getResult() { 
+      return this.result;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #result} (Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").)
+     */
+    public ResourceReference addResult() { 
+      ResourceReference t = new ResourceReference();
+      this.result.add(t);
+      return t;
     }
 
     /**
@@ -692,6 +619,7 @@ public class DiagnosticReport extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("name", "CodeableConcept", "A code or name that describes this diagnostic report.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("status", "code", "The status of the diagnostic report as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("issued", "dateTime", "The date and/or time that this version of the report was released from the source diagnostic service.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("subject", "Resource(Patient|Group|Device|Location)", "The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.", 0, java.lang.Integer.MAX_VALUE, subject));
@@ -700,7 +628,8 @@ public class DiagnosticReport extends Resource {
         childrenList.add(new Property("requestDetail", "Resource(DiagnosticOrder)", "Details concerning a test requested.", 0, java.lang.Integer.MAX_VALUE, requestDetail));
         childrenList.add(new Property("serviceCategory", "CodeableConcept", "The section of the diagnostic service that performs the examination e.g. biochemistry, hematology, MRI.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
         childrenList.add(new Property("diagnostic[x]", "dateTime|Period", "The time or time-period the observed values are related to. This is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, diagnostic));
-        childrenList.add(new Property("results", "", "A group of results. Results may be grouped by specimen, or by some value in DiagnosticReport.resultGroup.name to describe what binds all the results together.", 0, java.lang.Integer.MAX_VALUE, results));
+        childrenList.add(new Property("specimen", "Resource(Specimen)", "Details about the specimens on which this Disagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
+        childrenList.add(new Property("result", "Resource(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. 'atomic' results), or they can be grouping observations that include references to other members of the group (e.g. 'panels').", 0, java.lang.Integer.MAX_VALUE, result));
         childrenList.add(new Property("imagingStudy", "Resource(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
         childrenList.add(new Property("image", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image));
         childrenList.add(new Property("conclusion", "string", "Concise and clinically contextualized narrative interpretation of the diagnostic report.", 0, java.lang.Integer.MAX_VALUE, conclusion));
@@ -710,6 +639,7 @@ public class DiagnosticReport extends Resource {
 
       public DiagnosticReport copy() {
         DiagnosticReport dst = new DiagnosticReport();
+        dst.name = name == null ? null : name.copy();
         dst.status = status == null ? null : status.copy();
         dst.issued = issued == null ? null : issued.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -720,7 +650,12 @@ public class DiagnosticReport extends Resource {
           dst.requestDetail.add(i.copy());
         dst.serviceCategory = serviceCategory == null ? null : serviceCategory.copy();
         dst.diagnostic = diagnostic == null ? null : diagnostic.copy();
-        dst.results = results == null ? null : results.copy(dst);
+        dst.specimen = new ArrayList<ResourceReference>();
+        for (ResourceReference i : specimen)
+          dst.specimen.add(i.copy());
+        dst.result = new ArrayList<ResourceReference>();
+        for (ResourceReference i : result)
+          dst.result.add(i.copy());
         dst.imagingStudy = new ArrayList<ResourceReference>();
         for (ResourceReference i : imagingStudy)
           dst.imagingStudy.add(i.copy());

@@ -28,7 +28,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
  */
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
@@ -38,11 +41,15 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn.ContextType;
+import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.Conformance.ConformanceRestResourceSearchParamComponent;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
+import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Id;
@@ -59,6 +66,8 @@ import org.hl7.fhir.instance.model.Profile.ElementDefinitionMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ExtensionContext;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
+import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
+import org.hl7.fhir.instance.model.Profile.ProfileStructureSearchParamComponent;
 import org.hl7.fhir.instance.model.Profile.PropertyRepresentation;
 import org.hl7.fhir.instance.model.Profile.ResourceAggregationMode;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
@@ -120,6 +129,13 @@ public class ProfileGenerator {
         c.setName(Factory.newString_(resource.getRoot().getProfileName()));
       // no purpose element here
       defineElement(profile, p, c, resource.getRoot(), resource.getName(), mode, containedSlices);
+      List<String> names = new ArrayList<String>();
+      names.addAll(resource.getSearchParams().keySet());
+      Collections.sort(names);
+      for (String pn : names) {
+        SearchParameter param = resource.getSearchParams().get(pn);
+        makeSearchParam(p, c, resource.getName(), param);
+      }
     }
     containedSlices.clear();
     for (ElementDefn elem : profile.getElements()) {
@@ -155,6 +171,36 @@ public class ProfileGenerator {
     p.getText().setDiv(div);
     return p;
   }
+
+  private Profile.SearchParamType getSearchParamType(SearchType type) {
+    switch (type) {
+    case number:
+      return Profile.SearchParamType.number;
+    case string:
+      return Profile.SearchParamType.string;
+    case date:
+      return Profile.SearchParamType.date;
+    case reference:
+      return Profile.SearchParamType.reference;
+    case token:
+      return Profile.SearchParamType.token;
+    case composite:
+      return Profile.SearchParamType.composite;
+    case variable:
+      return Profile.SearchParamType.variable;
+    }
+    return null;
+  }
+
+  private void makeSearchParam(Profile p, ProfileStructureComponent s, String rn, SearchParameter i) {
+    ProfileStructureSearchParamComponent result = new ProfileStructureSearchParamComponent();
+    result.setNameSimple(i.getCode());
+    result.setTypeSimple(getSearchParamType(i.getType()));
+    result.setDocumentation(Factory.newString_(i.getDescription()));
+    result.setXpathSimple(i.getXPath());
+    s.getSearchParam().add(result);
+  }
+
 
   private ElementDefinitionBindingComponent generateBinding(String bn, Profile p) throws Exception {
     BindingSpecification src = definitions.getBindingByName(bn);

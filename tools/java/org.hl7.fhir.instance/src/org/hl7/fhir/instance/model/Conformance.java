@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
+// Generated on Fri, Jan 31, 2014 15:05+1100 for FHIR v0.12
 
 import java.util.*;
 
@@ -775,6 +775,11 @@ public class Conformance extends Resource {
         protected List<ConformanceRestQueryComponent> query = new ArrayList<ConformanceRestQueryComponent>();
 
         /**
+         * Identifies the custom query, defined either in FHIR core or another profile.
+         */
+        protected Uri definition;
+
+        /**
          * A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.
          */
         protected List<Uri> documentMailbox = new ArrayList<Uri>();
@@ -783,9 +788,10 @@ public class Conformance extends Resource {
         super();
       }
 
-      public ConformanceRestComponent(Enumeration<RestfulConformanceMode> mode) {
+      public ConformanceRestComponent(Enumeration<RestfulConformanceMode> mode, Uri definition) {
         super();
         this.mode = mode;
+        this.definition = definition;
       }
 
         /**
@@ -923,6 +929,38 @@ public class Conformance extends Resource {
         }
 
         /**
+         * @return {@link #definition} (Identifies the custom query, defined either in FHIR core or another profile.)
+         */
+        public Uri getDefinition() { 
+          return this.definition;
+        }
+
+        /**
+         * @param value {@link #definition} (Identifies the custom query, defined either in FHIR core or another profile.)
+         */
+        public ConformanceRestComponent setDefinition(Uri value) { 
+          this.definition = value;
+          return this;
+        }
+
+        /**
+         * @return Identifies the custom query, defined either in FHIR core or another profile.
+         */
+        public String getDefinitionSimple() { 
+          return this.definition == null ? null : this.definition.getValue();
+        }
+
+        /**
+         * @param value Identifies the custom query, defined either in FHIR core or another profile.
+         */
+        public ConformanceRestComponent setDefinitionSimple(String value) { 
+            if (this.definition == null)
+              this.definition = new Uri();
+            this.definition.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
          */
         public List<Uri> getDocumentMailbox() { 
@@ -957,6 +995,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("operation", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, operation));
           childrenList.add(new Property("query", "", "Definition of a named query and its parameters and their meaning.", 0, java.lang.Integer.MAX_VALUE, query));
+          childrenList.add(new Property("definition", "uri", "Identifies the custom query, defined either in FHIR core or another profile.", 0, java.lang.Integer.MAX_VALUE, definition));
           childrenList.add(new Property("documentMailbox", "uri", "A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
         }
 
@@ -974,6 +1013,7 @@ public class Conformance extends Resource {
         dst.query = new ArrayList<ConformanceRestQueryComponent>();
         for (ConformanceRestQueryComponent i : query)
           dst.query.add(i.copy(e));
+        dst.definition = definition == null ? null : definition.copy();
         dst.documentMailbox = new ArrayList<Uri>();
         for (Uri i : documentMailbox)
           dst.documentMailbox.add(i.copy());
@@ -1599,14 +1639,14 @@ public class Conformance extends Resource {
 
     public static class ConformanceRestResourceSearchParamComponent extends BackboneElement {
         /**
-         * The name of the standard or custom search parameter.
+         * The name of the search parameter used in the interface.
          */
         protected String_ name;
 
         /**
          * A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
          */
-        protected Uri source;
+        protected Uri definition;
 
         /**
          * The type of value a search parameter refers to, and how the content is interpreted.
@@ -1614,14 +1654,9 @@ public class Conformance extends Resource {
         protected Enumeration<SearchParamType> type;
 
         /**
-         * A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
+         * This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
         protected String_ documentation;
-
-        /**
-         * An XPath expression that returns a set of elements for the search parameter.
-         */
-        protected String_ xpath;
 
         /**
          * Types of resource (if a resource is referenced).
@@ -1637,22 +1672,21 @@ public class Conformance extends Resource {
         super();
       }
 
-      public ConformanceRestResourceSearchParamComponent(String_ name, Enumeration<SearchParamType> type, String_ documentation) {
+      public ConformanceRestResourceSearchParamComponent(String_ name, Enumeration<SearchParamType> type) {
         super();
         this.name = name;
         this.type = type;
-        this.documentation = documentation;
       }
 
         /**
-         * @return {@link #name} (The name of the standard or custom search parameter.)
+         * @return {@link #name} (The name of the search parameter used in the interface.)
          */
         public String_ getName() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of the standard or custom search parameter.)
+         * @param value {@link #name} (The name of the search parameter used in the interface.)
          */
         public ConformanceRestResourceSearchParamComponent setName(String_ value) { 
           this.name = value;
@@ -1660,14 +1694,14 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return The name of the standard or custom search parameter.
+         * @return The name of the search parameter used in the interface.
          */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value The name of the standard or custom search parameter.
+         * @param value The name of the search parameter used in the interface.
          */
         public ConformanceRestResourceSearchParamComponent setNameSimple(String value) { 
             if (this.name == null)
@@ -1677,37 +1711,37 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #source} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.)
+         * @return {@link #definition} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.)
          */
-        public Uri getSource() { 
-          return this.source;
+        public Uri getDefinition() { 
+          return this.definition;
         }
 
         /**
-         * @param value {@link #source} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.)
+         * @param value {@link #definition} (A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.)
          */
-        public ConformanceRestResourceSearchParamComponent setSource(Uri value) { 
-          this.source = value;
+        public ConformanceRestResourceSearchParamComponent setDefinition(Uri value) { 
+          this.definition = value;
           return this;
         }
 
         /**
          * @return A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
          */
-        public String getSourceSimple() { 
-          return this.source == null ? null : this.source.getValue();
+        public String getDefinitionSimple() { 
+          return this.definition == null ? null : this.definition.getValue();
         }
 
         /**
          * @param value A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.
          */
-        public ConformanceRestResourceSearchParamComponent setSourceSimple(String value) { 
+        public ConformanceRestResourceSearchParamComponent setDefinitionSimple(String value) { 
           if (value == null)
-            this.source = null;
+            this.definition = null;
           else {
-            if (this.source == null)
-              this.source = new Uri();
-            this.source.setValue(value);
+            if (this.definition == null)
+              this.definition = new Uri();
+            this.definition.setValue(value);
           }
           return this;
         }
@@ -1745,14 +1779,14 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.)
+         * @return {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.)
          */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
         /**
-         * @param value {@link #documentation} (A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.)
+         * @param value {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.)
          */
         public ConformanceRestResourceSearchParamComponent setDocumentation(String_ value) { 
           this.documentation = value;
@@ -1760,54 +1794,22 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
+         * @return This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
-         * @param value A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.
+         * @param value This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
         public ConformanceRestResourceSearchParamComponent setDocumentationSimple(String value) { 
+          if (value == null)
+            this.documentation = null;
+          else {
             if (this.documentation == null)
               this.documentation = new String_();
             this.documentation.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.)
-         */
-        public String_ getXpath() { 
-          return this.xpath;
-        }
-
-        /**
-         * @param value {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.)
-         */
-        public ConformanceRestResourceSearchParamComponent setXpath(String_ value) { 
-          this.xpath = value;
-          return this;
-        }
-
-        /**
-         * @return An XPath expression that returns a set of elements for the search parameter.
-         */
-        public String getXpathSimple() { 
-          return this.xpath == null ? null : this.xpath.getValue();
-        }
-
-        /**
-         * @param value An XPath expression that returns a set of elements for the search parameter.
-         */
-        public ConformanceRestResourceSearchParamComponent setXpathSimple(String value) { 
-          if (value == null)
-            this.xpath = null;
-          else {
-            if (this.xpath == null)
-              this.xpath = new String_();
-            this.xpath.setValue(value);
           }
           return this;
         }
@@ -1868,11 +1870,10 @@ public class Conformance extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("source", "uri", "A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.", 0, java.lang.Integer.MAX_VALUE, source));
+          childrenList.add(new Property("name", "string", "The name of the search parameter used in the interface.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("definition", "uri", "A formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter.", 0, java.lang.Integer.MAX_VALUE, definition));
           childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("documentation", "string", "A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, xpath));
+          childrenList.add(new Property("documentation", "string", "This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
           childrenList.add(new Property("chain", "string", "Chained names supported.", 0, java.lang.Integer.MAX_VALUE, chain));
         }
@@ -1880,10 +1881,9 @@ public class Conformance extends Resource {
       public ConformanceRestResourceSearchParamComponent copy(Conformance e) {
         ConformanceRestResourceSearchParamComponent dst = new ConformanceRestResourceSearchParamComponent();
         dst.name = name == null ? null : name.copy();
-        dst.source = source == null ? null : source.copy();
+        dst.definition = definition == null ? null : definition.copy();
         dst.type = type == null ? null : type.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
-        dst.xpath = xpath == null ? null : xpath.copy();
         dst.target = new ArrayList<Code>();
         for (Code i : target)
           dst.target.add(i.copy());
@@ -2005,23 +2005,17 @@ public class Conformance extends Resource {
         protected String_ name;
 
         /**
-         * Description of the query - the functionality it offers, and considerations about how it functions and to use it.
+         * Additional information about how the query functions in this particular implementation.
          */
         protected String_ documentation;
-
-        /**
-         * A parameter of a named query.
-         */
-        protected List<ConformanceRestResourceSearchParamComponent> parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
 
       public ConformanceRestQueryComponent() {
         super();
       }
 
-      public ConformanceRestQueryComponent(String_ name, String_ documentation) {
+      public ConformanceRestQueryComponent(String_ name) {
         super();
         this.name = name;
-        this.documentation = documentation;
       }
 
         /**
@@ -2057,14 +2051,14 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return {@link #documentation} (Description of the query - the functionality it offers, and considerations about how it functions and to use it.)
+         * @return {@link #documentation} (Additional information about how the query functions in this particular implementation.)
          */
         public String_ getDocumentation() { 
           return this.documentation;
         }
 
         /**
-         * @param value {@link #documentation} (Description of the query - the functionality it offers, and considerations about how it functions and to use it.)
+         * @param value {@link #documentation} (Additional information about how the query functions in this particular implementation.)
          */
         public ConformanceRestQueryComponent setDocumentation(String_ value) { 
           this.documentation = value;
@@ -2072,53 +2066,36 @@ public class Conformance extends Resource {
         }
 
         /**
-         * @return Description of the query - the functionality it offers, and considerations about how it functions and to use it.
+         * @return Additional information about how the query functions in this particular implementation.
          */
         public String getDocumentationSimple() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
-         * @param value Description of the query - the functionality it offers, and considerations about how it functions and to use it.
+         * @param value Additional information about how the query functions in this particular implementation.
          */
         public ConformanceRestQueryComponent setDocumentationSimple(String value) { 
+          if (value == null)
+            this.documentation = null;
+          else {
             if (this.documentation == null)
               this.documentation = new String_();
             this.documentation.setValue(value);
+          }
           return this;
-        }
-
-        /**
-         * @return {@link #parameter} (A parameter of a named query.)
-         */
-        public List<ConformanceRestResourceSearchParamComponent> getParameter() { 
-          return this.parameter;
-        }
-
-    // syntactic sugar
-        /**
-         * @return {@link #parameter} (A parameter of a named query.)
-         */
-        public ConformanceRestResourceSearchParamComponent addParameter() { 
-          ConformanceRestResourceSearchParamComponent t = new ConformanceRestResourceSearchParamComponent();
-          this.parameter.add(t);
-          return t;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of a query, which is used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("documentation", "string", "Description of the query - the functionality it offers, and considerations about how it functions and to use it.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("parameter", "@Conformance.rest.resource.searchParam", "A parameter of a named query.", 0, java.lang.Integer.MAX_VALUE, parameter));
+          childrenList.add(new Property("documentation", "string", "Additional information about how the query functions in this particular implementation.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
       public ConformanceRestQueryComponent copy(Conformance e) {
         ConformanceRestQueryComponent dst = new ConformanceRestQueryComponent();
         dst.name = name == null ? null : name.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
-        dst.parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
-        for (ConformanceRestResourceSearchParamComponent i : parameter)
-          dst.parameter.add(i.copy(e));
         return dst;
       }
 

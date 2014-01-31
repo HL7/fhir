@@ -29,12 +29,12 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jan 30, 2014 05:31+1100 for FHIR v0.12
+// Generated on Fri, Jan 31, 2014 15:05+1100 for FHIR v0.12
 
 import java.util.*;
 
 /**
- * Simple assertions and measurements made about a patient, device or other subject.
+ * Measurements and simple assertions made about a patient, device or other subject.
  */
 public class Observation extends Resource {
 
@@ -194,6 +194,88 @@ public class Observation extends Resource {
       }
     }
 
+    public enum ObservationRelationshiptypes {
+        component, // The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure).
+        member, // The target observation is grouped into a logical group of observations (e.g. a battery, a panel of tests, a set of vital sign measurements).
+        derivedfrom, // The target observation is part of the information from which this observation value is derived (e.g. calculated anion gap, Apgar score).
+        sequelto, // This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).
+        replaces, // This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.
+        qualifiedby, // The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure).
+        interferedby, // The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).
+        Null; // added to help the parsers
+        public static ObservationRelationshiptypes fromCode(String codeString) throws Exception {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("component".equals(codeString))
+          return component;
+        if ("member".equals(codeString))
+          return member;
+        if ("derived-from".equals(codeString))
+          return derivedfrom;
+        if ("sequel-to".equals(codeString))
+          return sequelto;
+        if ("replaces".equals(codeString))
+          return replaces;
+        if ("qualified-by".equals(codeString))
+          return qualifiedby;
+        if ("interfered-by".equals(codeString))
+          return interferedby;
+        throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case component: return "component";
+            case member: return "member";
+            case derivedfrom: return "derived-from";
+            case sequelto: return "sequel-to";
+            case replaces: return "replaces";
+            case qualifiedby: return "qualified-by";
+            case interferedby: return "interfered-by";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ObservationRelationshiptypesEnumFactory implements EnumFactory {
+    public Enum<?> fromCode(String codeString) throws Exception {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("component".equals(codeString))
+          return ObservationRelationshiptypes.component;
+        if ("member".equals(codeString))
+          return ObservationRelationshiptypes.member;
+        if ("derived-from".equals(codeString))
+          return ObservationRelationshiptypes.derivedfrom;
+        if ("sequel-to".equals(codeString))
+          return ObservationRelationshiptypes.sequelto;
+        if ("replaces".equals(codeString))
+          return ObservationRelationshiptypes.replaces;
+        if ("qualified-by".equals(codeString))
+          return ObservationRelationshiptypes.qualifiedby;
+        if ("interfered-by".equals(codeString))
+          return ObservationRelationshiptypes.interferedby;
+        throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
+        }
+    public String toCode(Enum<?> code) throws Exception {
+      if (code == ObservationRelationshiptypes.component)
+        return "component";
+      if (code == ObservationRelationshiptypes.member)
+        return "member";
+      if (code == ObservationRelationshiptypes.derivedfrom)
+        return "derived-from";
+      if (code == ObservationRelationshiptypes.sequelto)
+        return "sequel-to";
+      if (code == ObservationRelationshiptypes.replaces)
+        return "replaces";
+      if (code == ObservationRelationshiptypes.qualifiedby)
+        return "qualified-by";
+      if (code == ObservationRelationshiptypes.interferedby)
+        return "interfered-by";
+      return "?";
+      }
+    }
+
     public static class ObservationReferenceRangeComponent extends BackboneElement {
         /**
          * The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.
@@ -298,13 +380,99 @@ public class Observation extends Resource {
 
   }
 
+    public static class ObservationRelatedComponent extends BackboneElement {
+        /**
+         * A code specifying the kind of relationship that exists with the target observation.
+         */
+        protected Enumeration<ObservationRelationshiptypes> type;
+
+        /**
+         * A reference to the observation that is related to this observation.
+         */
+        protected ResourceReference target;
+
+      public ObservationRelatedComponent() {
+        super();
+      }
+
+      public ObservationRelatedComponent(ResourceReference target) {
+        super();
+        this.target = target;
+      }
+
+        /**
+         * @return {@link #type} (A code specifying the kind of relationship that exists with the target observation.)
+         */
+        public Enumeration<ObservationRelationshiptypes> getType() { 
+          return this.type;
+        }
+
+        /**
+         * @param value {@link #type} (A code specifying the kind of relationship that exists with the target observation.)
+         */
+        public ObservationRelatedComponent setType(Enumeration<ObservationRelationshiptypes> value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return A code specifying the kind of relationship that exists with the target observation.
+         */
+        public ObservationRelationshiptypes getTypeSimple() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value A code specifying the kind of relationship that exists with the target observation.
+         */
+        public ObservationRelatedComponent setTypeSimple(ObservationRelationshiptypes value) { 
+          if (value == null)
+            this.type = null;
+          else {
+            if (this.type == null)
+              this.type = new Enumeration<ObservationRelationshiptypes>();
+            this.type.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #target} (A reference to the observation that is related to this observation.)
+         */
+        public ResourceReference getTarget() { 
+          return this.target;
+        }
+
+        /**
+         * @param value {@link #target} (A reference to the observation that is related to this observation.)
+         */
+        public ObservationRelatedComponent setTarget(ResourceReference value) { 
+          this.target = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "code", "A code specifying the kind of relationship that exists with the target observation.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("target", "Resource(Observation)", "A reference to the observation that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
+        }
+
+      public ObservationRelatedComponent copy(Observation e) {
+        ObservationRelatedComponent dst = new ObservationRelatedComponent();
+        dst.type = type == null ? null : type.copy();
+        dst.target = target == null ? null : target.copy();
+        return dst;
+      }
+
+  }
+
     /**
      * Describes what was observed. Sometimes this is called the observation "code".
      */
     protected CodeableConcept name;
 
     /**
-     * The information determined as a result of making the observation.
+     * The information determined as a result of making the observation, if the information has a simple value.
      */
     protected Type value;
 
@@ -373,6 +541,11 @@ public class Observation extends Resource {
      */
     protected List<ObservationReferenceRangeComponent> referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
 
+    /**
+     * Related observations - either components, or previous observations, or statements of derivation.
+     */
+    protected List<ObservationRelatedComponent> related = new ArrayList<ObservationRelatedComponent>();
+
     public Observation() {
       super();
     }
@@ -400,14 +573,14 @@ public class Observation extends Resource {
     }
 
     /**
-     * @return {@link #value} (The information determined as a result of making the observation.)
+     * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public Type getValue() { 
       return this.value;
     }
 
     /**
-     * @param value {@link #value} (The information determined as a result of making the observation.)
+     * @param value {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public Observation setValue(Type value) { 
       this.value = value;
@@ -689,10 +862,27 @@ public class Observation extends Resource {
       return t;
     }
 
+    /**
+     * @return {@link #related} (Related observations - either components, or previous observations, or statements of derivation.)
+     */
+    public List<ObservationRelatedComponent> getRelated() { 
+      return this.related;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #related} (Related observations - either components, or previous observations, or statements of derivation.)
+     */
+    public ObservationRelatedComponent addRelated() { 
+      ObservationRelatedComponent t = new ObservationRelatedComponent();
+      this.related.add(t);
+      return t;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string", "The information determined as a result of making the observation.", 0, java.lang.Integer.MAX_VALUE, value));
+        childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("applies[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, applies));
@@ -706,6 +896,7 @@ public class Observation extends Resource {
         childrenList.add(new Property("specimen", "Resource(Specimen)", "The specimen that was used when this observation was made.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("performer", "Resource(Practitioner|Device|Organization)", "Who was responsible for asserting the observed value as 'true'.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("referenceRange", "", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
+        childrenList.add(new Property("related", "", "Related observations - either components, or previous observations, or statements of derivation.", 0, java.lang.Integer.MAX_VALUE, related));
       }
 
       public Observation copy() {
@@ -729,6 +920,9 @@ public class Observation extends Resource {
         dst.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
         for (ObservationReferenceRangeComponent i : referenceRange)
           dst.referenceRange.add(i.copy(dst));
+        dst.related = new ArrayList<ObservationRelatedComponent>();
+        for (ObservationRelatedComponent i : related)
+          dst.related.add(i.copy(dst));
         return dst;
       }
 

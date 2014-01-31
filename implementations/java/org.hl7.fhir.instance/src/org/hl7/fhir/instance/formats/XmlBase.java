@@ -45,8 +45,6 @@ import org.hl7.fhir.utilities.Utilities;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import com.sun.org.apache.bcel.internal.generic.CALOAD;
-
 public abstract class XmlBase {
   protected static final String FHIR_NS = "http://hl7.org/fhir";
   protected static final String ATOM_NS = "http://www.w3.org/2005/Atom";
