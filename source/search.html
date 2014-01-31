@@ -355,7 +355,7 @@ the Patient resource includes a parameter <i>name</i> which
 searches on patient name, then the search
 </p>
 <pre>
- GET [base-url]/DiagnosticReport?subject.name="peter"
+ GET [base-url]/DiagnosticReport?subject.name=peter
 </pre>
 <p>
 is a request to return all the lab reports that have a subject whose name includes "peter". Because 
@@ -363,7 +363,7 @@ the Diagnostic Report subject can be one of a set of different resources, it's p
 the search to a particular type:
 </p>
 <pre>
- GET [base-url]/DiagnosticReport?subject:Patient.name="peter"
+ GET [base-url]/DiagnosticReport?subject:Patient.name=peter
 </pre>
 <p>
 Which is a request to return all the lab reports that have a subject which is a patient, whose name includes "peter". 
