@@ -86,6 +86,9 @@
    <Protection/>
   </Style>
   <Style ss:ID="s72">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -93,7 +96,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -102,10 +105,10 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -113,10 +116,10 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -124,9 +127,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s78">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s79">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
@@ -200,7 +200,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="73" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="74" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="229.5"/>
@@ -640,7 +640,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:Height="135">
+   <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Conformance.rest.resource.searchParam.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s70"/>
@@ -652,7 +652,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">While this can be looked up from the definition, it is included here as a convenience for systems that auto-generate a query interface based on the server conformance statement.  It SHALL be the same as the type in the search parameter definition</Data></Cell>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
@@ -674,7 +674,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Conformance.rest.resource.searchParam.target</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s70"/>
@@ -686,7 +686,7 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">This SHALL be the same as or a proper subset of the resources listed in the search parameter definition.</Data></Cell>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
@@ -797,6 +797,24 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">Conformance.rest.query.parameter</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String" x:Ticked="1">@Conformance.rest.resource.searchParam</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell><Data ss:Type="String">Parameter for the named query</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies which of the parameters for the named query are supported</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">This SHALL be a proper subset of the parameters defined on the query definition</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Conformance.rest.documentMailbox</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
@@ -809,7 +827,7 @@
     <Cell><Data ss:Type="String">A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier &quot;http://hl7.org/fhir/documents/mailbox&quot;. Other specifications can declare their own identifier for this purpose</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">If a server accepts messages on the /Mailbox end-point, it declares this in the messaging elements</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">If a server accepts messages on the /Mailbox end-point, it declares this in the messaging elements</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -820,7 +838,7 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s71"/>
     <Cell ss:Index="7" ss:StyleID="s71"><Data ss:Type="String">0;190</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">If messaging is supported</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">If messaging is supported</Data></Cell>
     <Cell><Data ss:Type="String">A description of the messaging capabilities of the solution</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -1029,7 +1047,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>45</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1042,9 +1060,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>56</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1054,19 +1075,19 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="14" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="64.5"
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="94.5"/>
-   <Column ss:StyleID="s73" ss:Width="67.5"/>
-   <Column ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="144"/>
-   <Column ss:Index="6" ss:StyleID="s73" ss:AutoFitWidth="0" ss:Width="274.5"/>
+   <Column ss:Index="2" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="94.5"/>
+   <Column ss:StyleID="s74" ss:Width="67.5"/>
+   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="144"/>
+   <Column ss:Index="6" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Context</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">English</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Context</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">English</Data></Cell>
     <Cell><Data ss:Type="String">OCL</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">XPath</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">XPath</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1198,30 +1219,30 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="17" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s76" ss:DefaultColumnWidth="64.5"
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="70.5"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="4" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="352.5"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s77">
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:Index="4" ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="352.5"/>
+   <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s78">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
     <Cell><Data ss:Type="String">Path</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s72">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
     <Cell><Data ss:Type="String">The identifier of the conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Conformance.identifier</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s72">
     <Cell><Data ss:Type="String">version</Data></Cell>
     <Cell><Data ss:Type="String">The version identifier of the conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Conformance.version</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s72">
     <Cell><Data ss:Type="String">name</Data></Cell>
     <Cell><Data ss:Type="String">Name of the conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
@@ -1229,17 +1250,17 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">publisher</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Name of the publisher of the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Name of the publisher of the conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Conformance.publisher</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s72">
     <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Text search in the description of the conformance statement</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Text search in the description of the conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Conformance.description</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s72">
     <Cell><Data ss:Type="String">status</Data></Cell>
     <Cell><Data ss:Type="String">The current status of the conformance statement</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
@@ -1331,13 +1352,13 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="11" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s78" ss:DefaultColumnWidth="64.5"
+   x:FullRows="1" ss:StyleID="s72" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="133.5"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="256.5"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="49.5"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="178.5"/>
-   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="324"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="133.5"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="256.5"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="49.5"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="178.5"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="324"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Definition</Data></Cell>
@@ -1395,9 +1416,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">SearchParamType</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Data types allowed to be used for search parameters</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Data types allowed to be used for search parameters</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">#search-param-type</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">#search-param-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">MessageSignificanceCategory</Data></Cell>
