@@ -52,7 +52,7 @@ general references to other documents.
 
 <p>
 All documents have the same structure: a <a href="extras.html#bundle">bundle</a> 
-<a href="extras.html#tags">of resources identified by the tag</a> "http://hl7.org/fhir/tag/document", 
+<a href="extras.html#tags">of resources identified by the tag</a> "http://hl7.org/fhir/tag/document" 
 that has a <a href="composition.html">Composition</a> resource as the first resource 
 in the bundle, followed by a series of other resources referenced from the <i>Composition</i> 
 resource that provides guidance on how they fit together. The bundle gathers all the content
@@ -99,7 +99,7 @@ The document has several dates in it:
 <ul>
  <li>The document date (mandatory). This is found in <i>feed.updated</i> and identifies when the document bundle was assembled from the underlying resources</li>
  <li>The Composition date (mandatory). This is found in <i>Composition.instant</i>, which is when the author wrote the document logically</li> 
- <li>The Attestation dates (optional). This is found in <i>Composition.attester.time</i> and is when the document was witnessed by the attesters. This would usually be at the same time as the composition date, or afterwards</li> 
+ <li>The Attestation dates (optional). This is found in <i>Composition.attester.time</i> and is when the document was witnessed by the attesters. This would usually be at the same time as the composition date or afterwards</li> 
  <li>The Composition last modified time (mandatory per Atom). This is found in <i>entry.updated</i> for the composition, and is the last date of change of the composition. This must be &gt;= the composition date</li> 
 </ul>
 <p>
@@ -113,7 +113,7 @@ element value for the matching attester resource.
 <p>
 Once assembled into a bundle, the document is immutable - its content can never be changed,
 and the document id can never be reused. Note that the document may be represented in either
-XML or JSON, and interconverted between these, or have its character encoding changed, all
+XML or JSON, and interconverted between these or have its character encoding changed, all
 the while remaining the same document. However the content (the set of attested resources,
 and their order) and the presentation of the document cannot change. Any additional 
 documents derived from the same composition SHALL have a different document id. 
@@ -161,7 +161,7 @@ apply to the collated narrative. This is done by asserting stylesheet links on t
   &lt;link rel=&quot;stylesheet&quot; href=&quot;[uri]&quot;/&gt;
 </pre>
 <p>
-The uri can be an absolute reference to a CSS stylesheet, or
+The uri can be an absolute reference to a CSS stylesheet or
 a relative reference to a Binary resource that carries a 
 CSS stylesheet. Stylesheet references can only refer to 
 a CSS stylesheet - other forms of stylesheet are not acceptable. 
@@ -179,7 +179,7 @@ consider the implications this action will have on their long term scope for doc
 exchange very carefully. If the parties agree to use stylesheets that are 
 not contained in the document, then it may be that they will never be able 
 to share their documents safely in a more general context, such as a regional 
-or national EHR, or a global personal health record.
+or national EHR or a global personal health record.
 </p>
 
 
@@ -212,7 +212,7 @@ obligations that they must satisfy.
 <h3>Author/Constructor Obligations</h3>
 <p>
 A document constructor is an application that creates a document. An author 
-is a human, organization, or device that uses the constructor to create a 
+is a human, organization or device that uses the constructor to create a 
 document. Between them, the constructor and the author may create new 
 content resources and/or assemble already existing content resources while performing their tasks. 
 They also have the following responsibilities:
@@ -241,9 +241,9 @@ document processor has the obligation to assure that the following rules are fol
 </ul>
 <p>
 In addition to these obligations, document receivers SHOULD carefully track the source of 
-documents for new documents that supercede existing documents, particularly when the documents
+documents for new documents that supersede existing documents, particularly when the documents
 represent compositions that have been retracted. When documents have been replaced,
-they SHOULD either withdraw data extracted from superseded documents, or warn users when 
+they SHOULD either withdraw data extracted from superseded documents or warn users when 
 they view the document or data taken from it.
 </p>
 
@@ -265,7 +265,7 @@ to create the atom:source elements.
 Whether documents are signed with an enveloped or a detached signature, applications
 processing documents need to relate the document to an existing document participant.
 For this reasons, the keyName in the signature SHOULD contain a uri that points 
-directly to one of the document participants (person, device, or organization)
+directly to one of the document participants (person, device or organization)
 by the resource identity.
 </p>
 <p>
@@ -288,23 +288,23 @@ of posting to them:
 <table class="grid">
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td>[baseurl]/Document</td> <td>Document Bundle</td> <td>This works like a normal end point 
-   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, an update gets a bundle, and a search returns a bundle of bundles. The search parameters
+   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, an update gets a bundle and a search returns a bundle of bundles. The search parameters
    exposed by this end-point are those of the composition resource from the document bundle</td> </tr>
    
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end point for managing
-   composition resources. This can be used while building a document, or after breaking a document up into 
-   its constituent resources, or when using compositions separately from documents</td> </tr>
+   composition resources. This can be used while building a document or after breaking a document up into 
+   its constituent resources or when using compositions separately from documents</td> </tr>
    
  <tr> <td><a href="extras.html#binary">[baseurl]/Binary</a></td> <td>Document Bundle</td> <td>Just store the entire document as 
-   a sequence of bytes, and return exactly that sequence when requested. There is no way to find content in the /Binary end-point,
+   a sequence of bytes and return exactly that sequence when requested. There is no way to find content in the /Binary end-point,
    so usually this would be associated with a <a href="documentreference.html">Document Reference</a> so that applications
    can find and process the document, though this is not required</td> </tr>
    
  <tr> <td><a href="http.html#transaction">[baseurl]</a> (e.g. a transaction)</td> <td>Document Bundle</td> <td>Ignore the 
-   fact that the bundle is a document, and process all the resources that it contains as individual resources. Clients SHOULD
-   not expect that a server that receives a document submitted using this method will be able to reassemble the document exactly (e.g. even if the
-   server can reassemble the document (see below), the result cannot be expected to be in the same order etc, and thus a document signature will
-   very likely be invalid)</td> </tr>
+   fact that the bundle is a document and process all of the resources that it contains as individual resources. Clients SHOULD
+   not expect that a server that receives a document submitted using this method will be able to reassemble the document exactly. (Even if the
+   server can reassemble the document (see below), the result cannot be expected to be in the same order, etc.  Thus a document signature will
+   very likely be invalid.)</td> </tr>
    
  <tr> <td><a href="messaging.html#mailbox">[baseurl]/Mailbox</a></td> <td>Document Bundle</td> <td>Submit the 
  document to the server for processing. The exact processing the server performs is at the discretion of the
@@ -312,7 +312,7 @@ of posting to them:
   <ul>
     <li>Resend the document elsewhere</li>
     <li>Break it up into individually accessible resources and make them available on a RESTful interface</li>
-    <li>Retain the document in its binary form and make it available on /Binary, and perhaps also create a DocumentReference</li>
+    <li>Retain the document in its binary form and make it available on /Binary and perhaps also create a DocumentReference</li>
   </ul>
   The server is not obliged to process the document in any particular fashion. The client does not know what action
   the server will take, only that the server has accepted responsibility for the document. 
@@ -330,8 +330,8 @@ it is not necessary to use them. Documents may be transferred between systems us
 <h3>Generating a Document</h3>
 <p>
 A client can ask a server to generate a fully bundled document from a composition resource.
-The server takes the composition resource, locates all the referenced resources, and other
-additional resources as configured or requested, and either returns a full document bundle,
+The server takes the composition resource, locates all the referenced resources and other
+additional resources as configured or requested and either returns a full document bundle,
 or returns an error. Note that since this is a search operation, the document bundle is 
 wrapped inside the search bundle.
 </p>
@@ -349,14 +349,14 @@ end point:
 </pre>
 <p>
 The "id" parameter is a relative or absolute reference to composition resource (e.g.
-Composition/1234). The format of the document is specified using the accept: header, or 
+Composition/1234). The format of the document is specified using the accept: header or 
 a <a href="http.html#mime-type">_format parameter</a>. Other parameters may be supplied:
 </p>
 <table class="grid">
   <tr> <td><b>Name</b></td> <td><b>Meaning</b></td> </tr>
   <tr> <td>persist</td> <td>Whether to store the document at the document end-point (/Document) or not once it is generated. Value = true or false (default is for the server to decide)</td> </tr>
   <tr> <td>cert</td> <td>Certificate URL to use to sign the document with</td> </tr>
-  <tr> <td>pword</td> <td>Password if certificate requires one, and the server doesn't know it by some other means. Putting the password in the URL has obvious security implications to consider. An alternative is for the client to sign the document</td> </tr>
+  <tr> <td>pword</td> <td>Password if certificate requires one and the server doesn't know it by some other means. Putting the password in the URL has obvious security implications to consider. An alternative is for the client to sign the document</td> </tr>
 </table>
 
 
