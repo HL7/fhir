@@ -188,7 +188,7 @@ public class NarrativeGenerator {
       x.addText(((Identifier) e).getValueSimple());
     } else if (e instanceof Period) {
       Period p = (Period) e;
-      x.addText((p.getStartSimple() == null ? "??" : p.getStartSimple().toString()) + (p.getEndSimple() == null ? "(ongoing)" : p.getEndSimple().toString()));
+      x.addText((p.getStartSimple() == null ? "??" : p.getStartSimple().toString()) +" --> " + (p.getEndSimple() == null ? "(ongoing)" : p.getEndSimple().toString()));
     } else 
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
   }
