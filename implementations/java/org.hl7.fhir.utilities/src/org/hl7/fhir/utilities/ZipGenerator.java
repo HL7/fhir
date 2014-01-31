@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.zip.CRC32;
 import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -163,19 +164,29 @@ public class ZipGenerator {
     }
   }
 
-  public void addFileNameNoCompress(String statedPath, String actualPath) throws Exception {
-    byte data[] = new byte[BUFFER];
-    FileInputStream fi = new FileInputStream(actualPath);
-    BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
+  public void addMimeTypeFile(String statedPath, String actualPath) throws Exception {
+  //  byte data[] = new byte[BUFFER];
+    CRC32 crc = new CRC32();
+    
+  //  FileInputStream fi = new FileInputStream(actualPath);
+  //  BufferedInputStream origin = new BufferedInputStream(fi, BUFFER);
     out.setLevel(0);
     ZipEntry entry = new ZipEntry(statedPath);
+    entry.setExtra(null);
     names.add(statedPath);
+    String contents = "application/epub+zip";
+    crc.update(contents.getBytes());
+    entry.setCompressedSize(contents.length());
+    entry.setSize(contents.length());
+    entry.setCrc(crc.getValue());
+    entry.setMethod(ZipEntry.STORED);
     out.putNextEntry(entry);
-    int count;
-    while ((count = origin.read(data, 0, BUFFER)) != -1) {
-      out.write(data, 0, count);
-    }
-    origin.close();
+ //   int count;
+//    while ((count = origin.read(data, 0, BUFFER)) != -1) {
+//      out.write(data, 0, count);
+//    }
+  //  origin.close();
+    out.write(contents.getBytes(),0,contents.length());
     out.setLevel(Deflater.BEST_COMPRESSION);
   }
 

@@ -66,10 +66,10 @@ public class EPubManager implements FileNotifier {
 
   public void produce() throws FileNotFoundException, Exception {
     ZipGenerator zip = new ZipGenerator(Utilities.path(page.getFolders().dstDir, "fhir-v"+page.getVersion()+".epub"));
-    zip.addFileNameNoCompress("mimetype", Utilities.path(page.getFolders().rootDir, "tools", "epub", "mimetype"));
-    zip.addFileName("META-INF\\container.xml", Utilities.path(page.getFolders().rootDir, "tools", "epub", "container.xml"), false);
-    zip.addBytes("OEBPS\\Content.opf", generateContentFile(), false);
-    zip.addBytes("OEBPS\\toc.ncx", generateIndexFile(), false);
+    zip.addMimeTypeFile("mimetype", Utilities.path(page.getFolders().rootDir, "tools", "epub", "mimetype"));
+    zip.addFileName("META-INF/container.xml", Utilities.path(page.getFolders().rootDir, "tools", "epub", "container.xml"), false);
+    zip.addBytes("OEBPS/content.opf", generateContentFile(), false);
+    zip.addBytes("OEBPS/toc.ncx", generateIndexFile(), false);
     build(zip);
     zip.close();
     
@@ -209,10 +209,10 @@ public class EPubManager implements FileNotifier {
       if (XHTML_TYPE.equals(e.type)) {
         if (!e.checked)
           check(e);
-        zip.addBytes("OEBPS\\"+e.filename, e.bytes, false);
+        zip.addBytes("OEBPS/"+e.filename, e.bytes, false);
         e.bytes = null;        
       } else {
-        zip.addFileName("OEBPS\\"+e.filename, Utilities.path(page.getFolders().dstDir, e.filename), true);
+        zip.addFileName("OEBPS/"+e.filename, Utilities.path(page.getFolders().dstDir, e.filename), true);
       }
     }
   }
