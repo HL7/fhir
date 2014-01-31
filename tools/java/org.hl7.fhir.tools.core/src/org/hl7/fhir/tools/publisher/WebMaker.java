@@ -70,7 +70,7 @@ public class WebMaker {
   }
 
   private static final String SEARCH_FORM_HOLDER = "<p id=\"srch\">&nbsp;</p>";
-  private static final String SEARCH_LINK = "<div id=\"hl7-search\"/>";
+  private static final String SEARCH_LINK = "<div id=\"hl7-search\"> </div>";
   private static final String DISQUS_COMMMENT = "<!-- disqus -->";
 
   public void produceHL7Copy() throws Exception {
