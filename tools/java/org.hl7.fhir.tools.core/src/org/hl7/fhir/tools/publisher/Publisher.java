@@ -539,13 +539,7 @@ public class Publisher {
     new JsonComposer().compose(b, conf, true);
     String json = new String(b.toByteArray());
 
-    String head = "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\">\r\n<head>\r\n <title>Base Conformance Statement</title>\r\n <link rel=\"Stylesheet\" href=\"fhir.css\" type=\"text/css\" media=\"screen\"/>\r\n"
-        + "</head>\r\n<body>\r\n<p>&nbsp;</p>\r\n<div class=\"example\">\r\n<p>Base Conformance Statement</p>\r\n<p><a href=\"conformance-"
-        + name
-        + ".json\">Raw JSON</a></p>\r\n<pre class=\"json\">\r\n";
-    String tail = "\r\n</pre>\r\n</div>\r\n</body>\r\n</html>\r\n";
-    TextFile.stringToFile(head + Utilities.escapeXml(json) + tail, page.getFolders().dstDir + "conformance-" + name + ".json.html");
-    page.getEpub().registerFile("conformance-" + name + ".json.html", "Conformance Example", EPubManager.XHTML_TYPE);
+    jsonToXhtml("conformance-" + name, "Base Conformance Statement", json, "resource-instance:Conformance");
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + "conformance-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator
         + "conformance-" + name + ".xml"));
@@ -1058,7 +1052,7 @@ public class Publisher {
       if (!fn.isDirectory()) {
         if (f.endsWith(".html")) {
           String src = TextFile.fileToString(fn.getAbsolutePath());
-          String srcn = src.replace("Warning: This is the FHIR DSTU version",
+          String srcn = src.replace("<!-- achive note -->",
               "This is an old version of FHIR retained for archive purposes. Do not use for anything else");
           if (!srcn.equals(src))
             c++;
