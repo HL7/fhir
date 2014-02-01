@@ -335,8 +335,16 @@ public class SpreadsheetParser {
               throw new Exception("Search Param "+root2.getName()+"/"+n+" has no description "+ getLocation(row));
             for (String pi : pl) {
               String p = pi.trim();
-              if (!root2.getSearchParams().containsKey(p)) 
-                throw new Exception("Composite Search Param "+root2.getName()+"/"+n+"  refers to an unknown component "+p+" at "+ getLocation(row));
+              if (!root2.getSearchParams().containsKey(p)) {
+                boolean found = false;
+                if (p.endsWith("[x]"))
+                  for (String pan : root2.getSearchParams().keySet()) {
+                    if (pan.startsWith(p.substring(0,  p.length()-3)))
+                      found = true;
+                  }
+                if (!found)                
+                  throw new Exception("Composite Search Param "+root2.getName()+"/"+n+"  refers to an unknown component "+p+" at "+ getLocation(row));
+              }
               pn.add(p);
               sp = new SearchParameter(n, d, t);
               sp.getComposites().addAll(pn);
@@ -388,8 +396,8 @@ public class SpreadsheetParser {
       return SearchType.token;
     if ("composite".equals(s))
       return SearchType.composite;
-    if ("variable".equals(s))
-      return SearchType.variable;
+    if ("quantity".equals(s))
+      return SearchType.quantity;
 		throw new Exception("Unknown Search Type '" + s + "': " + getLocation(row));
 	}
 

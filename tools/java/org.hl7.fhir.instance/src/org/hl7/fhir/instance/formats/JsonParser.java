@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jan 31, 2014 15:05+1100 for FHIR v0.12
+// Generated on Sat, Feb 1, 2014 18:37+1100 for FHIR v0.80
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1571,10 +1571,6 @@ public class JsonParser extends JsonParserBase {
         res.getQuery().add(parseConformanceConformanceRestQueryComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
-    if (json.has("definition"))
-      res.setDefinition(parseUri(json.get("definition").getAsString()));
-    if (json.has("_definition"))
-      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinition());
     if (json.has("documentMailbox")) {
       JsonArray array = json.getAsJsonArray("documentMailbox");
       for (int i = 0; i < array.size(); i++) {
@@ -1767,10 +1763,20 @@ public class JsonParser extends JsonParserBase {
       res.setName(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+    if (json.has("definition"))
+      res.setDefinition(parseUri(json.get("definition").getAsString()));
+    if (json.has("_definition"))
+      parseElementProperties(json.getAsJsonObject("_definition"), res.getDefinition());
     if (json.has("documentation"))
       res.setDocumentation(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
       parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentation());
+    if (json.has("parameter")) {
+      JsonArray array = json.getAsJsonArray("parameter");
+      for (int i = 0; i < array.size(); i++) {
+        res.getParameter().add(parseConformanceConformanceRestResourceSearchParamComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
     return res;
   }
 

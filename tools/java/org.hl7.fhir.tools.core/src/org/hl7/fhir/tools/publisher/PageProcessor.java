@@ -808,7 +808,8 @@ public class PageProcessor implements Logger  {
     html = processPageIncludes(n+".xml.html", html, pageType, null);
     TextFile.stringToFile(html, dst);
     
-    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
+//    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
+    epub.registerExternal(dst);
   }
 
   public void jsonToXhtml(String src, String dst, String link, String name, String description, int level, String json, String pageType) throws Exception {
@@ -817,7 +818,8 @@ public class PageProcessor implements Logger  {
     String html = TextFile.fileToString(folders.srcDir + "template-example-json.html").replace("<%setlevel 0%>", "<%setlevel "+Integer.toString(level)+"%>").replace("<%example%>", json);
     html = processPageIncludes(dst, html, pageType, null);
     TextFile.stringToFile(html, getFolders().dstDir + dst);
-    getEpub().registerFile(dst, description, EPubManager.XHTML_TYPE);
+//    epub.registerFile(dst, description, EPubManager.XHTML_TYPE);
+    epub.registerExternal(dst);
 //
 //    
 //    FileOutputStream outs = new FileOutputStream(folders.dstDir+ dst);

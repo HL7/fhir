@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jan 31, 2014 15:05+1100 for FHIR v0.12
+// Generated on Sat, Feb 1, 2014 18:37+1100 for FHIR v0.80
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -1513,8 +1513,6 @@ public class XmlParser extends XmlParserBase {
         res.getOperation().add(parseConformanceConformanceRestOperationComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("query")) {
         res.getQuery().add(parseConformanceConformanceRestQueryComponent(xpp, owner));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definition")) {
-        res.setDefinition(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("documentMailbox")) {
         res.getDocumentMailbox().add(parseUri(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -1663,8 +1661,12 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setName(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definition")) {
+        res.setDefinition(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("documentation")) {
         res.setDocumentation(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("parameter")) {
+        res.getParameter().add(parseConformanceConformanceRestResourceSearchParamComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);

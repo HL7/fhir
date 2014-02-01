@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Jan 31, 2014 15:05+1100 for FHIR v0.12
+// Generated on Sat, Feb 1, 2014 18:37+1100 for FHIR v0.80
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1477,8 +1477,6 @@ public class JsonComposer extends JsonComposerBase {
           composeConformanceConformanceRestQueryComponent(null, e);
         closeArray();
       };
-      composeUriCore("definition", element.getDefinition(), false);
-      composeUriExtras("definition", element.getDefinition(), false);
       if (element.getDocumentMailbox().size() > 0) {
         openArray("documentMailbox");
         for (Uri e : element.getDocumentMailbox()) 
@@ -1646,8 +1644,16 @@ public class JsonComposer extends JsonComposerBase {
       composeBackbone(element);
       composeStringCore("name", element.getName(), false);
       composeStringExtras("name", element.getName(), false);
+      composeUriCore("definition", element.getDefinition(), false);
+      composeUriExtras("definition", element.getDefinition(), false);
       composeStringCore("documentation", element.getDocumentation(), false);
       composeStringExtras("documentation", element.getDocumentation(), false);
+      if (element.getParameter().size() > 0) {
+        openArray("parameter");
+        for (Conformance.ConformanceRestResourceSearchParamComponent e : element.getParameter()) 
+          composeConformanceConformanceRestResourceSearchParamComponent(null, e);
+        closeArray();
+      };
       close();
     }
   }

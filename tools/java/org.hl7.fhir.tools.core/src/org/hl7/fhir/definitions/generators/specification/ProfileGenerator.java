@@ -186,8 +186,8 @@ public class ProfileGenerator {
       return Profile.SearchParamType.token;
     case composite:
       return Profile.SearchParamType.composite;
-    case variable:
-      return Profile.SearchParamType.variable;
+    case quantity:
+      return Profile.SearchParamType.quantity;
     }
     return null;
   }

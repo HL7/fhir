@@ -49,6 +49,7 @@ public class EPubManager implements FileNotifier {
 
   private PageProcessor page;
   private List<Entry> entries = new ArrayList<EPubManager.Entry>();
+  private List<String> externals = new ArrayList<String>();
   private String uuid;
 
   
@@ -57,6 +58,12 @@ public class EPubManager implements FileNotifier {
     this.page = page;
   }
 
+  public void registerExternal(String filename) {
+    if (filename.startsWith(page.getFolders().dstDir))
+      filename = filename.substring(page.getFolders().dstDir.length());
+    externals.add(filename);
+  }
+  
   public void registerFile(String filename, String title, String type) {
     if (filename.startsWith(page.getFolders().dstDir))
       filename = filename.substring(page.getFolders().dstDir.length());
@@ -314,6 +321,9 @@ public class EPubManager implements FileNotifier {
           reportError("Broken Link in "+base+": '"+href+"' not found at \""+Utilities.path(page.getFolders().dstDir, target)+"\" ("+node.allText()+")");
         node.setAttribute("href", "http://hl7.org/fhir/"+target.replace(File.separatorChar, '/'));
         e = null;
+      } else if (externals.contains(target)) {
+        node.setAttribute("href", "http://hl7.org/fhir/"+target.replace(File.separatorChar, '/'));
+        e = null;
       } else {
         e = getEntryForFile(target);
         if (e == null) {
@@ -324,10 +334,12 @@ public class EPubManager implements FileNotifier {
     } else 
       e = getEntryForFile(base);
     if (!Utilities.noString(anchor)) {
-      if (!e.checked)
-        check(e);
-      if (!e.anchors.contains(anchor))
-        reportError("Broken Link in "+base+": '"+href+"' anchor not found ("+node.allText()+")");
+      if (e!= null) {
+        if (!e.checked)
+          check(e);
+        if (!e.anchors.contains(anchor))
+          reportError("Broken Link in "+base+": '"+href+"' anchor not found ("+node.allText()+")");
+      }
     }
   }
 

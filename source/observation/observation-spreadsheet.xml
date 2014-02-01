@@ -20,7 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1026,7 +1026,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>22</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1171,7 +1171,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="36" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="39" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="70.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.5"/>
@@ -1190,16 +1190,34 @@
     <Cell><Data ss:Type="String">Observation.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">value</Data></Cell>
-    <Cell><Data ss:Type="String">The value of the observation, if the value has the type CodeableConcept, string, Quantity, or SampledData</Data></Cell>
-    <Cell><Data ss:Type="String">variable</Data></Cell>
+    <Cell><Data ss:Type="String">value-quantity</Data></Cell>
+    <Cell><Data ss:Type="String">The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)</Data></Cell>
+    <Cell><Data ss:Type="String">quantity</Data></Cell>
     <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">name-value</Data></Cell>
-    <Cell><Data ss:Type="String">Both name and value</Data></Cell>
+    <Cell><Data ss:Type="String">value-concept</Data></Cell>
+    <Cell><Data ss:Type="String">The value of the observation, if the value is a CodeableConcept</Data></Cell>
+    <Cell><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">value-period</Data></Cell>
+    <Cell><Data ss:Type="String">The value of the observation, if the value is a Period</Data></Cell>
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">value-string</Data></Cell>
+    <Cell><Data ss:Type="String">The value of the observation, if the value is a string, and also searches in CodeableConcept.text</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">Observation.value[x]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">name-value-[x]</Data></Cell>
+    <Cell><Data ss:Type="String">Both name and one of the value parameters</Data></Cell>
     <Cell><Data ss:Type="String">composite</Data></Cell>
-    <Cell><Data ss:Type="String">name &amp; value</Data></Cell>
+    <Cell><Data ss:Type="String">name &amp; value-[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
@@ -1256,7 +1274,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">related</Data></Cell>
-    <Cell><Data ss:Type="String">Related Observations</Data></Cell>
+    <Cell><Data ss:Type="String">Related Observations - search on related-type and related-target together</Data></Cell>
     <Cell><Data ss:Type="String">composite</Data></Cell>
     <Cell><Data ss:Type="String">related-target &amp; related-type</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s67"/>
@@ -1338,6 +1356,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1357,7 +1376,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1701,7 +1720,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

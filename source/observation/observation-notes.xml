@@ -44,7 +44,7 @@
 	extensions can be used to introduce this additional complexity.
  </li>
  <li>
-   The search parameter <i>value</i> is used to search against multiple different value types as a <a href="search.html#variable">variable parameter</a>. Values of type Attachment, Ratio, and Period are not included in search results
+   Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Attachment, or Ratio
  </li>
 </ul>
 

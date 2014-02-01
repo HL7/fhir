@@ -577,8 +577,8 @@ public class Publisher {
       return Conformance.SearchParamType.token;
     case composite:
       return Conformance.SearchParamType.composite;
-    case variable:
-      return Conformance.SearchParamType.variable;
+    case quantity:
+      return Conformance.SearchParamType.quantity;
     }
     return null;
   }
@@ -1693,7 +1693,7 @@ public class Publisher {
             String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null);
             sf = addSectionNumbers("v3" + id + ".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")));
             TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
-            page.getEpub().registerFile("v3" + File.separator + id + File.separator + "index.html", "v3 CodeSystem " + id, EPubManager.XHTML_TYPE);
+            page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
           }
         }
       }
@@ -1706,8 +1706,7 @@ public class Publisher {
           String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null);
           sf = addSectionNumbers("v3" + id + ".html", "template-v3", sf, Utilities.oidTail(e.getAttribute("id")));
           TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + "vs" + File.separator + id + File.separator + "index.html");
-          page.getEpub().registerFile("v3" + File.separator + "vs" + File.separator + id + File.separator + "index.html", "v3 ValueSet " + id,
-              EPubManager.XHTML_TYPE);
+          page.getEpub().registerExternal("v3" + File.separator + "vs" + File.separator + id + File.separator + "index.html");
         }
       }
       e = XMLUtil.getNextSibling(e);
@@ -1945,7 +1944,7 @@ public class Publisher {
         String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null);
         sf = addSectionNumbers("v2" + id + ".html", "template-v2", sf, iid);
         TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
-        page.getEpub().registerFile("v2" + File.separator + id + File.separator + "index.html", "v2 Table " + iid, EPubManager.XHTML_TYPE);
+        page.getEpub().registerExternal("v2" + File.separator + id + File.separator + "index.html");
       } else if ("versioned".equals(st)) {
         String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
         String iid = id;
@@ -1971,8 +1970,7 @@ public class Publisher {
             String sf = page.processPageIncludes(id + "|" + ver + ".html", src, "v2Vocab", null);
             sf = addSectionNumbers("v2" + id + "." + ver + ".html", "template-v2", sf, iid + "." + Integer.toString(i));
             TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
-            page.getEpub().registerFile("v2" + File.separator + id + File.separator + ver + File.separator + "index.html", "v2 Table " + iid + " " + ver,
-                EPubManager.XHTML_TYPE);
+            page.getEpub().registerExternal("v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
           }
         }
       }
@@ -2248,7 +2246,8 @@ public class Publisher {
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
     html = page.processPageIncludes(n + ".xml.html", html, pageType, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
-    page.getEpub().registerFile(n + ".json.html", description, EPubManager.XHTML_TYPE);
+//    page.getEpub().registerFile(n + ".json.html", description, EPubManager.XHTML_TYPE);
+    page.getEpub().registerExternal(n + ".json.html");
   }
 
   private void cloneToXhtml(String n, String description, boolean adorn, String pageType) throws Exception {
@@ -2264,7 +2263,8 @@ public class Publisher {
     html = page.processPageIncludes(n + ".xml.html", html, pageType, null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".xml.html");
 
-    page.getEpub().registerFile(n + ".xml.html", description, EPubManager.XHTML_TYPE);
+//    page.getEpub().registerFile(n + ".xml.html", description, EPubManager.XHTML_TYPE);
+    page.getEpub().registerExternal(n + ".xml.html");
   }
 
   private void processExample(Example e, ResourceDefn resource, Profile profile) throws Exception {
@@ -2364,7 +2364,7 @@ public class Publisher {
     html = page.processPageIncludes(n + ".json.html", html, "resource-instance:" + resource.getName(), null);
     TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
     
-    page.getEpub().registerFile(n + ".json.html", e.getDescription(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerExternal(n + ".json.html");
     e.setJson(json);
 
     // reload it now, xml to xhtml of xml
@@ -2399,9 +2399,9 @@ public class Publisher {
     // tail = "\r\n</body>\r\n</html>\r\n";
     // TextFile.stringToFile(head+narrative+tail, page.getFolders().dstDir + n +
     // ".html");
-    page.getEpub().registerFile(n + ".html", e.getDescription(), EPubManager.XHTML_TYPE);
-    page.getEpub().registerFile(n + ".json.html", e.getDescription(), EPubManager.XHTML_TYPE);
-    page.getEpub().registerFile(n + ".xml.html", e.getDescription(), EPubManager.XHTML_TYPE);
+    page.getEpub().registerExternal(n + ".html");
+    page.getEpub().registerExternal(n + ".json.html");
+    page.getEpub().registerExternal(n + ".xml.html");
 
   }
 

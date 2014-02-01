@@ -43,8 +43,7 @@ public class SearchParameter {
     date,     // search parameter is onto a date
     quantity, // search parameter is onto a quantity (= token + -lower & -upper, and canonical)
     reference,// search parameter refers to a resource reference
-    token,   // search parameter is onto a pair of fixed value strings, space and value. Space is optional
-    variable; // search parameter is quantity or token
+    token;   // search parameter is onto a pair of fixed value strings, space and value. Space is optional
   }
   
   private String code;

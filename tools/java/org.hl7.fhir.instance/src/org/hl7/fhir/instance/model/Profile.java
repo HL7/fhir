@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Jan 31, 2014 15:05+1100 for FHIR v0.12
+// Generated on Sat, Feb 1, 2014 18:37+1100 for FHIR v0.80
 
 import java.util.*;
 
@@ -321,7 +321,7 @@ public class Profile extends Resource {
         token, // Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
         reference, // A reference to another resource.
         composite, // A composite search parameter that combines a search on two values together.
-        variable, // A search parameter on an element that can have multiple types including quantity and codeableConcept.
+        quantity, // A search parameter that searches on a quantity.
         Null; // added to help the parsers
         public static SearchParamType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -338,8 +338,8 @@ public class Profile extends Resource {
           return reference;
         if ("composite".equals(codeString))
           return composite;
-        if ("variable".equals(codeString))
-          return variable;
+        if ("quantity".equals(codeString))
+          return quantity;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
         public String toCode() {
@@ -350,7 +350,7 @@ public class Profile extends Resource {
             case token: return "token";
             case reference: return "reference";
             case composite: return "composite";
-            case variable: return "variable";
+            case quantity: return "quantity";
             default: return "?";
           }
         }
@@ -373,8 +373,8 @@ public class Profile extends Resource {
           return SearchParamType.reference;
         if ("composite".equals(codeString))
           return SearchParamType.composite;
-        if ("variable".equals(codeString))
-          return SearchParamType.variable;
+        if ("quantity".equals(codeString))
+          return SearchParamType.quantity;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -390,8 +390,8 @@ public class Profile extends Resource {
         return "reference";
       if (code == SearchParamType.composite)
         return "composite";
-      if (code == SearchParamType.variable)
-        return "variable";
+      if (code == SearchParamType.quantity)
+        return "quantity";
       return "?";
       }
     }
