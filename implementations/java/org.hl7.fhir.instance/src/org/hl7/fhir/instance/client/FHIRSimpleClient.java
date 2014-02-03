@@ -31,6 +31,7 @@ package org.hl7.fhir.instance.client;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -282,6 +283,17 @@ public class FHIRSimpleClient implements FHIRClient {
 		}
 		return searchResults;
 	}
+	
+  @Override
+  public <T extends Resource> AtomFeed searchPost(Class<T> resourceClass, T resource, Map<String, String> parameters) {
+    AtomFeed searchResults = null;
+    try {
+      searchResults = ClientUtils.issuePostFeedRequest(resourceAddress.resolveSearchUri(resourceClass, new HashMap<String, String>()), parameters, "src", resource, getPreferredFeedFormat());
+    } catch (Exception e) {
+      handleException("Error performing search with parameters " + parameters, e);
+    }
+    return searchResults;
+  }
 	
 	@Override
 	public AtomFeed transaction(AtomFeed batch) {

@@ -3,6 +3,7 @@ package org.hl7.fhir.instance.client;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.io.IOUtils;
@@ -468,4 +470,56 @@ public class ClientUtils {
 		return value;
 	}
 	
+  public static AtomFeed issuePostFeedRequest(URI resourceUri, Map<String, String> parameters, String resourceName, Resource resource, String feedFormat) throws Exception {
+    HttpPost httppost = new HttpPost(resourceUri);
+    configureFhirRequest(httppost, null);
+    String boundary = "----WebKitFormBoundarykbMUo6H8QaUnYtRy";
+    httppost.addHeader("Content-Type", "multipart/form-data; boundary="+boundary);
+    httppost.addHeader("Accept", feedFormat);
+    HttpResponse response = sendPayload(httppost, encodeFormSubmission(parameters, resourceName, resource, boundary));
+    return unmarshalFeed(response, feedFormat);
+  }
+  
+  private static byte[] encodeFormSubmission(Map<String, String> parameters, String resourceName, Resource resource, String boundary) throws Exception {
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    OutputStreamWriter w = new OutputStreamWriter(b, "UTF-8");  
+    for (String name : parameters.keySet()) {
+      w.write("--");
+      w.write(boundary);
+      w.write("\r\nContent-Disposition: form-data; name=\""+name+"\"\r\n\r\n");
+      w.write(parameters.get(name)+"\r\n");
+    }
+    w.write("--");
+    w.write(boundary);
+    w.write("\r\nContent-Disposition: form-data; name=\""+resourceName+"\"\r\n\r\n");
+    w.close(); 
+    new JsonComposer().compose(b, resource, false);
+    w = new OutputStreamWriter(b, "UTF-8");  
+    w.write("\r\n--");
+    w.write(boundary);
+    w.write("--");
+    w.close();
+    return b.toByteArray();
+  }
+
+  /**
+   * Method posts request payload
+   * 
+   * @param request
+   * @param payload
+   * @return
+   */
+  protected static HttpResponse sendPayload(HttpEntityEnclosingRequestBase request, byte[] payload) {
+    HttpResponse response = null;
+    try {
+      HttpClient httpclient = new DefaultHttpClient();
+      request.setEntity(new ByteArrayEntity(payload));
+      response = httpclient.execute(request);
+    } catch(IOException ioe) {
+      throw new EFhirClientException("Error sending HTTP Post/Put Payload", ioe);
+    }
+    return response;
+  }
+  
+
 }
