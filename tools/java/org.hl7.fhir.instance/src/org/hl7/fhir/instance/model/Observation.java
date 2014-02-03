@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, Feb 1, 2014 18:37+1100 for FHIR v0.80
+// Generated on Mon, Feb 3, 2014 15:10+1100 for FHIR v0.80
 
 import java.util.*;
 
@@ -195,8 +195,8 @@ public class Observation extends Resource {
     }
 
     public enum ObservationRelationshiptypes {
-        component, // The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure).
-        member, // The target observation is grouped into a logical group of observations (e.g. a battery, a panel of tests, a set of vital sign measurements).
+        hascomponent, // The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure).
+        hasmember, // This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
         derivedfrom, // The target observation is part of the information from which this observation value is derived (e.g. calculated anion gap, Apgar score).
         sequelto, // This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).
         replaces, // This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.
@@ -206,10 +206,10 @@ public class Observation extends Resource {
         public static ObservationRelationshiptypes fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("component".equals(codeString))
-          return component;
-        if ("member".equals(codeString))
-          return member;
+        if ("has-component".equals(codeString))
+          return hascomponent;
+        if ("has-member".equals(codeString))
+          return hasmember;
         if ("derived-from".equals(codeString))
           return derivedfrom;
         if ("sequel-to".equals(codeString))
@@ -224,8 +224,8 @@ public class Observation extends Resource {
         }
         public String toCode() {
           switch (this) {
-            case component: return "component";
-            case member: return "member";
+            case hascomponent: return "has-component";
+            case hasmember: return "has-member";
             case derivedfrom: return "derived-from";
             case sequelto: return "sequel-to";
             case replaces: return "replaces";
@@ -241,10 +241,10 @@ public class Observation extends Resource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("component".equals(codeString))
-          return ObservationRelationshiptypes.component;
-        if ("member".equals(codeString))
-          return ObservationRelationshiptypes.member;
+        if ("has-component".equals(codeString))
+          return ObservationRelationshiptypes.hascomponent;
+        if ("has-member".equals(codeString))
+          return ObservationRelationshiptypes.hasmember;
         if ("derived-from".equals(codeString))
           return ObservationRelationshiptypes.derivedfrom;
         if ("sequel-to".equals(codeString))
@@ -258,10 +258,10 @@ public class Observation extends Resource {
         throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
-      if (code == ObservationRelationshiptypes.component)
-        return "component";
-      if (code == ObservationRelationshiptypes.member)
-        return "member";
+      if (code == ObservationRelationshiptypes.hascomponent)
+        return "has-component";
+      if (code == ObservationRelationshiptypes.hasmember)
+        return "has-member";
       if (code == ObservationRelationshiptypes.derivedfrom)
         return "derived-from";
       if (code == ObservationRelationshiptypes.sequelto)
