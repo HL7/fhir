@@ -80,6 +80,7 @@ import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
@@ -125,6 +126,7 @@ public class PageProcessor implements Logger  {
   private Map<String, AtomEntry<ValueSet>> codeSystems = new HashMap<String, AtomEntry<ValueSet>>();
   private Map<String, AtomEntry<ValueSet>> valueSets = new HashMap<String, AtomEntry<ValueSet>>();
   private Map<String, AtomEntry<ConceptMap>> conceptMaps = new HashMap<String, AtomEntry<ConceptMap>>();
+  private Map<String, Profile> profiles = new HashMap<String, Profile>();
   
   private Map<String, String> svgs = new HashMap<String, String>();
   private BreadCrumbManager breadCrumbManager = new BreadCrumbManager();
@@ -2163,7 +2165,7 @@ public class PageProcessor implements Logger  {
       exp.setDefine(null);
       exp.setText(null); 
       exp.setDescriptionSimple("Value Set Contents (Expansion) for "+vs.getNameSimple()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator(prefix, conceptLocator, codeSystems, valueSets, conceptMaps).generate(exp);
+      new NarrativeGenerator(prefix, conceptLocator, codeSystems, valueSets, conceptMaps, profiles, null).generate(exp);
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">"+new XhtmlComposer().compose(exp.getText().getDiv())+"</div>";
     } catch (Exception e) {
       return "<hr/>\r\n<div style=\"background-color: Floralwhite; border:1px solid maroon; padding: 5px;\">This value set could not be expanded by the publication tooling: "+e.getMessage()+"</div>";
@@ -3250,6 +3252,10 @@ public class PageProcessor implements Logger  {
 
   public SpecificationConceptLocator getConceptLocator() {
     return conceptLocator;
+  }
+
+  public Map<String, Profile> getProfiles() {
+    return profiles;
   }
 
   

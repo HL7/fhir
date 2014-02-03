@@ -86,13 +86,13 @@ bundle, but this is not required
           <reference value="Practitioner/example"/>
         </performer>
         <related>
-          <type value="component"/>
+          <type value="has-component"/>
           <target>
             <reference value="http://acme.org/ehr/observations/34252345234-s"/>
           </target>
         </related>
         <related>
-          <type value="component"/>
+          <type value="has-component"/>
           <target>
             <reference value="http://acme.org/ehr/observations/34252345234-d"/>
           </target>

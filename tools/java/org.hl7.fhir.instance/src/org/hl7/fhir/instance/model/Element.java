@@ -133,6 +133,15 @@ public abstract class Element implements Serializable {
 	protected void listChildren(List<Property> result) {
 	// not an element  result.add(new Property("xml:id", "XML Identifier - target for an id ref", 0, 1, )))
 		result.add(new Property("extension", "Extension", "XML Identifier - target for an id ref", 0, java.lang.Integer.MAX_VALUE, extensions));	  
+  }
+
+  public Property getChildByName(String name) {
+    List<Property> children = new ArrayList<Property>();
+    listChildren(children);
+    for (Property c : children)
+      if (c.getName().equals(name))
+        return c;
+    return null;
   }  
   
   

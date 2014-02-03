@@ -207,7 +207,7 @@ public class XhtmlNode {
     return b.toString();
   }
 
-  public void attribute(String name, String value) {
+  public XhtmlNode attribute(String name, String value) {
     if (!(nodeType == NodeType.Element || nodeType == NodeType.Document)) 
       throw new Error("Wrong node type");
     if (name == null)
@@ -215,6 +215,7 @@ public class XhtmlNode {
     if (value == null)
       throw new Error("value is null");
     Attributes.put(name, value);
+    return this;
   }
 
   public String getAttribute(String name) {

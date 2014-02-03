@@ -69,7 +69,7 @@ public class WebMaker {
     this.definitions = definitions;
   }
 
-  private static final String SEARCH_FORM_HOLDER = "<p id=\"srch\">&nbsp;</p>";
+  private static final String SEARCH_FORM_HOLDER = "<p id=\"srch\"> </p>";
   private static final String SEARCH_LINK = "<div id=\"hl7-search\"> </div>";
   private static final String DISQUS_COMMMENT = "<!-- disqus -->";
 
@@ -92,7 +92,7 @@ public class WebMaker {
         if (src.contains(SEARCH_FORM_HOLDER)) 
           src = src.replace(SEARCH_FORM_HOLDER, googleSearch());
         if (src.contains(SEARCH_LINK)) 
-          src = src.replace(SEARCH_LINK, googleSearchLink());
+          src = src.replace(SEARCH_LINK, googleSearchLink(0));
         if (src.contains(DISQUS_COMMMENT)) 
           src = src.replace(DISQUS_COMMMENT, disqusScript());
         int i = src.indexOf("</body>");
@@ -219,11 +219,16 @@ public class WebMaker {
 
   }
   
-  private String googleSearchLink() {
+  private String googleSearchLink(int level) {
+    String lvl = "";
+    for (int i = 0; i < level; i++) 
+      lvl = lvl + "../";
+
     return "<div id=\"hl7-search\">\r\n"+
-        "  <a href=\"<%level%>index.html#search\">search</a>\r\n"+
+        "  <a href=\""+lvl+"index.html#search\"><img src=\"assets/images/search.png\"/> Search</a>\r\n"+
 			"</div>";
-}
+  }
+  
   private void makeArchives() throws Exception {
     for (String v : definitions.getPastVersions()) {
       extractZip(folders.archiveDir+"v"+v+".zip", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"v"+v+File.separator);

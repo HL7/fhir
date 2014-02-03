@@ -100,6 +100,7 @@ import org.hl7.fhir.definitions.validation.ProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.JsonComposer;
+import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -530,7 +531,7 @@ public class Publisher {
       genConfOp(conf, res, TypeRestfulOperation.read);
     }
 
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
     gen.generate(conf);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "conformance-" + name + ".xml"), conf, true, true);
     cloneToXhtml("conformance-" + name + "", "Basic Conformance Statement", true, "resource-instance:Conformance");
@@ -1653,7 +1654,7 @@ public class Publisher {
           }
       }
     }
-    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    NarrativeGenerator gen = new NarrativeGenerator("../../../", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
     gen.generate(vs);
     new ValueSetValidator(page.getDefinitions(), "v3: " + id).validate(vs, false);
     return vs;
@@ -2287,23 +2288,45 @@ public class Publisher {
 
     // check the narrative. We generate auto-narrative. If the resource didn't
     // have it's own original narrative, then we save it anyway
+    // todo: this uses the version of the resource in the generator, not the current one. This needs to be moved to the compiled code when it's stable
     String narrative;
     org.hl7.fhir.instance.model.Resource r;
     try {
       XmlParser xml = new XmlParser();
-      r = xml.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-      boolean wantSave = r.getText() == null || r.getText().getDiv() == null;
-      NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
-      gen.generate(r, profile);
-      if (r.getText() != null && r.getText().getDiv() != null) {
-        narrative = new XhtmlComposer().compose(r.getText().getDiv());
+      XhtmlNode combined = new XhtmlNode(NodeType.Element, "div");
+      ResourceOrFeed rf = xml.parseGeneral(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+      boolean wantSave = false;
+      if (rf.getFeed() != null) {
+        for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae : rf.getFeed().getEntryList()) {
+          r = ae.getResource();
+          wantSave = wantSave || (r.getText() == null || r.getText().getDiv() == null);
+          NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page));
+          gen.generate(r);
+          if (r.getText() != null && r.getText().getDiv() != null) {
+            combined.getChildNodes().add(r.getText().getDiv());
+            combined.addTag("hr");
+          }          
+        }
+        narrative = new XhtmlComposer().compose(combined);
         if (wantSave) {
-          new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), r, true, true);
+          new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), rf.getFeed(), true, true);
           xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
         }
-      } else
-        narrative = "&lt;-- No Narrative for this resource --&gt;";
-      ;
+        r = null;
+      } else {
+        r = rf.getResource();
+        wantSave = r.getText() == null || r.getText().getDiv() == null;
+        NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page));
+        gen.generate(r);
+        if (r.getText() != null && r.getText().getDiv() != null) {
+          narrative = new XhtmlComposer().compose(r.getText().getDiv());
+          if (wantSave) {
+            new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), r, true, true);
+            xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+          }
+        } else
+          narrative = "&lt;-- No Narrative for this resource --&gt;";
+      }
     } catch (Exception ex) {
       XhtmlNode xhtml = new XhtmlNode(NodeType.Element, "div");
       xhtml.addTag("p").setAttribute("style", "color: maroon").addText("Error processing narrative: " + ex.getMessage());
@@ -2412,6 +2435,7 @@ public class Publisher {
     p.putMetadata("requirements", root.getRequirements());
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     Profile rp = pgen.generate(p, xmlSpec, mode);
+    page.getProfiles().put(root.getName(),  rp);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp, true);
 
@@ -3286,7 +3310,7 @@ public class Publisher {
 
     if (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-      new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps()).generate(vs);
+      new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(),  null).generate(vs);
     new ValueSetValidator(page.getDefinitions(), name).validate(vs, true);
 
     if (isGenerate) {
@@ -3449,7 +3473,7 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v2 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
     gen.generate(cm);
 
     JsonComposer json = new JsonComposer();
@@ -3533,7 +3557,7 @@ public class Publisher {
       b.append(s);
     }
     cm.setDescriptionSimple("v3 Map (" + b.toString() + ")");
-    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps());
+    NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null);
     gen.generate(cm);
     JsonComposer json = new JsonComposer();
     json.compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, "-map-v3.json")), cm, true);
@@ -3574,7 +3598,7 @@ public class Publisher {
     if (!Utilities.noString(cd.getV3Map()))
       generateConceptMapV3(cd, filename, vs.getIdentifierSimple(), "http://hl7.org/fhir/" + Utilities.fileTitle(filename));
 
-    new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps()).generate(vs);
+    new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), null).generate(vs);
 
     if (isGenerate) {
       addToResourceFeed(vs, Utilities.fileTitle(filename), valueSetsFeed);

@@ -644,25 +644,25 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <status value="final"/>
       <reliability value="ok"/>
       <!-- now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed -->
-      <related><type value="member"/><target><reference value="#obx2-1"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-2"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-4"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-6"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-8"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-10"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-12"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-14"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-16"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-18"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-20"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-22"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-24"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-26"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-28"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-30"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-32"/></target></related>
-      <related><type value="member"/><target><reference value="#obx2-34"/></target></related>
-      <related><type value="member"/><target><reference value="#nte-1"/></target></related>    
+      <related><type value="has-member"/><target><reference value="#obx2-1"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-2"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-4"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-6"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-8"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-10"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-12"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-14"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-16"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-18"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-20"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-22"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-24"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-26"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-28"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-30"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-32"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-34"/></target></related>
+      <related><type value="has-member"/><target><reference value="#nte-1"/></target></related>    
     </Observation>
   </contained>
 
@@ -679,7 +679,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       </name>
       <status value="final"/>
       <reliability value="ok"/>
-      <related><type value="member"/><target><reference value="#obx3-1"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx3-1"/></target></related>
     </Observation>
   </contained>
 
@@ -698,14 +698,14 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
       <reliability value="ok"/>
 
       <related>
-        <type value="member"/>
+        <type value="has-member"/>
         <target>
           <reference value="#obx1-4"/>
         </target>
       </related>
 
       <related>
-        <type value="member"/>
+        <type value="has-member"/>
         <target>
           <reference value="#obx1-5"/>
         </target>
@@ -713,7 +713,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
       <!-- group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped -->
       <related>
-        <type value="member"/>
+        <type value="has-member"/>
         <target>
           <reference value="#obr-2"/>
         </target>
@@ -721,7 +721,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 
       <!-- group - Disk diffusion -->
       <related>
-        <type value="member"/>
+        <type value="has-member"/>
         <target>
           <reference value="#obr-3"/>
         </target>

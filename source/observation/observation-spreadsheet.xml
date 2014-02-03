@@ -984,7 +984,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">ObservationRelationshipType</Data></Cell>
-    <Cell><Data ss:Type="String">component | member | derived-from | sequel-to | replaces | qualified-by | interfered-by</Data></Cell>
+    <Cell><Data ss:Type="String">has-component | has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by</Data></Cell>
     <Cell><Data ss:Type="String">A code specifying the kind of relationship that exists with the target observation</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May need to indicate whether this observation is composed of others, or merely derived from them</Data></Cell>
     <Cell><Data ss:Type="String">A relationship type SHOULD be provided. If the relationship type is &quot;COMP&quot; (composed), then the observation should not be displayed/interpreted in the absence of the related observations</Data></Cell>
@@ -1011,7 +1011,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1029,7 +1029,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>23</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1811,14 +1811,14 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">component</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">has-component</Data></Cell>
     <Cell><Data ss:Type="String">The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=ActRrelationshipType.COMP</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">member</Data></Cell>
-    <Cell><Data ss:Type="String">The target observation is grouped into a logical group of observations (e.g. a battery, a panel of tests, a set of vital sign measurements)</Data></Cell>
+    <Cell><Data ss:Type="String">has-member</Data></Cell>
+    <Cell><Data ss:Type="String">This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=ActRrelationshipType.MBR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1868,7 +1868,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

@@ -365,7 +365,7 @@ public class DateAndTime {
 
   public String toHumanDisplay() {
     if (isTime()) 
-      return java.lang.Integer.toString(this.day)+"-"+this.getMonthCode()+" "+java.lang.Integer.toString(this.getYear()) +" "+java.lang.Integer.toString(this.hour)+":"+java.lang.Integer.toString(this.minute);
+      return java.lang.Integer.toString(this.day)+"-"+this.getMonthCode()+" "+java.lang.Integer.toString(this.getYear()) +" "+Utilities.padLeft(java.lang.Integer.toString(this.hour), '0', 2)+":"+Utilities.padLeft(java.lang.Integer.toString(this.minute), '0', 2);
     else 
       return java.lang.Integer.toString(this.day)+"-"+this.getMonthCode()+" "+java.lang.Integer.toString(this.getYear());
   }

@@ -2,19 +2,34 @@ package org.hl7.fhir.instance.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import javax.management.StringValueExp;
+
+import org.hl7.fhir.instance.client.FHIRClient;
+import org.hl7.fhir.instance.model.Address;
+import org.hl7.fhir.instance.model.Address.AddressUse;
 import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.Contact.ContactUse;
+import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.Enumeration;
+import org.hl7.fhir.instance.model.HumanName;
+import org.hl7.fhir.instance.model.HumanName.NameUse;
+import org.hl7.fhir.instance.model.Id;
+import org.hl7.fhir.instance.model.Identifier;
+import org.hl7.fhir.instance.model.Instant;
+import org.hl7.fhir.instance.model.Period;
+import org.hl7.fhir.instance.model.Quantity;
+import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
@@ -41,6 +56,10 @@ import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Property;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.instance.model.Schedule;
+import org.hl7.fhir.instance.model.Schedule.EventTiming;
+import org.hl7.fhir.instance.model.Schedule.ScheduleRepeatComponent;
+import org.hl7.fhir.instance.model.Schedule.UnitsOfTime;
 import org.hl7.fhir.instance.model.String_;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
@@ -49,38 +68,63 @@ import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.instance.model.ValueSet.FilterOperator;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class NarrativeGenerator {
 
+  public class ResourceWithReference {
+
+    private String reference;
+    private Resource resource;
+
+    public ResourceWithReference(String reference, Resource resource) {
+      this.reference = reference;
+      this.resource = resource;
+    }
+
+    public String getReference() {
+      return reference;
+    }
+
+    public Resource getResource() {
+      return resource;
+    }
+
+  }
+
   private String prefix;
   private ConceptLocator conceptLocator;
   private Map<String, AtomEntry<ValueSet>> codeSystems;
   private Map<String, AtomEntry<ValueSet>> valueSets;
   private Map<String, AtomEntry<ConceptMap>> maps;
+  private FHIRClient client;
+  private Map<String, Profile> profiles;
   
-  public NarrativeGenerator(String prefix, ConceptLocator conceptLocator, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets, Map<String, AtomEntry<ConceptMap>> maps) {
+  public NarrativeGenerator(String prefix, ConceptLocator conceptLocator, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets, Map<String, AtomEntry<ConceptMap>> maps, Map<String, Profile> profiles, FHIRClient client) {
     super();
     this.prefix = prefix;
     this.conceptLocator = conceptLocator;
     this.codeSystems = codeSystems;
     this.valueSets = valueSets;
     this.maps = maps;
+    this.profiles = profiles;
+    this.client = client;
   }
 
-  public void generate(Resource r,  Profile profile) throws Exception {
+  public void generate(Resource r) throws Exception {
     if (r instanceof ConceptMap) {
-      generate((ConceptMap) r);
+      generate((ConceptMap) r); // Maintainer = Grahame
     } else if (r instanceof ValueSet) {
-      generate((ValueSet) r);
+      generate((ValueSet) r); // Maintainer = Grahame
     } else if (r instanceof OperationOutcome) {
-      generate((OperationOutcome) r);
+      generate((OperationOutcome) r); // Maintainer = Grahame
     } else if (r instanceof Conformance) {
-      generate((Conformance) r);  
-    } else {
-//      generateByProfile(r, profile);
+      generate((Conformance) r);   // Maintainer = Grahame
+    } else if (profiles.containsKey(r.getResourceType().toString())) {
+      generateByProfile(r, profiles.get(r.getResourceType().toString())); 
     }
   }
   
@@ -92,45 +136,73 @@ public class NarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative");
     try {
-      generateByProfile(r, ps.getElement(), ps.getElement().get(0), getChildrenForPath(ps.getElement(), r.getResourceType().toString()), x, r.getResourceType().toString());
+      generateByProfile(r, r, ps.getElement(), ps.getElement().get(0), getChildrenForPath(ps.getElement(), r.getResourceType().toString()), x, r.getResourceType().toString());
     } catch (Exception e) {
+      e.printStackTrace();
       x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
     }
     inject(r, x,  NarrativeStatus.generated);
   }
 
-  private void generateByProfile(Element e, List<ElementComponent> allElements, ElementComponent defn, List<ElementComponent> children,  XhtmlNode x, String path) throws Exception {
+  private void generateByProfile(Resource res, Element e, List<ElementComponent> allElements, ElementComponent defn, List<ElementComponent> children,  XhtmlNode x, String path) throws Exception {
     if (children.isEmpty()) {
-      renderLeaf(e, defn, x, false);
+      renderLeaf(res, e, defn, x, false);
     } else {
       for (Property p : e.children()) {
-        ElementComponent child = getElementDefinition(children, path+"."+p.getName());
-        List<ElementComponent> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
-        for (Element v : p.getValues()) {
-          if (v instanceof org.hl7.fhir.instance.model.Type) {
-            XhtmlNode para = x.addTag("p");
-            para.addTag("b").addText(p.getName());
-            para.addText(": ");
-            // generateByProfile(v, elements, child, para, path+"."+p.getName());
-            renderLeaf(v, child, para, false);
-          } else if (canDoTable(grandChildren)) {
-            x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
-            XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
-            addColumnHeadings(tbl.addTag("tr"), grandChildren);
-          } else {
-            XhtmlNode bq = x.addTag("blockquote");
-          bq.addTag("p").addTag("b").addText(p.getName());
-            generateByProfile(v, allElements, child, grandChildren, bq, path+"."+p.getName());
+        if (p.hasValues()) {
+          ElementComponent child = getElementDefinition(children, path+"."+p.getName());
+          List<ElementComponent> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
+          if (p.getValues().size() > 0 && child != null) {
+            if (isPrimitive(child)) {
+              XhtmlNode para = x.addTag("p");
+              para.addTag("b").addText(p.getName());
+              para.addText(": ");
+              boolean first = true;
+              for (Element v : p.getValues()) {
+                if (first)
+                  first = false;
+                else
+                  para.addText(", ");
+                renderLeaf(res, v, child, para, false);
+              }
+            } else if (canDoTable(grandChildren)) {
+              x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
+              XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
+              addColumnHeadings(tbl.addTag("tr"), grandChildren);
+              for (Element v : p.getValues()) {
+                if (v != null) {
+                  addColumnValues(res, tbl.addTag("tr"), grandChildren, v);
+                }
+              }
+            } else {
+              for (Element v : p.getValues()) {
+                if (v != null) {
+                  XhtmlNode bq = x.addTag("blockquote");
+                  bq.addTag("p").addTag("b").addText(p.getName());
+                  generateByProfile(res, v, allElements, child, grandChildren, bq, path+"."+p.getName());
+                }
+              } 
+            }
+          }
         }
       }
     }
-  }
   }
 
   
   private void addColumnHeadings(XhtmlNode tr, List<ElementComponent> grandChildren) {
     for (ElementComponent e : grandChildren) 
       tr.addTag("td").addTag("b").addText(Utilities.capitalize(tail(e.getPathSimple())));
+  }
+
+  private void addColumnValues(Resource res, XhtmlNode tr, List<ElementComponent> grandChildren, Element v) throws Exception {
+    for (ElementComponent e : grandChildren) {
+      Property p = v.getChildByName(e.getPathSimple().substring(e.getPathSimple().lastIndexOf(".")+1));
+      if (p.getValues().size() == 0 || p.getValues().get(0) == null)
+        tr.addTag("td").addText(" ");
+      else
+        renderLeaf(res, p.getValues().get(0), e, tr.addTag("td"), false);
+    }
   }
 
   private String tail(String path) {
@@ -158,31 +230,559 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private void renderLeaf(Element e, ElementComponent defn, XhtmlNode x, boolean title) throws Exception {
+  private void renderLeaf(Resource res, Element e, ElementComponent defn, XhtmlNode x, boolean title) throws Exception {
+    if (e == null)
+      return;
+    
     if (e instanceof String_)
       x.addText(((String_) e).getValue());
+    else if (e instanceof Code)
+      x.addText(((Code) e).getValue());
+    else if (e instanceof Id)
+      x.addText(((Id) e).getValue());
+    else if (e instanceof Extension)
+      x.addText("Extensions: Todo");
+    else if (e instanceof Instant)
+      x.addText(((Instant) e).getValue().toHumanDisplay());
     else if (e instanceof DateTime)
       x.addText(((DateTime) e).getValue().toHumanDisplay());
+    else if (e instanceof org.hl7.fhir.instance.model.Date)
+      x.addText(((org.hl7.fhir.instance.model.Date) e).getValue().toHumanDisplay());
     else if (e instanceof Enumeration)
       x.addText(((Enumeration) e).getValue().toString()); // todo: look up a display name if there is one
     else if (e instanceof Boolean)
       x.addText(((Boolean) e).getValue().toString());
     else if (e instanceof CodeableConcept) {
-      renderCodeableConcept((CodeableConcept) e, x);
-    } else if (e instanceof ResourceReference)
-      x.addText(((ResourceReference) e).getReferenceSimple());
-    else 
+      renderCodeableConcept((CodeableConcept) e, x); 
+    } else if (e instanceof Coding) {
+      renderCoding((Coding) e, x);
+    } else if (e instanceof Identifier) {
+      renderIdentifier((Identifier) e, x);
+    } else if (e instanceof org.hl7.fhir.instance.model.Integer) {
+      x.addText(Integer.toString(((org.hl7.fhir.instance.model.Integer) e).getValue()));
+    } else if (e instanceof org.hl7.fhir.instance.model.Decimal) {
+      x.addText(((org.hl7.fhir.instance.model.Decimal) e).getValue().toString());
+    } else if (e instanceof HumanName) {
+      renderHumanName((HumanName) e, x);
+    } else if (e instanceof Address) {
+      renderAddress((Address) e, x);
+    } else if (e instanceof Contact) {
+      renderContact((Contact) e, x);
+    } else if (e instanceof Uri) {
+      renderUri((Uri) e, x);
+    } else if (e instanceof Schedule) {
+      renderSchedule((Schedule) e, x);
+    } else if (e instanceof Quantity || e instanceof Duration) {
+      renderQuantity((Quantity) e, x);
+    } else if (e instanceof Ratio) {
+      renderQuantity(((Ratio) e).getNumerator(), x);
+      x.addText("/");
+      renderQuantity(((Ratio) e).getDenominator(), x);
+    } else if (e instanceof Period) {
+      Period p = (Period) e;
+      x.addText(p.getStart() == null ? "??" : p.getStartSimple().toHumanDisplay());
+      x.addText(" --> ");
+      x.addText(p.getEnd() == null ? "(ongoing)" : p.getEndSimple().toHumanDisplay());
+    } else if (e instanceof ResourceReference) {
+      ResourceReference r = (ResourceReference) e;
+      if (r.getDisplay() != null)        
+        x.addText(r.getDisplaySimple());
+      else if (r.getReference() != null) {
+        ResourceWithReference tr = resolveReference(res, r.getReferenceSimple());
+        String disp = tr == null ? r.getReferenceSimple() : getDisplayForResource(tr.getResource());
+        if (r.getReferenceSimple().startsWith("#")) 
+          x.addText(disp); 
+        else if (tr != null)
+          x.addTag("a").attribute("href", tr.getReference()).addText(disp);
+        else
+          x.addTag("a").attribute("href", r.getReferenceSimple()).addText(disp);
+      } else
+        x.addText("??");
+    } else if (!(e instanceof Attachment))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
   }
 
-  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x) {
-    if (!Utilities.noString(cc.getTextSimple()))
-      x.addText(cc.getTextSimple());
+  private boolean displayLeaf(Resource res, Element e, ElementComponent defn, StringBuilder b, String name) throws Exception {
+    if (e == null)
+      return false;
+    
+    if (name.endsWith("[x]"))
+      name = name.substring(0, name.length() - 3);
+    
+    if (e instanceof String_) {
+      b.append(name+": "+((String_) e).getValue());
+      return true;
+    } else if (e instanceof Code) {
+      b.append(name+": "+((Code) e).getValue());
+      return true;
+    } else if (e instanceof Id) {
+      b.append(name+": "+((Id) e).getValue());
+      return true;
+    } else if (e instanceof DateTime) {
+      b.append(name+": "+((DateTime) e).getValue().toHumanDisplay());
+      return true;
+    } else if (e instanceof Instant) {
+      b.append(name+": "+((Instant) e).getValue().toHumanDisplay());
+      return true;
+    } else if (e instanceof Extension) {
+      b.append("Extensions: todo");
+      return true;
+    } else if (e instanceof org.hl7.fhir.instance.model.Date) {
+      b.append(name+": "+((org.hl7.fhir.instance.model.Date) e).getValue().toHumanDisplay());
+      return true;
+    } else if (e instanceof Enumeration) {
+      b.append(((Enumeration) e).getValue().toString()); // todo: look up a display name if there is one
+      return true;
+    } else if (e instanceof Boolean) {
+      if (((Boolean) e).getValue()) {
+        b.append(name);
+        return true;
+      }
+    } else if (e instanceof CodeableConcept) {
+      b.append(displayCodeableConcept((CodeableConcept) e));
+      return true;
+    } else if (e instanceof Coding) {
+      b.append(displayCoding((Coding) e));
+      return true;
+    } else if (e instanceof org.hl7.fhir.instance.model.Integer) {
+      b.append(Integer.toString(((org.hl7.fhir.instance.model.Integer) e).getValue()));
+      return true;
+    } else if (e instanceof org.hl7.fhir.instance.model.Decimal) {
+      b.append(((org.hl7.fhir.instance.model.Decimal) e).getValue().toString());
+      return true;
+    } else if (e instanceof Identifier) {
+      b.append(displayIdentifier((Identifier) e));
+      return true;
+    } else if (e instanceof HumanName) {
+      b.append(displayHumanName((HumanName) e));
+      return true;
+    } else if (e instanceof Address) {
+      b.append(displayAddress((Address) e));
+      return true;
+    } else if (e instanceof Contact) {
+      b.append(displayContact((Contact) e));
+      return true;
+    } else if (e instanceof Schedule) {
+      b.append(displaySchedule((Schedule) e));
+      return true;
+    } else if (e instanceof Quantity || e instanceof Duration) {
+      b.append(displayQuantity((Quantity) e));
+      return true;
+    } else if (e instanceof Ratio) {
+      b.append(displayQuantity(((Ratio) e).getNumerator()));
+      b.append("/");
+      b.append(displayQuantity(((Ratio) e).getDenominator()));
+      return true;
+    } else if (e instanceof Period) {
+      Period p = (Period) e;
+      b.append(name+": " +displayPeriod(p));
+      return true;
+    } else if (e instanceof ResourceReference) {
+      ResourceReference r = (ResourceReference) e;
+      if (r.getDisplay() != null)        
+        b.append(r.getDisplaySimple());
+      else if (r.getReference() != null) {
+        ResourceWithReference tr = resolveReference(res, r.getReferenceSimple());
+        b.append(tr == null ? r.getReferenceSimple() : getDisplayForResource(tr.getResource()));
+      } else
+        b.append("??");
+      return true;
+    } else if (!(e instanceof Attachment))
+      throw new Exception("type "+e.getClass().getName()+" not handled yet");      
+    return false;
+  }
+
+  private String displayPeriod(Period p) {
+    String s = p.getStart() == null ? "??" : p.getStartSimple().toHumanDisplay();
+    s = s + " --> ";
+    return s + (p.getEnd() == null ? "(ongoing)" : p.getEndSimple().toHumanDisplay());
+  }
+
+  private String getDisplayForResource(Resource res) throws Exception {
+    if (res.getText() != null && res.getText().getDiv() != null) {
+      XhtmlNode div = res.getText().getDiv();
+      if (div.allChildrenAreText())
+        return div.allText();
+      if (div.getChildNodes().size() == 1 && div.getChildNodes().get(0).allChildrenAreText())
+        return div.getChildNodes().get(0).allText();
+    }
+    String path = res.getResourceType().toString();
+    Profile profile = profiles.get(path);
+    if (profile == null)
+      return "unknown resource " +path;
+    ProfileStructureComponent struc = profile.getStructure().get(0); // todo: how to do this better?
+    
+    StringBuilder b = new StringBuilder();
+    boolean firstElement = true;
+    boolean last = false;
+    for (Property p : res.children()) {
+      ElementComponent child = getElementDefinition(struc.getElement(), path+"."+p.getName());
+      if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
+        if (firstElement)
+          firstElement = false;
+        else if (last)
+          b.append("; ");
+        boolean first = true;
+        last = false;
+        for (Element v : p.getValues()) {
+          if (first)
+            first = false;
+          else if (last)
+            b.append(", ");
+          last = displayLeaf(res, v, child, b, p.getName()) || last;
+        }
+      }
+    }
+    return b.toString();
+  }
+
+
+  private boolean includeInSummary(ElementComponent child) {
+    if (child.getDefinition().getIsModifierSimple())
+      return true;
+    if (child.getDefinition().getMustSupportSimple())
+      return true;
+    if (child.getDefinition().getType().size() == 1) {
+      String t = child.getDefinition().getType().get(0).getCodeSimple();
+      if (t.equals("Address") || t.equals("Contact") || t.equals("ResourceReference") || t.equals("Uri"))
+        return false;
+    }
+    return true;
+  }
+
+  private ResourceWithReference resolveReference(Resource res, String url) {
+    if (url == null)
+      return null;
+    if (url.startsWith("#")) {
+      for (Resource r : res.getContained()) {
+        if (r.getXmlId().equals(url.substring(1)))
+          return new ResourceWithReference(null, r);
+      }
+      return null;
+    }
+    if (client == null)
+      return null;
+    
+    AtomEntry ae = client.read(null, url);
+    if (ae == null)
+      return null;
     else
-      x.addText("todo");
+      return new ResourceWithReference(ae.getLinks().get("self"), ae.getResource());
+  }
+
+  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x) {
+    String s = cc.getTextSimple();
+    if (Utilities.noString(s)) {
+      for (Coding c : cc.getCoding()) {
+        if (c.getDisplay() != null) {
+          s = c.getDisplaySimple();
+          break;
+        }
+      }
+    }
+    if (Utilities.noString(s)) {
+      // still? ok, let's try looking it up
+      for (Coding c : cc.getCoding()) {
+        if (c.getCode() != null && c.getSystem() != null) {
+          s = lookupCode(c.getSystemSimple(), c.getCodeSimple());
+          if (!Utilities.noString(s)) 
+            break;
+        }
+      }
+    }
+      
+    if (Utilities.noString(s)) {
+      if (cc.getCoding().isEmpty()) 
+        s = "";
+      else
+        s = cc.getCoding().get(0).getCodeSimple();
+    }
+
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (Coding c : cc.getCoding()) {
+      if (c.getCode() != null && c.getSystem() != null) {
+        b.append("{"+c.getSystemSimple()+" "+c.getCodeSimple()+"}");
+      }
+    }
+    
+    x.addTag("span").setAttribute("title", b.toString()).addText(s);   
+  }
+
+  private void renderCoding(Coding c, XhtmlNode x) {
+    String s = "";
+    if (c.getDisplay() != null) 
+      s = c.getDisplaySimple();
+    if (Utilities.noString(s)) 
+      s = lookupCode(c.getSystemSimple(), c.getCodeSimple());
+      
+    if (Utilities.noString(s)) 
+      s = c.getCodeSimple();
+
+    x.addTag("span").setAttribute("title", "{"+c.getSystemSimple()+" "+c.getCodeSimple()+"}").addText(s);   
+  }
+
+  private String lookupCode(String system, String code) {
+    ValueSetDefineConceptComponent t;
+    if (codeSystems.containsKey(system)) 
+      t = findCode(code, codeSystems.get(system).getResource().getDefine().getConcept());
+    else 
+      t = conceptLocator.locate(system, code);
+      
+    if (t != null && t.getDisplay() != null)
+        return t.getDisplaySimple();
+    else 
+      return code;
+    
+  }
+
+  private ValueSetDefineConceptComponent findCode(String code, List<ValueSetDefineConceptComponent> list) {
+    for (ValueSetDefineConceptComponent t : list) {
+      if (code.equals(t.getCodeSimple()))
+        return t;
+      ValueSetDefineConceptComponent c = findCode(code, t.getConcept());
+      if (c != null)
+        return c;
+    }
+    return null;
+  }
+
+  private String displayCodeableConcept(CodeableConcept cc) {
+    String s = cc.getTextSimple();
+    if (Utilities.noString(s)) {
+      for (Coding c : cc.getCoding()) {
+        if (c.getDisplay() != null) {
+          s = c.getDisplaySimple();
+          break;
+        }
+      }
+    }
+    if (Utilities.noString(s)) {
+      // still? ok, let's try looking it up
+      for (Coding c : cc.getCoding()) {
+        if (c.getCode() != null && c.getSystem() != null) {
+          s = lookupCode(c.getSystemSimple(), c.getCodeSimple());
+          if (!Utilities.noString(s)) 
+            break;
+        }
+      }
+    }
+      
+    if (Utilities.noString(s)) {
+      if (cc.getCoding().isEmpty()) 
+        s = "";
+      else
+        s = cc.getCoding().get(0).getCodeSimple();
+    }
+    return s;
+  }
+
+  private String displayCoding(Coding c) {
+    String s = "";
+    if (c.getDisplay() != null) 
+      s = c.getDisplaySimple();
+    if (Utilities.noString(s)) 
+      s = lookupCode(c.getSystemSimple(), c.getCodeSimple());
+    if (Utilities.noString(s)) 
+      s = c.getCodeSimple();
+    
+    return s;
+  }
+
+  private void renderIdentifier(Identifier ii, XhtmlNode x) {
+    x.addText(displayIdentifier(ii));
+  }
+  
+  private void renderSchedule(Schedule s, XhtmlNode x) {
+    x.addText(displaySchedule(s));
+  }
+  
+  private void renderQuantity(Quantity q, XhtmlNode x) {
+    x.addText(displayQuantity(q));
+  }
+  
+  private void renderHumanName(HumanName name, XhtmlNode x) {
+    x.addText(displayHumanName(name));
+  }
+  
+  private void renderAddress(Address address, XhtmlNode x) {
+    x.addText(displayAddress(address));
+  }
+  
+  private void renderContact(Contact contact, XhtmlNode x) {
+    x.addText(displayContact(contact));
+  }
+  
+  private void renderUri(Uri uri, XhtmlNode x) {
+    x.addTag("a").setAttribute("href", uri.getValue()).addText(uri.getValue());
+  }
+  
+  private String displayQuantity(Quantity q) {
+    StringBuilder b = new StringBuilder();
+    if (q.getComparator() != null)
+      b.append(q.getComparatorSimple().toCode());
+    b.append(q.getValueSimple().toString());
+    b.append(" ");
+    if (q.getUnits() != null)
+      b.append(q.getUnitsSimple());
+    else
+      b.append(q.getCodeSimple());
+    return b.toString();
+  }
+  
+  private String displaySchedule(Schedule s) {
+    if (s.getEvent().size() > 1 || (s.getRepeat() == null && !s.getEvent().isEmpty())) {
+      CommaSeparatedStringBuilder c = new CommaSeparatedStringBuilder();
+      for (Period p : s.getEvent()) {
+        c.append(displayPeriod(p));
+      }
+      return c.toString();
+    } else if (s.getRepeat() != null) {
+      ScheduleRepeatComponent rep = s.getRepeat();
+      StringBuilder b = new StringBuilder();
+      if (s.getEvent().size() == 1) 
+        b.append("Starting "+displayPeriod(s.getEvent().get(0))+", ");
+      if (rep.getWhen() != null) {
+        b.append(rep.getDurationSimple().toString()+" "+displayTimeUnits(rep.getUnitsSimple()));
+        b.append(" ");
+        b.append(displayEventCode(rep.getWhenSimple()));
+      } else {
+        if (rep.getFrequencySimple() == 1)
+          b.append("Once per ");
+        else 
+          b.append(Integer.toString(rep.getFrequencySimple())+" per ");
+        b.append(rep.getDurationSimple().toString()+" "+displayTimeUnits(rep.getUnitsSimple()));
+        if (rep.getCount() != null)
+          b.append(" "+Integer.toString(rep.getCountSimple())+" times");
+        else if (rep.getEnd() != null) 
+          b.append(" until "+rep.getEndSimple().toHumanDisplay());
+      }
+      return b.toString();
+    } else
+      return "??";    
+  }
+  
+  private Object displayEventCode(EventTiming when) {
+    switch (when) {
+    case aC: return "before meals";
+    case aCD: return "before lunch";
+    case aCM: return "before breakfast";
+    case aCV: return "before dinner";
+    case hS: return "before sleeping";
+    case pC: return "after meals";
+    case pCD: return "after lunch";
+    case pCM: return "after breakfast";
+    case pCV: return "after dinner";
+    case wAKE: return "after waking";
+    default: return "??";
+    }
+  }
+
+  private String displayTimeUnits(UnitsOfTime units) {
+    switch (units) {
+    case a: return "years";
+    case d: return "days";
+    case h: return "hours";
+    case min: return "minutes";
+    case mo: return "months";
+    case s: return "seconds";
+    case wk: return "weeks";
+    default: return "??";
+    }
+  }
+
+  private String displayHumanName(HumanName name) {
+    StringBuilder s = new StringBuilder();
+    if (name.getText() != null)
+      s.append(name.getTextSimple());
+    else {
+      for (String_ p : name.getGiven()) { 
+        s.append(p.getValue());
+        s.append(" ");
+      }
+      for (String_ p : name.getFamily()) { 
+        s.append(p.getValue());
+        s.append(" ");
+      }
+    }
+    if (name.getUseSimple() != null && name.getUseSimple() != NameUse.usual)
+      s.append("("+name.getUseSimple().toString()+")");
+    return s.toString();
+  }
+
+  private String displayAddress(Address address) {
+    StringBuilder s = new StringBuilder();
+    if (address.getText() != null)
+      s.append(address.getTextSimple());
+    else {
+      for (String_ p : address.getLine()) { 
+        s.append(p.getValue());
+        s.append(" ");
+      }
+      if (address.getCity() != null) { 
+        s.append(address.getCitySimple());
+        s.append(" ");
+      }
+      if (address.getState() != null) { 
+        s.append(address.getStateSimple());
+        s.append(" ");
+      }
+      
+      if (address.getZip() != null) { 
+        s.append(address.getZipSimple());
+        s.append(" ");
+      }
+      
+      if (address.getCountry() != null) { 
+        s.append(address.getCountrySimple());
+        s.append(" ");
+      }
+    }
+    if (address.getUseSimple() != null)
+      s.append("("+address.getUse().toString()+")");
+    return s.toString();
+  }
+
+  private String displayContact(Contact contact) {
+    StringBuilder s = new StringBuilder();
+    s.append(describeSystem(contact.getSystemSimple()));
+    if (Utilities.noString(contact.getValueSimple()))
+      s.append("-unknown-");
+    else
+      s.append(contact.getValueSimple());
+    if (contact.getUseSimple() != null)
+      s.append("("+contact.getUseSimple().toString()+")");
+    return s.toString();
+  }
+
+  private Object describeSystem(ContactSystem system) {
+    if (system == null)
+      return "";
+    switch (system) {
+    case phone: return "ph: ";
+    case fax: return "fax: ";
+    default: 
+      return "";
+    }    
+  }
+
+  private String displayIdentifier(Identifier ii) {
+    String s = Utilities.noString(ii.getValueSimple()) ? "??" : ii.getValueSimple();
+    
+    if (!Utilities.noString(ii.getLabelSimple()))
+      s = ii.getLabelSimple()+" = "+s;
+
+    if (ii.getUse() != null)
+      s = s + " ("+ii.getUseSimple().toString()+")";
+    return s;
   }
 
   private List<ElementComponent> getChildrenForPath(List<ElementComponent> elements, String path) {
+    // do we need to do a name reference substitution?
+    for (ElementComponent e : elements) {
+      if (e.getPathSimple().equals(path) && e.getDefinition().getNameReference() != null)
+        path = e.getDefinition().getNameReferenceSimple();
+    }
+    
     List<ElementComponent> results = new ArrayList<Profile.ElementComponent>();
     for (ElementComponent e : elements) {
       if (e.getPathSimple().startsWith(path+".") && !e.getPathSimple().substring(path.length()+1).contains(".") && !(e.getPathSimple().endsWith(".extension") || e.getPathSimple().endsWith(".modifierExtension")))

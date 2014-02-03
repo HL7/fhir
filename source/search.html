@@ -298,7 +298,7 @@ The comparator is optional; if it is not present, the default comparator is "=".
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base-url]/Observation?value=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (system/code)</td></tr>
- <tr><td><pre> GET [base-url]/Observation?value=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is the stated human units (units)</td></tr>
+ <tr><td><pre> GET [base-url]/Observation?value=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the units - either the code  or the stated human units (units) are "mg"</td></tr>
  <tr><td><pre> GET [base-url]/Observation?value=&lt;5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
  <tr><td><pre> GET [base-url]/Observation?value=~5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit. 
    The recommended value for the approximation is 10% of the stated value, but systems may choose other values where appropriate</td></tr>
@@ -600,16 +600,21 @@ for the matching <a href="medicationdispense.html">Medication Dispense</a> resou
 </p>
 <h4>Include Paths</h4>
 <p>
-Include paths are processed only in the context of a single resource - they cannot navigate
-across resources. The path MedicationDispense.authorizingPrescription.prescriber
-is illegal, since authorizingPrescription references another resource and
-prescriber navigates further across that reference. On the other hand, a path like 
-CarePlan.activity.simple.performer navigates within a single resource (CarePlan) and
-therefore correct.</p>
+An include path begins at the root of a FHIR resource and must include exactly one property of 
+type <a href="references.html#Identification">ResourceReference</a> or <a href="datatypes.html#uri">uri</a>, 
+which must appear in the terminal position. That means that an 
+include path cannot "cross the boundary" from one resource to another.  So for example, 
+`CarePlan.activity.simple.performer` is a valid include path, because it begins at the 
+root of the CarePlan resource and ends with a reference to another resource 
+(Practitioner|Organization|RelatedPerson|Patient). On the other hand, 
+`CarePlan.patient.managingOrganization` is an invalid include path, because it 
+includes two ResourceReferences (patient and managingOrganization), and `CarePlan.goal` 
+is an invalid include path because it does not end with a ResourceReference or a URI.
+</p>
 <p>
-When looking for the references indicated by an include path, all occurences of 
+When looking for the references indicated by an include path, all occurrences of 
 the component last encountered 
-on the that path need to be considered, including occurences of that same 
+on the that path need to be considered, including occurrences of that same 
 component reachable via deeper (nested) relations. An example is the include path
 Composition.section.content, where the content reference on the highest level 
 Section is included, but also those reachable via the nested section relationship. 
@@ -619,21 +624,31 @@ nested Groups within those questions.
 </p>
 <p>
 Include paths may include wild cards, such as MedicationDispense.results.*, or even _include=*,
-though both servers and clients need to take care not to request or return too many resources 
+though both clients and servers need to take care not to request or return too many resources 
 when doing this. Most notably, re-applying inclusion paths over newly included resources
 might lead to cycles or the retrieval of the full patient's file: resources are
 organized into an interlinked network and broad _include paths may eventually traverse all
-possible paths within such a file. For servers, these recursive and wildcard _includes are demanding and may slow the search 
-response time significantly. Servers are expected to limit the
-number of iterations done and are not obliged to honor requests to include 
+possible paths on the server. For servers, these recursive and wildcard _includes are 
+demanding and may slow the search response time significantly. Servers are expected to 
+limit the number of iterations done and are not obliged to honor requests to include 
 additional resources in the search results.
 </p>
+<p>
+<b>Note</b>: for a server, it would generally only be required perform one iteration per
+_include parameter
+</p>
+
 <h4>External References</h4>
 <p>
-If the _include path matches a url that points to a resource that the server itself does 
-not hold itself, the server may still elect to include the target of the uri reference in 
-the returned results as a Binary resource. For example, the include path may point to an 
-attachment which is by reference, like this:
+If the _include path selects a reference that refers to a resource on another server,
+the server can element to include that resource in the search results for the convenience
+of the client. 
+</p>
+<p>
+If the _include path selects a reference that refers to an entity that is not a Resource
+(e.g. an image attachment), the server may also elect to include this in the returned 
+results as a <a href="extras.html#binary">Binary</a> resource. For example, the include 
+path may point to an attachment which is by reference, like this:
 </p>
 <pre>
  &lt;content&gt;
@@ -642,9 +657,19 @@ attachment which is by reference, like this:
  &lt;/content&gt;
 </pre>
 <p>
-The server can retrieve the target of this reference on behalf of the client, and add this to the 
+The server can retrieve the target of this reference, and add this to the 
 results for the convenience of the client. 
 </p>
+
+<a name="dstu-2"> </a>
+<blockquote>
+<p><b>DSTU Note</b>: HL7 is seeking feedback from implementers about whether additional
+rules should be made about how _include works, based on implementation experience.
+</p>
+</blockquote>
+
+
+
 <h4>Paging</h4>
 <p>
 When returning paged results for a query with _include resources, all _include resources that are 
