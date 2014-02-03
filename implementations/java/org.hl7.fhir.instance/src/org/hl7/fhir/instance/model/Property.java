@@ -115,5 +115,12 @@ public class Property {
 		return values;
 	}
 
+  public boolean hasValues() {
+    for (Element e : getValues())
+      if (e != null)
+        return true;
+    return false;
+  }
+
 	
 }
