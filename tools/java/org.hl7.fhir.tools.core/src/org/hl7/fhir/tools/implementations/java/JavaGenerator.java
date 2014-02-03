@@ -77,17 +77,17 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   private Logger logger;
 
   @Override
-public String getName() {
+  public String getName() {
     return "java";
   }
 
   @Override
-public String getDescription() {
-    return "Resource Definitions, XML & Json parsers, validation & value set tooling. The java reference implementation depends on XmlPull ([[http://www.xmlpull.org/]]), the Java JSON library ([[http://json.org]]), the Apache Commons Codec library ([[http://commons.apache.org/codec/]]), and Saxon 9 (for validation).";
+  public String getDescription() {
+    return "Resource Definitions, XML & Json parsers, & various utilities. The java reference implementation depends on XmlPull ([[http://www.xmlpull.org/]]), the Java JSON library ([[http://json.org]]), the Apache Commons Codec library ([[http://commons.apache.org/codec/]]), and Saxon 9 (for validation). A Java client can be found at [[https://github.com/cnanjo/FhirJavaReferenceClient]]";
   }
 
   @Override
-public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
+  public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
     char sl = File.separatorChar;
     javaDir       =  implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl;
     javaParserDir =  implDir+"org.hl7.fhir.instance"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"formats"+sl;
