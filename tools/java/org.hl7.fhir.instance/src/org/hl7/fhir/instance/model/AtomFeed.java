@@ -75,4 +75,16 @@ public class AtomFeed extends AtomBase {
     return null;
   }
 
+  public boolean isDocument() {
+    return hasTag("http://hl7.org/fhir/tag", "http://hl7.org/fhir/tag/document");
+  }
+
+  private boolean hasTag(String scheme, String term) {
+    for (AtomCategory tag : getTags()) {
+      if (scheme.equals(tag.getScheme()) && term.equals(tag.getTerm()))
+        return true;
+    }
+    return false;
+  }
+
 }

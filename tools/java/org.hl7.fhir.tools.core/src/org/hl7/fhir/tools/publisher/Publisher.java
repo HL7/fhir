@@ -2300,12 +2300,18 @@ public class Publisher {
         for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae : rf.getFeed().getEntryList()) {
           r = ae.getResource();
           wantSave = wantSave || (r.getText() == null || r.getText().getDiv() == null);
-          NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page));
-          gen.generate(r);
+          if ((r.getText() == null || r.getText().getDiv() == null) || !web) {
+            NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, rf.getFeed()));
+            gen.generate(r);
+          }
           if (r.getText() != null && r.getText().getDiv() != null) {
             combined.getChildNodes().add(r.getText().getDiv());
             combined.addTag("hr");
-          }          
+          }  
+          if (rf.getFeed().isDocument()) {
+            NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, null));
+            combined = gen.generateDocumentNarrative(rf.getFeed());
+          }
         }
         narrative = new XhtmlComposer().compose(combined);
         if (wantSave) {
@@ -2316,8 +2322,10 @@ public class Publisher {
       } else {
         r = rf.getResource();
         wantSave = r.getText() == null || r.getText().getDiv() == null;
-        NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page));
-        gen.generate(r);
+        if (wantSave || !web) {
+          NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, null));
+          gen.generate(r);
+        }
         if (r.getText() != null && r.getText().getDiv() != null) {
           narrative = new XhtmlComposer().compose(r.getText().getDiv());
           if (wantSave) {

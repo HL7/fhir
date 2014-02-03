@@ -13,11 +13,14 @@ import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.model.Address;
 import org.hl7.fhir.instance.model.Address.AddressUse;
 import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Attachment;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Composition;
+import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.Contact.ContactUse;
 import org.hl7.fhir.instance.model.Duration;
@@ -151,45 +154,69 @@ public class NarrativeGenerator {
       for (Property p : e.children()) {
         if (p.hasValues()) {
           ElementComponent child = getElementDefinition(children, path+"."+p.getName());
-          List<ElementComponent> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
-          if (p.getValues().size() > 0 && child != null) {
-            if (isPrimitive(child)) {
-              XhtmlNode para = x.addTag("p");
-              para.addTag("b").addText(p.getName());
-              para.addText(": ");
-              boolean first = true;
-              for (Element v : p.getValues()) {
-                if (first)
-                  first = false;
-                else
-                  para.addText(", ");
-                renderLeaf(res, v, child, para, false);
-              }
-            } else if (canDoTable(grandChildren)) {
-              x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
-              XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
-              addColumnHeadings(tbl.addTag("tr"), grandChildren);
-              for (Element v : p.getValues()) {
-                if (v != null) {
-                  addColumnValues(res, tbl.addTag("tr"), grandChildren, v);
+          if (!exemptFromRendering(child)) {
+            List<ElementComponent> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
+            if (p.getValues().size() > 0 && child != null) {
+              if (isPrimitive(child)) {
+                XhtmlNode para = x.addTag("p");
+                para.addTag("b").addText(p.getName());
+                para.addText(": ");
+                if (renderAsList(child) && p.getValues().size() > 1) {
+                  XhtmlNode list = x.addTag("ul");
+                  for (Element v : p.getValues()) 
+                    renderLeaf(res, v, child, list.addTag("li"), false);
+                } else { 
+                  boolean first = true;
+                  for (Element v : p.getValues()) {
+                    if (first)
+                      first = false;
+                    else
+                      para.addText(", ");
+                    renderLeaf(res, v, child, para, false);
+                  }
                 }
-              }
-            } else {
-              for (Element v : p.getValues()) {
-                if (v != null) {
-                  XhtmlNode bq = x.addTag("blockquote");
-                  bq.addTag("p").addTag("b").addText(p.getName());
-                  generateByProfile(res, v, allElements, child, grandChildren, bq, path+"."+p.getName());
+              } else if (canDoTable(grandChildren)) {
+                x.addTag("h3").addText(Utilities.capitalize(Utilities.camelCase(Utilities.pluralizeMe(p.getName()))));
+                XhtmlNode tbl = x.addTag("table").setAttribute("class", "grid");
+                addColumnHeadings(tbl.addTag("tr"), grandChildren);
+                for (Element v : p.getValues()) {
+                  if (v != null) {
+                    addColumnValues(res, tbl.addTag("tr"), grandChildren, v);
+                  }
                 }
-              } 
+              } else {
+                for (Element v : p.getValues()) {
+                  if (v != null) {
+                    XhtmlNode bq = x.addTag("blockquote");
+                    bq.addTag("p").addTag("b").addText(p.getName());
+                    generateByProfile(res, v, allElements, child, grandChildren, bq, path+"."+p.getName());
+                  }
+                } 
+              }
             }
           }
         }
       }
     }
   }
-
   
+  private boolean exemptFromRendering(ElementComponent child) {
+    if ("Composition.subject".equals(child.getPathSimple()))
+      return true;
+    if ("Composition.section".equals(child.getPathSimple()))
+      return true;
+    return false;
+  }
+
+  private boolean renderAsList(ElementComponent child) {
+    if (child.getDefinition().getType().size() == 1) {
+      String t = child.getDefinition().getType().get(0).getCodeSimple();
+      if (t.equals("Address") || t.equals("ResourceReference"))
+        return true;
+    }
+    return false;
+  }
+
   private void addColumnHeadings(XhtmlNode tr, List<ElementComponent> grandChildren) {
     for (ElementComponent e : grandChildren) 
       tr.addTag("td").addTag("b").addText(Utilities.capitalize(tail(e.getPathSimple())));
@@ -505,7 +532,7 @@ public class NarrativeGenerator {
       }
     }
     
-    x.addTag("span").setAttribute("title", b.toString()).addText(s);   
+    x.addTag("span").setAttribute("title", "Codes: "+b.toString()).addText(s);   
   }
 
   private void renderCoding(Coding c, XhtmlNode x) {
@@ -738,7 +765,7 @@ public class NarrativeGenerator {
       }
     }
     if (address.getUseSimple() != null)
-      s.append("("+address.getUse().toString()+")");
+      s.append("("+address.getUseSimple().toString()+")");
     return s.toString();
   }
 
@@ -1688,13 +1715,45 @@ public class NarrativeGenerator {
     tr.addTag("td").addText(value);    
   }
 
-  private String showBoolean(Boolean bool) {
-    if (bool == null)
-      return "";
-    if (bool.getValue())
-      return "y"; 
-    return "";        
+  public XhtmlNode generateDocumentNarrative(AtomFeed feed) {
+    /*
+     When the document is presented for human consumption, applications must present the collated narrative portions of the following resources in order:
+     * The Composition resource
+     * The Subject resource
+     * Resources referenced in the section.content
+     */
+    XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
+    Composition comp = (Composition) feed.getEntryList().get(0).getResource();
+    root.getChildNodes().add(comp.getText().getDiv());
+    Resource subject = feed.getById(comp.getSubject().getReferenceSimple()).getResource();
+    if (subject != null) {
+      root.addTag("hr");
+      root.getChildNodes().add(subject.getText().getDiv());
+    }
+    List<SectionComponent> sections = comp.getSection();
+    renderSections(feed, root, sections, 1);
+    return root;
   }
 
+  private void renderSections(AtomFeed feed, XhtmlNode node, List<SectionComponent> sections, int level) {
+    for (SectionComponent section : sections) {
+      node.addTag("hr");
+      if (section.getTitle() != null)
+        node.addTag("h"+Integer.toString(level)).addText(section.getTitleSimple());
+      else if (section.getCode() != null)
+        node.addTag("h"+Integer.toString(level)).addText(displayCodeableConcept(section.getCode()));
+      
+      if (section.getContent() != null) {
+        Resource subject = feed.getById(section.getContent().getReferenceSimple()).getResource();
+        if (subject != null) {
+          node.getChildNodes().add(subject.getText().getDiv());
+        }
+      }
+      
+      if (!section.getSection().isEmpty()) {
+        renderSections(feed, node.addTag("blockquote"), section.getSection(), level+1);
+      }
+    }
+  }
 
 }

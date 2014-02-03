@@ -22,9 +22,11 @@ import org.hl7.fhir.instance.model.Resource;
 public class SpecificationInternalClient implements FHIRClient {
 
   private PageProcessor page;
+  private AtomFeed feed;
 
-  public SpecificationInternalClient(PageProcessor page) {
+  public SpecificationInternalClient(PageProcessor page, AtomFeed feed) {
     this.page = page;
+    this.feed = feed;
   }
 
   @Override
@@ -65,6 +67,9 @@ public class SpecificationInternalClient implements FHIRClient {
 
   @Override
   public <T extends Resource> AtomEntry<T> read(Class<T> resource, String id) {
+    if (feed != null && feed.getById(id) != null) {
+      
+    }
     String[] path = id.split("/");
     if (path.length != 2)
       return null;
