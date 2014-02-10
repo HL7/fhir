@@ -36,9 +36,9 @@
 		<required value="required" />
 		<status value="accepted" />
 	</participant>
-	<recorder>
+	<lastModifiedBy>
 		<reference value="Practitioner/example"/>
 			<display value="Dr Adam Careful" />
-	</recorder>
-	<recordedDate value="2012-09-17"/>
+	</lastModifiedBy>
+	<lastModifiedDate value="2012-09-17"/>
 </Appointment>

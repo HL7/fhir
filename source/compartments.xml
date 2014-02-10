@@ -10,15 +10,15 @@
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2013-07-04T21:40:49Z</Created>
   <LastSaved>2014-01-06T04:40:41Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>9030</WindowHeight>
-  <WindowWidth>19455</WindowWidth>
-  <WindowTopX>1035</WindowTopX>
+  <WindowWidth>19290</WindowWidth>
+  <WindowTopX>1200</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
@@ -132,6 +132,20 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Appointment</Data></Cell>
+    <Cell><Data ss:Type="String">participant.individual</Data></Cell>
+    <Cell><Data ss:Type="String">lastModifiedBy</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AppointmentResponse</Data></Cell>
+    <Cell><Data ss:Type="String">recorder | individual</Data></Cell>
+    <Cell><Data ss:Type="String">recorder</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Availability</Data></Cell>
+    <Cell><Data ss:Type="String">individual</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Composition</Data></Cell>
@@ -297,6 +311,9 @@
     <Cell><Data ss:Type="String">reference.subject | reference.patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Slot</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Specimen</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
@@ -309,21 +326,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Appointment</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">recorder</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!AppointmentResponse</Data></Cell>
-    <Cell><Data ss:Type="String">recorder | individual</Data></Cell>
-    <Cell><Data ss:Type="String">recorder</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Availability</Data></Cell>
-    <Cell><Data ss:Type="String">individual | author</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!Claim</Data></Cell>
@@ -368,11 +370,6 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Slot</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!User</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -408,6 +405,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>0</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

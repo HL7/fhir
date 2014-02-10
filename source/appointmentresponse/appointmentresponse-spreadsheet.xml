@@ -10,15 +10,15 @@
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2014-01-06T01:24:45Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>9030</WindowHeight>
-  <WindowWidth>19455</WindowWidth>
-  <WindowTopX>1035</WindowTopX>
+  <WindowWidth>19290</WindowWidth>
+  <WindowTopX>1200</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
   <ProtectStructure>False</ProtectStructure>
@@ -165,7 +165,6 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">(informative) A response to a scheduled appointment for a patient and/or practitioner(s)</Data></Cell>
-    <Cell><Data ss:Type="String">A scheduled appointment for a patient and/or practitioner(s) where a service may take place.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -336,7 +335,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -344,14 +343,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

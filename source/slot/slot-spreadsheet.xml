@@ -10,16 +10,16 @@
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2013-12-20T11:31:35Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4545</WindowHeight>
-  <WindowWidth>13635</WindowWidth>
-  <WindowTopX>375</WindowTopX>
-  <WindowTopY>540</WindowTopY>
+  <WindowHeight>9030</WindowHeight>
+  <WindowWidth>19290</WindowWidth>
+  <WindowTopX>1200</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <TabRatio>634</TabRatio>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -181,7 +181,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">(informative) A slot of time that may be available for booking appointments</Data></Cell>
+    <Cell><Data ss:Type="String">(informative) A slot of time on a schedule that may be available for booking appointments</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">(refer to the Availability resource for the header mapping details)</Data></Cell>
@@ -260,28 +260,20 @@
     <Cell ss:Index="14" ss:StyleID="s75"><Data ss:Type="String">FREEBUSY:19980314T233000Z/(end)&#10;If the freeBusyType is BUSY, then this value can be excluded (as shown)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Slot.overboooked</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">This slot has already been overbooked, appointments are unlikely to be accepted for this time</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s75"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Slot.comment</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Comments on the slot to describe any extended information. Such as custom constraints on the slot</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Slot.author</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson)</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Who authored the slot</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s68"/>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:Index="17" ss:StyleID="s67"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Slot.authorDate</Data></Cell>
+    <Cell><Data ss:Type="String">Slot.lastModified</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>

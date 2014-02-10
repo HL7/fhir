@@ -9,18 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-01-06T01:24:45Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2014-01-21T20:22:21Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3345</WindowHeight>
-  <WindowWidth>7470</WindowWidth>
-  <WindowTopX>1035</WindowTopX>
+  <WindowHeight>3255</WindowHeight>
+  <WindowWidth>6270</WindowWidth>
+  <WindowTopX>1200</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -180,7 +181,6 @@
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">(informative) A scheduled appointment for a patient and/or practitioner(s) where a service may take place</Data></Cell>
-    <Cell><Data ss:Type="String">A scheduled appointment for a patient and/or practitioner(s) where a service may take place.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s68"/>
     <Cell ss:Index="13" ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -255,7 +255,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Appointment.schedule</Data></Cell>
+    <Cell><Data ss:Type="String">Appointment.recurrence</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Schedule</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment</Data></Cell>
@@ -294,7 +294,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Appointment.participant</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"><Data ss:Type="String">right</Data></Cell>
@@ -325,11 +325,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.participant.individual</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson|Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">A Person of device that is participating in the appointment</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Should this be multiple? And move to a child enitity</Data></Cell>
@@ -374,14 +374,15 @@
     <Cell ss:Index="18" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Appointment.participant.observation</Data></Cell>
+    <Cell><Data ss:Type="String">!Appointment.participant.observation</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Observations that lead to the creation of this appointment. (Is this 80%)</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:Index="12"><Data ss:Type="String">PA discussed, concerms that this was part of V2 and v3, but not sure that is should be in 80%</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"><Data ss:Type="String">OBX-21-Observation Instance Identifier&#10;(Subject to Ch7 caveats)</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
@@ -395,7 +396,7 @@
     <Cell><Data ss:Type="String">If this location is defined, this is where this participant is expected to be, otherwise the location in the appointment is used. This covers use-cases where teleconferencing is used, and some participants are in a different location.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Appointment.recorder</Data></Cell>
+    <Cell><Data ss:Type="String">Appointment.lastModifiedBy</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -411,7 +412,7 @@
     <Cell ss:Index="18" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">Appointment.recordedDate</Data></Cell>
+    <Cell><Data ss:Type="String">Appointment.lastModifiedDate</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -439,13 +440,12 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -453,14 +453,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -647,8 +648,8 @@
     <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">The subject that the sensitivity is about</Data></Cell>
+    <Cell><Data ss:Type="String">individual</Data></Cell>
+    <Cell><Data ss:Type="String">Any one of the individuals participating in the appointment</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
     <Cell><Data ss:Type="String">Appointment.participant.individual</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s64"/>
@@ -759,6 +760,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -779,7 +781,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

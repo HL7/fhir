@@ -15,10 +15,19 @@
 				</p>
 			</li>
 			<li>
-				<h3>Slots - not a containted resource</h3>
+				<h3>Slots - not a contained resource</h3>
 				<p>
-					The slots are not included with this resource due to the volatility of slot resources and the rate at which these
-					are updated, and are updated independent of each other, and this availability container.
+					Due to the dynamic nature of slots they are not included as a part of this resource.
+				</p>
+				<p>
+					It is anticipated that this resource is likely to be updated intermittently when the scope 
+					of slots is changed, i.e. to change the period of slots in the planning horizon.
+					This could be performed each night to move the start and end date forward to 
+					keep the planning horizon as exactly 4 weeks.
+				</p>
+				<p>
+					The slot resource however is anticipated to be updated regularly as the appointments
+					that reference it are changed.
 				</p>
 			</li>
 		</ul>
