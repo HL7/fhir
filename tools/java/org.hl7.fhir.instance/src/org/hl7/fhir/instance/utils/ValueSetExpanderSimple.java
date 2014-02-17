@@ -19,18 +19,16 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 
 public class ValueSetExpanderSimple implements ValueSetExpander {
 
-	private static final int UPPER_LIMIT = 10000;// this value is arbitrary
-	
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
   private List<ValueSetExpansionContainsComponent> codes = new ArrayList<ValueSet.ValueSetExpansionContainsComponent>();
   private Map<String, ValueSetExpansionContainsComponent> map = new HashMap<String, ValueSet.ValueSetExpansionContainsComponent>();
   private ValueSet focus;
-  private ConceptLocator locator;
+  private TerminologyServices locator;
 
 	private ValueSetExpanderFactory factory;
   
-  public ValueSetExpanderSimple(Map<String, ValueSet> valuesets, Map<String, ValueSet> codesystems, ValueSetExpanderFactory factory, ConceptLocator locator) {
+  public ValueSetExpanderSimple(Map<String, ValueSet> valuesets, Map<String, ValueSet> codesystems, ValueSetExpanderFactory factory, TerminologyServices locator) {
     super();
     this.valuesets = valuesets;
     this.codesystems = codesystems;
@@ -38,26 +36,29 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     this.locator = locator;
   }
   
-  public ValueSet expand(ValueSet source) throws Exception {
-    focus = source.copy();
-    focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
-    focus.getExpansion().setTimestampSimple(DateAndTime.now());
-    
-  	
-    handleDefine(source);
-    if (source.getCompose() != null) 
-    	handleCompose(source.getCompose());
+  public ValueSetExpansionOutcome expand(ValueSet source) {
 
-    // sanity check on value set size;
-    if (map.size() > UPPER_LIMIT)
-    	throw new Exception("Value set size of "+Integer.toString(map.size())+" exceeds upper limit of "+Integer.toString(UPPER_LIMIT));
-    
-    for (ValueSetExpansionContainsComponent c : codes) {
-    	if (map.containsKey(key(c))) {
-    		focus.getExpansion().getContains().add(c);
-    	}
+    try {
+      focus = source.copy();
+      focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
+      focus.getExpansion().setTimestampSimple(DateAndTime.now());
+
+
+      handleDefine(source);
+      if (source.getCompose() != null) 
+        handleCompose(source.getCompose());
+
+      for (ValueSetExpansionContainsComponent c : codes) {
+        if (map.containsKey(key(c))) {
+          focus.getExpansion().getContains().add(c);
+        }
+      }
+      return new ValueSetExpansionOutcome(focus);
+    } catch (Exception e) {
+      // well, we couldn't expand, so we'll return an interface to a checked that can check membership of the set
+      // that might fail too, but it might not, later.
+      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, locator, factory, codesystems, valuesets));
     }
-    return focus;
   }
 
 	private void handleCompose(ValueSetComposeComponent compose) throws Exception {
@@ -75,26 +76,20 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  	throw new Exception("unable to find value set with no identity");
 	  ValueSet vs = valuesets.get(value);
 	  if (vs == null)
-		  	throw new Exception("Unable to find imported value set "+value);
-	  vs = factory.getExpander().expand(vs);
-	  for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
+			throw new Exception("Unable to find imported value set "+value);
+	  ValueSetExpansionOutcome vso = factory.getExpander().expand(vs);
+	  if (vso.getService() != null)
+      throw new Exception("Unable to expand imported value set "+value);
+	  for (ValueSetExpansionContainsComponent c : vso.getValueset().getExpansion().getContains()) {
 	  	addCode(c.getSystemSimple(), c.getCodeSimple(), c.getDisplaySimple());
 	  }	  
   }
 
 	private void includeCodes(ConceptSetComponent inc) throws Exception {
-    if (inc.getSystemSimple().equals("http://snomed.info/sct"))
-      if (locator != null) {
-        addCodes(locator.expand(inc));
-        return;
-      } else
-      throw new Exception("Snomed Expansion is not yet supported (which release?)");
-    if (inc.getSystemSimple().equals("http://loinc.org"))
-      if (locator != null) {
-        addCodes(locator.expand(inc));
-        return;
-      } else
-      throw new Exception("LOINC Expansion is not yet supported (todo)");
+	  if (locator != null && locator.supportsSystem(inc.getSystemSimple())) {
+        addCodes(locator.expandVS(inc));
+      return;
+	  }
 	    
 	  ValueSet cs = codesystems.get(inc.getSystemSimple());
 	  if (cs == null)

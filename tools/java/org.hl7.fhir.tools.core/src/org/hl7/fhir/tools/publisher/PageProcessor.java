@@ -85,6 +85,7 @@ import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -135,7 +136,7 @@ public class PageProcessor implements Logger  {
   private BindingNameRegistry registry;
   private String id; // technical identifier associated with the page being built
   private EPubManager epub;
-  private SpecificationConceptLocator conceptLocator;
+  private SpecificationTerminologyServices conceptLocator;
 ;
   
   public final static String PUB_NOTICE =
@@ -2160,7 +2161,7 @@ public class PageProcessor implements Logger  {
       return "";
     try {
       ValueSetExpansionCache cache = new ValueSetExpansionCache(definitions.getValuesets(), definitions.getCodeSystems(), conceptLocator);
-      ValueSet exp = cache.getExpander().expand(vs);
+      ValueSet exp = cache.getExpander().expand(vs).getValueset();
       exp.setCompose(null);
       exp.setDefine(null);
       exp.setText(null); 
@@ -3067,7 +3068,7 @@ public class PageProcessor implements Logger  {
 
   public void setFolders(FolderManager folders) {
     this.folders = folders;
-    conceptLocator = new SpecificationConceptLocator(Utilities.path(folders.srcDir, "terminologies", "cache"));
+    conceptLocator = new SpecificationTerminologyServices(Utilities.path(folders.srcDir, "terminologies", "cache"));
     epub = new EPubManager(this);
   }
 
@@ -3250,7 +3251,7 @@ public class PageProcessor implements Logger  {
     log("Loinc Loaded", LogMessageType.Process);
   }
 
-  public SpecificationConceptLocator getConceptLocator() {
+  public SpecificationTerminologyServices getConceptLocator() {
     return conceptLocator;
   }
 

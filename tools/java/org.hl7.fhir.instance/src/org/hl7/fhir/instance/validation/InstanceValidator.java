@@ -47,8 +47,9 @@ import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.utils.ConceptLocator;
-import org.hl7.fhir.instance.utils.ConceptLocator.ValidationResult;
+import org.hl7.fhir.instance.utils.TerminologyServices;
+import org.hl7.fhir.instance.utils.TerminologyServices.ValidationResult;
+import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -95,9 +96,9 @@ public class InstanceValidator extends BaseValidator {
   private ExtensionLocatorService extensions;
 
 
-  private ConceptLocator conceptLocator;
+  private TerminologyServices conceptLocator;
 
-  public InstanceValidator(String validationZip, ExtensionLocatorService extensions, ConceptLocator conceptLocator) throws Exception {
+  public InstanceValidator(String validationZip, ExtensionLocatorService extensions, TerminologyServices conceptLocator) throws Exception {
     super();
     source = Source.InstanceValidator;
     loadValidationResources(validationZip);
@@ -384,7 +385,7 @@ public class InstanceValidator extends BaseValidator {
           if (type.equals("Identifier"))
             checkIdentifier(ci.path(), ci.element(), child);
           else if (type.equals("Coding"))
-            checkCoding(errors, ci.path(), ci.element(), profile, child);
+            checkCoding(errors, ci.path(), ci.element(), profile, child, true);
           else if (type.equals("CodeableConcept"))
             checkCodeableConcept(errors, ci.path(), ci.element(), profile, child);
           else if (type.equals("Extension"))
@@ -451,9 +452,9 @@ public class InstanceValidator extends BaseValidator {
                     ValueSet vs = resolveBindingReference(binding.getReference());
                     if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                       try {
-                        vs = cache.getExpander().expand(vs);
-                        if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
-                          warning(errors, "code-unknown", path, codeInExpansion(vs, null, child.getAttribute("value")), "Code "+child.getAttribute("value")+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+")");
+                        ValueSetExpansionOutcome vso = cache.getExpander().expand(vs);
+                        if (warning(errors, "code-unknown", path, vso != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
+                          warning(errors, "code-unknown", path, codeInExpansion(vso, null, child.getAttribute("value")), "Code "+child.getAttribute("value")+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+")");
                         }
                       } catch (Exception e) {
                         warning(errors, "code-unknown", path, false, "Exception opening value set "+vs.getIdentifierSimple()+" for "+describeReference(binding.getReference())+": "+e.getMessage());
@@ -643,23 +644,23 @@ public class InstanceValidator extends BaseValidator {
   }
 
 
-  private void checkCoding(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent context) {
+  private void checkCoding(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent context, boolean checkVS) {
     String code = XMLUtil.getNamedChildValue(element,  "code");
     String system = XMLUtil.getNamedChildValue(element,  "system");
     String display = XMLUtil.getNamedChildValue(element,  "display");
 
     if (system != null && code != null) {
       if (checkCode(errors, path, code, system, display)) 
-        if (context != null && context.getDefinition().getBinding() != null) {
+        if (checkVS && context != null && context.getDefinition().getBinding() != null) {
           ElementDefinitionBindingComponent binding = context.getDefinition().getBinding();
           if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing")) {
             if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
               ValueSet vs = resolveBindingReference(binding.getReference());
               if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                 try {
-                  vs = cache.getExpander().expand(vs);
-                  if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
-                    warning(errors, "code-unknown", path, codeInExpansion(vs, system, code), "Code {"+system+"}"+code+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+")");
+                  ValueSetExpansionOutcome vso = cache.getExpander().expand(vs);
+                  if (warning(errors, "code-unknown", path, vso != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
+                    warning(errors, "code-unknown", path, codeInExpansion(vso, system, code), "Code {"+system+"}"+code+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+")");
                   }
                 } catch (Exception e) {
                   if (e.getMessage() == null)
@@ -691,12 +692,16 @@ public class InstanceValidator extends BaseValidator {
       return null;
   }
 
-  private boolean codeInExpansion(ValueSet vs, String system, String code) {
-    for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
-      if (code.equals(c.getCodeSimple()) && (system == null || system.equals(c.getSystemSimple())))
-        return true;
-      if (codeinExpansion(c, system, code)) 
-        return true;
+  private boolean codeInExpansion(ValueSetExpansionOutcome vso, String system, String code) {
+    if (vso.getService() != null) {
+      return vso.getService().codeInValueSet(system, code);
+    } else {
+      for (ValueSetExpansionContainsComponent c : vso.getValueset().getExpansion().getContains()) {
+        if (code.equals(c.getCodeSimple()) && (system == null || system.equals(c.getSystemSimple())))
+          return true;
+        if (codeinExpansion(c, system, code)) 
+          return true;
+      }
     }
     return false;
   }
@@ -712,6 +717,16 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private void checkCodeableConcept(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent context) {
+    // first, we check all codings, though not checking 
+    Element c = XMLUtil.getFirstChild(element);
+    while (c != null) {
+      if (c.getNodeName().equals("coding")) {
+        checkCoding(errors, path, element, profile, context, false);
+      }
+      c = XMLUtil.getNextSibling(c);
+    }
+    
+    // now we check the whole
     if (context != null && context.getDefinition().getBinding() != null) {
       ElementDefinitionBindingComponent binding = context.getDefinition().getBinding();
       if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing (cc)")) {
@@ -719,18 +734,18 @@ public class InstanceValidator extends BaseValidator {
           ValueSet vs = resolveBindingReference(binding.getReference());
           if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
             try {
-              vs = cache.getExpander().expand(vs);
-              if (warning(errors, "code-unknown", path, binding != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
+              ValueSetExpansionOutcome vso = cache.getExpander().expand(vs);
+              if (warning(errors, "code-unknown", path, vso != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
                 boolean found = false;
                 boolean any = false;
-                Element c = XMLUtil.getFirstChild(element);
+                c = XMLUtil.getFirstChild(element);
                 while (c != null) {
                   if (c.getNodeName().equals("coding")) {
                     any = true;
                     String system = XMLUtil.getNamedChildValue(c, "system");
                     String code = XMLUtil.getNamedChildValue(c, "code");
                     if (system != null && code != null)
-                      found = found || codeInExpansion(vs, system, code);
+                      found = found || codeInExpansion(vso, system, code);
                   }
                   c = XMLUtil.getNextSibling(c);
                 }
@@ -773,8 +788,8 @@ public class InstanceValidator extends BaseValidator {
 
 
   private boolean checkCode(List<ValidationMessage> errors, String path, String code, String system, String display) {
-    if (conceptLocator != null && conceptLocator.verifiesSystem(system)) {
-      ValidationResult s = conceptLocator.validate(system, code, display);
+    if (conceptLocator != null && conceptLocator.supportsSystem(system)) {
+      ValidationResult s = conceptLocator.validateCode(system, code, display);
       if (s == null)
         return true;
       if (s.getSeverity() == IssueSeverity.information)

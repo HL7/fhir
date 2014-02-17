@@ -32,7 +32,7 @@ package org.hl7.fhir.instance.model;
 /**
  * Primitive type "dateTime" in FHIR: any day in a gregorian calendar, along with the time in a 24hour clock, and possibly a timezone
  */
-public class DateTime extends Type {
+public class DateTime extends PrimitiveType {
 
 	/**
 	 * The value of the dateTime
@@ -62,5 +62,10 @@ public class DateTime extends Type {
 	protected Type typedCopy() {
 		return copy();
 	}
+
+  @Override
+  public String asStringValue() {
+    return value.toString();  
+  }
 
 }

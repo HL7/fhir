@@ -230,4 +230,24 @@
     </definition> 
   </extensionDefn>
 
+  <extensionDefn> 
+    <code value="display-hint"/>
+    <display value="Display Hint"/>
+    <contextType value="resource"/>
+    <context value="Profile.structure.element.definition"/>
+    <definition>
+      <short value="Hinting information for the narrative generator"/>
+      <formal value="Hinting information for the narrative generator - a series of name: value; pairs"/>
+      <comments value="known names: default (default value - don't represent if this value)"/>
+      <requirements value="Subtle ways to improve the generated narrative"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type> 
+        <code value="string"/>      
+      </type>
+      <isModifier value="false"/>
+    </definition> 
+  </extensionDefn>
+  
+
 </Profile>

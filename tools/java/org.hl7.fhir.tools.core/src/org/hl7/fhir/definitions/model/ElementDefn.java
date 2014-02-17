@@ -92,6 +92,7 @@ public class ElementDefn {
 								// constrained in the profile (false)
   private String statedType; // explicitly stated type (=xxxx)
 	private boolean isCoveredByExample; // true if an example has hit this
+	private String displayHint; // hits for generated narrative
 	
 	public ElementDefn() {
 		super();
@@ -779,6 +780,14 @@ public class ElementDefn {
 
   public void setXmlAttribute(boolean xmlAttribute) {
     this.xmlAttribute = xmlAttribute;
+  }
+
+  public String getDisplayHint() {
+    return displayHint;
+  }
+
+  public void setDisplayHint(String displayHint) {
+    this.displayHint = displayHint;
   }
 	
 	

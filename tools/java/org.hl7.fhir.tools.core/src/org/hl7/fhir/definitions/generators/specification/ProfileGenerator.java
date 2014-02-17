@@ -73,6 +73,7 @@ import org.hl7.fhir.instance.model.Profile.ResourceAggregationMode;
 import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.Type;
+import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -211,9 +212,8 @@ public class ProfileGenerator {
     dst.setName(Factory.newString_(src.getName()));
     dst.setConformanceSimple(convert(src.getBindingStrength()));
     dst.setIsExtensibleSimple(src.getExtensibility() == BindingExtensibility.Extensible);
-    if (src.getBinding() == Binding.Unbound)
-      dst.setDescription(Factory.newString_(src.getDefinition()));
-    else
+    dst.setDescription(Factory.newString_(src.getDefinition()));
+    if (src.getBinding() != Binding.Unbound)
       dst.setReference(buildReference(src));    
     return dst;
   }
@@ -402,6 +402,8 @@ public class ProfileGenerator {
     addMapping(p, ce.getDefinition(), "http://www.omg.org/spec/ServD/1.0/", e.getMapping(ElementDefn.ServD_MAPPING));
     addMapping(p, ce.getDefinition(), "http://ihe.net/xds", e.getMapping(ElementDefn.XDS_MAPPING));
     addMapping(p, ce.getDefinition(), ElementDefn.PROV_MAPPING, e.getMapping(ElementDefn.PROV_MAPPING));
+
+    ToolingExtensions.addDisplayHint(ce.getDefinition(), e.getDisplayHint());
 
     for (String in : e.getInvariants().keySet()) {
       ElementDefinitionConstraintComponent con = new Profile.ElementDefinitionConstraintComponent();

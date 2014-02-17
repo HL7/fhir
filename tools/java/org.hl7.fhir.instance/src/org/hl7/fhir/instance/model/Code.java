@@ -31,7 +31,7 @@ package org.hl7.fhir.instance.model;
 /**
  * Primitive type "code" in FHIR, when not bound to an enumerated list of codes
  */
-public class Code extends Type {
+public class Code extends PrimitiveType {
 
 	/**
 	 * The value of the code
@@ -61,5 +61,10 @@ public class Code extends Type {
 	protected Type typedCopy() {
 		return copy();
 	}
+
+  @Override
+  public String asStringValue() {
+    return value;
+  }
 
 }

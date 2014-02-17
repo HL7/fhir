@@ -31,7 +31,7 @@ package org.hl7.fhir.instance.model;
 /**
  * Primitive type "id" in FHIR: a string from 1 to 36 characters, only containing letters, digits, "-" and "."
  */
-public class Id extends Type {
+public class Id extends PrimitiveType {
 
 	/**
 	 * The value of the id
@@ -61,4 +61,9 @@ public class Id extends Type {
 		dst.value = value;
 		return dst;
 	}
+
+  @Override
+  public String asStringValue() {
+    return value;
+  }
 }

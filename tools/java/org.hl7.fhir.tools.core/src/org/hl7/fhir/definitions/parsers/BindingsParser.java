@@ -32,8 +32,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
+import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingExtensibility;
 import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 
@@ -75,6 +77,8 @@ public class BindingsParser {
 	    cd.setDefinition(sheet.getColumn(row, "Definition"));
 	    cd.setBinding(readBinding(sheet.getColumn(row, "Binding")));
 	    cd.setReference(sheet.getColumn(row, "Reference"));
+	    if (!cd.getBinding().equals(Binding.Unbound) && Utilities.noString(cd.getReference())) 
+	        throw new Exception("binding "+cd.getName()+" is missing a reference");
 	    cd.setDescription(sheet.getColumn(row, "Description"));
 	    cd.setId(registry.idForName(cd.getName()));
 	    cd.setSource(filename);

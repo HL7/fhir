@@ -193,7 +193,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="25" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="25" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s66" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s67" ss:Width="198"/>
    <Column ss:StyleID="s66" ss:Width="29.25"/>
@@ -207,9 +207,10 @@
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="216.75"/>
+   <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="62.25"/>
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="15" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="258"/>
-   <Column ss:Index="17" ss:StyleID="s66" ss:Width="88.5"/>
+   <Column ss:Index="16" ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="258"/>
+   <Column ss:Index="18" ss:StyleID="s66" ss:Width="88.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="105" ss:StyleID="s68">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
@@ -223,6 +224,7 @@
     <Cell><Data ss:Type="String">Aliases</Data></Cell>
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">Display Hint</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
     <Cell><Data ss:Type="String">RIM Mapping (old)</Data></Cell>
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
@@ -265,11 +267,11 @@
     <Cell><Data ss:Type="String">Vital Signs, Measurement, Results, Tests</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.</Data></Cell>
     <Cell><Data ss:Type="String">Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as Lab reports, etc</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN]</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">Observation[classCode=OBS, moodCode=EVN]</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Observation[isNormalAct() and subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and domainMember(&quot;SimpleObservationType&quot;, code)]</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">OBX</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
@@ -304,11 +306,11 @@
     <Cell><Data ss:Type="String">Type of observation (code / type)</Data></Cell>
     <Cell><Data ss:Type="String">Describes what was observed. Sometimes this is called the observation &quot;code&quot;</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">Knowing what kind of observation is being made is essential to understanding the observation.</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./code</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">OBX-3-observation identifier</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">PQ (unit=1)</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
@@ -344,11 +346,11 @@
     <Cell><Data ss:Type="String">The information determined as a result of making the observation, if the information has a simple value</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">An observation exists to have a value, though it may not if it is in error, or it represents a group of observations</Data></Cell>
     <Cell><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.name. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.name defines a coded value. The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">value</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">value</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./value</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">OBX.2, OBX.5, OBX.6</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Should have Range as a valid data type here</Data></Cell>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -383,11 +385,11 @@
     <Cell><Data ss:Type="String">High, low, normal, etc.</Data></Cell>
     <Cell><Data ss:Type="String">The assessment made based on the result of the observation.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">interpretationCode</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">interpretationCode</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unique(./interpretationCode)</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">OBX-8-interpretation codes</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -422,11 +424,11 @@
     <Cell><Data ss:Type="String">Comments about result</Data></Cell>
     <Cell><Data ss:Type="String">May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Need to be able to provide free text additional information</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">subjectOf.observationEvent[code=&quot;annotation&quot;].value</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">subjectOf.observationEvent[code=&quot;annotation&quot;].value</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s64"/>
@@ -462,11 +464,11 @@
     <Cell><Data ss:Type="String">The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">Knowing when an observation was deemed true is important to its relevance as well as determining trends</Data></Cell>
     <Cell><Data ss:Type="String">At least a date should be present unless this observation is a historical report</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">effectiveTime</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">effectiveTime</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./effectiveTime[type='IVL_TS' or type='TS']</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">OBX-14-date/time of the observation, and/or OBX-19 after v2.4  (depends on who observation made)</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Observation.issued</Data></Cell>
@@ -479,11 +481,11 @@
     <Cell><Data ss:Type="String">Date/Time this was made available</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Updated when the result is updated</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=AUT].time</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=AUT].time</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Observation.status</Data></Cell>
@@ -496,11 +498,12 @@
     <Cell><Data ss:Type="String">registered | preliminary | final | amended +</Data></Cell>
     <Cell><Data ss:Type="String">The status of the result value</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Need to track the status of individual results - some results are finalised before the whole report is finalised</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">status&#10;&#10;Amended &amp; Final are differentiated by whether it is the subject of a ControlAct event with a type of &quot;revise&quot;</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">default: final</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">status&#10;&#10;Amended &amp; Final are differentiated by whether it is the subject of a ControlAct event with a type of &quot;revise&quot;</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s76"><Data ss:Type="String">OBX-11-observation result status</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell><Data ss:Type="String">Observation.reliability</Data></Cell>
@@ -514,11 +517,12 @@
     <Cell><Data ss:Type="String">An estimate of the degree to which quality issues have impacted on the value reported</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Not all results are completely reliable, and some are still reported anyway.</Data></Cell>
     <Cell><Data ss:Type="String">Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but it's not always possible to exclude them from the record. Interpreters of a result, whether human or machine, SHALL always either be aware of the status, or prevented from using the observation without being unaware that the reliability is not &quot;ok&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">default: ok</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">uncertaintyCode</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">Maybe OBX.8/OBX.9</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Observation.bodySite</Data></Cell>
@@ -532,7 +536,7 @@
     <Cell><Data ss:Type="String">Indicates where on the subject's body the observation was made.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">Knowing where the observation is made is important for tracking if multiple sites are possible.</Data></Cell>
     <Cell><Data ss:Type="String">Only used if not implicit in code found in Observation.name</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">targetSiteCode</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">targetSiteCode</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unique(./targetSiteCode)</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">OBX-20-observation site</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -573,7 +577,7 @@
     <Cell><Data ss:Type="String">Indicates the mechanism used to perform the observation</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">In some cases, method can impact results and is thus for determining whether results can be compared or determining significance of results</Data></Cell>
     <Cell><Data ss:Type="String">Only used if not implicit in code for Observation.name</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">methodCode</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">methodCode</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unique(./methodCode)</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">OBX-17-observation method</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -591,11 +595,11 @@
     <Cell><Data ss:Type="String">Unique Id for this particular observation</Data></Cell>
     <Cell><Data ss:Type="String">A unique identifier for the simple observation</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">Allows observations to be distinguished and referenced</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s71"><Data ss:Type="String">id</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">id</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unique(./id[displayable=&quot;true&quot; and scope=&quot;OBJ&quot;])</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">OBX.21</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -631,11 +635,11 @@
     <Cell><Data ss:Type="String">The thing the observation is being made about</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">Observations have no value if you don't know who or what they're about.</Data></Cell>
     <Cell><Data ss:Type="String">The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=SBJ]</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=SBJ]</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role&#10;or ./participation[isHighest(priorityCode) and typeCode=&quot;SBJ&quot; and isNormalParticipation()]/role/entity)</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">PID-3-patient ID list</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -671,11 +675,11 @@
     <Cell><Data ss:Type="String">The specimen that was used when this observation was made </Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Observations are not made on specimens themselves; they are made on a subject, but usually by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources are often used in contexts that track the specimen explicity (e.g. Diagnostic Report)</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=SPC].specimen</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=SPC].specimen</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s64"/>
@@ -711,11 +715,11 @@
     <Cell><Data ss:Type="String">Who was responsible for asserting the observed value as &quot;true&quot;</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">May give a degree of confidence in the observation and also indicates where follow-up questions should be directed.</Data></Cell>
     <Cell><Data ss:Type="String">This would only be &quot;Device&quot; if the device is responsible for the measurement, not to capture the device used by a human to make the measurement.  (The latter could be captured as an extension.)</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=PRF]</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">participation[typeCode=PRF]</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">unique(./participation[isHighest(priorityCode) and typeCode=&quot;PRF&quot; and isNormalParticipation()]/role&#10;or&#10;./participation[isHighest(priorityCode) and typeCode=&quot;PRF&quot; and isNormalParticipation()]/role/entity]</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">OBX.15 / (Practitioner)  OBX-16-responsible observer,  PRT-5-participation person:PRT-4-participation='RO' / &#10;(Device)  OBX-18-equipment instance identifier , PRT-10-participation device:PRT-4-participation='EQUIP' / (Organization)  OBX-23-performing organization name,  PRT-8-participation organization:PRT-4-participation='PO'&#10;</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
@@ -749,11 +753,11 @@
     <Cell ss:StyleID="s70"/>
     <Cell><Data ss:Type="String">Expected value range - guide for interpretation</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">This </Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN,  interpretationCode=ObservationInterpretationNormality:N].value&#10;</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN,  interpretationCode=ObservationInterpretationNormality:N].value&#10;</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">./outboundRelationship[typeCode=&quot;REFV&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and isCriterionInd=&quot;true&quot; and isNormalAct() and interpretationCode=&quot;ObservationInterpretationNormality#N&quot;]&#10;</Data></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">OBX.7</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -788,10 +792,10 @@
     <Cell><Data ss:Type="String">Guidance on how to interpret the value by comparison to a normal or recommended range</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"><Data ss:Type="String">Knowing what values are considered &quot;normal&quot; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts</Data></Cell>
     <Cell><Data ss:Type="String">Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties</Data></Cell>
-    <Cell><Data ss:Type="String">outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]</Data></Cell>
     <Cell><Data ss:Type="String">./outboundRelationship[typeCode=&quot;REFV&quot; and isNormalActRelationship()]/target[subsumesCode(&quot;ActClass#OBS&quot;, classCode) and moodCode=&quot;EVN&quot; and isCriterionInd=&quot;true&quot; and isNormalAct()]</Data></Cell>
-    <Cell ss:Index="16" ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="17" ss:StyleID="Default"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s64"/>
@@ -826,10 +830,10 @@
     <Cell><Data ss:Type="String">The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. &lt;2.3</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Do not use the comparator for &lt; or &gt;</Data></Cell>
-    <Cell><Data ss:Type="String">value:IVL_PQ.low</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s76"><Data ss:Type="String">OBX-7-references range</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">value:IVL_PQ.low</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s76"><Data ss:Type="String">OBX-7-references range</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s64"/>
@@ -864,10 +868,10 @@
     <Cell><Data ss:Type="String">The value of the high bound of the reference range. If this is omitted, the high bound of the reference range is assumed to be meaningless. E.g. &gt;5</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">Do not use the comparator for &lt; or &gt;</Data></Cell>
-    <Cell><Data ss:Type="String">value:IVL_PQ.high</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s76"><Data ss:Type="String">OBX-7-references range</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">value:IVL_PQ.high</Data></Cell>
+    <Cell ss:Index="16" ss:StyleID="s76"><Data ss:Type="String">OBX-7-references range</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s64"/>
@@ -903,11 +907,11 @@
     <Cell><Data ss:Type="String">Code for the meaning of the reference range</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, or perhaps what state this reference range applies to (i.e. age, hormonal cycles, etc.)</Data></Cell>
     <Cell><Data ss:Type="String">This SHOULD be populated if there is more than one range</Data></Cell>
-    <Cell><Data ss:Type="String">interpretationCode</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">interpretationCode</Data></Cell>
     <Cell><Data ss:Type="String">./interpretationCode</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">OBX-10-nature of abnormal test?</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s64"/>
@@ -942,9 +946,9 @@
     <Cell><Data ss:Type="String">Applicable age range, if relevant</Data></Cell>
     <Cell><Data ss:Type="String">The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Some analytes vary greatly over age</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=&quot;age&quot;].value</Data></Cell>
-    <Cell ss:Index="16" ss:StyleID="Default"/>
-    <Cell ss:Index="18" ss:StyleID="s70"/>
+    <Cell ss:Index="14"><Data ss:Type="String">outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=&quot;age&quot;].value</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="Default"/>
+    <Cell ss:Index="19" ss:StyleID="s70"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s64"/>
@@ -976,8 +980,8 @@
     <Cell><Data ss:Type="String">Related observations - either components, or previous observations, or statements of derivation</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Some observations have important relationships to other observations (e.g Blood Pressure = systolic + diastolic), or are derived from other observations (e.g. calculated apgar score)</Data></Cell>
     <Cell><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. apgar store) may have both a value and related observations (for apgar, the observations from which the measure is derived)</Data></Cell>
-    <Cell><Data ss:Type="String">outBoundRelationship</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">Relationships established by OBX-4 usage</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">outBoundRelationship</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">Relationships established by OBX-4 usage</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Observation.related.type</Data></Cell>
@@ -988,8 +992,8 @@
     <Cell><Data ss:Type="String">A code specifying the kind of relationship that exists with the target observation</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">May need to indicate whether this observation is composed of others, or merely derived from them</Data></Cell>
     <Cell><Data ss:Type="String">A relationship type SHOULD be provided. If the relationship type is &quot;COMP&quot; (composed), then the observation should not be displayed/interpreted in the absence of the related observations</Data></Cell>
-    <Cell><Data ss:Type="String">.typeCode</Data></Cell>
-    <Cell ss:Index="15"><Data ss:Type="String">N/A</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.typeCode</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Observation.related.target</Data></Cell>
@@ -997,7 +1001,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">Resource(Observation)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Observation that is related to this one</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the observation that is related to this observation</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">.targetObservation</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">.targetObservation</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1011,7 +1015,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1028,8 +1032,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

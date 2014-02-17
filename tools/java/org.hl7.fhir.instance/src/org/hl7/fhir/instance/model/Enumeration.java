@@ -33,7 +33,7 @@ POSSIBILITY OF SUCH DAMAGE.
  * Primitive type "code" in FHIR, where the code is tied to an enumerated list of possible valuse
  * 
  */
-public class Enumeration<T extends Enum> extends Type {
+public class Enumeration<T extends Enum> extends PrimitiveType {
 
 	/**
 	 * the actual value of the enumeration
@@ -73,5 +73,16 @@ public class Enumeration<T extends Enum> extends Type {
 	@Override
   protected Type typedCopy() {
 	  return copy();
+  }
+
+  @Override
+  public String asStringValue() {
+    EnumFactory factory = ResourceEnumerations.getEnumFactory(value.getClass());
+    if (factory != null)
+      try {
+        return factory.toCode(value);
+      } catch (Exception e) {
+      }
+    return value.toString();
   }
 }

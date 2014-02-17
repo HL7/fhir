@@ -419,6 +419,9 @@ public class SpreadsheetParser {
 			cd.setDefinition(sheet.getColumn(row, "Definition"));
 			cd.setBinding(BindingsParser.readBinding(sheet.getColumn(row, "Binding")));
 			cd.setReference(sheet.getColumn(row, "Reference"));
+	     if (!cd.getBinding().equals(Binding.Unbound) && Utilities.noString(cd.getReference())) 
+         throw new Exception("binding "+cd.getName()+" is missing a reference");
+
       cd.setDescription(sheet.getColumn(row, "Description"));
       cd.setExample(parseBoolean(sheet.getColumn(row, "Example"), row, false));
 			cd.setId(registry.idForName(cd.getName()));
@@ -819,6 +822,7 @@ public class SpreadsheetParser {
 		e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
 		e.setExample(sheet.getColumn(row, "Example"));
 		e.setCommitteeNotes(Utilities.appendPeriod(sheet.getColumn(row, "Committee Notes")));
+		e.setDisplayHint(sheet.getColumn(row, "Display Hint"));
 		if (isProfile) {
 			e.setValue(sheet.getColumn(row, "Value"));
 			e.setAggregation(sheet.getColumn(row, "Aggregation"));

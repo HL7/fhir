@@ -406,8 +406,9 @@ public class Publisher {
           String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
           generateECore(prsr.getECoreParseResults(), eCorePath);
           produceSpecification(eCorePath);
-        } else
+        } else {
           loadValueSets();
+        }
         validateXml();
         if (isGenerate && buildFlags.get("all"))
           produceQA();
@@ -432,18 +433,7 @@ public class Publisher {
   }
 
   private void loadValueSets() throws Exception {
-    v2Valuesets = new AtomFeed();
-    v2Valuesets.setId("http://hl7.org/fhir/v2/valuesets");
-    v2Valuesets.setTitle("v2 tables as ValueSets");
-    v2Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v2-tables.xml");
-    v2Valuesets.setUpdated(DateAndTime.now());
-    page.setV2Valuesets(v2Valuesets);
-    v3Valuesets = new AtomFeed();
-    v3Valuesets.setId("http://hl7.org/fhir/v3/valuesets");
-    v3Valuesets.setTitle("v3 Code Systems and ValueSets");
-    v3Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v3-valuesets.xml");
-    v3Valuesets.setUpdated(DateAndTime.now());
-    page.setv3Valuesets(v3Valuesets);
+    buildFeedsAndMaps();
 
     page.log(" ...vocab", LogMessageType.Process);
     analyseV2();
@@ -474,6 +464,44 @@ public class Publisher {
       generateConformanceStatement(true, "base");
       generateConformanceStatement(false, "base2");
     }
+  }
+
+  private void buildFeedsAndMaps() {
+    profileFeed = new AtomFeed();
+    profileFeed.setId("http://hl7.org/fhir/profile/resources");
+    profileFeed.setTitle("Resources as Profiles");
+    profileFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-resources.xml");
+    profileFeed.setUpdated(DateAndTime.now());
+    typeFeed = new AtomFeed();
+    typeFeed.setId("http://hl7.org/fhir/profile/types");
+    typeFeed.setTitle("Resources as Profiles");
+    typeFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-types.xml");
+    typeFeed.setUpdated(profileFeed.getUpdated());
+
+    valueSetsFeed = new AtomFeed();
+    valueSetsFeed.setId("http://hl7.org/fhir/profile/valuesets");
+    valueSetsFeed.setTitle("FHIR Core Valuesets");
+    valueSetsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valuesets.xml");
+    valueSetsFeed.setUpdated(profileFeed.getUpdated());
+
+    conceptMapsFeed = new AtomFeed();
+    conceptMapsFeed.setId("http://hl7.org/fhir/profile/conceptmaps");
+    conceptMapsFeed.setTitle("FHIR Core Concept Maps");
+    conceptMapsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/conceptmaps.xml");
+    conceptMapsFeed.setUpdated(profileFeed.getUpdated());
+
+    v2Valuesets = new AtomFeed();
+    v2Valuesets.setId("http://hl7.org/fhir/v2/valuesets");
+    v2Valuesets.setTitle("v2 tables as ValueSets");
+    v2Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v2-tables.xml");
+    v2Valuesets.setUpdated(DateAndTime.now());
+    page.setV2Valuesets(v2Valuesets);
+    v3Valuesets = new AtomFeed();
+    v3Valuesets.setId("http://hl7.org/fhir/v3/valuesets");
+    v3Valuesets.setTitle("v3 Code Systems and ValueSets");
+    v3Valuesets.getLinks().put("self", "http://hl7.org/implement/standards/fhir/v3-valuesets.xml");
+    v3Valuesets.setUpdated(DateAndTime.now());
+    page.setv3Valuesets(v3Valuesets);
   }
 
   private void generateConformanceStatement(boolean full, String name) throws Exception {
@@ -1110,33 +1138,11 @@ public class Publisher {
       TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion=" + page.getVersion() + "." + page.getSvnRevision() + "\r\nversion=" + page.getVersion()
           + "\r\nrevision=" + page.getSvnRevision() + "\r\ndate=" + new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()),
           Utilities.path(page.getFolders().dstDir, "version.info"));
-      profileFeed = new AtomFeed();
-      profileFeed.setId("http://hl7.org/fhir/profile/resources");
-      profileFeed.setTitle("Resources as Profiles");
-      profileFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-resources.xml");
-      profileFeed.setUpdated(DateAndTime.now());
-      typeFeed = new AtomFeed();
-      typeFeed.setId("http://hl7.org/fhir/profile/types");
-      typeFeed.setTitle("Resources as Profiles");
-      typeFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/profiles-types.xml");
-      typeFeed.setUpdated(profileFeed.getUpdated());
 
       for (String n : page.getDefinitions().getDiagrams().keySet()) {
         page.log(" ...diagram " + n, LogMessageType.Process);
         page.getSvgs().put(n, TextFile.fileToString(page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
       }
-
-      valueSetsFeed = new AtomFeed();
-      valueSetsFeed.setId("http://hl7.org/fhir/profile/valuesets");
-      valueSetsFeed.setTitle("FHIR Core Valuesets");
-      valueSetsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valuesets.xml");
-      valueSetsFeed.setUpdated(profileFeed.getUpdated());
-
-      conceptMapsFeed = new AtomFeed();
-      conceptMapsFeed.setId("http://hl7.org/fhir/profile/conceptmaps");
-      conceptMapsFeed.setTitle("FHIR Core Concept Maps");
-      conceptMapsFeed.getLinks().put("self", "http://hl7.org/implement/standards/fhir/conceptmaps.xml");
-      conceptMapsFeed.setUpdated(profileFeed.getUpdated());
 
       loadValueSets();
 

@@ -33,7 +33,7 @@ import org.hl7.fhir.instance.formats.XmlBase;
 /**
  * Primitive type "base64Binary" in FHIR: a sequence of bytes represented in base64
  */
-public class Base64Binary extends Type {
+public class Base64Binary extends PrimitiveType {
 
 	/**
 	 * The byte content in the base64Binary
@@ -66,5 +66,10 @@ public class Base64Binary extends Type {
 
 	public String getStringValue() {
 	  return XmlBase.toString(value);
+  }
+
+  @Override
+  public String asStringValue() {
+    return new String(value);
   }
 }

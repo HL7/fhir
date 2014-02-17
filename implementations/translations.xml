@@ -668,6 +668,12 @@
     <translation lang="it">(il valore di default, che � anche il massimo consentito, � %d. Valori &lt;2 non consentiti)</translation>
   </item>
   <item id="SEARCH_REC_OFFSET">
+    <translation lang="en">Text</translation>
+  </item>
+  <item id="SEARCH_REC_OFFSET_COMMENT">
+    <translation lang="en">Search for these words in the narrative. See [[http://technet.microsoft.com/en-us/library/ms142571.aspx]] for details</translation>
+  </item>
+  <item id="SEARCH_REC_OFFSET">
     <translation lang="du">Eerste record</translation>
     <translation lang="en">First Record</translation>
     <translation lang="it">Primo Record</translation>

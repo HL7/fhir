@@ -40,7 +40,7 @@ import org.hl7.fhir.instance.formats.XmlBase;
  * @author Grahame
  *
  */
-public class Instant extends Type {
+public class Instant extends PrimitiveType {
 
 	/**
 	 * The value for the instant
@@ -71,5 +71,10 @@ public class Instant extends Type {
 
 	public String getStringValue() {
 	  return value == null ? null : value.toString();
+  }
+
+  @Override
+  public String asStringValue() {
+    return value.toString();
   }
 }

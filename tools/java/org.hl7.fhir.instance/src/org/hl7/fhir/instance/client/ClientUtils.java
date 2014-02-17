@@ -90,14 +90,14 @@ public class ClientUtils {
 	
 	public static AtomFeed issueGetFeedRequest(URI resourceUri, String feedFormat, HttpHost proxy) {
 		HttpGet httpget = new HttpGet(resourceUri);
-		configureFhirRequest(httpget, feedFormat);
+		configureFhirRequest(httpget, feedFormat, feedFormat);
 		HttpResponse response = sendRequest(httpget, proxy);
 		return unmarshalFeed(response, feedFormat);
 	}
 	
 	public static AtomFeed postBatchRequest(URI resourceUri, byte[] payload, String feedFormat, HttpHost proxy) {
 		HttpPost httpPost = new HttpPost(resourceUri);
-		configureFhirRequest(httpPost, feedFormat);
+		configureFhirRequest(httpPost, feedFormat, feedFormat);
 		HttpResponse response = sendPayload(httpPost, payload, proxy);
         return unmarshalFeed(response, feedFormat);
 	}
@@ -136,7 +136,7 @@ public class ClientUtils {
 	 * @return
 	 */
 	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload, List<Header> headers, HttpHost proxy) {
-		configureFhirRequest(request, resourceFormat, headers);
+		configureFhirRequest(request, resourceFormat, resourceFormat, headers);
 		HttpResponse response = null;
 		if(request instanceof HttpEntityEnclosingRequest && payload != null) {
 			response = sendPayload((HttpEntityEnclosingRequestBase)request, payload, proxy);
@@ -156,8 +156,8 @@ public class ClientUtils {
 	 * 
 	 * @param request
 	 */
-	protected static void configureFhirRequest(HttpRequest request, String format) {
-		configureFhirRequest(request, format, null);
+	protected static void configureFhirRequest(HttpRequest request, String sendformat, String rcvformat) {
+		configureFhirRequest(request, sendformat, rcvformat, null);
 	}
 	
 	/**
@@ -166,10 +166,10 @@ public class ClientUtils {
 	 * 
 	 * @param request
 	 */
-		protected static void configureFhirRequest(HttpRequest request, String format, List<Header> headers) {
+		protected static void configureFhirRequest(HttpRequest request, String sendformat, String rcvformat, List<Header> headers) {
 		request.addHeader("User-Agent", "Java FHIR Client for FHIR");
-		request.addHeader("Accept",format);
-		request.addHeader("Content-Type", format + ";charset=" + DEFAULT_CHARSET);
+		request.addHeader("Accept",rcvformat);
+		request.addHeader("Content-Type", sendformat + ";charset=" + DEFAULT_CHARSET);
 		request.addHeader("Accept-Charset", DEFAULT_CHARSET);
 		if(headers != null) {
 			for(Header header : headers) {
@@ -472,10 +472,8 @@ public class ClientUtils {
 	
   public static AtomFeed issuePostFeedRequest(URI resourceUri, Map<String, String> parameters, String resourceName, Resource resource, String feedFormat) throws Exception {
     HttpPost httppost = new HttpPost(resourceUri);
-    configureFhirRequest(httppost, null);
     String boundary = "----WebKitFormBoundarykbMUo6H8QaUnYtRy";
-    httppost.addHeader("Content-Type", "multipart/form-data; boundary="+boundary);
-    httppost.addHeader("Accept", feedFormat);
+    configureFhirRequest(httppost, "multipart/form-data; boundary="+boundary, feedFormat);
     HttpResponse response = sendPayload(httppost, encodeFormSubmission(parameters, resourceName, resource, boundary));
     return unmarshalFeed(response, feedFormat);
   }
@@ -491,7 +489,8 @@ public class ClientUtils {
     }
     w.write("--");
     w.write(boundary);
-    w.write("\r\nContent-Disposition: form-data; name=\""+resourceName+"\"\r\n\r\n");
+    w.write("\r\nContent-Disposition: form-data; name=\""+resourceName+"\"\r\n");
+    w.write("Content-type: application/json+fhir\r\n\r\n");
     w.close(); 
     new JsonComposer().compose(b, resource, false);
     w = new OutputStreamWriter(b, "UTF-8");  
