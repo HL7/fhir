@@ -13,9 +13,9 @@
     <display value="Peter James Chalmers" />
   </individual>
   <participantStatus value="accepted" />
-	<recorder>
+	<lastModifiedBy>
 		<reference value="Practitioner/example"/>
 			<display value="Dr Adam Careful" />
-	</recorder>
-	<recordedDate value="2012-09-17"/>
+	</lastModifiedBy>
+	<lastModifiedByDate value="2012-09-17"/>
 </AppointmentResponse>

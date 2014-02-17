@@ -16,11 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9030</WindowHeight>
-  <WindowWidth>19290</WindowWidth>
-  <WindowTopX>1200</WindowTopX>
+  <WindowHeight>13020</WindowHeight>
+  <WindowWidth>27870</WindowWidth>
+  <WindowTopX>930</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
+  <ActiveSheet>5</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -225,9 +226,9 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">Resource(Practitioner|Patient|RelatedPerson|Device)</Data></Cell>
+    <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">A Person of device that is participating in the appointment</Data></Cell>
+    <Cell><Data ss:Type="String">A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Should this be multiple? And move to a child enitity</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
@@ -272,20 +273,20 @@
     <Cell ss:Index="8"><Data ss:Type="String">Date/Time that the appointment is to conclude</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AppointmentResponse.schedule</Data></Cell>
+    <Cell><Data ss:Type="String">!AppointmentResponse.schedule</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Schedule</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AppointmentResponse.timezone</Data></Cell>
+    <Cell><Data ss:Type="String">!AppointmentResponse.timezone</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundry</Data></Cell>
     <Cell><Data ss:Type="String">The timezone should be a value referenced from a timezone database</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AppointmentResponse.recorder</Data></Cell>
+    <Cell><Data ss:Type="String">AppointmentResponse.lastModifiedBy</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -301,7 +302,7 @@
     <Cell ss:Index="18" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">AppointmentResponse.recordedDate</Data></Cell>
+    <Cell><Data ss:Type="String">AppointmentResponse.lastModifiedByDate</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
@@ -329,7 +330,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -349,7 +349,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -741,17 +742,17 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">accepted</Data></Cell>
-    <Cell><Data ss:Type="String">The participant has accepted the appointment</Data></Cell>
+    <Cell><Data ss:Type="String">The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">declined</Data></Cell>
-    <Cell><Data ss:Type="String">The participant has declined the appointment</Data></Cell>
+    <Cell><Data ss:Type="String">The appointment participant has declined the appointment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">tentative</Data></Cell>
-    <Cell><Data ss:Type="String">The participant has tentative the appointment</Data></Cell>
+    <Cell><Data ss:Type="String">The appointment participant has tentatively accepted the appointment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -767,7 +768,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">needs-action</Data></Cell>
-    <Cell><Data ss:Type="String">The participant has needs-action the appointment</Data></Cell>
+    <Cell><Data ss:Type="String">This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment</Data></Cell>
    </Row>
    <Row ss:Index="10" ss:AutoFitHeight="0">
     <Cell ss:Index="2" ss:StyleID="s63"/>
@@ -780,10 +781,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
