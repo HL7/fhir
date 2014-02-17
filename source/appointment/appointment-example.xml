@@ -10,7 +10,6 @@
 	<description value="Discussion on the results of your recent MRI" />
 	<start value="2013-12-10T09:00:00Z" />
 	<end value="2013-12-10T11:00:00Z" />
-	<timezone value="AEST" />
 	<location>
 		<reference value="Location/1" />
 	</location>

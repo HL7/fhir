@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>3255</WindowHeight>
-  <WindowWidth>6270</WindowWidth>
-  <WindowTopX>1200</WindowTopX>
+  <WindowHeight>13020</WindowHeight>
+  <WindowWidth>27870</WindowWidth>
+  <WindowTopX>930</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -134,7 +134,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="24" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="25" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:Width="198"/>
@@ -229,6 +229,22 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:Index="18" ss:StyleID="s67"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">Appointment.reason</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">ApptReason</Data></Cell>
+    <Cell><Data ss:Type="String">The reason that this appointment is being scheduled</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s68"/>
+    <Cell ss:Index="13" ss:StyleID="s68"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:Index="18" ss:StyleID="s67"/>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -255,13 +271,13 @@
     <Cell ss:Index="8"><Data ss:Type="String">Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Appointment.recurrence</Data></Cell>
+    <Cell><Data ss:Type="String">!Appointment.recurrence</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Schedule</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Appointment.timezone</Data></Cell>
+    <Cell><Data ss:Type="String">!Appointment.timezone</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundry</Data></Cell>
@@ -331,7 +347,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell><Data ss:Type="String">Resource(Any)</Data></Cell>
     <Cell ss:StyleID="s67"/>
-    <Cell><Data ss:Type="String">A Person of device that is participating in the appointment</Data></Cell>
+    <Cell><Data ss:Type="String">A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Should this be multiple? And move to a child enitity</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s76"><Data ss:Type="String">PID-3-Patient ID List</Data></Cell>
@@ -443,7 +459,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -456,12 +472,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -760,7 +775,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -780,7 +794,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>23</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -829,9 +843,10 @@
     <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/vs/ActStatus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ApptReason</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The Reason for the appointment to take place</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/vs/encounter-reason</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -846,6 +861,7 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -865,8 +881,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
