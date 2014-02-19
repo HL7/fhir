@@ -66,6 +66,12 @@ import org.w3c.dom.Element;
 public class InstanceValidator extends BaseValidator {
   // configuration items
 
+  public abstract class InstanceValidatorRule {
+
+    public abstract boolean applies(ElementComponent definition, ElementComponent context);
+    public abstract void check(List<ValidationMessage> errors, ElementComponent definition, ElementComponent context, Element element, String actualType);
+  }
+
   public class NullExtensionResolver implements ExtensionLocatorService {
 
     @Override
@@ -94,6 +100,7 @@ public class InstanceValidator extends BaseValidator {
   private ValueSetExpansionCache cache;
   private boolean suppressLoincSnomedMessages;
   private ExtensionLocatorService extensions;
+  private List<InstanceValidatorRule> rules = new ArrayList<InstanceValidatorRule>();
 
 
   private TerminologyServices conceptLocator;
@@ -105,6 +112,7 @@ public class InstanceValidator extends BaseValidator {
     this.extensions = (extensions == null ) ? new NullExtensionResolver() : extensions;
     this.conceptLocator = conceptLocator;
     cache = new ValueSetExpansionCache(valuesets, codesystems, conceptLocator);
+    rules.add(new QueryValidationRule());
   }  
 
   private void loadValidationResources(String name) throws Exception {
@@ -259,15 +267,8 @@ public class InstanceValidator extends BaseValidator {
       ProfileStructureComponent s = getStructureForType(p, elem.getLocalName());
       if (rule(errors, "invalid", elem.getLocalName(), s != null, "Unknown Resource Type "+elem.getLocalName())) {
         validateElement(errors, p, s, path+"/f:"+elem.getLocalName(), s.getElement().get(0), null, null, elem, elem.getLocalName());
-        if (elem.getLocalName().equals("Query"))
-          validateQuery(errors, elem);
       }
     }
-  }
-
-  private void validateQuery(List<ValidationMessage> errors, Element elem) {
-    // TODO - check that parameters match defined ones
-    
   }
 
   private Profile getProfileForType(String localName) throws Exception {
@@ -336,6 +337,10 @@ public class InstanceValidator extends BaseValidator {
     // irrespective of what element it is, it cannot be empty
     if (NS_FHIR.equals(element.getNamespaceURI())) {
       rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
+    }
+    for (InstanceValidatorRule rule : rules) {
+      if (rule.applies(definition, context)) 
+        rule.check(errors, definition, context, element, actualType);
     }
     Map<String, ElementComponent> children = getChildren(structure, definition.getPathSimple());
     ChildIterator ci = new ChildIterator(path, element);
@@ -1311,5 +1316,21 @@ public class InstanceValidator extends BaseValidator {
 	  else
 	  	return null;
   }
+	
+	
+  public class QueryValidationRule extends InstanceValidatorRule {
+
+    @Override
+    public boolean applies(ElementComponent definition, ElementComponent context) {
+      return definition.getPath().equals("Query");
+    }
+
+    @Override
+    public void check(List<ValidationMessage> errors, ElementComponent definition, ElementComponent context, Element element, String actualType) {
+      // TODO - check that parameters match defined ones
+    }
+
+  }
+	
 }
 
