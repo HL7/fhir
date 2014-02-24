@@ -359,7 +359,7 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">Namespace</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Can't have more than one preferred identifier for a type</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">exists(for $type in distinct-values(f:uniqueId/f:type) return if (count(f:uniqueId[f:type/@value=$type and f:primary/@value='true'])&gt;1), $type, empty-sequence())</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">exists(for $type in distinct-values(f:uniqueId/f:type) return if (count(f:uniqueId[f:type/@value=$type and f:primary/@value='true'])&gt;1) then $type else empty-sequence())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
@@ -418,7 +418,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
