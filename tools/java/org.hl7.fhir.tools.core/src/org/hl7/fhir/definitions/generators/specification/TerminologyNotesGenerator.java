@@ -178,6 +178,8 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
             if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
               AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
+              if (vs.getLinks().get("path") == null)
+                throw new Exception("unknown path on "+cd.getReference());
               write("<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a>");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
                 AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());

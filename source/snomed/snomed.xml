@@ -914,10 +914,87 @@
     <display value="Intravenous infusion fluid sample"/>
     <display value="Intravenous infusion fluid sample (specimen)"/>
   </concept>
+  <concept id="258672001" display="centimeter (qualifier value)">
+    <display value="centimeter (qualifier value)"/>
+    <display value="centimeter"/>
+    <display value="centimetre"/>
+    <display value="cm"/>
+    <display value="cm (qualifier value)"/>
+  </concept>
+  <concept id="258682000" display="gram (qualifier value)">
+    <display value="gram"/>
+    <display value="g"/>
+    <display value="gram (qualifier value)"/>
+  </concept>
+  <concept id="258683005" display="kilogram (qualifier value)">
+    <display value="kilogram (qualifier value)"/>
+    <display value="kilogram"/>
+    <display value="kg"/>
+    <display value="kg (qualifier value)"/>
+  </concept>
+  <concept id="258684004" display="milligram (qualifier value)">
+    <display value="milligram (qualifier value)"/>
+    <display value="mg"/>
+    <display value="milligram"/>
+    <display value="mg (qualifier value)"/>
+  </concept>
+  <concept id="258701004" display="min (qualifier value)">
+    <display value="minutes"/>
+    <display value="min"/>
+    <display value="minute"/>
+    <display value="min (qualifier value)"/>
+  </concept>
+  <concept id="258702006" display="hour (qualifier value)">
+    <display value="hours"/>
+    <display value="hr"/>
+    <display value="h - hour"/>
+    <display value="hour"/>
+    <display value="hour (qualifier value)"/>
+  </concept>
+  <concept id="258707000" display="year (qualifier value)">
+    <display value="years"/>
+    <display value="yr"/>
+    <display value="year"/>
+    <display value="year (qualifier value)"/>
+  </concept>
   <concept id="258710007" display="degrees C">
     <display value="degrees C"/>
     <display value="degrees Celsius"/>
     <display value="degrees C (qualifier value)"/>
+  </concept>
+  <concept id="258718000" display="millimole (qualifier value)">
+    <display value="millimole (qualifier value)"/>
+    <display value="millimole"/>
+    <display value="mmol"/>
+    <display value="mmol (qualifier value)"/>
+  </concept>
+  <concept id="258813002" display="millimole/liter">
+    <display value="mM"/>
+    <display value="millimolar"/>
+    <display value="millimole/litre"/>
+    <display value="mmol/L"/>
+    <display value="millimole/liter"/>
+    <display value="mmol/L (qualifier value)"/>
+  </concept>
+  <concept id="258814008" display="umol/L (qualifier value)">
+    <display value="micromole/liter"/>
+    <display value="umol/L"/>
+    <display value="micromole/litre"/>
+    <display value="micromolar"/>
+    <display value="uM"/>
+    <display value="umol/L (qualifier value)"/>
+  </concept>
+  <concept id="258859000" display="mL/min (qualifier value)">
+    <display value="milliliter/minute"/>
+    <display value="mL/min"/>
+    <display value="millilitre/minute"/>
+    <display value="mL/min (qualifier value)"/>
+  </concept>
+  <concept id="259032004" display="per day (qualifier value)">
+    <display value="per day (qualifier value)"/>
+    <display value="/day"/>
+    <display value="per day"/>
+    <display value="/day (qualifier value)"/>
   </concept>
   <concept id="25990002" display="Renal pelvis structure (body structure)">
     <display value="Renal pelvis"/>
@@ -1638,6 +1715,13 @@
     <display value="Mucous membrane"/>
     <display value="Tunica mucosa"/>
   </concept>
+  <concept id="415215001" display="Puff - unit of product usage (qualifier value)">
+    <display value="Puff (qualifier value)"/>
+    <display value="Puff"/>
+    <display value="Puffs"/>
+    <display value="Puff - unit of product usage (qualifier value)"/>
+    <display value="Puff - unit of product usage"/>
+  </concept>
   <concept id="41570003" display="Carbuncle (morphologic abnormality)">
     <display value="Carbuncle"/>
     <display value="Carbuncle (morphologic abnormality)"/>
@@ -1848,6 +1932,14 @@
     <display value="Chloride measurement"/>
     <display value="Chloride measurement, NOS"/>
     <display value="Chloride measurement (procedure)"/>
+  </concept>
+  <concept id="46992007" display="Pill (qualifier value)">
+    <display value="Pill (product)"/>
+    <display value="Pill (qualifier value)"/>
+    <display value="Pill"/>
+    <display value="Pill, NOS"/>
+    <display value="Tablet"/>
+    <display value="Pill (substance)"/>
   </concept>
   <concept id="47002008" display="Pustule">
     <display value="Pustule"/>

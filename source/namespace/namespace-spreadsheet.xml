@@ -187,7 +187,7 @@
     <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell><Data ss:Type="String">Namespace.region</Data></Cell>
+    <Cell><Data ss:Type="String">!Namespace.region</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -208,7 +208,7 @@
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">NamespaceCategory</Data></Cell>
-    <Cell><Data ss:Type="String">E.g. drivers license, clinician license, patient id</Data></Cell>
+    <Cell><Data ss:Type="String">driver | provider | patient | bank</Data></Cell>
     <Cell><Data ss:Type="String">Categorizes a namespace for easier search by grouping related namespaces.</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
@@ -321,8 +321,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -418,7 +418,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -635,7 +635,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s71" ss:Width="128.25"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="221.25"/>
@@ -670,12 +670,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Country</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Codes for identifying countries</Data></Cell>
-    <Cell><Data ss:Type="String">unbound</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">CountryRegion</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Codes that identify states, provinces, terratories, etc.  Suggest using the ISO code system</Data></Cell>
-    <Cell><Data ss:Type="String">unbound</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">http://www.iso.org/iso/country_codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">NamespaceIdentifierType</Data></Cell>
@@ -710,8 +706,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R6</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -806,7 +803,9 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R5C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
