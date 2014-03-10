@@ -2,15 +2,15 @@
     <name>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="11557-6"/>
-            <display value="Carbon dioxide in blood"/>
+            <code value="28540-3"/>
+            <display value="Erythrocyte concentration"/>
         </coding>
     </name>
     <valueQuantity>
-        <value value="6,2"/>
-        <units value="kPa"/>
+        <value value="4,12x10^12"/>
+        <units value="/l"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="kPa"/>
+        <code value="/l"/>
     </valueQuantity>
     <interpretation>
         <coding>
@@ -19,7 +19,7 @@
             <display value="abnormal"/>
         </coding>
     </interpretation>
-    <appliesPeriod>
+    <appliesPeriod> 
         <start value="2013-04-02T10:30:10+01:00"/>
         <end value="2013-04-05T10:30:10+01:00"/>
     </appliesPeriod>
@@ -43,7 +43,7 @@
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/> 
-        <value value="6325"/>
+        <value value="6326"/>
     </identifier>
     <subject>
         <reference value="Patient/f001"/>
@@ -56,16 +56,16 @@
     <referenceRange>
         <rangeRange>
             <low>
-                <value value="4,8"/>
-                <units value="kPa"/>
+                <value value="4,4x10^12"/><!--for male gender-->
+                <units value="/l"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="kPa"/>
+                <code value="/l"/>
             </low>
             <high>
-                <value value="6,0"/>
-                <units value="kPa"/>
+                <value value="5,8x10^12"/><!--for male gender-->
+                <units value="/l"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="kPa"/>
+                <code value="/l"/>
             </high>
         </rangeRange>
     </referenceRange>

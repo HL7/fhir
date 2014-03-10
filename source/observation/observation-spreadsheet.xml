@@ -20,6 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1011,7 +1012,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1611,7 +1611,7 @@
  <Worksheet ss:Name="Examples">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="15" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
-   <Column ss:Width="60.75"/>
+   <Column ss:Width="116.25"/>
    <Column ss:Width="356.25"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="273.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -1665,9 +1665,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Erytrocyte Hemoglobin </Data></Cell>
-    <Cell><Data ss:Type="String">Real-world patient - hemoglobin</Data></Cell>
+    <Cell><Data ss:Type="String">Real-world patient - erytrocyte</Data></Cell>
     <Cell><Data ss:Type="String">f004</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">observation-example-f004-hemoglobin.xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">observation-example-f004-erythrocyte.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1727,11 +1727,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
