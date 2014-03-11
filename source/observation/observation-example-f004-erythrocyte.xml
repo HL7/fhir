@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><Observation xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
     <name>
         <coding>
             <system value="http://loinc.org"/>
@@ -7,7 +8,7 @@
         </coding>
     </name>
     <valueQuantity>
-        <value value="4,12x10^12"/>
+        <value value="4.12"/>  <!-- Actually, 4.12E+12 -->
         <units value="/l"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="/l"/>
@@ -54,19 +55,17 @@
         <display value="A. Langeveld"/>
     </performer>
     <referenceRange>
-        <rangeRange>
-            <low>
-                <value value="4,4x10^12"/><!--for male gender-->
-                <units value="/l"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="/l"/>
-            </low>
-            <high>
-                <value value="5,8x10^12"/><!--for male gender-->
-                <units value="/l"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="/l"/>
-            </high>
-        </rangeRange>
+        <low>
+            <value value="4.4"/><!--for male gender--> <!-- must be 4.4E+12 -->
+            <units value="/l"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="/l"/>
+        </low>
+        <high>
+            <value value="5.8"/><!--for male gender--> <!-- must be 5.8E+12 -->
+            <units value="/l"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="/l"/>
+        </high>        
     </referenceRange>
 </Observation>
