@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -129,6 +131,18 @@ public class CDAUtilities {
 	  		return getChild(child,  "value").getAttribute("code");
 	  }
 	  return null;
+  }
+
+	public String showTemplateIds(Element concern) {
+	  List<Element> list = getChildren(concern, "templateId");
+	  CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+	  for (Element e : list) {
+	  	if (e.hasAttribute("extension")) 
+	  		b.append(e.getAttribute("root")+"::"+e.getAttribute("extension"));
+	  	else
+	  		b.append(e.getAttribute("root"));	  	
+	  }
+	  return b.toString();
   }
 
 }

@@ -2,9 +2,15 @@ package org.hl7.fhir.convertors;
 
 import java.io.InputStream;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
+import org.hl7.fhir.instance.model.Address;
+import org.hl7.fhir.instance.model.AdverseReaction;
+import org.hl7.fhir.instance.model.AdverseReaction.AdverseReactionSymptomComponent;
+import org.hl7.fhir.instance.model.AdverseReaction.ReactionSeverity;
 import org.hl7.fhir.instance.model.AllergyIntolerance.Criticality;
 import org.hl7.fhir.instance.model.AllergyIntolerance.Sensitivitystatus;
 import org.hl7.fhir.instance.model.AllergyIntolerance.Sensitivitytype;
@@ -13,25 +19,96 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
+import org.hl7.fhir.instance.model.Comparison;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Composition.CompositionAttestationMode;
 import org.hl7.fhir.instance.model.Composition.CompositionAttesterComponent;
 import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.AllergyIntolerance;
+import org.hl7.fhir.instance.model.Contact;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.Factory;
+import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.List_;
 import org.hl7.fhir.instance.model.List_.ListEntryComponent;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Organization;
 import org.hl7.fhir.instance.model.Patient;
 import org.hl7.fhir.instance.model.Practitioner;
+import org.hl7.fhir.instance.model.Procedure;
+import org.hl7.fhir.instance.model.Procedure.ProcedurePerformerComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceFactory;
+import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.Substance;
 import org.hl7.fhir.instance.model.Encounter;
 import org.w3c.dom.Element;
 
+/**
+Advance Directives Section 42348-3 : 
+Allergies, Adverse Reactions, Alerts Section 48765-2 :     List(AlleryIntolerance)        processAdverseReactionsSection     
+Anesthesia Section 59774-0 : 
+Assessment Section 51848-0 : 
+Assessment and Plan Section 51487-2 : 
+Chief Complaint Section 10154-3 : 
+Chief Complaint and Reason for Visit Section 46239-0 : 
+Complications 55109-3: 
+DICOM Object Catalog Section - DCM 121181 : 
+Discharge Diet Section 42344-2 : 
+Encounters Section 46240-8: 
+Family History Section 10157-6 : 
+Findings Section 18782-3 : 
+Functional Status Section 47420-5 : 
+General Status Section 10210-3 : 
+History of Past Illness Section 11348-0 : 
+History of Present Illness Section 10164-2 : 
+Hospital Admission Diagnosis Section 46241-6 : 
+Hospital Consultations Section 18841-7 : 
+Hospital Course Section 8648-8 : 
+Hospital Discharge Diagnosis Section 11535-2 : 
+Hospital Discharge Instructions Section : 
+Hospital Discharge Medications Section (entries optional) 10183-2 : 
+Hospital Discharge Physical Section 10184-0 : 
+Hospital Discharge Studies Summary Section 11493-4 : 
+Immunizations Section 11369-6 : 
+Interventions Section 62387-6 : 
+Medical Equipment Section 46264-8 : 
+Medical (General) History Section 11329-0 : 
+Medications Section 10160-0 : 
+Medications Administered Section 29549-3 : 
+Objective Section 61149-1 : 
+Operative Note Fluid Section 10216-0 : 
+Operative Note Surgical Procedure Section 10223-6 : 
+Payers Section 48768-6 : 
+Physical Exam Section 29545-1 : 
+Plan of Care Section 18776-5 : 
+Planned Procedure Section 59772-: 
+Postoperative Diagnosis Section 10218-6 : 
+Postprocedure Diagnosis Section 59769-0 : 
+Preoperative Diagnosis Section 10219-4 : 
+Problem Section 11450-4 : 
+Procedure Description Section 29554-3: 
+Procedure Disposition Section 59775-7 : 
+Procedure Estimated Blood Loss Section 59770-8 : 
+Procedure Findings Section 59776-5 : 
+Procedure Implants Section 59771-6 : 
+Procedure Indications Section 59768-2 : 
+Procedure Specimens Taken Section 59773-2 : 
+Procedures Section 47519-4 : 
+Reason for Referral Section 42349-1 : 
+Reason for Visit Section 29299-5 : 
+Results Section 30954-2 : 
+Review of Systems Section 10187-3 : 
+Social History Section 29762-2 : 
+Subjective Section 61150-9: 
+Surgical Drains Section 11537-8 : 
+Vital Signs Section 8716-3 : 
+
+
+
+ * @author Grahame
+ *
+ */
 public class CCDAConverter {
 
 	private CDAUtilities cda;
@@ -39,6 +116,8 @@ public class CCDAConverter {
 	private Convert convert;
 	private AtomFeed feed;
 	private Composition composition;
+	private Map<String, Practitioner> practitionerCache = new HashMap<String, Practitioner>();
+	private Integer refCounter = 0;
 	
 	public AtomFeed convert(InputStream stream) throws Exception {
 
@@ -247,30 +326,229 @@ public class CCDAConverter {
 
 	private SectionComponent processSection(Element section) throws Exception {
 	  // this we do by templateId
-		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6"))
+		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6.1"))
 			return processAdverseReactionsSection(section);
+		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7.1"))
+			return processProceduresSection(section);
 	  return null;
+  }
+
+	private SectionComponent processProceduresSection(Element section) throws Exception {
+		List_ list = new List_();
+		for (Element entry : cda.getChildren(section, "entry")) {
+			Element procedure = cda.getChild(entry, "act");
+			
+			if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.14")) {
+		    processProcedure(list, procedure);
+//			} else if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.13")) {
+//			    processProcedureObservation(list, procedure);
+//			} else if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12")) {
+//		    processProcedureActivity(list, procedure);
+			} else
+				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(procedure));
+		}
+		
+		// todo: text
+		SectionComponent s = new Composition.SectionComponent();
+		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
+		// todo: check subject
+		s.setContent(Factory.makeResourceReference(addResource(list, "Procedures", UUID.randomUUID().toString())));
+		return s;
+		
+	}
+
+	private void processProcedure(List_ list, Element procedure) throws Exception {
+		/*
+		 * The common notion of "procedure" is broader than that specified by the HL7 Version 3 
+Reference Information Model (RIM). Therefore procedure templates can be represented 
+with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure 
+(e.g. splenectomy). 
+This clinical statement represents procedures whose immediate and primary outcome 
+(post-condition) is the alteration of the physical condition of the patient. Examples of 
+these procedures are an appendectomy, hip replacement and a creation of a 
+gastrostomy.
+		 */
+		cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.14");  
+		Procedure p = new Procedure();
+		addItemToList(list, p);
+		
+		// moodCode is either INT or EVN. INT is not handled yet
+		if (procedure.getAttribute("moodCode").equals("INT"))
+			throw new Exception("Procedures with mood code of intent are not handled yet");
+		
+		// SHALL contain at least one [1..*] id (CONF:7655).
+		for (Element e : cda.getChildren(procedure, "id")) 
+			p.getIdentifier().add(convert.makeIdentifierFromII(e));
+		
+		// SHALL contain exactly one [1..1] code (CONF:7656).
+		// This code @code in a procedure activity SHOULD be selected from LOINC or SNOMED CT and MAY be selected from CPT-4, ICD9 Procedures, ICD10 Procedures
+		p.setType(convert.makeCodeableConceptFromCD(cda.getChild(procedure, "code")));
+		
+		// SHALL contain exactly one [1..1] statusCode/@code, which SHALL be selected from ValueSet 2.16.840.1.113883.11.20.9.22 ProcedureAct
+		// completed | active | aborted | cancelled - not in FHIR
+		p.getModifierExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-status", Factory.newCode(cda.getStatus(procedure)), false));
+		
+		// SHOULD contain zero or one [0..1] effectiveTime (CONF:7662).
+		p.setDate(convert.makePeriodFromIVL(cda.getChild(procedure, "effectiveTime")));
+		
+		// MAY contain zero or one [0..1] priorityCode/@code, which SHALL be selected from ValueSet 2.16.840.1.113883.1.11.16866 ActPriority DYNAMIC (CONF:7668)
+		// ignore until we handle moodCode INT
+		
+		// MAY contain zero or one [0..1] methodCode (CONF:7670).
+		p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-method", convert.makeCodeableConceptFromCD(cda.getChild(procedure, "methodCode")), false));
+		
+		//  SHOULD contain zero or more [0..*] targetSiteCode/@code, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.8.9 Body site DYNAMIC (CONF:7683).
+		for (Element e : cda.getChildren(procedure, "targetSiteCode")) 
+			p.getBodySite().add(convert.makeCodeableConceptFromCD(e));
+		
+		//  MAY contain zero or more [0..*] specimen (CONF:7697). 
+		// todo: add these as extensions when specimens are done. 
+		
+		//  SHOULD contain zero or more [0..*] performer (CONF:7718) such that it
+		for (Element e : cda.getChildren(procedure, "performer")) {
+			ProcedurePerformerComponent pp = new ProcedurePerformerComponent();
+			p.getPerformer().add(pp);
+			pp.setPerson(makeReferenceToPractitionerForAssignedEntity(e, p));
+		}		
+		
+		//   MAY contain zero or more [0..*] participant (CONF:7751) such that it  SHALL contain exactly one [1..1] @typeCode="DEV" Device
+		// todo: what's this for? implanted devices?
+
+		// MAY contain zero or more [0..*] participant (CONF:7765) such that it SHALL contain exactly one [1..1] Service Delivery Location (templateId:2.16.840.1.113883.10.20.22.4.32) (CONF:7767)
+		// todo - handle this as an extension
+		
+
+		// MAY contain zero or more [0..*] entryRelationship (CONF:7768) such that it SHALL contain exactly one encounter which SHALL contain exactly one [1..1] id (CONF:7773).
+		// todo - and process as a full encounter while we're at it
+		
+		//  MAY contain zero or one [0..1] entryRelationship (CONF:7775) such that it SHALL contain exactly one [1..1] Instructions (templateId:2.16.840.1.113883.10.20.22.4.20) (CONF:7778).
+		// todo
+		
+		// MAY contain zero or more [0..*] entryRelationship (CONF:7779) such that it SHALL contain exactly one [1..1] Indication (templateId:2.16.840.1.113883.10.20.22.4.19) (CONF:7781).
+		// todo
+		
+		//  MAY contain zero or one [0..1] entryRelationship (CONF:7886) such that it SHALL contain exactly one [1..1] Medication Activity (templateId:2.16.840.1.113883.10.20.22.4.16) (CONF:7888).
+		// todo
+	}
+	
+	private ResourceReference makeReferenceToPractitionerForAssignedEntity(Element assignedEntity, Resource r) throws Exception {
+		ResourceReference ref = null;
+		// do we have this by id? 
+		String uri = getIdForEntity(assignedEntity);
+		Practitioner p = null;
+		if (uri != null) {
+			ref = Factory.makeResourceReference(uri);
+			p = practitionerCache.get(uri);
+		}
+		if (p == null) {
+			p = new Practitioner();
+			if (uri == null) {
+				// make a contained practitioner
+				String n = nextRef();
+				p.setXmlId(n);
+				r.getContained().add(p);
+				ref = Factory.makeResourceReference("#"+n);
+			} else {
+				// add this to feed
+				ref = Factory.makeResourceReference(addResource(p, "Practitioner", uri));
+			}
+		}
+		// ref and p are both sorted. now we fill out p as much as we can (remembering it might already be populated)
+    addToCodeableList(p.getRole(), convert.makeCodeableConceptFromCD(cda.getChild(assignedEntity, "code")));
+		for (Element e : cda.getChildren(assignedEntity, "id")) 
+		  addToIdList(p.getIdentifier(), convert.makeIdentifierFromII(e));
+		for (Element e : cda.getChildren(assignedEntity, "addr")) 
+		  if (p.getAddress() == null) 
+		    p.setAddress(convert.makeAddressFromAD(e));
+		for (Element e : cda.getChildren(assignedEntity, "telecom")) 
+		  addToContactList(p.getTelecom(), convert.makeContactFromTEL(e));
+		for (Element e : cda.getChildren(cda.getChild(assignedEntity, "assignedPerson"), "name")) 
+		  if (p.getName() == null) 
+		  	p.setName(convert.makeNameFromEN(e));
+		// todo: 
+		//	representedOrganization
+		return ref;
+  }
+
+
+	private void addToContactList(List<Contact> list, Contact c) throws Exception {
+		for (Contact item : list) {
+			if (Comparison.matches(item, c, null)) 
+				Comparison.merge(item, c);
+		}
+		list.add(c);
+  }
+
+
+	private void addToIdList(List<Identifier> list, Identifier id) throws Exception {
+		for (Identifier item : list) {
+			if (Comparison.matches(item, id, null)) 
+				Comparison.merge(item, id);
+		}
+		list.add(id);
+  }
+
+
+	private void addToCodeableList(List<CodeableConcept> list, CodeableConcept code) throws Exception {
+		for (CodeableConcept item : list) {
+			if (Comparison.matches(item, code, null)) 
+				Comparison.merge(item, code);
+		}
+		list.add(code);
+  }
+
+
+	private String getIdForEntity(Element assignedEntity) throws Exception {
+	  Element id = cda.getChild(assignedEntity, "id"); // for now, just grab the first
+	  if (id == null)
+	  	return null;
+	  if (id.getAttribute("extension") == null) {
+	  	if (convert.isGuid(id.getAttribute("root")))
+	  		return "urn:uuid:"+id.getAttribute("root");
+	  	else 
+	  		return "urn:oid:"+id.getAttribute("root");
+	  } else 
+	  	return "ii:"+id.getAttribute("root")+"::"+id.getAttribute("extension");
   }
 
 
 	private SectionComponent processAdverseReactionsSection(Element section) throws Exception {
 		List_ list = new List_();
-		Integer i = 0;
 		for (Element entry : cda.getChildren(section, "entry")) {
-			i++;
 			Element concern = cda.getChild(entry, "act");
-			cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");
+			if (cda.hasTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30")) {
+		    processAllergyProblemAct(list, concern);
+			} else
+				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(concern));
+		}
+		
+		
+		// todo: text
+		SectionComponent s = new Composition.SectionComponent();
+		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
+		// todo: check subject
+		s.setContent(Factory.makeResourceReference(addResource(list, "Allergies, Adverse Reactions, Alerts", UUID.randomUUID().toString())));
+		return s;
+  }
+
+
+	private void processAllergyProblemAct(List_ list, Element concern) throws Exception {
+	  // Allergy Problem Act
+			cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");  
 			AllergyIntolerance ai = new AllergyIntolerance();
-			list.getContained().add(ai); 
-			ai.setXmlId("a"+i.toString());
-			ListEntryComponent item = new List_.ListEntryComponent();
-			list.getEntry().add(item);
-			item.setItem(Factory.makeResourceReference("#a"+i.toString()));
-			for (Element e : cda.getChildren(concern, "id"))
+			addItemToList(list, ai);
+			
+		// SHALL contain at least one [1..*] id (CONF:7472).
+			for (Element e : cda.getChildren(concern, "id")) 
 				ai.getIdentifier().add(convert.makeIdentifierFromII(e));
+
+   // SHALL contain exactly one [1..1] statusCode, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.68 HITSPProblemStatus DYNAMIC (CONF:7485)
+			// 55561003  SNOMED CT  Active, 73425007  SNOMED CT  Inactive, 413322009  SNOMED CT  Resolved
+			// only, it can't be these. so see Conf 7504: active, suspended, aborted, completed 
 			String s = cda.getStatus(concern);
 			if ("active".equals(s))
   			ai.setStatusSimple(Sensitivitystatus.confirmed);
+			// TODO: patient care disagrees that this means suppressed
 			if ("suspended".equals(s)) {
   			ai.setStatusSimple(Sensitivitystatus.confirmed);
   			Boolean b = new Boolean();
@@ -281,11 +559,25 @@ public class CCDAConverter {
   			ai.setStatusSimple(Sensitivitystatus.refuted);
 			if ("completed".equals(s))
   			ai.setStatusSimple(Sensitivitystatus.resolved);
+			
+			// SHALL contain exactly one [1..1] effectiveTime (CONF:7498)
 			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergy-period", 
 					convert.makePeriodFromIVL(cda.getChild(concern, "effectiveTime")), false));
+			
+			// SHALL contain at least one [1..*] entryRelationship (CONF:7509) such that it
+			// SHALL contain exactly one [1..1] Allergy/Alert Observation
 			Element obs = cda.getChild(cda.getChild(concern, "entryRelationship"), "observation");
 			cda.checkTemplateId(obs, "2.16.840.1.113883.10.20.22.4.7");
+			
+			// SHALL contain at least one [1..*] id (CONF:7382)
+			// we ignore this?
+			
+			// SHALL contain exactly one [1..1] effectiveTime (CONF:7387)
+			// we ignore this - what is it? 
+			
+			// SHALL contain exactly one [1..1] value with @xsi:type="CD" (CONF:7390)
 			CodeableConcept type = convert.makeCodeableConceptFromCD(cda.getChild(obs, "value"));
+			// This value SHALL contain @code, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.6.2 Allergy/Adverse Event Type
 			String ss = type.getCoding().get(0).getCode().getValue();
 			if (ss.equals("416098002") || ss.equals("414285001"))
 				ai.setSensitivityTypeSimple(Sensitivitytype.allergy);
@@ -294,22 +586,93 @@ public class CCDAConverter {
 			else
 				ai.setSensitivityTypeSimple(Sensitivitytype.unknown);
 			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergy-category", type, false));
-			ai.setCriticalitySimple(readCriticality(cda.getSeverity(obs)));
-			Substance subst = new Substance();
-			subst.setType(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
-			subst.setXmlId("s1");
-		  ai.getContained().add(subst);
-			ai.setSubstance(Factory.makeResourceReference("#s1"));
 			
-		}
+			// SHOULD contain zero or one [0..1] participant (CONF:7402) such that it
+			Substance subst = new Substance();
+			String n = nextRef();
+			subst.setXmlId(n);
+		  ai.getContained().add(subst);
+			ai.setSubstance(Factory.makeResourceReference("#"+n));
+			// ......This playingEntity SHALL contain exactly one [1..1] code			
+			subst.setType(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
+
+			//  MAY contain zero or one [0..1] entryRelationship (CONF:7440) such that it SHALL contain exactly one [1..1]  Alert Status Observation
+			
+			//  SHOULD contain zero or more [0..*] entryRelationship (CONF:7447) such that it SHALL contain exactly one [1..1] Reaction Observation (templateId:2.16.840.1.113883.10.20.22.4.9) (CONF:7450).
+		  for (Element e : cda.getChildren(obs,  "entryRelationship")) {
+		  	Element child = cda.getChild(e, "observation");
+		  	if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.9")) {
+		  		AdverseReaction reaction = processAdverseReactionObservation(child);
+		  		n = nextRef();
+					reaction.setXmlId(n);
+				  ai.getContained().add(subst);
+					ai.setSubstance(Factory.makeResourceReference("#"+n));
+		  	}
+		  }
+			
+			//  SHOULD contain zero or one [0..1] entryRelationship (CONF:9961) such that it SHALL contain exactly one [1..1] Severity Observation (templateId:2.16.840.1.113883.10.20.22.4.8) (CONF:9963).
+			ai.setCriticalitySimple(readCriticality(cda.getSeverity(obs)));
+  }
+
+
+	// this is going to be a contained resource, so we aren't going to generate any narrative
+	private AdverseReaction processAdverseReactionObservation(Element reaction) throws Exception {
+		// This clinical statement represents an undesired symptom, finding, etc., due to an administered or exposed substance. A reaction can be defined with respect to its	severity, and can have been treated by one or more interventions.
+		AdverseReaction ar = new AdverseReaction();
 		
+		// SHALL contain exactly one [1..1] id (CONF:7329).
+		for (Element e : cda.getChildren(reaction, "id")) 
+			ar.getIdentifier().add(convert.makeIdentifierFromII(e));
+
+		// SHALL contain exactly one [1..1] code (CONF:7327). The value set for this code element has not been specified.
+		// todo: what the heck is this? 
 		
-		// todo: text
-		SectionComponent s = new Composition.SectionComponent();
-		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
-		// todo: check subject
-		s.setContent(Factory.makeResourceReference(addResource(list, "Allergies, Adverse Reactions, Alerts", UUID.randomUUID().toString())));
-		return s;
+		// SHOULD contain zero or one [0..1] text (CONF:7330).
+		// todo: so what is this? how can we know whether to ignore it? 
+		
+		// 8.  SHOULD contain zero or one [0..1] effectiveTime (CONF:7332). 
+		//  	a.  This effectiveTime SHOULD contain zero or one [0..1] low (CONF:7333). 
+		//  	b.  This effectiveTime SHOULD contain zero or one [0..1] high (CONF:7334).
+		// !this is a problem because FHIR just has a date, not a period.
+		ar.setDate(convert.makeDateTimeFromIVL(cda.getChild(reaction, "effectiveTime")));
+
+		// SHALL contain exactly one [1..1] value with @xsi:type="CD", where the @code SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.7.4 Problem	DYNAMIC (CONF:7335).
+		AdverseReactionSymptomComponent symptom = new AdverseReactionSymptomComponent();
+		ar.getSymptom().add(symptom);
+		symptom.setCode(convert.makeCodeableConceptFromCD(cda.getChild(reaction, "value")));
+		
+	  // SHOULD contain zero or one [0..1] entryRelationship (CONF:7580) such that it SHALL contain exactly one [1..1] Severity Observation  (templateId:2.16.840.1.113883.10.20.22.4.8) (CONF:7582).
+		symptom.setSeveritySimple(readSeverity(cda.getSeverity(reaction)));
+
+		// MAY contain zero or more [0..*] entryRelationship (CONF:7337) such that it SHALL contain exactly one [1..1] Procedure Activity Procedure (templateId:2.16.840.1.113883.10.20.22.4.14) (CONF:7339). 
+		// i.  This procedure activity is intended to contain information about procedures that were performed in response to an allergy reaction
+		// todo: process these into an procedure and add as an extension
+		
+		// MAY contain zero or more [0..*] entryRelationship (CONF:7340) such that it SHALL contain exactly one [1..1] Medication Activity (templateId:2.16.840.1.113883.10.20.22.4.16) (CONF:7342). 
+		// i.  This medication activity is intended to contain information about medications that were administered in response to an allergy reaction. (CONF:7584).
+		// todo: process these into an medication statement and add as an extension
+		
+	  return ar;
+  }
+
+
+	
+
+	private void addItemToList(List_ list, Resource ai)
+      throws Exception {
+	  list.getContained().add(ai);
+	  String n = nextRef();
+	  ai.setXmlId(n);
+	  ListEntryComponent item = new List_.ListEntryComponent();
+	  list.getEntry().add(item);
+	  item.setItem(Factory.makeResourceReference("#"+n));
+  }
+
+
+	private String nextRef() {
+	  refCounter++;
+	  String n = refCounter.toString();
+	  return n;
   }
 
 	private Criticality readCriticality(String severity) {
@@ -328,5 +691,21 @@ public class CCDAConverter {
 	  return null;
   }
 
+
+	private ReactionSeverity readSeverity(String severity) {
+		if ("255604002".equals(severity)) // Mild 
+			return ReactionSeverity.minor; 
+		if ("371923003".equals(severity)) //  Mild to moderate 
+			return ReactionSeverity.moderate; 
+		if ("6736007".equals(severity)) // Moderate
+			return ReactionSeverity.moderate; 
+		if ("371924009".equals(severity)) // Moderate to severe
+			return ReactionSeverity.serious; 
+		if ("24484000".equals(severity)) // Severe
+			return ReactionSeverity.severe; 
+		if ("399166001".equals(severity)) // Fatal
+			return ReactionSeverity.severe; 
+	  return null;
+  }
 
 }

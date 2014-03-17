@@ -11,6 +11,7 @@ import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Contact;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.Procedure;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Contact.ContactUse;
 import org.hl7.fhir.instance.model.DateTime;
@@ -99,7 +100,7 @@ public class Convert {
 			return "urn:oid:"+r;
 	}
 
-	private boolean isGuid(String r) {
+	public boolean isGuid(String r) {
 		return r.matches("[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}");
 	}
 
@@ -117,8 +118,13 @@ public class Convert {
 	  for (Element e : cda.getChildren(cv, "translation"))
 	    cc.getCoding().add(makeCodingFromCV(e));
 	  if (cda.getChild(cv, "originalText") != null) {
-	  	String ot = cda.getChild(cv, "originalText").getTextContent().trim();
-			cc.setTextSimple(Utilities.noString(ot) ? null : ot);
+	  	Element ote = cda.getChild(cv, "originalText");
+	  	if (cda.getChild(ote, "reference") != null) {
+	  		throw new Exception("not done yet");	  		
+	  	} else {	  		
+	  	  String ot = ote.getTextContent().trim();
+			  cc.setTextSimple(Utilities.noString(ot) ? null : ot);
+	  	}  
 	  }
 	  return cc;
   }
@@ -130,13 +136,24 @@ public class Convert {
 	  c.setCodeSimple(cd.getAttribute("code"));
 	  c.setDisplaySimple(cd.getAttribute("displayName"));
 	  String r = cd.getAttribute("codeSystem");
-		if (isGuid(r)) 
+	  String uri = getUriForOID(r);
+	  if (uri != null)
+	  	c.setSystemSimple(uri);
+	  else if (isGuid(r)) 
 			c.setSystemSimple("urn:uuid:"+r);
 		else if (UriForOid(r) != null)
 			c.setSystemSimple(UriForOid(r));
 		else 
 			c.setSystemSimple("urn:oid:"+r);
 	  return c;
+  }
+
+	private String getUriForOID(String r) {
+		if (r.equals("2.16.840.1.113883.6.1"))
+			return "http://loinc.org";
+		if (r.equals("2.16.840.1.113883.6.96"))
+			return "http://snomed.info/sct";
+	  return null;
   }
 
 	public Address makeAddressFromAD(Element e) {
@@ -291,6 +308,21 @@ public class Convert {
 	    return p;
 		else
 			return null;
+  }
+
+	// this is a weird one - where CDA has an IVL, and FHIR has a date
+	public DateTime makeDateTimeFromIVL(Element ivl) throws Exception {
+	  if (ivl == null)
+	  	return null;
+	  if (ivl.hasAttribute("value")) 
+	  	return makeDateTimeFromTS(ivl);
+	  Element high =  cda.getChild(ivl, "high");
+	  if (high != null)
+	  	return makeDateTimeFromTS(high);
+	  Element low =  cda.getChild(ivl, "low");
+	  if (low != null)
+	  	return makeDateTimeFromTS(low);
+	  return null;
   }
 
 }

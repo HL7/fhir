@@ -531,4 +531,23 @@ public class Utilities {
     }
     return text; 
   }
+
+
+	public static String normalize(String s) {
+		if (noString(s))
+			return null;
+	  StringBuilder b = new StringBuilder();
+	  boolean isWhitespace = false;
+	  for (int i = 0; i < s.length(); i++) {
+	  	char c = s.charAt(i);
+	  	if (!Character.isWhitespace(c)) { 
+	  		b.append(Character.toLowerCase(c));
+	  		isWhitespace = false;
+	  	} else if (!isWhitespace) {
+	  		b.append(' ');
+	  		isWhitespace = true;	  		
+	  	} 
+	  }
+	  return b.toString().trim();
+  }
 }
