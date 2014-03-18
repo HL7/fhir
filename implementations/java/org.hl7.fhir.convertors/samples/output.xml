@@ -2,28 +2,32 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Community Health and Hospitals: Consultation Note</title>
-  <id>8891d389-04cf-464c-ad3d-0d5924b4cfb2</id>
-  <updated>2013-10-22T18:46:51.641+11:00</updated>
+  <id>urn:oid:2.16.840.1.113883.19.5.99999.1::TT988</id>
+  <updated>2014-03-19T07:29:13.324+11:00</updated>
   <entry>
-    <title>Document</title>
-    <id>033a494e-2a9c-4525-bf3f-e8d08daf9d81</id>
-    <updated>2013-10-22T18:46:51.710+11:00</updated>
+    <title>Composition</title>
+    <id>urn:uuid:6054e3b1-cbed-4491-9374-52b41e720625</id>
+    <updated>2014-03-19T07:29:13.370+11:00</updated>
     <content type="text/xml">
-      <Document xmlns="http://hl7.org/fhir">
+      <Composition xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+          </div>
+        </text>
         <identifier>
           <system value="urn:oid:2.16.840.1.113883.19.5.99999.19"/>
           <value value="sTT988"/>
         </identifier>
-        <versionIdentifier>
-          <system value="urn:oid:2.16.840.1.113883.19.5.99999.1"/>
-          <value value="TT988"/>
-        </versionIdentifier>
-        <created value="2012-09-17T09:07:00+10:00"/>
+        <date value="2012-09-16T19:07-04:00"/>
         <type>
           <coding>
             <system value="http://loinc.org"/>
             <code value="11488-4"/>
-            <display value="Consult note"/>
+            <display value="Consultation Note"/>
           </coding>
         </type>
         <title value="Community Health and Hospitals: Consultation Note"/>
@@ -32,27 +36,27 @@
           <code value="N"/>
         </confidentiality>
         <subject>
-          <reference value="ee8ebe24-02ef-4b2f-9fd4-9729102c8fda"/>
+          <reference value="urn:uuid:7c80ca8d-4a08-4fb5-9c7d-c40f96058335"/>
         </subject>
         <author>
-          <reference value="56f83108-4f18-40e0-b587-fbe20e1b3cd9"/>
+          <reference value="urn:uuid:17caead6-8922-4987-ac60-f6f06d395b17"/>
         </author>
         <attester>
           <mode value="legal"/>
-          <time value="2009-02-27T19:00:00+11:00"/>
+          <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="5e3e25e8-f7bf-431e-b77e-7767e6ba0cff"/>
+            <reference value="urn:uuid:95f03cc7-8d02-4c41-b817-b646875ae49f"/>
           </party>
         </attester>
         <attester>
           <mode value="professional"/>
-          <time value="2009-02-27T19:00:00+11:00"/>
+          <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="c5d54395-b187-45bc-8cd9-f76a8870249f"/>
+            <reference value="urn:uuid:2f32df4d-e300-4392-a9b8-49c2f0023e94"/>
           </party>
         </attester>
         <custodian>
-          <reference value="bc9a3d37-fe4c-4761-91df-2ec4b206540f"/>
+          <reference value="urn:uuid:9f4f28aa-3c34-4102-893d-ccff8d3fad31"/>
         </custodian>
         <event>
           <code>
@@ -63,11 +67,11 @@
             </coding>
           </code>
           <period>
-            <start value="2009-02-27T19:00:00+11:00"/>
-            <end value="2009-02-27T19:00:00+11:00"/>
+            <start value="2009-02-27T13:00:00+05:00"/>
+            <end value="2009-02-27T13:00:00+05:00"/>
           </period>
           <detail>
-            <reference value="51d56701-bead-46c8-b23a-8fb8dcf30aaf"/>
+            <reference value="urn:uuid:262d25a0-c638-4c98-b184-80e4f2cbb0a9"/>
           </detail>
         </event>
         <section>
@@ -78,26 +82,57 @@
             </coding>
           </code>
           <content>
-            <reference value="1d2596ab-6941-4e11-9713-91a24153a533"/>
+            <reference value="urn:uuid:fc58591f-b77f-487c-a4dc-40619ce58704"/>
           </content>
         </section>
-      </Document>
+        <section>
+          <code>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="47519-4"/>
+              <display value="HISTORY OF PROCEDURES"/>
+            </coding>
+          </code>
+          <content>
+            <reference value="urn:uuid:4548c190-c690-4025-a645-5ae58ea47db5"/>
+          </content>
+        </section>
+      </Composition>
     </content>
   </entry>
   <entry>
     <title>Encounter</title>
-    <id>51d56701-bead-46c8-b23a-8fb8dcf30aaf</id>
-    <updated>2013-10-22T18:46:51.727+11:00</updated>
+    <id>urn:uuid:262d25a0-c638-4c98-b184-80e4f2cbb0a9</id>
+    <updated>2014-03-19T07:29:13.376+11:00</updated>
     <content type="text/xml">
       <Encounter xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <p>
+              <b>identifier</b>: 9937012
+            </p>
+            <blockquote>
+              <p>
+                <b>hospitalization</b>
+              </p>
+              <p>
+                <b>period</b>: 27-Feb 2009 13:0 --&gt; 27-Feb 2009 13:0
+              </p>
+            </blockquote>
+          </div>
+        </text>
         <identifier>
           <system value="urn:oid:2.16.840.1.113883.19"/>
           <value value="9937012"/>
         </identifier>
         <hospitalization>
           <period>
-            <start value="2009-02-27T19:00:00+11:00"/>
-            <end value="2009-02-27T19:00:00+11:00"/>
+            <start value="2009-02-27T13:00:00+05:00"/>
+            <end value="2009-02-27T13:00:00+05:00"/>
           </period>
         </hospitalization>
       </Encounter>
@@ -105,10 +140,30 @@
   </entry>
   <entry>
     <title>Provider</title>
-    <id>25451d05-4c06-4cbb-9e01-6519a628ad63</id>
-    <updated>2013-10-22T18:46:51.732+11:00</updated>
+    <id>urn:uuid:c010bae6-7417-4cbf-8a87-801e9f667c11</id>
+    <updated>2014-03-19T07:29:13.379+11:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <p>
+              <b>identifier</b>: urn:oid:2.16.840.1.113883.19.5.9999.1393
+            </p>
+            <p>
+              <b>name</b>: Community Health and Hospitals
+            </p>
+            <p>
+              <b>telecom</b>: ph: 555-555-5000(work)
+            </p>
+            <p>
+              <b>address</b>: 1001 Village Avenue Portland OR 99123 US 
+            </p>
+          </div>
+        </text>
         <identifier>
           <system value="urn:ietf:rfc:3986"/>
           <value value="urn:oid:2.16.840.1.113883.19.5.9999.1393"/>
@@ -131,12 +186,11 @@
   </entry>
   <entry>
     <title>Subject</title>
-    <id>ee8ebe24-02ef-4b2f-9fd4-9729102c8fda</id>
-    <updated>2013-10-22T18:46:51.732+11:00</updated>
+    <id>urn:uuid:7c80ca8d-4a08-4fb5-9c7d-c40f96058335</id>
+    <updated>2014-03-19T07:29:13.386+11:00</updated>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
-        <extension>
-          <url value="http://hl7.org/ccda/religious-affiliation"/>
+        <extension url="http://hl7.org/ccda/religious-affiliation">
           <valueCodeableConcept>
             <coding>
               <system value="urn:oid:2.16.840.1.113883.5.1076"/>
@@ -145,8 +199,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension>
-          <url value="http://hl7.org/ccdarace"/>
+        <extension url="http://hl7.org/ccdarace">
           <valueCodeableConcept>
             <coding>
               <system value="urn:oid:2.16.840.1.113883.6.238"/>
@@ -155,8 +208,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension>
-          <url value="http://hl7.org/ccdaethnic-group"/>
+        <extension url="http://hl7.org/ccdaethnic-group">
           <valueCodeableConcept>
             <coding>
               <system value="urn:oid:2.16.840.1.113883.6.238"/>
@@ -165,8 +217,7 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <extension>
-          <url value="http://hl7.org/ccdabirthplace"/>
+        <extension url="http://hl7.org/ccdabirthplace">
           <valueAddress>
             <city value="Beaverton"/>
             <state value="OR"/>
@@ -174,8 +225,7 @@
             <country value="US"/>
           </valueAddress>
         </extension>
-        <extension>
-          <url value="http://hl7.org/ccda/religious-affiliation"/>
+        <extension url="http://hl7.org/ccda/religious-affiliation">
           <valueCodeableConcept>
             <coding>
               <system value="urn:oid:2.16.840.1.113883.5.1076"/>
@@ -184,6 +234,78 @@
             </coding>
           </valueCodeableConcept>
         </extension>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <p>
+              <b>identifier</b>: 998991, 111-00-2330
+            </p>
+            <p>
+              <b>name</b>: Isabella Isa Jones 
+            </p>
+            <p>
+              <b>telecom</b>: ph: (816)276-6909(home)
+            </p>
+            <p>
+              <b>gender</b>: 
+              <span title="Codes: {urn:oid:2.16.840.1.113883.5.1 F}">Female</span>
+            </p>
+            <p>
+              <b>birthDate</b>: 1-May 2005
+            </p>
+            <p>
+              <b>address</b>: 1357 Amber Drive Beaverton OR 97867 US (home)
+            </p>
+            <p>
+              <b>maritalStatus</b>: 
+              <span title="Codes: {urn:oid:2.16.840.1.113883.5.2 M}">Married</span>
+            </p>
+            <h3>Contacts</h3>
+            <table class="grid">
+              <tr>
+                <td>
+                  <b>Relationship</b>
+                </td>
+                <td>
+                  <b>Name</b>
+                </td>
+                <td>
+                  <b>Telecom</b>
+                </td>
+                <td>
+                  <b>Address</b>
+                </td>
+                <td>
+                  <b>Gender</b>
+                </td>
+                <td>
+                  <b>Organization</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span title="Codes: {urn:oid:2.16.840.1.113883.5.110 GUARD}">guardian</span>
+                </td>
+                <td>Ralph Jones </td>
+                <td>ph: (816)276-6909(home)</td>
+                <td>1357 Amber Drive Beaverton OR 97867 US (home)</td>
+                <td> </td>
+                <td> </td>
+              </tr>
+            </table>
+            <p>
+              <b>communication</b>: 
+              <span title="Codes: ">en</span>
+            </p>
+            <p>
+              <b>managingOrganization</b>: 
+              <a href="urn:uuid:c010bae6-7417-4cbf-8a87-801e9f667c11">urn:uuid:c010bae6-7417-4cbf-8a87-801e9f667c11</a>
+            </p>
+          </div>
+        </text>
         <identifier>
           <system value="urn:oid:2.16.840.1.113883.19.5.99999.2"/>
           <value value="998991"/>
@@ -210,7 +332,7 @@
             <display value="Female"/>
           </coding>
         </gender>
-        <birthDate value="2005-05-01T00:00:00+10:00"/>
+        <birthDate value="2005-05-01"/>
         <address>
           <use value="home"/>
           <line value="1357 Amber Drive"/>
@@ -253,8 +375,7 @@
           </address>
         </contact>
         <communication>
-          <extension>
-            <url value="http://hl7.org/ccdaproficiency-level"/>
+          <extension url="http://hl7.org/ccdaproficiency-level">
             <valueCodeableConcept>
               <coding>
                 <system value="urn:oid:2.16.840.1.113883.5.60"/>
@@ -267,18 +388,35 @@
             <code value="en"/>
           </coding>
         </communication>
-        <provider>
-          <reference value="25451d05-4c06-4cbb-9e01-6519a628ad63"/>
-        </provider>
+        <managingOrganization>
+          <reference value="urn:uuid:c010bae6-7417-4cbf-8a87-801e9f667c11"/>
+        </managingOrganization>
       </Patient>
     </content>
   </entry>
   <entry>
     <title>Author</title>
-    <id>56f83108-4f18-40e0-b587-fbe20e1b3cd9</id>
-    <updated>2013-10-22T18:46:51.732+11:00</updated>
+    <id>urn:uuid:17caead6-8922-4987-ac60-f6f06d395b17</id>
+    <updated>2014-03-19T07:29:13.387+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <p>
+              <b>identifier</b>: 99999999
+            </p>
+            <p>
+              <b>telecom</b>: ph: 555-555-1002(work)
+            </p>
+            <p>
+              <b>address</b>: 1002 Healthcare Drive  Portland OR 99123 US 
+            </p>
+          </div>
+        </text>
         <identifier>
           <system value="urn:oid:2.16.840.1.113883.4.6"/>
           <value value="99999999"/>
@@ -300,10 +438,30 @@
   </entry>
   <entry>
     <title>Custodian</title>
-    <id>bc9a3d37-fe4c-4761-91df-2ec4b206540f</id>
-    <updated>2013-10-22T18:46:51.732+11:00</updated>
+    <id>urn:uuid:9f4f28aa-3c34-4102-893d-ccff8d3fad31</id>
+    <updated>2014-03-19T07:29:13.388+11:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <p>
+              <b>identifier</b>: 99999999
+            </p>
+            <p>
+              <b>name</b>: Community Health and Hospitals
+            </p>
+            <p>
+              <b>telecom</b>: ph: 555-555-1002(work)
+            </p>
+            <p>
+              <b>address</b>: 1002 Healthcare Drive  Portland OR 99123 US (work)
+            </p>
+          </div>
+        </text>
         <identifier>
           <system value="urn:oid:2.16.840.1.113883.4.6"/>
           <value value="99999999"/>
@@ -327,10 +485,30 @@
   </entry>
   <entry>
     <title>Legal Authenticator</title>
-    <id>5e3e25e8-f7bf-431e-b77e-7767e6ba0cff</id>
-    <updated>2013-10-22T18:46:51.734+11:00</updated>
+    <id>urn:uuid:95f03cc7-8d02-4c41-b817-b646875ae49f</id>
+    <updated>2014-03-19T07:29:13.388+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <p>
+              <b>identifier</b>: 999999999
+            </p>
+            <p>
+              <b>name</b>: Henry Seven 
+            </p>
+            <p>
+              <b>telecom</b>: ph: 555-555-1002(work)
+            </p>
+            <p>
+              <b>address</b>: 1001 Village Avenue Portland OR 99123 US 
+            </p>
+          </div>
+        </text>
         <identifier>
           <system value="urn:oid:2.16.840.1.113883.4.6"/>
           <value value="999999999"/>
@@ -356,10 +534,30 @@
   </entry>
   <entry>
     <title>Authenticator</title>
-    <id>c5d54395-b187-45bc-8cd9-f76a8870249f</id>
-    <updated>2013-10-22T18:46:51.734+11:00</updated>
+    <id>urn:uuid:2f32df4d-e300-4392-a9b8-49c2f0023e94</id>
+    <updated>2014-03-19T07:29:13.389+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <p>
+              <b>identifier</b>: 999999999
+            </p>
+            <p>
+              <b>name</b>: Henry Seven 
+            </p>
+            <p>
+              <b>telecom</b>: ph: 555-555-1002(work)
+            </p>
+            <p>
+              <b>address</b>: 1001 Village Avenue Portland OR 99123 US 
+            </p>
+          </div>
+        </text>
         <identifier>
           <system value="urn:oid:2.16.840.1.113883.4.6"/>
           <value value="999999999"/>
@@ -385,37 +583,92 @@
   </entry>
   <entry>
     <title>Allergies, Adverse Reactions, Alerts</title>
-    <id>1d2596ab-6941-4e11-9713-91a24153a533</id>
-    <updated>2013-10-22T18:46:51.742+11:00</updated>
+    <id>urn:uuid:fc58591f-b77f-487c-a4dc-40619ce58704</id>
+    <updated>2014-03-19T07:29:13.401+11:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <h3>Entries</h3>
+            <table class="grid">
+              <tr>
+                <td>
+                  <b>Flag</b>
+                </td>
+                <td>
+                  <b>Deleted</b>
+                </td>
+                <td>
+                  <b>Date</b>
+                </td>
+                <td>
+                  <b>Item</b>
+                </td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Extensions: todo, Extensions: todo; urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66; medium; unknown; confirmed</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Extensions: todo, Extensions: todo; urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66; medium; unknown; confirmed</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Extensions: todo, Extensions: todo; urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66; low; unknown; confirmed</td>
+              </tr>
+            </table>
+          </div>
+        </text>
         <contained>
-          <AllergyIntolerance id="a1">
-            <extension>
-              <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-period"/>
+          <AllergyIntolerance id="1">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-period">
               <valuePeriod>
-                <start value="2007-05-01T00:00:00+10:00"/>
-                <end value="2009-02-27T19:00:00+11:00"/>
+                <start value="2007-05-01"/>
+                <end value="2009-02-27T13:00:00+05:00"/>
               </valuePeriod>
             </extension>
-            <extension>
-              <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-category"/>
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-category">
               <valueCodeableConcept>
                 <coding>
                   <system value="http://snomed.info/sct"/>
                   <code value="419511003"/>
                   <display value="Propensity to adverse reactions to drug"/>
                 </coding>
+                <text value="Nausea"/>
               </valueCodeableConcept>
             </extension>
             <contained>
-              <Substance id="s1">
+              <Substance id="2">
                 <type>
                   <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="314422"/>
                     <display value="ALLERGENIC EXTRACT, PENICILLIN"/>
                   </coding>
+                  <text value="Nausea"/>
+                </type>
+              </Substance>
+            </contained>
+            <contained>
+              <Substance id="2">
+                <type>
+                  <coding>
+                    <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                    <code value="314422"/>
+                    <display value="ALLERGENIC EXTRACT, PENICILLIN"/>
+                  </coding>
+                  <text value="Nausea"/>
                 </type>
               </Substance>
             </contained>
@@ -427,37 +680,49 @@
             <sensitivityType value="unknown"/>
             <status value="confirmed"/>
             <substance>
-              <reference value="#s1"/>
+              <reference value="#3"/>
             </substance>
           </AllergyIntolerance>
         </contained>
         <contained>
-          <AllergyIntolerance id="a2">
-            <extension>
-              <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-period"/>
+          <AllergyIntolerance id="4">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-period">
               <valuePeriod>
-                <start value="2006-05-01T00:00:00+10:00"/>
-                <end value="2009-02-27T19:00:00+11:00"/>
+                <start value="2006-05-01"/>
+                <end value="2009-02-27T13:00:00+05:00"/>
               </valuePeriod>
             </extension>
-            <extension>
-              <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-category"/>
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-category">
               <valueCodeableConcept>
                 <coding>
                   <system value="http://snomed.info/sct"/>
                   <code value="419511003"/>
                   <display value="Propensity to adverse reactions to drug"/>
                 </coding>
+                <text value="Wheezing"/>
               </valueCodeableConcept>
             </extension>
             <contained>
-              <Substance id="s1">
+              <Substance id="5">
                 <type>
                   <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="2670"/>
                     <display value="Codeine"/>
                   </coding>
+                  <text value="Wheezing"/>
+                </type>
+              </Substance>
+            </contained>
+            <contained>
+              <Substance id="5">
+                <type>
+                  <coding>
+                    <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                    <code value="2670"/>
+                    <display value="Codeine"/>
+                  </coding>
+                  <text value="Wheezing"/>
                 </type>
               </Substance>
             </contained>
@@ -469,37 +734,49 @@
             <sensitivityType value="unknown"/>
             <status value="confirmed"/>
             <substance>
-              <reference value="#s1"/>
+              <reference value="#6"/>
             </substance>
           </AllergyIntolerance>
         </contained>
         <contained>
-          <AllergyIntolerance id="a3">
-            <extension>
-              <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-period"/>
+          <AllergyIntolerance id="7">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-period">
               <valuePeriod>
-                <start value="2008-05-01T00:00:00+10:00"/>
-                <end value="2009-02-27T19:00:00+11:00"/>
+                <start value="2008-05-01"/>
+                <end value="2009-02-27T13:00:00+05:00"/>
               </valuePeriod>
             </extension>
-            <extension>
-              <url value="http://www.healthintersections.com.au/fhir/extensions/allergy-category"/>
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-category">
               <valueCodeableConcept>
                 <coding>
                   <system value="http://snomed.info/sct"/>
                   <code value="419511003"/>
                   <display value="Propensity to adverse reactions to drug"/>
                 </coding>
+                <text value="Hives"/>
               </valueCodeableConcept>
             </extension>
             <contained>
-              <Substance id="s1">
+              <Substance id="8">
                 <type>
                   <coding>
                     <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                     <code value="1191"/>
                     <display value="Aspirin"/>
                   </coding>
+                  <text value="Hives"/>
+                </type>
+              </Substance>
+            </contained>
+            <contained>
+              <Substance id="8">
+                <type>
+                  <coding>
+                    <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                    <code value="1191"/>
+                    <display value="Aspirin"/>
+                  </coding>
+                  <text value="Hives"/>
                 </type>
               </Substance>
             </contained>
@@ -511,23 +788,123 @@
             <sensitivityType value="unknown"/>
             <status value="confirmed"/>
             <substance>
-              <reference value="#s1"/>
+              <reference value="#9"/>
             </substance>
           </AllergyIntolerance>
         </contained>
         <entry>
           <item>
-            <reference value="#a1"/>
+            <reference value="#1"/>
           </item>
         </entry>
         <entry>
           <item>
-            <reference value="#a2"/>
+            <reference value="#4"/>
           </item>
         </entry>
         <entry>
           <item>
-            <reference value="#a3"/>
+            <reference value="#7"/>
+          </item>
+        </entry>
+      </List>
+    </content>
+  </entry>
+  <entry>
+    <title>Procedures</title>
+    <id>urn:uuid:4548c190-c690-4025-a645-5ae58ea47db5</id>
+    <updated>2014-03-19T07:29:13.411+11:00</updated>
+    <content type="text/xml">
+      <List xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <h3>Entries</h3>
+            <table class="grid">
+              <tr>
+                <td>
+                  <b>Flag</b>
+                </td>
+                <td>
+                  <b>Deleted</b>
+                </td>
+                <td>
+                  <b>Date</b>
+                </td>
+                <td>
+                  <b>Item</b>
+                </td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Extensions: todo, Extensions: todo; Extensions: todo; urn:uuid:d68b7e32-7810-4f5b-9cc2-acd54b0fd85d; Colonic polypectomy</td>
+              </tr>
+            </table>
+          </div>
+        </text>
+        <contained>
+          <Procedure id="10">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/procedure-method">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="urn:oid:"/>
+                </coding>
+              </valueCodeableConcept>
+            </extension>
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/implanted-devices">
+              <valueResource>
+                <reference value="#12"/>
+              </valueResource>
+            </extension>
+            <modifierExtension url="http://www.healthintersections.com.au/fhir/extensions/procedure-status">
+              <valueCode value="completed"/>
+            </modifierExtension>
+            <contained>
+              <Practitioner id="11"/>
+            </contained>
+            <contained>
+              <Device id="12">
+                <identifier>
+                  <system value="urn:ietf:rfc:3986"/>
+                  <value value="urn:uuid:742aee30-21c5-11e1-bfc2-0800200c9a66"/>
+                </identifier>
+                <type>
+                  <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="90412006"/>
+                    <display value="Colonoscope"/>
+                  </coding>
+                </type>
+                <manufacturer value="urn:uuid:eb936010-7b17-11db-9fe1-0800200c9b65"/>
+              </Device>
+            </contained>
+            <identifier>
+              <system value="urn:ietf:rfc:3986"/>
+              <value value="urn:uuid:d68b7e32-7810-4f5b-9cc2-acd54b0fd85d"/>
+            </identifier>
+            <type>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="73761001"/>
+                <display value="Colonoscopy"/>
+              </coding>
+              <text value="Colonic polypectomy"/>
+            </type>
+            <performer>
+              <person>
+                <reference value="#11"/>
+              </person>
+            </performer>
+          </Procedure>
+        </contained>
+        <entry>
+          <item>
+            <reference value="#10"/>
           </item>
         </entry>
       </List>

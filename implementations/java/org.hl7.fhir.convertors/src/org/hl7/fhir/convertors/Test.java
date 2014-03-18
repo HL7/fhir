@@ -11,9 +11,11 @@ import org.hl7.fhir.instance.model.AtomFeed;
 public class Test {
 
 	public static final String DEF_PATH = "c:\\work\\org.hl7.fhir\\build\\implementations\\java\\org.hl7.fhir.convertors\\samples\\";
+	public static final String SRC_PATH = "c:\\work\\org.hl7.fhir\\build\\publish\\";
 	public static void main(String[] args) {
 		CCDAConverter c = new CCDAConverter();
 		try {
+			c.initialize(SRC_PATH);
 			AtomFeed a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
 			String fx = DEF_PATH + "output.xml";
 			XmlComposer x = new XmlComposer();

@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -77,12 +78,14 @@ public class CDAUtilities {
 
 	public List<Element> getChildren(Element element, String name) {
 		List<Element> l = new ArrayList<Element>();
-		Node n = element.getFirstChild();
-		while (n != null) {
-			if (n.getNodeType() == Node.ELEMENT_NODE && n.getNodeName().equals(name)) {
-				l.add((Element) n);
+		if (element != null) {
+			Node n = element.getFirstChild();
+			while (n != null) {
+				if (n.getNodeType() == Node.ELEMENT_NODE && n.getNodeName().equals(name)) {
+					l.add((Element) n);
+				}
+				n = n.getNextSibling();
 			}
-			n = n.getNextSibling();
 		}
 		return l;
   }
@@ -133,8 +136,8 @@ public class CDAUtilities {
 	  return null;
   }
 
-	public String showTemplateIds(Element concern) {
-	  List<Element> list = getChildren(concern, "templateId");
+	public String showTemplateIds(Element element) {
+	  List<Element> list = getChildren(element, "templateId");
 	  CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
 	  for (Element e : list) {
 	  	if (e.hasAttribute("extension")) 
@@ -143,6 +146,66 @@ public class CDAUtilities {
 	  		b.append(e.getAttribute("root"));	  	
 	  }
 	  return b.toString();
+  }
+
+	public Element getlastChild(Element e) {
+	  Node n = e.getLastChild();
+	  while (n != null && n.getNodeType() != Node.ELEMENT_NODE)
+	  	n = n.getPreviousSibling();
+	  return n == null ? null : (Element) n;
+  }
+
+	/**
+	 * This method looks up an object by it's id, and only returns it if has a child by the given name
+	 * (resolving identifier based cross references)
+	 * 
+	 * @param id
+	 * @param childName
+	 * @return
+	 * @throws Exception 
+	 */
+	public Element getById(Element id, String childName) throws Exception {
+	  return getById(doc.getDocumentElement(), id, childName);
+  }
+
+	private Element getById(Element e, Element id, String childName) throws Exception {
+	  Element c = XMLUtil.getFirstChild(e);
+	  while (c != null) {
+	  	Element i = getChild(c, "id");
+	  	if (i != null && matchesAsId(i, id) && getChild(c, childName) != null) 
+	  		return c;
+	  	Element m = getById(c, id, childName);
+	  	if (m != null)
+	  		return m;
+	  	c = XMLUtil.getNextSibling(c);
+	  }
+	  return null;
+  }
+
+	private boolean matchesAsId(Element i1, Element i2) {
+		String r1 = i1.getAttribute("root"); 
+		String r2 = i2.getAttribute("root"); 
+		String e1 = i1.getAttribute("extension"); 
+		String e2 = i2.getAttribute("extension");
+	  return (r1 != null && r1.equals(r2)) && ((e1 == null && e2 == null) || (e1 != null && e1.equals(e2)));
+  }
+
+	public Element getByXmlId(String id) {
+	  return getByXmlId(doc.getDocumentElement(), id);
+  }
+
+	private Element getByXmlId(Element e, String value) {
+	  Element c = XMLUtil.getFirstChild(e);
+	  while (c != null) {
+	  	String id = c.getAttribute("ID");
+	  	if (id != null && id.equals(value)) 
+	  		return c;
+	  	Element m = getByXmlId(c, value);
+	  	if (m != null)
+	  		return m;
+	  	c = XMLUtil.getNextSibling(c);
+	  }
+	  return null;
   }
 
 }

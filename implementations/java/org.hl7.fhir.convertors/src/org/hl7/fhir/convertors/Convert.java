@@ -113,17 +113,22 @@ public class Convert {
 	public CodeableConcept makeCodeableConceptFromCD(Element cv) throws Exception {
 		if (cv == null)
 			return null;
-	  CodeableConcept cc = new CodeableConcept();
-	  cc.getCoding().add(makeCodingFromCV(cv));
-	  for (Element e : cda.getChildren(cv, "translation"))
-	    cc.getCoding().add(makeCodingFromCV(e));
-	  if (cda.getChild(cv, "originalText") != null) {
-	  	Element ote = cda.getChild(cv, "originalText");
-	  	if (cda.getChild(ote, "reference") != null) {
-	  		throw new Exception("not done yet");	  		
-	  	} else {	  		
-	  	  String ot = ote.getTextContent().trim();
-			  cc.setTextSimple(Utilities.noString(ot) ? null : ot);
+		CodeableConcept cc = new CodeableConcept();
+		cc.getCoding().add(makeCodingFromCV(cv));
+		for (Element e : cda.getChildren(cv, "translation"))
+			cc.getCoding().add(makeCodingFromCV(e));
+		if (cda.getChild(cv, "originalText") != null) {
+			Element ote = cda.getChild(cv, "originalText");
+			if (cda.getChild(ote, "reference") != null) {
+				if (cda.getChild(ote, "reference").getAttribute("value").startsWith("#")) {
+					Element t = cda.getByXmlId(cda.getChild(ote, "reference").getAttribute("value").substring(1));
+					String ot = t.getTextContent().trim();
+					cc.setTextSimple(Utilities.noString(ot) ? null : ot);
+				} else
+					throw new Exception("external references not handled yet "+cda.getChild(ote, "reference").getAttribute("value"));
+			} else {	  		
+				String ot = ote.getTextContent().trim();
+				cc.setTextSimple(Utilities.noString(ot) ? null : ot);
 	  	}  
 	  }
 	  return cc;
