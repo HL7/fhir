@@ -24,6 +24,7 @@ import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Comparison;
 import org.hl7.fhir.instance.model.Composition;
+import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Composition.CompositionAttestationMode;
 import org.hl7.fhir.instance.model.Composition.CompositionAttesterComponent;
@@ -627,47 +628,46 @@ gastrostomy.
 
 
 	private void processAllergyProblemAct(List_ list, Element concern) throws Exception {
-	  // Allergy Problem Act
-			cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");  
-			AllergyIntolerance ai = new AllergyIntolerance();
-			addItemToList(list, ai);
-			
-		// SHALL contain at least one [1..*] id (CONF:7472).
-			for (Element e : cda.getChildren(concern, "id")) 
-				ai.getIdentifier().add(convert.makeIdentifierFromII(e));
+		cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");  
+	  // Allergy Problem Act - this is a concern - we treat the concern as information about it's place in the list
 
-   // SHALL contain exactly one [1..1] statusCode, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.68 HITSPProblemStatus DYNAMIC (CONF:7485)
-			// 55561003  SNOMED CT  Active, 73425007  SNOMED CT  Inactive, 413322009  SNOMED CT  Resolved
-			// only, it can't be these. so see Conf 7504: active, suspended, aborted, completed 
+		// SHALL contain at least one [1..*] entryRelationship (CONF:7509) such that it
+		// SHALL contain exactly one [1..1] Allergy - intolerance Observation
+		for (Element entry : cda.getChildren(concern, "entryRelationship")) {
+			Element obs = cda.getChild(entry, "observation");
+  		cda.checkTemplateId(obs, "2.16.840.1.113883.10.20.22.4.7");
+			AllergyIntolerance ai = new AllergyIntolerance();			
+			ListEntryComponent item = addItemToList(list, ai);
+			
+			// this first section comes from the concern, and is processed once for each observation in the concern group
+  		// SHALL contain at least one [1..*] id (CONF:7472).
+			for (Element e : cda.getChildren(concern, "id")) 
+				item.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/list-id", convert.makeIdentifierFromII(e), false));
+
+      // SHALL contain exactly one [1..1] statusCode, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.68 HITSPProblemStatus DYNAMIC (CONF:7485)
+		  // the status code is about the concern (e.g. the entry in the list)
+			// possible values: active, suspended, aborted, completed, with an effective time 
 			String s = cda.getStatus(concern);
-			if ("active".equals(s))
-  			ai.setStatusSimple(Sensitivitystatus.confirmed);
-			// TODO: patient care disagrees that this means suppressed
-			if ("suspended".equals(s)) {
-  			ai.setStatusSimple(Sensitivitystatus.confirmed);
-  			Boolean b = new Boolean();
-  			b.setValue(true);
-  			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergy-suppressed", b, false));
-			}
-			if ("aborted".equals(s))
-  			ai.setStatusSimple(Sensitivitystatus.refuted);
-			if ("completed".equals(s))
-  			ai.setStatusSimple(Sensitivitystatus.resolved);
+			item.getFlag().add(Factory.newCodeableConcept(s, "http://hl7.org/fhir/v3/ActStatus", s));
+			if (s.equals("aborted")) // only on this condition?
+				item.setDeletedSimple(true);
 			
 			// SHALL contain exactly one [1..1] effectiveTime (CONF:7498)
-			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergy-period", 
-					convert.makePeriodFromIVL(cda.getChild(concern, "effectiveTime")), false));
-			
-			// SHALL contain at least one [1..*] entryRelationship (CONF:7509) such that it
-			// SHALL contain exactly one [1..1] Allergy/Alert Observation
-			Element obs = cda.getChild(cda.getChild(concern, "entryRelationship"), "observation");
-			cda.checkTemplateId(obs, "2.16.840.1.113883.10.20.22.4.7");
-			
+			Period p = convert.makePeriodFromIVL(cda.getChild(concern, "effectiveTime"));
+			item.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/list-period", p,  false));
+			if (p.getEnd() != null)
+				item.setDate(p.getEnd());
+			else
+				item.setDate(p.getStart());
+						
+			//ok, now process the actual observation
 			// SHALL contain at least one [1..*] id (CONF:7382)
-			// we ignore this?
+			for (Element e : cda.getChildren(obs, "id"))
+				ai.getIdentifier().add(convert.makeIdentifierFromII(e));
+			
 			
 			// SHALL contain exactly one [1..1] effectiveTime (CONF:7387)
-			// we ignore this - what is it? 
+			ai.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergyintolerance-period", convert.makePeriodFromIVL(cda.getChild(obs, "effectiveTime")),  false));
 			
 			// SHALL contain exactly one [1..1] value with @xsi:type="CD" (CONF:7390)
 			CodeableConcept type = convert.makeCodeableConceptFromCD(cda.getChild(obs, "value"));
@@ -691,11 +691,20 @@ gastrostomy.
 			subst.setType(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
 
 			//  MAY contain zero or one [0..1] entryRelationship (CONF:7440) such that it SHALL contain exactly one [1..1]  Alert Status Observation
-			
 			//  SHOULD contain zero or more [0..*] entryRelationship (CONF:7447) such that it SHALL contain exactly one [1..1] Reaction Observation (templateId:2.16.840.1.113883.10.20.22.4.9) (CONF:7450).
 		  for (Element e : cda.getChildren(obs,  "entryRelationship")) {
 		  	Element child = cda.getChild(e, "observation");
-		  	if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.9")) {
+		  	if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.28") && ai.getStatus() == null) {
+		  		// SHALL contain exactly one [1..1] value with @xsi:type="CE", where the @code SHALL be selected from ValueSet Problem Status Value Set 2.16.840.1.113883.3.88.12.80.68 DYNAMIC (CONF:7322).
+		  		// 55561003  SNOMED CT  Active
+		  		// 73425007  SNOMED CT  Inactive
+		  		// 413322009  SNOMED CT  Resolved
+		  		String sc = cda.getChild(child, "value").getAttribute("code");
+		  		if (sc.equals("55561003"))
+		  			ai.setStatusSimple(Sensitivitystatus.confirmed);
+		  		else
+		  			ai.setStatusSimple(Sensitivitystatus.resolved);
+		  	} else if (cda.hasTemplateId(child, "2.16.840.1.113883.10.20.22.4.9")) {
 		  		AdverseReaction reaction = processAdverseReactionObservation(child);
 		  		n = nextRef();
 					reaction.setXmlId(n);
@@ -706,6 +715,7 @@ gastrostomy.
 			
 			//  SHOULD contain zero or one [0..1] entryRelationship (CONF:9961) such that it SHALL contain exactly one [1..1] Severity Observation (templateId:2.16.840.1.113883.10.20.22.4.8) (CONF:9963).
 			ai.setCriticalitySimple(readCriticality(cda.getSeverity(obs)));
+		}
   }
 
 
@@ -752,7 +762,7 @@ gastrostomy.
 
 	
 
-	private void addItemToList(List_ list, Resource ai)
+	private ListEntryComponent addItemToList(List_ list, Resource ai)
       throws Exception {
 	  list.getContained().add(ai);
 	  String n = nextRef();
@@ -760,6 +770,7 @@ gastrostomy.
 	  ListEntryComponent item = new List_.ListEntryComponent();
 	  list.getEntry().add(item);
 	  item.setItem(Factory.makeResourceReference("#"+n));
+	  return item;
   }
 
 
