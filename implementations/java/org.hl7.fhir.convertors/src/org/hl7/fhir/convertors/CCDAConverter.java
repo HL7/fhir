@@ -24,6 +24,7 @@ import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Comparison;
 import org.hl7.fhir.instance.model.Composition;
+import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Composition.CompositionAttestationMode;
@@ -105,7 +106,7 @@ Procedure Findings Section 59776-5 :
 Procedure Implants Section 59771-6 : 
 Procedure Indications Section 59768-2 : 
 Procedure Specimens Taken Section 59773-2 : 
-Procedures Section 47519-4 : 
+Procedures Section 47519-4 :                          List(Problem)                       processProceduresSection
 Reason for Referral Section 42349-1 : 
 Reason for Visit Section 29299-5 : 
 Results Section 30954-2 : 
@@ -121,6 +122,12 @@ Vital Signs Section 8716-3 :
  *
  */
 public class CCDAConverter {
+
+	public enum ProcedureType {
+	  Observation, Procedure, Act
+
+  }
+
 
 	private CDAUtilities cda;
 	private Element doc; 
@@ -362,13 +369,13 @@ public class CCDAConverter {
 			Element procedure = cda.getlastChild(entry);
 			
 			if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.14")) {
-		    processProcedure(list, procedure);
-//			} else if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.13")) {
-//			    processProcedureObservation(list, procedure);
-//			} else if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12")) {
-//		    processProcedureActivity(list, procedure);
-			} //else
-				//throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(procedure));
+		    processProcedure(list, procedure, ProcedureType.Procedure);
+			} else if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.13")) {
+				processProcedure(list, procedure, ProcedureType.Observation);
+			} else if (cda.hasTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12")) {
+				processProcedure(list, procedure, ProcedureType.Act);
+			} else
+				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(procedure));
 		}
 		
 		// todo: text
@@ -380,24 +387,27 @@ public class CCDAConverter {
 		
 	}
 
-	private void processProcedure(List_ list, Element procedure) throws Exception {
-		/*
-		 * The common notion of "procedure" is broader than that specified by the HL7 Version 3 
-Reference Information Model (RIM). Therefore procedure templates can be represented 
-with various RIM classes: act (e.g., dressing change), observation (e.g., EEG), procedure 
-(e.g. splenectomy). 
-This clinical statement represents procedures whose immediate and primary outcome 
-(post-condition) is the alteration of the physical condition of the patient. Examples of 
-these procedures are an appendectomy, hip replacement and a creation of a 
-gastrostomy.
-		 */
-		cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.14");  
+	private void processProcedure(List_ list, Element procedure, ProcedureType type) throws Exception {
+
+
+		switch (type) {
+		case Procedure : 
+			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.14");
+			break;		
+		case Observation: 
+			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.13");
+  		break;		
+		case Act: 
+		  cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12");
+		}
+		  
 		Procedure p = new Procedure();
 		addItemToList(list, p);
 		
-		// moodCode is either INT or EVN. INT is not handled yet
-		if (procedure.getAttribute("moodCode").equals("INT"))
-			throw new Exception("Procedures with mood code of intent are not handled yet");
+		// moodCode is either INT or EVN. INT is not handled yet. INT is deprecated anyway
+//		if (procedure.getAttribute("moodCode").equals("INT"))
+//			throw new Exception("Procedures with mood code of intent are not handled yet");
+		// we don't really know what people intend with "intent" - this will be reviewed in the future
 		
 		// SHALL contain at least one [1..*] id (CONF:7655).
 		for (Element e : cda.getChildren(procedure, "id")) 
@@ -419,6 +429,13 @@ gastrostomy.
 		
 		// MAY contain zero or one [0..1] methodCode (CONF:7670).
 		p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-method", convert.makeCodeableConceptFromCD(cda.getChild(procedure, "methodCode")), false));
+
+		if (type == ProcedureType.Observation) {
+			// for Procedure-Observation:
+			// 9.	SHALL contain exactly one [1..1] value (CONF:16846).
+			// don't know what this is. It's not the actual result of the procedure (that goes in results "This section records ... procedure observations"), and there seems to be no value. The example as <value xsi:type="CD"/> which is not valid
+			// so we ignore this for now
+		}
 		
 		//  SHOULD contain zero or more [0..*] targetSiteCode/@code, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.8.9 Body site DYNAMIC (CONF:7683).
 		for (Element e : cda.getChildren(procedure, "targetSiteCode")) 
@@ -436,9 +453,9 @@ gastrostomy.
 
 		for (Element participant : cda.getChildren(procedure, "participant")) {
 			Element participantRole = cda.getlastChild(participant);
-			if (cda.hasTemplateId(participantRole, "2.16.840.1.113883.10.20.22.4.37")) {
-			//   MAY contain zero or more [0..*] participant (CONF:7751) such that it  SHALL contain exactly one [1..1] @typeCode="DEV" Device
-			// implanted devices
+			if (type == ProcedureType.Procedure && cda.hasTemplateId(participantRole, "2.16.840.1.113883.10.20.22.4.37")) {
+		  	//   MAY contain zero or more [0..*] participant (CONF:7751) such that it  SHALL contain exactly one [1..1] @typeCode="DEV" Device
+			  // implanted devices
 				p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/implanted-devices", Factory.makeResourceReference(processDevice(participantRole, p)), false));
 			} else if (cda.hasTemplateId(participantRole, "2.16.840.1.113883.10.20.22.4.32")) {
 			// MAY contain zero or more [0..*] participant (CONF:7765) such that it SHALL contain exactly one [1..1] Service Delivery Location (templateId:2.16.840.1.113883.10.20.22.4.32) (CONF:7767)
@@ -453,7 +470,11 @@ gastrostomy.
     		// todo - and process as a full encounter while we're at it
       } else if (cda.hasTemplateId(a, "2.16.840.1.113883.10.20.22.4.20")) {
     		//  MAY contain zero or one [0..1] entryRelationship (CONF:7775) such that it SHALL contain exactly one [1..1] Instructions (templateId:2.16.840.1.113883.10.20.22.4.20) (CONF:7778).
-    		// todo
+    		// had code for type, plus text for instructions
+      	Extension n = Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-instructions", null, true);
+      	n.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-instructions-type", convert.makeCodeableConceptFromCD(cda.getChild(a, "code")), false));
+      	n.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-instructions-text", convert.makeStringFromED(cda.getChild(a, "text")), false));
+				p.getExtensions().add(n);
       } else if (cda.hasTemplateId(a, "2.16.840.1.113883.10.20.22.4.19")) {
     		// MAY contain zero or more [0..*] entryRelationship (CONF:7779) such that it SHALL contain exactly one [1..1] Indication (templateId:2.16.840.1.113883.10.20.22.4.19) (CONF:7781).
       	processIndication(p.getIndication(), a);

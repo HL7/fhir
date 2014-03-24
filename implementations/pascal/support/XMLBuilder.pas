@@ -41,6 +41,8 @@ type
   end;
 
   TXmlBuilder = {abstract} class (TAdvObject)
+  private
+    FNoHeader: Boolean;
   Protected
     FIsPretty: Boolean;
     FCharEncoding: String;
@@ -69,6 +71,7 @@ type
     property IsPretty : boolean read FIsPretty Write FIsPretty;
     property CharEncoding : String read FCharEncoding write FCharEncoding;
     property Namespace : String Read FNamespace write SetNamespace;
+    property NoHeader : Boolean read FNoHeader write FNoHeader;
   End;
 
 implementation

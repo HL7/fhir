@@ -3,11 +3,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Community Health and Hospitals: Consultation Note</title>
   <id>urn:oid:2.16.840.1.113883.19.5.99999.1::TT988</id>
-  <updated>2014-03-19T07:29:13.324+11:00</updated>
+  <updated>2014-03-24T11:06:48.589+11:00</updated>
   <entry>
     <title>Composition</title>
-    <id>urn:uuid:6054e3b1-cbed-4491-9374-52b41e720625</id>
-    <updated>2014-03-19T07:29:13.370+11:00</updated>
+    <id>urn:uuid:872146fa-e728-4027-a493-3836d8cf46e1</id>
+    <updated>2014-03-24T11:06:48.646+11:00</updated>
     <content type="text/xml">
       <Composition xmlns="http://hl7.org/fhir">
         <text>
@@ -36,27 +36,27 @@
           <code value="N"/>
         </confidentiality>
         <subject>
-          <reference value="urn:uuid:7c80ca8d-4a08-4fb5-9c7d-c40f96058335"/>
+          <reference value="urn:uuid:83d2d0df-ebc5-4952-994d-eb4975364083"/>
         </subject>
         <author>
-          <reference value="urn:uuid:17caead6-8922-4987-ac60-f6f06d395b17"/>
+          <reference value="urn:uuid:a64891c6-20fa-4374-aaf7-a34114ee8f13"/>
         </author>
         <attester>
           <mode value="legal"/>
           <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="urn:uuid:95f03cc7-8d02-4c41-b817-b646875ae49f"/>
+            <reference value="urn:uuid:7bc77b1c-36fd-424d-b701-fd515edeb9cb"/>
           </party>
         </attester>
         <attester>
           <mode value="professional"/>
           <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="urn:uuid:2f32df4d-e300-4392-a9b8-49c2f0023e94"/>
+            <reference value="urn:uuid:81fbe888-7d46-48c1-9a4f-08e4ce723f41"/>
           </party>
         </attester>
         <custodian>
-          <reference value="urn:uuid:9f4f28aa-3c34-4102-893d-ccff8d3fad31"/>
+          <reference value="urn:uuid:913df176-857b-4eef-a53a-94a234b2bd9c"/>
         </custodian>
         <event>
           <code>
@@ -71,7 +71,7 @@
             <end value="2009-02-27T13:00:00+05:00"/>
           </period>
           <detail>
-            <reference value="urn:uuid:262d25a0-c638-4c98-b184-80e4f2cbb0a9"/>
+            <reference value="urn:uuid:aab3eaf3-2196-45c5-a8aa-10fb2af13961"/>
           </detail>
         </event>
         <section>
@@ -82,7 +82,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:fc58591f-b77f-487c-a4dc-40619ce58704"/>
+            <reference value="urn:uuid:d275d24d-c448-4f6b-aa93-d57ae88a52af"/>
           </content>
         </section>
         <section>
@@ -94,7 +94,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:4548c190-c690-4025-a645-5ae58ea47db5"/>
+            <reference value="urn:uuid:47806f24-a4b7-4488-aaed-5465926b5d6c"/>
           </content>
         </section>
       </Composition>
@@ -102,8 +102,8 @@
   </entry>
   <entry>
     <title>Encounter</title>
-    <id>urn:uuid:262d25a0-c638-4c98-b184-80e4f2cbb0a9</id>
-    <updated>2014-03-19T07:29:13.376+11:00</updated>
+    <id>urn:uuid:aab3eaf3-2196-45c5-a8aa-10fb2af13961</id>
+    <updated>2014-03-24T11:06:48.652+11:00</updated>
     <content type="text/xml">
       <Encounter xmlns="http://hl7.org/fhir">
         <text>
@@ -140,8 +140,8 @@
   </entry>
   <entry>
     <title>Provider</title>
-    <id>urn:uuid:c010bae6-7417-4cbf-8a87-801e9f667c11</id>
-    <updated>2014-03-19T07:29:13.379+11:00</updated>
+    <id>urn:uuid:624a6638-5bb6-4e70-99cc-8d5a9fb6e464</id>
+    <updated>2014-03-24T11:06:48.655+11:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
         <text>
@@ -186,8 +186,8 @@
   </entry>
   <entry>
     <title>Subject</title>
-    <id>urn:uuid:7c80ca8d-4a08-4fb5-9c7d-c40f96058335</id>
-    <updated>2014-03-19T07:29:13.386+11:00</updated>
+    <id>urn:uuid:83d2d0df-ebc5-4952-994d-eb4975364083</id>
+    <updated>2014-03-24T11:06:48.663+11:00</updated>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/ccda/religious-affiliation">
@@ -302,7 +302,7 @@
             </p>
             <p>
               <b>managingOrganization</b>: 
-              <a href="urn:uuid:c010bae6-7417-4cbf-8a87-801e9f667c11">urn:uuid:c010bae6-7417-4cbf-8a87-801e9f667c11</a>
+              <a href="urn:uuid:624a6638-5bb6-4e70-99cc-8d5a9fb6e464">urn:uuid:624a6638-5bb6-4e70-99cc-8d5a9fb6e464</a>
             </p>
           </div>
         </text>
@@ -389,15 +389,15 @@
           </coding>
         </communication>
         <managingOrganization>
-          <reference value="urn:uuid:c010bae6-7417-4cbf-8a87-801e9f667c11"/>
+          <reference value="urn:uuid:624a6638-5bb6-4e70-99cc-8d5a9fb6e464"/>
         </managingOrganization>
       </Patient>
     </content>
   </entry>
   <entry>
     <title>Author</title>
-    <id>urn:uuid:17caead6-8922-4987-ac60-f6f06d395b17</id>
-    <updated>2014-03-19T07:29:13.387+11:00</updated>
+    <id>urn:uuid:a64891c6-20fa-4374-aaf7-a34114ee8f13</id>
+    <updated>2014-03-24T11:06:48.663+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -438,8 +438,8 @@
   </entry>
   <entry>
     <title>Custodian</title>
-    <id>urn:uuid:9f4f28aa-3c34-4102-893d-ccff8d3fad31</id>
-    <updated>2014-03-19T07:29:13.388+11:00</updated>
+    <id>urn:uuid:913df176-857b-4eef-a53a-94a234b2bd9c</id>
+    <updated>2014-03-24T11:06:48.664+11:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
         <text>
@@ -485,8 +485,8 @@
   </entry>
   <entry>
     <title>Legal Authenticator</title>
-    <id>urn:uuid:95f03cc7-8d02-4c41-b817-b646875ae49f</id>
-    <updated>2014-03-19T07:29:13.388+11:00</updated>
+    <id>urn:uuid:7bc77b1c-36fd-424d-b701-fd515edeb9cb</id>
+    <updated>2014-03-24T11:06:48.665+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -534,8 +534,8 @@
   </entry>
   <entry>
     <title>Authenticator</title>
-    <id>urn:uuid:2f32df4d-e300-4392-a9b8-49c2f0023e94</id>
-    <updated>2014-03-19T07:29:13.389+11:00</updated>
+    <id>urn:uuid:81fbe888-7d46-48c1-9a4f-08e4ce723f41</id>
+    <updated>2014-03-24T11:06:48.665+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -583,8 +583,8 @@
   </entry>
   <entry>
     <title>Allergies, Adverse Reactions, Alerts</title>
-    <id>urn:uuid:fc58591f-b77f-487c-a4dc-40619ce58704</id>
-    <updated>2014-03-19T07:29:13.401+11:00</updated>
+    <id>urn:uuid:d275d24d-c448-4f6b-aa93-d57ae88a52af</id>
+    <updated>2014-03-24T11:06:48.678+11:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -610,32 +610,37 @@
                 </td>
               </tr>
               <tr>
+                <td>
+                  <span title="Codes: {http://hl7.org/fhir/v3/ActStatus active}">active</span>
+                </td>
                 <td> </td>
-                <td> </td>
-                <td> </td>
-                <td>Extensions: todo, Extensions: todo; urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66; medium; unknown; confirmed</td>
+                <td>27-Feb 2009 13:0</td>
+                <td>Extensions: todo, Extensions: todo; urn:uuid:4adc1020-7b14-11db-9fe1-0800200c9a66; medium; unknown; resolved</td>
               </tr>
               <tr>
+                <td>
+                  <span title="Codes: {http://hl7.org/fhir/v3/ActStatus active}">active</span>
+                </td>
                 <td> </td>
-                <td> </td>
-                <td> </td>
-                <td>Extensions: todo, Extensions: todo; urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66; medium; unknown; confirmed</td>
+                <td>27-Feb 2009 13:0</td>
+                <td>Extensions: todo, Extensions: todo; urn:uuid:4adc1020-7b14-11db-9fe1-0800200c9a66; medium; unknown; confirmed</td>
               </tr>
               <tr>
+                <td>
+                  <span title="Codes: {http://hl7.org/fhir/v3/ActStatus active}">active</span>
+                </td>
                 <td> </td>
-                <td> </td>
-                <td> </td>
-                <td>Extensions: todo, Extensions: todo; urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66; low; unknown; confirmed</td>
+                <td>27-Feb 2009 13:0</td>
+                <td>Extensions: todo, Extensions: todo; urn:uuid:4adc1020-7b14-11db-9fe1-0800200c9a66; low; unknown; confirmed</td>
               </tr>
             </table>
           </div>
         </text>
         <contained>
           <AllergyIntolerance id="1">
-            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-period">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergyintolerance-period">
               <valuePeriod>
                 <start value="2007-05-01"/>
-                <end value="2009-02-27T13:00:00+05:00"/>
               </valuePeriod>
             </extension>
             <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-category">
@@ -674,11 +679,11 @@
             </contained>
             <identifier>
               <system value="urn:ietf:rfc:3986"/>
-              <value value="urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+              <value value="urn:uuid:4adc1020-7b14-11db-9fe1-0800200c9a66"/>
             </identifier>
             <criticality value="medium"/>
             <sensitivityType value="unknown"/>
-            <status value="confirmed"/>
+            <status value="resolved"/>
             <substance>
               <reference value="#3"/>
             </substance>
@@ -686,10 +691,9 @@
         </contained>
         <contained>
           <AllergyIntolerance id="4">
-            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-period">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergyintolerance-period">
               <valuePeriod>
                 <start value="2006-05-01"/>
-                <end value="2009-02-27T13:00:00+05:00"/>
               </valuePeriod>
             </extension>
             <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-category">
@@ -728,7 +732,7 @@
             </contained>
             <identifier>
               <system value="urn:ietf:rfc:3986"/>
-              <value value="urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+              <value value="urn:uuid:4adc1020-7b14-11db-9fe1-0800200c9a66"/>
             </identifier>
             <criticality value="medium"/>
             <sensitivityType value="unknown"/>
@@ -740,10 +744,9 @@
         </contained>
         <contained>
           <AllergyIntolerance id="7">
-            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-period">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/allergyintolerance-period">
               <valuePeriod>
                 <start value="2008-05-01"/>
-                <end value="2009-02-27T13:00:00+05:00"/>
               </valuePeriod>
             </extension>
             <extension url="http://www.healthintersections.com.au/fhir/extensions/allergy-category">
@@ -782,7 +785,7 @@
             </contained>
             <identifier>
               <system value="urn:ietf:rfc:3986"/>
-              <value value="urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+              <value value="urn:uuid:4adc1020-7b14-11db-9fe1-0800200c9a66"/>
             </identifier>
             <criticality value="low"/>
             <sensitivityType value="unknown"/>
@@ -793,16 +796,76 @@
           </AllergyIntolerance>
         </contained>
         <entry>
+          <extension url="http://www.healthintersections.com.au/fhir/extensions/list-id">
+            <valueIdentifier>
+              <system value="urn:ietf:rfc:3986"/>
+              <value value="urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+            </valueIdentifier>
+          </extension>
+          <extension url="http://www.healthintersections.com.au/fhir/extensions/list-period">
+            <valuePeriod>
+              <start value="2007-05-01"/>
+              <end value="2009-02-27T13:00:00+05:00"/>
+            </valuePeriod>
+          </extension>
+          <flag>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/ActStatus"/>
+              <code value="active"/>
+              <display value="active"/>
+            </coding>
+          </flag>
+          <date value="2009-02-27T13:00:00+05:00"/>
           <item>
             <reference value="#1"/>
           </item>
         </entry>
         <entry>
+          <extension url="http://www.healthintersections.com.au/fhir/extensions/list-id">
+            <valueIdentifier>
+              <system value="urn:ietf:rfc:3986"/>
+              <value value="urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+            </valueIdentifier>
+          </extension>
+          <extension url="http://www.healthintersections.com.au/fhir/extensions/list-period">
+            <valuePeriod>
+              <start value="2006-05-01"/>
+              <end value="2009-02-27T13:00:00+05:00"/>
+            </valuePeriod>
+          </extension>
+          <flag>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/ActStatus"/>
+              <code value="active"/>
+              <display value="active"/>
+            </coding>
+          </flag>
+          <date value="2009-02-27T13:00:00+05:00"/>
           <item>
             <reference value="#4"/>
           </item>
         </entry>
         <entry>
+          <extension url="http://www.healthintersections.com.au/fhir/extensions/list-id">
+            <valueIdentifier>
+              <system value="urn:ietf:rfc:3986"/>
+              <value value="urn:uuid:36e3e930-7b14-11db-9fe1-0800200c9a66"/>
+            </valueIdentifier>
+          </extension>
+          <extension url="http://www.healthintersections.com.au/fhir/extensions/list-period">
+            <valuePeriod>
+              <start value="2008-05-01"/>
+              <end value="2009-02-27T13:00:00+05:00"/>
+            </valuePeriod>
+          </extension>
+          <flag>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/ActStatus"/>
+              <code value="active"/>
+              <display value="active"/>
+            </coding>
+          </flag>
+          <date value="2009-02-27T13:00:00+05:00"/>
           <item>
             <reference value="#7"/>
           </item>
@@ -812,8 +875,8 @@
   </entry>
   <entry>
     <title>Procedures</title>
-    <id>urn:uuid:4548c190-c690-4025-a645-5ae58ea47db5</id>
-    <updated>2014-03-19T07:29:13.411+11:00</updated>
+    <id>urn:uuid:47806f24-a4b7-4488-aaed-5465926b5d6c</id>
+    <updated>2014-03-24T11:06:48.695+11:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -843,6 +906,18 @@
                 <td> </td>
                 <td> </td>
                 <td>Extensions: todo, Extensions: todo; Extensions: todo; urn:uuid:d68b7e32-7810-4f5b-9cc2-acd54b0fd85d; Colonic polypectomy</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Extensions: todo, Extensions: todo; Extensions: todo; 123456789; Colonic polypectomy; Abdomen and pelvis</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Extensions: todo; 1234567; Colonic polypectomy</td>
               </tr>
             </table>
           </div>
@@ -902,9 +977,133 @@
             </performer>
           </Procedure>
         </contained>
+        <contained>
+          <Procedure id="13">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/procedure-method">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="urn:oid:"/>
+                </coding>
+              </valueCodeableConcept>
+            </extension>
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/location">
+              <valueResource>
+                <reference value="#15"/>
+              </valueResource>
+            </extension>
+            <modifierExtension url="http://www.healthintersections.com.au/fhir/extensions/procedure-status">
+              <valueCode value="aborted"/>
+            </modifierExtension>
+            <contained>
+              <Practitioner id="14"/>
+            </contained>
+            <contained>
+              <Location id="15">
+                <type>
+                  <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.259"/>
+                    <code value="1160-1"/>
+                    <display value="Urgent Care Center"/>
+                  </coding>
+                </type>
+                <address>
+                  <line value="17 Daws Rd."/>
+                  <city value="Blue Bell"/>
+                  <state value="MA"/>
+                  <zip value="02368"/>
+                  <country value="US"/>
+                </address>
+              </Location>
+            </contained>
+            <identifier>
+              <system value="urn:oid:2.16.840.1.113883.19"/>
+              <value value="123456789"/>
+            </identifier>
+            <type>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="274025005"/>
+                <display value="Colonic polypectomy"/>
+              </coding>
+              <text value="Colonic polypectomy"/>
+            </type>
+            <bodySite>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="416949008"/>
+                <display value="Abdomen and pelvis"/>
+              </coding>
+            </bodySite>
+            <performer>
+              <person>
+                <reference value="#14"/>
+              </person>
+            </performer>
+          </Procedure>
+        </contained>
+        <contained>
+          <Procedure id="16">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/location">
+              <valueResource>
+                <reference value="#18"/>
+              </valueResource>
+            </extension>
+            <modifierExtension url="http://www.healthintersections.com.au/fhir/extensions/procedure-status">
+              <valueCode value="completed"/>
+            </modifierExtension>
+            <contained>
+              <Practitioner id="17"/>
+            </contained>
+            <contained>
+              <Location id="18">
+                <type>
+                  <coding>
+                    <system value="urn:oid:2.16.840.1.113883.6.259"/>
+                    <code value="1160-1"/>
+                    <display value="Urgent Care Center"/>
+                  </coding>
+                </type>
+                <address>
+                  <line value="17 Daws Rd."/>
+                  <city value="Blue Bell"/>
+                  <state value="MA"/>
+                  <zip value="02368"/>
+                  <country value="US"/>
+                </address>
+              </Location>
+            </contained>
+            <identifier>
+              <system value="urn:oid:1.2.3.4.5.6.7.8"/>
+              <value value="1234567"/>
+            </identifier>
+            <type>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="274025005"/>
+                <display value="Colonic polypectomy"/>
+              </coding>
+              <text value="Colonic polypectomy"/>
+            </type>
+            <performer>
+              <person>
+                <reference value="#17"/>
+              </person>
+            </performer>
+          </Procedure>
+        </contained>
         <entry>
           <item>
             <reference value="#10"/>
+          </item>
+        </entry>
+        <entry>
+          <item>
+            <reference value="#13"/>
+          </item>
+        </entry>
+        <entry>
+          <item>
+            <reference value="#16"/>
           </item>
         </entry>
       </List>

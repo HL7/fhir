@@ -11,6 +11,7 @@ import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Contact;
 import org.hl7.fhir.instance.model.DateAndTime;
+import org.hl7.fhir.instance.model.Factory;
 import org.hl7.fhir.instance.model.Procedure;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Contact.ContactUse;
@@ -23,6 +24,7 @@ import org.hl7.fhir.instance.model.Instant;
 import org.hl7.fhir.instance.model.Address.AddressUse;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.String_;
+import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -228,8 +230,10 @@ public class Convert {
 	  return s;
   }
 
-	public Contact makeContactFromTEL(Element e) {
+	public Contact makeContactFromTEL(Element e) throws Exception {
 		if (e == null)
+			return null;
+		if (e.hasAttribute("nullFlavor"))
 			return null;
 	  Contact c = new Contact();
   	String use = e.getAttribute("use");
@@ -245,11 +249,15 @@ public class Convert {
 	  }
 	  if (e.getAttribute("value") != null) {
 	  	String[] url = e.getAttribute("value").split(":");
-	  	if (url[0].equals("tel"))
-	  		c.setSystem(new Enumeration<ContactSystem>(ContactSystem.phone));
-	  	else if (url[0].equals("mailto"))
-	  		c.setSystem(new Enumeration<ContactSystem>(ContactSystem.email));
-	  	c.setValueSimple(url[1].trim());
+	  	if (url.length == 1)
+	  		c.setValueSimple(url[0].trim());
+	  	else {
+	  		if (url[0].equals("tel"))
+	  			c.setSystem(new Enumeration<ContactSystem>(ContactSystem.phone));
+	  		else if (url[0].equals("mailto"))
+	  			c.setSystem(new Enumeration<ContactSystem>(ContactSystem.email));
+	  		c.setValueSimple(url[1].trim());
+	  	}
 	  }
 	  return c;
 	  
@@ -328,6 +336,18 @@ public class Convert {
 	  if (low != null)
 	  	return makeDateTimeFromTS(low);
 	  return null;
+  }
+
+	public Type makeStringFromED(Element e) throws Exception {
+		if (cda.getChild(e, "reference") != null) {
+			if (cda.getChild(e, "reference").getAttribute("value").startsWith("#")) {
+				Element t = cda.getByXmlId(cda.getChild(e, "reference").getAttribute("value").substring(1));
+				String ot = t.getTextContent().trim();
+				return Utilities.noString(ot) ? null : Factory.newString_(ot);
+			} else
+				throw new Exception("external references not handled yet "+cda.getChild(e, "reference").getAttribute("value"));
+		}
+		return Factory.newString_(e.getTextContent());
   }
 
 }

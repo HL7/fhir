@@ -169,7 +169,7 @@ Type
     Procedure ComposeResource(xml : TXmlBuilder; id, ver : String; oResource : TFhirResource); overload; virtual;
     Procedure ComposeBinary(xml : TXmlBuilder; binary : TFhirBinary);
     procedure ComposeXHtmlNode(xml : TXmlBuilder; node: TFhirXHtmlNode; ignoreRoot : boolean); overload;
-    procedure ComposeXHtmlNode(s : TAdvStringBuilder; node: TFhirXHtmlNode; indent : integer); overload;
+    procedure ComposeXHtmlNode(s : TAdvStringBuilder; node: TFhirXHtmlNode; indent, relativeReferenceAdjustment : integer); overload;
     function ResourceMediaType: String; virtual;
 
     function asString(value : TDateAndTime):String;
@@ -237,6 +237,7 @@ Type
     FBaseURL: String;
     FSession: TFhirSession;
     FTags : TFHIRAtomCategoryList;
+    FrelativeReferenceAdjustment: integer;
     procedure SetSession(const Value: TFhirSession);
     function PresentTags(aType : TFhirResourceType; target : String; tags : TFHIRAtomCategoryList; c : integer):String;
     procedure SetTags(const Value: TFHIRAtomCategoryList);
@@ -256,6 +257,7 @@ Type
     Procedure Compose(stream : TStream; ResourceType : TFhirResourceType; id, ver : String; oTags : TFHIRAtomCategoryList; isPretty : Boolean); Override;
     Function MimeType : String; Override;
 
+    Property relativeReferenceAdjustment : integer read FrelativeReferenceAdjustment write FrelativeReferenceAdjustment;
     class function ResourceLinks(a : TFhirResourceType; lang, base : String; count : integer; bTable, bPrefixLinks : boolean): String;
     class function PageLinks : String;
     class function Header(Session : TFhirSession; base, lang : String) : String;
@@ -1646,7 +1648,7 @@ Header(Session, FBaseURL, lang)+
      if id <> '' then
        s.append('<p><a href="?_format=xml">XML</a> or <a href="?_format=json">JSON</a> '+GetFhirMessage('NAME_REPRESENTATION', lang)+'</p>'+#13#10);
      if oResource.text <> nil then
-       ComposeXHtmlNode(s, oResource.text.div_, 0);
+       ComposeXHtmlNode(s, oResource.text.div_, 0, relativeReferenceAdjustment);
      s.append('<hr/>'+#13#10);
       xml := TFHIRXmlComposer.create(lang);
       ss := TStringStream.create('');
@@ -1766,7 +1768,7 @@ Header(Session, FBaseURL, lang)+
         ss := TStringStream.create('');
         try
           if (e.resource.text <> nil) and (e.resource.text.div_ <> nil) then
-            ComposeXHtmlNode(s, e.resource.text.div_, 2);
+            ComposeXHtmlNode(s, e.resource.text.div_, 2, relativeReferenceAdjustment);
           xml.Compose(ss, e.id, tail(e.links.rel['self']), e.resource, true);
           s.append('<hr/>'+#13#10+'<pre class="xml">'+#13#10+FormatXMLToHTML(ss.dataString)+#13#10+'</pre>'+#13#10);
         finally
@@ -2224,7 +2226,30 @@ begin
   xml.TagText('Binary', StringReplace(string(EncodeBase64(binary.Content.Data, binary.Content.Size)), #13#10, ''));
 end;
 
-procedure TFHIRComposer.ComposeXHtmlNode(s: TAdvStringBuilder; node: TFhirXHtmlNode; indent : integer);
+function isRelativeReference(s : string) : boolean;
+begin
+  if s.StartsWith('http') then
+    result := false
+  else if s.StartsWith('https') then
+    result := false
+  else if s.StartsWith('/') then
+    result := false
+  else
+    result := true;
+end;
+
+function FixRelativeReference(s : string; indent : integer) : String;
+var
+  i : integer;
+begin
+  result := '';
+  for i := 1 to indent do
+    result := result + '../';
+  result := result + s;
+end;
+
+
+procedure TFHIRComposer.ComposeXHtmlNode(s: TAdvStringBuilder; node: TFhirXHtmlNode; indent, relativeReferenceAdjustment : integer);
 var
   i : Integer;
 begin
@@ -2237,12 +2262,15 @@ begin
       begin
       s.append('<'+node.name);
       for i := 0 to node.Attributes.count - 1 do
-        s.append(' '+node.Attributes[i].Name+'="'+FormatTexttoXml(node.Attributes[i].Value)+'"');
+        if (node.name = 'a') and (node.Attributes[i].Name = 'href') and isRelativeReference(node.Attributes[i].Value) then
+          s.append(' '+node.Attributes[i].Name+'="'+FixRelativeReference(node.Attributes[i].Value, relativeReferenceAdjustment)+'"')
+        else
+          s.append(' '+node.Attributes[i].Name+'="'+FormatTexttoXml(node.Attributes[i].Value)+'"');
       if node.ChildNodes.Count > 0 then
       begin
         s.append('>');
         for i := 0 to node.ChildNodes.count - 1 do
-          ComposeXHtmlNode(s, node.ChildNodes[i], i+2);
+          ComposeXHtmlNode(s, node.ChildNodes[i], i+2, relativeReferenceAdjustment);
         s.append('</'+node.name+'>');
       end
       else
@@ -2250,7 +2278,7 @@ begin
       end;
     fhntDocument:
       for i := 0 to node.ChildNodes.count - 1 do
-        ComposeXHtmlNode(s, node.ChildNodes[i], 0);
+        ComposeXHtmlNode(s, node.ChildNodes[i], 0, relativeReferenceAdjustment);
   else
     raise exception.create('not supported');
   End;

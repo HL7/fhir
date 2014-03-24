@@ -60,6 +60,8 @@ public class CDAUtilities {
 	}
 
 	public Element getChild(Element element, String name) throws Exception {
+		if (element == null)
+			return null;
 		
 		Element e = null;
 		Node n = element.getFirstChild();
