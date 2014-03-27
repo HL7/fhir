@@ -405,9 +405,8 @@ public class CCDAConverter {
 		addItemToList(list, p);
 		
 		// moodCode is either INT or EVN. INT is not handled yet. INT is deprecated anyway
-//		if (procedure.getAttribute("moodCode").equals("INT"))
-//			throw new Exception("Procedures with mood code of intent are not handled yet");
-		// we don't really know what people intend with "intent" - this will be reviewed in the future
+   if (procedure.getAttribute("moodCode").equals("INT"))
+  		p.getModifierExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-planned", Factory.newBoolean(true), false));
 		
 		// SHALL contain at least one [1..*] id (CONF:7655).
 		for (Element e : cda.getChildren(procedure, "id")) 

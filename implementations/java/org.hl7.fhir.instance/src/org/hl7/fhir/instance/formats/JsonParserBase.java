@@ -139,8 +139,10 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
         res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
     }
     JsonArray array = json.getAsJsonArray("entry");
-    for (int i = 0; i < array.size(); i++) {
-      res.getEntryList().add(parseEntry(array.get(i).getAsJsonObject()));
+    if (array != null) {
+    	for (int i = 0; i < array.size(); i++) {
+    		res.getEntryList().add(parseEntry(array.get(i).getAsJsonObject()));
+    	}
     }
     return res;  
   }
