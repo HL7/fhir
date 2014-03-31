@@ -25,6 +25,9 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Comparison;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Extension;
+import org.hl7.fhir.instance.model.Observation;
+import org.hl7.fhir.instance.model.Observation.ObservationReliability;
+import org.hl7.fhir.instance.model.Observation.ObservationStatus;
 import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Composition.CompositionAttestationMode;
@@ -106,12 +109,12 @@ Procedure Findings Section 59776-5 :
 Procedure Implants Section 59771-6 : 
 Procedure Indications Section 59768-2 : 
 Procedure Specimens Taken Section 59773-2 : 
-Procedures Section 47519-4 :                          List(Problem)                       processProceduresSection
+Procedures Section 47519-4 :                          List (Procedure)                       processProceduresSection
 Reason for Referral Section 42349-1 : 
 Reason for Visit Section 29299-5 : 
 Results Section 30954-2 : 
 Review of Systems Section 10187-3 : 
-Social History Section 29762-2 : 
+Social History Section 29762-2 :                      List (Observation)                     processSocialHistorySection
 Subjective Section 61150-9: 
 Surgical Drains Section 11537-8 : 
 Vital Signs Section 8716-3 : 
@@ -122,6 +125,12 @@ Vital Signs Section 8716-3 :
  *
  */
 public class CCDAConverter {
+
+	public enum SocialHistoryType {
+	  SocialHistory, Pregnancy, SmokingStatus, TobaccoUse
+
+  }
+
 
 	public enum ProcedureType {
 	  Observation, Procedure, Act
@@ -358,11 +367,16 @@ public class CCDAConverter {
 	  // this we do by templateId
 		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6.1"))
 			return processAdverseReactionsSection(section);
-		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7.1"))
+		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7.1"))
 			return processProceduresSection(section);
+		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.17"))  
+		  return processSocialHistorySection(section);
+		else
+			// todo: error? 
 	  return null;
   }
 
+	
 	private SectionComponent processProceduresSection(Element section) throws Exception {
 		List_ list = new List_();
 		for (Element entry : cda.getChildren(section, "entry")) {
@@ -424,7 +438,7 @@ public class CCDAConverter {
 		p.setDate(convert.makePeriodFromIVL(cda.getChild(procedure, "effectiveTime")));
 		
 		// MAY contain zero or one [0..1] priorityCode/@code, which SHALL be selected from ValueSet 2.16.840.1.113883.1.11.16866 ActPriority DYNAMIC (CONF:7668)
-		// ignore until we handle moodCode INT
+		p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-priority", convert.makeCodeableConceptFromCD(cda.getChild(procedure, "priorityCode")), false));
 		
 		// MAY contain zero or one [0..1] methodCode (CONF:7670).
 		p.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-method", convert.makeCodeableConceptFromCD(cda.getChild(procedure, "methodCode")), false));
@@ -780,7 +794,96 @@ public class CCDAConverter {
   }
 
 
+	private SectionComponent processSocialHistorySection(Element section) throws Exception {
+		List_ list = new List_();
+		for (Element entry : cda.getChildren(section, "entry")) {
+			Element observation = cda.getlastChild(entry);
+			
+			if (cda.hasTemplateId(observation, "2.16.840.1.113883.10.20.22.4.38")) {
+		    processSocialObservation(list, observation, SocialHistoryType.SocialHistory);
+			} else if (cda.hasTemplateId(observation, "2.16.840.1.113883.10.20.15.3.8")) {
+				processSocialObservation(list, observation, SocialHistoryType.Pregnancy);
+			} else if (cda.hasTemplateId(observation, "2.16.840.1.113883.10.20.22.4.78")) {
+				processSocialObservation(list, observation, SocialHistoryType.SmokingStatus);
+			} else if (cda.hasTemplateId(observation, "2.16.840.1.113883.10.20.22.4.85")) {
+				processSocialObservation(list, observation, SocialHistoryType.TobaccoUse);
+			} else
+				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(observation));
+		}
+		
+		// todo: text
+		SectionComponent s = new Composition.SectionComponent();
+		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
+		// todo: check subject
+		s.setContent(Factory.makeResourceReference(addResource(list, "Procedures", makeUUIDReference())));
+		return s;
+		
+	}
+
 	
+
+	private void processSocialObservation(List_ list, Element procedure,   SocialHistoryType type) throws Exception {
+		Observation obs = new Observation();
+		addItemToList(list, obs);
+		
+		switch (type) {
+		case SocialHistory : 
+			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.38");
+			// SHALL contain exactly one [1..1] code (CONF:8558/).
+			obs.setName(convert.makeCodeableConceptFromCD(cda.getChild(procedure, "code")));
+			break;		
+		case Pregnancy: 
+			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.15.3.8");
+			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
+			obs.setName(Factory.newCodeableConcept("11449-6", "http://loinc.org", "Pregnancy Status"));
+  		break;		
+		case SmokingStatus: 
+		  cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.78");
+			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
+			obs.setName(Factory.newCodeableConcept("72166-2", "http://loinc.org", "Tobacco Smoking Status"));
+  		break;		
+		case TobaccoUse: 
+		  cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12");
+			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
+			obs.setName(Factory.newCodeableConcept("11367-0", "http://loinc.org", "History of Tobacco Use"));
+		}
+		  
+		// SHALL contain at least one [1..*] id (8551).
+		for (Element e : cda.getChildren(procedure, "id"))
+			if (obs.getIdentifier() == null) // only one in FHIR
+			  obs.setIdentifier(convert.makeIdentifierFromII(e));
+			else 
+			  obs.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/additional-id", convert.makeIdentifierFromII(e), false));
+
+		// 
+		
+		// SHALL contain exactly one [1..1] statusCode (CONF:8553/455/14809).
+		// a.	This statusCode SHALL contain exactly one [1..1] @code="completed" Completed (CodeSystem: ActStatus 2.16.840.1.113883.5.14 STATIC) (CONF:19117).
+		obs.setStatusSimple(ObservationStatus.final_);
+
+		// SHOULD contain zero or one [0..1] effectiveTime (CONF:2018/14814).
+		// for smoking status/tobacco: low only. this will be handled ok - but TODO: what does this mean?  
+		obs.setApplies(convert.makeMatchingTypeFromIVL(cda.getChild(procedure, "effectiveTime")));
+		
+		//	SHOULD contain zero or one [0..1] value (CONF:8559).
+		// a.	Observation/value can be any data type. 
+		for (Element e : cda.getChildren(procedure, "value"))
+			if (obs.getValue() == null) // only one in FHIR
+			  obs.setValue(convert.makeTypeFromANY(e));
+			else
+				throw new Exception("too many values on Social Observation");
+
+		if (type == SocialHistoryType.Pregnancy) { 
+		  //  MAY contain zero or one [0..1] entryRelationship (CONF:458) such that it
+      //    SHALL contain exactly one [1..1] @typeCode="REFR" Refers to (CodeSystem: HL7ActRelationshipType 2.16.840.1.113883.5.1002 STATIC) (CONF:459).
+ 		  //   	SHALL contain exactly one [1..1] Estimated Date of Delivery (templateId:2.16.840.1.113883.10.20.15.3.1) (CONF:15584).
+			//TODO: how to represent this in FHIR? 
+		}
+		
+		// lastly, we assume that these are to be marked as reliable observations:
+		obs.setReliabilitySimple(ObservationReliability.ok);
+  }
+
 
 	private ListEntryComponent addItemToList(List_ list, Resource ai)
       throws Exception {

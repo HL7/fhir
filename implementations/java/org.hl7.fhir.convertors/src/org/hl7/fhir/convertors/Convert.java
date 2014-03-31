@@ -300,6 +300,9 @@ public class Convert {
   }
 
 	public DateTime makeDateTimeFromTS(Element ts) throws Exception {
+		if (ts == null)
+			return null;
+		
     String v = ts.getAttribute("value");
     DateTime d = new DateTime();
 	  d.setValue(DateAndTime.parseV3(v));
@@ -339,6 +342,8 @@ public class Convert {
   }
 
 	public Type makeStringFromED(Element e) throws Exception {
+		if (e == null)
+			return null;
 		if (cda.getChild(e, "reference") != null) {
 			if (cda.getChild(e, "reference").getAttribute("value").startsWith("#")) {
 				Element t = cda.getByXmlId(cda.getChild(e, "reference").getAttribute("value").substring(1));
@@ -348,6 +353,28 @@ public class Convert {
 				throw new Exception("external references not handled yet "+cda.getChild(e, "reference").getAttribute("value"));
 		}
 		return Factory.newString_(e.getTextContent());
+  }
+
+	public Type makeTypeFromANY(Element e) throws Exception {
+		if (e == null)
+			return null;
+	  String t = e.getAttribute("type");
+	  if (t == null)
+	  	throw new Exception("Missing type on RIM attribute with type any");
+	  if (t.equals("CD") || t.equals("CE"))
+	  	return makeCodeableConceptFromCD(e);
+	  else
+	  	throw new Exception("Not done yet");
+  }
+
+	public Type makeMatchingTypeFromIVL(Element ivl) throws Exception {
+		if (ivl == null)
+			return null;
+	  if (cda.getChild(ivl, "value") != null)
+	  	return makeDateTimeFromIVL(ivl);
+	  if (cda.getChild(ivl, "low") != null || cda.getChild(ivl, "high") != null )
+	    return makePeriodFromIVL(ivl);
+	  throw new Exception("not handled yet");
   }
 
 }

@@ -3,11 +3,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Community Health and Hospitals: Consultation Note</title>
   <id>urn:oid:2.16.840.1.113883.19.5.99999.1::TT988</id>
-  <updated>2014-03-24T11:06:48.589+11:00</updated>
+  <updated>2014-03-31T09:50:48.755+11:00</updated>
   <entry>
     <title>Composition</title>
-    <id>urn:uuid:872146fa-e728-4027-a493-3836d8cf46e1</id>
-    <updated>2014-03-24T11:06:48.646+11:00</updated>
+    <id>urn:uuid:85be7a97-de4c-450f-94ed-77198d95a695</id>
+    <updated>2014-03-31T09:50:48.805+11:00</updated>
     <content type="text/xml">
       <Composition xmlns="http://hl7.org/fhir">
         <text>
@@ -36,27 +36,27 @@
           <code value="N"/>
         </confidentiality>
         <subject>
-          <reference value="urn:uuid:83d2d0df-ebc5-4952-994d-eb4975364083"/>
+          <reference value="urn:uuid:b1ba2726-e972-4b79-bbda-5a4c225a85df"/>
         </subject>
         <author>
-          <reference value="urn:uuid:a64891c6-20fa-4374-aaf7-a34114ee8f13"/>
+          <reference value="urn:uuid:1b486035-0a1d-406d-8c41-24559aabae64"/>
         </author>
         <attester>
           <mode value="legal"/>
           <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="urn:uuid:7bc77b1c-36fd-424d-b701-fd515edeb9cb"/>
+            <reference value="urn:uuid:e395e437-59e5-4d64-b0de-304df9b95197"/>
           </party>
         </attester>
         <attester>
           <mode value="professional"/>
           <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="urn:uuid:81fbe888-7d46-48c1-9a4f-08e4ce723f41"/>
+            <reference value="urn:uuid:38be5309-5e74-4371-9bd2-368f10fb51eb"/>
           </party>
         </attester>
         <custodian>
-          <reference value="urn:uuid:913df176-857b-4eef-a53a-94a234b2bd9c"/>
+          <reference value="urn:uuid:5f18cf46-ef36-4085-b62e-a91e53b47bc9"/>
         </custodian>
         <event>
           <code>
@@ -71,7 +71,7 @@
             <end value="2009-02-27T13:00:00+05:00"/>
           </period>
           <detail>
-            <reference value="urn:uuid:aab3eaf3-2196-45c5-a8aa-10fb2af13961"/>
+            <reference value="urn:uuid:bf2bff76-fb3a-4edc-9f35-4b487af2663e"/>
           </detail>
         </event>
         <section>
@@ -82,7 +82,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:d275d24d-c448-4f6b-aa93-d57ae88a52af"/>
+            <reference value="urn:uuid:314f41fa-aefe-4d1c-ad5b-c76f3d99c219"/>
           </content>
         </section>
         <section>
@@ -94,7 +94,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:47806f24-a4b7-4488-aaed-5465926b5d6c"/>
+            <reference value="urn:uuid:aa9b49f1-60c7-402d-b071-732e808de6b1"/>
           </content>
         </section>
       </Composition>
@@ -102,8 +102,8 @@
   </entry>
   <entry>
     <title>Encounter</title>
-    <id>urn:uuid:aab3eaf3-2196-45c5-a8aa-10fb2af13961</id>
-    <updated>2014-03-24T11:06:48.652+11:00</updated>
+    <id>urn:uuid:bf2bff76-fb3a-4edc-9f35-4b487af2663e</id>
+    <updated>2014-03-31T09:50:48.811+11:00</updated>
     <content type="text/xml">
       <Encounter xmlns="http://hl7.org/fhir">
         <text>
@@ -140,8 +140,8 @@
   </entry>
   <entry>
     <title>Provider</title>
-    <id>urn:uuid:624a6638-5bb6-4e70-99cc-8d5a9fb6e464</id>
-    <updated>2014-03-24T11:06:48.655+11:00</updated>
+    <id>urn:uuid:8d1e7c15-b73e-4c88-86b2-0907adc462a1</id>
+    <updated>2014-03-31T09:50:48.814+11:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
         <text>
@@ -186,8 +186,8 @@
   </entry>
   <entry>
     <title>Subject</title>
-    <id>urn:uuid:83d2d0df-ebc5-4952-994d-eb4975364083</id>
-    <updated>2014-03-24T11:06:48.663+11:00</updated>
+    <id>urn:uuid:b1ba2726-e972-4b79-bbda-5a4c225a85df</id>
+    <updated>2014-03-31T09:50:48.821+11:00</updated>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/ccda/religious-affiliation">
@@ -302,7 +302,7 @@
             </p>
             <p>
               <b>managingOrganization</b>: 
-              <a href="urn:uuid:624a6638-5bb6-4e70-99cc-8d5a9fb6e464">urn:uuid:624a6638-5bb6-4e70-99cc-8d5a9fb6e464</a>
+              <a href="urn:uuid:8d1e7c15-b73e-4c88-86b2-0907adc462a1">urn:uuid:8d1e7c15-b73e-4c88-86b2-0907adc462a1</a>
             </p>
           </div>
         </text>
@@ -389,15 +389,15 @@
           </coding>
         </communication>
         <managingOrganization>
-          <reference value="urn:uuid:624a6638-5bb6-4e70-99cc-8d5a9fb6e464"/>
+          <reference value="urn:uuid:8d1e7c15-b73e-4c88-86b2-0907adc462a1"/>
         </managingOrganization>
       </Patient>
     </content>
   </entry>
   <entry>
     <title>Author</title>
-    <id>urn:uuid:a64891c6-20fa-4374-aaf7-a34114ee8f13</id>
-    <updated>2014-03-24T11:06:48.663+11:00</updated>
+    <id>urn:uuid:1b486035-0a1d-406d-8c41-24559aabae64</id>
+    <updated>2014-03-31T09:50:48.822+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -438,8 +438,8 @@
   </entry>
   <entry>
     <title>Custodian</title>
-    <id>urn:uuid:913df176-857b-4eef-a53a-94a234b2bd9c</id>
-    <updated>2014-03-24T11:06:48.664+11:00</updated>
+    <id>urn:uuid:5f18cf46-ef36-4085-b62e-a91e53b47bc9</id>
+    <updated>2014-03-31T09:50:48.823+11:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
         <text>
@@ -485,8 +485,8 @@
   </entry>
   <entry>
     <title>Legal Authenticator</title>
-    <id>urn:uuid:7bc77b1c-36fd-424d-b701-fd515edeb9cb</id>
-    <updated>2014-03-24T11:06:48.665+11:00</updated>
+    <id>urn:uuid:e395e437-59e5-4d64-b0de-304df9b95197</id>
+    <updated>2014-03-31T09:50:48.823+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -534,8 +534,8 @@
   </entry>
   <entry>
     <title>Authenticator</title>
-    <id>urn:uuid:81fbe888-7d46-48c1-9a4f-08e4ce723f41</id>
-    <updated>2014-03-24T11:06:48.665+11:00</updated>
+    <id>urn:uuid:38be5309-5e74-4371-9bd2-368f10fb51eb</id>
+    <updated>2014-03-31T09:50:48.824+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -583,8 +583,8 @@
   </entry>
   <entry>
     <title>Allergies, Adverse Reactions, Alerts</title>
-    <id>urn:uuid:d275d24d-c448-4f6b-aa93-d57ae88a52af</id>
-    <updated>2014-03-24T11:06:48.678+11:00</updated>
+    <id>urn:uuid:314f41fa-aefe-4d1c-ad5b-c76f3d99c219</id>
+    <updated>2014-03-31T09:50:48.837+11:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -875,8 +875,8 @@
   </entry>
   <entry>
     <title>Procedures</title>
-    <id>urn:uuid:47806f24-a4b7-4488-aaed-5465926b5d6c</id>
-    <updated>2014-03-24T11:06:48.695+11:00</updated>
+    <id>urn:uuid:aa9b49f1-60c7-402d-b071-732e808de6b1</id>
+    <updated>2014-03-31T09:50:48.850+11:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -905,19 +905,19 @@
                 <td> </td>
                 <td> </td>
                 <td> </td>
-                <td>Extensions: todo, Extensions: todo; Extensions: todo; urn:uuid:d68b7e32-7810-4f5b-9cc2-acd54b0fd85d; Colonic polypectomy</td>
+                <td>Extensions: todo; urn:uuid:d68b7e32-7810-4f5b-9cc2-acd54b0fd85d; Colonic polypectomy</td>
               </tr>
               <tr>
                 <td> </td>
                 <td> </td>
                 <td> </td>
-                <td>Extensions: todo, Extensions: todo; Extensions: todo; 123456789; Colonic polypectomy; Abdomen and pelvis</td>
+                <td>Extensions: todo, Extensions: todo, Extensions: todo; Extensions: todo; 123456789; Colonic polypectomy; Abdomen and pelvis</td>
               </tr>
               <tr>
                 <td> </td>
                 <td> </td>
                 <td> </td>
-                <td>Extensions: todo; 1234567; Colonic polypectomy</td>
+                <td>Extensions: todo, , Extensions: todo; Extensions: todo, Extensions: todo; 1234567; Colonic polypectomy</td>
               </tr>
             </table>
           </div>
@@ -979,6 +979,15 @@
         </contained>
         <contained>
           <Procedure id="13">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/procedure-priority">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="urn:oid:2.16.840.1.113883.5.7"/>
+                  <code value="CR"/>
+                  <display value="Callback results"/>
+                </coding>
+              </valueCodeableConcept>
+            </extension>
             <extension url="http://www.healthintersections.com.au/fhir/extensions/procedure-method">
               <valueCodeableConcept>
                 <coding>
@@ -1043,11 +1052,23 @@
         </contained>
         <contained>
           <Procedure id="16">
+            <extension url="http://www.healthintersections.com.au/fhir/extensions/procedure-priority">
+              <valueCodeableConcept>
+                <coding>
+                  <system value="urn:oid:2.16.840.1.113883.5.7"/>
+                  <code value="CR"/>
+                  <display value="Callback results"/>
+                </coding>
+              </valueCodeableConcept>
+            </extension>
             <extension url="http://www.healthintersections.com.au/fhir/extensions/location">
               <valueResource>
                 <reference value="#18"/>
               </valueResource>
             </extension>
+            <modifierExtension url="http://www.healthintersections.com.au/fhir/extensions/procedure-planned">
+              <valueBoolean value="true"/>
+            </modifierExtension>
             <modifierExtension url="http://www.healthintersections.com.au/fhir/extensions/procedure-status">
               <valueCode value="completed"/>
             </modifierExtension>
