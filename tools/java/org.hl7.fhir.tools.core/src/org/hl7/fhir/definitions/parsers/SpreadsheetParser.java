@@ -310,6 +310,7 @@ public class SpreadsheetParser {
 
   private void readSearchParams(ResourceDefn root2, Sheet sheet) throws Exception {
     root2.getSearchParams().put("_id", new SearchParameter("_id","The logical resource id associated with the resource (must be supported by all servers)",SearchType.token));
+    root2.getSearchParams().put("_language", new SearchParameter("_language","The stated language of the resource",SearchType.token));
 
     if (sheet != null)
       for (int row = 0; row < sheet.rows.size(); row++) {

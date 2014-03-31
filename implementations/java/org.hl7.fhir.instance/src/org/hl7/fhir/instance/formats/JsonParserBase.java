@@ -170,14 +170,14 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     }
     if (json.has("author") && !json.get("author").isJsonNull()) {
       JsonObject author = json.getAsJsonArray("author").get(0).getAsJsonObject();
-      if (author.has("name") && !json.get("name").isJsonNull())
+      if (author.has("name") && !author.get("name").isJsonNull())
         res.setAuthorName(author.get("name").getAsString());
-      if (author.has("uri") && !json.get("uri").isJsonNull())
+      if (author.has("uri") && !author.get("uri").isJsonNull())
         res.setAuthorUri(author.get("uri").getAsString());
     }
     if (json.has("category") && !json.get("category").isJsonNull()) {
       JsonObject cat = json.getAsJsonArray("category").get(0).getAsJsonObject();
-      if (cat.has("term") && cat.has("scheme") && !json.get("term").isJsonNull() && !json.get("scheme").isJsonNull())
+      if (cat.has("term") && cat.has("scheme") && !cat.get("term").isJsonNull() && !cat.get("scheme").isJsonNull())
         res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
     }
     if (json.has("summary") && !json.get("summary").isJsonNull())

@@ -448,6 +448,11 @@ public class ObjectiveCUtils {
     if (name.startsWith("NS")) {
       return name;
     }
+    // switch names of resource and base resource
+    if (name.equals("Resource"))
+      name = "BaseResource";
+    if (name.equals("ResourceReference"))
+      name = "Resource";
     return PREFIX + Utilities.capitalize(name.replace("/Hl7\\.Fhir\\.Model\\./", "").replaceAll("\\.", ""));
   }
 
