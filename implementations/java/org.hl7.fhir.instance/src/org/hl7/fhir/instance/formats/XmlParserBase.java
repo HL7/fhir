@@ -28,9 +28,8 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+import java.io.BufferedInputStream;
 import java.io.InputStream;
-import java.util.Calendar;
-
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -43,6 +42,7 @@ import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 /**
  * General parser for XML content. You instantiate an XmlParser of these, but you 
@@ -51,6 +51,41 @@ import org.xmlpull.v1.XmlPullParser;
  * The two classes are separated to keep generated and manually maintained code apart.
  */
 public abstract class XmlParserBase extends ParserBase implements Parser {
+
+	protected XmlPullParser loadXml(InputStream stream) throws Exception {
+    BufferedInputStream input = new BufferedInputStream(stream);
+    XmlPullParserFactory factory = XmlPullParserFactory.newInstance(System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
+    factory.setNamespaceAware(true);
+    XmlPullParser xpp = factory.newPullParser();
+    xpp.setInput(input, "UTF-8");
+    xpp.next();
+    
+    return xpp;
+  }
+ 
+  protected int nextNoWhitespace(XmlPullParser xpp) throws Exception {
+    int eventType = xpp.getEventType();
+    while ((eventType == XmlPullParser.TEXT && xpp.isWhitespace()) || (eventType == XmlPullParser.COMMENT))
+      eventType = xpp.next();
+    return eventType;
+  }
+
+
+	protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
+  	// when this is called, we are pointing an element that may have content
+    while (xpp.getEventType() != XmlPullParser.END_TAG) {
+  		xpp.next();
+    	if (xpp.getEventType() == XmlPullParser.START_TAG) 
+    		skipElementWithContent(xpp);
+    }
+    xpp.next();
+  }
+  
+  protected void skipEmptyElement(XmlPullParser xpp) throws Exception {
+    while (xpp.getEventType() != XmlPullParser.END_TAG) 
+      xpp.next();
+    xpp.next();
+  }
 
 	/**
 	 * Whether to throw an exception if unknown content is found (or just skip it)
@@ -102,6 +137,7 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   /**
    * Parse content that may be either a resource or a bundle
    */
+  @Override
   public ResourceOrFeed parseGeneral(InputStream input) throws Exception {
     XmlPullParser xpp = loadXml(input);
     ResourceOrFeed r = new ResourceOrFeed();
@@ -118,6 +154,7 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   /**
    * Parse content that is known to be a resource
    */
+  @Override
   public Resource parse(InputStream input) throws Exception {
     XmlPullParser xpp = loadXml(input);
   

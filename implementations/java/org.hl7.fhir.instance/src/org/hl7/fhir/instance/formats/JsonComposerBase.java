@@ -54,7 +54,7 @@ import com.google.gson.stream.JsonWriter;
  * The two classes are separated to keep generated and manually maintained code apart.
  */
 
-public abstract class JsonComposerBase extends XmlBase implements Composer {
+public abstract class JsonComposerBase extends FormatUtilities implements Composer {
 
 	protected JsonWriter json;
 	private boolean htmlPretty;
@@ -63,7 +63,8 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 	/**
 	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
-	public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
+	@Override
+  public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
 		JsonWriter writer = new JsonWriter(osw);
 
@@ -77,7 +78,8 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 	/**
 	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
-	public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
+	@Override
+  public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
 		JsonWriter writer = new JsonWriter(osw);
         writer.setIndent(pretty ? "  ":"");
@@ -109,7 +111,8 @@ public abstract class JsonComposerBase extends XmlBase implements Composer {
 	 * No-Op for now
 	 * 
 	 */
-	public void compose(OutputStream writer, List<AtomCategory> tags, boolean pretty) throws Exception {
+	@Override
+  public void compose(OutputStream writer, List<AtomCategory> tags, boolean pretty) throws Exception {
 		
 	}
 

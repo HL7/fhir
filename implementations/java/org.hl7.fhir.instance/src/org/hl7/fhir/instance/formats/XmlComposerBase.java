@@ -52,7 +52,7 @@ import org.hl7.fhir.utilities.xml.XMLWriter;
  * 
  * The two classes are separated to keep generated and manually maintained code apart.
  */
-public abstract class XmlComposerBase extends XmlBase implements Composer {
+public abstract class XmlComposerBase extends FormatUtilities implements Composer {
 
 	protected IXMLWriter xml;
 	protected boolean htmlPretty;
@@ -60,7 +60,8 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 	/**
 	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
-	public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
+	@Override
+  public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();
@@ -82,7 +83,8 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 	/**
 	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
-	public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
+	@Override
+  public void compose(OutputStream stream, AtomFeed feed, boolean pretty) throws Exception {
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();
@@ -104,7 +106,8 @@ public abstract class XmlComposerBase extends XmlBase implements Composer {
 	/**
 	 * Compose a bundle to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
-	public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty) throws Exception {
+	@Override
+  public void compose(OutputStream stream, List<AtomCategory> tags, boolean pretty) throws Exception {
 		XMLWriter writer = new XMLWriter(stream, "UTF-8");
 		writer.setPretty(pretty);
 		writer.start();

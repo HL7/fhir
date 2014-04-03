@@ -358,13 +358,15 @@ public class Convert {
 	public Type makeTypeFromANY(Element e) throws Exception {
 		if (e == null)
 			return null;
-	  String t = e.getAttribute("type");
-	  if (t == null)
+	  String t = e.getAttributeNS("http://www.w3.org/2001/XMLSchema-instance", "type");
+	  if (Utilities.noString(t))
 	  	throw new Exception("Missing type on RIM attribute with type any");
 	  if (t.equals("CD") || t.equals("CE"))
 	  	return makeCodeableConceptFromCD(e);
+	  else if (t.equals("ST"))
+	  	return makeStringFromED(e);
 	  else
-	  	throw new Exception("Not done yet");
+	  	throw new Exception("Not done yet (type = "+t+")");
   }
 
 	public Type makeMatchingTypeFromIVL(Element ivl) throws Exception {
@@ -375,6 +377,30 @@ public class Convert {
 	  if (cda.getChild(ivl, "low") != null || cda.getChild(ivl, "high") != null )
 	    return makePeriodFromIVL(ivl);
 	  throw new Exception("not handled yet");
+  }
+
+	public Type makeCodeableConceptFromNullFlavor(String nf) throws Exception {
+	  // Some nullFlavors have explicit values in value sets. This can only be called where there aren't. 
+	  if (nf == null || "".equals(nf))
+	  	return null;
+	  if ("NI".equals(nf))
+	  	return null; // there's no code for this
+	  if ("NA".equals(nf))
+	  	return Factory.newCodeableConcept("unsupported", "http://hl7.org/fhir/data-absent-reason", "Unsupported"); // todo: is this reasonable? Why else would you use N/A?
+	  if ("UNK".equals(nf))
+	  	return Factory.newCodeableConcept("unknown", "http://hl7.org/fhir/data-absent-reason", "Unknown"); 
+	  if ("ASKU".equals(nf))
+	  	return Factory.newCodeableConcept("asked", "http://hl7.org/fhir/data-absent-reason", "Asked/Unknown"); 
+	  if ("NAV".equals(nf))
+	  	return Factory.newCodeableConcept("temp", "http://hl7.org/fhir/data-absent-reason", "Temporarily Unavailable"); 
+	  if ("NASK".equals(nf))
+	  	return Factory.newCodeableConcept("notasked", "http://hl7.org/fhir/data-absent-reason", "Not Asked"); 
+	  if ("MSK".equals(nf))
+	  	return Factory.newCodeableConcept("masked", "http://hl7.org/fhir/data-absent-reason", "Masked"); 
+	  if ("OTH".equals(nf))
+	  	return null; // well, what should be done? 
+  	return null; // well, what should be done? 
+	  	
   }
 
 }

@@ -4,7 +4,6 @@ import java.io.InputStream;
 
 import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.instance.model.Resource;
-import org.xmlpull.v1.XmlPullParser;
 
 
 /**

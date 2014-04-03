@@ -3,11 +3,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Community Health and Hospitals: Consultation Note</title>
   <id>urn:oid:2.16.840.1.113883.19.5.99999.1::TT988</id>
-  <updated>2014-03-31T09:50:48.755+11:00</updated>
+  <updated>2014-04-04T09:10:45.475+11:00</updated>
   <entry>
     <title>Composition</title>
-    <id>urn:uuid:85be7a97-de4c-450f-94ed-77198d95a695</id>
-    <updated>2014-03-31T09:50:48.805+11:00</updated>
+    <id>urn:uuid:11041625-9cc0-450c-80db-b85c5f7d143e</id>
+    <updated>2014-04-04T09:10:45.523+11:00</updated>
     <content type="text/xml">
       <Composition xmlns="http://hl7.org/fhir">
         <text>
@@ -36,27 +36,27 @@
           <code value="N"/>
         </confidentiality>
         <subject>
-          <reference value="urn:uuid:b1ba2726-e972-4b79-bbda-5a4c225a85df"/>
+          <reference value="urn:uuid:fa6078f7-ba7e-426e-86b8-9ec8a7b70235"/>
         </subject>
         <author>
-          <reference value="urn:uuid:1b486035-0a1d-406d-8c41-24559aabae64"/>
+          <reference value="urn:uuid:edfa1388-8a50-49d5-8204-df29118ca03e"/>
         </author>
         <attester>
           <mode value="legal"/>
           <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="urn:uuid:e395e437-59e5-4d64-b0de-304df9b95197"/>
+            <reference value="urn:uuid:4a6a00d6-9bb9-4720-8ac4-48c3a83903d8"/>
           </party>
         </attester>
         <attester>
           <mode value="professional"/>
           <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="urn:uuid:38be5309-5e74-4371-9bd2-368f10fb51eb"/>
+            <reference value="urn:uuid:206bbba9-f5c7-4b2b-a0b1-e49aafe3d509"/>
           </party>
         </attester>
         <custodian>
-          <reference value="urn:uuid:5f18cf46-ef36-4085-b62e-a91e53b47bc9"/>
+          <reference value="urn:uuid:0c86829c-2bda-4f3a-b017-6791dada5f6d"/>
         </custodian>
         <event>
           <code>
@@ -71,7 +71,7 @@
             <end value="2009-02-27T13:00:00+05:00"/>
           </period>
           <detail>
-            <reference value="urn:uuid:bf2bff76-fb3a-4edc-9f35-4b487af2663e"/>
+            <reference value="urn:uuid:9a603096-6cb3-437e-a11f-5125a48cb36c"/>
           </detail>
         </event>
         <section>
@@ -82,7 +82,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:314f41fa-aefe-4d1c-ad5b-c76f3d99c219"/>
+            <reference value="urn:uuid:32b6fd70-4b65-4ea0-9875-5c89a08033aa"/>
           </content>
         </section>
         <section>
@@ -94,7 +94,19 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:aa9b49f1-60c7-402d-b071-732e808de6b1"/>
+            <reference value="urn:uuid:2b2a3822-2992-4588-a142-39a775afaf2f"/>
+          </content>
+        </section>
+        <section>
+          <code>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="29762-2"/>
+              <display value="Social History"/>
+            </coding>
+          </code>
+          <content>
+            <reference value="urn:uuid:edbd6f50-1835-4345-b231-5317a27a6f70"/>
           </content>
         </section>
       </Composition>
@@ -102,8 +114,8 @@
   </entry>
   <entry>
     <title>Encounter</title>
-    <id>urn:uuid:bf2bff76-fb3a-4edc-9f35-4b487af2663e</id>
-    <updated>2014-03-31T09:50:48.811+11:00</updated>
+    <id>urn:uuid:9a603096-6cb3-437e-a11f-5125a48cb36c</id>
+    <updated>2014-04-04T09:10:45.528+11:00</updated>
     <content type="text/xml">
       <Encounter xmlns="http://hl7.org/fhir">
         <text>
@@ -140,8 +152,8 @@
   </entry>
   <entry>
     <title>Provider</title>
-    <id>urn:uuid:8d1e7c15-b73e-4c88-86b2-0907adc462a1</id>
-    <updated>2014-03-31T09:50:48.814+11:00</updated>
+    <id>urn:uuid:9c3a3f88-9e97-416a-af6e-964e481e0101</id>
+    <updated>2014-04-04T09:10:45.531+11:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
         <text>
@@ -186,8 +198,8 @@
   </entry>
   <entry>
     <title>Subject</title>
-    <id>urn:uuid:b1ba2726-e972-4b79-bbda-5a4c225a85df</id>
-    <updated>2014-03-31T09:50:48.821+11:00</updated>
+    <id>urn:uuid:fa6078f7-ba7e-426e-86b8-9ec8a7b70235</id>
+    <updated>2014-04-04T09:10:45.538+11:00</updated>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/ccda/religious-affiliation">
@@ -302,7 +314,7 @@
             </p>
             <p>
               <b>managingOrganization</b>: 
-              <a href="urn:uuid:8d1e7c15-b73e-4c88-86b2-0907adc462a1">urn:uuid:8d1e7c15-b73e-4c88-86b2-0907adc462a1</a>
+              <a href="urn:uuid:9c3a3f88-9e97-416a-af6e-964e481e0101">urn:uuid:9c3a3f88-9e97-416a-af6e-964e481e0101</a>
             </p>
           </div>
         </text>
@@ -389,15 +401,15 @@
           </coding>
         </communication>
         <managingOrganization>
-          <reference value="urn:uuid:8d1e7c15-b73e-4c88-86b2-0907adc462a1"/>
+          <reference value="urn:uuid:9c3a3f88-9e97-416a-af6e-964e481e0101"/>
         </managingOrganization>
       </Patient>
     </content>
   </entry>
   <entry>
     <title>Author</title>
-    <id>urn:uuid:1b486035-0a1d-406d-8c41-24559aabae64</id>
-    <updated>2014-03-31T09:50:48.822+11:00</updated>
+    <id>urn:uuid:edfa1388-8a50-49d5-8204-df29118ca03e</id>
+    <updated>2014-04-04T09:10:45.539+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -438,8 +450,8 @@
   </entry>
   <entry>
     <title>Custodian</title>
-    <id>urn:uuid:5f18cf46-ef36-4085-b62e-a91e53b47bc9</id>
-    <updated>2014-03-31T09:50:48.823+11:00</updated>
+    <id>urn:uuid:0c86829c-2bda-4f3a-b017-6791dada5f6d</id>
+    <updated>2014-04-04T09:10:45.540+11:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
         <text>
@@ -485,8 +497,8 @@
   </entry>
   <entry>
     <title>Legal Authenticator</title>
-    <id>urn:uuid:e395e437-59e5-4d64-b0de-304df9b95197</id>
-    <updated>2014-03-31T09:50:48.823+11:00</updated>
+    <id>urn:uuid:4a6a00d6-9bb9-4720-8ac4-48c3a83903d8</id>
+    <updated>2014-04-04T09:10:45.540+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -534,8 +546,8 @@
   </entry>
   <entry>
     <title>Authenticator</title>
-    <id>urn:uuid:38be5309-5e74-4371-9bd2-368f10fb51eb</id>
-    <updated>2014-03-31T09:50:48.824+11:00</updated>
+    <id>urn:uuid:206bbba9-f5c7-4b2b-a0b1-e49aafe3d509</id>
+    <updated>2014-04-04T09:10:45.541+11:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -583,8 +595,8 @@
   </entry>
   <entry>
     <title>Allergies, Adverse Reactions, Alerts</title>
-    <id>urn:uuid:314f41fa-aefe-4d1c-ad5b-c76f3d99c219</id>
-    <updated>2014-03-31T09:50:48.837+11:00</updated>
+    <id>urn:uuid:32b6fd70-4b65-4ea0-9875-5c89a08033aa</id>
+    <updated>2014-04-04T09:10:45.553+11:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -875,8 +887,8 @@
   </entry>
   <entry>
     <title>Procedures</title>
-    <id>urn:uuid:aa9b49f1-60c7-402d-b071-732e808de6b1</id>
-    <updated>2014-03-31T09:50:48.850+11:00</updated>
+    <id>urn:uuid:2b2a3822-2992-4588-a142-39a775afaf2f</id>
+    <updated>2014-04-04T09:10:45.567+11:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -1125,6 +1137,166 @@
         <entry>
           <item>
             <reference value="#16"/>
+          </item>
+        </entry>
+      </List>
+    </content>
+  </entry>
+  <entry>
+    <title>Procedures</title>
+    <id>urn:uuid:edbd6f50-1835-4345-b231-5317a27a6f70</id>
+    <updated>2014-04-04T09:10:45.582+11:00</updated>
+    <content type="text/xml">
+      <List xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>
+              <b>Generated Narrative</b>
+            </p>
+            <h3>Entries</h3>
+            <table class="grid">
+              <tr>
+                <td>
+                  <b>Flag</b>
+                </td>
+                <td>
+                  <b>Deleted</b>
+                </td>
+                <td>
+                  <b>Date</b>
+                </td>
+                <td>
+                  <b>Item</b>
+                </td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Tobacco Smoking Status; Former smoker; applies: 1-May 2005; final_; ok; 123456789</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Tobacco use and exposure; value: 1 pack per day; applies: 1-May 2005; final_; ok; urn:uuid:9b56c25d-9104-45ee-9fa4-e0f3afaa01c1</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Tobacco use and exposure; value: None; applies: 27-Feb 2009 13:0; final_; ok; urn:uuid:45efb604-7049-4a2e-ad33-d38556c9636c</td>
+              </tr>
+              <tr>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td>Alcohol consumption; value: None; applies: 1-May 2005; final_; ok; urn:uuid:37f76c51-6411-4e1d-8a37-957fd49d2cef</td>
+              </tr>
+            </table>
+          </div>
+        </text>
+        <contained>
+          <Observation id="19">
+            <name>
+              <coding>
+                <system value="http://loinc.org"/>
+                <code value="72166-2"/>
+                <display value="Tobacco Smoking Status"/>
+              </coding>
+            </name>
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="8517006"/>
+                <display value="Former smoker"/>
+              </coding>
+            </valueCodeableConcept>
+            <appliesDateTime value="2005-05-01"/>
+            <status value="final"/>
+            <reliability value="ok"/>
+            <identifier>
+              <system value="urn:oid:2.16.840.1.113883.19"/>
+              <value value="123456789"/>
+            </identifier>
+          </Observation>
+        </contained>
+        <contained>
+          <Observation id="20">
+            <name>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="229819007"/>
+                <display value="Tobacco use and exposure"/>
+              </coding>
+            </name>
+            <valueString value="1 pack per day"/>
+            <appliesDateTime value="2005-05-01"/>
+            <status value="final"/>
+            <reliability value="ok"/>
+            <identifier>
+              <system value="urn:ietf:rfc:3986"/>
+              <value value="urn:uuid:9b56c25d-9104-45ee-9fa4-e0f3afaa01c1"/>
+            </identifier>
+          </Observation>
+        </contained>
+        <contained>
+          <Observation id="21">
+            <name>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="229819007"/>
+                <display value="Tobacco use and exposure"/>
+              </coding>
+            </name>
+            <valueString value="None"/>
+            <appliesDateTime value="2009-02-27T13:00:00+05:00"/>
+            <status value="final"/>
+            <reliability value="ok"/>
+            <identifier>
+              <system value="urn:ietf:rfc:3986"/>
+              <value value="urn:uuid:45efb604-7049-4a2e-ad33-d38556c9636c"/>
+            </identifier>
+          </Observation>
+        </contained>
+        <contained>
+          <Observation id="22">
+            <name>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="160573003"/>
+                <display value="Alcohol consumption"/>
+              </coding>
+            </name>
+            <valueString value="None"/>
+            <appliesDateTime value="2005-05-01"/>
+            <status value="final"/>
+            <reliability value="ok"/>
+            <identifier>
+              <system value="urn:ietf:rfc:3986"/>
+              <value value="urn:uuid:37f76c51-6411-4e1d-8a37-957fd49d2cef"/>
+            </identifier>
+          </Observation>
+        </contained>
+        <entry>
+          <item>
+            <reference value="#19"/>
+          </item>
+        </entry>
+        <entry>
+          <item>
+            <reference value="#20"/>
+          </item>
+        </entry>
+        <entry>
+          <item>
+            <reference value="#21"/>
+          </item>
+        </entry>
+        <entry>
+          <item>
+            <reference value="#22"/>
           </item>
         </entry>
       </List>

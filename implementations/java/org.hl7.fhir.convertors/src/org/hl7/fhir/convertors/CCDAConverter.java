@@ -26,6 +26,8 @@ import org.hl7.fhir.instance.model.Comparison;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.Observation;
+import org.hl7.fhir.instance.model.Observation.ObservationRelatedComponent;
+import org.hl7.fhir.instance.model.Observation.ObservationRelationshiptypes;
 import org.hl7.fhir.instance.model.Observation.ObservationReliability;
 import org.hl7.fhir.instance.model.Observation.ObservationStatus;
 import org.hl7.fhir.instance.model.Period;
@@ -120,6 +122,21 @@ Surgical Drains Section 11537-8 :
 Vital Signs Section 8716-3 : 
 
 
+MU Sections:
+Allergies/Adverse Reactions
+Problems
+Encounters
+Medications
+Results
+Vital Signs
+Procedures
+Immunizations
+Reason for Referral
+Hospital Discharge Instructions
+Functional Status
+Plan of Care
+Hospital Discharge Medication
+All of General Header
 
  * @author Grahame
  *
@@ -414,6 +431,7 @@ public class CCDAConverter {
 		case Act: 
 		  cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12");
 		}
+		checkNoNegationOrNullFlavor(procedure, "Procedure ("+type.toString()+")");
 		  
 		Procedure p = new Procedure();
 		addItemToList(list, p);
@@ -664,12 +682,15 @@ public class CCDAConverter {
 	private void processAllergyProblemAct(List_ list, Element concern) throws Exception {
 		cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");  
 	  // Allergy Problem Act - this is a concern - we treat the concern as information about it's place in the list
+		checkNoNegationOrNullFlavor(concern, "Allergy Problem Act");
 
 		// SHALL contain at least one [1..*] entryRelationship (CONF:7509) such that it
 		// SHALL contain exactly one [1..1] Allergy - intolerance Observation
 		for (Element entry : cda.getChildren(concern, "entryRelationship")) {
 			Element obs = cda.getChild(entry, "observation");
   		cda.checkTemplateId(obs, "2.16.840.1.113883.10.20.22.4.7");
+  		checkNoNegationOrNullFlavor(obs, "Allergy - intolerance Observation");
+  		
 			AllergyIntolerance ai = new AllergyIntolerance();			
 			ListEntryComponent item = addItemToList(list, ai);
 			
@@ -755,6 +776,8 @@ public class CCDAConverter {
 
 	// this is going to be a contained resource, so we aren't going to generate any narrative
 	private AdverseReaction processAdverseReactionObservation(Element reaction) throws Exception {
+		checkNoNegationOrNullFlavor(reaction, "Adverse Reaction Observation");
+		
 		// This clinical statement represents an undesired symptom, finding, etc., due to an administered or exposed substance. A reaction can be defined with respect to its	severity, and can have been treated by one or more interventions.
 		AdverseReaction ar = new AdverseReaction();
 		
@@ -822,66 +845,110 @@ public class CCDAConverter {
 
 	
 
-	private void processSocialObservation(List_ list, Element procedure,   SocialHistoryType type) throws Exception {
+	private void processSocialObservation(List_ list, Element so,   SocialHistoryType type) throws Exception {
 		Observation obs = new Observation();
 		addItemToList(list, obs);
 		
 		switch (type) {
 		case SocialHistory : 
-			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.38");
+			cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.38");
 			// SHALL contain exactly one [1..1] code (CONF:8558/).
-			obs.setName(convert.makeCodeableConceptFromCD(cda.getChild(procedure, "code")));
+			obs.setName(convert.makeCodeableConceptFromCD(cda.getChild(so, "code")));
 			break;		
 		case Pregnancy: 
-			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.15.3.8");
+			cda.checkTemplateId(so, "2.16.840.1.113883.10.20.15.3.8");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
 			obs.setName(Factory.newCodeableConcept("11449-6", "http://loinc.org", "Pregnancy Status"));
   		break;		
 		case SmokingStatus: 
-		  cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.78");
+		  cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.78");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
 			obs.setName(Factory.newCodeableConcept("72166-2", "http://loinc.org", "Tobacco Smoking Status"));
   		break;		
 		case TobaccoUse: 
-		  cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12");
+		  cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.12");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
 			obs.setName(Factory.newCodeableConcept("11367-0", "http://loinc.org", "History of Tobacco Use"));
 		}
 		  
 		// SHALL contain at least one [1..*] id (8551).
-		for (Element e : cda.getChildren(procedure, "id"))
+		for (Element e : cda.getChildren(so, "id"))
 			if (obs.getIdentifier() == null) // only one in FHIR
 			  obs.setIdentifier(convert.makeIdentifierFromII(e));
 			else 
 			  obs.getExtensions().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/additional-id", convert.makeIdentifierFromII(e), false));
 
-		// 
 		
 		// SHALL contain exactly one [1..1] statusCode (CONF:8553/455/14809).
 		// a.	This statusCode SHALL contain exactly one [1..1] @code="completed" Completed (CodeSystem: ActStatus 2.16.840.1.113883.5.14 STATIC) (CONF:19117).
 		obs.setStatusSimple(ObservationStatus.final_);
 
 		// SHOULD contain zero or one [0..1] effectiveTime (CONF:2018/14814).
-		// for smoking status/tobacco: low only. this will be handled ok - but TODO: what does this mean?  
-		obs.setApplies(convert.makeMatchingTypeFromIVL(cda.getChild(procedure, "effectiveTime")));
+		// for smoking status/tobacco: low only. in R2, this is just value. So we treat low only as just a value
+		Element et = cda.getChild(so, "effectiveTime");
+		if (et != null) {
+			if (cda.getChild(et, "low") != null)
+				obs.setApplies(convert.makeDateTimeFromTS(cda.getChild(et, "low")));
+			else
+				obs.setApplies(convert.makeDateTimeFromIVL(et));
+		}
 		
 		//	SHOULD contain zero or one [0..1] value (CONF:8559).
 		// a.	Observation/value can be any data type. 
-		for (Element e : cda.getChildren(procedure, "value"))
-			if (obs.getValue() == null) // only one in FHIR
-			  obs.setValue(convert.makeTypeFromANY(e));
-			else
+		for (Element e : cda.getChildren(so, "value"))
+			if (obs.getValue() == null) { // only one in FHIR
+				// special case for pregnancy:
+				if (type == SocialHistoryType.Pregnancy && "true".equals(e.getAttribute("negationInd"))) {
+					obs.setValue(Factory.newCodeableConcept("60001007", "http://snomed.info/sct", "Not pregnant"));
+				} else {
+					// negationInd is not described. but it might well be used. For now, we blow up 
+					checkNoNegation(so, "Social Observation ("+type.toString()+")");
+
+					if (so.hasAttribute("nullFlavor"))
+						obs.setValue(convert.makeCodeableConceptFromNullFlavor(so.getAttribute("nullFlavor")));
+					else if (e.hasAttribute("nullFlavor") && !"OTH".equals(e.getAttribute("nullFlavor")))
+						obs.setValue(convert.makeCodeableConceptFromNullFlavor(e.getAttribute("nullFlavor")));
+					else
+						obs.setValue(convert.makeTypeFromANY(e));
+				}
+			} else
 				throw new Exception("too many values on Social Observation");
 
-		if (type == SocialHistoryType.Pregnancy) { 
-		  //  MAY contain zero or one [0..1] entryRelationship (CONF:458) such that it
-      //    SHALL contain exactly one [1..1] @typeCode="REFR" Refers to (CodeSystem: HL7ActRelationshipType 2.16.840.1.113883.5.1002 STATIC) (CONF:459).
- 		  //   	SHALL contain exactly one [1..1] Estimated Date of Delivery (templateId:2.16.840.1.113883.10.20.15.3.1) (CONF:15584).
-			//TODO: how to represent this in FHIR? 
+		if (type == SocialHistoryType.Pregnancy) {
+			for (Element e : cda.getChildren(so, "entyRelationship")) {
+				Element dd = cda.getChild(e, "observation");
+				checkNoNegationOrNullFlavor(dd, "Estimated Date of Delivery");
+				//  MAY contain zero or one [0..1] entryRelationship (CONF:458) such that it
+				//    SHALL contain exactly one [1..1] @typeCode="REFR" Refers to (CodeSystem: HL7ActRelationshipType 2.16.840.1.113883.5.1002 STATIC) (CONF:459).
+				//   	SHALL contain exactly one [1..1] Estimated Date of Delivery (templateId:2.16.840.1.113883.10.20.15.3.1) (CONF:15584).
+				Observation co = new Observation();
+				String id = nextRef();
+				co.setXmlId(id);
+				obs.getContained().add(co);
+				ObservationRelatedComponent or = new ObservationRelatedComponent();
+				obs.getRelated().add(or);
+				or.setTypeSimple(ObservationRelationshiptypes.hascomponent);
+				or.setTarget(Factory.makeResourceReference("#"+id));
+				co.setName(Factory.newCodeableConcept("11778-8", "http://loinc.org", "Delivery date Estimated"));
+				co.setValue(convert.makeDateTimeFromTS(cda.getChild(dd, "value"))); // not legal, see gForge http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=3125&start=0 
+			}
 		}
 		
 		// lastly, we assume that these are to be marked as reliable observations:
 		obs.setReliabilitySimple(ObservationReliability.ok);
+  }
+
+
+	private void checkNoNegation(Element act, String path) throws Exception {
+	  if ("true".equals(act.getAttribute("negationInd")))
+	  	throw new Exception("The conversion program cannot accept a negationInd at the location "+path);
+  }
+
+	private void checkNoNegationOrNullFlavor(Element act, String path) throws Exception {
+	  if (act.hasAttribute("nullFlavor"))
+	  	throw new Exception("The conversion program cannot accept a nullFlavor at the location "+path);
+	  if ("true".equals(act.getAttribute("negationInd")))
+	  	throw new Exception("The conversion program cannot accept a negationInd at the location "+path);
   }
 
 

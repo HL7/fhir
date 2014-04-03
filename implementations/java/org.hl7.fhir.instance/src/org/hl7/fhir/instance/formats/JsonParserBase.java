@@ -63,6 +63,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
   /**
    * Parse content that may be either a resource or a bundle
    */
+  @Override
   public ResourceOrFeed parseGeneral(InputStream input) throws Exception {
     JsonObject json = loadJson(input);
     ResourceOrFeed r = new ResourceOrFeed();
@@ -77,6 +78,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
   /**
    * Parse content that is known to be a resource
    */
+  @Override
   public Resource parse(InputStream input) throws Exception {
     JsonObject json = loadJson(input);
   
