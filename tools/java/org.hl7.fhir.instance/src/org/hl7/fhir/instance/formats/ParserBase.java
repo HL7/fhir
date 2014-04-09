@@ -2,7 +2,6 @@ package org.hl7.fhir.instance.formats;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +11,7 @@ import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.utilities.Utilities;
 
-public abstract class ParserBase extends XmlBase {
+public abstract class ParserBase extends FormatUtilities {
 
   public class ResourceOrFeed {
     protected Resource resource;

@@ -33,8 +33,6 @@ package org.hl7.fhir.instance.model;
 
 import java.util.Calendar;
 
-import org.hl7.fhir.instance.formats.XmlBase;
-
 /**
  * Primitive type "instant" in FHIR: a value date time with a known timezone
  * @author Grahame

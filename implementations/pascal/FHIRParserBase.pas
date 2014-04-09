@@ -69,6 +69,7 @@ Type
     FSource: TStream;
     FLang: String;
     FTags: TFHIRAtomCategoryList;
+    FParserPolicy : TFHIRXhtmlParserPolicy;
     procedure Setfeed(const Value: TFHIRAtomFeed);
     procedure SeTFhirResource(const Value: TFhirResource);
   protected
@@ -86,6 +87,7 @@ Type
 
     Property AllowUnknownContent : Boolean read FAllowUnknownContent write FAllowUnknownContent;
     Property Lang : String read FLang write FLang;
+    property ParserPolicy : TFHIRXhtmlParserPolicy read FParserPolicy write FParserPolicy;
   end;
 
   TFHIRParserClass = class of TFHIRParser;
@@ -98,6 +100,8 @@ Type
     Function PathForElement(element : IXmlDomNode) : String;
     procedure SeTFhirElement(const Value: IXmlDomElement);
 
+    function CheckHtmlElementOk(elem : IXMLDOMElement) : boolean;
+    function CheckHtmlAttributeOk(elem, attr: String): boolean;
     function ParseAtomBase(child : IXmlDomElement; base : TFHIRAtomBase; path : String) : boolean;
     function ParseFeed(element : IXmlDomElement) : TFHIRAtomFeed;
     function ParseEntry(element : IXmlDomElement) : TFHIRAtomEntry;
@@ -432,21 +436,28 @@ begin
     if res.NodeType = fhntElement then
     begin
       elem := node as IXmlDomElement;
-      for i := 0 to elem.attributes.length - 1 Do
-        res.Attributes.Add(TFHIRAttribute.create(elem.attributes.item[i].baseName, elem.attributes.item[i].text));
-      res.Name := node.baseName;
-      child := node.firstChild;
-      while (child <> nil) do
+      if checkHtmlELementOk(elem) then
       begin
-        c := ParseXHtmlXml(child);
-        if (c <> nil) then
-          res.ChildNodes.add(c);
-        child := child.nextSibling;
+        for i := 0 to elem.attributes.length - 1 Do
+          if CheckHtmlAttributeOk(elem.nodeName, elem.attributes.item[i].baseName) then
+            res.Attributes.Add(TFHIRAttribute.create(elem.attributes.item[i].baseName, elem.attributes.item[i].text));
+        res.Name := node.baseName;
+        child := node.firstChild;
+        while (child <> nil) do
+        begin
+          c := ParseXHtmlXml(child);
+          if (c <> nil) then
+            res.ChildNodes.add(c);
+          child := child.nextSibling;
+        end;
+        result := res.link;
       end;
     end
     else
+    begin
       res.Content := node.text;
-    result := res.link;
+      result := res.link;
+    end;
   finally
     res.Free;
   end;
@@ -2297,6 +2308,40 @@ begin
   end;
 end;
 
+
+function TFHIRXmlParserBase.CheckHtmlElementOk(elem: IXMLDOMElement): boolean;
+var
+  bOk : boolean;
+begin
+  bOk := StringArrayExistsInsensitive(['p', 'br', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'span', 'b', 'em', 'i', 'strong',
+    'small', 'big', 'tt', 'small', 'dfn', 'q', 'var', 'abbr', 'acronym', 'cite', 'blockquote', 'hr',
+    'ul', 'ol', 'li', 'dl', 'dt', 'dd', 'pre', 'table', 'caption', 'colgroup', 'col', 'thead', 'tr', 'tfoot', 'th', 'td',
+    'code', 'samp'], elem.nodeName);
+  if bOk then
+    result := true
+  else case FParserPolicy of
+    xppAllow: result := true;
+    xppDrop: result := false;
+    xppReject: raise Exception.Create('Illegal HTML element '+elem.nodeName);
+  end;
+//  attributes: a.href, a.name,  *.title, *.style, *.class, *.id, *.span,
+end;
+
+function TFHIRXmlParserBase.CheckHtmlAttributeOk(elem, attr : String): boolean;
+var
+  bOk : boolean;
+begin
+  bOk := StringArrayExistsInsensitive(['title', 'style', 'class', 'id', 'span'], attr) or
+         StringArrayExistsInsensitive(['a.href', 'a.name', 'div.xmlns'], elem+'.'+attr);
+  if bOk then
+    result := true
+  else case FParserPolicy of
+    xppAllow: result := true;
+    xppDrop: result := false;
+    xppReject: raise Exception.Create('Illegal HTML attribute '+elem+'.'+attr);
+  end;
+//  attributes: a.href, a.name,  *.title, *.style, *.class, *.id, *.span,
+end;
 
 procedure TFHIRXmlParserBase.closeOutElement(result: TFhirElement; element: IXmlDomElement);
 begin

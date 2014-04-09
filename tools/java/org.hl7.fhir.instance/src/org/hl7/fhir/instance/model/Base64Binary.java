@@ -28,7 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
-import org.hl7.fhir.instance.formats.XmlBase;
+import org.hl7.fhir.instance.formats.FormatUtilities;
 
 /**
  * Primitive type "base64Binary" in FHIR: a sequence of bytes represented in base64
@@ -65,7 +65,7 @@ public class Base64Binary extends PrimitiveType {
 	}
 
 	public String getStringValue() {
-	  return XmlBase.toString(value);
+	  return FormatUtilities.toString(value);
   }
 
   @Override

@@ -31,6 +31,7 @@ import org.hl7.fhir.instance.model.Id;
 import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.Instant;
 import org.hl7.fhir.instance.model.Period;
+import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.ResourceReference;
@@ -99,14 +100,14 @@ public class NarrativeGenerator {
   }
 
   private String prefix;
-  private ConceptLocator conceptLocator;
+  private TerminologyServices conceptLocator;
   private Map<String, AtomEntry<ValueSet>> codeSystems;
   private Map<String, AtomEntry<ValueSet>> valueSets;
   private Map<String, AtomEntry<ConceptMap>> maps;
   private FHIRClient client;
   private Map<String, Profile> profiles;
   
-  public NarrativeGenerator(String prefix, ConceptLocator conceptLocator, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets, Map<String, AtomEntry<ConceptMap>> maps, Map<String, Profile> profiles, FHIRClient client) {
+  public NarrativeGenerator(String prefix, TerminologyServices conceptLocator, Map<String, AtomEntry<ValueSet>> codeSystems, Map<String, AtomEntry<ValueSet>> valueSets, Map<String, AtomEntry<ConceptMap>> maps, Map<String, Profile> profiles, FHIRClient client) {
     super();
     this.prefix = prefix;
     this.conceptLocator = conceptLocator;
@@ -127,19 +128,19 @@ public class NarrativeGenerator {
     } else if (r instanceof Conformance) {
       generate((Conformance) r);   // Maintainer = Grahame
     } else if (profiles.containsKey(r.getResourceType().toString())) {
-      generateByProfile(r, profiles.get(r.getResourceType().toString())); 
+      generateByProfile(r, profiles.get(r.getResourceType().toString()), true); // todo: make this manageable externally 
     }
   }
   
-  private void generateByProfile(Resource r, Profile profile) throws Exception {
+  private void generateByProfile(Resource r, Profile profile, boolean showCodeDetails) throws Exception {
     if (r.hasModifierExtensions())
       throw new Exception("Unable to generate narrative for resource of type "+r.getResourceType().toString()+" because it has modifier extensions");
     ProfileStructureComponent ps = getByName(profile, r.getResourceType().toString());
     
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
-    x.addTag("p").addTag("b").addText("Generated Narrative");
+    x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {
-      generateByProfile(r, r, ps.getElement(), ps.getElement().get(0), getChildrenForPath(ps.getElement(), r.getResourceType().toString()), x, r.getResourceType().toString());
+      generateByProfile(r, r, ps.getElement(), ps.getElement().get(0), getChildrenForPath(ps.getElement(), r.getResourceType().toString()), x, r.getResourceType().toString(), showCodeDetails);
     } catch (Exception e) {
       e.printStackTrace();
       x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
@@ -147,32 +148,38 @@ public class NarrativeGenerator {
     inject(r, x,  NarrativeStatus.generated);
   }
 
-  private void generateByProfile(Resource res, Element e, List<ElementComponent> allElements, ElementComponent defn, List<ElementComponent> children,  XhtmlNode x, String path) throws Exception {
+  private void generateByProfile(Resource res, Element e, List<ElementComponent> allElements, ElementComponent defn, List<ElementComponent> children,  XhtmlNode x, String path, boolean showCodeDetails) throws Exception {
     if (children.isEmpty()) {
-      renderLeaf(res, e, defn, x, false);
+      renderLeaf(res, e, defn, x, false, showCodeDetails, readDisplayHints(defn));
     } else {
       for (Property p : e.children()) {
         if (p.hasValues()) {
           ElementComponent child = getElementDefinition(children, path+"."+p.getName());
+          Map<String, String> displayHints = readDisplayHints(child);
           if (!exemptFromRendering(child)) {
             List<ElementComponent> grandChildren = getChildrenForPath(allElements, path+"."+p.getName());
             if (p.getValues().size() > 0 && child != null) {
               if (isPrimitive(child)) {
                 XhtmlNode para = x.addTag("p");
-                para.addTag("b").addText(p.getName());
-                para.addText(": ");
-                if (renderAsList(child) && p.getValues().size() > 1) {
-                  XhtmlNode list = x.addTag("ul");
-                  for (Element v : p.getValues()) 
-                    renderLeaf(res, v, child, list.addTag("li"), false);
-                } else { 
-                  boolean first = true;
-                  for (Element v : p.getValues()) {
-                    if (first)
-                      first = false;
-                    else
-                      para.addText(", ");
-                    renderLeaf(res, v, child, para, false);
+                String name = p.getName();
+                if (name.endsWith("[x]"))
+                  name = name.substring(0, name.length() - 3);
+                if (showCodeDetails || !isDefaultValue(displayHints, p.getValues())) {
+                  para.addTag("b").addText(name);
+                  para.addText(": ");
+                  if (renderAsList(child) && p.getValues().size() > 1) {
+                    XhtmlNode list = x.addTag("ul");
+                    for (Element v : p.getValues()) 
+                      renderLeaf(res, v, child, list.addTag("li"), false, showCodeDetails, displayHints);
+                  } else { 
+                    boolean first = true;
+                    for (Element v : p.getValues()) {
+                      if (first)
+                        first = false;
+                      else
+                        para.addText(", ");
+                      renderLeaf(res, v, child, para, false, showCodeDetails, displayHints);
+                    }
                   }
                 }
               } else if (canDoTable(grandChildren)) {
@@ -181,7 +188,7 @@ public class NarrativeGenerator {
                 addColumnHeadings(tbl.addTag("tr"), grandChildren);
                 for (Element v : p.getValues()) {
                   if (v != null) {
-                    addColumnValues(res, tbl.addTag("tr"), grandChildren, v);
+                    addColumnValues(res, tbl.addTag("tr"), grandChildren, v, showCodeDetails, displayHints);
                   }
                 }
               } else {
@@ -189,7 +196,7 @@ public class NarrativeGenerator {
                   if (v != null) {
                     XhtmlNode bq = x.addTag("blockquote");
                     bq.addTag("p").addTag("b").addText(p.getName());
-                    generateByProfile(res, v, allElements, child, grandChildren, bq, path+"."+p.getName());
+                    generateByProfile(res, v, allElements, child, grandChildren, bq, path+"."+p.getName(), showCodeDetails);
                   }
                 } 
               }
@@ -200,10 +207,25 @@ public class NarrativeGenerator {
     }
   }
   
+  private boolean isDefaultValue(Map<String, String> displayHints, List<Element> list) {
+    if (list.size() != 1)
+      return false;
+    if (list.get(0) instanceof PrimitiveType) 
+      return isDefault(displayHints, (PrimitiveType) list.get(0));
+    else
+      return false;
+  }
+
+  private boolean isDefault(Map<String, String> displayHints, PrimitiveType primitiveType) {
+    String v = primitiveType.asStringValue();
+    if (!Utilities.noString(v) && displayHints.containsKey("default") && v.equals(displayHints.get("default")))
+        return true;
+    return false;
+  }
+
   private boolean exemptFromRendering(ElementComponent child) {
-  	if (child == null)
-  		return true;
-  	
+    if (child == null)
+      return false;
     if ("Composition.subject".equals(child.getPathSimple()))
       return true;
     if ("Composition.section".equals(child.getPathSimple()))
@@ -225,13 +247,13 @@ public class NarrativeGenerator {
       tr.addTag("td").addTag("b").addText(Utilities.capitalize(tail(e.getPathSimple())));
   }
 
-  private void addColumnValues(Resource res, XhtmlNode tr, List<ElementComponent> grandChildren, Element v) throws Exception {
+  private void addColumnValues(Resource res, XhtmlNode tr, List<ElementComponent> grandChildren, Element v, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
     for (ElementComponent e : grandChildren) {
       Property p = v.getChildByName(e.getPathSimple().substring(e.getPathSimple().lastIndexOf(".")+1));
       if (p.getValues().size() == 0 || p.getValues().get(0) == null)
         tr.addTag("td").addText(" ");
       else
-        renderLeaf(res, p.getValues().get(0), e, tr.addTag("td"), false);
+        renderLeaf(res, p.getValues().get(0), e, tr.addTag("td"), false, showCodeDetails, displayHints);
     }
   }
 
@@ -260,10 +282,10 @@ public class NarrativeGenerator {
     return null;
   }
 
-  private void renderLeaf(Resource res, Element e, ElementComponent defn, XhtmlNode x, boolean title) throws Exception {
+  private void renderLeaf(Resource res, Element e, ElementComponent defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
     if (e == null)
       return;
-    
+   
     if (e instanceof String_)
       x.addText(((String_) e).getValue());
     else if (e instanceof Code)
@@ -283,9 +305,9 @@ public class NarrativeGenerator {
     else if (e instanceof Boolean)
       x.addText(((Boolean) e).getValue().toString());
     else if (e instanceof CodeableConcept) {
-      renderCodeableConcept((CodeableConcept) e, x); 
+      renderCodeableConcept((CodeableConcept) e, x, showCodeDetails); 
     } else if (e instanceof Coding) {
-      renderCoding((Coding) e, x);
+      renderCoding((Coding) e, x, showCodeDetails);
     } else if (e instanceof Identifier) {
       renderIdentifier((Identifier) e, x);
     } else if (e instanceof org.hl7.fhir.instance.model.Integer) {
@@ -303,11 +325,11 @@ public class NarrativeGenerator {
     } else if (e instanceof Schedule) {
       renderSchedule((Schedule) e, x);
     } else if (e instanceof Quantity || e instanceof Duration) {
-      renderQuantity((Quantity) e, x);
+      renderQuantity((Quantity) e, x, showCodeDetails);
     } else if (e instanceof Ratio) {
-      renderQuantity(((Ratio) e).getNumerator(), x);
+      renderQuantity(((Ratio) e).getNumerator(), x, showCodeDetails);
       x.addText("/");
-      renderQuantity(((Ratio) e).getDenominator(), x);
+      renderQuantity(((Ratio) e).getDenominator(), x, showCodeDetails);
     } else if (e instanceof Period) {
       Period p = (Period) e;
       x.addText(p.getStart() == null ? "??" : p.getStartSimple().toHumanDisplay());
@@ -315,111 +337,148 @@ public class NarrativeGenerator {
       x.addText(p.getEnd() == null ? "(ongoing)" : p.getEndSimple().toHumanDisplay());
     } else if (e instanceof ResourceReference) {
       ResourceReference r = (ResourceReference) e;
-      if (r.getDisplay() != null)        
-        x.addText(r.getDisplaySimple());
-      else if (r.getReference() != null) {
-        ResourceWithReference tr = resolveReference(res, r.getReferenceSimple());
-        String disp = tr == null ? r.getReferenceSimple() : getDisplayForResource(tr.getResource());
-        if (r.getReferenceSimple().startsWith("#")) 
-          x.addText(disp); 
-        else if (tr != null)
-          x.addTag("a").attribute("href", tr.getReference()).addText(disp);
-        else
-          x.addTag("a").attribute("href", r.getReferenceSimple()).addText(disp);
-      } else
-        x.addText("??");
+      XhtmlNode c = x;
+      ResourceWithReference tr = null;
+      if (r.getReference() != null) {
+        tr = resolveReference(res, r.getReferenceSimple());
+        if (!r.getReferenceSimple().startsWith("#")) {
+          if (tr != null && tr.getReference() != null)
+            c = x.addTag("a").attribute("href", tr.getReference());
+          else
+            c = x.addTag("a").attribute("href", r.getReferenceSimple());
+        }
+      }
+      // what to display: if text is provided, then that. if the reference was resolved, then show the generated narrative
+      if (r.getDisplay() != null) {        
+        c.addText(r.getDisplaySimple());
+        if (tr != null) {
+          c.addText(". Generated Summary: ");
+          generateResourceSummary(c, tr.getResource(), true, r.getReferenceSimple().startsWith("#"));
+        }
+      } else if (tr != null) {
+        generateResourceSummary(c, tr.getResource(), r.getReferenceSimple().startsWith("#"), r.getReferenceSimple().startsWith("#"));
+      } else {
+        c.addText(r.getReferenceSimple());
+      }
     } else if (!(e instanceof Attachment))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
   }
 
-  private boolean displayLeaf(Resource res, Element e, ElementComponent defn, StringBuilder b, String name) throws Exception {
+  private boolean displayLeaf(Resource res, Element e, ElementComponent defn, XhtmlNode x, String name, boolean showCodeDetails) throws Exception {
     if (e == null)
       return false;
+    Map<String, String> displayHints = readDisplayHints(defn);
     
     if (name.endsWith("[x]"))
       name = name.substring(0, name.length() - 3);
     
+    if (!showCodeDetails && e instanceof PrimitiveType && isDefault(displayHints, ((PrimitiveType) e)))
+        return false;
+    
     if (e instanceof String_) {
-      b.append(name+": "+((String_) e).getValue());
+      x.addText(name+": "+((String_) e).getValue());
       return true;
     } else if (e instanceof Code) {
-      b.append(name+": "+((Code) e).getValue());
+      x.addText(name+": "+((Code) e).getValue());
       return true;
     } else if (e instanceof Id) {
-      b.append(name+": "+((Id) e).getValue());
+      x.addText(name+": "+((Id) e).getValue());
       return true;
     } else if (e instanceof DateTime) {
-      b.append(name+": "+((DateTime) e).getValue().toHumanDisplay());
+      x.addText(name+": "+((DateTime) e).getValue().toHumanDisplay());
       return true;
     } else if (e instanceof Instant) {
-      b.append(name+": "+((Instant) e).getValue().toHumanDisplay());
+      x.addText(name+": "+((Instant) e).getValue().toHumanDisplay());
       return true;
     } else if (e instanceof Extension) {
-      b.append("Extensions: todo");
+      x.addText("Extensions: todo");
       return true;
     } else if (e instanceof org.hl7.fhir.instance.model.Date) {
-      b.append(name+": "+((org.hl7.fhir.instance.model.Date) e).getValue().toHumanDisplay());
+      x.addText(name+": "+((org.hl7.fhir.instance.model.Date) e).getValue().toHumanDisplay());
       return true;
     } else if (e instanceof Enumeration) {
-      b.append(((Enumeration) e).getValue().toString()); // todo: look up a display name if there is one
+      x.addText(((Enumeration) e).getValue().toString()); // todo: look up a display name if there is one
       return true;
     } else if (e instanceof Boolean) {
       if (((Boolean) e).getValue()) {
-        b.append(name);
-        return true;
+        x.addText(name);
+          return true;
       }
     } else if (e instanceof CodeableConcept) {
-      b.append(displayCodeableConcept((CodeableConcept) e));
+      renderCodeableConcept((CodeableConcept) e, x, showCodeDetails);
       return true;
     } else if (e instanceof Coding) {
-      b.append(displayCoding((Coding) e));
+      renderCoding((Coding) e, x, showCodeDetails);
       return true;
     } else if (e instanceof org.hl7.fhir.instance.model.Integer) {
-      b.append(Integer.toString(((org.hl7.fhir.instance.model.Integer) e).getValue()));
+      x.addText(Integer.toString(((org.hl7.fhir.instance.model.Integer) e).getValue()));
       return true;
     } else if (e instanceof org.hl7.fhir.instance.model.Decimal) {
-      b.append(((org.hl7.fhir.instance.model.Decimal) e).getValue().toString());
+      x.addText(((org.hl7.fhir.instance.model.Decimal) e).getValue().toString());
       return true;
     } else if (e instanceof Identifier) {
-      b.append(displayIdentifier((Identifier) e));
+      renderIdentifier((Identifier) e, x);
       return true;
     } else if (e instanceof HumanName) {
-      b.append(displayHumanName((HumanName) e));
+      renderHumanName((HumanName) e, x);
       return true;
     } else if (e instanceof Address) {
-      b.append(displayAddress((Address) e));
+      renderAddress((Address) e, x);
       return true;
     } else if (e instanceof Contact) {
-      b.append(displayContact((Contact) e));
+      renderContact((Contact) e, x);
       return true;
     } else if (e instanceof Schedule) {
-      b.append(displaySchedule((Schedule) e));
+      renderSchedule((Schedule) e, x);
       return true;
     } else if (e instanceof Quantity || e instanceof Duration) {
-      b.append(displayQuantity((Quantity) e));
+      renderQuantity((Quantity) e, x, showCodeDetails);
       return true;
     } else if (e instanceof Ratio) {
-      b.append(displayQuantity(((Ratio) e).getNumerator()));
-      b.append("/");
-      b.append(displayQuantity(((Ratio) e).getDenominator()));
+      renderQuantity(((Ratio) e).getNumerator(), x, showCodeDetails);
+      x.addText("/");
+      renderQuantity(((Ratio) e).getDenominator(), x, showCodeDetails);
       return true;
     } else if (e instanceof Period) {
       Period p = (Period) e;
-      b.append(name+": " +displayPeriod(p));
+      x.addText(name+": ");
+      x.addText(p.getStart() == null ? "??" : p.getStartSimple().toHumanDisplay());
+      x.addText(" --> ");
+      x.addText(p.getEnd() == null ? "(ongoing)" : p.getEndSimple().toHumanDisplay());
       return true;
     } else if (e instanceof ResourceReference) {
       ResourceReference r = (ResourceReference) e;
       if (r.getDisplay() != null)        
-        b.append(r.getDisplaySimple());
+        x.addText(r.getDisplaySimple());
       else if (r.getReference() != null) {
         ResourceWithReference tr = resolveReference(res, r.getReferenceSimple());
-        b.append(tr == null ? r.getReferenceSimple() : getDisplayForResource(tr.getResource()));
+        x.addText(tr == null ? r.getReferenceSimple() : "????"); // getDisplayForResource(tr.getResource()));
       } else
-        b.append("??");
+        x.addText("??");
       return true;
     } else if (!(e instanceof Attachment))
       throw new Exception("type "+e.getClass().getName()+" not handled yet");      
     return false;
+  }
+
+  private boolean isDefault(Map<String, String> displayHints, String value) {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  private Map<String, String> readDisplayHints(ElementComponent defn) throws Exception {
+    Map<String, String> hints = new HashMap<String, String>();
+    if (defn != null) {
+      String displayHint = ToolingExtensions.getDisplayHint(defn.getDefinition());
+      if (!Utilities.noString(displayHint)) {
+        String[] list = displayHint.split(";");
+        for (String item : list) {
+          String[] parts = item.split(":");
+          hints.put(parts[0].trim(), parts[1].trim());
+        }
+      }
+    }
+    return hints;
   }
 
   private String displayPeriod(Period p) {
@@ -428,42 +487,45 @@ public class NarrativeGenerator {
     return s + (p.getEnd() == null ? "(ongoing)" : p.getEndSimple().toHumanDisplay());
   }
 
-  private String getDisplayForResource(Resource res) throws Exception {
-    if (res.getText() != null && res.getText().getDiv() != null) {
-      XhtmlNode div = res.getText().getDiv();
-      if (div.allChildrenAreText())
-        return div.allText();
-      if (div.getChildNodes().size() == 1 && div.getChildNodes().get(0).allChildrenAreText())
-        return div.getChildNodes().get(0).allText();
+  private void generateResourceSummary(XhtmlNode x, Resource res, boolean textAlready, boolean showCodeDetails) throws Exception {
+    if (!textAlready) {
+      if (res.getText() != null && res.getText().getDiv() != null) {
+        XhtmlNode div = res.getText().getDiv();
+        if (div.allChildrenAreText())
+          x.getChildNodes().addAll(div.getChildNodes());
+        if (div.getChildNodes().size() == 1 && div.getChildNodes().get(0).allChildrenAreText())
+          x.getChildNodes().addAll(div.getChildNodes().get(0).getChildNodes());
+      }
+      x.addText("Generated Summary: ");
     }
     String path = res.getResourceType().toString();
     Profile profile = profiles.get(path);
     if (profile == null)
-      return "unknown resource " +path;
-    ProfileStructureComponent struc = profile.getStructure().get(0); // todo: how to do this better?
-    
-    StringBuilder b = new StringBuilder();
-    boolean firstElement = true;
-    boolean last = false;
-    for (Property p : res.children()) {
-      ElementComponent child = getElementDefinition(struc.getElement(), path+"."+p.getName());
-      if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
-        if (firstElement)
-          firstElement = false;
-        else if (last)
-          b.append("; ");
-        boolean first = true;
-        last = false;
-        for (Element v : p.getValues()) {
-          if (first)
-            first = false;
+      x.addText("unknown resource " +path);
+    else {
+      ProfileStructureComponent struc = profile.getStructure().get(0); // todo: how to do this better?
+
+      boolean firstElement = true;
+      boolean last = false;
+      for (Property p : res.children()) {
+        ElementComponent child = getElementDefinition(struc.getElement(), path+"."+p.getName());
+        if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
+          if (firstElement)
+            firstElement = false;
           else if (last)
-            b.append(", ");
-          last = displayLeaf(res, v, child, b, p.getName()) || last;
+            x.addText("; ");
+          boolean first = true;
+          last = false;
+          for (Element v : p.getValues()) {
+            if (first)
+              first = false;
+            else if (last)
+              x.addText(", ");
+            last = displayLeaf(res, v, child, x, p.getName(), showCodeDetails) || last;
+          }
         }
       }
     }
-    return b.toString();
   }
 
 
@@ -500,7 +562,7 @@ public class NarrativeGenerator {
       return new ResourceWithReference(ae.getLinks().get("self"), ae.getResource());
   }
 
-  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x) {
+  private void renderCodeableConcept(CodeableConcept cc, XhtmlNode x, boolean showCodeDetails) {
     String s = cc.getTextSimple();
     if (Utilities.noString(s)) {
       for (Coding c : cc.getCoding()) {
@@ -528,6 +590,23 @@ public class NarrativeGenerator {
         s = cc.getCoding().get(0).getCodeSimple();
     }
 
+    if (showCodeDetails) {
+      x.addText(s+" ");
+      XhtmlNode sp = x.addTag("span");
+      sp.setAttribute("style", "background: LightGoldenRodYellow ");
+      sp.addText("(Details ");
+      boolean first = true;
+      for (Coding c : cc.getCoding()) {
+        if (first) {
+          sp.addText(": ");
+          first = false;
+        } else
+          sp.addText("; ");
+        sp.addText("{"+describeSystem(c.getSystemSimple())+" code '"+c.getCodeSimple()+"' = '"+lookupCode(c.getSystemSimple(), c.getCodeSimple())+"', given as '"+c.getDisplaySimple()+"'}");
+      }
+      sp.addText(")");
+    } else {
+
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (Coding c : cc.getCoding()) {
       if (c.getCode() != null && c.getSystem() != null) {
@@ -535,10 +614,11 @@ public class NarrativeGenerator {
       }
     }
     
-    x.addTag("span").setAttribute("title", "Codes: "+b.toString()).addText(s);   
+    x.addTag("span").setAttribute("title", "Codes: "+b.toString()).addText(s);
+    }
   }
 
-  private void renderCoding(Coding c, XhtmlNode x) {
+  private void renderCoding(Coding c, XhtmlNode x, boolean showCodeDetails) {
     String s = "";
     if (c.getDisplay() != null) 
       s = c.getDisplaySimple();
@@ -548,7 +628,20 @@ public class NarrativeGenerator {
     if (Utilities.noString(s)) 
       s = c.getCodeSimple();
 
-    x.addTag("span").setAttribute("title", "{"+c.getSystemSimple()+" "+c.getCodeSimple()+"}").addText(s);   
+    if (showCodeDetails) {
+      x.addText(s+" (Details: "+describeSystem(c.getSystemSimple())+" code "+c.getCodeSimple()+" = '"+lookupCode(c.getSystemSimple(), c.getCodeSimple())+"', stated as '"+c.getDisplaySimple()+"')");
+    } else
+      x.addTag("span").setAttribute("title", "{"+c.getSystemSimple()+" "+c.getCodeSimple()+"}").addText(s);   
+  }
+
+  private String describeSystem(String system) {
+    if (system == null)
+      return "[not stated]";
+    if (system.equals("http://loinc.org"))
+      return "LOINC";
+    if (system.startsWith("http://snomed.info"))
+      return "SNOMED CT";
+    return system;
   }
 
   private String lookupCode(String system, String code) {
@@ -556,7 +649,7 @@ public class NarrativeGenerator {
     if (codeSystems.containsKey(system)) 
       t = findCode(code, codeSystems.get(system).getResource().getDefine().getConcept());
     else 
-      t = conceptLocator.locate(system, code);
+      t = conceptLocator.getCodeDefinition(system, code);
       
     if (t != null && t.getDisplay() != null)
         return t.getDisplaySimple();
@@ -606,18 +699,6 @@ public class NarrativeGenerator {
     return s;
   }
 
-  private String displayCoding(Coding c) {
-    String s = "";
-    if (c.getDisplay() != null) 
-      s = c.getDisplaySimple();
-    if (Utilities.noString(s)) 
-      s = lookupCode(c.getSystemSimple(), c.getCodeSimple());
-    if (Utilities.noString(s)) 
-      s = c.getCodeSimple();
-    
-    return s;
-  }
-
   private void renderIdentifier(Identifier ii, XhtmlNode x) {
     x.addText(displayIdentifier(ii));
   }
@@ -626,8 +707,19 @@ public class NarrativeGenerator {
     x.addText(displaySchedule(s));
   }
   
-  private void renderQuantity(Quantity q, XhtmlNode x) {
-    x.addText(displayQuantity(q));
+  private void renderQuantity(Quantity q, XhtmlNode x, boolean showCodeDetails) {
+    if (q.getComparator() != null)
+      x.addText(q.getComparatorSimple().toCode());
+    x.addText(q.getValueSimple().toString());
+    if (q.getUnits() != null)
+      x.addText(" "+q.getUnitsSimple());
+    else if (q.getCode() != null)
+      x.addText(" "+q.getCodeSimple());
+    if (showCodeDetails && q.getCode() != null) {
+      XhtmlNode sp = x.addTag("span");
+      sp.setAttribute("style", "background: LightGoldenRodYellow ");
+      sp.addText(" (Details: "+describeSystem(q.getSystemSimple())+" code "+q.getCodeSimple()+" = '"+lookupCode(q.getSystemSimple(), q.getCodeSimple())+"')"); 
+    }
   }
   
   private void renderHumanName(HumanName name, XhtmlNode x) {
@@ -646,18 +738,6 @@ public class NarrativeGenerator {
     x.addTag("a").setAttribute("href", uri.getValue()).addText(uri.getValue());
   }
   
-  private String displayQuantity(Quantity q) {
-    StringBuilder b = new StringBuilder();
-    if (q.getComparator() != null)
-      b.append(q.getComparatorSimple().toCode());
-    b.append(q.getValueSimple().toString());
-    b.append(" ");
-    if (q.getUnits() != null)
-      b.append(q.getUnitsSimple());
-    else
-      b.append(q.getCodeSimple());
-    return b.toString();
-  }
   
   private String displaySchedule(Schedule s) {
     if (s.getEvent().size() > 1 || (s.getRepeat() == null && !s.getEvent().isEmpty())) {
@@ -1043,7 +1123,7 @@ public class NarrativeGenerator {
       ValueSet vs = codeSystems.get(system).getResource();
       return getDisplayForConcept(code, vs.getDefine().getConcept(), vs.getDefine().getCaseSensitiveSimple());
     } else if (conceptLocator != null) {
-      ValueSetDefineConceptComponent cl = conceptLocator.locate(system, code);
+      ValueSetDefineConceptComponent cl = conceptLocator.getCodeDefinition(system, code);
       return cl == null ? null : cl.getDisplaySimple();
     } else
       return null;
@@ -1505,7 +1585,7 @@ public class NarrativeGenerator {
   private <T extends Resource> ValueSetDefineConceptComponent getConceptForCode(AtomEntry<T> e, String code, String system) {
     if (e == null) {
       if (conceptLocator != null)
-        return conceptLocator.locate(system, code);
+        return conceptLocator.getCodeDefinition(system, code);
       else
         return null;
     }
@@ -1758,5 +1838,5 @@ public class NarrativeGenerator {
       }
     }
   }
-
+  
 }

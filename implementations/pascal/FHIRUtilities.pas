@@ -63,7 +63,7 @@ Function RecogniseFHIRFormat(Const sName : String): TFHIRFormat;
 function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream): TFHIRParser; overload;
 function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes): TFHIRParser; overload;
 Function FhirGUIDToString(aGuid : TGuid):String;
-function ParseXhtml(lang : String; content : String):TFhirXHtmlNode;
+function ParseXhtml(lang : String; content : String; policy : TFHIRXhtmlParserPolicy):TFhirXHtmlNode;
 function geTFhirResourceNarrativeAsText(resource : TFhirResource) : String;
 function IsId(s : String) : boolean;
 procedure listReferences(resource : TFhirResource; list : TFhirResourceReferenceList);
@@ -219,12 +219,13 @@ Begin
 End;
 
 
-function ParseXhtml(lang : String; content : String):TFhirXHtmlNode;
+function ParseXhtml(lang : String; content : String; policy : TFHIRXhtmlParserPolicy):TFhirXHtmlNode;
 var
   parser : TFHIRXmlParser;
 begin
   parser := TFHIRXmlParser.create(lang);
   try
+    parser.ParserPolicy := policy;
     parser.source := TStringStream.Create(content);
     result := parser.ParseHtml;
   finally
@@ -491,7 +492,7 @@ begin
   try
     outcome.text := TFhirNarrative.create;
     outcome.text.statusST := NarrativeStatusGenerated;
-    outcome.text.div_ := ParseXhtml(lang, '<div><p>'+FormatTextToHTML(message)+'</p></div>');
+    outcome.text.div_ := ParseXhtml(lang, '<div><p>'+FormatTextToHTML(message)+'</p></div>', xppReject);
     report := outcome.issueList.Append;
     report.severityST := issueSeverityError;
     report.details := TFHIRString.create(message);

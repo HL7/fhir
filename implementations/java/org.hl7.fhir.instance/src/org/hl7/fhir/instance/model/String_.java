@@ -32,7 +32,7 @@ package org.hl7.fhir.instance.model;
  * Primitive type "string" in FHIR - any sequence of unicode characters less than 1MB in length
  */
 
-public class String_ extends Type {
+public class String_ extends PrimitiveType {
 
 	/**
 	 * The string value
@@ -62,6 +62,11 @@ public class String_ extends Type {
 	protected Type typedCopy() {
 		return copy();
 	}
+
+  @Override
+  public String asStringValue() {
+    return value;
+  }
 
 	
 }

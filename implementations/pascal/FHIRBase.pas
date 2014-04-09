@@ -98,6 +98,9 @@ Type
 
   TFHIRAuthProvider = (apNone, apCustom, apFacebook, apGoogle, apHL7);
 
+
+  TFHIRXhtmlParserPolicy = (xppAllow, xppDrop, xppReject);
+
 Const
   FHIR_NS = 'http://hl7.org/fhir';
   FHIR_TAG_SCHEME = 'http://hl7.org/fhir/tag';
@@ -157,7 +160,7 @@ type
     Property Current : TFHIRProperty read GetCurrent;
   End;
 
-
+  {$M+}
   TFHIRObject = class (TAdvObject)
   private
     FTag : TAdvObject;
@@ -166,7 +169,7 @@ type
     Procedure GetChildrenByName(name : string; list : TFHIRObjectList); virtual;
     Procedure ListProperties(oList : TFHIRPropertyList; bInheritedProperties : Boolean); Virtual;
   public
-    Destructor destroy; override;
+    Destructor Destroy; override;
     function createIterator(bInheritedProperties : Boolean) : TFHIRPropertyIterator;
     Function PerformQuery(xpath : String):TFHIRObjectList;
     property Tag : TAdvObject read FTag write SetTag;

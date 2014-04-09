@@ -32,7 +32,7 @@ package org.hl7.fhir.instance.model;
 /**
  * Primitive type "date" in FHIR: any day in a gregorian calendar
  */
-public class Date extends Type {
+public class Date extends PrimitiveType {
 
 	/**
 	 * The value of the date
@@ -62,4 +62,10 @@ public class Date extends Type {
 		dst.value = value;
 		return dst;
 	}
+
+  @Override
+  public String asStringValue() {
+    return value.toString();  
+  }
+
 }

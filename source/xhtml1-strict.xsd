@@ -290,6 +290,8 @@
       onkeyup     a key was released
       </xs:documentation>
     </xs:annotation>
+    <!--
+  FHIR: Active Content is not allowed:
     <xs:attribute name="onclick" type="Script"/>
     <xs:attribute name="ondblclick" type="Script"/>
     <xs:attribute name="onmousedown" type="Script"/>
@@ -300,6 +302,7 @@
     <xs:attribute name="onkeypress" type="Script"/>
     <xs:attribute name="onkeydown" type="Script"/>
     <xs:attribute name="onkeyup" type="Script"/>
+-->
   </xs:attributeGroup>
   <xs:attributeGroup name="focus">
     <xs:annotation>
@@ -313,8 +316,10 @@
     </xs:annotation>
     <xs:attribute name="accesskey" type="Character"/>
     <xs:attribute name="tabindex" type="tabindexNumber"/>
+    <!--
     <xs:attribute name="onfocus" type="Script"/>
     <xs:attribute name="onblur" type="Script"/>
+-->
   </xs:attributeGroup>
   <xs:attributeGroup name="attrs">
     <xs:attributeGroup ref="coreattrs"/>
@@ -337,7 +342,10 @@
   <xs:group name="special">
     <xs:choice>
       <xs:group ref="special.pre"/>
+      <!--
+  FHIR: active content is not allowed
       <xs:element ref="object"/>
+-->
       <xs:element ref="img"/>
     </xs:choice>
   </xs:group>
@@ -367,6 +375,8 @@
       <xs:element ref="sup"/>
     </xs:choice>
   </xs:group>
+  <!--
+  FHIR: forms are not allowed 
   <xs:group name="inline.forms">
     <xs:choice>
       <xs:element ref="input"/>
@@ -376,6 +386,9 @@
       <xs:element ref="button"/>
     </xs:choice>
   </xs:group>
+-->
+  <!--
+  FHIR: specifically not allowed 
   <xs:group name="misc.inline">
     <xs:choice>
       <xs:element ref="ins"/>
@@ -394,13 +407,16 @@
       <xs:group ref="misc.inline"/>
     </xs:choice>
   </xs:group>
+-->
   <xs:group name="inline">
     <xs:choice>
       <xs:element ref="a"/>
       <xs:group ref="special"/>
       <xs:group ref="fontstyle"/>
       <xs:group ref="phrase"/>
+      <!--
       <xs:group ref="inline.forms"/>
+ -->
     </xs:choice>
   </xs:group>
   <xs:complexType name="Inline" mixed="true">
@@ -411,7 +427,7 @@
     </xs:annotation>
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:group ref="inline"/>
-      <xs:group ref="misc.inline"/>
+      <!--      <xs:group ref="misc.inline"/> -->
     </xs:choice>
   </xs:complexType>
   <xs:annotation>
@@ -451,15 +467,18 @@
       <xs:element ref="div"/>
       <xs:group ref="lists"/>
       <xs:group ref="blocktext"/>
-      <xs:element ref="fieldset"/>
+      <!--      <xs:element ref="fieldset"/> -->
       <xs:element ref="table"/>
     </xs:choice>
   </xs:group>
   <xs:complexType name="Block">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:group ref="block"/>
+      <!--
+  FHIR: no forms
       <xs:element ref="form"/>
       <xs:group ref="misc"/>
+-->
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="Flow" mixed="true">
@@ -470,9 +489,11 @@
     </xs:annotation>
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:group ref="block"/>
-      <xs:element ref="form"/>
       <xs:group ref="inline"/>
+      <!--
+      <xs:element ref="form"/>
       <xs:group ref="misc"/>
+-->
     </xs:choice>
   </xs:complexType>
   <xs:annotation>
@@ -490,8 +511,10 @@
       <xs:group ref="special"/>
       <xs:group ref="fontstyle"/>
       <xs:group ref="phrase"/>
+      <!--
       <xs:group ref="inline.forms"/>
       <xs:group ref="misc.inline"/>
+-->
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="pre.content" mixed="true">
@@ -505,10 +528,13 @@
       <xs:group ref="fontstyle"/>
       <xs:group ref="phrase"/>
       <xs:group ref="special.pre"/>
+      <!--
       <xs:group ref="misc.inline"/>
       <xs:group ref="inline.forms"/>
+-->
     </xs:choice>
   </xs:complexType>
+  <!-- 
   <xs:complexType name="form.content">
     <xs:annotation>
       <xs:documentation>
@@ -518,7 +544,7 @@
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:group ref="block"/>
       <xs:group ref="misc"/>
-    </xs:choice>
+      </xs:choice>
   </xs:complexType>
   <xs:complexType name="button.content" mixed="true">
     <xs:annotation>
@@ -536,14 +562,17 @@
       <xs:group ref="special"/>
       <xs:group ref="fontstyle"/>
       <xs:group ref="phrase"/>
-      <xs:group ref="misc"/>
+      <xs:group ref="misc"/> 
     </xs:choice>
   </xs:complexType>
+-->
   <xs:annotation>
     <xs:documentation>
     ================ Document Structure ==================================
     </xs:documentation>
   </xs:annotation>
+  <!--
+  FHIR: doesn't use the structure of <html> / <body> - jump straight into div instead
   <xs:element name="html">
     <xs:complexType>
       <xs:sequence>
@@ -734,6 +763,7 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+-->
   <xs:element name="div">
     <xs:annotation>
       <xs:documentation>
@@ -741,7 +771,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Flow">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -755,7 +785,7 @@
   </xs:annotation>
   <xs:element name="p">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -772,7 +802,7 @@
   </xs:annotation>
   <xs:element name="h1">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -781,7 +811,7 @@
   </xs:element>
   <xs:element name="h2">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -790,7 +820,7 @@
   </xs:element>
   <xs:element name="h3">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -799,7 +829,7 @@
   </xs:element>
   <xs:element name="h4">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -808,7 +838,7 @@
   </xs:element>
   <xs:element name="h5">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -817,7 +847,7 @@
   </xs:element>
   <xs:element name="h6">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -862,7 +892,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Flow">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -885,7 +915,7 @@
   </xs:element>
   <xs:element name="dt">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -894,7 +924,7 @@
   </xs:element>
   <xs:element name="dd">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Flow">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -913,7 +943,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -942,7 +972,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="pre.content">
           <xs:attributeGroup ref="attrs"/>
           <xs:attribute ref="xml:space" fixed="preserve"/>
@@ -965,6 +995,7 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+  <!--
   <xs:annotation>
     <xs:documentation>
     =================== Inserted/Deleted Text ============================
@@ -996,6 +1027,7 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+-->
   <xs:annotation>
     <xs:documentation>
     ================== The Anchor Element ================================
@@ -1008,7 +1040,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="a.content">
           <xs:attributeGroup ref="attrs"/>
           <xs:attributeGroup ref="focus"/>
@@ -1037,7 +1069,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1051,7 +1083,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="coreattrs"/>
           <xs:attributeGroup ref="events"/>
@@ -1086,7 +1118,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1100,7 +1132,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1114,7 +1146,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1128,7 +1160,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1142,7 +1174,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1156,7 +1188,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1170,7 +1202,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1184,7 +1216,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1198,7 +1230,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1212,7 +1244,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1226,7 +1258,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
           <xs:attribute name="cite" type="URI"/>
@@ -1241,7 +1273,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1255,7 +1287,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1269,7 +1301,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1283,7 +1315,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1297,7 +1329,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1311,7 +1343,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -1325,13 +1357,15 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+  <!--
+  FHIR: no objects in FHIR
   <xs:annotation>
     <xs:documentation>
     ==================== Object ======================================
@@ -1398,6 +1432,7 @@
       <xs:attribute name="type" type="ContentType"/>
     </xs:complexType>
   </xs:element>
+-->
   <xs:annotation>
     <xs:documentation>
     =================== Images ===========================================
@@ -1448,8 +1483,11 @@
       <xs:choice>
         <xs:choice maxOccurs="unbounded">
           <xs:group ref="block"/>
+<!--
+  FHIR: no forms
           <xs:element ref="form"/>
           <xs:group ref="misc"/>
+-->
         </xs:choice>
         <xs:element ref="area" maxOccurs="unbounded"/>
       </xs:choice>
@@ -1479,6 +1517,8 @@
       <xs:attribute name="alt" type="Text" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!--
+  FHIR: no forms in FHIR
   <xs:annotation>
     <xs:documentation>
     ================ Forms ===============================================
@@ -1772,6 +1812,7 @@
       </xs:complexContent>
     </xs:complexType>
   </xs:element>
+-->
   <xs:annotation>
     <xs:documentation>
     ======================= Tables =======================================
@@ -1886,7 +1927,7 @@
   </xs:element>
   <xs:element name="caption">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Inline">
           <xs:attributeGroup ref="attrs"/>
         </xs:extension>
@@ -2009,7 +2050,7 @@
   </xs:annotation>
   <xs:element name="th">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Flow">
           <xs:attributeGroup ref="attrs"/>
           <xs:attribute name="abbr" type="Text"/>
@@ -2026,7 +2067,7 @@
   </xs:element>
   <xs:element name="td">
     <xs:complexType mixed="true">
-      <xs:complexContent mixed="true">
+      <xs:complexContent>
         <xs:extension base="Flow">
           <xs:attributeGroup ref="attrs"/>
           <xs:attribute name="abbr" type="Text"/>

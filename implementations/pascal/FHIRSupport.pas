@@ -648,14 +648,14 @@ Type
       make a new narrative with the provided status and html
     }
     {!script nolink}
-    function makeNarrative(status, html : String) : TFhirNarrative;
+    function makeNarrative(status, html : String; policy : TFHIRXhtmlParserPolicy) : TFhirNarrative;
 
     {@member parseHTML
       parse an html fragment into an html node (for use with narrative).
 
       the html fragment must begin and end with <xhtml></xhtml>
     }
-    function parseHTML(source : String) : TFhirXHtmlNode;
+    function parseHTML(source : String; policy : TFHIRXhtmlParserPolicy) : TFhirXHtmlNode;
 
     {@member makeBundle
       create a new bundle (i.e. atom feed)
@@ -1081,12 +1081,13 @@ begin
   end;
 end;
 
-function TFHIRFactory.parseHTML(source: String): TFhirXHtmlNode;
+function TFHIRFactory.parseHTML(source: String; policy : TFHIRXhtmlParserPolicy): TFhirXHtmlNode;
 var
   parser : TFHIRXmlParserBase;
 begin
   parser := TFHIRXmlParserBase.create(Flang);
   try
+    parser.ParserPolicy := policy;
     parser.Source := TStringStream.create(source);
     result := parser.ParseHtml;
     try
@@ -1125,12 +1126,12 @@ begin
   end;
 end;
 
-function TFHIRFactory.makeNarrative(status, html: String): TFhirNarrative;
+function TFHIRFactory.makeNarrative(status, html: String; policy : TFHIRXhtmlParserPolicy): TFhirNarrative;
 begin
   result := TFhirNarrative.create;
   try
     result.status := CheckEnum(CODES_TFhirNarrativeStatus, status);
-    result.div_ := parseHTML(html);
+    result.div_ := parseHTML(html, policy);
     result.link;
   finally
     result.free;
@@ -1189,7 +1190,7 @@ function TFHIRFactory.makeSuccessfulOperation: TFhirOperationOutcome;
 begin
   result := TFhirOperationOutcome.create;
   try
-    result.text := makeNarrative('generated', '<div>The operation was succesful</div>');
+    result.text := makeNarrative('generated', '<div>The operation was succesful</div>', xppReject);
     result.link;
   finally
     result.Free;

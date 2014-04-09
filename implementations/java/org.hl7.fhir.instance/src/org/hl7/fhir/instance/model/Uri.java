@@ -33,7 +33,7 @@ import java.net.URI;
 /**
  * Primitive type "uri" in FHIR: any valid URI. Sometimes constrained to be only an absolute URI, and sometimes constrained to be a literal reference
  */
-public class Uri extends Type {
+public class Uri extends PrimitiveType {
 	
 	/**
 	 * any valid URI
@@ -63,5 +63,10 @@ public class Uri extends Type {
 	protected Type typedCopy() {
 		return copy();
 	}
+
+  @Override
+  public String asStringValue() {
+    return value;
+  }
 
 }

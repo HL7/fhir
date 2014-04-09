@@ -36,7 +36,7 @@ package org.hl7.fhir.instance.model;
  * @author Grahame
  *
  */
-public class Integer extends Type {
+public class Integer extends PrimitiveType {
 
 	/**
 	 * the actual value of the number
@@ -90,6 +90,11 @@ public class Integer extends Type {
 
 	public String getStringValue() {
 	  return java.lang.Integer.toString(value);
+  }
+
+  @Override
+  public String asStringValue() {
+    return original != null ? original : java.lang.Integer.toString(value);
   }
 
 }

@@ -34,7 +34,7 @@ package org.hl7.fhir.instance.model;
 /**
  * Primitive type "boolean" in FHIR "true" or "false"
  */
-public class Boolean extends Type {
+public class Boolean extends PrimitiveType {
 
 	/**
 	 * The value of the boolean
@@ -68,5 +68,10 @@ public class Boolean extends Type {
 	public String getStringValue() {
 		return value == null ? null : value.toString();
 	}
+
+  @Override
+  public String asStringValue() {
+    return value.toString();
+  }
 	
 }

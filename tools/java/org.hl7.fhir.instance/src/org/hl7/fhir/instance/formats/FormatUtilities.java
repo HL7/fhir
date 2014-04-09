@@ -33,58 +33,14 @@ import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URI;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
-
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.DateAndTime;
-import org.hl7.fhir.utilities.Utilities;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 
-public abstract class XmlBase {
+public abstract class FormatUtilities {
   protected static final String FHIR_NS = "http://hl7.org/fhir";
   protected static final String ATOM_NS = "http://www.w3.org/2005/Atom";
   protected static final String GDATA_NS = "http://schemas.google.com/g/2005";
  
-  protected XmlPullParser loadXml(InputStream stream) throws Exception {
-    BufferedInputStream input = new BufferedInputStream(stream);
-    XmlPullParserFactory factory = XmlPullParserFactory.newInstance(System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
-    factory.setNamespaceAware(true);
-    XmlPullParser xpp = factory.newPullParser();
-    xpp.setInput(input, "UTF-8");
-    xpp.next();
-    
-    return xpp;
-  }
- 
-  protected int nextNoWhitespace(XmlPullParser xpp) throws Exception {
-    int eventType = xpp.getEventType();
-    while ((eventType == XmlPullParser.TEXT && xpp.isWhitespace()) || (eventType == XmlPullParser.COMMENT))
-      eventType = xpp.next();
-    return eventType;
-  }
-
-
-	protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
-  	// when this is called, we are pointing an element that may have content
-    while (xpp.getEventType() != XmlPullParser.END_TAG) {
-  		xpp.next();
-    	if (xpp.getEventType() == XmlPullParser.START_TAG) 
-    		skipElementWithContent(xpp);
-    }
-    xpp.next();
-  }
-  
-  protected void skipEmptyElement(XmlPullParser xpp) throws Exception {
-    while (xpp.getEventType() != XmlPullParser.END_TAG) 
-      xpp.next();
-    xpp.next();
-  }
-
   protected String toString(String value) {
     return value;
   }
@@ -114,5 +70,7 @@ public abstract class XmlBase {
     return value.toString();
   }
   
+
+
 
 }

@@ -53,7 +53,7 @@ public class ResourceTest {
     this.source = source;
   }
   
-/*  public void test() throws Exception {
+  public void test() throws Exception {
     
     Parser p;
     if (isJson())
@@ -81,7 +81,6 @@ public class ResourceTest {
       xml1.compose(out, rf.getResource(), true);
     }
     
-    
   }
 
   public boolean isJson() {
@@ -90,5 +89,6 @@ public class ResourceTest {
 
   public void setJson(boolean json) {
     this.json = json;
-  }*/
+  }
+  
 }

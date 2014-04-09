@@ -102,9 +102,7 @@ public abstract class JsonComposerBase extends FormatUtilities implements Compos
 	 */
 	public void compose(JsonWriter writer, AtomFeed feed) throws Exception {
 		json = writer;
-		openObject("feed");
 		composeFeed(feed);
-		closeObject();
 	}
 	
 	/**

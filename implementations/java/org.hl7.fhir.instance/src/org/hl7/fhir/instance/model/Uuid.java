@@ -28,7 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.instance.model;
 
-public class Uuid extends Id {
+public class Uuid extends Uri {
 
 	
 }

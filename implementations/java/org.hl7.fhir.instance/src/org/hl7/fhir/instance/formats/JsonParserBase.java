@@ -43,6 +43,8 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
+
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
 /**
@@ -68,8 +70,9 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     JsonObject json = loadJson(input);
     ResourceOrFeed r = new ResourceOrFeed();
     
-    if (json.has("feed"))
-      r.feed = parseAtom(json.getAsJsonObject("feed"));
+    String rt = json.get("resourceType").getAsString();
+		if ("Bundle".equals(rt))
+      r.feed = parseAtom(json);
     else  
       r.resource = parseResource(json);
     return r;    

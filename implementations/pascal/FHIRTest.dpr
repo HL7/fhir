@@ -118,6 +118,7 @@ begin
   try
     p := TFHIRXmlParser.Create('en');
     try
+      p.ParserPolicy := xppDrop;
       f := TFileStream.Create(source, fmopenRead,+ fmShareDenyWrite);
       try
         p.source := f;

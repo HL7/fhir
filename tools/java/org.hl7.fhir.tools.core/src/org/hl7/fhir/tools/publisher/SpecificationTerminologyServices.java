@@ -388,4 +388,9 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
     } else
       throw new Exception("Server is not available");
   }
+
+  @Override
+  public boolean verifiesSystem(String system) {
+    return true;
+  }
 }

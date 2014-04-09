@@ -33,14 +33,12 @@ package org.hl7.fhir.instance.model;
 
 import java.util.Calendar;
 
-import org.hl7.fhir.instance.formats.FormatUtilities;
-
 /**
  * Primitive type "instant" in FHIR: a value date time with a known timezone
  * @author Grahame
  *
  */
-public class Instant extends Type {
+public class Instant extends PrimitiveType {
 
 	/**
 	 * The value for the instant
@@ -71,5 +69,10 @@ public class Instant extends Type {
 
 	public String getStringValue() {
 	  return value == null ? null : value.toString();
+  }
+
+  @Override
+  public String asStringValue() {
+    return value.toString();
   }
 }

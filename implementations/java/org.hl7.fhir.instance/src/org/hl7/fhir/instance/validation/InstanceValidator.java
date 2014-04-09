@@ -47,8 +47,7 @@ import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.instance.utils.ConceptLocator;
-import org.hl7.fhir.instance.utils.ConceptLocator.ValidationResult;
+import org.hl7.fhir.instance.utils.TerminologyServices;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -95,9 +94,9 @@ public class InstanceValidator extends BaseValidator {
   private ExtensionLocatorService extensions;
 
 
-  private ConceptLocator conceptLocator;
+  private TerminologyServices conceptLocator;
 
-  public InstanceValidator(String validationZip, ExtensionLocatorService extensions, ConceptLocator conceptLocator) throws Exception {
+  public InstanceValidator(String validationZip, ExtensionLocatorService extensions, TerminologyServices conceptLocator) throws Exception {
     super();
     source = Source.InstanceValidator;
     loadValidationResources(validationZip);
@@ -451,7 +450,7 @@ public class InstanceValidator extends BaseValidator {
                     ValueSet vs = resolveBindingReference(binding.getReference());
                     if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                       try {
-                        vs = cache.getExpander().expand(vs);
+                        vs = cache.getExpander().expand(vs).getValueset();
                         if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
                           warning(errors, "code-unknown", path, codeInExpansion(vs, null, child.getAttribute("value")), "Code "+child.getAttribute("value")+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+")");
                         }
@@ -657,7 +656,7 @@ public class InstanceValidator extends BaseValidator {
               ValueSet vs = resolveBindingReference(binding.getReference());
               if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
                 try {
-                  vs = cache.getExpander().expand(vs);
+                  vs = cache.getExpander().expand(vs).getValueset();
                   if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
                     warning(errors, "code-unknown", path, codeInExpansion(vs, system, code), "Code {"+system+"}"+code+" is not in value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+")");
                   }
@@ -719,7 +718,7 @@ public class InstanceValidator extends BaseValidator {
           ValueSet vs = resolveBindingReference(binding.getReference());
           if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
             try {
-              vs = cache.getExpander().expand(vs);
+              vs = cache.getExpander().expand(vs).getValueset();
               if (warning(errors, "code-unknown", path, binding != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
                 boolean found = false;
                 boolean any = false;
@@ -774,7 +773,7 @@ public class InstanceValidator extends BaseValidator {
 
   private boolean checkCode(List<ValidationMessage> errors, String path, String code, String system, String display) {
     if (conceptLocator != null && conceptLocator.verifiesSystem(system)) {
-      ValidationResult s = conceptLocator.validate(system, code, display);
+      org.hl7.fhir.instance.utils.TerminologyServices.ValidationResult s = conceptLocator.validateCode(system, code, display);
       if (s == null)
         return true;
       if (s.getSeverity() == IssueSeverity.information)

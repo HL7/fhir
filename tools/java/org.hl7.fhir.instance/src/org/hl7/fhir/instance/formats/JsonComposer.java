@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Feb 3, 2014 15:10+1100 for FHIR v0.80
+// Generated on Wed, Apr 9, 2014 11:06+1000 for FHIR v0.80
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -894,6 +894,136 @@ public class JsonComposer extends JsonComposerBase {
           composeResourceReference(null, e);
         closeArray();
       };
+    }
+  }
+
+  private void composeAppointment(String name, Appointment element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeIntegerCore("priority", element.getPriority(), false);
+      composeIntegerExtras("priority", element.getPriority(), false);
+      composeCodeCore("status", element.getStatus(), false);
+      composeCodeExtras("status", element.getStatus(), false);
+      composeCodeableConcept("reason", element.getReason());
+      composeStringCore("description", element.getDescription(), false);
+      composeStringExtras("description", element.getDescription(), false);
+      composeInstantCore("start", element.getStart(), false);
+      composeInstantExtras("start", element.getStart(), false);
+      composeInstantCore("end", element.getEnd(), false);
+      composeInstantExtras("end", element.getEnd(), false);
+      if (element.getSlot().size() > 0) {
+        openArray("slot");
+        for (ResourceReference e : element.getSlot()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      composeResourceReference("location", element.getLocation());
+      composeStringCore("comment", element.getComment(), false);
+      composeStringExtras("comment", element.getComment(), false);
+      composeResourceReference("order", element.getOrder());
+      if (element.getParticipant().size() > 0) {
+        openArray("participant");
+        for (Appointment.AppointmentParticipantComponent e : element.getParticipant()) 
+          composeAppointmentAppointmentParticipantComponent(null, e);
+        closeArray();
+      };
+      composeResourceReference("lastModifiedBy", element.getLastModifiedBy());
+      composeDateTimeCore("lastModifiedDate", element.getLastModifiedDate(), false);
+      composeDateTimeExtras("lastModifiedDate", element.getLastModifiedDate(), false);
+    }
+  }
+
+  private void composeAppointmentAppointmentParticipantComponent(String name, Appointment.AppointmentParticipantComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      if (element.getType().size() > 0) {
+        openArray("type");
+        for (CodeableConcept e : element.getType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeResourceReference("individual", element.getIndividual());
+      if (element.getRequired() != null) {
+        composeEnumerationCore("required", element.getRequired(), new Appointment.ParticipantrequiredEnumFactory(), false);
+        composeEnumerationExtras("required", element.getRequired(), new Appointment.ParticipantrequiredEnumFactory(), false);
+      }
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new Appointment.ParticipationstatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Appointment.ParticipationstatusEnumFactory(), false);
+      }
+      close();
+    }
+  }
+
+  private void composeAppointmentResponse(String name, AppointmentResponse element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeResourceReference("appointment", element.getAppointment());
+      if (element.getParticipantType().size() > 0) {
+        openArray("participantType");
+        for (CodeableConcept e : element.getParticipantType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getIndividual().size() > 0) {
+        openArray("individual");
+        for (ResourceReference e : element.getIndividual()) 
+          composeResourceReference(null, e);
+        closeArray();
+      };
+      if (element.getParticipantStatus() != null) {
+        composeEnumerationCore("participantStatus", element.getParticipantStatus(), new AppointmentResponse.ParticipantstatusEnumFactory(), false);
+        composeEnumerationExtras("participantStatus", element.getParticipantStatus(), new AppointmentResponse.ParticipantstatusEnumFactory(), false);
+      }
+      composeStringCore("comment", element.getComment(), false);
+      composeStringExtras("comment", element.getComment(), false);
+      composeInstantCore("start", element.getStart(), false);
+      composeInstantExtras("start", element.getStart(), false);
+      composeInstantCore("end", element.getEnd(), false);
+      composeInstantExtras("end", element.getEnd(), false);
+      composeResourceReference("lastModifiedBy", element.getLastModifiedBy());
+      composeDateTimeCore("lastModifiedByDate", element.getLastModifiedByDate(), false);
+      composeDateTimeExtras("lastModifiedByDate", element.getLastModifiedByDate(), false);
+    }
+  }
+
+  private void composeAvailability(String name, Availability element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.getType().size() > 0) {
+        openArray("type");
+        for (CodeableConcept e : element.getType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      composeResourceReference("individual", element.getIndividual());
+      composePeriod("planningHorizon", element.getPlanningHorizon());
+      composeStringCore("comment", element.getComment(), false);
+      composeStringExtras("comment", element.getComment(), false);
+      composeDateTimeCore("lastModified", element.getLastModified(), false);
+      composeDateTimeExtras("lastModified", element.getLastModified(), false);
     }
   }
 
@@ -2190,6 +2320,7 @@ public class JsonComposer extends JsonComposerBase {
           composeEncounterEncounterParticipantComponent(null, e);
         closeArray();
       };
+      composeResourceReference("fulfills", element.getFulfills());
       composePeriod("period", element.getPeriod());
       composeDuration("length", element.getLength());
       composeCodeableConcept("reason", element.getReason());
@@ -3230,6 +3361,70 @@ public class JsonComposer extends JsonComposerBase {
       composeResourceReference("target", element.getTarget());
       composeUriCore("endpoint", element.getEndpoint(), false);
       composeUriExtras("endpoint", element.getEndpoint(), false);
+      close();
+    }
+  }
+
+  private void composeNamespace(String name, Namespace element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getType() != null) {
+        composeEnumerationCore("type", element.getType(), new Namespace.NamespaceTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Namespace.NamespaceTypeEnumFactory(), false);
+      }
+      composeStringCore("label", element.getLabel(), false);
+      composeStringExtras("label", element.getLabel(), false);
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new Namespace.NamespaceStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Namespace.NamespaceStatusEnumFactory(), false);
+      }
+      composeCodeCore("country", element.getCountry(), false);
+      composeCodeExtras("country", element.getCountry(), false);
+      composeCodeableConcept("category", element.getCategory());
+      composeStringCore("description", element.getDescription(), false);
+      composeStringExtras("description", element.getDescription(), false);
+      composeStringCore("usage", element.getUsage(), false);
+      composeStringExtras("usage", element.getUsage(), false);
+      if (element.getUniqueId().size() > 0) {
+        openArray("uniqueId");
+        for (Namespace.NamespaceUniqueIdComponent e : element.getUniqueId()) 
+          composeNamespaceNamespaceUniqueIdComponent(null, e);
+        closeArray();
+      };
+      composeResourceReference("responsible", element.getResponsible());
+      composeNamespaceNamespaceContactComponent("contact", element.getContact());
+    }
+  }
+
+  private void composeNamespaceNamespaceUniqueIdComponent(String name, Namespace.NamespaceUniqueIdComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      if (element.getType() != null) {
+        composeEnumerationCore("type", element.getType(), new Namespace.NamespaceIdentifierTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Namespace.NamespaceIdentifierTypeEnumFactory(), false);
+      }
+      composeStringCore("value", element.getValue(), false);
+      composeStringExtras("value", element.getValue(), false);
+      composeBooleanCore("preferred", element.getPreferred(), false);
+      composeBooleanExtras("preferred", element.getPreferred(), false);
+      composePeriod("period", element.getPeriod());
+      close();
+    }
+  }
+
+  private void composeNamespaceNamespaceContactComponent(String name, Namespace.NamespaceContactComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeHumanName("name", element.getName());
+      if (element.getTelecom().size() > 0) {
+        openArray("telecom");
+        for (Contact e : element.getTelecom()) 
+          composeContact(null, e);
+        closeArray();
+      };
       close();
     }
   }
@@ -4546,6 +4741,35 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeSlot(String name, Slot element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      if (element.getIdentifier().size() > 0) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      composeCodeableConcept("type", element.getType());
+      composeResourceReference("availability", element.getAvailability());
+      if (element.getFreeBusyType() != null) {
+        composeEnumerationCore("freeBusyType", element.getFreeBusyType(), new Slot.SlotstatusEnumFactory(), false);
+        composeEnumerationExtras("freeBusyType", element.getFreeBusyType(), new Slot.SlotstatusEnumFactory(), false);
+      }
+      composeInstantCore("start", element.getStart(), false);
+      composeInstantExtras("start", element.getStart(), false);
+      composeInstantCore("end", element.getEnd(), false);
+      composeInstantExtras("end", element.getEnd(), false);
+      composeBooleanCore("overboooked", element.getOverboooked(), false);
+      composeBooleanExtras("overboooked", element.getOverboooked(), false);
+      composeStringCore("comment", element.getComment(), false);
+      composeStringExtras("comment", element.getComment(), false);
+      composeDateTimeCore("lastModified", element.getLastModified(), false);
+      composeDateTimeExtras("lastModified", element.getLastModified(), false);
+    }
+  }
+
   private void composeSpecimen(String name, Specimen element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -4952,6 +5176,12 @@ public class JsonComposer extends JsonComposerBase {
       composeAlert("Alert", (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance("AllergyIntolerance", (AllergyIntolerance)resource);
+    else if (resource instanceof Appointment)
+      composeAppointment("Appointment", (Appointment)resource);
+    else if (resource instanceof AppointmentResponse)
+      composeAppointmentResponse("AppointmentResponse", (AppointmentResponse)resource);
+    else if (resource instanceof Availability)
+      composeAvailability("Availability", (Availability)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan("CarePlan", (CarePlan)resource);
     else if (resource instanceof Composition)
@@ -5004,6 +5234,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMedicationStatement("MedicationStatement", (MedicationStatement)resource);
     else if (resource instanceof MessageHeader)
       composeMessageHeader("MessageHeader", (MessageHeader)resource);
+    else if (resource instanceof Namespace)
+      composeNamespace("Namespace", (Namespace)resource);
     else if (resource instanceof Observation)
       composeObservation("Observation", (Observation)resource);
     else if (resource instanceof OperationOutcome)
@@ -5034,6 +5266,8 @@ public class JsonComposer extends JsonComposerBase {
       composeRelatedPerson("RelatedPerson", (RelatedPerson)resource);
     else if (resource instanceof SecurityEvent)
       composeSecurityEvent("SecurityEvent", (SecurityEvent)resource);
+    else if (resource instanceof Slot)
+      composeSlot("Slot", (Slot)resource);
     else if (resource instanceof Specimen)
       composeSpecimen("Specimen", (Specimen)resource);
     else if (resource instanceof Substance)
@@ -5055,6 +5289,12 @@ public class JsonComposer extends JsonComposerBase {
       composeAlert(name, (Alert)resource);
     else if (resource instanceof AllergyIntolerance)
       composeAllergyIntolerance(name, (AllergyIntolerance)resource);
+    else if (resource instanceof Appointment)
+      composeAppointment(name, (Appointment)resource);
+    else if (resource instanceof AppointmentResponse)
+      composeAppointmentResponse(name, (AppointmentResponse)resource);
+    else if (resource instanceof Availability)
+      composeAvailability(name, (Availability)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan(name, (CarePlan)resource);
     else if (resource instanceof Composition)
@@ -5107,6 +5347,8 @@ public class JsonComposer extends JsonComposerBase {
       composeMedicationStatement(name, (MedicationStatement)resource);
     else if (resource instanceof MessageHeader)
       composeMessageHeader(name, (MessageHeader)resource);
+    else if (resource instanceof Namespace)
+      composeNamespace(name, (Namespace)resource);
     else if (resource instanceof Observation)
       composeObservation(name, (Observation)resource);
     else if (resource instanceof OperationOutcome)
@@ -5137,6 +5379,8 @@ public class JsonComposer extends JsonComposerBase {
       composeRelatedPerson(name, (RelatedPerson)resource);
     else if (resource instanceof SecurityEvent)
       composeSecurityEvent(name, (SecurityEvent)resource);
+    else if (resource instanceof Slot)
+      composeSlot(name, (Slot)resource);
     else if (resource instanceof Specimen)
       composeSpecimen(name, (Specimen)resource);
     else if (resource instanceof Substance)
