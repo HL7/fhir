@@ -1,4 +1,4 @@
-NAME=travis_build
+NAME="Continuous Integration Build"
 
 prepareToBuild (){
   git clean -d -f
