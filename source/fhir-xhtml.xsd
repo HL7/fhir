@@ -1,5 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/1999/xhtml" targetNamespace="http://www.w3.org/1999/xhtml" elementFormDefault="qualified" version="1.0" xml:lang="en">
+  <!--
+  FHIR XHTML Schema
+  
+  This is a pared down modification of the XHTML schema published by the W3C. 
+  it does not allow any of the content that the FHIR specification bans. 
+  
+  Note that you can replace this schema with the standard W3C schema - this 
+  will still work, but will allow XHTML that is not valid. You might want to 
+  do this if you already have the standard XHTML schema in your schema cache, 
+  for instance
+  
+  The content that is restricted to not appear:
+    - javascript attributes and the script element
+    - head, body etc (FHIR just uses div)
+    - forms, objects, and inserted and deleted text
+  -->
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
   <xs:annotation>
     <xs:documentation>

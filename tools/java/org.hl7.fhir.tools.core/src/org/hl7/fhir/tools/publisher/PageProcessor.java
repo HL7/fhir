@@ -386,6 +386,8 @@ public class PageProcessor implements Logger  {
         src = s1 + genDataTypeUsage(com[1]) + s3;
       }  else if (com[0].equals("v3xref")) {
         src = s1 + xreferencesForV3(name, com[1].equals("true")) + s3;      
+      }  else if (com[0].equals("reflink")) {
+        src = s1 + reflink(com[1]) + s3;      
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -555,6 +557,13 @@ public class PageProcessor implements Logger  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String reflink(String name) {
+    for (PlatformGenerator t : referenceImplementations) 
+      if (t.getName().equals(name))
+        return t.getReference(version);
+    return "??";
   }
 
   private String conceptmaplist(String id, String level) {
@@ -1935,10 +1944,7 @@ public class PageProcessor implements Logger  {
   private String genReferenceImplList() {
     StringBuilder s = new StringBuilder();
     for (PlatformGenerator gen : referenceImplementations) {
-      if(!"csharp".equals(gen.getName()))
-        s.append("<tr><td><a href=\""+gen.getName()+".zip\">"+gen.getTitle()+"</a></td><td>"+Utilities.genMarkdown(gen.getDescription())+"</td></tr>\r\n");
-      else
-        s.append("<tr><td><a href=\"http://github.com/ewoutkramer/fhir-net-api\">.NET</a></td><td>"+gen.getDescription()+"</td></tr>\r\n");
+      s.append("<tr><td><a href=\""+gen.getReference(version)+"\">"+gen.getTitle()+"</a></td><td>"+Utilities.genMarkdown(gen.getDescription())+"</td></tr>\r\n");
     }
     return s.toString();
   }
@@ -2269,6 +2275,8 @@ public class PageProcessor implements Logger  {
       } else if (com[0].equals("settitle")) {
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
+      }  else if (com[0].equals("reflink")) {
+        src = s1 + reflink(com[1]) + s3;      
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
@@ -3012,7 +3020,7 @@ public class PageProcessor implements Logger  {
     s.append("<p>These archives only keep the more significant past versions of FHIR, and only the book form, and are provided for purposes of supporting html diff tools. A full archive history of everything is available <a href=\"http://wiki.hl7.org/index.php?title=FHIR\">through the HL7 gForge archives</a>.</p>");
     s.append("<ul>");
     for (String v : ini.getPropertyNames("Archives")) {
-      s.append("<li><a href=\"http://www.hl7.org/implement/standards/FHIR/"+v+"/index.htm\">Version "+v+"</a>, "+ini.getStringProperty("Archives", v)+"</li>");
+      s.append("<li><a href=\"http://www.hl7.org/implement/standards/FHIR/v"+v+"/index.htm\">Version "+v+"</a>, "+ini.getStringProperty("Archives", v)+"</li>");
       if (!definitions.getPastVersions().contains(v))
         definitions.getPastVersions().add(v);
     }

@@ -74,7 +74,7 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
 
   @Override
   public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
-    ZipGenerator zip = new ZipGenerator(Utilities.path(destDir, getName()+".zip"));
+    ZipGenerator zip = new ZipGenerator(Utilities.path(destDir, getReference(version)));
     zip.addFolder(Utilities.path(implDir, ""), "", false);
     zip.close();
   }
@@ -107,6 +107,11 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   @Override
   public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
     throw new UnsupportedOperationException("not supported");   
+  }
+
+  @Override
+  public String getVersion() {
+    return "0.01";
   }
 
 }

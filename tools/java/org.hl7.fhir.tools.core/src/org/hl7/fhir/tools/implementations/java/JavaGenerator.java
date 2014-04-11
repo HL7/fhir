@@ -168,7 +168,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     JavaComposerJsonGenerator jjComposerGen = new JavaComposerJsonGenerator(new FileOutputStream(javaParserDir+"JsonComposer.java"));
     jjComposerGen.generate(definitions, version, genDate);    
     jFactoryGen.generate(version, genDate);
-    ZipGenerator zip = new ZipGenerator(destDir+"java.zip");
+    ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
     zip.addFiles(implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl, "org/hl7/fhir/instance/model/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"formats"+sl, "org/hl7/fhir/instance/formats/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl, "org/hl7/fhir/utilities/", ".java", null);
@@ -521,5 +521,10 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       return null;
     else
       return s;
+  }
+
+  @Override
+  public String getVersion() {
+    return "0.80";
   }
 }

@@ -205,9 +205,15 @@ public class ObjectiveCGenerator extends BaseGenerator implements PlatformGenera
     }
 
     // last: zip the whole lot up
-    ZipGenerator zip = new ZipGenerator(Utilities.path(destDir, getName()+".zip"));
+    ZipGenerator zip = new ZipGenerator(Utilities.path(destDir, getReference(definitions.getVersion())));
     zip.addFolder(Utilities.path(implDir, ""), "", false);
     zip.close();
+  }
+
+  
+  @Override
+  public String getVersion() {
+    return "0.01";
   }
 
   @Override

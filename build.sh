@@ -19,7 +19,7 @@ antBuild (){
 checkStatus (){
   if [ $? -eq 0 -a ! -f fhir-error-dump.txt ]
   then
-    echo "Build sttus OK"
+    echo "Build status OK"
   else
     echo "error dump:"
     cat fhir-error-dump.txt

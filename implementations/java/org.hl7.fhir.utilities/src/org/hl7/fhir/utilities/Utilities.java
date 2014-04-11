@@ -550,4 +550,10 @@ public class Utilities {
 	  }
 	  return b.toString().trim();
   }
+
+
+  public static void copyFileToDirectory(File source, File destDir) throws IOException {
+  	copyFile(source, new File(path(destDir.getAbsolutePath(), source.getName())));
+  }
+  
 }

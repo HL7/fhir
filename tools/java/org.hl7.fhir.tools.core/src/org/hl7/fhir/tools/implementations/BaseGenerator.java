@@ -1,5 +1,7 @@
 package org.hl7.fhir.tools.implementations;
 
+import org.hl7.fhir.tools.publisher.PlatformGenerator;
+
 /*
 Copyright (c) 2011-2013, HL7, Inc
 All rights reserved.
@@ -28,7 +30,12 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-public class BaseGenerator {
+public abstract class BaseGenerator implements PlatformGenerator {
+
+  @Override
+  public String getReference(String version) {
+    return "fhir-"+version+"-"+getTitle()+"-"+getVersion()+".zip";
+  }
 
  
 }

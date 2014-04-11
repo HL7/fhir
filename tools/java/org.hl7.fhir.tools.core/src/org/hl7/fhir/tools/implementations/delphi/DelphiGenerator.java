@@ -197,7 +197,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     prsrCode.finish();
 
     genDoco(implDir);
-    ZipGenerator zip = new ZipGenerator(destDir+"pascal.zip");
+    ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
     zip.addFiles(implDir, "", ".pas", null);
     zip.addFiles(implDir, "", ".res", null);
     zip.addFiles(implDir, "", ".rc", null);
@@ -1779,12 +1779,16 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
               "    }\r\n"+
               "    procedure InsertItem(index : Integer; value : "+tn+");\r\n"+
               "    \r\n"+
-              "    {@member SetItemByIndex\r\n"+
+              "    {@member Item\r\n"+
+              "       Get the iIndexth "+tt+". (0 = first item)\r\n"+
+              "    }\r\n"+
+              "    \r\n"+
+              "    {@member Item\r\n"+
               "       Get the iIndexth "+tt+". (0 = first item)\r\n"+
               "    }\r\n"+
               "    procedure SetItemByIndex(index : Integer; value : "+tn+");\r\n"+
               "    \r\n"+
-              "    {@member Item\r\n"+
+              "    {@member Count\r\n"+
               "      The number of items in the collection\r\n"+
               "    }\r\n"+
               "    function Item(index : Integer) : "+tn+";\r\n"+
@@ -3184,6 +3188,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   @Override
   public String checkFragments(String rootDir, String fragments, boolean inProcess) throws Exception {
     return "Not supported by pascal implementation";
+  }
+
+  @Override
+  public String getVersion() {
+    return "0.80";
   }
 
 }

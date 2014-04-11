@@ -31,6 +31,7 @@ in one section. A summary:
  <li>Data Management Policies - FHIR defines a set of capabilities to support data exchange.
      Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA for exchange between institutions). 
      It is the responsibility of implementers to ensure that relevant regulations and other requirements are met</li>
+ <li>Narrative - Care must be taken when displaying the narrative from FHIR resources</li>
 </ul>
 <p>
 Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
@@ -126,6 +127,7 @@ SSL SHOULD be used for all production data exchange.
 To support browser-based client applications, recommend that servers SHOULD implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the <a href="http.html">REST operations</a>.  
 </p>
 
+<a name="authentication"> </a>
 <h2>Authentication</h2>
 <p>
 Other than testing systems, FHIR servers should authenticate the clients. 
@@ -169,6 +171,7 @@ The rules behind the Access Control decision are often very complex, and potenti
 <a href="http://www.ihe.net/Technical_Framework/upload/IHE_ITI_TF_WhitePaper_AccessControl_2009-09-28.pdf">IHE Access Control white paper</a>
 </p>
 
+<a name="audit"> </a>
 <h2>Audit Logging</h2>
 <p>
 FHIR provides a <a href="securityevent.html">SecurityEvent</a> resource suitable for use by 
@@ -185,6 +188,7 @@ client applications are able to search the security events, or subscribe to them
 </p>
 
 
+<a name="signatures"> </a>
 <h2>
 Digital Signatures
 </h2>
@@ -213,6 +217,7 @@ DSTU Note: Additional work is anticipated in this area, including alignment with
 </p>
 </blockquote>
 
+<a name="attachments"> </a>
 <h2>Attachments</h2>
 <p>
 Several FHIR resources include attachments. Attachments can either be references to content found elsewhere, or included inline encoded in base64.
@@ -226,6 +231,28 @@ always use caution when handling resources.
 <p>
 See <a href="security-labels.html">Security Labels</a>.
 </p>
+
+<a name="narrative"> </a>
+<h2>Narrative</h2>
+
+<p>
+FHIR resources include an XHTML narrative, so that applications can display the contents of the resource to users
+without having to fully and correctly process the data in the resource. However displaying HTML is associated 
+with several known security issues that have been observed in production systems in other contexts (e.g. 
+<a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">with CDA</a>). For
+this reason, the <a href="narrative.html#security">FHIR narrative is not allowed to contain active content</a>.
+However, care is still needed when displaying the narrative:
+</p>
+<ul>
+ <li>Validate the narrative (the standard FHIR schemas do not allow active content, and the reference implementations won't handle it). Note, though, that external references could still be included in CSS, and these are outside the scope of schemas and reference implementations.</li>
+ <li>Ensure that any external references to images or anchors (e.g. outside the resource) do not cause the display software to <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">leak sensitive information in headers</a></li>
+ <li>Do not allow external links to run in a privileged context such as the EHR unless you are sure they can be trusted</li>
+</ul>
+<p>
+Also note that the inclusion of an external reference to an image can allow the server that hosts the image to track 
+when the resource is displayed. This may be a feature or a problem depending on the context.
+</p>
+
 
 </div>
 

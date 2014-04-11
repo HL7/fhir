@@ -85,7 +85,7 @@ public class XSDBaseGenerator {
           + "targetNamespace=\"http://hl7.org/fhir\" elementFormDefault=\"qualified\" version=\""+version+"\">\r\n");
     }
     write("  <xs:import namespace=\"http://www.w3.org/XML/1998/namespace\" schemaLocation=\"xml.xsd\"/>\r\n");
-    write("  <xs:import namespace=\"http://www.w3.org/1999/xhtml\" schemaLocation=\"xhtml1-strict.xsd\"/>\r\n");
+    write("  <xs:import namespace=\"http://www.w3.org/1999/xhtml\" schemaLocation=\"fhir-xhtml.xsd\"/>\r\n");
     if (outer)
       write("  <xs:include schemaLocation=\"fhir-all.xsd\"/>\r\n");
 

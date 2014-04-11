@@ -244,7 +244,7 @@ public class WebMaker {
 		  for (Enumeration<? extends ZipEntry> e = zf.entries(); e.hasMoreElements();) {
 			  ZipEntry ze = e.nextElement();
 			  String name = ze.getName();
-			  if (name.endsWith(".html") || name.endsWith(".png") || name.endsWith(".css")) {
+			  if (name.endsWith(".html") || name.endsWith(".htm") || name.endsWith(".png") || name.endsWith(".css")) {
 				  InputStream in = zf.getInputStream(ze);
 				  OutputStream out = new FileOutputStream(dest+name);
 

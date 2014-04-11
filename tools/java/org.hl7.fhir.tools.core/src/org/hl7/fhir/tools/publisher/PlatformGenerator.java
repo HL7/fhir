@@ -35,8 +35,6 @@ import org.hl7.fhir.utilities.Logger;
 
 public interface PlatformGenerator {
 
-	
-	
   /**
    * @return The name of the generator - used to show progress in log reports - must be a valid java token, and a filename, all lowercase    
    */
@@ -53,13 +51,21 @@ public interface PlatformGenerator {
    */
   public String getDescription();
 
+  /**
+   * @return the URL for the download. In principle, the URL should be a link to a generated file with the format fhir-[version]-[title]-[reference impl version]
+   */
+  public String getReference(String version);
+  
+  /**
+   * @return the version of the reference implementation
+   */
+  public String getVersion();
   
   /**
    * @return returns true if this generator uses eCore for the FHIR definitions, false if it uses ElementDefn
    */
   public boolean isECoreGenerator();
   
-  // implement one of the two generate routines. Set the previous routine accordingly
   /**
    * Actually generate the reference implementation. The reference generator must generate a zip file [name].zip in the dst dir where
    * [name] is the name returned by getName(), and the zip file contains the contents of the reference implementation. The routine should 
@@ -90,7 +96,7 @@ public interface PlatformGenerator {
   /**
    * todo: should this be part of the generate or not?
    * 
-   * @return true if the platform generator is able to compile and build the generated code.
+   * @return true if the platform generator is able to take a compile and build the generated code.
    */
   public boolean doesCompile();
   
@@ -106,7 +112,7 @@ public interface PlatformGenerator {
   
   /**
    * 
-   * @return true if this platform can be tested as part of the run-time tests i.e. supports loadAndSave (has to support compile if it does)
+   * @return true if this platform can be tested as part of the run-time tests i.e. supports loadAndSave
    */
   public boolean doesTest();
 
@@ -126,7 +132,6 @@ public interface PlatformGenerator {
    * java generated code rather than the schemas because the fragments are quite often
    * incomplete, and we mainly want to know whether they include things that are not known
    *  
-   * Don't override this unless it's the java reference implementation
    */
   public String checkFragments(String rootDir, String fragmentsXml, boolean inProcess) throws Exception;
 }

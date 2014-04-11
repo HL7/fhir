@@ -144,6 +144,7 @@ import org.hl7.fhir.tools.implementations.XMLToolsGenerator;
 import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
 import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
+import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
 import org.hl7.fhir.tools.implementations.objectivec.ObjectiveCGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -696,6 +697,7 @@ public class Publisher {
     page.getReferenceImplementations().add(new DelphiGenerator());
     page.getReferenceImplementations().add(new ObjectiveCGenerator());
     page.getReferenceImplementations().add(new XMLToolsGenerator());
+    page.getReferenceImplementations().add(new JavaScriptGenerator());
     
     // page.getReferenceImplementations().add(new ECoreOclGenerator());
   }

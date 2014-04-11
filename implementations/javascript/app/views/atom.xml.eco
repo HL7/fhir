@@ -1,0 +1,65 @@
+<!--
+
+Copyright (c) 2011-2013, HL7, Inc & Mitre
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, 
+are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice, this 
+   list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation 
+   and/or other materials provided with the distribution.
+ * Neither the name of HL7 nor the names of its contributors may be used to 
+   endorse or promote products derived from this software without specific 
+   prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<feed xmlns="http://www.w3.org/2005/Atom">  
+  <title><!-- 1..1 string Text statement of purpose --></title>
+  <id><!-- 1..1 uri Unique URI for this bundle --></id>
+  <link rel="self" href="[building application url (Service base on REST)]"/><!-- 0..1 -->
+  <updated><!-- 1..1 instant When the bundle was built --></updated>
+  <category term="[Tag URI]" label="[Tag Label]" scheme="[Tag Type]"/> 
+  <author><!-- 0..1 Who created resource? -->
+      <name><!-- 1..1 string Name of Human or Device that authored the resource --></name>
+      <uri><!-- 0..1 uri Link to the resource for the author --></uri>
+  </author>
+  <category term="[Tag Term]" label="[Tag Label]" scheme="[Tag Scheme]"/> 
+  <entry><!-- Zero+ -->
+    <title><!-- 1..1 string Text summary of resource content --></title>
+    <id><!-- 1..1 uri Logical Id (URI) for this resource --></id>
+    <link rel="self" href="Version Specific reference to Resource"><!-- 0..1 --></link>
+    <updated><!-- 1..1 instant Last Updated for resource --></updated>
+    <published><!-- 0..1 instant Time resource copied into the feed --></published>
+    <author><!-- 0..1 Who created resource? -->
+      <name><!-- 1..1 string Name of Human or Device that authored the resource --></name>
+      <uri><!-- 0..1 uri Link to the resource for the author --></uri>
+    </author>      
+    <!-- Tags affixed to the resource (0..*):   --> 
+    <category term="[Tag URI]" label="[Tag Label]" scheme="[Tag Type]"/> 
+    <content type="text/xml"><!-- 0..1 -->
+      <[ResourceName] xmlns="http://hl7.org/fhir">
+        <!-- Content for the resource -->
+      </[ResourceName]>
+    </content>
+    <summary type="xhtml"><!-- 0..1 -->
+      <div xmlns="http://www.w3.org/1999/xhtml"><!-- Narrative from resource --></div>
+    </summary>
+  </entry>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <!-- 0..1 Enveloped Digital Signature (see Atom section 5.1) -->
+  </Signature>
+</feed>

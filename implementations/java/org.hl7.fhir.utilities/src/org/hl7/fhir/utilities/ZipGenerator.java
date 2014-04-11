@@ -93,11 +93,10 @@ public class ZipGenerator {
 		File fd = new CSFile(actualDir);
 		String files[] = fd.list();
 		for (String f : files) {
-			if (new CSFile(actualDir + f).isDirectory()) {
-				addFolder(actualDir + f + File.separator, statedDir + f
-						+ File.separator, omitIfExists);
-			} else
-				addFileName(statedDir + f, actualDir + f, omitIfExists);
+			if (new CSFile(Utilities.path(actualDir, f)).isDirectory())
+				addFolder(Utilities.path(actualDir, f), Utilities.path(statedDir, f), omitIfExists);
+			else
+				addFileName(Utilities.path(statedDir, f), Utilities.path(actualDir, f), omitIfExists);
 		}
 	}
 

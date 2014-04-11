@@ -15,14 +15,36 @@
 <a name="history"> </a>
 <h2>Version History</h2>
 
+<h3>Ongoing releases of the DSTU</h3>
+
 <p>
-FHIR was first proposed in July 2011. In May 2012, FHIR moved to it's current home at hl7.org/fhir. 
-Some of the more significant releases are archived for purposes of comparison with the current 
-version:
+This version of the FHIR is the <a href="dstu.html">DSTU</a>, as published 
+on Feb-3 2014. The date at the foot of the pages is more recent because of 
+ongoing releases to the FHIR version. Subsequent releases:
 </p>
-<p>
-TODO: Move the <a href="http://www.healthintersections.com.au/fhir/index.htm">DSTU ballot version</a> to this list.
-</p>
+<ul>
+ <li>Apr-X 2014: Add <a href="security.html#narrative">security alert</a> about Narrative, and the following changes to reference implementations:
+   <ul>
+     <li>All: Change the way version numbering works - the reference implementations have their own version now, in addition to the FHIR version</li>
+     <li>Java: Fix major bug in reading/writing JSON bundles. The specification changed so that there was 
+       "resourceType" : "Bundle" instead of a surrounding "feed" object, but the Java implementation hadn't been changed. 
+       This meant that the java implementation wasn't consistent with the specification or the other reference implementations,
+       <b>and it meant that the example JSON bundles in the specification were wrong</b>; these have also been fixed</li>
+     <li>Java: Enforce FHIR rules about narrative (no active content)</li>
+     <li>Pascal: Change minor error in list generation, enforce narrative rules  (no active content), better handling of relative references, </li>
+     <li>C#/.Net: Enforce FHIR rules about narrative (no active content), plus many others changes (see <a href="http://ewoutkramer.github.io/fhir-net-api/whats-new.html">http://ewoutkramer.github.io/fhir-net-api/whats-new.html</a>)</li>
+     <li>ObjectiveC: rename Resource to BaseResource and ResourceReference to Resource </li>
+     <li>Javascript: Add the Javascript implementation</li>
+   </ul>
+ </li>
+ <li>Apr-3 2014: Fix archive links (below), add link to HIMSS video on home page, and reference platform changes:
+   <ul>
+     <li>Java: Re-organise dependencies in the parsers so that JSON serialiser doesn't include XmlPullParser</li>
+     <li>ObjectiveC: rename Resource to BaseResource and ResourceReference to Resource </li>
+   </ul>
+ </li>
+</ul>
+
 
 [%archive%]
 
