@@ -60,6 +60,7 @@
     <pathelement location="../imports/svnkit-javahl16-1.7.9.jar"/>
     <pathelement location="../imports/antlr-runtime-3.4.jar"/>
     <pathelement location="../imports/gson-2.2.4.jar"/>
+    <pathelement location="../imports/ST-4.0.7.jar"/>
   </path>
   <target name="init">
     <mkdir dir="bin"/>
