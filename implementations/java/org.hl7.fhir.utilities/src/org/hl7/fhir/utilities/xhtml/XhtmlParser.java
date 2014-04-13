@@ -34,12 +34,148 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.xmlpull.v1.XmlPullParser;
 
 public class XhtmlParser {
 
+  private Set<String> elements = new HashSet<String>();
+  private Set<String> attributes = new HashSet<String>();  
+  
+  
+  public XhtmlParser() {
+	super();
+	policy = ParserSecurityPolicy.Accept; // for general parsing
+	
+	// set up sets
+	elements.add("p");
+	elements.add("br");
+	elements.add("div");
+	elements.add("h1");
+	elements.add("h2");
+	elements.add("h3");
+	elements.add("h4");
+	elements.add("h5");
+	elements.add("h6");
+	elements.add("a");
+	elements.add("span");
+	elements.add("b");
+	elements.add("em");
+	elements.add("i");
+	elements.add("strong");
+	elements.add("small");
+	elements.add("big");
+	elements.add("tt");
+	elements.add("small");
+	elements.add("dfn");
+	elements.add("q");
+	elements.add("var");
+	elements.add("abbr");
+	elements.add("acronym");
+	elements.add("cite");
+	elements.add("blockquote");
+	elements.add("hr");
+	elements.add("address");
+	elements.add("bdo");
+	elements.add("kbd");
+	elements.add("q");
+	elements.add("sub");
+	elements.add("sup");
+	elements.add("ul");
+	elements.add("ol");
+	elements.add("li");
+	elements.add("dl");
+	elements.add("dt");
+	elements.add("dd");
+	elements.add("pre");
+	elements.add("table");
+	elements.add("caption");
+	elements.add("colgroup");
+	elements.add("col");
+	elements.add("thead");
+	elements.add("tr");
+	elements.add("tfoot");
+	elements.add("tbody");
+	elements.add("th");
+	elements.add("td");
+	elements.add("code");
+	elements.add("samp");
+	elements.add("img");
+	elements.add("map");
+	elements.add("area");
+	
+	attributes.add("title");
+	attributes.add("style");
+	attributes.add("class");
+	attributes.add("id");
+	attributes.add("lang");
+	attributes.add("xml:lang");
+	attributes.add("dir");
+	attributes.add("accesskey");
+	attributes.add("tabindex");
+    // tables:
+	attributes.add("span");
+	attributes.add("width");
+	attributes.add("align");
+	attributes.add("valign");
+	attributes.add("char");
+	attributes.add("charoff");
+	attributes.add("abbr");
+	attributes.add("axis");
+	attributes.add("headers");
+	attributes.add("scope");
+	attributes.add("rowspan");
+	attributes.add("colspan");
+
+	attributes.add("a.href");
+	attributes.add("a.name");
+	attributes.add("img.src");
+	attributes.add("img.border");
+	attributes.add("div.xmlns");
+	attributes.add("blockquote.cite");
+	attributes.add("q.cite");
+	attributes.add("a.charset");
+	attributes.add("a.type");
+	attributes.add("a.name");
+	attributes.add("a.href");
+	attributes.add("a.hreflang");
+	attributes.add("a.rel");
+	attributes.add("a.rev");
+	attributes.add("a.shape");
+	attributes.add("a.coords");
+	attributes.add("img.src");
+	attributes.add("img.alt");
+	attributes.add("img.longdesc");
+	attributes.add("img.height");
+	attributes.add("img.width");
+	attributes.add("img.usemap");
+	attributes.add("img.ismap");
+	attributes.add("map.name");
+	attributes.add("area.shape");
+	attributes.add("area.coords");
+	attributes.add("area.href");
+	attributes.add("area.nohref");
+	attributes.add("area.alt");
+	attributes.add("table.summary");
+	attributes.add("table.width");
+	attributes.add("table.border");
+	attributes.add("table.frame");
+	attributes.add("table.rules");
+	attributes.add("table.cellspacing");
+	attributes.add("table.cellpadding");
+}
+
+public enum ParserSecurityPolicy {
+    Accept,
+    Drop,
+    Reject
+  }
+
+  private ParserSecurityPolicy policy;
+  
   private boolean trimWhitespace;
   private boolean mustBeWellFormed = true;
   
@@ -60,11 +196,20 @@ public class XhtmlParser {
   }
   
 
+  public ParserSecurityPolicy getPolicy() {
+ 	return policy;
+  }
+
+  public void setPolicy(ParserSecurityPolicy policy) {
+	this.policy = policy; 
+  }
+
   public XhtmlNode parseHtmlNode(XmlPullParser xpp) throws Exception {
     XhtmlNode res = new XhtmlNode(NodeType.Element);
     res.setName(xpp.getName());
     
     for (int i = 0; i < xpp.getAttributeCount(); i++) {
+      if (attributeIsOk(xpp.getName(), xpp.getAttributeName(i), xpp.getAttributeValue(i)))
       res.getAttributes().put(xpp.getAttributeName(i), xpp.getAttributeValue(i));
     }
     int eventType = xpp.next();
@@ -75,15 +220,48 @@ public class XhtmlParser {
       } else if (eventType == XmlPullParser.COMMENT) {
         res.addComment(xpp.getText());
         xpp.next();
-      } else if (eventType == XmlPullParser.START_TAG)
+      } else if (eventType == XmlPullParser.START_TAG) {
+        if (elementIsOk(xpp.getName()))
         res.getChildNodes().add(parseHtmlNode(xpp));
-      else
+      } else
         throw new Exception("Unhandled XHTML feature: "+Integer.toString(eventType)+descLoc());
       eventType = xpp.getEventType();
     }
     xpp.next();
     return res;
   }  
+
+  private boolean attributeIsOk(String elem, String attr, String value) throws Exception {
+	boolean ok = attributes.contains(attr) || attributes.contains(elem+"."+attr);
+	if (ok)
+	  return true;
+	else switch (policy) {
+	  case Accept: return true;
+	  case Drop: return false;
+	  case Reject: throw new Exception("Illegal HTML attribute "+elem+"."+attr);
+	}
+
+	if ((elem+"."+attr).equals("img.src") && !(value.startsWith("#") || value.startsWith("http:") || value.startsWith("https:"))) {
+		switch (policy) {
+		  case Accept: return true;
+		  case Drop: return false;
+		  case Reject: throw new Exception("Illegal Image Reference "+value);
+		}
+	}
+	return false;
+  }
+
+private boolean elementIsOk(String name) throws Exception {
+    boolean ok = elements.contains(name);
+	if (ok)
+      return true;
+	else switch (policy) {
+	  case Accept: return true;
+	  case Drop: return false;
+	  case Reject: throw new Exception("Illegal HTML element "+name);
+	}
+	return false;
+}
 
   private String descLoc() {
     return " at line "+Integer.toString(line)+" column "+Integer.toString(col);

@@ -31,6 +31,8 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.instance.formats.FormatUtilities;
+
 /**
  * A FHIR bundle, as represented in XML (e.g. Atom) or JSON
  */
@@ -85,6 +87,42 @@ public class AtomFeed extends AtomBase {
         return true;
     }
     return false;
+  }
+
+	public String getLogicalId(AtomEntry<? extends Resource> ae) throws Exception {
+		if (ae.getId() == null)
+	    throw new Exception("Unable to determine logical id for unknown resource");
+		
+	  if (getLinks().containsKey("fhir-base") && ae.getId().startsWith(getLinks().get("fhir-base"))) {
+	  	String tail = ae.getId().substring((getLinks().get("fhir-base")+"/"+ae.getResource().getResourceType().toString()).length());
+	  	if (tail.startsWith("/"))
+	  		tail = tail.substring(1);
+	  	if (FormatUtilities.isValidId(tail))
+	  		return tail;
+	  	else
+		    throw new Exception("Unable to determine logical id for resource "+ae.getId());	  		
+	  } else if (ae.getId().contains("/")) {
+	  	String tail = ae.getId().substring(ae.getId().lastIndexOf("/")+1);
+	  	if (FormatUtilities.isValidId(tail))
+	  		return tail;
+	  	else
+		    throw new Exception("Unable to determine logical id for resource "+ae.getId());	  			  	
+	  } else
+	    throw new Exception("Unable to determine logical id for resource "+ae.getId());
+  }
+
+	public String getVersionId(AtomEntry<? extends Resource> ae) throws Exception {
+	  String self = ae.getLinks().get("self");
+	  if (self == null)
+	    throw new Exception("Unable to determine version id for resource "+ae.getId());
+	  String id = getLogicalId(ae);
+	  if (!self.contains("/"+id+"/_history/"))
+	    throw new Exception("Unable to determine version id for resource "+ae.getId()+" (self = "+self+")");
+	  String vid = self.substring(self.lastIndexOf("/"+id+"/_history/")+("/"+id+"/_history/").length());
+  	if (FormatUtilities.isValidId(vid))
+  		return vid;
+  	else
+	    throw new Exception("Unable to determine version id for resource "+ae.getId()+" (self = "+self+")");
   }
 
 }

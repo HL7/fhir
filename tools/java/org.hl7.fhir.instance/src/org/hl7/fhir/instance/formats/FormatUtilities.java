@@ -69,6 +69,10 @@ public abstract class FormatUtilities {
   protected String toString(DateAndTime value) {
     return value.toString();
   }
+
+	public static boolean isValidId(String tail) {
+	  return tail.matches("[A-Za-z0-9\\-\\.]{1,36}");
+  }
   
 
 

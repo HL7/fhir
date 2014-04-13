@@ -40,6 +40,7 @@ import org.hl7.fhir.instance.formats.Composer;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.Parser;
+import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.AtomCategory;
@@ -82,6 +83,11 @@ public class ClientUtils {
 	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
 		HttpPost httpPost = new HttpPost(resourceUri);
 		return issueResourceRequest(resourceFormat, httpPost, payload, headers, proxy);
+	}
+	
+	public static TagListRequest issuePostRequestForTagList(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
+		HttpPost httpPost = new HttpPost(resourceUri);
+		return issueTagListRequest(resourceFormat, httpPost, payload, headers, proxy);
 	}
 	
 	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy) {
@@ -148,6 +154,25 @@ public class ClientUtils {
 		T resource = unmarshalResource(response, resourceFormat);
 		AtomEntry<T> atomEntry = buildAtomEntry(response, resource);
 		return new ResourceRequest<T>(atomEntry, response.getStatusLine().getStatusCode());
+	}
+	
+	/**
+	 * @param resourceFormat
+	 * @param options
+	 * @return
+	 */
+	protected static TagListRequest issueTagListRequest(String resourceFormat, HttpUriRequest request, byte[] payload, List<Header> headers, HttpHost proxy) {
+		configureFhirRequest(request, resourceFormat, headers);
+		HttpResponse response = null;
+		if(request instanceof HttpEntityEnclosingRequest && payload != null) {
+			response = sendPayload((HttpEntityEnclosingRequestBase)request, payload, proxy);
+		} else if (request instanceof HttpEntityEnclosingRequest && payload == null){
+			throw new EFhirClientException("PUT and POST requests require a non-null payload");
+		} else {
+			response = sendRequest(request, proxy);
+		}
+		List<AtomCategory> result = unmarshalTagList(response, resourceFormat);
+		return new TagListRequest(result, response.getStatusLine().getStatusCode());
 	}
 	
 	/**
@@ -252,6 +277,38 @@ public class ClientUtils {
 			}
 		}
 		return resource;
+	}
+	
+	/**
+	 * Unmarshals a resource from the response stream.
+	 * 
+	 * @param response
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	protected static List<AtomCategory> unmarshalTagList(HttpResponse response, String format) {
+		InputStream instream = null;
+		
+		HttpEntity entity = response.getEntity();
+		if (entity != null && entity.getContentLength() > 0) {
+			try {
+			    instream = entity.getContent();
+//			    System.out.println(writeInputStreamAsString(instream));
+			    ResourceOrFeed rf = getParser(format).parseGeneral(instream);
+			    if (rf.getResource() != null)
+						throw new EFhirClientException((OperationOutcome) rf.getResource());
+			    return rf.getTaglist();
+			} catch(IOException ioe) {
+				throw new EFhirClientException("Error unmarshalling entity from Http Response", ioe);
+			} catch(Exception e) {
+				throw new EFhirClientException("Error parsing response message", e);
+			} finally {
+				try{instream.close();
+			}
+			  catch(IOException ioe){/* TODO log error */}
+			}
+		}
+		return new ArrayList<AtomCategory>(); // just return an empty list TODO: this means the client doesn't know whether a list was returned or not?
 	}
 	
 	/**

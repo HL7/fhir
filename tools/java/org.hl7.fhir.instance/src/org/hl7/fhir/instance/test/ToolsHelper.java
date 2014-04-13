@@ -45,6 +45,7 @@ import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.formats.ParserBase.ResourceOrFeed;
+import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.TextFile;
@@ -52,7 +53,6 @@ import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Document;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-
 
 public class ToolsHelper {
 
@@ -68,6 +68,8 @@ public class ToolsHelper {
         self.executeRoundTrip(args);
       else if (args[0].equals("json")) 
         self.executeJson(args);
+      else if (args[0].equals("version")) 
+        self.executeVersion(args);
       else if (args[0].equals("fragments")) 
           self.executeFragments(args);
       else 
@@ -82,7 +84,7 @@ public class ToolsHelper {
     }
   }
 
-  protected XmlPullParser loadXml(InputStream stream) throws Exception {
+	protected XmlPullParser loadXml(InputStream stream) throws Exception {
 	BufferedInputStream input = new BufferedInputStream(stream);
     XmlPullParserFactory factory = XmlPullParserFactory.newInstance(System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
     factory.setNamespaceAware(true);
@@ -191,6 +193,10 @@ public class ToolsHelper {
       new JsonComposer().compose(new FileOutputStream(destt), rf.getResource(), true);
     }
     return TextFile.fileToString(destt.getAbsolutePath());
+  }
+
+  private void executeVersion(String[] args) throws Exception {
+    TextFile.stringToFile(org.hl7.fhir.instance.utils.Version.VERSION+":"+Constants.VERSION, args[1]);
   }
 
 }

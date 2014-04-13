@@ -31,6 +31,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -56,13 +57,16 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.instance.model.Constants;
 import org.hl7.fhir.instance.test.ToolsHelper;
+import org.hl7.fhir.instance.utils.Version;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaResourceGenerator.JavaGenClass;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 
@@ -168,6 +172,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     JavaComposerJsonGenerator jjComposerGen = new JavaComposerJsonGenerator(new FileOutputStream(javaParserDir+"JsonComposer.java"));
     jjComposerGen.generate(definitions, version, genDate);    
     jFactoryGen.generate(version, genDate);
+    TextFile.stringToFileNoPrefix(makeConstantsClass(version, svnRevision, genDate), implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl+"Constants.java"); 
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
     zip.addFiles(implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"model"+sl, "org/hl7/fhir/instance/model/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.instance"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"instance"+sl+"formats"+sl, "org/hl7/fhir/instance/formats/", ".java", null);
@@ -184,6 +189,19 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jParserGenX.close();
     jParserGenJ.close();
     jFactoryGen.close();
+  }
+
+  private String makeConstantsClass(String version, String svnRevision, Date genDate) {
+    String s = 
+        "package org.hl7.fhir.instance.model;\r\n"+
+            "\r\n"+
+            "public class Constants {\r\n"+
+            "\r\n"+
+            "  public final static String VERSION = \""+version+"\";\r\n"+
+            "  public final static String REVISION = \""+svnRevision+"\";\r\n"+
+            "  public final static String DATE = \""+genDate+"\";\r\n"+
+            "}\r\n";
+    return s;
   }
 
   private void generateResourceTypeEnum() throws Exception {
@@ -313,11 +331,48 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     AddToJar(jar, new File(rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.instance"+sc+"src"), (rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.instance"+sc+"src"+sc).length(), names);
     AddToJar(jar, new File(rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.utilities"+sc+"src"), (rootDir+"implementations"+sc+"java"+sc+"org.hl7.fhir.utilities"+sc+"src"+sc).length(), names);
     jar.close();
-    
+    checkVersion();
+
     return result;
   }
 
   
+  private void checkVersion() throws Exception {
+    // execute the jar file javatest.jar to check that it's version matches the version of the reference implemetnation bound in to the build tool
+    // also serves as as check of the java
+    // 
+    String destFile = Utilities.path(System.getProperty("java.io.tmpdir"), "java-version.tmp"); 
+    File file = new CSFile(destFile);
+    if (file.exists())
+      file.delete();
+    
+    List<String> command = new ArrayList<String>();
+    command.add("java");
+    command.add("-jar");
+    command.add("org.hl7.fhir.validator.jar");
+    command.add("version");
+    command.add(destFile);
+
+    ProcessBuilder builder = new ProcessBuilder(command);
+    builder.directory(new File(Utilities.path(rootDir, "publish")));
+    final Process process = builder.start();
+    BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+    String s;
+    while ((s = stdError.readLine()) != null) {
+      System.err.println(s);
+    }    
+    builder.directory(new File(rootDir));
+
+    process.waitFor();
+    if (!(new File(destFile).exists()))
+        throw new Exception("Unable to check Java library version");
+    String[] ver = TextFile.fileToString(destFile).split(":");
+    if (!ver[1].equals(Constants.VERSION))
+      throw new Exception("Version mismatch - the compiled version is using FHIR "+ver+" but the bound version of FHIR is "+Constants.VERSION);
+    if (!ver[0].equals(getVersion()))
+      throw new Exception("Version mismatch - the compiled version of the reference implementation is "+ver+" but the bound version is "+getVersion());
+  }
+
   private void addSourceFiles(List<File> classes, String name) {
     File f = new File(name);
     if (f.isDirectory()) {
@@ -525,6 +580,6 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
 
   @Override
   public String getVersion() {
-    return "0.80";
+    return Version.VERSION; // this has to be hard coded, but we'll fetch if later from the client and check that it's correct
   }
 }

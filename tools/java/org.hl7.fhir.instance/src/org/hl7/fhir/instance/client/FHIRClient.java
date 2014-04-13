@@ -38,6 +38,7 @@ import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
 
@@ -79,6 +80,26 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 public interface FHIRClient {
 
+	public interface VersionInfo {
+		public String getClientJavaLibVersion();
+		public String getFhirJavaLibVersion();
+		public String getFhirJavaLibRevision();
+		public String getFhirServerVersion();
+		public String getFhirServerSoftware();
+		
+  }
+
+	/**
+	 * Get the Java verion of client and reference implementation, the 
+	 * client FHIR version, the server FHIR version, and the server 
+	 * software version. The server information will be blank if no 
+	 * service URL is provided
+	 * 
+	 * @return the version information  
+	 */
+	public VersionInfo getVersions();
+	
+	
 	/**
 	 * Call method to initialize FHIR client. This method must be invoked
 	 * with a valid base server URL prior to using the client.
@@ -213,6 +234,7 @@ public interface FHIRClient {
 	 * @return
 	 */
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass, String id);
+	public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass, String id);
 	
 	/**
 	 * Retrieve the entire update history for a resource with the given id.
@@ -235,10 +257,13 @@ public interface FHIRClient {
 	 * @return
 	 */
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass);
+	public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass);
 	
 	/**
 	 * Retrieve the update history for all resource types since the specified calendar date.
-	 * Last update may be null TODO - ensure this is the case.
+	 * Last update may be null 
+	 * 
+	 * Note: 
 	 * 
 	 * @param lastUpdate
 	 * @param resourceClass
@@ -246,7 +271,20 @@ public interface FHIRClient {
 	 * @return
 	 */
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate);
+	public <T extends Resource> AtomFeed history(DateAndTime lastUpdate);
 	
+	/**
+	 * Retrieve the update history for all resource types since the start of server records.
+	 * 
+	 * Note: 
+	 * 
+	 * @param lastUpdate
+	 * @param resourceClass
+	 * @param id
+	 * @return
+	 */
+	public <T extends Resource> AtomFeed history();
+
 	/**
 	 * Validate resource payload.
 	 * 
@@ -324,7 +362,7 @@ public interface FHIRClient {
 	 * 
 	 * DELETE [base]/[type]/[id]/_history/[vid]/_tags
 	 */
-	//public <T extends Resource> boolean deleteTagsForResourceVersion(Class<T> resourceClass, String id, List<AtomCategory> tags, String version);
+	public <T extends Resource> List<AtomCategory> deleteTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version);
 	
 	/**
 	 * Affix tags in the list to the nominated resource
@@ -332,7 +370,7 @@ public interface FHIRClient {
 	 * POST [base]/[type]/[id]/_tags
 	 * @return
 	 */
-	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id);
+	public <T extends Resource> List<AtomCategory> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id);
 	
 	/**
 	 * Affix tags in the list to the nominated version of the resource
@@ -341,5 +379,13 @@ public interface FHIRClient {
 	 * 
 	 * @return
 	 */
-	public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version);
+	public <T extends Resource> List<AtomCategory> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version);
+
+	/**
+	 * Use this to follow a link found in a feed (e.g. paging in a search)
+	 * 
+	 * @param link - the URL provided by the server
+	 * @return the feed the server returns
+	 */
+	public AtomFeed fetchFeed(String url);
 }

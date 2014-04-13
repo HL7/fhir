@@ -16,6 +16,7 @@ import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
+import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.Resource;
 
@@ -181,13 +182,49 @@ public class SpecificationInternalClient implements FHIRClient {
   }
 
   @Override
-  public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id) {
+  public VersionInfo getVersions() {
+    throw new Error("getVersions not supported by the internal specification client");
+  }
+
+  @Override
+  public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass, String id) {
+    throw new Error("history not supported by the internal specification client");
+  }
+
+  @Override
+  public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass) {
+    throw new Error("history not supported by the internal specification client");
+  }
+
+  @Override
+  public <T extends Resource> AtomFeed history(DateAndTime lastUpdate) {
+    throw new Error("history not supported by the internal specification client");
+  }
+
+  @Override
+  public <T extends Resource> AtomFeed history() {
+    throw new Error("history not supported by the internal specification client");
+  }
+
+  @Override
+  public <T extends Resource> List<AtomCategory> deleteTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version) {
+    throw new Error("deleteTags not supported by the internal specification client");
+  }
+
+  @Override
+  public <T extends Resource> List<AtomCategory> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id) {
     throw new Error("createTags not supported by the internal specification client");
   }
 
   @Override
-  public <T extends Resource> AtomEntry<OperationOutcome> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version) {
+  public <T extends Resource> List<AtomCategory> createTags(List<AtomCategory> tags, Class<T> resourceClass, String id, String version) {
     throw new Error("createTags not supported by the internal specification client");
   }
+
+  @Override
+  public AtomFeed fetchFeed(String url) {
+    throw new Error("fetchFeed not supported by the internal specification client");
+  }
+
 
 }

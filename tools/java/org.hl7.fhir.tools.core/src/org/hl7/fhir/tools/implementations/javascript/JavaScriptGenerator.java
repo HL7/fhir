@@ -83,7 +83,9 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
     String baseDir = Utilities.path(implDir, "app");
     String modelDir = Utilities.path(baseDir, "models");
     String controllerDir = Utilities.path(baseDir, "controllers");
+    Utilities.createDirectory(modelDir);
     Utilities.clearDirectory(modelDir);
+    Utilities.createDirectory(controllerDir);
     Utilities.clearDirectory(controllerDir);
     Utilities.copyFileToDirectory(new File(Utilities.path(implDir, "templates", "resource_history.js")), new File(modelDir));
 

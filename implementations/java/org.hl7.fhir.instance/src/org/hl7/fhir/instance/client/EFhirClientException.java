@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 /*
 Copyright (c) 2011-2013, HL7, Inc
@@ -99,7 +100,7 @@ public class EFhirClientException extends RuntimeException {
 	 * @param serverError
 	 */
 	public EFhirClientException(OperationOutcome serverError) {
-		super("One or more server side errors have occurred during this operation. Refer to e.getServerErrors() for additional details.");
+		super("Error on the server: "+serverError.getText().getDiv().allText()+". Refer to e.getServerErrors() for additional details.");
 		if(serverError != null) {
 			errors.add(serverError);
 		}

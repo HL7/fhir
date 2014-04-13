@@ -30,6 +30,9 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -146,8 +149,10 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
       r.resource = parseResource(xpp);
     else if (xpp.getNamespace().equals(ATOM_NS) || (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("TagList"))) 
       r.feed = parseFeed(xpp);
+    else if (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equals("taglist"))
+      r.taglist = parseTagList(xpp);
     else
-      throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
+    	throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
     return r;    
   }
 
@@ -204,6 +209,25 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     if (!(xpp.getNamespace().equals(ATOM_NS) || (xpp.getNamespace().equals(FHIR_NS) && xpp.getName().equalsIgnoreCase("TagList"))))
       throw new Exception("This does not appear to be an atom feed (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
     return parseAtom(xpp);
+  }
+
+  private List<AtomCategory> parseTagList(XmlPullParser xpp) throws Exception {
+  	List<AtomCategory> res = new ArrayList<AtomCategory>();
+    if (!xpp.getName().equals("taglist"))
+      throw new Exception("This does not appear to be a tag list (wrong name '"+xpp.getName()+"') (@ /)");
+    xpp.next();
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
+        res.add(new AtomCategory(xpp.getAttributeValue(null, "scheme"), xpp.getAttributeValue(null, "term"), xpp.getAttributeValue(null, "label")));
+        skipEmptyElement(xpp);
+      } else
+        skipElementWithContent(xpp);
+  	
+      eventType = nextNoWhitespace(xpp);
+    }
+
+    return res;  
   }
 
   private AtomFeed parseAtom(XmlPullParser xpp) throws Exception {

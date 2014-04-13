@@ -321,7 +321,7 @@ public class FHIRSimpleClientTest {
 
 	@Test
 	public void testHistoryForAllResourceTypes() {
-		Calendar testDate = GregorianCalendar.getInstance();
+		DateAndTime testDate = DateAndTime.now();
 		testDate.add(Calendar.MINUTE, -30);
 		AtomFeed feed = testClient.history(testDate);
 		assertNotNull(feed);

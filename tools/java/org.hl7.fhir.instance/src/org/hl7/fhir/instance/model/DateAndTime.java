@@ -170,7 +170,37 @@ public class DateAndTime {
 	}
 
 	public Calendar toCalendar() {
-		return null;
+		Calendar cal = null;
+		if (timezone == null) {
+			cal = Calendar.getInstance();
+		} else {
+			TimeZone tz;
+			if (!timezone) {
+  		  tz = TimeZone.getTimeZone("GMT + 00 : 00");
+	  	} else {
+			if (tzHour < 0)
+			  tz = TimeZone.getTimeZone("GMT - "+Utilities.padLeft(java.lang.Integer.toString(-tzHour), '0', 2)+" : "+java.lang.Integer.toString(tzMin, 2));
+			else
+			  tz = TimeZone.getTimeZone("GMT + "+Utilities.padLeft(java.lang.Integer.toString(tzHour), '0', 2)+" : "+java.lang.Integer.toString(tzMin, 2));
+	  	}
+			cal = Calendar.getInstance(tz);
+		} 
+		cal.set(Calendar.YEAR, year);
+		if (month > 0) {
+			cal.set(Calendar.MONTH, month);
+			if (day > 0) {
+				cal.set(Calendar.DAY_OF_MONTH, day);
+				if (time) {
+					cal.set(Calendar.HOUR, hour);
+					cal.set(Calendar.MINUTE, minute);
+					if (seconds) {
+						cal.set(Calendar.SECOND, second); 
+						// if (fractions > 0) {
+						}
+				}
+			}
+		}
+		return cal;
 	}
 
 	public Date toDate() {
@@ -389,6 +419,71 @@ public class DateAndTime {
     return null;
   }
 
+  /**
+   * Add a duration to the DateAndTime. See documentation for Calendar.add
+   * 
+   * @param field - Calendar constants for field
+   * @param value - value to add - can be positive or negative
+   */
+	public void add(int field, int value) {
+		switch (field) {
+		case Calendar.YEAR:
+			year = year + value;
+			break;
+		case Calendar.MONTH:
+			int i = month + value;
+			month = i % 12;
+			if (i < 0 || i >= 12)
+				add(Calendar.YEAR, i / 12);
+			break;
+		case Calendar.DAY_OF_YEAR:
+			// can't do modulo here. Have to do it the long way - TODO: fix this
+			i = day + value;
+			day = i % 30;
+			if (i < 0 || i >= 30)
+				add(Calendar.YEAR, i / 30);
+			break;
+		case Calendar.HOUR:
+			i = hour + value;
+			time = true;
+			hour = i % 24;
+			if (i < 0 || i >= 24)
+				add(Calendar.DAY_OF_YEAR, i / 24);
+			break;
+		case Calendar.MINUTE:
+			i = minute + value;
+			time = true;
+			minute = i % 60;
+			if (i < 0 || i >= 60)
+				add(Calendar.HOUR, i / 60);
+			break;
+		case Calendar.SECOND:
+			i = second + value;
+			seconds = true;
+			second = i % 60;
+			if (i < 0 || i >= 60)
+				add(Calendar.MINUTE, i / 60);
+			break;
+		}
+  }
 
+	public boolean before(DateAndTime other) {
+		if (this.year != other.year) {
+			return this.year < other.year;
+		} else if (this.month != other.month) {
+			return this.month < other.month;
+		} else if (this.day != other.day) {
+			return this.day < other.day;
+		} else if (this.hour != other.hour) {
+			return this.hour < other.hour;
+		} else if (this.minute != other.minute) {
+			return this.minute < other.minute;
+		} else if (this.second != other.second) {
+			return this.second < other.second;
+		} else if (this.fraction != other.fraction) {
+			return this.fraction < other.fraction;
+		} else
+	    return false;
+  }
 
 }

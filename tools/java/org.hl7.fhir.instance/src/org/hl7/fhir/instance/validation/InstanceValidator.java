@@ -48,7 +48,6 @@ import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.instance.utils.TerminologyServices;
-import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -719,9 +718,8 @@ public class InstanceValidator extends BaseValidator {
           ValueSet vs = resolveBindingReference(binding.getReference());
           if (warning(errors, "code-unknown", path, vs != null, "ValueSet "+describeReference(binding.getReference())+" not found")) {
             try {
-              ValueSetExpansionOutcome exp = cache.getExpander().expand(vs);
-              vs = exp.getValueset();
-              if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
+              vs = cache.getExpander().expand(vs).getValueset();
+              if (warning(errors, "code-unknown", path, binding != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
                 boolean found = false;
                 boolean any = false;
                 Element c = XMLUtil.getFirstChild(element);
