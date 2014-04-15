@@ -173,10 +173,29 @@ public class CSharpModelGenerator extends GenBlock
 			
 			generateMembers(composite);
 			
-      // Generate Validate() routine			
+			// Generate Validate() routine			
 			//generateValidationMethod(composite);
+
+			// Put in the NotifyPropertyChanged bits
+			String derivation = composite.getName();
+			if(	derivation.compareTo("Element") == 0 || derivation.compareTo("Resource") == 0 )
+			{
+				ln("public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;");
+				ln("protected void OnPropertyChanged(String property)");
+				bs("{");
+				ln("if (PropertyChanged != null)");
+				ln("	PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(property));");
+				es("}");
+			}
+
 		es("}");
 		ln();
+			// Generate the nested local types in this scope
+			if( composite.getLocalCompositeTypes().size() > 0)
+			{
+			//	nestedLocalTypes( composite.getLocalCompositeTypes() ); 			
+			//	ln();
+			}
 		
 		return end();
 	}
@@ -377,7 +396,11 @@ public class CSharpModelGenerator extends GenBlock
 	
 		nl( memberCsType + " " + memberName  );
 		
-		nl(" { get; set; }");
+		bs("{");
+		ln("get { return _"+memberName+"; }");
+		ln("set { _"+memberName+" = value; OnPropertyChanged(\""+memberName+"\"); }");
+		es("}");
+		ln( "private " + memberCsType + " _" + memberName + ";" );
 		ln();
 		
 		if(hasBothPrimitiveAndElementProperty)
@@ -450,7 +473,7 @@ public class CSharpModelGenerator extends GenBlock
 	        nl("(value.Select(elem=>new ");
 	        nl(singleElementCsType + "(elem)));");
 	      }
-	      
+	      ln("OnPropertyChanged(\""+simpleMemberName+"\");");
 	    es("}");
 
 //	    Some new constructs for in-place editing of array. Not too sure whether
@@ -513,6 +536,11 @@ public class CSharpModelGenerator extends GenBlock
 		{
 			nl( " : " ); 						
 		  nl(GeneratorUtils.buildFullyScopedTypeName(composite.getBaseType()));
+			nl(", System.ComponentModel.INotifyPropertyChanged");
+		}
+		else
+		{
+			nl(" : System.ComponentModel.INotifyPropertyChanged");
 		}
 	}
 	
