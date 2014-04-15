@@ -270,13 +270,14 @@
       <zipfileset excludes="META-INF/*.SF" src="../imports/gson-2.2.4.jar"/>
       <fileset dir="../org.hl7.fhir.definitions.ecore/bin"/>
       <zipfileset excludes="META-INF/*.SF" src="../imports/sequence-library-1.0.2.jar"/>
-      <zipfileset excludes="META-INF/*.SF" src="../imports/sqljet-1.1.7.jar"/>
-      <zipfileset excludes="META-INF/*.SF" src="../imports/trilead-ssh2-1.0.0-build216.jar"/>
-      <zipfileset excludes="META-INF/*.SF" src="../imports/jna-3.4.0.jar"/>
-      <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-cli-1.7.9.jar"/>
-      <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-1.7.9.jar"/>
-      <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-javahl16-1.7.9.jar"/>
+      <zipfileset excludes="META-INF/*.SF" src="../imports/sqljet-1.1.10.jar"/>
+      <zipfileset excludes="META-INF/*.SF" src="../imports/trilead-ssh2-1.0.0-build217.jar"/>
+      <zipfileset excludes="META-INF/*.SF" src="../imports/jna-3.5.2.jar"/>
+      <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-cli-1.8.5.jar"/>
+      <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-1.8.5.jar"/>
+      <zipfileset excludes="META-INF/*.SF" src="../imports/svnkit-javahl16-1.8.5.jar"/>
       <zipfileset excludes="META-INF/*.SF" src="../imports/antlr-runtime-3.4.jar"/>
+      <zipfileset excludes="META-INF/*.SF" src="../imports/ST-4.0.7.jar"/>
     </jar>
   </target>
 </project>

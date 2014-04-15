@@ -15,12 +15,12 @@
 	<classpathentry kind="src" path="/org.hl7.fhir.utilities"/>
 	<classpathentry kind="src" path="/org.hl7.fhir.definitions.ecore"/>
 	<classpathentry kind="lib" path="../imports/sequence-library-1.0.2.jar"/>
-	<classpathentry kind="lib" path="../imports/sqljet-1.1.7.jar"/>
-	<classpathentry kind="lib" path="../imports/trilead-ssh2-1.0.0-build216.jar"/>
-	<classpathentry kind="lib" path="../imports/jna-3.4.0.jar"/>
-	<classpathentry kind="lib" path="../imports/svnkit-cli-1.7.9.jar"/>
-	<classpathentry kind="lib" path="../imports/svnkit-1.7.9.jar"/>
-	<classpathentry kind="lib" path="../imports/svnkit-javahl16-1.7.9.jar"/>
+	<classpathentry kind="lib" path="../imports/sqljet-1.1.10.jar"/>
+	<classpathentry kind="lib" path="../imports/trilead-ssh2-1.0.0-build217.jar"/>
+	<classpathentry kind="lib" path="../imports/jna-3.5.2.jar"/>
+	<classpathentry kind="lib" path="../imports/svnkit-cli-1.8.5.jar"/>
+	<classpathentry kind="lib" path="../imports/svnkit-1.8.5.jar"/>
+	<classpathentry kind="lib" path="../imports/svnkit-javahl16-1.8.5.jar"/>
 	<classpathentry kind="lib" path="../imports/antlr-runtime-3.4.jar"/>
 	<classpathentry kind="lib" path="../imports/gson-2.2.4.jar"/>
 	<classpathentry kind="lib" path="../imports/saxon9he.jar"/>
