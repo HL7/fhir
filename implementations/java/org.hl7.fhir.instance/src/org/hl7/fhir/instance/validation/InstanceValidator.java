@@ -204,25 +204,36 @@ public class InstanceValidator extends BaseValidator {
   }
 
   public void validateInstance(List<ValidationMessage> errors, Element elem) throws Exception {
+    validateInstance(errors, elem, null);  
+  }
+  
+  public void validateInstance(List<ValidationMessage> errors, Element elem, Profile profile) throws Exception {
     boolean feedHasAuthor = XMLUtil.getNamedChild(elem, "author") != null;
     if (elem.getLocalName().equals("feed")) {
-      ChildIterator ci = new ChildIterator("", elem);
-      while (ci.next()) {
-        if (ci.name().equals("category"))
-          validateTag(ci.path(), ci.element(), false);
-        else if (ci.name().equals("id"))
-          validateId(errors, ci.path(), ci.element(), true);
-        else if (ci.name().equals("link"))
-          validateLink(errors, ci.path(), ci.element(), false);
-        else if (ci.name().equals("entry")) 
-          validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor);
+      // for now, if the user specified a profile, and it's a feed, we refuse
+      if (rule(errors, "exception", "feed", profile == null, "Cannot validate a feed against a specified profile (TODO: re-assess this)")) {
+        ChildIterator ci = new ChildIterator("", elem);
+        while (ci.next()) {
+          if (ci.name().equals("category"))
+            validateTag(ci.path(), ci.element(), false);
+          else if (ci.name().equals("id"))
+            validateId(errors, ci.path(), ci.element(), true);
+          else if (ci.name().equals("link"))
+            validateLink(errors, ci.path(), ci.element(), false);
+          else if (ci.name().equals("entry")) 
+            validateAtomEntry(errors, ci.path(), ci.element(), feedHasAuthor);
+        }
       }
     }
     else
-      validate(errors, "", elem);
+      validate(errors, "", elem, profile);
   }
 
   public List<ValidationMessage> validateInstance(Element elem) throws Exception {
+    return validateInstance(elem, null);
+  }
+
+  public List<ValidationMessage> validateInstance(Element elem, Profile profile) throws Exception {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     validateInstance(errors, elem);      
     return errors;
@@ -245,16 +256,16 @@ public class InstanceValidator extends BaseValidator {
         validateLink(errors, ci.path(), ci.element(), true);
       else if (ci.name().equals("content")) {
         Element r = XMLUtil.getFirstChild(ci.element());
-        validate(errors, ci.path()+"/f:"+r.getLocalName(), r);
+        validate(errors, ci.path()+"/f:"+r.getLocalName(), r, null);
       }
     }
   }
 
-  private void validate(List<ValidationMessage> errors, String path, Element elem) throws Exception {
+  private void validate(List<ValidationMessage> errors, String path, Element elem, Profile profile) throws Exception {
     if (elem.getLocalName().equals("Binary"))
       validateBinary(elem);
     else {
-      Profile p = getProfileForType(elem.getLocalName());
+      Profile p = profile != null ? profile : getProfileForType(elem.getLocalName());
       ProfileStructureComponent s = getStructureForType(p, elem.getLocalName());
       if (rule(errors, "invalid", elem.getLocalName(), s != null, "Unknown Resource Type "+elem.getLocalName())) {
         validateElement(errors, p, s, path+"/f:"+elem.getLocalName(), s.getElement().get(0), null, null, elem, elem.getLocalName());
@@ -581,7 +592,7 @@ public class InstanceValidator extends BaseValidator {
 
   private void validateContains(List<ValidationMessage> errors, String path, ElementComponent child, ElementComponent context, Element element) throws Exception {
     Element e = XMLUtil.getFirstChild(element);
-    validate(errors, path, e);    
+    validate(errors, path, e, null);    
   }
 
   private boolean typeIsPrimitive(String t) {
