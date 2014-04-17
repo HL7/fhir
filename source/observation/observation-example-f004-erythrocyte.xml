@@ -9,9 +9,9 @@
     </name>
     <valueQuantity>
         <value value="4.12"/>  <!-- Actually, 4.12E+12 -->
-        <units value="/l"/>
+        <units value="10^12/L"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="/l"/>
+        <code value="10*12/L"/>
     </valueQuantity>
     <interpretation>
         <coding>
@@ -56,16 +56,16 @@
     </performer>
     <referenceRange>
         <low>
-            <value value="4.4"/><!--for male gender--> <!-- must be 4.4E+12 -->
-            <units value="/l"/>
+            <value value="4.4"/><!--for male gender-->
+            <units value="10^12/L"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="/l"/>
+            <code value="10*12/L"/>
         </low>
         <high>
-            <value value="5.8"/><!--for male gender--> <!-- must be 5.8E+12 -->
-            <units value="/l"/>
+            <value value="5.8"/><!--for male gender-->
+            <units value="10^12/L"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="/l"/>
+            <code value="10*12/L"/>
         </high>        
     </referenceRange>
 </Observation>
