@@ -105,7 +105,10 @@ namespace Hl7.Fhir.Model
         {
             if (extendable.Extension == null) return;
 
-            extendable.Extension.RemoveAll(ext => ext.Url != null && ext.Url.ToString() == uri.ToString());
+            var remove = extendable.Extension.Where(ext => ext.Url != null && ext.Url.ToString() == uri.ToString()).ToList();
+           
+            foreach(var ext in remove )
+                extendable.Extension.Remove(ext);
         }
 
         /// <summary>

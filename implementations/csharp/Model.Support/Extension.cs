@@ -37,23 +37,16 @@ using System.Runtime.Serialization;
 
 namespace Hl7.Fhir.Model
 {
-    /// <summary>
-    /// Resource for capturing binary data
-    /// </summary>
-    public partial class Binary : Hl7.Fhir.Model.Resource, Hl7.Fhir.Validation.IValidatableObject
+    public partial class Extension
     {
-        public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        public Extension()
         {
-            var result = new List<ValidationResult>();
-            result.AddRange(base.Validate(validationContext));
+        }
 
-            if (Content == null)
-                result.Add(FhirValidator.BuildResult(validationContext,"Entry must contain (possibly 0-length) data in Content element"));
-
-            if (ContentType == null)
-                result.Add(FhirValidator.BuildResult(validationContext, "Entry must contain a ContentType"));
-
-            return result;
+        public Extension(Uri url, Element value)
+        {
+            this.Url = url;
+            this.Value = value;
         }
     }       
 }

@@ -46,10 +46,12 @@
 		@@@MODELFILES@@@
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model.Support\Extension.cs" />
     <Compile Include="Model.Support\Binary.cs" />
     <Compile Include="Model.Support\Bundle.cs" />
     <Compile Include="Model.Support\BundleEntry.cs" />
     <Compile Include="Model.Support\Code.cs" />
+    <Compile Include="Model.Support\Query.cs" />
     <Compile Include="Model.Support\Date.cs" />
     <Compile Include="Model.Support\DeletedEntry.cs" />
     <Compile Include="Model.Support\Element.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="Model.Support\Initializers.cs" />
     <Compile Include="Model.Support\Instant.cs" />
     <Compile Include="Model.Support\ModelInfo.cs" />
+    <Compile Include="Model.Support\OperationOutcome.cs" />
     <Compile Include="Model.Support\Resource.cs" />
     <Compile Include="Model.Support\ResourceEntry.cs" />
     <Compile Include="Model.Support\ResourceReference.cs" />
@@ -73,6 +76,7 @@
     <Compile Include="Introspection\FhirElementAttribute.cs" />
     <Compile Include="Introspection\FhirTypeAttribute.cs" />
     <Compile Include="Introspection\ChoiceType.cs" />
+    <Compile Include="Introspection\ReferencesAttribute.cs" />
     <Compile Include="Validation\CardinalityAttribute.cs" />
     <Compile Include="Validation\AllowedTypesAttribute.cs" />
     <Compile Include="Validation\CodePatternAttribute.cs" />
@@ -82,12 +86,19 @@
     <Compile Include="Validation\InstantPatternAttribute.cs" />
     <Compile Include="Validation\InvokeIValidatableObjectAttribute.cs" />
     <Compile Include="Validation\IValidatableObject.cs" />
+    <Compile Include="Validation\FhirValidator.cs" />
     <Compile Include="Validation\NarrativeXhtmlPatternAttribute.cs" />
     <Compile Include="Validation\OidPatternAttribute.cs" />
     <Compile Include="Validation\UriPatternAttribute.cs" />
     <Compile Include="Validation\UuidPatternAttribute.cs" />
+    <Compile Include="Validation\ValidationContextExtensions.cs" />
     <Compile Include="Validation\ValidationContextFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model.Support\fhir-xhtml1-strict.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -83,9 +83,9 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
   @Override
   public String getReference(String version) {
     return "http://www.nuget.org/packages/Hl7.Fhir";
-	}
+  }
 
-	@Override
+  @Override
 	public boolean isECoreGenerator() {
 		return true;
 	}

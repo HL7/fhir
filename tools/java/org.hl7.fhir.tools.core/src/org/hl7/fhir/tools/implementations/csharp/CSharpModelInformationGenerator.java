@@ -30,6 +30,7 @@ package org.hl7.fhir.tools.implementations.csharp;
 */
 
 import org.hl7.fhir.definitions.ecore.fhir.Definitions;
+import org.hl7.fhir.definitions.ecore.fhir.PrimitiveDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ResourceDefn;
 import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
 import org.hl7.fhir.definitions.ecore.fhir.SearchType;
@@ -158,14 +159,10 @@ public class CSharpModelInformationGenerator extends GenBlock
 			bs("{");
 				for( TypeDefn type : definitions.getType() )
 				{
-				  if(type instanceof ResourceDefn && !((ResourceDefn)type).isFuture() )
-				  {
-  					String cSharpName;
-  
-  					cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);
-  					
-  					ln( tuple("\"" + type.getName() + "\"", "typeof(" + cSharpName + ")" ) );
-				  }
+				  if(type instanceof ResourceDefn && ((ResourceDefn)type).isFuture()) continue;
+
+				  String cSharpName = GeneratorUtils.buildFullyScopedTypeName(type); 
+					ln( tuple("\"" + type.getName() + "\"", "typeof(" + cSharpName + ")" ) );
 				}
 			es("};");
 		es();
@@ -176,12 +173,10 @@ public class CSharpModelInformationGenerator extends GenBlock
 			bs("{");
 				for( TypeDefn type : definitions.getType() )
 				{
-          if(type instanceof ResourceDefn && !((ResourceDefn)type).isFuture() )
-          {
-            String cSharpName;
- 						cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);				
-  					ln( tuple("typeof(" + cSharpName + ")", "\"" + type.getName() + "\"" ) );
-          }
+          if(type instanceof ResourceDefn && ((ResourceDefn)type).isFuture() ) continue;
+          
+          String cSharpName = GeneratorUtils.buildFullyScopedTypeName(type);				
+					ln( tuple("typeof(" + cSharpName + ")", "\"" + type.getName() + "\"" ) );
 				}
 			es("};");
 		es();

@@ -190,12 +190,6 @@ public class CSharpModelGenerator extends GenBlock
 
 		es("}");
 		ln();
-			// Generate the nested local types in this scope
-			if( composite.getLocalCompositeTypes().size() > 0)
-			{
-			//	nestedLocalTypes( composite.getLocalCompositeTypes() ); 			
-			//	ln();
-			}
 		
 		return end();
 	}
@@ -335,17 +329,35 @@ public class CSharpModelGenerator extends GenBlock
     if(member.getXmlFormatHint() != XmlFormatHint.ELEMENT)
 	      nl(", XmlSerialization=XmlSerializationHint." + member.getXmlFormatHint().getName());
     
+    if(member.isSummaryItem())
+        nl(", InSummary=true");
+    
     if(order != 0)
       nl(", Order=" + Integer.toString(order));
 
     if(choiceType!=null) // None
       nl(", Choice=ChoiceType." + choiceType);
-    nl(")]");
-    
+    nl(")]");    
+          
     if(choices.length() > 0)
     {
       ln("[AllowedTypes(");
       nl(choices);
+      nl(")]");
+    }
+    
+    if(!member.isPolymorph() && member.getType().get(0).getName().equals("ResourceReference"))
+    {
+      ln("[References(");
+      boolean isNext = false;
+      
+      for(String resParam : member.getType().get(0).getResourceParams() )
+      {
+        if(isNext) nl(",");
+        nl("\"" + resParam + "\"");
+        isNext =true;
+      }
+      
       nl(")]");
     }
     
