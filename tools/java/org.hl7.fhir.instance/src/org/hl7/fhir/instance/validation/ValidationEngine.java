@@ -18,6 +18,7 @@ import javax.xml.validation.SchemaFactory;
 import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
@@ -41,6 +42,7 @@ public class ValidationEngine {
   private List<ValidationMessage> outputs;  
   private OperationOutcome outcome;
 	private boolean noSchematron;
+	private Profile profile;
 
 
   public void process() throws Exception {
@@ -76,7 +78,7 @@ public class ValidationEngine {
     builder.setErrorHandler(new ValidationErrorHandler(outputs));
     doc = builder.parse(new ByteArrayInputStream(source));
 
-    outputs.addAll(new InstanceValidator(definitions, null).validateInstance(doc.getDocumentElement()));
+    outputs.addAll(new InstanceValidator(definitions, null).validateInstance(doc.getDocumentElement(), profile));
 
     Resource r = new XmlParser().parse(new ByteArrayInputStream(source));
         
@@ -172,6 +174,14 @@ public class ValidationEngine {
 	public void setNoSchematron(boolean noSchematron) {
 		this.noSchematron = noSchematron;
 	}
+
+  public Profile getProfile() {
+    return profile;
+  }
+
+  public void setProfile(Profile profile) {
+    this.profile = profile;
+  }
 
 
 }

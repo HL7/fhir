@@ -320,7 +320,7 @@ public class FHIRSimpleClientTest {
 	}
 
 	@Test
-	public void testHistoryForAllResourceTypes() {
+	public void testHistoryForAllResourceTypes() throws Exception {
 		DateAndTime testDate = DateAndTime.now();
 		testDate.add(Calendar.MINUTE, -30);
 		AtomFeed feed = testClient.history(testDate);
