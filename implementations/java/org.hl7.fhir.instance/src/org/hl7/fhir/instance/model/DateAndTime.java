@@ -324,7 +324,11 @@ public class DateAndTime {
 	}
 
 	public static DateAndTime now() {
-		return new DateAndTime(Calendar.getInstance());
+		DateAndTime dt = new DateAndTime(Calendar.getInstance());
+    TimeZone tz = TimeZone.getDefault();
+    int offset = tz.getOffset(new java.util.Date().getTime());
+    dt.setTzHour(offset / (60 * 60 * 1000));
+		return dt;
 	}
 
 	public static DateAndTime parseV3(String xDate) throws ParseException {
@@ -424,47 +428,99 @@ public class DateAndTime {
    * 
    * @param field - Calendar constants for field
    * @param value - value to add - can be positive or negative
+   * @throws Exception 
    */
-	public void add(int field, int value) {
+	public void add(int field, int value) throws Exception {
 		switch (field) {
 		case Calendar.YEAR:
 			year = year + value;
 			break;
 		case Calendar.MONTH:
-			int i = month + value;
-			month = i % 12;
-			if (i < 0 || i >= 12)
-				add(Calendar.YEAR, i / 12);
+			month = month + (value == 0 ? 1 : value);
+			while (month <= 0) {
+				add(Calendar.YEAR, -1);
+				month = month + 12;
+			}
+			while (month > 12) {
+				add(Calendar.YEAR, 1);
+				month = month - 12;
+			}
 			break;
 		case Calendar.DAY_OF_YEAR:
-			// can't do modulo here. Have to do it the long way - TODO: fix this
-			i = day + value;
-			day = i % 30;
-			if (i < 0 || i >= 30)
-				add(Calendar.YEAR, i / 30);
+			day = day + (value == 0 ? 1 : value);
+			while (day <= 0) {
+				add(Calendar.MONTH, -1);
+				day = day + daysInMonth(year, month);
+			}
+      int days = daysInMonth(year, month);
+			while (day > days) {
+				add(Calendar.MONTH, 1);
+				day = day - days;
+	      days = daysInMonth(year, month);
+			}
 			break;
 		case Calendar.HOUR:
-			i = hour + value;
+			hour = hour + value;
 			time = true;
-			hour = i % 24;
-			if (i < 0 || i >= 24)
-				add(Calendar.DAY_OF_YEAR, i / 24);
+			while (hour < 0) {
+				add(Calendar.DAY_OF_YEAR, -1);
+				hour = hour + 24;
+			}
+			while (hour >= 24) {
+				add(Calendar.DAY_OF_YEAR, 1);
+				hour = hour - 24;
+			}
 			break;
 		case Calendar.MINUTE:
-			i = minute + value;
+			minute = minute + value;
 			time = true;
-			minute = i % 60;
-			if (i < 0 || i >= 60)
-				add(Calendar.HOUR, i / 60);
+			while (minute < 0) {
+				add(Calendar.HOUR, -1);
+				minute = minute + 60;
+			}
+			while (minute >= 60) {
+				add(Calendar.HOUR, 1);
+				minute = minute - 60;
+			}
 			break;
 		case Calendar.SECOND:
-			i = second + value;
+			second = second + value;
 			seconds = true;
-			second = i % 60;
-			if (i < 0 || i >= 60)
-				add(Calendar.MINUTE, i / 60);
+			while (second < 0) {
+				add(Calendar.MINUTE, -1);
+				second = second + 60;
+			}
+			while (second >= 60) {
+				add(Calendar.MINUTE, 1);
+				second = second - 60;
+			}
 			break;
+		default:
+			throw new Exception("Unknown field");
 		}
+  }
+
+	private int daysInMonth(int aYear, int aMonth) {
+		switch (aMonth) {
+		case 1: return 31;
+		case 2: return isleapYear(aYear) ? 29 : 28;
+		case 3: return 31;
+		case 4: return 30;
+		case 5: return 31;
+		case 6: return 30;
+		case 7: return 31;
+		case 8: return 31;
+		case 9: return 30;
+		case 10: return 31;
+		case 11: return 30;
+		case 12: return 31;
+		default:
+			throw new Error("illegal month "+java.lang.Integer.toString(aMonth));
+		}
+  }
+
+	private boolean isleapYear(int aYear) {
+	  return (aYear % 4 == 0) && !((aYear % 100 == 0) && (aYear % 400 != 0));
   }
 
 	public boolean before(DateAndTime other) {

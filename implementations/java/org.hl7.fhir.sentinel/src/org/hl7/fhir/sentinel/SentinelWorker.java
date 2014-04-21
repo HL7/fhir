@@ -219,7 +219,7 @@ public class SentinelWorker {
 	// -- Utility routines --------------------------------
 	
 
-	private boolean timeToQuery() throws ParseException {
+	private boolean timeToQuery() throws Exception {
 		String s = ini.getStringProperty(server, "qtime");
 		if (Utilities.noString(s))
 			return true;
