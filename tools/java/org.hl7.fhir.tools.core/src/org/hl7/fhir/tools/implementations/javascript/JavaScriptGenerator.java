@@ -97,7 +97,7 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
     }
         
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
-    zip.addFolder(implDir, "javascript", false);
+    zip.addFolder(implDir, "mongoose", false);
     zip.close();    
   }
   

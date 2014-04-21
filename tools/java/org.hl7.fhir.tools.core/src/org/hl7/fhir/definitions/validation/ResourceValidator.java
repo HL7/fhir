@@ -184,6 +184,7 @@ public class ResourceValidator extends BaseValidator {
         name.equals("ConceptMap") || 
         name.equals("Conformance") || 
         name.equals("MessageHeader") || 
+        name.equals("ObservationDefinition") || 
         name.equals("Profile") || 
         name.equals("Query") || 
         name.equals("ValueSet") ||         
