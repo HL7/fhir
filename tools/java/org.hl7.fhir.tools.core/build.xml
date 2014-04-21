@@ -21,6 +21,7 @@
     <pathelement location="${org.hl7.fhir.implementation.location}/../imports/xpp3_min-1.1.3.4.O.jar"/>
     <pathelement location="${org.hl7.fhir.implementation.location}/../imports/xpp3_xpath-1.1.3.4.O.jar"/>
     <pathelement location="${org.hl7.fhir.implementation.location}/../imports/xpp3-1.1.3.4.O.jar"/>
+    <pathelement location="${org.hl7.fhir.implementation.location}/../imports/junit-4.11.jar"/>
     <path refid="org.hl7.fhir.utilities.classpath"/>
     <pathelement location="${org.hl7.fhir.implementation.location}/../imports/commons-httpclient-3.0.1.jar"/>
     <pathelement location="${org.hl7.fhir.implementation.location}/../imports/httpclient-4.2.3.jar"/>
