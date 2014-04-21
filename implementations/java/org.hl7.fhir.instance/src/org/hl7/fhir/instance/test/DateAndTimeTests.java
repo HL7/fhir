@@ -8,7 +8,6 @@ import java.util.Calendar;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.junit.Test;
 
-import sun.util.resources.CalendarData;
 
 public class DateAndTimeTests {
 
