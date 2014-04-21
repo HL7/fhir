@@ -24,6 +24,7 @@
         <pathelement location="../imports/xpp3_min-1.1.3.4.O.jar"/>
         <pathelement location="../imports/xpp3_xpath-1.1.3.4.O.jar"/>
         <pathelement location="../imports/xpp3-1.1.3.4.O.jar"/>
+        <pathelement location="../imports/junit-4.11.jar"/>
         <path refid="org.hl7.fhir.utilities.classpath"/>
         <pathelement location="../imports/commons-httpclient-3.0.1.jar"/>
         <pathelement location="../imports/httpclient-4.2.3.jar"/>
