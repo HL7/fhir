@@ -19,6 +19,16 @@ ant -f tools/java/org.hl7.fhir.tools.core/build.xml \
 
 ---
 
+### To build the FHIR Maven artifact manually
+First run the Publisher. Then run:
+```
+$ ant -f tools/java/org.hl7.fhir.tools.core/build.xml  fhir-jar 
+```
+
+You'll find the jar in: `tools/java/org.hl7.fhir.tools.core/mvn-stage/lib/`
+
+---
+
 ### To build tools.jar via ant (soon to be deprecated)
 ```
 ant -f tools/java/org.hl7.fhir.tools.core/build.xml \
@@ -37,12 +47,3 @@ ant -f tools/java/org.hl7.fhir.tools.core/build.xml \
 5. finish
 6. note it generates warnings... ignore these
 
----
-
-### To build the FHIR Maven artifact manually
-First run the Publisher. Then run:
-```
-$ ant -f tools/java/org.hl7.fhir.tools.core/build.xml  fhir-jar 
-```
-
-You'll find the jar in: `tools/java/org.hl7.fhir.tools.core/mvn-stage/lib/`
