@@ -26,7 +26,7 @@ ant -f tools/java/org.hl7.fhir.tools.core/build.xml \
        build-tools-jar
 ```
 
-### To build tools.jar via Eclispe:
+### To build tools.jar via Eclipse:
 
 (First set up the FHIR project in Eclipse -- documentation needed!)
 
