@@ -187,7 +187,7 @@ public class DateAndTime {
 		} 
 		cal.set(Calendar.YEAR, year);
 		if (month > 0) {
-			cal.set(Calendar.MONTH, month);
+			cal.set(Calendar.MONTH, month - 1);
 			if (day > 0) {
 				cal.set(Calendar.DAY_OF_MONTH, day);
 				if (time) {
