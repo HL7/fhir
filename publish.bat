@@ -5,6 +5,6 @@ for /f "usebackq" %%x in (`dir /od /b "%ProgramFiles%\java\jdk*"`) do set newest
 set JAVA_HOME=%newestJDK% 
 echo Using %JAVA_HOME%
 
-ant -f tools/java/org.hl7.fhir.tools.core/build.xml Publisher -Dargs="%*"
+ant Publisher -Dargs="%*"
 
 PAUSE
