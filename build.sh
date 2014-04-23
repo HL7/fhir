@@ -1,12 +1,7 @@
 NAME="Continuous Integration Build"
 
-prepareToBuild (){
-  git clean -d -f
-}
-
 antBuild (){
-  prepareToBuild
-  ant -f tools/java/org.hl7.fhir.tools.core/build.xml cleanall Publisher -Dargs=\"$(pwd) -name $NAME\"
+  ./publish.sh -name \'$NAME\'
   checkStatus
 }
 
