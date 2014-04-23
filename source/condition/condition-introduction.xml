@@ -1,0 +1,33 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p> 
+This resource is used to record detailed information about a specific aspect of or issue with 
+the health state of a patient. It is intended for use for issues that have been 
+identified as relevant for tracking and reporting purposes or where there's a 
+need to capture a concrete diagnosis or the gathering of data such as signs and 
+symptoms.  There are situations where the same information might 
+appear as both an observation as well as a condition.  For example, the 
+appearance of a rash or an instance of a fever are signs and symptoms that 
+would typically be captured using the Observation resource.  However, a 
+pattern of ongoing fevers or a persistent or severe rash requiring treatment 
+might be captured as a condition.  The Condition resource specifically 
+excludes AdverseReactions and AllergyIntolerances as those are handled 
+with their own resources.
+</p>
+<p>
+The Condition resource may be used to record positive aspects of the health state
+of a patient (e.g. pregnancy) as well as the major use, which is for problems/concerns (e.g. hypertension).
+</p>
+<p>
+Conditions are frequently referenced by other resources as "reasons" for 
+an action (Prescription, Procedure, DiagnosticOrder, etc.)
+</p>
+<p>
+The conditions represented in this resources are sometimes described as 
+"Problems", and kept as part of a problem list.
+</p>
+</div>
+
+</div>

@@ -1,0 +1,25 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div> 
+<h2>Scope and Usage</h2> 
+<p>
+A concept map defines a mapping from a concept defined in <a href="terminologies.html">one system</a> to one or more concepts defined in other systems. 
+Mappings are always framed within the concept of <a href="valueset.html">value sets</a> - they are specific to a context of use. 
+</p> 
+
+</div> 
+
+
+<div>
+<h2>Background and Context</h2>
+<p>
+Further discussion of the issues involved in mapping between concept definition systems can be found in the  
+<a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a> document 
+and the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. 
+</p>
+
+</div>
+ 
+
+
+</div>

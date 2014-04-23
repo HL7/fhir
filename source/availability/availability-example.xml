@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Availability xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/availability.xsd">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			Burgers UMC, South Wing, second floor Physiotherapy Availability
+		</div>
+	</text>
+	<type>
+		<coding>
+			<code value="45"/>
+			<display value="Physiotherapy" />
+		</coding>
+	</type>
+	<individual>
+		<reference value="Location/1" />
+		<display value="Burgers UMC, South Wing, second floor" />
+	</individual>
+	<planningHorizon>
+		<start value="2013-12-25T09:15:00Z" />
+		<end value="2013-12-25T09:30:00Z" />
+	</planningHorizon>
+	<comment value="Assessments should be performed before requesting appointments in this slot." />
+	<lastModified value="2012-09-17"/>
+</Availability>

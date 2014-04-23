@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+ <!--No identifier could be provided-->
+ <dateWritten value="2013-03-11"/>
+  <status value="completed"/> 
+ <patient>
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+ </patient>
+ <prescriber>
+    <reference value="Practitioner/f201"/>
+ </prescriber>
+ <encounter><!--TODO <encounter> is not expected...-->
+    <reference value="Encounter/f203"/>
+    <display value="Roel's encounter on March eleventh 2013"/>
+ </encounter>
+ <reasonResource>
+   <reference value="Condition/f203"/>
+   <display value="sepsis"/>
+ </reasonResource>
+ <medication>
+    <reference value="Medication/f202"/>
+    <display value="Flucloxacilline"/>
+ </medication>
+ <dosageInstruction>  
+  <text value="Flucloxacilline 12g/24h"/>
+  <timingSchedule>
+      <event>
+          <start value="2013-03-11"/>
+          <end value="2013-03-21"/>
+      </event>
+  </timingSchedule>
+  <route><!--Medication follows the respiratory tract-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="47625008"/>
+       <display value="Intravenous route"/>
+    </coding>
+  </route>
+  <method>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="323493005"/>
+       <display value="Injected floxacillin"/><!--SNOMED CT code maps to 1 gram whilst the patient receives 12 grams-->
+    </coding>
+  </method>
+  <maxDosePerPeriod><!--12g/24h-->
+    <numerator>
+        <value value="12"/>
+        <units value="gram"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258682000"/>
+    </numerator>
+    <denominator>
+        <value value="24"/>
+        <units value="hours"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258702006"/>
+    </denominator>
+  </maxDosePerPeriod>
+ </dosageInstruction>
+ <!--<dispense> and <substitution> are not available for this patient--> 
+</MedicationPrescription>

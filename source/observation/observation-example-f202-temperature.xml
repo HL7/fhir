@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+ <name><!--Kind of observation = Oral Temperature-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="415945006"/>
+       <display value="Oral temperature"/>
+    </coding>
+    <coding>
+       <system value="http://loinc.org"/>
+       <code value="8310-5"/>
+       <display value="Body temperature"/>
+    </coding>
+    <text value="Body temperature"/>
+ </name>
+ <valueQuantity><!--Temperature=39 degrees Celsius-->
+    <value value="39"/>
+    <units value="degrees C"/>
+    <system value="http://snomed.info/sct"/>
+    <code value="258710007"/>
+ </valueQuantity>
+ <interpretation>
+     <coding>
+         <system value="http://hl7.org/fhir/v2/0078" />
+         <code value="H" />
+     </coding>
+ </interpretation>
+ <issued value="2013-04-04T13:27:00+01:00"/><!--Oral temperature was measured on April fourth-->
+ <status value="entered in error"/><!--In the meantime a new oral temperature is measured-->
+ <reliability value="questionable"/><!--http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3418963/-->
+ <bodySite>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="38266002"/>
+        <display value="Entire body as a whole"/>  
+    </coding>
+ </bodySite>
+ <method>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="89003005"/>
+        <display value="Oral temperature taking"/>  
+    </coding>
+ </method>
+ <!--No identifier could be provided to this observation-->
+ <subject><!--It entails Roel's temperature-->
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </subject>
+ <performer>
+     <reference value="Practitioner/f201"/>
+ </performer>
+ <referenceRange>  <!-- 0..* Provides guide for interpretation -->
+    <low>
+      <value value="37.5"/>
+      <units value="degrees C"/>
+    </low>
+ </referenceRange>
+</Observation>

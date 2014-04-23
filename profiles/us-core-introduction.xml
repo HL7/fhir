@@ -1,0 +1,22 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml"   >
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile defines several extensions relevant to the US realm
+</p>
+<h3>Extensions to Patient</h3>
+<ul>
+<li><b>race</b> - (0..1) A CodeableConcept bound to the v3 valueset for Race</li>
+<li><b>ethnicity</b> - (0..1) A CodeableConcept bound to the v3 valueset for Ethnicity</li>
+</ul>
+<h3>Extensions to Address</h3>
+<ul>
+<li><b>county</b> - (0..1) A string containing the name of the county</li>
+</ul>
+<p>
+An example Patient showing these extensions can be found <a href="patient-example-us-extensions.html">here</a>.
+</p>
+</div>
+
+</div>

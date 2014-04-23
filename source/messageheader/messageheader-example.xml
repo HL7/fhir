@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageHeader xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/message.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Update Person resource for Peter James CHALMERS (Jim), MRN: 12345 (Acme Healthcare)</p>
+    </div>
+  </text>
+  <identifier value="1cbdfb97-5859-48a4-8301-d54eab818d68"/>
+  <timestamp value="2012-01-04T09:10:14Z"/>
+  <event>
+    <system value="http://hl7.org/fhir/message-type"/>
+    <code value="admin-update"/>
+  </event> 
+  <response>
+    <identifier value="5015fe84-8e76-4526-89d8-44b322e8d4fb"/>
+    <code value="ok"/>
+  </response>
+  <source>
+    <name value="Acme Central Patient Registry"/>
+    <software value="FooBar Patient Manager"/>
+    <version value="3.1.45.AABB"/>
+    <contact>
+      <system value="phone"/>
+      <value value="+1 (555) 123 4567"/>
+    </contact>
+    <endpoint value="llp:10.11.12.13:5432"/>
+  </source>
+  <destination>
+    <name value="Acme Message Gateway"/>
+    
+    <!-- this is to indicate to the Acme Message Gateway that this particular message 
+       is intended for Practitioner "xcda" -->
+    <target>
+      <reference value="Practitioner/xcda-author"/>
+    </target>
+    <endpoint value="llp:10.11.12.14:5432"/>
+  </destination>
+  <author>
+    <reference value="Practitioner/example"/>
+  </author>
+  
+  <!-- Here's the payload, the resource that this admin-update concerns -->
+  <data>
+    <reference value="Patient/example"/>
+  </data>
+</MessageHeader>

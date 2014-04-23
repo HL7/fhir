@@ -1,0 +1,22 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="SpecimenContainer"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Containers which may hold specimens or specimen containers - all SNOMED CT specimen containers"/>
+  <status value="draft"/>
+  <compose>  
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="434711009"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
+

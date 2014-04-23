@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/medication.xsd">
+    <name value="Crestor"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="408036003"/> <!-- SNOMED CT classification code -->
+            <display value="Rosuvastatin 10mg tablet"/>
+        </coding>
+    </code>
+    <isBrand value="true"/>
+    <manufacturer> <!-- Linked to non excisting RESOURCE(Organization) -->
+        <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
+        <reference value="Organization/F000"/>
+        <display value="AstraZaneca B.V."/>
+    </manufacturer>
+    <kind value="product"/>
+    <package>
+        <container>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="398124009"/>
+                <display value="drug container"/>
+            </coding>
+        </container>
+        <content>
+            <item><!-- 1..1 Resource(Medication) A product in the package --></item>?????
+            <amount>
+                <value value="30"/>
+                <units value="Pill"/>
+                <system value="http://snomed.info/sct"/>
+                <code value="46992007"/>
+            </amount>
+        </content>
+    </package>
+</Medication>

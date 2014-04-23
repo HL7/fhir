@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+ <!--No identifier could be provided-->
+ <dateWritten value="2013-04-04"/>
+  <status value="active"/> 
+ <patient>
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+ </patient>
+ <prescriber>
+    <reference value="Practitioner/f201"/>
+ </prescriber>
+ <encounter><!--TODO <encounter> is not expected...-->
+    <reference value="Encounter/f201"/>
+    <display value="Roel's encounter on April fourth 2013"/>
+ </encounter>
+ <reasonResource>
+   <reference value="Condition/f201"/>
+   <display value="fever"/>
+ </reasonResource> 
+ <medication>
+    <reference value="Medication/f203"/>
+    <display value="Paracetamol"/>
+ </medication>
+ <dosageInstruction>  
+  <text value="Paracetamol 3xdaags 1000mg"/>
+  <!--No defined schedule (<timing>)-->
+  <method>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="322236009"/>
+       <display value="Paracetamol 500mg tablet"/>
+    </coding>
+  </method>
+  <maxDosePerPeriod><!--3000mg/24h-->
+    <numerator>
+        <value value="3000"/>
+        <units value="milligram"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258684004"/>
+    </numerator>
+    <denominator>
+        <value value="24"/>
+        <units value="hours"/>
+        <system value="http://snomed.info/sct"/>
+        <code value="258702006"/>
+    </denominator>
+  </maxDosePerPeriod>
+ </dosageInstruction>
+ <!--<dispense> and <substitution> are not available for this patient--> 
+</MedicationPrescription>

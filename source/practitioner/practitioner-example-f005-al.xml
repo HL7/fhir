@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+    <identifier>
+        <use value="official"/>
+        <system value="urn:oid:2.16.528.1.1007.3.1"/>
+        <!-- Identificatiesysteem Zorgverlener UZI -->
+        <value value="118265112"/>
+    </identifier>
+        <identifier>
+            <use value="usual"/>
+            <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
+            <!-- BSN identification system -->
+            <value value="191REW8WE916"/>
+        </identifier>
+        <name>
+            <use value="official"/>
+            <family value="Anne"/>
+            <given value="Langeveld"/>
+            <suffix value="MD"/>
+        </name>
+        <telecom>
+            <system value="phone"/>
+            <value value="0205563847"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="a.langeveld@bmc.nl"/>
+            <use value="work"/>
+        </telecom>
+        <telecom>
+            <system value="fax"/>
+            <value value="0205668916"/>
+            <use value="work"/>
+        </telecom>
+    <address>
+            <use value="work"/>
+            <line value="Galapagosweg 9"/>
+            <city value="Amsterdam"/>
+            <zip value="1105 AZ"/>
+            <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
+        </address>
+    
+    <gender>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.4.642.1.24"/>
+                <!-- OID gender -->
+                <code value="F"/>
+                <display value="Female"/>
+            </coding>
+        </gender>
+        <birthDate value="1959-03-11"/>
+    
+    <organization>
+        <reference value="Organization/f001"/>
+        <display value="BMC"/>
+    </organization>
+    <role>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
+            <!-- "AssignedRoleType" coding system -->
+            <code value="01.000"/>
+            <display value="Arts"/>
+        </coding>
+        <text value="Care role"/>
+    </role>
+    <specialty>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
+            <!-- "AssignedRoleType" coding system -->
+            <code value="01.018"/>
+            <display value="Keel- neus- en oorarts"/>
+        </coding>
+        <text value="specialisation"/>
+    </specialty>
+    
+    <communication>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.6.121"/>
+            <!-- List of ISO 639-1 language codes (ISO 3066) -->
+            <code value="fr"/>
+            <display value="France"/>
+        </coding>
+    </communication>
+    
+</Practitioner>

@@ -1,0 +1,18 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The MessageHeader resource is defined in order to support <a href="messaging.html">Messaging using FHIR resources</a>.
+The principle usage of the MessageHeader resource is when messages are exchanged. However, as a 
+resource that can be used with the RESTful framework, the MessageHeader
+resource has the normal resource end-point ([base-url]/Message), which is
+used to manage a set of static messages resources. This could be used to 
+make an archive of past messages available. <b>Creating or updating Message resources
+in this fashion does not represent the actual occurrence of any event, nor can it trigger
+any logic associated with the actual event.</b> It is just for managing a set of message resources.
+</p>
+</div>
+
+
+</div>

@@ -1,0 +1,26 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="HierarchicalRelationshipType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value=" This  value set defines a set of codes that indicate the type of relationship between two specimen resources."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/hierarchical-relationship-type"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="parent"/>
+      <display value="Parent"/>
+      <definition value="The target resource is the parent of the focal specimen resource"/>
+    </concept>
+    <concept>
+      <code value="child"/>
+      <display value="Child"/>
+      <definition value="The target resource is the child of the focal specimen resource"/>
+    </concept>
+  </define>
+</ValueSet>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medicationstatement.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Penicillin VK 10ml suspension administered by oral route at 14:30 on 1 June 2012</p>
+      <p>to patient ref: a23</p>
+    </div>
+  </text> 
+  <!--  -->
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <whenGiven>
+    <start value="2012-06-01T14:30:00"/>
+    <end value="2012-06-01T14:30:00"/>
+  </whenGiven>
+  <medication>
+    <reference value="Medication/example"/> 
+  </medication>
+  <dosage>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="394899003"/>
+        <display value="oral administration of treatment"/>
+      </coding>  
+    </route>
+    <quantity>
+      <value value="10"/>
+      <units value="ml"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="ml"/>
+    </quantity>
+  </dosage>
+</MedicationStatement>

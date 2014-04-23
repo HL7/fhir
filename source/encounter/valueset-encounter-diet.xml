@@ -1,0 +1,45 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Diet"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set defines a set of codes that can be used to indicate dietary preferences or restrictions a patient may have."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/diet"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="vegetarian"/>
+      <definition value="Food without meat, poultry or seafood"/>
+    </concept>
+    <concept>
+      <code value="dairy-free"/>
+      <definition value="Exludes dairy products"/>
+    </concept>
+    <concept>
+      <code value="nut-free"/>
+      <definition value="Excludes ingredients containing nuts"/>
+    </concept>  
+    <concept>
+      <code value="gluten-free"/>
+      <definition value="Excludes ingredients containing gluten"/>
+    </concept>  
+    <concept>
+      <code value="vegan"/>
+      <definition value="Food without meat, poultry, seafood, eggs, dairy products and other animal-derived substances"/>
+    </concept>  
+    <concept>
+      <code value="halal"/>
+      <definition value="Foods that conform to Islamic law"/>
+    </concept> 
+    <concept>
+      <code value="kosher"/>
+      <definition value="foods that conform to Jewish dietary law"/>
+    </concept> 
+  </define>
+</ValueSet>
+
+

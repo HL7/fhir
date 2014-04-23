@@ -1,0 +1,2302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+  <entry>
+    <title/>
+    <id>27</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#27"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-03-04T12:28:01"/>
+        <patient>
+          <reference value="Patient/7"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="146006"/>
+            <display value="AEROBIC WOUND CULTURE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-03-04T12:28:17"/>
+        <resultGroup>
+          <name>
+            <text value="SERUM CHEMISTRY"/>
+          </name>
+        </resultGroup>
+        <!--
+
+OBX|1|CE|SDES^SPECIMEN DESCRIPTION|1|WOUND||||||F|||200503041229|RL^REFERENCE LAB|731^MUFTIC^ DIJANA|
+OBX|2|FT|SREQ^SPECIAL REQUESTS|1|RIGHT HIP||||||F|||200503041229|RL^REFERENCE LAB|731^MUFTIC^ DIJANA|
+
+OBX|3|CE|GS^GRAM STAIN|1|MODERATE ~WBC'S SEEN ~MANY ~GRAM NEGATIVE RODS ~MANY ~GRAM POSITIVE||||||F|||200503051452|G^GWINNETT|1078^BORTVIT^DEBORAH |
+OBX|3|CE|GS^GRAM STAIN|2| COCCI ~MODERATE ~GRAM POSITIVE RODS|||||||||200503051452|G^GWINNETT|1078^BORTVIT^DEBORAH |
+
+OBX|4|CE|CULT^CULTURE|1|PROTEUS MIRABILIS [GNR] ~MODERATE GROWTH||||||F|||200503081302|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|6|CE|ORG^ORGANISM|1|PROTEUS MIRABILIS [GNR] ~MODERATE GROWTH||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|7|CE|MTYP^METHOD|1|MIC||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|8|CE|AK^AMIKACIN|1|<=2 S||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|9|ST|AMP^AMPICILLIN|1|<=2||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|10|ST|CFZ^CEFAZOLIN (Ancef/Kefzol)|1|<=2||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|11|ST|CFT^CEFOTAXIME (Claforan)|1|<=4||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|12|ST|CFX^CEFOXITIN|1|<=2||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|13|ST|CAZ^CEFTAZIDIME (Fortaz)|1|<=8||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|14|ST|CAX^CEFTRIAXONE (Rocephin)|1|<=4||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|15|ST|CRM^CEFUROXIME (Zinacef)|1|<=4||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|16|ST|CP^CIPROFLOXACIN (Cipro)|1|<=1||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|17|ST|GM^GENTAMICIN (Garamycin)|1|<=1||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|18|ST|PI^PIPERACILLIN (Pipracil)|1|<=8||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|19|ST|TO^TOBRAMYCIN (Nebcin)|1|<=1||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|20|ST|TS^TRIMETH/SULFA (Bactrim)|1|<=2/38||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|21|ST|AMPS^AMP/SULBACTAM (Unasyn)|1|<=8/4||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|21|CE|AMPS^AMP/SULBACTAM (Unasyn)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|22|ST|AZT^AZTREONAM (Azactam)|1|<=8||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|23|ST|IMP^IMIPENEM (Primaxin)|1|<=4||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|24|ST|LVX^LEVOFLOXACIN (LEVAQUIN)|1|<=0.5||||||F|||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+
+OBX|4|CE|CULT^CULTURE|2|PSEUDOMONAS AERUGINOSA [GNR] ~MODERATE GROWTH|||||||||200503081302|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|9|CE|AMP^AMPICILLIN|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|  
+OBX|10|CE|CFZ^CEFAZOLIN (Ancef/Kefzol)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|11|CE|CFT^CEFOTAXIME (Claforan)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|12|CE|CFX^CEFOXITIN|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|13|CE|CAZ^CEFTAZIDIME (Fortaz)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|14|CE|CAX^CEFTRIAXONE (Rocephin)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|15|CE|CRM^CEFUROXIME (Zinacef)|2|BLOOD ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|16|CE|CP^CIPROFLOXACIN (Cipro)|2|BLOOD ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|17|CE|GM^GENTAMICIN (Garamycin)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|18|CE|PI^PIPERACILLIN (Pipracil)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|19|CE|TO^TOBRAMYCIN (Nebcin)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|20|CE|TS^TRIMETH/SULFA (Bactrim)|2|BLOOD ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|22|CE|AZT^AZTREONAM (Azactam)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|23|CE|IMP^IMIPENEM (Primaxin)|2|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|24|CE|LVX^LEVOFLOXACIN (LEVAQUIN)|2|BLOOD ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+
+OBX|4|CE|CULT^CULTURE|3|ENTEROCOCCUS FAECALIS [GPC] ~LIGHT GROWTH|||||||||200503081302|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|9|CE|AMP^AMPICILLIN|3|BLOOD ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|14|CE|CAX^CEFTRIAXONE (Rocephin)|3|URINE ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|15|CE|CRM^CEFUROXIME (Zinacef)|3|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|16|CE|CP^CIPROFLOXACIN (Cipro)|3|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|20|CE|TS^TRIMETH/SULFA (Bactrim)|3|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|15|CE|CRM^CEFUROXIME (Zinacef)|5|URINE ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|16|CE|CP^CIPROFLOXACIN (Cipro)|5|URINE ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|24|CE|LVX^LEVOFLOXACIN (LEVAQUIN)|3|BLOOD ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|24|CE|LVX^LEVOFLOXACIN (LEVAQUIN)|5|URINE ~IV ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+
+OBX|4|CE|CULT^CULTURE|4|STAPHYLOCOCCUS, COAGULASE NEGATIVE [GPC] ~LIGHT GROWTH|||||||||200503081302|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|9|CE|AMP^AMPICILLIN|4|URINE ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|15|CE|CRM^CEFUROXIME (Zinacef)|4|URINE ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|16|CE|CP^CIPROFLOXACIN (Cipro)|4|URINE ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|20|CE|TS^TRIMETH/SULFA (Bactrim)|4|URINE ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+OBX|24|CE|LVX^LEVOFLOXACIN (LEVAQUIN)|4|URINE ~PO ~S|||||||||200503060825|G^GWINNETT|567^BRANDON^ REBAH C|
+
+
+OBX|25|CE|ORG^ORGANISM|1|PSEUDOMONAS AERUGINOSA [GNR] ~MODERATE GROWTH||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|26|CE|MTYP^METHOD|1|MIC||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|27|CE|AK^AMIKACIN|1|8 S||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|28|ST|CAZ^CEFTAZIDIME (Fortaz)|1|<=8||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|28|CE|CAZ^CEFTAZIDIME (Fortaz)|2|BLOOD ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|29|ST|CP^CIPROFLOXACIN (Cipro)|1|<=1||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|29|CE|CP^CIPROFLOXACIN (Cipro)|2|BLOOD ~PO ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|29|CE|CP^CIPROFLOXACIN (Cipro)|3|BLOOD ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|29|CE|CP^CIPROFLOXACIN (Cipro)|4|URINE ~PO ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|29|CE|CP^CIPROFLOXACIN (Cipro)|5|URINE ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|30|NM|GM^GENTAMICIN (Garamycin)|1|4||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|30|CE|GM^GENTAMICIN (Garamycin)|2|BLOOD ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|31|ST|PI^PIPERACILLIN (Pipracil)|1|<=8||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|31|CE|PI^PIPERACILLIN (Pipracil)|2|BLOOD ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|32|NM|TO^TOBRAMYCIN (Nebcin)|1|2||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|32|CE|TO^TOBRAMYCIN (Nebcin)|2|BLOOD ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|33|ST|AZT^AZTREONAM (Azactam)|1|<=8||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|33|CE|AZT^AZTREONAM (Azactam)|2|BLOOD ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|34|ST|IMP^IMIPENEM (Primaxin)|1|<=4||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|34|CE|IMP^IMIPENEM (Primaxin)|2|BLOOD ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|35|ST|LVX^LEVOFLOXACIN (LEVAQUIN)|1|<=0.5||||||F|||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|35|CE|LVX^LEVOFLOXACIN (LEVAQUIN)|2|BLOOD ~PO ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|35|CE|LVX^LEVOFLOXACIN (LEVAQUIN)|3|BLOOD ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|35|CE|LVX^LEVOFLOXACIN (LEVAQUIN)|4|URINE ~PO ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|35|CE|LVX^LEVOFLOXACIN (LEVAQUIN)|5|URINE ~IV ~S|||||||||200503071042|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|36|CE|ORG^ORGANISM|1|ENTEROCOCCUS FAECALIS [GPC] ~LIGHT GROWTH||||||F|||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|37|CE|MTYP^METHOD|1|MIC||||||F|||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|38|NM|AMP^AMPICILLIN|1|0.5||||||F|||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|38|CE|AMP^AMPICILLIN|2|BLOOD ~IV ~BLAC|||||||||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|38|CE|AMP^AMPICILLIN|3|BLOOD ~PO ~BLAC|||||||||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|38|CE|AMP^AMPICILLIN|4|URINE ~PO ~BLAC|||||||||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|39|NM|PS^PENICILLIN|1|2||||||F|||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|39|CE|PS^PENICILLIN|2|BLOOD ~IV ~INTERMEDIATE|||||||||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|39|CE|PS^PENICILLIN|3|BLOOD ~PO ~INTERMEDIATE|||||||||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|39|CE|PS^PENICILLIN|4|URINE ~PO ~INTERMEDIATE|||||||||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|40|ST|VA^VANCOMYCIN|1|<=2||||||F|||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+OBX|40|CE|VA^VANCOMYCIN|2|BLOOD ~IV ~S|||||||||200503071518|G^GWINNETT|1035^CHEN^ JIAN|
+
+
+
+Comments-   OBR 24 populated 
+OBX3- test to be LOINC�d   OBX5 has organism but note the format.
+OBX3 has antibiotic to be LOINC�d but OBX5 sensitivity result format varies. 
+
+Is a result with multiple organisms and sensitivities without separate OBX�s  for each organism a problem?  
+
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>28</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#28"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-10-24T10:48:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="6000501"/>
+            <display value="BLOOD CULTURE-AUTOMATED"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-10-24T10:36:17"/>
+        <resultGroup>
+          <name>
+            <text value="SERUM CHEMISTRY"/>
+          </name>
+        </resultGroup>
+        <!--
+
+Mt Carmel _Lab Result_(McKesson) system
+
+MSH|^~\&amp;|PATHNET|CARM_OH|CAI|CARM_OH|200510241049||ORU^R01|403178-29713795803|T|2.1|74
+PID|| ||| ||||||||||||| |
+PV1||||||||||||||||||B
+ORC||000199901|||CM
+OBR||000199901|00BC05000141|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED|||200510241036|||HIS||||200510241036|BLOOD^^BLOOD^Order String- Microbiology ; T||||01137958030001600600050124825896324825896300000000101|||200510241048||MA|P||^^^^^ST
+NTE|||Order String- Microbiology ; Test- c
+OBX|001|TX|6000423^FINAL^FINAL REPORT||NO GROWTH AT 5 DAYS||||||P
+DSC|C01
+
+Addendum result
+MSH|^~\&amp;|PATHNET|CARM_OH|CAI|CARM_OH|200510241049||ORU^R03|603172-29713795803|T|2.1|1
+PID||S659193|000033120052|00003^01815782|ERE^THREE||19400605|M||2||||||||S3011976717|033120052
+PV1||||||||||||||||||B
+ORC||000199901|||CM
+OBR||000199901|00BC05000141|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED|||200510241036|||HIS||||200510241036|BLOOD^^BLOOD^Order String- Microbiology ; T||||01137958030001600600050124825896324825896300000000101|||200510241048||MA|P||^^^^^ST
+NTE|||Order String- Microbiology ; Test- c
+OBX|001|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED|| ||||||F
+OBX|002|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||   RM/BD  CD07 01        ORDERING PHYSICIAN:||||||F
+OBX|003|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||                         RESULT TRANSMITTED:  10/24/051049||||||F
+OBX|004|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||                         A D D E N D U M   R E P O R T||||||F
+OBX|005|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -||||||F
+OBX|006|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||BLOOD CULTURE-AUTOMATED           BC-05-000141||||||F
+OBX|007|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||COLLECTED:  10/24/05  1036||||||F
+OBX|008|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||SOURCE:  BLOOD||||||F
+OBX|009|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||      Order String- Microbiolog||||||F
+OBX|010|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||- - - - - - - - - - - - - - - - - - - - - - - -FINAL REPORT- - - - - - - - - - - - - - - - - - - - - - -||||||F
+OBX|011|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||FINAL REPORT                                10/24/05  1048||||||F
+OBX|012|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||   NO GROWTH AT 5 DAYS||||||F
+OBX|013|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||Order String- Microbiology ; Test- c||||||F
+OBX|014|TX|6000501^C BLOOD^BLOOD CULTURE-AUTOMATED||END OF REPORT||||||F
+DSC|C01
+
+
+****** Note- in OBX001 of the addendum report, patient info was given. 
+
+Comments-   OBR 24 populated 
+OBX3- test to be LOINC�d is not spelled out in first result but is in the addendum result 
+OBX5- SNOMED result 
+
+
+
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>29</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#29"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2006-01-23T08:36:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="ARDC"/>
+            <display value="Blood Culture"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2006-01-24T08:10:17"/>
+        <resultGroup>
+          <name>
+            <text value="SERUM CHEMISTRY"/>
+          </name>
+        </resultGroup>
+        <!--
+
+
+Jefferson_Lab Result_ (Misys) system
+
+
+
+
+MSH|^~\&amp;|LAB|TJUH|TJUH|TJUH|20060124081050||ORU^R01||P|2.2|||                   
+PID|||XXXX|XXXXXXXX^XXXXXXX||||||||||||||||              
+PV1|||N5XX^525XX^525XX|||||||||||||||||||||||||||||||||||||||||||||||           
+OBR||17582044|17582044|ARDC^Blood Culture^^^|||20060122230000|||||||200601230836 ^                                                 
+00||R05554||||M38488||20060124081050||MC|P||^^^20060122230000^^R|^^|||||||||    
+OBX|1|FT|ARDC^Blood Culture|1|^     
+\.in0\Blood Culture^\.br\\.in0\SPECIMEN DESCRIPTION^\.br\\.in3\BLOOD^\.br\      
+\.in0\COMMENTS^\.br\\.in3\L HEPLOCK^\.br\                                       
+\.in0\GRAM SMEAR^\.br\\.in3\***POSITIVE BLOOD CULTURE***^\.br\                  
+\.in0\\.in3\GRAM POSITIVE COCCI IN CLUSTERS^\.br\                               
+\.in0\\.in3\CALLED AND VERIFIED                                                 
+\.in1\TO AMY PULASKI 1/24/06 X7069 AT 0812 BY CML^\.br\                         
+\.in0\TEST RESULT^\.br\\.in3\CULTURE IN PROGRESS^\.br\                          
+\.in0\REPORT STATUS^\.br\\.in3\PENDING^\.br\                                    
+||||||||                                                                        
+\.in0\REPORT STATUS^\.br\\.in3\PENDING^\  
+
+
+Comments-   OBR 24 populated 
+OBX3- test to be LOINC�d 
+  OBX5- is FT result, can�t code to SNOMED as is. Full text blob will be sent.
+
+
+
+
+
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>30</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#30"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2006-02-03T03:20:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="RESPCUL"/>
+            <display value="RESPCUL"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2006-02-03T03:20:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+
+UMC LasVegas _Lab Result_ (?) system  
+
+MSH|^~\&amp;|CERNER|010|MS4R|010|20060207065738||ORU^R03|Q60959762T46209559||2.3
+PID|1|
+        PV1|1|I|3SO^0315^01^UMC^^^UMC         Building|1|||1194^SAXENA^ALOK^C^^MD^^^DONOTSEND^Current^^^EXTERNALID~1267^SAXENA^ALOK^C^^        MD^^^^Current^^^DOCNBR^SMS|||3SO||||7|||1194^SAXENA^ALOK^C^^MD^^^DONOTSEND^Current^^^EXTE        RNALID~1267^SAXENA^ALOK^C^^MD^^^^Current^^^DOCNBR^SMS|I|||||||||||||||||||||UMC||Active||        |20051013144900
+OBR|1|01026^SMS_ORDER_NUMBER|33667458^HNAM_ORDERID|RESPCUL^RESPCUL|||20060203032000|||^Nurse^Drawn^By^^^^^^Current||||20060203083200|CD:3278161^^Q^ET&amp;ET^^FLOOR COLLECT|1194^SAXENA^ALOK^C^^MD^^^DONOTSEND^Current^^^EXTERNALID~1267^SAXENA^ALOK^C^^MD^^^^Current^^^DOCNBR^SMS||||000002006034001199^HNA_ACCN~2438863^HNA_ACCNID||20060207065727||MA|P||1^^^20060203032000^^RT~^^^^^RT|||||||||20060203032000
+OBX|1|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|2|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|3|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                 University Medical Center of Southern Nevada||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|4|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                            Department of Pathology||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|5|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||     1800  West Charleston Blvd.,Las Vegas, Nevada  89102  (702) 383-2561||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|6|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                Laura L. Bilodeau, M.D., Director of Laboratory||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|7|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||    Patient Name        Room 3SO-0315-01||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|8|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                  LEHUA||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|9|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||    Hospital No.            Doctor SAXENA, ALOK C||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|10|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||   Accession No. 06-034-01199           MRN 1098441||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|11|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||             DOB 01/30/1942             SEX Female||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|12|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|13|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|14|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                                 MICROBIOLOGY||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|15|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|16|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||             PROCEDURE: RESPIRATORY GM/CULTURE   COLLECTED: 02/03/2006 03:20||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|17|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                SOURCE: Sput Ind                   STARTED: 02/03/2006 08:32||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|18|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||             BODY SITE: Endotracheal Tube        ACCESSION: 06-034-01199||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|19|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||      FREE TEXT SOURCE: Q||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|20|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|21|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  *** STAINS / PREPARATIONS ***||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|22|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|23|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Gram Stain Report||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|24|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Verified:02/03/2006 16:09||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|25|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Few White Blood Cells||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|26|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Rare Gram Positive Cocci in clusters - -suggestive of Staphylococcus||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|27|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  No Epithelial Cells||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|28|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|29|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  *** PRELIMINARY REPORT ***||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|30|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|31|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Preliminary Report||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|32|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Verified:02/06/2006 16:30||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|33|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Moderate growth Acinetobacter/Enterobacter/Stenotrophomonas Group||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|34|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Identification and susceptibility to follow.||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|35|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  ************************************************************||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|36|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Moderate growth Non Lactose Fermenting Gram Negative Bacilli||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|37|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Identification and susceptibility to follow.||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|38|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  ************************************************************||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|39|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  No normal upper respiratory flora isolated.||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|40|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|41|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  *** SUSCEPTIBILITY RESULTS ***||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|42|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                               Acinetobacter||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|43|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                               calcoaceticus||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|44|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                               baumannii||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|45|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                               complex||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|46|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|47|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                               MDIL            MINT||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|48|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Amikacin                     >=64            R||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|49|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Ampicillin/Sulbactam         >=32            R||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|50|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Cefepime                     >=32            R||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|51|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Ciprofloxacin                >=4             R||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|52|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Imipenem                     >=16            R||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|53|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Piperacillin/Tazobactam      >=128           R||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|54|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Trimethoprim/Sulfa           >=320           R||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|55|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  Tobramycin                   >=16            R||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|56|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|57|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|58|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|59|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|60|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|61|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|62|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|63|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|64|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                 University Medical Center of Southern Nevada||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|65|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                            Department of Pathology||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|66|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||     1800  West Charleston Blvd.,Las Vegas, Nevada  89102  (702) 383-2561||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|67|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                Laura L. Bilodeau, M.D., Director of Laboratory||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|68|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||    Patient Name KINNEY, HAZEL         Room 3SO-0315-01||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|69|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                  LEHUA||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|70|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||    Hospital No. 77035004            Doctor SAXENA, ALOK C||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|71|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||   Accession No. 06-034-01199           MRN 1098441||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|72|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||             DOB 01/30/1942             SEX Female||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|73|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|74|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|75|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|76|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                                 MICROBIOLOGY||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|77|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|78|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|79|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||             PROCEDURE: RESPIRATORY GM/CULTURE   COLLECTED: 02/03/2006 03:20||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|80|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||                SOURCE: Sput Ind                   STARTED: 02/03/2006 08:32||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|81|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||             BODY SITE: Endotracheal Tube        ACCESSION: 06-034-01199||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|82|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||      FREE TEXT SOURCE: Q||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|83|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|84|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||        S=Susceptible, I=Intermediate, R=Resistant, N/A=Not Applicable||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|85|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|86|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|87|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||  __________________________________________________________||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|88|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|89|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|90|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|91|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|92|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|93|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+OBX|94|TX|RESPCUL^RESPIRATORY GRAM/CULTURE^^RESPCUL^RESPCUL||||||||P|||20060207065727||^Nurse^Drawn^By^^^^^^Current
+
+
+Comments-   OBR 24 populated 
+OBX3- test to be LOINC�d   OBX5 has organism but note the format. Also in OBX 42-45 is the organism to be cultured?  The org name is broken across obx segments. 
+OBX3 does not have the antibiotic to be LOINC�d but OBX5 has antibiotic and sensitivity result.   
+
+****** Note- in OBX/ 7 / in this format patient name and ID was given! The format not clearly visible in Word shows a different report format in notepad with all the patient and doc info. 
+
+
+
+
+
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>31</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#31"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-06-30T13:42:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <text value="MYCOLOGY"/>
+        </reportName>
+        <diagnosticDateTime value="2005-06-30T14:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+
+
+
+
+
+
+
+
+
+
+
+
+Sharp _Lab Result_ (?) system  
+
+
+MSH|^~\&amp;|MIC|SCV||6|20060110125300||ORU^R01|0000000004|T|2.2|4
+PID||| ||TEST^LABORDERS|||F||W|||||||||
+PV1|1|I|3VE^301^01||||||^~^~^~^|||||||N|56889^AVILA,PATRICIA G|I|||||||||||||||||||||SCV|||||200601040918
+ORC|RE|382496|074291736211105249418657000001||IP||1^ONCE^^20050630134200^^R||20050630134100|||0155998^FADDA,GEORGE
+OBR||382496|074291736211105249418657000001|^^^6211105^C DERM^PLW-20|||20050630140000||||||^:                                    TE|20050630145700|OTHER|0155998^FADDA,GEORGE|||||01074291730001620621110524941865724941865700000000101|||MB|F||1^ONCE^^20050630134200^^R
+OBX|1|FT|6211105^C DERM||                             ******* MYCOLOGY *******||||||F
+OBX|2|FT|6211105^C DERM||DERMATOPHYTE CULTURE @           ACC#:06-05-181-00299   COLL D/T:06/30/05 1400||||||F
+OBX|3|FT|6211105^C DERM||Source: HAIR||||||F
+OBX|4|FT|6211105^C DERM||- - - - - - - - - - - - - - - - - - - - - - FINAL REPORT - - - - - - - - - - - - - - - - - - - - - - - -||||||F
+OBX|5|FT|6211105^C DERM||                                            30JUN05||||||F
+OBX|6|FT|6211105^C DERM||NEGATIVE FOR PATHOGENIC FUNGI AFTER 4 WEEKS||||||F
+OBX|7|FT|6211105^C DERM||@ = DERMATOPHYTE Performed at  SHARP PATHOLOGY LAB  5325 METRO ST  SAN DIEGO,||||||F
+OBX|8|FT|6211105^C DERM||    CA 92110||||||F
+
+Comments-   OBR 24 populated 
+ OBX3- test to be LOINC�d   OBX5 has organism result comment, but it also is FT and will be sent as a text blob. 
+
+
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>32</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#32"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-07T23:38:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="URC"/>
+            <display value="URINE CULTURE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-07T21:44:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MICRO TRANSACTION DIRECTLY FROM MISYS
+MSH|^~\&amp;|SUNQUEST|2|OCF|OCF|20051109102612||ORU^R01|11713|T|2.2|20041128424817|T|2.2|
+PID|||00123456^^^2||NAME DELETED||19500104|F|GOMEZ^AMY^|||||||||11111111^^^2|392547046|
+PV1||IP|N3D^D3124||||2240^LINSCOTT JR^JOHN^R^^^^^MP|^||||||||||IP||||||||||||||||||||||||||200511070000||
+ORC|RE|326121739|G904307-M42015M42015|||||||||2240^LINSCOTT JR^JOHN^R^^||||^|
+OBR|1|326121739|G904307-M42015M42015|URC^URINE CULTURE       |||200511072144|||999||||200511072338|URM^^URINE, CLEAN CATCH/MIDSTREAM|2240^LINSCOTT JR^JOHN^R^^^^^MPACCOM||||M42015||||MB|F||^^^^^R|^~^~^|^|||||999|
+OBX|1|TX|URC^URINE CULTURE       ^^|1|SPECIMEN DESCRIPTION: URINE, CLEAN CATCH/MIDSTREAM||||||F||1|200511072338|W^SLMC   WINDOW-SL|2870^EGGERSON^KARLA-SL|
+OBX|2|TX|URC^URINE CULTURE       ^^|1|CULTURE: 20,000 CFU/ML KLEBSIELLA PNEUMONIAE||||||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|3|TX|URC^URINE CULTURE       ^^|1|REPORT STATUS: FINAL 11092005||||||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBR|2|326121739|G904307-M42015M42015|MICV^METHOD MICV|||200511072144|||999||||200511072338|URM^^URINE, CLEAN CATCH/MIDSTREAM|2240^LINSCOTT JR^JOHN^R^^^^^MPACCOM||||M42015||||MB|F|URC&amp;URINE CULTURE       ^1^KPNE&amp;KLEBSIELLA PNEUMONIAE|^^^^^R|^~^~^|326121739^G904307-M42015M42015|||||999|
+OBX|1|ST|AMS^AMPICILLIN/SULBACTAM^^|1|4|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|2|ST|AM^AMPICILLIN^^|1|16|||R|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|3|ST|ATM^AZTREONAM^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|4|ST|CFZ^CEFAZOLIN^^|1|<=4|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|5|ST|FEP^CEFEPIME^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|6|ST|CTN^CEFOTETAN^^|1|<=4|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|7|ST|TAZ^CEFTAZIDIME^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|8|ST|CRO^CEFTRIAXONE^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|9|ST|CIPRO^CIPROFLOXACIN^^|1|<=0.25|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|10|ST|GM^GENTAMICIN^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|11|ST|IPM^IMIPENEM^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|12|ST|LVX^LEVOFLOXACIN^^|1|<=0.25|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|13|ST|NIT^NITROFURANTOIN^^|1|32|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|14|ST|PTZ^PIPERACILLIN/TAZOBAC^^|1|<=4|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|15|ST|TRSUV^TRIMETH/SULFA^^|1|<=20|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+OBX|16|ST|TOB^TOBRAMYCIN^^|1|<=1|||SS|||F||1|200511091026|M3^CEN     MICROBIOL|3729^SMYTHE^JENNIFER-CL|
+ 
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>33</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#33"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-03T00:00:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="RTCS"/>
+            <display value="RESPIRATORY CUL/SMR"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-06T05:25:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MICRO TRANSACTION DIRECTLY FROM MISYS
+MSH|^~\&amp;|SUNQUEST|2|OCF|OCF|20051109100025||ORU^R01|11014|T|2.2|20041128424317|T|2.2|
+PID|||00654321^^^2||NAME DELETED||19430609|M|^^|||||||||22222222^^^2|396429867|
+PV1||IP|C6J^J6383||||6511^BARGOUT^^RAED^^^^^MPACCOM|^||||||||||IP||||||||||||||||||||||||||200511030000|200511060000|
+ORC|RE|325480026|325480026X34529|||||||||6511^BARGOUT^^RAED^^^^^MP||||^|
+OBR|1|325480026|325480026X34529|RTCS^RESPIRATORY CUL/SMR |||200511060525|||999||||200511060551|SPT^^SPUTUM|6511^BARGOUT^^RAED^^^^^MPACCOMM||||X34529||||MB|F||^^^^^R|^~^~^|^|||||999|
+OBX|1|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|SPECIMEN DESCRIPTION: SPUTUM SPUTUM||||||F||1|200511060552|W^SLMC   WINDOW-SL|3330^NEUHAUS^LINDA-SL|
+OBX|2|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|GRAM SMEAR: >25 POLYMORPHONUCLEAR CELLS/LPF||||||F||1|200511060936|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|3|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|GRAM SMEAR: >25 EPITHELIAL CELLS/LPF||||||F||2|200511060936|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|4|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|GRAM SMEAR: MODERATE MIXED BACTERIAL FLORA WITH NO PREDOMINATING TYPE||||||F||3|200511060936|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|5|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|GRAM SMEAR: RARE YEAST WITH PSEUDOHYPHAE||||||F||4|200511060936|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|6|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|CULTURE: FEW YEAST, NOT CRYPTOCOCCUS||||||F||1|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|7|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|CULTURE: FEW PSEUDOMONAS AERUGINOSA||||||F||1|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|8|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|CULTURE: FEW PSEUDOMONAS AERUGINOSA ISOLATE 2||||||F||1|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|9|TX|RTCS^RESPIRATORY CUL/SMR ^^|1|REPORT STATUS: FINAL 11092005||||||F||1|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBR|2|325480026|325480026X34529|NCP^METHOD NCP|||200511060525|||999||||200511060551|SPT^^SPUTUM|6511^BARGOUT^^RAED^^^^^MPACCOMM||||X34529||||MB|F|RTCS&amp;RESPIRATORY CUL/SMR ^2^PSAER&amp;PSEUDOMONAS AERUGINOSA|^^^^^R|^~^~^|325480026^325480026X34529|||||999|
+OBX|1|ST|TAZ^CEFTAZIDIME^^|2|<=8|||SS|||F||2|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|2|ST|CIPRO^CIPROFLOXACIN^^|2|2|||I|||F||2|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|3|ST|GM^GENTAMICIN^^|2|4|||SS|||F||2|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|4|ST|IPM^IMIPENEM^^|2|<=4|||SS|||F||2|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|5|ST|LVX^LEVOFLOXACIN^^|2|4|||I|||F||2|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|6|ST|MEM^MEROPENEM^^|2|<=1|||SS|||F||2|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|7|ST|PIP^PIPERACILLIN^^|2|<=8|||SS|||F||2|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|8|ST|TOB^TOBRAMYCIN^^|2|<=1|||SS|||F||2|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBR|3|325480026|325480026X34529|NCP^METHOD NCP|||200511060525|||999||||200511060551|SPT^^SPUTUM|6511^BARGOUT^^RAED^^^^^MPACCOMM||||X34529||||MB|F|RTCS&amp;RESPIRATORY CUL/SMR ^3^PSAER&amp;PSEUDOMONAS AERUGINOSA|^^^^^R|^~^~^|325480026^325480026X34529|||||999|
+OBX|1|ST|TAZ^CEFTAZIDIME^^|3|<=8|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|2|ST|CIPRO^CIPROFLOXACIN^^|3|<=1|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|3|ST|GM^GENTAMICIN^^|3|4|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|4|ST|IPM^IMIPENEM^^|3|<=4|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|5|ST|LVX^LEVOFLOXACIN^^|3|2|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|6|ST|MEM^MEROPENEM^^|3|<=1|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|7|ST|PIP^PIPERACILLIN^^|3|<=8|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+OBX|8|ST|TOB^TOBRAMYCIN^^|3|2|||SS|||F||3|200511091000|M3^CEN     MICROBIOL|2605^GREENE^PAULA-CL|
+
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>34</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#34"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T11:31:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="6412-1"/>
+            <display value="GIARDIA LAMBLIA AG"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T03:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|OE|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912102||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P281112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||196712|M||2076-6^NativeHawaiian or Other Pacific Islander^2.16.840.1.113883.6.238^H^^L|^^^OR^97005^USA^^^OR067|WASHINGTON ||||||V281112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||||2186-5^Not Hispanic or Latino^2.16.840.1.113883.6.238^N^^L|
+ORC|RE|
+OBR|1||EM-811|6412-1^GIARDIA LAMBLIA AG^2.16.840.1.113883.6.1^182204^GIARDIA LAMBLIA, DIRECT, EIA^L|||200511220300|||||||200511221131||||||||||F|
+OBX|1|CE|6412-1^GIARDIA LAMBLIA AG^2.16.840.1.113883.6.1^182204^GIARDIA LAMBLIA, DIRECT, EIA^L||l-50701^Giardia, NOS^SNM^GAP^POSITIVE^L|||A|||F|||200511221354|^LABCORP BURLINGTON^CLIA||
+NTE|1|L|POSITIVE
+NTE|2|L|Giardia antigen detected.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>35</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#35"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T07:55:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="160218"/>
+            <display value="Rubeola Antibodies, IgM"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T01:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P301112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||199912|F||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|^^^OR^97005^USA^^^OR067|WASHINGTON ||||||V301112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+OBR|1||EM-83|^^^160218^Rubeola Antibodies, IgM^L|||200511220100|||||||200511220755|||||||||||F
+OBX|1|SN|7963-2^RUBEOLA VIRUS AB.IGM^2.16.840.1.113883.6.1^160219^Rubeola Antibodies, IgM^L||^5.60|AU|0.00-0.89|H|||F|||20051121100258|^LABCORP BURLINGTON^CLIA||
+NTE|1|L|Note: The presence of           Negative           <0.90
+NTE|2|L|IgM specific antibody           Borderline     0.90-1.10
+NTE|3|L|should be interpreted in        Positive           >1.10
+NTE|4|L|conjuction with the patient's
+NTE|5|L|clinical history and exposure
+NTE|6|L|risk when an acute infection
+NTE|7|L|is suspected.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>36</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#36"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T17:19:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T16:55:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P311112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||198402|F||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|^^^OR^97005^USA^^^OR067|WASHINGTON ||||||V311112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-84|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511221655|||||||200511221719|||||||||||F|||||||||||
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||L-2A901^Chlamydia trachomatis^SNM^MCTP^POSITIVE:^L|||A|||F|||200511221256|26D0444173^LABCORP KANSAS CITY^CLIA||PROBE
+NTE|1|L|POSITIVE:
+NTE|2|L|for Chlamydia trachomatis by DNA probe.
+NTE|3|L|**Verified by repeat analysis**
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>37</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#37"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T10:57:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="164020"/>
+            <display value="HSV I/II, IGG/RFX TYPE II IGG"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T11:10:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P321112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||200512|F||2054-5^Black or African American^2.16.840.1.113883.6.238^AA^African American^L|^^^OR^97005^USA^^^OR067|WASHINGTON ||||||V321112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+OBR|1||EM-851|^^^164020^HSV I/II, IGG/RFX TYPE II IGG^L|||200511221110|||||||200511221057|||||||||||F|
+OBX|1|SN|5209-2^HERPES SIMPLEX VIRUS 2 AB.IGG^2.16.840.1.113883.6.1^163151^HSV II IgG,Type Spec^L||^1.5|Index|0.0-0.8|H|||F|||20051122|26D0444173^LABCORP KANSAS CITY^CLIA||EIA
+NTE|1|L|Note: Negative indicates no antibodies  Negative     <0.9
+NTE|2|L|detected to HSV-2. Equivocal may        Equivocal 0.9-1.0
+NTE|3|L|suggest early infection. If clinically  Positive  >or=1.1
+NTE|4|L|appropriate, retest at later date.
+NTE|5|L|Positive indicates antibodies detected to
+NTE|6|L|HSV-2; coinfection with HSV 1 cannot be
+NTE|7|L|excluded.
+OBX|2|NM|21612-7^REPORTED PATIENT AGE^2.16.840.1.113883.6.1||20|d^Days^2.16.840.1.113883.6.8|||||F<CR> 
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>38</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#38"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T23:23:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="13951-9"/>
+            <display value="HEPATITIS A VIRUS AB"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T09:40:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P331112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||199805|F||2054-5^Black or African American^2.16.840.1.113883.6.238^AA^African American^L|^^^OR^97005^USA^^^OR067|SUMTER||||||V331112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+OBR|1||EM-8.9|13951-9^HEPATITIS A VIRUS AB^2.16.840.1.113883.6.1|||200511220940|||||||200511222323|||||||||||F|
+OBX|1|CE|13951-9^HEPATITIS A VIRUS AB^2.16.840.1.113883.6.1^006726^Hep A Ab, Total^L||^^^P^POSITIVE^L|||A|||F|||20051122|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>39</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#39"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T23:27:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="13951-9"/>
+            <display value="HEPATITIS A VIRUS AB"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T09:40:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P341112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||199805|F||2054-5^Black or African American^2.16.840.1.113883.6.238^AA^African American^L|^^^OR^97005^USA^^^OR067|WASHINGTON ||||||V341112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+OBR|1||EM-8.10|13951-9^HEPATITIS A VIRUS AB^2.16.840.1.113883.6.1|||200511220940|||||||200511222327|||||||||||F|
+OBX|1|CE|13951-9^HEPATITIS A VIRUS AB^2.16.840.1.113883.6.1^006726^Hep A Ab, Total^L||^^^P^POSITIVE^L|||A|||F|||20051122|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>40</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#40"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T23:23:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="13951-9"/>
+            <display value="HEPATITIS A VIRUS AB"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T09:40:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P341112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||199805|U||1002.5^Native American^2.16.840.1.113883.6.238^AL^Native Alaskan^L|| ||||||V341112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-8.11|13951-9^HEPATITIS A VIRUS AB^2.16.840.1.113883.6.1|||200511220940|||||||200511222323|||||||||||F
+OBX|1|CE|13951-9^HEPATITIS A VIRUS AB^2.16.840.1.113883.6.1^006726^Hep A Ab, Total^L||^^^P^POSITIVE^L|||A|||F|||20051122|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>41</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#41"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:01:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T02:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P351112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||198710|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V351112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+OBR|1||EM-8.12|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511230200|||||||200511230901||G82291^SMITH|^^^^917^3457574||||||||F|||||||2323PRI^LABORATORIAN^PRINCIPAL||||
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||L-2A901^Chlamydia trachomatis^SNM^MCTP^POSITIVE:^L|||A|||F|||20051124081341|^LABCORP BURLINGTON^CLIA||PROBE
+NTE|1|L|POSITIVE:
+NTE|2|L|for Chlamydia trachomatis by DNA probe.
+NTE|3|L|
+OBX|2|CE|23908-7^NEISSERIA GONORRHOEAE DNA^2.16.840.1.113883.6.1^098004^N gonorrhoeae by DNA Probe^L||L-22201^Neisseria gonorrhoeae^SNM^MGCP^POSITIVE:^L|||A|||F|||20051124081341|^LABCORP BURLINGTON^CLIA||PROBE
+NTE|1|L|POSITIVE:
+NTE|2|L|for Neisseria gonorrhoeae by DNA probe.
+NTE|3|L|Note: Test valid for male urethral and female
+NTE|4|L|      endocervical specimens only.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>42</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#42"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:29:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="5292-8"/>
+            <display value="REAGIN AB"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T01:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P361112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V361112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||||2135-2^Hispanic or Latino
+ORC|RE|
+OBR|1||EM-8.14|5292-8^REAGIN AB^2.16.840.1.113883.6.1^006072^RPR^L|||200511230100|||||||200511230929|||||||||||F|
+OBX|1|CE|5292-8^REAGIN AB^2.16.840.1.113883.6.1^006072^RPR^L||^^^REA^Reactive^L||Non-Reactive|A|||F|||20051123092959|34D0655059^LABCORP BURLINGTON^CLIA||FLOC
+NTE|1|L|Reactive
+OBX|2|SN|11084-1^REAGIN AB^2.16.840.1.113883.6.1^006464^RPR, Quant.^L|1|^1^:^80||=<1:1|H|||F|||20051123093013|34D0655059^LABCORP BURLINGTON^CLIA||
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>43</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#43"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:38:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="20447-9"/>
+            <display value="HIV 1 RNA"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T01:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P371112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V371112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||||2135-2^Hispanic or Latino^2.16.840.1.113883.6.238^H^^L
+OBR|1||EM-9.1|^^^550285^QUANT, RNA PCR, NON-GRAPH^L|||200511230100|||||||200511230938|||||||||||F
+OBX|1|SN|20447-9^HIV 1 RNA^2.16.840.1.113883.6.1^162548^HIV-1 RNA BY PCR, Qn^L||^30076|COPIES/mL||A|||F|||20051123094004|34D0655059^LABCORP BURLINGTON^CLIA||PROBE.AMP.TAR
+NTE|1|L|The result given above is the number of copies of HIV-1 RNA
+NTE|2|L|per 1 mL of plasma (Viral Load). Changes of five-fold or
+NTE|3|L|more in viral load are significant with regard to predicting
+NTE|4|L|disease progression and monitoring efficacy of antiviral
+NTE|5|L|therapy.
+OBX|2|CE|20447-9^HIV 1 RNA^2.16.840.1.113883.6.1^162549^HIV-1 RNA BY PCR, Qn^L||^^^N^Negative^L|COPIES/mL||A|||F|||20051123094004|34D0655059^LABCORP BURLINGTON^CLIA||PROBE.AMP.TAR
+NTE|1|L|Negative
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>44</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#44"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="amended"/>
+        <issued value="2005-11-22T01:33:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T20:14:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P381112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V381112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||||2135-2^Hispanic or Latino^2.16.840.1.113883.6.238^H^^L
+ORC|RE|
+OBR|1||EM-9.2|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511222014|||||||200511220133|||||||||||F|
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||^^^N^NEGATIVE:^L|||N|||C|||20051122|26D0444173^LABCORP KANSAS CITY^CLIA||PROBE
+NTE|1|L|NEGATIVE UPON RETEST:
+NTE|2|L|for Chlamydia trachomatis by DNA probe.
+NTE|3|L|THIS IS A CORRECTED RESULT.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>45</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#45"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T01:33:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T20:14:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P391112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|F||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V391112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||||2135-2^Hispanic or Latino^2.16.840.1.113883.6.238^H^^L
+ORC|RE|
+OBR|1||EM-9.3|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511222014|||||||200511220133||G87591^WHARTON^EDITH|^^^^^402^5553164||||||||F
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||^^^N^NEGATIVE:^L|||N|||F|||20051122|26D0444173^LABCORP KANSAS CITY^CLIA||PROBE
+NTE|1|L|NEGATIVE UPON RETEST:
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>1</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#1"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-20T11:33:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="6412-1"/>
+            <display value="GIARDIA LAMBLIA AG"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T03:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P401112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V401112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-9.9|6412-1^GIARDIA LAMBLIA AG^2.16.840.1.113883.6.1^182204^GIARDIA LAMBLIA, DIRECT, EIA^L|||200511220300|||||||200511201133||^WHARTON^EDITH|^^^^^265^6955515||||||||F||||||||1110-BC^INTERPRETER^SECONDARY|||
+OBX|1|CE|6412-1^GIARDIA LAMBLIA AG^2.16.840.1.113883.6.1^182204^GIARDIA LAMBLIA, DIRECT, EIA^L||l-50701^Giardia, NOS^SNM^GAP^POSITIVE^L|||A|||F|||20051120113549|34D0655059^LABCORP BURLINGTON^CLIA||
+NTE|1|L|POSITIVE
+NTE|2|L|Giardia antigen detected.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>46</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#46"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:01:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T02:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P411112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V411112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-9.11|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511230200|||||||200511230901||^RONSON^|^^^^917^3457574||||||||F|
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||L-2A901^Chlamydia trachomatis^SNM^MCTP^POSITIVE:^L|||A|||F|||20051124081341|34D0655059^LABCORP BURLINGTON^CLIA||PROBE
+NTE|1|L|POSITIVE:
+NTE|2|L|for Chlamydia trachomatis by DNA probe.
+NTE|3|L|
+OBX|2|CE|23908-7^NEISSERIA GONORRHOEAE DNA^2.16.840.1.113883.6.1^098004^N gonorrhoeae by DNA Probe^L||L-22201^Neisseria gonorrhoeae^SNM^MGCP^POSITIVE:^L|||A|||F|||20051124081341|34D0655059^LABCORP BURLINGTON^CLIA||PROBE
+NTE|1|L|POSITIVE:
+NTE|2|L|for Neisseria gonorrhoeae by DNA probe.
+NTE|3|L|          Note: Test valid for male urethral and female
+NTE|4|L|                endocervical specimens only.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>47</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#47"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:06:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="303744"/>
+            <display value="HEPATITIS PANEL (5)"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T01:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P421112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V421112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-9.12|^^^303744^HEPATITIS PANEL (5)^L|||200511230100|||||||200511230906|||||||||||F|
+OBX|1|CE|13951-9^HEPATITIS A VIRUS AB^2.16.840.1.113883.6.1^006726^Hep A Ab, Total^L||^^^P^POSITIVE^L|||A|||F|||20051123092448|^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+OBX|2|CE|5196-1^HEPATITIS B VIRUS SURFACE AG^2.16.840.1.113883.6.1^006510^Hep B Surface Ag^L||^^^P^POSITIVE^L|||A|||F|||20051123092448|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+OBX|3|CE|13952-7^HEPATITIS B VIRUS CORE AB^2.16.840.1.113883.6.1^006718^Hep B Core Ab, Tot^L||^^^P^POSITIVE^L|||A|||F|||20051123092448|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+OBX|4|CE|13955-0^HEPATITIS C VIRUS AB^2.16.840.1.113883.6.1^140608^Hep C Virus Ab^L||^^^P^POSITIVE^L|||A|||F|||20051123092448|^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>48</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#48"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:38:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="550285"/>
+            <display value="QUANT, RNA PCR, NON-GRAPH"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T01:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P431112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V431112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-9.14|^^^550285^QUANT, RNA PCR, NON-GRAPH^L|||200511230100|||||||200511230938||^MANSOUR|^^^^744^9135098||||||||F||||||||1010-BC^interpreter^ASSISTANT|TECH102^TECHNOLOGIST^MEDICAL||
+OBX|1|SN|20447-9^HIV 1 RNA^2.16.840.1.113883.6.1^162548^HIV-1 RNA BY PCR, Qn^L||^30076|COPIES/mL||A|||F|||20051123094004|34D0655059^LABCORP BURLINGTON^CLIA||PROBE.AMP.TAR
+NTE|1|L|The result given above is the number of copies of HIV-1 RNA
+NTE|2|L|per 1 mL of plasma (Viral Load). Changes of five-fold or
+NTE|3|L|more in viral load are significant with regard to predicting
+NTE|4|L|disease progression and monitoring efficacy of antiviral
+NTE|5|L|therapy.
+OBX|2|CE|20447-9^HIV 1 RNA^2.16.840.1.113883.6.1^162549^HIV-1 RNA BY PCR, Qn^L||^^^N^Negative^L|COPIES/mL||A|||F|||20051123094028|34D0655059^LABCORP BURLINGTON^CLIA||PROBE.AMP.TAR
+NTE|1|L|Negative
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>49</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#49"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T01:33:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T20:14:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P441112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V441112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-10.2|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511222014|||||||200511220133||7330^ASHBY^CHARLES^E^^^MD|^^^^^402^5553164||||||||F|||||||||TECH102^TECHNOLOGIST^MEDICAL||
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||^^^N^NEGATIVE:^L|||N|||F|||20051122|26D0444173^LABCORP KANSAS CITY^CLIA||PROBE
+NTE|1|L|NEGATIVE UPON RETEST:
+NTE|2|L|for Chlamydia trachomatis by DNA probe.
+NTE|3|L|THIS IS A CORRECTED RESULT.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T01:33:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T20:13:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P451112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V451112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-10.3|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511222013|||||||200511220133||7330^ASHBY^CHARLES^E^^^MD|^^^^^402^5553164||||||||F|||||||||1107-1^TECHNOLOGIST^MEDICAL||
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||^^^N^NEGATIVE:^L|||N|||F|||20051122|26D0444173^LABCORP KANSAS CITY^CLIA||PROBE
+NTE|1|L|NEGATIVE UPON RETEST:
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T01:33:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T20:14:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P461112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V461112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-10.4|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511222014|||||||200511220133||7330^ASHBY^CHARLES^E^^^MD|^^^^^402^5553164||||||||F|
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||^^^N^NEGATIVE:^L|||N|||F|||20051122|26D0444173^LABCORP KANSAS CITY^CLIA||PROBE
+NTE|1|L|NEGATIVE UPON RETEST:
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T03:00:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="6412-1"/>
+            <display value="GIARDIA LAMBLIA AG"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T03:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P471112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V471112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-10.5|6412-1^GIARDIA LAMBLIA AG^2.16.840.1.113883.6.1^182204^GIARDIA LAMBLIA, DIRECT, EIA^L|||200511220300|||||||200511201135||G87591^WHARTON^EDITH^M^^^MD|||||||||F|182204||||||||tech102^TECHNOLOGIST^MEDICAL||
+OBX|1|CE|6412-1^GIARDIA LAMBLIA AG^2.16.840.1.113883.6.1^080381^RSLT#1^L|1|l-50701^Giardia, NOS^SNM^GAP^POSITIVE^L|||A|||F|||20051120113625|34D0655059^LABCORP BURLINGTON^CLIA||
+NTE|1|L|POSITIVE
+NTE|2|L|Giardia antigen detected.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:01:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="096479"/>
+            <display value="CHLAMYDIA/GONOCOCCUS DNA PROBE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T02:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P481112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V481112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-10.11|^^^096479^CHLAMYDIA/GONOCOCCUS DNA PROBE^L|||200511230200|||||||200511230901||^RONSON^|^^^^917^3457574||||||||F|
+OBX|1|CE|20993-2^CHLAMYDIA TRACHOMATIS DNA^2.16.840.1.113883.6.1^098012^Chlamydia, DNA Probe^L||L-2A901^Chlamydia trachomatis^SNM^MCTP^POSITIVE:^L|||A|||F|||20051124081341|34D0655059^LABCORP BURLINGTON^CLIA||PROBE
+NTE|1|L|POSITIVE:
+NTE|2|L|for Chlamydia trachomatis by DNA probe.
+NTE|3|L|
+OBX|2|CE|23908-7^NEISSERIA GONORRHOEAE DNA^2.16.840.1.113883.6.1^098004^N gonorrhoeae by DNA Probe^L||L-22201^Neisseria gonorrhoeae^SNM^MGCP^POSITIVE:^L|||A|||F|||20051124081341|34D0655059^LABCORP BURLINGTON^CLIA||PROBE
+NTE|1|L|POSITIVE:
+NTE|2|L|for Neisseria gonorrhoeae by DNA probe.
+NTE|3|L|          Note: Test valid for male urethral and female
+NTE|4|L|                endocervical specimens only.
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:06:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="303744"/>
+            <display value="HEPATITIS PANEL (5)"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T01:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P491112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V491112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||EM-10.12|^^^303744^HEPATITIS PANEL (5)^L|||200511230100|||||||200511230906||^MORSE^|^^^^^^||||||||F||||||||1010-BC^LABLADY^ASSISTANT|1107-1^LABTECH^MEDICAL||
+OBX|1|CE|13951-9^HEPATITIS A VIRUS AB^2.16.840.1.113883.6.1^006726^Hep A Ab, Total^L||^^^P^POSITIVE^L|||A|||F|||20051123092448|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+OBX|2|CE|5196-1^HEPATITIS B VIRUS SURFACE AG^2.16.840.1.113883.6.1^006510^Hep B Surface Ag^L||^^^P^POSITIVE^L|||A|||F|||20051123092448|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+OBX|3|CE|13952-7^HEPATITIS B VIRUS CORE AB^2.16.840.1.113883.6.1^006718^Hep B Core Ab, Tot^L||^^^P^POSITIVE^L|||A|||F|||20051123092448|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+OBX|4|CE|13955-0^HEPATITIS C VIRUS AB^2.16.840.1.113883.6.1^140608^Hep C Virus Ab^L||^^^P^POSITIVE^L|||A|||F|||20051123092448|34D0655059^LABCORP BURLINGTON^CLIA||EIA
+NTE|1|L|POSITIVE
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-23T09:38:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="550285"/>
+            <display value="QUANT, RNA PCR, NON-GRAPH"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-23T01:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P501112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V501112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||||2186-5^Not Hispanic or Latino^2.16.840.1.113883.6.238^N^Not hispanic^L
+ORC|RE|
+OBR|1||EM-10.14|^^^550285^QUANT, RNA PCR, NON-GRAPH^L|||200511230100|||||||200511230938|||||||||||F|
+OBX|1|SN|20447-9^HIV 1 RNA^2.16.840.1.113883.6.1^162548^HIV-1 RNA BY PCR, Qn^L||^30076|COPIES/mL||A|||F|||20051123094004|34D0655059^LABCORP BURLINGTON^CLIA||PROBE.AMP.TAR
+NTE|1|L|The result given above is the number of copies of HIV-1 RNA
+NTE|2|L|per 1 mL of plasma (Viral Load). Changes of five-fold or
+NTE|3|L|more in viral load are significant with regard to predicting
+NTE|4|L|disease progression and monitoring efficacy of antiviral
+NTE|5|L|therapy.
+OBX|2|CE|20447-9^HIV 1 RNA^2.16.840.1.113883.6.1^162549^HIV-1 RNA BY PCR, Qn^L||^^^N^Negative^L|COPIES/mL||A|||F|||20051123094028|34D0655059^LABCORP BURLINGTON^CLIA||PROBE.AMP.TAR
+NTE|1|L|Negative
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2001-12-30T04:36:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="600-7"/>
+            <display value="MICROORGANISM IDENTIFIED"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2001-12-28T09:40:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P511112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V511112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||||2186-5^Not Hispanic or Latino^2.16.840.1.113883.6.238^N^Not hispanic^L
+ORC|RE|
+OBR|1||36484902650|600-7^MICROORGANISM IDENTIFIED^2.16.840.1.113883.6.1^008300^BLOOD CULTURE, ROUTINE^L|||200112280940|||||||200112300436||^HENDRICKSON|^^^^^701^2803246||||||||F|||||||||||
+OBX|1|CE|600-7^MICROORGANISM IDENTIFIED^2.16.840.1.113883.6.1^997181^RESULT 1^L|1|L-26201^Vibrio Cholerae^SNM^M520^VIBRIO CHOLERAE^L|||A|||F|||20051122|LABCORP KANSAS CITY^26D0444173^CLIA||
+NTE|1|L|VIBRIO CHOLERAE
+OBX|2|CE|600-7^MICROORGANISM IDENTIFIED^2.16.840.1.113883.6.1^997182^RESULT 2^L|1|L-20901^Listeria monocytogenes^SNM^M315^LISTERIA MONOCYTOGENES^L|||A|||F|||20051122|LABCORP KANSAS CITY^26D0444173^CLIA||
+NTE|1|L|LISTERIA MONOCYTOGENES
+OBX|3|CE|600-7^MICROORGANISM IDENTIFIED^2.16.840.1.113883.6.1^997183^RESULT 3^L|1|L-22202^Neisseria monocytogenes^SNM^M469^NEISSERIA MENINGITIDIS^L|||A|||F|||20051122|LABCORP KANSAS CITY^26D0444173^CLIA||
+NTE|1|L|NEISSERIA MENINGITIDIS
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T20:50:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="163030"/>
+            <display value="B PERTUSSIS IGG/IGM AB, QUANT"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T11:45:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P521112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|F||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V521112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||MS-1|^^^163030^B PERTUSSIS IGG/IGM AB, QUANT^L|||200511221145|||||||200511222050|||||||||||F||||||786.2^Cough^IC9|||||
+OBX|1|SN|24127-3^BORDETELLA PERTUSSIS.TOXIN AB.IGG^2.16.840.1.113883.6.1^161749^B pertussis IgG Ab, Quant^L||^13|PanBio Units|0-8|H|||F|||20051122|26D0444173^LABCORP KANSAS CITY^CLIA||EIA
+NTE|1|L|                                           Negative           <9
+NTE|2|L|                                           Equivocal        9-11
+NTE|3|L|                                           Positive          >11
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="final"/>
+        <issued value="2005-11-22T08:00:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://acme.com/labs/reports"/>
+            <code value="008144"/>
+            <display value="STOOL CULTURE"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T12:00:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P531112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||197608|M||2054-5^Black or African American^2.16.840.1.113883.6.238^AA^African American^L|| ||||||V531112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO
+ORC|RE|
+OBR|1||MS-2|^^^008144^STOOL CULTURE^L|||200511221200|||||||200511220800|||||||||||F|||||||||||
+OBX|1|CE|^^^080173^RSLT#1^L|1|^^^CJ^CAMPYLOBACTER JEJUNI^L|||A|||F|||20051122|26D0444173^LABCORP KANSAS CITY^CLIA||
+NTE|1|L|CAMPYLOBACTER JEJUNI
+NTE|2|L|     Moderate growth
+NTE|3|L|    .
+
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+        <status value="amended"/>
+        <issued value="2005-11-22T23:10:01"/>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <laboratory>
+          <reference value="Organization/1.2.36.90146595217.4.1.1"/>
+          <display value="Acme Laboratory, Inc"/>
+        </laboratory>
+        <reportId>
+          <system value="http://acme.com/lab/reports"/>
+          <value value="5234342"/>
+        </reportId>
+        <reportName>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="5196-1"/>
+            <display value="HEPATITIS B VIRUS SURFACE AG"/>
+          </coding>
+        </reportName>
+        <diagnosticDateTime value="2005-11-22T09:35:17"/>
+        <resultGroup>
+        </resultGroup>
+        <!--
+MSH|^~\&amp;|LIS|^2.16.840.1.114222.4.1.150^ISO|^2.16.840.1.114222.4.3.2.3^ISO|^2.16.840.1.114222^ISO|200511221912133||ORU^R01^ORM_R01|POR012005112218321330035|D|2.5|||||||||BioSense-V1.04^PHIN^2.16.840.1.114222.4.1^ISO
+PID|1||P541112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||��||200003|F||2106-3^White^2.16.840.1.113883.6.238^C^Caucasian^L|| ||||||V541112205^^^&amp;2.16.840.1.114222.4.3.3.1&amp;ISO||||2186-5^Not Hispanic or Latino^2.16.840.1.113883.6.238^N^Not hispanic^L
+ORC|RE|
+OBR|1||PA-3|5196-1^HEPATITIS B VIRUS SURFACE AG^2.16.840.1.113883.6.1^006510^Hep B Surface Ag^L|||200511220935|||||||200511222310||^LEMON|^^^^^402^4796333||||||||C|||||||||||
+OBX|1|SN|^^^717009^Lead, Blood (Pediatric)^L||^2.0|mcg/dL|0-9|A|||F|||200511220304|26D0444173^LABCORP KANSAS CITY^CLIA||
+NTE|1|L|                               (Children under 16 years)
+NTE|2|L|                              Detection Limit = 1 mcg/dL
+BTS|28
+FTS|1
+        -->
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+  
+  <entry>
+    <title/>
+    <id>50</id>
+    <link rel="self" href="http://www.hl7.org/fhir/patient-examples.xml#50"/>
+    <updated>2012-04-14T10:35:23</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <LabReport xmlns="http://hl7.org/fhir">
+
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+          </div>
+        </text>
+
+        
+      </LabReport>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      </div>
+    </summary>
+  </entry>
+
+</feed>

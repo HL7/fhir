@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Media xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\media.xsd">
+  <!-- 
+    this is added to demonstrate the use of extensions.
+    0002,0010 is the DICOM transfer syntax of the referenced image
+   -->
+  <extension url="http://nema.org/fhir/extensions#0002-0010">
+    <valueUri value="urn:oid:1.2.840.10008.1.2.1"/>
+  </extension>  
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      Ultrasound Image on patient "James Chalmers":<br/>
+      <img src="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033" alt="WADO reference to image"/>
+        
+    </div>
+  </text>
+
+  <type value="photo"/>
+
+  <subtype>
+    <coding>
+      <system value="http://nema.org/dicom/dcid"/>
+      <code value="US"/>
+    </coding>
+  </subtype>
+
+  <identifier>
+    <use value="official"/>
+    <label value="InstanceUID"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+  </identifier> 
+  <identifier>
+    <label value="accessionNo"/>
+    <!-- the imaging department accession number. (they recycle numbers each year) -->    
+    <system value="http://acme-imaging.com/accession/2012"/>
+    <value value="1234567"/>
+ </identifier>
+  <identifier>
+    <label value="studyId"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.840.113619.2.21.848.34082.0.538976288.3"/>
+  </identifier>
+  <identifier>
+    <label value="seriesId"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
+  </identifier>  
+
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+ 
+  <deviceName value="G.E. Medical Systems"/>
+  <height value="480"/>
+  <width value="640"/>
+  
+  <!-- and a reference to the image data -->
+  <content>
+    <contentType value="application/dicom"/>
+    <!-- The actual image could be anywhere. This is a WADO example -->
+    <url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+  </content>
+
+</Media>

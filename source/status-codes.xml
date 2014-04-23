@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Grahame</Author>
+  <LastAuthor>Grahame</LastAuthor>
+  <Created>2013-11-28T10:43:10Z</Created>
+  <LastSaved>2013-12-30T10:41:14Z</LastSaved>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>9030</WindowHeight>
+  <WindowWidth>14325</WindowWidth>
+  <WindowTopX>1035</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s63">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"
+     ss:Color="#F2F2F2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Status Codes">
+  <Table ss:ExpandedColumnCount="38" ss:ExpandedRowCount="36" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s62" ss:Width="313.5"/>
+   <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="60"/>
+   <Column ss:Index="8" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="57.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="48.75"/>
+   <Column ss:Index="34" ss:StyleID="s62" ss:Width="45"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s63">
+    <Cell><Data ss:Type="String">Path</Data></Cell>
+    <Cell><Data ss:Type="String">c1</Data></Cell>
+    <Cell><Data ss:Type="String">c2</Data></Cell>
+    <Cell><Data ss:Type="String">c3</Data></Cell>
+    <Cell><Data ss:Type="String">c4</Data></Cell>
+    <Cell><Data ss:Type="String">c5</Data></Cell>
+    <Cell><Data ss:Type="String">c6</Data></Cell>
+    <Cell><Data ss:Type="String">c7</Data></Cell>
+    <Cell><Data ss:Type="String">c8</Data></Cell>
+    <Cell><Data ss:Type="String">c9</Data></Cell>
+    <Cell><Data ss:Type="String">c10</Data></Cell>
+    <Cell><Data ss:Type="String">c11</Data></Cell>
+    <Cell><Data ss:Type="String">c12</Data></Cell>
+    <Cell><Data ss:Type="String">c13</Data></Cell>
+    <Cell><Data ss:Type="String">c14</Data></Cell>
+    <Cell><Data ss:Type="String">c15</Data></Cell>
+    <Cell><Data ss:Type="String">c16</Data></Cell>
+    <Cell><Data ss:Type="String">c17</Data></Cell>
+    <Cell><Data ss:Type="String">c18</Data></Cell>
+    <Cell><Data ss:Type="String">c19</Data></Cell>
+    <Cell><Data ss:Type="String">c20</Data></Cell>
+    <Cell><Data ss:Type="String">c21</Data></Cell>
+    <Cell><Data ss:Type="String">c22</Data></Cell>
+    <Cell><Data ss:Type="String">c23</Data></Cell>
+    <Cell><Data ss:Type="String">c24</Data></Cell>
+    <Cell><Data ss:Type="String">c25</Data></Cell>
+    <Cell><Data ss:Type="String">c26</Data></Cell>
+    <Cell><Data ss:Type="String">c27</Data></Cell>
+    <Cell><Data ss:Type="String">c28</Data></Cell>
+    <Cell><Data ss:Type="String">c29</Data></Cell>
+    <Cell><Data ss:Type="String">c30</Data></Cell>
+    <Cell><Data ss:Type="String">c31</Data></Cell>
+    <Cell><Data ss:Type="String">c32</Data></Cell>
+    <Cell><Data ss:Type="String">c33</Data></Cell>
+    <Cell><Data ss:Type="String">c34</Data></Cell>
+    <Cell ss:Index="37"><Data ss:Type="String">c35</Data></Cell>
+    <Cell><Data ss:Type="String">c36</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+    <Cell><Data ss:Type="String">AdverseReaction.status</Data></Cell>
+    <Cell><Data ss:Type="String">suspected</Data></Cell>
+    <Cell><Data ss:Type="String">confirmed</Data></Cell>
+    <Cell><Data ss:Type="String">refuted</Data></Cell>
+    <Cell><Data ss:Type="String">resolved</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Alert.status</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell><Data ss:Type="String">inactive</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AllergyIntolerance.status</Data></Cell>
+    <Cell><Data ss:Type="String">suspected</Data></Cell>
+    <Cell><Data ss:Type="String">confirmed</Data></Cell>
+    <Cell><Data ss:Type="String">refuted</Data></Cell>
+    <Cell><Data ss:Type="String">resolved</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CarePlan.activity.status</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not started</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">scheduled</Data></Cell>
+    <Cell><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell><Data ss:Type="String">on hold</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CarePlan.goal.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">achieved</Data></Cell>
+    <Cell><Data ss:Type="String">sustaining</Data></Cell>
+    <Cell><Data ss:Type="String">cancelled</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CarePlan.status</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Composition.status</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">preliminary</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">amended</Data></Cell>
+    <Cell><Data ss:Type="String">appended</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ConceptMap.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell><Data ss:Type="String">Condition.status</Data></Cell>
+    <Cell><Data ss:Type="String">provisional</Data></Cell>
+    <Cell><Data ss:Type="String">confirmed</Data></Cell>
+    <Cell><Data ss:Type="String">refuted</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">working</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Conformance.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="26.25">
+    <Cell><Data ss:Type="String">DiagnosticOrder.event.status</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
+    <Cell><Data ss:Type="String">received</Data></Cell>
+    <Cell><Data ss:Type="String">accepted</Data></Cell>
+    <Cell><Data ss:Type="String">in progress</Data></Cell>
+    <Cell><Data ss:Type="String">review</Data></Cell>
+    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="String">failed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DiagnosticOrder.item.status</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
+    <Cell><Data ss:Type="String">received</Data></Cell>
+    <Cell><Data ss:Type="String">accepted</Data></Cell>
+    <Cell><Data ss:Type="String">in progress</Data></Cell>
+    <Cell><Data ss:Type="String">review</Data></Cell>
+    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="String">failed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DiagnosticOrder.status</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
+    <Cell><Data ss:Type="String">received</Data></Cell>
+    <Cell><Data ss:Type="String">accepted</Data></Cell>
+    <Cell><Data ss:Type="String">in progress</Data></Cell>
+    <Cell><Data ss:Type="String">review</Data></Cell>
+    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:Index="25"><Data ss:Type="String">failed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DiagnosticReport.status</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">registered</Data></Cell>
+    <Cell ss:Index="20"><Data ss:Type="String">partial</Data></Cell>
+    <Cell><Data ss:Type="String">final</Data></Cell>
+    <Cell><Data ss:Type="String">corrected</Data></Cell>
+    <Cell><Data ss:Type="String">amended</Data></Cell>
+    <Cell><Data ss:Type="String">appended</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DocumentManifest.status</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">current</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">superceded</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DocumentReference.docStatus</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">preliminary</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">amended</Data></Cell>
+    <Cell><Data ss:Type="String">appended</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DocumentReference.status</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">current</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">superceded</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Encounter.status</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">finished</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell><Data ss:Type="String">onleave</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImmunizationRecommendation.recommendation.forecastStatus</Data></Cell>
+    <Cell ss:Index="29"><Data ss:Type="String">DUE</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Location.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:Index="27"><Data ss:Type="String">inactive</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationAdministration.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell><Data ss:Type="String">on hold</Data></Cell>
+    <Cell><Data ss:Type="String">entered in error</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationDispense.dispense.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell><Data ss:Type="String">on hold</Data></Cell>
+    <Cell><Data ss:Type="String">entered in error</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationDispense.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell><Data ss:Type="String">on hold</Data></Cell>
+    <Cell><Data ss:Type="String">entered in error</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationPrescription.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell><Data ss:Type="String">on hold</Data></Cell>
+    <Cell><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">superceded</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Observation.status</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">entered in error</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">registered</Data></Cell>
+    <Cell><Data ss:Type="String">preliminary</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">final</Data></Cell>
+    <Cell><Data ss:Type="String">corrected</Data></Cell>
+    <Cell><Data ss:Type="String">amended</Data></Cell>
+    <Cell><Data ss:Type="String">appended</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Profile.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Questionnaire.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">amended</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">published</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Substance.status</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Supply.status</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">requested</Data></Cell>
+    <Cell><Data ss:Type="String">received</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">dispensed</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">failed</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Supply.dispense.status</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">in progress</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">dispensed</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">abandoned</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="25.5">
+    <Cell><Data ss:Type="String">ValueSet.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Appointment.participant.status</Data></Cell>
+    <Cell><Data ss:Type="String">accepted</Data></Cell>
+    <Cell><Data ss:Type="String">declined</Data></Cell>
+    <Cell><Data ss:Type="String">tentative</Data></Cell>
+    <Cell><Data ss:Type="String">in-process</Data></Cell>
+    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell><Data ss:Type="String">needs-action</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">AppointmentResponse.participantStatus</Data></Cell>
+    <Cell><Data ss:Type="String">accepted</Data></Cell>
+    <Cell><Data ss:Type="String">declined</Data></Cell>
+    <Cell><Data ss:Type="String">tentative</Data></Cell>
+    <Cell><Data ss:Type="String">in-process</Data></Cell>
+    <Cell><Data ss:Type="String">completed</Data></Cell>
+    <Cell><Data ss:Type="String">needs-action</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Slot.freeBusyType</Data></Cell>
+    <Cell ss:Index="30"><Data ss:Type="String">BUSY</Data></Cell>
+    <Cell><Data ss:Type="String">FREE</Data></Cell>
+    <Cell><Data ss:Type="String">BUSY-UNAVAILABLE</Data></Cell>
+    <Cell><Data ss:Type="String">BUSY-TENTATIVE</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Namespace.status</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

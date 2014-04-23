@@ -1,0 +1,31 @@
+/* Ribbon
+----------------------------------------------------------------------------------------*/
+ .ribbon,
+ .ribbon a {
+ 	color: @gray; 
+ }
+ .ribbon{
+	 margin: 0 6px 0 6px;
+	 list-style:none;
+	 line-height: 2em;
+ 	}
+	 .ribbon .active a {
+	 	color:#333 
+	 }
+ .ribbon li{
+  	 border-color: #AD9977; 
+ 	 border-left-style: solid;
+ 	 border-left-width: 1px;
+	 display:inline-block;
+	 *display:inline;
+	 line-height: 1em;
+	 *zoom:1;
+	 padding: 0 6px;
+	 }
+	 .ribbon li:first-child{
+	 	 border-left: none;
+	 	 //padding-left: 0;
+	 }
+	 .ribbon li a{
+	 	display: block
+	 }

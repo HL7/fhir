@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Response to Message Envelope urn:uuid:c4145bc5-1ee8-4ba6-95c5-71fd1c8cea7a</title>
+  <id>urn:uuid:7564F4FE-67C0-437E-9464-836EC8C4437F</id>
+  <link href="urn:uuid:6894E0FC-7141-4CEA-83DA-9E228A538A9D" rel="self" />
+  <updated>2013-09-22T15:39:15Z</updated>
+  <entry xmlns="http://www.w3.org/2005/Atom">
+    <title>Message Response</title>
+    <id>urn:uuid:1C0AAED0-19D0-49BC-8987-67A7BD618E83</id>
+    <link href="urn:uuid:6C486019-7322-43CC-B939-20ABB09E42F5" rel="self" />
+    <updated>2013-09-22T15:39:15Z</updated>
+    <content type="text/xml">
+      <Message xmlns="http://hl7.org/fhir">
+        <identifier value="{594C60B4-5E33-4010-A05B-04007C4290BF}"/>
+        <timestamp value="2013-09-22T15:39:15Z"/>
+        <event value="make-claim"/>
+        <response>
+          <identifier value="{AACC8A43-804D-469C-969B-D702AA7CADC8}"/>
+          <code value="ok"/>
+        </response>
+        <source>
+          <name value="Grahame Grieve (HL7Connect)"/>
+          <software value="HL7Connect"/>
+          <version value="2.00-058"/>
+          <contact>
+            <system value="email"/>
+            <value value="grahame@healthintersections.com.au"/>
+          </contact>
+          <endpoint value="http://localhost:9556/svc/fhir//Mailbox"/>
+        </source>
+        <destination>
+          <endpoint value="http://localhost"/>
+        </destination>
+        <data>
+          <reference value="http://localhost:9556/svc/fhir//remittance/@"/>
+        </data>
+      </Message>
+    </content>
+  </entry>
+  <entry xmlns="http://www.w3.org/2005/Atom">
+    <title>remittance</title>
+    <id>http://localhost:9556/svc/fhir//remittance/@</id>
+    <link href="http://localhost:9556/svc/fhir//remittance/@" rel="self" />
+    <updated>2013-09-22T15:39:15Z</updated>
+    <content type="text/xml">
+      <Remittance xmlns="http://hl7.org/fhir">
+        <identifier>
+          <system value="urn:ietf:rfc:3986"/>
+          <value value="urn:uuid:0BB55DF2-CC40-4299-940C-A62E93FED96A"/>
+        </identifier>
+        <service>
+          <instance value="1"/>
+          <rate value="0.8"/>
+          <benefit value="0.8"/>
+        </service>
+        <service>
+          <instance value="2"/>
+          <rate value="0.8"/>
+          <benefit value="1.6"/>
+        </service>
+        <service>
+          <instance value="3"/>
+          <rate value="0.8"/>
+          <benefit value="2.4"/>
+        </service>
+      </Remittance>
+    </content>
+  </entry>
+</feed>

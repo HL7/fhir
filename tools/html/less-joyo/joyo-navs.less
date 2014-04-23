@@ -1,0 +1,29 @@
+// Navbar Tweaks
+
+.navbar {
+	margin-bottom: 0;
+	margin-left: -@page-margin;
+	margin-right: -@page-margin;
+}
+
+.nav-list {
+	margin-bottom: @default-bottom-margin * 1.5;
+}
+.nav-list > li > a {
+    color: @gray;
+}
+.nav-list > .active > a, 
+.nav-list > .active > a:hover, 
+.nav-list > .active > a:focus {
+    background-color: transparent;
+    color: @color-two;
+    text-shadow: none;
+}
+.nav-list > .active a {
+	background: url('../images/stripe.png') no-repeat left center;
+}
+
+
+.nav-header {
+	font-size: @font-size-base * @navheader-scale; 
+}

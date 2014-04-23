@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/list.xsd"
+ xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Burnt Ear</td>
+            <td>Severe</td>
+            <td>24-May 2012</td>
+            <td>Left Ear</td>
+            <td>deleted</td>
+          </tr>
+          <tr>
+            <td>Asthma</td>
+            <td>Mild</td>
+            <td>21-Nov 2012</td>
+            <td>--</td>
+            <td>added</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </text>
+
+<!-- We're including the actual social history as contained resources
+  but could equally point to a 'real' resource of that existed-->
+<contained>
+  <Observation id='obs1'>
+    <name>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value="229819007"/>
+        <display value="Tobacco use and exposure (observable entity)"/>
+      </coding>
+      <text value="Smoking History"/>
+    </name>
+    <valueString value="Smoked 20x day for 10 years. Has not smokde for last 3 years."/>
+    <status value="final"/>
+    <reliability value="ok"/>
+  </Observation>
+</contained>
+  
+  <contained>
+    <Observation id='obs2'>
+      <name>
+        <coding>
+          <system value='http://snomed.info/sct'/>
+          <code value="397021000000108"/>
+          <display value="Alcohol use (UK Specific)"/>
+        </coding>
+        <text value="Smoking History"/>
+      </name>
+      <valueString value="Social drinker. 3 bottle Gin per week, 6 bottles beer per day."/>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+  
+  <!-- This is a List of Social history -->
+  <code>
+    <coding>
+      <system value='http://snomed.info/sct'/>
+      <code value="365448001"/>
+      <display value="Social and personal history finding (finding)"/>
+    </coding>
+    <text value="Social History"/>
+  </code>
+  <!-- The patient supplied the information -->
+  <source>
+    <reference value="Patient/example"/>
+  </source>
+  <date value="2012-11-25T22:17:00+11:00"/>
+  <mode value="snapshot"/>
+  
+  <entry>
+    <item>
+      <reference value="#obs1"/>
+      <display value="Smoking History"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="#obs2"/>
+      <display value="Alcohol History"/>
+    </item>
+  </entry>
+
+</List>

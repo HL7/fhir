@@ -1,0 +1,30 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The ImmunizationRecommendation resource is intended to cover communication of a specified patient's immunization recommendation and status across all healthcare disciplines in all care settings and all regions.
+</p>
+<p>
+Additionally, the ImmunizationRecommendation resource is expected to cover key concepts related to the querying of a patient's immunization recommendation and status. This resource - through consultation with the PHER work group - is believed to meet key use cases and information requirements as defined in the existing HL7 v3 POIZ domain and Immunization Domain Analysis Model.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This resource references the following resources:
+</p>
+<ul>
+    <li>AdverseReaction</li>
+    <li>Patient</li>
+    <li>Organization</li>
+    <li>Immunization</li>
+    <li>Observation</li>
+</ul>
+<p>
+One of the considerations for this resource is if it is better for this resource to be a profile of the CarePlan resource or if it is more appropriate for this to be a separate resource due to the number of immunization profile-specific data elements.  Please consider this when submitting your ballot comments.
+</p>
+</div>
+
+</div>

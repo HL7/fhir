@@ -1,0 +1,153 @@
+<!-- FHIR Heirarchy -->
+<!--
+
+todo: compartments
+-->
+<fhir>
+<page title="Home" note="(map + search) - focus on useful links" filename="index.html">
+  <page title="Documentation" filename="documentation.html">
+    <page title="Table of Contents" filename="toc.html"/>
+    <page title="License and Legal Terms" filename="license.html"/>
+    <page title="Community and Credits" filename="credits.html"/>
+    <page title="Version History" filename="history.html"/>
+    <page title="DSTU Considerations" filename="dstu.html"/>
+    <page title="Outstanding Issues" filename="todo.html"/>
+    <page title="Summary" filename="summary.html"/>
+    <page title="Introduction" filename="overview.html"/>
+    <page title="Comparison" filename="comparison.html">
+      <page title="v2 Messaging" filename="comparison-v2.html"/>
+      <page title="v3 Messaging" filename="comparison-v3.html"/>
+      <page title="CDA" filename="comparison-cda.html"/>
+      <page title="Other Specifications" filename="comparison-other.html"/>
+    </page>
+    <page title="Coming Challenges" filename="change.html"/>
+    <page title="EHR FM map" filename="ehr-fm.html"/>
+    <page title="Resource Definitions" filename="resources.html">
+      <page title="Conformance" filename="conformance-rules.html"/>
+      <page title="Tags, Bundles, Compartments" filename="extras.html">
+        <page title="Compartments" filename="compartment-patient.html"/>
+      </page>
+      <page title="References" filename="references.html"/>
+      <page title="Narrative" filename="narrative.html">
+        <page title="Narrative Example" filename="narrative-example.html"/>
+      </page>
+      <page title="Formats" filename="formats.html">
+        <page title="XML" filename="xml.html"/>
+        <page title="JSON" filename="json.html"/>
+      </page>
+      <page title="Extensibility" filename="extensibility.html">
+        <page title="Examples" filename="extensibility-examples.html"/>
+      </page>
+      <page title="Formal Definitions" filename="base-definitions.html"/>
+    </page>
+    <page title="Data Types" filename="datatypes.html">
+      <page title="Examples" filename="datatypes-examples.html"/>
+      <page title="Formal Definitions" filename="datatypes-definitions.html"/>
+      <page title="Mappings" filename="datatypes-mappings.html"/>
+    </page>
+    <page title="Using Codes" filename="terminologies.html">
+      <page title="Systems" filename="terminologies-systems.html"/>
+      <page title="Value Sets" filename="terminologies-valuesets.html">
+        <pages type="valueset" filename="template-valueset.html"/>
+        <pages type="codesystem" filename="template-codesystem.html"/>
+      </page>
+      <page title="V2 Tables" filename="terminologies-v2.html" source="v2/template.html">
+        <pages type="v2-table" filename="template-v2.html"/>
+      </page>
+      <page title="V3 Namespaces" filename="terminologies-v3.html" source="v3/template.html">
+        <pages type="v3-vocab" filename="template-v3.html"/>
+      </page>
+      <page title="Concept Maps" filename="terminologies-conceptmaps.html"/>
+    </page>
+    <page title="Ballot Intro" filename="ballot-intro.html"/>
+  </page>
+  
+  <page title="Implementation" filename="implementation.html">
+    <page title="RESTful API" filename="http.html"/>
+    <page title="Search" filename="search.html"/>
+    <page title="Messaging" filename="messaging.html"/>
+    <page title="Documents" filename="documents.html"/>
+    <page title="Downloads" filename="downloads.html"/>
+    <page title="Using Resources" filename="use.html"/>
+    <page title="Support" filename="support.html"/>
+    <page title="Managing Resource Identity" filename="managing.html"/>
+    <page title="Services / SOA" filename="services.html"/>
+    <page title="Interaction Patterns" filename="pushpull.html"/>
+    <page title="Common Usages" filename="usecases.html"/>
+    <page title="Profile List" filename="profilelist.html"/>
+    <page title="Security" filename="security.html">
+      <page title="Security Labels" filename="security-labels.html"/>
+    </page>
+    <page title="Integrated Examples" filename="integrated-examples.html"/>
+  </page>
+
+  <page title="Resources" filename="resourcelist.html"/>
+<!--    Every Resource below has structure:
+      resource
+      definitions
+      profile
+      examples
+       [- example]
+      mappings
+      -->
+  <page title="Clinical" filename="clinical.html">
+    <page type="resource" resource="AdverseReaction"/>
+    <page type="resource" resource="AllergyIntolerance"/>
+    <page type="resource" resource="CarePlan"/>
+    <page type="resource" resource="FamilyHistory"/>
+    <page type="resource" resource="Condition"/>
+    <page type="resource" resource="Procedure"/>
+    <page type="resource" resource="Questionnaire"/>
+    <page type="resource" resource="Medication"/>
+    <page type="resource" resource="MedicationPrescription"/>
+    <page type="resource" resource="MedicationAdministration"/>
+    <page type="resource" resource="MedicationDispense"/>
+    <page type="resource" resource="MedicationStatement"/>
+    <page type="resource" resource="Immunization"/>
+    <page type="resource" resource="ImmunizationRecommendation"/>
+    <page type="resource" resource="Observation"/>
+    <page type="resource" resource="DiagnosticReport"/>
+    <page type="resource" resource="DiagnosticOrder"/>
+    <page type="resource" resource="ImagingStudy"/>
+    <page type="resource" resource="Specimen"/>
+    <page type="resource" resource="DeviceObservationReport"/>
+  </page>
+  <page title="Administrative" filename="administration.html">
+    <page type="resource" resource="Patient"/>
+    <page type="resource" resource="RelatedPerson"/>
+    <page type="resource" resource="Practitioner"/>
+    <page type="resource" resource="Organization"/>
+    <page type="resource" resource="Device"/>
+    <page type="resource" resource="Location"/>
+    <page type="resource" resource="Substance"/>
+    <page type="resource" resource="Group"/>
+    <page type="resource" resource="Encounter"/>
+    <page type="resource" resource="Alert"/>
+    <page type="resource" resource="Supply"/>
+    <page type="resource" resource="Order"/>
+    <page type="resource" resource="OrderResponse"/>
+    <page type="resource" resource="Appointment"/>
+    <page type="resource" resource="AppointmentResponse"/>
+    <page type="resource" resource="Availability"/>
+    <page type="resource" resource="Slot"/>
+  </page>
+  <page title="Infrastructure" filename="infrastructure.html">
+    <page type="resource" resource="List"/>
+    <page type="resource" resource="Media"/>
+    <page type="resource" resource="Other"/>
+    <page type="resource" resource="DocumentReference"/>
+    <page type="resource" resource="DocumentManifest"/>
+    <page type="resource" resource="Provenance"/>
+    <page type="resource" resource="SecurityEvent"/>
+    <page type="resource" resource="Composition"/>
+    <page type="resource" resource="MessageHeader"/>
+    <page type="resource" resource="OperationOutcome"/>
+    <page type="resource" resource="Query"/>
+    <page type="resource" resource="Conformance"/>
+    <page type="resource" resource="Namespace"/>
+    <page type="resource" resource="ValueSet"/>
+    <page type="resource" resource="Profile"/>
+    <page type="resource" resource="ConceptMap"/>
+  </page>
+</page>
+</fhir>

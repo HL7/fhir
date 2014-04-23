@@ -1,0 +1,22 @@
+<ValueSet xmlns="http://hl7.org/fhir"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+    <name value="PatientRelationshipType"/>
+    <publisher value="FHIR Project team"/>
+    <telecom>  
+        <system value="url"/>
+        <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <description value="A set of codes that can be used to indicate the relationship between a Patient and a RelatedPerson."/>
+    <status value="draft"/>
+    <compose>
+        <import value="http://hl7.org/fhir/vs/patient-contact-relationship" />
+        <include>
+            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <filter>
+                <property value="concept"/>
+                <op value="is-a"/>
+                <value value="_PersonalRelationshipRoleType"/>
+            </filter>
+        </include>
+    </compose>
+</ValueSet>

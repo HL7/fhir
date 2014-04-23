@@ -1,0 +1,77 @@
+/*  Definition Lists
+----------------------------------------------------------------------------------------*/
+
+.dl-horizontal-small{
+	.dl-horizontal-mixin(50px,10px);
+}
+.dl-horizontal-medium {
+	.dl-horizontal-mixin(90px,10px);
+}
+.dl-horizontal-large{
+	.dl-horizontal-mixin(120px,10px);
+}
+.dl-horizontal-small,
+.dl-horizontal-medium,
+.dl-horizontal-large {
+	dt {
+		text-align: left;
+	}
+}
+
+.dl {
+	overflow: hidden;
+}
+.dl-single-item dt{
+	float: left;
+	text-align: right;
+	white-space: nowrap;
+}
+.dl-single-item dd {
+	float: left;
+}
+.dl-simple {
+	overflow: hidden;
+	dt,
+	dd {
+		float: left;
+	}
+	dt {
+		clear: both;
+	}
+}
+.dl-vertical dd {
+	margin-left: 0
+}
+.dl-bordered{
+	border-right: 1px solid @tableBorder; 
+	border-bottom: 1px solid @tableBorder; 
+	border-left: 1px solid @tableBorder; 
+}
+.dl-bordered dt {
+	border-top: 1px solid @tableBorder; 
+	text-align: left;
+	padding: 8px;
+	width: 114px; 
+}
+.dl-bordered dd {
+	border-top: 1px solid @tableBorder; 
+	border-left: 1px solid @tableBorder;
+	padding: 8px;
+}
+.dl-single-item.dl-bordered{
+	border: 1px solid @tableBorder;
+	overflow: hidden;
+}
+.dl-single-item.dl-bordered dt {
+	border-top: none;
+	width: auto; 
+}
+.dl-single-item.dl-bordered dd {
+	border-top: none;
+}
+.dl-condensed dt {
+	padding: 4px 8px;
+}
+.dl-condensed dd {
+	padding: 4px 8px;
+}

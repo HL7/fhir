@@ -1,0 +1,39 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The core extensions provide HL7 provided extensions to the <a href="questionnaire.html">Questionnaire</a> resource.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<h3>Questionnaire structure and validation</h3>
+<p>
+There are two extensions to help with defining the structure of a Questionnaire, especially useful when sending an "empty form" Questionnaire, e.g. a Questionnaire where only the questions are provided.
+such Questionnaires contain the text and descriptions of sections and questions within the sections, and these two extensions provide extra information to a client displaying such
+an empty Questionnaire and make it possible to do basic validation of the input. It is expected that more extensive validation for Questionnaires is added by creating new extensions.
+</p>
+<ul>
+<li>
+<b>mayRepeat</b> - This extension may be used on a Questionnaire.group to signal that this group can occur more than once in the instance. Such repeating groups contain Questions that
+may repeat, often shown in a tabular form where each question is a column heading and each repeat a row in a table.
+</li>
+<li>
+<b>answerFormat</b> - This extension may be used on Questionnaire.question and indicates the kind of answer expected. The format is either a basic input form (corresponding to the
+FHIR types like string and integer) or an indication that the answer is a coded choice coming from a list of options. In the latter case, the answer may be single- or multiple-choice and
+supplying free text ("Other, please specify...") may also be indicated. This format helps the client to display the correct kind of input method for such a question.
+</li>
+</ul>
+
+<h3>Other</h3>
+<ul>
+<li>
+<b>omitReason</b> - A code to explicitly indicate why a question on a form was not answered (comparable to some of the ISO 21090 concepts in nullFlavor), i.e. "patient did not
+want to answer", "no matching choice available" etcetera.
+</li>
+</ul>
+</div>
+
+</div>

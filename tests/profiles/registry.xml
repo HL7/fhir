@@ -1,0 +1,143 @@
+<!--
+Things to check about profile functionality:
+* cardinality - yes
+* fixed values - yes
+* checking xpath invariants - yes
+* choosing a type / restricting the type choice - yes
+* bindings
+* slicing
+* profiles on targets
+-->
+<profile-tests>
+ <test name="Base">
+   <profile value="profile-base"/>
+   <instance value="instance-name-only"/>
+   <outcome value="ok"/>
+ </test>
+ <test name="Comments Required">
+   <profile value="profile-base+comments"/>
+   <instance value="instance-name-only"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Comments Required, Yes">
+   <profile value="profile-base+comments"/>
+   <instance value="instance-name+comments"/>
+   <outcome value="ok"/>
+ </test>
+ <test name="Comments Prohibited, Present">
+   <profile value="profile-base-no-comments"/>
+   <instance value="instance-name+comments"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Comments Prohibited, Absent">
+   <profile value="profile-base-no-comments"/>
+   <instance value="instance-name-only"/>
+   <outcome value="ok"/>
+ </test>
+ <test name="Comments Length, ok">
+   <profile value="profile-base+comments-length"/>
+   <instance value="instance-name+comments"/>
+   <outcome value="ok"/>
+ </test>
+ <test name="Comments Length, too long">
+   <profile value="profile-base+comments-length"/>
+   <instance value="instance-name+comments-long"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Comments fixed, ok">
+   <profile value="profile-base+comments-fixed"/>
+   <instance value="instance-name+comments"/>
+   <outcome value="ok"/>
+ </test>
+ <test name="Comments fixed, not ok">
+   <profile value="profile-base+comments-fixed"/>
+   <instance value="instance-name+comments-long"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Comments fixed, not ok">
+   <profile value="profile-base+comments-fixed"/>
+   <instance value="instance-name+comments-ext"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Comments fixed+ext, not ok">
+   <profile value="profile-base+comments-ext"/>
+   <instance value="instance-name+comments-ext"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Comments fixed+ext, ok">
+   <profile value="profile-base+comments-ext"/>
+   <instance value="instance-name+comments-ext2"/>
+   <outcome value="0"/>
+ </test>
+ <test name="Comments fixed+ext (no value), ok">
+   <profile value="profile-base+comments-ext3"/>
+   <instance value="instance-name+comments-ext3"/>
+   <outcome value="0"/>
+ </test>
+ <test name="fixed issued">
+   <profile value="profile-issued"/>
+   <instance value="instance-name+issued"/>
+   <outcome value="0"/>
+ </test>
+ <!-- todo: fixed integer (test primitive type handling) -->
+ <test name="Comments xpath">
+   <profile value="profile-comments-xpath"/>
+   <instance value="instance-name+comments"/>
+   <outcome value="0"/>
+ </test>
+ <test name="Comments xpath, fail">
+   <profile value="profile-comments-xpath"/>
+   <instance value="instance-name+comments-long"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Require Value, not ok">
+   <profile value="profile-value"/>
+   <instance value="instance-name-only"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Require Value, ok">
+   <profile value="profile-value"/>
+   <instance value="instance-name-value"/>
+   <outcome value="0"/>
+ </test>
+ <test name="Require Value=string, not ok">
+   <profile value="profile-value-string"/>
+   <instance value="instance-name-quantity"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Require Value=string, ok">
+   <profile value="profile-value-string"/>
+   <instance value="instance-name-value"/>
+   <outcome value="0"/>
+ </test>
+ <test name="Require ValueString, not ok">
+   <profile value="profile-value-string-2"/>
+   <instance value="instance-name-quantity"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Require ValueString, ok">
+   <profile value="profile-value-string-2"/>
+   <instance value="instance-name-value"/>
+   <outcome value="0"/>
+ </test>
+ <test name="Require Value:Quantity, not ok">
+   <profile value="profile-value-quantity"/>
+   <instance value="instance-name-value"/>
+   <outcome value="1"/>
+ </test>
+ <test name="Require Value:Quantity, ok">
+   <profile value="profile-value-quantity"/>
+   <instance value="instance-name-quantity"/>
+   <outcome value="0"/>
+ </test>
+ <test name="Require Value:Quantity - fixed, not ok">
+   <profile value="profile-value-quantity-fixed"/>
+   <instance value="instance-name-quantity"/>
+   <outcome value="3"/>
+ </test>
+ <test name="Require Value:Quantity, ok">
+   <profile value="profile-value-quantity-fixed"/>
+   <instance value="instance-name-quantity2"/>
+   <outcome value="0"/>
+ </test>
+</profile-tests>

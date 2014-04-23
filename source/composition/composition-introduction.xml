@@ -1,0 +1,58 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p> 
+A Composition is also the basic structure from which <a href="documents.html">FHIR Documents</a> - 
+immutable bundles with attested narrative - are built. A single logical composition may be 
+associated with a series of derived documents, each of which is a frozen copy of the 
+composition.
+</p>
+
+<p>
+Note: <a href="http://en.wikipedia.org/wiki/EN_13606">EN 13606</a> uses the term "Composition" 
+to refer to a single commit to an EHR system, and offers some common examples: a consultation 
+note, a progress note, a report or a letter, an investigation report, a prescription form 
+and a set of bedside nursing observations. These logical examples are all valid uses of a 
+Composition resource, but it is not required that all the resources are updated in 
+a single commit.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<a name="status"> </a>
+<h3>Composition Status Codes</h3>
+<p>
+Every composition has a status, which describes the status of the content of the composition, taken from this list of codes:
+</p>
+<table class="grid">
+ <tr> <td><b>Code</b></td> <td><b>Definition</b></td> </tr>
+ <tr> <td>preliminary</td> <td>This is a preliminary composition (also known as initial or interim). The content may be incomplete or unverified.</td> </tr>
+ <tr> <td>final</td> <td>The composition is complete and verified by an appropriate person and no further work is planned</td> </tr>
+ <tr> <td>appended</td> <td>The composition has been modified subsequent to being marked and/or released as "final" and is complete and verified by an authorized person. The modifications added new information to the composition, but did not revise existing content</td> </tr>
+ <tr> <td>amended</td> <td>The composition content or the referenced resources have been modified subsequent to being released as "final" and the composition is complete and verified by an authorized person</td> </tr>
+ <tr> <td>retracted</td> <td>The composition was originally created/issued in error and this is an amendment that marks that the entire composition and any past versions or copies should not be considered as valid</td> </tr>
+</table>
+<p>
+Composition status generally only moves down through this list - it moves from preliminary to final and then it may progress to either appended or amended. 
+Note that in many workflows, only final compositions are made available and the preliminary status is not used. 
+</p>
+<p>
+A very few compositions are created entirely in error in the workflow - usually the composition concerns the wrong patient or is written by the wrong author,
+and the error is only detected after the composition has been used or documents have been derived from it. To support resolution of this case, 
+the composition is updated to be marked as "retracted" and a new derived document can be created. This means that the entire series of derived 
+documents is now considered to be created in error and systems receiving derived documents based on retracted compositions
+SHOULD remove data taken from earlier documents from routine use and/or take other appropriate actions. Systems are not required to 
+provide this workflow or support documents derived from retracted compositions, but they SHALL not ignore a status of retracted. 
+Note that systems that handle compositions or derived documents and don't support the retracted status need to define 
+some other way of handling compositions that are created in error; while this is not a common occurrence, some clinical systems 
+have no provision for removing erroneous information from a patient's record and there is no way for a user to know that it is not fit for use -
+this is not safe. 
+</p>
+<p>
+Note: for RIM-centric readers, see the <a href="composition-status.html">v3 mapping for the codes</a> and the <a href="composition-mappings.html#http://hl7.org/v3">RIM mapping for the element</a>.
+</p>
+</div>
+
+</div>

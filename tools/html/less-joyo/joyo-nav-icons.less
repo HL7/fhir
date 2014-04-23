@@ -1,0 +1,32 @@
+/* Bar with Icon links */
+
+@navIconsHeight: 44px;
+@navIconsWidth: 44px;
+
+.nav-icons {
+    list-style: none outside none;
+    display: block;
+    float: left;  
+    margin: 0;
+}
+.nav-icons li.nav-header {
+    width: auto;
+    line-height: @navIconsHeight; // same as icons-height
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.nav-icons li {
+    width: @navIconsWidth;
+    height: @navIconsHeight;
+    float: left;
+    a { 
+        display: block;
+	    width: @navIconsWidth;
+	    height: @navIconsHeight;
+        margin: 0;
+        padding: 0;
+    }
+    a:hover{
+    margin-top: -2px;   
+    }
+}

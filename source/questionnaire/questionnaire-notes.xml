@@ -1,0 +1,70 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>
+Notes:
+</h2>
+<ul>
+<li>Questionnaires can be authored by clinicians, the patient his/herself or a patients relatives (or even owner in the case of animals). Clinicians
+may author questionnaires, where the answers are provided by others on behalf of the patient his/herself. Additionally, information gathered for the
+purpose of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, Questionnaire makes a distinction between the author,
+the subject and the source of information.</li>
+<li>Questionnaires may be used to represent predefined forms, named using Questionnaire.name. Questionnaires.identifier identify a specific
+set of answers to the questions on these forms.</li>
+<li>If a Questionnaire is used to just represent a predefined form or "template", the Questionnaire need not contain answers (Question.answer, Question.data and 
+Questionnaire.question.choice are empty).</li>
+<li>A Questionnaire's contents are placed inside its single nested Group, which may contain Questions or subgroups with Questions. 
+These may or may not correspond to the structure of the original form. If they do correspond, Groups may be named, so answers on a Questionnaire can 
+refer to a corresponding sections of a form.
+Likewise, answers to Questionnaires can be named to refer to the question on a form. It is also possible to include textual content on the form in 
+Questionnaire (see below).</li>
+<li>Since sections and questions may be answered multiple times, the same Group.name and Question.name may appear multiple times.</li>
+<li>Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires. 
+It explicitly does not try to standardize or streamline exchange of its contents outside its context of use, although exchanging partners may further
+constrain its structure and flexibility using profiles to define standardized, reusable forms.</li>
+<li>Because of the lack of explicit support for Questionnaires in HL7v3, HL7 CDA Documents frequently used named sections with
+Observations to model Questionnaires. Such use cases should now utilize the Questionnaire Resource instead.</li>
+<li>The Questionnaire's <i>encounter</i> element can be used to link to the encounter during which the Questionnaire was taken. This can be relevant since the
+encounter gives context to the answers and can be used to relate information in the Questionnaire to orders and observations that were done during the same Encounter.</li>
+<li>The order of questions within groups, groups withing groups and groups withing questions in relevant and must be retained for display and capture.</li>
+</ul>
+
+<a name="qversusr" />
+<h3>Using Questionnaires versus using Resources</h3>
+<p>There is considerable overlap between the information covered by Questionnaires and other Resources (especially FamilyHistory, MedicationStatement, Observation, Procedure, etc.): 
+Questionnaire's flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using Questionnaires or separate 
+Resources may be dictated by the procedure of collection and recording. E.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
+distill separate resources from it, and the Questionnaire SHALL be stored and communicated as a whole.</p> 
+
+<p>However, data captured only in Questionnaires can be difficult to query after-the-fact: queries against other Resources will not return data captured only in Questionnaires, 
+and querying against Questionnaires directly may not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians. 
+Moreover, interoperability of such Questionnaires is limited as interpretation of its contents is only known to the circle of parties that were involved in its definition: encoding data from 
+such Questionnaires using other, more specific, Resources increases the ability and consistency with which it can be understood and queried.</p> 
+
+<p>To facilitate better standardization of the information on a form, Questionnaire has the capacity (Using a Question's <i>data</i> element) to allow systems to communicate (part of) the 
+answers in the form of structured FHIR data. This provides an upgrade path to the questionnaire designer and communicating systems, where capable systems may use FHIR data to answer (sets of) 
+questions, whereas other systems can simply continue to supply the direct answers as input by the user.</p>
+
+<h3>Providing Questions and/or Answers</h3>
+<p>The Questionnaire has been specifically designed to be able to contain both a form's questions and answers. The Group and Question construct has elements to carry textual data
+of the form like headings, explanatory text, actual question text and the text of (multiple)choice options. As such, the Questionnaire can be used to:</p>
+<ul><li>only contain answers
+(in which case the actual layout and questions of the form is defined in some external way, and the <i>name</i> elements are used to relate the answers to the questions)</li>
+<li>contain a combination of questions and answers (e.g. when it is deemed important to keep the actual question text with the answer) or</li>
+<li>only contain the Questions, in which case the Questionnaire represents an empty, predefined form</li></ul>
+<p>This third case can be useful to make Questionnaire serve as a kind of form "template", where FHIR clients receive the empty form, display it to the user, get answers from the users 
+and then return the combined questions and answers to the server. The <a href="questionnaire-extensions.html">questionnaire core 
+extensions</a> provide additional means for control over repeating sections and expected answer format.</p>
+
+<h3>Structure of the Questionnaire</h3>
+<p>A Questionnaire is built out of three components:</p>
+<ul><li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire, 
+like the subject, date authored etcetera. The Questionnaire contains one "main" Group, which contains all the content of the questionnaire.</li>
+<li>This Group, can contain <em>either</em> nested Groups (to represent sections and subsections on a questionnaire form) or Questions.
+This way, any form containing sections or subsections can be represented, down to the actual questions.</li>
+<li>The Questions themselves may be simple questions with a promp text and one expected answer, but they may also contain nested groups, 
+each containing sets of nested questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
+depending on the answers of a parent question, e.g. a Question "Did the patient receive treatment in the past six months?", would contain a nested
+group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from 
+the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian NSW blue book</a></li>
+</ul>
+</div>

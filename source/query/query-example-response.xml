@@ -1,0 +1,2672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+
+  <!-- this element is tax for using atom. it has no meaningful use in FHIR, but it's required in atom -->
+  <title>Query Reponse</title>
+  <!-- this is the envelope id - see the Messaging page for a discussion of its use -->
+  <id>urn:uuid:e5a9e400-f36f-4e00-a17c-bff52cfdcf55</id>
+  <updated>2013-05-18T08:35:00+10:00</updated>
+  <!-- more Atom tax: author is not meaningful here, but it's required by Atom -->
+  <author>
+    <name>Health Intersections Server</name>
+    <uri>http://hl7connect.healthintersections.com.au/svc/fhir</uri>
+  </author>
+  <category term="http://hl7.org/fhir/tag/message" scheme="http://hl7.org/fhir/tag"/> 
+
+  <!-- first entry: the message response -->
+  <entry>
+    <!-- these elements are tax for using atom. they has no meaningful use in FHIR, but are required in atom -->
+    <title>Message Header for Response</title>
+    <id>urn:uuid:b651eebd-aaa8-4b72-854b-7e543abb99e3</id>
+    <updated>2013-05-18T08:35:00+10:00</updated>
+   <content type="text/xml">
+      <MessageHeader xmlns="http://hl7.org/fhir">
+        <!-- this is the message id - see the Messaging page for a discussion of its use -->
+        <identifier value="c321589c-9146-4e94-81c4-b142343f77aa"/>
+        <timestamp value="2013-05-18T08:14:00+10:00"/>
+
+        <event>
+          <system value="http://hl7.org/fhir/message-type"/>
+          <code value="query"/><!-- this is query message -->
+        </event> 
+        <!-- this is query message -->
+        <response>
+          <!-- same identifier as what is being responded to -->
+          <identifier value="bd5a062a-9d5c-4cb2-bcc8-1836618c5226"/>
+          <!-- if the request was processed by the query responder, the message 
+           acknowlegement is ok, irrespective of the results of processing the query -->
+          <!-- or is it? todo: how are errors processed? -->
+          <code value="ok"/>
+        </response>
+        <!-- message routing details -->
+        <source>
+          <software value="Health Intersections Server"/>
+          <!-- the response was actually generated (originally) by that server -->
+          <endpoint value="http://hl7connect.healthintersections.com.au/svc/fhir/Mailbox"/>
+        </source>
+        <destination>
+          <name value="notepad"/>
+          <!-- well, you'd use a real system in practice -->
+          <endpoint value="http://localhost"/>
+          <!-- this is where the message would be returned to -->
+        </destination>
+
+        <!-- refer to the query resource that comes next -->
+        <data>
+          <reference value="urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519"/>
+        </data>
+      </MessageHeader>
+    </content>
+  </entry>
+
+  <!-- second entry: the query resource -->
+  <entry>
+    <title>Query Resource</title>
+    <!-- this is the target of the forward reference in the Message resource -->
+    <id>urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519</id>
+    <updated>2013-05-18T08:35:00+10:00</updated>
+
+   <content type="text/xml">
+      <Query xmlns="http://hl7.org/fhir">
+        <!-- In the message we choose, for convenience, to make the query.id 
+            the same as the query resource id. In other contexts that wouldn't be appropriate -->
+        <identifier value="urn:uuid:16fddf81-f792-47ba-b02e-3fa2a3024519"/>
+
+        <!-- the parameters that the server received -->
+        <parameter url="http://hl7.org/fhir/query#_type">
+          <valueString value="patient"/>
+        </parameter>
+        <parameter url="http://hl7.org/fhir/query#gender">
+          <valueString value="m"/>
+        </parameter>
+
+        <response>
+          <identifier value="urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2"/>
+          <outcome value="ok"/>
+          <total value="653"/>
+          <!-- the total number of matching records -->
+
+          <!-- the parameters that the server processed -->
+          <parameter url="http://hl7.org/fhir/query#_type">
+            <valueString value="patient"/>
+          </parameter>
+          <parameter url="http://hl7.org/fhir/query#gender">
+            <valueString value="m"/>
+          </parameter>
+
+          <!-- now, first, next, and last links. Because this is the first page, there's no previous link -->
+          <!-- note that this server tracks the query internally after the first execution -->
+          <first url="http://hl7.org/fhir/query#search-id">
+            <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
+          </first>
+          <first url="http://hl7.org/fhir/query#search-offset">
+            <valueString value="0"/>
+          </first>
+          <first url="http://hl7.org/fhir/query#_count">
+            <valueString value="50"/>
+          </first>
+          <next url="http://hl7.org/fhir/query#search-id">
+            <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
+          </next>
+          <next url="http://hl7.org/fhir/query#search-offset">
+            <valueString value="50"/>
+          </next>
+          <next url="http://hl7.org/fhir/query#_count">
+            <valueString value="50"/>
+          </next>
+          <last url="http://hl7.org/fhir/query#search-id">
+            <valueString value="8452a2dd-446b-4a46-b4c2-db704f8ac5ee"/>
+          </last>
+          <last url="http://hl7.org/fhir/query#search-offset">
+            <valueString value="603"/>
+          </last>
+          <last url="http://hl7.org/fhir/query#_count">
+            <valueString value="50"/>
+          </last>
+          <!-- now, a list of all the patients in this page of the search. 
+            As well as linking forwards, responder is required to put them in the message -->
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-1"/>
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-10"/>
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-100"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-101"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-102"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-103"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-104"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-105"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-106"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-107"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-108"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-109"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11"/>
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-110"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-111"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-112"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-113"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-114"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-115"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-116"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-117"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-118"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-119"
+            />
+          </reference>
+          <reference>
+            <reference
+              value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11edef91-601c-461c-bbf2-3b99b9a48ae0"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-12"/>
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-120"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-121"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-122"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-123"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-124"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-125"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-126"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-127"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-128"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-129"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-130"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-131"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-132"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-133"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-134"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-135"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-136"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-137"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-138"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-139"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-140"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-141"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-142"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-143"
+            />
+          </reference>
+          <reference>
+            <reference value="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-144"
+            />
+          </reference>
+        </response>
+      </Query>
+    </content>
+  </entry>
+
+  <!-- and now, all the patients, as returned by the server and referred to above -->
+
+  <entry>
+    <title>Resource 1 Version 10</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-1</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-1/history/10"
+      rel="self"/>
+    <updated>2013-05-05T16:13:03Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <h5>Eve Everywoman</h5>
+          </div>
+        </text>
+        <identifier>
+          <system value="nhi"/>
+        </identifier>
+          <name>
+            <text value="Eve   Everywoman"/>
+            <family value="Everywoman1"/>
+            <given value="Eve"/>
+          </name>
+          <telecom>
+            <system value="phone"/>
+            <value value="555-555-2003"/>
+            <use value="work"/>
+          </telecom>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1955-01-06"/>
+          <address>
+            <use value="home"/>
+            <line value="2222 Home Street"/>
+          </address>
+        
+        <managingOrganization>
+          <reference value="Organization/hl7"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <h5>Eve Everywoman</h5>
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 10 Version 4</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-10</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-10/history/4"
+      rel="self"/>
+    <updated>2013-05-05T13:04:31Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Betterhalf, Boris. SSN: 444888888</div>
+        </text>
+        <identifier>
+          <use value="official"/>
+          <label value="SSN"/>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="444888888"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Betterhalf"/>
+            <given value="Boris"/>
+          </name>
+          <telecom>
+            <system value="phone"/>
+            <value value="555-555-2008"/>
+            <use value="work"/>
+          </telecom>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <address>
+            <use value="home"/>
+            <line value="2222 Home Street"/>
+          </address>
+        
+        <managingOrganization>
+          <reference value="Organization/hl7"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Betterhalf, Boris. SSN: 444888888</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 100 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-100</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-100/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Garrett, Gordon. MRN: 577419</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577419"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Garrett"/>
+            <given value="Gordon"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1935-05-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Garrett, Gordon. MRN: 577419</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 101 Version 10</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-101</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-101/history/10"
+      rel="self"/>
+    <updated>2013-05-03T22:27:30Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Lamb, Greg. MRN: 577420</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577420"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Lamb"/>
+            <given value="Greg"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1938-08-29"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Lamb, Greg. MRN: 577420</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 102 Version 2</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-102</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-102/history/2"
+      rel="self"/>
+    <updated>2013-05-03T22:34:47Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Garcia, Jessie. MRN: 577421</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577421"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Garcia"/>
+            <given value="Jessie"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1949-05-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Garcia, Jessie. MRN: 577421</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 103 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-103</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-103/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Christensen, Donald. MRN: 577422</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577422"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Christensen"/>
+            <given value="Donald"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1933-03-02"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Christensen, Donald. MRN: 577422</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 104 Version 6</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-104</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-104/history/6"
+      rel="self"/>
+    <updated>2013-05-05T03:36:43Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Hughes, Teresa. MRN: 577423</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577423"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Hughes"/>
+            <given value="Teresa"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1988-05-22"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Hughes, Teresa. MRN: 577423</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 105 Version 5</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-105</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-105/history/5"
+      rel="self"/>
+    <updated>2013-05-07T14:19:15Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Houston, Daryl. MRN: 577424</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577424"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Houston"/>
+            <given value="Daryl"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1937-02-14"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Houston, Daryl. MRN: 577424</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 106 Version 10</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-106</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-106/history/10"
+      rel="self"/>
+    <updated>2013-05-05T04:05:09Z</updated>
+    <author>
+      <name>216.138.103.10</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">West, James. MRN: 577425</div>
+        </text>
+        <identifier>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577425"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="West"/>
+            <given value="James"/>
+            <given value="Tiberius"/>
+          </name>
+          <name>
+            <use value="usual"/>
+            <family value="West"/>
+            <given value="Jim"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1946-06-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">West, James. MRN: 577425</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 107 Version 2</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-107</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-107/history/2"
+      rel="self"/>
+    <updated>2013-05-05T03:40:59Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Nguyen, Glenda. MRN: 577426</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577426"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Nguyen"/>
+            <given value="Glenda"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1945-02-15"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Nguyen, Glenda. MRN: 577426</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 108 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-108</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-108/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Swanson, Nathaniel. MRN: 577427</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577427"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Swanson"/>
+            <given value="Nathaniel"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1940-01-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Swanson, Nathaniel. MRN: 577427</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 109 Version 2</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-109</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-109/history/2"
+      rel="self"/>
+    <updated>2013-05-05T03:44:25Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:20Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Powers, Vera. MRN: 577428</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577428"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Powers"/>
+            <given value="Vera"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1945-06-11"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Powers, Vera. MRN: 577428</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 11 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:38Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Relative, Ralph. SSN: 444999999</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="444999999"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Relative"/>
+            <given value="Ralph"/>
+          </name>
+          <telecom>
+            <system value="phone"/>
+            <value value="555-555-2009"/>
+            <use value="work"/>
+          </telecom>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+            </coding>
+          </gender>
+          <address>
+            <use value="home"/>
+            <line value="4444 Home Street"/>
+          </address>
+        
+        <managingOrganization>
+          <reference value="Organization/hl7"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Relative, Ralph. SSN: 444999999</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 110 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-110</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-110/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Chandler, Perry. MRN: 577429</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577429"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Chandler"/>
+            <given value="Perry"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1960-01-12"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Chandler, Perry. MRN: 577429</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 111 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-111</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-111/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Carroll, Alvin. MRN: 577430</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577430"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Carroll"/>
+            <given value="Alvin"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1945-06-04"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Carroll, Alvin. MRN: 577430</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 112 Version 2</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-112</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-112/history/2"
+      rel="self"/>
+    <updated>2013-05-05T03:53:20Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Matthews, Florence. MRN: 577431</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577431"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Matthews"/>
+            <given value="Florence"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1995-01-06"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Matthews, Florence. MRN: 577431</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 113 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-113</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-113/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Frazier, Jordan. MRN: 577432</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577432"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Frazier"/>
+            <given value="Jordan"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1943-02-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Frazier, Jordan. MRN: 577432</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 114 Version 10</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-114</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-114/history/10"
+      rel="self"/>
+    <updated>2013-05-05T04:34:50Z</updated>
+    <author>
+      <name>68.151.217.168</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Patrick, Beth. MRN: 577433</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577433"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Patrick"/>
+            <given value="Beth"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1990-08-11"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Patrick, Beth. MRN: 577433</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 115 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-115</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-115/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Fleming, Christopher. MRN: 577434</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577434"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Fleming"/>
+            <given value="Christopher"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1939-03-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Fleming, Christopher. MRN: 577434</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 116 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-116</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-116/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Marshall, Howard. MRN: 577435</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577435"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Marshall"/>
+            <given value="Howard"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1960-06-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Marshall, Howard. MRN: 577435</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 117 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-117</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-117/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Larson, Erika. MRN: 577436</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577436"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Larson"/>
+            <given value="Erika"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1935-06-05"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Larson, Erika. MRN: 577436</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 118 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-118</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-118/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Day, Carol. MRN: 577437</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577437"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Day"/>
+            <given value="Carol"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1963-06-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Day, Carol. MRN: 577437</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 119 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-119</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-119/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Strickland, Veronica. MRN: 577438</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577438"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Strickland"/>
+            <given value="Veronica"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1963-02-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Strickland, Veronica. MRN: 577438</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 11edef91-601c-461c-bbf2-3b99b9a48ae0 Version 3</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11edef91-601c-461c-bbf2-3b99b9a48ae0</id>
+    <link
+      href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-11edef91-601c-461c-bbf2-3b99b9a48ae0/history/3"
+      rel="self"/>
+    <updated>2013-05-07T20:44:39Z</updated>
+    <author>
+      <name>216.138.103.10</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <h5>dave everyperson</h5>
+          </div>
+        </text>
+        <identifier>
+          <system value="nhi"/>
+        </identifier>
+        
+          <name>
+            <text value="dave   everyperson"/>
+            <family value="everyperson"/>
+            <given value="dave  "/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1945-01-01"/>
+        
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <h5>dave everyperson</h5>
+      </div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 12 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-12</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-12/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:38Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Contact, Carrie. SSN: 555222222</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="555222222"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Contact"/>
+            <given value="Carrie"/>
+          </name>
+          <telecom>
+            <system value="phone"/>
+            <value value="555-555-2010"/>
+            <use value="work"/>
+          </telecom>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+            </coding>
+          </gender>
+          <address>
+            <use value="home"/>
+            <line value="5555 Home Street"/>
+          </address>
+        
+        <managingOrganization>
+          <reference value="Organization/hl7"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Contact, Carrie. SSN: 555222222</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 120 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-120</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-120/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Mckinney, Valerie. MRN: 577439</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577439"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Mckinney"/>
+            <given value="Valerie"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1960-06-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Mckinney, Valerie. MRN: 577439</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 121 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-121</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-121/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Ortiz, Lucille. MRN: 577440</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577440"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Ortiz"/>
+            <given value="Lucille"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1930-04-02"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Ortiz, Lucille. MRN: 577440</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 122 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-122</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-122/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Alvarez, Mitchell. MRN: 577441</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577441"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Alvarez"/>
+            <given value="Mitchell"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1980-04-08"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Alvarez, Mitchell. MRN: 577441</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 123 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-123</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-123/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Dennis, Charles. MRN: 577442</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577442"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Dennis"/>
+            <given value="Charles"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1976-06-01"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Dennis, Charles. MRN: 577442</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 124 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-124</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-124/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Schmidt, Lewis. MRN: 577443</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577443"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Schmidt"/>
+            <given value="Lewis"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1963-02-12"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Schmidt, Lewis. MRN: 577443</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 125 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-125</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-125/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Carr, Rebecca. MRN: 577444</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577444"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Carr"/>
+            <given value="Rebecca"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1943-09-18"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Carr, Rebecca. MRN: 577444</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 126 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-126</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-126/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Greer, Esther. MRN: 577445</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577445"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Greer"/>
+            <given value="Esther"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1952-03-26"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Greer, Esther. MRN: 577445</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 127 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-127</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-127/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Phillips, Eddie. MRN: 577446</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577446"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Phillips"/>
+            <given value="Eddie"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1942-04-24"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Phillips, Eddie. MRN: 577446</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 128 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-128</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-128/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Sparks, Louise. MRN: 577447</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577447"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Sparks"/>
+            <given value="Louise"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1968-11-27"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Sparks, Louise. MRN: 577447</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 129 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-129</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-129/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Holloway, Willie. MRN: 577448</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577448"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Holloway"/>
+            <given value="Willie"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1959-08-02"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Holloway, Willie. MRN: 577448</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 130 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-130</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-130/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Foster, Gabriel. MRN: 577449</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577449"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Foster"/>
+            <given value="Gabriel"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1967-12-29"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Foster, Gabriel. MRN: 577449</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 131 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-131</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-131/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Hodges, Sarah. MRN: 577450</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577450"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Hodges"/>
+            <given value="Sarah"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1964-07-18"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Hodges, Sarah. MRN: 577450</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 132 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-132</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-132/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">White, Wilma. MRN: 577451</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577451"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="White"/>
+            <given value="Wilma"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1968-07-10"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">White, Wilma. MRN: 577451</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 133 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-133</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-133/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Drake, Ronald. MRN: 577452</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577452"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Drake"/>
+            <given value="Ronald"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1979-07-18"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Drake, Ronald. MRN: 577452</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 134 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-134</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-134/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Phillips, Wanda. MRN: 577453</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577453"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Phillips"/>
+            <given value="Wanda"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1980-04-23"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Phillips, Wanda. MRN: 577453</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 135 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-135</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-135/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Hansen, Chris. MRN: 577454</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577454"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Hansen"/>
+            <given value="Chris"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1956-11-28"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Hansen, Chris. MRN: 577454</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 136 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-136</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-136/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Reynolds, Julio. MRN: 577455</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577455"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Reynolds"/>
+            <given value="Julio"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1970-04-13"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Reynolds, Julio. MRN: 577455</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 137 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-137</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-137/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Roberson, Jonathan. MRN: 577456</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577456"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Roberson"/>
+            <given value="Jonathan"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1945-10-01"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Roberson, Jonathan. MRN: 577456</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 138 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-138</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-138/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Crawford, Carla. MRN: 577457</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577457"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Crawford"/>
+            <given value="Carla"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1969-02-03"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Crawford, Carla. MRN: 577457</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 139 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-139</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-139/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Hicks, Ronald. MRN: 577458</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577458"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Hicks"/>
+            <given value="Ronald"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1942-09-28"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Hicks, Ronald. MRN: 577458</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 140 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-140</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-140/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Hughes, Mae. MRN: 577459</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577459"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Hughes"/>
+            <given value="Mae"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1958-05-14"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Hughes, Mae. MRN: 577459</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 141 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-141</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-141/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Rice, Loretta. MRN: 577460</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577460"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Rice"/>
+            <given value="Loretta"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1952-08-19"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Rice, Loretta. MRN: 577460</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 142 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-142</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-142/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Reese, Naomi. MRN: 577461</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577461"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Reese"/>
+            <given value="Naomi"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="F"/>
+              <display value="Female"/>
+            </coding>
+          </gender>
+          <birthDate value="1996-03-31"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Reese, Naomi. MRN: 577461</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 143 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-143</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-143/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Cox, Jesse. MRN: 577462</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577462"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Cox"/>
+            <given value="Jesse"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1993-12-02"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Cox, Jesse. MRN: 577462</div>
+    </summary>
+  </entry>
+  <entry>
+    <title>Resource 144 Version 1</title>
+    <id>http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-144</id>
+    <link href="http://hl7connect.healthintersections.com.au/svc/fhir/Patient/q-144/history/1"
+      rel="self"/>
+    <updated>2013-05-03T10:25:34Z</updated>
+    <author>
+      <name>Cypress Project</name>
+    </author>
+    <published>2013-05-17T22:09:21Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Mccoy, Virgil. MRN: 577463</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577463"/>
+        </identifier>
+        
+          <name>
+            <use value="official"/>
+            <family value="Mccoy"/>
+            <given value="Virgil"/>
+          </name>
+          <gender>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+              <display value="Male"/>
+            </coding>
+          </gender>
+          <birthDate value="1997-06-17"/>
+        
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Mccoy, Virgil. MRN: 577463</div>
+    </summary>
+  </entry>
+
+</feed>

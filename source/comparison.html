@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+[%setwiki http://wiki.hl7.org/index.php?title=FHIR_HL7_Standard_Relationship%]       
+[%settitle Relationship between FHIR and other HL7 Standards%]
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+<div class="col-9">
+
+[%cmpheader%]
+
+<a name="root"> </a>
+<h1>Appendix: The Relationship between FHIR and other HL7 Standards</h1>
+
+<p>
+<a href="http://www.hl7.org">Health Level Seven (HL7)</a> has been developing healthcare 
+information exchange and related standards since 1987.  In that time, the organization has 
+produced a number of standards families - many  used throughout the world to automate healthcare 
+data sharing and improve patient care.  FHIR has been written to be implementable without 
+any knowledge of these other specifications.  However, FHIR does leverage this prior experience, 
+both in terms of applying best practices learned from experience and attempting to avoid 
+some of the pitfalls of earlier work.
+</p>
+<p>
+This appendix describes the relationship of FHIR to some of HL7's other standard families. 
+It may be of interest to those coming to FHIR with previous experience with other HL7 
+standards as well as those who may need to support interoperability between FHIR 
+solutions and implementations of other HL7 standards.
+</p>
+<p>
+In this appendix:
+</p>
+<ul>
+ <li><a href="comparison-v2.html">Version 2.x</a></li>
+ <li><a href="comparison-v3.html">V3 (RIM / messaging)</a></li>
+ <li><a href="comparison-cda.html">CDA &amp; CCDA etc</a></li>
+ <li><a href="comparison-other.html">Other HL7 standards</a></li> 
+</ul>
+<p>
+<b>Notes:</b>
+</p>
+<ul>
+  <li>In addition to the major standards families identified below, HL7 produces numerous 
+    implementation guides, some of which have earned as much prominence as a standard 
+    family themselves.  The general guidance given below for each standard family should 
+    hold for all implementation guides based on that standard.  For example, the guidance 
+    listed for <a href="comparison-cda.html">CDA</a> would apply to Consolidated CDA (CCDA), Continuity 
+    of Care Document (CCD) and other CDA profiles.</li>
+  <li>While this appendix focuses on the relationship between FHIR and other HL7 standards, 
+  relationships also exist to non-HL7 standards.  Some resources provide direct implementation 
+  of functionality from other standards including <a href="http://medical.nema.org">DICOM</a> 
+  (see the <a href="imagingstudy.html">ImagingStudy</a> resource) and <a href="http://www.ihe.net/">IHE</a> 
+  (e.g. the <a href="securityevent.html">SecurityEvent</a> and <a href="documentreference.html">DocumentReference</a> resources). </li>
+  <li>Many FHIR resources draw requirements from or provide mappings to other standards. Some resources also 
+  provide additional guidance on how to use them with external specifications as part of their implementation notes.  
+    As well, a wiki page to capture additional guidance on the use of FHIR with other specifications can be found 
+    <a href="http://wiki.hl7.org/index.php?title=FHIR_and_Other_Specifications">here</a></li>
+  <li>FHIR can satisfy the needs covered by all of the previous primary HL7 interoperability standards (V2, V3 and 
+  CDA).  In many cases, it also provides additional benefits in terms of ease of interoperability.  Therefore, the 
+  possibility exists that FHIR could gradually replace some or all of these standards.  However it is unclear how 
+  rapidly (or even if) the market will make such a migration.  It is likely that most of these standards will exist 
+  in parallel for quite some time.  HL7 has committed to ongoing maintenance of existing standards for as long as 
+  the HL7 membership requires.</li>
+</ul>
+
+</div>
+
+[%file newfooter%]
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,364 @@
+<feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.w3.org/2005/Atom ../../publish/fhir-atom.xsd"
+ xmlns="http://www.w3.org/2005/Atom">
+    <title>A sample FHIR document</title>
+    <id>urn:uuid:500bee81-d973-4afe-b592-d39fe71e38</id>
+ 
+    <updated>2013-05-28T22:12:21Z</updated>     <!-- Time the bundle was built -->
+    <!-- Author is required by the Atom spec. FHIR doesn't use it-->
+    <author>
+        <name>Doctor Dave</name>
+    </author>
+    <!-- This tag specifies unambiguously that this is a FHIR document bundle -->
+    <category  term="http://hl7.org/fhir/tag/document" scheme="http://hl7.org/fhir/tag" />
+ 
+    <!-- The composition -->
+    <entry>
+        <title>Progress note for Patsy Pregnant by Doctor Dave</title>
+        <!-- the 'cid' protocol means this is a new composition -->
+        <id>cid:1046bb61-c258-44e5-96a5-a5bae6b180fe@orionhealth.com</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+        <content type="text/xml">
+            <Composition xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">A Progress note...</div>
+                </text>
+                <date value='2013-06-06T12:30:00'/>  <!-- the time this document was created -->
+                <!-- What type of document is this - e.g. Discharge Summary, referral, Consultation note -->
+                <type>
+                    <coding>
+                        <!-- Using an XDS system? hmmmm... -->
+                        <system value='http://fhir.org.nz/xds#documentType'/>
+                        <code value='pn'/>
+                        <display value="Progress Note"/>
+                    </coding>
+                </type>
+                <status value="final"/>
+                <confidentiality>
+                    <system value='http://fhir.org.nz/xds#confidentiality'/>
+                    <code value='n'/>
+                    <display value="Normal"/>
+                </confidentiality>
+                <!-- Who the document is about. The patient with the ID of sample -->
+                <subject>
+                    <reference value='http://hl7.org.nz/fhir/Patient/patsypregnant'/>
+                    <display value="Patsy Pregnant"/>
+                </subject>
+                <author>
+                    <reference value='http://hl7.org.nz/fhir/Practitioner/drdave'/>
+                    <display value="Doctor Dave"/>
+                </author>
+                <!-- The document sections. First the Presenting (Chief) Complaint  -->
+                <section>
+                    <title value="Primary complaint"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="10154-3"/>
+                            <display value="Chief Complaint"/>
+                        </coding>
+                    </code>
+                    <content>
+                        <reference value='http://hl7.org.nz/fhir/Condition/sample1'/>
+                        <display value="Hypertension"/>
+                    </content>
+                </section>
+ 
+                <!-- Assessment-->
+                <section>
+                    <title value="Assessment"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="51847-2"/>
+                            <display value="Assessment"/>
+                        </coding>
+                    </code>
+                    <content>
+                        <reference value='cid:100@orionhealth.com'/>
+                    </content>
+                </section>
+ 
+                <!-- Physical Exam -->
+                <section>
+                    <title value="Exam"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="29545-1"/>
+                            <display value="Physical Exam"/>
+                        </coding>
+                    </code>
+                    <content>
+                        <reference value='cid:pe100@orionhealth.com'/>
+                    </content>
+                </section>
+ 
+                <!-- Medications -->
+                <section>
+                    <title value="Current medications"/>
+                    <code>
+                        <coding>
+                            <system value="http://loinc.org"/>
+                            <code value="10160-0"/>
+                            <display value="Medications"/>
+                        </coding>
+                    </code>
+                    <content>
+                        <reference value='cid:110@orionhealth.com'/>
+                    </content>
+                </section>
+            </Composition>
+        </content>
+    </entry>
+ 
+    <!-- Chief Complaint  -->
+    <entry>
+        <title>Presenting complaint</title>
+        <id>http://hl7.org.nz/fhir/Condition/sample1</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+        <content type="text/xml">
+            <Condition xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Hypertension</div>
+                </text>
+                <subject>
+                    <reference value='http://hl7.org.nz/fhir/Patient/patsypregnant'/>
+                    <display value="Patsy Pregnant"/>
+                </subject>
+                <code>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="1201005"/>
+                        <display value="Benign Essential Hypertension"/>
+                    </coding>
+                </code>
+                <status value="confirmed"/>
+            </Condition>
+        </content>
+    </entry>
+ 
+    <!-- Assement (The clincial note) -->
+    <entry>
+        <title>Assessment</title>
+        <id>cid:100@orionhealth.com</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+ 
+        <content type="text/xml">
+            <!-- Sample content only -->
+            <Observation xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">This is a record of my consult...</div>
+                </text>
+                <name>
+                    <coding>
+                         <system value="http://loinc.org"/>
+                        <code value="51847-2"/>
+                        <display value="Assessment"/>
+                    </coding>
+                </name>
+                <valueString value="This is a record of my consult..."/>
+                <status value="final"/>
+                <reliability value="ok"/>
+                <!-- All the other details of the Observation (i.e. progress note) here -->
+            </Observation>
+        </content>
+    </entry>
+ 
+    <!-- Physical exam - the blood pressure -->
+    <entry>
+        <title>Physical Exam</title>
+        <id>cid:pe100@orionhealth.com</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+ 
+        <content type="text/xml">
+            <!-- Sample content only -->
+            <List xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">BP 120/80</div>
+                </text>
+                <mode value="working"/>
+                <entry>
+                    <item>
+                        <reference value='cid:syst@orionhealth.com'/>
+                        <display value="Systolic BP 120"/>
+                    </item>
+                </entry>
+                <entry>
+                    <item>
+                        <reference value='cid:dias@orionhealth.com'/>
+                        <display value="Diastolic BP 80"/>
+                    </item>
+                </entry>
+            </List>
+        </content>
+    </entry>
+ 
+    <!-- Systolic BP -->
+    <entry>
+        <title>Systolic BP</title>
+        <id>cid:syst@orionhealth.com</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+        <content type="text/xml">
+            <Observation xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Systolic BP 120 mmHg</div>
+                </text>
+                <name>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="163030003"/>
+                        <display value="Systolic BP"/>
+                    </coding>
+                </name>
+                <valueQuantity>
+                    <value value="120"/>
+                    <units value="mm(Hg)"/>
+                    <system value="http://unitsofmeasure.org" />
+                </valueQuantity>
+                <status value="final"/>
+                <reliability value="ok"/>
+ 
+            </Observation>
+        </content>
+    </entry>
+ 
+    <!-- Diastolic BP -->
+    <entry>
+        <title>diastolicBP</title>
+        <id>cid:dias@orionhealth.com</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+        <content type="text/xml">
+            <Observation xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Diastolic BP 80 mmHg</div>
+                </text>
+                <name>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="163031004"/>
+                        <display value="Diastolic BP"/>
+                    </coding>
+                </name>
+                <valueQuantity>
+                    <value value="80"/>
+                    <units value="mm(Hg)"/>
+                    <system value="http://unitsofmeasure.org" />
+                </valueQuantity>
+                <status value="final"/>
+                <reliability value="ok"/>
+            </Observation>
+        </content>
+    </entry>
+ 
+    <!-- Medication List -->
+    <entry>
+        <title>The medication list</title>
+        <id>cid:110@orionhealth.com</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+ 
+        <content type="text/xml">
+            <!-- Sample content only -->
+            <List xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Current list of medications</div>
+                </text>
+                <mode value="working"/>
+                <entry>
+                    <item>
+                        <reference value='http://hl7.org.nz/fhir/MedicationPrescription/medsample1'/>
+                        <display value="Medication 1"/>
+                    </item>
+                </entry>
+                <entry>
+                    <item>
+                        <reference value='http://hl7.org.nz/fhir/MedicationPrescription/medsample2'/>
+                        <display value="Medication 2"/>
+                    </item>
+                </entry>
+            </List>
+        </content>
+    </entry>
+ 
+    <!-- First Medication -->
+    <entry>
+        <title>Medication1</title>
+        <id>http://hl7.org.nz/fhir/MedicationPrescription/medsample1</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+ 
+        <content type="text/xml">
+            <!-- Sample content only -->
+            <MedicationPrescription xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Medication 1</div>
+                </text>
+ 
+                <!-- All the other details of the Medication here -->
+            </MedicationPrescription>
+        </content>
+    </entry>
+ 
+    <!-- Second Medication -->
+    <entry>
+        <title>Medication2</title>
+        <id>http://hl7.org.nz/fhir/MedicationPrescription/medsample2</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+ 
+        <content type="text/xml">
+            <!-- Sample content only -->
+            <MedicationPrescription xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Medication 2</div>
+                </text>
+ 
+                <!-- All the other details of the Medication here -->
+            </MedicationPrescription>
+        </content>
+    </entry>
+ 
+    <!-- Subject (Patient) -->
+    <entry>
+        <title>The subject of the document - Patsy Pregnant</title>
+        <id>http://hl7.org.nz/fhir/Patient/patsypregnant</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+ 
+        <content type="text/xml">
+            <!-- Sample content only -->
+            <Patient xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Patsy Pregnant</div>
+                </text>
+                <!-- All the other details of Patient here -->
+            </Patient>
+        </content>
+    </entry>
+ 
+    <!-- Author (Practitioner) -->
+    <entry>
+        <title>The document author - Doctor Dave</title>
+        <id>http://hl7.org.nz/fhir/Practitioner/drdave</id>
+        <updated>2013-05-28T22:12:21Z</updated>
+ 
+        <content type="text/xml">
+            <!-- Sample content only -->
+            <Practitioner xmlns="http://hl7.org/fhir">
+                <text>
+                    <status value="generated"/>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Doctor Dave</div>
+                </text>
+                <!-- All the other details of Practitioner here -->
+            </Practitioner>
+        </content>
+    </entry>
+ 
+</feed>

@@ -1,0 +1,55 @@
+@startuml
+title Primitives
+skinparam nodesep 20
+skinparam ranksep 20
+skinparam classBackgroundColor Aliceblue
+skinparam classBorderColor Gray
+skinparam classArrowColor Navy
+
+Element <|-up- boolean
+Element <|-up- integer
+Element <|-up- decimal
+Element <|-down- base64Binary
+Element <|-left- instant
+Element <|-down- string 
+Element <|-down- uri
+Element <|-right- date
+Element <|-down- dateTime
+string <|-down- id
+string <|-down- code
+uri <|-down- oid
+uri <|-down- uuid
+
+class Element
+class boolean
+class integer
+class decimal
+class base64Binary
+class instant
+class string 
+class uri
+class date
+class dateTime
+class code
+class oid
+class uuid
+class id
+
+hide methods
+hide attributes
+hide Element circle
+hide boolean circle
+hide integer circle
+hide decimal circle
+hide base64Binary circle
+hide instant circle
+hide string  circle
+hide uri circle
+hide date circle
+hide dateTime circle
+hide oid circle
+hide uuid circle
+hide code circle
+hide id circle
+
+@enduml

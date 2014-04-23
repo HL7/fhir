@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceObservationReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/deviceobservationreport.xsd">
+
+<!--
+
+The device observation examples are based on the example from http://ihe.net/Technical_Framework/upload/IHE_PCD_TF_Vol2.pdf:
+
+MSH|^~\&amp;|HL7^080019FFFF4F6AC0^EUI-64|MMS|||20081211144500||ORU^R01^ORU_R01|12d15a9:11df9e61347:7fee:30456965|P|2.6|20081211144500||NE|AL||8859/1|||IHE PCD ORU-R01 2006^HL7^Universal ID^HL7
+PID|||AB60001^^^A^PI||BROOKS^ALBERT^^^^^L
+PV1||E|3 WEST ICU^3001^1
+OBR|1|080019FFFF4F6AFE20081211144657^AwareGateway^080019FFFF4F6AC0^EUI-64|080019FFFF4F6AC020081211144657^AwareGateway^080019FFFF4F6AC0^EUI-64|126.169.95.2^2000^MDC|||20081211144500
+OBX|1|NM|147842^MDC_ECG_HEART_RATE^MDC|1.6.1.1|60|/min^/min^UCUM|||||R|||||||||
+OBX|2|NM|148065^MDC_ECG_V_P_C_CNT^MDC|1.6.1.2|0|/min^/min^UCUM|||||R|||||||||
+OBX|3|NM|150035^MDC_PRESS_BLD_ART_MEAN^MDC|1.3.1.1|92|mm[Hg]^mm[Hg]^UCUM|||||R|||||||||
+OBX|4|NM|150033^MDC_PRESS_BLD_ART_SYS^MDC|1.3.1.2|120|mm[Hg]^mm[Hg]^UCUM|||||R|||||||||
+OBX|5|NM|150034^MDC_PRESS_BLD_ART_DIA^MDC|1.3.1.3|80|mm[Hg]^mm[Hg]^UCUM|||||R|||||||||
+OBX|6|NM|149522^MDC_BLD_PULS_RATE_INV^MDC|1.2.1.1|60|/min^/min^UCUM|||||R|||||||||
+OBX|7|NM|150047^MDC_PRESS_BLD_ART_PULM_MEAN^MDC|1.4.2.1|14|mm[Hg]^mm[Hg]^UCUM|||||R|||||||||
+OBX|8|NM|150045^MDC_PRESS_BLD_ART_PULM_SYS^MDC|1.4.2.2|25|mm[Hg]^mm[Hg]^UCUM|||||R|||||||||
+OBX|9|NM|150046^MDC_PRESS_BLD_ART_PULM_DIA^MDC|1.4.2.3|10|mm[Hg]^mm[Hg]^UCUM|||||R|||||||||
+
+-->
+
+<!--
+For the purposes of this example - principally to have a single file that includes the important 
+parts - the observations are contained within the Device Observation report. 
+
+In production usage, putting the granular observations inside the device observation resource
+means that the individual observations don't have an identity. Systems that wish to extract
+and use these granular observations have to re-identify them. The Condition for these systems 
+is that this must be done consistently, else there'll be cloned observations, and the users
+will get confused by spurious copies of the data.
+
+Systems that need to re-identify the granular observations could do so using the 
+Observation.identity element - *if* it's populated completely and correctly. But 
+must easier to properly identify the observations first rather than making them 
+contained ones (even though this is easier for the sender)
+
+-->
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>example</p>
+    </div>
+  </text>
+
+  <contained>
+    <!-- OBX|1|NM|147842^MDC_ECG_HEART_RATE^MDC|1.6.1.1|60|/min^/min^UCUM|||||R||||||||| -->
+    <Observation id="o1">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="147842"/>
+          <display value="MDC_ECG_HEART_RATE"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="60"/>
+        <units value="/min"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="/min"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+<!-- OBX|2|NM|148065^MDC_ECG_V_P_C_CNT^MDC|1.6.1.2|0|/min^/min^UCUM|||||R||||||||| -->
+    <Observation id="o2">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="148065"/>
+          <display value="MDC_ECG_V_P_C_CNT"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="0"/>
+        <units value="/min"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="/min"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+<!-- OBX|3|NM|150035^MDC_PRESS_BLD_ART_MEAN^MDC|1.3.1.1|92|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
+    <Observation id="o3">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="150035"/>
+          <display value="MDC_ECG_HEART_RATE"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="60"/>
+        <units value="/min"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="/min"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+<!-- OBX|4|NM|150033^MDC_PRESS_BLD_ART_SYS^MDC|1.3.1.2|120|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
+    <Observation id="o4">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="150033"/>
+          <display value="MDC_PRESS_BLD_ART_SYS"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="120"/>
+        <units value="mmHg"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mm[Hg]"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+<!-- OBX|5|NM|150034^MDC_PRESS_BLD_ART_DIA^MDC|1.3.1.3|80|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
+    <Observation id="o5">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="150034"/>
+          <display value="MDC_PRESS_BLD_ART_DIA"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="80"/>
+        <units value="mmHg"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mm[Hg]"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+<!-- OBX|6|NM|149522^MDC_BLD_PULS_RATE_INV^MDC|1.2.1.1|60|/min^/min^UCUM|||||R||||||||| -->
+    <Observation id="o6">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="149522"/>
+          <display value="MDC_BLD_PULS_RATE_INV"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="60"/>
+        <units value="/min"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="/min"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+<!-- OBX|7|NM|150047^MDC_PRESS_BLD_ART_PULM_MEAN^MDC|1.4.2.1|14|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
+    <Observation id="o7">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="150047"/>
+          <display value="MDC_PRESS_BLD_ART_PULM_MEAN"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="14"/>
+        <units value="mmHg"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mm[Hg]"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+<!-- OBX|8|NM|150045^MDC_PRESS_BLD_ART_PULM_SYS^MDC|1.4.2.2|25|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
+    <Observation id="o8">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="150045"/>
+          <display value="MDC_PRESS_BLD_ART_PULM_SYS"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="25"/>
+        <units value="mmHg"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mm[Hg]"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+<!-- OBX|9|NM|150046^MDC_PRESS_BLD_ART_PULM_DIA^MDC|1.4.2.3|10|mm[Hg]^mm[Hg]^UCUM|||||R||||||||| -->
+    <Observation id="o9">
+      <name>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> <!-- mdc -->
+          <code value="150046"/>
+          <display value="MDC_PRESS_BLD_ART_PULM_DIA"/>
+        </coding>
+      </name>
+      <valueQuantity>
+        <value value="10"/>
+        <units value="mmHg"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mm[Hg]"/>
+      </valueQuantity>
+      <status value="preliminary"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+  <contained>
+    <Device id="d1">
+      <identifier>
+        <system value="http://goodcare.org/devices/id"/>
+        <value value="A23-352"/>
+      </identifier>
+      <identifier>
+        <system value="http://gs1.org/gtin"/>
+        <value value="04012313012313"/>
+      </identifier>
+      <identifier>
+        <label value="serial number"/>
+        <system value="http://acme.org/au"/>
+        <value value="080019FFFF4F6AFE20081211144657"/>
+      </identifier>
+      <identifier>
+        <system value="http://standards.ieee.org/develop/regauth/tut/eui64.pdf"/>
+        <value value="080019FFFF4F6AFE20081211144657"/>
+      </identifier>
+      <type>
+        <coding>
+          <system value="urn:std:iso:11073:10101"/> 
+          <code value="2000"/>
+        </coding>
+      </type>
+      <manufacturer value="Aware"/>
+      <model value="AB 45-J"/>
+      <lotNumber value="43453424"/>
+      <contact>
+        <system value="phone"/>
+        <value value="ext 4352"/>
+      </contact>
+    </Device>
+  </contained>
+
+  <instant value="2008-12-11T14:45:00"/>
+  <source>
+    <reference value="#d1"/>
+  </source>
+  <subject>
+    <reference value="Patient/ihe-pcd"/> 
+  </subject>
+  
+  <!-- todo: it doesn't make sense to break the data up into channels unless 
+     you can describe the virtual devices and channels, and so the codes on 
+     these are mandatroy - but the PCD source message doesn't have this information -->  
+  <virtualDevice>
+    <channel>
+    
+      <metric>
+        <observation>
+          <reference value="#o1"/>
+        </observation>
+      </metric>
+   
+      <metric>
+        <observation>
+          <reference value="#o2"/>
+        </observation>
+      </metric>
+
+      <metric>
+        <observation>
+          <reference value="#o3"/>
+        </observation>
+      </metric>
+
+      <metric>
+        <observation>
+          <reference value="#o4"/>
+        </observation>
+      </metric>
+
+      <metric>
+        <observation>
+          <reference value="#o5"/>
+        </observation>
+      </metric>
+
+      <metric>
+        <observation>
+          <reference value="#o6"/>
+        </observation>
+      </metric>
+
+      <metric>
+        <observation>
+          <reference value="#o7"/>
+        </observation>
+      </metric>
+
+      <metric>
+        <observation>
+          <reference value="#o8"/>
+        </observation>
+      </metric>
+
+      <metric>
+        <observation>
+          <reference value="#o9"/>
+        </observation>
+      </metric>
+
+   
+    </channel>
+  </virtualDevice>
+</DeviceObservationReport>

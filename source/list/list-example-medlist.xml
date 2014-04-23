@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\list.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The patient is not on any medications</p>
+    </div>
+  </text>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="182836005"/>
+      <display value="Review of medication"/>
+    </coding>
+    <text value="Medication Review"/>
+  </code>
+  <source>
+    <reference value="Patient/example"/>
+  </source>
+  <date value="2013-11-20T23:10:23+11:00"/>
+  <mode value="changes"/>
+  <!-- 
+      in a real medications list, we'd actually have medication resources.
+      but this an example to demonstrate a changes list, so we'll just use 
+      display -->
+  <entry>
+    <!-- patient was prescribed hydroxocobalamin. the flag marks this 
+       as a prescription. Note that healthcare workers will now get into
+       a long debate the exact implication of "prescribed". That's why the
+       spec doesn't fix the flag values -->
+    <flag>
+      <coding>
+        <system value="http://nehta.gov.au/codes/medications/changetype"/>
+        <code value="02"/>
+        <display value="Prescribed"/>
+      </coding>
+    </flag>
+    <item> 
+      <display value="hydroxocobalamin"/>
+    </item>
+  </entry>  
+  <!--
+     on this one, we record that the patient was taken off morphine sulfate.
+     because not every system knows the flags, and the ensure there's no confusion,
+     if the flag implies that something was removed from the list, then the
+     deleted element must also be set 
+  -->  
+  <entry>
+    <flag>
+      <coding>
+        <system value="http://nehta.gov.au/codes/medications/changetype"/>
+        <code value="02"/>
+        <display value="Cancelled"/>
+      </coding>
+    </flag>
+    <deleted value="true"/>
+    <item> 
+      <display value="Morphine Sulfate"/>
+    </item>
+  </entry>  
+</List>

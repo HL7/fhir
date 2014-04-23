@@ -1,0 +1,29 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The Media resource contains photos, videos, and audio recordings. It is used with media acquired or used as part of the healthcare process. Here are some typical usages:
+</p>
+<ul>
+ <li>Photos of patients and staff for identification purposes</li>
+ <li>Photos and videos of diagnostic or care provision procedures for recording purposes </li>
+ <li>Storing scans and faxes of paper documents where not enough metadata exists to create a <a href="documentreference.html">DocumentReference</a></li>
+ <li>Images on diagnostic reports</li> 
+</ul>
+<p>
+The Media resource may contain medical images in a DICOM format.  While such images may also be accessible through an <a href="imagingstudy.html">ImagingStudy</a> resource, the Media 
+resource enables "ready for presentation" access to a specific image. 
+
+Such images would preferentially be made available in a FHIR ecosystem by the 
+Media.content.url providing a reference to a WADO-RS service to access the image. 
+That WADO-RS service may include rendering the image with annotations and display parameters 
+from an associated DICOM presentation state.
+
+Although the Media resource is allowed to contain images collected by a DICOM based system, DICOM images would preferentially be made available in a FHIR ecosystem
+by provision of a resource with references to a <a href="ftp://medical.nema.org/medical/dicom/final/sup161_ft.pdf">WADO-RS server</a>.
+</p>
+</div>
+
+
+</div>

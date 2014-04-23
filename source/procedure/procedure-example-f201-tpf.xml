@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <subject>
+    <!--It entails Roel's TPF treatment-->
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+  </subject>
+  <type>
+    <!--The procedure is TPF-based chemotherapy-->
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="367336001"/>
+      <display value="Chemotherapy"/>
+    </coding>
+  </type>
+  <bodySite>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="272676008"/>
+      <display value="Sphenoid bone"/>
+    </coding>
+  </bodySite>
+  <indication>
+    <text value="DiagnosticReport/f201"/>
+  </indication> 
+  <!--TODO Why can't this be Resource (any) AND String?-->
+  <performer>
+    <person>
+      <reference value="Practitioner/f201"/>
+      <display value="Dokter Bronsig"/>
+    </person>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="310512001"/>
+        <display value="Medical oncologist"/>
+      </coding>
+    </role>
+  </performer>
+  <date>
+    <start value="2013-01-28T13:31:00+01:00"/>
+    <end value="2013-01-28T14:27:00+01:00"/>
+  </date>
+  <encounter>
+    <reference value="Encounter/f202"/>
+    <display value="Roel's encounter on January 28th, 2013"/>
+  </encounter>
+  <!--No outcomes, reports, complications or follow-ups were available-->
+  <notes value="Eerste neo-adjuvante TPF-kuur bij groot proces in sphenoid met intracraniale uitbreiding."/>
+</Procedure>

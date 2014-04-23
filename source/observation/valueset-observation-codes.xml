@@ -1,0 +1,24 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes all LOINC codes (TODO: can we exclude panels without excluding too much?)
+    </div>
+  </text>
+  <name value="LOINC Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes all LOINC codes"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <!-- all lab codes. TODO: can we get just the panel ones? -->
+      <system value="http://loinc.org"/>
+    </include>
+  </compose>
+</ValueSet>
+

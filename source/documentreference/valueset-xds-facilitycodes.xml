@@ -1,0 +1,193 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="XDS Connect-a-thon healthcareFacilityTypeCodes"/>
+  <publisher value="IHE"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://ihe.net"/>
+  </telecom>
+  <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml, with substantial corrections applied"/>
+  <status value="draft"/>
+  <!-- errors in the source: 
+    * the codes like "281PC2000N" are from 	Code System	2.16.840.1.113883.5.53 (2.16.840.1.113883.5.53)
+    * the coding system 2.16.840.1.113883.5.11 is actually 2.16.840.1.113883.5.111
+  -->
+  <define>
+    <system value="urn:uuid:f33fb8ac-18af-42cc-ae0e-ed0b0bdb91e1"/>
+
+    <concept>
+      <code value="Home"/>
+      <display value="Home"/>
+    </concept>
+    <concept>
+      <code value="Assisted Living"/>
+      <display value="Assisted Living"/>
+    </concept>
+    <concept>
+      <code value="Home Health Care"/>
+      <display value="Home Health Care"/>
+    </concept>
+    <concept>
+      <code value="Hospital Setting"/>
+      <display value="Hospital Setting"/>
+    </concept>
+    <concept>
+      <code value="Acute care hospital"/>
+      <display value="Acute care hospital"/>
+    </concept>
+    <concept>
+      <code value="Hospital Unit"/>
+      <display value="Hospital Unit"/>
+    </concept>
+    <concept>
+      <code value="Critical Care Unit"/>
+      <display value="Critical Care Unit"/>
+    </concept>
+    <concept>
+      <code value="Emergency Department"/>
+      <display value="Emergency Department"/>
+    </concept>
+    <concept>
+      <code value="Observation Ward"/>
+      <display value="Observation Ward"/>
+    </concept>
+    <concept>
+      <code value="Rehabilitation hospital"/>
+      <display value="Rehabilitation hospital"/>
+    </concept>
+    <concept>
+      <code value="Nursing Home"/>
+      <display value="Nursing Home"/>
+    </concept>
+    <concept>
+      <code value="Skilled Nursing Facility"/>
+      <display value="Skilled Nursing Facility"/>
+    </concept>
+    <concept>
+      <code value="Outpatient"/>
+      <display value="Outpatient"/>
+    </concept>
+  </define>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/HealthcareProviderTaxonomyHIPAA"/>
+      <code value="394802001"/>
+      <code value="281PC2000N"/>
+      <code value="282NC2000N"/>
+      <code value="281NR1301N"/>
+      <code value="282NW0100N"/>
+      <code value="283XC2000N"/>
+      <code value="2865C1500N"/>
+      <code value="2865M2000N"/>
+      <code value="2865X1600N"/>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <code value="ACC"/>
+      <code value="ALL"/>
+      <code value="AMB"/>
+      <code value="AMPUT"/>
+      <code value="BMTC"/>
+      <code value="BMTU"/>
+      <code value="BREAST"/>
+      <code value="CANC"/>
+      <code value="CAPC"/>
+      <code value="CARD"/>
+      <code value="CATH"/>
+      <code value="CCU"/>
+      <code value="CHEST"/>
+      <code value="CHR"/>
+      <code value="COAG"/>
+      <code value="COMM"/>
+      <code value="CRS"/>
+      <code value="CVDX"/>
+      <code value="DADDR"/>
+      <code value="DERM"/>
+      <code value="DX"/>
+      <code value="ECHO"/>
+      <code value="ENDO"/>
+      <code value="ENDOS"/>
+      <code value="ENT"/>
+      <code value="EPIL"/>
+      <code value="ER"/>
+      <code value="ETU"/>
+      <code value="FMC"/>
+      <code value="GACH"/>
+      <code value="GI"/>
+      <code value="GIDX"/>
+      <code value="GIM"/>
+      <code value="GYN"/>
+      <code value="HAND"/>
+      <code value="HD"/>
+      <code value="HEM"/>
+      <code value="HOSP"/>
+      <code value="HTN"/>
+      <code value="HU"/>
+      <code value="ICU"/>
+      <code value="IEC"/>
+      <code value="INFD"/>
+      <code value="INV"/>
+      <code value="LYMPH"/>
+      <code value="MGEN"/>
+      <code value="MHSP"/>
+      <code value="MOBL"/>
+      <code value="NCCF"/>
+      <code value="NCCS"/>
+      <code value="NEPH"/>
+      <code value="NEUR"/>
+      <code value="NS"/>
+      <code value="OB"/>
+      <code value="OF"/>
+      <code value="OMS"/>
+      <code value="ONCL"/>
+      <code value="OPH"/>
+      <code value="ORTHO"/>
+      <code value="PAINCL"/>
+      <code value="PC"/>
+      <code value="PEDC"/>
+      <code value="PEDCARD"/>
+      <code value="PEDE"/>
+      <code value="PEDGI"/>
+      <code value="PEDHEM"/>
+      <code value="PEDHO"/>
+      <code value="PEDICU"/>
+      <code value="PEDID"/>
+      <code value="PEDNEPH"/>
+      <code value="PEDNICU"/>
+      <code value="PEDRHEUM"/>
+      <code value="PEDU"/>
+      <code value="PHARM"/>
+      <code value="PHU"/>
+      <code value="PLS"/>
+      <code value="POD"/>
+      <code value="PRC"/>
+      <code value="PREV"/>
+      <code value="PROCTO"/>
+      <code value="PROFF"/>
+      <code value="PROS"/>
+      <code value="PSI"/>
+      <code value="PSY"/>
+      <code value="PSYCHF"/>
+      <code value="PTRES"/>
+      <code value="RADDX"/>
+      <code value="RADO"/>
+      <code value="RH"/>
+      <code value="RHEUM"/>
+      <code value="RHU"/>
+      <code value="RNEU"/>
+      <code value="RTF"/>
+      <code value="SCHOOL"/>
+      <code value="SLEEP"/>
+      <code value="SNF"/>
+      <code value="SPMED"/>
+      <code value="SU"/>
+      <code value="SURF"/>
+      <code value="TR"/>
+      <code value="TRAVEL"/>
+      <code value="URO"/>
+      <code value="WND"/>
+     
+    </include>  
+  </compose>  
+</ValueSet>
+

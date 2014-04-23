@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<User xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/user.xsd">
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Internal User Grahame Grieve has patient-level access to some specific patient compartments</div>
+  </text>
+
+  <name>
+    <text value="Grahame Grieve"/>
+  </name>
+  <!-- <provider value="http://facebook.com"/> no - this is an internal login --> 
+  <login value="GrahameGrieve"/>
+  <password value="c669ebcc10ad2fdc08b5f688d0638f07905040d49e3fbfdc498775b3a2ea67f4"/> <!-- hash for TestPassword1 -->
+  <level value="patient"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</User>

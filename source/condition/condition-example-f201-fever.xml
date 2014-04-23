@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
+ <subject><!--It entails Roel's problem-->
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </subject>
+ <encounter>
+     <reference value="Encounter/f201"/>
+ </encounter>
+ <asserter>
+     <reference value="Practitioner/f201"/>
+ </asserter>
+ <dateAsserted value="2013-04-04"/><!--The problem was entered at April fourth-->
+ <code><!--The problem is a fever-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="386661006"/>
+       <display value="Fever"/> 
+    </coding>
+ </code>
+ <category><!--The fever is a mild problem-->
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="55607006"/>
+        <display value="Problem"/> 
+    </coding>
+    <coding>
+        <system value="http://hl7.org/fhir/condition-category" />
+        <code value="condition" />
+    </coding>
+ </category>
+ <status value="confirmed"/>
+ <severity><!--The fever is mild -->
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="255604002"/>
+        <display value="Mild"/> 
+    </coding>
+ </severity>
+ <onsetDate value="2013-04-02"/><!--Problem began on April second-->
+ <!--No remission means no <rebatement>-->
+ <evidence><!--Problem is confirmed by 39 degrees Celsius-->
+  <code>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="258710007"/>
+        <display value="degrees C"/> 
+    </coding>        
+  </code>
+  <detail>
+     <reference value="Observation/f202"/>
+     <display value="Temperature"/>
+  </detail>
+ </evidence>
+ <location><!--Fever applies to whole body-->
+  <code>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="38266002"/>
+        <display value="Entire body as a whole"/>  
+    </coding>
+  </code>
+ </location>
+ <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
+  <type value="due-to"/>
+  <target>
+     <reference value="Procedure/f201"/>
+     <display value="TPF chemokuur"/>
+  </target>
+ </relatedItem>
+ <relatedItem>  <!-- 0..* Causes or precedents for this problem -->
+  <type value="due-to"/>
+  <target>
+     <reference value="Condition/f205"/>
+     <display value="bacterial infection"/>
+  </target>
+ </relatedItem>
+</Condition>

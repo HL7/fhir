@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir file:/C:/svn/fhir/build/schema/practitioner.xsd">
+    <identifier>
+        <use value="official"/>
+        <system value="urn:oid:2.16.528.1.1007.3.1"/>
+        <!-- Identificatiesysteem Zorgverlener UZI -->
+        <value value="874635264"/>
+    </identifier>
+    <identifier>
+        <use value="usual"/>
+        <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
+        <!-- BSN identification system -->
+        <value value="567IUI51C154"/>
+    </identifier>
+    <name>
+        <use value="official"/>
+        <family value="Heps"/>
+        <given value="Simone"/>
+        <suffix value="MD"/>
+    </name>
+    <telecom>
+        <system value="phone"/>
+        <value value="020556936"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="S.M.Heps@bmc.nl"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <system value="fax"/>
+        <value value="0205669283"/>
+        <use value="work"/>
+    </telecom>
+    <address>
+        <use value="work"/>
+        <line value="Galapagosweg 91"/>
+        <city value="Den Burg"/>
+        <zip value="9105 PZ"/>
+        <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
+    </address>
+    
+    <gender>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="F"/>
+            <display value="Female"/>
+        </coding>
+    </gender>
+    <birthDate value="1971-11-07"/>
+    
+    <organization>
+        <!-- deze moet gekoppeld worden aan een RESOURCE ORGANIZATION -->
+        <reference value="Organization/f001"/>
+        <display value="BMC"/>
+    </organization>
+    <role>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
+            <!-- "AssignedRoleType" coding system -->
+            <code value="01.000"/>
+            <display value="Arts"/>
+        </coding>
+        <text value="Care role"/>
+    </role>
+    <specialty>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>
+            <!-- "AssignedRoleType" coding system -->
+            <code value="01.015"/>
+            <display value="Physician"/>
+        </coding>
+        <text value="specialisation"/>
+    </specialty>
+</Practitioner>

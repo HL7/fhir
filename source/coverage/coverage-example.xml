@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the coverage</div>
+  </text>
+
+ <issuer>
+  <reference value="Organization/2"/>
+</issuer>
+ 
+ <period> 
+   <start value="2011-05-23"/>
+   <end value="2012-05-23"/>
+ </period>
+
+ <type>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="EHCPOL"/>
+      <display value="extended healthcare"/>
+ </type>
+ 
+ <identifier>
+    <system value="http://xyz.com/codes/identifier"/>
+    <value value="12345"/>
+ </identifier>
+ 
+ <plan>
+    <system value="http://xyz.com/codes/plan"/>
+    <value value="CBI35"/>
+ </plan>
+ 
+ <subplan>
+    <system value="http://xyz.com/codes/subplan"/>
+    <value value="123"/>
+ </subplan>
+ 
+ <dependent value="0"/>
+ 
+ <sequence value="1"/>
+ 
+ <subscriber>
+	<name>
+	<use value="official"/>
+	 <family value="Seebetter"/>
+	 <given value="Wanda"/>
+	 <given value="L"/>
+	</name>
+
+	<address>
+	<use value="home"/>
+	 <line value="123 Any St"/>
+	 <city value="Anytown"/>
+	 <state value="BC"/>
+	 <zip value="V3R4R5"/>
+	 <country value="CANADA"/>
+	</address>
+
+	<birthdate value="1955-01-01"/>
+
+ </subscriber>
+</Coverage>

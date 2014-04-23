@@ -1,0 +1,36 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<h2>Notes</h2>
+<p>
+<ul>
+<li>Multiple Organizations or Practitioners may provide services at a Location. These references are not kept in Location, but can be found
+in the models for <a href="organization.html">Organization</a> and <a href="practitioner.html">Practitioner</a> instead.</li>
+<li>Locations may range from whole buildings to cabinets; it is possible to relate smaller Locations to their containing bigger Location 
+using the Location.partOf element.</li>
+<li>Location.position is expressed using the same syntax, datum and reference system as used in Google Earth's KML files,
+see <a href="http://www.opengeospatial.org/standards/kml">Google/OGS's KML</a>.</li>
+</ul>
+</p>
+
+<h3>Location Mode</h3>
+<p>The Location.mode element can be used to indicate whether a Location resource represents a specific (potentially identifiable) Location ('instance'), 
+or a class of Locations ('kind'). Especially Resources capturing orders, resource scheduling, plans and definitions may refer to Locations in 'kind' mode. 
+For these domains, it is often not necessary to refer to a specific Location, but rather to a class of Locations. An example of this is found in planning, 
+where we need to allocate an "isolation room" for a patient, or need to dispatch "an ambulance" at a certain time. In these cases it is not important 
+exactly which isolation room or ambulance is allocated, and it is sufficient to just indicate a 'kind' of Location.</p>
+<p>Note that 'kind' should not be used to represent Locations where an actual instance of a Location was involved, but identifying information is missing.
+E.g. when a patient arrived 'by ambulance', but it is not known by which ambulance, this should be represented using a Location in 'instance' mode with a
+missing identifier, not a Location of 'kind' ambulance.</p>
+<p>
+Some of Location's data elements are only relevant when mode is 'instance' and should not be used when mode is 'kind':
+<ul>
+<li>Location.identifier</li>
+<li>Location.telecom</li>
+<li>Location.address</li>
+<li>Location.position</li>
+<li>Location.status</li>
+<li>Location.managingOrganization</li>
+</ul>
+</p>
+</div>

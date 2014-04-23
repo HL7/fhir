@@ -1,0 +1,33 @@
+
+<Patient xmlns="http://hl7.org/fhir">
+  <extension url="http://example.org/consent#trials">
+    <valueCode value="renal"/>
+  </extension>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Henry Levin the 7th</p>
+      <p>MRN: 123456</p>
+    </div>
+  </text>
+  <identifier>
+    <use value="usual"/>
+    <label value="MRN"/>
+    <system value="http://www.goodhealth.org/identifiers/mrn"/>
+    <value value="123456"/>
+  </identifier>
+  <name>
+    <family value="Levin"/>
+    <given value="Henry"/>
+    <suffix value="The 7th"/>
+  </name>
+  <gender>
+    <text value="Male"/>
+  </gender>
+  <birthDate value="1932-09-24"/>
+  <managingOrganization>
+    <reference value="Organization/2"/>
+    <display value="Good Health Clinic"/>
+  </managingOrganization>
+  <active value="true"/>
+</Patient>

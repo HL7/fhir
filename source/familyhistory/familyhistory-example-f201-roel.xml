@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FamilyHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familyhistory.xsd">
+ <subject>
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+ </subject>
+ <note value="Both parents, both brothers and both children (twin) are still alive."/><!--Other relatives-->
+ <relation><!--ROB's Mother has a hernia-->
+  <relationship>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="72705000"/>
+       <display value="Mother"/>
+    </coding>      
+  </relationship>
+  <deceasedBoolean value="false"/>
+  <condition>  
+   <type>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="39839004"/>
+       <display value="Diaphragmatic hernia"/>
+    </coding>      
+   </type>
+  </condition>
+ </relation>
+ <relation><!--ROB's uncle from mother's side died from cancer-->
+  <relationship>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="38048003"/>
+       <display value="Uncle"/>
+    </coding>      
+  </relationship>
+  <deceasedBoolean value="true"/>
+  <condition>  
+   <type>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="115665000"/>
+       <display value="Atopy"/>
+    </coding>      
+   </type>
+   <outcome>       
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="419099009"/>
+       <display value="Died"/>
+    </coding> 
+   </outcome>
+  </condition>
+ </relation>
+</FamilyHistory>

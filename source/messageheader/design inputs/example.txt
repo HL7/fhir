@@ -1,0 +1,26 @@
+VZCZC00000      SOH characters and id  
+OO      Priority       
+RUEK    Receiving Facility     
+DE<space>RUEKDA Sending Facility       
+CCCCC   Security       
+R<space>hhmmssZ mmm yy  Priority & timestamp   
+FM MYPLACE      Sending Application    
+TO YOURPLACE    Receiving Application  
+INFO<space>THEIRPLACE   Copy to Application    
+BT      End of Header  
+
+What I would have wished for in V2 messaging is a simplification of the FROM and TO addresses.  I don’t believe the “message” resource should be more than “Wrapper” – to be used in the messaging context as a SOAP header would be used in the SOAP context.
+
+My personal preference would be that the “message” would be an envelope, with the typical fields:
+
+Message Resource        V2 equivalence  Cardinality    
+<from address>entity</from address>     Replaces MSH.3,4,17,22,24       1.1    
+<to address>entity</to address> Replaces MSH.5,6,23,25  1.n    
+<priority>??</priority>*        Not in MSH at this time 1.1    
+<Security>security_scheme</security>**  Replaces MSH.8  1.1    
+<subject>??</subject>   Replaces MSH.9  1.1    
+<Message id>id</message id>     Replaces MSH.10 1.1    
+<processing-flag>?</processing-flag>    Replaces MSH.11 0.1    
+<RSVP>rsvp-type</RSVP>  Replaces MSH.15, 16     1.1    
+<profile Identifier>??</profile Identifier>     Replaces MSH.21 1.1    
+* Priority would allow me to process “STAT” lab results before “Routine” results.

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelatedPerson xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/relatedperson.xsd">
+  <text>
+
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+     Sarah Abels
+    </div>
+  </text>
+
+  <identifier>
+    <use value="official"/>
+    <label value="BSN"/>
+    <system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
+    <!-- Dutch BSN identification system -->
+  </identifier>
+  
+  <patient>
+    <reference value="Patient/f001" />
+  </patient>
+  
+  <relationship>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/RoleCode" />
+      <code value="SIGOTHR" />
+    </coding>    
+  </relationship>
+  
+  <name>
+    <use value="usual"/>
+    <family value="Abels"/>
+    <given value="Sarah"/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="0690383372"/>
+    <use value="mobile"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="s.abels@kpn.nl"/>
+    <use value="home"/>
+  </telecom>
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="F"/>
+      <display value="Female"/>
+    </coding>
+  </gender>
+  
+</RelatedPerson>

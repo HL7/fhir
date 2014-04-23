@@ -1,0 +1,20 @@
+.bold { font-weight: bold }
+.italics { font-style: italic }
+.underline { text-decoration: underline }
+.strikethrough { text-decoration: line-through }
+.left { text-align : left }
+.right { text-align : right }
+.center { text-align : center }
+.justify { text-align : justify }
+.border-left { border-left: 1px solid grey}
+.border-right { border-right: 1px solid grey }
+.border-top { border-top: 1px solid grey }
+.border-bottom { border-bottom: 1px solid grey }
+.arabic { list-style-type: decimal }
+.little-roman { list-style-type: lower-roman }
+.big-roman { list-style-type: upper-roman }
+.little-alpha { list-style-type: lower-alpha }
+.big-alpha { list-style-type: upper-alpha }
+.disc { list-style-type: disc }
+.circle { list-style-type : circle }
+.square { list-style-type: square }

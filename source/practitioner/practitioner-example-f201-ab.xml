@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+    <identifier>
+        <!--The identifier for the person as this practitioner (fictive)-->
+        <use value="official"/>
+        <label value="UZI-nummer"/>
+        <system value="urn:oid:2.16.528.1.1007.3.1"/>
+        <value value="12345678901"/>
+    </identifier>
+        <!--Practitioner's personal demographics-->
+        <name>
+            <!--The name of the practitioner-->
+            <use value="official"/>
+            <text value="Dokter Bronsig"/>
+            <family value="Bronsig"/>
+            <given value="Arend"/>
+            <prefix value="Dr."/>
+        </name>
+        <telecom>
+            <!--A contact detail for the individual-->
+            <system value="phone"/>
+            <value value="+31715269111"/>
+            <use value="work"/>
+        </telecom>
+    <address><!--Work address for the individual-->
+            <use value="work"/>       
+            <line value="Walvisbaai 3"/>    
+            <line value="C4 - Automatisering"/>
+            <city value="Den helder"/>
+            <zip value="2333ZA"/>
+            <country value="NLD"/><!--ISO 3166 3 letter code-->
+        </address>
+    
+    <gender>
+            <!--The practitioner's administrative gender-->
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="248153007"/>
+                <display value="Male"/>
+            </coding>
+        </gender>
+        <birthDate value="1956-12-24"/>
+        <!--Fortunately, the doctor is still alive!-->
+<!--        <photo>
+            <reference value="picture/@AB-201.bmp"/>
+            <display value="Picture_Dokter_Bronsig"/>
+        </photo> -->
+    
+    <organization>
+        <reference value="Organization/f201"/>
+        <display value="AUMC"/>
+    </organization>
+    <role>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="225304007"/>
+            <display value="Implementation of planned interventions"/>
+        </coding>
+    </role>
+    <specialty>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="310512001"/>
+            <display value="Medical oncologist"/>
+        </coding>
+    </specialty>
+    <qualification>
+        <code>
+            <!--Dr. Bronsig is not only a medical oncologist, but also a pulmonologist-->
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="41672002"/>
+                <display value="Pulmonologist"/>
+            </coding>
+        </code>
+    </qualification>
+</Practitioner>

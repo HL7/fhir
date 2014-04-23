@@ -1,0 +1,86 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="SpecimenCollectionMethod"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value=" This example value set defines a set of codes that can be used to indicate the method of collection of a specimen. 
+    It includes values from HL7 v2 table 0048"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <code value="119295008">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Specimen obtained by aspiration"/>
+        </extension>
+      </code>
+      <code value="413651001">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Bioptics"/>
+        </extension>
+      </code>
+      <code value="360020006">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Extirpation - action"/>
+        </extension>
+      </code>
+      <code value="430823004">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Examination of midstream urine specimen"/>
+        </extension>
+      </code>
+      <code value="16404004">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Induced"/>
+        </extension>
+      </code>
+      <code value="67889009">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Irrigation"/>
+        </extension>
+      </code>
+      <code value="29240004">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Autopsy examination"/>
+        </extension>
+      </code>
+      <code value="45710003">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Sputum"/>
+        </extension>
+      </code>
+      <code value="7800008">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Punctate"/>
+        </extension>
+      </code>
+      <code value="258431006">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Scrapings"/>
+        </extension>
+      </code>
+      <code value="20255002">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Blushing"/>
+        </extension>
+      </code>
+      <code value="386147002">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Smear procedure"/>
+        </extension>
+      </code>
+      <code value="278450005">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Finger stick"/>
+        </extension>
+      </code>      
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0488"/>
+    </include>
+  </compose>
+</ValueSet>
+

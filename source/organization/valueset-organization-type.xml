@@ -1,0 +1,51 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="OrganizationType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This example value set defines a set of codes that can be used to indicate a type of organization."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/organization-type"/>
+    <concept>
+      <code value="prov"/>
+      <display value="Healthcare Provider"/>
+    </concept>
+    <concept>
+      <code value="dept"/>
+      <display value="Hospital Department"/>
+    </concept>    
+    <concept>
+      <code value="icu"/>
+      <display value="Intensive Care Unit"/>
+    </concept>
+	<concept>
+      <code value="team"/>
+      <display value="Organizational team"/>
+    </concept>    	
+    <concept>
+      <code value="fed"/>
+      <display value="Federal Government"/>
+    </concept>
+    <concept>
+      <code value="ins"/>
+      <display value="Insurance Company"/>
+    </concept>    
+    <concept>
+      <code value="edu"/>
+      <display value="Educational Institute"/>
+    </concept>
+    <concept>
+      <code value="reli"/>
+      <display value="Religious Institution"/>
+    </concept>    
+    <concept>
+      <code value="pharm"/>
+      <display value="Pharmacy"/>
+    </concept>    
+  </define>
+</ValueSet>
+

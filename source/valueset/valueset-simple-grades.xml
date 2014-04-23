@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p></p>
+    </div>
+  </text>
+  <!-- this example, we elected to use a UUID. We could have used 
+     an OID, or a URI - depends on how it will be used. -->
+  <identifier value="http://hl7.org/fhir/vs/clinistix"/>
+  <!-- set of loinc codes for cholesterol for LONC 2.36 -->
+  <name value="Simple grading codes"/>
+  <publisher value="HL7"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Clinistix Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2013-10-01"/>
+  <define>
+    <system value="http://hl7.org/fhir/clinistix"/>
+    <caseSensitive value="false"/>
+    <concept>
+      <code value="neg"/>     
+    </concept>
+    <concept>
+      <code value="trace"/>     
+    </concept>
+    <concept>
+      <code value="+"/>     
+    </concept>
+    <concept>
+      <code value="+"/>     
+    </concept>
+    <concept>
+      <code value="++"/>     
+    </concept>
+    <concept>
+      <code value="+++"/>     
+    </concept>
+  </define>
+</ValueSet>

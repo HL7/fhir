@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+ <patient><!--It entails Roel's careplan-->
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </patient>
+ <status value="planned"/><!--This careplan is "ended", but was never closed in the EHR, wherefore the status is "planned"-->
+ <period>
+      <start value="2013-03-11"/>
+      <end value="2013-03-13"/><!--Period is less than nine days because the careplan requires adjustments after evaluation-->
+ </period>
+ <modified value="2013-03-11"/>
+ <concern>
+     <reference value="Condition/f204"/>
+     <display value="Roel's renal insufficiency"/>
+ </concern>
+ <participant>  
+  <role>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="425268008"/>
+       <display value="Review of care plan"/>
+     </coding>
+  </role>
+  <member>  
+     <reference value="Practitioner/f201"/>
+     <display value="Dokter Bronsig"/>
+  </member>
+ </participant>
+ <participant>  
+  <role>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="229774002"/>
+       <display value="Carer"/>
+     </coding>
+  </role>
+  <member>
+     <reference value="Practitioner/f204"/>
+     <display value="Nurse Carla Espinosa"/>
+  </member>
+ </participant>
+ <goal> 
+  <description value="Re-established renal function with at least healthy nutrients."/>
+  <status value="achieved"/>
+ </goal>
+ <activity><!--Potassium supplement-->
+  <status value="completed"/>
+  <prohibited value="false"/>
+  <simple>
+    <category value="diet"/>
+    <code>
+       <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="284093001"/>
+         <display value="Potassium supplementation"/>
+       </coding>
+    </code>
+    <timingString value="daily"/>
+    <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
+    <product>
+       <reference value="Substance/f203"/>
+       <display value="Potassium"/>
+    </product>
+    <dailyAmount>
+      <value value="80"/>
+      <units value="mmol"/>
+      <system value="http://snomed.info/sct"/>
+      <code value="258718000"/>
+    </dailyAmount>
+  </simple>
+ </activity>
+ <activity><!--Echo of the kidney-->
+  <status value="completed"/>
+  <prohibited value="false"/>
+  <simple>
+    <category value="observation"/>
+    <code>
+       <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="306005"/>
+         <display value="Echography of kidney"/>
+       </coding>
+    </code>
+  </simple>
+ </activity>
+</CarePlan>

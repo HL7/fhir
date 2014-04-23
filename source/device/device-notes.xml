@@ -1,0 +1,52 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h3>Notes</h3>
+<ul>
+ <li>There are many sources of possible codes for device type. The example suggests to use device codes from RTM, 
+ which has many codes suitable to devices that make <a href="deviceobservationreport.html">Device Observation Reports</a>. 
+ Another source which will be appropriate for many devices is the FDA GUDID (see below) or equivalent. 
+ Alternatively, many jurisdictions have their own supply chain arrangements which define many useful codes.</li>
+</ul>
+
+<h3>Device Identifiers</h3>
+
+<p>
+Nearly all devices are assigned one or more identifiers, which are usually printed or affixed to the device using either barcodes or RFIDs. 
+The identifiers can come from the manufacturer (often called the "serial number", various institution and registries. Any of 
+these identifiers assigned to the device can and should be recorded in the device resource. The different identifiers are 
+differentiated by their use, label, and system values.
+</p>
+<p>
+The most important of the identifiers is the 
+<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">Unique Device Identifier</a>
+(UDI), which most medical devices are required to carry and which can be used to access the 
+<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/ucm20038750.htm">Global 
+Unique Device Identification Database</a> (GUDID). The UDI has its own element (<i>udi</i>). The UDI may identify an instance of a device uniquely, or it may just identify the type of the device. 
+A portion of the UDI - the DI part - can be extracted from the UDI when required, and used 
+to look up information about the device through the GUDID.
+Where the device has an assigned UDI, the other details carried in the resource (e.g. lot, expiry date etc) SHALL be 
+consistent with the information encoded  in the UDI or registered in the GUDID.
+</p>
+<p>
+Note that a GTIN (sometimes also called an EAN number) is a code for the kind of device, not an identifier for the device.
+The GTIN may be part of the UDI, but it may also be known separately, in which case GTINs should be carried in the type element:
+</p>
+<div class="example">
+<p>GTIN example</p>
+<pre>
+  &lt;type&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;urn:oid:1.3.160‎&quot;/&gt;
+      &lt;value value=&quot;00614141999996&quot;/&gt;
+    &lt;/coding&gt;
+    &lt;!-- other codes for type --&gt;
+  &lt;/type&gt;
+</pre>
+
+</div>
+
+
+
+
+
+</div>

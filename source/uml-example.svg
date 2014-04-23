@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="360.0" height="90.0">  <defs>
+    <filter id="shadow" x="0" y="0" width="200%" height="200%">
+      <feOffset result="offOut" in="SourceGraphic" dx="3" dy="3" />
+      <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+      <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="2" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+  </defs>
+  <rect x="0.0" y="0.0" rx="4" ry="4" width="160.0" height="76.0" filter="url(#shadow)" style="fill:#f0f8ff;stroke:black;stroke-width:1"/>
+  <line x1="0.0" y1="20.0" x2="160.0" y2="20.0" style="stroke:dimgrey;stroke-width:1"/>
+  <text x="50.0" y="16.0" fill="black" style="font-size: 14; text-anchor: middle; font-family: sans-serif">Name</text>
+  <text x="4.0" y="36.0" fill="black" style="font-size: 10; text-anchor: left; font-family: sans-serif">attrA : string 0..1</text>
+  <text x="4.0" y="50.0" fill="black" style="font-size: 10; text-anchor: left; font-family: sans-serif">nameA : type 1..1</text>
+  <text x="4.0" y="64.0" fill="black" style="font-size: 10; text-anchor: left; font-family: sans-serif">nameB[x] : type1 | type2 0..1</text>
+
+  <rect x="240.0" y="10" rx="4" ry="4" width="100.0" height="60.0" filter="url(#shadow)" style="fill:#f0f8ff;stroke:black;stroke-width:1"/>
+  <line x1="240.0" y1="30.0" x2="340.0" y2="30.0" style="stroke:dimgrey;stroke-width:1"/>
+  <text x="270.0" y="26.0" fill="black" style="font-size: 14; text-anchor: middle; font-family: sans-serif">NameC</text>
+  <text x="244.0" y="46.0" fill="black" style="font-size: 10; text-anchor: left; font-family: sans-serif">nameD : type 1..*</text>
+
+  <line x1="160.0" y1="40.0" x2="240.0" y2="40.0" style="stroke:navy;stroke-width:1"/>
+  <polygon points="160.0,40.0 166.0,44.0 172.0,40.0 166.0,36.0 160.0,40.0" style="fill:navy;stroke:navy;stroke-width:1"/>
+  <rect x="175.0" y="30.0" width="50.0" height="18.0" style="fill:white;stroke:black;stroke-width:0"/>
+  <text x="200.0" y="42.0" fill="black" style="font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1">nameC</text>
+  <text x="230.0" y="36.0" fill="black" style="font-size: 10; text-anchor: middle; font-family: sans-serif; opacity: 1">0..1</text>
+
+</svg>

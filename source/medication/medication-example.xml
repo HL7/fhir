@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\medication.xsd">
+
+  <!-- insert contents here -->
+  
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">123456789: Penicillin VK oral suspension 125mg/5ml</div>
+  </text>
+   
+  <name value="Penicillin VK oral suspension 125mg/5ml"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="323418000"/>
+      <display value="Phenoxymethylpenicillin 125mg/5mL oral solution (product)"/>
+    </coding>  
+    <coding>
+      <system value="http://nehta.gov.au/amt/v2"/>
+      <code value="22571011000036102"/>
+      <display value="phenoxymethylpenicillin 125 mg / 5 mL oral liquid, 5 mL measure"/>
+    </coding>  
+  </code>  
+  <isBrand value="false"/>
+  <kind value="product"/>
+  <product>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="37595005"/>
+        <display value="Suspension"/>
+      </coding>
+    </form>
+  </product>
+</Medication>

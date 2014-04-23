@@ -1,0 +1,51 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Common usage includes:
+</p>
+<ul>
+ <li>the recording of non-prescription and/or recreational drugs</li>
+ <li>the recording of an intake medication list upon admission to hospital</li>
+ <li>the summarization of a patient's "active medications" in a patient profile</li>
+</ul>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+<b>The Medication domain includes a number of related resources</b>
+</p>
+<table border="1" cellpadding="1" cellspacing="2" frame="box">
+    <tr>
+        <td><a href="medicationprescription.html">MedicationPrescription</a></td>
+        <td>An order for both supply of the medication and the instructions for administration of the medicine to a patient.</td>
+    </tr>
+    <tr>
+        <td><a href="medicationdispense.html">MedicationDispense</a></td>
+        <td>Provision of a supply of a medication with the intention that it is subsequently consumed by a patient (usually in response to a prescription).  </td>
+    </tr>
+    <tr>
+        <td><a href="medicationadministration.html">MedicationAdministration</a></td>
+        <td>When a patient actually consumes a medicine, or it is otherwise administered to them</td>
+    </tr>
+    <tr>
+        <td>MedicationStatement</td>
+        <td>This is a record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient, or another clinician. 
+          A medication statement is not a part of the prescribe->dispense->administer sequence but is a report that such a sequence (or at least a part of it) did take place resulting in a belief that the patient has received a particular medication.
+        </td>
+    </tr>
+</table>
+
+<p>
+This resource is distinct from <a href="medicationprescription.html">MedicationPrescription</a>, <a href="medicationdispense.html">MedicationDispense</a> 
+and <a href="medicationadministration.html">MedicationAdministration</a>.  Each of those resources refer to specific events - an individual 
+order, an individual provisioning of medication or an individual dosing.  MedicationStatement is a broader assertion covering a wider 
+timespan and independent of specific events.  The existence of resource instances of any of the preceding three types may be used to infer 
+a Medication statement.  However, medication statements can also be captured on the basis of other information including an assertion by the 
+patient or a care-giver, the results of a lab test, etc.
+</p>
+</div>
+
+</div>

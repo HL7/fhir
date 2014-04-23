@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/encounter.xsd">
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.amc.nl/zorgportal/identifiers/visits"/>
+        <value value="v1451"/>
+    </identifier>
+    <status value="finished"/>
+    <class value="outpatient"/>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="270427003"/>
+            <display value="Patient-initiated encounter"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/f001"/>
+        <display value="P. van de Heuvel"/>
+    </subject>
+    <participant>
+        <individual>
+            <reference value="Practitioner/f002"/>
+            <display value="P. Voigt"/>
+        </individual>
+    </participant>
+    <length>
+        <value value="140"/>
+        <units value="min"/>    
+        <system value="http://unitsofmeasure.org"/>
+        <code value="min"/>
+    </length>
+    <reason>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="34068001"/>
+            <display value="Heart valve replacement"/>
+        </coding>
+    </reason>
+    <priority>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="310361003"/>
+            <display value="Non-urgent cardiological admission"/>
+        </coding>
+    </priority>
+    <hospitalization>
+        <preAdmissionIdentifier>
+            <use value="official"/>
+            <system value="http://www.amc.nl/zorgportal/identifiers/pre-admissions"/>
+            <value value="93042"/>
+        </preAdmissionIdentifier>
+  <!--      <preAdmissionTest>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="164847006"/>
+                <display value="Standard ECG"/>
+            </coding>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="396550006"/>
+                <display value="Blood test"/>
+            </coding>
+        </preAdmissionTest> -->
+        <admitSource>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="305956004"/>
+                <display value="Referral by physician"/>
+            </coding>
+        </admitSource>
+        <period>
+            <start value="2011-06-26"/>
+            <end value="2011-06-30"/>
+        </period>
+        <accomodation>
+            <period>
+                <start value="2011-06-26"/>
+                <end value="2011-07-01"/>
+            </period>
+        </accomodation> 
+        <dischargeDisposition>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="306689006"/>
+                <display value="Discharge to home"/>
+            </coding>
+        </dischargeDisposition>
+        <reAdmission value="false"/>
+    </hospitalization>
+    <serviceProvider>
+        <reference value="Organization/f001"/>
+        <display value="Burgers University Medical Center"/>
+    </serviceProvider>
+</Encounter>

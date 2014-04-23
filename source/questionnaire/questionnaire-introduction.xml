@@ -1,0 +1,52 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The Questionnaire may be a single list of questions, or can be hierarchically organized in 
+groups and sub-groups, each containing questions. Questions may contain and single answer, which can take the form of simple text, 
+numbers, dates or a set of coded choices.
+</p>
+<p>
+Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
+clinical speciality records. In many systems this data is collected using user-defined screens and forms. Questionnaires record specifics about data capture -
+exactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions are part of the Questionnaire, 
+and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.
+</p>
+<p>Examples of Questionnaires include:</p>
+<ul>
+<li>Past medical history (PMH)</li>
+<li>Family diseases</li>
+<li>Social history</li>
+<li>Research questionnaires</li>
+<li>Quality and evaluation forms</li>
+</ul>
+<p>Support for validation is outside the scope of this Resource, although basic structural features can be defined using the 
+<a href="questionnaire-extensions.html">Questionnaire core extensions</a>.</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Questionnaires differ from Lists because Lists regroup or summarize existing information, while Questionnaires contain original, 
+clinician collected data. Questionnaires are similar to Documents. However, the purpose of a Questionnaire is the capture of raw data as opposed to the composition 
+and assertion of information intended for long term persistence and use in a Document.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+Groups and questions that make up a Questionnaire can be explicitly named to refer to externally defined numbering or identification of questions and sections on
+formally defined questionnaires. This allows extraction of the data on a form and post-processing of the data contained in a Questionnaire. Such naming is not required however 
+and Questionnaires may be quite loosely defined. The section <a href="#qversusr">Questionnaire versus Resources</a> below discusses the issues of collecting data in such
+loosely defined Questionnaires versus collecting data as well-defined separate Resources.
+</p>
+</div>
+
+</div>
+
+
+
+
+

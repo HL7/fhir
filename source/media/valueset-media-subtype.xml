@@ -1,0 +1,68 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Media SubType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Detailed information about the type of the image - it's kind, purpose, or the kind of equipment used to generate it"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/media-subtype"/>  
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="diagram"/>
+      <display value="Diagram"/>
+      <definition value="A diagram. Often used in diagnostic reports"/>
+    </concept>
+    <concept>
+      <code value="fax"/>
+      <display value="Fax"/>
+      <definition value="A digital record of a fax document"/>
+    </concept>
+    <concept>
+      <code value="scan"/>
+      <display value="Scanned Document"/>
+      <definition value="A digital scan of a document. This is reserved for when there is not enough metadata to create a document reference"/>
+    </concept>
+    <!-- biometrics - may overlap with things in snomed, but the purpose in snomed is different  -->
+    <concept>
+      <code value="retina"/>
+      <display value="Retina scan"/>
+      <definition value="A retinal image used for identification purposes"/>
+    </concept>
+    <concept>
+      <code value="fingerprint"/>
+      <display value="fingerprint"/>
+      <definition value="A finger print scan used for identification purposes"/>
+    </concept>
+    <concept>
+      <code value="iris"/>
+      <display value="iris"/>
+      <definition value="An iris scan used for identification purposes"/>
+    </concept>
+    <concept>
+      <code value="palm"/>
+      <display value="palm"/>
+      <definition value="A palm scan used for identification purposes"/>
+    </concept>
+    <concept>
+      <code value="face"/>
+      <display value="face"/>
+      <definition value="A face scan used for identification purposes"/>
+    </concept>
+  </define>
+  <compose>
+    <import value="http://hl7.org/fhir/vs/imaging-modality"/>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <!-- todo: work this over. what this means is any concepts where they have is-a with 363679005 how should this be done? -->
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="363679005"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

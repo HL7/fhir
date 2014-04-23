@@ -1,0 +1,22 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+List resources are used in many places, including allergies, medications, alerts, medical history, etc. 
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+There are 2 resources that provide for constructing collections of other resources:
+</p>
+<ul>
+ <li>This List resource - enumerates a collection of resources that are in some list, and provides features for managing the list. The list resource references other resources</li>
+ <li>The <a href="group.html">Group resource</a> - defines a group of specific people, animals, devices, etc. by enumerating them, or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly</li>
+</ul>
+</div>
+
+
+</div>

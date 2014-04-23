@@ -1,0 +1,60 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes the Referral Reason codes.
+    </div>
+  </text>
+  <name value="Surface Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes the Referral Reason codes."/>
+  <status value="draft"/>
+    <define>
+	<system value="urn:ISO-3950"/>
+	<concept>
+    <code value="1"/>
+  </concept>
+	<concept>
+    <code value="2"/>
+  </concept>
+	<concept>
+    <code value="3"/>
+  </concept>
+	<concept>
+    <code value="4"/>
+  </concept>
+	<concept>
+    <code value="5"/>
+  </concept>
+	<concept>
+    <code value="6"/>
+  </concept>
+	<concept>
+    <code value="7"/>
+  </concept>
+	<concept>
+    <code value="8"/>
+  </concept>
+	<concept>
+    <code value="9"/>
+  </concept>
+	<concept>
+    <code value="10"/>
+  </concept>
+	<concept>
+    <code value="11"/>
+  </concept>
+	<concept>
+    <code value="12"/>
+  </concept>
+	<concept>
+    <code value="13"/>
+  </concept>
+	</define>
+</ValueSet>
+

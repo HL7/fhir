@@ -1,0 +1,52 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Vaccination Protocol Dose TargetCodes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
+        contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/vaccination-protocol-dose-target"/>
+    <concept>
+      <code value="crs"/>
+      <display value="Congenital Rubella Syndrome" />
+    </concept>
+    <concept>
+      <code value="dip"/>
+      <display value="Diptheria" />
+    </concept>
+    <concept>
+      <code value="mea"/>
+      <display value="Measles" />
+    </concept>
+    <concept>
+      <code value="mum"/>
+      <display value="Mumps" />
+    </concept>
+    <concept>
+      <code value="rub"/>
+      <display value="Rubella" />
+    </concept>
+    <concept>
+      <code value="tet"/>
+      <display value="Tetanus" />
+    </concept>
+    <concept>
+      <code value="hib"/>
+      <display value="Haemophilus influenzae type b" />
+    </concept>
+    <concept>
+      <code value="per"/>
+      <display value="Pertussis" />
+    </concept>
+    <concept>
+      <code value="pol"/>
+      <display value="Poliomyelitis" />
+    </concept>
+  </define>
+</ValueSet>
+

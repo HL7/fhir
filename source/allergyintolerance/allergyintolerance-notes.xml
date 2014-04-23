@@ -1,0 +1,25 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+    <h2>Notes:</h2>
+    <ul>
+        <li>Criticality vs Severity</li>
+        <p>Criticality is defined as "The potential seriousness of a future reaction."
+            This represents a clinical judgment about the worst case scenario for a future reaction. 
+            It would be based on the severity of past reactions, the dose and route of exposure that produced past reactions, 
+            and the life-threatening or organ system threatening potential of the reaction type.   
+            Criticality is an attribute of the allergic condition, not the reaction(s).
+        </p>
+        <p>
+            High criticality does not equate to a future severe reaction, 
+            but rather the potential for a severe and life-threatening reaction. 
+            Most reaction types are dose dependent, including anaphylaxis. 
+            Therefore, although they have a sensitivity of high criticality, 
+            exposure to a small dose of the substance to which they are sensitive might result in only a mild reaction.  
+            Severity of the reaction is also dependent on the route of exposure, 
+            but criticality since it applies to the condition, is not.
+        </p>
+    </ul>
+</div>
+
+
+

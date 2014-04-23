@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <name>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="429858000"/>
+      <display value="Computed tomography (CT) of head and neck"/>
+    </coding>
+    <text value="CT of head-neck"/>
+  </name>
+ <status value="final"/>
+ <issued value="2012-12-01T12:00:00+01:00"/>
+ <subject><!--It entails Roel's diagnostic report-->
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </subject>
+ <performer><!--The diagnostic report was issued by BlijdorpMC-->
+     <reference value="Organization/f203"/>
+     <display value="Blijdorp MC"/>
+ </performer>
+ <!--No identifier or request details were available-->
+ <serviceCategory><!--The request was honored by the Department of Radiology-->
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="394914008"/>
+        <display value="Radiology"/> 
+    </coding>     
+     <coding>
+         <system value="http://hl7.org/fhir/v2/0074"/>
+         <code value="RAD" />
+     </coding>
+ </serviceCategory>
+ <diagnosticDateTime value="2012-12-01T12:00:00+01:00"/>
+ <!--The CT image was not available-->
+ <conclusion value="CT brains: large tumor sphenoid/clivus."/>
+ <codedDiagnosis>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="188340000"/>
+       <display value="Malignant tumor of craniopharyngeal duct"/> 
+     </coding>
+ </codedDiagnosis>
+</DiagnosticReport>

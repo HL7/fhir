@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/procedure.xsd">
+    <subject>
+        <reference value="Patient/F001"/>
+        <display value="P. van de Heuvel"/>
+    </subject>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="172960003"/>
+            <display value="Incision of retropharyngeal abscess"/>
+        </coding>
+    </type>
+    <bodySite>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="83030008"/>
+            <display value="Retropharyngeal area"/>
+        </coding>
+    </bodySite>
+    <indication>
+      <text value="abcess in retropharyngeal area"/>
+    </indication>
+    <performer>
+        <person>
+            <reference value="Practitioner/F001"/>
+            <display value="E.M.J.M. van den broek"/>
+        </person>
+        <role>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
+                <code value="01.000"/>
+                <display value="Arts"/>
+            </coding>
+            <text value="Care role"/>
+        </role>
+    </performer>
+    <date>
+        <start value="2013-03-24T09:30:10+01:00"/>
+        <end value="2013-03-24T10:30:10+01:00"/>
+    </date>
+    <encounter>
+        <reference value="Encounter/F003"/>
+    </encounter>
+    <outcome value="removal of the retropharyngeal abscess"/>
+    <report>
+        <reference value="DiagnosticReport/@F004"/>
+        <display value="???????????"/>
+    </report>
+    <followUp value="described in care plan"/>
+</Procedure>

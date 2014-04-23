@@ -1,0 +1,855 @@
+<tests>
+  <case name="ITI-02 User Authentication Logout">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:23:17.087-05:00" EventOutcomeIndicator="0">
+        <EventID code="110114" codeSystemName="DCM" displayName="UserAuthenticated"/>
+        <EventTypeCode code="110123" codeSystemName="DCM" displayName="Logout"/>
+      </EventIdentification>
+      <ActiveParticipant UserID="farley.granger@wb.com" UserIsRequestor="true"/>
+      <ActiveParticipant NetworkAccessPointID="125.20.175.12" NetworkAccessPointTypeCode="1" UserID="fe80::5999:d1ef:63de:a8bb%11" UserIsRequestor="true">
+        <RoleIDCode code="110150" codeSystemName="DCM" displayName="Application"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="End User" AuditSourceID="farley.granger@wb.com">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-02 User Authentication Login">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:23:25.604-05:00" EventOutcomeIndicator="0">
+        <EventID code="110114" codeSystemName="DCM" displayName="UserAuthenticated"/>
+        <EventTypeCode code="110122" codeSystemName="DCM" displayName="Login"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="125.20.175.12" NetworkAccessPointTypeCode="1" UserID="fe80::5999:d1ef:63de:a8bb%11" UserIsRequestor="true">
+        <RoleIDCode code="110150" codeSystemName="DCM" displayName="Application"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="farley.granger@wb.com" UserIsRequestor="true"/>
+      <AuditSourceIdentification AuditEnterpriseSiteID="End User" AuditSourceID="farley.granger@wb.com">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-08 Patient Identity Source Actor">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:23:35.066-05:00" EventOutcomeIndicator="0">
+        <EventID code="110110" codeSystemName="DCM" displayName="Patient Record"/>
+        <EventTypeCode code="ITI-8" codeSystemName="IHE Transactions" displayName="Patient Identity Feed"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="02752" NetworkAccessPointID="10.242.0.157" NetworkAccessPointTypeCode="2" UserID="PID Source" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="farley.granger@wb.com" UserIsRequestor="true"/>
+      <ActiveParticipant AlternativeUserID="pixman" NetworkAccessPointID="10.242.0.151" NetworkAccessPointTypeCode="2" UserID="ECW|OpenPIXPDQ" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="ECW" AuditSourceID="ECW"/>
+      <ParticipantObjectIdentification ParticipantObjectID="981139165^^^AlE1&amp;1.3.6.1.4.1.21367.13.20.5120&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+        <ParticipantObjectName>Granger^Farley</ParticipantObjectName>
+        <ParticipantObjectDetail type="MSH-10" value="MDAwMDI3NTI="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-09 PIX Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:23:43.954-05:00" EventOutcomeIndicator="0">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-9" codeSystemName="IHE Transactions" displayName="PIX Query"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="remoteHost?" NetworkAccessPointTypeCode="1" UserID="1.2.840.114350.1.13.99998.8734|1.2.840.114350.1.13.99998.8734" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="farley.granger@wb.com" UserIsRequestor="true"/>
+      <ActiveParticipant AlternativeUserID="5216" NetworkAccessPointID="10.145.243.142" NetworkAccessPointTypeCode="2" UserID="1.2.840.114350.1.13.99999.4567|1.2.840.114350.1.13.99999.4567" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="" AuditSourceID="SUN PIX/PDQ">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="GHCADT-JD356^^^IHEGHCADT&amp;1.2.840.114350.1.13.99998.8734&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-9" codeSystemName="IHE Transactions" displayName="PIX Query"/>
+        <ParticipantObjectQuery>VXRpbC5qYXhiTWFyc2hhbFRvU3RyaW5nKGJvZHkp</ParticipantObjectQuery>
+        <ParticipantObjectDetail type="2220c1c4-87ef-11dc-b865-3603d6866807" value="TWpJeU1HTXhZelF0T0RkbFppMHhNV1JqTFdJNE5qVXRNell3TTJRMk9EWTJPREEzDQo="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-10 PIX Manager">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:23:56.094-05:00" EventOutcomeIndicator="0">
+        <EventID code="110110" codeSystemName="DCM" displayName="Patient Record"/>
+        <EventTypeCode code="ITI-10" codeSystemName="IHE Transactions" displayName="PIX Update Notification"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="remoteHost?" NetworkAccessPointTypeCode="1" UserID="1.2.840.114350.1.13.99998.8734|1.2.840.114350.1.13.99998.8734" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="5216" NetworkAccessPointID="10.145.243.142" NetworkAccessPointTypeCode="2" UserID="1.2.840.114350.1.13.99999.4567|1.2.840.114350.1.13.99999.4567" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="" AuditSourceID="SUN PIX/PDQ">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="GHCADT-JD356^^^IHEGHCADT&amp;1.2.840.114350.1.13.99998.8734&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-18 Document Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:24:05.471-05:00" EventOutcomeIndicator="8">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-18" codeSystemName="IHE Transactions" displayName="Registry Stored Query"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="8884" NetworkAccessPointID="10.242.8.71" NetworkAccessPointTypeCode="2" UserID="http://www.w3.org/2005/08/addressing/anonymous" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="Pishtosh Kibosh" UserIsRequestor="true"/>
+      <ActiveParticipant NetworkAccessPointID="moss1.ihe.net" NetworkAccessPointTypeCode="1" UserID="https://moss1.ihe.net:8011/openxds/services/DocumentRegistry" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditSourceID="PatientKeeper"/>
+      <ParticipantObjectIdentification ParticipantObjectID="urn:uuid:14d4debf-8f97-4251-9a74-a90016b0af0d" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-18" codeSystemName="IHE Transactions" displayName="Registry Stored Query"/>
+        <ParticipantObjectQuery>PHF1ZXJ5OkFkaG9jUXVlcnlSZXF1ZXN0IHhtbG5zOnF1ZXJ5PSJ1cm46b2FzaXM6bmFtZXM6dGM6ZWJ4bWwtcmVncmVwOnhzZDpxdWVyeTozLjAiIHhtbG5zOnJpbT0idXJuOm9hc2lzOm5hbWVzOnRjOmVieG1sLXJlZ3JlcDp4c2Q6cmltOjMuMCI+DQo8cXVlcnk6UmVzcG9uc2VPcHRpb24gcmV0dXJuQ29tcG9zZWRPYmplY3RzPSJ0cnVlIiByZXR1cm5UeXBlPSJPYmplY3RSZWYiLz4NCjxyaW06QWRob2NRdWVyeSBpZD0idXJuOnV1aWQ6MTRkNGRlYmYtOGY5Ny00MjUxLTlhNzQtYTkwMDE2YjBhZjBkIj4NCjxyaW06U2xvdCBuYW1lPSIkWERTRG9jdW1lbnRFbnRyeVBhdGllbnRJZCI+DQo8cmltOlZhbHVlTGlzdD4NCjxyaW06VmFsdWU+Jzg2YjU0OWRjMzAwYjQ4OF5eXiZhbXA7MS4zLjYuMS40LjEuMjEzNjcuMjAwNS4zLjcmYW1wO0lTTyc8L3JpbTpWYWx1ZT4NCjwvcmltOlZhbHVlTGlzdD4NCjwvcmltOlNsb3Q+DQo8cmltOlNsb3QgbmFtZT0iJFhEU0RvY3VtZW50RW50cnlTdGF0dXMiPg0KPHJpbTpWYWx1ZUxpc3Q+DQo8cmltOlZhbHVlPigndXJuOm9hc2lzOm5hbWVzOnRjOmVieG1sLXJlZ3JlcDpTdGF0dXNUeXBlOkFwcHJvdmVkJyk8L3JpbTpWYWx1ZT4NCjwvcmltOlZhbHVlTGlzdD4NCjwvcmltOlNsb3Q+DQo8L3JpbTpBZGhvY1F1ZXJ5Pg0KPC9xdWVyeTpBZGhvY1F1ZXJ5UmVxdWVzdD4NCg==</ParticipantObjectQuery>
+        <ParticipantObjectDetail type="QueryEncoding" value="VVRGLTg="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-21 Patient Demographics Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:24:16.543-05:00" EventOutcomeIndicator="8">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-21" codeSystemName="IHE Transactions" displayName="Patient Demographics Query"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="9452" NetworkAccessPointID="10.242.8.71" NetworkAccessPointTypeCode="2" UserID="PatientKeeper|PK-SIMPK" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="10.242.2.15" NetworkAccessPointTypeCode="2" UserID="XDSDEMO_ADT|XDSDEMO" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditSourceID="PatientKeeper"/>
+      <ParticipantObjectIdentification ParticipantObjectID="@PID.5.1.1^C*" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-21" codeSystemName="IHE Transactions" displayName="Patient Demographics Query"/>
+        <ParticipantObjectQuery>TVNIfF5+XCZ8UGF0aWVudEtlZXBlcnxQSy1TSU1QS3xYRFNERU1PX0FEVHxYRFNERU1PfDIwMTEwMTE4MTIwMzUyLTA2MDB8fFFCUF5RMjJeUUJQX1EyMXw4MzE1OTI5MjY4ODE1NDg1MTkzfFB8Mi41DVFQRHxJSEUgUERRIFF1ZXJ5fDc0NDg2ODAyMzcxODE0MjQ0MjgwODA5NDQ3MzIzODd8QFBJRC41LjEuMV5DKnx8fHx8Xl5eSUhFTkEmMS4zLjYuMS40LjEuMjEzNjcuMjAxMC4xLjIuMzAwJklTTw1SQ1B8SXwxMF5SRA0=</ParticipantObjectQuery>
+        <ParticipantObjectDetail type="MSH-10" value="ODMxNTkyOTI2ODgxNTQ4NTE5Mw=="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-22 Patient Demographics Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:24:30.584-05:00" EventOutcomeIndicator="8">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-22" codeSystemName="IHE Transactions" displayName="Patient Demographics and Visit Query"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="9452" NetworkAccessPointID="10.242.8.71" NetworkAccessPointTypeCode="2" UserID="PatientKeeper|PK-SIMPK" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="10.242.2.15" NetworkAccessPointTypeCode="2" UserID="XDSDEMO_ADT|XDSDEMO" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditSourceID="PatientKeeper"/>
+      <ParticipantObjectIdentification ParticipantObjectID="@PID.5.1.1^C*" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-22" codeSystemName="IHE Transactions" displayName="Patient Demographics and Visit Query"/>
+        <ParticipantObjectQuery>TVNIfF5+XCZ8UGF0aWVudEtlZXBlcnxQSy1TSU1QS3xYRFNERU1PX0FEVHxYRFNERU1PfDIwMTEwMTE4MTIwMzUyLTA2MDB8fFFCUF5RMjJeUUJQX1EyMXw4MzE1OTI5MjY4ODE1NDg1MTkzfFB8Mi41DVFQRHxJSEUgUERRIFF1ZXJ5fDc0NDg2ODAyMzcxODE0MjQ0MjgwODA5NDQ3MzIzODd8QFBJRC41LjEuMV5DKnx8fHx8Xl5eSUhFTkEmMS4zLjYuMS40LjEuMjEzNjcuMjAxMC4xLjIuMzAwJklTTw1SQ1B8SXwxMF5SRA0=</ParticipantObjectQuery>
+        <ParticipantObjectDetail type="MSH-10" value="ODMxNTkyOTI2ODgxNTQ4NTE5Mw=="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-41 Document Repository/Recipient">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:24:39.072-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-41" codeSystemName="IHE Transactions" displayName="Provide and Register Document Set-b"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="128.128.001.12" NetworkAccessPointTypeCode="2" UserID="urn:uuid:D7CC8AC25323B1F77D1292343229921" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="1636" NetworkAccessPointID="127.0.0.1" NetworkAccessPointTypeCode="2" UserID="http://localhost:8080/DocumentRepository_Service/XDSRepositoryService" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="" AuditSourceID="SUN PIX/PDQ">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="TestPatient1^^^&amp;&amp;1.3.6.1.4.1.21367.13.20.1000&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="11" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" codeSystemName="IHE XDS Metadata" displayName="submission set classificationNode"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-41 Document Source">
+    <AuditMessage>
+      <EventIdentification EventActionCode='R' EventDateTime='2012-10-31T16:24:57.522-05:00' EventOutcomeIndicator='4'>
+        <EventID code='110106' displayName='Export' codeSystemName='DCM'/>
+        <EventTypeCode code='ITI-41' displayName='Provide and Register Document Set-b' codeSystemName='IHE Transactions'/>
+      </EventIdentification>
+      <ActiveParticipant UserIsRequestor='true' UserID='fgranger' UserName='farley'>
+        <RoleIDCode code='USR' displayName='User'/>
+      </ActiveParticipant>
+      <ActiveParticipant UserIsRequestor='true' UserID='1' AlternativeUserID='4356' NetworkAccessPointID='128.252.180.34' NetworkAccessPointTypeCode='2'>
+        <RoleIDCode code='110153' displayName='Source' codeSystemName='DCM'/>
+      </ActiveParticipant>
+      <ActiveParticipant UserIsRequestor='false' UserID='http://ihexds.nist.gov:9080/tf6/services/xdsrepositoryb' NetworkAccessPointID='http://ihexds.nist.gov:9080/tf6/services/xdsrepositoryb' NetworkAccessPointTypeCode='2'>
+        <RoleIDCode code='110152' displayName='Destination' codeSystemName='DCM'/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="" AuditSourceID="SUN PIX/PDQ">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID='TestPatient1^^^&amp;&amp;1.3.6.1.4.1.21367.13.20.1000&amp;ISO' ParticipantObjectTypeCode='1' ParticipantObjectTypeCodeRole='1'>
+        <ParticipantObjectIDTypeCode code='2' displayName='Patient Number' codeSystemName='RFC-3881'/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID='1.3.6.1.4.1.21367.2010.1.2.167.1292341934274.2' ParticipantObjectTypeCode='2' ParticipantObjectTypeCodeRole='20'>
+        <ParticipantObjectIDTypeCode code='urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd' displayName='submission set classificationNode' codeSystemName='IHE XDS Metadata'/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-42 Document Registry">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:25:16.414-05:00" EventOutcomeIndicator="8">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-42" codeSystemName="IHE Transactions" displayName="Register Document Set - b"/>
+      </EventIdentification>
+      <!-- Source: Document Source -->
+      <ActiveParticipant AlternativeUserID="127.0.0.1" NetworkAccessPointID="127.0.0.1" NetworkAccessPointTypeCode="2" UserID="1.3.6.1.4.1.21367.13.2250" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <!-- Dest: ICA Registry -->
+      <ActiveParticipant AlternativeUserID="ica1.ihe.net" NetworkAccessPointID="ica1.ihe.net" NetworkAccessPointTypeCode="2" UserID="ica:oid:8c63214d-1852-4744-9898-b386f4fb11fb" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <!-- Audit Source -->
+      <AuditSourceIdentification AuditSourceID="XDSRegistry@ica1.ihe.net"/>
+      <!-- Submission Set -->
+      <ParticipantObjectIdentification ParticipantObjectID="1.42.20110118092037.683" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" codeSystemName="IHE XDS Metadata"/>
+      </ParticipantObjectIdentification>
+      <!-- Patient -->
+      <ParticipantObjectIdentification ParticipantObjectID="123123123^^^&amp;amp;1.2.3.4.100&amp;amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-42 Document Repository or Source/Repository">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:25:30.688-05:00" EventOutcomeIndicator="8">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-42" codeSystemName="IHE Transactions" displayName="Register Document Set-b"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="2877" NetworkAccessPointID="127.0.0.1" NetworkAccessPointTypeCode="2" UserID="br-549" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="127.0.0.1" NetworkAccessPointTypeCode="2" UserID="http://ilinksys-060:1125/XdsService/XDSRepository" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditSourceID="XDSRepository@ILINKSYS-060"/>
+      <ParticipantObjectIdentification ParticipantObjectID="Q ID" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="Q ID" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" codeSystemName="IHE XDS Metadata" displayName="submission set classificationNode"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="2"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-43 Document Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:25:42.160-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-43" displayName="Retrieve Document Set" codeSystemName="IHE Transactions"/>
+      </EventIdentification>
+      <ActiveParticipant UserID="https://ihexds.nist.gov:9085/tf6/services/xdsrepositoryb" UserIsRequestor="false" NetworkAccessPointID="Sanjeev-PC" NetworkAccessPointTypeCode="1">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="&lt;ReplyTo/&gt;" AlternativeUserID="3245" UserIsRequestor="true" NetworkAccessPointTypeCode="2" NetworkAccessPointID="Sanjeev-PC">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="DOE" UserIsRequestor="true">
+        <RoleIDCode code="12" codeSystemName="EMARC" displayName="Registrar"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditSourceID="XDSRegistry@ica1.ihe.net"/>
+      <ParticipantObjectIdentification ParticipantObjectID="Patient ID no" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" displayName="Patient Number" codeSystemName="RFC-3881"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="&lt;ihe:DocumentUniqueID&gt;" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" displayName="Report Number" codeSystemName="RFC-3881"/>
+        <ParticipantObjectDetail type="Repository Unique Id" value="MS4xOS42LjI0LjEwOS40Mi4xLjU="/>
+        <ParticipantObjectDetail type="ihe:homeCommunityID" value="dXJuOm9pZDoxLjE5LjYuMjQuMTA5LjQyLjEuMw=="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-43 Document Repository">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:25:59.869-05:00" EventOutcomeIndicator="0">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-43" codeSystemName="IHE Transactions" displayName="Retrieve Document Set"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="4056" NetworkAccessPointID="ihexds.nist.gov" NetworkAccessPointTypeCode="1" UserID="http://ihexds.nist.gov:9080/tf6/services/xcarepository" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="10.19.220.63" NetworkAccessPointTypeCode="2" UserID="http://www.w3.org/2005/08/addressing/anonymous" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditSourceID="ApixioAudit20101214a"/>
+      <ParticipantObjectIdentification ParticipantObjectID="5541138b47a445a^^^&amp;1.3.6.1.4.1.21367.2005.3.7&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="2009.9.1.2489" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+        <ParticipantObjectDetail type="Repository Unique Id" value="MS4xOS42LjI0LjEwOS40Mi4xLjU="/>
+        <ParticipantObjectDetail type="ihe:homeCommunityID" value="dXJuOm9pZDoxLjE5LjYuMjQuMTA5LjQyLjEuMw=="/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="2009.9.1.2491" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+        <ParticipantObjectDetail type="Repository Unique Id" value="MS4xOS42LjI0LjEwOS40Mi4xLjU="/>
+        <ParticipantObjectDetail type="ihe:homeCommunityID" value="dXJuOm9pZDoxLjE5LjYuMjQuMTA5LjQyLjEuMw=="/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="2009.9.1.2485" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+        <ParticipantObjectDetail type="Repository Unique Id" value="MS4xOS42LjI0LjEwOS40Mi4xLjU="/>
+        <ParticipantObjectDetail type="ihe:homeCommunityID" value="dXJuOm9pZDoxLjE5LjYuMjQuMTA5LjQyLjEuMw=="/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="2009.9.1.2486" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+        <ParticipantObjectDetail type="Repository Unique Id" value="MS4xOS42LjI0LjEwOS40Mi4xLjU="/>
+        <ParticipantObjectDetail type="ihe:homeCommunityID" value="dXJuOm9pZDoxLjE5LjYuMjQuMTA5LjQyLjEuMw=="/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="2009.9.1.2482" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+        <ParticipantObjectDetail type="Repository Unique Id" value="MS4xOS42LjI0LjEwOS40Mi4xLjU="/>
+        <ParticipantObjectDetail type="ihe:homeCommunityID" value="dXJuOm9pZDoxLjE5LjYuMjQuMTA5LjQyLjEuMw=="/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="2009.9.1.2480" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+        <ParticipantObjectDetail type="Repository Unique Id" value="MS4xOS42LjI0LjEwOS40Mi4xLjU="/>
+        <ParticipantObjectDetail type="ihe:homeCommunityID" value="dXJuOm9pZDoxLjE5LjYuMjQuMTA5LjQyLjEuMw=="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-44 Patient Identity Source">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:26:11.462-05:00" EventOutcomeIndicator="0">
+        <EventID code="110110" codeSystemName="DCM" displayName="Patient Record"/>
+        <EventTypeCode code="ITI-44" codeSystemName="IHE Transactions" displayName="Patient Identity Feed"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="00002752" NetworkAccessPointID="127.0.0.1" NetworkAccessPointTypeCode="2" UserID="XDSDEMO|XDSDEMO_ADT" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="pixman" NetworkAccessPointID="10.242.0.151" NetworkAccessPointTypeCode="2" UserID="ECW|OpenPIXPDQ" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="DOE" UserIsRequestor="true">
+        <RoleIDCode code="12" codeSystemName="EMARC" displayName="Registrar"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="ECW" AuditSourceID="ECW"/>
+      <ParticipantObjectIdentification ParticipantObjectID="981139165^^^AlE1&amp;1.3.6.1.4.1.21367.13.20.5120&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+        <ParticipantObjectName>Rose^Steve</ParticipantObjectName>
+        <ParticipantObjectDetail type="II" value="MDAwMDI3NTI="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-45 PIX V3 Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:26:22.709-05:00" EventOutcomeIndicator="0">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-45" codeSystemName="IHE Transactions" displayName="PIX Query"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="3345" NetworkAccessPointID="10.0.36.54" NetworkAccessPointTypeCode="2" UserID="1.2.3.4.5.6.7.8.9" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="admin" UserIsRequestor="true"/>
+      <ActiveParticipant AlternativeUserID="207" NetworkAccessPointID="10.0.36.54" NetworkAccessPointTypeCode="2" UserID="1.3.6.1.4.1.29148.1.1.1" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="1.3.6.1.4.1.29148.1.1.1" AuditSourceID="1.3.6.1.4.1.29148.1.1.5.1">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectDataLifeCycle="6" ParticipantObjectID="000000002352^^^1.3.6.1.4.1.29148.1.1.3" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectDataLifeCycle="6" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-45" codeSystem="IHE Transactions" displayName="PIX Query"/>
+        <ParticipantObjectQuery>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxQUlBBX0lOMjAxMzA5VVYwMiB4bWxucz0idXJuOmhsNy1vcmc6djMiPjxpZCBleHRlbnNpb249IjRjMzhkM2FkLWY5NTMtNDlmYi05YjcyLTk3YzJlZDExNTVhZCIgcm9vdD0iNC40LjQiLz48Y3JlYXRpb25UaW1lIHZhbHVlPSIyMDEwMTIxOTIzMjkxMCIvPjxpbnRlcmFjdGlvbklkIGV4dGVuc2lvbj0iUFJQQV9JTjIwMTMwOVVWMDIiIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEuNiIvPjxwcm9jZXNzaW5nQ29kZSBjb2RlPSJQIi8+PHByb2Nlc3NpbmdNb2RlQ29kZSBjb2RlPSJUIi8+PGFjY2VwdEFja0NvZGUgY29kZT0iQUwiLz48cmVjZWl2ZXIgdHlwZUNvZGU9IlJDViI+PGRldmljZSBkZXRlcm1pbmVyQ29kZT0iSU5TVEFOQ0UiIGNsYXNzQ29kZT0iREVWIj48aWQgcm9vdD0iMS4zLjYuMS40LjEuMjkxNDguMS4xLjUuMSIvPjx0ZWxlY29tIHZhbHVlPSJodHRwOi8vZGV2LWpib3NzMDEuYXhvbG90bC5jb20vcGl4djNtYW5hZ2VyL3NlcnZpY2VzL1BJWE1hbmFnZXJfU2VydmljZSIvPjwvZGV2aWNlPjwvcmVjZWl2ZXI+PHNlbmRlciB0eXBlQ29kZT0iU05EIj48ZGV2aWNlIGRldGVybWluZXJDb2RlPSJJTlNUQU5DRSIgY2xhc3NDb2RlPSJERVYiPjxpZCByb290PSIxLjIuMy40LjUuNi43LjguOSIvPjwvZGV2aWNlPjwvc2VuZGVyPjxjb250cm9sQWN0UHJvY2VzcyBtb29kQ29kZT0iRVZOIiBjbGFzc0NvZGU9IkNBQ1QiPjxjb2RlIHhzaTp0eXBlPSJDUyIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuMS42IiBjb2RlPSJQUlBBX1RFMjAxMzA5VVYwMiIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIvPjxxdWVyeUJ5UGFyYW1ldGVyPjxxdWVyeUlkIGV4dGVuc2lvbj0iM2M3MzE1NDUtYTE5MC00ZjE5LTgyZGMtNzJiOGFiNTM2OWExIiByb290PSI0LjQuNCIvPjxzdGF0dXNDb2RlIGNvZGU9Im5ldyIvPjxyZXNwb25zZVByaW9yaXR5Q29kZSBjb2RlPSJJIi8+PHBhcmFtZXRlckxpc3Q+PHBhdGllbnRJZGVudGlmaWVyPjx2YWx1ZSBleHRlbnNpb249IjAwMDAwMDAwMjM1MiIgcm9vdD0iMS4zLjYuMS40LjEuMjkxNDguMS4xLjMiLz48c2VtYW50aWNzVGV4dD5QYXRpZW50LklkPC9zZW1hbnRpY3NUZXh0PjwvcGF0aWVudElkZW50aWZpZXI+PC9wYXJhbWV0ZXJMaXN0PjwvcXVlcnlCeVBhcmFtZXRlcj48L2NvbnRyb2xBY3RQcm9jZXNzPjwvUFJQQV9JTjIwMTMwOVVWMDI+</ParticipantObjectQuery>
+        <ParticipantObjectDetail type="CX" value="NGMzOGQzYWQtZjk1My00OWZiLTliNzItOTdjMmVkMTE1NWFkXl5eNC40LjQ="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-46 PIX V3 Manager">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:26:33.663-05:00" EventOutcomeIndicator="0">
+        <EventID code="110110" codeSystemName="DCM" displayName="Patient Record"/>
+        <EventTypeCode code="ITI-46" codeSystemName="IHE Transactions" displayName="PIX Update Notification"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="3678" NetworkAccessPointID="remoteHost?" NetworkAccessPointTypeCode="1" UserID="1.2.840.114350.1.13.99998.8734">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="5216" NetworkAccessPointID="10.145.243.142" NetworkAccessPointTypeCode="2" UserID="BR-549" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="" AuditSourceID="SUN PIX/PDQ">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="GHCADT-JD356^^^IHEGHCADT&amp;1.2.840.114350.1.13.99998.8734&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+        <ParticipantObjectDetail type="II" value="MDAwMDI3NTI="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-47 PDQ V3 Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:26:47.946-05:00" EventOutcomeIndicator="8">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-47" codeSystemName="IHE Transactions" displayName="Patient Demographics Query"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="9452" NetworkAccessPointID="10.242.8.71" NetworkAccessPointTypeCode="2" UserID="PatientKeeper|PK-SIMPK" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="10.242.2.15" NetworkAccessPointTypeCode="2" UserID="XDSDEMO_ADT|XDSDEMO" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="CLN/granger.farley"/>
+      <AuditSourceIdentification AuditSourceID="PatientKeeper"/>
+      <ParticipantObjectIdentification ParticipantObjectID="@PID.5.1.1^C*" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-47" codeSystemName="IHE Transactions" displayName="Patient Demographics Query"/>
+        <ParticipantObjectQuery>TVNIfF5+XCZ8UGF0aWVudEtlZXBlcnxQSy1TSU1QS3xYRFNERU1PX0FEVHxYRFNERU1PfDIwMTEwMTE4MTIwMzUyLTA2MDB8fFFCUF5RMjJeUUJQX1EyMXw4MzE1OTI5MjY4ODE1NDg1MTkzfFB8Mi41DVFQRHxJSEUgUERRIFF1ZXJ5fDc0NDg2ODAyMzcxODE0MjQ0MjgwODA5NDQ3MzIzODd8QFBJRC41LjEuMV5DKnx8fHx8Xl5eSUhFTkEmMS4zLjYuMS40LjEuMjEzNjcuMjAxMC4xLjIuMzAwJklTTw1SQ1B8SXwxMF5SRA0=</ParticipantObjectQuery>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-48 Value Set Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="U" EventDateTime="2012-10-31T16:26:59.320-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-48" codeSystemName="IHE Transactions" displayName="Retrieve Value Sets"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="repositoryHTTP" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="11703" NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin.company.org" UserIsRequestor="false"/>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.136.2.48.48.74.80.80" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-48 Value Set Repository">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:27:11.573-05:00" EventOutcomeIndicator="0">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-48" codeSystemName="IHE Transactions" displayName="Retrieve Value Sets"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="repositoryHTTP" NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="BR-549" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin.company.org" UserIsRequestor="false"/>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.136.2.48.48.74.80.80" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+        <ParticipantObjectDetail type="Value Set Version" value="My4yLjE="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-51 Multi-Patient Stored Query Document Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:27:22.831-05:00" EventOutcomeIndicator="8">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-51" codeSystemName="IHE Transactions" displayName="Multi-Patient Query"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="8884" NetworkAccessPointID="10.242.8.71" NetworkAccessPointTypeCode="2" UserID="http://www.w3.org/2005/08/addressing/anonymous" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="Umesh Phirke" UserIsRequestor="true"/>
+      <ActiveParticipant NetworkAccessPointID="moss1.ihe.net" NetworkAccessPointTypeCode="1" UserID="https://moss1.ihe.net:8011/openxds/services/DocumentRegistry" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditSourceID="PatientKeeper"/>
+      <ParticipantObjectIdentification ParticipantObjectID="@PID.5.1.1^C*" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="urn:uuid:14d4debf-8f97-4251-9a74-a90016b0af0d" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-51" codeSystemName="IHE Transactions" displayName="Multi-Patient Query"/>
+        <ParticipantObjectQuery>PHF1ZXJ5OkFkaG9jUXVlcnlSZXF1ZXN0IHhtbG5zOnF1ZXJ5PSJ1cm46b2FzaXM6bmFtZXM6dGM6ZWJ4bWwtcmVncmVwOnhzZDpxdWVyeTozLjAiIHhtbG5zOnJpbT0idXJuOm9hc2lzOm5hbWVzOnRjOmVieG1sLXJlZ3JlcDp4c2Q6cmltOjMuMCI+DQo8cXVlcnk6UmVzcG9uc2VPcHRpb24gcmV0dXJuQ29tcG9zZWRPYmplY3RzPSJ0cnVlIiByZXR1cm5UeXBlPSJPYmplY3RSZWYiLz4NCjxyaW06QWRob2NRdWVyeSBpZD0idXJuOnV1aWQ6MTRkNGRlYmYtOGY5Ny00MjUxLTlhNzQtYTkwMDE2YjBhZjBkIj4NCjxyaW06U2xvdCBuYW1lPSIkWERTRG9jdW1lbnRFbnRyeVBhdGllbnRJZCI+DQo8cmltOlZhbHVlTGlzdD4NCjxyaW06VmFsdWU+Jzg2YjU0OWRjMzAwYjQ4OF5eXiZhbXA7MS4zLjYuMS40LjEuMjEzNjcuMjAwNS4zLjcmYW1wO0lTTyc8L3JpbTpWYWx1ZT4NCjwvcmltOlZhbHVlTGlzdD4NCjwvcmltOlNsb3Q+DQo8cmltOlNsb3QgbmFtZT0iJFhEU0RvY3VtZW50RW50cnlTdGF0dXMiPg0KPHJpbTpWYWx1ZUxpc3Q+DQo8cmltOlZhbHVlPigndXJuOm9hc2lzOm5hbWVzOnRjOmVieG1sLXJlZ3JlcDpTdGF0dXNUeXBlOkFwcHJvdmVkJyk8L3JpbTpWYWx1ZT4NCjwvcmltOlZhbHVlTGlzdD4NCjwvcmltOlNsb3Q+DQo8L3JpbTpBZGhvY1F1ZXJ5Pg0KPC9xdWVyeTpBZGhvY1F1ZXJ5UmVxdWVzdD4NCg==</ParticipantObjectQuery>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-52 Document Metadata Subscriber">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:30:59.780-05:00" EventOutcomeIndicator="0">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-52" codeSystemName="IHE Transactions" displayName="Document Metadata Subscribe"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="http://localhost:8884/opendsub/services/NotificationRecipient" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="OHT" AuditSourceID="OHT"/>
+      <ParticipantObjectIdentification ParticipantObjectID="'123^^^&amp;1.2.3.4.5.6.7.8.9.0&amp;ISO'" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+        <ParticipantObjectName>PatientIdentifier</ParticipantObjectName>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-52" codeSystem="IHE Transactions" codeSystemName="IHE Transactions" displayName="Document Metadata Subscribe"/>
+        <ParticipantObjectQuery>UEhkemJqcEdhV3gwWlhJZ2VHMXNibk02ZDNOdVBTSm9kSFJ3T2k4dlpHOWpjeTV2WVhOcGN5MXZjR1Z1TG05eVp5OTNjMjR2WWkweUlpQjRiV3h1Y3pwdWN6MGlkWEp1T21sb1pUcHBkR2s2WkhOMVlqb3lNREE1SWo0OGQzTnVPbFJ2Y0dsalJYaHdjbVZ6YzJsdmJpQkVhV0ZzWldOMFBTSm9kSFJ3T2k4dlpHOWpjeTV2WVhOcGN5MXZjR1Z1TG05eVp5OTNjMjR2ZEMweEwxUnZjR2xqUlhod2NtVnpjMmx2Ymk5VGFXMXdiR1VpUG01ek9rMXBibWx0WVd4RWIyTjFiV1Z1ZEVWdWRISjVQQzkzYzI0NlZHOXdhV05GZUhCeVpYTnphVzl1UGp4eWFXMDZRV1JvYjJOUmRXVnllU0I0Yld4dWN6cHlhVzA5SW5WeWJqcHZZWE5wY3pwdVlXMWxjenAwWXpwbFluaHRiQzF5WldkeVpYQTZlSE5rT25KcGJUb3pMakFpSUdsa1BTSXpObVk0Tm1Sak1TMWxaakExTFRSaE5qQXRZVFZsTXkxbU1qUm1NVGt6TURVMU5URWlQanh5YVcwNlUyeHZkQ0J1WVcxbFBTSWtXRVJUUkc5amRXMWxiblJGYm5SeWVWUjVjR1ZEYjJSbElqNDhjbWx0T2xaaGJIVmxUR2x6ZEQ0OGNtbHRPbFpoYkhWbElDOCtQQzl5YVcwNlZtRnNkV1ZNYVhOMFBqd3ZjbWx0T2xOc2IzUStQSEpwYlRwVGJHOTBJRzVoYldVOUlpUllSRk5FYjJOMWJXVnVkRVZ1ZEhKNVVHRjBhV1Z1ZEVsa0lqNDhjbWx0T2xaaGJIVmxUR2x6ZEQ0OGNtbHRPbFpoYkhWbFBpY3hNak5lWGw0bVlXMXdPekV1TWk0ekxqUXVOUzQyTGpjdU9DNDVMakFtWVcxd08wbFRUeWM4TDNKcGJUcFdZV3gxWlQ0OEwzSnBiVHBXWVd4MVpVeHBjM1ErUEM5eWFXMDZVMnh2ZEQ0OGNtbHRPbE5zYjNRZ2JtRnRaVDBpSkZoRVUwUnZZM1Z0Wlc1MFJXNTBjbmxHYjNKdFlYUkRiMlJsSWo0OGNtbHRPbFpoYkhWbFRHbHpkRDQ4Y21sdE9sWmhiSFZsSUM4K1BDOXlhVzA2Vm1Gc2RXVk1hWE4wUGp3dmNtbHRPbE5zYjNRK1BISnBiVHBUYkc5MElHNWhiV1U5SWlSWVJGTkViMk4xYldWdWRFVnVkSEo1UVhWMGFHOXlVR1Z5YzI5dUlqNDhjbWx0T2xaaGJIVmxUR2x6ZEQ0OGNtbHRPbFpoYkhWbElDOCtQQzl5YVcwNlZtRnNkV1ZNYVhOMFBqd3ZjbWx0T2xOc2IzUStQSEpwYlRwVGJHOTBJRzVoYldVOUlpUllSRk5FYjJOMWJXVnVkRVZ1ZEhKNVVISmhZM1JwWTJWVFpYUjBhVzVuUTI5a1pTSStQSEpwYlRwV1lXeDFaVXhwYzNRK1BISnBiVHBXWVd4MVpTQXZQand2Y21sdE9sWmhiSFZsVEdsemRENDhMM0pwYlRwVGJHOTBQanh5YVcwNlUyeHZkQ0J1WVcxbFBTSWtXRVJUUkc5amRXMWxiblJGYm5SeWVVaGxZV3gwYUdOaGNtVkdZV05wYkdsMGVWUjVjR1ZEYjJSbElqNDhjbWx0T2xaaGJIVmxUR2x6ZEQ0OGNtbHRPbFpoYkhWbElDOCtQQzl5YVcwNlZtRnNkV1ZNYVhOMFBqd3ZjbWx0T2xOc2IzUStQSEpwYlRwVGJHOTBJRzVoYldVOUlpUllSRk5FYjJOMWJXVnVkRVZ1ZEhKNVEyeGhjM05EYjJSbElqNDhjbWx0T2xaaGJIVmxUR2x6ZEQ0OGNtbHRPbFpoYkhWbElDOCtQQzl5YVcwNlZtRnNkV1ZNYVhOMFBqd3ZjbWx0T2xOc2IzUStQQzl5YVcwNlFXUm9iMk5SZFdWeWVUNDhMM2R6YmpwR2FXeDBaWEkr</ParticipantObjectQuery>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-53 Document Metadata Notification Broker">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:30:46.112-05:00" EventOutcomeIndicator="0">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-53" codeSystemName="IHE Transactions" displayName="Document Metadata Notify"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="BR-549" NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="wsaFromContents" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="11703" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.136.2.48.48.74.80.80" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-53 Document Metadata Notification Recipient">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:30:36.447-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-53" codeSystemName="IHE Transactions" displayName="Document Metadata Notify"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="wsaFromContents" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="11703" NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="11703" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin.company.org" UserIsRequestor="true"/>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="981139165^^^AlE1&amp;1.3.6.1.4.1.21367.13.20.5120&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.136.2.48.48.74.80.80" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-54 Document Metadata Notification Broker">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:30:25.471-05:00" EventOutcomeIndicator="0">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-54" codeSystemName="IHE Transactions" displayName="Document Metadata Publish"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="BR-549" NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="wsaFromContents" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.136.2.48.48.74.80.80" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-54 Document Metadata Notification Recipient">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:30:14.889-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-54" codeSystemName="IHE Transactions" displayName="Document Metadata Publish"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="wsaFromContents" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="11703" NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin.company.org" UserIsRequestor="true"/>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="981139165^^^AlE1&amp;1.3.6.1.4.1.21367.13.20.5120&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.136.2.48.48.74.80.80" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-55 XCPD Initiating Gateway">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:30:03.193-05:00" EventOutcomeIndicator="0">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-55" codeSystemName="IHE Transactions" displayName="Cross Gateway Patient Discovery"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="BR-549" NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin@company.org" UserIsRequestor="true"/>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="SOAPEndpointURI" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="id" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-55" codeSystemName="IHE Transactions" displayName="Cross Gateway Patient Discovery"/>
+        <ParticipantObjectQuery>VXRpbC5qYXhiTWFyc2hhbFRvU3RyaW5nKGJvZHkp</ParticipantObjectQuery>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-56 XCPl Initiating Gateway">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:29:49.149-05:00" EventOutcomeIndicator="0">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-56" codeSystemName="IHE Transactions" displayName="Patient Location Query"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="BR-549" NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin@company.org" UserIsRequestor="true"/>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="SOAPEndpointURI" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="981139165^^^AlE1&amp;1.3.6.1.4.1.21367.13.20.5120&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="PatientLocationQueryRequest" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-56" codeSystemName="IHE Transactions" displayName="Patient Location Query"/>
+        <ParticipantObjectQuery>VXRpbC5qYXhiTWFyc2hhbFRvU3RyaW5nKGJvZHkp</ParticipantObjectQuery>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-57 Update Document Administrator">
+    <AuditMessage>
+      <EventIdentification EventActionCode="U" EventDateTime="2012-10-31T16:29:30.079-05:00" EventOutcomeIndicator="0">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-57" codeSystemName="IHE Transactions" displayName="Update Document Set"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="BR-549" NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin@company.org" UserIsRequestor="true"/>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="SOAPEndpointURI" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="981139165^^^AlE1&amp;1.3.6.1.4.1.21367.13.20.5120&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="1.1.32001.2010.10.10.00123" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" codeSystemName="IHE XDS Metadata" displayName="submission set classificationNode"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-57 Update Document Registry/Recipient">
+    <AuditMessage>
+      <EventIdentification EventActionCode="U" EventDateTime="2012-10-31T16:29:16.113-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-57" codeSystemName="IHE Transactions" displayName="Update Document Set"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="BR-549" NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="SOAPEndpointURI" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="981139165^^^AlE1&amp;1.3.6.1.4.1.21367.13.20.5120&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="1.1.32001.2010.10.10.00123" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" codeSystemName="IHE XDS Metadata" displayName="submission set classificationNode"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-59 Provider Information Directory">
+    <AuditMessage>
+      <EventIdentification EventActionCode="U" EventDateTime="2012-10-31T16:29:05.333-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-59" codeSystemName="IHE Transactions" displayName="Provider Information Feed"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="processID" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin@company.org" UserIsRequestor="false"/>
+      <ActiveParticipant AlternativeUserID="BR-549" NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="SOAPEndpointURI" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="ISO:B075:1.3.230976.0015:Active" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="15">
+        <ParticipantObjectIDTypeCode code="99SupHPD-ISO21091" codeSystemName="IHE" displayName="ISO 21091 Identifier"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-59 Provider Information Source">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:28:56.358-05:00" EventOutcomeIndicator="0">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-59" codeSystemName="IHE Transactions" displayName="Provider Information Feed"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="processID" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin@company.org" UserIsRequestor="false"/>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="SOAPEndpointURI" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="ISO:B075:1.3.230976.0015:Active" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="15">
+        <ParticipantObjectIDTypeCode code="99SupHPD-ISO21091" codeSystemName="IHE" displayName="ISO 21091 Identifier"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-60 Multiple Value Set Repository">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:28:38.597-05:00" EventOutcomeIndicator="0">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-60" codeSystemName="IHE Transactions" displayName="Retrieve Multiple Value Sets"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="repositoryHTTP" NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="BR-549" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin.company.org" UserIsRequestor="false"/>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.136.2.48.48.74.80.80" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+        <ParticipantObjectDetail type="Value Set Version" value="My4yLjE="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-60 Value Set Consumer">
+    <AuditMessage>
+      <EventIdentification EventActionCode="U" EventDateTime="2012-10-31T16:28:24.509-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-60" codeSystemName="IHE Transactions" displayName="Retrieve Multiple Value Sets"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="server.source.org" NetworkAccessPointTypeCode="1" UserID="repositoryHTTP" UserIsRequestor="false">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="11703" NetworkAccessPointID="123.23.4.55" NetworkAccessPointTypeCode="2" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="bill.martin.company.org" UserIsRequestor="false"/>
+      <AuditSourceIdentification AuditEnterpriseSiteID="WC" AuditSourceID="DMNB03"/>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.136.2.48.48.74.80.80" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="3">
+        <ParticipantObjectIDTypeCode code="9" codeSystemName="RFC-3881" displayName="Report Number"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-61 On-Demand Document Registry">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:28:11.524-05:00" EventOutcomeIndicator="0">
+        <EventID code="110107" codeSystemName="DCM" displayName="Import"/>
+        <EventTypeCode code="ITI-61" codeSystemName="IHE Transactions" displayName="Register On-Demand Document Entry"/>
+      </EventIdentification>
+      <ActiveParticipant NetworkAccessPointID="128.128.001.12" NetworkAccessPointTypeCode="2" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="farley.granger@mgm.com" UserIsRequestor="true"/>
+      <ActiveParticipant AlternativeUserID="1636" NetworkAccessPointID="127.0.0.1" NetworkAccessPointTypeCode="2" UserID="SOAPEndpointURI" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="" AuditSourceID="SUN ODD">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="TestPatient1^^^&amp;&amp;1.3.6.1.4.1.21367.13.20.1000&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="11" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" codeSystemName="IHE XDS Metadata" displayName="submission set classificationNode"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-61 On-Demand Document Source">
+    <AuditMessage>
+      <EventIdentification EventActionCode="R" EventDateTime="2012-10-31T16:28:01.077-05:00" EventOutcomeIndicator="0">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-61" codeSystemName="IHE Transactions" displayName="Register On-Demand Document Entry"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="1636" NetworkAccessPointID="128.128.001.12" NetworkAccessPointTypeCode="2" UserID="wsaReplyToContents" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="farley.granger@mgm.com" UserIsRequestor="true"/>
+      <ActiveParticipant NetworkAccessPointID="127.0.0.1" NetworkAccessPointTypeCode="2" UserID="SOAPEndpointURI" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="" AuditSourceID="SUN ODD">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="TestPatient1^^^&amp;&amp;1.3.6.1.4.1.21367.13.20.1000&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="11" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" codeSystemName="IHE XDS Metadata" displayName="submission set classificationNode"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-63 XCF Initiating Gateway">
+    <AuditMessage>
+      <EventIdentification EventActionCode="E" EventDateTime="2012-10-31T16:27:50.287-05:00" EventOutcomeIndicator="8">
+        <EventID code="110112" codeSystemName="DCM" displayName="Query"/>
+        <EventTypeCode code="ITI-63" codeSystemName="IHE Transactions" displayName="XCF Fetch"/>
+      </EventIdentification>
+      <ActiveParticipant AlternativeUserID="8884" NetworkAccessPointID="10.242.8.71" NetworkAccessPointTypeCode="2" UserID="http://www.w3.org/2005/08/addressing/anonymous" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant UserID="Umesh Phirke" UserIsRequestor="true"/>
+      <ActiveParticipant NetworkAccessPointID="moss1.ihe.net" NetworkAccessPointTypeCode="1" UserID="https://moss1.ihe.net:8011/openxds/services/DocumentRegistry" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditSourceID="PatientKeeper"/>
+      <ParticipantObjectIdentification ParticipantObjectID="urn:uuid:14d4debf-8f97-4251-9a74-a90016b0af0d" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="24">
+        <ParticipantObjectIDTypeCode code="ITI-63" codeSystemName="IHE Transactions" displayName="XCF Fetch"/>
+        <ParticipantObjectQuery>PHF1ZXJ5OkFkaG9jUXVlcnlSZXF1ZXN0IHhtbG5zOnF1ZXJ5PSJ1cm46b2FzaXM6bmFtZXM6dGM6ZWJ4bWwtcmVncmVwOnhzZDpxdWVyeTozLjAiIHhtbG5zOnJpbT0idXJuOm9hc2lzOm5hbWVzOnRjOmVieG1sLXJlZ3JlcDp4c2Q6cmltOjMuMCI+DQo8cXVlcnk6UmVzcG9uc2VPcHRpb24gcmV0dXJuQ29tcG9zZWRPYmplY3RzPSJ0cnVlIiByZXR1cm5UeXBlPSJPYmplY3RSZWYiLz4NCjxyaW06QWRob2NRdWVyeSBpZD0idXJuOnV1aWQ6MTRkNGRlYmYtOGY5Ny00MjUxLTlhNzQtYTkwMDE2YjBhZjBkIj4NCjxyaW06U2xvdCBuYW1lPSIkWERTRG9jdW1lbnRFbnRyeVBhdGllbnRJZCI+DQo8cmltOlZhbHVlTGlzdD4NCjxyaW06VmFsdWU+Jzg2YjU0OWRjMzAwYjQ4OF5eXiZhbXA7MS4zLjYuMS40LjEuMjEzNjcuMjAwNS4zLjcmYW1wO0lTTyc8L3JpbTpWYWx1ZT4NCjwvcmltOlZhbHVlTGlzdD4NCjwvcmltOlNsb3Q+DQo8cmltOlNsb3QgbmFtZT0iJFhEU0RvY3VtZW50RW50cnlTdGF0dXMiPg0KPHJpbTpWYWx1ZUxpc3Q+DQo8cmltOlZhbHVlPigndXJuOm9hc2lzOm5hbWVzOnRjOmVieG1sLXJlZ3JlcDpTdGF0dXNUeXBlOkFwcHJvdmVkJyk8L3JpbTpWYWx1ZT4NCjwvcmltOlZhbHVlTGlzdD4NCjwvcmltOlNsb3Q+DQo8L3JpbTpBZGhvY1F1ZXJ5Pg0KPC9xdWVyeTpBZGhvY1F1ZXJ5UmVxdWVzdD4NCg==</ParticipantObjectQuery>
+        <ParticipantObjectDetail type="QueryEncoding" value="VVRGLTg="/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+  <case name="ITI-63 XCF Responding Gateway">
+    <AuditMessage>
+      <EventIdentification EventActionCode="C" EventDateTime="2012-10-31T16:27:37.861-05:00" EventOutcomeIndicator="4">
+        <EventID code="110106" codeSystemName="DCM" displayName="Export"/>
+        <EventTypeCode code="ITI-63" codeSystemName="IHE Transactions" displayName="XCF Fetch Intermediate Document Creation"/>
+      </EventIdentification>
+      <ActiveParticipant UserID="bhasling" UserIsRequestor="true" UserName="bill">
+        <RoleIDCode code="USR" displayName="User"/>
+      </ActiveParticipant>
+      <ActiveParticipant AlternativeUserID="4356" NetworkAccessPointID="128.252.180.34" NetworkAccessPointTypeCode="2" UserID="1" UserIsRequestor="true">
+        <RoleIDCode code="110153" codeSystemName="DCM" displayName="Source"/>
+      </ActiveParticipant>
+      <ActiveParticipant NetworkAccessPointID="http://ihexds.nist.gov:9080/tf6/services/xdsrepositoryb" NetworkAccessPointTypeCode="2" UserID="http://ihexds.nist.gov:9080/tf6/services/xdsrepositoryb" UserIsRequestor="false">
+        <RoleIDCode code="110152" codeSystemName="DCM" displayName="Destination"/>
+      </ActiveParticipant>
+      <AuditSourceIdentification AuditEnterpriseSiteID="" AuditSourceID="SUN PIX/PDQ">
+        <AuditSourceTypeCode code="1"/>
+      </AuditSourceIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="TestPatient1^^^&amp;&amp;1.3.6.1.4.1.21367.13.20.1000&amp;ISO" ParticipantObjectTypeCode="1" ParticipantObjectTypeCodeRole="1">
+        <ParticipantObjectIDTypeCode code="2" codeSystemName="RFC-3881" displayName="Patient Number"/>
+      </ParticipantObjectIdentification>
+      <ParticipantObjectIdentification ParticipantObjectID="1.3.6.1.4.1.21367.2010.1.2.167.1292341934274.2" ParticipantObjectTypeCode="2" ParticipantObjectTypeCodeRole="20">
+        <ParticipantObjectIDTypeCode code="urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd" codeSystemName="IHE XDS Metadata" displayName="submission set classificationNode"/>
+      </ParticipantObjectIdentification>
+    </AuditMessage>
+  </case>
+</tests>

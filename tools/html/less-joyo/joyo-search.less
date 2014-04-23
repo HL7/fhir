@@ -1,0 +1,23 @@
+/* Search 
+----------------------------------------------------------------------------------------*/
+
+
+// Headsearch
+//----------------------------------
+#head-search {
+	#searchsubmit {
+	    display: none;
+	}
+	#s{
+		background-color: @headSearchBackground;
+		border-color: @headSearchBorder;
+	}
+	#s:focus{
+		background-color: @headSearchBackgroundFocus;
+		border-color: @headSearchBorderFocus;
+	}
+	input{		
+		.placeholder(@headSearchPlaceholderColor);
+	}
+}
+

@@ -1,0 +1,44 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<h3>Implementation Notes</h3>
+<ul>
+ <li>Instances can be images, but they can also be dicom structured documents or other dicom classes</li>
+ <li>Each instance may have a url and an attachment. Both represent the same information, but using different 
+   approaches. The URL is a reference to a WADO-RS service that makes the instance available, while the attachment 
+   is a reference to a FHIR resource (<a href="media.html">Media</a>, <a href="composition.html">Composition</a>, etc).</li>
+ <li>This resource follows DICOM practice in useing OIDs for elements such as instance type rather than codes.</li>  
+</ul>
+
+<h3>Use Case</h3>
+
+<p>
+The following storyboard illustrates the primary use case for 
+this resource:
+</p>
+<blockquote>
+<p>
+An oncologist, Karen, is seeing patients in her clinic, and would like
+background on the patients she is seeing today. Her first patient of the
+day, Alex. has arrived. She launches her Electronic Medical Record (EMR)
+software, and makes a Patient query on Alex using his last name. The EMR
+software makes a FHIR query on the Patient resource, to provide background
+demographic information for cover page rendering. The EMR software makes a
+subsequent FHIR query on the Condition resource, and reports that Alex is
+suspected to have prostate cancer. With this information, Karen decides to
+check for two further tests - the results of a Prostate-Specific Antigen
+(PSA) laboratory test, and of a CT exam performed at the local diagnostic
+facility. First, a FHIR query is made against the Observation resource to
+query for the most recent value of PSA (the EMR also queries previous 
+values of PSA for trending). For the CT exam, the EMR software queries on
+the ImagingStudy resource to retrieve a list of available images with other 
+relevant constraints (such as modality, body region etc.). This returns 
+back the studies available, with relevant meta-data about each study,
+its series and images. This information will help Karen to select which 
+study would like to review. Using the WADO-RS references provided, the 
+artifacts Karen would like to review can be downloaded and viewed using 
+capable DICOM viewing software.
+</p>
+</blockquote>
+
+</div>

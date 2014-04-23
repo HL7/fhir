@@ -1,0 +1,43 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
+        contains concepts to support the medication process.</p>
+    </div>
+  </text>
+  <name value="Reason Medication Not Given Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set is provided as an exemplar"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/reason-medication-not-given"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="a"/>
+      <display value="None" />
+      <definition value="No reason known"/>
+    </concept>
+    <concept>
+      <code value="b"/>
+      <display value="Away" />
+      <definition value="The patient was not available when the dose was scheduled"/>
+    </concept>
+    <concept>
+      <code value="c"/>
+      <display value="Asleep" />
+      <definition value="The patient was asleep when the dose was scheduled"/>
+    </concept>
+    <concept>
+      <code value="d"/>
+      <display value="Vomit" />
+      <definition value="The patient was given the medication and immediately vomited it back"/>
+    </concept>
+  </define>
+</ValueSet>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a silly exmple showing how Other could be used to convey a UML diagram.  It is extremely
+unlikely anyone would ever use FHIR to do this.  (XMI isn't *that* unpleasant :>).  However, it shows
+how somewhat esoteric requirements that won't ever be supported by the core FHIR specification can still
+be managed in a conformant manner.-->
+<Other xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/other.xsd">
+  <extension url="http://example.org/do-not-use/fhir-extensions/UML#class">
+    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.name">
+      <valueString value="Class1"/>
+    </extension>
+    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute">
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.name">
+        <valueString value="attribute1"/>
+      </extension>
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.minOccurs">
+        <valueInteger value="1"/>
+      </extension>
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.maxOccurs">
+        <valueCode value="*"/>
+      </extension>
+    </extension>
+    <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute">
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.name">
+        <valueString value="attribute2"/>
+      </extension>
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.minOccurs">
+        <valueInteger value="0"/>
+      </extension>
+      <extension url="http://example.org/do-not-use/fhir-extensions/UML#class.attribute.maxOccurs">
+        <valueInteger value="1"/>
+      </extension>
+    </extension>
+  </extension>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p><b>Class1</b></p>
+      <ul>
+        <li>Attribute1: 1..*</li>
+        <li>Attribute2: 0..1</li>
+      </ul>
+    </div>
+  </text>
+  <code>
+    <coding>
+      <system value="http://example.org/do-not-use/fhir-codes#resourceTypes"/>
+      <code value="UMLCLASSMODEL"/>
+    </coding>
+  </code>
+</Other>

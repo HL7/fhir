@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\orderresponse.xsd">
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Lab Report completed at 13:10 28-Dec 2012</div>
+  </text>
+
+  <!-- 
+    this should be a response to the example request, 
+	but we don't yet have all the resource types in 
+	place to make this happen
+	
+	So for now, although the Order message referred to 
+	here contains a prescription resource, this example
+	response contains lab reports
+  -->
+  <request>
+    <reference value="Order/example"/>
+  </request>
+  <date value="2012-12-28T13:10:56+11:00"/>
+  
+  <!-- made by the lab -->
+  <who>
+    <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+  </who>
+  
+  <!-- 
+    there's a loose relationship between the status of 
+    the order, and status information on the fulfillment
+    resources. For instance, in the case of a lab, it probably
+    wouldn't make sense to claim that the response is anything
+    but completed when the report is marked as "final" (as it is 
+    in this case). However due to the diversity of business 
+    practices in the order/fulfillment cycle, there's no formal
+    rules about what is allowed
+  -->
+  <code value="complete"/>
+  
+  <!-- 
+    the lab report that the lab provides as a token of its 
+    fulfillment for this order 
+
+    In the case of a lab order, the report is usually the real/only
+    outcome. However in a case such as a medication administration,
+    the actual administration is the fulfillment - the MedicationAdministration
+    resource is only a token of the fulfillment of the order
+  -->
+  <fulfillment>
+    <reference value="DiagnosticReport/101"/>
+  </fulfillment>
+</OrderResponse>

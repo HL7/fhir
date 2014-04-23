@@ -1,0 +1,76 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes a smattering of  USCLS codes.
+    </div>
+  </text>
+  <name value="USCLS Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes a smattering of  USCLS codes"/>
+  <status value="draft"/>
+  <define>
+    <system value="urn:USCLS"/>
+    <concept>
+      <code value="1101"/>
+    </concept>
+    <concept>
+      <code value="1102"/>
+    </concept>
+    <concept>
+      <code value="1103"/>
+    </concept>
+    <concept>
+      <code value="1201"/>
+    </concept>
+    <concept>
+      <code value="1205"/>
+    </concept>
+    <concept>
+      <code value="2101"/>
+    </concept>
+    <concept>
+      <code value="2102"/>
+    </concept>
+    <concept>
+      <code value="2141"/>
+    </concept>
+    <concept>
+      <code value="2601"/>
+    </concept>
+    <concept>
+      <code value="11101"/>
+    </concept>
+    <concept>
+      <code value="11102"/>
+    </concept>
+    <concept>
+      <code value="11103"/>
+    </concept>
+    <concept>
+      <code value="11104"/>
+    </concept>
+    <concept>
+      <code value="21211"/>
+    </concept>
+    <concept>
+      <code value="21212"/>
+    </concept>
+    <concept>
+      <code value="27211"/>
+    </concept>
+    <concept>
+      <code value="99111"/>
+    </concept>
+    <concept>
+      <code value="99333"/>
+    </concept>
+    <concept>
+      <code value="99555"/>
+    </concept>
+  </define>
+</ValueSet>

@@ -1,0 +1,12 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+As well as the specific example below, there are many value sets published as part of defining other resources. See:
+</p>
+<ul>
+ <li><a href="terminologies-valuesets.html">FHIR Valuesets</a></li>
+ <li><a href="terminologies-v2.html">V2 Tables</a></li>
+ <li><a href="terminologies-v3.html">V3 Code systems and Value sets</a></li>
+</ul>
+
+</div>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GeneticAnalysis xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/geneticanalysis.xsd">
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">Example GeneticAnalysis on patient John Doe's risk to get Gaucher's disease.</div>
+	</text>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<author>
+		<reference value="Practitioner/example"/>
+	</author>
+	<date value="2013-07-21"/>
+	<geneticAnalysisSummary>
+		<geneticDiseaseAssessed>
+			<system value="2.16.840.1.113883.6.96"/>
+			<code value="190794006"/>
+			<display value="Gaucher's disease"/>
+		</geneticDiseaseAssessed>
+		<genomicSourceClass>
+			<system value="2.16.840.1.113883.6.1"/>
+			<code value="LA6683-2"/>
+			<display value="Germline"/>
+		</genomicSourceClass>
+		<geneticDiseaseAnalysisOverallInterpretation>
+			<system value="2.16.840.1.113883.6.1"/>
+			<code value="LA9663-1"/>
+			<display value="Inconclusive"/>
+		</geneticDiseaseAnalysisOverallInterpretation>
+		<geneticDiseaseAnalysisOverallCarrierInterpertation>
+			<system value="2.16.840.1.113883.6.1"/>
+			<code value="LA9663-1"/>
+			<display value="Inconclusive"/>
+		</geneticDiseaseAnalysisOverallCarrierInterpertation>
+	</geneticAnalysisSummary>
+</GeneticAnalysis>

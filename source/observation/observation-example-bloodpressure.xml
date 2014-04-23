@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ This is an example of a standard blood pressure measurement.
+
+ Blood Pressure is a regarded as a single observation, and 
+ presented that way in plain text: 120/80. Also, it is usually 
+ interpreted as a single value, though intepretation can also 
+ be offered to the parts individually
+
+ Technically, though, a blood pressure is a pair of component 
+ observations. LOINC code 55284-4 notes say:
+   This term is intended as a section header for various 
+   blood pressure measurements (e.g., systolic, diastolic). 
+   LOINC discourages the reporting of two numbers, such as 
+   systolic and diastolic blood pressure (e.g., 120/80), 
+   in one observation. They should be reported as two 
+   separate variables, systolic (LOINC 8480-6) and 
+   diastolic (LOINC 8462-4)
+
+ This example shows the standard way to represent blood pressure - a 
+ single resource, with a narrative in the standard form, and two 
+ component observations for the actual values 
+
+for publication convenience, the 3 resources are packaged in a single
+bundle, but this is not required
+-->
+
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+  <title>Blood Pressure Example</title>
+  <id>urn:uuid:988fc332-b3a2-4c25-af3b-91b0171ec652</id>
+  <link rel="self" href="http://www.hl7.org/fhir/observation-example-bloodpressure.xml"/>
+  <updated>2014-01-30T22:35:23+11:00</updated>
+  
+  <!-- first entry: the single resource with combined
+     narrative, and links to the 2 component resources -->
+  <entry>
+    <title>Blood Pressure Observation</title>
+    <!-- this id is purely arbitrary. It could have been a UUID, or something else -->
+    <id>http://acme.org/ehr/observations/34252345234</id>
+    <updated>2014-01-30T22:35:23+11:00</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107/60 mmHg (low)</div>
+        </text>
+        <name>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="55284-4"/>
+            <display value="Blood pressure systolic &amp; diastolic"/>
+          </coding>
+        </name>
+        
+        <!-- an interpretation offered to the combination observation
+        generally, it would only be appropriate to offer an interpretation
+        of an observation that has no value if it has "COMP" (component)
+        observations -->        
+        <interpretation>
+          <coding>
+            <system value="http://hl7.org/fhir/v2/0078"/>
+            <code value="L"/>
+            <display value="Below low normal"/>
+          </coding>
+          <text value="low"/>
+        </interpretation>
+        <appliesDateTime value="2012-09-17"/>
+      
+        <!-- for an observation with components, these cannot disagree with the flags on the components -->
+        <status value="final"/>
+        <reliability value="ok"/>
+        
+        <identifier>
+          <system value="urn:ietf:rfc:3986"/>
+          <value value="urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281"/>
+        </identifier>
+        
+        <subject>
+          <reference value="Patient/example"/>
+        </subject>
+        <performer>
+          <reference value="Practitioner/example"/>
+        </performer>
+        <related>
+          <type value="has-component"/>
+          <target>
+            <reference value="http://acme.org/ehr/observations/34252345234-s"/>
+          </target>
+        </related>
+        <related>
+          <type value="has-component"/>
+          <target>
+            <reference value="http://acme.org/ehr/observations/34252345234-d"/>
+          </target>
+        </related>
+      </Observation>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107/60 mmHg (low)</div>
+    </summary>
+  </entry>
+
+  <!-- Observation for systolic blood pressure: name, value, and flags -->
+  <entry>
+    <title>Blood Pressure Observation</title>
+    <!-- 
+      Most systems won't store systolic and diastolic observations separately.
+      They'd usually be two fields in a database or something like that. The 
+      FHIR interface treats these as separate observation for consistency 
+      purposes (makes query easy). But that doesn't mean that the systems 
+      have to really do that internally. This example implies a system that 
+      appends -d or -s to the id of the base observation for the individual
+      components. 
+
+      This implies that you can operate on them separately, even though
+      this would probably not be true. It would be up to the implementing 
+      system to decide how to manage this (e.g. readonly, so there's no 
+      update operations to worry about)
+    -->
+    <id>http://acme.org/ehr/observations/34252345234-s</id>
+    <updated>2014-01-30T22:35:23+11:00</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <Observation xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107 mmHg (low)</div>
+        </text>
+        <!-- 
+           Observations are often coded in multiple code systems. 
+           - Loinc provides a very specific code (though not usefully more specific in this particular case)
+           - snomed provides a clinically relevant code that is usually less granular than LOINC
+           - the source system provides it's own code, which may be less or more granular than LOINC
+         -->
+        <name>
+          <!-- LOINC - always recommended to have a LOINC code -->
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="8480-6"/>
+            <display value="Systolic blood pressure"/>
+          </coding>
+          <!-- SNOMED CT Codes - becoming more common -->
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="271649006"/>
+            <display value="Systolic blood pressure"/>
+          </coding>
+          <!-- Also, a local code specific to the source system -->
+          <coding>
+            <system value="http://acme.org/devices/clinical-codes"/>
+            <code value="bp-s"/>
+            <display value="Systolic Blood pressure"/>
+          </coding>
+          <!-- that shows the concept. The next two names only have a LOINC code --> 
+        </name>
+        <!-- no formal units in this example -->
+        <valueQuantity>
+          <value value="107"/>
+          <units value="mm[Hg]"/>
+        </valueQuantity>
+        <!-- the mandatory quality flags: -->
+        <status value="final"/>
+        <reliability value="ok"/>
+      </Observation>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Systolic Blood pressure 107 mmHg (low)</div>
+    </summary>
+  </entry>
+  
+  <!-- diastolic blood pressure: name, value, and flags -->
+  <entry>
+    <title>Blood Pressure Observation</title>
+    <id>http://acme.org/ehr/observations/34252345234-d</id>
+    <updated>2014-01-30T22:35:23+11:00</updated>
+    <author>
+      <name>FHIR Project Team</name>
+    </author>
+    <content type="text/xml">
+      <Observation xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Diastolic Blood pressure 60 mmHg (low)</div>
+        </text>
+        <name>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="8462-4"/>
+            <display value="Diastolic blood pressure"/>
+          </coding>
+        </name>
+        <!-- no formal units in this example -->
+        <valueQuantity>
+          <value value="60"/>
+          <units value="mm[Hg]"/>
+        </valueQuantity>
+        <!-- the mandatory quality flags: -->
+        <status value="final"/>
+        <reliability value="ok"/>
+      </Observation>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Sept 17, 2012: Diastolic Blood pressure 60 mmHg (low)</div>
+    </summary>
+  </entry>
+</feed>  

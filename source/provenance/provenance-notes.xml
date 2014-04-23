@@ -1,0 +1,111 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h3>Using the Provenance Resource</h3>
+
+<p>
+The provenance resource identifies information about another resource (the <i>reference</i> element). 
+The provenance resource may be used in several different ways:
+</p>
+<ul>
+ <li>As part of a <a href="documents.html">document bundle</a> where it identifies the provenance of part or all of the document</li>
+ <li>On a <a href="http.html">RESTful system</a> where it keeps track of provenance information relating to resources</li>
+</ul>
+<p>
+When used in a document bundle, the <i>references</i> are often not explicitly versioned, but they always implicitly pertain to the version of the 
+resource found in the document. On a RESTful system, the target resource reference should be version specific, but this
+requires special care: For new resources that need to have a corresponding Provenance resource, the version-specific
+reference is often not knowable until after the target resource has been updated. This can create an 
+integrity problem for the system - what if the provenance resource cannot be created after the target 
+resource has been updated? To avoid any such integrity problems, the target resource and the provenance resources should be submitted 
+as a pair using a <a href="http.html#transaction">transaction</a>. 
+</p>
+
+<h3>Digital Signatures</h3>
+
+<p>
+The provenance resource includes an integritySignature element which contains 
+an <a href="http://www.w3.org/TR/xmldsig-core/">XML digital signature</a>. 
+</p>
+<p>
+The purpose of the signature is limited to checking cryptographic integrity of the target resource(s); 
+e.g. detecting whether changes have occurred between the original construction of the resource and the application
+processing it. In order to make proper use of the signature element, 
+implementation profiles are required to further clarify the obligations 
+around creating and checking the signature.
+</p>
+<p>
+The following rules apply to digital signature:
+</p>
+<ul>
+ <li>The Certificate identifier SHOULD match the identity of an agent (Provenance.agent.reference)</li>
+ <li>If the signature has an IHE purposeOfSignature property, the value SHALL be "source", 
+   OID "1.2.840.10065.1.12", which means "the signature of an automated data source". If 
+   the signature does not have a purposeOfSignature property, the signature is still to used 
+   for this use</li>
+ <li>Whether the representation of the Provenance resource is xml or json, the signature is a base64 of the 
+   <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#sec-Signature">XML signature</a></li>
+ <li>The signature is always a signature of the target resource XML representation using a stated canonicalization</li> 
+</ul>
+The signature is only added to support , and not to represent workflow and clinical aspects of the signing process, or to support non-repudiation.			
+ 
+<h3>Party References</h3>
+
+<p>
+Because the Provenance resource often refers to parties that are not represented 
+as FHIR resources, Agent and Entity references are allowed to be either references 
+to other resources, or they can refer to other entities that are not FHIR resources.
+</p>
+<p>
+The code in the <i>.type</i> element is used to differentiate between the two: if the 
+code is in the system "http://hl7.org/fhir/resource-types", then the reference is to 
+a resource, and the element <i>reference</i> functions exactly the same as in 
+a <a href="references.html#references">Resource Reference</a>. 
+</p>
+
+
+
+<div class="example">
+<p>
+A version specific reference to a FHIR resource on the same server:
+</p>
+<pre class="xml">
+  &lt;agent&gt;
+    &lt;type&gt;
+      &lt;system value="http://hl7.org/fhir/resource-types"/&gt;
+      &lt;code value="Person"/&gt;
+    &lt;/type&gt;
+    &lt;reference value="person/@34/history/3"/&gt;
+  &lt;/agent&gt;
+</pre>
+</div>
+<p>
+In effect, this is the same pattern as a standard resource reference, 
+but the type becomes extensible to allow referencing other kinds of 
+resources. 
+</p>
+
+<div class="example">
+<p>
+A reference to a user (a person) not represented by a FHIR resource:
+</p>
+<pre class="xml">
+  &lt;agent&gt;
+    &lt;type&gt;
+      &lt;system value="http://hl7.org/fhir/provenance-participant-type"/&gt;  
+      &lt;code value="person"/&gt;
+    &lt;/type&gt;  
+    &lt;reference value="http://acme.com/users/34"/&gt;
+  &lt;/agent&gt;
+</pre>
+</div>
+
+<p>
+One subtle issue with the use of the Provenance resource is to differentiate
+between whether the reference is to the Resource itself, or whether the 
+the reference is to the real world thing that the resource represents,
+e.g. was it the person involved in the activity, or the record of the person. 
+For Agents, it should be understood that the reference is to the real 
+world thing that the resource represents. 
+</p>
+
+</div>

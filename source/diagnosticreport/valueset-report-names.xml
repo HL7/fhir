@@ -1,0 +1,23 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes all LOINC codes (TODO: narrow this further - diagnostic codes, panels only)
+    </div>
+  </text>
+  <name value="LOINC Diagnostic Report Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes all the LOINC codes which relate to Diagnostic Observations"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+    </include>
+  </compose>
+</ValueSet>
+

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+    <!-- an extension to record the LMP, which is required at the plan level... -->
+    <extension url="http://example.org/DoNotUse/careplan#lmp" >
+        <valueDateTime value="2013-01-01" />
+    </extension>
+ 
+    <text>
+        <status value="additional"></status>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>A maternity care plan (for a pregnant woman).</p>           
+            <p>LMP is 1st Jan, 2013 (a greaat new years party!) The plan has a scheduled first antenatal,
+            and 'placeholders' for the second antenatal and delivery (there would be lots of others of course)</p>
+            <p>Note that where is a proposed 'status' element against each activity</p>
+        </div>
+    </text>
+    <contained>
+      <Condition id="p1">
+        <subject>
+          <reference value="Patient/1"/>
+          <display value="Eve Everywoman"/>
+        </subject>
+        <code>
+          <text value="pregnancy"/>
+        </code>
+        <status value="confirmed"/>
+      </Condition>
+    </contained>
+    <contained>
+      <Practitioner id="pr1">
+          <name>
+            <family value="Midwife"/>
+            <given value="Mavis"/>
+          </name>      
+        <specialty>
+          <text value="Midwife"/>
+        </specialty>
+      </Practitioner>
+    </contained>
+    <contained>
+      <Practitioner id="pr2">
+          <name>
+            <family value="Obstetrician"/>
+            <given value="Oscar"/>
+          </name>     
+        <specialty>
+          <text value="Obstetrician"/>
+        </specialty>
+      </Practitioner>
+    </contained>
+    <patient>
+        <reference value="Patient/1"/>
+        <display value="Eve Everywoman"/>
+    </patient>
+    <status value="active"/>
+    <period>
+        <!-- The likely duration of the pregnancy -->
+        <start value ="2013-01-01"/>
+        <end value ="2013-10-01"/>
+    </period>
+    <concern>
+        <reference value="#p1"/>
+        <display value="pregnancy"/>
+    </concern>
+
+    <participant>
+        <!-- In New Zealand, there is a Lead Maternity Carer (LMC) - often a midwife -->
+        <role>
+            <coding>
+                <system value="mySys"/>
+                <code value="lmc"/>
+            </coding>
+            <text value='Midwife'></text>
+        </role>
+        <member>
+            <!-- This links to the clincian resource, so we get all the stuff related to that like address, contact etc... -->
+            <reference value="#pr1"/>
+            <display value="Mavis Midwife"/>
+        </member>
+    </participant>
+    <participant>
+        <!-- To indicate that there is an obstretian consultant involved in this case. -->
+        <role>
+            <coding>
+                <system value="mySys"/>
+                <code value="obs"/>
+            </coding>
+            <text value='Obstretitian'></text>
+        </role>
+        <member>
+            <!-- This links to the clincian resource, so we get all tha stuff related to that like address, contact etc... -->
+            <reference value="#pr2"/>
+            <display value="Oscar Obstetrician"/>
+        </member>
+    </participant>
+    <goal>
+      <description value="Maintain a womans health throughout pregnancy and ensure a healthy child"/>
+    </goal>
+    <activity>
+        <!-- This will be the first antenatal encounter -->
+        
+        <!-- a link to further details about the first antenatal details -->
+        <extension url="http://example.org/DoNotUse/careplan#andetails" >
+            <valueUri value="http://orionhealth.com/fhir/careplan/1andetails" />
+        </extension>
+        
+        <status value="scheduled"/>
+        <prohibited value="false"></prohibited>
+        <simple>
+        <category value="encounter"></category>
+        <code>
+            <coding>
+                <system value="mySystem"/>
+                <code value="1an"/>
+            </coding>
+            <text value='First Antenatal encounter'></text>
+        </code>
+        <timingSchedule>
+            <!-- The encounter should occur between 14 feb and 28 feb -->
+            <event>
+                <start value="2013-02-14"/>
+                <end value="2013-02-28"/>
+            </event>
+        </timingSchedule>
+        <performer>
+            <reference value="#pr1"/>
+            <display value="Mavis Midwife"/>
+        </performer>
+        <details value="The first antenatal encounter. This is where a detailed physical examination is performed.
+            and the pregnanacy discussed with the mother-to-be."></details>
+        <!-- This is a booked encounter with Mavis Midwife for the first antenatal checkup. 
+        This entry is only made after the appointment (a planned encounter) has been made.
+        Commented out for now because Encounter hasn't been defined yet
+        <actionTaken>
+            <url value="xxx"/>
+            <display value="Appointment with Mavis midwife @12.30pm, 112 St albans Ave"/>
+        </actionTaken>-->
+        </simple>
+    </activity>
+    
+    <activity>
+        <status value="not started"/>
+        <prohibited value="false"></prohibited>
+        <simple>
+        <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
+        <category value="encounter"></category>
+        <code>
+            <!-- The code is just for an antenatal encounter. There are many of these, the first is special... -->
+            <coding>
+                <system value="mySystem"/>
+                <code value="an"/>
+            </coding>
+            <text value='Follow-up Antenatal encounter'></text>           
+        </code>
+        <timingSchedule>
+            <!-- The encounter should occur between 1 march and 14 march -->
+            <event>
+                <start value="2013-03-01"/>
+                <end value="2013-03-14"/>
+            </event>
+        </timingSchedule>
+        <performer>
+            <!-- The performer is known, but the actual appointment is not yet made, hence there is no action element... -->
+            <reference value="#pr1"/>
+            <display value="Mavis Midwife"/>
+        </performer>
+        <details value="The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter"></details>
+        </simple>
+    </activity>
+    <!-- 
+        There would be a number of other encounters to be scheduled here... 
+        ...
+        ...
+    
+    -->
+    
+    <activity>
+        <status value="not started"/>
+        <prohibited value="false"></prohibited>
+        <simple>
+        <!-- This will be the delivery. It is not yet scheduled. -->
+        <category value="encounter"></category>
+        <code>
+            <coding>
+                <system value="mySystem"/>
+                <code value="del"/>
+            </coding>
+            <text value='Delivery'></text>
+            
+        </code>
+        <timingSchedule>
+            <!-- The delivery should occur between 1 september and 14 september -->
+            <event>
+                <start value="2013-09-01"/>
+                <end value="2013-09-14"/>
+            </event>
+        </timingSchedule>
+        <!-- Where the delivery is to occur... 
+          Commented out for now because location resource isn't defined
+        <location>
+            <url value="loc100"/>
+            <display value="St Albans delivery suite"/>
+        </location>-->
+        <performer>
+            <!-- The intention is that Maris will be perfroming the delivery... -->
+            <reference value="#pr1"/>
+            <display value="Mavis Midwife"/>
+        </performer>
+        <details value="The delivery."></details>
+        </simple>
+    </activity>
+    
+    
+</CarePlan>
+

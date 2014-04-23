@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+        <!--Practitioner's personal demographics-->
+        <identifier>
+            <!--The (fictive) identifier for this individual-->
+            <use value="official"/>
+            <label value="UZI-nummer"/>
+            <system value="urn:oid:2.16.528.1.1007.3.1"/>
+            <value value="12345678904"/>
+        </identifier>
+        <name>
+            <use value="usual"/>
+            <text value="Carla Espinosa"/>
+        </name>
+        <telecom>
+            <system value="phone"/>
+            <value value="+31715262169"/>
+            <use value="work"/>
+        </telecom>
+        <address>
+            <use value="work"/>
+            <line value="Walvisbaai 3"/>    
+            <city value="Den helder"/>
+            <zip value="2333ZA"/>
+            <country value="NLD"/>
+        </address>
+        <gender>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="248152002"/>
+                <display value="Female"/>
+            </coding>
+        </gender>
+        <birthDate value="1967-11-05"/>
+        <!--    <photo>    
+        <reference value="picture/@CE-204.bmp"/>
+        <display value="Picture_Carla_Espinosa"/>
+    </photo>-->
+   
+    <organization>
+        <reference value="Organization/f201"/>
+        <display value="AUMC"/>
+    </organization>
+    <role>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="224565004"/>
+            <display value="Renal nurse"/>
+        </coding>
+    </role>
+    <specialty>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="9632001"/>
+            <display value="Nursing procedure"/>
+        </coding>
+    </specialty>
+</Practitioner>

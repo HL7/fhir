@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+[%settitle Messaging using FHIR Resources%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h1>Messaging using FHIR Resources</h1>
+
+<p>
+FHIR Resources can be used in a traditional messaging context, much like HL7 v2. 
+Applications asserting conformance to this framework claim to be conformant to "FHIR messaging". 
+</p>
+
+<p>
+In FHIR messaging, a "request message" is sent from a source application to a destination
+application when an event happens. Events mostly correspond to things that happen in the 
+real world. The request message consists of a <a href="extras.html#bundle">bundle</a>
+<a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", 
+with the first resource in the bundle being a <a href="messageheader.html">MessageHeader</a> 
+resource. The MessageHeader resource has a code - the message event - that identifies the 
+nature of the request message, and it also carries additional request metadata. 
+The other resources in the bundle depend on the type of the request.
+</p>
+<p>
+The events supported in FHIR, along with the resources that are included in them, are defined below. 
+</p>
+<p>
+The destination application processes the request and returns one or more response messages 
+which are also a <a href="extras.html#bundle">bundle</a> of resources
+<a href="extras.html#tags">identified by the tag</a> "http://hl7.org/fhir/tag/message", with the first 
+resource in the bundle being a <a href="messageheader.html">MessageHeader</a> resource with a response
+section that reports the outcome of processing the message and any additional response 
+resources required. 
+</p>
+
+
+<h2>Basic Messaging Assumptions</h2>
+
+<p>
+This specification assumes that content will be delivered from one application
+to another by some delivery mechanism, and then a response will be returned 
+to the source application. The exact mechanism of transfer is irrelevant to
+this specification, but may include file transfer, http based transfer, MLLP
+(HL7 minimal lower layer protocol), MQ series messaging or anything else. 
+The only requirement for the transfer layer is that requests are sent to 
+a known location and responses are returned to the source of the request. 
+This specification considers the source and destination applications as logical
+entities, and the mapping from logical source and destination to implementation
+specific addresses is outside the scope of this specification, though this 
+specification does provide a direct delivery mechanism below.
+</p>
+<p>
+This specification assumes that content will be delivered from one application to 
+another by some delivery mechanism, and then one or more responses will be returned 
+to the source application. The agreements around the content of the messages and
+the behavior of the two applications form the "contract" that describes the exchange.
+The contract will add regional and local agreements to the rules defined in this 
+specification.
+</p>
+<p>
+This specification ignores the existence of interface engines and message 
+transfer agents that exist between the <i>source</i> and <i>destination</i>. 
+Either they are transparent to the message/transaction content and irrelevant 
+to this specification, or they are actively involved in manipulating the message 
+content (in particular, the source and destination headers are often changed). 
+If these middleware agents are modifying the message content, then they become
+responsible for honoring the contract that applies (including applicable profiles) 
+in both directions.
+</p>
+<p>
+A key aspect of a message is the impact of it's content:
+</p>
+<!--
+<table class="grid">
+ <tr> <td>Consequence</td> <td>The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment</td> </tr>
+ <tr> <td>Currency</td> <td>The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful</td> </tr>
+ <tr> <td>Notification</td> <td>The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications</td> </tr>
+</table>
+-->
+[%codelist MessageSignificanceCategory%]
+<p>
+Some Events defined by FHIR are assigned to one of these categories, 
+but others are not able to be categorized in advance, and the category
+must be determined by the content, or the context.
+</p>
+
+<a name="synchronous"> </a>
+<a name="patterns"> </a>
+<h3>Message Exchange Patterns</h3>
+<p>
+Each FHIR request message has one or more response messages. There must be at least 
+one response message so that the sender can know that the message was properly
+received. Multiple response SHALL not be returned for messages of consequence,
+and SHOULD not be returned for notifications. 
+</p>
+<p>
+In principle, source applications are not required to wait for a response to 
+a transaction before issuing a new transaction. However in many cases, the 
+messages in a given stream are dependent on each other, and must be sent and 
+processed in order. In addition, some transfer methods may require sequential 
+delivery of messages.
+</p>
+<p>
+For this reason, a synchronous exchange pattern - where the sender sends a 
+message, and waits on the same channel for a single response, and then 
+sends the next message - are the easiest to understand and manage. The 
+<a href="#mailbox">Mailbox</a> described below works in this fashion.
+</p>
+<p>
+However synchronous message exchange does not cater for multiple response 
+messages, which may arise when processing queries, and also imposes 
+through-put limitations which may become relevant at high volumes. 
+Because of this, other complex message patterns are allowed, though 
+none are described in detail in this specification.
+</p>
+
+
+<h3>Message Identifiers</h3>
+<p>
+An incoming message contains two identifiers: the envelope id 
+(<a href="extras.html#bundles">feed</a>.id) and the <a href="messageheader.html">message</a>.identifier. 
+Each time a new message is created, it SHALL be assigned an identifier that is 
+unique within that message stream. Note that since message streams are often 
+merged with other streams, it is recommended that the identifier should be globally 
+unique. This can be achieved by using a UUID or an OID or appropriately 
+chosen URI with a serially incrementing number. Each time a message is sent, 
+the bundle identifier (feed.id) should be changed to a new value. 
+</p>
+<p>
+When a receiver receives and processes the message, it responds with a 
+new message with a new identifier, wrapped in a bundle which also has a new id. 
+The response message also quotes the request message identifier so that the source
+system can relate the response to its request.
+</p>
+
+<a name="reliable"> </a>
+<h3>Absence of Reliable Messaging</h3>
+<p>
+Some of the message delivery mechanisms mentioned above are reliable delivery
+systems - the message is always delivered, or an appropriate error is returned
+to the source. However most implementations use methods which do not provide
+reliable messaging, and either the request or the response can get lost in transit.
+FHIR messaging describes a simple approach that receivers SHOULD conform to in 
+order to handle the absence of reliable messaging that maintains predictable 
+functionality. 
+</p>
+<p>
+If the sender of the message implements reliable messaging, it SHALL do 
+the following when it receives no response to a message within a 
+configured timeout period:
+</p>
+<table class="grid">
+ <tr><td>Consequence</td><td>Resend the same message (including with the same identifier) with the same envelope id</td></tr>
+ <tr><td>Currency</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
+ <tr><td>Notification</td><td>Resend the same message (including with the same identifier) with a different envelope id</td></tr>
+</table>
+<p>
+When a receiver implements reliable messaging, it SHALL check the incoming envelope 
+id and message identifier against a cache of previously received messages. The 
+correct action to take depends on what is received:
+</p>
+<table class="grid">
+ <tr><td>Both the envelope id and message identifier have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
+ <tr><td>Both envelope and message already received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
+ <tr><td>The message identifier has already been received, but the envelope id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
+ <tr><td>The envelope id has already been received, but the message identifier is new</td><td>This is an error - envelope ids should never be reused</td></tr>
+</table>
+<p>
+The duration period for caching does generally not need to be very long. At a minimum, it 
+could be 1 minute longer than the timeout of the sending system, though it may need to 
+be longer depending on the re-sending policies of the sending system. 
+</p>
+<p>
+Applications that implement reliable messaging declare their reliable cache 
+period in their <a href="conformance.html">conformance statement</a>.
+</p>
+
+<h4>Example: Consequence</h4>
+<p>
+In the first example, a Clinical EHR issues an order for a particular imaging examination 
+to be performed on a patient. This is considered to be a message of <b>Consequence</b>: multiple
+orders should not be created (in practice there are usually human review processes that 
+catch multiple orders, but repeat orders create entropy in the system that is harmful). 
+The EHR sends a message where the envelope id (feed.id) is UUID 1 (urn:uuid:72edc4e0-6708-42ab-9734-f56721882c10), 
+with a Message Header that contains a message id of UUID 2 (urn:uuid:dad53a57-dcb4-4f18-b066-7239eb4b5229).
+</p>
+<p>
+The EHR system never receives a response to the message; it does not know whether the request
+message got lost, or the imaging management systems was unable to process the request, or whether
+it successfully processed the message and the response was lost. In this case, the EHR system
+resends the message with same two identifiers. 
+</p>
+<p>
+In this case, the imaging system successfully received the message, and processed it. Because
+it receives the resent order after 1 minute (which is within it's 15 minute cache time), 
+and the two UUIDs 1 and 2 match a message it has already processed, it knows that it already 
+processed the order, and simply returns the previous response. In the case of additional resent
+queries, the application keeps sending the original response, though it may also alert system
+administrators that the same original message keeps being resent, since lost messages should be 
+a rare occurrence.
+</p>
+<p>
+When the EHR system finally receives the message, it knows how the imaging management system 
+responded; it can be sure because the message id from the original request is echoed in the 
+response portion of the returned message.
+</p>
+
+
+<h4>Example: Currency</h4>
+<p>
+In this second example, a Clinical EHR needs to know what appointment slots are available
+for a particular imaging procedure. This is a message of <b>Currency</b>: available slots are 
+ever disappearing, and ordering a slot that has become unavailable is a waste of time for 
+the humans and systems involved. The EHR sends a message where the envelope id (feed.id) is 
+UUID 3 (urn:uuid:4c7f5cb2-5964-4d42-b719-e0227461818c), with a Message Header that contains 
+a message id of UUID 4 (urn:uuid:63ED7D68-B2CC-421D-BA1C-A6C7785581F2).
+</p>
+<p>
+The EHR system never receives a response to the message; it does not know whether the request
+message got lost, or the imaging management systems was unable to process the request, or whether
+it successfully processed the message and the response was lost. In this case, the EHR system
+resends the message with same message id (UUID 4), but creates a new envelope id (feed.id):
+(urn:uuid:c7c17fe4-9560-49c7-b2ae-42636476fb86).
+</p>
+<p>
+In this case, the imaging system successfully received the message, and processed it. When 
+it receives the resent order after 1 minute (which is within it's 15 minute cache time), it 
+sees that although the message id is the same, the envelope id has changed, and it reprocesses
+the message again, and sends a new response.
+</p>
+<p>
+When the EHR system finally receives the message, it knows the current slot availability 
+on the imaging management system responded. 
+</p>
+<p>
+Note that the existence of active intermediaries (or "middleware") creates the need
+for this protocol - the original sender matches the response to the request based on the 
+message id, and so an active intermediary that choose the re-initiate a query that
+it previously relayed cannot change the message id. This protocol avoids the need for
+the message id to change, and only requires change to the envelope id which is never
+the basis for context linking outside the immediate message exchange protocol described
+here.
+</p>
+
+
+<h2>Conformance Statement</h2>
+<p>
+Applications may only assert conformance to "FHIR messaging" if they 
+publish a conformance statement so the claim may be verified. A 
+conformance statement lists all the message events supported (either 
+as sender or receiver) and for each event, a 
+profile that states which resources are bundled (sender), or 
+are required to be bundled (receiver), and any rules about the 
+information content of the individual resources. The conformance 
+statement is a <a href="conformance.html">resource with the name 
+"Conformance"</a>. 
+</p>
+
+<a name="mailbox"></a>
+<h2>Mailbox</h2>
+<p>
+The mailbox is the standard name for a service hosted on a <a href="http.html">RESTful server</a> that accepts 
+messages and processes 
+them as transactions and returns a message response appropriate for the message received. The server is under
+no obligation to do anything particular with the resources except as required by the semantics of the event code in
+the message resource. A server may choose to retain the resources and make them available on a RESTful interface, but 
+is not required to do so.</p>
+
+<h3>Submitting query messages and documents</h3>
+<p>
+The mailbox can also be used to accept queries or documents. In the case of documents, the document is "accepted" 
+(the server takes responsibility for custody of the received document) 
+or an HTTP error is returned. The server is under no obligation to perform any particular processing of the document
+except as 
+specific trading partner agreements dictate. In the case of queries, the server receives a bundle containing 
+a query and a set of other related resources, processes the query, and returns a bundle with a query which is a response,
+and any additional resources that are part of the query response.
+</p>
+<h3>Result of submission</h3>
+<p>Depending on the semantics of the event code or processing done on the query or document, a server may return 
+a status code 200 OK, 201 Created, 202 Accepted or 204 No Content. If the server returns 200 OK, it SHALL return a 
+bundle with the outcome of the event or document processing. In case of errors, the client SHALL interpret a 
+4xx response to indicate that there is no point resubmitting the message or document, and a 5xx response to indicate 
+an unexpected error on the part of the server, which means that it is worth resubmitting 
+(and doing so should not result in a duplicate message response).  Repeated failures indicate either a
+fatal problem with the submission or a problem with the receiving application.
+</p>
+<p>
+The following rules apply to the mailbox:
+</p>
+<ul>
+ <li>The mailbox only accepts POST transactions - any other HTTP method will result in an HTTP error</li>
+ <li>The request content type submitted is always <a href="extras.html#bundle">a bundle</a> containing a message or document resource as the first resource</li>
+ <li>The response content type returned is always an HTTP error, <a href="extras.html#bundle">a bundle</a> containing a message as the first resource, or empty (if a document was received)</li>
+ <li>If the response is an error, the body SHOULD be an <a href="operationoutcome.html">Errors &amp; Warning</a> resource with full details</li> 
+ <li>The URL never takes any parameters</li>
+ <li>The mailbox may be authenticated using standard HTTP authentication methods, including OAuth</li>
+</ul>
+<p>
+This simple mailbox profile can be used by any HTTP end point that accepts FHIR messages or documents, not just 
+FHIR RESTful servers.
+</p>
+<p>
+In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of envelope id and 
+message id described above</a> SHALL be followed when messages are processed using the mailbox. No such rules apply regarding
+documents - if the client receives no response, it should continue to submit the document until it does. Servers SHALL 
+accept multiple document submissions and process them correctly.
+</p>
+
+<a name="endpoints"></a>
+<h2>Relationship between Messaging and REST</h2>
+
+<p>
+As well as this messaging framework documented here, FHIR also defines a 
+<a href="http.html">RESTful API</a>. The messaging and RESTful frameworks
+are related in that both share the same set of resources on which they operate.
+In fact, the basic <a href="messageheader.html">MessageHeader</a> resource 
+that the messaging framework is implemented is itself a resource that can treated in a RESTful approach. 
+</p>
+<p>
+The kinds of functionality that the RESTful API and the messaging framework
+offer are very similar; their primary difference is architectural in nature. 
+</p>
+<p>
+For instance, the messaging framework defines an event for notifying that
+a administration resource has been created or updated, as does the REST API.
+On the other hand, there are differences in the capabilities offered - while
+a patient merge can be implemented as a series of RESTful operations performed
+by the client that update all resources linked to the patient, when a message 
+command to merge patient records is processed, the server will do all
+the work, and is also able to merge in areas not exposed on the RESTful API.
+The REST API, however, provides a set of basic operations on all resources
+that would need special definitions in the messaging framework - definitions that
+are not provided.
+</p>
+<p>
+There is no expectation that RESTful systems will need to offer messaging
+support, or vice versa, though systems may find it useful to support both 
+sets of functionality in order to satisfy a wider range of implementers. 
+</p>
+<p>
+As a resource that can be used with the RESTful framework, the MessageHeader
+resource has the normal resource end-point (/MessageHeader), which is
+used to manage a set of static message resources. This could be used to 
+make an archive of past messages available. <b>Creating or updating MessageHeader resources
+in this fashion does not represent the actual occurrence of any event, nor can it trigger
+any logic associated with the actual event.</b> It is just for managing a set of message resources.
+</p>
+<p>
+In, addition, as described above, this specification defines the /Mailbox end-point
+so that RESTful servers can offer both messaging and RESTful services at once.
+Alternatively, messages can be transported between systems using any other method by which 
+a stream of bytes (the message bundle) can be moved from one place to 
+another. There is no requirement to use HTTP.
+</p>
+
+
+
+<a name="Events"></a>
+<a name="events"></a>
+<h2>Event List</h2>
+
+<p>
+The <i>message.code</i> element carries a <a href="datatypes.html#Coding">Coding</a> that identifies the event that the message conveys. 
+This table lists the message event codes defined in this specification (the system value for these is "http://hl7.org/fhir/message-type"):
+</p>
+
+[%events%]
+
+<a name="dstu"> </a>
+<p>
+In this table, the request and response columns list the focus resource for the event, along with other resources that should also be carried in the message directly (if they exist).
+Additional events may be defined elsewhere, though this specification does not yet define how. DSTU: Input on this is sought during the trial use period.
+</p>
+
+
+
+</div>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>
+
+

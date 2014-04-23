@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+    </div>
+  </text>
+  <identifier value="http://nema.org/dicom/dcid/401"/>
+  <version value="20100826"/>
+  <name value="DICOM Audit Event Type Code"/>
+  <publisher value="NEMA/DICOM"/>
+  <description value="DICOM defined codes for ATNA Aidit Event ID"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+  <status value="active"/>
+  <date value="2010-08-26"/>
+  <define>
+    <system value="http://nema.org/dicom/dcid/401"/>
+    <concept>
+      <code value="110100"/>
+      <definition value="Application Activity"/>
+    </concept>
+    <concept>
+      <code value="110120"/>
+      <definition value="Application Start"/>
+    </concept>
+    <concept>
+      <code value="110121"/>
+      <definition value="Application Stop"/>
+    </concept>
+    <concept>
+      <code value="110122"/>
+      <definition value="Login"/>
+    </concept>
+    <concept>
+      <code value="110123"/>
+      <definition value="Logout"/>
+    </concept>
+    <concept>
+      <code value="110124"/>
+      <definition value="Attach"/>
+    </concept>
+    <concept>
+      <code value="110125"/>
+      <definition value="Detach"/>
+    </concept>
+    <concept>
+      <code value="110126"/>
+      <definition value="Node Authentication"/>
+    </concept>
+    <concept>
+      <code value="110127"/>
+      <definition value="Emergency Override Started"/>
+    </concept>
+    <concept>
+      <code value="110128"/>
+      <definition value="Network Configuration"/>
+    </concept>
+    <concept>
+      <code value="110129"/>
+      <definition value="Security Configuration"/>
+    </concept>
+    <concept>
+      <code value="110130"/>
+      <definition value="Hardware Configuration"/>
+    </concept>
+    <concept>
+      <code value="110131"/>
+      <definition value="Software Configuration"/>
+    </concept>
+    <concept>
+      <code value="110132"/>
+      <definition value="Use of Restricted Function"/>
+    </concept>
+    <concept>
+      <code value="110133"/>
+      <definition value="Audit Recording Stopped"/>
+    </concept>
+    <concept>
+      <code value="110134"/>
+      <definition value="Audit Recording Started"/>
+    </concept>
+    <concept>
+      <code value="110135"/>
+      <definition value="Object Security Attributes Changed"/>
+    </concept>
+    <concept>
+      <code value="110136"/>
+      <definition value="Security Roles Changed"/>
+    </concept>
+    <concept>
+      <code value="110137"/>
+      <definition value="User Security Attributes Changed"/>
+    </concept>
+  </define>
+</ValueSet>

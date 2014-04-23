@@ -1,0 +1,49 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="List Empty Reasons"/>
+  <publisher value="FHIR Project"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list)"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/list-empty-reason"/>
+    <concept>
+      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+        <valueString value="Other language is sometimes used for this concept, such as 'no significant [x] known'.&#13;&#10;SNOMED CT includes many codes for this general concept, but no single generalisation. If using SNOMED CT, use this code and the appropriate specific SNOMED CT code"/>
+      </extension>
+      <code value="nilknown"/>
+      <display value="Nil Known"/>
+      <definition value="Clinical judgement that there are no known items for this list after reasonable investigation. Note that this a positive statement by a clinical user, and not a default position asserted by a computer system in the lack of other information. Example uses:&#13;&#10;
+* For allergies: the patient or patient's agent/guardian has asserted that he/she is not aware of any allergies (NKA - nil known allergies)&#13;&#10;
+* For medications: the patient or patient's agent/guardian has asserted that the patient is known to be taking no medications&#13;&#10;
+* For diagnoses, problems and procedures: the patient or patient's agent/guardian has asserted that there is no known event to record."/>
+    </concept>
+    <concept>
+      <code value="notasked"/>
+      <display value="Not Asked"/>
+      <definition value="THe investigation to find out whether there are items for this list has not occurred"/>
+    </concept>
+    <concept>
+      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+        <valueString value="In spite of the definition, this code should be used carefully as it represents potential information leakage or the perception thereof"/>
+      </extension>
+      <code value="withheld"/>
+      <display value="Information Withheld"/>
+      <definition value="Information was not provided due to privacy or confidentiality concerns. Note that it should not be assumed that this means that the particular information in question was withheld due to it's contents - it can also be a policy decision"/>
+    </concept>
+    <concept>
+      <code value="notstarted"/>
+      <display value="Not Started"/>
+      <definition value="The work to populate this list has not yet begun"/>
+    </concept>
+    <concept>
+      <code value="closed"/>
+      <display value="Closed"/>
+      <definition value="This list has now closed or has ceased to be relevant or useful"/>
+    </concept>
+  </define>
+</ValueSet>
+

@@ -1,0 +1,41 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Practitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal 
+responsibilities and this Resource is used for attribution of activities and responsibilities to these individuals.
+
+Practitioners include (but are not limited to):
+</p>
+<ul>
+<li>physicians, dentists, pharmacists</li>
+<li>physician assistants, nurses, scribes</li>
+<li>midwives, dietitians, therapists, optometrists, paramedics</li>
+<li>medical technicians, laboratory scientists, prosthetic technicians, radiographers</li>
+<li>social workers, professional home carers, official volunteers</li>
+<li>receptionists handling patient registration</li>
+<li>IT personnel merging or unmerging patient records</li>
+</ul>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+The Resource SHALL not be used for persons involved without a formal responsibility like individuals taking care for friends, 
+relatives or neighbors. These can be registered as a Patient's Contact.  If performing some action or being referenced by another
+resource, use <a href="relatedperson.html">RelatedPerson</a>.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+Practitioner performs different roles within the same or even different organizations. Depending on jurisdiction and custom, 
+it may be necessary to maintain a specific Practitioner Resource for each such role or have a single Practitioner with multiple roles.
+The role can be limited to a specific period, after which authorization for this role ends. Note that the represented organization
+need not necessarily be the (direct) employer of a Practitioner.
+</p>
+</div>
+
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Namespace xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/namespace.xsd">
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p><b>SNOMED CT</b></p>
+      <p> oid: 2.16.840.1.113883.6.96</p>
+      <p> uri: http://snomed.info/sct</p>
+    </div>
+  </text>
+  <type value="codesystem"/>
+  <label value="SNOMED CT"/>
+  <status value="active"/>
+  <description value="SNOMED CT is a concept-based, scientifically validated terminology that provides a unique and permanent concept identifier that can be included in multiple HL7 data types including CD and CE.  The concepts are managed to avoid &quot;semantic drift&quot; so the meaning remains constant.  If the concept is found to be ambiguous or the meaning changes, the concept is inactivated but still retained and the identifier is never reused.  
+
+SNOMED CT's concepts are interrelated hierarchically and using description logic.  
+
+SNOMED CT concepts have a unique &quot;fully-specified name&quot;, a preferred term, and, optionally, synonyms.  The description languages include English and Spanish."/>
+  <uniqueId>
+    <type value="oid"/>
+    <value value="2.16.840.1.113883.6.96"/>
+  </uniqueId>
+  <uniqueId>
+    <type value="uri"/>
+    <value value="http://snomed.info/sct"/>
+  </uniqueId>  
+</Namespace>

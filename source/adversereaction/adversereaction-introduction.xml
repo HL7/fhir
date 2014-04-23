@@ -1,0 +1,34 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Adverse Reaction resources are used to provide information about specific 
+reactions to a substance.  These are normally associated with an 
+<a href="allergyintolerance.html">AllergyIntolerance</a> resource,
+but can be reported on their own when no assumption of further reactions 
+is being made, or when specific events are being described.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+An Adverse Reaction normally has a set of signs or symptoms that are 
+reported in the Symptom class. However, it is possible to convey that 
+an adverse reaction occurred without knowing the specific signs or 
+symptoms that occurred, e.g. <i>Some unknown reaction occurred.</i>
+Similarly, it is possible to convey that an adverse reaction with 
+a set of symptoms occurred but not indicate the substance if it 
+is not known.  e.g. <i>A rash occurred for some unknown reason.</i>
+</p>
+<p>
+The Exposure class is used to indicate a set of exposures 
+that preceded the reaction. There is no assertion of causality, 
+purely a statement of timing. Each exposure can indicate a 
+substance that might be different from the reaction if needed.
+</p>
+</div>
+
+</div>
+

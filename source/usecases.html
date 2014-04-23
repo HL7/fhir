@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+[%settitle Common Scenarios%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+  
+<a name="root"> </a>
+<h1>Common Scenarios in FHIR</h1>
+
+<p>
+FHIR is a framework standard that defines a common way to solve healthcare problems 
+and provides a set of resources that can be used in many different ways. 
+This page describes how certain common usage scenarios are implemented using the capabilities that 
+FHIR defines.  The provided scenarios are examples of usage and are not in any way exhaustive.  FHIR
+can and will be used in a wide variety of circumstances.
+</p>
+
+<a name="phr"></a>
+<h2>Personal Health Record (PHR)</h2>
+<p>
+In the PHR scenario, an Electronic Medical Record system (EMR, though many other names and acronyms 
+are also used) provides a RESTful API that allows patients to access their own medical
+record via a common web portal or mobile application, usually provided by a third party. 
+In this scenario, the PHR provider:
+</p> 
+
+<ul>
+ <li>Provides the patient with a login that identifies them (or links the patient record to an external identity provided by OpenID, Facebook, Google, etc.)</li>
+ <li>Authenticates the client using an appropriate OAuth server for the login (possibly their own) and restricts the client to viewing records associated with the specific patient (or patients, where appropriate access has been arranged)</li>
+</ul>
+
+<p>
+The EMR exposes a FHIR server that supports the <a href="http.html#search">search</a> and <a href="http.html#read">read</a> operations on the following resources: 
+</p>
+<ol>
+ <li>the <a href="patient.html">patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access to</li>
+ <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on the <a href="documentreference.html">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
+ <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on a set of <a href="clinical.html">clinical resources</a></li> 
+</ol>
+<p>
+Here is the conformance Statement for this scenario:
+ <a href="conformance-phr-example.xml.html">XML</a> or 
+ <a href="conformance-phr-example.json.html">JSON</a>.
+</p>
+
+<p>
+The EMR may also choose to provide additional functionality, such as shared access to patient 
+records by relatives/carers, to allow the patient to upload their own documents, medication statements, observations
+(e.g. from patient monitoring devices) and/or to allow the patient to make appointments. This 
+additional functionality will involve additional API capabilities to be implemented and 
+exposed. The EMR server may also choose to expose the <a href="http.html#search">search</a>, <a href="http.html#read">read</a> and <a href="http.html#history">history</a> operation on 
+the Security Event resource for the patient-specific records to allow patient review of record access. Note that all 
+usage of the RESTful API should be logged in SecurityEvent resources.
+</p>
+
+<a name="xds"></a>
+<h2>Document Sharing (XDS)</h2>
+
+<p>
+One common way to integrate healthcare information from a variety of sources is to build a 
+repository of documents around a patient record. Building a repository of documents 
+allows for less stringent alignment around policy, procedures and record-keeping/informatics
+standards.
+</p>
+<p>
+The most widely adopted framework for sharing documents within institutions, regions, states
+or countries is IHE Cross-Enterprise Document Sharing (XDS). XDS allows for a federated 
+system of repositories with a registry to provide coordinated access to the documents. 
+</p>
+<p>
+FHIR provides equivalent functionality to XDS that can be used to implement XDS behind
+the existing XDS.b interface, to provide a simpler mobile-friendly interface to an 
+existing XDS ecosystem, or to link document sharing into other functionality provided
+through a FHIR interface. 
+</p>
+<p>
+The following FHIR Resources are involved in the XDS functionality:
+</p>
+<ul>
+ <li>The <a href="documentreference.html">DocumentReference</a> resource describes a document that is located elsewhere. A document registry is a system that maintains a set of Document References</li>
+ <li>The <a href="xds-profile.html">XDS profile</a> provides specific XDS implementation detail for the more general DocumentReference resource</li>
+ <li>The <a href="http.html#binary">Binary</a> support can be used to store the actual documents on a FHIR server. A repository is a system that stores the binary document in addition to Document References (or sometimes without)</li>
+ <li><a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a> and <a href="organization.html">Organization</a> resources provide support for identifying people and organizations</li>
+ <li>The <a href="securityevent.html">SecurityEvent</a> resource tracks usage of the document registry and repository</li>
+</ul>
+<p>
+At present, IHE is working with the FHIR project team to use FHIR for Mobile Health Documents (MHD).
+</p>
+
+
+<a name="decision"></a>
+<h2>Decision Support</h2>
+
+<p>
+One common use of healthcare information systems is to integrate some form of decision support software into clinical systems.
+Common uses of clinical decision support are:
+</p>
+<ul>
+ <li>Drug-drug interaction checking, and more generally, prescription safety checks</li>
+ <li>Suggesting commonly missed Diagnostic Data interpretations (including delta checking)</li>
+ <li>Patient surveillance for early warning of deteriorating patient health (both acute and ambulatory care)</li>
+ <li>Identifying candidates for alternative treatment plans for improved efficacy</li>
+</ul>
+<p>
+Note that in addition to clinical decision support, there are also infrastructural uses, such as 
+managing access control.
+</p>
+<p>
+The various forms of decision support each involve different interaction patterns, so there is no single 
+decision support implementation in the FHIR specification. Generally, the patterns fall into several classes:
+</p>
+<ol>
+ <li>The decision comes from an engine entirely hidden behind a system interface and has no direct impact on the data exchange</li>
+ <li>The decision support engine uses existing data and generates alarm messages concerning patient state that are visible on the FHIR interface</li>
+ <li>The decision support engine is consulted through a described interface; it accepts a request for a decision and returns a decision</li>
+</ol>
+<p>
+Any decision support may fall into multiple categories at once, depending on the perspective of a particular system.
+</p>
+<ol>
+ <li>There is no particular support required from the FHIR specification, though there will be ongoing review of the contents of the resources to ensure that they support common decision support practices appropriately</li>
+ <li>There is no suitable resource for this use yet. The <a href="alert.html">Alert</a> resource is intended or clinical notes about the patient, and is not intended for this use. A resource called "Alarm" is under preparation for this purpose </li>
+ <li>A request for a decision support is understood as a <a href="search.html">search</a> using a named _query that takes a set of parameters. See below</li>
+</ol>
+ 
+<h3>Explicit Requests for Decisions</h3> 
+<p>
+When a query is initiated in order to get a decision made, the following considerations apply:
+</p>
+<p><b>Request</b></p>
+<ul>
+  <li>The request for a decision is made using one of the interaction patterns described for <a href="search.html">search/query</a>: A RESTful search, a query posted to <a href="messaging.html#mailbox">/Mailbox</a>, a query <a href="messaging.html">message</a>, or the Asynchronous query pattern</li>
+  <li>The request has a _query parameter that identifies the decision that is being requested</li>
+  <li>The request also has a set of parameter values. These parameter values may be the data that describes the decision being made or they may be references to specific resources that contain the request. In general, 
+    the more complex the decision request is, the more likely it is that a full resource is appropriate, particularly since this provides a ready made way to record and manage the requests themselves. </li>
+  <li>In some of the query interaction patterns, the resources identified in the parameter value can be bundled up with the request. In others, only the references can be passed</li>
+  <li>Which of the query patterns is most appropriate depends on the complexity of the decision support input, and the length of time the decision is expected to take. As either of these increases, the more complex query patterns become more appropriate</li>
+</ul>
+
+<p><b>Response</b></p>
+<ul>
+ <li>If the decision support engine is unable to provide the requested decision, it returns an <a href="operationoutcome.html">Operation Outcome Resource</a> describing the issue</li>
+ <li>Otherwise it returns a resource that represents the decision, along with other resources as supporting information, as described by the resource, or applicable profiles</li>
+ <li>In principle, the decision provider can choose to make a copy of the returned decision resource available through a normal RESTful interface, or it can choose not to. This decision may be constrained by applicable profiles, policy decision, or the innate nature of the query</li>
+ <li>If either the decision provider or the requester choose to retain a copy of the decision, they must ensure that the (lack of) currency of the decision is appropriately considered when it is used</li>
+</ul>
+
+<p>
+It follows from this then, that decisions that may be requested need at least a response resource defined, and possibly a request resource. This table summarizes 
+known decisions for which resources have been defined.
+</p>
+<table class="grid">
+ <tr> <td><b>Decision</b></td> <td><b>Resources</b></td> <td><b>Invocation</b></td> </tr>
+ <tr> <td>What immunizations should this patient have?</td> <td>Response: <a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td> <td>The exact way to invoke this decision is not yet defined</td> </tr>
+</table>
+
+<p>
+Implementers are allowed to use existing resources for decisions not documented here, but there is no guarantee that they will be suitable. 
+Improving decision support will be a focus for ongoing development during the Trial Use period.
+</p>
+
+</div>
+<%onthispage PHR#phr|Document Sharing (XDS)#xds|Decision Support#decision%>
+
+[%file newfooter%]
+    
+    
+</body>
+</html>

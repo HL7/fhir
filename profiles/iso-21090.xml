@@ -1,0 +1,1023 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Grahame</Author>
+  <LastAuthor>Grahame</LastAuthor>
+  <Created>2012-03-19T09:39:52Z</Created>
+  <LastSaved>2013-12-05T07:31:59Z</LastSaved>
+  <Version>14.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>7335</WindowHeight>
+  <WindowWidth>14880</WindowWidth>
+  <WindowTopX>480</WindowTopX>
+  <WindowTopY>210</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62" ss:Name="Hyperlink">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
+    ss:Underline="Single"/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <NumberFormat ss:Format="Short Date"/>
+  </Style>
+  <Style ss:ID="s68" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Metadata">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="19" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="108"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="789.75"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+    <Cell><Data ss:Type="String">Name</Data></Cell>
+    <Cell><Data ss:Type="String">Value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">id</Data></Cell>
+    <Cell><Data ss:Type="String">iso-21090</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">name</Data></Cell>
+    <Cell><Data ss:Type="String">ISO 21090 Data Type Extensions</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">author.name</Data></Cell>
+    <Cell><Data ss:Type="String">HL7</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">author.reference</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://www.hl7.org</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">intention</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">code</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">description</Data></Cell>
+    <Cell><Data ss:Type="String">Extra ISO 21090 features not included in data types because of core design policy</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">evidence</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">comments</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">status</Data></Cell>
+    <Cell><Data ss:Type="String">draft</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="DateTime">2012-06-24T00:00:00.000</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">endorser.name</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">endorser.reference</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">changes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">supercedes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">profile</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">binding</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">extension.uri</Data></Cell>
+    <Cell ss:StyleID="s68" ss:HRef="http://hl7.org/fhir/Profile/iso-21090"><Data
+      ss:Type="String">http://hl7.org/fhir/Profile/iso-21090</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>11</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Extensions">
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="29" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="192.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="150.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="56.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="73.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="105.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="159"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="213.75"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
+   <Column ss:Index="12" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s71">
+    <Cell><Data ss:Type="String">Code</Data></Cell>
+    <Cell><Data ss:Type="String">Context Type</Data></Cell>
+    <Cell><Data ss:Type="String">Context</Data></Cell>
+    <Cell><Data ss:Type="String">Card.</Data></Cell>
+    <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Binding</Data></Cell>
+    <Cell><Data ss:Type="String">Is Modifier</Data></Cell>
+    <Cell><Data ss:Type="String">Short Name</Data></Cell>
+    <Cell><Data ss:Type="String">Definition</Data></Cell>
+    <Cell><Data ss:Type="String">Requirements</Data></Cell>
+    <Cell><Data ss:Type="String">Comments</Data></Cell>
+    <Cell><Data ss:Type="String">RIM Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
+    <Cell><Data ss:Type="String">To Do</Data></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">nullFlavor</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Any</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">NullFlavor</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">NI | OTH | NINF | PINF | UNK | ASKU | NAV | NASK | TRC | MSK | NA</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">If the value is not a proper value, indicates the reason</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s72"><Data ss:Type="String">Considerable care must be used when using nullFlavor in this context of FHIR - more than any other concept, this is tied to the way v3 works, and FHIR is quite different. For instance, there is no notion of a &quot;proper value&quot; as opposed to any other value in FHIR. a NullFlavor should be understood to mean, &quot;why information is missing&quot;, and the nulFlavors OTH, NINF, PINF, and TRC should not be used </Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ANY.nullFlavor</Data></Cell>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">name-qualifier</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">HumanName.part</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">EntityNamePartQualifier</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">AD | SP | BR | CL | IN | LS | MID | PFX | SFX</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s72"><Data ss:Type="String">Used to indicate additional information about the name part and how it should be used</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">ENXP.qualifier</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell><Data ss:Type="String">uncertainty</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">decimal</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Standard Deviation (same units as the quantity)</Data></Cell>
+    <Cell><Data ss:Type="String">The primary measure of variance/uncertainty of the value (the square root of the sum of the squares of the differences between all data points and the mean).</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">standardDeviation has the same units as the quantity. It is used to normalize the data for computing the distribution function. Applications that cannot deal with probability distributions can still get an idea about the confidence level by looking at standardDeviation</Data></Cell>
+    <Cell><Data ss:Type="String">PPD.standardDeviation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">uncertaintyType</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ProbabilityDistributionType</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Probability Distribution Type for uncertainty</Data></Cell>
+    <Cell><Data ss:Type="String">A code specifying the type of probability distribution for the uncertainty</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">This is only meaningful if there is also an uncertainty extension. If there is and uncertainty extension with no type, this means  that the probability distribution type is unknown. In that case, the uncertainty has the meaning of an informal guess</Data></Cell>
+    <Cell><Data ss:Type="String">PPD.distributionType</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">address-use</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">PostalAddressUse</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">BAD | CONF | HP | HV | DIR | PUB | PHYS | PST</Data></Cell>
+    <Cell><Data ss:Type="String">Uses of Addresses - codes not defined as part of Address.use</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">AD.use</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">address-part-additionalLocator</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">additionalLocator</Data></Cell>
+    <Cell><Data ss:Type="String">This can be a unit designator, such as apartment number, suite number, or floor. There may be several unit designators in an address (e.g., &quot;3rd floor, Appt. 342&quot;). This can also be a designator pointing away from the location, rather than specifying a smaller location within some larger one (e.g., Dutch &quot;t.o.&quot; means &quot;opposite to&quot; for house boats located across the street facing houses).</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=ADL]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">address-part-unitID</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">unitID</Data></Cell>
+    <Cell><Data ss:Type="String">The number or name of a specific unit contained within a building or complex, as assigned by that building or complex.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=UNID]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">address-part-unitType</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">unitType</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of specific unit contained within a building or complex. E.g. Appartment, Floor</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=UNIT]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">address-part-deliveryAddressLine</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryAddressLine</Data></Cell>
+    <Cell><Data ss:Type="String">A delivery address line is frequently used instead of breaking out delivery mode, delivery installation, etc. An address generally has only a delivery address line or a street address line, but not both.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DAL]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">address-part-deliveryInstallationType</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryInstallationType</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of delivery installation (the facility to which the mail will be delivered prior to final shipping via the delivery mode.) Example: post office, letter carrier depot, community mail center, station, etc.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DINST]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell><Data ss:Type="String">address-part-deliveryInstallationArea</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryInstallationArea</Data></Cell>
+    <Cell><Data ss:Type="String">The location of the delivery installation, usually a town or city, and is only required if the area is different from the municipality. Area to which mail delivery service is provided from any postal facility or service such as an individual letter carrier, rural route, or postal route.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DINSTA]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell><Data ss:Type="String">address-part-deliveryInstallationQualifier</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryInstallationQualifier</Data></Cell>
+    <Cell><Data ss:Type="String">A number, letter or name identifying a delivery installation. E.g., for Station A, the delivery installation qualifier would be 'A'.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DINSTQ]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">address-part-deliveryMode</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryMode</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates the type of service offered, method of delivery. For example: post office box, rural route, general delivery, etc.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DMOD]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">address-part-deliveryModeIdentifier</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">deliveryModeIdentifier</Data></Cell>
+    <Cell><Data ss:Type="String">Represents the routing information such as a letter carrier route number. It is the identifying number of the designator (the box number or rural route number).</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=DMODID]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">address-part-streetAddressLine</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">streetAddressLine</Data></Cell>
+    <Cell><Data ss:Type="String">Description: A street address line is frequently used instead of breaking out build number, street name, street type, etc. An address generally has only a delivery address line or a street address line, but not both.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=SAL]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">address-part-houseNumber</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">houseNumber</Data></Cell>
+    <Cell><Data ss:Type="String">The number of a building, house or lot alongside the street. Also known as &quot;primary street number&quot;. This does not number the street but rather the building.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">ADXP[partType=BNR]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="18.75">
+    <Cell><Data ss:Type="String">address-part-buildingNumberSuffix</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">buildingNumberSuffix</Data></Cell>
+    <Cell><Data ss:Type="String">Any alphabetic character, fraction or other text that may appear after the numeric portion of a building number</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=BNS]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="23.25">
+    <Cell><Data ss:Type="String">address-part-postBox</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">postBox</Data></Cell>
+    <Cell><Data ss:Type="String">A numbered box located in a post station.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=POB]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="26.25">
+    <Cell><Data ss:Type="String">address-part-houseNumberNumeric</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">houseNumberNumeric</Data></Cell>
+    <Cell><Data ss:Type="String">The numeric portion of a building number</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=BNN]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="52.5">
+    <Cell><Data ss:Type="String">address-part-streetName</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">streetName</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=STR]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-streetNameBase</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">streetNameBase</Data></Cell>
+    <Cell><Data ss:Type="String">The base name of a roadway or artery recognized by a municipality (excluding street type and direction)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=STB]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-streetNameType</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">streetNameType</Data></Cell>
+    <Cell><Data ss:Type="String">The designation given to the street. (e.g. Street, Avenue, Crescent, etc.)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=STTYP]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-direction</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">direction</Data></Cell>
+    <Cell><Data ss:Type="String">Direction (e.g., N, S, W, E)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=DIR]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-careOf</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">careOf</Data></Cell>
+    <Cell><Data ss:Type="String">The name of the party who will take receipt at the specified address, and will take on responsibility for ensuring delivery to the target recipient</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=CAR]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-censusTract</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">censusTract</Data></Cell>
+    <Cell><Data ss:Type="String">A geographic sub-unit delineated for demographic purposes.</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=CEN]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-county</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">county</Data></Cell>
+    <Cell><Data ss:Type="String">A sub-unit of a state or province. (49 of the United States of America use the term &quot;county;&quot; Louisiana uses the term &quot;parish&quot;.)</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=CPA]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-delimiter</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">delimiter</Data></Cell>
+    <Cell><Data ss:Type="String">Delimiters are printed without framing white space. If no value component is provided, the delimiter appears as a line break.</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">This really has no rationale use in FHIR</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=DEL]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">address-part-precinct</Data></Cell>
+    <Cell><Data ss:Type="String">Data Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Address</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">precinct</Data></Cell>
+    <Cell><Data ss:Type="String">A subsection of a municipality</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s70"><Data ss:Type="String">ADXP[partType=PRE]</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Bindings">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="209.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="61.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="99"/>
+   <Column ss:AutoFitWidth="0" ss:Width="168"/>
+   <Column ss:AutoFitWidth="0" ss:Width="158.25"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Binding Strength</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Description</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s75"><Data ss:Type="String">EntityNamePartQualifier</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#name-part-qualifier</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Codes specifying the type of probability distribution</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#probability-distribution-type</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">PostalAddressUse</Data></Cell>
+    <Cell><Data ss:Type="String">Uses of an address not included in Address.use</Data></Cell>
+    <Cell><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#postal-address-use</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NullFlavor</Data></Cell>
+    <Cell><Data ss:Type="String">A collection of codes specifying why a valid value is not present</Data></Cell>
+    <Cell><Data ss:Type="String">code list</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#null-flavor</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>4</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="name-part-qualifier">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="12" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s75" ss:DefaultColumnWidth="78"
+   ss:DefaultRowHeight="15">
+   <Column ss:Index="3" ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="153.75"/>
+   <Column ss:StyleID="s75" ss:AutoFitWidth="0" ss:Width="576.75"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">display</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">definition</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">LS</Data></Cell>
+    <Cell><Data ss:Type="String">Legal status</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">For organizations a suffix indicating the legal status, e.g., Inc., &quot;Co.&quot;, &quot;AG&quot;, &quot;GmbH&quot;, &quot;B.V.&quot; &quot;S.A.&quot;, &quot;Ltd.&quot; Etc.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AC</Data></Cell>
+    <Cell><Data ss:Type="String">Academic</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates that a prefix like &quot;Dr.&quot; or a suffix like &quot;M.D.&quot; or &quot;Ph.D.&quot; is an academic title.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell><Data ss:Type="String">NB</Data></Cell>
+    <Cell><Data ss:Type="String">Nobility</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">In Europe and Asia, there are still people with nobility titles (aristocrats). German &quot;von&quot; is generally a nobility title, not a mere voorvoegsel. Others are &quot;Earl of&quot; or &quot;His Majesty King of...&quot; etc. Rarely used nowadays, but some systems do keep &#10;track of this.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">PR</Data></Cell>
+    <Cell><Data ss:Type="String">Professional</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">Primarily in the British Imperial culture people tend to have an abbreviation of their professional organization as part of their credential suffices</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HON</Data></Cell>
+    <Cell><Data ss:Type="String">Honorific</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">An honorific such as &quot;The Right Honourable&quot; or &quot;Weledelgeleerde Heer&quot;.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">BR</Data></Cell>
+    <Cell><Data ss:Type="String">Birth</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">A name that a person was given at birth or established as a consequence of adoption. NOTE: This is not used for temporary names assigned at birth such as 'Baby of Smith' – which is just a name with a use code of TEMP</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell><Data ss:Type="String">AD</Data></Cell>
+    <Cell><Data ss:Type="String">Acquired</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">A name part a person acquired. The name part may be acquired by adoption, or the person may have chosen to use the name part for some other reason. NOTE  This differs from an other/psuedonym/alias in that an acquired name part is acquired on a formal basis rather than an informal one (e.g. registered as part of the official name)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">SP</Data></Cell>
+    <Cell><Data ss:Type="String">Spouse</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">The name assumed from the partner in a marital relationship. Usually the spouse‘s family name. No inference about gender may be made from the existence of spouse names</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">MID</Data></Cell>
+    <Cell><Data ss:Type="String">Middle Name</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates that the name part is a middle name. In general, the  English  &quot;middle name&quot;  concept is all of the given names after the first. This qualifier may be used to explicitly indicate which given names are considered to be middle names. The middle name qualifier may also be used with family names. This is a Scandinavian use case, matching the concept of &quot;mellomnavn&quot;/&quot;mellannamn&quot;. There are specific rules that indicate what names may be taken as a mellannamnin different Scandinavian countries</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CL</Data></Cell>
+    <Cell><Data ss:Type="String">Call me</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">Callme is used to indicate which of the various name parts is used when interacting with the person</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">IN</Data></Cell>
+    <Cell><Data ss:Type="String">Initial</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier2</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates that a name part is just an initial. Initials do not imply a trailing period since this would not work with non-Latin scripts. Initials may consist of more than one letter, e.g., &quot;Ph.&quot; could stand for &quot;Philippe&quot; or &quot;Th.&quot; for &quot;Thomas&quot;</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="probability-distribution-type">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="43.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="105"/>
+   <Column ss:AutoFitWidth="0" ss:Width="264.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="395.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">display</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">definition</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell><Data ss:Type="String">B</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">beta</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The beta-distribution is used for data that is bounded on both sides and may or may not be skewed (e.g., occurs when probabilities are estimated.) Two parameters a and b are available to adjust the curve. The mean m and variance s2 relate as follows: m = a/ (a + b) and s2 = ab/((a + b)2 (a + b + 1)).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">E</Data></Cell>
+    <Cell><Data ss:Type="String">exponential</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Used for data that describes extinction. The exponential distribution is a special form of g-distribution where a = 1, hence, the relationship to mean m and variance s2 are m = b and s2 = b2.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">F</Data></Cell>
+    <Cell><Data ss:Type="String">F</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Used to describe the quotient of two c2 random variables. The F-distribution has two parameters n1 and n2, which are the numbers of degrees of freedom of the numerator and denominator variable respectively. The relationship to mean m and variance s2 are: m = n2 / (n2 - 2) and s2 = (2 n2 (n2 + n1 - 2)) / (n1 (n2 - 2)2 (n2 - 4)).</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">G</Data></Cell>
+    <Cell><Data ss:Type="String">(gamma)</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The gamma-distribution used for data that is skewed and bounded to the right, i.e. where the maximum of the distribution curve is located near the origin. The g-distribution has a two parameters a and b. The relationship to mean m and variance s2 is m = a b and s2 = a b2.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">LN</Data></Cell>
+    <Cell><Data ss:Type="String">log-normal</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The logarithmic normal distribution is used to transform skewed random variable X into a normally distributed random variable U = log X. The log-normal distribution can be specified with the properties mean m and standard deviation s. Note however that mean m and standard deviation s are the parameters of the raw value distribution, not the transformed parameters of the lognormal distribution that are conventionally referred to by the same letters. Those log-normal parameters mlog and slog relate to the mean m and standard deviation s of the data value through slog2 = log (s2/m2 + 1) and mlog = log m - slog2/2.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">normal (Gaussian)</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">This is the well-known bell-shaped normal distribution. Because of the central limit theorem, the normal distribution is the distribution of choice for an unbounded random variable that is an outcome of a combination of many stochastic processes. Even for values bounded on a single side (i.e. greater than 0) the normal distribution may be accurate enough if the mean is &quot;far away&quot; from the bound of the scale measured in terms of standard deviations.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">T</Data></Cell>
+    <Cell><Data ss:Type="String">T</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Used to describe the quotient of a normal random variable and the square root of a c2 random variable. The t-distribution has one parameter n, the number of degrees of freedom. The relationship to mean m and variance s2 are: m = 0 and s2 = n / (n - 2)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">U</Data></Cell>
+    <Cell><Data ss:Type="String">uniform</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The uniform distribution assigns a constant probability over the entire interval of possible outcomes, while all outcomes outside this interval are assumed to have zero probability. The width of this interval is 2s sqrt(3). Thus, the uniform distribution assigns the probability densities f(x) = sqrt(2 s sqrt(3)) to values m - s sqrt(3) &gt;= x &lt;= m + s sqrt(3) and f(x) = 0 otherwise.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">X2</Data></Cell>
+    <Cell><Data ss:Type="String">chi square</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Used to describe the sum of squares of random variables which occurs when a variance is estimated (rather than presumed) from the sample. The only parameter of the c2-distribution is n, so called the number of degrees of freedom (which is the number of independent parts in the sum). The c2-distribution is a special type of g-distribution with parameter a = n /2 and b = 2. Hence, m = n and s2 = 2 n.</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>3</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="postal-address-use">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="15" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="105.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="84"/>
+   <Column ss:AutoFitWidth="0" ss:Width="141.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">display</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">definition</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">BAD</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">bad address</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: A flag indicating that the address is bad, in fact, useless.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CONF</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">confidential address</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses. Lloyd to supply more complete description.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HP</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">primary home</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: The primary home, to reach a person after business hours.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HV</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">vacation home</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: A vacation home, to reach a person while on vacation.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DIR</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">direct</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PUB</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">public</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PHYS</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">physical visit address</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Used primarily to visit an address.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PST</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">postal address</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Description: Used to send mail.</Data></Cell>
+   </Row>
+   <Row ss:Index="15" ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <RangeSelection>R1:R1048576</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="null-flavor">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="16" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="105.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="84"/>
+   <Column ss:AutoFitWidth="0" ss:Width="141.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s75">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">display</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">definition</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NI</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">No Information</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The value is exceptional (missing, omitted, incomplete, improper). No information as to the reason for being an exceptional value is provided. This is the most general exceptional value. It is also the default exceptional value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">INV</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">invalid</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The value as represented in the instance is not a member of the set of permitted data values in the constrained value domain of a variable</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DER</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">derived</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">An actual value may exist, but it must be derived from the provided information (usually an EXPR generic data type extension will be used to convey the derivation expression</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OTH</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">other</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The actual value is not a member of the set of permitted data values in the constrained value domain of a variable. (e.g., concept not provided by required code system). Usage Notes: This flavor and its specializations are most commonly used with the CD datatype and its flavors. However, it may apply to *any* datatype where the constraints of the type are tighter than can be conveyed. For example, a PQ that is for a true measured amount whose units are not supported in UCUM, a need to convey a REAL when the type has been constrained to INT, etc. With coded datatypes, this null flavor may only be used if the vocabulary binding has a coding strength of CNE. By definition, all local codes and original text are part of the value set if the coding strength is CWE</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NINF</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">negative infinity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Negative infinity of numbers</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PINF</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">positive infinity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Positive infinity of numbers</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">UNC</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">un-encoded</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The actual value has not yet been encoded within the approved value domain. Example: Original text or a local code has been specified but translation or encoding to the approved value set has not yet occurred due to limitations of the sending system. Original text has been captured for a PQ, but not attempt has been made to split the value and unit or to encode the unit in UCUM. Usage Notes: If it is known that it is not possible to encode the concept, OTH should be used instead. However, use of UNC does not necessarily guarantee the concept will be encodable, only that encoding has not been attempted. Data type properties such as original text and translations may be present when this null flavor is included</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MSK</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">masked</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">There is information on this item available but it has not been provided by the sender due to security, privacy or other reasons. There may be an alternate mechanism for gaining access to this information. Note: using this null flavor does provide information that may be a breach of confidentiality, even though no detail data is provided. Its primary purpose is for those circumstances where it is necessary to inform the receiver that the information does exist without providing any detail</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">NA</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">not applicable</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Known to have no proper value (e.g., last menstrual period for a male)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">UNK</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">A proper value is applicable, but not known. Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ASKU</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">asked but unknown</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Information was sought but not found (e.g., patient was asked but didn't know)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">NAV</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">temporarily unavailable</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Information is not available at this time but it is expected that it will be available later.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">NASK</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">not asked</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">This information has not been sought (e.g., patient was not asked)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">QS</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">Sufficient Quantity</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material. e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' The null flavor would be used to express the quantity of water</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">TRC</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">trace</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">http://hl7.org/fhir/v3/NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The content is greater than zero, but too small to be quantified</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

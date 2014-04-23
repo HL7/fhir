@@ -1,0 +1,29 @@
+/* Show 24 column grid in the background
+-------------------------------------------------- */
+
+/*
+			http://24ways.org/2011/css3-patterns-explained/
+            //background: linear-gradient(90deg, white 60%, #8b0 60%);
+            //#gradient > .vertical(green, white);
+			//background-size: 50px 50px; 
+*/
+
+
+.segment > .container {
+    background: url('../images/b_grid-960-940_Col20_NrCol24_Gut20.png') center top; 
+}
+@media (min-width: 768px) and (max-width: 979px) {
+    .segment > .container {
+        background: url('../images/b_grid-744-724_Col11_NrCol24_Gut20.png') center top;
+    }
+}
+@media (min-width: 1200px) {
+    .segment > .container {
+        background: url('../images/b_grid-1200-1170_Col20_NrCol24_Gut30.png') center top;
+    }
+}
+@media (max-width: 767px) {    
+    .segment > .container {
+        background: url('../images/b_grid-fluid.png');
+    }
+}

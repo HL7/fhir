@@ -1,0 +1,50 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <identifier value="http://hl7.org/fhir/vs/provenance-participant-type"/>
+  <name value="ProvenanceParticipantType"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="fhir@lists.hl7.org"/>
+  </telecom>
+  <description value="The type of a provenance participant. Use either a defined FHIR resource type, or, if the reference is not to a resource, one of the defined codes, or some other code if none of the defined codes are appropriate"/>
+  <status value="draft"/>
+  <date value="2023-05-12T00:10:00"/>
+  <define>
+    <system value="http://hl7.org/fhir/provenance-participant-type"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="person"/>
+      <definition value="The participant is a person acting on their on behalf or on behalf of the patient rather than as an practitioner for an organization.  I.e. &quot;not a healthcare provider&quot;"/>
+    </concept>
+    <concept>
+      <code value="practitioner"/>
+      <definition value="The participant is a practitioner"/>
+    </concept>
+    <concept>
+      <code value="organization"/>
+      <definition value="The participant is an organization"/>
+    </concept>
+    <concept>
+      <code value="software"/>
+      <definition value="The participant is a software application"/>
+    </concept>
+    <concept>
+      <code value="record"/>
+      <definition value="The participant is a logical record. The record itself participated in the activity"/>
+    </concept>
+    <concept>
+      <code value="document"/>
+      <definition value="The participant is a document"/>
+    </concept>
+  </define>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/resource-types"/>
+    </include>
+  </compose>
+</ValueSet>

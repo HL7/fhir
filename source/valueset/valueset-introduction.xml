@@ -1,0 +1,40 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Value sets may be constructed in one of two ways:
+</p>
+<ul>
+ <li>A value set can <i>define</i> its own codes, and/or</li>
+ <li>A value set can be <i>composed</i> of codes defined in other code systems, either by listing the codes or by providing a set of selection criteria</li>
+</ul>
+<p>
+A value set can also be "expanded", where the value set is turned into a simple collection of enumerated codes.
+This operation is performed to produce a collection of codes that are ready to use for data entry or 
+validation. An expanded value set may also contain the original definition as well. 
+</p>
+
+</div>
+<div>
+<h2>Boundaries and Relationships</h2>
+<ul>
+ <li>Value sets are used in <a href="profile.html">Profiles</a>, and <a href="questionnaire.html">Questionnaires</a> to specify the allowable contents for coded elements</li>
+ <li>In addition, a specific <a href="datatypes.html#Coding">Coding</a> can reference the value set it was picked from</li>
+ <li><a href="conceptmap.html">Concept Maps</a> describe mappings between value sets</li>
+</ul>
+
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+The ValueSet resource design is based on the fundamental definitions found in the 
+<a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a> document 
+and the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. Value set
+resources can be converted to CTS2 value set and code system resources.
+</p>
+
+
+</div>
+</div>

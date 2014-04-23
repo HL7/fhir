@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@version June 2013 @author Melchior Ferdinand Pot-->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+ <name><!--Kind of observation = Blood culture-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="104177005"/>
+       <display value="Blood culture for bacteria, including anaerobic screen"/>
+    </coding>
+ </name>
+ <valueCodeableConcept>
+     <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="8745002"/>
+        <display value="Gram-positive bacteria"/>
+     </coding>
+ </valueCodeableConcept>
+ <interpretation>
+     <coding>
+         <system value="http://hl7.org/fhir/v2/0078" />
+         <code value="POS" />
+     </coding>
+ </interpretation>
+ <issued value="2013-03-11T10:28:00+01:00"/>
+ <status value="final"/>
+ <reliability value="ok"/>
+ <!--BodySite not relevant-->
+ <method>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="104177005"/>
+       <display value="Blood culture for bacteria, including anaerobic screen"/>
+    </coding>
+ </method>
+ <!--No identifier could be provided to this observation-->
+ <subject><!--It entails Roel's Staphylococcus-->
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </subject>
+ <performer><!--Roel's blood culture was tested by Luigi Maas-->     
+     <reference value="Practitioner/f202"/>
+     <display value="Luigi Maas"/>
+ </performer>
+ <!--ReferenceRange and component are not applicable-->
+</Observation>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelatedPerson xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/relatedperson.xsd">
+  <text>
+
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table>
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td>Bénédicte du Marché</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>43, Place du Marché Sainte Catherine, 75004 Paris, France</td>
+          </tr>
+          <tr>
+            <td>Contacts</td>
+            <td>Phone: +33 (237) 998327</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </text>
+
+  <identifier>
+    <use value="usual"/>
+    <label value="INSEE"/>
+    <system value="urn:oid:1.2.250.1.61"/>
+    <value value="272117510400399"/>
+  </identifier>
+
+  <patient>
+    <reference value="Patient/example" />
+  </patient>
+  
+  <relationship>
+    <coding>
+      <system value="http://hl7.org/fhir/patient-contact-relationship" />
+      <code value="partner" />
+    </coding>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/RoleCode" />
+      <code value="WIFE" />
+    </coding>    
+  </relationship>
+  
+  <name>
+    <family value="du">
+      <!-- the "du" part is a family name prefix (VV in iso 21090) -->
+      <extension url="http://hl7.org/fhir/Profileiso-21090#qualifier">
+        <valueCode value="VV"/>
+      </extension>
+    </family>
+    <family value="Marché"/>
+    <given value="Bénédicte"/>
+  </name>
+
+  <telecom>
+    <system value="phone"/>
+    <value value="+33 (237) 998327"/>
+  </telecom>
+  
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="F"/>
+      <display value="Female"/>
+    </coding>
+  </gender>
+ 
+  <address>
+    <line value="43, Place du Marché Sainte Catherine" />
+    <city value="Paris" />
+    <zip value="75004" />
+    <country value="FRA" />
+  </address>
+  
+  <photo>
+    <contentType value="image/jpeg" />
+    <url value="binary/@f016" />
+  </photo>
+</RelatedPerson>

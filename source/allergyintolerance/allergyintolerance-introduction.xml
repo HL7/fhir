@@ -1,0 +1,64 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+also from Russ, consider whether to put somewhere:
+
+I think that is a key concept, that having an allergy list as a distinct and separate element of clinical documentation is typical, even invariant.  And . 
+
+-->
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Allergy/Intolerance resources are used to provide information about 
+adverse sensitivities to substances that lead to physiologic changes 
+that are clinically observable.  An adverse sensitivity is defined as:
+</p>
+<blockquote>
+  <p>
+  A condition expected to result in undesirable physiologic reaction to an 
+  amount of a substance that would not produce a reaction in most individuals.  
+  The substance is the trigger of an immunologic response that produces the 
+  observed physiologic changes, or in some instances nonimmunologic mechanisms 
+  that produce clinically identical physiologic changes.  The immunologic 
+  response might be considered the actual cause of the reaction, but it is 
+  exposure to the trigger substance that is clinically observable.
+  </p>  
+</blockquote>  
+<p>
+This definition excludes clinically identical episodes that may be caused by 
+physical agents, such as heat, cold, sunlight, or vibration, by exercise activity, 
+or by infectious agents. Those conditions caused by physical agents or infectious 
+would be captured on the problem list (<a href="list.html">List</a>/<a href="condition.html">Condition</a> Resources). The allergy/intolerance list is a list of 
+conditions that represent a propensity unique to this individual for 
+a reaction upon future exposure to a specified substance. 
+</p>
+<p>
+Note that this specification draws a distinction between the 
+patients condition/problem list and an allergy/intolerance list, even 
+though allergies and intolerances are also conditions. This is because the distinction 
+is a long established clinical workflow, even to patients. Asking an individual 
+"if they have any problems" is not going to invoke an account of their past 
+reactions to medications or foods. Instead, they are asked if they "have any allergies".    
+An allergy/intolerance is also different in that a potential harm from exposure 
+to an external substance that may be ordered by a provider in the course of 
+their care but is not inherent to exposure to that substance for the general 
+population.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+Most of the details of the sensitivity can be found in the set of 
+<a href="adversereaction.html">reactions</a> that are associated with the resource,
+though these may not be present when the patient has not provided enough
+information. <a href="adversereaction.html">Adverse Reactions</a> do not 
+have to be always associated with an AllergyIntolerance which may appropriate 
+when an single reaction has not provided enough evidence for a meaningful 
+Allergy/Intolerance, or in specific views of events rather than in a general
+clinical record.
+</p>
+</div>
+
+</div>
+

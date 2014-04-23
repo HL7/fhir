@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Gastroenterology @ Acme Hospital. ph: +1 555 234 3523, email: <a
+          href="mailto:gastro@acme.org">gastro@acme.org</a></p>
+    </div>
+  </text>
+
+  <!-- Clinical Team "Gastroenterology" at Acme Hospital -->
+  <identifier>
+    <system value="http://www.acme.org.au/units"/>
+    <value value="Gastro"/>
+  </identifier>
+  <name value="Gastroenterology"/>
+  <telecom>
+    <system value="phone"/>
+    <value value="+1 555 234 3523"/>
+    <use value="mobile"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="gastro@acme.org"/>
+    <use value="work"/>
+  </telecom>
+  
+  <partOf>
+    <reference value="Organization/1"/>
+    <display value="ACME Healthcare, Inc"/>
+  </partOf>
+</Organization>

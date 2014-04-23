@@ -1,0 +1,29 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Representing Medication in the majority of healthcare settings is a matter of identifying an item from a list and then conveying a reference 
+for the item selected either into a patient related resource or to other applications.  Additional information about the medication is frequently 
+provided for human verification but a full representation of the details of composition and efficacy of the medicine is conveyed by referring
+to drug dictionaries by means of the codes they define. There are some occasions where it is necessary to identify slightly more detail, such
+as when dispensing a package containing a particular medicine requires identification both of the medicine and the package at once.  
+There are also some occasions (e.g. custom formulations) where the composition of a medicine must be represented.  
+In these cases the ingredients of the medicine have to be specified together with the amount contained, though the medication resource 
+does not provide full details.
+</p>
+<p>
+The medication resource allows for medications to be characterised as either a product or a package; this classification is important 
+because it affects the interpretation of a prescribed amount. For instance, is the prescribed amount 20 tablets, or 20 packages of
+50 tablets each? However the <i>kind</i> element is not required because not all contexts of use are involved with prescription (medication
+statements, for instance). Typically, however, profiles describing the use of the medication resource in a prescribing environment 
+will make the <i>kind</i> element required. 
+</p>
+<p>
+Depending on whether the medication is a product or a package, further details about the composition can be provided. A product
+has a form (tablet, suspension, etc.) and a list of ingredients with quantities. The ingredients may be other medications or 
+substances. A package has a container (vacuum packed box, jar, etc.) and a list of the products or other packages that are in the package.
+</p>
+</div>    
+    
+</div>

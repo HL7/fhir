@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Clinical Laboratory @ Acme Hospital. ph: +1 555 234 1234, email: <a
+          href="mailto:contact@labs.acme.org">contact@labs.acme.org</a></p>
+    </div>
+  </text>
+  
+  <!-- Clinical Lab at Acme Hospital -->
+  <identifier>
+    <system value="http://www.acme.org.au/units"/>
+    <value value="ClinLab"/>
+  </identifier>
+  <name value="Clinical Lab"/>
+  <telecom>
+    <system value="phone"/>
+    <value value="+1 555 234 1234"/>
+    <use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="contact@labs.acme.org"/>
+    <use value="work"/>
+  </telecom>
+</Organization>

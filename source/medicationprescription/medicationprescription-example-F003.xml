@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationPrescription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationprescription.xsd">
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="order9845343"/>
+    </identifier>
+    <dateWritten value="2011-05-01"/>
+    <status value="active"/>
+    <patient> <!-- Linked to the resource patient who needs the medication -->
+        <reference value="patient/patient-example-F001.xml"/>
+        <display value="P. van den Heuvel"/>         
+    </patient>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/F007"/>
+        <display value="S.M. Heps"/>
+    </prescriber>
+    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+        <reference value="encounter/F003"/>
+        <display value="encounter who leads to this priscription"/>
+    </encounter>
+    <reasonCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="444780001"/>
+            <display value="High glucose level in blood"/>
+        </coding>
+    </reasonCodeableConcept>
+    <medication> <!-- Linked to a RESOURCE Medication -->
+        <reference value="Medication/F003"/>
+        <display value="prescribed medication"/>
+    </medication> 
+    <dosageInstruction>
+        <timingSchedule>
+            <event>
+                <start value="2011-05-01"/>
+            </event>
+            <repeat>
+                <frequency value="3"/>
+                <duration value="1"/>
+                <units value="d"/>
+            </repeat>
+        </timingSchedule>
+        <site>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="181220002"/>
+                <display value="Entire oral cavity"/>
+            </coding>
+        </site>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="386359008"/>
+                <display value="Administration of drug or medicament via oral route"/>
+            </coding>
+        </route>
+        <doseQuantity>
+            <value value="500"/>
+            <units value="mg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/>
+        </doseQuantity>
+    </dosageInstruction>         
+    <dispense>
+        <validityPeriod>
+            <start value="2011-05-01"/>
+        </validityPeriod>
+        <quantity>
+            <value value="90"/>
+            <system value="http://snomed.info/sct"/> 
+            <code value="46992007"/>
+        </quantity>
+    </dispense>   
+</MedicationPrescription>

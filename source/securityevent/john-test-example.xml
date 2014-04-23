@@ -1,0 +1,73 @@
+<SecurityEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/securityevent.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Disclosure by some idiot to places unknown of Poor Sap data Everthing important.</div>
+  </text>    
+  <event>
+    <type>
+      <coding>
+        <system value="http://nema.org/dicom/dcid"/>
+        <code value="110106"/>
+        <display value="Export"/>
+      </coding>
+    </type>
+    <subtype>
+        <coding>
+          <system value="HIPAA"/>
+          <code value="Disclosure"/>
+          <display value="HIPAA disclosure"/>
+        </coding>
+    </subtype>
+    <action value="R"/>
+    <dateTime value="2013-09-22T00:08:00Z"/>
+    <outcome value="0"/>
+  </event>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://nema.org/dicom/dcid"/>
+        <code value="110153"/>
+        <display value="The sender of the data"/>
+      </coding>
+    </role>
+    <userId value="Who"/>
+    <requestor value="true"/>
+    <network>
+      <identifier value="127.0.0.1"/>
+      <type value="ip"/>
+    </network>
+    </participant>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://nema.org/dicom/dcid"/>
+        <code value="110152"/>
+        <display value="The destination of the data"/>
+      </coding>
+    </role>
+    <userId value="Where"/>
+    <requestor value="false"/>
+    <network>
+      <identifier value="127.0.0.1"/>
+      <type value="ip"/>
+    </network>
+    </participant>
+  <source>
+    <identifier value="Johns Accounting of Disclosures Application"/>
+  </source>
+  <object>
+    <identifier>
+      <label value="Whoms"/>
+    </identifier>
+    <type value="2"/>
+    <name value="Whoms"/>
+  </object> 
+  <object>
+    <identifier>
+      <label value="What"/>
+    </identifier>
+  	<type value="4"/>
+    <lifecycle value="11"/>
+    <name value="What"/>
+    </object>
+</SecurityEvent>

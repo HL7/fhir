@@ -1,0 +1,183 @@
+http://www.advisory.com/Daily-Briefing/2013/01/22/Study-IDs-the-top-10-reasons-for-doctors-visits
+
+Skin ailments, joint disorders, and back pain—not life-threatening conditions—are the most common reasons for visits to U.S. health care providers, according to a new Mayo Clinic Proceedings study.
+
+For the study, Mayo Clinic researchers used data from the Rochester Epidemiology Project—a comprehensive medical records linkage system—to categorize the medical diagnoses of Olmsted County, Minn., residents who had visited the Mayo Clinic, the Olmstead Medical Center, and the Rochester Family Medicine Clinic between January 2005 and December 2009. They found that the 10 most common diagnoses were:
+
+    Skin disorders;
+    Osteoarthritis and joint disorders;
+    Back problems;
+    Cholesterol problems;
+    Upper respiratory conditions, excluding asthma;
+    Anxiety, depression, and bipolar disorder;
+    Chronic neurologic disorders;
+    High blood pressure;
+    Headaches and migraines; and
+    Diabetes.
+
+"Much research already has focused on chronic conditions, which account for the majority of health care utilization and costs in middle-aged and older adults," says lead study author Jennifer St. Sauver, adding, "Surprisingly, the most prevalent non-acute conditions in our community were not chronic conditions related to aging, such as diabetes and heart disease, but rather conditions that affect both genders and all age groups."
+
+
+
+ccda exmaple:
+
+<!--
+********************************************************
+PROBLEM LIST - NO KNOWN PROBLEMS
+********************************************************
+-->
+ 
+           <component>
+           <section>
+                <!-- Problem Section with Coded Entries Required -->
+<templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
+                <code code="11450-4"
+                     codeSystem="2.16.840.1.113883.6.1"
+                     codeSystemName="LOINC"
+                     displayName="PROBLEM LIST"/>
+               
+                <title>PROBLEMS</title>
+                <text> <content ID="noproblems1">No known problems </content></text>
+                <!-- Problem Concern Act -->
+                <entry>
+                     <!-- Problem Concern Act template -->
+                     <act classCode="ACT" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+                           <id root="6a2fa88d-4174-4909-aece-db44b60a3abb"/>
+                           <code code="CONC"
+                                  displayName="Concern"
+                                  codeSystem="2.16.840.1.113883.5.6"
+                                  codeSystemName="HL7ActClass"/>
+                           <statusCode code="completed"/>
+                           <effectiveTime>
+                                <low value=”20000902"/>
+                                <high nullFlavor="NA"/>
+                           </effectiveTime>
+                           <entryRelationship typeCode="SUBJ">
+                                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                                     <!-- Problem Observation template -->
+                                     <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                                     <id root="84a64e5c-eeff-4447-95b5-a0b754967ab7"/>
+                                     <code code="55607006" displayName="Problem"
+                                           codeSystem="2.16.840.1.113883.6.96"
+                                           codeSystemName="SNOMED-CT" />
+<text>
+<reference value="#noproblems1"/>
+</text>
+<statusCode code="completed" />
+<effectiveTime>
+<low nullFlavor="NA"/>
+<high nullFlavor="NA"/>
+</effectiveTime>
+                                     <value xsi:type="CD"
+                                           code="55607006"
+                                           codeSystem="2.16.840.1.113883.6.96"
+                                           codeSystemName="SNOMED-CT"
+                                           displayName="Problem" />
+                                </observation>
+                           </entryRelationship>
+                     </act>
+                </entry>
+           </section>
+           </component>
+
+
+<component>
+<section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
+          <code code="11450-4"  codeSystem="2.16.840.1.113883.6.1"
+                   codeSystemName="LOINC"   displayName="PROBLEM LIST"/>
+                   <title>PROBLEMS</title>
+                   <text> free text HTML table representation of the problems, 
+                          SUGGESTED COLUMNS ARE PROBLEM NAME/ENTERED DATE/ START DATE/
+                                                                    END DATE/STATUS/PROBLEM TYPE/AGE OF ONSET
+                   </text>
+ 
+          <entry>    ( PROBLEM #1 ENTRY STARTS HERE) 
+          <act classCode="ACT" moodCode="EVN">
+                   <templateId root="2.16.840.1.113883.10.20.22.4.3"/>
+                   <id root="6a2fa88d-4174-4909-aece-db44b60a3abb"/>
+                   <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+                   <statusCode code="active"/>  (ACTIVE|COMPLETED|ABORTED|SUSPENDED; see comments J )
+                   <effectiveTime>  (see comments at the bottom A,B)
+                             <low value="2006"/>
+                             <high nullFlavor="NA"/>
+                   </effectiveTime>
+ 
+                <!-- PROBLEM OBSERVATION STARTS HERE  -- !>
+                   <entryRelationship typeCode="SUBJ" inversionInd="false"> (do we need @inversionindicator??)
+                        <observation classCode="OBS" moodCode="EVN">
+                             <templateId root="2.16.840.1.113883.10.20.22.4.4"/>
+                             <id root="d11275e7-67ae-11db-bd13-0800200c9a66"/>
+
+					   <code nullFlavor="NA" />  (if problem type code unknown use this line, see comment E)
+                             <code code="64572001"  displayName="Condition" (if problem tyep code known, use this line)
+                                       codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>  (see comment E)
+
+                             <text> <reference value="#PROBSUMMARY_1"/> </text>
+                             <statusCode code="active"/>  (if problem resolved, >> completed)
+                                                          (if problem active >> actvie)
+                             <effectiveTime>   (see note below C, D)
+                                      <low value="2004"/>
+                                      <high nullFlavor="NA"/> (if problem resolved, high value required)
+                             </effectiveTime>
+                             <value    xsi:type="CD"  displayName="Asthma" 
+					          code="195967001" codeSystemName="SNOMED" 
+                                     codeSystem="2.16.840.1.113883.6.96">
+                                     <originalText>     <reference value="#PROBSTATUS_1"/></originalText>
+                             </value>
+ 
+                         <!-- PROBLEM STATUS OBSERVATION TEMPLATE - ACTIVE|INACTIVE|RESOLVED -->
+                             <entryRelationship typeCode="REFR">
+                                      <observation classCode="OBS" moodCode="EVN">
+                                                <templateId root="2.16.840.1.113883.10.20.22.4.6"/>
+                                                <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status"/>
+									<text> <reference value="#PROBSUMMARY_STATUSCELL_1"/> </text>
+                                                <statusCode code="completed"/>
+                                                <value xsi:type="CE" code="55561003" 
+                                                codeSystem="2.16.840.1.113883.6.96" displayName="Active">  (see comment H)
+                                                </value>
+                                      </observation>
+                             </entryRelationship>
+ 
+               <!-- PROBLEM START AGE AGE OBSERVATION TEMPLATE OPTIONAL ENTRY-- !>
+               <!-- Ex. Diabetes Mellitus started at age 45 years -- !>
+                             <entryRelationship typeCode="SUBJ" inversionInd="true"> 
+                                      <observation classCode="OBS" moodCode="EVN"> 
+                                                <templateId root="2.16.840.1.113883.10.20.22.4.31"/> 
+                                                <!-- Age observation template --> 
+                                                <code code="445518008" 
+                                                codeSystem="2.16.840.1.113883.6.96" 
+                                                displayName="Age" 
+                                                codeSystemName="SNOMED CT"/> 
+                                                <statusCode code="completed"/> 
+                                                <value xsi:type="PQ" value="45" unit="a"/>  ( see comments F)
+                                      </observation>                       
+                             </entryRelationship>
+ 
+ 
+                             <!--Health status observation  OPTIONAL ENTRY-- !>
+                             <entryRelationship typeCode="SUBJ" inversionInd="true"> 
+                                      <observation classCode="OBS" moodCode="EVN"> 
+                                                <templateId root="2.16.840.1.113883.10.20.22.4.5"/> 
+                                                <!-- Health status observation template --> 
+                                                <code code="11323-3" 
+                                                codeSystem="2.16.840.1.113883.6.1" 
+                                                codeSystemName="LOINC" 
+                                                displayName="Health status"/> 
+                                                <statusCode code="completed"/> 
+                                                <value xsi:type="CE" code="313386006" 
+                                                codeSystem="2.16.840.1.113883.6.96" 
+                                                codeSystemName="SNOMED CT" 
+                                                displayName="In Remission"/>  (see commnet G)
+                                      </observation> 
+                             </entryRelationship>
+ 
+         
+          </observation>
+                  
+          </act>
+          </entry>
+</section>
+</component>
+

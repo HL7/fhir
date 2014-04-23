@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Good Health Clinic</p>
+    </div>
+  </text>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="2.16.840.1.113883.19.5"/>
+  </identifier>
+  <name value="Good Health Clinic"/>
+</Organization>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ This is an example of a simple weight measurement.
+-->
+
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\observation.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Jan 30 2014: Body Weight = 185 lbs</div>
+  </text>
+  
+  <!-- 
+    Observations are often coded in multiple code systems. 
+      - Loinc provides a very specific code (though not usefully more specific in this particular case)
+      - snomed provides a clinically relevant code that is usually less granular than LOINC
+      - the source system provides it's own code, which may be less or more granular than LOINC
+  -->
+  <name>
+    <!-- LOINC - always recommended to have a LOINC code -->
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="3141-9"/>
+      <display value="Weight Measured"/>
+    </coding>
+    <!-- SNOMED CT Codes - becoming more common -->
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="27113001"/>
+      <display value="Body weight"/>
+    </coding>
+    <!-- Also, a local code specific to the source system -->
+    <coding>
+      <system value="http://acme.org/devices/clinical-codes"/>
+      <code value="body-weight"/>
+      <display value="Body Weight"/>
+    </coding>
+  </name>
+
+  <!-- In FHIR, units may be represented twice. Once in the 
+    agreed human representation, and once in a coded form.
+    Both is best, since it's not always possible to infer
+    one from the other in code.
+
+    When a computable unit is provided, UCUM (http://unitsofmeasure.org) 
+    is always preferred, but it doesn't provide notional units (such as 
+    "tablet"), etc. For these, something else is required (e.g. Snomed-CT) 
+   -->
+  <valueQuantity>
+    <value value="185"/>
+    <units value="lbs"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="[lb_av]"/>
+  </valueQuantity>
+  <!-- the mandatory quality flags: -->
+  <status value="final"/>
+  <reliability value="ok"/>
+</Observation>

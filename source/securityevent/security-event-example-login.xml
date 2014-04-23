@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SecurityEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/securityevent.xsd">
+  <event>
+    <type>
+      <coding>
+        <system value="http://nema.org/dicom/dcid"/>
+        <code value="110114"/>
+        <display value="User Authentication"/>
+      </coding>
+    </type>
+    <subtype>
+      <coding>
+        <system value="http://nema.org/dicom/dcid"/>
+        <code value="110122"/>
+        <display value="Login"/>
+      </coding>
+    </subtype>
+    <action value="E"/>
+    <dateTime value="2013-06-20T23:41:23Z"/>
+    <outcome value="0"/>
+  </event>
+  <participant>
+    <userId value="95"/>
+    <altId value="601847123"/>
+    <name value="Grahame Grieve"/>
+    <requestor value="true"/>
+    <network>
+      <identifier value="127.0.0.1"/>
+      <type value="2"/>
+    </network>
+  </participant>
+  <source>
+    <site value="Cloud"/>
+    <identifier value="hl7connect.healthintersections.com.au"/>
+    <type>
+      <system value="http://hl7.org/fhir/security-source-type"/>
+      <code value="3"/>
+      <display value="Web Server"/>
+    </type>
+  </source>
+</SecurityEvent>

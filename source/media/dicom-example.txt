@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NativeDICOMModel xmlns="http://dicom.nema.org/PS3.19/models/NativeDICOM" xsi:schemaLocation="http://dicom.nema.org/PS3.19/models/NativeDICOM file:///C:/Users/jwhi/Documents/XmlPad%20Projects/DICOM/NativeDICOMModel.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DICOMAttribute tag="0008,0008" vr="CS" keyword="ImageType">
+    <Value number="1">ORIGINAL</Value>
+    <Value number="2">PRIMARY</Value>
+    <Value number="3">AXIAL</Value>
+    <Value number="4">HELIX</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0012" vr="DA" keyword="InstanceCreationDate">
+    <Value number="1">20110819</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0013" vr="TM" keyword="InstanceCreationTime">
+    <Value number="1">113203.000000</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0016" vr="UI" keyword="SOPClassUID">
+    <Value number="1">1.2.840.10008.5.1.4.1.1.2</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0018" vr="UI" keyword="SOPInstanceUID">
+    <Value number="1">2.16.124.113543.6003.189642796.63084.16748.2599092903</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0020" vr="DA" keyword="StudyDate">
+    <Value number="1">20110101</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0021" vr="DA" keyword="SeriesDate">
+    <Value number="1">20110101</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0022" vr="DA" keyword="AcquisitionDate">
+    <Value number="1">20110101</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0023" vr="DA" keyword="ContentDate">
+    <Value number="1">20110819</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0030" vr="TM" keyword="StudyTime">
+    <Value number="1">110120.000000</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0032" vr="TM" keyword="AcquisitionTime">
+    <Value number="1">113057.000000</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0033" vr="TM" keyword="ContentTime">
+    <Value number="1">113057.783000</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0050" vr="SH" keyword="AccessionNumber">
+</DICOMAttribute>
+  <DICOMAttribute tag="0008,0060" vr="CS" keyword="Modality">
+    <Value number="1">CT</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0070" vr="LO" keyword="Manufacturer">
+    <Value number="1">Philips</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0080" vr="LO" keyword="InstitutionName">
+    <Value number="1">MINT</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,0090" vr="PN" keyword="ReferringPhysicianName">
+</DICOMAttribute>
+  <DICOMAttribute tag="0008,1030" vr="LO" keyword="StudyDescription">
+    <Value number="1">PETCT SKULL TO THIGH</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,103E" vr="LO" keyword="SeriesDescription">
+    <Value number="1">CT Surview 180</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,1090" vr="LO" keyword="ManufacturerModelName">
+    <Value number="1">GEMINI TF TOF 64</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,1110" vr="SQ" keyword="ReferencedStudySequence">
+    <Item number="1">
+      <DICOMAttribute tag="0008,1150" vr="UI" keyword="ReferencedSOPClassUID">
+        <Value number="1">1.2.840.10008.3.1.2.3.1</Value>
+      </DICOMAttribute>
+      <DICOMAttribute tag="0008,1155" vr="UI" keyword="ReferencedSOPInstanceUID">
+        <Value number="1">2.16.124.113543.6003.1011758472.49886.19426.2085542308</Value>
+      </DICOMAttribute>
+    </Item>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,1111" vr="SQ" keyword="ReferencedPerformedProcedureStepSequence">
+    <Item number="1">
+      <DICOMAttribute tag="0008,1150" vr="UI" keyword="ReferencedSOPClassUID">
+        <Value number="1">1.2.840.10008.3.1.2.3.3</Value>
+      </DICOMAttribute>
+      <DICOMAttribute tag="0008,1155" vr="UI" keyword="ReferencedSOPInstanceUID">
+        <Value number="1">2.16.124.113543.6003.4178301938.64971.19041.1786201235</Value>
+      </DICOMAttribute>
+    </Item>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,1120" vr="SQ" keyword="ReferencedPatientSequence">
+    <Item number="1">
+      <DICOMAttribute tag="0008,1150" vr="UI" keyword="ReferencedSOPClassUID">
+        <Value number="1">1.2.840.10008.3.1.2.1.1</Value>
+      </DICOMAttribute>
+      <DICOMAttribute tag="0008,1155" vr="UI" keyword="ReferencedSOPInstanceUID">
+        <Value number="1">2.16.124.113543.6003.2643509500.2471.20221.3282570638</Value>
+      </DICOMAttribute>
+    </Item>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0008,1140" vr="SQ" keyword="ReferencedImageSequence">
+    <Item number="1">
+      <DICOMAttribute tag="0008,1150" vr="UI" keyword="ReferencedSOPClassUID">
+        <Value number="1">1.2.840.10008.5.1.4.1.1.2</Value>
+      </DICOMAttribute>
+      <DICOMAttribute tag="0008,1155" vr="UI" keyword="ReferencedSOPInstanceUID">
+        <Value number="1">2.16.124.113543.6003.3972322324.47464.18113.4053062551</Value>
+      </DICOMAttribute>
+    </Item>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0010,0010" vr="PN" keyword="PatientName">
+    <PersonName number="1">
+      <SingleByte>
+        <FamilyName>MINT_TEST</FamilyName>
+      </SingleByte>
+    </PersonName>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0010,0020" vr="LO" keyword="PatientID">
+    <Value number="1">MINT1234</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0010,0040" vr="CS" keyword="PatientSex">
+    <Value number="1">M</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0010,1010" vr="AS" keyword="PatientAge">
+    <Value number="1">056Y</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0010,1020" vr="DS" keyword="PatientSize">
+    <Value number="1">1.83</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0010,1030" vr="DS" keyword="PatientWeight">
+    <Value number="1">72.58</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,0022" vr="CS" keyword="ScanOptions">
+    <Value number="1">HELIX</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,0050" vr="DS" keyword="SliceThickness">
+    <Value number="1">5</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,0060" vr="DS" keyword="KVP">
+    <Value number="1">120</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,0088" vr="DS" keyword="SpacingBetweenSlices">
+    <Value number="1">5</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,0090" vr="DS" keyword="DataCollectionDiameter">
+    <Value number="1">500</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1020" vr="LO" keyword="SoftwareVersions">
+    <Value number="1">2.3.0</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1030" vr="LO" keyword="ProtocolName">
+    <Value number="1">ICPET SMALLSTT PET/CT MO/Body</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1100" vr="DS" keyword="ReconstructionDiameter">
+    <Value number="1">500</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1120" vr="DS" keyword="GantryDetectorTilt">
+    <Value number="1">0</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1130" vr="DS" keyword="TableHeight">
+    <Value number="1">185</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1140" vr="CS" keyword="RotationDirection">
+    <Value number="1">CW</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1151" vr="IS" keyword="XRayTubeCurrent">
+    <Value number="1">83</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1152" vr="IS" keyword="Exposure">
+    <Value number="1">75</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1160" vr="SH" keyword="FilterType">
+    <Value number="1">B</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,1210" vr="SH" keyword="ConvolutionKernel">
+    <Value number="1">B</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0018,5100" vr="CS" keyword="PatientPosition">
+    <Value number="1">FFS</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,000D" vr="UI" keyword="StudyInstanceUID">
+    <Value number="1">2.16.124.113543.6003.1154777499.30246.19789.3503430045</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,000E" vr="UI" keyword="SeriesInstanceUID">
+    <Value number="1">2.16.124.113543.6003.2588828330.45298.17418.2723805630</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,0010" vr="SH" keyword="StudyID">
+</DICOMAttribute>
+  <DICOMAttribute tag="0020,0011" vr="IS" keyword="SeriesNumber">
+    <Value number="1">3</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,0012" vr="IS" keyword="AcquisitionNumber">
+</DICOMAttribute>
+  <DICOMAttribute tag="0020,0013" vr="IS" keyword="InstanceNumber">
+    <Value number="1">1</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,0032" vr="DS" keyword="ImagePositionPatient">
+    <Value number="1">-250</Value>
+    <Value number="2">-180</Value>
+    <Value number="3">1483.90002</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,0037" vr="DS" keyword="ImageOrientationPatient">
+    <Value number="1">1</Value>
+    <Value number="2">0</Value>
+    <Value number="3">0</Value>
+    <Value number="4">0</Value>
+    <Value number="5">1</Value>
+    <Value number="6">0</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,0052" vr="UI" keyword="FrameOfReferenceUID">
+    <Value number="1">2.16.124.113543.6003.958438762.23090.20411.3927737247</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,0060" vr="CS" keyword="Laterality">
+</DICOMAttribute>
+  <DICOMAttribute tag="0020,1040" vr="LO" keyword="PositionReferenceIndicator">
+</DICOMAttribute>
+  <DICOMAttribute tag="0020,1041" vr="DS" keyword="SliceLocation">
+    <Value number="1">-1483.9</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0020,4000" vr="LT" keyword="ImageComments">
+    <Value number="1">LDCT 500 FOV</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0002" vr="US" keyword="SamplesPerPixel">
+    <Value number="1">1</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0004" vr="CS" keyword="PhotometricInterpretation">
+    <Value number="1">MONOCHROME2</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0010" vr="US" keyword="Rows">
+    <Value number="1">512</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0011" vr="US" keyword="Columns">
+    <Value number="1">512</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0030" vr="DS" keyword="PixelSpacing">
+    <Value number="1">0.9765625</Value>
+    <Value number="2">0.9765625</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0100" vr="US" keyword="BitsAllocated">
+    <Value number="1">16</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0101" vr="US" keyword="BitsStored">
+    <Value number="1">12</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0102" vr="US" keyword="HighBit">
+    <Value number="1">11</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,0103" vr="US" keyword="PixelRepresentation">
+    <Value number="1">0</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,1050" vr="DS" keyword="WindowCenter">
+    <Value number="1">35</Value>
+    <Value number="2">35</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,1051" vr="DS" keyword="WindowWidth">
+    <Value number="1">350</Value>
+    <Value number="2">350</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,1052" vr="DS" keyword="RescaleIntercept">
+    <Value number="1">-1024</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0028,1053" vr="DS" keyword="RescaleSlope">
+    <Value number="1">1</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0032,1032" vr="PN" keyword="RequestingPhysician">
+    <PersonName number="1">
+      <SingleByte>
+        <FamilyName>SOTIRESCU</FamilyName>
+      </SingleByte>
+    </PersonName>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0032,1060" vr="LO" keyword="RequestedProcedureDescription">
+    <Value number="1">PET W CT TUMOR SKULL TO THIGH</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0032,1070" vr="LO" keyword="RequestedContrastAgent">
+</DICOMAttribute>
+  <DICOMAttribute tag="0040,0012" vr="LO" keyword="PreMedication">
+</DICOMAttribute>
+  <DICOMAttribute tag="0040,0253" vr="SH" keyword="PerformedProcedureStepID">
+    <Value number="1">995216</Value>
+  </DICOMAttribute>
+  <DICOMAttribute tag="0040,0275" vr="SQ" keyword="RequestAttributesSequence">
+    <Item number="1">
+      <DICOMAttribute tag="0040,0007" vr="LO" keyword="ScheduledProcedureStepDescription">
+        <Value number="1">PETCTTUMST</Value>
+      </DICOMAttribute>
+      <DICOMAttribute tag="0040,0008" vr="SQ" keyword="ScheduledProtocolCodeSequence">
+        <Item number="1">
+          <DICOMAttribute tag="0008,0100" vr="SH" keyword="CodeValue">
+            <Value number="1">I</Value>
+          </DICOMAttribute>
+          <DICOMAttribute tag="0008,0102" vr="SH" keyword="CodingSchemeDesignator">
+            <Value number="1">LOCAL</Value>
+          </DICOMAttribute>
+          <DICOMAttribute tag="0008,0104" vr="LO" keyword="CodeMeaning">
+</DICOMAttribute>
+        </Item>
+      </DICOMAttribute>
+      <DICOMAttribute tag="0040,0009" vr="SH" keyword="ScheduledProcedureStepID">
+        <Value number="1">9699772</Value>
+      </DICOMAttribute>
+      <DICOMAttribute tag="0040,1001" vr="SH" keyword="RequestedProcedureID">
+        <Value number="1">9221044</Value>
+      </DICOMAttribute>
+    </Item>
+  </DICOMAttribute>
+  <DICOMAttribute tag="7FE0,0010" vr="OW" keyword="PixelData">
+    <BulkData uuid="75b0eaa1-9625-01e1-8ed6-2923be84e16c"/>
+  </DICOMAttribute>
+</NativeDICOMModel>

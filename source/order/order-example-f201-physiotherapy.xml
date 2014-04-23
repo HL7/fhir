@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/order.xsd">
+ <date value="2013-03-05T12:00:00+01:00"/>
+ <subject><!--Order was sent to Juri van Gelder for Roel by Dokter Bronsig.-->
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+ </subject>
+ <source>
+    <reference value="Practitioner/f201"/>
+ </source>
+ <target>
+    <reference value="Practitioner/f203"/>
+    <display value="Juri van Gelder"/>
+ </target>
+ <reasonCodeableConcept>
+   <text value="It concerns a one-off order for consultation in order to evaluate the stairs walking ability of Roel."/>
+ </reasonCodeableConcept>
+ <!--<authority> and <payment> were registered in the EHR as "not applicable"-->
+ <when>
+  <code>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="394848005"/>
+       <display value="Normal priority"/>
+    </coding>
+  </code>
+ </when>
+ <detail>
+    <display value="Consultation, not yet developed" />
+ </detail><!--TODO why is <detail> required? Emergency departmentsk will not have time and only register <reason>-->
+</Order>

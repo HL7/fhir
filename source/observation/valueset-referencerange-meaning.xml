@@ -1,0 +1,102 @@
+<!--
+
+
+Range Basis
+ - LMP
+ - Birth
+ - Poat Nenses
+ - Post Menopause   307429007: After menopause (qualifier value)
+ - Post-Op
+
+
+-->
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Observation Reference Range Meaning Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/referencerange-meaning"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="type"/>
+      <abstract value="true"/>
+      <definition value="General types of reference range"/>
+      <concept>
+        <code value="normal"/>
+        <display value="Normal Range"/>
+        <definition value="Based on 95th percentile for the relevant control population"/>
+      </concept>
+      <concept>
+        <code value="recommended"/>
+        <display value="Recommended Range"/>
+        <definition value="The range that is recommended by a relevant professional body"/>
+      </concept>
+      <concept>
+        <code value="treatment"/>
+        <display value="Treatment Range"/>
+        <definition value="The range at which treatment would/should be considered"/>
+      </concept>
+      <concept>
+        <code value="therapeutic"/>
+        <display value="Therapeutic Desired Level"/>
+        <definition value="The optimal range for best therapeutic outcomes"/>
+        <concept>
+          <code value="pre"/>
+          <display value="Pre Therapeutic Desired Level"/>
+          <definition value="The optimal range for best therapeutic outcomes for a specimen taken immediately before administration"/>
+        </concept>
+        <concept>
+          <code value="post"/>
+          <display value="Post Therapeutic Desired Level"/>
+          <definition value="The optimal range for best therapeutic outcomes for a specimen taken immediately after administration"/>
+        </concept>
+      </concept>
+    </concept>
+    <concept>
+      <code value="endocrine"/>
+      <abstract value="true"/>
+      <definition value="Endocrine related states that change the expected value"/>
+      <concept>
+        <code value="pre-puberty"/>
+        <display value="Pre-Puberty"/>
+        <definition value="An expected range in an individual prior to puberty"/>
+      </concept>
+      <concept>
+        <code value="follicular"/>
+        <display value="Follicular Stage"/>
+        <definition value="An expected range in an individual during the follicular stage of the cycle"/>
+      </concept>
+      <concept>
+        <code value="midcycle"/>
+        <display value="MidCycle"/>
+        <definition value="An expected range in an individual during the follicular stage of the cycle"/>
+      </concept>
+      <concept>
+        <code value="luteal"/>
+        <display value="Luteal"/>
+        <definition value="An expected range in an individual during the luteal stage of the cycle"/>
+      </concept>
+      <concept>
+        <code value="postmeopausal"/>
+        <display value="Post-Menopause"/>
+        <definition value="An expected range in an individual post-menopause"/>
+      </concept>
+    </concept>
+  </define>
+  <compose>
+    <import value="http://hl7.org/fhir/v3/vs/Race"/>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <code value="248153007"/> <!-- Male (finding) -->
+      <code value="248152002"/> <!-- Female (finding) -->
+      <code value="77386006"/> <!-- Patient currently pregnant (finding) -->
+    </include>
+  </compose>
+</ValueSet>
+

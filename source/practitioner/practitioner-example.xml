@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar
+        2012</p>
+    </div>
+  </text>
+
+  <identifier>
+    <system value="http://www.acme.org/practitioners"/>
+    <value value="23"/>
+  </identifier>
+  <name>
+    <family value="Careful"/>
+    <given value="Adam"/>
+    <prefix value="Dr"/>
+  </name>
+
+
+  <organization>
+    <reference value="Organization/1"/>
+  </organization>
+
+  <!-- Referring Practitioner for the first 3 months of 2012 -->
+  <role>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0286"/>
+      <code value="RP"/>
+    </coding>
+  </role>
+
+  <period>
+    <start value="2012-01-01"/>
+    <end value="2012-03-31"/>
+  </period>
+</Practitioner>

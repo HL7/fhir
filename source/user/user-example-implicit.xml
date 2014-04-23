@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<User xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/user.xsd">
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Internal User Grahame Grieve has patient-level access to some specific patient compartments</div>
+  </text>
+
+  <name>
+    <text value="Grahame Grieve"/>
+  </name>
+  <provider value="http://healthintersections.com.au/fhir/user/implicit"/> 
+  <login value="127.0.0.1"/>
+  <level value="patient"/>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</User>

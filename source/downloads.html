@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+      
+[%settitle Implementation Details%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<h1>Downloads</h1>
+
+<table class="lines">
+ 
+  <tr>
+    <td width="200"><a href="fhir-all-xsd.zip">Schema</a></td>
+    <td>All schemas as a .zip (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</td>
+  </tr>
+
+  <tr>
+    <td><a href="validator.zip">Validation Pack</a></td>
+    <td>The FHIR validator (java jar), along with everything it needs to operate (including the correct version of Saxon)</td>
+  </tr>
+
+  <tr>
+    <td><a href="translations.xml">Translation File</a></td>
+    <td>Translations of common FHIR names and messages into multiple languages (see <a href="http://wiki.hl7.org/index.php?title=FHIR_Implementation_Page">wiki</a> for instructions on how to add to this)</td>
+  </tr>
+
+  <tr>
+    <td><a href="fhir-v<%version%>.epub">FHIR Book</a></td>
+    <td>The FHIR Specification as an e-book for convenient reading. Help for handling epub: 
+    <a href="http://pcsupport.about.com/od/fileextensions/f/epubfile.htm">PC</a>, 
+    <a href="http://support.safaribooksonline.com/view?id=1168">OSX</a>, 
+    <a href="http://ipadacademy.com/2012/01/ipad-tutorial-how-to-load-and-open-epub-pdf-ebooks-on-your-ipad">iOS</a>, 
+    <a href="http://just-ask-kim.com/epub-ebook-android/">Android</a></td>
+  </tr>
+
+  <tr>
+    <td><a href="fhir-spec.zip">FHIR Specification</a></td>
+    <td>The whole specification so that you can host your own local copy (does not include the downloads)</td>
+  </tr>
+
+  <tr>
+    <td><a href="profiles-resources.xml">Combined Resource Profiles</a><a name="profiles"> </a></td>
+    <td>Single combined feed with all resource definitions. The resource profiles may be useful as a starting point for authoring profiles on the resources or for defining conformance statements</td>
+  </tr>
+
+  <tr>
+    <td><a href="all-valuesets.zip">All valuesets</a></td>
+    <td>All the valuesets defined as part of FHIR</td>
+  </tr>
+
+  <tr>
+    <td><a href="examples.zip">XML Examples</a></td>
+    <td>All resource examples as a zip file in XML format</td>
+  </tr>
+
+  <tr>
+    <td><a href="examples-json.zip">JSON Examples</a></td>
+    <td>All resource examples as a zip file in JSON format</td>
+  </tr>
+
+  <tr>
+    <td><a href="icon-pack.zip">Icon Pack</a></td>
+    <td>The FHIR Icon at various resolutions. Any FHIR Implementation created by an organization that has attended a connectathon is allowed to use the FHIR icon in association with the application (this policy will be reviewed in the future).</td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><a name="refimpl"> </a><b>Reference Implementations</b><br/> These reference implementations are provided for implementer interest and assistance. 
+They may be used in production instances, although HL7 and the contributors accept no liability for this 
+use.  All these implementations are provided under a standard OSI-approved BSD license (BSD-3-Clause).
+    </td>
+  </tr>
+
+  <%impllist%>
+  
+</table>
+<hr/>
+<p>
+Note that the reference implementations are generally limited to code for representing the 
+resource contents in their native form and parsing and serializing them as 
+XML and JSON. Some of the implementations provide support for 
+building, using and reasoning with resource definitions. A few implementations include
+a client that conforms to the RESTful API.
+</p>
+<p>
+Full blown open source implementations for FHIR, some of which use these reference implementations, are
+listed on the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 wiki</a>.
+</p>
+<p>
+It is not necessary to use these particular implementations in order to be conformant. Any other approach 
+may be used, including code generated from the schemas.
+</p>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

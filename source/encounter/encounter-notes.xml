@@ -1,0 +1,35 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Notes</h2>
+<p>
+<ul>
+<li>The <i>class</i> element describes the setting (in/outpatient etc.) in which the Encounter took place. Since this is important for 
+interpreting the context of the encounter, choosing the appropriate business rules to enforce and for the management of the process, this element
+is required.</li>
+<li>The <i>Location</i> indicates where the patient has been during the encounter (he might visit multiple locations, e.g. to an MRI room
+for examinations, while <i>Accommodation</i> keeps information about the bed in which a patient stays during a hospitalization.</li>
+<li>In future versions of FHIR, some kind of charge posting vehicle (e.g. Account) will be added.</li>
+</ul>
+</p>
+<a name="examples" />
+<h2>Example usage</h2>
+<p>As stated, Encounter allows a flexible nesting of Encounters using the partOf element. For example:</p>
+<ul>
+<li>A patient is admitted for two weeks - This could be modeled using a single Encounter instance,
+in which the start and length are given for the duration of the whole stay. The admitting doctor and
+the responsible doctor during the stay are specified using the Participant component.</li>
+<li>During the encounter, the patient moves from the admitting department to the Intensive Care unit and back - 
+Three more detailed additional Encounters can be created, one for each location in which the patient stayed.
+Each of these Encounters has a single location (twice the admitting department and once
+the Intensive Care unit) and one or more participants at that location. These Encounters may use the partOf 
+relationship to indicate these movements occurred during the longer overarching Encounter.</li>
+<li>During the last part of the stay, the patient is visited by the members of the multi-disciplinary team that
+treated him for final evaluation - If relevant, for each of these short visits, an Encounter may be created
+with a single participant. Since these took place during the last part of the stay, the partOf element can be
+used to associate these short visits with either the third patient movement or the bigger overall encounter.</li>
+</ul>
+<p>Exactly how the Encounter is used depends on information available in the source system, the relevance of exchange
+of each level of Encounter and demands specific to the communicating partners. The expectation is that for each
+domain of exchange, Profiles are used to limit the flexibility of Encounter to meet the demands of the usecase.</p>
+
+</div>

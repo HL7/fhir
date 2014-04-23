@@ -1,0 +1,67 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<p>
+Notes:
+</p>
+<ul>
+<li>multipleBirth can be either expressed as a boolean (just indicating whether the patient is part of a multiple birth) or as an integer, indicating the actual birth order.</li>
+<li>Patient records may only be in one of two statuses: in use (active=true) and not in use (active=false). 
+A normal record is active, i.e. it is in use. Active is set to 'false' when a record is created as a duplicate or in error. 
+A record does not need to be linked to be inactivated.
+</li>
+<li>The <i>link</i> element is used to assert that two or more Patient resources are both about the same actual person. 
+See below for further discussion</li>
+<li>There should be only one preferred language (Language.preference = true) per mode of expression.</li>
+<li>The Contact for a Patient has an element <i>organization</i>, this is for use with guardians or business related contacts where just the organization is relevant.</li>
+</ul>
+
+<h2>Patient id's and Patient resource id's</h2>
+<p>A Patient record's Resource Id can never change. For this reason the identifiers with 
+which humans are concerned (often called MRN - Medical Record Number, or UR - Unit Record) should not 
+be used for the resource's id, since MRN's may change, i.e. as a result of having duplicate records of
+the same person. Instead they should be represented in the <i>Patient.identifier</i> 
+list where they can be managed. This is also useful for the case of institutions that have acquired 
+multiple numbers because of mergers of patient record systems over time.
+</p>
+
+
+<a name="links"> </a>
+<h2>Linking Patients</h2>
+<p>The <i>link</i> element is used to assert that patient resources refer to the same person. This element is used
+to support three distinct scenario's where multiple records of the same person exist:</p>
+
+<h3>Duplicate Patient records</h3>
+<p>Managing Patient registration is a well known difficult problem. Around 2% of registrations are in error, 
+mostly duplicate records. Sometimes the duplicate record is caught fairly quickly and retired before much 
+data is accumulated. In other cases, substantial amounts of data may accumulate. By using a link of type 'replace',
+the record containing such a link is marked as a duplicate and the link points forward to a record that should
+be used instead. Note that the record pointed to may in its turn have been identified as created in error and forward
+to yet another Patient resource. Records that replace another record, do not point back to the replaced record.
+</p>
+
+<h3>Patient record in a Patient index</h3>
+<p>A Patient record may be present in a system that acts as a Patient Index: it maintains a (summary of) patient data and
+a list of one or more servers that it are known to hold a more comprehensive and/or authorative record of the same patient.
+The link type 'refer' is used denote such a link. Note that linked records may contain contradictory information. The
+record referred to does not point back to the referring record.</p>
+
+<h3>Distributed Patient record</h3>
+<p>In a distributed architecture, multiple systems keep separate patient records concerning the same person. These
+records are not considered duplicates, but contain a distributed, potentially overlapping view of the patient's data.
+Each such record may have its own focus or maintaining organization and there need not be a sense of one record
+being more complete or more authorative than another. In such cases, links of type 'seealso' can be used to point to
+other patient records. It is not a requirement that such links are bilateral. 
+</p>
+
+<h2>Merging records</h2>
+<p>
+This specification does not specify merge functionality: if multiple patient records are found to be 
+duplicates, they can be linked together, as described above. These links merely express the relationship
+between records, and in the case of a replacement link, indicate a "master" record.  This specification
+does not mandate that FHIR servers migrate information between such records on finding such a link. Note:
+</p>
+<ul>
+ <li>Health information administrators may call the process "merging", but it is often implemented as "linking" at the record level</li>
+ <li>Servers are allowed to implement merging/record migration even though it is not mandated. </li>
+</ul>
+</div>

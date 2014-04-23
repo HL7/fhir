@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- lab report example: a Lipid Profile that conforms to the defined profile -->
+
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml"> 
+      <h3>Lipid Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2009 14:26</h3>            
+<!-- you could use ab html table here, but laboratories are still 
+ using fixed text tables, and this will take decades to change... -->
+            <pre>
+Test                  Units       Value       Reference Range
+Cholesterol           mmol/L      6.3         &lt;4.5
+Triglyceride          mmol/L      1.3         &lt;2.0
+HDL Cholesterol       mmol/L      1.3         &gt;1.5
+LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
+      </pre>
+            <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
+        </div>
+    </text>
+    <contained>
+    <!-- 
+	  all the data items (= Observations) are contained 
+	  in this diagnostic report. It would be equally 
+      valid - and normal - for them to be separate trackable
+      items. However for the purposes of this example, it's
+	  more convenient to have them here. For more discussion,
+	  see under "Contained Resources" on the Resource Definitions
+	  topic page -->
+	  <!-- for users steeped in v2, each observation roughly corresponds with an 
+	    OBX, and the Diagnostic Report with an ORU_R01 message -->
+      <Observation id="cholesterol">
+        <name>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="35200-5"/>
+          </coding>
+          <text value="Cholesterol"/>
+        </name>
+        <valueQuantity>
+          <value value="6.3"/>
+          <units value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </valueQuantity>
+        <status value="final"/>
+        <reliability value="ok"/>
+        <referenceRange>
+          <high>
+            <value value="4.5"/>
+            <units value="mmol/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mmol/L"/>
+          </high>
+        </referenceRange>
+      </Observation>
+    </contained> 
+    <contained>  
+      <Observation id="triglyceride">
+        <name>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="35217-9"/>
+          </coding>
+          <text value="Triglyceride"/>
+        </name>
+        <valueQuantity>
+          <value value="1.3"/>
+          <units value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </valueQuantity>
+        <status value="final"/>
+        <reliability value="ok"/>
+        <referenceRange>
+          <high>
+            <value value="2.0"/>
+            <units value="mmol/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mmol/L"/>
+          </high>
+        </referenceRange>
+      </Observation>
+    </contained> 
+    <contained>  
+      <Observation id="hdlcholesterol">
+        <name>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="2085-9"/>
+          </coding>
+          <text value="Cholesterol in HDL"/>
+        </name>
+        <valueQuantity>
+          <value value="1.3"/>
+          <units value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </valueQuantity>
+        <status value="final"/>
+        <reliability value="ok"/>
+        <referenceRange>
+          <low>
+            <value value="1.5"/>
+            <units value="mmol/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mmol/L"/>
+          </low>
+        </referenceRange>
+      </Observation>
+    </contained> 
+    <contained>  
+      <Observation id="ldlcholesterol">
+        <name>
+          <coding>
+            <system value="http://loinc.org"/>
+            <code value="13457-7"/>
+          </coding>
+          <text value="LDL Chol. (Calc)"/>
+        </name>
+        <valueQuantity>
+          <value value="4.6"/>
+          <units value="mmol/L"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mmol/L"/>
+        </valueQuantity>
+        <status value="final"/>
+        <reliability value="ok"/>
+        <referenceRange>
+          <high>
+            <value value="3.0"/>
+            <units value="mmol/L"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mmol/L"/>
+          </high>
+        </referenceRange>
+      </Observation>
+    </contained> 
+  <!-- first, various administrative/context stuff -->
+  <name>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="57698-3"/>
+      <display value="Lipid panel with direct LDL - Serum or Plasma"/>
+    </coding>
+    <text value="Lipid Panel"/>
+  </name>
+  <status value="final"/> <!-- all this report is final -->
+  <issued value="2013-01-27T11:45:33+11:00"/>
+  <subject>
+    <reference value="Patient/pat2"/>
+  </subject>
+  <performer>
+    <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+    <display value="Acme Laboratory, Inc"/>
+  </performer>
+  <identifier>
+    <system value="http://acme.com/lab/reports"/>
+    <value value="5234342"/>
+  </identifier>
+  <serviceCategory>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0074"/>
+      <code value="HM"/>
+    </coding>
+  </serviceCategory>
+  <diagnosticDateTime value="2011-03-04T08:30:00+11:00"/>
+  <!-- now the atomic results -->
+  <result>
+    <reference value="#cholesterol"/>
+  </result>  
+  <result>
+    <reference value="#triglyceride"/>
+  </result>
+  <result>
+    <reference value="#hdlcholesterol"/>
+  </result>
+  <result>
+    <reference value="#ldlcholesterol"/>
+  </result>
+</DiagnosticReport>

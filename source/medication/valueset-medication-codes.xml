@@ -1,0 +1,35 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains medictation concepts.</p>
+      <p>Possible sources include:</p>
+      <ul>
+        <li>SNOMED CT - Children of SCTID: xxxxxxxx "xxxxxxxxxxxxxx"</li>
+        <li>ISO 11615 - Identification of Medicinal Products</li>
+     </ul>
+      <p>SNOMED CT is being used here as the example terminology.</p>
+    </div>
+  </text>
+  <name value="Snomed Medication Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes all Medication codes from Snomed - provided as an exemplar"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <!-- SNOMED CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value" -->
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="284009009"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
+

@@ -1,0 +1,25 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p> 
+Care Plans are used in many of areas of healthcare with a variety of scopes.
+They can be as simple as a general practitioner keeping track of when their 
+patient is next due for a tetanus immunization through to a detailed plan for
+an oncology patient covering diet, chemotherapy, radiation, lab work and
+counseling with detailed timing relationships, pre-conditions and goals.
+</p>
+<p>
+This resource takes an intermediate approach.  It captures basic details about
+who is involved and what actions are intended without dealing in discrete data
+about dependencies and timing relationships.  These can be supported where
+necessary using the extension mechanisms.
+</p>
+<p>
+Comments are welcome about the appropriateness of the proposed level of 
+granularity, whether it's too much detail for what most systems need, or not
+sufficient for common essential use cases.
+</p>
+</div>
+
+</div>

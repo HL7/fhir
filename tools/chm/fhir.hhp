@@ -1,0 +1,22 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=%fhir%fhir.chm
+Contents file=fhir.hhc
+Default Window=Default
+Default topic=introduction.html
+Display compile progress=No
+Full text search stop list file=words.stp
+Full-text search=Yes
+Index file=fhir.hhk
+Language=0xc09 English (Australia)
+Title=FHIR Specification
+
+[WINDOWS]
+Default=,"fhir.hhc","fhir.hhk","introduction.html",,,,,,0x23520,,0x304e,,,,,,1,,0
+
+
+[FILES]
+introduction.html
+
+[INFOTYPES]
+

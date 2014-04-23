@@ -1,0 +1,50 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This value sets refers to 3 different sources of observation method codes, each with issues:</p>
+      <ul>
+        <li>v3 Code System "ObservationMethod": this is very incomplete and not currently maintained</li>      
+        <li>SNOMED CT Techniques (descendents of 272394005): this is very incomplete, more than just observation methods, and has SNOMED CT licensing issues</li>      
+        <li>LOINC Method List: this is less incomplete, but not designed to be used as a formal code system</li>      
+      </ul>
+    </div>
+  </text> 
+  <name value="Observation Methods"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Method Codes defined as part of v3"/>
+  <status value="draft"/>
+  <!-- LOINC doesn't formally expose the methods as set of codes, but we want to use them here?
+     so we define this as a set of new codes. TODO: discuss this with LOINC -->
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ObservationMethod"/>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <!-- todo: work this over. what this means is any concepts where they have is-a with 404684003 how should this be done? -->
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="272394005"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <!-- 
+          All LOINC codes that are methods. 
+          These will all have codes starting with "LP"
+        -->
+        <property value="Type"/>
+        <op value="="/>
+        <value value="Method"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

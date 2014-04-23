@@ -1,0 +1,35 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <identifier value="http://hl7.org/fhir/vs/condition-category"/>
+  <name value="Condition/Problem/Diagnosis Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Example value set for Condition (Problem/Diagnosis) Categories"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/condition-category"/>
+    <concept>
+      <code value="complaint"/>
+      <display value="Complaint"/>
+      <definition value="The patient considers the condition an issue to be addressed"/>
+    </concept>
+    <concept>
+      <code value="symptom"/>
+      <display value="Symptom"/>
+      <definition value="A symptom of a condition (as might be mentioned in a review of systems)"/>
+    </concept>
+    <concept>
+      <code value="finding"/>
+      <display value="Finding"/>
+      <definition value="An observation made by a healthcare provider"/>
+    </concept>
+    <concept>
+      <code value="diagnosis"/>
+      <display value="Diagnosis"/>
+      <definition value="This is a judgment made by a healthcare provider that the patient has a particular disease or condition"/>
+    </concept>
+  </define>
+</ValueSet>

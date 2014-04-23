@@ -1,0 +1,46 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Example Message Reason Codes"/>
+  <publisher value="FHIR Project"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Example Message Reasons. These are the set of codes that might be used an updating an encounter using admin-update"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/message-reasons-encounter"/>
+    <concept>
+      <code value="admit"/>
+      <display value="Admit"/>
+      <definition value="The patient has been admitted"/>
+    </concept>
+    <concept>
+      <code value="discharge"/>
+      <display value="Discharge"/>
+      <definition value="The patient has been discharged"/>
+    </concept>
+    <concept>
+      <code value="absent"/>
+      <display value="Absent"/>
+      <definition value="The patient has temporarily left the institution"/>
+    </concept>
+    <concept>
+      <code value="return"/>
+      <display value="Returned"/>
+      <definition value="The patient has returned from a temporary absence"/>
+    </concept>
+    <concept>
+      <code value="moved"/>
+      <display value="Moved"/>
+      <definition value="The patient has been moved to a new location"/>
+    </concept>
+    <concept>
+      <code value="edit"/>
+      <display value="Edit"/>
+      <definition value="Encounter details have been updated (e.g. to correct a coding error)"/>
+    </concept>
+    
+  </define>   
+</ValueSet>
+

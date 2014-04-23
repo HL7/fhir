@@ -1,0 +1,216 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="XDS Connect-a-thon practiceSettingCodes"/>
+  <publisher value="IHE"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://ihe.net"/>
+  </telecom>
+  <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
+  <status value="draft"/>
+  <define>
+    <system value="urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead"/>
+    <concept>
+      <code value="Anesthesia"/>
+      <display value="Anesthesia"/>
+    </concept>
+    <concept>
+      <code value="Cardiology"/>
+      <display value="Cardiology"/>
+    </concept>
+    <concept>
+      <code value="Case Manager"/>
+      <display value="Case Manager"/>
+    </concept>
+    <concept>
+      <code value="Chaplain"/>
+      <display value="Chaplain"/>
+    </concept>
+    <concept>
+      <code value="Chemotherapy"/>
+      <display value="Chemotherapy"/>
+    </concept>
+    <concept>
+      <code value="Chiropractic"/>
+      <display value="Chiropractic"/>
+    </concept>
+    <concept>
+      <code value="Critical Care"/>
+      <display value="Critical Care"/>
+    </concept>
+    <concept>
+      <code value="Dentistry"/>
+      <display value="Dentistry"/>
+    </concept>
+    <concept>
+      <code value="Diabetology"/>
+      <display value="Diabetology"/>
+    </concept>
+    <concept>
+      <code value="Dialysis"/>
+      <display value="Dialysis"/>
+    </concept>
+    <concept>
+      <code value="Emergency"/>
+      <display value="Emergency"/>
+    </concept>
+    <concept>
+      <code value="Endocrinology"/>
+      <display value="Endocrinology"/>
+    </concept>
+    <concept>
+      <code value="Gastroenterology"/>
+      <display value="Gastroenterology"/>
+    </concept>
+    <concept>
+      <code value="General Medicine"/>
+      <display value="General Medicine"/>
+    </concept>
+    <concept>
+      <code value="General Surgery"/>
+      <display value="General Surgery"/>
+    </concept>
+    <concept>
+      <code value="Gynecology"/>
+      <display value="Gynecology"/>
+    </concept>
+    <concept>
+      <code value="Labor and Delivery"/>
+      <display value="Labor and Delivery"/>
+    </concept>
+    <concept>
+      <code value="Laboratory"/>
+      <display value="Laboratory"/>
+    </concept>
+    <concept>
+      <code value="Multidisciplinary"/>
+      <display value="Multidisciplinary"/>
+    </concept>
+    <concept>
+      <code value="Neonatal Intensive Care"/>
+      <display value="Neonatal Intensive Care"/>
+    </concept>
+    <concept>
+      <code value="Neurosurgery"/>
+      <display value="Neurosurgery"/>
+    </concept>
+    <concept>
+      <code value="Nursery"/>
+      <display value="Nursery"/>
+    </concept>
+    <concept>
+      <code value="Nursing"/>
+      <display value="Nursing"/>
+    </concept>
+    <concept>
+      <code value="Obstetrics"/>
+      <display value="Obstetrics"/>
+    </concept>
+    <concept>
+      <code value="Occupational Therapy"/>
+      <display value="Occupational Therapy"/>
+    </concept>
+    <concept>
+      <code value="Ophthalmology"/>
+      <display value="Ophthalmology"/>
+    </concept>
+    <concept>
+      <code value="Optometry"/>
+      <display value="Optometry"/>
+    </concept>
+    <concept>
+      <code value="Orthopedics"/>
+      <display value="Orthopedics"/>
+    </concept>
+    <concept>
+      <code value="Otorhinolaryngology"/>
+      <display value="Otorhinolaryngology"/>
+    </concept>
+    <concept>
+      <code value="Pathology"/>
+      <display value="Pathology"/>
+    </concept>
+    <concept>
+      <code value="Perioperative"/>
+      <display value="Perioperative"/>
+    </concept>
+    <concept>
+      <code value="Pharmacacy"/>
+      <display value="Pharmacacy"/>
+    </concept>
+    <concept>
+      <code value="Physical Medicine"/>
+      <display value="Physical Medicine"/>
+    </concept>
+    <concept>
+      <code value="Plastic Surgery"/>
+      <display value="Plastic Surgery"/>
+    </concept>
+    <concept>
+      <code value="Podiatry"/>
+      <display value="Podiatry"/>
+    </concept>
+    <concept>
+      <code value="Psychiatry"/>
+      <display value="Psychiatry"/>
+    </concept>
+    <concept>
+      <code value="Pulmonary"/>
+      <display value="Pulmonary"/>
+    </concept>
+    <concept>
+      <code value="Radiology"/>
+      <display value="Radiology"/>
+    </concept>
+    <concept>
+      <code value="Social Services"/>
+      <display value="Social Services"/>
+    </concept>
+    <concept>
+      <code value="Speech Therapy"/>
+      <display value="Speech Therapy"/>
+    </concept>
+    <concept>
+      <code value="Thyroidology"/>
+      <display value="Thyroidology"/>
+    </concept>
+    <concept>
+      <code value="Tumor Board"/>
+      <display value="Tumor Board"/>
+    </concept>
+    <concept>
+      <code value="Urology"/>
+      <display value="Urology"/>
+    </concept>
+    <concept>
+      <code value="Home"/>
+      <display value="Home"/>
+    </concept>
+    <concept>
+      <code value="Veterinary Medicine"/>
+      <display value="Veterinary Medicine"/>
+    </concept>
+  </define>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <code value="394802001">
+        <!-- just to hook in the SNOMED CT display name, until build issues with SNOMED CT are resolved -->
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="General Medicine"/>
+        </extension>
+      </code>
+      <code value="408478003">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Critical Care Medicine"/>
+        </extension>
+      </code>
+      <code value="410001006">
+        <extension url="http://hl7.org/fhir/Profile/tools-extensions#display">
+          <valueString value="Military Medicine"/>
+        </extension>
+      </code>
+    </include>
+  </compose>  
+</ValueSet>
+

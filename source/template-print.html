@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+      
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<h1>Resource Definition: <%title%></h1>
+<!-- <p class="status">Status: <%status%></p> -->
+<p>
+<%definition%>.
+</p>
+<%resurl%>
+<%introduction%>
+<h2>
+Resource Content
+</h2>
+<a name="uml"> </a>
+<%svg%>
+
+<a name="def"> </a>
+<%xml%>
+
+<p>Alternate definitions: <a href="<%name%>.xsd">Schema</a>, RDF (to do), XMI (to do), <a href="<%name%>.profile.xml">Resource Profile</a></p>
+
+<%tx%>
+
+<%inv%>
+
+<%notes%>
+
+<h2>Examples</h2>
+<table class="list">
+  <%examples%>
+</table>
+
+<%search%>
+
+
+<h2>Formal Definitions</h2>
+
+<p>The formal definitions for the elements above</p>
+
+<%dictionary%>
+
+</div>
+
+[%file newfooter%]
+
+   
+</body>
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+    
+    </div>
+  </text>
+  <identifier value="http://nema.org/dicom/dcid/401"/>
+  <version value="20100826"/>
+  <name value="Security Event Sub-Type"/>
+  <publisher value="NEMA/DICOM"/>
+  <description value="More detailed code concerning the type of the security event - defined by DICOM with some FHIR specific additions"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+  <status value="active"/>
+  <date value="2010-08-26"/>
+  <compose>
+    <include>
+      <system value="http://nema.org/dicom/dcid"/>
+      <code value="110120"/>
+      <code value="110121"/>
+      <code value="110122"/>
+      <code value="110123"/>
+      <code value="110124"/>
+      <code value="110125"/>
+      <code value="110126"/>
+      <code value="110127"/>
+      <code value="110128"/>
+      <code value="110129"/>
+      <code value="110130"/>
+      <code value="110131"/>
+      <code value="110132"/>
+      <code value="110133"/>
+      <code value="110134"/>
+      <code value="110135"/>
+      <code value="110136"/>
+      <code value="110137"/>
+      <code value="110138"/>
+      <code value="110139"/>
+      <code value="110140"/>
+      <code value="110141"/>
+      <code value="110142"/>      
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/restful-operation"/>
+      <code value="read"/>
+      <code value="vread"/>
+      <code value="update"/>
+      <code value="delete"/>
+      <code value="validate"/>
+      <code value="create"/>
+      <code value="history-instance"/>
+      <code value="history-type"/>
+      <code value="history-system"/>
+      <code value="search-type"/>
+      <code value="search-system"/>
+      <code value="transaction"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,41 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains route of administration concepts.</p>
+      <p>Possible sources include:</p>
+      <ul>
+        <li>SNOMED CT - Children of SCTID: 284009009 "route of administration value"</li>
+        <li>ISO 11239 - Routes of administration</li>
+        <li>NCIt - Children of NCIt concept C66729 "route of administration" (note: this covers SDTM and FDA route of administration concepts)</li>
+        <li>EDQM - Route of administration</li>
+      </ul>
+      <p>SNOMED CT is being used here as the example terminology.</p>
+      <p>Note: to avoid confusion with other attributes in this resource concepts that are pre-coordinated with method and/or site of administration 
+      (e.g. "intravenous infusion" where "infusion" is the method or "IV into left subclavian vein" where "left subclavian vein" is the site) 
+      should not be used in this value set.
+      </p>
+    </div>
+  </text>
+  <name value="SNOMED CT Route Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes all Route codes from SNOMED CT - provided as an exemplar"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <!-- SNOMED CT - Children of SCTID: 284009009 "route of administration value" -->
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="284009009"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
+

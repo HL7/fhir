@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+  <text>
+    <status value="empty"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+    </div>
+  </text>
+  <name>
+    <coding>
+      <system value="http://mater.org.au/brisbane/pathology/tests"/>
+      <code value="Mblcl"/>
+      <display value="Blood Cultures"/>
+    </coding>
+  </name>
+  <status value="partial"/>
+  <issued value="2013-10-07T17:18:16"/>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <performer>
+    <reference value="Organization/acme-lab"/>
+  </performer>
+  <diagnosticDateTime value="2013-03-04T18:00:00"/>
+    <group>
+      <name>
+        <text value="Streptococcus lactis"/>
+      </name>
+      <result>
+        <reference value="#c1-id"/> <!-- 11475-1^Culture^LN|1|Streptococcus lactis -->
+      </result>
+      <result>
+        <reference value="#c1-count"/> <!-- 699-9^Culture Count^LN|1|100 -->
+      </result>
+      <result>
+        <reference value="#c1-s1"/> <!-- 18864-9^Ampi(amoxy)cillin^LN^AMO^Ampi(amoxy)cillin^PLS|1|R -->
+      </result>
+      <result>
+        <reference value="#c1-s2"/> <!-- 18897-9^Cephalexin^LN^CPX^Cephalexin^PLS|1|R|||R -->
+      </result>
+      <result>
+        <reference value="#c1-s3"/> <!-- 18997-7^Trimethoprim^LN^TRI^Trimethoprim^PLS|1|R -->
+      </result>
+    </group>
+    <!-- repeat for group 2 -->
+</DiagnosticReport>

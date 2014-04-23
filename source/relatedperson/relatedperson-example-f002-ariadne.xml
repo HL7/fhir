@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelatedPerson xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/relatedperson.xsd">
+  <text>
+
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+     Ariadne Bor-Jansma
+    </div>
+  </text>
+
+  <patient>
+    <reference value="Patient/f201" />
+  </patient>
+  
+  <relationship>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/RoleCode" />
+      <code value="SIGOTHR" />
+    </coding>    
+  </relationship>
+  
+  <name>
+    <!--The name of the contact-->
+    <use value="usual"/>
+    <text value="Ariadne Bor-Jansma"/>
+  </name>
+  <telecom>
+    <!--The home contact detail-->
+    <system value="phone"/>
+    <value value="+31201234567"/>
+    <use value="home"/>
+  </telecom>
+  
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="F"/>
+      <display value="Female"/>
+    </coding>
+  </gender>
+
+</RelatedPerson>

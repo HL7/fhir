@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitioner.xsd">
+ <identifier><!--The identifier for the person as this practitioner (fictive)-->
+    <use value="official"/>
+        <label value="UZI-nummer"/>
+        <system value="urn:oid:2.16.528.1.1007.3.1"/>
+    <value value="12345678902"/>
+ </identifier>
+    <identifier><!--The identifier for this individual-->
+        <use value="official"/>
+        <label value="BIG-nummer"/>
+        <system value="https://www.bigregister.nl/"/>
+        <value value="12345678902"/>
+    </identifier> 
+    <name><!--The name of the practitioner-->
+        <use value="official"/>
+        <text value="Luigi Maas"/>
+        <family value="Maas"/>
+        <given value="Luigi"/>
+        <prefix value="Dr."/>
+    </name>
+    <telecom><!--A contact detail for the individual-->
+        <system value="phone"/>
+        <value value="+31715269111"/>
+        <use value="work"/>
+    </telecom>
+    <address><!--Work address for the individual-->
+        <use value="work"/>
+        <line value="Walvisbaai 3"/>    
+        <line value="C4 - Automatisering"/>
+        <city value="Den helder"/>
+        <zip value="2333ZA"/>
+        <country value="NLD"/><!--ISO 3166 3 letter code-->
+    </address>   
+    
+    <gender><!--The practitioner's administrative gender-->
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="248153007"/>
+        <display value="Male"/>
+      </coding>
+    </gender>
+    <birthDate value="1960-06-12"/>
+<!--    <photo>    
+        <reference value="picture/@LM-203.bmp"/>
+        <display value="Picture_Luigi_Maas"/>
+    </photo>-->
+  <organization>
+     <reference value="Organization/f201"/>
+     <display value="AUMC"/>
+ </organization>
+ <role>
+     <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="33526004"/>
+        <display value="Electronic laboratory reporting"/>   
+     </coding> 
+ </role>
+ <specialty>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="159285000"/>
+        <display value="Medical laboratory technician"/>
+    </coding>
+ </specialty>
+</Practitioner>

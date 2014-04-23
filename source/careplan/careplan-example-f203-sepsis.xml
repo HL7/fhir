@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/careplan.xsd">
+ <patient><!--It entails Roel's careplan-->
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </patient>
+ <status value="completed"/>
+ <period>
+     <start value="2013-04-14"/>
+     <end value="2013-04-21"/>
+ </period>
+ <modified value="2013-03-11"/>
+ <concern>
+     <reference value="Condition/f203"/>
+     <display value="Roel's sepsis"/>
+ </concern>
+ <participant>  
+  <role>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="425268008"/>
+       <display value="Review of care plan"/>
+     </coding>
+  </role>
+  <member>  
+     <reference value="Practitioner/f201"/>
+     <display value="Dokter Bronsig"/>
+  </member>
+ </participant>
+ <participant>  
+  <role>
+     <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="278110001"/>
+       <display value="Radiographic imaging"/>
+     </coding>
+  </role>
+  <member>
+     <reference value="Practitioner/f202"/>
+     <display value="Luigi Maas"/>
+  </member>
+ </participant>
+ <goal> 
+  <description value="Check whether further treatment of sepsis/pulmonary abcess is required"/>
+  <status value="cancelled"/>
+ </goal>
+ <activity> 
+  <status value="not started"/>
+  <prohibited value="false"/>
+  <simple>
+    <category value="observation"/>
+    <code>
+       <coding>
+         <system value="http://snomed.info/sct"/>
+         <code value="241541005"/>
+         <display value="High resolution computed tomography of lungs"/>
+       </coding>      
+    </code>
+  </simple>
+ </activity>
+</CarePlan>

@@ -1,0 +1,150 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="XDS Connect-a-thon healthcareFacilityTypeCodes"/>
+  <publisher value="IHE"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://ihe.net"/>
+  </telecom>
+  <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml, with substantial corrections applied"/>
+  <status value="draft"/>
+  <!-- errors in the source: 
+    * the codes like "281PC2000N" are from 	Code System	2.16.840.1.113883.5.53 (2.16.840.1.113883.5.53)
+    * the coding system 2.16.840.1.113883.5.11 is actually 2.16.840.1.113883.5.111
+  -->
+  <define>
+    <system value="urn:uuid:f0306f51-975f-434e-a61c-c59651d33983"/>
+    <concept>
+      <code value="Laboratory Report"/>
+      <display value="Laboratory Report"/>
+    </concept>
+  </define>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <code value="34096-8"/>
+      <code value="34121-4"/>
+      <code value="18743-5"/>
+      <code value="34095-0"/>
+      <code value="34098-4"/>
+      <code value="11488-4"/>
+      <code value="28574-2"/>
+      <code value="18842-5"/>
+      <code value="34109-9"/>
+      <code value="34117-2"/>
+      <code value="28636-9"/>
+      <code value="28570-0"/>
+      <code value="11506-3"/>
+      <code value="34133-9"/>
+      <code value="11504-8"/>
+      <code value="34138-8"/>
+      <code value="34140-4"/>
+      <code value="18761-7"/>
+      <code value="34100-8"/>
+      <code value="34126-3"/>
+      <code value="34111-5"/>
+      <code value="15507-7"/>
+      <code value="34107-3"/>
+      <code value="34118-0"/>
+      <code value="34129-7"/>
+      <code value="34104-0"/>
+      <code value="34105-7"/>
+      <code value="34114-9"/>
+      <code value="11492-6"/>
+      <code value="34130-5"/>
+      <code value="34112-3"/>
+      <code value="34097-6"/>
+      <code value="34113-1"/>
+      <code value="34119-8"/>
+      <code value="24611-6"/>
+      <code value="34108-1"/>
+      <code value="34120-6"/>
+      <code value="34131-3"/>
+      <code value="34137-0"/>
+      <code value="34123-0"/>
+      <code value="28655-9"/>
+      <code value="28654-2"/>
+      <code value="18733-6"/>
+      <code value="34134-7"/>
+      <code value="34135-4"/>
+      <code value="34136-2"/>
+      <code value="34099-2"/>
+      <code value="34094-3"/>
+      <code value="34124-8"/>
+      <code value="34125-5"/>
+      <code value="28581-7"/>
+      <code value="18762-5"/>
+      <code value="18763-3"/>
+      <code value="28569-2"/>
+      <code value="34127-1"/>
+      <code value="29761-4"/>
+      <code value="28572-6"/>
+      <code value="28577-5"/>
+      <code value="28617-9"/>
+      <code value="28583-3"/>
+      <code value="28618-7"/>
+      <code value="34128-9"/>
+      <code value="34110-7"/>
+      <code value="18748-4"/>
+      <code value="34101-6"/>
+      <code value="34115-6"/>
+      <code value="28621-1"/>
+      <code value="18764-1"/>
+      <code value="28622-9"/>
+      <code value="29753-1"/>
+      <code value="28623-7"/>
+      <code value="34139-6"/>
+      <code value="28651-8"/>
+      <code value="18734-4"/>
+      <code value="11507-1"/>
+      <code value="34122-2"/>
+      <code value="34132-1"/>
+      <code value="18735-1"/>
+      <code value="11508-9"/>
+      <code value="28579-1"/>
+      <code value="11490-0"/>
+      <code value="28626-0"/>
+      <code value="18736-9"/>
+      <code value="11505-5"/>
+      <code value="28573-4"/>
+      <code value="28616-1"/>
+      <code value="28568-4"/>
+      <code value="34106-5"/>
+      <code value="34116-4"/>
+      <code value="18737-7"/>
+      <code value="28625-2"/>
+      <code value="11509-7"/>
+      <code value="28624-5"/>
+      <code value="28635-1"/>
+      <code value="28627-8"/>
+      <code value="34102-4"/>
+      <code value="18738-5"/>
+      <code value="11510-5"/>
+      <code value="34103-2"/>
+      <code value="18739-3"/>
+      <code value="28656-7"/>
+      <code value="28653-4"/>
+      <code value="18740-1"/>
+      <code value="11512-1"/>
+      <code value="54138-3"/>
+      <code value="34133-9"/>
+      <code value="18717-9"/>
+      <code value="18718-7"/>
+      <code value="18719-5"/>
+      <code value="18722-9"/>
+      <code value="18723-7"/>
+      <code value="18724-5"/>
+      <code value="18725-2"/>
+      <code value="18727-8"/>
+      <code value="18767-4"/>
+      <code value="18768-2"/>
+      <code value="26435-8"/>
+      <code value="26436-6"/>
+      <code value="26437-4"/>
+      <code value="26438-2"/>
+      <code value="11502-2"/>
+      
+    </include>
+  </compose>  
+</ValueSet>
+

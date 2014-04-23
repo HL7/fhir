@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/composition.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Consultation note for Henry Levin the 7th</p>
+    </div>
+  </text>
+	<identifier>
+	  <system value="http://healthintersections.com.au/test"/>
+	  <value value="1"/>
+	</identifier>
+	<date value="2012-01-04T09:10:14Z"/>
+	<type>
+	  <coding>
+		<system value="http://loinc.org"/>
+		<code value="11488-4"/>
+		<display value="Consult note"/>
+	  </coding>
+	</type>
+	<status value="final"/>
+	<confidentiality>
+	  <system value="http://ihe.net/xds/connectathon/confidentialityCodes"/>
+	  <code value="1.3.6.1.4.1.21367.2006.7.101"/>
+	  <display value="Clinical-Staff"/>
+	</confidentiality>
+	<subject>
+	  <reference value="Patient/xcda"/>
+	  <display value="Henry Levin the 7th"/>
+	</subject>
+	<author>
+	  <reference value="Practitioner/xcda-author"/>
+	  <display value="Robert Dolin MD"/>
+	</author>
+	<attester>
+	  <mode value="legal"/>
+	  <party>
+		<reference value="Practitioner/xcda-author"/>
+		<display value="Robert Dolin MD"/>
+	  </party>
+	</attester>
+	<custodian>
+	  <reference value="Organization/2.16.840.1.113883.19.5"/>
+	  <display value="Good Health Clinic"/>
+	</custodian>
+  <section>
+    <title value="History of present illness"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="10164-2"/>
+      </coding>
+    </code>
+    <content>
+      <reference value="MedicationAdministration/example"/>
+    </content>
+  </section>
+</Composition>

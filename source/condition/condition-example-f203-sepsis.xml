@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--@version June 2013 @author Melchior Ferdinand Pot-->
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
+ <subject><!--It entails Roel's problem-->
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </subject>
+ <encounter>
+     <reference value="Encounter/f203"/>
+     <display value="Roel's encounter on March eleventh"/>
+ </encounter>
+ <asserter>
+     <reference value="Practitioner/f201"/>
+ </asserter>
+ <dateAsserted value="2013-03-11"/>
+ <code><!--The problem is bacterial sepsis-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="10001005"/>
+       <display value="Bacterial sepsis"/> 
+    </coding>
+ </code>
+ <category><!--Bacterial sepsis is certainly a moderate to severe problem-->
+     <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="55607006"/>
+        <display value="Problem"/> 
+     </coding>
+     <coding>
+         <system value="http://hl7.org/fhir/condition-category"/>
+         <code value="finding"/>
+     </coding>
+ </category>
+ <status value="confirmed"/>
+ <certainty>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="17162000"/>
+        <display value="Certain"/> 
+    </coding>
+ </certainty>
+ <severity>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="371924009"/>
+        <display value="Moderate to severe"/> 
+    </coding>
+ </severity>
+ <onsetDate value="2013-03-08"/>
+ <evidence>
+  <detail>
+     <reference value="DiagnosticReport/f202"/>
+     <display value="Diagnostic report for Roel's sepsis"/>
+  </detail>
+ </evidence>
+ <location><!--Location is intravascular pulmonary-->
+  <code>
+    <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="281158006"/>
+        <display value="Pulmonary vascular structure"/> 
+    </coding>
+  </code>
+ </location>
+ <relatedItem><!--Bacterial sepsis is due to Staphylococcus Aureus-->
+  <type value="due-to"/>
+  <target>
+     <reference value="Substance/f202"/>
+     <display value="Staphylococcus Aureus"/>
+  </target>
+ </relatedItem>
+</Condition>

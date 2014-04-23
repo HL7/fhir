@@ -1,0 +1,42 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="ContactEntityType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This example value set defines a set of codes that can be used to indicate 
+    the purpose for which you would contact a contact party."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/contactentity-type"></system>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="BILL" />
+      <display value="Billing" />
+    </concept>
+    <concept>
+      <code value="ADMIN" />
+      <display value="Administrative" />
+    </concept>    
+    <concept>
+      <code value="HR" />
+      <display value="Human Resource" />
+    </concept>
+    <concept>
+      <code value="PAYOR" />
+      <display value="Payor" />
+    </concept>
+    <concept>
+      <code value="PATINF" />
+      <display value="Patient" />
+      <definition value="Generic information contact for patients" />
+    </concept>
+    <concept>
+      <code value="PRESS" />
+      <display value="Press" />
+    </concept>
+  </define>  
+</ValueSet>
+

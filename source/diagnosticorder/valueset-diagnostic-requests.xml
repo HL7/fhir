@@ -1,0 +1,37 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes all LOINC codes in the "Clinical" or "Lab" class types (TODO: narrow this further - diagnostic codes, panels only)
+    </div>
+  </text>
+  <name value="LOINC Diagnostic Order Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes all the LOINC Order codes"/>
+  <status value="draft"/>
+  <compose>
+    <!-- all codes that are orderable -->
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="ORDER_OBS"/>
+        <op value="="/>
+        <value value="Order"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="ORDER_OBS"/>
+        <op value="="/>
+        <value value="Both"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
+

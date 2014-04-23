@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+    
+    </div>
+  </text>
+  <identifier value="http://hl7.org/fhir/vs/security-source-type"/>
+  <version value="20100826"/>
+  <name value="Security Event Source Type"/>
+  <publisher value="NEMA/DICOM"/>
+  <description value="The type of process where the security event originated from"/>
+  <status value="active"/>
+  <date value="2010-08-26"/>
+  <define>
+    <system value="http://hl7.org/fhir/security-source-type"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="1"/>
+      <display value="User Device"/>
+      <definition value="End-user display device, diagnostic device"/>
+    </concept>
+    <concept>
+      <code value="2"/>
+      <display value="Data Interface"/>
+      <definition value="Data acquisition device or instrument"/>
+    </concept>
+    <concept>
+      <code value="3"/>
+      <display value="Web Server"/>
+      <definition value="Web Server process or thread"/>
+    </concept>
+    <concept>
+      <code value="4"/>
+      <display value="Application Server"/>
+      <definition value="Application Server process or thread"/>
+    </concept>
+    <concept>
+      <code value="5"/>
+      <display value="Database Server"/>
+      <definition value="Database Server process or thread"/>
+    </concept>
+    <concept>
+      <code value="6"/>
+      <display value="Security Server"/>
+      <definition value="Security server, e.g., a domain controller"/>
+    </concept>
+    <concept>
+      <code value="7"/>
+      <display value="Network Device"/>
+      <definition value="ISO level 1-3 network component"/>
+    </concept>
+    <concept>
+      <code value="8"/>
+      <display value="Network Router"/>
+      <definition value="ISO level 4-6 operating software"/>
+    </concept>
+    <concept>
+      <code value="9"/>
+      <display value="Other"/>
+      <definition value="other kind of device (defined by DICOM, but some other code/system can be used)"/>
+    </concept>
+  </define>
+</ValueSet>

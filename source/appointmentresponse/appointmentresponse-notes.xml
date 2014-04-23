@@ -1,0 +1,34 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+    <h2>Notes:</h2>
+    <ul>
+        <li>Timezones and Recurring Appointments</li>
+        <p>Recurring appointments need to have the timezone in which the values were entered in defined.
+				Knowing that the start time was at 9:00:00Z+10 does not mean that the same time in 2 weeks is actually the same. 
+        </p>
+			<p>
+				As if this was a time in Brisbane Australia, this time will be the same (in respect to its offset from UTC),
+				however if this was for Melbourne Australia, during the daylight savings period of time Melbourne becomes +11.
+				So without the additional information as to which timezone it was created in, scheduling a 9am appoitment every
+				Wednesday would not be possible.
+			</p>
+			<li>Placer/Filler (HL7 v2)</li>
+			<p>
+				The appointment information is effectively the same between the filler and placer, and given the nature of the
+				fhir resource, there is only a single resource for both purposes. The Placer is the actor that performs the
+				PUT or POST operation on the resource, and the filler is the actor that receives these resource messages and
+				processes the information and makes a decision if the appointment can be used.
+				<em>Brian: Does this seem right that the filler and placer are applied in this way?</em>
+			</p>
+			<li>Interaction with other Standards</li>
+			<p>
+				The strong desire is that implementers of this resource should consider providing this resource
+				in the iCalendar format as an alternative representation. Many 3rd party applications and component providers 
+				have parsers and user interface controls to display this information.
+				This may lower the entry point to integrate outside the health-care specific applications, and into the 
+				consumer space. This would permit the easier creation of a mobile application that creates appointments
+				in the devices native calendar.<br/>
+				The iCalendar specification can be found at <a href="http://www.ietf.org/rfc/rfc2445.txt">http://www.ietf.org/rfc/rfc2445.txt</a>.
+			</p>
+    </ul>
+</div>

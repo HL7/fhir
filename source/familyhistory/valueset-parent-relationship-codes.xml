@@ -1,0 +1,28 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>The value set includes the v3 RoleCode PRN (parent) and all of its specializations.</p>
+    </div>
+  </text>
+  <name value="Parent Relationship Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="The value set includes the v3 RoleCode PRN (parent) and all of its specializations."/>
+  <status value="draft"/>
+  <compose>
+    <include>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <filter>
+            <property value="concept"/>
+            <op value="is-a"/>
+            <value value="PRN"/>
+        </filter>
+    </include>
+  </compose>
+</ValueSet>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd" xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Burgers UMC, South Wing, second floor</div>
+  </text>
+  <identifier>
+    <value value="B1-S.F2" />
+  </identifier>
+  <name value="South Wing, second floor"/>
+  <description value="Second floor of the Old South Wing, formerly in use by Psychiatry"/>
+  <telecom>
+    <system value="phone"/>
+    <value value="2328"/>
+		<use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="2329"/>
+		<use value="work"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="second wing admissions"/>
+  </telecom>
+  <telecom>
+    <system value="url"/>
+    <value value="http://sampleorg.com/southwing"/>
+		<use value="work"/>
+  </telecom>
+  <address>
+        <use value="work"/>
+        <line value="Galapagosweg 91, Building A"/>
+        <city value="Den Burg"/>
+        <zip value="9105 PZ"/>
+        <country value="NLD"/>
+  </address>
+  <physicalType>
+    <coding>
+      <system value="http://hl7.org/fhir/location-physical-type" />
+      <code value="wi"/>
+      <display value="Wing"/>     
+    </coding>
+  </physicalType>
+  <position>
+    <longitude value="4.844614000123024"/>
+    <latitude value="52.37799399970903" />
+    <altitude value="0" />
+  </position>
+  <managingOrganization>
+    <reference value="Organization/f001"/>
+  </managingOrganization>
+  <status value="active" />
+</Location>

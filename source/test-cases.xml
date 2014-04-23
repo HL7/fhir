@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This XML file includes a set of resources that test out difficult cases 
+for servers to handle as part of a batch post
+ --><feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+	<title>FHIR Test Cases</title>
+	<id>urn:uuid:b248b1b2-1686-4b94-9936-37d7a5f94b51</id>
+	<link rel="self" href="http://www.hl7.org/fhir/test-cases.xml"/>
+	<updated>2012-11-12T18:10:00Z</updated>
+	
+	<!-- 
+	  the first pair of entries is a simple person resource, followed by 
+	  the provenance for the resource. The provenance identifies the 
+	  resource by its randomly chosen identifier. The server has to reidentify
+	  both the resources, and update the reference from the provenance resource
+	  to the person resource (and fill out the version)
+    -->
+	<entry>
+		<title>test person</title>
+		<id>http://www.healthintersections.com.au/fhir/trash/person/@1</id>
+		<link rel="self" href="http://www.hl7.org/fhir/test-cases.xml#1"/>
+		<updated>2012-11-12T18:10:00Z</updated>
+		<author>
+			<name>Grahame Grieve</name>
+		</author>
+		<category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+		<content type="text/xml">
+			<Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+			  <text>
+					<status value="generated"/>
+					<xhtml:div>
+					  <xhtml:p>Henry Levin</xhtml:p>
+					</xhtml:div>
+				</text>
+			  <name>
+				<family value="Levin"/>
+				<given value="Henry"/>
+			  </name>
+			  <gender>
+				<coding>
+				  <system value="urn:oid:2.16.840.1.113883.5.1"/>
+				  <code value="M"/>
+				</coding>
+			  </gender>
+				<birthDate value="1932-09-24"/>
+			</Person>		
+		</content>
+		<summary type="xhtml">
+			<xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+		</summary>
+	</entry>
+	<entry>
+		<title>test person provenance</title>
+		<id>http://www.healthintersections.com.au/fhir/trash/Provenance/1</id>
+		<link rel="self" href="http://www.hl7.org/fhir/test-cases.xml#2"/>
+		<updated>2012-11-12T18:12:00Z</updated>
+		<author>
+			<name>Grahame Grieve</name>
+		</author>
+		<category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+		<content type="text/xml">
+			<Provenance xmlns="http://hl7.org/fhir">
+			  <text>
+				<status value="generated"/>
+				<div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
+			  </text>
+			  <target>
+				<value value="http://www.healthintersections.com.au/fhir/trash/person/@1"/>
+			  </target>
+			  <!-- nominal activity: editing the standard -->
+			  <activity>
+				<recorded value="2012-11-12T18:16:00Z"/>
+			  </activity>
+			  <!-- author -->
+			  <party>
+				<type>
+				  <system value="http://hl7.org/fhir/provenance-participant-type"/>
+				  <code value="person"/>
+				</type>
+				<value value="mailto:grahame@healthintersections.com.au"/>
+				<role>
+				  <system value="http://hl7.org/fhir/provenance-participant-role"/>
+				  <code value="author"/>
+				</role>
+			  </party>
+			</Provenance>
+		</content>
+		<summary type="xhtml">
+			<xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+		</summary>
+	</entry>
+    <!--
+    For reference, here is an acceptable response from the server. actual dates, times, urls and ids will vary accordingly
+	
+		<feed xmlns="http://www.w3.org/2005/Atom">
+		  <title>batch results</title>
+		  <updated>2012-11-12T10:29:55+11:00</updated>
+		  <id>urn:uuid:857b40e4-90cf-4425-9899-b0091aa60e</id>
+		  <link rel="self" href=""/>
+		  <entry>
+			<title>Resource "1"</title>
+			<link rel="self" href="http://localhost:9556/svc/fhir/@1/history/1"/>
+			<source>
+			  <id>http://www.healthintersections.com.au/fhir/trash/person/@1</id>
+			</source>
+			<id>http://localhost:9556/svc/fhir/@1</id>
+			<updated>2012-11-12T10:29:55+11:00</updated>
+			<published>2012-11-12T10:29:55+11:00</published>
+			<author>
+			  <name>Grahame Grieve</name>
+			</author>
+			<category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+			<content type="text/xml; charset=UTF-8">
+			  <Person xmlns="http://hl7.org/fhir">
+				<name>
+				  <family>Levin</family>
+				  <given>Henry</given>
+				</name>
+				<gender>
+				  <coding>
+					<system>urn:oid:2.16.840.1.113883.5.1</system>
+					<code>M</code>
+				  </coding>
+				</gender>
+				<birthDate>1932-09-24</birthDate>
+				<text>
+				  <status>generated</status>
+				  <div xmlns="http://www.w3.org/1999/xhtml">
+					<p>Henry Levin</p>
+				  </div>
+				</text>
+			  </Person>
+			</content>
+			<summary type="xhtml">
+			  <div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Henry Levin</p>
+			  </div>
+			</summary>
+		  </entry>
+		  <entry>
+			<title>Resource "1"</title>
+			<link rel="self" href="http://localhost:9556/svc/fhir/@1/history/1"/>
+			<source>
+			  <id>http://www.healthintersections.com.au/fhir/trash/Provenance/1</id>
+			</source>
+			<id>http://localhost:9556/svc/fhir/@1</id>
+			<updated>2012-11-12T10:29:55+11:00</updated>
+			<published>2012-11-12T10:29:55+11:00</published>
+			<author>
+			  <name>Grahame Grieve</name>
+			</author>
+			<category term="Provenance" scheme="http://hl7.org/fhir/resource-types"/>
+			<content type="text/xml; charset=UTF-8">
+			  <Provenance xmlns="http://hl7.org/fhir">
+				<target>
+				  <type>Patient</type>
+				  <id>1</id>
+				</target>
+				<activity>
+				  <recorded>2012-11-12T18:16:00+11:00</recorded>
+				</activity>
+				<party>
+				  <type>
+					<system>http://hl7.org/fhir/provenance-participant-type</system>
+					<code>person</code>
+				  </type>
+				  <id>mailto:grahame@healthintersections.com.au</id>
+				  <role>
+					<system>http://hl7.org/fhir/provenance-participant-role</system>
+					<code>author</code>
+				  </role>
+				</party>
+				<text>
+				  <status>generated</status>
+				  <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
+				</text>
+			  </Provenance>
+			</content>
+			<summary type="xhtml">
+			  <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
+			</summary>
+		  </entry>
+		</feed>	
+    -->	
+</feed>

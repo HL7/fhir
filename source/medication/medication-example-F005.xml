@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:/C:/SVN/schema/medication.xsd">
+    <name value="Enalapril"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="318851002"/> <!-- SNOMED CT classification code -->
+            <display value="Enalapril maleate 5mg tablet"/>
+        </coding>
+    </code>
+    <isBrand value="true"/>
+    <manufacturer> <!-- Linked to non excisting RESOURCE(Organization) -->
+        <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
+        <reference value="Organization/F000"/>
+        <display value="Magistra"/>
+    </manufacturer>
+    <kind value="product"/>
+    <package>
+        <container>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="398124009"/>
+                <display value="drug container"/>
+            </coding>
+        </container>
+        <content>
+            <item><!-- 1..1 Resource(Medication) A product in the package --></item>?????
+            <amount>
+                <value value="20"/>
+                <units value="Pill"/>
+                <system value="http://snomed.info/sct"/>
+                <code value="46992007"/>
+            </amount>
+        </content>
+    </package>    
+</Medication>

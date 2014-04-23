@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Authored on 8-Nov 2011 by Grahame Grieve. Content extracted from ISO-21090</div>
+  </text>
+  <target>
+    <reference value="Patient/example/history/1"/>
+  </target>
+  <!-- nominal activity: editing the standard -->
+  <period>
+    <start value="2011-06-23"/>
+  </period>
+  <recorded value="2012-11-08T23:16:03+11:00"/>
+  <reason>
+    <text value="Editing the FHIR Specification"/>
+  </reason>
+  <location>
+    <reference value="Location/2"/>
+  </location>
+  <!-- author -->
+  <agent>
+    <role>
+      <system value="http://hl7.org/fhir/provenance-participant-role"/>
+      <code value="author"/>
+    </role>
+    <type>
+      <system value="http://hl7.org/fhir/provenance-participant-type"/>
+      <code value="person"/>
+    </type>
+    <reference value="mailto:grahame@healthintersections.com.au"/>
+    <display value="Grahame Grieve"/>
+  </agent>
+  <!-- actually, this example was extracted from ISO 21090 -->
+  <agent>
+    <role>
+      <system value="http://hl7.org/fhir/provenance-participant-role"/>
+      <code value="source"/>
+    </role>
+    <type>
+      <system value="http://hl7.org/fhir/provenance-participant-type"/>
+      <code value="document"/>
+    </type>
+    <reference value="urn:iso:std:21090"/>
+    <display value="ISO 21090"/>
+  </agent>
+</Provenance>

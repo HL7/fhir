@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd">
+ <name value="Paracetamol"/>
+ <code>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="387517004"/>
+       <display value="Paracetamol"/>
+    </coding>
+ </code>
+ <isBrand value="false"/>
+ <kind value="product"/>
+ <product> 
+  <form>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="385055001"/>
+       <display value="Tablet"/>
+    </coding>
+  </form>
+ </product>
+</Medication>

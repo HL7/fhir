@@ -1,0 +1,398 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This specification describes a set of base resources that are used in many different
+contexts in healthcare. In order to make this manageable, applications and specifications need to be
+able to describe restrictions on how one or more resource(s) are used, including 
+defining extensions, and controlling how terminology is used. These descriptions 
+need to be able to be shared through repositories of profile definitions, and need
+to allow for these usage statements to be published, compared, and used as the basis
+for code, report and UI generation. All these things are done using a "Profile", 
+which itself is represented as a resource. 
+</p>
+
+<p>
+Profile resources have three main parts:
+</p>
+<ol>
+ <li>A metadata section the describes the profile, and supports registry searching</li>
+ <li><i>Structures</i> that define and describe how a Resource or Data Type is used</li>
+ <li><i>Extension Definitions</i> that define extensions that can be used in structures</li>
+</ol>
+<p>
+This page defines the profile resource, and describes how it is used. Note that 
+as part of the specification itself, a <a href="downloads.html#profiles">full 
+set of profiles</a> for all resources and data types is published.
+</p>
+<p>
+A FHIR RESTful server serving the profile resource is also a profile repository. 
+HL7 hosts one for public registration of FHIR profiles at (yet to be done).
+</p>
+</div> 
+
+<div> 
+<h2>Boundaries and Relationships</h2> 
+<ul>
+ <li>Profiles are used by <a href="conformance.html">Conformance Profiles</a> for specifying how resources are used</li>
+ <li>Profiles use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
+</ul>
+
+<h3>Limitations of Use</h3>
+<p>
+A profile specifies a set of rules that the content of a resource must adhere to. 
+In addition, a resource is allowed to describe required behavior for applications
+that conform to the profile. However the ability of the profile to define this behavior
+is limited in some respects:
+</p>
+<ul>
+ <li>The profile cannot specify default values for elements</li>
+ <li>It must be safe to process a resource without knowing of the profile</li>
+</ul>
+<p>
+The consequence of this is that if a profile mandates behavior that cannot 
+be ignored, it must also mandate an extension with isModifier=true in the
+instance. Another way of saying this is that knowledge must be explicit in
+the instance, not implicit in the profile. 
+</p>
+<p>
+As an example, if a profile wished to describe that any <a href="allergyintolerance.html">Allergy/Intolerance</a>
+resource was deemed extremely unlikely, it could not simply say that this is so; instead, it must 
+say that the resource must have an extension that represents this knowledge. 
+</p>
+
+</div> 
+
+<div>
+<h2>Background and Context</h2>
+
+<h3>Metadata</h3>
+<p>
+The profile resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>
+and <a href="conformance.html">Conformance</a> resources. The metadata describes the profile, and helps 
+find the profile when registered in profile repositories. 
+</p>
+
+<table class="grid">
+ <tr><td>identifier</td><td>The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique URI, OID, or UUID)</td></tr>
+ <tr><td>version</td><td>
+   <p>The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.</p>
+   <p>Note that there may be multiple resource versions of the profile that have this same identifier. The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control</p>
+   </td></tr>
+ <tr><td>name</td><td>A free text natural language name identifying the Profile	</td></tr>
+ <tr><td>publisher</td><td>Details of the individual or organization who accepts responsibility for publishing the profile. This helps establish the "authority/credibility" of the profile.</td></tr>
+ <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>	
+ <tr><td>description</td><td>A free text natural language description of the profile and its use</td></tr>	
+ <tr><td>requirements</td><td>The Scope and Usage that this profile was created to meet</td></tr>	
+ <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
+ <tr><td>status</td><td>The status of the profile	allows filtering of profiles that are appropriate for use vs. not. See the <a href="resource-profile-status.html">Status Codes</a></td></tr>
+ <tr><td>experimental</td><td>This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</td></tr>
+ <tr><td>date</td><td>The date that this version of the profile was published	</td></tr>
+ <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this profile is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a profile against a particular version of FHIR can easily be checked by tooling.	</td></tr>
+</table>
+
+<p>Notes:</p>
+<ul>
+<li>The name of the profile is not required to be globally unique, but the name should have some scoping information (i.e. Acme Inc. (USA), Allergy List)</li>
+<li>Multiple codes may be assigned to the profile. These may either describe the profile, the focus of the profile or both. They are solely to help find the profile by searching for structured concepts.</li>
+
+</ul>  
+<h3>Structure</h3>
+<p>
+This section specifies restrictions on the content of a resource or a data type. Each structure has a name,
+which as an internal name unique in the scope of the profile that is used to reuse the structure, and 
+the type that it restricts, which is either a resource or data type defined in the FHIR specification. 
+The following kinds of statements can be made about how a resource or data type is used:
+</p>
+<ul>
+ <li>Restricting the cardinality of the element. e.g. the base might allow 0..*, and a particular application might support 1..2</li>
+ <li>Ruling out use of an element by setting its maximum cardinality to 0</li>
+ <li>Making additional invariants on the content of nested elements within the resource (expressed as XPath statements)</li>
+ <li>Restricting the types for an element that allows multiple types</li>
+ <li>Requiring a typed element or the target of a resource reference to conform to a profile declared elsewhere</li>
+ <li>Specifying a binding to a different terminology value set</li>
+ <li>Providing alternative definitions for the elements defined in a Resource to explain how they are used in the context of the Profile</li>
+ <li>Providing more specific or additional mappings (e.g. to v2 or v3) for the resource when used in a particular context</li> 
+</ul>
+<p>
+All of these changed definitions SHALL be restrictions that are consistent with the 
+rules defined in the base resource in the FHIR Specification. Note that some of 
+these restrictions can be enforced by tooling (and are by the FHIR tooling), but 
+others cannot be automatically enforced.
+</p>
+<p>
+A structure definition consists of a linear list of element declarations. The inherent 
+nested structure of the elements is derived from the <i>path</i> value of each element. 
+For instance, a sequence of the element paths like this:
+</p>
+<ul>
+ <li>Root</li>
+ <li>Root.childA</li>
+ <li>Root.childA.grandchild1</li>
+ <li>Root.childB</li>
+</ul>
+<p>
+defines the following structure:
+</p>
+<pre class="xml">
+ &lt;Root&gt;
+   &lt;childA&gt;
+     &lt;grandChild/&gt;
+   &lt;/childA&gt;
+   &lt;childB/&gt;
+ &lt;/Root&gt;
+</pre>
+<p>
+or its JSON equivalent. The structure SHALL be coherent - children are never 
+implied, and the path statements SHALL always be in order. The element list is 
+a linear list rather than being explicitly nested because profile structures
+are frequently used in multiple places within a single profile, and this re-use
+is easier in a flat structure.
+</p>
+<p>
+Profiles are always complete and static. This means that there is never a need
+to consult any additional profiles to fully understand the element structure
+that is defined, and there is no need to perform comparison between any profiles
+to determine the meaning of any profile. 
+</p>
+
+<!--
+Grahame says: I don't even know what this section was supposed to be about...
+<h3>Reusing Definitions</h3>
+<p>
+??
+</p>
+-->
+
+<h3>Slicing</h3>
+<p>
+One common feature of profiles is to take an element that may occur more than once (e.g. in a list), 
+and describe a series of different restrictions on the elements in the list with associated 
+additional meaning with each element, so that the list is split into a series of individual 
+elements or sub-lists. In FHIR, this operation is known as "Slicing" a collection.
+</p>
+<p>
+Here is an example to illustrate the process:
+</p>
+<img alt="Slicing diagram" src="slicing.png" width="461" height="353"/>
+<p>
+In this example, the base resource defines the "related" element which may occur
+multiple times. Each related element has a "type" element, and a "target" element
+which identifies another observation. In this diagram, the contents of the target
+element are shown in the inner box instead of the showing the target reference 
+explicitly. Note that to avoid adding clutter to this simplified example, the "name" 
+attribute of Observation is shown as (code) not a full CodeableConcept.
+</p>
+<p>
+The profile for Blood Pressure constrains the related element list into 
+2 different elements: a systolic element, and a diastolic element. Each of these
+elements has a fixed value for the type element, and a the profile also fixes the 
+contents of the target observation as well, specifying a fixed LOINC code for
+the name, and specifying that both have a value of type Quantity. This process
+is known as "slicing" and the Systolic and Diastolic elements are called "slices".
+</p>
+
+<p>
+Note that when the resource is exchanged, the wire format that is exchanged is not 
+altered by the profile. This means that the item profile names defined in the 
+profile ("systolic", etc. in this example) are never exchanged. A resource 
+instance looks like this:
+</p>
+<pre>
+ &lt;Observation&gt;
+   ...
+   &lt;related&gt;
+     &lt;type value=&quot;component&quot;/&gt;
+     &lt;target ...&gt;
+   &lt;/related&gt;
+   &lt;related&gt;
+     &lt;type value=&quot;component&quot;/&gt;
+     &lt;target ...&gt;
+   &lt;/related&gt;
+ &lt;/Observation&gt;
+</pre>
+<p>
+The only way to determine that the first related item corresponds to "Systolic" in 
+the profile is to check the values of the elements - in this case, the name element
+in the target resource. 
+</p>
+<p>
+In order to make slicing easy to use, particularly in the context of code 
+generation tools that work with profiles, any time slicing is performed in 
+a profile, the profile SHALL nominate a "discriminator" - a contained 
+element that is used to discriminate among the different slices. 
+The profile SHALL fix the value of the contained element for each
+slice, or if the contained element has a terminology binding, it SHALL be 
+associated with a complete binding with a version specific <a href="valueset.html">Value Set</a> 
+reference that enumerates the possible codes in the value set, and where there 
+is no overlap between the codes in the value sets between slices.
+</p>
+
+<p> Within a profile, a slice is defined using multiple <i>element</i>
+	entries that share a <i>path</i> but have distinct
+	<i>name</i>s. These entries together form a "slice group" that is:
+</p>
+
+<ol>
+	       
+	<li><b>Initiated by a "slicing entry"</b> That is, the first
+		<i>element</i> in a slice group must contain a
+		<i>slicing</i> property that defines the
+		<i>discriminator</i> for all members of the group.</li>
+
+	<li><b>Mutually exclusive</b>. This means that each
+		<i>element</i> in a slice group SHALL describe a
+		distinct set of  values for the group's
+		<i>discriminator</i>.  Because of this constraint, an 
+	        element in a resource <b>instance</b> will never match more
+		than one <i>element</i> in a given slice group.</li>
+
+	<li><b>Serialized as a group</b>. The entries in a slice
+		group must be <b>adjacent</b> in a serialized Profile,
+		<b>or</b>, if there are any intervening elements, those
+		elements must be "compatible with" the group. Concretely, this
+		means that any intervening elements must have a
+		<i>path</i> that starts with the slice groups's
+		<i>path</i>.  For example, an <i>element</i> with a
+		<i>path</i> of <i>Observation.name.extension</i>
+		would be compatible with (and thus, would not "break up") a
+		slice group whose path was <i>Observation.name</i> </li>
+
+</ol>
+<p>
+The value of the discriminator is either a path name that identifies
+the child element using a dotted notation, or a URI, which identifies 
+an extension that serves as the discriminator (and which must be found 
+on the element at which the slicing occurs). In the case above, the 
+discriminator is "target.name" (the fact that there is a resource
+boundary between "target" and "name" is implied, not represented directly).
+</p>
+<!-- but what's the discriminator here?  todo during DSTU period...
+<p>
+An additional reason to use slicing is when a single element has a choice of types, and
+different types need different definitions, mappings, or constraints. 
+</p>
+-->
+
+<h3>Extension Definitions</h3>
+<p>
+A profile can also define extensions. Some profiles only define extensions, and others define 
+extensions as part of defining one or more structures. For an extension definition, the 
+profile defines the code that identifies the extension. The full URI that refers to the 
+extension when it is used in a resource is the identifier (from the metadata above) and 
+then # + the code. 
+</p>
+<p>
+The extension definition also defines the context where the extension can be used (usually
+a particular path or a data type), and then defines it using the same details used to 
+profile the structural elements.
+</p>
+<p>
+Note that in the case of a profile that defines an extension, and then uses it, the
+extension will appear both in the extension definition section, and in one or more places
+in the structure defined by the profile.
+</p>
+<p>
+For further discussion of defining and using extensions, along with some examples, 
+see <a href="extensibility.html">Extensibility</a>. 
+</p>
+
+<h4>Using Extensions in Structures</h4>
+<p>
+Defining a extension means that it can be used in a resource somewhere. To actually
+use a resource, the extension list on the resource needs to be sliced. This is shown in 
+<a href="extensibility-examples.html#sliceextensions">the extensibility examples</a></p>
+<p>
+Note that the minimum cardinality of an extension SHALL be a valid restriction
+on the minimum cardinality in the definition of the extension. if the minimum
+cardinality of the extension is 1 when it is defined, it can only be mandatory
+when it is added to a profile. This is not recommended - the minimum cardinality
+of an extension should be 0. 
+</p>
+
+<a name="binding"> </a>
+<h3>Binding Definitions</h3>
+
+<p>
+Coded elements have bindings that link from the element to a definition of the 
+set of possible codes the element may contain. The binding identifies the 
+definition of the set of possible codes, and controls how tightly the set of the possible codes is interpreted.
+</p>
+<p>
+The set of possible codes is either a formal reference to a value set 
+resource, which may be version specific, or a general reference to some web content that defines a set of 
+codes. The second is most appropriate where set of values is defined by 
+some external standard (such as mime types). Alternatively, where the binding
+is incomplete (e.g. under development) just a text description of the 
+possible codes can be provided. 
+</p>
+<p> 
+Bindings have two properties that define how the set of codes is used: <i>isExtensible</i> and <i>conformance</i>.
+</p>
+<ul>
+  <li><p><b>isExtensible</b><a name="extensibility"> </a>indicates whether additional codes are allowed beyond those in the defined set of codes.</p>
+    <table>
+      <tr><td>false</td> <td>No additional codes are to be used beyond the list provided</td> </tr>
+      <tr><td>true</td>  <td>Supplemental codes or plain text may be needed (this is common because it is reasonable to think that concepts will need to be used which won't be in the defined set of codes)</td></tr>
+    </table>
+  </li>
+  <li><p><b>Conformance</b><a name="conformance"> </a>indicates the expectations for implementers of the specification.  
+    There are three possible values:</p>
+    <p/>
+    <table>
+      <tr><td>required</td><td>
+        <p>Only codes in the specified set are allowed.</p>
+        <p>
+        If the strength is 'extensible', other codes may be used for concepts not covered by the 
+        value set but cannot be used for concepts covered by the bound code list, even 
+        if a profile constrains out some of those codes).</p>
+      </td></tr>
+      <tr><td>preferred</td><td>
+        For greater interoperability, implementers are strongly encouraged to use the bound set of
+        codes, however alternate codes may be used in profiles if necessary without being considered
+        non-conformant.
+      </td></tr>
+      <tr><td>example</td><td>
+        The codes in the set are an example to illustrate the meaning of the field.
+        There is no particular preference for its use.
+      </td></tr>
+    </table>
+  </li>
+</ul>
+
+<p>
+The interplay between the meaning of these is subtle but sometimes important. The following table helps 
+define the meanings:
+</p>
+<table>
+ <tr><td><b>Conformance</b></td><td><b>isExtensible=false</b></td><td><b>isExtensible=true</b></td></tr>
+ <tr><td><b>Required</b></td><td>Implementers SHALL use a code from the defined set</td><td>Implementers SHALL use a code from the defined set if one is applicable, but otherwise may provide their own code or use text</td></tr>
+ <tr><td><b>Preferred</b></td><td>Implementers SHOULD use a code from the defined set</td><td>Implementers SHOULD use a code from the defined set if one is applicable, but MAY provide their own code or use text</td></tr>
+ <tr><td><b>Example</b></td><td>Implementers MAY use a code from the defined set</td><td>Implementers MAY use a code from the defined set or provide their own code or use text</td></tr>
+</table>
+<p>
+A profile can define a set of bindings that it uses directly, or it can define a set of bindings 
+for re-use in other profiles. To use bindings in other profiles, just provide an absolute reference.
+This is a reference to a binding in the same profile:
+</p>
+<pre>
+  &lt;binding value=&quot;te:OperationOutcomeSource&quot;/&gt;
+</pre>
+<p>
+This is a reference to a binding in some other profile:
+</p>
+<pre>
+  &lt;binding value=&quot;http://hl7.org/fhir/tooling/extensions#OperationOutcomeSource&quot;/&gt;
+</pre>
+
+<p>
+Bindings can reference value sets by version or independent of version.  Value sets may themselves reference other 
+value sets as well as code systems by version or independent of version.  Unless all references are 
+version-specific, it is possible that the set of codes permitted in the value set could change over time.
+</p>
+
+</div>
+
+
+</div>

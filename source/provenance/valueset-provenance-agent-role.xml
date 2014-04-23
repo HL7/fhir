@@ -1,0 +1,79 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+ <identifier value="http://hl7.org/fhir/vs/provenance-participant-role"/>
+  <name value="ProvenanceParticipantRole"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="fhir@lists.hl7.org"/>
+  </telecom>
+  <description value="The role that a provenance participant played"/>
+  <status value="draft"/>
+  <date value="2023-05-12T00:10:00"/>
+  <define>
+    <system value="http://hl7.org/fhir/provenance-participant-role"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+        <valueString value="The data entry person is collected optionally for internal quality control purposes. This includes the transcriptionist for dictated text"/>
+      </extension>
+      <code value="enterer"/>
+      <definition value="A person entering the data into the originating system"/>
+    </concept>
+    <concept>
+      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+        <valueString value="Device should only be assigned as a performer in circumstances where the device is performing independent of human intervention. Need not be the principal responsible actor"/>
+      </extension>
+      <code value="performer"/>
+      <definition value="A person, animal, organization or device that who actually and principally carries out the activity"/>
+    </concept>
+    <concept>
+      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+        <valueString value="Every resource should have an author"/>
+      </extension>
+      <code value="author"/>
+      <definition value="A party that originates the resource and therefore has responsibility for the information given in the resource and ownership of this resource"/>
+    </concept>
+    <concept>
+      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+        <valueString value="This is often used in association with the institution that hosts an activity"/>
+      </extension>
+      <code value="verifier"/>
+      <definition value="A person who verifies the correctness and appropriateness of activity"/>
+    </concept>
+    <concept>
+      <code value="attester"/>
+      <definition value="A verifier who attests to the accuracy of the resource"/>
+    </concept>
+    <concept>
+      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+        <valueString value="e.g., a next of kin who answers questions about the patient's history"/>
+      </extension>
+      <code value="informant"/>
+      <definition value="A person who reported information that contributed to the resource"/>
+    </concept>
+    <concept>
+      <extension url="http://hl7.org/fhir/Profile/tools-extensions#comment">
+        <valueString value="May be an electronic document, application, paper record, etc.  *Not* a person"/>
+      </extension>
+      <code value="source"/>
+      <definition value="An information source from which the portions of the resource are derived"/>
+    </concept>
+    <concept>
+      <code value="cc"/>
+      <definition value="A party, who may or should receive or who has received a copy of the resource or subsequent or derivative information of that resource"/>
+    </concept>
+    <concept>
+      <code value="application"/>
+      <definition value="An application with a user interface that interacts with a person"/>
+    </concept>
+    <concept>
+      <code value="daemon"/>
+      <definition value="A background process that transfers information from one place or form to another"/>
+    </concept>
+  </define>
+</ValueSet>

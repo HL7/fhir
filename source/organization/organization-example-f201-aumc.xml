@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+    <identifier>
+        <!--Identifier for the AUMC-->
+        <use value="official"/>
+        <label value="Zorginstelling naam"/>
+        <system value="http://www.zorgkaartnederland.nl/"/>
+        <value value="Artis University Medical Center"/>
+    </identifier>
+    <name value="Artis University Medical Center (AUMC)"/>
+    <type>
+        <!--AUMC is an Academic Medical Center-->
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="405608006"/>
+            <display value="Academic Medical Center"/>
+        </coding>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.1060"/>
+            <!-- RoleCodeNLUZIRoleCodeOrganisaties -->
+            <code value="V6"/>
+            <display value="University Medical Hospital"/>
+        </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/organization-type"/>
+            <code value="prov"/>
+            <display value="Healthcare Provider"/>
+        </coding>
+    </type>
+    <telecom>
+        <!--AUMC's contact detail-->
+        <system value="phone"/>
+        <value value="+31715269111"/>
+        <use value="work"/>
+    </telecom>
+    <address><!--AUMC's address-->
+        <use value="work"/>
+        <line value="Walvisbaai 3"/>    
+        <city value="Den Helder"/>
+        <zip value="2333ZA"/>
+        <country value="NLD"/><!--ISO 3166 3 letter code-->
+     </address>
+    <!--The AUMC is in active use-->
+<!--    <accreditation>
+        <!-\-HIMSS-6 Accreditation-\->
+        <identifier>
+            <label value="AUMC's HIMMS Stage 6 accreditation"/>
+            <system value="http://www.himss.org/"/>
+            <value value="HIMSS Stage 6 accreditation"/>
+        </identifier>
+    </accreditation>
+    <accreditation>
+        <!-\-NIAZ accreditation-\->
+        <identifier>
+            <!-\-Identifier for the accreditation -\->
+            <label value="AUMC's NIAZ accreditation"/>
+            <system value="http://www.niaz.nl/"/>
+            <value value="NIAZ accreditation"/>
+        </identifier>
+        <period>
+            <start value="2000-01-01"/>
+            <end value="2013-12-31"/>
+        </period>
+    </accreditation> -->
+    <contact>
+        <!--Contact for the AUMC-->
+        <name>
+            <use value="official"/>
+            <text value="Professor Brand"/>
+            <family value="Brand"/>
+            <given value="Ronald"/>
+            <prefix value="Prof.Dr."/>
+        </name>
+        <telecom>
+            <system value="phone"/>
+            <value value="+31715269702"/>
+            <use value="work"/>
+        </telecom>
+        <address>
+            <line value="Walvisbaai 3"/>
+            <line value="Gebouw 2"/>  
+            <city value="Den helder"/>
+            <zip value="2333ZA"/>
+            <country value="NLD"/><!--ISO 3166 3 letter code-->
+        </address>
+    </contact>
+    <active value="true"/>
+</Organization>

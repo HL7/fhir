@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+    <identifier>
+        <use value="official"/>
+        <system value="urn:oid:2.16.528.1"/>
+        <value value="91654"/>
+    </identifier>
+    <identifier>
+        <use value="usual"/>
+        <system value="urn:oid:2.16.840.1.113883.2.4.6.1"/>
+        <!-- Dutch VEKTIS AGB-Z -->
+        <value value="17-0112278"/>
+    </identifier>
+    <name value="Burgers University Medical Center"/>
+    <type>
+        <coding>
+            <system value="urn:oid:2.16.840.1.113883.2.4.15.1060"/>
+            <!-- RoleCodeNLUZIRoleCodeOrganisaties -->
+            <code value="V6"/>
+            <display value="University Medical Hospital"/>
+        </coding>
+        <coding>
+            <system value="http://hl7.org/fhir/organization-type"/>
+            <code value="prov"/>
+            <display value="Healthcare Provider"/>
+        </coding>
+    </type>
+    <telecom>
+        <system value="phone"/>
+        <value value="022-655 2300"/>
+        <use value="work"/>
+    </telecom>
+    <address>
+        <use value="work"/>
+        <line value="Galapagosweg 91"/>
+        <city value="Den Burg"/>
+        <zip value="9105 PZ"/>
+        <country value="NLD"/>
+    </address>
+    <address>
+        <use value="work"/>
+        <line value="PO Box 2311"/>
+        <city value="Den Burg"/>
+        <zip value="9100 AA"/>
+        <country value="NLD"/>
+    </address>
+    <contact>
+        <purpose>
+            <coding>
+                <system value="http://hl7.org/fhir/contactentity-type"/>
+                <code value="PRESS" />
+            </coding>
+        </purpose>
+        <telecom>
+            <system value="phone"/>
+            <value value="022-655 2334"/>
+        </telecom>
+    </contact>
+    <contact>
+        <purpose>
+            <coding>
+                <system value="http://hl7.org/fhir/contactentity-type"/>
+                <code value="PATINF" />
+            </coding>
+        </purpose>
+        <telecom>
+            <system value="phone"/>
+            <value value="022-655 2335"/>
+        </telecom>
+    </contact>
+</Organization>

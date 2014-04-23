@@ -1,0 +1,58 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Processing Order Details</h2>
+
+<p>
+Each request includes one or more <i>detail</i> elements that specify what is being ordered.
+The following kinds of orders have been defined:
+</p>
+<table class="grid">
+  <tr>
+    <th>Description</th>
+	<th>Order Resource</th>
+	<th>Response Resources</th>
+	<th>Notes</th>
+  </tr>
+  <tr>
+    <td>Request for Diagnostic Investigation</td>
+	<td><a href="diagnosticorder.html">DiagnosticOrder</a></td>
+	<td>0..* <a href="diagnosticreport.html">DiagnosticReport</a></td>
+	<td>Local work flow arrangements will determine whether the laboratory handles a request by waiting for a specimen, or for the patient, or by visiting the patient directly to obtain the specimen (i.e. phlebotomy ward round)</td>
+  </tr>
+  <tr>
+    <td>Order to supply a prescription</td>
+	<td><a href="medicationprescription.html">MedicationPrescription</a></td>
+	<td>0..* <a href="medicationadministration.html">MedicationAdministration</a> or <a href="medicationdispense.html">MedicationDispense</a></td>
+	<td></td>
+  </tr>
+  <tr>
+    <td>Transfer of care from one practitioner to another</td>
+	<td>Referral (Resource not yet developed)</td>
+	<td>n/a</td>
+	<td></td>
+  </tr>
+</table>
+
+<p>
+Note that a resource may only be used for the order details if the definition
+for the resource used in the detail explicitly defines how it is known to be something 
+requested, as opposed to (for instance) something that has happened. For some 
+resources, such as a prescription, this is defined to be always true - it is always an
+instruction/request for something to be done, while other resources may have 
+some kind of status element for this purpose. If the definition of the resource does 
+not explicitly make it clear this, then it cannot be the target of an order (e.g.
+you cannot order a diagnostic report, for example - you have to order a diagnostic 
+order instead).
+</p>
+
+
+<a name="dstu"> </a>
+<blockquote>
+<p>
+DSTU note: This list is only a start - the full list of what can be ordered much longer, and yet to be described. 
+Implementers should expect this list to grow in subsequent versions, and feedback is welcome from implementers 
+who use the Order resource for other kinds of orders.
+</p>
+</blockquote>
+
+</div>

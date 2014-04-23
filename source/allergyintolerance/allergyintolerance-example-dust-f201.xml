@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+ <identifier>
+    <label value="House dust allergy"/>
+    <system value="http://snomed.info/sct"/>
+    <value value="232349006"/>    
+ </identifier>
+ <criticality value="medium"/><!--House dust is likely to result in reactions that will inconvenience the subject-->
+ <sensitivityType value="allergy"/><!--Allergic reaction-->
+ <recordedDate value="2013-01-28"/>
+ <status value="confirmed"/><!--House dust allergy is confirmed and active-->
+ <subject>
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </subject>
+ <recorder>
+     <reference value="Practitioner/f201"/>
+ </recorder>
+ <substance>
+     <reference value="Substance/f201"/>
+     <display value="House dust allergen"/>
+ </substance>
+ <!--No reactions or sensitivityTests avaialable-->
+</AllergyIntolerance>

@@ -1,0 +1,60 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Example Use Codes for List"/>
+  <publisher value="FHIR Project"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Example use codes for the List resource - typical kinds of use. TODO: Does LOINC define useful codes?"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/list-example-use-codes"/>
+    <concept>
+      <code value="alerts"/>
+      <display value="Alerts"/>
+      <definition value="A list of alerts for the patient"/>
+    </concept>
+    <concept>
+      <code value="adverserxns"/>
+      <display value="Adverse Reactions"/>
+      <definition value="A list of part adverse reactions"/>
+    </concept>
+    <concept>
+      <code value="allergies"/>
+      <display value="Allergies"/>
+      <definition value="A list of Allergies for the patient"/>
+    </concept>
+    <concept>
+      <code value="medications"/>
+      <display value="Medication List"/>
+      <definition value="A list of medication statements for the patient"/>
+    </concept>
+    <concept>
+      <code value="problems"/>
+      <display value="Problem List"/>
+      <definition value="A list of problems that the patient is known of have (or have had in the past)"/>
+    </concept>
+    <concept>
+      <code value="worklist"/>
+      <display value="Worklist"/>
+      <definition value="A list of items that constitute a set of work to be performed (typically this code would be specialised for more specific uses, such as a ward round list)"/>
+    </concept>
+    <concept>
+      <code value="waiting"/>
+      <display value="Waiting List"/>
+      <definition value="A list of items waiting for an event (perhaps a surgical patient waiting list)"/>
+    </concept>
+    <concept>
+      <code value="protocols"/>
+      <display value="Protocols"/>
+      <definition value="A set of protocols to be followed"/>
+    </concept>
+    <concept>
+      <code value="plans"/>
+      <display value="Care Plans"/>
+      <definition value="A set of care plans that apply in a particular context of care"/>
+    </concept>
+  </define>
+</ValueSet>
+

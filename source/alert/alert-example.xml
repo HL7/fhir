@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Alert xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/alert.xsd">
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Large Dog warning</div>
+  </text>
+  <category>
+    <coding>
+      <system value="local"/>
+      <code value="admin"/>
+      <display value="Admin"/>
+    </coding>
+    <text value="admin"/>
+    
+  </category>
+  <status value="active"/>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter Patient"/>
+  </subject>
+  
+  <author>
+    <reference value="Practitioner/example"/>
+    <display value="Nancy Nurse"/>
+  </author>
+  
+  <note value="patient has a big dog at his home. Always always wear a suit of armor or take other active counter-measures"/>
+</Alert>

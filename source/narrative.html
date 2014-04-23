@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+      
+[%settitle Narrative%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+
+<a name="root"> </a>
+<a name="Narrative"> </a>
+<a name="narrative"> </a>
+<a name="xhtml"> </a>
+<h2>Narrative</h2>
+<p>
+Each resource may include a human-readable narrative that contains a summary of the resource, 
+and may be used to represent the content of the resource to a human. 
+If narrative is present, it SHALL reflect all content needed for a human to understand the 
+essential clinical and business information otherwise encoded within the resource. 
+Resource definitions may define what content should be represented in the narrative to ensure clinical safety.
+</p>
+<p>
+The narrative for a resource is allowed to contain additional information that is not in 
+the structured data, including human-edited content. Such additional information SHALL be 
+in the scope of the definition of the resource, though it is common for the narrative to
+include additional descriptional information extracted from other referenced resources.
+</p>
+<p>
+Resources SHOULD always contain narrative to support human-consumption
+as a fallback.  However, in a strictly managed trading systems where all systems share a common 
+data model and additional text is unnecessary or even a clinical safety risk, the 
+narrative may be omitted. Implementers should consider carefully before 
+doing this, as it will mean that these resources can only be understood in the 
+limited trading environment. Closed trading partner environments are very likely 
+to open up during the lifetime of the resources they define. In addition, many workflow
+steps involving finding and aggregating resources are much more difficult or tedious if the resources
+involved do not have their own text. 
+</p>
+<p>
+Note that <a href="references.html#contained">contained</a> Resources SHALL NOT have a narrative 
+of their own.
+</p>
+<p>
+The narrative is an XHTML fragment with a flag to indicate its relationship to the data:
+</p>
+[%dt Narrative%]
+<a name="security"> </a>
+<p>
+The contents of the <i>div</i> element are an XHTML fragment that SHALL contain only the basic html formatting elements described in 
+chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href),
+images and internally contained style attributes. 
+The XHTML content SHALL not contain
+a head, a body element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects or event related attributes (e.g. onClick). 
+This is to ensure that the content of the narrative is contained within the resource and that there is no active content - this would introduce 
+security issues and potentially safety issues with regard to extracting text from the XHTML.
+</p>
+<p>
+The div element SHALL have some non-whitespace content (text or an image).
+</p>
+<div class="example">
+<pre class="xml" fragment="Narrative">
+  &lt;narrative&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;This is a simple 
+          example with only plain text&lt;/div&gt;
+  &lt;/narrative&gt;
+   
+   &lt;narrative&gt;
+   &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
+     &lt;p&gt;
+       This is an &lt;i&gt;example&lt;/i&gt; with some &lt;b&gt;xhtml&lt;/b&gt; formatting.
+     &lt;/p&gt;
+   &lt;/div&gt;
+  &lt;/narrative&gt;
+</pre>
+</div>
+<p>
+The inner portion of the div content is often used for the innerHTML property in a browser.
+In order to simplify this kind of processing, when the narrative is represented in JSON, 
+it SHALL be encoded so that the character content between the first "&gt;" and the last 
+"&lt;" characters is the content of the &lt;div&gt; element. e.g.
+</p>
+<pre class="json">
+  &quot;div&quot;: &quot;&lt;div&gt;text&lt;/div&gt;&quot;
+</pre>
+<p>
+is legal, but this is not:
+</p>
+<pre class="json">
+  &quot;div&quot;: &quot;&lt;?xml ...&gt;&lt;div&gt;text&lt;/div&gt;&quot;
+</pre>
+<p>
+Note that the XHTML is contained in general XML and so there is no support for HTML entities
+like &amp;nbsp; or &amp;copy; etc. Unicode characters SHALL be used instead. Unicode 
+&amp;#160; substitutes for &amp;nbsp;. 
+</p>
+<p>
+The narrative content SHOULD be in the <a href="base-definitions.html#Resource.language">language of the resource</a>, but 
+there is no reason to expect that HTML type tooling would understand the resource <a href="resources.html#content">language</a> element. For this reason, 
+a lang attribute on the &lt;div&gt; SHOULD also be used (and see 
+<a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
+</p>
+
+<p>
+The image source references may be a local reference within the resource:
+</p>
+<pre class="xml">
+  &lt;img src="#a5"/&gt;
+</pre>
+<p>
+This is an <a href="references.html#idref">internal reference</a> to an id attribute on an element in the same resource - 
+either an element of type "<a href="datatypes.html#Attachment">Attachment</a>" or a contained <a href="extras.html#binary">Binary</a> resource.
+</p>
+<div class="example">
+<pre class="xml">
+&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;p&gt;... &lt;img src=&quot;#pic1&quot;/&gt;. ....&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;contained&gt;
+    &lt;Binary id=&quot;pic1&quot; contentType=&quot;image/gif&quot;&gt;MEKH....SD/Z&lt;/Binary&gt;
+  &lt;/contained&gt;
+</pre>
+</div>
+<p>
+Since the availability of images that are not contained in the resource is not guaranteed, 
+when the resource is presented to a user, the source for any images that are an essential 
+part of the narrative SHOULD always be embedded in an attachment or a contained resource.
+</p>
+
+<a name="css"></a>
+<h3>Styling the XHTML</h3>
+<p>
+The XHTML fragment in the narrative may be styled using cascading stylesheets using 
+either external or internal styles. External styles are applied using the <i>class</i> 
+and <i>id</i> attributes on the XHTML elements and internal styles are applied using 
+a <i>style</i> attribute on the XHTML elements directly.
+</p>
+<p>
+In order to minimise manageability and security issues, authoring systems do not 
+specify the CSS stylesheet to use directly; instead, the application that displays
+the resource provides the stylesheets. This means that the rendering system 
+chooses what styles can be used, but the authoring system must use them in advance. 
+Authoring systems can use these classes, which SHALL be supported by all rendering systems:
+</p>
+<table>
+ <tr> <td>bold</td> <td>Bold</td> <td>{ font-weight: bold }</td> </tr>
+ <tr> <td>italics</td> <td>Italics Text</td> <td>{ font-style: italic }</td> </tr>
+ <tr> <td>underline</td> <td>Underlined Text</td> <td>{ text-decoration: underline }</td> </tr>
+ <tr> <td>strikethrough</td> <td>Strikethrough Text</td> <td>{ text-decoration: line-through }</td> </tr>
+ <tr> <td>left</td> <td>Left Aligned</td> <td>{ text-align : left }</td> </tr>
+ <tr> <td>right</td> <td>Right Aligned</td> <td>{ text-align : right }</td> </tr>
+ <tr> <td>center</td> <td>Center Aligned</td> <td>{ text-align : center }</td> </tr>
+ <tr> <td>justify</td> <td>Justified</td> <td>{ text-align : justify }</td> </tr>
+ <tr> <td>border-left</td> <td>Border on the left</td> <td>{ border-left: 1px solid grey }</td> </tr>
+ <tr> <td>border-right</td> <td>Border on the right</td> <td>{ border-right: 1px solid grey }</td> </tr>
+ <tr> <td>border-top</td> <td>Border on the top</td> <td>{ border-top: 1px solid grey }</td> </tr>
+ <tr> <td>border-bottom</td> <td>Border on the bottom</td> <td>{ border-bottom: 1px solid grey }</td> </tr>
+ <tr> <td>arabic</td> <td>List is ordered using Arabic numerals: 1, 2, 3</td> <td>{ list-style-type: decimal }</td> </tr>
+ <tr> <td>little-roman</td> <td>List is ordered using little Roman numerals: i, ii, iii</td> <td>{ list-style-type: lower-roman }</td> </tr>
+ <tr> <td>big-roman</td> <td>List is ordered using big Roman numerals: I, II, III</td> <td>{ list-style-type: upper-roman }</td> </tr>
+ <tr> <td>little-alpha</td> <td>List is ordered using little alpha characters: a, b, c</td> <td>{ list-style-type: lower-alpha }</td> </tr>
+ <tr> <td>big-alpha</td> <td>List is ordered using big alpha characters: A, B, C</td> <td>{ list-style-type: upper-alpha }</td> </tr>
+ <tr> <td>disc</td> <td>List bullets are simple solid discs</td> <td>{ list-style-type: disc }</td> </tr>
+ <tr> <td>circle</td> <td>List bullets are hollow discs</td> <td>{ list-style-type : circle }</td> </tr>
+ <tr> <td>square</td> <td>List bullets are solid squares</td> <td>{ list-style-type: square }</td> </tr>
+</table>
+<p>
+Note: for testing purposes, there is an <a href="other-example-narrative.xml.html">example resource</a> that includes 
+all these styles. It's also available <a href="narrative-example.html">as XHTML</a> and a 
+<a href="fhir-runtime.css">standard stylesheet</a> that includes all these styles.
+</p>
+
+<p>
+Authoring systems may refer to additional classes, but cannot rely on the fact 
+that they will be supported. If the additional classes are critical for safe
+rendering, trading partner agreements will be required. 
+</p>
+<p>
+Authoring systems may also use internal styles using the <i>style</i> attribute. This
+has the advantage of not depending on external interpretation, but also has the 
+side effect of making content more difficult to manage when rendering, so applications
+should use this approach with care. Authoring systems may fix the following styling aspects of the content:
+</p>
+<ul>
+  <li>bold, italic, underline, strikethrough</li>
+  <li>font color, family and size</li>
+  <li>background color, text alignment</li>
+  <li>whitespace interpretation</li>
+  <li>ordered list number format (since it may be referred to in text)</li>
+</ul>
+<p>
+These style properties are specified in-line using the style attribute. Rendering systems 
+SHOULD respect any of these rendering styles when they are specified in the style 
+attribute, though appropriate interpretation is allowed (e.g. a low-contrast display for dark 
+room contexts or a high-contrast display for the visually impaired may adjust colors accordingly). 
+</p>
+<p>
+Note that rendering systems are allowed to ignore or override any of the internal or 
+external styles described above, but SHOULD be careful to ensure that this is only done
+in the context of well maintained trading partner agreements, as altering the presentation
+of the text may create clinical safety issues.
+</p>
+<p>
+Authors MAY specify additional styles and style properties as specified in the CSS specification,
+but these are extensions to this specification and renderers are not required to honor them.  
+It SHOULD be safe to view the narrrative without these additional styling features available. 
+</p>
+<p>
+Note that there is additional rules around styling for <a href="documents.html#css">documents</a> presentation.
+</p>
+
+<a name="safety"> </a>
+<h3>Clinical Safety Concerns</h3>
+<p>
+Health care records are often associated with legislative and business requirements for very long retention 
+times (up to a century), and extreme risk aversion with regards to inconsistent display across
+a variety of devices. Although the narrative is allowed to use the standard XHTML and CSS 
+features as described above, implementations are encouraged to be restrained in using the
+features available. Even where trading partner arrangements limit the current requirements
+of a system, experience shows that these arrangements will gradually broaden over time.
+</p>
+<p>
+In particular:
+</p>
+<ul>
+ <li>complex layered layouts requiring careful testing of 
+the match between the xhtml <i>div</i> and <i>span</i> elements and styles, and
+those that include nested tables (possibly with images) as well make rendering consistency
+difficult, and implementations SHOULD avoid these</li>
+ <li>The use of styles e.g. bolding, italics and color; SHOULD not be utilized as the 
+   sole way to convey meaning or semantics, but should be used in conjunction with other 
+   FHIR resources to ensure consistent, long term interoperability. </li>
+</ul>
+</div>
+
+[%file newfooter%]
+</body>
+</html>

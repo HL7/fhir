@@ -1,0 +1,29 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>This value set includes all SNOMED CT codes relating to the qualifier "Known" (concepts with an is-a relationship with 36692007)</p>
+    </div>
+  </text>
+  <identifier value="http://hl7.org/fhir/vs/condition-certainty"/>
+  <name value="Condition/Diagnosis Certainty"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Example value set for Condition/Problem/Diagnosis certainty"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <!-- any qualifier from "Known" -->
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="36692007"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

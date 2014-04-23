@@ -1,0 +1,135 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      This value set includes a smattering of ISO tooth surface codes.
+    </div>
+  </text>
+  <name value="Surface Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set includes a smattering of FDI tooth surface codes."/>
+  <status value="draft"/>
+    <define>
+	<system value="urn:ISO-3950"/>
+	<concept>
+    <code value="0"/>
+  </concept>
+	<concept>
+    <code value="1"/>
+  </concept>
+	<concept>
+    <code value="2"/>
+  </concept>
+	<concept>
+    <code value="3"/>
+  </concept>
+	<concept>
+    <code value="4"/>
+  </concept>
+	<concept>
+    <code value="5"/>
+  </concept>
+	<concept>
+    <code value="11"/>
+  </concept>
+	<concept>
+    <code value="12"/>
+  </concept>
+	<concept>
+    <code value="13"/>
+  </concept>
+	<concept>
+    <code value="14"/>
+  </concept>
+	<concept>
+    <code value="15"/>
+  </concept>
+	<concept>
+    <code value="16"/>
+  </concept>
+	<concept>
+    <code value="17"/>
+  </concept>
+	<concept>
+    <code value="18"/>
+  </concept>
+	<concept>
+    <code value="21"/>
+  </concept>
+	<concept>
+    <code value="22"/>
+  </concept>
+	<concept>
+    <code value="23"/>
+  </concept>
+	<concept>
+    <code value="24"/>
+  </concept>
+	<concept>
+    <code value="25"/>
+  </concept>
+	<concept>
+    <code value="26"/>
+  </concept>
+	<concept>
+    <code value="27"/>
+  </concept>
+	<concept>
+    <code value="28"/>
+  </concept>
+	<concept>
+    <code value="31"/>
+  </concept>
+	<concept>
+    <code value="32"/>
+  </concept>
+	<concept>
+    <code value="33"/>
+  </concept>
+	<concept>
+    <code value="34"/>
+  </concept>
+	<concept>
+    <code value="35"/>
+  </concept>
+	<concept>
+    <code value="36"/>
+  </concept>
+	<concept>
+    <code value="37"/>
+  </concept>
+	<concept>
+    <code value="38"/>
+  </concept>
+	<concept>
+    <code value="41"/>
+  </concept>
+	<concept>
+    <code value="42"/>
+  </concept>
+	<concept>
+    <code value="43"/>
+  </concept>
+	<concept>
+    <code value="44"/>
+  </concept>
+	<concept>
+    <code value="45"/>
+  </concept>
+	<concept>
+    <code value="46"/>
+  </concept>
+	<concept>
+    <code value="47"/>
+  </concept>
+	<concept>
+    <code value="48"/>
+  </concept>
+	</define>
+</ValueSet>
+

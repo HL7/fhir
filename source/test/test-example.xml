@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- remove this note!
+  Actual exchanged FHIR resources aren't allowed to have a xsi namespace, nor the schema location. but putting it here makes
+  editing the resource much easier, and it will get stripped out during the build process
+--><Test xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/test.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">This contains correct corner-cases</div>
+  </text>
+  <stringCorr value="nice"/>
+  <stringCorr id="09az" value="nice"/>
+  <booleanCorr value="false"/>
+  <booleanCorr value="true"/>
+  <booleanCorr value="0"/>
+  <booleanCorr value="1"/>
+  <integerCorr value="2147483647"/>  
+  <integerCorr value="+1"/> 
+  <integerCorr value="-0"/> 
+  <decimalCorr value="1234567890123456.1234567890123456"/>
+  <decimalCorr value="1234"/>
+  <decimalCorr value="0.5"/>
+  <decimalCorr value=".314"/>
+  <b64Corr value="cGxlYXN1cmUu"/>
+  <b64Corr value="YW55IGNhcm5hbCBwbGVhc3VyZQ=="/>
+  <instantCorr value="2012-12-31T12:01:24+05:00"/> 
+  <instantCorr value="2012-12-31T12:01:24Z"/> 
+  <instantCorr value="2012-12-31T12:01:24-01:30"/>
+  <uriCorr value="www.hl7.org/fhir"/>
+  <uriCorr value="http://www.hl7.org/fhir#somewhere"/>
+  <uriCorr value="https://www.hl7.org/fhir:81"/>
+  <uriCorr value="https://www.hl7.org/fhir:81?param=25"/>
+  <uriCorr value="http://myUrl/%2E%2E/%2E%2E"/>
+  <uriCorr value="ftp://ftp.student.vu.nl"/>
+  <uriCorr value="/new/index.html"/>
+</Test>

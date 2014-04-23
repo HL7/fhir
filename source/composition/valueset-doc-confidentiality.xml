@@ -1,0 +1,17 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="XDS Connect-a-thon confidentialityCodes"/>
+  <publisher value="IHE"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://ihe.net"/>
+  </telecom>
+  <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+    </include>
+  </compose>  
+</ValueSet>
+

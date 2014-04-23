@@ -1,0 +1,47 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns 
+and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata, 
+but some observations group other observations together logically, or even are multi-component observations.
+Note that the resources  <a href="diagnosticreport.html">DiagnosticReport</a> and <a href="deviceobservationreport.html">DeviceObservationReport</a>
+provide a clinical or workflow context for a set of observations. Expected uses for the Observation resource include:
+</p>
+<ul>
+  <li>Vital signs: temperature, blood pressure, respiration rate</li>
+	<li>Laboratory Data and other Diagnostic Measures</li>
+	<li>Measurements emitted by Devices</li>
+  <li>Clinical assessments such as APGAR</li>
+  <li>Personal characteristics: height, weight, eye-color</li>
+  <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
+  <li>Social history: tobacco use, family supports, cognitive status</li>
+  <li>Core characteristics: pregnancy status, death assertion</li>
+</ul>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+The observation resource has the following aspects:
+</p>
+<ul>
+ <li>status and reliability (mandatory) - all users of observations SHALL be sure of the status of the observation</li>
+ <li>name (mandatory) - describes what was observed. Sometimes called this is called the observation "code"</li>
+ <li>identifier - Unique identifier for this particular observation so it can be recognized in all contexts where it is represented</li>
+ <li>value - the actual value that was observed</li>
+ <li>related observations - Other observations that are components of this observation, or provide supporting information, context or warnings about this observation</li>
+ <li>subject, bodysite - the patient, or group of patients, location, or device, that this observation was made on. Note that group of patients is most often used in veterinary care. For individual patients, the location on the body may also be specified, though this is often implicit in the Observation.name</li>
+ <li>applies[x] - the time or period that this observation was made on the subject. Each observation has multiple times - prepared, made, reported etc - but the important time is when the data relates to the patient condition</li>
+ <li>interpretation, comments, and reference range: information to help understand the observed value</li>
+ <li>method, issued, performer - additional information about how the test was performed that may help understand the observation. The method is often implicit in the Observation.name</li>
+</ul>  
+<p>
+Typically, an observation will have either a value or component observations, and not both.
+</p>
+
+</div>
+  
+</div>
+

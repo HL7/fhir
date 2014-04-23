@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+	<title>FHIR Batch Examnple</title>
+	<!-- 
+    Batches are the most difficult part of FHIR to implement for a general purpose server. 
+    This example shows a batch - it demonstrates several advanced concepts. 
+
+    This batch includes: 
+    - a document (actually, it's a short length of random bytes, but that doesn't matter here
+    - an XdsEntry, registering the document with XDS
+    - a Patient resource, for if the patient is not known
+  -->
+	<!-- for a batch, the difference between id and link doesn't matter -->
+	<id>urn:uuid:29372688-d46e-4b32-aafe-4808b333f781</id>
+	<link rel="self" href="urn:uuid:29372688-d46e-4b32-aafe-4808b333f781"/>
+	<updated>2013-01-07T01:15:36Z</updated>
+	<author>
+		<name>FHIR Project Team</name>
+		<uri>http://hl7.org/fhir</uri>
+	</author>
+	<!-- 
+    now, the actual document, as a binary
+
+    It's not necessary to handle binary documents in FHIR at 
+    all - they could be delegated to some other server - but 
+    this is a convenient demonstration of the way binary resources work.
+
+    Using a binary resource allows the document itself to be submitted 
+    to the FHIR server as part of the batch, even though its got nothing
+    to do with FHIR itself.
+  -->
+	<entry>
+		<title>binary document</title>
+		<!-- 
+     a cid: - this has no identity other than what the server chooses to 
+     assign to it. That's what cid: identities mean in this context. We'll
+     use that url to refer to the document from several other places in the
+     batch.
+
+     The choice of date/time is arbitrary - it just has to be unique 
+     in fhir.hl7.org
+    -->
+		<id>cid:20130107011536-1@fhir.hl7.org</id>
+		<updated>2013-01-07T01:15:36Z</updated>
+		<category term="Binary" scheme="http://hl7.org/fhir/resource-types"/>
+		<!-- and the actual content -->
+		<content type="text/xml">
+			<Binary xmlns="http://hl7.org/fhir" contentType="text/plain">YXNkYXNkYXNkYXNkYXNk</Binary>
+		</content>
+		<!-- no summary for a binary resource (what would you say?) -->
+	</entry>
+	<!-- 
+    now, a patient resource.
+    
+    We are assuming that we don't know whether the server knows this patient.
+    In a classic XDS, the server would via PIX/PDQ, but here we assume otherwise
+    for the purposes of demonstration. 
+    
+    So since the server may not know about the patient, we construct a proper 
+    patient resource. Then, we give it a temporary identity, and associate 
+    a search link with the resource. If the server finds a match for the 
+    search, it will use that in place of this resource. (if it finds >one match,
+    that's an error)
+  -->
+	<entry>
+		<title>patient record</title>
+		<id>cid:20130107011536-2@fhir.hl7.org</id>
+		<!-- 
+      http://localhost means a search of the batch processor's own resources.
+      http://example.org/patients is the fictional namespace that the 
+      organization's identifiers are in.
+     -->
+		<link rel="search" href="http://localhost/patient/search?identifier=http://example.org/patients#89765a87b"/>
+		<updated>2013-01-07T01:15:36Z</updated>
+		<category term="Patient" scheme="http://hl7.org/fhir/resource-types"/>
+		<content type="text/xml">
+			<Patient xmlns="http://hl7.org/fhir">
+			  <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Patient John Doe, #89765a87b</div>
+        </text>
+        <active value="true"/>
+				<identifier>
+					<use value="usual"/>
+					<label value="MRN"/>
+					<system value="http://healthintersections.com.au/xds/patients"/>
+					<value value="89765a87b"/>
+  			</identifier>
+  			<details>
+  			  <!-- These details are extracted from a standard Xds example -->
+  			  <name>
+						<use value="usual"/>
+						<text value="DOE, JOHN"/>
+						<family value="Doe"/>
+						<given value="John"/>
+  			  </name>
+  			  <gender>
+						<system value="http://hl7.org/fhir/v2/0203"/>
+						<code value="M"/>
+						<display value="M"/>
+  			  </gender>
+  			  <birthDate value="1956-05-27"/>
+  			</details>
+				<provider>
+				  <!-- a standard example organization -->
+					<reference value="Organization/1"/>
+				</provider>
+			</Patient>
+		</content>
+		<summary type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">Patient John Doe, #89765a87b</div>
+		</summary>
+	</entry>
+	
+	<!-- now, the Document Registry Entry -->
+  <entry>
+    <title>XDS Entry</title>
+    <!-- again, we don't care what the end id 
+     of this document registry entry is. And even if 
+     did care, the server may not care to let a client 
+     identify it anyway -->
+    <id>cid:20130107011536-3@fhir.hl7.org</id>
+    <updated>2013-01-07T01:15:36Z</updated>
+    <category term="XdsEntry2" scheme="http://hl7.org/fhir/resource-types"/>
+    <content type="text/xml">
+      <XdsEntry2 xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <!-- This html includes a reference to the resource. 
+            The server is expected to find and update this link. 
+            in practice, servers only need to check anchors  and
+            images links -->
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <a href="cid:20130107011536-1@fhir.hl7.org">
+            Document: urn:oid:129.6.58.92.88336</a> 
+            Physical, created 2005-12-24
+          </div>
+        </text>
+        <contained>
+          <!-- the example XDS instant doesn't have any good 
+            identifying information for the author. While it's
+            possible to carry identifying information for author
+            in XDS, it's common not to. Here we assume is that 
+            all we get is a name. That's not enough to properly 
+            identify the content, and therefore not enough to give
+            the created resource its own transaction scope - what 
+            does it mean to change that name? - nothing. So it's a
+            contained resource
+           -->
+          <Provider id="a1">
+            <!-- no text for contained resources -->
+            <text>
+              <status value="empty"/>
+              <div xmlns="http://www.w3.org/1999/xhtml">no text provided</div>
+            </text>
+            <details>
+              <name>
+                <use value="usual"/>
+                <text value="SMITTY, GERALD"/>
+                <family value="Smitty"/>
+                <given value="Gerald"/>
+              </name>
+            </details>
+          </Provider>          
+        </contained>
+        <!-- Version specific document identifier -->
+        <id>
+          <system value="urn:ietf:rfc:3986"/>
+          <value value="urn:oid:129.6.58.92.88336"/>
+        </id>
+        <information>
+          <created value="2005-12-24T12:03:24+10:00"/>
+          <class>
+            <system value="http://ihe.net/connectathon/classCodes"/>
+            <code value="History and Physical"/>
+            <display value="History and Physical"/>
+          </class>
+          <type>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="11492-6"/>
+              <display value="History and Physical Note"/>
+            </coding>
+          </type>
+          <title value="History and Physical"/>
+          <confidentiality>
+            <system value="http://ihe.net/connectathon/confidentialityCodes"/>
+            <code value="1.3.6.1.4.1.21367.2006.7.101"/>
+            <display value="Clinical-Staff"/>
+          </confidentiality>
+          <subject>
+            <!-- a reference to the patient record - the
+             server will have to replace this with the 
+             correct reference -->
+            <url value="cid:20130107011536-2@fhir.hl7.org"/>
+          </subject>
+          <author>
+            <reference value="#a1"/> <!-- internal reference -->
+          </author>
+        </information>
+        <format>
+          <system value="http://ihe.net/connectathon/formatCodes"/>
+          <code value="CDAR2/IHE 1.0"/>
+          <display value="CDAR2/IHE 1.0"/>
+        </format>
+        <availability value="Approved"/>
+        <content>
+          <contentType value="text/plain"/>
+          <!-- another link the server has to replace -->
+          <url value="cid:20130107011536-1@fhir.hl7.org"/>
+          <size value="36"/>
+        </content>
+      </XdsEntry2>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <a href="cid:20130107011536-1@fhir.hl7.org">
+        Document: urn:oid:129.6.58.92.88336</a> 
+        Physical, created 2005-12-24
+      </div>
+    </summary>
+  </entry>	
+</feed>

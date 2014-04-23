@@ -1,0 +1,21 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+RelatedPersons typically have a personal or non-healthcare-specific professional relationship to the patient. A RelatedPerson resource is primarily used for attribution of information, 
+since RelatedPersons are often a source of information about the patient. For keeping information about persons for contact purposes for a patient, use a Patient's Contact element instead.
+</p>
+<p>
+Example RelatedPersons are:
+</p>
+<ul>
+<li>A patient's wife or husband</li>
+<li>A patient's relatives or friends</li>
+<li>A neighbor bringing a patient to the hospital</li>
+<li>The owner or trainer of a horse</li>
+<li>A patient's attorney or guardian</li>
+</ul>
+</div>
+
+</div>

@@ -1,0 +1,24 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Document Reference Service Types"/>
+  <publisher value="HL7 FHIR"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Known Service types that can be referred to from a Document Reference"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/document-reference-service-types"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="XDS"/>
+      <display value="IHE XDS"/>
+    </concept>
+    <concept>
+      <code value="RLUS"/>
+      <display value="OMG RLUS"/>
+    </concept>
+  </define>
+</ValueSet>
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+  <title>Standard Person Examples</title>
+  <id>urn:uuid:b248b1b2-1686-4b94-9936-37d7a5f94b51</id>
+  <link href="http://hl7.org/fhir/patient" rel="self"/>
+  <updated>2012-05-29T23:45:32Z</updated> [%loop count=70%] <entry>
+    <title>test patient</title>
+    <id>http://hl7.org/fhir/Patient/[%count%]</id>
+    <link href="http://hl7.org/fhir/Patient/[%count%]/history/1" rel="self"/>
+    <updated>2012-06-03T23:45:32Z</updated>
+    <author>
+      <name>Cypress Project</name>
+      <uri>https://github.com/projectcypress/cypress/downloads</uri>
+    </author>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">[%last name%], [%first name%]. MRN:
+            [%patient_id%]</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="[%patient_id%]"/>
+        </identifier>
+        <name>
+            <use value="official"/>
+            <family value="[%last name%]"/>
+            <given value="[%first name%]"/>
+          </name>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="[%gender%]"/>
+            <display value="[%gender display%]"/>
+          </coding>
+        </gender>
+        <birthDate value="[%birthdate%]"/>
+        <managingOrganization>
+          <reference value="Organization/[%organization%]"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">[%last name%], [%first name%]. MRN:
+        [%patient_id%]</div>
+    </summary>
+  </entry> [%endloop%] </feed>

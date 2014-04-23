@@ -1,0 +1,43 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        This example value set includes codes from the following code systems:
+      </p>
+      <ul>
+       <li>Special Values (http://hl7.org/fhir/special-values): true, false, trace, sufficient, withdrawn, nil known</li>
+       <li>Data Absent Reason (http://hl7.org/fhir/data-absent-reason):   unknown, asked, temp, not asked, masked, unsupported, as text, error</li>
+       <li>SNOMED CT Clinical Findings (is-a relationship with 404684003: Clinical finding)</li>
+       
+      </ul>
+    </div>
+  </text>
+  <name value="LOINC Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Codes from the following code systems: FHIR Special Values, FHIR Data Absent Reason, and SNOMED CT Clinical findings"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/special-values"/>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/data-absent-reason"/>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <!-- todo: work this over. what this means is any concepts where they have is-a with 404684003 how should this be done? -->
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="404684003"/>
+      </filter>
+    </include>  
+  </compose>
+</ValueSet>
+

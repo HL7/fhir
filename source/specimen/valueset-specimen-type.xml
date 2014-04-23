@@ -1,0 +1,18 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="SpecimenType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Specimen type : HL7 v2 table 0487.  
+    An alternate value set could be all SNOMED CT descendents of 123038009 (Specimen)"/>
+  <status value="draft"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0487"/>
+    </include>
+  </compose>
+</ValueSet>
+

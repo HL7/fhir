@@ -1,0 +1,47 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="LocationType"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This example value set defines a set of codes that can be used to indicate the physical form of the Location."/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/location-physical-type"/>	
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="bu"/>
+      <display value="Building"/>
+    </concept>
+    <concept>
+      <code value="wi"/>
+      <display value="Wing"/>
+    </concept>
+	<concept>
+      <code value="co"/>
+      <display value="Corridor"/>
+    </concept>
+    <concept>
+      <code value="ro"/>
+      <display value="Room"/>
+    </concept>
+    <concept>
+      <code value="ve"/>
+      <display value="Vehicle"/>
+    </concept>  
+	<concept>
+      <code value="ho"/>
+      <display value="House"/>
+    </concept>
+    <concept>
+      <code value="ca"/>
+      <display value="Cabinet"/>
+    </concept>      
+    <concept>
+      <code value="rd"/>
+      <display value="Road"/>
+    </concept>          
+  </define>
+</ValueSet>

@@ -1,0 +1,143 @@
+// THUMBNAILS GRID JOYO
+// ----------
+
+// Feature adjust number of items in a row when resizing page.
+
+// NOTE thumbnails is a custom row
+/*
+Bootstrap uses the grid system (span) for spacing on the LI items
+Thumbnails joyo uses percentage and inner-wrapper for spacing on the UL, nested li's will get width in percentage.
+
+*/
+
+.thumbnails.strip {
+	margin-left: 0;
+}
+.thumbnails.thumbs.strip .inner-wrapper {
+	margin-left: 0;
+}
+.thumbnails.thumbs.strip .inner-wrapper {
+	border-left: none;
+}
+.thumbnails.thumbs.strip li:first-child .inner-wrapper {
+	border: 1px solid gray;
+}
+ 
+
+
+//
+.thumbnails.thumbs .inner-wrapper {
+	background-color: #f6dbdf;
+	border: 1px solid gray;
+	margin-left: @gridGutterWidth;
+	min-height: 110px;
+	overflow: hidden;
+	padding: 8px;
+	position: relative;
+} 
+.thumbnails.thumbs > li {
+	margin-left: 0;
+}
+
+// three thumbs in a row
+.thumbnails.thumbs3 > li{
+	width: 33.33%;
+}
+.thumbnails.thumbs3 .thumb:nth-child(3n+1){
+	clear: both;
+}
+// four thumbs in a row
+.thumbnails.thumbs4 > li{
+	width: 25%;
+}
+.thumbnails.thumbs4 .thumb:nth-child(4n+1){
+	clear: both;
+}
+// five thumbs in a row
+.thumbnails.thumbs5 > li{
+	width: 20%;
+}
+.thumbnails.thumbs5 > li:nth-child(5n+1){
+	clear: both;
+}
+
+@media (min-width: 1300px) {
+	.thumbnails.thumbs .inner-wrapper {
+		margin-left: 30px;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+	// five thumbs in a row
+	.thumbnails.thumbs5 > li{
+		width: 25%; 	// switching to bigger size
+	}
+	.thumbnails.thumbs5 > li:nth-child(5n+1){
+		clear: none;
+	}
+	.thumbnails.thumbs5 > li:nth-child(4n+1){
+		clear: both;
+	}
+}
+
+
+@media (max-width: 767px) {
+	.thumbnails.thumbs{ // overrule bootstrap logic for .thumbnails in favor of percentage logic
+		margin-left: -@gridGutterWidth;
+	}
+	.thumbnails.thumbs.strip{
+		margin-left: 0;
+	}
+	.thumbnails.thumbs3 > li {
+		width: 50%; // switching to bigger size
+	}
+	.thumbnails.thumbs3 > li:nth-child(2n+1){
+		clear: both;
+	}
+	.thumbnails.thumbs3 > li:nth-child(3n+1){
+		clear: none;
+	}
+
+	
+	.thumbnails.thumbs4 > li{
+		width: 50%; // switching to bigger size
+	}
+	.thumbnails.thumbs4 > li:nth-child(4n+1){
+		clear: none;
+	}
+	.thumbnails.thumbs4 > li:nth-child(2n+1){
+		clear: both;
+	}
+	
+	// five thumbs in a row
+	.thumbnails.thumbs5 > li{
+		width: 33.3%; 	// switching to bigger size
+	}
+	.thumbnails.thumbs5 > li:nth-child(5n+1){
+		clear: none;
+	}
+	.thumbnails.thumbs5 > li:nth-child(3n+1){
+		clear: both;
+	}	
+}
+
+@media (max-width: 480px) {
+
+	.thumbnails.thumbs4 > li,
+	.thumbnails.thumbs3 > li {
+		width: 100%; // switching to bigger size
+	}
+	 //five thumbs in a row
+	.thumbnails.thumbs5 > li{
+		width: 50%; 	// switching to bigger size
+	}
+	.thumbnails.thumbs5 > li:nth-child(3n+1),
+	.thumbnails.thumbs5 > li:nth-child(4n+1),
+	.thumbnails.thumbs5 > li:nth-child(5n+1){
+		clear: none;
+	}
+	.thumbnails.thumbs5 > li:nth-child(2n+1){
+		clear: both;
+	}
+}

@@ -1,0 +1,107 @@
+<Navigation>
+  <category>
+    <name>Introduction</name>
+    <link>index</link>
+	<index>1.0</index>
+    <entry>
+      <link>overview</link>
+      <name>Roadmap</name>
+  	  <index>1.1</index>
+    </entry>
+    <entry>
+      <link>resources</link>
+      <name>Resource Definitions</name>
+  	  <index>1.2</index>
+    </entry>
+    <entry>
+      <link>formats</link>
+      <name>Formats</name>
+  	  <index>1.3</index>
+    </entry>
+    <entry>
+      <link>datatypes</link>
+      <name>Data Types</name>
+  	  <index>1.4</index>
+    </entry>
+    <entry>
+      <link>terminologies</link>
+      <name>Codes &amp; Terminologies</name>
+  	  <index>1.5</index>
+    </entry>
+    <entry>
+      <link>extensibility</link>
+      <name>Extensibility</name>
+  	  <index>1.6</index>
+    </entry>
+  </category>
+  <category>
+    <name>Implementation</name>
+    <link>implementation</link>
+	<index>2.0</index>
+    <entry>
+      <link>http</link>
+      <name>REST (HTTP)</name>
+  	  <index>2.1</index>
+    </entry>
+  	<entry>
+      <link>query</link>
+      <name>Search/Query</name>
+  	  <index>2.2</index>
+    </entry>
+    <entry>
+      <link>messaging</link>
+      <name>Messaging</name>
+  	  <index>2.3</index>
+    </entry>
+    <entry>
+      <link>documents</link>
+      <name>Documents</name>
+  	  <index>2.4</index>
+    </entry>
+    <entry>
+      <link>usecases</link>
+      <name>Common Usages</name>
+  	  <index>2.5</index>
+    </entry>
+    <entry>
+      <link>security</link>
+      <name>Security</name>
+  	  <index>2.6</index>
+    </entry>
+  </category>
+  <category>
+    <name>Resource List</name>
+    <link>resourcelist</link>
+  	<index>3.0</index>
+  </category>
+  <category>
+    <name>Examples</name>
+    <mode>nosidebar</mode>
+    <link>page</link>
+    <entry>
+      <link>datatypes-examples</link>
+      <name>Data types</name>
+    </entry>
+  </category>
+  <category>
+    <name>Formal Definitions</name>
+    <mode>nosidebar</mode>
+    <link>page</link>
+      <entry>
+        <link>terminologies-bindings</link>
+        <name>Terminology Bindings</name>
+      </entry>
+      <entry>
+        <link>terminologies-codes</link>
+        <name>Terminology Code Namespaces</name>
+      </entry>
+      <entry>
+        <link>[codes]</link>
+        <name>CodesList</name>
+      </entry>
+      <entry>
+        <link>datatypes-definitions</link>
+        <name>Data Types</name>
+      </entry>
+  </category>
+</Navigation>

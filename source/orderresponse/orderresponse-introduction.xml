@@ -1,0 +1,28 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The response to an order indicates the outcome of processing the order itself - whether it 
+was accepted or rejected, or is still in process. The order response resource does not itself convey 
+or represent information that arises as a result of performing the actual order, but it may have 
+references to other resources that do have this information, in order to link between the original
+order and its outcome.
+</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+There may be multiple responses for a given order. For some requests, a responding system
+may issue a sequence of responses, where each response replaces previous responses as the original
+order is processed/performed. In these cases, each response should have the same logical identity, and 
+the multiple responses are different versions of the same overall response. 
+</p>
+<p>
+If there are multiple systems responding to the request, or if there request may have multiple
+different responses, then the different logical responses should have different logical ids.
+</p>
+</div>
+
+</div>

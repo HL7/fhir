@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This XML file includes a set of resources that test out difficult cases 
+for servers to handle as part of a batch post
+ --><feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <title>FHIR Test Cases</title>
+  <id>urn:uuid:b248b1b2-1686-4b94-9936-37d7a5f94b51</id>
+  <link rel="self" href="http://hl7.org/fhir/batchtest"/>
+  <updated>2012-11-12T18:10:00Z</updated>
+
+  <!-- 
+	  the first entry is a simple person resource that is "local" to the server, followed by 
+	  three versions of another person that comes from a domain that is considered "external". 
+	  The last of those three versions is a deletion. Also, while the deletion is version 5, 
+	  we do not have all versions present in this batch. The last person entry uses a urn as 
+	  an id instead of a url. The server has to upsert the local person (with id 30) and reidentify
+	  the other two persons (id 1 and the urn) and insert the different versions in order of the update timestamp. 
+	  
+	  After this: the provenance for a subset of the resources. Notice that in the batch, some references
+	  to persons use id+version and some only version. The server should update the references in provenance, 
+	  filling out the version specific identifiers only on references that already had a version-specific reference. 
+	-->
+  <entry>
+    <title>local test person 30</title>
+    <id>http://hl7.org/fhir/person/@30</id>
+    <updated>2012-11-12T18:00:00Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+    <content type="text/xml">
+      <Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <text>
+          <status value="generated"/>
+          <xhtml:div>
+            <xhtml:p>Henry Levin</xhtml:p>
+          </xhtml:div>
+        </text>
+        <name>
+          <family value="Levin"/>
+          <given value="Henry"/>
+        </name>
+        <gender>
+          <system value="urn:oid:2.16.840.1.113883.5.1"/>
+          <code value="M"/>
+        </gender>
+        <birthDate value="1932-09-24"/>
+      </Person>
+    </content>
+    <summary type="xhtml">
+      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+    </summary>
+  </entry>
+
+  <entry>
+    <title>test person 1, version 1</title>
+    <id>http://www.someexternalsite/fhir/person/@1</id>
+    <link rel="self" href="http://www.someexternalsite/fhir/person/@1/history/1"/>
+    <updated>2012-11-12T18:05:00Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+    <content type="text/xml">
+      <Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <text>
+          <status value="generated"/>
+          <xhtml:div>
+            <xhtml:p>Henry Levin</xhtml:p>
+          </xhtml:div>
+        </text>
+        <name>
+          <family value="Levin"/>
+          <given value="Henry"/>
+        </name>
+        <gender>
+          <system value="urn:oid:2.16.840.1.113883.5.1"/>
+          <code value="M"/>
+        </gender>
+        <birthDate value="1932-09-24"/>
+      </Person>
+    </content>
+    <summary type="xhtml">
+      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+    </summary>
+  </entry>
+  <entry>
+    <title>test person 1, another version</title>
+    <id>http://www.someexternalsite/fhir/person/@1</id>
+    <updated>2012-11-12T18:10:00Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+    <content type="text/xml">
+      <Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <text>
+          <status value="generated"/>
+          <xhtml:div>
+            <xhtml:p>Henry Levins</xhtml:p>
+          </xhtml:div>
+        </text>
+        <name>
+          <family value="Levins"/>
+          <given value="Henry"/>
+        </name>
+        <gender>
+          <system value="urn:oid:2.16.840.1.113883.5.1"/>
+          <code value="M"/>
+        </gender>
+        <birthDate value="1932-09-24"/>
+      </Person>
+    </content>
+    <summary type="xhtml">
+      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+    </summary>
+  </entry>
+  <entry>
+    <title>new test person urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe</title>
+    <id>urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe</id>
+    <link rel="self" href="urn:uuid:9f13879b-9f5c-5ed4-b1f5-cc8d8a0efe"/>
+    <updated>2012-11-12T18:20:00Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+    <content type="text/xml">
+      <Person xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        <text>
+          <status value="generated"/>
+          <xhtml:div>
+            <xhtml:p>Henry Levin</xhtml:p>
+          </xhtml:div>
+        </text>
+        <name>
+          <family value="Levin"/>
+          <given value="Henry"/>
+        </name>
+        <gender>
+          <system value="urn:oid:2.16.840.1.113883.5.1"/>
+          <code value="M"/>
+        </gender>
+        <birthDate value="1932-09-24"/>
+      </Person>
+    </content>
+    <summary type="xhtml">
+      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+    </summary>
+  </entry>
+  <entry>
+    <title>test person 1 provenance for version 1</title>
+    <id>http://hl7.org/fhir/Provenance/101</id>
+    <link rel="self" href="http://hl7.org/fhir/Provenance/101/history/1"/>
+    <updated>2012-11-12T18:05:01Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+    <content type="text/xml">
+      <Provenance xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
+        </text>
+        <target>
+          <value value="http://www.someexternalsite/fhir/person/@1"/>
+          <version value="http://www.someexternalsite/fhir/person/@1/history/1"/>
+        </target>
+        <!-- nominal activity: editing the standard -->
+        <activity>
+          <recorded value="2012-11-12T18:16:00Z"/>
+        </activity>
+      </Provenance>
+    </content>
+    <summary type="xhtml">
+      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+    </summary>
+  </entry>
+  <entry>
+    <title>test person 1 provenance for version 5 (deletion)</title>
+    <id>http://hl7.org/fhir/Provenance/103</id>
+    <link rel="self" href="http://hl7.org/fhir/Provenance/103/history/1"/>
+    <updated>2012-11-12T18:15:01Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+    <content type="text/xml">
+      <Provenance xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
+        </text>
+        <target>
+          <version value="http://www.someexternalsite/fhir/person/@1/history/5"/>
+        </target>
+        <!-- nominal activity: editing the standard -->
+        <activity>
+          <recorded value="2012-11-12T18:16:00Z"/>
+        </activity>
+      </Provenance>
+    </content>
+    <summary type="xhtml">
+      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+    </summary>
+  </entry>
+  <entry>
+    <title>test person urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe provenance</title>
+    <link rel="self" href="http://hl7.org/fhir/Provenance/104/history/1"/>
+    <id>http://hl7.org/fhir/Provenance/104</id>
+    <updated>2012-11-12T18:20:01Z</updated>
+    <author>
+      <name>Grahame Grieve</name>
+    </author>
+    <category term="Person" scheme="http://hl7.org/fhir/resource-types"/>
+    <content type="text/xml">
+      <Provenance xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Authored on 12-Nov 2011 by Grahame Grieve</div>
+        </text>
+        <target>
+          <value value="urn:uuid:8f13879b-8f5c-4ed4-a1f5-bc8d8a0efe"/>
+        </target>
+        <!-- nominal activity: editing the standard -->
+        <activity>
+          <recorded value="2012-11-12T18:16:00Z"/>
+        </activity>
+      </Provenance>
+    </content>
+    <summary type="xhtml">
+      <xhtml:div xmlns:xhtml="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN: 333777777</xhtml:div>
+    </summary>
+  </entry>
+ <!-- <at:deleted-entry xmlns:at="http://purl.org/atompub/tombstones/1.0"
+		ref="http://www.someexternalsite/fhir/person/@1" when="2012-11-12T18:15:00Z">
+    <link rel="self" href="http://www.someexternalsite/fhir/person/@1/history/5"/>
+  </at:deleted-entry> -->
+</feed>

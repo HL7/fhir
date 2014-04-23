@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+      
+[%settitle Implementation%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+
+<h2>Implementation</h2>
+<table width="100%">
+ <tr>
+ <td>
+<p><b>Exchange Frameworks</b></p>
+<p>Define how Resources are exchanged.</p>
+<ul>
+  <li><a href="http.html"><b>RESTful API (HTTP)</b></a></li>
+  <li><a href="search.html">Search / Query</a></li>
+  <li><a href="documents.html">Documents</a></li>
+  <li><a href="messaging.html">Messaging</a></li>
+  <li><a href="services.html">Services (SOA)</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p><b>Support</b></p>
+<p>Implementation Support.</p>
+<ul>
+  <li><a href="downloads.html">Downloads - Schemas, Code, Tools</a></li>
+  <li><a href="managing.html">Managing Resource Identity</a></li>
+  <li><a href="pushpull.html">Push vs Pull</a></li>
+  <li><a href="support.html">Support Links</a></li>
+</ul>
+</td><td style="border-left: 1px solid #eeeeee">
+<p><b>Using FHIR</b></p>
+<p>Making use of FHIR.</p>
+<ul>
+  <li><a href="usecases.html">Common Use Cases</a></li>
+  <li><a href="profilelist.html">Profiles Defined as part of FHIR</a></li>
+  <li><a href="security.html">Security</a> &amp;  <a href="security-labels.html">Security Labels</a></li>
+  <li><a href="integrated-examples.html">Integrated Examples</a></li>
+</ul>
+</td></tr></table>
+
+<h3>Implementers Safety Check List</h3>
+<p>
+FHIR is as simple to implement as we know how to make it. However, due to the nature of 
+healthcare, and healthcare processes, and cultural concerns, there are a number of features in
+FHIR that implementers are obliged to consider in order to implement safe systems.
+</p>
+<p>
+This section is a check list to help implementers be sure that they've considered all the parts
+of FHIR that impact on their system design with regard to safety. 
+</p>
+<ol>
+ <li><input type="checkbox"/> Production exchange of patient or other sensitive data will always use some form of <a href="security.html#http">encryption on the wire</a></li>
+ <li><input type="checkbox"/> For each resource that my system handles, I've reviewed the <a href="conformance-rules.html#isModifier">Modifier elements</a></li>
+ <li><input type="checkbox"/> My system checks for <a href="extensibility.html#modifierExtension">modifierExtension</a> elements</li>
+ <li><input type="checkbox"/> My system supports <a href="conformance-rules.html#mustSupport">elements labelled as "must-support"</a> in the <a href="profile.html">Profiles</a> that apply to my system</li>
+ <li><input type="checkbox"/> My system can <a href="narrative.html#css">render narratives properly</a> (if/when they are used)</li>
+ <li><input type="checkbox"/> My system has documented how <a href="managing.html#distributed">distributed resource identification</a> works in it's relevant contexts of use</li>
+ <li><input type="checkbox"/> My system uses the right <a href="security-labels.html#core">security labels</a> where appropriate</li>
+ <li><input type="checkbox"/> When other systems <a href="http.html#summary">return http errors from the RESTful API</a> or from the <a href="messaging.html#mailbox">Mailbox</a> (perhaps using <a href="operationoutcome.html">Operation Outcome</a>), my system checks for them and handles them appropriately</li>
+ <li><input type="checkbox"/> My system publishes a <a href="conformance.html">conformance statement</a> so other implementers know what it does</li>
+</ol> 
+<p>
+Obviously this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.
+</p>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

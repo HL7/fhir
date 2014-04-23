@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
+ <identifier>
+    <use value="temp"/>
+    <label value="Roel's encounter on March eleventh 2013"/>
+    <value value="Encounter_Roel_20130311"/>
+ </identifier>
+ <status value="finished"/><!--Encounter has finished-->
+ <class value="inpatient"/><!--Inpatient encounter for straphylococcus infection-->
+ <type>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="183807002"/>
+       <display value="Inpatient stay for nine days"/>
+    </coding>
+ </type>
+ <subject>
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </subject>
+ <participant>
+     <individual>
+         <reference value="Practitioner/f201"/>
+    </individual>
+ </participant>
+ <reason>
+   <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
+ </reason> 
+<!--No indication, because no referral took place-->
+ <priority><!--High priority-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="394849002"/>
+       <display value="High priority"/>
+    </coding>
+ </priority>
+ <hospitalization> 
+<!--  <origin>
+     <reference value="Location/2"/>     
+  </origin>--> 
+  <admitSource>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="309902002"/>
+       <display value="Clinical Oncology Department"/>
+    </coding>
+  </admitSource>
+  <period>
+      <start value="2013-03-11"/>
+      <end value="2013-03-20"/>
+  </period>
+  <!--accomodation details are not available-->
+  <diet>
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="276026009"/>
+       <display value="Fluid balance regulation"/>
+    </coding>
+  </diet>
+  <!--no special courtesy or arrangements-->
+<!--  <destination><!-\-Fictive-\->
+     <reference value="Location/f202"/>  
+  </destination>-->
+  <reAdmission value="false"/>
+ </hospitalization>
+ <serviceProvider>
+     <reference value="Organization/f201"/>
+ </serviceProvider>
+</Encounter>

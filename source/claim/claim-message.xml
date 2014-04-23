@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+
+  <!-- this element is tax for using atom. it has no meaningful use in FHIR, but it's required in atom -->
+  <title>Claim Message</title>
+  <!-- this is the envelope id - see the Message resource for a discussion of its use -->
+  <id>urn:uuid:c4145bc5-1ee8-4ba6-95c5-71fd1c8cea7a</id>
+  <updated>2013-09-23T08:14:00+10:00</updated>
+  <!-- more Atom tax: author is not meaningful here, but it's required by Atom -->
+  <author>
+    <name>HL7 FHIR project</name>
+  </author>
+
+  <!-- first entry: the message resource -->
+  <entry>
+    <!-- these elements are tax for using atom. they has no meaningful use in FHIR, but are required in atom -->
+    <title>Message Resource</title>
+    <id>urn:uuid:4913837e-3f91-4900-aa6f-f5ebb07728fc</id>
+    <updated>2013-09-23T08:14:00+10:00</updated>
+    <content type="text/xml">
+      <Message xmlns="http://hl7.org/fhir">
+        <!-- this is the message id - see the Message resource for a discussion of its use -->
+        <identifier value="bd5a062a-9d5c-4cb2-bcc8-1836618c5226"/>
+        <timestamp value="2013-09-23T08:14:00+10:00"/>
+       
+        <event value="make-claim"/><!-- this is query message -->
+       
+        <!-- message routing details -->
+        <source>
+          <software value="notepad"/> <!-- well, you'd use a real system in practice -->
+          <endpoint value="http://localhost"/> <!-- this is where the message would be returned to -->
+        </source>
+      
+        <destination>
+          <name value="Health Intersections Server"/> <!-- the response was actually generated (originally) by that server -->
+          <endpoint value="http://hl7connect.healthintersections.com.au/svc/fhir/Mailbox"/>
+        </destination>
+    
+        <!-- refer to the query resource that comes next -->
+        <data>
+          <reference value="urn:uuid:265b69c0-4770-4c85-af83-de16aabcedab"/>
+        </data> 
+      </Message>
+    </content>
+  </entry> 
+  
+  <!-- second entry: the query resource -->
+  <entry>
+    <title>Claim Resource</title>
+    <!-- this is the target of the forward reference in the Message resource -->
+    <id>urn:uuid:265b69c0-4770-4c85-af83-de16aabcedab</id>
+    <updated>2013-09-23T08:14:00+10:00</updated>
+    
+    <content type="text/xml">
+      <Claim xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/claim.xsd">
+        <number>
+          <label value="number"/>
+          <system value="http://happyvalley.org/claim"/>
+          <value value="1500"/>
+        </number>
+        <servicedate value="2013-09-22"/>
+        <provider>
+          <reference value="Practitioner/15"/>
+        </provider>
+        <billingProvider>
+          <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+        </billingProvider>
+        <referrer>
+          <reference value="Practitioner/31"/>
+        </referrer>
+        <reason>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/ReferalReason"/>
+            <code value="07"/>
+          </coding>
+        </reason>
+        <patient>
+          <name>
+            <use value="usual"/>
+            <family value="Smith"/>
+            <given value="John"/>
+          </name>
+          <address>
+            <line value="1234 Any Street"/>
+            <city value="Menlo Park"/>
+            <state value="California"/>
+            <zip value="90123"/>
+          </address>
+          <birthdate value="1973-04-14"/>
+          <gender>
+              <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+              <code value="M"/>
+          </gender>
+        </patient>
+        <coverage>
+          <issuer>
+            <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+          </issuer>
+          <type>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <code value="DENTPRG"/>
+          </type>
+          <identifier>
+            <label value="Certificate"/>
+            <system value="http://happyvalley.org/claim"/>
+            <value value="A7G345"/>
+          </identifier>
+          <plan>
+            <value value="123YHT56"/>
+          </plan> 
+          <subplan>
+            <value value="35"/>
+          </subplan>
+          <dependent value="01"/>
+          <subscriber>
+            <name>
+              <use value="usual"/>
+              <family value="Smith"/>
+              <given value="John"/>
+            </name>
+            <address>
+              <line value="1234 Any Street"/>
+              <city value="Menlo Park"/>
+              <state value="California"/>
+              <zip value="90123"/>
+            </address>
+          </subscriber>
+        </coverage>
+        <relationship>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/RelationshipToSubscriber"/>
+            <code value="1"/>
+          </coding>
+        </relationship>
+        <service>
+          <service>
+            <coding>
+              <system value="urn:USCLS"/>
+              <code value="1103"/>
+            </coding>
+          </service>
+          <instance value="1"/>
+          <fee value="65.00"/>
+        </service>
+        <service>
+          <service>
+            <coding>
+              <system value="urn:USCLS"/>
+              <code value="21211"/>
+            </coding>
+          </service>
+          <instance value="2"/>
+          <fee value="105.00"/>
+          <location>
+            <coding>
+              <system value="urn:ISO-3950"/>
+              <code value="21"/>
+            </coding>
+          </location>
+          <surface>
+            <coding>
+              <system value="urn:FDI:surface"/>
+              <code value="L"/>
+            </coding>
+          </surface>
+        </service>
+        <service>
+          <service>
+            <coding>
+              <system value="urn:USCLS"/>
+              <code value="27211"/>
+            </coding>
+          </service>
+          <instance value="3"/>
+          <fee value="900.00"/>
+          <location>
+            <coding>
+              <system value="urn:ISO-3950"/>
+              <code value="22"/>
+            </coding>
+          </location>
+          <lab>
+            <service>
+              <coding>
+                <system value="urn:USCLS"/>
+                <code value="99111"/>
+              </coding>
+            </service>
+            <fee value="250.00"/>
+          </lab>
+        </service>
+      </Claim>
+
+    </content>
+  </entry> 
+  
+</feed>

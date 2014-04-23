@@ -1,0 +1,95 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
+		<h2>Scope and Usage</h2>
+		<p>
+			Appointment resources are used to provide information about
+			a planned meeting that may be in the future or past.  They may be for a single meeting or
+			for a series of repeating visits.  Examples include a scheduled surgery, a follow-up for a
+			clinical visit, a scheduled conference call between clinicians to discuss a case, the reservation
+			of a piece of diagnostic equipment for a particular use, etc.  The visit scheduled by an appointment
+			may be in person or remote (by phone, video conference, etc.)  All that matters is that the time and
+			usage of one or more individuals, locations and/or pieces of equipment is being fully or partially
+			reserved for a designated period of time.
+		</p>
+		<p>
+			This definition takes the concepts of appointments in a clinical setting and also extends
+			them to be relevant in the community healthcare space, and also ease exposure to other
+			appointment / calendar standards widely used outside of Healthcare.
+		</p>
+
+		<h3>The basic workflow to create an appointment</h3>
+		<ol>
+			<li>
+				<h4>Discovery/Addressing</h4>
+				<p>
+					The discovery process covers that actual finding of the resource that we want to schedule
+					an appointment with. This includes the addressing information that is required, and any
+					formatting information which indicates how to make the request.
+				</p>
+			</li>
+			<li>
+				<h4>Checking Availability (optional)</h4>
+				<p>
+					This optional step permits the checking of any existing available times that can be booked against.
+					Just because a time is indicated it is available doesn't guarantee that an appointment can be made.
+					The booking system that is going to receive the request may make other qualifying decisions to
+					determine if the appointment can be made, such as permissions, assessments, availability of other
+					resources etc.
+				</p>
+				<p>
+					This step is optional as the creation of the appointment is never a guaranteed action.
+					But by performing this availability check, you can increase the chances of making a successful
+					booking.
+				</p>
+			</li>
+			<li>
+				<h4>Making the Appointment Request</h4>
+				<p>
+					The request is performed by posting an Appointment to the address found during discovery.
+					This will have a needs-action status for each of the participants.
+					(The system that receives the request may modify the status of any posted appointment based
+					on internal business rules, such as certain users do not have permission to request certain
+					appointments)
+				</p>
+			</li>
+			<li>
+				<h4>Replying to the request</h4>
+				<p>
+					The reply process is simply performed by the person/system handing the requests updating
+					the Participant Statuses as needed. If there are multiple systems involved, then these
+					will create AppointmentResponse entries with the desired statuses.
+				</p>
+				<p>
+					Once all participants have their participation status created/updated
+					(and the main system marking the appointment participant records with the AppointmentResponse
+					statuses) then the overall status of the appointment is updated.
+				</p>
+			</li>
+			<li>
+				<h4>Checking the overall status (Requester)</h4>
+				<p>
+					The Requester (organizer) of the appointment checks for the overall status of the appointment
+					(and appointmentresponses where applicable) using fhir pub-sub techniques.
+				</p>
+				<p>
+					Where the participant statuses indicate that a re-scheduling is required, then the process may
+					start again, with other systems replying to a new set of times.
+				</p>
+			</li>
+		</ol>
+
+		<h3>There are 2 typical workflows that occur with appointments</h3>
+		<ul>
+			<li>
+				<b>Outlook Style - Community</b>
+				<p>These types of requests are typically handled by selecting a specific time</p>
+			</li>
+			<li>
+				<b>Hospital Scheduling - Clinical</b>
+				<p></p>
+			</li>
+		</ul>
+	</div>
+
+</div>
+

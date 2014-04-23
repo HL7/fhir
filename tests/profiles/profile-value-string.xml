@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Profile xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Text goes here</div>
+  </text>
+  <name value="profile-base"/>
+  <publisher value="FHIR Profile Tests"/>
+  <description value="Internal profile defined to test profile validation"/>
+  <status>
+    <code value="testing"/>
+    <date value="2013-07-02"/>
+  </status>
+  <structure>
+    <type value="Observation"/>
+    <element>
+      <path value="Observation"/>
+      <definition>
+        <short value="Simple observations"/>
+        <formal value="Simple assertions and measurements made about a patient, device or other subject"/>
+        <comments value="Used for simple observations such as device measures, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to descrive aggregate collections of observations such as Lab reports, etc"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource"/>
+        </type>
+        <constraint>
+          <key value="2"/>
+          <name value="normal range for quantity"/>
+          <severity value="error"/>
+          <human value="Can only have normal range if value is a quantity"/>
+          <xpath value="exists(f:valueQuantity) or not(exists(f:normalRange))"/>
+        </constraint>
+        <constraint>
+          <key value="1"/>
+          <name value="value or components"/>
+          <severity value="error"/>
+          <human value="Must have at least one of value or components"/>
+          <xpath value="exists(*[starts-with(local-name(.), &#39;value&#39;)]) or exists(f:component)"/>
+        </constraint>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.extension"/>
+      <definition>
+        <short value="Additional Content defined by implementations"/>
+        <formal value="May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that must be met as part of the definition of the extension"/>
+        <comments value="there can be no stigma
+associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core simplicity for everyone"/>
+        <synonym value="extensions"/>
+        <synonym value="user content"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Extension"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.text"/>
+      <definition>
+        <short value="Text summary of the resource, for human interpretation"/>
+        <formal value="A human readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety"/>
+        <comments value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative"/>
+        <synonym value="narrative"/>
+        <synonym value="html"/>
+        <synonym value="xhtml"/>
+        <synonym value="display"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Narrative"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.contained"/>
+      <definition>
+        <short value="Contained, inline Resources"/>
+        <formal value="These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope"/>
+        <comments value="This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again"/>
+        <synonym value="inline resources"/>
+        <synonym value="anonymous resources"/>
+        <synonym value="contained resources"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+          <code value="Resource"/>
+        </type>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.name"/>
+      <definition>
+        <short value="Kind of observation"/>
+        <formal value="Identifies what type of observation was performed"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustUnderstand value="false"/>
+        <binding value="ObservationType"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.value[x]"/>
+      <definition>
+        <short value="Actual result"/>
+        <formal value="The information determined as a result of making the observation"/>
+        <comments value="The datatype for this element should be determined by Observation.name"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <type>
+          <code value="Attachment"/>
+        </type>
+        <type>
+          <code value="Ratio"/>
+        </type>
+        <type>
+          <code value="Choice"/>
+        </type>
+        <type>
+          <code value="Period"/>
+        </type>
+        <type>
+          <code value="SampledData"/>
+        </type>
+        <type>
+          <code value="string"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.interpretation"/>
+      <definition>
+        <short value="High, low, normal, etc."/>
+        <formal value="The assessment made based on the result of the observation."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustUnderstand value="false"/>
+        <binding value="ObservationInterpretation"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.comments"/>
+      <definition>
+        <short value="Comments about result"/>
+        <formal value="May include statements about significant, unexpected or unreliable. values, or information about the source of the value where this may be relevant to the interpretation of the result."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="string"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.applies[x]"/>
+      <definition>
+        <short value="Relevant time/time-period"/>
+        <formal value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;."/>
+        <comments value="At least a date should be present unless this observation is a historical report"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Period"/>
+        </type>
+        <type>
+          <code value="dateTime"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.issued"/>
+      <definition>
+        <short value="Date/Time this was made available"/>
+        <formal value="Date/Time this was made available"/>
+        <comments value="Updated when the result is updated"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="instant"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.status"/>
+      <definition>
+        <short value="Registered|Interim|Final|Amended|Cancelled|Withdrawn"/>
+        <formal value="The status of the result value"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <mustUnderstand value="true"/>
+        <binding value="ObservationStatus"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.reliability"/>
+      <definition>
+        <short value="If quality issues exist (mostly devices)"/>
+        <formal value="An estimate of the degree to which quality issues have impacted on the value reported"/>
+        <comments value="Note that in most contexts, unreliable results are not recorded, deleted, or otherwise excluded, but this is not always done or possible. Interpreters of a result, whether human or machine, must always either be aware of the status, or prevented from seeing the observation if the reliability is not &quot;ok&quot;"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="code"/>
+        </type>
+        <mustUnderstand value="true"/>
+        <binding value="ObservationReliability"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.bodySite"/>
+      <definition>
+        <short value="Observed body part"/>
+        <formal value="Indicates where on the subject&#39;s body the observation was made."/>
+        <comments value="Only used if not implicit in code found in Observation.name"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustUnderstand value="false"/>
+        <binding value="BodySite"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.method"/>
+      <definition>
+        <short value="How it was done"/>
+        <formal value="Indicates the mechanism used to perform the observation"/>
+        <comments value="Only used if not implicit in code for SimpleObservation.result.type"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustUnderstand value="false"/>
+        <binding value="ObservationMethod"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.identifier"/>
+      <definition>
+        <short value="Observation id"/>
+        <formal value="A unique identifier for the simple observation"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Identifier"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.subject"/>
+      <definition>
+        <short value="Who/what this is about"/>
+        <formal value="The thing the observation is being made about"/>
+        <comments value="The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation must be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Patient|Group|Device)"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.performer"/>
+      <definition>
+        <short value="Who did the observation"/>
+        <formal value="Who was responsible for asserting the observed value as &quot;true&quot;"/>
+        <comments value="This would only be &quot;Device&quot; if the device is responsible for the measurement, not to capture the device used by a human to make the measurement.  (The latter could be captured as an extension.)"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="Resource(Practitioner|Device|Organization)"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.referenceRange"/>
+      <definition>
+        <short value="Provides guide for interpretation"/>
+        <formal value="Guidance on how to interpret the value by comparison to a normal or recommended range"/>
+        <comments value="Most results only have one reference range, might be generic or be specific to the patient&#39;s age, gender, weight and other factors. When these things are not known, multiple reference ranges may be provided"/>
+        <min value="0"/>
+        <max value="*"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.referenceRange.meaning"/>
+      <definition>
+        <short value="The meaning of this range"/>
+        <formal value="Code for the meaning of the reference range"/>
+        <comments value="This is only usually populated if there is more than one range"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustUnderstand value="false"/>
+        <binding value="ObservationRangeMeaning"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.referenceRange.range[x]"/>
+      <definition>
+        <short value="Reference"/>
+        <formal value="Actual value of the reference range.  May be a quantity (&lt;20mg/L), an range (10-20 umol/L), or some text"/>
+        <comments value="Text reference ranges are typically used in endocrinology, or for legacy data with string reference ranges"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <type>
+          <code value="Range"/>
+        </type>
+        <type>
+          <code value="string"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.component"/>
+      <definition>
+        <short value="Component observation"/>
+        <formal value="Component observation"/>
+        <comments value="It would be usual to either have a value or components with values, but both may be used, such as for APGAR scores"/>
+        <min value="0"/>
+        <max value="*"/>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.component.name"/>
+      <definition>
+        <short value="Kind of component observation"/>
+        <formal value="Identifies what type of sub-observation was performed"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <mustUnderstand value="false"/>
+        <binding value="ObservationType"/>
+      </definition>
+    </element>
+    <element>
+      <path value="Observation.component.value[x]"/>
+      <definition>
+        <short value="Actual component result"/>
+        <formal value="The information determined as a result of making the sub-observation"/>
+        <comments value="The datatype for this element should be determined by Observation.name"/>
+        <min value="1"/>
+        <max value="1"/>
+        <type>
+          <code value="Quantity"/>
+        </type>
+        <type>
+          <code value="CodeableConcept"/>
+        </type>
+        <type>
+          <code value="Attachment"/>
+        </type>
+        <type>
+          <code value="Ratio"/>
+        </type>
+        <type>
+          <code value="Choice"/>
+        </type>
+        <type>
+          <code value="Period"/>
+        </type>
+        <type>
+          <code value="SampledData"/>
+        </type>
+        <type>
+          <code value="string"/>
+        </type>
+        <mustUnderstand value="false"/>
+      </definition>
+    </element>
+    <searchParam>
+      <name value="_id"/>
+      <type value="token"/>
+      <documentation value="The logical resource id associated with the resource (must be supported by all servers)"/>
+    </searchParam>
+    <searchParam>
+      <name value="status"/>
+      <type value="token"/>
+      <documentation value="The status of the observation"/>
+    </searchParam>
+    <searchParam>
+      <name value="subject"/>
+      <type value="reference"/>
+      <documentation value="The subject that the observation is about"/>
+    </searchParam>
+    <searchParam>
+      <name value="name"/>
+      <type value="token"/>
+      <documentation value="The name of the observation type or component type"/>
+    </searchParam>
+    <searchParam>
+      <name value="reliability"/>
+      <type value="token"/>
+      <documentation value="The reliability of the observation"/>
+    </searchParam>
+    <searchParam>
+      <name value="value"/>
+      <type value="token"/>
+      <documentation value="The code or value of a result"/>
+    </searchParam>
+    <searchParam>
+      <name value="performer"/>
+      <type value="reference"/>
+      <documentation value="who/what performed the observation"/>
+    </searchParam>
+    <searchParam>
+      <name value="name-value"/>
+      <type value="composite"/>
+      <documentation value="Both name and value"/>
+    </searchParam>
+    <searchParam>
+      <name value="date"/>
+      <type value="date"/>
+      <documentation value="obtained date/time. If obtained is a period, a date that falls in the period"/>
+    </searchParam>
+  </structure>
+  <binding>
+    <name value="ObservationMethod"/>
+
+    <isExtensible value="true"/>
+    <conformance value="example"/>
+    <referenceResource>
+  
+      <reference value="http://hl7.org/fhir/vs/observation-methods"/>
+    </referenceResource>
+  </binding>
+  <binding>
+    <name value="BodySite"/>
+
+    <isExtensible value="true"/>
+    <conformance value="example"/>
+    <referenceResource>
+  
+      <reference value="http://hl7.org/fhir/vs/body-site"/>
+    </referenceResource>
+  </binding>
+  <binding>
+    <name value="ObservationType"/>
+
+    <isExtensible value="true"/>
+    <conformance value="preferred"/>
+    <referenceResource>
+  
+      <reference value="http://hl7.org/fhir/vs/observation-codes"/>
+    </referenceResource>
+  </binding>
+  <binding>
+    <name value="ObservationRangeMeaning"/>
+
+    <isExtensible value="true"/>
+    <conformance value="example"/>
+    <referenceResource>
+  
+      <reference value="http://hl7.org/fhir/vs/referencerange-meaning"/>
+    </referenceResource>
+  </binding>
+  <binding>
+    <name value="ObservationReliability"/>
+
+    <conformance value="required"/>
+    <referenceResource>
+  
+      <reference value="http://hl7.org/fhir/vs/observation-reliability"/>
+    </referenceResource>
+  </binding>
+  <binding>
+    <name value="ObservationStatus"/>
+
+    <conformance value="required"/>
+    <referenceResource>
+  
+      <reference value="http://hl7.org/fhir/vs/observation-status"/>
+    </referenceResource>
+  </binding>
+  <binding>
+    <name value="ObservationInterpretation"/>
+
+    <isExtensible value="true"/>
+    <conformance value="preferred"/>
+    <referenceResource>
+  
+      <reference value="http://hl7.org/fhir/vs/observation-interpretation"/>
+    </referenceResource>
+  </binding>
+</Profile>

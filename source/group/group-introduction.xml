@@ -1,0 +1,29 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<a name="use"> </a>
+<h3>Use Cases</h3>
+<p>The group resource is used in one of two ways:</p>
+<ol>
+  <li>To define a group of specific people, animals, devices, etc. that is being tracked, examined or otherwise referenced as part of healthcare-related activities</li>
+  <li>To define a set of *possible* people, animals, devices, etc. that are of interest for some intended future healthcare-related activities</li>
+</ol>
+
+<p>Examples of the former could include group therapy or treatment sessions, exposed entities tracked as part of public health, etc.  The latter might be used to define expected subjects for a clinical study.</p>
+
+<p>Both use cases are handled by a single resource because the data elements captured tend to be similar.</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+There are 2 resources that provide for constructing collections of other resources:
+</p>
+<ul>
+ <li>The <a href="list.html">List resource</a> - enumerates a collection of resources that are in some list, and provides features for managing the list. The list resource references other resources</li>
+ <li>This Group resource - defines a group of specific people, animals, devices, etc. by enumerating them, or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly</li>
+</ul>
+</div>
+
+</div>

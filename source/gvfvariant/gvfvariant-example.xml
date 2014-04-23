@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GVFVariant xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/gvfvariant.xsd">
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">Example GVF variant describing a SNP of John Doe</div>
+	</text>
+	<subject>
+		<patient>
+			<reference value="Patient/example"/>
+			<display value="John Doe"/>
+		</patient>
+	</subject>
+	<meta>
+		<reference value="gvfmeta/@example"/>
+	</meta>
+	<seqid value="chr1"/>
+	<source value="samtools"/>
+	<start value="155205042"/>
+	<end value="155205043"/>
+	<score value="30"/>
+	<strand value="+"/>
+	<featureId value="dm43135"/>
+	<dbxref>
+		<database value="dbSNP"/>
+		<identity value="rs421016"/>
+	</dbxref>
+	<variantSeq value="G"/>
+	<referenceSeq value="A"/>
+	<sample>
+		<variantReads value="35"/>
+		<variantReads value="12"/>
+		<zygosity value="homozygous"/>
+	</sample>
+</GVFVariant>

@@ -1,0 +1,39 @@
+<Remittance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\remittance.xsd">
+  <identifier>
+    <system value="http://localhost:81/fhir/remittance"/>
+    <value value="R_3500"/>
+  </identifier>
+  <service>
+    <instance value="1"/>
+    <code>
+      <coding>
+        <system value="urn:USCLS"/>
+        <code value="1103"/>
+      </coding>
+    </code> 
+    <rate value="0.8"/>
+    <benefit value="52.00"/>
+  </service>
+  <service>
+    <instance value="2"/>
+    <code>
+      <coding>
+        <system value="urn:USCLS"/>
+        <code value="21211"/>
+      </coding>
+    </code> 
+    <rate value="0.8"/>
+    <benefit value="84.00"/>
+  </service>
+  <service>
+    <instance value="3"/>
+    <code>
+      <coding>
+        <system value="urn:USCLS"/>
+        <code value="27211"/>
+      </coding>
+    </code> 
+    <rate value="0.8"/>
+    <benefit value="1120.00"/>
+  </service>
+</Remittance>

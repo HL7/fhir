@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Slot xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/slot.xsd">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			25 Dec 2013 9:15am - 9:30am: <b>Busy</b> Physiotherapy
+		</div>
+	</text>
+	<type>
+		<coding>
+			<code value="45"/>
+			<display value="Physiotherapy" />
+		</coding>
+	</type>
+	<availability>
+		<reference value="Availability/example" />
+	</availability>
+	<freeBusyType value="FREE" />
+	<start value="2013-12-25T09:15:00Z" />
+	<end value="2013-12-25T09:30:00Z" />
+	<comment value="Assessments should be performed before requesting appointments in this slot." />
+	<lastModified value="2012-09-17"/>
+</Slot>

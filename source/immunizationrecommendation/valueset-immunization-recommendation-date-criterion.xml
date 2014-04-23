@@ -1,0 +1,31 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="Immunization Recommendation Date Criterion Codes"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or 
+        contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+    <concept>
+     <code value="due"/>
+     <display value="due" />
+     <definition value="Date the next dose is considered due"/>
+    </concept>
+    <concept>
+      <code value="overdue"/>
+      <display value="overdue" />
+      <definition value="Date the next dose is considered overdue"/>
+    </concept>
+    <concept>
+      <code value="latest"/>
+      <display value="latest" />
+      <definition value="The latest date the next dose is to be given"/>
+    </concept>
+  </define>
+</ValueSet>
+

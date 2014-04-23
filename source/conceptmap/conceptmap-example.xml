@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
+  <!-- this example, we elected to use a UUID. We could have used 
+     an OID, or a URI - depends on how it will be used. -->
+  <identifier value="256a5231-a2bb-49bd-9fea-f349d428b70d"/>
+  <!-- for version, we are going to simply use the day of publication. This is also 
+    arbitrary - whatever is here is what people use to refer to the version. 
+    Could also be a UUID too -->
+  <version value="20120613"/>
+  <!-- set of loinc codes for cholesterol for LONC 2.36 -->
+  <name value="FHIR/v3 Address Use Mapping"/>
+  <publisher value="FHIR project team (example)"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="A mapping between the FHIR and V3 AddressUse Code systems"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-06-13"/>
+  <source>
+    <reference value="http://hl7.org/fhir/address-use"/>
+  </source>
+  <target>
+    <reference value="http://hl7.org/fhir/v3/AddressUse"/>
+  </target>
+  <concept>
+    <system value="http://hl7.org/fhir/address-use"/>
+    <code value="home"/>
+    <map>
+      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <code value="H"/>
+      <equivalence value="equivalent"/>
+    </map>
+  </concept>
+  <concept>
+    <system value="http://hl7.org/fhir/address-use"/>
+    <code value="home"/>
+    <map>
+      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <code value="H"/>
+      <equivalence value="equivalent"/>
+    </map>
+  </concept>
+  <concept>
+    <system value="http://hl7.org/fhir/address-use"/>
+    <code value="work"/>
+    <map>
+      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <code value="WP"/>
+      <equivalence value="equivalent"/>
+    </map>
+  </concept>
+  <concept>
+    <system value="http://hl7.org/fhir/address-use"/>
+    <code value="temp"/>
+    <map>
+      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <code value="TMP"/>
+      <equivalence value="equivalent"/>
+    </map>
+  </concept>
+  <concept>
+    <system value="http://hl7.org/fhir/address-use"/>
+    <code value="old"/>
+    <map>
+      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <code value="BAD"/>
+      <equivalence value="disjoint"/>
+      <comments value="In the V3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
+    </map>
+  </concept>
+</ConceptMap>

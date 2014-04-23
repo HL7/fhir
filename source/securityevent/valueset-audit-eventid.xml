@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir file:///C:/work/org.hl7.fhir/build/schema/valueset.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+    
+    </div>
+  </text>
+  <identifier value="http://nema.org/dicom/dcid/400"/>
+  <version value="20100826"/>
+  <name value="Audit Event ID"/>
+  <publisher value="NEMA/DICOM"/>
+  <description value="Audit Event ID"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+  <status value="active"/>
+  <date value="2010-08-26"/>
+  <compose>
+    <include>
+      <system value="http://nema.org/dicom/dcid"/>
+      <code value="110100"/>
+      <code value="110101"/>
+      <code value="110102"/>
+      <code value="110103"/>
+      <code value="110104"/>
+      <code value="110105"/>
+      <code value="110106"/>
+      <code value="110107"/>
+      <code value="110108"/>
+      <code value="110112"/>
+      <code value="110113"/>
+      <code value="110114"/>
+    </include>
+  </compose>
+</ValueSet>

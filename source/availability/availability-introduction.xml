@@ -1,0 +1,48 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+	<div>
+		<h2>Scope and Usage</h2>
+		<p>
+			Availability resources provide a container for time-slots that can be booked using an appointment,
+			It provides the window of time (period) that slots are defined for and what type of appointments can be booked.
+			They do not provide any information about actual appointments.
+		</p>
+		<p>
+			In HL7 v2.7 (and the RIM) this resource is defined as a schedule (which in fhir is a simple recurrence):
+		</p>
+	<blockquote>
+		<p>
+			A schedule controls the dates and times available for the performance of a service
+			and/or the use of a resource.  One schedule applies to one service or resource, since
+			each service or resource can be reserved independently of the others.  
+			(If two or more services, people, locations, or things cannot be reserved independently
+			of one another, they are considered to be one activity or resource.)  A schedule consists
+			of slots of time during which the controlled service or resource is potentially available
+			for performance or use.  Slots are categorized as open, booked, or blocked.  An open slot
+			on a schedule indicates that the service or resource is available for performance or use
+			during that period of time.  A booked slot indicates that the service or resource is not
+			available during the time period, because an appointment has been scheduled.  A blocked
+			slot indicates that a service or resource is unavailable for reasons other than a scheduled
+			appointment.
+		</p>
+		<p>
+		The real-world, non-automated analog of the schedule described above is a standard
+		appointment book.  These books are generally organized with rows of time slots, during
+		which a service or resource is available.
+		</p>
+		<p>
+			A slot is one unit on a schedule.  A slot represents the smallest unit of time or quantity
+			that a service or resource may be booked.  Depending on the nature of the service or
+			resource, there may be more than one defined slot at a given instant of time.  
+			For example, if a service is an open group therapy session with twelve available seats,
+			then there are twelve slots for the given block of time.
+		</p>
+	</blockquote>
+	<p>
+		It is expected that servers could expose this information as an alternate representation
+		using the iCalendar free/busy format, joining the information in slot resources that reference
+		this availability resource.
+	</p>
+</div>
+</div>
+	

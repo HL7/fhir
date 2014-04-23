@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
+    <subject>
+        <reference value="Patient/f001"/>
+        <display value="P. van de Heuvel"/>
+    </subject>
+    <encounter>
+        <reference value="Encounter/f001"/>
+    </encounter>
+    <asserter>
+        <reference value="Patient/f001"/>
+        <display value="P. van de Heuvel"/>
+    </asserter>
+    <dateAsserted value="2011-10-05"/>
+    <code>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="368009"/>
+            <display value="Heart valve disorder"/>
+        </coding>
+    </code>
+    <category>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="439401001"/>
+            <display value="diagnosis"/>
+        </coding>
+    </category>
+    <status value="confirmed"/>
+    <severity>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="6736007"/>
+            <display value="Moderate"/>
+        </coding>
+    </severity>
+    <onsetDate value="2011-08-05"/>
+    <evidence>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="426396005"/>
+                <display value="Cardiac chest pain"/>
+            </coding>
+        </code>
+    </evidence>
+    <location>
+        <code>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="40768004"/>
+                <display value="Left thorax"/>
+            </coding>
+        </code>
+        <detail value="heart structure"/>
+    </location>
+</Condition>

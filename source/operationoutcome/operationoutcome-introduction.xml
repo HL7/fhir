@@ -1,0 +1,20 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+Operation Outcomes are sets of error, warning and information messages that provide detailed information about the outcome of some attempted system operation.  
+They are provided as a direct system response, or component of one, where they provide information about the outcome of the operation.
+</p>
+
+<p>
+Specifically, OperationOutcomes are used in the following circumstances:
+</p>
+<ul>
+ <li>When an <a href="http.html#operations">RESTful operation</a> fails</li>
+ <li>As the response on a <a href="http.html#validate">validation operation</a>, to provide information about the outcomes</li>
+ <li>As part of a message response, usually when the message has not been processed correctly</li>
+</ul>
+</div>
+
+</div>

@@ -1,0 +1,28 @@
+@startuml
+title Example
+skinparam nodesep 10
+skinparam ranksep 10
+skinparam classBackgroundColor Aliceblue
+
+skinparam classBorderColor Gray
+
+skinparam classArrowColor Navy
+
+Name << (R, #FF7700) >> *-right- "1..*" NameC  << (E, Aliceblue) >> : nameC
+
+class Name << (R, #FF7700) >> {
+ attrA : string 0..1
+ nameA : type 1..1
+ nameB[x] : type1|type2 0..1 
+  --
+}
+
+class NameC << (E, Aliceblue ) >> {
+ nameD : type 1..* 
+  --
+}
+
+hide methods
+hide NameC circle
+@enduml
+

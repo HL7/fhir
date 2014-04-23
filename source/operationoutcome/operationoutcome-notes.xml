@@ -1,0 +1,34 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!--
+Grahame's OAuth extensions:
+<extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-reference">
+  <extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-name">
+    <valueUri value="Google+"/>
+  </extension>
+  <extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-img-src">
+    <valueUri value="https://developers.google.com/accounts/images/sign-in-with-google.png"/>
+  </extension>
+  <extension url="http://www.healthintersections.com.au/fhir/extensions#oauth-link">
+    <valueUri value="https://accounts.google.com/o/oauth2/auth?client_id=..."/>
+  </extension>
+</extension>
+-->
+
+<h2>Using Operation Outcome Resources</h2>
+<p>
+On the RESTful interface, operation outcome resources are only relevant when a level of computable detail is required that is more granular than that provided by the HTTP response codes.
+This granularity could include:
+</p>
+<ul>
+<li>more detail about the location of an issue</li>
+<li>the ability to identify multiple distinct issues</li>
+<li>provision of finer error codes that connect to known business failure states</li>
+</ul>
+
+<p>
+Operation outcomes returned SHOULD be in alignment with the HTTP response code.  For example, if the HTTP code indicates a failure (300+), at least
+one of the issues should have a severity of "error", indicating the reason for the failure.
+</p>
+
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImmunizationRecommendation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\ImmunizationRecommendation.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Authored by Joginder Madra</div>
+  </text>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <recommendation>
+    <date value="2013-03-01"/>
+    <vaccineType id="396427003"/>
+    <forecastStatus>
+      <coding>
+        <system value="http://hl7.org/fhir/immunization-recommendation-status"/>
+        <code value="DUE"/>
+      </coding>
+    </forecastStatus>
+  </recommendation>
+</ImmunizationRecommendation>

@@ -1,0 +1,98 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<a name="status"> </a>
+<h2>List Mode &amp; Item Deleted</h2>
+
+<p>
+There are several different kinds of uses for a List resource:
+</p>
+<%codelist ListMode%>
+
+<p>
+The final mode - a changes list, may include deleted items. A typical case is a medication
+list in a discharge summary, where the list includes items that have been both added and deleted.
+In order to ensure that the list is safe to process, any item where the flag implies that the 
+item has actually been deleted SHALL have the deleted element set to true. 
+</p>
+<p>
+Note that there is no implication about the status of a resource that has been deleted.
+The only statement that is made is that the resource has been dropped from the list. 
+However applications should ensure that the implication of adding or deleting items
+from the list is consistent with the logical status of the resource and its contents.
+</p>
+<p>
+A proper use of List.mode = "changes" with a deleted resource is in a medications list 
+for a discharge summary. See Example "med-list". An improper use would be if the list 
+was a working list of patient medications in a clinical tracking system, and list item
+flags were used to implement version tracking history within the resource.
+</p>
+
+<a name="narrative"> </a>
+<h2>Narrative Content</h2>
+
+<p>
+The narrative portion of the List resource should contain a summary 
+of key properties of the items in the list, along with a human-readable 
+summary of their flags (if present).
+</p>
+<p>
+An HTML table is the recommended approach, though this is not required.
+There should be a representation in the narrative for each item in the 
+list, and vice versa, along with clear use of visual hints (borders, 
+lines, bullet marks, etc.) to ensure that human readers do not get 
+confused about which flags belongs with which item on space-poor displays (e.g. to prevent wrapping from separating the flags from the items).
+</p>
+
+<p>
+This means that the narrative content of the list will be limited to the
+version of the contained resources at the time the list was last updated. It may be
+even earlier if the narrative isn't updated to reflect the most recent version
+of all referenced resources at each update.  Best practice for 'working' lists is to update 
+the narrative to reflect the most recent content of all list elements each time the list
+is revised.  Lists should therefore not be
+relied on as a real-time view of the referenced content.  There are a few
+possible approaches to work around this issue:
+</p>
+<ul>
+ <li>Provide minimal information about the listed resources, possibly limited to only a link.  
+ (Not recommended as this severely limits the usefulness of the narrative and is particularly
+ problematic for things like documents where the only attested content might be the List
+ narrative)</li>
+ <li>Include only "generated" narrative, so the retriever can easily generate their own "current"
+ view of the list by retrieving the referenced resources, ignoring the fixed narrative.</li>
+ <li>The server hosting the list can subscribe to all referenced resources and auto-update the
+ narrative each time one of the referenced resources changes (or at least on a semi-frequent basis)</li>
+</ul>
+
+<a name="emptyReason"> </a>
+<h2>Empty Reason</h2>
+
+<p>
+If the list is empty, there could be several different reasons why this is so. For example:
+</p>
+<ul>
+ <li>There are no appropriate entries for the list (i.e. the patient has no known medications/allergies/history)</li>
+ <li>The sender (human or system) deemed that these were not related to this context of patient care (usually for privacy related reasons)</li>
+ <li>The source system doesn't support these type of entries</li>
+ <li>The information to populate the list wasn't gathered - i.e. "Not asked"</li>
+</ul>
+<p>
+Given these possibilities, and the common and significant first case, source systems SHOULD 
+provide an empty reason if the list is empty. Because of the importance of this case, the 
+<a href="special-values.html">special value "nil known"</a> should be used when 
+there are no (significant) entries in this context of care. Note that this concept is 
+sometimes described differently, such as "patient denies taking medications", or 
+"patient was unable to identify any relevant medical history".
+</p>
+<p>
+When receiving a list, systems should not assume that the list is complete (some entries may 
+have been withheld for a variety of reasons), unless there are specific trading partner
+arrangements in place or, if the list is empty, that there are actually nil known, 
+unless the "nil known" code is present.
+</p>
+<p>
+If the list is empty, the narrative should contain text equivalent to the empty reason.
+</p>
+
+</div>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/conformance.xsd">
+  <text> 
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+     <p>Prototype Conformance Statement for September 2013 Connectathon</p>
+     <p>The server offers read and search support on the following resource types:</p>
+     <ul>
+      <li>Patient</li>
+      <li>DocumentReference</li>
+      <li>Condition</li>
+      <li>DiagnosticReport</li>
+    </ul>
+    </div>
+  </text>
+  <name value="PHR Template"/>
+  <publisher value="FHIR Project"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="Prototype Conformance Statement for September 2013 Connectathon"/>
+  <date value="2013-06-18"/>
+  
+  <!-- while the FHIR infrastructure is turning over prior to development, a version is required. Note that this may be rescinded later -->
+  <fhirVersion value="0.09"/>
+  
+  <!-- this is not particularly important for this usage (server doesn't accept any content), but we have to provide it anyway -->
+  <acceptUnknown value="false"/>
+  
+  <!--
+    for the connectathon, servers should support both xml and json. Clients can use only one. 
+  -->  
+  <format value="json"/>
+  <format value="xml"/>
+  
+  <rest>
+    <mode value="server"/>
+    <documentation value="Protoype server conformance statement for September 2013 Connectathon"/>
+    <security>
+      <service>
+        <text value="OAuth"/>
+      </service>
+      <description value="We recommend that PHR servers use standard OAuth using a 
+        standard 3rd party provider. We are not testing the ability to provide an 
+        OAuth authentication/authorization service itself, and nor is providing 
+        any security required for the connectathon at all"/>
+    </security>
+    <resource>
+      <!-- patient resource: read and search for patients the authenticated user has access too -->
+      <type value="Patient"/>
+      <operation>
+        <code value="read"/>
+      </operation>
+      <operation>
+        <code value="search-type"/>
+        <documentation value="When a client searches patients with no search criteria, they get a list of all patients they have access too. Servers may elect to offer additional search parameters, but this is not required"/>
+      </operation>
+    </resource>
+    <resource>
+      <!-- document reference resource: read and search  -->
+      <type value="DocumentReference"/>
+      <operation>
+        <code value="read"/>
+      </operation>
+      <operation>
+        <code value="search-type"/>
+      </operation>
+      <searchParam>
+        <name value="_id"/>
+        <type value="token"/>
+        <documentation value="_id parameter always supported. For the connectathon, servers may elect which search parameters are supported"/>
+      </searchParam>
+    </resource>
+
+    <!-- for the purposes of the connectathon, servers can choose which additional resources to support. Here's a couple of examples -->
+    <resource>
+      <!-- Condition - let the patient see a list of their Conditions -->
+      <type value="Condition"/>
+      <operation>
+        <code value="read"/>
+      </operation>
+      <operation>
+        <code value="search-type"/>
+      </operation>
+      <searchParam>
+        <name value="_id"/>
+        <type value="token"/>
+        <documentation value="Standard _id parameter"/>
+      </searchParam>
+    </resource>
+    
+    <resource>
+      <!-- Diagnostic Reports - can be lots of these, so we'll suggest that at least service category should be supported as a search criteria -->
+      <type value="DiagnosticReport"/>
+      <operation>
+        <code value="read"/>
+      </operation>
+      <operation>
+        <code value="search-type"/>
+      </operation>
+      <searchParam>
+        <name value="_id"/>
+        <type value="token"/>
+        <documentation value="Standard _id parameter"/>
+      </searchParam>
+      <searchParam>
+        <name value="service"/>
+        <type value="token"/>
+        <documentation value="which diagnostic discipline/department created the report"/>
+      </searchParam>
+    </resource>    
+  </rest>
+</Conformance>

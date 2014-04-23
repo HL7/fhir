@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Group xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\Group.xsd">
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Herd of 25 horses</p>
+      <p>Gender: mixed</p>
+      <p>Owner: John Smith</p>
+    </div>
+  </text>
+  <type value="animal"/>
+  <actual value="true"/>
+  <code>
+    <text value="Horse"/>
+  </code>
+  <name value="John's herd"/>
+  <quantity value="25"/>
+  <characteristic>
+    <code>
+      <text value="gender"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="mixed"/>
+    </valueCodeableConcept>
+    <exclude value="false"/>
+  </characteristic>
+  <characteristic>
+    <code>
+      <text value="owner"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="John Smith"/>
+    </valueCodeableConcept>
+    <exclude value="false"/>
+  </characteristic>
+</Group>

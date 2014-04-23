@@ -1,0 +1,5318 @@
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2"/>
+  <publisher value="Australian Bureau of Statistics"/>
+  <telecom>
+    <system value="url"/>
+    <value value="http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"/>
+  </telecom>
+  <description value="Developed for use in the collection, analysis and dissemination of occupation statistics in Australia and New Zealand"/>
+  <copyright value="Copyright Australian Bureau of Statistics"/>
+  <status value="active"/>
+  <define>
+    <system value="http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"/>
+    <concept>
+      <code value="100000"/>
+      <display value="Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="111000"/>
+      <display value="Chief Executives, General Managers and Legislators nfd"/>
+    </concept>
+    <concept>
+      <code value="111111"/>
+      <display value="Chief Executive or Managing Director"/>
+    </concept>
+    <concept>
+      <code value="111200"/>
+      <display value="General Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="111211"/>
+      <display value="Corporate General Manager"/>
+    </concept>
+    <concept>
+      <code value="111212"/>
+      <display value="Defence Force Senior Officer"/>
+    </concept>
+    <concept>
+      <code value="111300"/>
+      <display value="Legislators nfd"/>
+    </concept>
+    <concept>
+      <code value="111311"/>
+      <display value="Local Government Legislator"/>
+    </concept>
+    <concept>
+      <code value="111312"/>
+      <display value="Member of Parliament"/>
+    </concept>
+    <concept>
+      <code value="111399"/>
+      <display value="Legislators nec"/>
+    </concept>
+    <concept>
+      <code value="121000"/>
+      <display value="Farmers and Farm Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="121111"/>
+      <display value="Aquaculture Farmer"/>
+    </concept>
+    <concept>
+      <code value="121200"/>
+      <display value="Crop Farmers nfd"/>
+    </concept>
+    <concept>
+      <code value="121211"/>
+      <display value="Cotton Grower"/>
+    </concept>
+    <concept>
+      <code value="121212"/>
+      <display value="Flower Grower"/>
+    </concept>
+    <concept>
+      <code value="121213"/>
+      <display value="Fruit or Nut Grower"/>
+    </concept>
+    <concept>
+      <code value="121214"/>
+      <display value="Grain, Oilseed or Pasture Grower"/>
+    </concept>
+    <concept>
+      <code value="121215"/>
+      <display value="Grape Grower"/>
+    </concept>
+    <concept>
+      <code value="121216"/>
+      <display value="Mixed Crop Farmer"/>
+    </concept>
+    <concept>
+      <code value="121217"/>
+      <display value="Sugar Cane Grower"/>
+    </concept>
+    <concept>
+      <code value="121218"/>
+      <display value="Turf Grower"/>
+    </concept>
+    <concept>
+      <code value="121221"/>
+      <display value="Vegetable Grower"/>
+    </concept>
+    <concept>
+      <code value="121299"/>
+      <display value="Crop Farmers nec"/>
+    </concept>
+    <concept>
+      <code value="121300"/>
+      <display value="Livestock Farmers nfd"/>
+    </concept>
+    <concept>
+      <code value="121311"/>
+      <display value="Apiarist"/>
+    </concept>
+    <concept>
+      <code value="121312"/>
+      <display value="Beef Cattle Farmer"/>
+    </concept>
+    <concept>
+      <code value="121313"/>
+      <display value="Dairy Cattle Farmer"/>
+    </concept>
+    <concept>
+      <code value="121314"/>
+      <display value="Deer Farmer"/>
+    </concept>
+    <concept>
+      <code value="121315"/>
+      <display value="Goat Farmer"/>
+    </concept>
+    <concept>
+      <code value="121316"/>
+      <display value="Horse Breeder"/>
+    </concept>
+    <concept>
+      <code value="121317"/>
+      <display value="Mixed Livestock Farmer"/>
+    </concept>
+    <concept>
+      <code value="121318"/>
+      <display value="Pig Farmer"/>
+    </concept>
+    <concept>
+      <code value="121321"/>
+      <display value="Poultry Farmer"/>
+    </concept>
+    <concept>
+      <code value="121322"/>
+      <display value="Sheep Farmer"/>
+    </concept>
+    <concept>
+      <code value="121399"/>
+      <display value="Livestock Farmers nec"/>
+    </concept>
+    <concept>
+      <code value="121411"/>
+      <display value="Mixed Crop and Livestock Farmer"/>
+    </concept>
+    <concept>
+      <code value="130000"/>
+      <display value="Specialist Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="131100"/>
+      <display value="Advertising and Sales Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="131111"/>
+      <display value="Advertising and Public Relations Manager"/>
+    </concept>
+    <concept>
+      <code value="131112"/>
+      <display value="Sales and Marketing Manager"/>
+    </concept>
+    <concept>
+      <code value="132000"/>
+      <display value="Business Administration Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="132111"/>
+      <display value="Corporate Services Manager"/>
+    </concept>
+    <concept>
+      <code value="132211"/>
+      <display value="Finance Manager"/>
+    </concept>
+    <concept>
+      <code value="132311"/>
+      <display value="Human Resource Manager"/>
+    </concept>
+    <concept>
+      <code value="132411"/>
+      <display value="Policy and Planning Manager"/>
+    </concept>
+    <concept>
+      <code value="132511"/>
+      <display value="Research and Development Manager"/>
+    </concept>
+    <concept>
+      <code value="133000"/>
+      <display value="Construction, Distribution and Production Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="133100"/>
+      <display value="Construction Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="133111"/>
+      <display value="Construction Project Manager"/>
+    </concept>
+    <concept>
+      <code value="133112"/>
+      <display value="Project Builder"/>
+    </concept>
+    <concept>
+      <code value="133211"/>
+      <display value="Engineering Manager"/>
+    </concept>
+    <concept>
+      <code value="133300"/>
+      <display value="Importers, Exporters and Wholesalers nfd"/>
+    </concept>
+    <concept>
+      <code value="133311"/>
+      <display value="Importer or Exporter"/>
+    </concept>
+    <concept>
+      <code value="133312"/>
+      <display value="Wholesaler"/>
+    </concept>
+    <concept>
+      <code value="133411"/>
+      <display value="Manufacturer"/>
+    </concept>
+    <concept>
+      <code value="133500"/>
+      <display value="Production Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="133511"/>
+      <display value="Production Manager (Forestry)"/>
+    </concept>
+    <concept>
+      <code value="133512"/>
+      <display value="Production Manager (Manufacturing)"/>
+    </concept>
+    <concept>
+      <code value="133513"/>
+      <display value="Production Manager (Mining)"/>
+    </concept>
+    <concept>
+      <code value="133611"/>
+      <display value="Supply and Distribution Manager"/>
+    </concept>
+    <concept>
+      <code value="134000"/>
+      <display value="Education, Health and Welfare Services Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="134111"/>
+      <display value="Child Care Centre Manager"/>
+    </concept>
+    <concept>
+      <code value="134200"/>
+      <display value="Health and Welfare Services Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="134211"/>
+      <display value="Medical Administrator"/>
+    </concept>
+    <concept>
+      <code value="134212"/>
+      <display value="Nursing Clinical Director"/>
+    </concept>
+    <concept>
+      <code value="134213"/>
+      <display value="Primary Health Organization Manager"/>
+    </concept>
+    <concept>
+      <code value="134214"/>
+      <display value="Welfare Centre Manager"/>
+    </concept>
+    <concept>
+      <code value="134299"/>
+      <display value="Health and Welfare Services Managers nec"/>
+    </concept>
+    <concept>
+      <code value="134311"/>
+      <display value="School Principal"/>
+    </concept>
+    <concept>
+      <code value="134400"/>
+      <display value="Other Education Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="134411"/>
+      <display value="Faculty Head"/>
+    </concept>
+    <concept>
+      <code value="134412"/>
+      <display value="Regional Education Manager"/>
+    </concept>
+    <concept>
+      <code value="134499"/>
+      <display value="Education Managers nec"/>
+    </concept>
+    <concept>
+      <code value="135100"/>
+      <display value="ICT Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="135111"/>
+      <display value="Chief Information Officer"/>
+    </concept>
+    <concept>
+      <code value="135112"/>
+      <display value="ICT Project Manager"/>
+    </concept>
+    <concept>
+      <code value="135199"/>
+      <display value="ICT Managers nec"/>
+    </concept>
+    <concept>
+      <code value="139000"/>
+      <display value="Miscellaneous Specialist Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="139100"/>
+      <display value="Commissioned Officers (Management) nfd"/>
+    </concept>
+    <concept>
+      <code value="139111"/>
+      <display value="Commissioned Defence Force Officer"/>
+    </concept>
+    <concept>
+      <code value="139112"/>
+      <display value="Commissioned Fire Officer"/>
+    </concept>
+    <concept>
+      <code value="139113"/>
+      <display value="Commissioned Police Officer"/>
+    </concept>
+    <concept>
+      <code value="139211"/>
+      <display value="Senior Non-commissioned Defence Force Member"/>
+    </concept>
+    <concept>
+      <code value="139900"/>
+      <display value="Other Specialist Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="139911"/>
+      <display value="Arts Administrator or Manager"/>
+    </concept>
+    <concept>
+      <code value="139912"/>
+      <display value="Environmental Manager"/>
+    </concept>
+    <concept>
+      <code value="139913"/>
+      <display value="Laboratory Manager"/>
+    </concept>
+    <concept>
+      <code value="139914"/>
+      <display value="Quality Assurance Manager"/>
+    </concept>
+    <concept>
+      <code value="139915"/>
+      <display value="Sports Administrator"/>
+    </concept>
+    <concept>
+      <code value="139999"/>
+      <display value="Specialist Managers nec"/>
+    </concept>
+    <concept>
+      <code value="140000"/>
+      <display value="Hospitality, Retail and Service Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="141000"/>
+      <display value="Accommodation and Hospitality Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="141111"/>
+      <display value="Cafe or Restaurant Manager"/>
+    </concept>
+    <concept>
+      <code value="141211"/>
+      <display value="Caravan Park and Camping Ground Manager"/>
+    </concept>
+    <concept>
+      <code value="141311"/>
+      <display value="Hotel or Motel Manager"/>
+    </concept>
+    <concept>
+      <code value="141411"/>
+      <display value="Licensed Club Manager"/>
+    </concept>
+    <concept>
+      <code value="141900"/>
+      <display value="Other Accommodation and Hospitality Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="141911"/>
+      <display value="Bed and Breakfast Operator"/>
+    </concept>
+    <concept>
+      <code value="141999"/>
+      <display value="Accommodation and Hospitality Managers nec"/>
+    </concept>
+    <concept>
+      <code value="142100"/>
+      <display value="Retail Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="142111"/>
+      <display value="Retail Manager (General)"/>
+    </concept>
+    <concept>
+      <code value="142112"/>
+      <display value="Antique Dealer"/>
+    </concept>
+    <concept>
+      <code value="142113"/>
+      <display value="Betting Agency Manager"/>
+    </concept>
+    <concept>
+      <code value="142114"/>
+      <display value="Hair or Beauty Salon Manager"/>
+    </concept>
+    <concept>
+      <code value="142115"/>
+      <display value="Post Office Manager"/>
+    </concept>
+    <concept>
+      <code value="142116"/>
+      <display value="Travel Agency Manager"/>
+    </concept>
+    <concept>
+      <code value="149000"/>
+      <display value="Miscellaneous Hospitality, Retail and Service Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="149100"/>
+      <display value="Amusement, Fitness and Sports Centre Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="149111"/>
+      <display value="Amusement Centre Manager"/>
+    </concept>
+    <concept>
+      <code value="149112"/>
+      <display value="Fitness Centre Manager"/>
+    </concept>
+    <concept>
+      <code value="149113"/>
+      <display value="Sports Centre Manager"/>
+    </concept>
+    <concept>
+      <code value="149200"/>
+      <display value="Call or Contact Centre and Customer Service Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="149211"/>
+      <display value="Call or Contact Centre Manager"/>
+    </concept>
+    <concept>
+      <code value="149212"/>
+      <display value="Customer Service Manager"/>
+    </concept>
+    <concept>
+      <code value="149311"/>
+      <display value="Conference and Event Organiser"/>
+    </concept>
+    <concept>
+      <code value="149400"/>
+      <display value="Transport Services Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="149411"/>
+      <display value="Fleet Manager"/>
+    </concept>
+    <concept>
+      <code value="149412"/>
+      <display value="Railway Station Manager"/>
+    </concept>
+    <concept>
+      <code value="149413"/>
+      <display value="Transport Company Manager"/>
+    </concept>
+    <concept>
+      <code value="149900"/>
+      <display value="Other Hospitality, Retail and Service Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="149911"/>
+      <display value="Boarding Kennel or Cattery Operator"/>
+    </concept>
+    <concept>
+      <code value="149912"/>
+      <display value="Cinema or Theatre Manager"/>
+    </concept>
+    <concept>
+      <code value="149913"/>
+      <display value="Facilities Manager"/>
+    </concept>
+    <concept>
+      <code value="149914"/>
+      <display value="Financial Institution Branch Manager"/>
+    </concept>
+    <concept>
+      <code value="149999"/>
+      <display value="Hospitality, Retail and Service Managers nec"/>
+    </concept>
+    <concept>
+      <code value="200000"/>
+      <display value="Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="210000"/>
+      <display value="Arts and Media Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="211000"/>
+      <display value="Arts Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="211100"/>
+      <display value="Actors, Dancers and Other Entertainers nfd"/>
+    </concept>
+    <concept>
+      <code value="211111"/>
+      <display value="Actor"/>
+    </concept>
+    <concept>
+      <code value="211112"/>
+      <display value="Dancer or Choreographer"/>
+    </concept>
+    <concept>
+      <code value="211113"/>
+      <display value="Entertainer or Variety Artist"/>
+    </concept>
+    <concept>
+      <code value="211199"/>
+      <display value="Actors, Dancers and Other Entertainers nec"/>
+    </concept>
+    <concept>
+      <code value="211200"/>
+      <display value="Music Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="211211"/>
+      <display value="Composer"/>
+    </concept>
+    <concept>
+      <code value="211212"/>
+      <display value="Music Director"/>
+    </concept>
+    <concept>
+      <code value="211213"/>
+      <display value="Musician (Instrumental)"/>
+    </concept>
+    <concept>
+      <code value="211214"/>
+      <display value="Singer"/>
+    </concept>
+    <concept>
+      <code value="211299"/>
+      <display value="Music Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="211311"/>
+      <display value="Photographer"/>
+    </concept>
+    <concept>
+      <code value="211400"/>
+      <display value="Visual Arts and Crafts Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="211411"/>
+      <display value="Painter (Visual Arts)"/>
+    </concept>
+    <concept>
+      <code value="211412"/>
+      <display value="Potter or Ceramic Artist"/>
+    </concept>
+    <concept>
+      <code value="211413"/>
+      <display value="Sculptor"/>
+    </concept>
+    <concept>
+      <code value="211499"/>
+      <display value="Visual Arts and Crafts Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="212000"/>
+      <display value="Media Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="212100"/>
+      <display value="Artistic Directors, and Media Producers and Presenters nfd"/>
+    </concept>
+    <concept>
+      <code value="212111"/>
+      <display value="Artistic Director"/>
+    </concept>
+    <concept>
+      <code value="212112"/>
+      <display value="Media Producer (excluding Video)"/>
+    </concept>
+    <concept>
+      <code value="212113"/>
+      <display value="Radio Presenter"/>
+    </concept>
+    <concept>
+      <code value="212114"/>
+      <display value="Television Presenter"/>
+    </concept>
+    <concept>
+      <code value="212200"/>
+      <display value="Authors, and Book and Script Editors nfd"/>
+    </concept>
+    <concept>
+      <code value="212211"/>
+      <display value="Author"/>
+    </concept>
+    <concept>
+      <code value="212212"/>
+      <display value="Book or Script Editor"/>
+    </concept>
+    <concept>
+      <code value="212300"/>
+      <display value="Film, Television, Radio and Stage Directors nfd"/>
+    </concept>
+    <concept>
+      <code value="212311"/>
+      <display value="Art Director (Film, Television or Stage)"/>
+    </concept>
+    <concept>
+      <code value="212312"/>
+      <display value="Director (Film, Television, Radio or Stage)"/>
+    </concept>
+    <concept>
+      <code value="212313"/>
+      <display value="Director of Photography"/>
+    </concept>
+    <concept>
+      <code value="212314"/>
+      <display value="Film and Video Editor"/>
+    </concept>
+    <concept>
+      <code value="212315"/>
+      <display value="Program Director (Television or Radio)"/>
+    </concept>
+    <concept>
+      <code value="212316"/>
+      <display value="Stage Manager"/>
+    </concept>
+    <concept>
+      <code value="212317"/>
+      <display value="Technical Director"/>
+    </concept>
+    <concept>
+      <code value="212318"/>
+      <display value="Video Producer"/>
+    </concept>
+    <concept>
+      <code value="212399"/>
+      <display value="Film, Television, Radio and Stage Directors nec"/>
+    </concept>
+    <concept>
+      <code value="212400"/>
+      <display value="Journalists and Other Writers nfd"/>
+    </concept>
+    <concept>
+      <code value="212411"/>
+      <display value="Copywriter"/>
+    </concept>
+    <concept>
+      <code value="212412"/>
+      <display value="Newspaper or Periodical Editor"/>
+    </concept>
+    <concept>
+      <code value="212413"/>
+      <display value="Print Journalist"/>
+    </concept>
+    <concept>
+      <code value="212414"/>
+      <display value="Radio Journalist"/>
+    </concept>
+    <concept>
+      <code value="212415"/>
+      <display value="Technical Writer"/>
+    </concept>
+    <concept>
+      <code value="212416"/>
+      <display value="Television Journalist"/>
+    </concept>
+    <concept>
+      <code value="212499"/>
+      <display value="Journalists and Other Writers nec"/>
+    </concept>
+    <concept>
+      <code value="220000"/>
+      <display value="Business, Human Resource and Marketing Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="221000"/>
+      <display value="Accountants, Auditors and Company Secretaries nfd"/>
+    </concept>
+    <concept>
+      <code value="221100"/>
+      <display value="Accountants nfd"/>
+    </concept>
+    <concept>
+      <code value="221111"/>
+      <display value="Accountant (General)"/>
+    </concept>
+    <concept>
+      <code value="221112"/>
+      <display value="Management Accountant"/>
+    </concept>
+    <concept>
+      <code value="221113"/>
+      <display value="Taxation Accountant"/>
+    </concept>
+    <concept>
+      <code value="221200"/>
+      <display value="Auditors, Company Secretaries and Corporate Treasurers nfd"/>
+    </concept>
+    <concept>
+      <code value="221211"/>
+      <display value="Company Secretary"/>
+    </concept>
+    <concept>
+      <code value="221212"/>
+      <display value="Corporate Treasurer"/>
+    </concept>
+    <concept>
+      <code value="221213"/>
+      <display value="External Auditor"/>
+    </concept>
+    <concept>
+      <code value="221214"/>
+      <display value="Internal Auditor"/>
+    </concept>
+    <concept>
+      <code value="222000"/>
+      <display value="Financial Brokers and Dealers, and Investment Advisers nfd"/>
+    </concept>
+    <concept>
+      <code value="222100"/>
+      <display value="Financial Brokers nfd"/>
+    </concept>
+    <concept>
+      <code value="222111"/>
+      <display value="Commodities Trader"/>
+    </concept>
+    <concept>
+      <code value="222112"/>
+      <display value="Finance Broker"/>
+    </concept>
+    <concept>
+      <code value="222113"/>
+      <display value="Insurance Broker"/>
+    </concept>
+    <concept>
+      <code value="222199"/>
+      <display value="Financial Brokers nec"/>
+    </concept>
+    <concept>
+      <code value="222200"/>
+      <display value="Financial Dealers nfd"/>
+    </concept>
+    <concept>
+      <code value="222211"/>
+      <display value="Financial Market Dealer"/>
+    </concept>
+    <concept>
+      <code value="222212"/>
+      <display value="Futures Trader"/>
+    </concept>
+    <concept>
+      <code value="222213"/>
+      <display value="Stockbroking Dealer"/>
+    </concept>
+    <concept>
+      <code value="222299"/>
+      <display value="Financial Dealers nec"/>
+    </concept>
+    <concept>
+      <code value="222300"/>
+      <display value="Financial Investment Advisers and Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="222311"/>
+      <display value="Financial Investment Adviser"/>
+    </concept>
+    <concept>
+      <code value="222312"/>
+      <display value="Financial Investment Manager"/>
+    </concept>
+    <concept>
+      <code value="223000"/>
+      <display value="Human Resource and Training Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="223100"/>
+      <display value="Human Resource Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="223111"/>
+      <display value="Human Resource Adviser"/>
+    </concept>
+    <concept>
+      <code value="223112"/>
+      <display value="Recruitment Consultant"/>
+    </concept>
+    <concept>
+      <code value="223113"/>
+      <display value="Workplace Relations Adviser"/>
+    </concept>
+    <concept>
+      <code value="223211"/>
+      <display value="ICT Trainer"/>
+    </concept>
+    <concept>
+      <code value="223311"/>
+      <display value="Training and Development Professional"/>
+    </concept>
+    <concept>
+      <code value="224000"/>
+      <display value="Information and Organization Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="224100"/>
+      <display value="Actuaries, Mathematicians and Statisticians nfd"/>
+    </concept>
+    <concept>
+      <code value="224111"/>
+      <display value="Actuary"/>
+    </concept>
+    <concept>
+      <code value="224112"/>
+      <display value="Mathematician"/>
+    </concept>
+    <concept>
+      <code value="224113"/>
+      <display value="Statistician"/>
+    </concept>
+    <concept>
+      <code value="224200"/>
+      <display value="Archivists, Curators and Records Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="224211"/>
+      <display value="Archivist"/>
+    </concept>
+    <concept>
+      <code value="224212"/>
+      <display value="Gallery or Museum Curator"/>
+    </concept>
+    <concept>
+      <code value="224213"/>
+      <display value="Health Information Manager"/>
+    </concept>
+    <concept>
+      <code value="224214"/>
+      <display value="Records Manager"/>
+    </concept>
+    <concept>
+      <code value="224311"/>
+      <display value="Economist"/>
+    </concept>
+    <concept>
+      <code value="224400"/>
+      <display value="Intelligence and Policy Analysts nfd"/>
+    </concept>
+    <concept>
+      <code value="224411"/>
+      <display value="Intelligence Officer"/>
+    </concept>
+    <concept>
+      <code value="224412"/>
+      <display value="Policy Analyst"/>
+    </concept>
+    <concept>
+      <code value="224500"/>
+      <display value="Land Economists and Valuers nfd"/>
+    </concept>
+    <concept>
+      <code value="224511"/>
+      <display value="Land Economist"/>
+    </concept>
+    <concept>
+      <code value="224512"/>
+      <display value="Valuer"/>
+    </concept>
+    <concept>
+      <code value="224611"/>
+      <display value="Librarian"/>
+    </concept>
+    <concept>
+      <code value="224700"/>
+      <display value="Management and Organization Analysts nfd"/>
+    </concept>
+    <concept>
+      <code value="224711"/>
+      <display value="Management Consultant"/>
+    </concept>
+    <concept>
+      <code value="224712"/>
+      <display value="Organization and Methods Analyst"/>
+    </concept>
+    <concept>
+      <code value="224900"/>
+      <display value="Other Information and Organization Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="224911"/>
+      <display value="Electorate Officer"/>
+    </concept>
+    <concept>
+      <code value="224912"/>
+      <display value="Liaison Officer"/>
+    </concept>
+    <concept>
+      <code value="224913"/>
+      <display value="Migration Agent"/>
+    </concept>
+    <concept>
+      <code value="224914"/>
+      <display value="Patents Examiner"/>
+    </concept>
+    <concept>
+      <code value="224999"/>
+      <display value="Information and Organization Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="225000"/>
+      <display value="Sales, Marketing and Public Relations Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="225100"/>
+      <display value="Advertising and Marketing Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="225111"/>
+      <display value="Advertising Specialist"/>
+    </concept>
+    <concept>
+      <code value="225112"/>
+      <display value="Market Research Analyst"/>
+    </concept>
+    <concept>
+      <code value="225113"/>
+      <display value="Marketing Specialist"/>
+    </concept>
+    <concept>
+      <code value="225200"/>
+      <display value="ICT Sales Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="225211"/>
+      <display value="ICT Account Manager"/>
+    </concept>
+    <concept>
+      <code value="225212"/>
+      <display value="ICT Business Development Manager"/>
+    </concept>
+    <concept>
+      <code value="225213"/>
+      <display value="ICT Sales Representative"/>
+    </concept>
+    <concept>
+      <code value="225311"/>
+      <display value="Public Relations Professional"/>
+    </concept>
+    <concept>
+      <code value="225400"/>
+      <display value="Technical Sales Representatives nfd"/>
+    </concept>
+    <concept>
+      <code value="225411"/>
+      <display value="Sales Representative (Industrial Products)"/>
+    </concept>
+    <concept>
+      <code value="225412"/>
+      <display value="Sales Representative (Medical and Pharmaceutical Products)"/>
+    </concept>
+    <concept>
+      <code value="225499"/>
+      <display value="Technical Sales Representatives nec"/>
+    </concept>
+    <concept>
+      <code value="230000"/>
+      <display value="Design, Engineering, Science and Transport Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="231000"/>
+      <display value="Air and Marine Transport Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="231100"/>
+      <display value="Air Transport Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="231111"/>
+      <display value="Aeroplane Pilot"/>
+    </concept>
+    <concept>
+      <code value="231112"/>
+      <display value="Air Traffic Controller"/>
+    </concept>
+    <concept>
+      <code value="231113"/>
+      <display value="Flying Instructor"/>
+    </concept>
+    <concept>
+      <code value="231114"/>
+      <display value="Helicopter Pilot"/>
+    </concept>
+    <concept>
+      <code value="231199"/>
+      <display value="Air Transport Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="231200"/>
+      <display value="Marine Transport Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="231211"/>
+      <display value="Master Fisher"/>
+    </concept>
+    <concept>
+      <code value="231212"/>
+      <display value="Ship's Engineer"/>
+    </concept>
+    <concept>
+      <code value="231213"/>
+      <display value="Ship's Master"/>
+    </concept>
+    <concept>
+      <code value="231214"/>
+      <display value="Ship's Officer"/>
+    </concept>
+    <concept>
+      <code value="231215"/>
+      <display value="Ship's Surveyor"/>
+    </concept>
+    <concept>
+      <code value="231299"/>
+      <display value="Marine Transport Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="232000"/>
+      <display value="Architects, Designers, Planners and Surveyors nfd"/>
+    </concept>
+    <concept>
+      <code value="232100"/>
+      <display value="Architects and Landscape Architects nfd"/>
+    </concept>
+    <concept>
+      <code value="232111"/>
+      <display value="Architect"/>
+    </concept>
+    <concept>
+      <code value="232112"/>
+      <display value="Landscape Architect"/>
+    </concept>
+    <concept>
+      <code value="232200"/>
+      <display value="Cartographers and Surveyors nfd"/>
+    </concept>
+    <concept>
+      <code value="232211"/>
+      <display value="Cartographer"/>
+    </concept>
+    <concept>
+      <code value="232212"/>
+      <display value="Surveyor"/>
+    </concept>
+    <concept>
+      <code value="232300"/>
+      <display value="Fashion, Industrial and Jewellery Designers nfd"/>
+    </concept>
+    <concept>
+      <code value="232311"/>
+      <display value="Fashion Designer"/>
+    </concept>
+    <concept>
+      <code value="232312"/>
+      <display value="Industrial Designer"/>
+    </concept>
+    <concept>
+      <code value="232313"/>
+      <display value="Jewellery Designer"/>
+    </concept>
+    <concept>
+      <code value="232400"/>
+      <display value="Graphic and Web Designers, and Illustrators nfd"/>
+    </concept>
+    <concept>
+      <code value="232411"/>
+      <display value="Graphic Designer"/>
+    </concept>
+    <concept>
+      <code value="232412"/>
+      <display value="Illustrator"/>
+    </concept>
+    <concept>
+      <code value="232413"/>
+      <display value="Multimedia Designer"/>
+    </concept>
+    <concept>
+      <code value="232414"/>
+      <display value="Web Designer"/>
+    </concept>
+    <concept>
+      <code value="232511"/>
+      <display value="Interior Designer"/>
+    </concept>
+    <concept>
+      <code value="232611"/>
+      <display value="Urban and Regional Planner"/>
+    </concept>
+    <concept>
+      <code value="233000"/>
+      <display value="Engineering Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="233100"/>
+      <display value="Chemical and Materials Engineers nfd"/>
+    </concept>
+    <concept>
+      <code value="233111"/>
+      <display value="Chemical Engineer"/>
+    </concept>
+    <concept>
+      <code value="233112"/>
+      <display value="Materials Engineer"/>
+    </concept>
+    <concept>
+      <code value="233200"/>
+      <display value="Civil Engineering Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="233211"/>
+      <display value="Civil Engineer"/>
+    </concept>
+    <concept>
+      <code value="233212"/>
+      <display value="Geotechnical Engineer"/>
+    </concept>
+    <concept>
+      <code value="233213"/>
+      <display value="Quantity Surveyor"/>
+    </concept>
+    <concept>
+      <code value="233214"/>
+      <display value="Structural Engineer"/>
+    </concept>
+    <concept>
+      <code value="233215"/>
+      <display value="Transport Engineer"/>
+    </concept>
+    <concept>
+      <code value="233311"/>
+      <display value="Electrical Engineer"/>
+    </concept>
+    <concept>
+      <code value="233411"/>
+      <display value="Electronics Engineer"/>
+    </concept>
+    <concept>
+      <code value="233500"/>
+      <display value="Industrial, Mechanical and Production Engineers nfd"/>
+    </concept>
+    <concept>
+      <code value="233511"/>
+      <display value="Industrial Engineer"/>
+    </concept>
+    <concept>
+      <code value="233512"/>
+      <display value="Mechanical Engineer"/>
+    </concept>
+    <concept>
+      <code value="233513"/>
+      <display value="Production or Plant Engineer"/>
+    </concept>
+    <concept>
+      <code value="233600"/>
+      <display value="Mining Engineers nfd"/>
+    </concept>
+    <concept>
+      <code value="233611"/>
+      <display value="Mining Engineer (excluding Petroleum)"/>
+    </concept>
+    <concept>
+      <code value="233612"/>
+      <display value="Petroleum Engineer"/>
+    </concept>
+    <concept>
+      <code value="233900"/>
+      <display value="Other Engineering Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="233911"/>
+      <display value="Aeronautical Engineer"/>
+    </concept>
+    <concept>
+      <code value="233912"/>
+      <display value="Agricultural Engineer"/>
+    </concept>
+    <concept>
+      <code value="233913"/>
+      <display value="Biomedical Engineer"/>
+    </concept>
+    <concept>
+      <code value="233914"/>
+      <display value="Engineering Technologist"/>
+    </concept>
+    <concept>
+      <code value="233915"/>
+      <display value="Environmental Engineer"/>
+    </concept>
+    <concept>
+      <code value="233916"/>
+      <display value="Naval Architect"/>
+    </concept>
+    <concept>
+      <code value="233999"/>
+      <display value="Engineering Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="234000"/>
+      <display value="Natural and Physical Science Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="234100"/>
+      <display value="Agricultural and Forestry Scientists nfd"/>
+    </concept>
+    <concept>
+      <code value="234111"/>
+      <display value="Agricultural Consultant"/>
+    </concept>
+    <concept>
+      <code value="234112"/>
+      <display value="Agricultural Scientist"/>
+    </concept>
+    <concept>
+      <code value="234113"/>
+      <display value="Forester"/>
+    </concept>
+    <concept>
+      <code value="234200"/>
+      <display value="Chemists, and Food and Wine Scientists nfd"/>
+    </concept>
+    <concept>
+      <code value="234211"/>
+      <display value="Chemist"/>
+    </concept>
+    <concept>
+      <code value="234212"/>
+      <display value="Food Technologist"/>
+    </concept>
+    <concept>
+      <code value="234213"/>
+      <display value="Wine Maker"/>
+    </concept>
+    <concept>
+      <code value="234300"/>
+      <display value="Environmental Scientists nfd"/>
+    </concept>
+    <concept>
+      <code value="234311"/>
+      <display value="Conservation Officer"/>
+    </concept>
+    <concept>
+      <code value="234312"/>
+      <display value="Environmental Consultant"/>
+    </concept>
+    <concept>
+      <code value="234313"/>
+      <display value="Environmental Research Scientist"/>
+    </concept>
+    <concept>
+      <code value="234314"/>
+      <display value="Park Ranger"/>
+    </concept>
+    <concept>
+      <code value="234399"/>
+      <display value="Environmental Scientists nec"/>
+    </concept>
+    <concept>
+      <code value="234400"/>
+      <display value="Geologists and Geophysicists nfd"/>
+    </concept>
+    <concept>
+      <code value="234411"/>
+      <display value="Geologist"/>
+    </concept>
+    <concept>
+      <code value="234412"/>
+      <display value="Geophysicist"/>
+    </concept>
+    <concept>
+      <code value="234500"/>
+      <display value="Life Scientists nfd"/>
+    </concept>
+    <concept>
+      <code value="234511"/>
+      <display value="Life Scientist (General)"/>
+    </concept>
+    <concept>
+      <code value="234512"/>
+      <display value="Anatomist or Physiologist"/>
+    </concept>
+    <concept>
+      <code value="234513"/>
+      <display value="Biochemist"/>
+    </concept>
+    <concept>
+      <code value="234514"/>
+      <display value="Biotechnologist"/>
+    </concept>
+    <concept>
+      <code value="234515"/>
+      <display value="Botanist"/>
+    </concept>
+    <concept>
+      <code value="234516"/>
+      <display value="Marine Biologist"/>
+    </concept>
+    <concept>
+      <code value="234517"/>
+      <display value="Microbiologist"/>
+    </concept>
+    <concept>
+      <code value="234518"/>
+      <display value="Zoologist"/>
+    </concept>
+    <concept>
+      <code value="234599"/>
+      <display value="Life Scientists nec"/>
+    </concept>
+    <concept>
+      <code value="234611"/>
+      <display value="Medical Laboratory Scientist"/>
+    </concept>
+    <concept>
+      <code value="234711"/>
+      <display value="Veterinarian"/>
+    </concept>
+    <concept>
+      <code value="234900"/>
+      <display value="Other Natural and Physical Science Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="234911"/>
+      <display value="Conservator"/>
+    </concept>
+    <concept>
+      <code value="234912"/>
+      <display value="Metallurgist"/>
+    </concept>
+    <concept>
+      <code value="234913"/>
+      <display value="Meteorologist"/>
+    </concept>
+    <concept>
+      <code value="234914"/>
+      <display value="Physicist"/>
+    </concept>
+    <concept>
+      <code value="234999"/>
+      <display value="Natural and Physical Science Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="240000"/>
+      <display value="Education Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="241000"/>
+      <display value="School Teachers nfd"/>
+    </concept>
+    <concept>
+      <code value="241111"/>
+      <display value="Early Childhood (Pre-primary School) Teacher"/>
+    </concept>
+    <concept>
+      <code value="241213"/>
+      <display value="Primary School Teacher"/>
+    </concept>
+    <concept>
+      <code value="241311"/>
+      <display value="Middle School Teacher"/>
+    </concept>
+    <concept>
+      <code value="241411"/>
+      <display value="Secondary School Teacher"/>
+    </concept>
+    <concept>
+      <code value="241500"/>
+      <display value="Special Education Teachers nfd"/>
+    </concept>
+    <concept>
+      <code value="241511"/>
+      <display value="Special Needs Teacher"/>
+    </concept>
+    <concept>
+      <code value="241512"/>
+      <display value="Teacher of the Hearing Impaired"/>
+    </concept>
+    <concept>
+      <code value="241513"/>
+      <display value="Teacher of the Sight Impaired"/>
+    </concept>
+    <concept>
+      <code value="241599"/>
+      <display value="Special Education Teachers nec"/>
+    </concept>
+    <concept>
+      <code value="242000"/>
+      <display value="Tertiary Education Teachers nfd"/>
+    </concept>
+    <concept>
+      <code value="242100"/>
+      <display value="University Lecturers and Tutors nfd"/>
+    </concept>
+    <concept>
+      <code value="242111"/>
+      <display value="University Lecturer"/>
+    </concept>
+    <concept>
+      <code value="242112"/>
+      <display value="University Tutor"/>
+    </concept>
+    <concept>
+      <code value="242211"/>
+      <display value="Vocational Education Teacher"/>
+    </concept>
+    <concept>
+      <code value="249000"/>
+      <display value="Miscellaneous Education Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="249100"/>
+      <display value="Education Advisers and Reviewers nfd"/>
+    </concept>
+    <concept>
+      <code value="249111"/>
+      <display value="Education Adviser"/>
+    </concept>
+    <concept>
+      <code value="249112"/>
+      <display value="Education Reviewer"/>
+    </concept>
+    <concept>
+      <code value="249200"/>
+      <display value="Private Tutors and Teachers nfd"/>
+    </concept>
+    <concept>
+      <code value="249211"/>
+      <display value="Art Teacher (Private Tuition)"/>
+    </concept>
+    <concept>
+      <code value="249212"/>
+      <display value="Dance Teacher (Private Tuition)"/>
+    </concept>
+    <concept>
+      <code value="249213"/>
+      <display value="Drama Teacher (Private Tuition)"/>
+    </concept>
+    <concept>
+      <code value="249214"/>
+      <display value="Music Teacher (Private Tuition)"/>
+    </concept>
+    <concept>
+      <code value="249299"/>
+      <display value="Private Tutors and Teachers nec"/>
+    </concept>
+    <concept>
+      <code value="249311"/>
+      <display value="Teacher of English to Speakers of Other Languages"/>
+    </concept>
+    <concept>
+      <code value="250000"/>
+      <display value="Health Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="251000"/>
+      <display value="Health Diagnostic and Promotion Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="251111"/>
+      <display value="Dietitian"/>
+    </concept>
+    <concept>
+      <code value="251200"/>
+      <display value="Medical Imaging Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="251211"/>
+      <display value="Medical Diagnostic Radiographer"/>
+    </concept>
+    <concept>
+      <code value="251212"/>
+      <display value="Medical Radiation Therapist"/>
+    </concept>
+    <concept>
+      <code value="251213"/>
+      <display value="Nuclear Medicine Technologist"/>
+    </concept>
+    <concept>
+      <code value="251214"/>
+      <display value="Sonographer"/>
+    </concept>
+    <concept>
+      <code value="251300"/>
+      <display value="Occupational and Environmental Health Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="251311"/>
+      <display value="Environmental Health Officer"/>
+    </concept>
+    <concept>
+      <code value="251312"/>
+      <display value="Occupational Health and Safety Adviser"/>
+    </concept>
+    <concept>
+      <code value="251400"/>
+      <display value="Optometrists and Orthoptists nfd"/>
+    </concept>
+    <concept>
+      <code value="251411"/>
+      <display value="Optometrist"/>
+    </concept>
+    <concept>
+      <code value="251412"/>
+      <display value="Orthoptist"/>
+    </concept>
+    <concept>
+      <code value="251500"/>
+      <display value="Pharmacists nfd"/>
+    </concept>
+    <concept>
+      <code value="251511"/>
+      <display value="Hospital Pharmacist"/>
+    </concept>
+    <concept>
+      <code value="251512"/>
+      <display value="Industrial Pharmacist"/>
+    </concept>
+    <concept>
+      <code value="251513"/>
+      <display value="Retail Pharmacist"/>
+    </concept>
+    <concept>
+      <code value="251900"/>
+      <display value="Other Health Diagnostic and Promotion Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="251911"/>
+      <display value="Health Promotion Officer"/>
+    </concept>
+    <concept>
+      <code value="251912"/>
+      <display value="Orthotist or Prosthetist"/>
+    </concept>
+    <concept>
+      <code value="251999"/>
+      <display value="Health Diagnostic and Promotion Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="252000"/>
+      <display value="Health Therapy Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="252100"/>
+      <display value="Chiropractors and Osteopaths nfd"/>
+    </concept>
+    <concept>
+      <code value="252111"/>
+      <display value="Chiropractor"/>
+    </concept>
+    <concept>
+      <code value="252112"/>
+      <display value="Osteopath"/>
+    </concept>
+    <concept>
+      <code value="252200"/>
+      <display value="Complementary Health Therapists nfd"/>
+    </concept>
+    <concept>
+      <code value="252211"/>
+      <display value="Acupuncturist"/>
+    </concept>
+    <concept>
+      <code value="252212"/>
+      <display value="Homoeopath"/>
+    </concept>
+    <concept>
+      <code value="252213"/>
+      <display value="Naturopath"/>
+    </concept>
+    <concept>
+      <code value="252214"/>
+      <display value="Traditional Chinese Medicine Practitioner"/>
+    </concept>
+    <concept>
+      <code value="252299"/>
+      <display value="Complementary Health Therapists nec"/>
+    </concept>
+    <concept>
+      <code value="252300"/>
+      <display value="Dental Practitioners nfd"/>
+    </concept>
+    <concept>
+      <code value="252311"/>
+      <display value="Dental Specialist"/>
+    </concept>
+    <concept>
+      <code value="252312"/>
+      <display value="Dentist"/>
+    </concept>
+    <concept>
+      <code value="252411"/>
+      <display value="Occupational Therapist"/>
+    </concept>
+    <concept>
+      <code value="252511"/>
+      <display value="Physiotherapist"/>
+    </concept>
+    <concept>
+      <code value="252611"/>
+      <display value="Podiatrist"/>
+    </concept>
+    <concept>
+      <code value="252700"/>
+      <display value="Speech Professionals and Audiologists nfd"/>
+    </concept>
+    <concept>
+      <code value="252711"/>
+      <display value="Audiologist"/>
+    </concept>
+    <concept>
+      <code value="252712"/>
+      <display value="Speech Pathologist"/>
+    </concept>
+    <concept>
+      <code value="253000"/>
+      <display value="Medical Practitioners nfd"/>
+    </concept>
+    <concept>
+      <code value="253100"/>
+      <display value="Generalist Medical Practitioners nfd"/>
+    </concept>
+    <concept>
+      <code value="253111"/>
+      <display value="General Medical Practitioner"/>
+    </concept>
+    <concept>
+      <code value="253112"/>
+      <display value="Resident Medical Officer"/>
+    </concept>
+    <concept>
+      <code value="253211"/>
+      <display value="Anaesthetist"/>
+    </concept>
+    <concept>
+      <code value="253300"/>
+      <display value="Internal Medicine Specialists nfd"/>
+    </concept>
+    <concept>
+      <code value="253311"/>
+      <display value="Specialist Physician (General Medicine)"/>
+    </concept>
+    <concept>
+      <code value="253312"/>
+      <display value="Cardiologist"/>
+    </concept>
+    <concept>
+      <code value="253313"/>
+      <display value="Clinical Haematologist"/>
+    </concept>
+    <concept>
+      <code value="253314"/>
+      <display value="Clinical Oncologist"/>
+    </concept>
+    <concept>
+      <code value="253315"/>
+      <display value="Endocrinologist"/>
+    </concept>
+    <concept>
+      <code value="253316"/>
+      <display value="Gastroenterologist"/>
+    </concept>
+    <concept>
+      <code value="253317"/>
+      <display value="Intensive Care Specialist"/>
+    </concept>
+    <concept>
+      <code value="253318"/>
+      <display value="Neurologist"/>
+    </concept>
+    <concept>
+      <code value="253321"/>
+      <display value="Paediatrician"/>
+    </concept>
+    <concept>
+      <code value="253322"/>
+      <display value="Renal Medicine Specialist"/>
+    </concept>
+    <concept>
+      <code value="253323"/>
+      <display value="Rheumatologist"/>
+    </concept>
+    <concept>
+      <code value="253324"/>
+      <display value="Thoracic Medicine Specialist"/>
+    </concept>
+    <concept>
+      <code value="253399"/>
+      <display value="Internal Medicine Specialists nec"/>
+    </concept>
+    <concept>
+      <code value="253411"/>
+      <display value="Psychiatrist"/>
+    </concept>
+    <concept>
+      <code value="253500"/>
+      <display value="Surgeons nfd"/>
+    </concept>
+    <concept>
+      <code value="253511"/>
+      <display value="Surgeon (General)"/>
+    </concept>
+    <concept>
+      <code value="253512"/>
+      <display value="Cardiothoracic Surgeon"/>
+    </concept>
+    <concept>
+      <code value="253513"/>
+      <display value="Neurosurgeon"/>
+    </concept>
+    <concept>
+      <code value="253514"/>
+      <display value="Orthopaedic Surgeon"/>
+    </concept>
+    <concept>
+      <code value="253515"/>
+      <display value="Otorhinolaryngologist"/>
+    </concept>
+    <concept>
+      <code value="253516"/>
+      <display value="Paediatric Surgeon"/>
+    </concept>
+    <concept>
+      <code value="253517"/>
+      <display value="Plastic and Reconstructive Surgeon"/>
+    </concept>
+    <concept>
+      <code value="253518"/>
+      <display value="Urologist"/>
+    </concept>
+    <concept>
+      <code value="253521"/>
+      <display value="Vascular Surgeon"/>
+    </concept>
+    <concept>
+      <code value="253900"/>
+      <display value="Other Medical Practitioners nfd"/>
+    </concept>
+    <concept>
+      <code value="253911"/>
+      <display value="Dermatologist"/>
+    </concept>
+    <concept>
+      <code value="253912"/>
+      <display value="Emergency Medicine Specialist"/>
+    </concept>
+    <concept>
+      <code value="253913"/>
+      <display value="Obstetrician and Gynaecologist"/>
+    </concept>
+    <concept>
+      <code value="253914"/>
+      <display value="Ophthalmologist"/>
+    </concept>
+    <concept>
+      <code value="253915"/>
+      <display value="Pathologist"/>
+    </concept>
+    <concept>
+      <code value="253916"/>
+      <display value="Radiologist"/>
+    </concept>
+    <concept>
+      <code value="253999"/>
+      <display value="Medical Practitioners nec"/>
+    </concept>
+    <concept>
+      <code value="254000"/>
+      <display value="Midwifery and Nursing Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="254111"/>
+      <display value="Midwife"/>
+    </concept>
+    <concept>
+      <code value="254200"/>
+      <display value="Nurse Educators and Researchers nfd"/>
+    </concept>
+    <concept>
+      <code value="254211"/>
+      <display value="Nurse Educator"/>
+    </concept>
+    <concept>
+      <code value="254212"/>
+      <display value="Nurse Researcher"/>
+    </concept>
+    <concept>
+      <code value="254311"/>
+      <display value="Nurse Manager"/>
+    </concept>
+    <concept>
+      <code value="254400"/>
+      <display value="Registered Nurses nfd"/>
+    </concept>
+    <concept>
+      <code value="254411"/>
+      <display value="Nurse Practitioner"/>
+    </concept>
+    <concept>
+      <code value="254412"/>
+      <display value="Registered Nurse (Aged Care)"/>
+    </concept>
+    <concept>
+      <code value="254413"/>
+      <display value="Registered Nurse (Child and Family Health)"/>
+    </concept>
+    <concept>
+      <code value="254414"/>
+      <display value="Registered Nurse (Community Health)"/>
+    </concept>
+    <concept>
+      <code value="254415"/>
+      <display value="Registered Nurse (Critical Care and Emergency)"/>
+    </concept>
+    <concept>
+      <code value="254416"/>
+      <display value="Registered Nurse (Developmental Disability)"/>
+    </concept>
+    <concept>
+      <code value="254417"/>
+      <display value="Registered Nurse (Disability and Rehabilitation)"/>
+    </concept>
+    <concept>
+      <code value="254418"/>
+      <display value="Registered Nurse (Medical)"/>
+    </concept>
+    <concept>
+      <code value="254421"/>
+      <display value="Registered Nurse (Medical Practice)"/>
+    </concept>
+    <concept>
+      <code value="254422"/>
+      <display value="Registered Nurse (Mental Health)"/>
+    </concept>
+    <concept>
+      <code value="254423"/>
+      <display value="Registered Nurse (Perioperative)"/>
+    </concept>
+    <concept>
+      <code value="254424"/>
+      <display value="Registered Nurse (Surgical)"/>
+    </concept>
+    <concept>
+      <code value="254499"/>
+      <display value="Registered Nurses nec"/>
+    </concept>
+    <concept>
+      <code value="260000"/>
+      <display value="ICT Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="261000"/>
+      <display value="Business and Systems Analysts, and Programmers nfd"/>
+    </concept>
+    <concept>
+      <code value="261100"/>
+      <display value="ICT Business and Systems Analysts nfd"/>
+    </concept>
+    <concept>
+      <code value="261111"/>
+      <display value="ICT Business Analyst"/>
+    </concept>
+    <concept>
+      <code value="261112"/>
+      <display value="Systems Analyst"/>
+    </concept>
+    <concept>
+      <code value="261200"/>
+      <display value="Multimedia Specialists and Web Developers nfd"/>
+    </concept>
+    <concept>
+      <code value="261211"/>
+      <display value="Multimedia Specialist"/>
+    </concept>
+    <concept>
+      <code value="261212"/>
+      <display value="Web Developer"/>
+    </concept>
+    <concept>
+      <code value="261300"/>
+      <display value="Software and Applications Programmers nfd"/>
+    </concept>
+    <concept>
+      <code value="261311"/>
+      <display value="Analyst Programmer"/>
+    </concept>
+    <concept>
+      <code value="261312"/>
+      <display value="Developer Programmer"/>
+    </concept>
+    <concept>
+      <code value="261313"/>
+      <display value="Software Engineer"/>
+    </concept>
+    <concept>
+      <code value="261399"/>
+      <display value="Software and Applications Programmers nec"/>
+    </concept>
+    <concept>
+      <code value="262100"/>
+      <display value="Database and Systems Administrators, and ICT Security Specialists nfd"/>
+    </concept>
+    <concept>
+      <code value="262111"/>
+      <display value="Database Administrator"/>
+    </concept>
+    <concept>
+      <code value="262112"/>
+      <display value="ICT Security Specialist"/>
+    </concept>
+    <concept>
+      <code value="262113"/>
+      <display value="Systems Administrator"/>
+    </concept>
+    <concept>
+      <code value="263000"/>
+      <display value="ICT Network and Support Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="263100"/>
+      <display value="Computer Network Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="263111"/>
+      <display value="Computer Network and Systems Engineer"/>
+    </concept>
+    <concept>
+      <code value="263112"/>
+      <display value="Network Administrator"/>
+    </concept>
+    <concept>
+      <code value="263113"/>
+      <display value="Network Analyst"/>
+    </concept>
+    <concept>
+      <code value="263200"/>
+      <display value="ICT Support and Test Engineers nfd"/>
+    </concept>
+    <concept>
+      <code value="263211"/>
+      <display value="ICT Quality Assurance Engineer"/>
+    </concept>
+    <concept>
+      <code value="263212"/>
+      <display value="ICT Support Engineer"/>
+    </concept>
+    <concept>
+      <code value="263213"/>
+      <display value="ICT Systems Test Engineer"/>
+    </concept>
+    <concept>
+      <code value="263299"/>
+      <display value="ICT Support and Test Engineers nec"/>
+    </concept>
+    <concept>
+      <code value="263300"/>
+      <display value="Telecommunications Engineering Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="263311"/>
+      <display value="Telecommunications Engineer"/>
+    </concept>
+    <concept>
+      <code value="263312"/>
+      <display value="Telecommunications Network Engineer"/>
+    </concept>
+    <concept>
+      <code value="270000"/>
+      <display value="Legal, Social and Welfare Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="271000"/>
+      <display value="Legal Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="271111"/>
+      <display value="Barrister"/>
+    </concept>
+    <concept>
+      <code value="271200"/>
+      <display value="Judicial and Other Legal Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="271211"/>
+      <display value="Judge"/>
+    </concept>
+    <concept>
+      <code value="271212"/>
+      <display value="Magistrate"/>
+    </concept>
+    <concept>
+      <code value="271213"/>
+      <display value="Tribunal Member"/>
+    </concept>
+    <concept>
+      <code value="271299"/>
+      <display value="Judicial and Other Legal Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="271311"/>
+      <display value="Solicitor"/>
+    </concept>
+    <concept>
+      <code value="272000"/>
+      <display value="Social and Welfare Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="272100"/>
+      <display value="Counsellors nfd"/>
+    </concept>
+    <concept>
+      <code value="272111"/>
+      <display value="Careers Counsellor"/>
+    </concept>
+    <concept>
+      <code value="272112"/>
+      <display value="Drug and Alcohol Counsellor"/>
+    </concept>
+    <concept>
+      <code value="272113"/>
+      <display value="Family and Marriage Counsellor"/>
+    </concept>
+    <concept>
+      <code value="272114"/>
+      <display value="Rehabilitation Counsellor"/>
+    </concept>
+    <concept>
+      <code value="272115"/>
+      <display value="Student Counsellor"/>
+    </concept>
+    <concept>
+      <code value="272199"/>
+      <display value="Counsellors nec"/>
+    </concept>
+    <concept>
+      <code value="272211"/>
+      <display value="Minister of Religion"/>
+    </concept>
+    <concept>
+      <code value="272300"/>
+      <display value="Psychologists nfd"/>
+    </concept>
+    <concept>
+      <code value="272311"/>
+      <display value="Clinical Psychologist"/>
+    </concept>
+    <concept>
+      <code value="272312"/>
+      <display value="Educational Psychologist"/>
+    </concept>
+    <concept>
+      <code value="272313"/>
+      <display value="Organizational Psychologist"/>
+    </concept>
+    <concept>
+      <code value="272314"/>
+      <display value="Psychotherapist"/>
+    </concept>
+    <concept>
+      <code value="272399"/>
+      <display value="Psychologists nec"/>
+    </concept>
+    <concept>
+      <code value="272400"/>
+      <display value="Social Professionals nfd"/>
+    </concept>
+    <concept>
+      <code value="272411"/>
+      <display value="Historian"/>
+    </concept>
+    <concept>
+      <code value="272412"/>
+      <display value="Interpreter"/>
+    </concept>
+    <concept>
+      <code value="272413"/>
+      <display value="Translator"/>
+    </concept>
+    <concept>
+      <code value="272499"/>
+      <display value="Social Professionals nec"/>
+    </concept>
+    <concept>
+      <code value="272511"/>
+      <display value="Social Worker"/>
+    </concept>
+    <concept>
+      <code value="272600"/>
+      <display value="Welfare, Recreation and Community Arts Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="272611"/>
+      <display value="Community Arts Worker"/>
+    </concept>
+    <concept>
+      <code value="272612"/>
+      <display value="Recreation Officer"/>
+    </concept>
+    <concept>
+      <code value="272613"/>
+      <display value="Welfare Worker"/>
+    </concept>
+    <concept>
+      <code value="300000"/>
+      <display value="Technicians and Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="310000"/>
+      <display value="Engineering, ICT and Science Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="311000"/>
+      <display value="Agricultural, Medical and Science Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="311111"/>
+      <display value="Agricultural Technician"/>
+    </concept>
+    <concept>
+      <code value="311200"/>
+      <display value="Medical Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="311211"/>
+      <display value="Anaesthetic Technician"/>
+    </concept>
+    <concept>
+      <code value="311212"/>
+      <display value="Cardiac Technician"/>
+    </concept>
+    <concept>
+      <code value="311213"/>
+      <display value="Medical Laboratory Technician"/>
+    </concept>
+    <concept>
+      <code value="311214"/>
+      <display value="Operating Theatre Technician"/>
+    </concept>
+    <concept>
+      <code value="311215"/>
+      <display value="Pharmacy Technician"/>
+    </concept>
+    <concept>
+      <code value="311299"/>
+      <display value="Medical Technicians nec"/>
+    </concept>
+    <concept>
+      <code value="311300"/>
+      <display value="Primary Products Inspectors nfd"/>
+    </concept>
+    <concept>
+      <code value="311311"/>
+      <display value="Fisheries Officer"/>
+    </concept>
+    <concept>
+      <code value="311312"/>
+      <display value="Meat Inspector"/>
+    </concept>
+    <concept>
+      <code value="311313"/>
+      <display value="Quarantine Officer"/>
+    </concept>
+    <concept>
+      <code value="311399"/>
+      <display value="Primary Products Inspectors nec"/>
+    </concept>
+    <concept>
+      <code value="311400"/>
+      <display value="Science Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="311411"/>
+      <display value="Chemistry Technician"/>
+    </concept>
+    <concept>
+      <code value="311412"/>
+      <display value="Earth Science Technician"/>
+    </concept>
+    <concept>
+      <code value="311413"/>
+      <display value="Life Science Technician"/>
+    </concept>
+    <concept>
+      <code value="311414"/>
+      <display value="School Laboratory Technician"/>
+    </concept>
+    <concept>
+      <code value="311499"/>
+      <display value="Science Technicians nec"/>
+    </concept>
+    <concept>
+      <code value="312000"/>
+      <display value="Building and Engineering Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="312100"/>
+      <display value="Architectural, Building and Surveying Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="312111"/>
+      <display value="Architectural Draftsperson"/>
+    </concept>
+    <concept>
+      <code value="312112"/>
+      <display value="Building Associate"/>
+    </concept>
+    <concept>
+      <code value="312113"/>
+      <display value="Building Inspector"/>
+    </concept>
+    <concept>
+      <code value="312114"/>
+      <display value="Construction Estimator"/>
+    </concept>
+    <concept>
+      <code value="312115"/>
+      <display value="Plumbing Inspector"/>
+    </concept>
+    <concept>
+      <code value="312116"/>
+      <display value="Surveying or Cartographic Technician"/>
+    </concept>
+    <concept>
+      <code value="312200"/>
+      <display value="Civil Engineering Draftspersons and Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="312211"/>
+      <display value="Civil Engineering Draftsperson"/>
+    </concept>
+    <concept>
+      <code value="312212"/>
+      <display value="Civil Engineering Technician"/>
+    </concept>
+    <concept>
+      <code value="312300"/>
+      <display value="Electrical Engineering Draftspersons and Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="312311"/>
+      <display value="Electrical Engineering Draftsperson"/>
+    </concept>
+    <concept>
+      <code value="312312"/>
+      <display value="Electrical Engineering Technician"/>
+    </concept>
+    <concept>
+      <code value="312400"/>
+      <display value="Electronic Engineering Draftspersons and Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="312411"/>
+      <display value="Electronic Engineering Draftsperson"/>
+    </concept>
+    <concept>
+      <code value="312412"/>
+      <display value="Electronic Engineering Technician"/>
+    </concept>
+    <concept>
+      <code value="312500"/>
+      <display value="Mechanical Engineering Draftspersons and Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="312511"/>
+      <display value="Mechanical Engineering Draftsperson"/>
+    </concept>
+    <concept>
+      <code value="312512"/>
+      <display value="Mechanical Engineering Technician"/>
+    </concept>
+    <concept>
+      <code value="312611"/>
+      <display value="Safety Inspector"/>
+    </concept>
+    <concept>
+      <code value="312900"/>
+      <display value="Other Building and Engineering Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="312911"/>
+      <display value="Maintenance Planner"/>
+    </concept>
+    <concept>
+      <code value="312912"/>
+      <display value="Metallurgical or Materials Technician"/>
+    </concept>
+    <concept>
+      <code value="312913"/>
+      <display value="Mine Deputy"/>
+    </concept>
+    <concept>
+      <code value="312999"/>
+      <display value="Building and Engineering Technicians nec"/>
+    </concept>
+    <concept>
+      <code value="313000"/>
+      <display value="ICT and Telecommunications Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="313100"/>
+      <display value="ICT Support Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="313111"/>
+      <display value="Hardware Technician"/>
+    </concept>
+    <concept>
+      <code value="313112"/>
+      <display value="ICT Customer Support Officer"/>
+    </concept>
+    <concept>
+      <code value="313113"/>
+      <display value="Web Administrator"/>
+    </concept>
+    <concept>
+      <code value="313199"/>
+      <display value="ICT Support Technicians nec"/>
+    </concept>
+    <concept>
+      <code value="313200"/>
+      <display value="Telecommunications Technical Specialists nfd"/>
+    </concept>
+    <concept>
+      <code value="313211"/>
+      <display value="Radiocommunications Technician"/>
+    </concept>
+    <concept>
+      <code value="313212"/>
+      <display value="Telecommunications Field Engineer"/>
+    </concept>
+    <concept>
+      <code value="313213"/>
+      <display value="Telecommunications Network Planner"/>
+    </concept>
+    <concept>
+      <code value="313214"/>
+      <display value="Telecommunications Technical Officer or Technologist"/>
+    </concept>
+    <concept>
+      <code value="320000"/>
+      <display value="Automotive and Engineering Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="321000"/>
+      <display value="Automotive Electricians and Mechanics nfd"/>
+    </concept>
+    <concept>
+      <code value="321111"/>
+      <display value="Automotive Electrician"/>
+    </concept>
+    <concept>
+      <code value="321200"/>
+      <display value="Motor Mechanics nfd"/>
+    </concept>
+    <concept>
+      <code value="321211"/>
+      <display value="Motor Mechanic (General)"/>
+    </concept>
+    <concept>
+      <code value="321212"/>
+      <display value="Diesel Motor Mechanic"/>
+    </concept>
+    <concept>
+      <code value="321213"/>
+      <display value="Motorcycle Mechanic"/>
+    </concept>
+    <concept>
+      <code value="321214"/>
+      <display value="Small Engine Mechanic"/>
+    </concept>
+    <concept>
+      <code value="322000"/>
+      <display value="Fabrication Engineering Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="322100"/>
+      <display value="Metal Casting, Forging and Finishing Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="322111"/>
+      <display value="Blacksmith"/>
+    </concept>
+    <concept>
+      <code value="322112"/>
+      <display value="Electroplater"/>
+    </concept>
+    <concept>
+      <code value="322113"/>
+      <display value="Farrier"/>
+    </concept>
+    <concept>
+      <code value="322114"/>
+      <display value="Metal Casting Trades Worker"/>
+    </concept>
+    <concept>
+      <code value="322115"/>
+      <display value="Metal Polisher"/>
+    </concept>
+    <concept>
+      <code value="322211"/>
+      <display value="Sheetmetal Trades Worker"/>
+    </concept>
+    <concept>
+      <code value="322300"/>
+      <display value="Structural Steel and Welding Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="322311"/>
+      <display value="Metal Fabricator"/>
+    </concept>
+    <concept>
+      <code value="322312"/>
+      <display value="Pressure Welder"/>
+    </concept>
+    <concept>
+      <code value="322313"/>
+      <display value="Welder (First Class)"/>
+    </concept>
+    <concept>
+      <code value="323000"/>
+      <display value="Mechanical Engineering Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="323100"/>
+      <display value="Aircraft Maintenance Engineers nfd"/>
+    </concept>
+    <concept>
+      <code value="323111"/>
+      <display value="Aircraft Maintenance Engineer (Avionics)"/>
+    </concept>
+    <concept>
+      <code value="323112"/>
+      <display value="Aircraft Maintenance Engineer (Mechanical)"/>
+    </concept>
+    <concept>
+      <code value="323113"/>
+      <display value="Aircraft Maintenance Engineer (Structures)"/>
+    </concept>
+    <concept>
+      <code value="323200"/>
+      <display value="Metal Fitters and Machinists nfd"/>
+    </concept>
+    <concept>
+      <code value="323211"/>
+      <display value="Fitter (General)"/>
+    </concept>
+    <concept>
+      <code value="323212"/>
+      <display value="Fitter and Turner"/>
+    </concept>
+    <concept>
+      <code value="323213"/>
+      <display value="Fitter-Welder"/>
+    </concept>
+    <concept>
+      <code value="323214"/>
+      <display value="Metal Machinist (First Class)"/>
+    </concept>
+    <concept>
+      <code value="323215"/>
+      <display value="Textile, Clothing and Footwear Mechanic"/>
+    </concept>
+    <concept>
+      <code value="323299"/>
+      <display value="Metal Fitters and Machinists nec"/>
+    </concept>
+    <concept>
+      <code value="323300"/>
+      <display value="Precision Metal Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="323311"/>
+      <display value="Engraver"/>
+    </concept>
+    <concept>
+      <code value="323312"/>
+      <display value="Gunsmith"/>
+    </concept>
+    <concept>
+      <code value="323313"/>
+      <display value="Locksmith"/>
+    </concept>
+    <concept>
+      <code value="323314"/>
+      <display value="Precision Instrument Maker and Repairer"/>
+    </concept>
+    <concept>
+      <code value="323315"/>
+      <display value="Saw Maker and Repairer"/>
+    </concept>
+    <concept>
+      <code value="323316"/>
+      <display value="Watch and Clock Maker and Repairer"/>
+    </concept>
+    <concept>
+      <code value="323400"/>
+      <display value="Toolmakers and Engineering Patternmakers nfd"/>
+    </concept>
+    <concept>
+      <code value="323411"/>
+      <display value="Engineering Patternmaker"/>
+    </concept>
+    <concept>
+      <code value="323412"/>
+      <display value="Toolmaker"/>
+    </concept>
+    <concept>
+      <code value="324000"/>
+      <display value="Panelbeaters, and Vehicle Body Builders, Trimmers and Painters nfd"/>
+    </concept>
+    <concept>
+      <code value="324111"/>
+      <display value="Panelbeater"/>
+    </concept>
+    <concept>
+      <code value="324200"/>
+      <display value="Vehicle Body Builders and Trimmers nfd"/>
+    </concept>
+    <concept>
+      <code value="324211"/>
+      <display value="Vehicle Body Builder"/>
+    </concept>
+    <concept>
+      <code value="324212"/>
+      <display value="Vehicle Trimmer"/>
+    </concept>
+    <concept>
+      <code value="324311"/>
+      <display value="Vehicle Painter"/>
+    </concept>
+    <concept>
+      <code value="330000"/>
+      <display value="Construction Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="331000"/>
+      <display value="Bricklayers, and Carpenters and Joiners nfd"/>
+    </concept>
+    <concept>
+      <code value="331100"/>
+      <display value="Bricklayers and Stonemasons nfd"/>
+    </concept>
+    <concept>
+      <code value="331111"/>
+      <display value="Bricklayer"/>
+    </concept>
+    <concept>
+      <code value="331112"/>
+      <display value="Stonemason"/>
+    </concept>
+    <concept>
+      <code value="331211"/>
+      <display value="Carpenter and Joiner"/>
+    </concept>
+    <concept>
+      <code value="331212"/>
+      <display value="Carpenter"/>
+    </concept>
+    <concept>
+      <code value="331213"/>
+      <display value="Joiner"/>
+    </concept>
+    <concept>
+      <code value="332000"/>
+      <display value="Floor Finishers and Painting Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="332111"/>
+      <display value="Floor Finisher"/>
+    </concept>
+    <concept>
+      <code value="332211"/>
+      <display value="Painting Trades Worker"/>
+    </concept>
+    <concept>
+      <code value="333000"/>
+      <display value="Glaziers, Plasterers and Tilers nfd"/>
+    </concept>
+    <concept>
+      <code value="333111"/>
+      <display value="Glazier"/>
+    </concept>
+    <concept>
+      <code value="333200"/>
+      <display value="Plasterers nfd"/>
+    </concept>
+    <concept>
+      <code value="333211"/>
+      <display value="Fibrous Plasterer"/>
+    </concept>
+    <concept>
+      <code value="333212"/>
+      <display value="Solid Plasterer"/>
+    </concept>
+    <concept>
+      <code value="333311"/>
+      <display value="Roof Tiler"/>
+    </concept>
+    <concept>
+      <code value="333411"/>
+      <display value="Wall and Floor Tiler"/>
+    </concept>
+    <concept>
+      <code value="334100"/>
+      <display value="Plumbers nfd"/>
+    </concept>
+    <concept>
+      <code value="334111"/>
+      <display value="Plumber (General)"/>
+    </concept>
+    <concept>
+      <code value="334112"/>
+      <display value="Airconditioning and Mechanical Services Plumber"/>
+    </concept>
+    <concept>
+      <code value="334113"/>
+      <display value="Drainer"/>
+    </concept>
+    <concept>
+      <code value="334114"/>
+      <display value="Gasfitter"/>
+    </concept>
+    <concept>
+      <code value="334115"/>
+      <display value="Roof Plumber"/>
+    </concept>
+    <concept>
+      <code value="340000"/>
+      <display value="Electrotechnology and Telecommunications Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="341100"/>
+      <display value="Electricians nfd"/>
+    </concept>
+    <concept>
+      <code value="341111"/>
+      <display value="Electrician (General)"/>
+    </concept>
+    <concept>
+      <code value="341112"/>
+      <display value="Electrician (Special Class)"/>
+    </concept>
+    <concept>
+      <code value="341113"/>
+      <display value="Lift Mechanic"/>
+    </concept>
+    <concept>
+      <code value="342000"/>
+      <display value="Electronics and Telecommunications Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="342111"/>
+      <display value="Airconditioning and Refrigeration Mechanic"/>
+    </concept>
+    <concept>
+      <code value="342200"/>
+      <display value="Electrical Distribution Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="342211"/>
+      <display value="Electrical Linesworker"/>
+    </concept>
+    <concept>
+      <code value="342212"/>
+      <display value="Technical Cable Jointer"/>
+    </concept>
+    <concept>
+      <code value="342300"/>
+      <display value="Electronics Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="342311"/>
+      <display value="Business Machine Mechanic"/>
+    </concept>
+    <concept>
+      <code value="342312"/>
+      <display value="Communications Operator"/>
+    </concept>
+    <concept>
+      <code value="342313"/>
+      <display value="Electronic Equipment Trades Worker"/>
+    </concept>
+    <concept>
+      <code value="342314"/>
+      <display value="Electronic Instrument Trades Worker (General)"/>
+    </concept>
+    <concept>
+      <code value="342315"/>
+      <display value="Electronic Instrument Trades Worker (Special Class)"/>
+    </concept>
+    <concept>
+      <code value="342400"/>
+      <display value="Telecommunications Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="342411"/>
+      <display value="Cabler (Data and Telecommunications)"/>
+    </concept>
+    <concept>
+      <code value="342412"/>
+      <display value="Telecommunications Cable Jointer"/>
+    </concept>
+    <concept>
+      <code value="342413"/>
+      <display value="Telecommunications Linesworker"/>
+    </concept>
+    <concept>
+      <code value="342414"/>
+      <display value="Telecommunications Technician"/>
+    </concept>
+    <concept>
+      <code value="351000"/>
+      <display value="Food Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="351100"/>
+      <display value="Bakers and Pastrycooks nfd"/>
+    </concept>
+    <concept>
+      <code value="351111"/>
+      <display value="Baker"/>
+    </concept>
+    <concept>
+      <code value="351112"/>
+      <display value="Pastrycook"/>
+    </concept>
+    <concept>
+      <code value="351211"/>
+      <display value="Butcher or Smallgoods Maker"/>
+    </concept>
+    <concept>
+      <code value="351311"/>
+      <display value="Chef"/>
+    </concept>
+    <concept>
+      <code value="351411"/>
+      <display value="Cook"/>
+    </concept>
+    <concept>
+      <code value="360000"/>
+      <display value="Skilled Animal and Horticultural Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="361000"/>
+      <display value="Animal Attendants and Trainers, and Shearers nfd"/>
+    </concept>
+    <concept>
+      <code value="361100"/>
+      <display value="Animal Attendants and Trainers nfd"/>
+    </concept>
+    <concept>
+      <code value="361111"/>
+      <display value="Dog Handler or Trainer"/>
+    </concept>
+    <concept>
+      <code value="361112"/>
+      <display value="Horse Trainer"/>
+    </concept>
+    <concept>
+      <code value="361113"/>
+      <display value="Pet Groomer"/>
+    </concept>
+    <concept>
+      <code value="361114"/>
+      <display value="Zookeeper"/>
+    </concept>
+    <concept>
+      <code value="361199"/>
+      <display value="Animal Attendants and Trainers nec"/>
+    </concept>
+    <concept>
+      <code value="361211"/>
+      <display value="Shearer"/>
+    </concept>
+    <concept>
+      <code value="361311"/>
+      <display value="Veterinary Nurse"/>
+    </concept>
+    <concept>
+      <code value="362000"/>
+      <display value="Horticultural Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="362111"/>
+      <display value="Florist"/>
+    </concept>
+    <concept>
+      <code value="362200"/>
+      <display value="Gardeners nfd"/>
+    </concept>
+    <concept>
+      <code value="362211"/>
+      <display value="Gardener (General)"/>
+    </concept>
+    <concept>
+      <code value="362212"/>
+      <display value="Arborist"/>
+    </concept>
+    <concept>
+      <code value="362213"/>
+      <display value="Landscape Gardener"/>
+    </concept>
+    <concept>
+      <code value="362311"/>
+      <display value="Greenkeeper"/>
+    </concept>
+    <concept>
+      <code value="362411"/>
+      <display value="Nurseryperson"/>
+    </concept>
+    <concept>
+      <code value="390000"/>
+      <display value="Other Technicians and Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="391111"/>
+      <display value="Hairdresser"/>
+    </concept>
+    <concept>
+      <code value="392000"/>
+      <display value="Printing Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="392100"/>
+      <display value="Binders, Finishers and Screen Printers nfd"/>
+    </concept>
+    <concept>
+      <code value="392111"/>
+      <display value="Binder and Finisher"/>
+    </concept>
+    <concept>
+      <code value="392112"/>
+      <display value="Screen Printer"/>
+    </concept>
+    <concept>
+      <code value="392211"/>
+      <display value="Graphic Pre-press Trades Worker"/>
+    </concept>
+    <concept>
+      <code value="392300"/>
+      <display value="Printers nfd"/>
+    </concept>
+    <concept>
+      <code value="392311"/>
+      <display value="Printing Machinist"/>
+    </concept>
+    <concept>
+      <code value="392312"/>
+      <display value="Small Offset Printer"/>
+    </concept>
+    <concept>
+      <code value="393000"/>
+      <display value="Textile, Clothing and Footwear Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="393100"/>
+      <display value="Canvas and Leather Goods Makers nfd"/>
+    </concept>
+    <concept>
+      <code value="393111"/>
+      <display value="Canvas Goods Maker"/>
+    </concept>
+    <concept>
+      <code value="393112"/>
+      <display value="Leather Goods Maker"/>
+    </concept>
+    <concept>
+      <code value="393113"/>
+      <display value="Sail Maker"/>
+    </concept>
+    <concept>
+      <code value="393114"/>
+      <display value="Shoemaker"/>
+    </concept>
+    <concept>
+      <code value="393200"/>
+      <display value="Clothing Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="393211"/>
+      <display value="Apparel Cutter"/>
+    </concept>
+    <concept>
+      <code value="393212"/>
+      <display value="Clothing Patternmaker"/>
+    </concept>
+    <concept>
+      <code value="393213"/>
+      <display value="Dressmaker or Tailor"/>
+    </concept>
+    <concept>
+      <code value="393299"/>
+      <display value="Clothing Trades Workers nec"/>
+    </concept>
+    <concept>
+      <code value="393311"/>
+      <display value="Upholsterer"/>
+    </concept>
+    <concept>
+      <code value="394000"/>
+      <display value="Wood Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="394111"/>
+      <display value="Cabinetmaker"/>
+    </concept>
+    <concept>
+      <code value="394200"/>
+      <display value="Wood Machinists and Other Wood Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="394211"/>
+      <display value="Furniture Finisher"/>
+    </concept>
+    <concept>
+      <code value="394212"/>
+      <display value="Picture Framer"/>
+    </concept>
+    <concept>
+      <code value="394213"/>
+      <display value="Wood Machinist"/>
+    </concept>
+    <concept>
+      <code value="394214"/>
+      <display value="Wood Turner"/>
+    </concept>
+    <concept>
+      <code value="394299"/>
+      <display value="Wood Machinists and Other Wood Trades Workers nec"/>
+    </concept>
+    <concept>
+      <code value="399000"/>
+      <display value="Miscellaneous Technicians and Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="399100"/>
+      <display value="Boat Builders and Shipwrights nfd"/>
+    </concept>
+    <concept>
+      <code value="399111"/>
+      <display value="Boat Builder and Repairer"/>
+    </concept>
+    <concept>
+      <code value="399112"/>
+      <display value="Shipwright"/>
+    </concept>
+    <concept>
+      <code value="399200"/>
+      <display value="Chemical, Gas, Petroleum and Power Generation Plant Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="399211"/>
+      <display value="Chemical Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="399212"/>
+      <display value="Gas or Petroleum Operator"/>
+    </concept>
+    <concept>
+      <code value="399213"/>
+      <display value="Power Generation Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="399300"/>
+      <display value="Gallery, Library and Museum Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="399311"/>
+      <display value="Gallery or Museum Technician"/>
+    </concept>
+    <concept>
+      <code value="399312"/>
+      <display value="Library Technician"/>
+    </concept>
+    <concept>
+      <code value="399411"/>
+      <display value="Jeweller"/>
+    </concept>
+    <concept>
+      <code value="399500"/>
+      <display value="Performing Arts Technicians nfd"/>
+    </concept>
+    <concept>
+      <code value="399511"/>
+      <display value="Broadcast Transmitter Operator"/>
+    </concept>
+    <concept>
+      <code value="399512"/>
+      <display value="Camera Operator (Film, Television or Video)"/>
+    </concept>
+    <concept>
+      <code value="399513"/>
+      <display value="Light Technician"/>
+    </concept>
+    <concept>
+      <code value="399514"/>
+      <display value="Make Up Artist"/>
+    </concept>
+    <concept>
+      <code value="399515"/>
+      <display value="Musical Instrument Maker or Repairer"/>
+    </concept>
+    <concept>
+      <code value="399516"/>
+      <display value="Sound Technician"/>
+    </concept>
+    <concept>
+      <code value="399517"/>
+      <display value="Television Equipment Operator"/>
+    </concept>
+    <concept>
+      <code value="399599"/>
+      <display value="Performing Arts Technicians nec"/>
+    </concept>
+    <concept>
+      <code value="399611"/>
+      <display value="Signwriter"/>
+    </concept>
+    <concept>
+      <code value="399900"/>
+      <display value="Other Miscellaneous Technicians and Trades Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="399911"/>
+      <display value="Diver"/>
+    </concept>
+    <concept>
+      <code value="399912"/>
+      <display value="Interior Decorator"/>
+    </concept>
+    <concept>
+      <code value="399913"/>
+      <display value="Optical Dispenser"/>
+    </concept>
+    <concept>
+      <code value="399914"/>
+      <display value="Optical Mechanic"/>
+    </concept>
+    <concept>
+      <code value="399915"/>
+      <display value="Photographer's Assistant"/>
+    </concept>
+    <concept>
+      <code value="399916"/>
+      <display value="Plastics Technician"/>
+    </concept>
+    <concept>
+      <code value="399917"/>
+      <display value="Wool Classer"/>
+    </concept>
+    <concept>
+      <code value="399999"/>
+      <display value="Technicians and Trades Workers nec"/>
+    </concept>
+    <concept>
+      <code value="400000"/>
+      <display value="Community and Personal Service Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="411000"/>
+      <display value="Health and Welfare Support Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="411100"/>
+      <display value="Ambulance Officers and Paramedics nfd"/>
+    </concept>
+    <concept>
+      <code value="411111"/>
+      <display value="Ambulance Officer"/>
+    </concept>
+    <concept>
+      <code value="411112"/>
+      <display value="Intensive Care Ambulance Paramedic"/>
+    </concept>
+    <concept>
+      <code value="411200"/>
+      <display value="Dental Hygienists, Technicians and Therapists nfd"/>
+    </concept>
+    <concept>
+      <code value="411211"/>
+      <display value="Dental Hygienist"/>
+    </concept>
+    <concept>
+      <code value="411212"/>
+      <display value="Dental Prosthetist"/>
+    </concept>
+    <concept>
+      <code value="411213"/>
+      <display value="Dental Technician"/>
+    </concept>
+    <concept>
+      <code value="411214"/>
+      <display value="Dental Therapist"/>
+    </concept>
+    <concept>
+      <code value="411311"/>
+      <display value="Diversional Therapist"/>
+    </concept>
+    <concept>
+      <code value="411400"/>
+      <display value="Enrolled and Mothercraft Nurses nfd"/>
+    </concept>
+    <concept>
+      <code value="411411"/>
+      <display value="Enrolled Nurse"/>
+    </concept>
+    <concept>
+      <code value="411412"/>
+      <display value="Mothercraft Nurse"/>
+    </concept>
+    <concept>
+      <code value="411511"/>
+      <display value="Aboriginal and Torres Strait Islander Health Worker"/>
+    </concept>
+    <concept>
+      <code value="411611"/>
+      <display value="Massage Therapist"/>
+    </concept>
+    <concept>
+      <code value="411700"/>
+      <display value="Welfare Support Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="411711"/>
+      <display value="Community Worker"/>
+    </concept>
+    <concept>
+      <code value="411712"/>
+      <display value="Disabilities Services Officer"/>
+    </concept>
+    <concept>
+      <code value="411713"/>
+      <display value="Family Support Worker"/>
+    </concept>
+    <concept>
+      <code value="411714"/>
+      <display value="Parole or Probation Officer"/>
+    </concept>
+    <concept>
+      <code value="411715"/>
+      <display value="Residential Care Officer"/>
+    </concept>
+    <concept>
+      <code value="411716"/>
+      <display value="Youth Worker"/>
+    </concept>
+    <concept>
+      <code value="420000"/>
+      <display value="Carers and Aides nfd"/>
+    </concept>
+    <concept>
+      <code value="421100"/>
+      <display value="Child Carers nfd"/>
+    </concept>
+    <concept>
+      <code value="421111"/>
+      <display value="Child Care Worker"/>
+    </concept>
+    <concept>
+      <code value="421112"/>
+      <display value="Family Day Care Worker"/>
+    </concept>
+    <concept>
+      <code value="421113"/>
+      <display value="Nanny"/>
+    </concept>
+    <concept>
+      <code value="421114"/>
+      <display value="Out of School Hours Care Worker"/>
+    </concept>
+    <concept>
+      <code value="422100"/>
+      <display value="Education Aides nfd"/>
+    </concept>
+    <concept>
+      <code value="422111"/>
+      <display value="Aboriginal and Torres Strait Islander Education Worker"/>
+    </concept>
+    <concept>
+      <code value="422112"/>
+      <display value="Integration Aide"/>
+    </concept>
+    <concept>
+      <code value="422115"/>
+      <display value="Preschool Aide"/>
+    </concept>
+    <concept>
+      <code value="422116"/>
+      <display value="Teachers' Aide"/>
+    </concept>
+    <concept>
+      <code value="423000"/>
+      <display value="Personal Carers and Assistants nfd"/>
+    </concept>
+    <concept>
+      <code value="423111"/>
+      <display value="Aged or Disabled Carer"/>
+    </concept>
+    <concept>
+      <code value="423211"/>
+      <display value="Dental Assistant"/>
+    </concept>
+    <concept>
+      <code value="423300"/>
+      <display value="Nursing Support and Personal Care Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="423311"/>
+      <display value="Hospital Orderly"/>
+    </concept>
+    <concept>
+      <code value="423312"/>
+      <display value="Nursing Support Worker"/>
+    </concept>
+    <concept>
+      <code value="423313"/>
+      <display value="Personal Care Assistant"/>
+    </concept>
+    <concept>
+      <code value="423314"/>
+      <display value="Therapy Aide"/>
+    </concept>
+    <concept>
+      <code value="423400"/>
+      <display value="Special Care Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="423411"/>
+      <display value="Child or Youth Residential Care Assistant"/>
+    </concept>
+    <concept>
+      <code value="423412"/>
+      <display value="Hostel Parent"/>
+    </concept>
+    <concept>
+      <code value="423413"/>
+      <display value="Refuge Worker"/>
+    </concept>
+    <concept>
+      <code value="431000"/>
+      <display value="Hospitality Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="431100"/>
+      <display value="Bar Attendants and Baristas nfd"/>
+    </concept>
+    <concept>
+      <code value="431111"/>
+      <display value="Bar Attendant"/>
+    </concept>
+    <concept>
+      <code value="431112"/>
+      <display value="Barista"/>
+    </concept>
+    <concept>
+      <code value="431211"/>
+      <display value="Cafe Worker"/>
+    </concept>
+    <concept>
+      <code value="431311"/>
+      <display value="Gaming Worker"/>
+    </concept>
+    <concept>
+      <code value="431411"/>
+      <display value="Hotel Service Manager"/>
+    </concept>
+    <concept>
+      <code value="431511"/>
+      <display value="Waiter"/>
+    </concept>
+    <concept>
+      <code value="431900"/>
+      <display value="Other Hospitality Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="431911"/>
+      <display value="Bar Useful or Busser"/>
+    </concept>
+    <concept>
+      <code value="431912"/>
+      <display value="Doorperson or Luggage Porter"/>
+    </concept>
+    <concept>
+      <code value="431999"/>
+      <display value="Hospitality Workers nec"/>
+    </concept>
+    <concept>
+      <code value="440000"/>
+      <display value="Protective Service Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="441000"/>
+      <display value="Defence Force Members, Fire Fighters and Police nfd"/>
+    </concept>
+    <concept>
+      <code value="441111"/>
+      <display value="Defence Force Member - Other Ranks"/>
+    </concept>
+    <concept>
+      <code value="441200"/>
+      <display value="Fire and Emergency Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="441211"/>
+      <display value="Emergency Service Worker"/>
+    </concept>
+    <concept>
+      <code value="441212"/>
+      <display value="Fire Fighter"/>
+    </concept>
+    <concept>
+      <code value="441300"/>
+      <display value="Police nfd"/>
+    </concept>
+    <concept>
+      <code value="441311"/>
+      <display value="Detective"/>
+    </concept>
+    <concept>
+      <code value="441312"/>
+      <display value="Police Officer"/>
+    </concept>
+    <concept>
+      <code value="442000"/>
+      <display value="Prison and Security Officers nfd"/>
+    </concept>
+    <concept>
+      <code value="442111"/>
+      <display value="Prison Officer"/>
+    </concept>
+    <concept>
+      <code value="442200"/>
+      <display value="Security Officers and Guards nfd"/>
+    </concept>
+    <concept>
+      <code value="442211"/>
+      <display value="Alarm, Security or Surveillance Monitor"/>
+    </concept>
+    <concept>
+      <code value="442212"/>
+      <display value="Armoured Car Escort"/>
+    </concept>
+    <concept>
+      <code value="442213"/>
+      <display value="Crowd Controller"/>
+    </concept>
+    <concept>
+      <code value="442214"/>
+      <display value="Private Investigator"/>
+    </concept>
+    <concept>
+      <code value="442215"/>
+      <display value="Retail Loss Prevention Officer"/>
+    </concept>
+    <concept>
+      <code value="442216"/>
+      <display value="Security Consultant"/>
+    </concept>
+    <concept>
+      <code value="442217"/>
+      <display value="Security Officer"/>
+    </concept>
+    <concept>
+      <code value="442299"/>
+      <display value="Security Officers and Guards nec"/>
+    </concept>
+    <concept>
+      <code value="450000"/>
+      <display value="Sports and Personal Service Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="451000"/>
+      <display value="Personal Service and Travel Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="451111"/>
+      <display value="Beauty Therapist"/>
+    </concept>
+    <concept>
+      <code value="451211"/>
+      <display value="Driving Instructor"/>
+    </concept>
+    <concept>
+      <code value="451300"/>
+      <display value="Funeral Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="451311"/>
+      <display value="Funeral Director"/>
+    </concept>
+    <concept>
+      <code value="451399"/>
+      <display value="Funeral Workers nec"/>
+    </concept>
+    <concept>
+      <code value="451400"/>
+      <display value="Gallery, Museum and Tour Guides nfd"/>
+    </concept>
+    <concept>
+      <code value="451411"/>
+      <display value="Gallery or Museum Guide"/>
+    </concept>
+    <concept>
+      <code value="451412"/>
+      <display value="Tour Guide"/>
+    </concept>
+    <concept>
+      <code value="451500"/>
+      <display value="Personal Care Consultants nfd"/>
+    </concept>
+    <concept>
+      <code value="451511"/>
+      <display value="Natural Remedy Consultant"/>
+    </concept>
+    <concept>
+      <code value="451512"/>
+      <display value="Weight Loss Consultant"/>
+    </concept>
+    <concept>
+      <code value="451600"/>
+      <display value="Tourism and Travel Advisers nfd"/>
+    </concept>
+    <concept>
+      <code value="451611"/>
+      <display value="Tourist Information Officer"/>
+    </concept>
+    <concept>
+      <code value="451612"/>
+      <display value="Travel Consultant"/>
+    </concept>
+    <concept>
+      <code value="451700"/>
+      <display value="Travel Attendants nfd"/>
+    </concept>
+    <concept>
+      <code value="451711"/>
+      <display value="Flight Attendant"/>
+    </concept>
+    <concept>
+      <code value="451799"/>
+      <display value="Travel Attendants nec"/>
+    </concept>
+    <concept>
+      <code value="451800"/>
+      <display value="Other Personal Service Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="451811"/>
+      <display value="Civil Celebrant"/>
+    </concept>
+    <concept>
+      <code value="451812"/>
+      <display value="Hair or Beauty Salon Assistant"/>
+    </concept>
+    <concept>
+      <code value="451813"/>
+      <display value="Sex Worker or Escort"/>
+    </concept>
+    <concept>
+      <code value="451899"/>
+      <display value="Personal Service Workers nec"/>
+    </concept>
+    <concept>
+      <code value="452000"/>
+      <display value="Sports and Fitness Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="452111"/>
+      <display value="Fitness Instructor"/>
+    </concept>
+    <concept>
+      <code value="452200"/>
+      <display value="Outdoor Adventure Guides nfd"/>
+    </concept>
+    <concept>
+      <code value="452211"/>
+      <display value="Bungy Jump Master"/>
+    </concept>
+    <concept>
+      <code value="452212"/>
+      <display value="Fishing Guide"/>
+    </concept>
+    <concept>
+      <code value="452213"/>
+      <display value="Hunting Guide"/>
+    </concept>
+    <concept>
+      <code value="452214"/>
+      <display value="Mountain or Glacier Guide"/>
+    </concept>
+    <concept>
+      <code value="452215"/>
+      <display value="Outdoor Adventure Instructor"/>
+    </concept>
+    <concept>
+      <code value="452216"/>
+      <display value="Trekking Guide"/>
+    </concept>
+    <concept>
+      <code value="452217"/>
+      <display value="Whitewater Rafting Guide"/>
+    </concept>
+    <concept>
+      <code value="452299"/>
+      <display value="Outdoor Adventure Guides nec"/>
+    </concept>
+    <concept>
+      <code value="452300"/>
+      <display value="Sports Coaches, Instructors and Officials nfd"/>
+    </concept>
+    <concept>
+      <code value="452311"/>
+      <display value="Diving Instructor (Open Water)"/>
+    </concept>
+    <concept>
+      <code value="452312"/>
+      <display value="Gymnastics Coach or Instructor"/>
+    </concept>
+    <concept>
+      <code value="452313"/>
+      <display value="Horse Riding Coach or Instructor"/>
+    </concept>
+    <concept>
+      <code value="452314"/>
+      <display value="Snowsport Instructor"/>
+    </concept>
+    <concept>
+      <code value="452315"/>
+      <display value="Swimming Coach or Instructor"/>
+    </concept>
+    <concept>
+      <code value="452316"/>
+      <display value="Tennis Coach"/>
+    </concept>
+    <concept>
+      <code value="452317"/>
+      <display value="Other Sports Coach or Instructor"/>
+    </concept>
+    <concept>
+      <code value="452318"/>
+      <display value="Dog or Horse Racing Official"/>
+    </concept>
+    <concept>
+      <code value="452321"/>
+      <display value="Sports Development Officer"/>
+    </concept>
+    <concept>
+      <code value="452322"/>
+      <display value="Sports Umpire"/>
+    </concept>
+    <concept>
+      <code value="452323"/>
+      <display value="Other Sports Official"/>
+    </concept>
+    <concept>
+      <code value="452400"/>
+      <display value="Sportspersons nfd"/>
+    </concept>
+    <concept>
+      <code value="452411"/>
+      <display value="Footballer"/>
+    </concept>
+    <concept>
+      <code value="452412"/>
+      <display value="Golfer"/>
+    </concept>
+    <concept>
+      <code value="452413"/>
+      <display value="Jockey"/>
+    </concept>
+    <concept>
+      <code value="452414"/>
+      <display value="Lifeguard"/>
+    </concept>
+    <concept>
+      <code value="452499"/>
+      <display value="Sportspersons nec"/>
+    </concept>
+    <concept>
+      <code value="500000"/>
+      <display value="Clerical and Administrative Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="510000"/>
+      <display value="Office Managers and Program Administrators nfd"/>
+    </concept>
+    <concept>
+      <code value="511100"/>
+      <display value="Contract, Program and Project Administrators nfd"/>
+    </concept>
+    <concept>
+      <code value="511111"/>
+      <display value="Contract Administrator"/>
+    </concept>
+    <concept>
+      <code value="511112"/>
+      <display value="Program or Project Administrator"/>
+    </concept>
+    <concept>
+      <code value="512000"/>
+      <display value="Office and Practice Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="512111"/>
+      <display value="Office Manager"/>
+    </concept>
+    <concept>
+      <code value="512200"/>
+      <display value="Practice Managers nfd"/>
+    </concept>
+    <concept>
+      <code value="512211"/>
+      <display value="Health Practice Manager"/>
+    </concept>
+    <concept>
+      <code value="512299"/>
+      <display value="Practice Managers nec"/>
+    </concept>
+    <concept>
+      <code value="521000"/>
+      <display value="Personal Assistants and Secretaries nfd"/>
+    </concept>
+    <concept>
+      <code value="521111"/>
+      <display value="Personal Assistant"/>
+    </concept>
+    <concept>
+      <code value="521200"/>
+      <display value="Secretaries nfd"/>
+    </concept>
+    <concept>
+      <code value="521211"/>
+      <display value="Secretary (General)"/>
+    </concept>
+    <concept>
+      <code value="521212"/>
+      <display value="Legal Secretary"/>
+    </concept>
+    <concept>
+      <code value="530000"/>
+      <display value="General Clerical Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="531111"/>
+      <display value="General Clerk"/>
+    </concept>
+    <concept>
+      <code value="532100"/>
+      <display value="Keyboard Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="532111"/>
+      <display value="Data Entry Operator"/>
+    </concept>
+    <concept>
+      <code value="532112"/>
+      <display value="Machine Shorthand Reporter"/>
+    </concept>
+    <concept>
+      <code value="532113"/>
+      <display value="Word Processing Operator"/>
+    </concept>
+    <concept>
+      <code value="540000"/>
+      <display value="Inquiry Clerks and Receptionists nfd"/>
+    </concept>
+    <concept>
+      <code value="541000"/>
+      <display value="Call or Contact Centre Information Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="541100"/>
+      <display value="Call or Contact Centre Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="541111"/>
+      <display value="Call or Contact Centre Team Leader"/>
+    </concept>
+    <concept>
+      <code value="541112"/>
+      <display value="Call or Contact Centre Operator"/>
+    </concept>
+    <concept>
+      <code value="541211"/>
+      <display value="Inquiry Clerk"/>
+    </concept>
+    <concept>
+      <code value="542100"/>
+      <display value="Receptionists nfd"/>
+    </concept>
+    <concept>
+      <code value="542111"/>
+      <display value="Receptionist (General)"/>
+    </concept>
+    <concept>
+      <code value="542112"/>
+      <display value="Admissions Clerk"/>
+    </concept>
+    <concept>
+      <code value="542113"/>
+      <display value="Hotel or Motel Receptionist"/>
+    </concept>
+    <concept>
+      <code value="542114"/>
+      <display value="Medical Receptionist"/>
+    </concept>
+    <concept>
+      <code value="550000"/>
+      <display value="Numerical Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="551000"/>
+      <display value="Accounting Clerks and Bookkeepers nfd"/>
+    </concept>
+    <concept>
+      <code value="551100"/>
+      <display value="Accounting Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="551111"/>
+      <display value="Accounts Clerk"/>
+    </concept>
+    <concept>
+      <code value="551112"/>
+      <display value="Cost Clerk"/>
+    </concept>
+    <concept>
+      <code value="551211"/>
+      <display value="Bookkeeper"/>
+    </concept>
+    <concept>
+      <code value="551311"/>
+      <display value="Payroll Clerk"/>
+    </concept>
+    <concept>
+      <code value="552000"/>
+      <display value="Financial and Insurance Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="552111"/>
+      <display value="Bank Worker"/>
+    </concept>
+    <concept>
+      <code value="552211"/>
+      <display value="Credit or Loans Officer"/>
+    </concept>
+    <concept>
+      <code value="552300"/>
+      <display value="Insurance, Money Market and Statistical Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="552311"/>
+      <display value="Bookmaker"/>
+    </concept>
+    <concept>
+      <code value="552312"/>
+      <display value="Insurance Consultant"/>
+    </concept>
+    <concept>
+      <code value="552313"/>
+      <display value="Money Market Clerk"/>
+    </concept>
+    <concept>
+      <code value="552314"/>
+      <display value="Statistical Clerk"/>
+    </concept>
+    <concept>
+      <code value="561000"/>
+      <display value="Clerical and Office Support Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="561100"/>
+      <display value="Betting Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="561111"/>
+      <display value="Betting Agency Counter Clerk"/>
+    </concept>
+    <concept>
+      <code value="561112"/>
+      <display value="Bookmaker's Clerk"/>
+    </concept>
+    <concept>
+      <code value="561113"/>
+      <display value="Telephone Betting Clerk"/>
+    </concept>
+    <concept>
+      <code value="561199"/>
+      <display value="Betting Clerks nec"/>
+    </concept>
+    <concept>
+      <code value="561200"/>
+      <display value="Couriers and Postal Deliverers nfd"/>
+    </concept>
+    <concept>
+      <code value="561211"/>
+      <display value="Courier"/>
+    </concept>
+    <concept>
+      <code value="561212"/>
+      <display value="Postal Delivery Officer"/>
+    </concept>
+    <concept>
+      <code value="561311"/>
+      <display value="Filing or Registry Clerk"/>
+    </concept>
+    <concept>
+      <code value="561400"/>
+      <display value="Mail Sorters nfd"/>
+    </concept>
+    <concept>
+      <code value="561411"/>
+      <display value="Mail Clerk"/>
+    </concept>
+    <concept>
+      <code value="561412"/>
+      <display value="Postal Sorting Officer"/>
+    </concept>
+    <concept>
+      <code value="561511"/>
+      <display value="Survey Interviewer"/>
+    </concept>
+    <concept>
+      <code value="561611"/>
+      <display value="Switchboard Operator"/>
+    </concept>
+    <concept>
+      <code value="561900"/>
+      <display value="Other Clerical and Office Support Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="561911"/>
+      <display value="Classified Advertising Clerk"/>
+    </concept>
+    <concept>
+      <code value="561912"/>
+      <display value="Meter Reader"/>
+    </concept>
+    <concept>
+      <code value="561913"/>
+      <display value="Parking Inspector"/>
+    </concept>
+    <concept>
+      <code value="561999"/>
+      <display value="Clerical and Office Support Workers nec"/>
+    </concept>
+    <concept>
+      <code value="590000"/>
+      <display value="Other Clerical and Administrative Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="591000"/>
+      <display value="Logistics Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="591100"/>
+      <display value="Purchasing and Supply Logistics Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="591111"/>
+      <display value="Order Clerk"/>
+    </concept>
+    <concept>
+      <code value="591112"/>
+      <display value="Production Clerk"/>
+    </concept>
+    <concept>
+      <code value="591113"/>
+      <display value="Purchasing Officer"/>
+    </concept>
+    <concept>
+      <code value="591114"/>
+      <display value="Sales Clerk"/>
+    </concept>
+    <concept>
+      <code value="591115"/>
+      <display value="Stock Clerk"/>
+    </concept>
+    <concept>
+      <code value="591116"/>
+      <display value="Warehouse Administrator"/>
+    </concept>
+    <concept>
+      <code value="591200"/>
+      <display value="Transport and Despatch Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="591211"/>
+      <display value="Despatching and Receiving Clerk"/>
+    </concept>
+    <concept>
+      <code value="591212"/>
+      <display value="Import-Export Clerk"/>
+    </concept>
+    <concept>
+      <code value="599000"/>
+      <display value="Miscellaneous Clerical and Administrative Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="599100"/>
+      <display value="Conveyancers and Legal Executives nfd"/>
+    </concept>
+    <concept>
+      <code value="599111"/>
+      <display value="Conveyancer"/>
+    </concept>
+    <concept>
+      <code value="599112"/>
+      <display value="Legal Executive"/>
+    </concept>
+    <concept>
+      <code value="599200"/>
+      <display value="Court and Legal Clerks nfd"/>
+    </concept>
+    <concept>
+      <code value="599211"/>
+      <display value="Clerk of Court"/>
+    </concept>
+    <concept>
+      <code value="599212"/>
+      <display value="Court Bailiff or Sheriff"/>
+    </concept>
+    <concept>
+      <code value="599213"/>
+      <display value="Court Orderly"/>
+    </concept>
+    <concept>
+      <code value="599214"/>
+      <display value="Law Clerk"/>
+    </concept>
+    <concept>
+      <code value="599215"/>
+      <display value="Trust Officer"/>
+    </concept>
+    <concept>
+      <code value="599311"/>
+      <display value="Debt Collector"/>
+    </concept>
+    <concept>
+      <code value="599411"/>
+      <display value="Human Resource Clerk"/>
+    </concept>
+    <concept>
+      <code value="599500"/>
+      <display value="Inspectors and Regulatory Officers nfd"/>
+    </concept>
+    <concept>
+      <code value="599511"/>
+      <display value="Customs Officer"/>
+    </concept>
+    <concept>
+      <code value="599512"/>
+      <display value="Immigration Officer"/>
+    </concept>
+    <concept>
+      <code value="599513"/>
+      <display value="Motor Vehicle Licence Examiner"/>
+    </concept>
+    <concept>
+      <code value="599514"/>
+      <display value="Noxious Weeds and Pest Inspector"/>
+    </concept>
+    <concept>
+      <code value="599515"/>
+      <display value="Social Security Assessor"/>
+    </concept>
+    <concept>
+      <code value="599516"/>
+      <display value="Taxation Inspector"/>
+    </concept>
+    <concept>
+      <code value="599517"/>
+      <display value="Train Examiner"/>
+    </concept>
+    <concept>
+      <code value="599518"/>
+      <display value="Transport Operations Inspector"/>
+    </concept>
+    <concept>
+      <code value="599521"/>
+      <display value="Water Inspector"/>
+    </concept>
+    <concept>
+      <code value="599599"/>
+      <display value="Inspectors and Regulatory Officers nec"/>
+    </concept>
+    <concept>
+      <code value="599600"/>
+      <display value="Insurance Investigators, Loss Adjusters and Risk Surveyors nfd"/>
+    </concept>
+    <concept>
+      <code value="599611"/>
+      <display value="Insurance Investigator"/>
+    </concept>
+    <concept>
+      <code value="599612"/>
+      <display value="Insurance Loss Adjuster"/>
+    </concept>
+    <concept>
+      <code value="599613"/>
+      <display value="Insurance Risk Surveyor"/>
+    </concept>
+    <concept>
+      <code value="599711"/>
+      <display value="Library Assistant"/>
+    </concept>
+    <concept>
+      <code value="599900"/>
+      <display value="Other Miscellaneous Clerical and Administrative Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="599911"/>
+      <display value="Coding Clerk"/>
+    </concept>
+    <concept>
+      <code value="599912"/>
+      <display value="Production Assistant (Film, Television, Radio or Stage)"/>
+    </concept>
+    <concept>
+      <code value="599913"/>
+      <display value="Proof Reader"/>
+    </concept>
+    <concept>
+      <code value="599914"/>
+      <display value="Radio Despatcher"/>
+    </concept>
+    <concept>
+      <code value="599999"/>
+      <display value="Clerical and Administrative Workers nec"/>
+    </concept>
+    <concept>
+      <code value="600000"/>
+      <display value="Sales Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="610000"/>
+      <display value="Sales Representatives and Agents nfd"/>
+    </concept>
+    <concept>
+      <code value="611000"/>
+      <display value="Insurance Agents and Sales Representatives nfd"/>
+    </concept>
+    <concept>
+      <code value="611100"/>
+      <display value="Auctioneers, and Stock and Station Agents nfd"/>
+    </concept>
+    <concept>
+      <code value="611111"/>
+      <display value="Auctioneer"/>
+    </concept>
+    <concept>
+      <code value="611112"/>
+      <display value="Stock and Station Agent"/>
+    </concept>
+    <concept>
+      <code value="611211"/>
+      <display value="Insurance Agent"/>
+    </concept>
+    <concept>
+      <code value="611300"/>
+      <display value="Sales Representatives nfd"/>
+    </concept>
+    <concept>
+      <code value="611311"/>
+      <display value="Sales Representative (Building and Plumbing Supplies)"/>
+    </concept>
+    <concept>
+      <code value="611312"/>
+      <display value="Sales Representative (Business Services)"/>
+    </concept>
+    <concept>
+      <code value="611313"/>
+      <display value="Sales Representative (Motor Vehicle Parts and Accessories)"/>
+    </concept>
+    <concept>
+      <code value="611314"/>
+      <display value="Sales Representative (Personal and Household Goods)"/>
+    </concept>
+    <concept>
+      <code value="611399"/>
+      <display value="Sales Representatives nec"/>
+    </concept>
+    <concept>
+      <code value="612100"/>
+      <display value="Real Estate Sales Agents nfd"/>
+    </concept>
+    <concept>
+      <code value="612111"/>
+      <display value="Business Broker"/>
+    </concept>
+    <concept>
+      <code value="612112"/>
+      <display value="Property Manager"/>
+    </concept>
+    <concept>
+      <code value="612113"/>
+      <display value="Real Estate Agency Principal"/>
+    </concept>
+    <concept>
+      <code value="612114"/>
+      <display value="Real Estate Agent"/>
+    </concept>
+    <concept>
+      <code value="612115"/>
+      <display value="Real Estate Representative"/>
+    </concept>
+    <concept>
+      <code value="621000"/>
+      <display value="Sales Assistants and Salespersons nfd"/>
+    </concept>
+    <concept>
+      <code value="621111"/>
+      <display value="Sales Assistant (General)"/>
+    </concept>
+    <concept>
+      <code value="621211"/>
+      <display value="ICT Sales Assistant"/>
+    </concept>
+    <concept>
+      <code value="621300"/>
+      <display value="Motor Vehicle and Vehicle Parts Salespersons nfd"/>
+    </concept>
+    <concept>
+      <code value="621311"/>
+      <display value="Motor Vehicle or Caravan Salesperson"/>
+    </concept>
+    <concept>
+      <code value="621312"/>
+      <display value="Motor Vehicle Parts Interpreter"/>
+    </concept>
+    <concept>
+      <code value="621411"/>
+      <display value="Pharmacy Sales Assistant"/>
+    </concept>
+    <concept>
+      <code value="621511"/>
+      <display value="Retail Supervisor"/>
+    </concept>
+    <concept>
+      <code value="621611"/>
+      <display value="Service Station Attendant"/>
+    </concept>
+    <concept>
+      <code value="621700"/>
+      <display value="Street Vendors and Related Salespersons nfd"/>
+    </concept>
+    <concept>
+      <code value="621711"/>
+      <display value="Cash Van Salesperson"/>
+    </concept>
+    <concept>
+      <code value="621712"/>
+      <display value="Door-to-door Salesperson"/>
+    </concept>
+    <concept>
+      <code value="621713"/>
+      <display value="Street Vendor"/>
+    </concept>
+    <concept>
+      <code value="621900"/>
+      <display value="Other Sales Assistants and Salespersons nfd"/>
+    </concept>
+    <concept>
+      <code value="621911"/>
+      <display value="Materials Recycler"/>
+    </concept>
+    <concept>
+      <code value="621912"/>
+      <display value="Rental Salesperson"/>
+    </concept>
+    <concept>
+      <code value="621999"/>
+      <display value="Sales Assistants and Salespersons nec"/>
+    </concept>
+    <concept>
+      <code value="630000"/>
+      <display value="Sales Support Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="631100"/>
+      <display value="Checkout Operators and Office Cashiers nfd"/>
+    </concept>
+    <concept>
+      <code value="631111"/>
+      <display value="Checkout Operator"/>
+    </concept>
+    <concept>
+      <code value="631112"/>
+      <display value="Office Cashier"/>
+    </concept>
+    <concept>
+      <code value="639000"/>
+      <display value="Miscellaneous Sales Support Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="639100"/>
+      <display value="Models and Sales Demonstrators nfd"/>
+    </concept>
+    <concept>
+      <code value="639111"/>
+      <display value="Model"/>
+    </concept>
+    <concept>
+      <code value="639112"/>
+      <display value="Sales Demonstrator"/>
+    </concept>
+    <concept>
+      <code value="639200"/>
+      <display value="Retail and Wool Buyers nfd"/>
+    </concept>
+    <concept>
+      <code value="639211"/>
+      <display value="Retail Buyer"/>
+    </concept>
+    <concept>
+      <code value="639212"/>
+      <display value="Wool Buyer"/>
+    </concept>
+    <concept>
+      <code value="639311"/>
+      <display value="Telemarketer"/>
+    </concept>
+    <concept>
+      <code value="639400"/>
+      <display value="Ticket Salespersons nfd"/>
+    </concept>
+    <concept>
+      <code value="639411"/>
+      <display value="Ticket Seller"/>
+    </concept>
+    <concept>
+      <code value="639412"/>
+      <display value="Transport Conductor"/>
+    </concept>
+    <concept>
+      <code value="639511"/>
+      <display value="Visual Merchandiser"/>
+    </concept>
+    <concept>
+      <code value="639911"/>
+      <display value="Other Sales Support Worker"/>
+    </concept>
+    <concept>
+      <code value="700000"/>
+      <display value="Machinery Operators and Drivers nfd"/>
+    </concept>
+    <concept>
+      <code value="710000"/>
+      <display value="Machine and Stationary Plant Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="711000"/>
+      <display value="Machine Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="711100"/>
+      <display value="Clay, Concrete, Glass and Stone Processing Machine Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="711111"/>
+      <display value="Clay Products Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711112"/>
+      <display value="Concrete Products Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711113"/>
+      <display value="Glass Production Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711114"/>
+      <display value="Stone Processing Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711199"/>
+      <display value="Clay, Concrete, Glass and Stone Processing Machine Operators nec"/>
+    </concept>
+    <concept>
+      <code value="711211"/>
+      <display value="Industrial Spraypainter"/>
+    </concept>
+    <concept>
+      <code value="711300"/>
+      <display value="Paper and Wood Processing Machine Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="711311"/>
+      <display value="Paper Products Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711312"/>
+      <display value="Wood Processing Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711411"/>
+      <display value="Photographic Developer and Printer"/>
+    </concept>
+    <concept>
+      <code value="711500"/>
+      <display value="Plastics and Rubber Production Machine Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="711511"/>
+      <display value="Plastic Cablemaking Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711512"/>
+      <display value="Plastic Compounding and Reclamation Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711513"/>
+      <display value="Plastics Fabricator or Welder"/>
+    </concept>
+    <concept>
+      <code value="711514"/>
+      <display value="Plastics Production Machine Operator (General)"/>
+    </concept>
+    <concept>
+      <code value="711515"/>
+      <display value="Reinforced Plastic and Composite Production Worker"/>
+    </concept>
+    <concept>
+      <code value="711516"/>
+      <display value="Rubber Production Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711599"/>
+      <display value="Plastics and Rubber Production Machine Operators nec"/>
+    </concept>
+    <concept>
+      <code value="711611"/>
+      <display value="Sewing Machinist"/>
+    </concept>
+    <concept>
+      <code value="711700"/>
+      <display value="Textile and Footwear Production Machine Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="711711"/>
+      <display value="Footwear Production Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711712"/>
+      <display value="Hide and Skin Processing Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711713"/>
+      <display value="Knitting Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711714"/>
+      <display value="Textile Dyeing and Finishing Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711715"/>
+      <display value="Weaving Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711716"/>
+      <display value="Yarn Carding and Spinning Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711799"/>
+      <display value="Textile and Footwear Production Machine Operators nec"/>
+    </concept>
+    <concept>
+      <code value="711900"/>
+      <display value="Other Machine Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="711911"/>
+      <display value="Chemical Production Machine Operator"/>
+    </concept>
+    <concept>
+      <code value="711912"/>
+      <display value="Motion Picture Projectionist"/>
+    </concept>
+    <concept>
+      <code value="711913"/>
+      <display value="Sand Blaster"/>
+    </concept>
+    <concept>
+      <code value="711914"/>
+      <display value="Sterilisation Technician"/>
+    </concept>
+    <concept>
+      <code value="711999"/>
+      <display value="Machine Operators nec"/>
+    </concept>
+    <concept>
+      <code value="712000"/>
+      <display value="Stationary Plant Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="712111"/>
+      <display value="Crane, Hoist or Lift Operator"/>
+    </concept>
+    <concept>
+      <code value="712200"/>
+      <display value="Drillers, Miners and Shot Firers nfd"/>
+    </concept>
+    <concept>
+      <code value="712211"/>
+      <display value="Driller"/>
+    </concept>
+    <concept>
+      <code value="712212"/>
+      <display value="Miner"/>
+    </concept>
+    <concept>
+      <code value="712213"/>
+      <display value="Shot Firer"/>
+    </concept>
+    <concept>
+      <code value="712311"/>
+      <display value="Engineering Production Systems Worker"/>
+    </concept>
+    <concept>
+      <code value="712900"/>
+      <display value="Other Stationary Plant Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="712911"/>
+      <display value="Boiler or Engine Operator"/>
+    </concept>
+    <concept>
+      <code value="712912"/>
+      <display value="Bulk Materials Handling Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="712913"/>
+      <display value="Cement Production Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="712914"/>
+      <display value="Concrete Batching Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="712915"/>
+      <display value="Concrete Pump Operator"/>
+    </concept>
+    <concept>
+      <code value="712916"/>
+      <display value="Paper and Pulp Mill Operator"/>
+    </concept>
+    <concept>
+      <code value="712917"/>
+      <display value="Railway Signal Operator"/>
+    </concept>
+    <concept>
+      <code value="712918"/>
+      <display value="Train Controller"/>
+    </concept>
+    <concept>
+      <code value="712921"/>
+      <display value="Waste Water or Water Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="712922"/>
+      <display value="Weighbridge Operator"/>
+    </concept>
+    <concept>
+      <code value="712999"/>
+      <display value="Stationary Plant Operators nec"/>
+    </concept>
+    <concept>
+      <code value="721000"/>
+      <display value="Mobile Plant Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="721100"/>
+      <display value="Agricultural, Forestry and Horticultural Plant Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="721111"/>
+      <display value="Agricultural and Horticultural Mobile Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="721112"/>
+      <display value="Logging Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="721200"/>
+      <display value="Earthmoving Plant Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="721211"/>
+      <display value="Earthmoving Plant Operator (General)"/>
+    </concept>
+    <concept>
+      <code value="721212"/>
+      <display value="Backhoe Operator"/>
+    </concept>
+    <concept>
+      <code value="721213"/>
+      <display value="Bulldozer Operator"/>
+    </concept>
+    <concept>
+      <code value="721214"/>
+      <display value="Excavator Operator"/>
+    </concept>
+    <concept>
+      <code value="721215"/>
+      <display value="Grader Operator"/>
+    </concept>
+    <concept>
+      <code value="721216"/>
+      <display value="Loader Operator"/>
+    </concept>
+    <concept>
+      <code value="721311"/>
+      <display value="Forklift Driver"/>
+    </concept>
+    <concept>
+      <code value="721900"/>
+      <display value="Other Mobile Plant Operators nfd"/>
+    </concept>
+    <concept>
+      <code value="721911"/>
+      <display value="Aircraft Baggage Handler and Airline Ground Crew"/>
+    </concept>
+    <concept>
+      <code value="721912"/>
+      <display value="Linemarker"/>
+    </concept>
+    <concept>
+      <code value="721913"/>
+      <display value="Paving Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="721914"/>
+      <display value="Railway Track Plant Operator"/>
+    </concept>
+    <concept>
+      <code value="721915"/>
+      <display value="Road Roller Operator"/>
+    </concept>
+    <concept>
+      <code value="721916"/>
+      <display value="Streetsweeper Operator"/>
+    </concept>
+    <concept>
+      <code value="721999"/>
+      <display value="Mobile Plant Operators nec"/>
+    </concept>
+    <concept>
+      <code value="730000"/>
+      <display value="Road and Rail Drivers nfd"/>
+    </concept>
+    <concept>
+      <code value="731000"/>
+      <display value="Automobile, Bus and Rail Drivers nfd"/>
+    </concept>
+    <concept>
+      <code value="731100"/>
+      <display value="Automobile Drivers nfd"/>
+    </concept>
+    <concept>
+      <code value="731111"/>
+      <display value="Chauffeur"/>
+    </concept>
+    <concept>
+      <code value="731112"/>
+      <display value="Taxi Driver"/>
+    </concept>
+    <concept>
+      <code value="731199"/>
+      <display value="Automobile Drivers nec"/>
+    </concept>
+    <concept>
+      <code value="731200"/>
+      <display value="Bus and Coach Drivers nfd"/>
+    </concept>
+    <concept>
+      <code value="731211"/>
+      <display value="Bus Driver"/>
+    </concept>
+    <concept>
+      <code value="731212"/>
+      <display value="Charter and Tour Bus Driver"/>
+    </concept>
+    <concept>
+      <code value="731213"/>
+      <display value="Passenger Coach Driver"/>
+    </concept>
+    <concept>
+      <code value="731300"/>
+      <display value="Train and Tram Drivers nfd"/>
+    </concept>
+    <concept>
+      <code value="731311"/>
+      <display value="Train Driver"/>
+    </concept>
+    <concept>
+      <code value="731312"/>
+      <display value="Tram Driver"/>
+    </concept>
+    <concept>
+      <code value="732111"/>
+      <display value="Delivery Driver"/>
+    </concept>
+    <concept>
+      <code value="733100"/>
+      <display value="Truck Drivers nfd"/>
+    </concept>
+    <concept>
+      <code value="733111"/>
+      <display value="Truck Driver (General)"/>
+    </concept>
+    <concept>
+      <code value="733112"/>
+      <display value="Aircraft Refueller"/>
+    </concept>
+    <concept>
+      <code value="733113"/>
+      <display value="Furniture Removalist"/>
+    </concept>
+    <concept>
+      <code value="733114"/>
+      <display value="Tanker Driver"/>
+    </concept>
+    <concept>
+      <code value="733115"/>
+      <display value="Tow Truck Driver"/>
+    </concept>
+    <concept>
+      <code value="741111"/>
+      <display value="Storeperson"/>
+    </concept>
+    <concept>
+      <code value="800000"/>
+      <display value="Labourers nfd"/>
+    </concept>
+    <concept>
+      <code value="811000"/>
+      <display value="Cleaners and Laundry Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="811111"/>
+      <display value="Car Detailer"/>
+    </concept>
+    <concept>
+      <code value="811211"/>
+      <display value="Commercial Cleaner"/>
+    </concept>
+    <concept>
+      <code value="811311"/>
+      <display value="Domestic Cleaner"/>
+    </concept>
+    <concept>
+      <code value="811400"/>
+      <display value="Housekeepers nfd"/>
+    </concept>
+    <concept>
+      <code value="811411"/>
+      <display value="Commercial Housekeeper"/>
+    </concept>
+    <concept>
+      <code value="811412"/>
+      <display value="Domestic Housekeeper"/>
+    </concept>
+    <concept>
+      <code value="811500"/>
+      <display value="Laundry Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="811511"/>
+      <display value="Laundry Worker (General)"/>
+    </concept>
+    <concept>
+      <code value="811512"/>
+      <display value="Drycleaner"/>
+    </concept>
+    <concept>
+      <code value="811513"/>
+      <display value="Ironer or Presser"/>
+    </concept>
+    <concept>
+      <code value="811600"/>
+      <display value="Other Cleaners nfd"/>
+    </concept>
+    <concept>
+      <code value="811611"/>
+      <display value="Carpet Cleaner"/>
+    </concept>
+    <concept>
+      <code value="811612"/>
+      <display value="Window Cleaner"/>
+    </concept>
+    <concept>
+      <code value="811699"/>
+      <display value="Cleaners nec"/>
+    </concept>
+    <concept>
+      <code value="821000"/>
+      <display value="Construction and Mining Labourers nfd"/>
+    </concept>
+    <concept>
+      <code value="821100"/>
+      <display value="Building and Plumbing Labourers nfd"/>
+    </concept>
+    <concept>
+      <code value="821111"/>
+      <display value="Builder's Labourer"/>
+    </concept>
+    <concept>
+      <code value="821112"/>
+      <display value="Drainage, Sewerage and Stormwater Labourer"/>
+    </concept>
+    <concept>
+      <code value="821113"/>
+      <display value="Earthmoving Labourer"/>
+    </concept>
+    <concept>
+      <code value="821114"/>
+      <display value="Plumber's Assistant"/>
+    </concept>
+    <concept>
+      <code value="821211"/>
+      <display value="Concreter"/>
+    </concept>
+    <concept>
+      <code value="821311"/>
+      <display value="Fencer"/>
+    </concept>
+    <concept>
+      <code value="821400"/>
+      <display value="Insulation and Home Improvement Installers nfd"/>
+    </concept>
+    <concept>
+      <code value="821411"/>
+      <display value="Building Insulation Installer"/>
+    </concept>
+    <concept>
+      <code value="821412"/>
+      <display value="Home Improvement Installer"/>
+    </concept>
+    <concept>
+      <code value="821511"/>
+      <display value="Paving and Surfacing Labourer"/>
+    </concept>
+    <concept>
+      <code value="821611"/>
+      <display value="Railway Track Worker"/>
+    </concept>
+    <concept>
+      <code value="821700"/>
+      <display value="Structural Steel Construction Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="821711"/>
+      <display value="Construction Rigger"/>
+    </concept>
+    <concept>
+      <code value="821712"/>
+      <display value="Scaffolder"/>
+    </concept>
+    <concept>
+      <code value="821713"/>
+      <display value="Steel Fixer"/>
+    </concept>
+    <concept>
+      <code value="821714"/>
+      <display value="Structural Steel Erector"/>
+    </concept>
+    <concept>
+      <code value="821900"/>
+      <display value="Other Construction and Mining Labourers nfd"/>
+    </concept>
+    <concept>
+      <code value="821911"/>
+      <display value="Crane Chaser"/>
+    </concept>
+    <concept>
+      <code value="821912"/>
+      <display value="Driller's Assistant"/>
+    </concept>
+    <concept>
+      <code value="821913"/>
+      <display value="Lagger"/>
+    </concept>
+    <concept>
+      <code value="821914"/>
+      <display value="Mining Support Worker"/>
+    </concept>
+    <concept>
+      <code value="821915"/>
+      <display value="Surveyor's Assistant"/>
+    </concept>
+    <concept>
+      <code value="830000"/>
+      <display value="Factory Process Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="831000"/>
+      <display value="Food Process Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="831100"/>
+      <display value="Food and Drink Factory Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="831111"/>
+      <display value="Baking Factory Worker"/>
+    </concept>
+    <concept>
+      <code value="831112"/>
+      <display value="Brewery Worker"/>
+    </concept>
+    <concept>
+      <code value="831113"/>
+      <display value="Confectionery Maker"/>
+    </concept>
+    <concept>
+      <code value="831114"/>
+      <display value="Dairy Products Maker"/>
+    </concept>
+    <concept>
+      <code value="831115"/>
+      <display value="Fruit and Vegetable Factory Worker"/>
+    </concept>
+    <concept>
+      <code value="831116"/>
+      <display value="Grain Mill Worker"/>
+    </concept>
+    <concept>
+      <code value="831117"/>
+      <display value="Sugar Mill Worker"/>
+    </concept>
+    <concept>
+      <code value="831118"/>
+      <display value="Winery Cellar Hand"/>
+    </concept>
+    <concept>
+      <code value="831199"/>
+      <display value="Food and Drink Factory Workers nec"/>
+    </concept>
+    <concept>
+      <code value="831200"/>
+      <display value="Meat Boners and Slicers, and Slaughterers nfd"/>
+    </concept>
+    <concept>
+      <code value="831211"/>
+      <display value="Meat Boner and Slicer"/>
+    </concept>
+    <concept>
+      <code value="831212"/>
+      <display value="Slaughterer"/>
+    </concept>
+    <concept>
+      <code value="831300"/>
+      <display value="Meat, Poultry and Seafood Process Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="831311"/>
+      <display value="Meat Process Worker"/>
+    </concept>
+    <concept>
+      <code value="831312"/>
+      <display value="Poultry Process Worker"/>
+    </concept>
+    <concept>
+      <code value="831313"/>
+      <display value="Seafood Process Worker"/>
+    </concept>
+    <concept>
+      <code value="832000"/>
+      <display value="Packers and Product Assemblers nfd"/>
+    </concept>
+    <concept>
+      <code value="832100"/>
+      <display value="Packers nfd"/>
+    </concept>
+    <concept>
+      <code value="832111"/>
+      <display value="Chocolate Packer"/>
+    </concept>
+    <concept>
+      <code value="832112"/>
+      <display value="Container Filler"/>
+    </concept>
+    <concept>
+      <code value="832113"/>
+      <display value="Fruit and Vegetable Packer"/>
+    </concept>
+    <concept>
+      <code value="832114"/>
+      <display value="Meat Packer"/>
+    </concept>
+    <concept>
+      <code value="832115"/>
+      <display value="Seafood Packer"/>
+    </concept>
+    <concept>
+      <code value="832199"/>
+      <display value="Packers nec"/>
+    </concept>
+    <concept>
+      <code value="832211"/>
+      <display value="Product Assembler"/>
+    </concept>
+    <concept>
+      <code value="839000"/>
+      <display value="Miscellaneous Factory Process Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="839111"/>
+      <display value="Metal Engineering Process Worker"/>
+    </concept>
+    <concept>
+      <code value="839200"/>
+      <display value="Plastics and Rubber Factory Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="839211"/>
+      <display value="Plastics Factory Worker"/>
+    </concept>
+    <concept>
+      <code value="839212"/>
+      <display value="Rubber Factory Worker"/>
+    </concept>
+    <concept>
+      <code value="839300"/>
+      <display value="Product Quality Controllers nfd"/>
+    </concept>
+    <concept>
+      <code value="839311"/>
+      <display value="Product Examiner"/>
+    </concept>
+    <concept>
+      <code value="839312"/>
+      <display value="Product Grader"/>
+    </concept>
+    <concept>
+      <code value="839313"/>
+      <display value="Product Tester"/>
+    </concept>
+    <concept>
+      <code value="839400"/>
+      <display value="Timber and Wood Process Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="839411"/>
+      <display value="Paper and Pulp Mill Worker"/>
+    </concept>
+    <concept>
+      <code value="839412"/>
+      <display value="Sawmill or Timber Yard Worker"/>
+    </concept>
+    <concept>
+      <code value="839413"/>
+      <display value="Wood and Wood Products Factory Worker"/>
+    </concept>
+    <concept>
+      <code value="839900"/>
+      <display value="Other Factory Process Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="839911"/>
+      <display value="Cement and Concrete Plant Worker"/>
+    </concept>
+    <concept>
+      <code value="839912"/>
+      <display value="Chemical Plant Worker"/>
+    </concept>
+    <concept>
+      <code value="839913"/>
+      <display value="Clay Processing Factory Worker"/>
+    </concept>
+    <concept>
+      <code value="839914"/>
+      <display value="Fabric and Textile Factory Worker"/>
+    </concept>
+    <concept>
+      <code value="839915"/>
+      <display value="Footwear Factory Worker"/>
+    </concept>
+    <concept>
+      <code value="839916"/>
+      <display value="Glass Processing Worker"/>
+    </concept>
+    <concept>
+      <code value="839917"/>
+      <display value="Hide and Skin Processing Worker"/>
+    </concept>
+    <concept>
+      <code value="839999"/>
+      <display value="Factory Process Workers nec"/>
+    </concept>
+    <concept>
+      <code value="841000"/>
+      <display value="Farm, Forestry and Garden Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="841111"/>
+      <display value="Aquaculture Worker"/>
+    </concept>
+    <concept>
+      <code value="841200"/>
+      <display value="Crop Farm Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="841211"/>
+      <display value="Fruit or Nut Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841212"/>
+      <display value="Fruit or Nut Picker"/>
+    </concept>
+    <concept>
+      <code value="841213"/>
+      <display value="Grain, Oilseed or Pasture Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841214"/>
+      <display value="Vegetable Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841215"/>
+      <display value="Vegetable Picker"/>
+    </concept>
+    <concept>
+      <code value="841216"/>
+      <display value="Vineyard Worker"/>
+    </concept>
+    <concept>
+      <code value="841299"/>
+      <display value="Crop Farm Workers nec"/>
+    </concept>
+    <concept>
+      <code value="841300"/>
+      <display value="Forestry and Logging Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="841311"/>
+      <display value="Forestry Worker"/>
+    </concept>
+    <concept>
+      <code value="841312"/>
+      <display value="Logging Assistant"/>
+    </concept>
+    <concept>
+      <code value="841313"/>
+      <display value="Tree Faller"/>
+    </concept>
+    <concept>
+      <code value="841400"/>
+      <display value="Garden and Nursery Labourers nfd"/>
+    </concept>
+    <concept>
+      <code value="841411"/>
+      <display value="Garden Labourer"/>
+    </concept>
+    <concept>
+      <code value="841412"/>
+      <display value="Horticultural Nursery Assistant"/>
+    </concept>
+    <concept>
+      <code value="841500"/>
+      <display value="Livestock Farm Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="841511"/>
+      <display value="Beef Cattle Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841512"/>
+      <display value="Dairy Cattle Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841513"/>
+      <display value="Mixed Livestock Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841514"/>
+      <display value="Poultry Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841515"/>
+      <display value="Sheep Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841516"/>
+      <display value="Stablehand"/>
+    </concept>
+    <concept>
+      <code value="841517"/>
+      <display value="Wool Handler"/>
+    </concept>
+    <concept>
+      <code value="841599"/>
+      <display value="Livestock Farm Workers nec"/>
+    </concept>
+    <concept>
+      <code value="841611"/>
+      <display value="Mixed Crop and Livestock Farm Worker"/>
+    </concept>
+    <concept>
+      <code value="841900"/>
+      <display value="Other Farm, Forestry and Garden Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="841911"/>
+      <display value="Hunter-Trapper"/>
+    </concept>
+    <concept>
+      <code value="841912"/>
+      <display value="Pest or Weed Controller"/>
+    </concept>
+    <concept>
+      <code value="841999"/>
+      <display value="Farm, Forestry and Garden Workers nec"/>
+    </concept>
+    <concept>
+      <code value="851000"/>
+      <display value="Food Preparation Assistants nfd"/>
+    </concept>
+    <concept>
+      <code value="851111"/>
+      <display value="Fast Food Cook"/>
+    </concept>
+    <concept>
+      <code value="851200"/>
+      <display value="Food Trades Assistants nfd"/>
+    </concept>
+    <concept>
+      <code value="851211"/>
+      <display value="Pastrycook's Assistant"/>
+    </concept>
+    <concept>
+      <code value="851299"/>
+      <display value="Food Trades Assistants nec"/>
+    </concept>
+    <concept>
+      <code value="851311"/>
+      <display value="Kitchenhand"/>
+    </concept>
+    <concept>
+      <code value="890000"/>
+      <display value="Other Labourers nfd"/>
+    </concept>
+    <concept>
+      <code value="891000"/>
+      <display value="Freight Handlers and Shelf Fillers nfd"/>
+    </concept>
+    <concept>
+      <code value="891100"/>
+      <display value="Freight and Furniture Handlers nfd"/>
+    </concept>
+    <concept>
+      <code value="891111"/>
+      <display value="Freight Handler (Rail or Road)"/>
+    </concept>
+    <concept>
+      <code value="891112"/>
+      <display value="Truck Driver's Offsider"/>
+    </concept>
+    <concept>
+      <code value="891113"/>
+      <display value="Waterside Worker"/>
+    </concept>
+    <concept>
+      <code value="891211"/>
+      <display value="Shelf Filler"/>
+    </concept>
+    <concept>
+      <code value="899000"/>
+      <display value="Miscellaneous Labourers nfd"/>
+    </concept>
+    <concept>
+      <code value="899111"/>
+      <display value="Caretaker"/>
+    </concept>
+    <concept>
+      <code value="899200"/>
+      <display value="Deck and Fishing Hands nfd"/>
+    </concept>
+    <concept>
+      <code value="899211"/>
+      <display value="Deck Hand"/>
+    </concept>
+    <concept>
+      <code value="899212"/>
+      <display value="Fishing Hand"/>
+    </concept>
+    <concept>
+      <code value="899311"/>
+      <display value="Handyperson"/>
+    </concept>
+    <concept>
+      <code value="899400"/>
+      <display value="Motor Vehicle Parts and Accessories Fitters nfd"/>
+    </concept>
+    <concept>
+      <code value="899411"/>
+      <display value="Motor Vehicle Parts and Accessories Fitter (General)"/>
+    </concept>
+    <concept>
+      <code value="899412"/>
+      <display value="Autoglazier"/>
+    </concept>
+    <concept>
+      <code value="899413"/>
+      <display value="Exhaust and Muffler Fitter"/>
+    </concept>
+    <concept>
+      <code value="899414"/>
+      <display value="Radiator Fitter"/>
+    </concept>
+    <concept>
+      <code value="899415"/>
+      <display value="Tyre Fitter"/>
+    </concept>
+    <concept>
+      <code value="899500"/>
+      <display value="Printing Assistants and Table Workers nfd"/>
+    </concept>
+    <concept>
+      <code value="899511"/>
+      <display value="Printer's Assistant"/>
+    </concept>
+    <concept>
+      <code value="899512"/>
+      <display value="Printing Table Worker"/>
+    </concept>
+    <concept>
+      <code value="899611"/>
+      <display value="Recycling or Rubbish Collector"/>
+    </concept>
+    <concept>
+      <code value="899711"/>
+      <display value="Vending Machine Attendant"/>
+    </concept>
+    <concept>
+      <code value="899900"/>
+      <display value="Other Miscellaneous Labourers nfd"/>
+    </concept>
+    <concept>
+      <code value="899911"/>
+      <display value="Bicycle Mechanic"/>
+    </concept>
+    <concept>
+      <code value="899912"/>
+      <display value="Car Park Attendant"/>
+    </concept>
+    <concept>
+      <code value="899913"/>
+      <display value="Crossing Supervisor"/>
+    </concept>
+    <concept>
+      <code value="899914"/>
+      <display value="Electrical or Telecommunications Trades Assistant"/>
+    </concept>
+    <concept>
+      <code value="899915"/>
+      <display value="Leaflet or Newspaper Deliverer"/>
+    </concept>
+    <concept>
+      <code value="899916"/>
+      <display value="Mechanic's Assistant"/>
+    </concept>
+    <concept>
+      <code value="899917"/>
+      <display value="Railways Assistant"/>
+    </concept>
+    <concept>
+      <code value="899918"/>
+      <display value="Sign Erector"/>
+    </concept>
+    <concept>
+      <code value="899921"/>
+      <display value="Ticket Collector or Usher"/>
+    </concept>
+    <concept>
+      <code value="899922"/>
+      <display value="Trolley Collector"/>
+    </concept>
+    <concept>
+      <code value="899999"/>
+      <display value="Labourers nec"/>
+    </concept>
+  </define>
+</ValueSet>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/zorgportal/identifiers/encounters"/>
+        <value value="v6751"/>
+    </identifier>
+    <status value="finished"/>
+    <class value="outpatient"/>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="270427003"/>
+            <display value="Patient-initiated encounter"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/f001"/>
+        <display value="P. van de Heuvel"/>
+    </subject>
+    <participant>
+        <individual>
+            <reference value="Practitioner/f001"/>
+            <display value="E.M. van den Broek"/>
+        </individual>
+    </participant>
+    <length>
+        <value value="90"/>
+        <units value="min" />
+        <system value="http://unitsofmeasure.org" />
+        <code value="min" />
+    </length>
+    <reason>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="18099001"/>
+            <display value="Retropharyngeal abscess"/>
+        </coding>
+    </reason>
+    <priority>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="103391001"/>
+            <display value="Non-urgent ear, nose and throat admission"/>
+        </coding>
+    </priority>
+    <hospitalization>
+        <preAdmissionIdentifier>
+            <use value="official"/>
+            <system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
+            <value value="93042"/>
+        </preAdmissionIdentifier>
+   <!--     <preAdmissionTest>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="168719007"/>
+                <display value="Neck soft tissue X-ray"/>
+            </coding>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="396550006"/>
+                <display value="Blood test"/>
+            </coding>
+        </preAdmissionTest> -->
+        <admitSource>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="305956004"/>
+                <display value="Referral by physician"/>
+            </coding>
+        </admitSource>
+        <period>
+            <start value="2011-06-26"/>
+            <end value="2011-06-30"/>
+        </period>
+        <accomodation>
+            <period>
+                <start value="2011-06-26"/>
+                <end value="2011-07-01"/>
+            </period>
+        </accomodation> 
+        <dischargeDisposition>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="306689006"/>
+                <display value="Discharge to home"/>
+            </coding>
+        </dischargeDisposition>
+        <reAdmission value="false"/>
+    </hospitalization>
+    <serviceProvider>
+        <reference value="Organization/f001"/>
+    </serviceProvider>
+</Encounter>

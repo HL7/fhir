@@ -1,0 +1,254 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<h2>Identifier and Version</h2>
+<p>
+The <i>identifier</i> and <i>version</i> elements may be used to reference this value set in a design, a profile, a 
+CDA template or V3 message (valueSet and valueSetVersion). These different contexts may make additional restrictions 
+on the possible values of these elements.  These elements are generally not needed when using value sets with FHIR
+implementations as they can make use of the innate identifier and versioning mechanism associated with the resource
+</p>
+
+<h2>Value Sets that define codes</h2>
+
+<p>
+Valuesets can define their own codes. A value set that defines codes automatically includes all 
+the codes it defines, and is useful for simple sets of codes that are highly 
+specific and context-dependent. The value set and the code system are both 
+given URI identifiers by which they may be identified from elsewhere 
+(ValueSet.identifier and ValueSet.define.system). These identifiers SHALL 
+be different.
+</p>
+<ul>
+ <li><i>ValueSet.define.system</i> is the URI that identifies these codes 
+   when used in a <a href="datatypes.html#Coding">Coding</a></li>
+ <li>The usability of the codes is closely linked to the quality of the definitions. 
+   Although a definition is not required for each concept, a good definition SHOULD be provided. In the absence of any definition, there is no formal meaning associated with the concept</li>
+ <li>If concepts contain other concepts, then the contained concepts are "subsumed" by 
+   the containing concept (there is an "is-a" relationship between the codes).</li>
+  <li>An abstract concept SHALL have contained concepts</li>
+</ul>
+<p>
+Note: Value sets only define their own codes when they are not defined elsewhere,
+such as codes defined in SNOMED CT, LOINC, RxNorm etc. To specify a value set that
+is made up of codes from other code systems, see "compose" below. 
+</p>
+
+<a name="versioning"> </a>
+<h3>Versioning Code Systems</h3>
+<p>
+Most code systems evolve over time, due to corrections, clarifications, and changes to approach or underlying knowledge or reality.
+If these changes lead to the meanings of existing codes changing significantly, then the interpretation of the code system becomes
+version dependent. This significantly complicates implementation based on the code system, to the point where it is not clear that
+safety can be assured, so SHOULD be avoided whenever possible. It is preferable to assign a new identifier to a code system 
+when any concepts in it have a significant change in meaning (for example, the German diagnostic classification code system 
+ICD10GM2009 has a different <i>system</i> to ICD10GM2008), but this also can have substantial impact on implementation, so 
+is often not practical - for instance, <a href="http://loinc.org">LOINC</a> has re-defined the meaning of codes in the past,
+but there is only one identifier for LOINC. 
+</p>
+<p>
+For this reason, a code system MAY provide a version identifer in <i>ValueSet.define.version</i>. The version specific identifier SHOULD be 
+provided whenever there are potentially significant changes in meaning across multiple releases of a code system.
+There is no particular format requirement for the version identifier, though HL7 recommends a date based approach. 
+</p>
+<p>
+When the value set definition of a code system includes a version identifier, the version identifier SHOULD be 
+used in <a href="datatypes.html#coding">Coding</a> instances that refer to the code system. 
+</p>
+
+
+<h2>Value Sets that include codes defined elsewhere</h2>
+
+<p>
+Value sets that include codes defined in some other code system are most useful when 
+dealing with large general code systems such as SNOMED CT, LOINC, RxNorm or various IETF code sets 
+including human language. The value set can be a simple list of included codes or it can be some 
+kind of general selection criteria using the facilities provided by the code system. 
+</p>
+<ul>
+ <li>Within an include or exclude criterion, multiple filters and concept selections are intersected. All the 
+   conditions specified SHALL be true.</li>
+ <li>The value set always includes any codes it defines itself. A typical use for this
+    is when including a set of codes from elsewhere, and adding a few additional codes to cover
+    cases not catered to by the included codes</li>
+ <li>An include statement consists of any enumerated codes and any codes that meet the filter criteria</li>
+ <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
+    over time as the underlying code systems are updated</li>
+ <li>The content of the value set is constructed by unioning of all the import and include statements and then 
+  eliminating any of the 'excluded' codes.</li>
+ <li>A value set needs to do something.  It can't simply include an existing value set without 
+   also including additional content or excluding content</li>
+<!--
+ <li>The point of declaring that this value set restricts another is that this value set can then replace the other in a profile 
+without changing the meaning. Declaring this explicitly allows profile tools to reason about the relationship without having 
+to compute the relationship, which might not be possible for a profile tool</li>
+-->
+ <li>Using the property filters is only possible where the underlying code system defines 
+  appropriate properties. Note that in some cases, the underlying code system defines the 
+  logical concepts but not the syntax for exercising them. In such cases, the literal 
+  definitions may be provided by a third party. See below for notes about its use against common code systems</li>
+</ul>
+
+<h3>Code systems Note</h3>
+<p>
+How filters are used with various code systems:
+</p>
+<table class="grid">
+ <tr>
+   <th>System</th>    
+   <th>Property Name</th> 
+   <th>Operation</th> 
+   <th>Value</th>        
+   <th>Definition</th>
+   <th>Example</th>
+ </tr>
+ <tr>
+   <td>SNOMED CT</td>          
+   <td>expression</td>
+   <td>=</td>       
+   <td>[expression]</td> 
+   <td>The result of the filter is the result of executing the given SNOMED CT expression 
+    (see the draft <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_CT_Query_Specification_-__v0.08_-_20121213.doc"> SNOMED CT Query Language</a>)</td> 
+   <td>(no example yet)</td>
+ </tr>
+ <tr>
+   <td></td> 
+   <td>concept</td>
+   <td>is-a</td>       
+   <td>[concept]</td>    
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value <br/>The SNOMED CT Query Language expression for this is DescendentsAndSelf([concept])</td> 
+   <td><a href="valueset-administration-method-codes.html">Administation Methods</a></td>
+ </tr>
+ <tr>
+   <td></td> 
+   <td>concept</td>
+   <td>in</td>       
+   <td>[concept]</td>    
+   <td>Includes all concept ids that are in the reference set identified by the concept Id provided as the value <br/>The SNOMED CT Query Language expression for this is MembersOf([concept])</td> 
+   <td><a href="valueset-administration-method-codes.html">Administation Methods</a></td>
+ </tr>
+ <tr>
+   <td colspan="4"><hr/></td>
+ </tr>
+ 
+ <tr>
+   <td>LOINC</td> 
+   <td>[property]</td>
+   <td>= / regex</td>       
+   <td>[value]</td>    
+   <td>Includes all codes where the named property has the given value. Valid Property Names are all the names listed in the 
+     "Field Name" column in LOINC Database Structure (Appendix A of the LOINC manual). 
+     Of these, the 6 properties COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, and METHOD_TYP are most likely to be useful. 
+     In addition, the following 5 property names are defined in the Document Ontology: Document.Kind, Document.TypeOfService, Document.Setting, Document.Role, and Document.SubjectMatterDomain.
+   </td> 
+   <td><a href="valueset-doc-codes.html">Document Codes</a></td>
+ </tr>
+ <tr>
+   <td></td>      
+   <td>Type</td>        
+   <td>=</td>       
+   <td>Method</td>       
+   <td>All the LOINC codes for particular methods defined in LOINC</td> 
+   <td><a href="valueset-observation-methods.html">Observation Methods</a></td>
+ </tr>
+ <tr>
+   <td colspan="4"><hr/></td>
+ </tr>
+ 
+ <tr>
+   <td>V3 Code systems</td> 
+   <td>concept</td>
+   <td>is-a</td>       
+   <td>[code]</td>    
+   <td>Includes all codes that have a transitive is-a relationship with the concept identified by the value</td> 
+   <td><a href="valueset-relatedperson-relationshiptype.html">Relationship Type</a></td>
+ </tr>
+ 
+</table>
+
+<a name="expansion"> </a>
+<h2>Value Set Expansion</h2>
+<p>
+A value set can be "expanded", where the definition of the value set is 
+used to create a simple collection of codes suitable for use for data 
+entry or validation. This is most useful when a value set includes 
+all the children of a code or a set of codes by filter.
+</p>
+<p>
+A resource that represents a value set expansion includes the same
+identification details as the definition of the value set, and MAY
+include the definition of the value set (<i>define</i> and <i>compose</i>
+elements). In addition it has a <i>expansion</i> element which contains
+the list of codes that constitute the value set expansion. If the 
+expansion is heirarchical (codes contain other concepts), there 
+is no implication about the logical relationship between them; this 
+is guidance for helping human user navigate the choice of codes that 
+may or may not relate to the logical definitions of the codes or concepts.
+</p>
+<p>
+In general, the following process should be followed when 
+expanding a value set:
+</p>
+<ul>
+ <li>for each <i>compose.import</i>, find the referenced value set, expand that, and add it to the result set</li>
+ <li>for each <i>compose.include</i>, identify the correct version of the code system, and then:
+  <ul>
+   <li>if there is no codes or filters, add every code in the code system to the result set</li>
+   <li>if codes are listed, add them to the result set</li>
+   <li>if any filters are present, process them in order (as explained above), and add the intersection of their results to the result set</li>
+  </ul>
+ </li>
+ <li>for each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove any codes from the result set, instead of adding them</li>
+ <li>add any codes in the <i>define</i> to the result set</li>
+</ul>
+<p>
+The "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
+also provides support for a hierarchical tree of codes. This specification does not fix the meaning of use of either
+of these, and the conceptual approach described should not be understood to prohibit any implementation approach in
+these regards.
+</p>
+<p>
+An application MAY offer to expand value sets for other applications. In this 
+case, the standard way to produce a value set expansion is to perform a 
+<a href="search.html">query</a> on the value set with _query=expand:
+</p>
+<pre>
+  GET [service-url]/ValueSet/?_query=expand&amp;id=:valueSet&amp;...
+</pre>
+<p>
+This is a request to produce a value set expansion for the value set
+with the provided id which is either a logical id, or an absolute reference to a value set. 
+The value set can be identified by other means, such as identifier and version. 
+Servers can define their own additional parameters that influence the expansion 
+process, such in relation to order and hierarchy.
+</p>
+<p>
+The value set expansion returned by this query should be treated 
+as a transient result that will change over time (whether it does or
+not depends on how the value set is specified), so applications 
+should repeat the query each time the value set is used.
+</p>
+<h2>Value Set Validation</h2>
+<p>
+An application may offer to provide code validation services for other 
+applications. In this case, the standard way for an application to 
+ask for validation is to perform a 
+<a href="search.html">query</a> on the value set with _query=validate:
+</p>
+<pre>
+  GET [service-url]/ValueSet/?_query=validate&amp;id=:valueSet&amp;system=:system&amp;version=:version&amp;code=:code&amp;...
+</pre>
+<p>
+The values for system, version, and code are those from the <a href="datatypes.html#Coding">Coding</a> data type.
+Version is optional, and code and system are mandatory. Additionally, the parameter "coding" or "codeableconcept" 
+can be used - the value of these parameters is a URL encoded XML or JSON representation of the two data types
+respectively. An additional boolean parameter "extensible" can be provided to specify whether the
+applicable binding is extensible or not.
+</p>
+<p>
+The result of this query is an <a href="operationoutcome.html">Operation Outcome</a>.
+If there are no errors in the outcome (OperationOutcome.issue.severity), then the code is considered
+to be valid.
+</p>
+
+
+</div>

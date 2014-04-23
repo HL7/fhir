@@ -1,0 +1,31 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+The immunization resource is intended to cover the administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals but does not include the administration of non-vaccine agents, even those that may have or claim immunological effects.  
+</p>
+<p>
+Additionally, the immunization resource is expected to cover key concepts related to the creation, revision and querying of a patient's immunization history. This resource - through consultation with the PHER work group - is believed to meet key use cases and information requirements as defined in the existing HL7 v2.x immunization implementation guide, HL7 v3 POIZ domain and Immunization Domain Analysis Model.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This resource references the following resources:
+</p>
+<ul>
+    <li>AdverseReaction</li>
+    <li>Patient</li>
+    <li>Practitioner</li>
+    <li>Organization</li>
+    <li>Location</li>
+    <li>Observation</li>
+</ul>
+<p>
+Administration of vaccines is intended to be handled using the <b>Immunization</b> resource.  <a href="medicationadministration.html">MedicationAdministration</a> is intended for tracking the administration of non-vaccine medications.  Some systems treat immunizations in the same way as any other medication administration.  Such systems SHOULD use an immunization resource to represent these.  If systems need to use a <a href="medicationadministration.html">MedicationAdministration</a> resource to capture vaccinations for workflow or other reasons, they SHOULD also expose an equivalent <b>Immunization</b> instance.
+</p>
+</div>
+
+</div>

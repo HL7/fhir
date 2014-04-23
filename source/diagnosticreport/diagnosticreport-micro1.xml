@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/diagnosticreport.xsd">
+<!--
+
+This diagnostic report shows how to do a microbiology isolate and sensitivity. This is a particular complex case, with two different susceptibilities. 
+
+The basic structure of the report is 
+
+DiagnosticReport - metadata
+  group  - base group, code that says, ICS
+    group - organism = Staphylococcus aureus. You'd repeat at this level if you had more than one organism
+      group - automated broth dilution
+        results = sensitivities
+      group - Disk diffusion
+        results = sensitivities
+
+Note, then, that the organism appears in the group code, not a result code.
+
+This diagnostic report was developed from this example HL7 v2 message:
+
+OBR|1|255337816|290741144^HNAM_ORDERID-MRSACULT-^HNAM_ORDERID|MRSACULT^Culture, MRSA^^632-0^Culture, MRSA|||20090807190000|||101022^Unit|||Y|2009080800|Wound^^Right hand wound^Hand R|00013442^ASHBY^TODD^R^^^PA||||000002009219104402^HNA_ACCN~21619128^HNA_ACCNID||20090810082544||MB|F||1^^^20090808040954^^R~^^^^^R|||||||||20090807195000||||||||||||||||
+OBX|4|CE|ORGANISM|1|Staaur^Staphylococcus aureus^Staaur|||||A~S|F|||||^10304|
+OBX|5|CE|CULTPOSNEG||POS|||POS|||F||||||
+OBR|2|xxxxx|xxxxxxx|60790^Susceptibility - Automated broth dilution (Billed)|||20120911072700||2002557|xxx||||2012091100||xxxxx||||000002012255101033^xxxxx||20120914165737||MB|F|^1^Staaur&Staphylococcus aureus&310783|1^^^20120911142558^^R~^^^^^R||60108|||||||||||||||||||||||
+OBX|1|ST|60504^Ampicillin&AST Interp|1|Resistant|||RESIST||A~S|F||N|||^9315|
+OBX|2|ST|60512^Cefazolin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||N|||^9315|
+OBX|3|ST|60512^Cefazolin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
+OBX|4|ST|60516^Cefoxitin&AST Dilutn|1|<=4|||SUSCEPT||A~S|F||N|||^9315|
+OBX|5|ST|60516^Cefoxitin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
+OBX|6|ST|60527^Clindamycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|7|ST|60527^Clindamycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|8|ST|61203^Daptomycin&AST Dilutn|1|<=1|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|9|ST|61203^Daptomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|10|ST|60532^Doxycycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^9315|
+OBX|11|ST|60532^Doxycycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
+OBX|12|ST|60533^Erythromycin&AST Dilutn|1|>=8|||RESIST||A~S|F||Y|||^9315|
+OBX|13|ST|60533^Erythromycin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^9315|
+OBX|14|ST|60536^Gentamicin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|15|ST|60536^Gentamicin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|16|ST|61007^Levofloxacin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|17|ST|61007^Levofloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|18|NM|60699^Linezolid&AST Dilutn|1|4|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|19|ST|60699^Linezolid&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|20|ST|61204^Moxifloxacin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^9315|
+OBX|21|ST|61204^Moxifloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
+OBX|22|NM|60551^Oxacillin&AST Dilutn|1|0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|23|ST|60551^Oxacillin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|24|ST|60552^Penicillin&AST Dilutn|1|>=2|||RESIST||A~S|F||Y|||^9315|
+OBX|25|ST|60552^Penicillin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^9315|
+OBX|26|ST|60697^Quinupristin/Dalfopristin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|27|ST|60697^Quinupristin/Dalfopristin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|28|ST|60555^Rifampin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|29|ST|60555^Rifampin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|30|ST|60558^Tetracycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|31|ST|60558^Tetracycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|32|ST|60561^Trimethoprim/Sulfamethoxazole&AST Dilutn|1|<=1/19|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|33|ST|60561^Trimethoprim/Sulfamethoxazole&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|34|NM|60563^Vancomycin&AST Dilutn|1|1|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|35|ST|60563^Vancomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+OBX|36|ST|60500^Susceptibilities Performed&AST Dilutn|1|Performed|||||A~S|F||N|||^9315|
+OBX|37|ST|60500^Susceptibilities Performed&AST Interp|1|Completed|||||A~S|F||N|||^9315|
+OBX|38|ST|2099930^D-Test&AST Interp|1|See Note|||||A~S|F||Y|||^9315|
+OBX|39|ST|2099935^Interpretative Information&AST Interp|1|See Note|||||A~S|F||Y|||^9315|
+NTE|1|L|D-Test:  Negative - This isolate does not demonstrate|
+NTE|2|L|inducible clindamycin resistance in vitro.|
+OBR|3|xxxx|xxxxxxx|60418^Susceptibility - Disk diffusion (Billed)|||20120911072700|||xxxxx||||2012091100||xxxxx||||000002012255101033^xxxxxx||20120914165737||MB|F|^1^Staaur&Staphylococcus aureus&310783|1^^^20120911142558^^R~^^^^^R||60108|||||||||||||||||||||||
+OBX|1|ST|60036^Oxacillin Screen&KB Zone|1|60416|||SUSCEPT||A~S|F||N|||^9315|
+OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
+
+-->
+
+  <!-- first, a series of atomic results matching the atomice result OBXs -->
+  <contained>
+    <Observation id="obx1-4">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="ORGANISM"/>
+        </coding>
+      </name>
+      <valueCodeableConcept> <!-- CE -->
+        <coding>
+          <system value="http://acme.org/lab/codes/organisms"/>
+          <code value="Staaur"/>
+        </coding>
+        <text value="Staphylococcus aureus"/>
+      </valueCodeableConcept>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+  <contained>
+    <Observation id="obx1-5">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="CULTPOSNEG"/>
+        </coding>
+      </name>
+     
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://acme.org/lab/codes/flags"/>
+          <code value="POS"/>
+        </coding>
+      </valueCodeableConcept>
+      
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <!-- this is an interpretation without a value, as in the source message. Quite Strange -->
+  <contained>
+    <Observation id="obx2-1">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="60504"/>
+          <display value="Ampicillin"/>
+        </coding>
+      </name>
+           
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="R"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-2">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="60512"/>
+          <display value="Cefazolin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="2"/>
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+    <Observation id="obx2-4">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="60516"/>
+          <display value="Cefoxitin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="4"/>
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-6">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="60527"/>
+          <display value="Clindamycin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="0.5"/>
+        <comparator value="&gt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+    <Observation id="obx2-8"> 
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="61203"/>
+          <display value="Daptomycin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="1"/>
+        <comparator value="&gt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-10">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60532"/>
+          <display value="Doxycycline"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+      <value value="0.5"/>
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-12">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60533"/>
+          <display value="Erythromycin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="8"/>
+        <comparator value="&gt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="R"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-14">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60536"/>
+          <display value="Gentamicin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="2"/>
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-16">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 61007"/>
+          <display value="Levofloxacin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="0.5"/>
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+    <Observation id="obx2-18">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60699"/>
+          <display value="Linezolid"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>      
+        <value value="4"/>
+      </valueQuantity>
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-20">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 61204"/>
+          <display value="Moxifloxacin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="0.5"/>
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-22">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60551"/>
+          <display value="Oxacillin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="0.5"/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-24">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60552"/>
+          <display value="Penicillin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="2"/>
+        <comparator value="&gt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="R"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-26">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60697"/>
+          <display value="Quinupristin/Dalfopristin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="0.5"/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-28">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60555"/>
+          <display value="Rifampin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="0.5"/>
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-30">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60558"/>
+          <display value="Tetracycline"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="0.5"/>
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-32">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60561"/>
+          <display value="Trimethoprim/Sulfamethoxazole"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="0.0526"/> <!-- not sure what to do with <=1/19 -->
+        <comparator value="&lt;="/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+
+  <contained>
+    <Observation id="obx2-34">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value=" 60563"/>
+          <display value="Vancomycin"/>
+        </coding>
+      </name>
+     
+      <valueQuantity>
+        <value value="1"/>
+      </valueQuantity>
+      
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  <contained>
+    <Observation id="nte-1">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="2099930"/>
+          <display value="D-Test"/>
+        </coding>
+      </name>
+     
+      <valueString value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
+      
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+ 
+  <contained>
+    <Observation id="obx3-1">
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/tests"/>
+          <code value="60036"/>
+          <display value="Oxacillin"/>
+        </coding>
+      </name>
+      <interpretation>
+        <coding>
+          <system value="http://hl7.org/fhir/v2/0078"/>
+          <code value="S"/>
+        </coding>
+      </interpretation>
+      <status value="final"/>
+      <reliability value="ok"/>
+    </Observation>
+  </contained>
+
+  
+  <!-- 
+    now, nested observations for the groups/panels
+
+    we're working bottom to top, so first we encounter an 
+    inner group: susceptibility measured by broth dilution 
+
+    Note that we don't have to work bottom to top - the contained 
+    resources can appear in any order, but since the root does have 
+    to appear last, we weill work up to it
+  -->
+  <contained>
+    <Observation id="obr-2"> 
+      <!-- OBR 2 -->
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/panels"/>
+          <code value="60790"/>
+          <display value="Susceptibility - Automated broth dilution (Billed)"/>
+        </coding>
+      </name>
+      <status value="final"/>
+      <reliability value="ok"/>
+      <!-- now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed -->
+      <related><type value="has-member"/><target><reference value="#obx2-1"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-2"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-4"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-6"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-8"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-10"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-12"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-14"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-16"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-18"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-20"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-22"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-24"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-26"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-28"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-30"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-32"/></target></related>
+      <related><type value="has-member"/><target><reference value="#obx2-34"/></target></related>
+      <related><type value="has-member"/><target><reference value="#nte-1"/></target></related>    
+    </Observation>
+  </contained>
+
+  <!-- now we encounter another inner group: susceptibility measured by disk diffusion -->
+  <contained>
+    <Observation id="obr-3"> 
+      <!-- OBR 3 -->
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/panels"/>
+          <code value="60418"/>
+          <display value="Susceptibility - Disk diffusion (Billed)"/>
+        </coding>
+      </name>
+      <status value="final"/>
+      <reliability value="ok"/>
+      <related><type value="has-member"/><target><reference value="#obx3-1"/></target></related>
+    </Observation>
+  </contained>
+
+  <!-- organism group: Staphylococcus aureus. You'd repeat at this level if you had more than one organism -->
+  <contained>
+    <Observation id="org1"> 
+      <!-- OBR 1 -->
+      <name>
+        <coding>
+          <system value="http://acme.org/lab/codes/organisms"/>
+          <code value="Staaur"/>
+        </coding>
+        <text value="Staphylococcus aureus Panel"/>
+      </name>
+      <status value="final"/>
+      <reliability value="ok"/>
+
+      <related>
+        <type value="has-member"/>
+        <target>
+          <reference value="#obx1-4"/>
+        </target>
+      </related>
+
+      <related>
+        <type value="has-member"/>
+        <target>
+          <reference value="#obx1-5"/>
+        </target>
+      </related>
+
+      <!-- group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped -->
+      <related>
+        <type value="has-member"/>
+        <target>
+          <reference value="#obr-2"/>
+        </target>
+      </related>
+
+      <!-- group - Disk diffusion -->
+      <related>
+        <type value="has-member"/>
+        <target>
+          <reference value="#obr-3"/>
+        </target>
+      </related>
+    </Observation>
+  </contained>
+
+  <!-- ORC information -->
+  <contained>
+    <DiagnosticOrder id="req">
+      <subject>
+        <reference value="Patient/101"/> <!-- patient chosen at random -->
+      </subject>
+      <identifier>
+        <value value="255337816"/>
+      </identifier>
+    </DiagnosticOrder>
+  </contained>
+
+  
+  <!-- start of the main resource -->
+  <name>
+   <coding>
+      <system value="http://loinc.org"/>
+      <code value="632-0"/>
+    </coding>
+    <text value="Culture, MRSA"/>
+  </name>
+  <status value="final"/>
+  <issued value="2009-08-10T08:25:44"/>
+  <subject>
+    <reference value="Patient/example"/> <!-- patient chosen at random -->
+  </subject>
+  <performer>
+    <display value="Todd Ashby"/> <!-- of course, in practive, this would be a real reference -->
+  </performer>
+  <identifier>
+    <system value="http://hnam.org/identifiers/orders"/> <!-- seems like a likely choice -->
+    <value value="290741144"/>
+  </identifier>
+  <requestDetail>
+    <reference value="#req"/>
+  </requestDetail>
+  <serviceCategory>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0074"/>
+      <code value="MB"/>
+    </coding>
+  </serviceCategory>
+  <diagnosticDateTime value="2009-08-07T19:00:00"/>
+
+</DiagnosticReport>

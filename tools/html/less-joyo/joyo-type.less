@@ -1,0 +1,80 @@
+// Automatic line breaks
+// -------------------------
+body {
+    //-moz-hyphens:auto;
+	//-ms-hyphens:auto;
+	//-webkit-hyphens:auto;
+	//hyphens:auto;
+	word-wrap:break-word;
+}
+// Text meant only for screen readers 
+// -------------------------
+.assistive-text {
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+// Titles & Headers & Labels
+// -------------------------
+
+h1,h2,h3,h4,h5,h6,
+.title {
+    margin-bottom: 0.4em;
+    margin-top: 0;
+}
+.sub-title{
+	font-size: @font-size-base * 1.5; // ~28px
+}
+
+// Fontscaling Logic copied from 'type.less'
+// -------------------------
+// // http://lamb.cc/typograph/
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.4em 0;
+	font-family: @headings-font-family;
+	font-weight: @headings-font-weight;
+	line-height: @line-height-computed;
+	color: @title-color-default;
+	text-rendering: optimizelegibility; // Fix the character spacing for headings
+	small {
+		font-weight: normal;
+		line-height: 1;
+		color: @gray-light;
+  }
+}
+
+h1,
+h2,
+h3 { line-height: 1em ; }
+
+h1 { font-size: @font-size-base * @h1-scale; }
+h2 { font-size: @font-size-base * @h2-scale; } 
+h3 { font-size: @font-size-base * @h3-scale; }
+h4 { font-size: @font-size-base * @h4-scale; } 
+h5 { font-size: @font-size-base * @h5-scale; }
+h6 { font-size: @font-size-base * @h6-scale; }
+
+h1 small { font-size: @font-size-base * (@h1-scale * 0.75); } // ~24px
+h2 small { font-size: @font-size-base * (@h2-scale * 0.75); } // ~18px
+h3 small { font-size: @font-size-base * (@h3-scale * 0.75); }
+h4 small { font-size: @font-size-base * (@h4-scale * 0.75); }
+
+// Page header
+// -------------------------
+.page-header {
+	padding-bottom: 0; //(@line-height-computed / 2) - 1;
+	margin: 0; //@line-height-computed 0 (@line-height-computed * 1.5);
+	margin-top: 0; // reset for consistentcy whith widgets
+	border-bottom: 0; //1px solid @gray-lighter;
+	h1 {
+		font-size: @font-size-base * @h1-scale-pageheader; 
+		color: @title-color-page-title; 
+	}
+}
+
+
+p {
+	padding-bottom: @paragraph-padding;
+}

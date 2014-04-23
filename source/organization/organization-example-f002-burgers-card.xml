@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+    <name value="Burgers UMC Cardiology unit"/>
+    <type>
+        <coding>
+            <system value="http://hl7.org/fhir/organization-type"/>
+            <code value="dept"/>
+            <display value="Hospital Department"/>
+        </coding>
+    </type>
+    <telecom>
+        <system value="phone"/>
+        <value value="022-655 2320"/>
+    </telecom>
+    <address>
+        <line value="South Wing, floor 2"/>
+    </address>
+    <partOf>
+        <reference value="Organization/f001"/>
+    </partOf>
+    <contact>
+        <purpose>
+            <coding>
+                <system value="http://hl7.org/fhir/contactentity-type"/>
+                <code value="ADMIN"/>
+            </coding>
+        </purpose>
+        <name>
+            <text value="mevr. D. de Haan" />
+        </name>
+        <telecom>
+            <system value="phone"/>
+            <value value="022-655 2321"/>
+        </telecom>
+        <telecom>
+            <system value="email"/>
+            <value value="cardio@burgersumc.nl"/>
+        </telecom>
+        <telecom>
+            <system value="fax"/>
+            <value value="022-655 2322"/>
+        </telecom>
+        <address>
+            <line value="South Wing, floor 2"/>
+        </address>
+    </contact>
+    <active value="true "/>
+</Organization>

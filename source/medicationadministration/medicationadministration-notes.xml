@@ -1,0 +1,28 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here  -->
+    <h2><b>Known Issues</b></h2>
+    <table border="1" cellpadding="1" cellspacing="2" frame="box">
+        <tr>
+            <th>Issue</th>
+            <th>Comments</th>
+        </tr>
+        <tr>
+            <td>Medication Resource</td>
+            <td>A medication will typically be referred to by means of a code drawn from a suitable Medicines Terminology.  However on occasion a product will be required for which the "recipe" must be specified.  This implies a requirement to deal with a choice of either a code or a much more complete resource.<br/>Currently that resource has not been created.</td>
+        </tr>
+        <tr>
+            <td>Encounter</td>
+            <td>Administration records are usually tied to some wider grouping of care records.  Encounter or Episode of Care is a common name for this.  The present MedicationAdministration resource (and the other three yet to be built) link to an Encounter as an identifier, but it may be more appropriate for it to be a full resource.</td>
+        </tr>
+        <tr>
+            <td>Contrast Media</td>
+            <td>Is this resource adequate for administering contrast media to a patient?</td>
+        </tr>
+        <tr>
+            <td>Author (accountability)</td>
+            <td>Authorship (and any other accountability) is assumed to be dealt with by the standard FHIR methods.</td>
+        </tr>
+    </table>
+
+</div>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/sequence.xsd">
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">Example Sequece Resource describing patient John Doe's genotype of SNP rs421016</div>
+	</text>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<type value="dna"/>
+	<species>
+		<coding>
+			<system value="2.16.840.1.113883.6.96"/>
+			<code value="337915000"/>
+		</coding>
+		<text value="Homo sapiens"/>
+	</species>
+	<sample>
+		<class value="germline"/>
+		<source>
+			<coding>
+				<system value="2.16.840.1.113883.6.96"/>
+				<code value="256897009"/>
+			</coding>
+			<text value="Saliva"/>
+		</source>
+	</sample>
+	<coordinate>
+		<chromosome value="chr1"/>
+		<start value="155205042"/>
+		<end value="155205043"/>
+	</coordinate>
+	<inputLab>
+		<reference value="sequencinglab/@example"/>
+	</inputLab>
+	<quality value="39"/>
+	<read value="A|G"/>
+</Sequence>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+[%settitle Administrative Resources%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>Administrative Resources</h2>
+ 
+	<table class="bare">
+		[%res-category Attribution|Track individuals and organizations involved in the provision of healthcare%]
+		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+		[%res-item Patient%]
+		[%res-item RelatedPerson%]
+		[%res-item Practitioner%]
+		[%res-item Organization%]
+
+		[%res-category Resources|Track general support resources used when healthcare is provided%]
+		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+		[%res-item Device%]
+		[%res-item Location%]
+		[%res-item Substance%]
+		[%res-item Group%]
+
+		[%res-category Workflow Management|Support for the processes involved in healthcare%]
+		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+		[%res-item Encounter%]
+		[%res-item Alert%]
+		[%res-item Supply%]
+		[%res-item Order%]
+		[%res-item OrderResponse%]
+
+		[%res-category Scheduling|Creation and management of appointments between practitioners, providers, locations and devices within slots within a schedule. %]
+		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+		[%res-item Appointment%]
+		[%res-item AppointmentResponse%]
+		[%res-item Availability%]
+		[%res-item Slot%]
+
+	</table>
+
+<p>
+Additional Resources will be added in the future. A list of hypothesized resources can be found on the 
+<a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Types">HL7 wiki</a>.  Feel free to add any you think are missing or engage with one 
+of the <a href="http://www.hl7.org/Special/committees/index.cfm">HL7 Work Groups</a> to submit a 
+<a href="http://wiki.hl7.org/index.php?title=Category:FHIR_Resource_Proposal">proposal</a> to define a resource of particular interest.
+</p>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>

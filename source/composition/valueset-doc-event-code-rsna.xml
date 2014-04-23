@@ -1,0 +1,136 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <name value="RSNA 2008 eventCodes"/>
+  <publisher value="IHE"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://ihe.net"/>
+  </telecom>
+  <description value="Event Codes generated for RSNA 2008 from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
+  <status value="draft"/>
+  <define>
+    <system value="urn:uuid:be777aae-4817-479f-bf48-b5c81eae6dd6"/>
+    <concept>
+      <code value="TRID1001"/>
+      <display value="XRAY CHEST Orderable"/>
+    </concept>
+    <concept>
+      <code value="TRID1002"/>
+      <display value="XRAY CHEST Procedure"/>
+    </concept>
+    <concept>
+      <code value="TRID1003"/>
+      <display value="RSNA XRAY CHEST FOR SCREENING Protocol"/>
+    </concept>
+    <concept>
+      <code value="TRID1004"/>
+      <display value="XRAY CHEST PA Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1031"/>
+      <display value="XRAY CHEST LATERAL LEFT Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1014"/>
+      <display value="XRAY PORTABLE CHEST TRAUMA Orderable"/>
+    </concept>
+    <concept>
+      <code value="TRID1015"/>
+      <display value="XRAY CHEST PORTABLE TRAUMA Procedure"/>
+    </concept>
+    <concept>
+      <code value="TRID1016"/>
+      <display value="RSNA XRAY CHEST FOR TRAUMA Protocol"/>
+    </concept>
+    <concept>
+      <code value="TRID1005"/>
+      <display value="XRAY PORTABLE CHEST AP Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1017"/>
+      <display value="CT TRUNK ADENOPATHY Orderable"/>
+    </concept>
+    <concept>
+      <code value="TRID1018"/>
+      <display value="CT TRUNK ADENOPATHY Procedure"/>
+    </concept>
+    <concept>
+      <code value="TRID1019"/>
+      <display value="RSNA CT TRUNK FOR ADENOPATHY Protocol"/>
+    </concept>
+    <concept>
+      <code value="TRID1007"/>
+      <display value="ADMIN ORAL CONTRAST Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1008"/>
+      <display value="TIME DELAY 60 MIN Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1009"/>
+      <display value="CT LOCALIZER AP TRUNK Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1010"/>
+      <display value="INJECT IV CONTRAST Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1011"/>
+      <display value="CT ACQUISITION AXIAL THIN TRUNK Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1012"/>
+      <display value="CT RECONSTRUCTION CORONAL THIN TRUNK Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1013"/>
+      <display value="CT RECONSTRUCTION SAGGITAL THIN TRUNK Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1020"/>
+      <display value="DISMISS PATIENT Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1021"/>
+      <display value="MRI KNEE RIGHT PAIN Orderable"/>
+    </concept>
+    <concept>
+      <code value="TRID1022"/>
+      <display value="MRI KNEE RIGHT PAIN Procedure"/>
+    </concept>
+    <concept>
+      <code value="TRID1023"/>
+      <display value="MRI KNEE RIGHT FOR PAIN Protocol"/>
+    </concept>
+    <concept>
+      <code value="TRID1024"/>
+      <display value="MR LOCALIZER MULTIPLANAR KNEE RIGHT Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1025"/>
+      <display value="MR ACQUISITION AXIAL T2P-2D(SE_M)_N/M KNEE RIGHT Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1026"/>
+      <display value="MR ACQUISITION SAGGITAL PD-2D(SE_M)_N/M KNEE RIGHT Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1027"/>
+      <display value="MR ACQUISITION SAGGITAL T2P-2D(SE_M)_N/M KNEE RIGHT Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1028"/>
+      <display value="MR ACQUISITION CORONAL T2P-2D(SE_M)_N/M KNEE RIGHT Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1029"/>
+      <display value="MR ACQUISITION CORONAL T1R-2D(SE_1)_N KNEE RIGHT Procedure Step"/>
+    </concept>
+    <concept>
+      <code value="TRID1030"/>
+      <display value="MR ACQUISITION CORONAL PD-2D(SE_M)_N/M KNEE RIGHT Procedure Step"/>
+    </concept>
+    
+  </define>
+</ValueSet>
+

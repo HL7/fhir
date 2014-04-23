@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir  ../../schema/procedure.xsd">
+    <subject>
+        <reference value="Patient/F001"/>
+        <display value="P. van de Heuvel"/>
+    </subject>
+        <type>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="359615001"/>
+                <display value="Partial lobectomy of lung"/>
+            </coding>
+        </type>
+        <bodySite>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="39607008"/>
+                <display value="Lung structure"/>
+            </coding>
+        </bodySite>
+    <indication>
+      <text value="Malignant tumor of lung"/>
+    </indication>
+    <performer>
+        <person>
+            <reference value="Practitioner/F003"/>
+            <display value="M.I.M. Versteegh"/>
+        </person>
+        <role>
+            <coding>
+                <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
+                <code value="01.000"/>
+                <display value="Arts"/>
+            </coding>
+            <text value="Care role"/>
+        </role>
+    </performer>
+    <date>
+        <start value="2013-03-08T09:00:10+01:00"/>
+        <end value="2013-03-08T09:30:10+01:00"/>
+    </date>
+    <encounter>
+        <reference value="Encounter/F002"/>
+    </encounter>
+    <outcome value="improved blood circulation"/>
+    <report>
+        <reference value="DiagnosticReport/F003"/>
+        <display value="???????????"/>
+    </report>
+    <followUp value="described in care plan"/>
+</Procedure>

@@ -1,0 +1,44 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/xhtml1-strict.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p> 
+A patient encounter is further characterized by the setting in which it takes place. Amongst them are ambulatory,
+ emergency, home health, inpatient and virtual encounters. An Encounter encompasses the lifecycle from pre-admission, 
+ the actual encounter (for ambulatory encounters), and admission, stay and discharge (for inpatient encounters). 
+During the encounter the patient may move from practitioner to practitioner and location to location.
+</p>
+<p>
+Because of the broad scope of Encounter, not all elements will be relevant in all settings. For this reason, 
+admission/discharge related information is kept in a separate Hospitalization component within Encounter. 
+The <i>class</i> element is used to distinguish between these settings, which will guide further validation and
+application of business rules.
+</p>
+<p>
+There is also substantial variance from organization to organization (and between jurisdictions and countries) 
+on which business events translate to the start of a new Encounter, or what level of aggregation is used for Encounter. For example, each
+single visit of a practitioner during a hospitalization may lead to a new instance of Encounter, but depending on
+local practice and the systems involved, it may well be that this is aggregated to a single instance for a whole hospitalization.
+Even more aggregation may occur where jurisdictions introduce groups of Encounters for financial or other reasons.
+Encounters can be aggregated or grouped under other Encounters using the <i>partOf</i> element. 
+See <a href="#examples">below</a> for examples.
+</p>
+
+<p>
+Encounter instances may exist before the actual encounter takes place to convey pre-admission information, including
+using Encounters elements to reflect the planned start date, planned accommodation or planned encounter locations. In 
+this case the <i>status</i> element is set to 'planned'.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p> 
+Appointment information is out of scope for Encounter, the Appointment resource (yet to be defined) needs to be used for that. 
+Note that in many systems outpatient encounters (which are in scope for Encounter) and Appointment are used 
+concurrently. In FHIR, Appointment is used for establishing a date for the encounter, while Encounter is 
+applicable to information about the actual Encounter, i.e. the patient showing up.
+</p>
+</div>
+
+</div>

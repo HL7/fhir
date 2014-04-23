@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
+
+  <!-- this element is tax for using atom. it has no meaningful use in FHIR, but it's required in atom -->
+  <title>Query Message</title>
+  <!-- this is the envelope id - see the Messaging page for a discussion of its use -->
+  <id>urn:uuid:13daadee-26e1-4d6a-9e6a-7f4af9b58877</id>
+  <updated>2013-05-18T08:14:00+10:00</updated>
+  <!-- more Atom tax: author is not meaningful here, but it's required by Atom -->
+  <author>
+    <name>HL7 FHIR project</name>
+  </author>
+  <category term="http://hl7.org/fhir/tag/message" scheme="http://hl7.org/fhir/tag"/> 
+
+  <!-- first entry: the MessageHeader resource -->
+  <entry>
+    <!-- these elements are tax for using atom. they has no meaningful use in FHIR, but are required in atom -->
+    <title>Message Header Resource</title>
+    <id>urn:uuid:35b9cc1b-bf67-4cfd-9177-5b6422f7d84e</id>
+    <updated>2013-05-18T08:14:00+10:00</updated>
+    <content type="text/xml">
+      <MessageHeader xmlns="http://hl7.org/fhir">
+        <!-- this is the message id - see the Messaging page for a discussion of its use -->
+        <identifier value="bd5a062a-9d5c-4cb2-bcc8-1836618c5226"/>
+        <timestamp value="2013-05-18T08:14:00+10:00"/>
+       
+        <event>
+          <system value="http://hl7.org/fhir/message-type"/>
+          <code value="query"/><!-- this is query message -->
+        </event> 
+       
+        <!-- message routing details -->
+        <source>
+          <software value="notepad"/> <!-- well, you'd use a real system in practice -->
+          <endpoint value="http://localhost"/> <!-- this is where the message would be returned to -->
+        </source>
+      
+        <destination>
+          <name value="Health Intersections Server"/> <!-- the response was actually generated (originally) by that server -->
+          <endpoint value="http://hl7connect.healthintersections.com.au/svc/fhir/Mailbox"/>
+        </destination>
+    
+        <!-- refer to the query resource that comes next -->
+        <data>
+          <reference value="urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2"/>
+        </data> 
+      </MessageHeader>
+    </content>
+  </entry> 
+  
+  <!-- second entry: the query resource -->
+  <entry>
+    <title>Query Resource</title>
+    <!-- this is the target of the forward reference in the MessageHeader3 resource -->
+    <id>urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2</id>
+    <updated>2013-05-18T08:14:00+10:00</updated>
+    
+    <content type="text/xml">
+      <Query xmlns="http://hl7.org/fhir">
+        <!-- In the message we choose, for convenience, to make the query.id 
+            the same as the query resource id. In other contexts that wouldn't be appropriate -->
+        <identifier value="urn:uuid:7cb73a48-090d-469a-a2b2-04f1e6b11ea2"/> 
+        
+        <!-- now, the actual search criteria -->
+        <!-- this is a simple search, search on patients for the gender "m" using the default query method -->
+        <parameter url="http://hl7.org/fhir/query#_type">
+          <valueString value="patient"/>
+        </parameter>
+        <parameter url="http://hl7.org/fhir/query#gender">
+          <valueString value="m"/>
+        </parameter>
+      </Query>
+    </content>
+  </entry> 
+  
+</feed>

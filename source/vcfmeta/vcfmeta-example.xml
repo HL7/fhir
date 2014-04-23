@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VCFMeta xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/vcfmeta.xsd">
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">Example VCFMeta for patient John Doe</div>
+	</text> 
+	<subject>
+		<patient>
+			<reference value="Patient/example"/>
+		</patient>
+		<fileId value="X12345"/>
+	</subject>
+	<sourceFile>
+		<contentType value="VCF"/>
+		<url value="https://api.genomics.smartplatforms.org/files/87678"/>
+		<size value="567898"/>
+		<title value="example.vCf"/>
+	</sourceFile>
+	<fileFormat value="v4_1"/>
+	<reference value="GRCh37"/>
+	<format>
+		<identity value="GT"/>
+		<number value="1"/>
+		<type value="String"/>
+		<description value="Genotype"/>
+	</format>
+	<format>
+		<identity value="GQ"/>
+		<number value="1"/>
+		<type value="Integer"/>
+		<description value="Genotype Quality"/>
+	</format>
+</VCFMeta>

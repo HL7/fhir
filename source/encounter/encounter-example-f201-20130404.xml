@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
+ <identifier>
+    <use value="temp"/><!-- 0..1 The use of this identifier -->
+    <label value="Roel's encounter on April fourth 2013"/>
+    <value value="Encounter_Roel_20130404"/>
+ </identifier>
+ <status value="finished"/><!--Encounter has finished-->
+ <class value="outpatient"/><!--Outpatient encounter for consultation-->
+ <type><!--TODO Why is this merely a CodeableConcept and not Resource (any)?-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="11429006"/>
+       <display value="Consultation"/>
+    </coding>
+ </type>
+ <subject>
+     <reference value="Patient/f201"/>
+     <display value="Roel"/>
+ </subject>
+ <participant>
+     <individual    >
+         <reference value="Practitioner/f201"/>
+    </individual>
+ </participant>
+ <reason>
+   <text value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
+ </reason>
+ <!--No indication, because no referral took place-->
+ <priority><!--Normal priority-->
+    <coding>
+       <system value="http://snomed.info/sct"/>
+       <code value="17621005"/>
+       <display value="Normal"/>
+    </coding>
+ </priority>
+ <!--No hospitalization was deemed necessary-->
+ <serviceProvider>
+     <reference value="Organization/f201"/>
+ </serviceProvider>
+</Encounter>

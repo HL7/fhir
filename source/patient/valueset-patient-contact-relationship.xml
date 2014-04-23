@@ -1,0 +1,66 @@
+<ValueSet xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+ <name value="PatientContactRelationship"/>
+  <publisher value="FHIR Project team"/>
+  <telecom>  
+    <system value="url"/>
+    <value value="http://hl7.org/fhir"/>
+  </telecom>
+  <description value="This value set defines a set of codes that are used to indicate the nature of the relationship between 
+    a patient and a contactperson for that patient"/>
+  <status value="draft"/>
+  <define>
+    <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+    <concept>
+      <code value="emergency"/>
+      <display value="Emergency"/>
+      <definition value="Contact for use in case of emergency"/>
+    </concept>
+    <concept>
+      <code value="family"/>
+      <display value="Family"/>
+    </concept>
+    <concept>
+      <code value="guardian"/>
+      <display value="Guardian"/>
+    </concept>
+    <concept>
+      <code value="friend"/>
+      <display value="Friend"/>
+    </concept>
+    <concept>
+      <code value="partner"/>
+      <display value="Partner"/>
+    </concept>    
+    <concept>
+      <code value="work"/>
+      <display value="Work"/>
+      <definition value="Contact for matters related to the patients occupation/employment" />
+    </concept>    
+    <concept>
+      <code value="caregiver"/>
+      <display value="Caregiver"/>
+      <definition value="(Non)professional caregiver" />
+    </concept>    
+    <concept>
+      <code value="agent"/>
+      <display value="Agent"/>
+      <definition value="Contact that acts on behalf of the patient" />
+    </concept>
+    <concept>
+      <code value="guarantor"/>
+      <display value="Guarantor"/>
+      <definition value="Contact for financial matters" />
+    </concept>        
+    <concept>
+      <code value="owner"/>
+      <display value="Owner of animal"/>
+      <definition value="For animals, the owner of the animal" />
+    </concept>        
+    <concept>
+      <code value="parent"/>
+      <display value="Parent"/>
+      <definition value="Parent of the patient" />
+    </concept>                    
+  </define>
+</ValueSet>
