@@ -94,6 +94,44 @@ public class CSharpModelGenerator extends GenBlock
 	}
 
 	
+	// I know that can't be all, but cannot find a more generic approach now.
+	private String escape(String docText)
+	{
+	  String result = docText;
+    result = result.replace("&", "&amp;");  // This one first ;-)
+    
+	  result = result.replace("<", "&lt;");
+	  result = result.replace(">", "&gt;");
+	  
+	  return result;
+	}
+	
+	private GenBlock generateDocComment( String summary, String remarks )
+	{
+    begin();
+    
+    if(summary != null)
+    {     
+      ln("/// <summary>");
+      ln("/// " + escape(summary));
+      ln("/// </summary>");
+      
+      if(remarks != null)
+      {
+        ln("/// <remarks>");
+          nl(escape(remarks));
+          nl("</remarks>");
+      }
+    }
+    
+    return end();
+	}
+	
+	private GenBlock generateDocComment( String summary )
+	{
+	  return generateDocComment(summary, null);
+	}
+	
 
 	public GenBlock generateConstrained( ConstrainedTypeDefn constrained ) throws Exception
 	{
@@ -103,9 +141,8 @@ public class CSharpModelGenerator extends GenBlock
 		
 		ln("namespace Hl7.Fhir.Model");
 		bs("{");
-			ln("/// <summary>");
-			ln("/// " +  constrained.getAnnotations().getShortDefinition());
-			ln("/// </summary>");
+		  generateDocComment(constrained.getAnnotations().getShortDefinition());
+		  
 			ln("[FhirType("); nl("\"" + constrained.getName() + "\""); nl(")]");
 			//ln("[Serializable]");
 			ln("public partial class " +  GeneratorUtils.generateCSharpTypeName(constrained.getName()) );
@@ -148,10 +185,8 @@ public class CSharpModelGenerator extends GenBlock
 	public GenBlock compositeClass( CompositeTypeDefn composite ) throws Exception
 	{
 		begin();
-		
-		ln("/// <summary>");
-		ln("/// " + composite.getAnnotations().getShortDefinition());
-		ln("/// </summary>");
+
+		generateDocComment(composite.getAnnotations().getShortDefinition());
 
 		// Generate the class itself		
 		compositeClassHeader( composite );
@@ -233,46 +268,6 @@ public class CSharpModelGenerator extends GenBlock
   }
 
 
-//  private void generateValidationMethod(CompositeTypeDefn composite) {
-//    String specifier = "override";
-//    
-//    if( composite.getBaseType() == null ) specifier = "virtual";
-//    
-//    ln("public "); nl(specifier); nl(" ErrorList Validate()");
-//    bs("{");
-//      ln("var result = new ErrorList();");
-//      ln();
-//      
-//      if( composite.getBaseType() != null )
-//      {
-//        ln("result.AddRange(base.Validate());");
-//        ln();
-//      }
-//      else
-//      {
-//        ln("result.AddRange(ValidateRules());");
-//        ln();
-//      }
-//
-//      for( ElementDefn member : composite.getElement() )
-//      {
-//        if( member.isPrimitiveValueElement() ) continue;
-//        
-//        String memberName = member.getGeneratorAnnotations().get(CLASSGEN_MEMBER_NAME); 
-//      
-//        ln("if(" + memberName + " != null )");
-//        bs();
-//          if( member.isRepeating() )
-//            ln(memberName + ".ForEach(elem => result.AddRange(elem.Validate()));");              
-//          else
-//            ln("result.AddRange(" + memberName + ".Validate());");
-//        es();
-//      }
-//      ln();
-//      ln("return result;");
-//    es("}");
-//  }
-
 	private boolean hasPrimitiveValueElement( CompositeTypeDefn composite )
 	{
 	  for( ElementDefn element : composite.getElement() )
@@ -316,10 +311,7 @@ public class CSharpModelGenerator extends GenBlock
       if(choices.endsWith(",")) choices = choices.substring(0, choices.length()-1);
     }
     
-    
-	  ln("/// <summary>");
-		ln("/// " + member.getAnnotation().getShortDefinition());
-		ln("/// </summary>");
+    generateDocComment(member.getAnnotation().getShortDefinition());
 		
 	  ln("[FhirElement(\"" + member.getName() + "\"");
 		  
@@ -461,10 +453,8 @@ public class CSharpModelGenerator extends GenBlock
 	  if( isList )
 	    csType = "IEnumerable<" + csType + ">";
 
-	  ln("/// <summary>");
-	  ln("/// " + member.getAnnotation().getShortDefinition());
-	  ln("/// </summary>");
-	  ln("/// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>");
+	  generateDocComment(member.getAnnotation().getShortDefinition(), "This uses the native .NET datatype, rather than the FHIR equivalent" );
+	  
 	  ln("[NotMapped]");
 	  ln("[IgnoreDataMemberAttribute]");
 	  ln("public " + csType + " " + simpleMemberName);
@@ -671,10 +661,8 @@ public class CSharpModelGenerator extends GenBlock
 
 	public GenBlock generateEnum(BindingDefn binding) throws Exception {
 		begin();
-		
-		ln("/// <summary>");
-		ln("/// " + binding.getDefinition() );
-		ln("/// </summary>");
+
+		generateDocComment(binding.getDefinition());
 		ln("[FhirEnumeration(\"" + binding.getName() + "\")]");
 		ln("public enum " + 
 				GeneratorUtils.generateCSharpTypeName(binding.getName()));
@@ -684,9 +672,7 @@ public class CSharpModelGenerator extends GenBlock
 				String definition = code.getDefinition();
 				
 				if( definition != null ) {
-					ln(" /// <summary>");
-					ln(" /// " + code.getDefinition());
-					ln(" /// </summary>");
+				  generateDocComment(code.getDefinition());
 				}
 				ln("[EnumLiteral(" + "\"" + code.getCode() + "\"" +  ")]");
 				ln(GeneratorUtils.generateCSharpEnumMemberName(code.getCode()) + ",");
