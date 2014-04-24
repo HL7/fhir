@@ -461,6 +461,10 @@ public class CSharpModelGenerator extends GenBlock
 	  if( isList )
 	    csType = "IEnumerable<" + csType + ">";
 
+	  ln("/// <summary>");
+	  ln("/// " + member.getAnnotation().getShortDefinition());
+	  ln("/// </summary>");
+	  ln("/// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>");
 	  ln("[NotMapped]");
 	  ln("[IgnoreDataMemberAttribute]");
 	  ln("public " + csType + " " + simpleMemberName);
@@ -679,11 +683,13 @@ public class CSharpModelGenerator extends GenBlock
 			{
 				String definition = code.getDefinition();
 				
+				if( definition != null ) {
+					ln(" /// <summary>");
+					ln(" /// " + code.getDefinition());
+					ln(" /// </summary>");
+				}
 				ln("[EnumLiteral(" + "\"" + code.getCode() + "\"" +  ")]");
 				ln(GeneratorUtils.generateCSharpEnumMemberName(code.getCode()) + ",");
-				
-				if( definition != null )
-					nl(" // " + code.getDefinition());		
 			}
 		es("}");
 		
