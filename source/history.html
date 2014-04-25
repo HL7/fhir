@@ -2,7 +2,7 @@
 
 
             
-[%settitle History%]
+[%settitle Version History%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -15,209 +15,137 @@
 <a name="history"> </a>
 <h2>Version History</h2>
 
-<h3>Ongoing releases of the DSTU</h3>
-
 <p>
-This version of the FHIR is the <a href="dstu.html">DSTU</a>, as published 
-on Feb-3 2014. The date at the foot of the pages is more recent because of 
-ongoing releases to the FHIR version. Subsequent releases:
+This is the developmental version of FHIR. The only changes tracked here are 
+changes from after the publication of the DSTU. For changes from before this, 
+see the <a href="http://hl7.org/implement/standards/fhir/history.html">DSTU Version History</a>.
+Note that a full archive history of everything is available 
+<a href="http://wiki.hl7.org/index.php?title=FHIR">through the HL7 gForge SVN archives</a>.
+</p>
+
+<a name="rules"> </a>
+<h3>How FHIR Versioning works</h3>
+<p><i>This section is draft</i></p>
+<p>
+The FHIR version policy is based on <a href="http://semver.org/">Semantic versioning</a>, but with 
+some differences due to fact that FHIR is a specification, not a software API.
+</p>
+<p>
+There is a single development version of FHIR. This undergoes cycles of development as 
+managed by HL7. Each major cycle of development is concluded by a formal ballot, and then 
+a new specification is published. in version control terms, each specification is a 
+branch off the development trunk, which may then itself undergo further change as 
+HL7 maintains the published specification. 
+</p>
+<p>
+The following kinds of changes may be made to the specification:
 </p>
 <ul>
- <li>Apr-X 2014: Add <a href="security.html#narrative">security alert</a> about Narrative, and the following changes to reference implementations:
-   <ul>
-     <li>All: Change the way version numbering works - the reference implementations have their own version now, in addition to the FHIR version</li>
-     <li>Java: Fix major bug in reading/writing JSON bundles. The specification changed so that there was 
-       "resourceType" : "Bundle" instead of a surrounding "feed" object, but the Java implementation hadn't been changed. 
-       This meant that the java implementation wasn't consistent with the specification or the other reference implementations,
-       <b>and it meant that the example JSON bundles in the specification were wrong</b>; these have also been fixed</li>
-     <li>Java: Enforce FHIR rules about narrative (no active content)</li>
-     <li>Pascal: Change minor error in list generation, enforce narrative rules  (no active content), better handling of relative references, </li>
-     <li>C#/.Net: Enforce FHIR rules about narrative (no active content), plus many others changes (see <a href="http://ewoutkramer.github.io/fhir-net-api/whats-new.html">http://ewoutkramer.github.io/fhir-net-api/whats-new.html</a>)</li>
-     <li>ObjectiveC: rename Resource to BaseResource and ResourceReference to Resource </li>
-     <li>Javascript: Add the Javascript implementation</li>
-   </ul>
- </li>
- <li>Apr-3 2014: Fix archive links (below), add link to HIMSS video on home page, and reference platform changes:
-   <ul>
-     <li>Java: Re-organise dependencies in the parsers so that JSON serialiser doesn't include XmlPullParser</li>
-     <li>ObjectiveC: rename Resource to BaseResource and ResourceReference to Resource </li>
-   </ul>
- </li>
+ <li>Non-substantiative changes do not cause changes in any conformant application. For example, section renumbering, 
+   broken links, style corrections, typos, and clarifications that do not change the meaning. Some corrections may 
+   be judged not to create any expectation of change to a conformant application</li>
+ <li>New functionality - changes to the specification that create new capabilities, but would not render existing applications non-conformant if they do note change</li>
+ <li>Breaking changes would mean that previously conformant applications are not longer conformant</li>
+</ul>
+<p>
+Note that the following are, by definition, considered non-breading changes: creation of new resources or new elements in an existing resource, or new datatypes, or new API operations, even though some implementations may not accept these without error.
+Also, examples are never substantiative - every effort is made to ensure that they are correct, but changes to the examples are not considered substantiative.
+</p>
+
+<p>
+Each FHIR version is identified by a string composed from 4 parts: publication.major.minor.revision. 
+</p>
+<table class="lines">
+  <tr>
+   <td valign="top">publication</td>
+   <td>
+     <ul>
+       <li>Incremented when HL7 publishes FHIR as an updated specification, e.g. a DSTU or normative version of FHIR</li>
+       <li>HL7 plans to do this every 1 to 2 years</li>
+       <li>The first DSTU was version 0</li>
+     </ul>
+   </td>
+  </tr>
+  <tr>
+   <td valign="top">major</td>
+   <td>
+     <ul>
+       <li>Increments every time a breaking change is made</li>
+       <li>When a new publication is made, this is reset to 0 in the publication, and 1 in the development branch</li>
+       <li>Since HL7 does not make breaking changes as technical corrections to a published specification, formally published version of FHIR always have a version number X.0.n.r</li>
+       <li>Because the development version is the subject of ongoing analysis, debate, ballot and repeated alterations, breaking changes are to be expected</li>
+     </ul>
+   </td>
+  </tr>
+  <tr>
+   <td valign="top">minor</td>
+   <td>
+     <ul>
+       <li>Increments every time a substantive change is made</li>
+       <li>Resets to 0 any time the major version changes</li>
+     </ul>
+   </td>
+  </tr>
+  <tr>
+   <td valign="top">revision</td>
+   <td>
+     <ul>
+       <li>Incremented any time a change is made to the specification</li>
+       <li>At present, this is the SVN version number (this allows anyone to reconstruct the source from which the version was built from)</li>
+     </ul>
+   </td>
+  </tr>
+</table>
+
+<p>
+Additional notes:
+</p>
+<ul>
+ <li>Changes to a formally published specification (except for minor publishing corrections, such as correcting broken links) are only made via announced technical corrections</li>
+ <li>The reference implementations have 2 versions - the version of the specification that they implement, and their own version. Consult the reference implementation documentation for policy regarding this version number</li>
+ <li>The specification published by the continuous integration service (<a href=" http://hl7-fhir.github.io/">http://hl7-fhir.github.io/</a>) build may not conform to this version policy, 
+   but the version published on the HL7 web site will (<a href="http://hl7.org/implement/standards/FHIR-Develop/">http://hl7.org/implement/standards/FHIR-Develop/</a>)</li>
+ <li>The first DSTU was published prior to these rules being agreed as v0.80-2286. This will be updated to 0.0.81.[svn] as a technical correction to align with this policy</li>
 </ul>
 
+<a name="history"> </a>
+<h3>Version History since DSTU #1</h3>
 
-[%archive%]
+<p>
+This table lists substantiative changes only.
+</p>
+
+<table class="grid"> 
+ <tr>
+   <td><b>Version</b></td>
+   <td><b>Changes</b></td>
+ </tr>
+<!--
+template:
+ <tr>
+   <td>0.min-rev</td>
+   <td>
+     <ul>
+       <li></li>
+     </ul>
+   </td>
+ </tr>
+ 
+--> 
+ <tr>
+   <td>0.81-2407</td>
+   <td>
+     <ul>
+       <li>Add <a href="appointment.html">Appointment</a>, <a href="appointmentresponse.html">Appointment Response</a>, <a href="availability.html">Availability</a> and <a href="slot.html">Slot</a></li>
+       <li>Add <a href="namespace.html">Namespace</a></li>
+     </ul>
+   </td>
+ </tr>
+</table>
 
 <p>
 Note: a useful tool for displaying the differences between pages is the <a href="http://services.w3.org/htmldiff">W3C HTML Diff engine</a>.
 </p>
-
-<a name="tracking"> </a>
-<h2>Significant Changes</h2>
-
-<p>
-From the DSTU version going forward, this page will track the important changes to the specification.
-Note that an absolute full version history is available from the <a href="http://gforge.hl7.org/gf/project/fhir/">FHIR SVN</a>
-</p>
-
-<a name="dstu"> </a>
-<h3>From DSTU ballot (v0.11) to the full DSTU (0.50?)</h3>
-
-<a name="dstu.inf"> </a>
-<h4>Infrastructure</h4>
-<ul>
- <li><a href="references.html">Resource References</a>: 
-   <ul><li>make a rule that any contained resources must be explicitly referred to from other content in the resource</li>
-   <li>remove "type" element - it had no actual function</li></ul></li>   
- <li><a href="extras.html#bundles">Bundles</a>:
-   <ul><li>add the "fhir-base" link that SHALL be present if relative references are found in the bundle</li>
-   <li>Documents &amp; Messages: document that these are marked with tags to identify them</li></ul></li>
- <li><a href="extras.html#tags">Tags</a>:
-   <ul><li>Add defined security tags (labels), including some common security labels</li>
-   <li>Added Profile tags, and explained how they are used for validatio</li></ul></li>
- <li><a href="extensibility.html">Extensions</a>:
-   <ul><li>make rules around obligations for exchange</li>
-   <li>Split out extensions and modifierExtensions</li></ul></li>
- <li><a href="json.html">JSON</a>:
-   <ul><li>rename "_id" to "id"</li>
-   <li>change the way that primitive types are represented (split id and extension out into _[name])</li>
-   <li>change the way bundles and resources are represented at the base ("resourceType" property)</li></ul></li>
- <li><a href="http.html">REST API</a>:
-  <ul><li>The syntax of the URLs has changed (remove @ from the ids)</li>
-  <li>resources are no longer returned on create/update/transaction</li>
-  <li>rules around the transction response have changed</li>
-  <li><a href="http://enable-cors.org/">CORS</a> is now recommended (and in the conformance resource)</li></ul></li>
- <li><a href="search.html">Searching</a>:
-   <ul><li>clarify that searching is not just for rest</li>
-   <li>Extend _sort parameter</li>
-   <li>Add relevance score, and sorting by that</li>
-   <li>Remove the text parameter type, and add search parameters _text and _content</li>
-   <li>Add _profile parameter</li>
-   <li>Remove token modifiers :code and :anyns, and update documentation</li>
-   <li>Remove date modifiers and use &lt; etc. Define escaping for search parameters</li>
-   <li>Change "integer" type to "number"</li></ul></li>
- <li>/mailbox: allowed queries as well as messages and documents</li>
- <li><a href="terminologies-systems.html">Terminologies</a>: added several new terminologies, and changed the URI for SNOMED CT at the request of IHTSDO</li>
- <li>The following pages have been rewritten (Editorial changes only): "<a href="resources.html">Resource Definitions</a>", "<a href="terminologies.html">Using codes</a>" and the <a href="overview.html">overview page</a></li>
- <li><a href="datatypes.html">Data Types</a>:
-  <ul><li>Choice: remove choice and add Coding.valueset</li>
-  <li>CodeableConcept: move primary to Coding.primary</li>
-  <li>Coding: add primary, valueset and version &amp; align code system version rules with core principles</li>
-  <li>Narrative: Changed the styles that can be used by authoring systems, and the obligations on rendering systems</li></ul></li>
-</ul>
-
-<a name="dstu.conf"> </a>
-<h4>Conformance Related Changes</h4>
-<ul>
- <li><a href="conformance-rules.html">Document conformance rules</a> more extensively</li>
- <li><a href="conformance.html">Conformance</a>:
-  <ul><li>Add Conformance.profile</li>
-   <li>Move system operations to rest.operations from rest.resource.operations, &amp; add updateCreate and versionSpecificUpdates flags</li>
-   <li>Add note about Content-Location header</li>
-   <li>Add mailbox for documents profiles</li></ul></li>
- <li><a href="valueset.html">ValueSet</a>: 
-   <ul><li>add define.version</li>
-   <li>a new constraint that codes must be unique in the definition space</li>
-   <li>tighten up publication (maps and cross links, expansions, deal with poly-heirarchies &amp; deprecated codes, publish all v3 code systems, map the data types)</li>
-   <li>add more uniqueness variants</li>
-   <li>tighten notes around imported value sets</li></ul></li>
- <li><a href="profile.html">Profile</a>: 
-   <ul><li>Remove the concept of re-useable bindings, and collapse binding in line to element definition</li>
-   <li>Change definition.type.bundled to definition.type.aggregation, and add more invariants about uniqueness</li>
-   <li>Introduce a Map declaration element</li></ul></li>
- <li><a href="conceptmap.html">ConceptMap</a>: added Informative ConceptMap resource</li>
- <li>Also, harmonize the search parameters for the metadata parts of Conformance, Profile, ValueSet, and ConceptMap</li>
-</ul>
-
-<a name="dstu.res"> </a>
-<h4>Resources</h4>
-<ul>
- <li>General Changes:
-   <ul><li>Standardized identifiers: AdverseReaction, AllergyIntolerance, CarePlan, Condition, FamilyHistory, Procedure, Questionnaire all have identifier 0..*</li> 
-   <li>Change the following fields from string|CodeableConcept to just CodeableConcept: Encounter.reason, MedicationDispense.dispense.dosage.additionalInstructions, MedicationPrescription.reasonForPrescribing, MedicationPrescription.dosageInstruction.additionalInstructions</li></ul></li>
- 
- <li><a href="alert.html">Alert</a>:
-  <ul><li>improved the definitional documentation</li> </ul></li>
- <li><a href="careplan.html">CarePlan</a>:
-  <ul><li>made patient optional</li>
-   <li>reworked to link activities to goals and goals to concerns, and allow other resource kinds for activities</li></ul></li>
- <li><a href="condition.html">Condition</a>:
-  <ul><li>several changes around relatedItem</li></ul></li>
- <li>Coverage:
-  <ul><li>resource has been removed</li></ul></li>
- <li><a href="composition.html">Document</a>:
-  <ul><li>Renamed the Document resource to "Composition"</li>
-   <li>revised status list per o-o analysis of reporting cycles</li>
-   <li>renamed sub-Type to "class" and updated definitions accordingly</li>
-   <li>changed the value set for confidentiality</li>
-   <li>changed the type of .replaces, and the code set for Document.status has changed</li>
-   <li>and made obligations around the handling of retracted documents more clear</li>
-   <li>Add Location as an allowed subject target</li></ul></li>
- <li><a href="documentmanifest.html">DocumentManifest</a>:
-  <ul><li>added this from scratch to round out XDS support</li></ul></li>
- <li><a href="documentreference.html">DocumentReference</a>:
-  <ul><li>aligned definitions more closely with XDS</li>
-   <li>Worked over the XDS Profile</li>
-   <li>Add _query=generate for DocumentReferences</li>
-   <li>Changed the value set for Confidentiality and format codes</li></ul></li>
- <li><a href="encounter.html">Encounter</a>:
-   <ul><li>Allow RelatedPersons to be participants in an encounter and changed type of participation to CodeableConcept</li>
-   <li>Added discharge diagnosis to the Hospitalization element</li></ul></li>
- <li><a href="familyhistory.html">FamilyHistory</a>:
-  <ul><li>change the value set for relation type to use the v3 value set directly</li></ul></li>
- <li><a href="imagingstudy.html">ImagingStudy</a>:
-  <ul><li>add link to DiagnosticOrder. Trim mappings to DICOM. Limit URL to WADO-RS only (not WADO)</li></ul></li>
- <li><a href="immunizationrecommendation.html">ImmunizationProfile</a>:
-  <ul><li>rename to ImmunizationRecommendation</li></ul></li>
- <li><a href="location.html">Location</a>:
-  <ul><li>Scope of Resource now also covers devices like freezers and incubators</li>
-  <li>Added a 'mode' to indicate Location instances or kinds</li>
-  <li>Split the existing element 'type' into 'type' (type of service provided) and 'physicalType' (physical form of the location)</li>
-  <li>A new 'status' element has replaced the boolean 'active', allowing for more values rather than true or false</li>
-  <li>Added 'identifier'</li></ul></li>
- <li><a href="messageheader.html">Message</a>:
-  <ul><li>rename the resource to "MessageHeader" and make the event code a Coding (also in the conformance statement too)</li> </ul></li>
- <li><a href="organization.html">Organization</a>:
-  <ul><li>Can now refer to 0..* Locations where it provides services</li></ul></li>
- <li><a href="patient.html">Patient</a>:
-  <ul><li>Add Link structure to support typed, unidirectional links between Patient records</li>
-  <li>Added careProvider 0..* to express the nominated care providers, renamed "provider" to "managingOrganization"</li>
-  <li>Added a Patient link and unlink messages</li></ul></li>
- <li><a href="practitioner.html">Practitioner</a>:
-  <ul><li>Can now refer to 0..* Locations where the practitioner provides services</li></ul></li>
- <li><a href="procedure.html">Procedure</a>:
-  <ul><li>made type a required element</li>
-   <li>changed type and cardinality for indications and complications</li>
-   <li>several changes around relatedItem</li>
-   <li>updated definition of procedure</li></ul></li>
- <li><a href="questionnaire.html">Questionnaire</a>:
-  <ul><li>Added support for nested questions</li>
-   <li>new status codes</li>
-   <li>support for ordered answer values</li></ul></li>
-</ul>
-
-<a name="dstu.impl"> </a>
-<h4>Reference implementations</h4>
-<ul>
- <li>Java: all changes as implied by above changes, and
-   <ul> 
-    <li>todo</li> 
-   </ul>
- </li>
- <li>C#: all changes as implied by above changes, and
-   <ul> 
-    <li>Additional metadata attributes to facilitate validation, parsing and dynamic client/server behavior</li>
-    <li>Hl7.Fhir.Model dll now only contains the generated model classes. Parsing, serialization and client support has been moved out to a separate open-source library at <a href="http://github.com/ewoutkramer/fhir-net-api">http://github.com/ewoutkramer/fhir-net-api</a></li> 
-   </ul>
- </li>
- <li>Pascal: all changes as implied by above changes, and
-   <ul> 
-    <li>Fill out download with all dependent libraries</li>
-    <li>Release full server at <a href="http://github.com/grahamegrieve/fhirserver">http://github.com/grahamegrieve/fhirserver</a></li>
-   </ul>
- </li>
-</ul>
-
 
 </div>
 
