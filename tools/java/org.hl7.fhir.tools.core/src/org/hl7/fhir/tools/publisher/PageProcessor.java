@@ -141,7 +141,7 @@ public class PageProcessor implements Logger  {
   
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
-          "This is the 1st DSTU version of FHIR. There's also a <a href=\"http://hl7.org/fhir-develop\">developmental version</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a>.\r\n"+
+          "This is the stable development version of FHIR. There's also a <a href=\"http://hl7.org/fhir\">Current DSTU</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> (will be incorrect/inconsistent at times).\r\n"+
           "</p>\r\n";
   
 //  private boolean notime;
@@ -3019,10 +3019,12 @@ public class PageProcessor implements Logger  {
     s.append("<h2>Archived Versions of FHIR</h2>");
     s.append("<p>These archives only keep the more significant past versions of FHIR, and only the book form, and are provided for purposes of supporting html diff tools. A full archive history of everything is available <a href=\"http://wiki.hl7.org/index.php?title=FHIR\">through the HL7 gForge archives</a>.</p>");
     s.append("<ul>");
-    for (String v : ini.getPropertyNames("Archives")) {
-      s.append("<li><a href=\"http://www.hl7.org/implement/standards/FHIR/v"+v+"/index.htm\">Version "+v+"</a>, "+ini.getStringProperty("Archives", v)+"</li>");
-      if (!definitions.getPastVersions().contains(v))
-        definitions.getPastVersions().add(v);
+    if (ini.getPropertyNames("Archives") != null) {
+      for (String v : ini.getPropertyNames("Archives")) {
+        s.append("<li><a href=\"http://www.hl7.org/implement/standards/FHIR/v"+v+"/index.htm\">Version "+v+"</a>, "+ini.getStringProperty("Archives", v)+"</li>");
+        if (!definitions.getPastVersions().contains(v))
+          definitions.getPastVersions().add(v);
+      }
     }
     s.append("</ul>");
     return s.toString();

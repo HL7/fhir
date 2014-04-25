@@ -55,6 +55,12 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
 public class WebMaker {
 
+  /**
+   * On the web site, develop content lives at a different address to the main spec. When this version is migrated to 
+   * being the DSTU, in the branch for the DSTU, this must be set to ""
+   */
+  private static final String DSTU_PATH_PORTION = "-Develop";
+
   private FolderManager folders;
   private String version;
   private IniFile ini;
@@ -270,7 +276,7 @@ public class WebMaker {
         String s = node.getAttributes().get("href");
         String sl = s.toLowerCase();
         if (sl.endsWith(".chm") || sl.endsWith(".eap") || sl.endsWith(".zip")) 
-          node.getAttributes().put("href", "/documentcenter/public/standards/FHIR/"+s);
+          node.getAttributes().put("href", "/documentcenter/public/standards/FHIR"+DSTU_PATH_PORTION+"/"+s);
       }
       for (XhtmlNode child : node.getChildNodes()) 
         replaceDownloadUrls(child);

@@ -433,7 +433,7 @@ public class BookMaker {
               // actually, what we want to do is do what?
 //              System.out.println("ref to remove: "+s+" in "+node.allText());
 //              Utilities.copyFile(new File(page.getFolders().dstDir+s), new File(targetBin+File.separatorChar+s));
-//              s = "http://hl7.org/documentcenter/public/standards/FHIR/v"+page.getVersion()+"/"+s;
+//              s = "http://hl7.org/documentcenter/public/standards/FHIR"+DSTU_PATH_PORTION+"/v"+page.getVersion()+"/"+s;
             }
           }
 
