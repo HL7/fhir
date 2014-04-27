@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.implementations.javascript;
 /*
 Contributed by Mitre Corporation
 
-Copyright (c) 2011-2013, HL7, Inc & Mitre
+Copyright (c) 2011-2014, HL7, Inc & Mitre
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 

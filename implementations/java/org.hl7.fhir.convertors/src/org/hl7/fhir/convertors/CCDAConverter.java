@@ -1,5 +1,36 @@
 package org.hl7.fhir.convertors;
 
+
+/*
+  Copyright (c) 2011-2014, HL7, Inc.
+  All rights reserved.
+  
+  Redistribution and use in source and binary forms, with or without modification, 
+  are permitted provided that the following conditions are met:
+  
+   * Redistributions of source code must retain the above copyright notice, this 
+     list of conditions and the following disclaimer.
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
+     and/or other materials provided with the distribution.
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
+     prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  POSSIBILITY OF SUCH DAMAGE.
+  
+*/
+
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -381,6 +412,7 @@ public class CCDAConverter {
 
 
 	private SectionComponent processSection(Element section) throws Exception {
+		checkNoSubject(section, "Section");
 	  // this we do by templateId
 		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6.1"))
 			return processAdverseReactionsSection(section);
@@ -388,7 +420,7 @@ public class CCDAConverter {
 			return processProceduresSection(section);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.17"))  
 		  return processSocialHistorySection(section);
-		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4"))
+		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4.1"))
 		  return processVitalSignsSection(section);
 		else
 			// todo: error? 
@@ -396,6 +428,12 @@ public class CCDAConverter {
   }
 
 	
+	private void checkNoSubject(Element act, String path) throws Exception {
+	  if (cda.getChild(act, "subject") != null) 
+	  	throw new Exception("The conversion program cannot accept a nullFlavor at the location "+path);	  
+  }
+
+
 	private SectionComponent processProceduresSection(Element section) throws Exception {
 		List_ list = new List_();
 		for (Element entry : cda.getChildren(section, "entry")) {
@@ -434,7 +472,8 @@ public class CCDAConverter {
 		  cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12");
 		}
 		checkNoNegationOrNullFlavor(procedure, "Procedure ("+type.toString()+")");
-		  
+		checkNoSubject(procedure, "Procedure ("+type.toString()+")");
+		
 		Procedure p = new Procedure();
 		addItemToList(list, p);
 		
@@ -581,6 +620,7 @@ public class CCDAConverter {
   }
 	
 	private ResourceReference makeReferenceToPractitionerForAssignedEntity(Element assignedEntity, Resource r) throws Exception {
+		
 		ResourceReference ref = null;
 		// do we have this by id? 
 		String uri = getIdForEntity(assignedEntity);
@@ -685,6 +725,7 @@ public class CCDAConverter {
 		cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");  
 	  // Allergy Problem Act - this is a concern - we treat the concern as information about it's place in the list
 		checkNoNegationOrNullFlavor(concern, "Allergy Problem Act");
+		checkNoSubject(concern, "Allergy Problem Act");
 
 		// SHALL contain at least one [1..*] entryRelationship (CONF:7509) such that it
 		// SHALL contain exactly one [1..1] Allergy - intolerance Observation
@@ -692,6 +733,7 @@ public class CCDAConverter {
 			Element obs = cda.getChild(entry, "observation");
   		cda.checkTemplateId(obs, "2.16.840.1.113883.10.20.22.4.7");
   		checkNoNegationOrNullFlavor(obs, "Allergy - intolerance Observation");
+  		checkNoSubject(obs, "Allergy Problem Act");
   		
 			AllergyIntolerance ai = new AllergyIntolerance();			
 			ListEntryComponent item = addItemToList(list, ai);
@@ -779,6 +821,7 @@ public class CCDAConverter {
 	// this is going to be a contained resource, so we aren't going to generate any narrative
 	private AdverseReaction processAdverseReactionObservation(Element reaction) throws Exception {
 		checkNoNegationOrNullFlavor(reaction, "Adverse Reaction Observation");
+		checkNoSubject(reaction, "Adverse Reaction Observation");
 		
 		// This clinical statement represents an undesired symptom, finding, etc., due to an administered or exposed substance. A reaction can be defined with respect to its	severity, and can have been treated by one or more interventions.
 		AdverseReaction ar = new AdverseReaction();
@@ -1022,7 +1065,7 @@ public class CCDAConverter {
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element organizer = cda.getlastChild(entry);
 			
-			if (cda.hasTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.27")) {
+			if (cda.hasTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.26")) {
 		    processVitalSignsOrganizer(list, organizer);
 			} else
 				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(organizer));
@@ -1039,9 +1082,10 @@ public class CCDAConverter {
 
 	private void processVitalSignsOrganizer(List_ list, Element organizer) throws Exception {
 
-		cda.checkTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.27");
+		cda.checkTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.26");
 		checkNoNegationOrNullFlavor(organizer, "Vital Signs Organizer");
-		// moodCode is either EVN. 
+		checkNoSubject(organizer, "Vital Signs Organizer");
+		// moodCode is EVN. 
 		  
 		Observation obs = new Observation();
 		addItemToList(list, obs);
@@ -1058,10 +1102,64 @@ public class CCDAConverter {
 		// SHALL contain exactly one [1..1] effectiveTime (CONF:7288).
 		obs.setApplies(convert.makeMatchingTypeFromIVL(cda.getChild(organizer, "effectiveTime")));
 
-  	// SHALL contain at least one [1..*] component (CONF:7285) such that it
+		// SHALL contain at least one [1..*] component (CONF:7285) such that it
 		// SHALL contain exactly one [1..1] Vital Sign Observation (templateId:2.16.840.1.113883.10.20.22.4.27) (CONF:15946).
-...
+		for (Element e : cda.getChildren(organizer, "component")){
+			ObservationRelatedComponent ro = new ObservationRelatedComponent();
+			ro.setTypeSimple(ObservationRelationshiptypes.hascomponent);
+			ro.setTarget(Factory.makeResourceReference("#"+processVitalSignsObservation(e, list)));
+		}
 	}
 
 
+	private String processVitalSignsObservation(Element comp, List_ list) throws Exception {
+		Element observation = cda.getChild(comp, "observation");
+		cda.checkTemplateId(observation, "2.16.840.1.113883.10.20.22.4.27");
+		checkNoNegationOrNullFlavor(observation, "Vital Signs Observation");
+		checkNoSubject(observation, "Vital Signs Observation");
+		
+		Observation obs = new Observation();
+
+		//	SHALL contain at least one [1..*] id (CONF:7300).
+		for (Element e : cda.getChildren(observation, "id")) 
+	  	if (obs.getIdentifier() == null) 
+	  	  obs.setIdentifier(convert.makeIdentifierFromII(e));
+		
+		// SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Vital Sign Result Value Set 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+		obs.setName(convert.makeCodeableConceptFromCD(cda.getChild(observation, "code"))); // all loinc codes 
+		
+		// SHOULD contain zero or one [0..1] text (CONF:7302).
+		// The text, if present, SHOULD contain zero or one [0..1] reference (CONF:15943).
+		// The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:15944).
+		// This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:15945).
+		// todo: what? 
+		
+		// SHALL contain exactly one [1..1] statusCode (CONF:7303).	This statusCode SHALL contain exactly one [1..1] @code="completed" Completed (CodeSystem: ActStatus 2.16.840.1.113883.5.14 STATIC) (CONF:19119).
+		// ignore
+		
+		// SHALL contain exactly one [1..1] effectiveTime (CONF:7304).
+		obs.setApplies(convert.makeMatchingTypeFromIVL(cda.getChild(observation, "effectiveTime")));
+		
+		//	SHALL contain exactly one [1..1] value with @xsi:type="PQ" (CONF:7305).
+		obs.setValue(convert.makeQuantityFromPQ(cda.getChild(observation, "value")));
+		
+		// MAY contain zero or one [0..1] interpretationCode (CONF:7307).
+		obs.setInterpretation(convert.makeCodeableConceptFromCD(cda.getChild(observation, "interpretationCode")));
+		
+		//	MAY contain zero or one [0..1] methodCode (CONF:7308).
+		obs.setMethod(convert.makeCodeableConceptFromCD(cda.getChild(observation, "methodCode")));
+		
+		// MAY contain zero or one [0..1] targetSiteCode (CONF:7309).
+		obs.setBodySite(convert.makeCodeableConceptFromCD(cda.getChild(observation, "targetSiteCode")));
+		
+		// MAY contain zero or one [0..1] author (CONF:7310).
+		if (cda.getChild(observation, "author") != null)
+			obs.getPerformer().add(makeReferenceToPractitionerForAssignedEntity(cda.getChild(observation, "author"), list));
+
+		// make a contained practitioner
+		String n = nextRef();
+		obs.setXmlId(n);
+		list.getContained().add(obs);
+		return n;
+  }
 }
