@@ -388,6 +388,8 @@ public class CCDAConverter {
 			return processProceduresSection(section);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.17"))  
 		  return processSocialHistorySection(section);
+		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4"))
+		  return processVitalSignsSection(section);
 		else
 			// todo: error? 
 	  return null;
@@ -1014,5 +1016,52 @@ public class CCDAConverter {
 	  }
 	  
   }
+
+	private SectionComponent processVitalSignsSection(Element section) throws Exception {
+		List_ list = new List_();
+		for (Element entry : cda.getChildren(section, "entry")) {
+			Element organizer = cda.getlastChild(entry);
+			
+			if (cda.hasTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.27")) {
+		    processVitalSignsOrganizer(list, organizer);
+			} else
+				throw new Exception("Unhandled Section template ids: "+cda.showTemplateIds(organizer));
+		}
+		
+		// todo: text
+		SectionComponent s = new Composition.SectionComponent();
+		s.setCode(convert.makeCodeableConceptFromCD(cda.getChild(section,  "code")));
+		// todo: check subject
+		s.setContent(Factory.makeResourceReference(addResource(list, "Vital Signs", makeUUIDReference())));
+		return s;
+		
+	}
+
+	private void processVitalSignsOrganizer(List_ list, Element organizer) throws Exception {
+
+		cda.checkTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.27");
+		checkNoNegationOrNullFlavor(organizer, "Vital Signs Organizer");
+		// moodCode is either EVN. 
+		  
+		Observation obs = new Observation();
+		addItemToList(list, obs);
+
+		// SHALL contain at least one [1..*] id (CONF:7282).
+		for (Element e : cda.getChildren(organizer, "id")) 
+	  	if (obs.getIdentifier() == null) 
+	  	  obs.setIdentifier(convert.makeIdentifierFromII(e));
+		
+		// SHALL contain exactly one [1..1] code (CONF:19176).
+		//  This code SHALL contain exactly one [1..1] @code="46680005" Vital signs (CodeSystem: SNOMED-CT 2.16.840.1.113883.6.96 STATIC) (CONF:19177).
+		obs.setName(convert.makeCodeableConceptFromCD(cda.getChild(organizer, "code"))); 
+
+		// SHALL contain exactly one [1..1] effectiveTime (CONF:7288).
+		obs.setApplies(convert.makeMatchingTypeFromIVL(cda.getChild(organizer, "effectiveTime")));
+
+  	// SHALL contain at least one [1..*] component (CONF:7285) such that it
+		// SHALL contain exactly one [1..1] Vital Sign Observation (templateId:2.16.840.1.113883.10.20.22.4.27) (CONF:15946).
+...
+	}
+
 
 }
