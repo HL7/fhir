@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Lloyd McKenzie</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-01-24T19:53:56Z</LastSaved>
+  <LastSaved>2014-04-25T04:46:25Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>22755</WindowWidth>
   <WindowTopX>5520</WindowTopX>
   <WindowTopY>6075</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -86,7 +86,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="19" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="20" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:Width="29.25"/>
@@ -149,18 +149,18 @@
     <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">Namespace.label</Data></Cell>
+    <Cell><Data ss:Type="String">Namespace.name</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s66"/>
-    <Cell><Data ss:Type="String">Human-readable name</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">The name of this particular identifier or code system</Data></Cell>
+    <Cell><Data ss:Type="String">Human-readable label</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">The descriptive name of this particular identifier type or code system</Data></Cell>
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">The&quot;symbolic name&quot; would be captured as an extension</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">The&quot;symbolic name&quot; for an OID would be captured as an extension</Data></Cell>
     <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -214,12 +214,20 @@
     <Cell ss:StyleID="s66"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well.</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">Namespace.responsible</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Who maintains system namespace?</Data></Cell>
+    <Cell><Data ss:Type="String">The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">This is the primary organization.  Responsibility for some aspects of a namespace may be delegated</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Namespace.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">What does namespace identify?</Data></Cell>
-    <Cell><Data ss:Type="String">Details about what the namespace identifies including scope, granularity, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">Details about what the namespace identifies including scope, granularity, version labeling, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Namespace.usage</Data></Cell>
@@ -235,14 +243,14 @@
     <Cell><Data ss:Type="String">Indicates how the system may be identified when referenced in electronic exchange</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
+   <Row ss:Height="105">
     <Cell><Data ss:Type="String">Namespace.uniqueId.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">NamespaceIdentifierType</Data></Cell>
-    <Cell><Data ss:Type="String">oid | uuid | uri | ruid</Data></Cell>
+    <Cell><Data ss:Type="String">oid | uuid | uri | other</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the unique identifier scheme used for this particular identifier.</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.)</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Namespace.uniqueId.value</Data></Cell>
@@ -266,14 +274,6 @@
     <Cell><Data ss:Type="String">Identifies the period of time over which this identifier is considered appropriate to refer to the namespace.  Outside of this window, the identifier might be non-deterministic</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Within a registry, a given identifier should only be &quot;active&quot; for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Namespace.responsible</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Organization)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Who maintains system namespace?</Data></Cell>
-    <Cell><Data ss:Type="String">The organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">This is the primary organization.  Responsibility for some aspects of a namespace may be delegated</Data></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Namespace.contact</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -294,6 +294,14 @@
     <Cell ss:Index="8"><Data ss:Type="String">Phone, email, etc.</Data></Cell>
     <Cell><Data ss:Type="String">Identifies the mechanism(s) by which they can be contacted</Data></Cell>
    </Row>
+   <Row ss:Height="60">
+    <Cell><Data ss:Type="String">Namespace.replacedBy</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Namespace)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Use this instead</Data></Cell>
+    <Cell><Data ss:Type="String">For namespaces that are retired, indicates the namespace that should be used in their place (if any)</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -305,9 +313,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -315,6 +323,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -322,8 +331,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>13</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -363,12 +372,12 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">not(exists(for $type in distinct-values(f:uniqueId/f:type) return if (count(f:uniqueId[f:type/@value=$type and f:primary/@value='true'])&gt;1) then $type else ()))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="Default"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Namespace</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Can only have replacedBy if namespace is retired</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">not(f:replacedBy) or f:status/@value='retired'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
@@ -399,7 +408,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -420,7 +428,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -636,7 +643,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="10" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s71" ss:Width="128.25"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="221.25"/>
@@ -664,9 +671,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s66"><Data ss:Type="String">NamespaceCategory</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">Identifies the general purpose of the namespace identifiers provided</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell><Data ss:Type="String">#namespace-category</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Identifies the general purpose of the namespace identifiers provided.  E.g. Driver, Provider, Patient, Bank, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s66"><Data ss:Type="String">Country</Data></Cell>
@@ -680,6 +686,18 @@
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#namespace-identifier-type</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="Default"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="Default"/>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -688,6 +706,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -707,9 +726,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R6</RangeSelection>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -758,55 +776,6 @@
     <Pane>
      <Number>3</Number>
      <RangeSelection>R1C1:R1C3</RangeSelection>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="namespace-category">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:Width="52.5"/>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Definition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">driver</Data></Cell>
-    <Cell><Data ss:Type="String">Driver's license/operator's license</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">provider</Data></Cell>
-    <Cell><Data ss:Type="String">Provider license or registration id</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell><Data ss:Type="String">Patient record numbers, jurisdictional patient ids, etc.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">bank</Data></Cell>
-    <Cell><Data ss:Type="String">Credit, debit and other bank card identifiers</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
-     <RangeSelection>R2C2:R5C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -882,8 +851,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">ruid</Data></Cell>
-    <Cell><Data ss:Type="String">HL7-assigned reserved string.  E.g. LN for LOINC</Data></Cell>
+    <Cell><Data ss:Type="String">other</Data></Cell>
+    <Cell><Data ss:Type="String">Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -893,12 +862,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
