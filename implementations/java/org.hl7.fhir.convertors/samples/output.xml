@@ -3,11 +3,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Community Health and Hospitals: Consultation Note</title>
   <id>urn:oid:2.16.840.1.113883.19.5.99999.1::TT988</id>
-  <updated>2014-04-27T22:11:03.521+10:00</updated>
+  <updated>2014-04-27T22:59:57.302+10:00</updated>
   <entry>
     <title>Composition</title>
-    <id>urn:uuid:a6bd0775-6032-44fd-b3da-f41341d0d793</id>
-    <updated>2014-04-27T22:11:03.566+10:00</updated>
+    <id>urn:uuid:827b0f4d-a287-4ce0-ba36-2391ebfa1c91</id>
+    <updated>2014-04-27T22:59:57.351+10:00</updated>
     <content type="text/xml">
       <Composition xmlns="http://hl7.org/fhir">
         <text>
@@ -36,27 +36,27 @@
           <code value="N"/>
         </confidentiality>
         <subject>
-          <reference value="urn:uuid:8f010da8-03c0-4aa1-b9c3-c6ebc6c3b99a"/>
+          <reference value="urn:uuid:91b295d1-78e1-400b-97ac-1ed80101b09c"/>
         </subject>
         <author>
-          <reference value="urn:uuid:06ee7256-6bd5-4780-94ff-c6d65fde3e83"/>
+          <reference value="urn:uuid:9b8ee608-625c-40c7-a892-2d09af9f2475"/>
         </author>
         <attester>
           <mode value="legal"/>
           <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="urn:uuid:be362627-d40a-4805-8608-0f0bbda32c69"/>
+            <reference value="urn:uuid:3080d7a8-c392-49f4-a781-dc222a07e757"/>
           </party>
         </attester>
         <attester>
           <mode value="professional"/>
           <time value="2009-02-27T13:00:00+05:00"/>
           <party>
-            <reference value="urn:uuid:b78edf95-9a10-44c5-b071-268925177057"/>
+            <reference value="urn:uuid:9a61188a-18cf-451f-a181-36488c675148"/>
           </party>
         </attester>
         <custodian>
-          <reference value="urn:uuid:74c1b2c3-9c21-489a-b4c6-1414f3ed59b8"/>
+          <reference value="urn:uuid:76cc2447-354f-4dd6-a7fd-d73a80bfe67f"/>
         </custodian>
         <event>
           <code>
@@ -71,7 +71,7 @@
             <end value="2009-02-27T13:00:00+05:00"/>
           </period>
           <detail>
-            <reference value="urn:uuid:39b4456a-68a0-406d-a0b6-d1f25ed41ed8"/>
+            <reference value="urn:uuid:b0de45a2-a34a-4daa-a7c6-f36711e5e4a9"/>
           </detail>
         </event>
         <section>
@@ -82,7 +82,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:2535cc19-d098-43f8-838d-d5591a6c984b"/>
+            <reference value="urn:uuid:6517ecc6-f9ef-49f7-b419-be91ade9ebe9"/>
           </content>
         </section>
         <section>
@@ -94,7 +94,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:bb6dcb5a-6f93-4e2d-9fd8-59bdd4008b53"/>
+            <reference value="urn:uuid:7b75ff41-6679-4ee5-9f77-0e79b534fd89"/>
           </content>
         </section>
         <section>
@@ -106,7 +106,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:d3c26522-5add-4e02-8723-a75be32617ec"/>
+            <reference value="urn:uuid:461e830a-bb2a-4dbf-bdbf-7c3ae78d41d3"/>
           </content>
         </section>
         <section>
@@ -118,7 +118,7 @@
             </coding>
           </code>
           <content>
-            <reference value="urn:uuid:bd170220-deaa-4bad-9348-6ab8c0d95bee"/>
+            <reference value="urn:uuid:deaad63f-49af-4a08-a5bc-1cd3622c57d3"/>
           </content>
         </section>
       </Composition>
@@ -126,8 +126,8 @@
   </entry>
   <entry>
     <title>Encounter</title>
-    <id>urn:uuid:39b4456a-68a0-406d-a0b6-d1f25ed41ed8</id>
-    <updated>2014-04-27T22:11:03.572+10:00</updated>
+    <id>urn:uuid:b0de45a2-a34a-4daa-a7c6-f36711e5e4a9</id>
+    <updated>2014-04-27T22:59:57.355+10:00</updated>
     <content type="text/xml">
       <Encounter xmlns="http://hl7.org/fhir">
         <text>
@@ -164,8 +164,8 @@
   </entry>
   <entry>
     <title>Provider</title>
-    <id>urn:uuid:16cdbabc-fe0a-4046-8570-da24f3903f29</id>
-    <updated>2014-04-27T22:11:03.575+10:00</updated>
+    <id>urn:uuid:d0b54ada-cd78-437a-8974-a008759adeb6</id>
+    <updated>2014-04-27T22:59:57.358+10:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
         <text>
@@ -210,8 +210,8 @@
   </entry>
   <entry>
     <title>Subject</title>
-    <id>urn:uuid:8f010da8-03c0-4aa1-b9c3-c6ebc6c3b99a</id>
-    <updated>2014-04-27T22:11:03.582+10:00</updated>
+    <id>urn:uuid:91b295d1-78e1-400b-97ac-1ed80101b09c</id>
+    <updated>2014-04-27T22:59:57.365+10:00</updated>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/ccda/religious-affiliation">
@@ -326,7 +326,7 @@
             </p>
             <p>
               <b>managingOrganization</b>: 
-              <a href="urn:uuid:16cdbabc-fe0a-4046-8570-da24f3903f29">urn:uuid:16cdbabc-fe0a-4046-8570-da24f3903f29</a>
+              <a href="urn:uuid:d0b54ada-cd78-437a-8974-a008759adeb6">urn:uuid:d0b54ada-cd78-437a-8974-a008759adeb6</a>
             </p>
           </div>
         </text>
@@ -413,15 +413,15 @@
           </coding>
         </communication>
         <managingOrganization>
-          <reference value="urn:uuid:16cdbabc-fe0a-4046-8570-da24f3903f29"/>
+          <reference value="urn:uuid:d0b54ada-cd78-437a-8974-a008759adeb6"/>
         </managingOrganization>
       </Patient>
     </content>
   </entry>
   <entry>
     <title>Author</title>
-    <id>urn:uuid:06ee7256-6bd5-4780-94ff-c6d65fde3e83</id>
-    <updated>2014-04-27T22:11:03.583+10:00</updated>
+    <id>urn:uuid:9b8ee608-625c-40c7-a892-2d09af9f2475</id>
+    <updated>2014-04-27T22:59:57.366+10:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -462,8 +462,8 @@
   </entry>
   <entry>
     <title>Custodian</title>
-    <id>urn:uuid:74c1b2c3-9c21-489a-b4c6-1414f3ed59b8</id>
-    <updated>2014-04-27T22:11:03.584+10:00</updated>
+    <id>urn:uuid:76cc2447-354f-4dd6-a7fd-d73a80bfe67f</id>
+    <updated>2014-04-27T22:59:57.367+10:00</updated>
     <content type="text/xml">
       <Organization xmlns="http://hl7.org/fhir">
         <text>
@@ -509,8 +509,8 @@
   </entry>
   <entry>
     <title>Legal Authenticator</title>
-    <id>urn:uuid:be362627-d40a-4805-8608-0f0bbda32c69</id>
-    <updated>2014-04-27T22:11:03.584+10:00</updated>
+    <id>urn:uuid:3080d7a8-c392-49f4-a781-dc222a07e757</id>
+    <updated>2014-04-27T22:59:57.367+10:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -558,8 +558,8 @@
   </entry>
   <entry>
     <title>Authenticator</title>
-    <id>urn:uuid:b78edf95-9a10-44c5-b071-268925177057</id>
-    <updated>2014-04-27T22:11:03.585+10:00</updated>
+    <id>urn:uuid:9a61188a-18cf-451f-a181-36488c675148</id>
+    <updated>2014-04-27T22:59:57.368+10:00</updated>
     <content type="text/xml">
       <Practitioner xmlns="http://hl7.org/fhir">
         <text>
@@ -607,8 +607,8 @@
   </entry>
   <entry>
     <title>Allergies, Adverse Reactions, Alerts</title>
-    <id>urn:uuid:2535cc19-d098-43f8-838d-d5591a6c984b</id>
-    <updated>2014-04-27T22:11:03.597+10:00</updated>
+    <id>urn:uuid:6517ecc6-f9ef-49f7-b419-be91ade9ebe9</id>
+    <updated>2014-04-27T22:59:57.380+10:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -899,8 +899,8 @@
   </entry>
   <entry>
     <title>Procedures</title>
-    <id>urn:uuid:bb6dcb5a-6f93-4e2d-9fd8-59bdd4008b53</id>
-    <updated>2014-04-27T22:11:03.610+10:00</updated>
+    <id>urn:uuid:7b75ff41-6679-4ee5-9f77-0e79b534fd89</id>
+    <updated>2014-04-27T22:59:57.393+10:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -1163,8 +1163,8 @@
   </entry>
   <entry>
     <title>Procedures</title>
-    <id>urn:uuid:d3c26522-5add-4e02-8723-a75be32617ec</id>
-    <updated>2014-04-27T22:11:03.623+10:00</updated>
+    <id>urn:uuid:461e830a-bb2a-4dbf-bdbf-7c3ae78d41d3</id>
+    <updated>2014-04-27T22:59:57.406+10:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -1332,8 +1332,8 @@
   </entry>
   <entry>
     <title>Vital Signs</title>
-    <id>urn:uuid:bd170220-deaa-4bad-9348-6ab8c0d95bee</id>
-    <updated>2014-04-27T22:11:03.631+10:00</updated>
+    <id>urn:uuid:deaad63f-49af-4a08-a5bc-1cd3622c57d3</id>
+    <updated>2014-04-27T22:59:57.412+10:00</updated>
     <content type="text/xml">
       <List xmlns="http://hl7.org/fhir">
         <text>
@@ -1460,7 +1460,7 @@
             </name>
             <valueQuantity>
               <value value="132"/>
-              <units value="mm[Hg]"/>
+              <units value="mmHg"/>
               <system value="http://unitsofmeasure.org"/>
               <code value="mm[Hg]"/>
             </valueQuantity>
@@ -1560,7 +1560,7 @@
             </name>
             <valueQuantity>
               <value value="145"/>
-              <units value="mm[Hg]"/>
+              <units value="mmHg"/>
               <system value="http://unitsofmeasure.org"/>
               <code value="mm[Hg]"/>
             </valueQuantity>

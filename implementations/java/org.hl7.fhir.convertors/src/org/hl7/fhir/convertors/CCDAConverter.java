@@ -90,6 +90,7 @@ import org.hl7.fhir.instance.model.ResourceType;
 import org.hl7.fhir.instance.model.Substance;
 import org.hl7.fhir.instance.model.Encounter;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.utilities.ucum.UcumService;
 import org.w3c.dom.Element;
 
 /**
@@ -194,13 +195,21 @@ public class CCDAConverter {
 	private Map<String, Practitioner> practitionerCache = new HashMap<String, Practitioner>();
 	private Integer refCounter = 0;
   private Map<String, Profile> profiles = new HashMap<String, Profile>(); // for the generator
+  private UcumService ucumSvc;
 	
+  
+	public CCDAConverter(UcumService ucumSvc) {
+	  super();
+	  this.ucumSvc = ucumSvc;
+  }
+
+
 	public AtomFeed convert(InputStream stream) throws Exception {
 
 		cda = new CDAUtilities(stream);
 		doc = cda.getElement();
 		cda.checkTemplateId(doc, "2.16.840.1.113883.10.20.22.1.1");
-		convert = new Convert(cda);
+		convert = new Convert(cda, ucumSvc);
 
 		// check it's a CDA/CCD
 		feed = new AtomFeed();

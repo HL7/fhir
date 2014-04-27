@@ -54,16 +54,19 @@ import org.hl7.fhir.instance.model.Period;
 import org.hl7.fhir.instance.model.String_;
 import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.ucum.UcumService;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 public class Convert {
 
 	CDAUtilities cda;
+	UcumService ucumSvc;
 	
-	public Convert(CDAUtilities cda) {
+	public Convert(CDAUtilities cda, UcumService ucumSvc) {
 		super();
 		this.cda = cda;
+		this.ucumSvc = ucumSvc;
 	}
 	
 	public Identifier makeIdentifierFromII(Element e) throws Exception {
@@ -438,9 +441,9 @@ public class Convert {
 		qty.setValueSimple(new BigDecimal(pq.getAttribute("value")));
 		qty.setSystemSimple("http://unitsofmeasure.org");
 		qty.setCodeSimple(pq.getAttribute("unit"));
-//		if (ucumSvc != null)
-//			qty.setUnitsSimple(ucumSvc.displayForCode(qty.getCodeSimple));
-//		else 
+		if (ucumSvc != null)
+			qty.setUnitsSimple(ucumSvc.getCommonDisplay(qty.getCodeSimple()));
+		else 
 			qty.setUnitsSimple(qty.getCodeSimple());
 		return qty;		
   }

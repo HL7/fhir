@@ -37,14 +37,17 @@ import java.io.FileOutputStream;
 import org.hl7.fhir.instance.formats.JsonComposer;
 import org.hl7.fhir.instance.formats.XmlComposer;
 import org.hl7.fhir.instance.model.AtomFeed;
+import org.hl7.fhir.utilities.ucum.UcumEssenceService;
 
 public class Test {
 
 	public static final String DEF_PATH = "c:\\work\\org.hl7.fhir\\build\\implementations\\java\\org.hl7.fhir.convertors\\samples\\";
+	public static final String UCUM_PATH = "c:\\work\\org.hl7.fhir\\build\\implementations\\java\\org.hl7.fhir.convertors\\samples\\ucum-essence.xml";
 	public static final String SRC_PATH = "c:\\work\\org.hl7.fhir\\build\\publish\\";
+	
 	public static void main(String[] args) {
-		CCDAConverter c = new CCDAConverter();
 		try {
+			CCDAConverter c = new CCDAConverter(new UcumEssenceService(UCUM_PATH));
 			c.initialize(SRC_PATH);
 			AtomFeed a = c.convert(new FileInputStream(DEF_PATH + "ccda.xml"));
 			String fx = DEF_PATH + "output.xml";

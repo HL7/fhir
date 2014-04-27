@@ -555,5 +555,14 @@ public class Utilities {
   public static void copyFileToDirectory(File source, File destDir) throws IOException {
   	copyFile(source, new File(path(destDir.getAbsolutePath(), source.getName())));
   }
+
+
+	public static boolean isWhitespace(String s) {
+	  boolean ok = true;
+	  for (int i = 0; i < s.length(); i++)
+	  	ok = ok && Character.isWhitespace(s.charAt(i));
+	  return ok;
+	  
+  }
   
 }
