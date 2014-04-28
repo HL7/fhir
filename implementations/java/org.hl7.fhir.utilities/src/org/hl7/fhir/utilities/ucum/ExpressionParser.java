@@ -32,20 +32,25 @@ public class ExpressionParser {
 		Term res = new Term();
 		if (first && lexer.getType() == TokenType.NONE) {
 			res.setComp(new Factor(1));
+		}  else if (lexer.getType() == TokenType.ANNOTATION) {
+      res.setComp(new Factor(1)); // still lose the annotation
 		} else if (lexer.getType() == TokenType.SOLIDUS) {
 			res.setOp(Operator.DIVISION);
 			lexer.consume();
 			res.setTerm(parseTerm(lexer, false));
 		} else {
 			res.setComp(parseComp(lexer));
-			if (lexer.getType() != TokenType.NONE) {
-				if (lexer.getType() == TokenType.SOLIDUS)
+			if (lexer.getType() != TokenType.NONE && lexer.getType() != TokenType.CLOSE) {
+				if (lexer.getType() == TokenType.SOLIDUS) {
 					res.setOp(Operator.DIVISION);
-				else if (lexer.getType() == TokenType.PERIOD)
+					lexer.consume();
+				} else if (lexer.getType() == TokenType.PERIOD) {
 					res.setOp(Operator.MULTIPLICATION);
+					lexer.consume();
+				} else if (lexer.getType() == TokenType.ANNOTATION)
+					res.setOp(Operator.MULTIPLICATION); // implicit
 				else
 					lexer.error("Expected '/' or '.'");
-				lexer.consume();
 				res.setTerm(parseTerm(lexer, false));
 			}
 		} 
@@ -61,7 +66,15 @@ public class ExpressionParser {
 			return parseSymbol(lexer);
 		else if  (lexer.getType() == TokenType.NONE)
 			lexer.error("unexpected end of expression looking for a symbol or a number");
-		else
+		else if (lexer.getType() == TokenType.OPEN) {
+      lexer.consume();
+      Term res = parseTerm(lexer, true);
+      if (lexer.getType() == TokenType.CLOSE) 
+        lexer.consume();
+      else
+        lexer.error("Unexpected Token Type '"+lexer.getType().toString()+"' looking for a close bracket");
+      return res;
+		} else 
 			lexer.error("unexpected token looking for a symbol or a number");
 		return null; // we never get to here
 	}

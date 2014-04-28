@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.special.Registry;
 
 
@@ -189,6 +190,8 @@ public class UcumEssenceService implements UcumService {
 	 * @throws Exception 
 	 */
 	public String analyse(String unit) throws Exception {
+		if (Utilities.noString(unit))
+			return "(unity)";
 		assert checkStringParam(unit) : paramError("analyse", "unit", "must not be null or empty");
 		Term term = new ExpressionParser(model).parse(unit);
 		return new FormalStructureComposer().compose(term);

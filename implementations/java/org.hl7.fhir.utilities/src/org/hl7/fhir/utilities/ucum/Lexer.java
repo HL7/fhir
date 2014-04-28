@@ -117,13 +117,16 @@ public class Lexer {
 
 	private boolean checkAnnotation(char ch) throws Exception {
 		if (ch == '{') {
+			StringBuilder b = new StringBuilder();
 			while (ch != '}') {
 				ch = nextChar();
 				if (ch == 0) 
-					throw new Exception("Error processing unit'"+source+"': unterminated annotation");			
+					throw new Exception("Error processing unit'"+source+"': unterminated annotation");
+				b.append(ch);
 			}
 			// got to the end of the annotation - need to do it again
-			consume();
+			token = b.toString();
+			type = TokenType.ANNOTATION;
 			return true;
 		} else
 			return false;

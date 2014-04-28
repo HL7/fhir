@@ -201,6 +201,10 @@
 	<case id="1-250" unit="[IU]/d" valid="true"/>
 	<case id="1-251" unit="[IU]/L" valid="true"/>
 	<case id="1-252" unit="[IU]/mL" valid="true"/>
+	<case id="1-249-a" unit="[iIU]" valid="false" reason="not a valid unit (iIU)"/>
+	<case id="1-250-a" unit="[iIU]/d" valid="false" reason="not a valid unit (iIU)"/>
+	<case id="1-251-a" unit="[iIU]/L" valid="false" reason="not a valid unit (iIU)"/>
+	<case id="1-252-a" unit="[iIU]/mL" valid="false" reason="not a valid unit (iIU)"/>
 	<case id="1-253" unit="[MPL'U]" valid="true"/>
 	<case id="1-254" unit="10*12/L" valid="true"/>
 	<case id="1-255" unit="10*6/L" valid="true"/>
@@ -224,6 +228,7 @@
 	<case id="1-273" unit="kU/L" valid="true"/>
 	<case id="1-274" unit="L/L" valid="true"/>
 	<case id="1-275" unit="m[IU]/L" valid="true"/>
+	<case id="1-275-a" unit="m[iIU]/L" valid="false" reason="not a valid unit (iIU)"/>
 	<case id="1-276" unit="mg" valid="true"/>
 	<case id="1-277" unit="mg/12h" valid="false" reason="not a valid unit (12h)"/>
 	<case id="1-278" unit="mg/d" valid="true"/>
@@ -286,6 +291,7 @@
 	<case id="1-335" unit="U/L" valid="true"/>
 	<case id="1-336" unit="U/mL" valid="true"/>
 	<case id="1-337" unit="u[IU]/mL" valid="true"/>
+	<case id="1-337a" unit="u[iIU]/mL" valid="false" reason="not a valid unit (iIU)"/>
 	<case id="1-338" unit="ug" valid="true"/>
 	<case id="1-339" unit="ug/d" valid="true"/>
 	<case id="1-340" unit="ug/g" valid="true"/>
@@ -300,6 +306,278 @@
 	<case id="1-349" unit="umol/mmol" valid="true"/>
 	<case id="1-350" unit="umol/umol" valid="true"/>
 	<case id="1-351" unit="wk" valid="true"/>
+
+	<!-- 
+	  These codes are taken from Keith's draft list of ICO/UCUM codes,
+      at http://motorcycleguy.blogspot.com/2009/11/iso-to-ucum-mapping-table.html
+	  -->
+    <case id="k=1=001" unit="[arb'U]" valid="true"/>
+    <case id="k=1=002" unit="dyn.s/(cm5.m2)" valid="true"/>
+    <case id="k=1=003" unit="[iU]/mL" valid="true"/>
+    <case id="k=1=004" unit="mL/h" valid="true"/>
+    <case id="k=1=005" unit="[bdsk'U]" valid="true"/>
+    <case id="k=1=006" unit="dyn.s/cm5" valid="true"/>
+    <case id="k=1=007" unit="K/W" valid="true"/>
+    <case id="k=1=008" unit="mm[Hg]" valid="true"/>
+    <case id="k=1=009" unit="{bsa}" valid="true"/>
+    <case id="k=1=010" unit="cm[H2O]" valid="true"/>
+    <case id="k=1=010" unit="cm[H20]" valid="false"/>
+    <case id="k=1=011" unit="kg{body_wt}" valid="true"/>
+    <case id="k=1=012" unit="mm/h" valid="true"/>
+    <case id="k=1=013" unit="cal" valid="true"/>
+    <case id="k=1=014" unit="cm[H2O].s/L" valid="true"/>
+    <case id="k=1=015" unit="kg/m2" valid="true"/> 
+    <case id="k=1=016" unit="mmol/(8.h.kg)" valid="true"/>
+    <case id="k=1=017" unit="{cfu}" valid="true"/>
+    <case id="k=1=018" unit="cm[H2O]/(s.m)" valid="true"/>
+    <case id="k=1=019" unit="kg/h" valid="true"/>
+    <case id="k=1=010" unit="mmol/(8.h)" valid="true"/>
+    <case id="k=1=021" unit="[drp]" valid="true"/>
+    <case id="k=1=022" unit="dB[SPL]" valid="true"/>
+    <case id="k=1=023" unit="L/(8.h)" valid="true"/>
+    <case id="k=1=024" unit="mmol/(kg.h)" valid="true"/>
+    <case id="k=1=025" unit="[ka'U]" valid="true"/>
+    <case id="k=1=026" unit="REM" valid="true"/>
+    <case id="k=1=027" unit="L/h" valid="true"/>
+    <case id="k=1=028" unit="mmol/h" valid="true"/>
+    <case id="k=1=029" unit="kcal" valid="true"/>
+    <case id="k=1=030" unit="g{creat}" valid="true"/>
+    <case id="k=1=031" unit="[lb_av]" valid="true"/>
+    <case id="k=1=032" unit="ng/(8.h)" valid="true"/>
+    <case id="k=1=033" unit="kcal/(8.h)" valid="true"/>
+    <case id="k=1=034" unit="g{hgb}" valid="true"/>
+    <case id="k=1=035" unit="ng/(8.h.kg)" valid="true"/>
+    <case id="k=1=036" unit="kcal/d" valid="true"/>
+    <case id="k=1=037" unit="g{tit_nit}" valid="true"/>
+    <case id="k=1=038" unit="ms/s" valid="true"/>
+    <case id="k=1=039" unit="ng/(kg.h)" valid="true"/>
+    <case id="k=1=040" unit="kcal/h" valid="true"/>
+    <case id="k=1=041" unit="g{tot_prot}" valid="true"/>
+    <case id="k=1=042" unit="Ms" valid="true"/>
+    <case id="k=1=043" unit="ng/h" valid="true"/>
+    <case id="k=1=044" unit="[knk'U]" valid="true"/>
+    <case id="k=1=045" unit="g{wet_tis}" valid="true"/>
+    <case id="k=1=046" unit="meq/(8.h)" valid="true"/>
+    <case id="k=1=047" unit="osm" valid="true"/>
+    <case id="k=1=048" unit="[mclg'U]" valid="true"/>
+    <case id="k=1=049" unit="g.m/{hb}m2" valid="true"/>
+    <case id="k=1=050" unit="meq/(8.h.kg)" valid="true"/>
+    <case id="k=1=051" unit="osm/kg" valid="true"/>
+    <case id="k=1=052" unit="{od}" valid="true"/>
+    <case id="k=1=053" unit="g.m/{hb}" valid="true"/>
+    <case id="k=1=054" unit="meq/(kg.h)" valid="true"/>
+    <case id="k=1=055" unit="osm/L" valid="true"/>
+    <case id="k=1=056" unit="pH" valid="true"/>
+    <case id="k=1=057" unit="g/(8.h)" valid="true"/>
+    <case id="k=1=058" unit="meq/h" valid="true"/>
+    <case id="k=1=059" unit="pA" valid="true"/>
+    <case id="k=1=060" unit="[ppb]" valid="true"/>
+    <case id="k=1=061" unit="g/(8.kg.h)" valid="true"/>
+    <case id="k=1=062" unit="mg/(8.h)" valid="true"/>
+    <case id="k=1=063" unit="Pa" valid="true"/>
+    <case id="k=1=064" unit="[ppm]" valid="true"/>
+    <case id="k=1=065" unit="g/(kg.h)" valid="true"/>
+    <case id="k=1=066" unit="mg/(8.h.kg)" valid="true"/>
+    <case id="k=1=067" unit="[pptr]" valid="true"/>
+    <case id="k=1=068" unit="g/h" valid="true"/>
+    <case id="k=1=069" unit="mg/(kg.h)" valid="true"/>
+    <case id="k=1=070" unit="S" valid="true"/>
+    <case id="k=1=071" unit="[ppth]" valid="true"/>
+    <case id="k=1=072" unit="[in_us]" valid="true"/>
+    <case id="k=1=073" unit="mg/h" valid="true"/>
+    <case id="k=1=074" unit="ug(8.h)" valid="false"/>
+    <case id="k=1=074" unit="ug(8hr)" valid="false"/>
+    <case id="k=1=075" unit="[todd'U]" valid="true"/>
+    <case id="k=1=076" unit="[in_i'Hg]" valid="true"/>
+    <case id="k=1=077" unit="m[iU]/mL" valid="true"/>
+    <case id="k=1=078" unit="ug/(8.h.kg)" valid="true"/>
+    <case id="k=1=079" unit="/[arb'U]" valid="true"/>
+    <case id="k=1=080" unit="[iU]" valid="true"/>
+    <case id="k=1=081" unit="mL/{hb}.m2" valid="true"/>
+    <case id="k=1=082" unit="ug/(kg.h)" valid="true"/>
+    <case id="k=1=083" unit="[HPF]" valid="true"/>
+    <case id="k=1=084" unit="[iU]/d" valid="true"/>
+    <case id="k=1=085" unit="mL/(8.h)" valid="true"/>
+    <case id="k=1=086" unit="ug/h" valid="true"/>
+    <case id="k=1=087" unit="/{tot}" valid="true"/>
+    <case id="k=1=088" unit="[iU]/h" valid="true"/>
+    <case id="k=1=089" unit="mL/(8.h.kg)" valid="true"/>
+
+    <case id="k=1=090" unit="u[iU]" valid="true"/>
+    <case id="k=1=091" unit="/[iU]" valid="true"/>
+    <case id="k=1=092" unit="[iU]/kg" valid="true"/>
+    <case id="k=1=093" unit="mL/{hb}" valid="true"/>
+    <case id="k=1=094" unit="10*3{rbc}" valid="true"/>
+    <case id="k=1=095" unit="[iU]/L" valid="true"/>
+    <case id="k=1=096" unit="mL/(kg.h)" valid="true"/>
+    <case id="k=1=097" unit="10.L/(min.m2)" valid="true"/>
+    <case id="k=1=098" unit="[iU]/min" valid="true"/>
+    <case id="k=1=099" unit="mL/cm[H2O]" valid="true"/>
+    <case id="k=1=100" unit="%" valid="true"/>
+    <case id="k=1=101" unit="bar" valid="true"/>
+    <case id="k=1=102" unit="g/L" valid="true"/>
+    <case id="k=1=103" unit="L.s" valid="true"/>
+    <case id="k=1=104" unit="mg" valid="true"/>
+    <case id="k=1=105" unit="mmol/(kg.d)" valid="true"/>
+    <case id="k=1=106" unit="ng/L" valid="true"/>
+    <case id="k=1=107" unit="ueq" valid="true"/>
+    <case id="k=1=108" unit="/kg" valid="true"/>
+    <case id="k=1=109" unit="Bq" valid="true"/>
+    <case id="k=1=110" unit="g/m2" valid="true"/>
+    <case id="k=1=111" unit="L/(min.m2)" valid="true"/>
+    <case id="k=1=112" unit="mg/(kg.d)" valid="true"/>
+    <case id="k=1=113" unit="mmol/(kg.min)" valid="true"/>
+    <case id="k=1=114" unit="ng/m2" valid="true"/>
+    <case id="k=1=115" unit="ug" valid="true"/>
+    <case id="k=1=116" unit="/L" valid="true"/>
+    <case id="k=1=117" unit="Cel" valid="true"/>
+    <case id="k=1=118" unit="g/min" valid="true"/>
+    <case id="k=1=119" unit="L/d" valid="true"/>
+    <case id="k=1=120" unit="mg/(kg.min)" valid="true"/>
+    <case id="k=1=121" unit="mmol/kg" valid="true"/>
+    <case id="k=1=122" unit="ng/min" valid="true"/>
+    <case id="k=1=123" unit="ug/(kg.d)" valid="true"/>
+    <case id="k=1=124" unit="/m3" valid="true"/>
+    <case id="k=1=125" unit="cm" valid="true"/>
+    <case id="k=1=126" unit="Gy" valid="true"/>
+    <case id="k=1=127" unit="L/kg" valid="true"/>
+    <case id="k=1=128" unit="mg/d" valid="true"/>
+    <case id="k=1=129" unit="mmol/L" valid="true"/>
+    <case id="k=1=130" unit="ng/mL" valid="true"/>
+    <case id="k=1=131" unit="ug/(kg.min)" valid="true"/>
+    <case id="k=1=132" unit="/min" valid="true"/>
+    <case id="k=1=133" unit="cm2/s" valid="true"/>
+    <case id="k=1=134" unit="h" valid="true"/>
+    <case id="k=1=135" unit="L/min" valid="true"/>
+    <case id="k=1=136" unit="mg/dL" valid="true"/>
+    <case id="k=1=137" unit="mmol/m2" valid="true"/>
+    <case id="k=1=138" unit="ng/s" valid="true"/>
+    <case id="k=1=139" unit="ug/d" valid="true"/>
+    <case id="k=1=140" unit="/m3" valid="true"/>
+    <case id="k=1=141" unit="d" valid="true"/>
+    <case id="k=1=142" unit="hL" valid="true"/>
+    <case id="k=1=143" unit="L/s" valid="true"/>
+    <case id="k=1=144" unit="mg/kg" valid="true"/>
+    <case id="k=1=145" unit="mmol/min" valid="true"/>
+    <case id="k=1=146" unit="nkat" valid="true"/>
+    <case id="k=1=147" unit="ug/dL" valid="true"/>
+    <case id="k=1=148" unit="/min" valid="true"/>
+    <case id="k=1=149" unit="dB" valid="true"/>
+    <case id="k=1=150" unit="J/L" valid="true"/>
+    <case id="k=1=151" unit="lm" valid="true"/>
+    <case id="k=1=152" unit="mg/L" valid="true"/>
+    <case id="k=1=153" unit="mol/(kg.s)" valid="true"/>
+    <case id="k=1=154" unit="nm" valid="true"/>
+    <case id="k=1=155" unit="ug/g" valid="true"/>
+    <case id="k=1=156" unit="/mL" valid="true"/>
+    <case id="k=1=157" unit="deg" valid="true"/>
+    <case id="k=1=158" unit="kat" valid="true"/>
+    <case id="k=1=159" unit="m" valid="true"/>
+    <case id="k=1=160" unit="mg/m2" valid="true"/>
+    <case id="k=1=161" unit="mol/kg" valid="true"/>
+    <case id="k=1=162" unit="nmol/s" valid="true"/>
+    <case id="k=1=163" unit="ug/kg" valid="true"/>
+    <case id="k=1=164" unit="1/mL" valid="true"/>
+    <case id="k=1=165" unit="eq" valid="true"/>
+    <case id="k=1=166" unit="kat/kg" valid="true"/>
+    <case id="k=1=167" unit="m/s2" valid="true"/>
+    <case id="k=1=168" unit="mg/m3" valid="true"/>
+    <case id="k=1=169" unit="mol/L" valid="true"/>
+    <case id="k=1=170" unit="ns" valid="true"/>
+    <case id="k=1=171" unit="ug/L" valid="true"/>
+    <case id="k=1=172" unit="10*12/L" valid="true"/>
+    <case id="k=1=173" unit="eV" valid="true"/>
+    <case id="k=1=174" unit="kat/L" valid="true"/>
+    <case id="k=1=175" unit="m2" valid="true"/>
+    <case id="k=1=176" unit="mg/min" valid="true"/>
+    <case id="k=1=177" unit="mol/m3" valid="true"/>
+    <case id="k=1=178" unit="Ohm" valid="true"/>
+    <case id="k=1=179" unit="ug/m2" valid="true"/>
+    <case id="k=1=180" unit="10*3/L" valid="true"/>
+    <case id="k=1=182" unit="kg" valid="true"/>
+    <case id="k=1=183" unit="m2/s" valid="true"/>
+    <case id="k=1=184" unit="mL" valid="true"/>
+    <case id="k=1=185" unit="mol/s" valid="true"/>
+    <case id="k=1=186" unit="Ohm.m" valid="true"/>
+    <case id="k=1=187" unit="ug/min" valid="true"/>
+    <case id="k=1=188" unit="10*3/mL" valid="true"/>
+    <case id="k=1=189" unit="fg" valid="true"/>
+    <case id="k=1=190" unit="kg.m/s" valid="true"/>
+    <case id="k=1=191" unit="m3/s" valid="true"/>
+    <case id="k=1=192" unit="mL/(kg.d)" valid="true"/>
+    <case id="k=1=193" unit="mosm/L" valid="true"/>
+    <case id="k=1=194" unit="pg" valid="true"/>
+    <case id="k=1=195" unit="ukat" valid="true"/>
+    <case id="k=1=196" unit="10*3/mm3" valid="true"/>
+    <case id="k=1=197" unit="fL" valid="true"/>
+    <case id="k=1=198" unit="kg/(s.m2)" valid="true"/>
+    <case id="k=1=199" unit="mbar" valid="true"/>
+    <case id="k=1=200" unit="mL/(kg.min)" valid="true"/>
+    <case id="k=1=201" unit="ms" valid="true"/>
+    <case id="k=1=202" unit="pg/L" valid="true"/>
+    <case id="k=1=203" unit="um" valid="true"/>
+    <case id="k=1=204" unit="10*6/L" valid="true"/>
+    <case id="k=1=205" unit="fmol" valid="true"/>
+    <case id="k=1=206" unit="kg/L" valid="true"/>
+    <case id="k=1=207" unit="mbar.s/L" valid="true"/>
+    <case id="k=1=208" unit="mL/(min.m2)" valid="true"/>
+    <case id="k=1=209" unit="mV" valid="true"/>
+    <case id="k=1=210" unit="pg/mL" valid="true"/>
+    <case id="k=1=211" unit="umol" valid="true"/>
+    <case id="k=1=212" unit="10*6/mL" valid="true"/>
+    <case id="k=1=213" unit="g" valid="true"/>
+    <case id="k=1=214" unit="kg/m3" valid="true"/>
+    <case id="k=1=215" unit="meq" valid="true"/>
+    <case id="k=1=216" unit="mL/d" valid="true"/>
+    <case id="k=1=218" unit="pkat" valid="true"/>
+    <case id="k=1=219" unit="umol/d" valid="true"/>
+    <case id="k=1=220" unit="10*6/mm3" valid="true"/>
+    <case id="k=1=221" unit="g.m" valid="true"/>
+    <case id="k=1=222" unit="kg/min" valid="true"/>
+    <case id="k=1=223" unit="meq/(kg.d)" valid="true"/>
+    <case id="k=1=224" unit="mL/kg" valid="true"/>
+    <case id="k=1=226" unit="pm" valid="true"/>
+    <case id="k=1=227" unit="umol/L" valid="true"/>
+    <case id="k=1=228" unit="10*9/L" valid="true"/>
+    <case id="k=1=229" unit="g/(kg.d)" valid="true"/>
+    <case id="k=1=230" unit="kg/mol" valid="true"/>
+    <case id="k=1=231" unit="meq/(kg.min)" valid="true"/>
+    <case id="k=1=232" unit="mL/m2" valid="true"/>
+    <case id="k=1=233" unit="ng" valid="true"/>
+    <case id="k=1=234" unit="pmol" valid="true"/>
+    <case id="k=1=235" unit="umol/min" valid="true"/>
+    <case id="k=1=236" unit="10*9/mL" valid="true"/>
+    <case id="k=1=237" unit="g/(kg.min)" valid="true"/>
+    <case id="k=1=238" unit="kg/s" valid="true"/>
+    <case id="k=1=239" unit="meq/d" valid="true"/>
+    <case id="k=1=240" unit="mL/mbar" valid="true"/>
+    <case id="k=1=241" unit="ng/(kg.d)" valid="true"/>
+    <case id="k=1=242" unit="ps" valid="true"/>
+    <case id="k=1=243" unit="us" valid="true"/>
+    <case id="k=1=244" unit="10*9/mm3" valid="true"/>
+    <case id="k=1=245" unit="g/d" valid="true"/>
+    <case id="k=1=246" unit="kPa" valid="true"/>
+    <case id="k=1=247" unit="meq/kg" valid="true"/>
+    <case id="k=1=248" unit="mL/min" valid="true"/>
+    <case id="k=1=249" unit="ng/(kg.min)" valid="true"/>
+    <case id="k=1=250" unit="pt" valid="true"/>
+    <case id="k=1=251" unit="uV" valid="true"/>
+    <case id="k=1=252" unit="10.L/min" valid="true"/>
+    <case id="k=1=253" unit="g/dL" valid="true"/>
+    <case id="k=1=254" unit="ks" valid="true"/>
+    <case id="k=1=255" unit="meq/L" valid="true"/>
+    <case id="k=1=256" unit="mL/s" valid="true"/>
+    <case id="k=1=257" unit="ng/d" valid="true"/>
+    <case id="k=1=258" unit="Sv" valid="true"/>
+    <case id="k=1=259" unit="V" valid="true"/>
+    <case id="k=1=260" unit="a/m" valid="true"/>
+    <case id="k=1=261" unit="g/kg" valid="true"/>
+    <case id="k=1=262" unit="L" valid="true"/>
+    <case id="k=1=263" unit="meq/min" valid="true"/>
+    <case id="k=1=264" unit="mm" valid="true"/>
+    <case id="k=1=265" unit="ng/kg" valid="true"/>
+    <case id="k=1=266" unit="t" valid="true"/>
+    <case id="k=1=267" unit="Wb" valid="true"/>
   </validation>	
   
   <displayNameGeneration>
@@ -309,14 +587,14 @@
 	  human readable long form (might correspond to the HL7 v3 / ISO data types 
 	  concept of display name)
 	-->
-	<case id="2-102" unit="m" display="(meter)"/>
     <case id="2-101" unit="" display="(unity)"/>
+	<case id="2-102" unit="m" display="(meter)"/>
 	<case id="2-103" unit="mm" display="(millimeter)"/>
 	<case id="2-104" unit="m[H2O]" display="(meter of water column)"/>
 	<case id="2-105" unit="10*23" display="(the number ten for arbitrary powers ^ 23)"/>
 	<case id="2-106" unit="rad2" display="(radian ^ 2)"/>
 	<case id="2-107" unit="m3.kg-1.s-2" display="(meter ^ 3) * (kilogram ^ -1) * (second ^ -2)"/>
-	<case id="2-108" unit="4.[pi].10*-7.N/A2" display="4 * (the number pi) * (the number ten for arbitrary powers ^ -7) * (Newton) / (Ampère ^ 2)"/>
+	<case id="2-108" unit="4.[pi].10*-7.N/A2" display="4 * (the number pi) * (the number ten for arbitrary powers ^ -7) * (Newton) / (Amp&#232;re ^ 2)"/>
   </displayNameGeneration>		
 
   
@@ -387,6 +665,7 @@
 	<case id="3-127" value="1"   srcUnit="[ly]"     dstUnit="cm"            outcome="946073047258080000"/>
 	<case id="3-128" value="1"   srcUnit="1/[ly]"   dstUnit="cm-1"          outcome="1.0570008340246e-18"/>
 	<case id="3-129"  value="1.2" srcUnit="g.m"      dstUnit="m.g"           outcome="1.2"/>
+   <!-- <case id="3-130"  value="0.02502"      srcUnit="[oz_av]/[gal_us]"       dstUnit="g/L"           outcome="0.1877"/> -->
   </conversion>
 
   <multiplication>

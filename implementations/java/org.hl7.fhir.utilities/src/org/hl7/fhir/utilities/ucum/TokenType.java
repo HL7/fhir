@@ -18,6 +18,7 @@ public enum TokenType {
 	SOLIDUS,
 	PERIOD,
 	OPEN,
-	CLOSE;
+	CLOSE,
+	ANNOTATION;
 
 }

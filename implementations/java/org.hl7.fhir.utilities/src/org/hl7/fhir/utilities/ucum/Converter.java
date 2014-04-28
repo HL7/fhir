@@ -1,3 +1,5 @@
+package org.hl7.fhir.utilities.ucum;
+
 /*******************************************************************************
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -7,8 +9,6 @@
  * Contributors:
  *    Kestral Computing P/L - initial implementation
  *******************************************************************************/
-
-package org.hl7.fhir.utilities.ucum;
 
 import java.math.BigDecimal;
 
@@ -43,8 +43,64 @@ public class Converter {
 
 	
 	public Canonical convert(Term term) throws Exception {
-		return convertTerm(term);
+		Canonical result = convertTerm(term);
+		boolean sorted;
+		do {
+			sorted = sortTerms(result);
+		} while (sorted);
+		return result;
 	}
+	
+	private boolean sortTerms(Term term) {
+	  if (term.getTerm().getTerm() == null) 
+	    return false;
+
+	  assert(term.getTerm().getOp() == Operator.MULTIPLICATION);
+	  assert(term.getTerm().getComp() instanceof Symbol);
+	  assert(term.getTerm().getTerm().getComp() instanceof Symbol);
+	  if (((Symbol) term.getTerm().getComp()).getUnit().getCode().compareTo(((Symbol) term.getTerm().getTerm().getComp()).getUnit().getCode()) < 0) {
+	  	Term t1 = term.getTerm();
+	  	Term t2 = term.getTerm().getTerm();
+	      t1.setTerm(t2.getTerm());
+	      term.setTerm(t2);
+	      term.getTerm().setTerm(t1);
+	      term.getTerm().setOp(Operator.MULTIPLICATION);
+	      if (term.getTerm().getTerm().getTerm() != null) 
+	        term.getTerm().getTerm().setOp(Operator.MULTIPLICATION);
+	      else
+	        term.getTerm().getTerm().setOp(null);
+	      return true;
+	    } else
+	      return sortTerms(term.getTerm());
+	}
+
+	private boolean sortTerms(Canonical can) {
+		if (!can.hasUnit() || !can.getUnit().hasTerm())
+			return false;
+
+		debug("before sort", can.getUnit());
+		assert(can.getUnit().getOp() == Operator.MULTIPLICATION);
+		assert(can.getUnit().getComp() instanceof Symbol);
+		assert(can.getUnit().getTerm().getComp() instanceof Symbol);
+		boolean result = false;
+		if (((Symbol) can.getUnit().getComp()).getUnit().getCode().compareTo(((Symbol) can.getUnit().getTerm().getComp()).getUnit().getCode()) < 0) {
+			result = true;
+			Term t1 = can.getUnit();
+			Term t2 = can.getUnit().getTerm();
+			t1.setTerm(t2.getTerm());
+			can.setUnit(t2);
+			can.getUnit().setTerm(t1);
+			can.getUnit().setOp(Operator.MULTIPLICATION);
+			if (can.getUnit().getTerm().getTerm() != null)
+				can.getUnit().getTerm().setOp(Operator.MULTIPLICATION);
+			else
+				can.getUnit().getTerm().setOp(null);
+		}  else
+			result = sortTerms(can.getUnit());
+		debug("after sort", can.getUnit());
+		return result;
+	}
+
 	
 	private Canonical convertTerm(Term term) throws Exception {
 		Canonical res = new Canonical(new BigDecimal(1), new Term());
@@ -54,19 +110,30 @@ public class Converter {
 			res.getUnit().setOp(term.getOp());
 		if (term.hasTerm()) {
 			Canonical t = convertTerm(term.getTerm());
-			res.setValue(res.getValue().multiply(t.getValue()));
-			if (t.hasUnit())
-				res.getUnit().setTermCheckOp(t.getUnit());
-			else
-				res.getUnit().setOp(null);
+			
+      if (res.getUnit().getOp() == Operator.DIVISION && t.hasUnit()) {
+        debug("going to flip @ "+res.getValue().toString()+'/'+t.getValue().toString(), t.getUnit());
+        res.setValue(res.getValue().divide(t.getValue(), BigDecimal.ROUND_UP));
+        res.getUnit().setOp(Operator.MULTIPLICATION);
+        flipExponents(t.getUnit());
+        res.getUnit().setTermCheckOp(t.getUnit());
+        debug("flipped @ -> "+res.getValue().toString(), res.getUnit());
+      } else {
+      	res.setValue(res.getValue().multiply(t.getValue()));
+      	if (t.hasUnit())
+      		res.getUnit().setTermCheckOp(t.getUnit());
+      	else
+      		res.getUnit().setOp(null);
+      }
 		}
 		
 		// normalise	
 		debug("normalise", res.getUnit());
 		if (res.getUnit().hasOp() && res.getUnit().getOp() == Operator.DIVISION) {
-			res.getUnit().setOp(Operator.MULTIPLICATION);
-			flipExponents(res.getUnit().getTerm());
-			debug("flipped", res.getUnit());
+			throw new Exception("shouldn't get here");
+//			res.getUnit().setOp(Operator.MULTIPLICATION);
+//			flipExponents(res.getUnit().getTerm());
+//			debug("flipped", res.getUnit());
 		}
 
 		if (!res.getUnit().hasComp() || res.getUnit().getComp() == one) {
@@ -178,7 +245,12 @@ public class Converter {
 
 	private Component convertSymbol(Canonical ctxt, Symbol comp) throws Exception {
 		if (comp.hasPrefix()) {
-			ctxt.multiplyValue(comp.getPrefix().getValue());
+			for (int i = 1; i <= Math.abs(comp.getExponent()); i++) {
+      if (comp.getExponent() < 0)
+        ctxt.divideValue(comp.getPrefix().getValue());
+      else
+        ctxt.multiplyValue(comp.getPrefix().getValue());
+			}
 		}
 			
 			
@@ -197,8 +269,14 @@ public class Converter {
 					u = handlers.get(unit.getCode()).getUnits();
 					ctxt.multiplyValue(handlers.get(unit.getCode()).getValue());
 				}
-			} else
-				ctxt.multiplyValue(unit.getValue().getValue());
+			} else {
+	      for (int i = 1; i <= Math.abs(comp.getExponent()); i++) 
+	        if (comp.getExponent() < 0)
+	          ctxt.divideValue(unit.getValue().getValue());
+	        else
+	          ctxt.multiplyValue(unit.getValue().getValue());
+			}
+//				ctxt.multiplyValue(unit.getValue().getValue());
 			Term canonical = new ExpressionParser(model).parse(u);
 			if (canonical.hasComp() && !canonical.hasOp() && !canonical.hasTerm()) {
 				Component ret = convertComp(ctxt, canonical.getComp());

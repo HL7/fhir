@@ -2,11 +2,13 @@ package org.hl7.fhir.utilities.ucum.tests;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.ucum.Decimal;
 import org.hl7.fhir.utilities.ucum.UcumEssenceService;
 import org.hl7.fhir.utilities.ucum.UcumModel;
 import org.hl7.fhir.utilities.ucum.UcumService;
@@ -62,9 +64,14 @@ public class UcumTester {
 	
 
 	private UcumService ucumSvc;
+	private int errCount;
 	
 	private void execute() throws Exception {
-	  ucumSvc = new UcumEssenceService(definitions);
+
+		testDecimal();
+		
+		ucumSvc = new UcumEssenceService(definitions);
+	  errCount = 0;
 		XmlPullParserFactory factory = XmlPullParserFactory.newInstance(System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
 		factory.setNamespaceAware(true);
 		XmlPullParser xpp = factory.newPullParser();
@@ -90,11 +97,214 @@ public class UcumTester {
 				runValidationTests(xpp);
 			else if (xpp.getName().equals("displayNameGeneration")) 
 				runDisplayNameGeneration(xpp);
+			else if (xpp.getName().equals("conversion")) 
+				runConversion(xpp);
 			else 
 				throw new XmlPullParserException("unknown element name "+xpp.getName());
 		}
 		xpp.next();
+		if (errCount > 0)
+			System.err.println(Integer.toString(errCount)+" errors");
 	}
+	
+	private void testDecimal() throws Exception {
+    testAsInteger();
+    testStringSupport();
+    testCompares();
+//    testAddition();
+//    testMultiplication();
+//    testActiveXSupport();
+  }
+	
+	private void testCompares() throws Exception {
+		testCompares("1", "1", 0);
+		testCompares("0", "0", 0);
+		testCompares("0", "1", -1);
+		testCompares("1", "0", 1);
+		
+		testCompares("10", "10", 0);
+		testCompares("100", "100", 0);
+		testCompares("0.1", "0.1", 0);
+		testCompares("0.01", "0.01", 0);
+		testCompares("0.01", "0.0100", 0);
+		testCompares("1", "1.00000000", 0);
+		testCompares("1.111111", "1.111111", 0);
+	}
+	
+	private void testCompares(String v1, String v2, int outcome) throws Exception {
+	  Decimal d1 = new Decimal(v1);
+	  Decimal d2 = new Decimal(v2);
+	  int result = d1.compares(d2);
+	  check(result == outcome, "Compare fail: "+v1+".compares("+v2+") should be "+Integer.toString(outcome)+" but was "+Integer.toString(result));	  
+  }
+	
+	private void testStringSupport() throws Exception {
+	  testString("1", "1", "1e0");
+	  testString("0", "0", "0e0");
+	  testString("10", "10", "1.0e1");
+	  testString("99", "99", "9.9e1");
+	  testString("-1", "-1", "-1e0");
+	  testString("-0", "0", "0e0");
+	  testString("-10", "-10", "-1.0e1");
+	  testString("-99", "-99", "-9.9e1");
+
+	  testString("1.1", "1.1", "1.1e0");
+	  testString("-1.1", "-1.1", "-1.1e0");
+	  testString("11.1", "11.1", "1.11e1");
+	  testString("1.11", "1.11", "1.11e0");
+	  testString("1.111", "1.111", "1.111e0");
+	  testString("0.1", "0.1", "1e-1");
+	  testString("00.1", "0.1", "1e-1");
+	  testString(".1", "0.1", "1e-1");
+	  testString("1.0", "1.0", "1.0e0");
+	  testString("1.00", "1.00", "1.00e0");
+	  testString("1.000000000000000000000000000000000000000", "1.000000000000000000000000000000000000000", "1.000000000000000000000000000000000000000e0");
+
+	  testString("-11.1", "-11.1", "-1.11e1");
+	  testString("-1.11", "-1.11", "-1.11e0");
+	  testString("-1.111", "-1.111", "-1.111e0");
+	  testString("-0.1", "-0.1", "-1e-1");
+	  testString("-00.1", "-0.1", "-1e-1");
+	  testString("-.1", "-0.1", "-1e-1");
+	  testString("-1.0", "-1.0", "-1.0e0");
+	  testString("-1.00", "-1.00", "-1.00e0");
+	  testString("-1.000000000000000000000000000000000000000", "-1.000000000000000000000000000000000000000", "-1.000000000000000000000000000000000000000e0");
+
+	  testString("0.0", "0.0", "0.0e0");
+	  testString("0.0000", "0.0000", "0.0000e0");
+	  testString("0.1", "0.1", "1e-1");
+	  testString("00.1", "0.1", "1e-1");
+	  testString("0.100", "0.100", "1.00e-1");
+	  testString("100", "100", "1.00e2");
+	  testString("1.0", "1.0", "1.0e0");
+	  testString("1.1", "1.1", "1.1e0");
+	  testString("-0.1", "-0.1", "-1e-1");
+	  testString("0.01", "0.01", "1e-2");
+	  testString("0.001", "0.001", "1e-3");
+	  testString("0.0001", "0.0001", "1e-4");
+	  testString("00.0001", "0.0001", "1e-4");
+	  testString("000.0001", "0.0001", "1e-4");
+	  testString("-0.01", "-0.01", "-1e-2");
+	  testString("10.01", "10.01", "1.001e1");
+	  testString("0.0001", "0.0001", "1e-4");
+	  testString("0.00001", "0.00001", "1e-5");
+	  testString("0.000001", "0.000001", "1e-6");
+	  testString("0.0000001", "0.0000001", "1e-7");
+	  testString("0.000000001", "0.000000001", "1e-9");
+	  testString("0.00000000001", "0.00000000001", "1e-11");
+	  testString("0.0000000000001", "0.0000000000001", "1e-13");
+	  testString("0.000000000000001", "0.000000000000001", "1e-15");
+	  testString("0.00000000000000001", "0.00000000000000001", "1e-17");
+	  testString("10.1", "10.1", "1.01e1");
+	  testString("100.1", "100.1", "1.001e2");
+	  testString("1000.1", "1000.1", "1.0001e3");
+	  testString("10000.1", "10000.1", "1.00001e4");
+	  testString("100000.1", "100000.1", "1.000001e5");
+	  testString("1000000.1", "1000000.1", "1.0000001e6");
+	  testString("10000000.1", "10000000.1", "1.00000001e7");
+	  testString("100000000.1", "100000000.1", "1.000000001e8");
+	  testString("1000000000.1", "1000000000.1", "1.0000000001e9");
+	  testString("10000000000.1", "10000000000.1", "1.00000000001e10");
+	  testString("100000000000.1", "100000000000.1", "1.000000000001e11");
+	  testString("1000000000000.1", "1000000000000.1", "1.0000000000001e12");
+	  testString("10000000000000.1", "10000000000000.1", "1.00000000000001e13");
+	  testString("100000000000000.1", "100000000000000.1", "1.000000000000001e14");
+//	  testString("1e-3", "1e-3");   , "1e-3");  e0  }
+
+	  testTrunc("1", "1");
+	  testTrunc("1.01", "1");
+	  testTrunc("-1.01", "-1");
+	  testTrunc("0.01", "0");
+	  testTrunc("-0.01", "0");
+	  testTrunc("0.1", "0");
+	  testTrunc("0.0001", "0");
+	  testTrunc("100.000000000000000000000000000000000000000001", "100");
+  }
+	
+	private void testTrunc(String s1, String s2) throws Exception {
+	  Decimal o1 = new Decimal(s1);
+	  Decimal o2 = o1.trunc();
+    check(o2.asDecimal().equals(s2), "wrong trunc - expected "+s2+" but got "+o2.asDecimal());
+  }
+	
+	private void testString(String s, String st, String std) throws Exception {
+	  Decimal dec = new Decimal(s);
+	  String s1 = dec.toString();
+	  String s2 = dec.asScientific();
+
+	  check(s1.equals(st), "decimal: expected "+st+" but got "+s1);
+	  check(s2.equals(std), "scientific: expected "+std+" but got "+s2);
+
+	  dec = new Decimal(std);
+    s1 = dec.asDecimal();
+	  check(s1.equals(st), "decimal(2): expected "+st+" but got "+s1);	  
+  }
+	
+	private void testAsInteger() throws Exception {
+	  testInteger(0);
+	  testInteger(1);
+	  testInteger(2);
+	  testInteger(64);
+	  testInteger(Integer.MAX_VALUE);
+	  testInteger(-1);
+	  testInteger(-2);
+	  testInteger(-64);
+	  testInteger(Integer.MIN_VALUE);	  
+  }
+	
+	private void testInteger(int i) throws Exception {
+		Decimal d = new Decimal(i);
+		check(d.asInteger() == i, "Failed to round trip the integer "+Integer.toString(i));
+	}
+	
+	private void check(boolean b, String msg) {
+	  if (!b)
+	  	throw new Error(msg);	  
+  }
+	
+	private void runConversion(XmlPullParser xpp) throws Exception {
+		xpp.next();
+		while (xpp.getEventType() != XmlPullParser.END_TAG) {
+			if (xpp.getEventType() == XmlPullParser.TEXT) {
+				if (Utilities.isWhitespace(xpp.getText()))
+					xpp.next();
+				else
+					throw new XmlPullParserException("Unexpected text "+xpp.getText());
+			} else if (xpp.getName().equals("case")) 
+				runConversionCase(xpp);
+			else 
+				throw new XmlPullParserException("unknown element name "+xpp.getName());
+		}
+		xpp.next();
+  }
+
+	private void runConversionCase(XmlPullParser xpp) throws Exception {
+		
+	  String id = xpp.getAttributeValue(null, "id");
+	  String value = xpp.getAttributeValue(null, "value");
+	  String srcUnit = xpp.getAttributeValue(null, "srcUnit");
+	  String dstUnit = xpp.getAttributeValue(null, "dstUnit");
+	  String outcome = xpp.getAttributeValue(null, "outcome");
+	  
+	  BigDecimal res = ucumSvc.convert(new BigDecimal(value), srcUnit, dstUnit);
+		System.out.println("Convert Test "+id+": the value '"+value+" "+srcUnit+"' ==> "+res.toString()+" "+dstUnit);
+
+	  // if (!res.toPlainString().equals(outcome)) { - that assumes that we can get the precision right, which we can't
+		if (!compareNumbers(res, new BigDecimal(outcome))) {
+	  	errCount++;
+	  	System.err.println("The value '"+outcome+"' was expected the result was "+res.toPlainString());
+	  }
+ 		while (xpp.getEventType() != XmlPullParser.END_TAG) 
+	    xpp.next();
+ 		xpp.next();
+  }
+	
+	private boolean compareNumbers(BigDecimal d1, BigDecimal d2) {
+	  BigDecimal diff = d1.subtract(d2).abs();
+	  BigDecimal df = diff.divide(d1, BigDecimal.ROUND_UP).abs();
+		int c = df.compareTo(new BigDecimal("0.01"));
+		return c <= 0;
+  }
 	
 	private void runDisplayNameGeneration(XmlPullParser xpp) throws Exception {
 		xpp.next();
@@ -121,7 +331,8 @@ public class UcumTester {
 		System.out.println("Analyse Test "+id+": the unit '"+unit+"' ==> "+res);
 
 	  if (!res.equals(display)) {
-	  	throw new Exception("The unit '"+unit+"' was expected to be displayed as '"+display+"', but was displayed as "+res);
+	  	errCount++;
+	  	System.err.println("The unit '"+unit+"' was expected to be displayed as '"+display+"', but was displayed as "+res);
 	  }
  		while (xpp.getEventType() != XmlPullParser.END_TAG) 
 	    xpp.next();
@@ -158,10 +369,11 @@ public class UcumTester {
 		  System.out.println("Validation Test "+id+": the unit '"+unit+"' is not valid because "+res);
 
 	  if (valid != result) {
+	  	errCount++;
 	  	if (valid)
-	  		throw new Exception("The unit '"+unit+"' was expected to be valid, but wasn't accepted");
+	  		System.err.println("The unit '"+unit+"' was expected to be valid, but wasn't accepted");
 	  	else
-	  		throw new Exception("The unit '"+unit+"' was expected to be invalid because '"+reason+"', but was accepted");
+	  		System.err.println("The unit '"+unit+"' was expected to be invalid because '"+reason+"', but was accepted");
 	  }
  		while (xpp.getEventType() != XmlPullParser.END_TAG) 
 	    xpp.next();

@@ -80,15 +80,24 @@ public class Utilities {
     }
     
   
-	public static boolean IsInteger(String string) {
-		try {
-			int i = Integer.parseInt(string);
-			return i != i+1;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-	
+  	public static boolean IsInteger(String string) {
+  		try {
+  			int i = Integer.parseInt(string);
+  			return i != i+1;
+  		} catch (Exception e) {
+  			return false;
+  		}
+  	}
+  	
+  	public static boolean IsDecimal(String string) {
+  		try {
+  			float r = Float.parseFloat(string);
+  			return r != r + 1; // just to suppress the hint
+  		} catch (Exception e) {
+  			return false;
+  		}
+  	}
+  	
 	public static String camelCase(String value) {
 	  return new Inflector().camelCase(value.trim().replace(" ", "_"), false);
 	}
