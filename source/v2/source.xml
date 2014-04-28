@@ -19026,7 +19026,7 @@
       <item id="4" code="PU" desc="Purged"/>
     </version>
   </table>
-  <table id="276" state="exclude">
+  <table id="276" state="include">
     <version version="2.3" desc="Appointment Reason Codes">
       <item id="0" code="CHECKUP" desc="A routine check-up, such as an annual physical."/>
       <item id="0" code="EMERGENCY" desc="Emergency appointment"/>
