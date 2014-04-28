@@ -3,10 +3,12 @@
 		<h2>Scope and Usage</h2>
 		<p>
 			Appointment resources are used to provide information about
-			a planned meeting that may be in the future or past.  They may be for a single meeting or
-			for a series of repeating visits.  Examples include a scheduled surgery, a follow-up for a
+			a planned meeting that may be in the future or past.  The resource only describes a single meeting,
+			a series of repeating visits would require multiple appointment resources be created for each instance.
+			Examples include a scheduled surgery, a follow-up for a
 			clinical visit, a scheduled conference call between clinicians to discuss a case, the reservation
-			of a piece of diagnostic equipment for a particular use, etc.  The visit scheduled by an appointment
+			of a piece of diagnostic equipment for a particular use, etc.
+			The visit scheduled by an appointment
 			may be in person or remote (by phone, video conference, etc.)  All that matters is that the time and
 			usage of one or more individuals, locations and/or pieces of equipment is being fully or partially
 			reserved for a designated period of time.
@@ -14,25 +16,27 @@
 		<p>
 			This definition takes the concepts of appointments in a clinical setting and also extends
 			them to be relevant in the community healthcare space, and also ease exposure to other
-			appointment / calendar standards widely used outside of Healthcare.
+			appointment / calendar standards widely used outside of healthcare.
 		</p>
 
 		<h3>The basic workflow to create an appointment</h3>
-		<ol>
+		<ul>
 			<li>
-				<h4>Discovery/Addressing</h4>
+				<b>Discovery/Addressing</b>
 				<p>
-					The discovery process covers that actual finding of the resource that we want to schedule
-					an appointment with. This includes the addressing information that is required, and any
-					formatting information which indicates how to make the request.
+					Before an appointment can be made the address of the resource that we want to schedule
+					an appointment with must be determined. This is often based on the healthcare Service Type,
+					any formatting information which indicates how to make the request.
+					This is typically handled via the Availability resource.
 				</p>
 			</li>
 			<li>
-				<h4>Checking Availability (optional)</h4>
+				<b>Checking Availability (optional)</b>
 				<p>
-					This optional step permits the checking of any existing available times that can be booked against.
+					This optional step permits the checking of any existing available times 
+					(<a href="slot.html">slot</a> resources associated with a selected <a href="availability.html">availability</a>) that can be booked against.
 					Just because a time is indicated it is available doesn't guarantee that an appointment can be made.
-					The booking system that is going to receive the request may make other qualifying decisions to
+					The booking system that is going to process the request may make other qualifying decisions to
 					determine if the appointment can be made, such as permissions, assessments, availability of other
 					resources etc.
 				</p>
@@ -43,7 +47,7 @@
 				</p>
 			</li>
 			<li>
-				<h4>Making the Appointment Request</h4>
+				<b>Making the Appointment Request</b>
 				<p>
 					The request is performed by posting an Appointment to the address found during discovery.
 					This will have a needs-action status for each of the participants.
@@ -53,7 +57,7 @@
 				</p>
 			</li>
 			<li>
-				<h4>Replying to the request</h4>
+				<b>Replying to the request</b>
 				<p>
 					The reply process is simply performed by the person/system handing the requests updating
 					the Participant Statuses as needed. If there are multiple systems involved, then these
@@ -66,7 +70,7 @@
 				</p>
 			</li>
 			<li>
-				<h4>Checking the overall status (Requester)</h4>
+				<b>Checking the overall status (Requester)</b>
 				<p>
 					The Requester (organizer) of the appointment checks for the overall status of the appointment
 					(and appointmentresponses where applicable) using fhir pub-sub techniques.
@@ -76,20 +80,35 @@
 					start again, with other systems replying to a new set of times.
 				</p>
 			</li>
-		</ol>
+		</ul>
 
 		<h3>There are 2 typical workflows that occur with appointments</h3>
 		<ul>
 			<li>
 				<b>Outlook Style - Community</b>
-				<p>These types of requests are typically handled by selecting a specific time</p>
+				<p>
+					These types of requests are typically handled by selecting a specific time from a list of available slots.
+					Then making the request for that timeslot.
+				</p>
 			</li>
 			<li>
 				<b>Hospital Scheduling - Clinical</b>
-				<p></p>
+				<p>
+					Clinical scheduling is often far more complex in its requirements and processing.
+					Often this involves checking multiple availabilities across multiple systems and
+					timing with other internal systems, not just those exposed by the Slot resources.
+				</p>
+				<p>
+					Consideration should be given to situations where scheduling needs to be handled
+					in more of a queue-like process.
+				</p>
+				<p>
+					Note: This type of clinical appointment scheduling has not been specifically covered
+					with this definition of the appointment (and the related resources), however if you
+					would like to contribute to the modification of this resource to cover these use cases,
+					please contact the HL7 Patient Administration work-group.
+				</p>
 			</li>
 		</ul>
 	</div>
-
 </div>
-

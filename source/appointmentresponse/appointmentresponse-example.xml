@@ -17,5 +17,5 @@
 		<reference value="Practitioner/example"/>
 			<display value="Dr Adam Careful" />
 	</lastModifiedBy>
-	<lastModifiedByDate value="2012-09-17"/>
+	<lastModified value="2012-09-17"/>
 </AppointmentResponse>

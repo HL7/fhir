@@ -6,6 +6,7 @@
 			25 Dec 2013 9:00am - 9:15am: <b>Busy</b> Physiotherapy
 		</div>
 	</text>
+	<identifier id="example" />
 	<type>
 		<coding>
 			<code value="45"/>
@@ -18,6 +19,7 @@
 	<freeBusyType value="BUSY" />
 	<start value="2013-12-25T09:00:00Z" />
 	<end value="2013-12-25T09:15:00Z" />
+	<overbooked value="true" />
 	<comment value="Assessments should be performed before requesting appointments in this slot." />
 	<lastModified value="2012-09-17"/>
 </Slot>

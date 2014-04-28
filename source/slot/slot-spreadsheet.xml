@@ -16,9 +16,9 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9030</WindowHeight>
-  <WindowWidth>19290</WindowWidth>
-  <WindowTopX>1200</WindowTopX>
+  <WindowHeight>11925</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
+  <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>634</TabRatio>
   <ProtectStructure>False</ProtectStructure>
@@ -260,7 +260,7 @@
     <Cell ss:Index="14" ss:StyleID="s75"><Data ss:Type="String">FREEBUSY:19980314T233000Z/(end)&#10;If the freeBusyType is BUSY, then this value can be excluded (as shown)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Slot.overboooked</Data></Cell>
+    <Cell><Data ss:Type="String">Slot.overbooked</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">This slot has already been overbooked, appointments are unlikely to be accepted for this time</Data></Cell>
@@ -321,7 +321,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
