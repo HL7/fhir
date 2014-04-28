@@ -378,9 +378,9 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
         throw new Exception("Unable to check Java library version");
     String[] ver = TextFile.fileToString(destFile).split(":");
     if (!ver[1].equals(Constants.VERSION))
-      throw new Exception("Version mismatch - the compiled version is using FHIR "+ver+" but the bound version of FHIR is "+Constants.VERSION);
+      throw new Exception("Version mismatch - the compiled version is using FHIR "+ver[1]+" but the bound version of FHIR is "+Constants.VERSION);
     if (!ver[0].equals(getVersion()))
-      throw new Exception("Version mismatch - the compiled version of the reference implementation is "+ver+" but the bound version is "+getVersion());
+      throw new Exception("Version mismatch - the compiled version of the reference implementation is "+ver[0]+" but the bound version is "+getVersion());
   }
 
   private void addSourceFiles(List<File> classes, String name) {

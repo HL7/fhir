@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Fri, Apr 25, 2014 08:42+1000 for FHIR v0.81
+// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
 
 import java.util.*;
 
@@ -142,7 +142,7 @@ public class Namespace extends Resource {
         oid, // An ISO object identifier.  E.g. 1.2.3.4.5.
         uuid, // A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.
         uri, // A uniform resource identifier (ideally a URL - uniform resource locator).  E.g. http://unitsofmeasure.org.
-        ruid, // HL7-assigned reserved string.  E.g. LN for LOINC.
+        other, // Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC.
         Null; // added to help the parsers
         public static NamespaceIdentifierType fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -153,8 +153,8 @@ public class Namespace extends Resource {
           return uuid;
         if ("uri".equals(codeString))
           return uri;
-        if ("ruid".equals(codeString))
-          return ruid;
+        if ("other".equals(codeString))
+          return other;
         throw new Exception("Unknown NamespaceIdentifierType code '"+codeString+"'");
         }
         public String toCode() {
@@ -162,7 +162,7 @@ public class Namespace extends Resource {
             case oid: return "oid";
             case uuid: return "uuid";
             case uri: return "uri";
-            case ruid: return "ruid";
+            case other: return "other";
             default: return "?";
           }
         }
@@ -179,8 +179,8 @@ public class Namespace extends Resource {
           return NamespaceIdentifierType.uuid;
         if ("uri".equals(codeString))
           return NamespaceIdentifierType.uri;
-        if ("ruid".equals(codeString))
-          return NamespaceIdentifierType.ruid;
+        if ("other".equals(codeString))
+          return NamespaceIdentifierType.other;
         throw new Exception("Unknown NamespaceIdentifierType code '"+codeString+"'");
         }
     public String toCode(Enum<?> code) throws Exception {
@@ -190,8 +190,8 @@ public class Namespace extends Resource {
         return "uuid";
       if (code == NamespaceIdentifierType.uri)
         return "uri";
-      if (code == NamespaceIdentifierType.ruid)
-        return "ruid";
+      if (code == NamespaceIdentifierType.other)
+        return "other";
       return "?";
       }
     }
@@ -431,9 +431,9 @@ public class Namespace extends Resource {
     protected Enumeration<NamespaceType> type;
 
     /**
-     * The name of this particular identifier or code system.
+     * The descriptive name of this particular identifier type or code system.
      */
-    protected String_ label;
+    protected String_ name;
 
     /**
      * Indicates whether the namespace is "ready for use" or not.
@@ -451,7 +451,12 @@ public class Namespace extends Resource {
     protected CodeableConcept category;
 
     /**
-     * Details about what the namespace identifies including scope, granularity, etc.
+     * The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
+     */
+    protected String_ responsible;
+
+    /**
+     * Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
     protected String_ description;
 
@@ -466,23 +471,23 @@ public class Namespace extends Resource {
     protected List<NamespaceUniqueIdComponent> uniqueId = new ArrayList<NamespaceUniqueIdComponent>();
 
     /**
-     * The organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
-     */
-    protected ResourceReference responsible;
-
-    /**
      * The person who can be contacted about this system registration entry.
      */
     protected NamespaceContactComponent contact;
+
+    /**
+     * For namespaces that are retired, indicates the namespace that should be used in their place (if any).
+     */
+    protected ResourceReference replacedBy;
 
     public Namespace() {
       super();
     }
 
-    public Namespace(Enumeration<NamespaceType> type, String_ label, Enumeration<NamespaceStatus> status) {
+    public Namespace(Enumeration<NamespaceType> type, String_ name, Enumeration<NamespaceStatus> status) {
       super();
       this.type = type;
-      this.label = label;
+      this.name = name;
       this.status = status;
     }
 
@@ -519,34 +524,34 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #label} (The name of this particular identifier or code system.)
+     * @return {@link #name} (The descriptive name of this particular identifier type or code system.)
      */
-    public String_ getLabel() { 
-      return this.label;
+    public String_ getName() { 
+      return this.name;
     }
 
     /**
-     * @param value {@link #label} (The name of this particular identifier or code system.)
+     * @param value {@link #name} (The descriptive name of this particular identifier type or code system.)
      */
-    public Namespace setLabel(String_ value) { 
-      this.label = value;
+    public Namespace setName(String_ value) { 
+      this.name = value;
       return this;
     }
 
     /**
-     * @return The name of this particular identifier or code system.
+     * @return The descriptive name of this particular identifier type or code system.
      */
-    public String getLabelSimple() { 
-      return this.label == null ? null : this.label.getValue();
+    public String getNameSimple() { 
+      return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value The name of this particular identifier or code system.
+     * @param value The descriptive name of this particular identifier type or code system.
      */
-    public Namespace setLabelSimple(String value) { 
-        if (this.label == null)
-          this.label = new String_();
-        this.label.setValue(value);
+    public Namespace setNameSimple(String value) { 
+        if (this.name == null)
+          this.name = new String_();
+        this.name.setValue(value);
       return this;
     }
 
@@ -634,14 +639,50 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #description} (Details about what the namespace identifies including scope, granularity, etc.)
+     * @return {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.)
+     */
+    public String_ getResponsible() { 
+      return this.responsible;
+    }
+
+    /**
+     * @param value {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.)
+     */
+    public Namespace setResponsible(String_ value) { 
+      this.responsible = value;
+      return this;
+    }
+
+    /**
+     * @return The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
+     */
+    public String getResponsibleSimple() { 
+      return this.responsible == null ? null : this.responsible.getValue();
+    }
+
+    /**
+     * @param value The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
+     */
+    public Namespace setResponsibleSimple(String value) { 
+      if (value == null)
+        this.responsible = null;
+      else {
+        if (this.responsible == null)
+          this.responsible = new String_();
+        this.responsible.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.)
      */
     public String_ getDescription() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (Details about what the namespace identifies including scope, granularity, etc.)
+     * @param value {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.)
      */
     public Namespace setDescription(String_ value) { 
       this.description = value;
@@ -649,14 +690,14 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return Details about what the namespace identifies including scope, granularity, etc.
+     * @return Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value Details about what the namespace identifies including scope, granularity, etc.
+     * @param value Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
     public Namespace setDescriptionSimple(String value) { 
       if (value == null)
@@ -723,21 +764,6 @@ public class Namespace extends Resource {
     }
 
     /**
-     * @return {@link #responsible} (The organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.)
-     */
-    public ResourceReference getResponsible() { 
-      return this.responsible;
-    }
-
-    /**
-     * @param value {@link #responsible} (The organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.)
-     */
-    public Namespace setResponsible(ResourceReference value) { 
-      this.responsible = value;
-      return this;
-    }
-
-    /**
      * @return {@link #contact} (The person who can be contacted about this system registration entry.)
      */
     public NamespaceContactComponent getContact() { 
@@ -752,34 +778,51 @@ public class Namespace extends Resource {
       return this;
     }
 
+    /**
+     * @return {@link #replacedBy} (For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
+     */
+    public ResourceReference getReplacedBy() { 
+      return this.replacedBy;
+    }
+
+    /**
+     * @param value {@link #replacedBy} (For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
+     */
+    public Namespace setReplacedBy(ResourceReference value) { 
+      this.replacedBy = value;
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "Indicates the purpose for the namespace - what kinds of things does it make unique?.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("label", "string", "The name of this particular identifier or code system.", 0, java.lang.Integer.MAX_VALUE, label));
+        childrenList.add(new Property("name", "string", "The descriptive name of this particular identifier type or code system.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("status", "code", "Indicates whether the namespace is 'ready for use' or not.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("country", "code", "If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.", 0, java.lang.Integer.MAX_VALUE, country));
         childrenList.add(new Property("category", "CodeableConcept", "Categorizes a namespace for easier search by grouping related namespaces.", 0, java.lang.Integer.MAX_VALUE, category));
-        childrenList.add(new Property("description", "string", "Details about what the namespace identifies including scope, granularity, etc.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("responsible", "string", "The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.", 0, java.lang.Integer.MAX_VALUE, responsible));
+        childrenList.add(new Property("description", "string", "Details about what the namespace identifies including scope, granularity, version labeling, etc.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("usage", "string", "Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.", 0, java.lang.Integer.MAX_VALUE, usage));
         childrenList.add(new Property("uniqueId", "", "Indicates how the system may be identified when referenced in electronic exchange.", 0, java.lang.Integer.MAX_VALUE, uniqueId));
-        childrenList.add(new Property("responsible", "Resource(Organization)", "The organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.", 0, java.lang.Integer.MAX_VALUE, responsible));
         childrenList.add(new Property("contact", "", "The person who can be contacted about this system registration entry.", 0, java.lang.Integer.MAX_VALUE, contact));
+        childrenList.add(new Property("replacedBy", "Resource(Namespace)", "For namespaces that are retired, indicates the namespace that should be used in their place (if any).", 0, java.lang.Integer.MAX_VALUE, replacedBy));
       }
 
       public Namespace copy() {
         Namespace dst = new Namespace();
         dst.type = type == null ? null : type.copy();
-        dst.label = label == null ? null : label.copy();
+        dst.name = name == null ? null : name.copy();
         dst.status = status == null ? null : status.copy();
         dst.country = country == null ? null : country.copy();
         dst.category = category == null ? null : category.copy();
+        dst.responsible = responsible == null ? null : responsible.copy();
         dst.description = description == null ? null : description.copy();
         dst.usage = usage == null ? null : usage.copy();
         dst.uniqueId = new ArrayList<NamespaceUniqueIdComponent>();
         for (NamespaceUniqueIdComponent i : uniqueId)
           dst.uniqueId.add(i.copy(dst));
-        dst.responsible = responsible == null ? null : responsible.copy();
         dst.contact = contact == null ? null : contact.copy(dst);
+        dst.replacedBy = replacedBy == null ? null : replacedBy.copy();
         return dst;
       }
 

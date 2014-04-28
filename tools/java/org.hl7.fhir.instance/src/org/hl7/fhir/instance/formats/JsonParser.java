@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Apr 25, 2014 08:42+1000 for FHIR v0.81
+// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -3866,10 +3866,10 @@ public class JsonParser extends JsonParserBase {
       res.setType(parseEnumeration(json.get("type").getAsString(), Namespace.NamespaceType.Null, new Namespace.NamespaceTypeEnumFactory()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getType());
-    if (json.has("label"))
-      res.setLabel(parseString(json.get("label").getAsString()));
-    if (json.has("_label"))
-      parseElementProperties(json.getAsJsonObject("_label"), res.getLabel());
+    if (json.has("name"))
+      res.setName(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getName());
     if (json.has("status"))
       res.setStatus(parseEnumeration(json.get("status").getAsString(), Namespace.NamespaceStatus.Null, new Namespace.NamespaceStatusEnumFactory()));
     if (json.has("_status"))
@@ -3880,6 +3880,10 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_country"), res.getCountry());
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
+    if (json.has("responsible"))
+      res.setResponsible(parseString(json.get("responsible").getAsString()));
+    if (json.has("_responsible"))
+      parseElementProperties(json.getAsJsonObject("_responsible"), res.getResponsible());
     if (json.has("description"))
       res.setDescription(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
@@ -3894,10 +3898,10 @@ public class JsonParser extends JsonParserBase {
         res.getUniqueId().add(parseNamespaceNamespaceUniqueIdComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("responsible"))
-      res.setResponsible(parseResourceReference(json.getAsJsonObject("responsible")));
     if (json.has("contact"))
       res.setContact(parseNamespaceNamespaceContactComponent(json.getAsJsonObject("contact"), res));
+    if (json.has("replacedBy"))
+      res.setReplacedBy(parseResourceReference(json.getAsJsonObject("replacedBy")));
     return res;
   }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Fri, Apr 25, 2014 08:42+1000 for FHIR v0.81
+// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -3373,8 +3373,8 @@ public class JsonComposer extends JsonComposerBase {
         composeEnumerationCore("type", element.getType(), new Namespace.NamespaceTypeEnumFactory(), false);
         composeEnumerationExtras("type", element.getType(), new Namespace.NamespaceTypeEnumFactory(), false);
       }
-      composeStringCore("label", element.getLabel(), false);
-      composeStringExtras("label", element.getLabel(), false);
+      composeStringCore("name", element.getName(), false);
+      composeStringExtras("name", element.getName(), false);
       if (element.getStatus() != null) {
         composeEnumerationCore("status", element.getStatus(), new Namespace.NamespaceStatusEnumFactory(), false);
         composeEnumerationExtras("status", element.getStatus(), new Namespace.NamespaceStatusEnumFactory(), false);
@@ -3382,6 +3382,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeCore("country", element.getCountry(), false);
       composeCodeExtras("country", element.getCountry(), false);
       composeCodeableConcept("category", element.getCategory());
+      composeStringCore("responsible", element.getResponsible(), false);
+      composeStringExtras("responsible", element.getResponsible(), false);
       composeStringCore("description", element.getDescription(), false);
       composeStringExtras("description", element.getDescription(), false);
       composeStringCore("usage", element.getUsage(), false);
@@ -3392,8 +3394,8 @@ public class JsonComposer extends JsonComposerBase {
           composeNamespaceNamespaceUniqueIdComponent(null, e);
         closeArray();
       };
-      composeResourceReference("responsible", element.getResponsible());
       composeNamespaceNamespaceContactComponent("contact", element.getContact());
+      composeResourceReference("replacedBy", element.getReplacedBy());
     }
   }
 
