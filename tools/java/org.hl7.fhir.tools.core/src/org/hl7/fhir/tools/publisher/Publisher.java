@@ -295,7 +295,7 @@ public class Publisher {
       System.out.println("Error running build: " + e.getMessage());
       File f;
       try {
-        f = new File(Utilities.appendSlash(args[0]) + "fhir-error-dump.txt");
+        f = new File(Utilities.appendSlash(System.getProperty("user.dir")) + "fhir-error-dump.txt");
         PrintStream p = new PrintStream(f);
         e.printStackTrace(p);
         System.out.println("Stack Trace saved as " + Utilities.appendSlash(args[0]) + " fhir-error-dump.txt");
