@@ -2787,12 +2787,13 @@ public class PageProcessor implements Logger  {
     cnt = processPageIncludes(filename, cnt, "notes", others).trim()+"\r\n";
     if (cnt.startsWith("<div")) {
       if (!cnt.startsWith(HTML_PREFIX1) && !cnt.startsWith(HTML_PREFIX2))
-        throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX1.length())+" - should be '"+HTML_PREFIX1+"'");
+        throw new Exception("unable to process start xhtml content "+filename+" : "+cnt.substring(0, HTML_PREFIX1.length())+" - should be '"+HTML_PREFIX1+"' or '"+HTML_PREFIX2+"'");
       else if (!cnt.endsWith(HTML_SUFFIX))
         throw new Exception("unable to process end xhtml content "+filename+" : "+cnt.substring(cnt.length()-HTML_SUFFIX.length()));
-      else {
+      else if (cnt.startsWith(HTML_PREFIX2))
+        res = cnt.substring(HTML_PREFIX2.length(), cnt.length()-(HTML_SUFFIX.length()));
+      else
         res = cnt.substring(HTML_PREFIX1.length(), cnt.length()-(HTML_SUFFIX.length()));
-      }
     } else {
       res = HTML_PREFIX1+cnt+HTML_SUFFIX;
       TextFile.stringToFile(res, filename);
@@ -2807,7 +2808,7 @@ public class PageProcessor implements Logger  {
 
   private void checkFormat(String filename, String res, ResourceDefn r) throws Exception {
     XhtmlNode doc = new XhtmlParser().parse("<div>"+res+"</div>", null).getFirstElement();
-    if (!doc.getName().equals("div"))
+    if (!doc.getFirstElement().getName().equals("div"))
       log("file \""+filename+"\": root element should be 'div'", LogMessageType.Error);
     else if (doc.getFirstElement() == null) {
       log("file \""+filename+"\": there is no 'Scope and Usage'", LogMessageType.Error);

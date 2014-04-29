@@ -2601,10 +2601,10 @@ public class Publisher {
       introAndNotesPath = Utilities.path(page.getFolders().rootDir, "profiles");
 
     String intro = null;
-    if (profile.getMetadata().containsKey("introduction"))
+    if (profile.getMetadata().containsKey("introduction") && !Utilities.noString(profile.getMetadata().get("introduction").get(0)))
       intro = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("introduction").get(0), true, null, null);
     String notes = null;
-    if (profile.getMetadata().containsKey("notes"))
+    if (profile.getMetadata().containsKey("notes") && !Utilities.noString(profile.getMetadata().get("notes").get(0)))
       notes = page.loadXmlNotesFromFile(introAndNotesPath + File.separator + profile.getMetadata().get("notes").get(0), false, null, null);
 
     String exXml = "<p><i>No Example Provided</i></p>";
