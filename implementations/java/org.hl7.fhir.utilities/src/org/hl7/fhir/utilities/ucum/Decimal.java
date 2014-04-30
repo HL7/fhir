@@ -61,6 +61,26 @@ public class Decimal {
 			setValueDecimal(value);
 	}
 
+	/**
+	 * There are a few circumstances where a simple value is known to be correct to a high
+	 * precision. For instance, the unit prefix milli is not ~0.001, it is precisely 0.001
+	 * to whatever precision you want to specify. This constructor allows you to specify 
+	 * an alternative precision than the one implied by the stated string
+	 * 
+	 * @param value - a string representation of the value
+	 * @param precision - a 
+	 * @throws Exception
+	 */
+	public Decimal(String value, int precision) throws Exception {
+		super();
+		value = value.toLowerCase();
+		if (value.contains("e"))
+			setValueScientific(value);
+		else
+			setValueDecimal(value);
+		this.precision = precision;
+	}
+
 	public Decimal(int i) {
 		super();
 		try {

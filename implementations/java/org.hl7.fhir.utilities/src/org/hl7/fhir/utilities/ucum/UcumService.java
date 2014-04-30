@@ -183,8 +183,9 @@ public interface UcumService {
 	 * @param o1
 	 * @param o2
 	 * @return
+	 * @throws Exception 
 	 */
-	public abstract Pair multiply(Pair o1, Pair o2);
+	public abstract Pair multiply(Pair o1, Pair o2) throws Exception;
 
 
 	/**

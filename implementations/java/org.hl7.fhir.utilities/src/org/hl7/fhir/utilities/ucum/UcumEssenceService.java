@@ -270,9 +270,9 @@ public class UcumEssenceService implements UcumService {
 		return canValue.divide(dst.getValue());
 	}
 
-	public Pair multiply(Pair o1, Pair o2) {
-		// TODO Auto-generated method stub
-		return null;
+	public Pair multiply(Pair o1, Pair o2) throws Exception {
+	  Pair res = new Pair(o1.getValue().multiply(o2.getValue()), o1.getCode() +"."+o2.getCode());
+	  return getCanonicalForm(res);
 	}
 
 	@Override

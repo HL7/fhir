@@ -8,6 +8,7 @@ import java.util.Date;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.Decimal;
+import org.hl7.fhir.utilities.ucum.Pair;
 import org.hl7.fhir.utilities.ucum.UcumEssenceService;
 import org.hl7.fhir.utilities.ucum.UcumModel;
 import org.hl7.fhir.utilities.ucum.UcumService;
@@ -98,6 +99,8 @@ public class UcumTester {
 				runDisplayNameGeneration(xpp);
 			else if (xpp.getName().equals("conversion")) 
 				runConversion(xpp);
+			else if (xpp.getName().equals("multiplication")) 
+				runMultiplication(xpp);
 			else 
 				throw new XmlPullParserException("unknown element name "+xpp.getName());
 		}
@@ -105,6 +108,49 @@ public class UcumTester {
 		if (errCount > 0)
 			System.err.println(Integer.toString(errCount)+" errors");
 	}
+	
+	private void runMultiplication(XmlPullParser xpp) throws Exception {
+		xpp.next();
+		while (xpp.getEventType() != XmlPullParser.END_TAG) {
+			if (xpp.getEventType() == XmlPullParser.TEXT) {
+				if (Utilities.isWhitespace(xpp.getText()))
+					xpp.next();
+				else
+					throw new XmlPullParserException("Unexpected text "+xpp.getText());
+			} else if (xpp.getName().equals("case")) 
+				runMultiplicationCase(xpp);
+			else 
+				throw new XmlPullParserException("unknown element name "+xpp.getName());
+		}
+		xpp.next();	  
+  }
+	
+	private void runMultiplicationCase(XmlPullParser xpp) throws Exception {
+		
+	  String id = xpp.getAttributeValue(null, "id");
+	  String v1 = xpp.getAttributeValue(null, "v1");
+	  String u1 = xpp.getAttributeValue(null, "u1");
+	  String v2 = xpp.getAttributeValue(null, "v2");
+	  String u2 = xpp.getAttributeValue(null, "u2");
+	  String vRes = xpp.getAttributeValue(null, "vRes");
+	  String uRes = xpp.getAttributeValue(null, "uRes");
+	  
+	  Pair o1 = new Pair(new Decimal(v1), u1);
+	  Pair o2 = new Pair(new Decimal(v2), u2);
+	  Pair o3 = ucumSvc.multiply(o1, o2);
+
+		debug("Multiplication Test "+id+": the value '"+v1+" "+u1+"' * '"+v2+" "+u2+"' ==> "+o3.getValue().toString()+" "+o3.getCode());
+
+	  // if (!res.toPlainString().equals(outcome)) { - that assumes that we can get the precision right, which we can't
+		if (o3.getValue().comparesTo(new Decimal(vRes)) != 0 || !o3.getCode().equals(uRes)) {
+	  	errCount++;
+	  	System.err.println("Test "+id+": The value '"+vRes+" "+uRes+"' was expected, but the result was "+o3.getValue().toString()+" "+o3.getCode());
+	  }
+ 		while (xpp.getEventType() != XmlPullParser.END_TAG) 
+	    xpp.next();
+ 		xpp.next();
+ 		
+  }
 	
 	private void testDecimal() throws Exception {
     testAsInteger();
@@ -478,7 +524,7 @@ public class UcumTester {
 	  // if (!res.toPlainString().equals(outcome)) { - that assumes that we can get the precision right, which we can't
 		if (res.comparesTo(new Decimal(outcome)) != 0) {
 	  	errCount++;
-	  	System.err.println("The value '"+outcome+"' was expected the result was "+res.toString());
+	  	System.err.println("Test "+id+": The value '"+outcome+"' was expected the result was "+res.toString());
 	  }
  		while (xpp.getEventType() != XmlPullParser.END_TAG) 
 	    xpp.next();
@@ -516,7 +562,7 @@ public class UcumTester {
 
 	  if (!res.equals(display)) {
 	  	errCount++;
-	  	System.err.println("The unit '"+unit+"' was expected to be displayed as '"+display+"', but was displayed as "+res);
+	  	System.err.println("Test "+id+": The unit '"+unit+"' was expected to be displayed as '"+display+"', but was displayed as "+res);
 	  }
  		while (xpp.getEventType() != XmlPullParser.END_TAG) 
 	    xpp.next();
@@ -555,9 +601,9 @@ public class UcumTester {
 	  if (valid != result) {
 	  	errCount++;
 	  	if (valid)
-	  		System.err.println("The unit '"+unit+"' was expected to be valid, but wasn't accepted");
+	  		System.err.println("Test "+id+": The unit '"+unit+"' was expected to be valid, but wasn't accepted");
 	  	else
-	  		System.err.println("The unit '"+unit+"' was expected to be invalid because '"+reason+"', but was accepted");
+	  		System.err.println("Test "+id+": The unit '"+unit+"' was expected to be invalid because '"+reason+"', but was accepted");
 	  }
  		while (xpp.getEventType() != XmlPullParser.END_TAG) 
 	    xpp.next();

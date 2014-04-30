@@ -81,7 +81,7 @@ public class Converter {
 		assert(can.getUnit().getComp() instanceof Symbol);
 		assert(can.getUnit().getTerm().getComp() instanceof Symbol);
 		boolean result = false;
-		if (((Symbol) can.getUnit().getComp()).getUnit().getCode().compareTo(((Symbol) can.getUnit().getTerm().getComp()).getUnit().getCode()) < 0) {
+		if (((Symbol) can.getUnit().getComp()).getUnit().getCode().compareTo(((Symbol) can.getUnit().getTerm().getComp()).getUnit().getCode()) > 0) {
 			result = true;
 			Term t1 = can.getUnit();
 			Term t2 = can.getUnit().getTerm();
@@ -276,7 +276,7 @@ public class Converter {
 			}
 //				ctxt.multiplyValue(unit.getValue().getValue());
 			Term canonical = new ExpressionParser(model).parse(u);
-			if (canonical.hasComp() && !canonical.hasOp() && !canonical.hasTerm()) {
+			if (canonical.hasComp() && canonical.hasOp() && !canonical.hasTerm()) {
 				Component ret = convertComp(ctxt, canonical.getComp());
 				if (comp.getExponent() == 1)
 					return ret;
@@ -301,7 +301,11 @@ public class Converter {
 					ctxt.divideValue(t1.getValue());
 					return ret;
 				} else if (comp.getExponent() != 1) {
-					ctxt.multiplyValue(t1.getValue());
+		      for (int i = 1; i <= Math.abs(comp.getExponent()); i++) 
+		        if (comp.getExponent() < 0)
+		          ctxt.divideValue(t1.getValue());
+		        else
+		          ctxt.multiplyValue(t1.getValue());
 					// what we have to do is push the exponent into the all the symbols contained herein
 					applyExponent(ret, comp.getExponent());
 					return ret;

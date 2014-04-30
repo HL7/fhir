@@ -4,6 +4,8 @@ public class Pair {
 
 	private Decimal value;
 	private String code;
+	
+	
 	/**
 	 * @param value
 	 * @param code

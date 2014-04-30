@@ -126,7 +126,7 @@ public class DefinitionParser {
 		prefix.getNames().add(readElement(xpp, "name", "prefix "+prefix.getCode(), false));
 		prefix.setPrintSymbol(readElement(xpp, "printSymbol", "prefix "+prefix.getCode(), false));
 		checkAtElement(xpp, "value", "prefix "+prefix.getCode());
-		prefix.setValue(new Decimal(xpp.getAttributeValue(null, "value")));
+		prefix.setValue(new Decimal(xpp.getAttributeValue(null, "value"), 24));
 		readElement(xpp, "value", "prefix "+prefix.getCode(), true);
 		xpp.next();
 		skipWhitespace(xpp);
