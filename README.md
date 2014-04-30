@@ -33,3 +33,7 @@ changes back to source when done. this is a hack)
 
  * `-name`: the "name" to go in the title bar of each of the specification
 
+
+---
+##### Copyright HL7, Inc.
+Open-source under BSD3 (License)[./LICENSE]
