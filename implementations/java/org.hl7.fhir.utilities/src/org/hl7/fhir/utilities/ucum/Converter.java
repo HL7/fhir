@@ -10,8 +10,6 @@ package org.hl7.fhir.utilities.ucum;
  *    Kestral Computing P/L - initial implementation
  *******************************************************************************/
 
-import java.math.BigDecimal;
-
 import org.hl7.fhir.utilities.ucum.special.Registry;
 
 /*
@@ -103,7 +101,7 @@ public class Converter {
 
 	
 	private Canonical convertTerm(Term term) throws Exception {
-		Canonical res = new Canonical(new BigDecimal(1), new Term());
+		Canonical res = new Canonical(new Decimal(1), new Term());
 		if (term.hasComp()) 
 			res.getUnit().setComp(convertComp(res, term.getComp()));
 		if (term.hasOp())
@@ -113,7 +111,7 @@ public class Converter {
 			
       if (res.getUnit().getOp() == Operator.DIVISION && t.hasUnit()) {
         debug("going to flip @ "+res.getValue().toString()+'/'+t.getValue().toString(), t.getUnit());
-        res.setValue(res.getValue().divide(t.getValue(), BigDecimal.ROUND_UP));
+        res.setValue(res.getValue().divide(t.getValue()));
         res.getUnit().setOp(Operator.MULTIPLICATION);
         flipExponents(t.getUnit());
         res.getUnit().setTermCheckOp(t.getUnit());

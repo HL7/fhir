@@ -11,7 +11,7 @@
 
 package org.hl7.fhir.utilities.ucum.special;
 
-import java.math.BigDecimal;
+import org.hl7.fhir.utilities.ucum.Decimal;
 
 public abstract class SpecialUnitHandler {
 
@@ -33,6 +33,6 @@ public abstract class SpecialUnitHandler {
 	 * 
 	 * @return
 	 */
-	public abstract BigDecimal getValue();
+	public abstract Decimal getValue();
 	
 }

@@ -20,10 +20,10 @@ import org.hl7.fhir.utilities.ucum.special.Registry;
 public class UcumValidator {
 
 	private UcumModel model;
-    private List<String> result;
+	private List<String> result;
 	private Registry handlers;
-	
-    public UcumValidator(UcumModel model, Registry handlers) {
+
+	public UcumValidator(UcumModel model, Registry handlers) {
 		super();
 		this.model = model;
 		this.handlers = handlers;
@@ -44,7 +44,7 @@ public class UcumValidator {
 			checkUnitCode(unit.getCode(), true);
 		}		
 	}
-	
+
 	private void checkUnits() {
 		for (DefinedUnit unit : model.getDefinedUnits()) {
 			if (!unit.isSpecial())
@@ -65,31 +65,31 @@ public class UcumValidator {
 			result.add(code+": "+e.getMessage());
 		}
 		if (primary)
-		try {
-			// there can't be any codes that have digits in them that aren't inside []
-			boolean inBrack = false;
-			boolean nonDigits = false;
-			for (int i = 0; i < code.length(); i++) {
-				char ch = code.charAt(i);
-				if (ch == '[')
-					if (inBrack)
-						throw new Exception("nested [");
-					else 
-						inBrack = true;
-				if (ch == ']')
-					if (!inBrack)
-						throw new Exception("] without [");
-					else 
-						inBrack = false;
-				nonDigits = nonDigits || !(ch >= '0' && ch <= '9');
-				if (ch >= '0' && ch <= '9' && !inBrack && nonDigits) {
-					throw new Exception("code "+code+" is ambiguous because  it has digits outside []");
+			try {
+				// there can't be any codes that have digits in them that aren't inside []
+				boolean inBrack = false;
+				boolean nonDigits = false;
+				for (int i = 0; i < code.length(); i++) {
+					char ch = code.charAt(i);
+					if (ch == '[')
+						if (inBrack)
+							throw new Exception("nested [");
+						else 
+							inBrack = true;
+					if (ch == ']')
+						if (!inBrack)
+							throw new Exception("] without [");
+						else 
+							inBrack = false;
+					nonDigits = nonDigits || !(ch >= '0' && ch <= '9');
+					if (ch >= '0' && ch <= '9' && !inBrack && nonDigits) {
+						throw new Exception("code "+code+" is ambiguous because  it has digits outside []");
+					}
 				}
+			} catch (Exception e) {
+				result.add(e.getMessage());
 			}
-		} catch (Exception e) {
-			result.add(e.getMessage());
-		}
-		
+
 	}
 
 }

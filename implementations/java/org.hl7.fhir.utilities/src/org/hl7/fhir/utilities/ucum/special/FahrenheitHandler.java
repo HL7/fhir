@@ -11,8 +11,9 @@
 
 package org.hl7.fhir.utilities.ucum.special;
 
-import java.math.BigDecimal;
 import java.math.MathContext;
+
+import org.hl7.fhir.utilities.ucum.Decimal;
 
 public class FahrenheitHandler extends SpecialUnitHandler {
 
@@ -30,8 +31,13 @@ public class FahrenheitHandler extends SpecialUnitHandler {
 	 * @see org.eclipse.ohf.ucum.special.SpecialUnitHandler#getValue()
 	 */
 	@Override
-	public BigDecimal getValue() {		
-		return new BigDecimal(5).divide(new BigDecimal(9), new MathContext(20));
+	public Decimal getValue() {		
+		try {
+	    return new Decimal(5).divide(new Decimal(9));
+    } catch (Exception e) {
+	    // won't happen
+    	return null;
+    }
 	}
 
 }

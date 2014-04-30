@@ -11,7 +11,7 @@
 
 package org.hl7.fhir.utilities.ucum.special;
 
-import java.math.BigDecimal;
+import org.hl7.fhir.utilities.ucum.Decimal;
 
 /**
  * If you want to actually use one of these units, then you'll
@@ -24,7 +24,7 @@ public class HoldingHandler extends SpecialUnitHandler {
 
 	private String code;
 	private String units;
-	private BigDecimal value = new BigDecimal(1);
+	private Decimal value = Decimal.one();
 	
 	
 	/**
@@ -37,7 +37,7 @@ public class HoldingHandler extends SpecialUnitHandler {
 		this.units = units;
 	}
 
-	public HoldingHandler(String code, String units, BigDecimal value) {
+	public HoldingHandler(String code, String units, Decimal value) {
 		super();
 		this.code = code;
 		this.units = units;
@@ -58,7 +58,7 @@ public class HoldingHandler extends SpecialUnitHandler {
 	 * @see org.eclipse.ohf.ucum.special.SpecialUnitHandler#getValue()
 	 */
 	@Override
-	public BigDecimal getValue() {		
+	public Decimal getValue() {		
 		return value;
 	}
 

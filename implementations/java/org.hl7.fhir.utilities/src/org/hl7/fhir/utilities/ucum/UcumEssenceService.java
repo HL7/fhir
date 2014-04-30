@@ -14,7 +14,6 @@ package org.hl7.fhir.utilities.ucum;
 
 import java.io.File;
 import java.io.InputStream;
-import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -250,7 +249,7 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#convert(java.math.BigDecimal, java.lang.String, java.lang.String)
 	 */
-	public BigDecimal convert(BigDecimal value, String sourceUnit, String destUnit) throws Exception {
+	public Decimal convert(Decimal value, String sourceUnit, String destUnit) throws Exception {
 		assert value != null : paramError("convert", "value", "must not be null");
 		assert checkStringParam(sourceUnit) : paramError("convert", "sourceUnit", "must not be null or empty");
 		assert checkStringParam(destUnit) : paramError("convert", "destUnit", "must not be null or empty");
@@ -264,11 +263,11 @@ public class UcumEssenceService implements UcumService {
 		String d = new ExpressionComposer().compose(dst.getUnit());
 		if (!s.equals(d))
 			throw new Exception("Unable to convert between units "+sourceUnit+" and "+destUnit+" as they do not have matching canonical forms ("+s+" and "+d+" respectively)");
-		BigDecimal canValue = value.multiply(src.getValue());
+		Decimal canValue = value.multiply(src.getValue());
 //		System.out.println(value.toPlainString()+sourceUnit+" =("+src.getValue().toPlainString()+")= "+
 //				canValue.toPlainString()+s+" =("+dst.getValue().toPlainString()+")= "+
 //				canValue.divide(dst.getValue())+destUnit);
-		return canValue.divide(dst.getValue(), new MathContext(25));
+		return canValue.divide(dst.getValue());
 	}
 
 	public Pair multiply(Pair o1, Pair o2) {

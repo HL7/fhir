@@ -1,16 +1,14 @@
 package org.hl7.fhir.utilities.ucum;
 
-import java.math.BigDecimal;
-
 public class Pair {
 
-	private BigDecimal value;
+	private Decimal value;
 	private String code;
 	/**
 	 * @param value
 	 * @param code
 	 */
-	public Pair(BigDecimal value, String code) {
+	public Pair(Decimal value, String code) {
 		super();
 		this.value = value;
 		this.code = code;
@@ -18,7 +16,7 @@ public class Pair {
 	/**
 	 * @return the value
 	 */
-	public BigDecimal getValue() {
+	public Decimal getValue() {
 		return value;
 	}
 	/**

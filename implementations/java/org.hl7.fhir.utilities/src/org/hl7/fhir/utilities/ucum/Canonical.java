@@ -11,19 +11,18 @@
 
 package org.hl7.fhir.utilities.ucum;
 
-import java.math.BigDecimal;
 import java.math.MathContext;
 
 public class Canonical {
 
-	private BigDecimal value;
+	private Decimal value;
 	private Term unit;
 	
 	/**
 	 * @param value
 	 * @param unit
 	 */
-	public Canonical(BigDecimal value, Term unit) {
+	public Canonical(Decimal value, Term unit) {
 		super();
 		this.value = value;
 		this.unit = unit;
@@ -32,7 +31,7 @@ public class Canonical {
 	/**
 	 * @return the value
 	 */
-	public BigDecimal getValue() {
+	public Decimal getValue() {
 		return value;
 	}
 
@@ -46,16 +45,16 @@ public class Canonical {
 	/**
 	 * @param value the value to set
 	 */
-	public void setValue(BigDecimal value) {
+	public void setValue(Decimal value) {
 		this.value = value;
 	}
 
-	public void multiplyValue(BigDecimal multiplicand) {
+	public void multiplyValue(Decimal multiplicand) {
 		value = value.multiply(multiplicand);		
 	}
 
 	public void multiplyValue(int multiplicand) {
-		value = value.multiply(new BigDecimal(multiplicand));		
+		value = value.multiply(new Decimal(multiplicand));		
 	}
 
 	public boolean hasUnit() {
@@ -69,8 +68,8 @@ public class Canonical {
 		this.unit = unit;
 	}
 
-	public void divideValue(BigDecimal divisor) {
-		value = value.divide(divisor, new MathContext(20));		
+	public void divideValue(Decimal divisor) throws Exception {
+		value = value.divide(divisor);		
 	}
 	
 	

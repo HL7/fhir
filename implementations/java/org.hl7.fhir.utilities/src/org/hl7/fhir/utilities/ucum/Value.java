@@ -11,15 +11,13 @@
 
 package org.hl7.fhir.utilities.ucum;
 
-import java.math.BigDecimal;
-
 public class Value {
 
 	private String unit;
 	
 	private String unitUC;
 	
-	private BigDecimal value;
+	private Decimal value;
 	
 	private String text;
 
@@ -28,7 +26,7 @@ public class Value {
 	 * @param unitUC
 	 * @param value
 	 */
-	public Value(String unit, String unitUC, BigDecimal value) {
+	public Value(String unit, String unitUC, Decimal value) {
 		super();
 		this.unit = unit;
 		this.unitUC = unitUC;
@@ -66,14 +64,14 @@ public class Value {
 	/**
 	 * @return the value
 	 */
-	public BigDecimal getValue() {
+	public Decimal getValue() {
 		return value;
 	}
 
 	/**
 	 * @param value the value to set
 	 */
-	public void setValue(BigDecimal value) {
+	public void setValue(Decimal value) {
 		this.value = value;
 	}
 
@@ -94,7 +92,7 @@ public class Value {
 	public String getDescription() {
 		if (value == null)
 			return unit;
-		return value.toEngineeringString()+unit;
+		return value.toString()+unit;
 	}
 	
 	

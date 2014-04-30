@@ -13,6 +13,8 @@ package org.hl7.fhir.utilities.ucum.special;
 
 import java.math.BigDecimal;
 
+import org.hl7.fhir.utilities.ucum.Decimal;
+
 public class CelsiusHandler extends SpecialUnitHandler {
 
 	@Override
@@ -26,8 +28,8 @@ public class CelsiusHandler extends SpecialUnitHandler {
 	}
 
 	@Override
-	public BigDecimal getValue() {
-		return new BigDecimal(1);
+	public Decimal getValue() {
+		return Decimal.one();
 	}
 
 	

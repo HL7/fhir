@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,11 +35,11 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 public class DefinitionParser {
 
-	public UcumModel parse(String filename) throws XmlPullParserException, IOException, ParseException {
+	public UcumModel parse(String filename) throws Exception {
 		return parse(new FileInputStream(new File(filename)));
 	}
 	
-	public UcumModel parse(InputStream stream) throws XmlPullParserException, IOException, ParseException {
+	public UcumModel parse(InputStream stream) throws Exception {
 		XmlPullParserFactory factory = XmlPullParserFactory.newInstance(
 				System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
 		factory.setNamespaceAware(true);
@@ -75,7 +74,7 @@ public class DefinitionParser {
 		return root;
 	}
 
-	private DefinedUnit parseUnit(XmlPullParser xpp) throws XmlPullParserException, IOException {
+	private DefinedUnit parseUnit(XmlPullParser xpp) throws Exception {
 		DefinedUnit unit = new DefinedUnit(xpp.getAttributeValue(null, "Code"), xpp.getAttributeValue(null, "CODE"));
 		unit.setMetric("yes".equals(xpp.getAttributeValue(null, "isMetric")));
 		unit.setSpecial("yes".equals(xpp.getAttributeValue(null, "isSpecial")));
@@ -93,12 +92,12 @@ public class DefinitionParser {
 		return unit;
 	}
 
-	private Value parseValue(XmlPullParser xpp, String context) throws XmlPullParserException, IOException {
+	private Value parseValue(XmlPullParser xpp, String context) throws Exception {
 		checkAtElement(xpp, "value", context);
-		BigDecimal val = null;
+		Decimal val = null;
 		if (xpp.getAttributeValue(null, "value") != null) 
 		try {
-			val = new BigDecimal(xpp.getAttributeValue(null, "value"));
+			val = new Decimal(xpp.getAttributeValue(null, "value"));
 		} catch (NumberFormatException e) {
 			throw new XmlPullParserException("Error reading "+context+": "+e.getMessage());
 		}
@@ -120,14 +119,14 @@ public class DefinitionParser {
 		return base;
 	}
 
-	private Prefix parsePrefix(XmlPullParser xpp) throws XmlPullParserException, IOException {
+	private Prefix parsePrefix(XmlPullParser xpp) throws Exception {
 		Prefix prefix = new Prefix(xpp.getAttributeValue(null, "Code"), xpp.getAttributeValue(null, "CODE"));
 		xpp.next();
 		skipWhitespace(xpp);
 		prefix.getNames().add(readElement(xpp, "name", "prefix "+prefix.getCode(), false));
 		prefix.setPrintSymbol(readElement(xpp, "printSymbol", "prefix "+prefix.getCode(), false));
 		checkAtElement(xpp, "value", "prefix "+prefix.getCode());
-		prefix.setValue(new BigDecimal(xpp.getAttributeValue(null, "value")));
+		prefix.setValue(new Decimal(xpp.getAttributeValue(null, "value")));
 		readElement(xpp, "value", "prefix "+prefix.getCode(), true);
 		xpp.next();
 		skipWhitespace(xpp);

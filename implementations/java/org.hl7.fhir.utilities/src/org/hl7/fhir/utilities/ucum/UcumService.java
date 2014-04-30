@@ -12,7 +12,6 @@ package org.hl7.fhir.utilities.ucum;
  *    Health Intersections - ongoing maintenance
  *******************************************************************************/
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -175,7 +174,7 @@ public interface UcumService {
 	 * @return the value if a conversion is possible
 	 * @throws OHFException
 	 */
-	public abstract BigDecimal convert(BigDecimal value, String sourceUnit, String destUnit) throws Exception;
+	public abstract Decimal convert(Decimal value, String sourceUnit, String destUnit) throws Exception;
 
 	/**
 	 * multiply two value/units pairs together and return the result in canonical units

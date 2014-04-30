@@ -2,7 +2,6 @@ package org.hl7.fhir.utilities.ucum.tests;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -111,9 +110,196 @@ public class UcumTester {
     testAsInteger();
     testStringSupport();
     testCompares();
-//    testAddition();
-//    testMultiplication();
-//    testActiveXSupport();
+    testAddition();
+    testMultiplication();
+  }
+	
+	private void testMultiplication() throws Exception {
+	  testMultiply("2", "2", "4");
+	  testMultiply("2", "0.5", "1");
+	  testMultiply("0", "0", "0");
+	  testMultiply("0", "1", "0");
+	  testMultiply("4", "4", "16");
+	  testMultiply("20", "20", "400");
+	  testMultiply("200", "20", "4000");
+	  testMultiply("400", "400", "160000");
+	  testMultiply("2.0", "2.0", "4.0");
+	  testMultiply("2.00", "2.0", "4.0");
+	  testMultiply("2.0", "0.2", "0.4");
+	  testMultiply("2.0", "0.20", "0.40");
+	  testMultiply("13", "13", "169");
+	  testMultiply("12", "89", "1068");
+	  testMultiply("1234", "6789", "8377626");
+
+	  testMultiply("10000", "0.0001", "1");
+	  testMultiply("10000", "0.00010", "1.0");
+	  testMultiply("10000", "0.000100", "1.00");
+	  testMultiply("10000", "0.0001000", "1.000");
+	  testMultiply("10000", "0.00010000", "1.0000");
+	  testMultiply("10000", "0.000100000", "1.00000");
+	  testMultiply("10000.0", "0.000100000", "1.00000");
+	  testMultiply("10000.0", "0.0001000000", "1.00000");
+	  testMultiply("10000.0", "0.00010000000", "1.00000");
+
+	  testMultiply("2", "-2", "-4");
+	  testMultiply("-2", "2", "-4");
+	  testMultiply("-2", "-2", "4");
+
+	  testMultiply("35328734682734", "2349834295876423", "83016672387407213199375780482");
+	  testMultiply("35328734682734000000000", "2349834295876423000000000", "83016672387407213199375780482000000000000000000");
+	  testMultiply("3532873468.2734", "23498342958.76423", "83016672387407213199.375780482");
+
+	  testDivide("500", "4", "125");
+	  testDivide("1260257", "37", "34061");
+
+	  testDivide("127", "4", "31.75");
+	  testDivide("10", "10", "1");
+	  testDivide("1", "1", "1");
+	  testDivide("10", "3", "3.3");
+	  testDivide("10.0", "3", "3.33");
+	  testDivide("10.00", "3", "3.333");
+	  testDivide("10.00", "3.0", "3.3");
+	  testDivide("100", "1", "100");
+	  testDivide("1000", "10", "100");
+	  testDivide("100001", "10", "10000.1");
+	  testDivide("100", "10", "10");
+	  testDivide("1", "10", "0.1");
+	  testDivide("1", "15", "0.067");
+	  testDivide("1.0", "15", "0.067");
+	  testDivide("1.00", "15.0", "0.0667");
+	  testDivide("1", "0.1", "10");
+	  testDivide("1", "0.10", "10");
+	  testDivide("1", "0.010", "100");
+	  testDivide("1", "1.5", "0.67");
+	  testDivide("1.0", "1.5", "0.67");
+	  testDivide("10", "1.5", "6.7");
+
+	  testDivide("-1", "1", "-1");
+	  testDivide("1", "-1", "-1");
+	  testDivide("-1", "-1", "1");
+
+	  testDivide("2", "2", "1");
+	  testDivide("20", "2", "10");
+	  testDivide("22", "2", "11");
+
+	  testDivide("83016672387407213199375780482", "2349834295876423", "35328734682734");
+	  testDivide("83016672387407213199375780482000000000000000000", "2349834295876423000000000", "35328734682734000000000");
+	  testDivide("83016672387407213199.375780482", "23498342958.76423", "3532873468.2734");
+
+	  testDivInt("500", "4", "125");
+	  testDivInt("1260257", "37", "34061");
+	  testDivInt("127", "4", "31");
+	  testDivInt("10", "10", "1");
+	  testDivInt("1", "1", "1");
+	  testDivInt("100", "1", "100");
+	  testDivInt("1000", "10", "100");
+	  testDivInt("100001", "10", "10000");
+	  testDivInt("1", "1.5", "0");
+	  testDivInt("10", "1.5", "6");
+
+	  testModulo("10", "1", "0");
+	  testModulo("7", "4", "3");
+
+	  testMultiply("2", "2", "4");
+	  testMultiply("2.0", "2.0", "4.0");
+	  testMultiply("2.00", "2.0", "4.0");
+
+	  testDivide("10",  "3", "3.3");
+	  testDivide("10.0",  "3", "3.33");
+	  testDivide("10.00",  "3", "3.333");
+	  testDivide("10.00",  "3.0", "3.3");
+	  testDivide("10",  "3.0", "3.3");
+
+	  
+  }
+
+	private void testModulo(String s1, String s2, String s3) throws Exception {
+	  Decimal v1 = new Decimal(s1);
+	  Decimal v2 = new Decimal(s2);
+	  Decimal v3 = v1.modulo(v2);
+    check(v3.asDecimal().equals(s3), s1+" % "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
+  }
+
+	private void testDivInt(String s1, String s2, String s3) throws Exception {
+	  Decimal v1 = new Decimal(s1);
+	  Decimal v2 = new Decimal(s2);
+	  Decimal v3 = v1.divInt(v2);
+    check(v3.asDecimal().equals(s3), s1+" /(int) "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
+  }
+
+	private void testDivide(String s1, String s2, String s3) throws Exception {
+	  Decimal v1 = new Decimal(s1);
+	  Decimal v2 = new Decimal(s2);
+	  Decimal v3 = v1.divide(v2);
+    check(v3.asDecimal().equals(s3), s1+" / "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
+  }
+
+	private void testMultiply(String s1, String s2, String s3) throws Exception {
+	  Decimal v1 = new Decimal(s1);
+	  Decimal v2 = new Decimal(s2);
+	  Decimal v3 = v1.multiply(v2);
+    check(v3.asDecimal().equals(s3), s1+" * "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
+  }
+
+	private void testAddition() throws Exception {
+	  testAdd("1", "1", "2");
+	  testAdd("0", "1", "1");
+	  testAdd("0", "0", "0");
+	  testAdd("5", "5", "10");
+	  testAdd("10", "1", "11");
+	  testAdd("11", "12", "23");
+	  testAdd("15", "16", "31");
+	  testAdd("150", "160", "310");
+	  testAdd("153", "168", "321");
+	  testAdd("15300000000000000000000000000000000001", "1680", "15300000000000000000000000000000001681");
+	  testAdd("1", ".1", "1.1");
+	  testAdd("1", ".001", "1.001");
+	  testAdd(".1", ".1", "0.2");
+	  testAdd(".1", ".01", "0.11");
+
+	  testSubtract("2", "1", "1");
+	  testSubtract("2", "0", "2");
+	  testSubtract("0", "0", "0");
+	  testSubtract("0", "2", "-2");
+	  testSubtract("2", "2", "0");
+	  testSubtract("1", "2", "-1");
+	  testSubtract("20", "1", "19");
+	  testSubtract("2", ".1", "1.9");
+	  testSubtract("2", ".000001", "1.999999");
+	  testSubtract("2", "2.000001", "-0.000001");
+	  testSubtract("3.5", "35.5", "-32.0");
+
+	  testAdd("5", "6", "11");
+	  testAdd("5", "-6", "-1");
+	  testAdd("-5", "6", "1");
+	  testAdd("-5", "-6", "-11");
+
+	  testSubtract("5", "6", "-1");
+	  testSubtract("6", "5", "1");
+	  testSubtract("5", "-6", "11");
+	  testSubtract("6", "-5", "11");
+	  testSubtract("-5", "6", "-11");
+	  testSubtract("-6", "5", "-11");
+	  testSubtract("-5", "-6", "1");
+	  testSubtract("-6", "-5", "-1");
+
+	  testAdd("2", "0.001", "2.001");
+	  testAdd("2.0", "0.001", "2.001");
+	  
+  }
+	
+	private void testSubtract(String s1, String s2, String s3) throws Exception {
+	  Decimal v1 = new Decimal(s1);
+	  Decimal v2 = new Decimal(s2);
+	  Decimal v3 = v1.subtract(v2);
+    check(v3.asDecimal().equals(s3), s1+" - "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
+  }
+	
+	private void testAdd(String s1, String s2, String s3) throws Exception {
+	  Decimal v1 = new Decimal(s1);
+	  Decimal v2 = new Decimal(s2);
+	  Decimal v3 = v1.add(v2);
+    check(v3.asDecimal().equals(s3), s1+" + "+s2+" = "+s3+", but the library returned "+v3.asDecimal());
   }
 	
 	private void testCompares() throws Exception {
@@ -134,7 +320,7 @@ public class UcumTester {
 	private void testCompares(String v1, String v2, int outcome) throws Exception {
 	  Decimal d1 = new Decimal(v1);
 	  Decimal d2 = new Decimal(v2);
-	  int result = d1.compares(d2);
+	  int result = d1.comparesTo(d2);
 	  check(result == outcome, "Compare fail: "+v1+".compares("+v2+") should be "+Integer.toString(outcome)+" but was "+Integer.toString(result));	  
   }
 	
@@ -286,26 +472,24 @@ public class UcumTester {
 	  String dstUnit = xpp.getAttributeValue(null, "dstUnit");
 	  String outcome = xpp.getAttributeValue(null, "outcome");
 	  
-	  BigDecimal res = ucumSvc.convert(new BigDecimal(value), srcUnit, dstUnit);
-		System.out.println("Convert Test "+id+": the value '"+value+" "+srcUnit+"' ==> "+res.toString()+" "+dstUnit);
+	  Decimal res = ucumSvc.convert(new Decimal(value), srcUnit, dstUnit);
+		debug("Convert Test "+id+": the value '"+value+" "+srcUnit+"' ==> "+res.toString()+" "+dstUnit);
 
 	  // if (!res.toPlainString().equals(outcome)) { - that assumes that we can get the precision right, which we can't
-		if (!compareNumbers(res, new BigDecimal(outcome))) {
+		if (res.comparesTo(new Decimal(outcome)) != 0) {
 	  	errCount++;
-	  	System.err.println("The value '"+outcome+"' was expected the result was "+res.toPlainString());
+	  	System.err.println("The value '"+outcome+"' was expected the result was "+res.toString());
 	  }
  		while (xpp.getEventType() != XmlPullParser.END_TAG) 
 	    xpp.next();
  		xpp.next();
   }
 	
-	private boolean compareNumbers(BigDecimal d1, BigDecimal d2) {
-	  BigDecimal diff = d1.subtract(d2).abs();
-	  BigDecimal df = diff.divide(d1, BigDecimal.ROUND_UP).abs();
-		int c = df.compareTo(new BigDecimal("0.01"));
-		return c <= 0;
-  }
 	
+	private void debug(String string) {
+		//System.out.println(string);
+	  
+  }
 	private void runDisplayNameGeneration(XmlPullParser xpp) throws Exception {
 		xpp.next();
 		while (xpp.getEventType() != XmlPullParser.END_TAG) {
@@ -328,7 +512,7 @@ public class UcumTester {
 	  String display = xpp.getAttributeValue(null, "display");
 	  
 	  String res = ucumSvc.analyse(unit);
-		System.out.println("Analyse Test "+id+": the unit '"+unit+"' ==> "+res);
+		debug("Analyse Test "+id+": the unit '"+unit+"' ==> "+res);
 
 	  if (!res.equals(display)) {
 	  	errCount++;
@@ -364,9 +548,9 @@ public class UcumTester {
 	  String res = ucumSvc.validate(unit);
 		boolean result = res == null;
 		if (result)
-		  System.out.println("Validation Test "+id+": the unit '"+unit+"' is valid");
+		  debug("Validation Test "+id+": the unit '"+unit+"' is valid");
 		else
-		  System.out.println("Validation Test "+id+": the unit '"+unit+"' is not valid because "+res);
+		  debug("Validation Test "+id+": the unit '"+unit+"' is not valid because "+res);
 
 	  if (valid != result) {
 	  	errCount++;
@@ -390,5 +574,6 @@ public class UcumTester {
 		}
 		xpp.next();
   }
+
 
 }

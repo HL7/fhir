@@ -15,6 +15,8 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hl7.fhir.utilities.ucum.Decimal;
+
 public class Registry {
 
 	Map<String, SpecialUnitHandler> handlers = new HashMap<String, SpecialUnitHandler>();
@@ -38,7 +40,7 @@ public class Registry {
 		register(new HoldingHandler("[pH]", "mol/l"));		
 		register(new HoldingHandler("Np", "1"));		
 		register(new HoldingHandler("B", "1"));		
-		register(new HoldingHandler("B[SPL]", "10*-5.Pa", new BigDecimal(2)));		
+		register(new HoldingHandler("B[SPL]", "10*-5.Pa", new Decimal(2)));		
 		register(new HoldingHandler("B[V]", "V"));		
 		register(new HoldingHandler("B[mV]", "mV"));		
 		register(new HoldingHandler("B[uV]", "uV"));		

@@ -11,14 +11,13 @@
 
 package org.hl7.fhir.utilities.ucum;
 
-import java.math.BigDecimal;
 
 public class Prefix extends Concept {
 	
 	/**
 	 * value for the prefix.  
 	 */
-	private BigDecimal value; // 1^-24 through to 1^24
+	private Decimal value; // 1^-24 through to 1^24
 
 	/**
 	 * @param code
@@ -31,14 +30,14 @@ public class Prefix extends Concept {
 	/**
 	 * @return the index
 	 */
-	public BigDecimal getValue() {
+	public Decimal getValue() {
 		return value;
 	}
 
 	/**
 	 * @param index the index to set
 	 */
-	public void setValue(BigDecimal index) {
+	public void setValue(Decimal index) {
 		this.value = index;
 	}
 
@@ -47,7 +46,7 @@ public class Prefix extends Concept {
 	 */
 	@Override
 	public String getDescription() {
-		return super.getDescription()+" = "+value.toEngineeringString();
+		return super.getDescription()+" = "+value.toString();
 	}
 	
 	
