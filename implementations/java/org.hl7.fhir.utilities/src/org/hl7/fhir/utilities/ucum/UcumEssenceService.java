@@ -1,7 +1,7 @@
 package org.hl7.fhir.utilities.ucum;
 
 /*******************************************************************************
- * Crown Copyright (c) 2006, 2008, Copyright (c) 2006, 2008 Kestral Computing & Health Intersections.
+ * Crown Copyright (c) 2006 - 2014, Copyright (c) 2006 - 2014 Kestral Computing & Health Intersections.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,11 +29,13 @@ import org.hl7.fhir.utilities.ucum.special.Registry;
  * ucum-essence.xml as either a stream or a file name to create 
  * the services.
  * 
- * the provided ucum-essence.xml must be released on  25 Apr 2008 
+ * the provided ucum-essence.xml must be released on 25 Apr 2008 
  * or more recent. Note that if the ucum-essence.xml file does not 
  * contain a release date on an attribute of the root element, it 
  * is not more recent than this date (Gunther added it on this date for 
  * this usage, thanks)
+ * 
+ * See UcumService for documentation concerning the services this class provides
  * 
  * @author Grahame Grieve
  *

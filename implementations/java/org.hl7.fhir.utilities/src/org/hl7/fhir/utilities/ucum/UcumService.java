@@ -1,7 +1,7 @@
 package org.hl7.fhir.utilities.ucum;
 
 /*******************************************************************************
- * Crown Copyright (c) 2006, 2008, Copyright (c) 2006, 2008 Kestral Computing & Health Intersections.
+ * Crown Copyright (c) 2006 - 2014, Copyright (c) 2006 - 2014 Kestral Computing & Health Intersections.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,17 +19,18 @@ import java.util.Set;
 
 /**
  * General Ucum Service
+ * 
+ * UCUM functionality that is useful for applications that make use of UCUM codes
+ * 
  * This is a tightly bound interface - consumers use the internal model classes
  * 
- * TODO: define a remoteable service that interface that doesn't express the 
- * functionality using internal model classes
  * @author Grahame Grieve
  *
  */
 public interface UcumService {
 
 	/**
-	 * provided for various utility uses. Should not be used 
+	 * provided for various utility/QA uses. Should not be used 
 	 * for general use
 	 * 
 	 * @return the model
@@ -64,7 +65,7 @@ public interface UcumService {
 	}
 	
 	/**
-	 * return Ucum Identification details
+	 * return Ucum Identification details for the version in use
 	 */
 	public abstract UcumVersionDetails ucumIdentification();
 
