@@ -53,6 +53,8 @@ Type
   TSmartDecimalContext = class (TAdvObjectList)
   private
   public
+    Procedure BeforeDestruction; Override;
+
     Function Value(value : String) : TSmartDecimal; Overload;
     {!script hide}
     Function Value(value : Integer) : TSmartDecimal; Overload;
@@ -102,6 +104,7 @@ Type
     FNegative : Boolean;
     FDigits : String;
     FDecimal : integer;
+    FOwned : integer;
 
     Procedure SetValue(sValue : String);
     Procedure SetValueDecimal(sValue : String);
@@ -126,6 +129,7 @@ Type
     Constructor Create(sValue : String); Overload;
     Constructor Create(iValue : Integer); Overload;
     Constructor Create(iValue : int64); Overload;
+    Destructor Destroy; Override;
     {!script hide}
 
     Function Link : TSmartDecimal; overload;
@@ -135,6 +139,7 @@ Type
     class Function Equal(oOne, oTwo : TSmartDecimal) : Boolean; overload;
     class Function Compares(oOne, oTwo : TSmartDecimal) : Integer; overload;
     class Function FromActiveX(oX: tagDEC): TSmartDecimal;
+    function hasContext(other : TSmartDecimal) : boolean;
 
     Function Multiply(iOther : Integer) : TSmartDecimal; Overload;
     Function Divide(iOther : Integer) : TSmartDecimal; Overload;
@@ -255,24 +260,31 @@ Uses
 Constructor TSmartDecimal.Create(context : TSmartDecimalContext);
 Begin
   inherited Create;
+  if context = nil then
+    FOwned := 0
+  else
+    FOwned := 1;
   FContext := context;
   FContext.Add(self);
 End;
 Constructor TSmartDecimal.Create(sValue : String);
 begin
   Create;
+  FOwned := 2;
   SetValue(sValue);
 end;
 
 Constructor TSmartDecimal.Create(iValue : Integer);
 begin
   Create;
+  FOwned := 2;
   SetValue(inttostr(iValue));
 end;
 
 Constructor TSmartDecimal.Create(iValue : int64);
 begin
   Create;
+  FOwned := 2;
   SetValue(inttostr(iValue));
 end;
 
@@ -993,6 +1005,11 @@ begin
 end;
 
 
+function TSmartDecimal.hasContext(other: TSmartDecimal): boolean;
+begin
+  result := FContext = other.FContext;
+end;
+
 Function TSmartDecimal.GetValueDecimal: String;
 begin
   result := FDigits;
@@ -1056,6 +1073,13 @@ begin
   oFiler['Decimal'].Defineinteger(FDecimal);
 end;
 
+
+Destructor TSmartDecimal.Destroy;
+begin
+  if FOwned <> 4 then
+    raise Exception.Create('Premature free for a decimal');
+  inherited;
+end;
 
 Function CardinalToint64(i : Cardinal):Int64;
 Begin
@@ -1159,24 +1183,28 @@ end;
 Function TSmartDecimalContext.value(value : String) : TSmartDecimal;
 begin
   result := TSmartDecimal.create(self);
+  result.FOwned := 3;
   result.SetValue(value);
 end;
 
 Function TSmartDecimalContext.value(value : Integer) : TSmartDecimal;
 begin
   result := TSmartDecimal.create(self);
+  result.FOwned := 3;
   result.SetValue(inttostr(value));
 end;
 
 Function TSmartDecimalContext.value(value : int64) : TSmartDecimal;
 begin
   result := TSmartDecimal.create(self);
+  result.FOwned := 3;
   result.SetValue(inttostr(value));
 end;
 
 Function TSmartDecimalContext.Value(value : TSmartDecimal) : TSmartDecimal;
 begin
   result := TSmartDecimal.create(self);
+  result.FOwned := 3;
   result.FPrecision := value.FPrecision;
   result.FScientific := value.FScientific;
   result.FNegative := value.FNegative;
@@ -1184,6 +1212,15 @@ begin
   result.FDecimal := value.FDecimal;
 end;
 
+
+procedure TSmartDecimalContext.BeforeDestruction;
+var
+  i : integer;
+begin
+  for i := 0 to Count - 1 do
+    TSmartDecimal(ObjectByIndex[i]).FOwned := 4;
+  inherited;
+end;
 
 Function TSmartDecimalContext.Equal(oOne, oTwo : TSmartDecimal) : Boolean;
 Begin
