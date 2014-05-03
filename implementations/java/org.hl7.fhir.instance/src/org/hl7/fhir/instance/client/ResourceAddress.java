@@ -48,6 +48,7 @@ import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 
+//Make resources address subclass of URI
 /**
  * Helper class to manage FHIR Resource URIs
  * 

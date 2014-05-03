@@ -85,7 +85,9 @@ public class FHIRSimpleClient implements FHIRClient {
 	private ResourceFormat preferredResourceFormat;
 	private FeedFormat preferredFeedFormat;
 	private HttpHost proxy;
+	private int recordCount = -1;//_count
 	
+	//Pass enpoint for client - URI
 	public FHIRSimpleClient() {
 		preferredResourceFormat = ResourceFormat.RESOURCE_XML;
 		preferredFeedFormat = FeedFormat.FEED_XML;
@@ -95,9 +97,19 @@ public class FHIRSimpleClient implements FHIRClient {
 		proxy = new HttpHost(proxyHost, proxyPort);
 	}
 	
+	//TODO Add getter for endpoint
+	
+	//public void configure() throws new not implemented exception - constrain using conformance.
+	
 	@Override
 	public void initialize(String baseServiceUrl)  throws URISyntaxException {
+		initialize(baseServiceUrl, -1);
+	}
+	
+	@Override
+	public void initialize(String baseServiceUrl, int recordCount)  throws URISyntaxException {
 		resourceAddress = new ResourceAddress(baseServiceUrl);
+		this.recordCount = recordCount;
 	}
 	
 	@Override
@@ -121,6 +133,16 @@ public class FHIRSimpleClient implements FHIRClient {
 	}
 	
 	@Override
+	public int getMaximumRecordCount() {
+		return recordCount;
+	}
+	
+	@Override
+	public void setMaximumRecordCount(int recordCount) {
+		this.recordCount = recordCount;
+	}
+	
+	@Override
 	public Conformance getConformanceStatement() throws EFhirClientException {
 		return getConformanceStatement(false);
 	}
@@ -135,7 +157,9 @@ public class FHIRSimpleClient implements FHIRClient {
 		}
 		return conformance;
 	}
-
+	
+	//TODO Add call to get resource from URI - absolute or relative (both read and vread)
+	
 	@Override
 	public <T extends Resource> AtomEntry<T> read(Class<T> resourceClass, String id) {//TODO Change this to AddressableResource
 		ResourceRequest<T> result = null;
@@ -376,46 +400,46 @@ public class FHIRSimpleClient implements FHIRClient {
 	
 	@Override
 	public List<AtomCategory> getAllTags() {
-		AtomFeed result = null;
+		TagListRequest result = null;
 		try {
-			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetAllTags(), getPreferredResourceFormat(), proxy);
+			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetAllTags(), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this version of the resource", e);
 		}
-		return result.getTags();
+		return result.getPayload();
 	}
 	
 	@Override
 	public <T extends Resource> List<AtomCategory> getAllTagsForResourceType(Class<T> resourceClass) {
-		AtomFeed result = null;
+		TagListRequest result = null;
 		try {
-			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetAllTagsForResourceType(resourceClass), getPreferredResourceFormat(), proxy);
+			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetAllTagsForResourceType(resourceClass), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this version of the resource", e);
 		}
-		return result.getTags();
+		return result.getPayload();
 	}
 	
 	@Override
 	public <T extends Resource> List<AtomCategory> getTagsForResource(Class<T> resource, String id) {
-		AtomFeed result = null;
+		TagListRequest result = null;
 		try {
-			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetTagsForResource(resource, id), getPreferredResourceFormat(), proxy);
+			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetTagsForResource(resource, id), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this version of the resource", e);
 		}
-		return result.getTags();
+		return result.getPayload();
 	}
 	
 	@Override
 	public <T extends Resource> List<AtomCategory> getTagsForResourceVersion(Class<T> resource, String id, String versionId) {
-		AtomFeed result = null;
+		TagListRequest result = null;
 		try {
-			result = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetTagsForResourceVersion(resource, id, versionId), getPreferredResourceFormat(), proxy);
+			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetTagsForResourceVersion(resource, id, versionId), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to read this version of the resource", e);
 		}
-		return result.getTags();
+		return result.getPayload();
 	}
 	
 //	@Override

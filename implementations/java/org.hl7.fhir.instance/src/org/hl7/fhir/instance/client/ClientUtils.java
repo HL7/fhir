@@ -116,6 +116,12 @@ public class ClientUtils {
 		return issueResourceRequest(resourceFormat, httpPost, payload, headers, proxy);
 	}
 	
+	public static TagListRequest issueGetRequestForTagList(URI resourceUri, String resourceFormat, List<Header> headers, HttpHost proxy) {
+		HttpGet httpget = new HttpGet(resourceUri);
+		configureFhirRequest(httpget, resourceFormat);
+		return issueTagListRequest(resourceFormat, httpget, null, headers, proxy);
+	}
+	
 	public static TagListRequest issuePostRequestForTagList(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
 		HttpPost httpPost = new HttpPost(resourceUri);
 		return issueTagListRequest(resourceFormat, httpPost, payload, headers, proxy);

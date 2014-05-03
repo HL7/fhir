@@ -71,8 +71,8 @@ public class FHIRSimpleClientTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//configureForHealthIntersection();
-		configureForFurore();
+		configureForHealthIntersection();
+		//configureForFurore();
 		testDateAndTime = new DateAndTime("2008-08-08");
 	}
 
@@ -322,7 +322,10 @@ public class FHIRSimpleClientTest {
 	@Test
 	public void testHistoryForAllResourceTypes() throws Exception {
 		DateAndTime testDate = DateAndTime.now();
-		testDate.add(Calendar.MINUTE, -30);
+		//testDate.add(Calendar.HOUR, -24);
+		Calendar cal = testDate.toCalendar();
+		cal.add(Calendar.HOUR, -24);
+		testDate = new DateAndTime(cal);
 		AtomFeed feed = testClient.history(testDate);
 		assertNotNull(feed);
 		assertTrue(feed.getEntryList().size() > 1);
