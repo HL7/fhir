@@ -11,6 +11,15 @@ import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
  */
 public class ResourceUtilities {
 
+	public static boolean isAnError(OperationOutcome error) {
+		for (OperationOutcomeIssueComponent t : error.getIssue())
+			if (t.getSeveritySimple() == IssueSeverity.error)
+				return true;
+			else if (t.getSeveritySimple() == IssueSeverity.fatal)
+				return true;
+		return false;
+	}
+	
 	public static String getErrorDescription(OperationOutcome error) {  
 		if (error.getText() != null && error.getText().getDiv() != null)
 			return new XhtmlComposer().composePlainText(error.getText().getDiv());
