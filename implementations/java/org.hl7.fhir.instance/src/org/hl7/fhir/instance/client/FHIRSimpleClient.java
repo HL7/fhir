@@ -150,10 +150,14 @@ public class FHIRSimpleClient implements FHIRClient {
 	@Override
 	public Conformance getConformanceStatement(boolean useOptionsVerb) {
 		Conformance conformance = null;
-		if(useOptionsVerb) {
-			conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getResource();//TODO fix this
-		} else {
-			conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat(), proxy).getResource();
+		try {
+			if(useOptionsVerb) {
+				conformance = (Conformance)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getResource();//TODO fix this
+			} else {
+				conformance = (Conformance)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(), getPreferredResourceFormat(), proxy).getResource();
+			}
+		} catch(Exception e) {
+			handleException("An error has occurred while trying to fetch the server's conformance statement", e);
 		}
 		return conformance;
 	}
@@ -404,7 +408,7 @@ public class FHIRSimpleClient implements FHIRClient {
 				throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload().getResource());
 			}
 		} catch(Exception e) {
-			throw new EFhirClientException("An error has occurred while trying to validate this resource", e);
+			handleException("An error has occurred while trying to validate this resource", e);
 		}
 		return (AtomEntry<OperationOutcome>)result.getPayload();
 	}
@@ -415,7 +419,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		try {
 			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetAllTags(), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
-			handleException("An error has occurred while trying to read this version of the resource", e);
+			handleException("An error has occurred while trying to retrieve all tags", e);
 		}
 		return result.getPayload();
 	}
@@ -426,7 +430,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		try {
 			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetAllTagsForResourceType(resourceClass), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
-			handleException("An error has occurred while trying to read this version of the resource", e);
+			handleException("An error has occurred while trying to retrieve tags for this resource type", e);
 		}
 		return result.getPayload();
 	}
@@ -437,7 +441,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		try {
 			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetTagsForResource(resource, id), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
-			handleException("An error has occurred while trying to read this version of the resource", e);
+			handleException("An error has occurred while trying to retrieve tags for this resource", e);
 		}
 		return result.getPayload();
 	}
@@ -448,7 +452,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		try {
 			result = ClientUtils.issueGetRequestForTagList(resourceAddress.resolveGetTagsForResourceVersion(resource, id, versionId), getPreferredResourceFormat(), null, proxy);
 		} catch (Exception e) {
-			handleException("An error has occurred while trying to read this version of the resource", e);
+			handleException("An error has occurred while trying to retrieve tags for this resource version", e);
 		}
 		return result.getPayload();
 	}
@@ -458,6 +462,7 @@ public class FHIRSimpleClient implements FHIRClient {
 //		try {
 //			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResource(resourceClass, id), proxy);
 //		} catch(Exception e) {
+//			handleException("An error has occurred while trying to retrieve tags for this resource version", e);
 //			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
 //		}
 //
@@ -468,6 +473,7 @@ public class FHIRSimpleClient implements FHIRClient {
 //		try {
 //			return ClientUtils.issueDeleteRequest(resourceAddress.resolveGetTagsForResourceVersion(resourceClass, id, version), proxy);
 //		} catch(Exception e) {
+//			handleException("An error has occurred while trying to retrieve tags for this resource version", e);
 //			throw new EFhirClientException("An error has occurred while trying to delete this resource", e);
 //		}
 //	}
@@ -483,7 +489,7 @@ public class FHIRSimpleClient implements FHIRClient {
 				throw new EFhirClientException("Server responded with HTTP error code " + request.getHttpStatus());
 			}
 		} catch(Exception e) {
-			handleException("An error has occurred while trying to create this resource", e);
+			handleException("An error has occurred while trying to set tags for this resource", e);
 		}
 		return request.getPayload();
 	}
@@ -499,7 +505,7 @@ public class FHIRSimpleClient implements FHIRClient {
 				throw new EFhirClientException("Server responded with HTTP error code " + request.getHttpStatus());
 			}
 		} catch(Exception e) {
-			handleException("An error has occurred while trying to set the tags for this resource", e);
+			handleException("An error has occurred while trying to set the tags for this resource version", e);
 		}
 		return request.getPayload();
 	}
@@ -515,7 +521,7 @@ public class FHIRSimpleClient implements FHIRClient {
 				throw new EFhirClientException("Server responded with HTTP error code " + request.getHttpStatus());
 			}
 		} catch(Exception e) {
-			handleException("An error has occurred while trying to set the tags for this resource", e);
+			handleException("An error has occurred while trying to delete the tags for this resource version", e);
 		}
 		return request.getPayload();
 	}

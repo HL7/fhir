@@ -164,7 +164,7 @@ public class FHIRSimpleClientTest {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_JSON);
 			Conformance stmt = testClient.getConformanceStatement(false);
 			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
-			printResourceToSystemOut(stmt, false);
+			printResourceToSystemOut(stmt, true);
 		} catch(Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -385,6 +385,7 @@ public class FHIRSimpleClientTest {
 			assertNotNull(responseFeed);
 			assert(responseFeed.getEntryList().get(0).getResource() instanceof Patient);
 		}catch(Exception e) {
+			e.printStackTrace();
 			fail();
 		}
 	}

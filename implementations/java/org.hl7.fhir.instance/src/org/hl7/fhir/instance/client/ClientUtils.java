@@ -294,6 +294,7 @@ public class ClientUtils {
 	@SuppressWarnings("unchecked")
 	protected static <T extends Resource> T unmarshalResource(HttpResponse response, String format) {
 		T resource = null;
+		OperationOutcome error = null;
 		InputStream instream = null;
 		HttpEntity entity = response.getEntity();
 		if (entity != null && entity.getContentLength() > 0) {
@@ -301,6 +302,9 @@ public class ClientUtils {
 			    instream = entity.getContent();
 //			    System.out.println(writeInputStreamAsString(instream));
 			    resource = (T)getParser(format).parse(instream);
+	    		if (resource instanceof OperationOutcome && hasError((OperationOutcome)resource)) {
+	    			error = (OperationOutcome) resource;
+	    		}
 			} catch(IOException ioe) {
 				throw new EFhirClientException("Error unmarshalling entity from Http Response", ioe);
 			} catch(Exception e) {
@@ -309,12 +313,8 @@ public class ClientUtils {
 				try{instream.close();}catch(IOException ioe){/* TODO log error */}
 			}
 		}
-		if(resource instanceof OperationOutcome) {
-			if(((OperationOutcome) resource).getIssue().size() > 0) {
-				throw new EFhirClientException((OperationOutcome)resource);
-			} else {
-				System.out.println(((OperationOutcome) resource).getText().getDiv().allText());//TODO change to formal logging
-			}
+		if(error != null) {
+			throw new EFhirClientException("Error unmarshalling resource: "+ResourceUtilities.getErrorDescription(error), error);
 		}
 		return resource;
 	}
@@ -328,27 +328,33 @@ public class ClientUtils {
 	@SuppressWarnings("unchecked")
 	protected static List<AtomCategory> unmarshalTagList(HttpResponse response, String format) {
 		InputStream instream = null;
-		
+		OperationOutcome error = null;
+		ResourceOrFeed rf = null;
 		HttpEntity entity = response.getEntity();
 		if (entity != null && entity.getContentLength() > 0) {
 			try {
 			    instream = entity.getContent();
 //			    System.out.println(writeInputStreamAsString(instream));
-			    ResourceOrFeed rf = getParser(format).parseGeneral(instream);
-			    if (rf.getResource() != null)
-						throw new EFhirClientException((OperationOutcome) rf.getResource());
-			    return rf.getTaglist();
+			    rf = getParser(format).parseGeneral(instream);
+			    if (rf.getResource() != null) {
+		    		if (rf.getResource() instanceof OperationOutcome && hasError((OperationOutcome) rf.getResource())) {
+		    			error = (OperationOutcome) rf.getResource();
+		    		} else {
+		    			throw new EFhirClientException("Error unmarshalling tag list from Http Response: a resource was returned instead");
+		    		}
+		    	}
 			} catch(IOException ioe) {
 				throw new EFhirClientException("Error unmarshalling entity from Http Response", ioe);
 			} catch(Exception e) {
 				throw new EFhirClientException("Error parsing response message", e);
 			} finally {
-				try{instream.close();
-			}
-			  catch(IOException ioe){/* TODO log error */}
+				try{instream.close();}catch(IOException ioe){/* TODO log error */}
 			}
 		}
-		return new ArrayList<AtomCategory>(); // just return an empty list TODO: this means the client doesn't know whether a list was returned or not?
+		if(error != null) {
+			throw new EFhirClientException("Error unmarshalling taglists: "+ResourceUtilities.getErrorDescription(error), error);
+		}
+		return rf.getTaglist();
 	}
 	
 	/**
@@ -372,12 +378,14 @@ public class ClientUtils {
 			    } else {
 			    	ResourceOrFeed rf = getParser(format).parseGeneral(instream);
 			    	if (rf.getResource() != null) {
-			    		if (rf.getResource() instanceof OperationOutcome && hasError((OperationOutcome) rf.getResource()))
+			    		if (rf.getResource() instanceof OperationOutcome && hasError((OperationOutcome) rf.getResource())) {
 			    			error = (OperationOutcome) rf.getResource();
-			    		else
-			    			throw new EFhirClientException("Error unmarshalling feed from Http Response: a resource was returned instread");
-			    	} else
+			    		} else {
+			    			throw new EFhirClientException("Error unmarshalling feed from Http Response: a resource was returned instead");
+			    		}
+			    	} else {
 			    		feed = rf.getFeed();
+			    	}
 			    }
 			    instream.close();
 			}
