@@ -1743,13 +1743,13 @@ public class PageProcessor implements Logger  {
           if (cd.getBinding() == Binding.Special) {
 
             if (cd.getName().equals("MessageEvent"))
-              s.append("</td><td><a href=\"message-events.html\">http://hl7.org/fhir/message-events.html</a></td></tr>\r\n");
+              s.append("</td><td><a href=\"message-events.html\">http://hl7.org/fhir/valueset/message-events.html</a></td></tr>\r\n");
             else if (cd.getName().equals("ResourceType"))
-              s.append("</td><td><a href=\"resource-types.html\">http://hl7.org/fhir/resource-types.html</a></td></tr>\r\n");
+              s.append("</td><td><a href=\"resource-types.html\">http://hl7.org/fhir/valueset/resource-types.html</a></td></tr>\r\n");
             else if (cd.getName().equals("DataType"))
-              s.append("</td><td><a href=\"data-types.html\">http://hl7.org/fhir/data-types.html</a></td></tr>\r\n");
+              s.append("</td><td><a href=\"data-types.html\">http://hl7.org/fhir/valueset/data-types.html</a></td></tr>\r\n");
             else if (cd.getName().equals("FHIRDefinedType"))
-              s.append("</td><td><a href=\"defined-types.html\">http://hl7.org/fhir/defined-types.html</a></td></tr>\r\n");
+              s.append("</td><td><a href=\"defined-types.html\">http://hl7.org/fhir/valueset/defined-types.html</a></td></tr>\r\n");
             else 
               s.append("</td><td>???</td></tr>\r\n");
 

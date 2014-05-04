@@ -238,7 +238,7 @@ public class ProfileGenerator {
         return null; // throw new Exception("not done yet");
     case Reference: return Factory.newUri(src.getReference());
     case Special: 
-      return Factory.makeResourceReference("http://hl7.org/fhir/"+src.getReference().substring(1));
+      return Factory.makeResourceReference("http://hl7.org/fhir/vs/"+src.getReference().substring(1));
     default: 
       throw new Exception("not done yet");
     }

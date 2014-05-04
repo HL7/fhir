@@ -160,13 +160,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         write("<td valign=\"top\">");
         if (cd.getBinding() == BindingSpecification.Binding.Special) {
           if (cd.getName().equals("MessageEvent"))
-            write("<a href=\"message-events.html\">http://hl7.org/fhir/message-events</a>");
+            write("<a href=\"message-events.html\">http://hl7.org/fhir/valueset/message-events</a>");
           else if (cd.getName().equals("ResourceType"))
-            write("<a href=\"resource-types.html\">http://hl7.org/fhir/resource-types</a>");
+            write("<a href=\"resource-types.html\">http://hl7.org/fhir/valueset/resource-types</a>");
           else if (cd.getName().equals("DataType"))
-            write("<a href=\"data-types.html\">http://hl7.org/fhir/data-types</a>");
+            write("<a href=\"data-types.html\">http://hl7.org/fhir/valueset/data-types</a>");
           else if (cd.getName().equals("FHIRDefinedType"))
-            write("<a href=\"defined-types.html\">http://hl7.org/fhir/defined-types</a>");
+            write("<a href=\"defined-types.html\">http://hl7.org/fhir/valueset/defined-types</a>");
           else 
             throw new Exception("Unknown special type "+cd.getName());
         } 

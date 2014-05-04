@@ -187,9 +187,9 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     zip.addFiles(implDir+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl+"xml"+sl, "org/hl7/fhir/utilities/xml/", ".java", null);
 
     String importsDir = rootDir+sl+"tools"+sl+"java"+sl+"imports";
-    zip.addFileName("imports"+sl+"xpp3-1.1.3.4.O.jar", importsDir+sl+"xpp3-1.1.3.4.O.jar", false);
-    zip.addFileName("imports"+sl+"gson-2.2.4.jar", importsDir+sl+"gson-2.2.4.jar", false);
-    zip.addFileName("imports"+sl+"commons-codec-1.3.jar", importsDir+sl+"commons-codec-1.3.jar", false);
+    zip.addFileName("imports/xpp3-1.1.3.4.O.jar", importsDir+sl+"xpp3-1.1.3.4.O.jar", false);
+    zip.addFileName("imports/gson-2.2.4.jar", importsDir+sl+"gson-2.2.4.jar", false);
+    zip.addFileName("imports/commons-codec-1.3.jar", importsDir+sl+"commons-codec-1.3.jar", false);
     
     zip.close();
     jjComposerGen.close();
@@ -325,7 +325,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     Manifest manifest = new Manifest();
     manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
-    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.instance.test.ToolsHelper");
+    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.instance.validation.Validator");
     
     JarOutputStream jar = new JarOutputStream(new FileOutputStream(rootDir+sl+"publish"+sl+"org.hl7.fhir.validator.jar"), manifest);
     List<String> names = new ArrayList<String>();
@@ -341,6 +341,28 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl).length(), names);
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src"+sl).length(), names);
     jar.close();
+
+    // now, we pack a jar with what we need for testing:
+    manifest = new Manifest();
+    manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
+    manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
+    manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.instance.test.ToolsHelper");
+    
+    jar = new JarOutputStream(new FileOutputStream(rootDir+sl+"publish"+sl+"org.hl7.fhir.tools.jar"), manifest);
+    names = new ArrayList<String>();
+    names.add("META-INF/");
+    names.add("META-INF/MANIFEST.MF");
+
+    importsDir = rootDir+sl+"tools"+sl+"java"+sl+"imports";
+    AddJarToJar(jar, importsDir+sl+"xpp3-1.1.3.4.O.jar", names);
+    AddJarToJar(jar, importsDir+sl+"gson-2.2.4.jar", names);
+    AddJarToJar(jar, importsDir+sl+"commons-codec-1.3.jar", names);
+    
+    // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
+    AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.instance"+sl+"src"+sl).length(), names);
+    AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src"+sl).length(), names);
+    jar.close();
+
     checkVersion();
 
     return result;
@@ -359,7 +381,7 @@ public boolean compile(String rootDir, List<String> errors, Logger logger) throw
     List<String> command = new ArrayList<String>();
     command.add("java");
     command.add("-jar");
-    command.add("org.hl7.fhir.validator.jar");
+    command.add("org.hl7.fhir.tools.jar");
     command.add("version");
     command.add(destFile);
 
@@ -482,7 +504,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
     List<String> command = new ArrayList<String>();
     command.add("java");
     command.add("-jar");
-    command.add("org.hl7.fhir.validator.jar");
+    command.add("org.hl7.fhir.tools.jar");
     command.add("round");
     command.add(sourceFile);
     command.add(destFile);
@@ -519,7 +541,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       List<String> command = new ArrayList<String>();
       command.add("java");
       command.add("-jar");
-      command.add("org.hl7.fhir.validator.jar");
+      command.add("org.hl7.fhir.tools.jar");
       command.add("json");
       command.add(sourceFile);
       command.add(destFile);
@@ -568,7 +590,7 @@ public void loadAndSave(String rootDir, String sourceFile, String destFile) thro
       List<String> command = new ArrayList<String>();
       command.add("java");
       command.add("-jar");
-      command.add("org.hl7.fhir.validator.jar");
+      command.add("org.hl7.fhir.tools.jar");
       command.add("fragments");
       command.add(file.getAbsolutePath());
       command.add(filed.getAbsolutePath());

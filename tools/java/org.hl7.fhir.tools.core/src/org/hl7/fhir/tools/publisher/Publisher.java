@@ -1200,6 +1200,7 @@ public class Publisher {
       produceV3();
 
       page.log(" ...collections ", LogMessageType.Process);
+      
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml"), profileFeed, true, false);
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "profiles-resources.json"), profileFeed, true);
       cloneToXhtml("profiles-resources",
@@ -1212,6 +1213,18 @@ public class Publisher {
           "summary-instance");
       jsonToXhtml("profiles-types", "Base Types defined as profiles (implementation assistance, for validation, derivation and product development)",
           resource2Json(typeFeed), "summary-instance");
+      
+      int ec = 0;
+      for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> e : valueSetsFeed.getEntryList()) {
+        ValueSet vs = (ValueSet) e.getResource();
+        if (!vs.getIdentifierSimple().equals(e.getId())) {
+          ec++;
+          page.log("Valueset id mismatch: atom entry has '"+e.getId()+"', but value set is '"+vs.getIdentifierSimple()+"'", LogMessageType.Error);
+        }
+      }
+      if (ec > 0)
+        throw new Exception("Cannot continue due to value set mis-identification");
+      
       new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.xml"), valueSetsFeed, true, false);
       Utilities.copyFile(page.getFolders().dstDir + "valuesets.xml", page.getFolders().dstDir + "examples" + File.separator + "valuesets.xml");
       new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + "valuesets.json"), valueSetsFeed, true);
@@ -2108,8 +2121,8 @@ public class Publisher {
     if (f.exists())
       f.delete();
     ZipGenerator zip = new ZipGenerator(page.getFolders().tmpResDir + "fhir-spec.zip");
-    zip.addFiles(page.getFolders().dstDir, "site\\", null, ".zip");
-    zip.addFolder(Utilities.path(page.getFolders().rootDir, "tools", "html", ""), "site\\", true);
+    zip.addFiles(page.getFolders().dstDir, "site/", null, ".zip");
+    zip.addFolder(Utilities.path(page.getFolders().rootDir, "tools", "html", ""), "site/", true);
     zip.addFileName("index.html", page.getFolders().srcDir + "redirect.html", false);
     zip.close();
     Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir-spec.zip"), f);
@@ -2509,11 +2522,17 @@ public class Publisher {
   }
 
   private void addToResourceFeed(ValueSet vs, String id, AtomFeed dest) throws Exception {
-    if (dest.getById("http://hl7.org/fhir/valueset/" + id) != null)
+    String wid;
+    if (id.contains(":"))
+      wid = id;
+    else
+      wid = "http://hl7.org/fhir/vs/" + id;
+    
+    if (dest.getById(wid) != null)
       throw new Exception("Attempt to add duplicate value set " + id);
 
     AtomEntry e = new AtomEntry();
-    e.setId("http://hl7.org/fhir/valueset/" + id);
+    e.setId(wid);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/valueset/" + id);
     e.setTitle("Valueset \"" + id + "\" to support automated processing");
     e.setUpdated(new DateAndTime(page.getGenDate()));
