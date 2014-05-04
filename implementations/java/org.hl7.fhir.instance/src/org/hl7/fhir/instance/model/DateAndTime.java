@@ -86,6 +86,8 @@ public class DateAndTime {
 
 	private static int readField(String date, int i, int j) {
 		String s = date.substring(i, i+j);
+		if (s.startsWith("+"))
+			s = s.substring(1);
 		return java.lang.Integer.parseInt(s);
 	}
 
