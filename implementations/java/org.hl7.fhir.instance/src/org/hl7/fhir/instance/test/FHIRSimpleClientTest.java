@@ -251,27 +251,6 @@ public class FHIRSimpleClientTest {
 	}
 	
 	@Test
-	public void testCreateWithErrors() {
-		try {
-			AdverseReaction adverseReaction = new AdverseReaction();
-			adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
-			AtomEntry<OperationOutcome> result = null;
-			try {
-				result = testClient.create(AdverseReaction.class, adverseReaction);
-			} catch (EFhirClientException e) {
-				assertEquals(1, e.getServerErrors().size());
-				e.printStackTrace();
-			}
-			if(result.getResource() != null && result.getResource().getIssue().size() == 0) {
-				fail();
-			}
-		} catch (ParseException e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	@Test
 	public void testValidate() {
 		try {
 			loadPatientResource();

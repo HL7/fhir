@@ -206,7 +206,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		try {
 			List<Header> headers = null;
 			if(tags != null && tags.size() > 0) {
-				headers = buildCategoryHeaders(tags);
+				headers = buildCategoryHeader(tags);
 			}
 			result = ClientUtils.issuePutRequest(resourceAddress.resolveGetUriFromResourceClassAndId(resourceClass, id),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
 			result.addErrorStatus(410);//gone
@@ -246,7 +246,7 @@ public class FHIRSimpleClient implements FHIRClient {
 		try {
 			List<Header> headers = null;
 			if(tags != null && tags.size() > 0) {
-				headers = buildCategoryHeaders(tags);
+				headers = buildCategoryHeader(tags);
 			}
 			resourceRequest = ClientUtils.issuePostRequest(resourceAddress.resolveGetUriFromResourceClass(resourceClass),ClientUtils.getResourceAsByteArray(resource, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
 			resourceRequest.addSuccessStatus(201);
@@ -549,11 +549,17 @@ public class FHIRSimpleClient implements FHIRClient {
 		return isJson;
 	}
 	
-	protected List<Header> buildCategoryHeaders(List<AtomCategory> tags) {
+	protected List<Header> buildCategoryHeader(List<AtomCategory> tags) {
 		List<Header> headers = new ArrayList<Header>();
-		for(AtomCategory tag : tags) {
-			headers.add(new BasicHeader("Category",tag.getTerm() + ";scheme=\"" + tag.getScheme() + "\";label=\"" + tag.getLabel() + "\""));
+		String categoryValue = "";
+		for(int index = 0; index < tags.size(); index++) {
+			AtomCategory tag = tags.get(index);
+			categoryValue += tag.getTerm() + ";scheme=\"" + tag.getScheme() + "\";label=\"" + tag.getLabel() + "\"";
+			if(index < tags.size() - 1) {
+				categoryValue += ",";
+			}
 		}
+		headers.add(new BasicHeader("Category",categoryValue));
 		return headers;
 	}
 
