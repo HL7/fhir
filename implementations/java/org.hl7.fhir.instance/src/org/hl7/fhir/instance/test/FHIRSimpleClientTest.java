@@ -309,6 +309,19 @@ public class FHIRSimpleClientTest {
 		assertNotNull(feed);
 		assertTrue(feed.getEntryList().size() > 1);
 	}
+	
+	@Test
+	public void testHistoryForAllResourceTypesWithCount() throws Exception {
+		DateAndTime testDate = DateAndTime.now();
+		testClient.setMaximumRecordCount(5);
+		Calendar cal = testDate.toCalendar();
+		cal.add(Calendar.HOUR, -24);
+		testDate = new DateAndTime(cal);
+		AtomFeed feed = testClient.history(testDate);
+		assertNotNull(feed);
+		System.out.println(feed.getEntryList().size());
+		assertTrue(feed.getEntryList().size() > 1);
+	}
 
 	@Test
 	public void testGetHistoryForResourceWithIdSinceCalendarDate() {

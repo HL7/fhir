@@ -85,7 +85,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	private ResourceFormat preferredResourceFormat;
 	private FeedFormat preferredFeedFormat;
 	private HttpHost proxy;
-	private int recordCount = -1;//_count
+	private int maxResultSetSize = -1;//_count
 	
 	//Pass enpoint for client - URI
 	public FHIRSimpleClient() {
@@ -107,9 +107,9 @@ public class FHIRSimpleClient implements FHIRClient {
 	}
 	
 	@Override
-	public void initialize(String baseServiceUrl, int recordCount)  throws URISyntaxException {
+	public void initialize(String baseServiceUrl, int maxResultSetSize)  throws URISyntaxException {
 		resourceAddress = new ResourceAddress(baseServiceUrl);
-		this.recordCount = recordCount;
+		this.maxResultSetSize = maxResultSetSize;
 	}
 	
 	@Override
@@ -134,12 +134,12 @@ public class FHIRSimpleClient implements FHIRClient {
 	
 	@Override
 	public int getMaximumRecordCount() {
-		return recordCount;
+		return maxResultSetSize;
 	}
 	
 	@Override
-	public void setMaximumRecordCount(int recordCount) {
-		this.recordCount = recordCount;
+	public void setMaximumRecordCount(int maxResultSetSize) {
+		this.maxResultSetSize = maxResultSetSize;
 	}
 	
 	@Override
@@ -267,7 +267,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass, String id) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource", e);
 		}
@@ -278,7 +278,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass, String id) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource", e);
 		}
@@ -289,7 +289,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource type", e);
 		}
@@ -300,7 +300,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource type", e);
 		}
@@ -311,7 +311,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Class<T> resourceClass) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass, maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource type", e);
 		}
@@ -322,7 +322,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Class<T> resourceClass, String id) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceId(resourceClass, id, maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history information for this resource", e);
 		}
@@ -333,7 +333,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(DateAndTime lastUpdate) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history since last update",e);
 		}
@@ -344,7 +344,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate) {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(lastUpdate, maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history since last update",e);
 		}
@@ -355,7 +355,7 @@ public class FHIRSimpleClient implements FHIRClient {
 	public <T extends Resource> AtomFeed history() {
 		AtomFeed history = null;
 		try {
-			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(), getPreferredFeedFormat(), proxy);
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForAllResources(maxResultSetSize), getPreferredFeedFormat(), proxy);
 		} catch (Exception e) {
 			handleException("An error has occurred while trying to retrieve history since last update",e);
 		}
