@@ -304,6 +304,17 @@ public class FHIRSimpleClient implements FHIRClient {
 	}
 	
 	@Override
+	public <T extends Resource> AtomFeed history(Class<T> resourceClass) {
+		AtomFeed history = null;
+		try {
+			history = ClientUtils.issueGetFeedRequest(resourceAddress.resolveGetHistoryForResourceType(resourceClass), getPreferredFeedFormat(), proxy);
+		} catch (Exception e) {
+			handleException("An error has occurred while trying to retrieve history information for this resource type", e);
+		}
+		return history;
+	}
+	
+	@Override
 	public <T extends Resource> AtomFeed history(Class<T> resourceClass, String id) {
 		AtomFeed history = null;
 		try {

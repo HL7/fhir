@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.model.AtomCategory;
+import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Resource;
 
@@ -17,7 +18,7 @@ public class TestTagger implements Tagger {
 	}
 
 	@Override
-	public void process(Resource resource, List<AtomCategory> tags, List<AtomCategory> added, List<AtomCategory> deleted) {
+	public void process(AtomEntry<? extends Resource> entry, List<AtomCategory> tags, List<AtomCategory> added, List<AtomCategory> deleted) throws Exception {
 		if (tags.isEmpty()) {
 			AtomCategory cat = new AtomCategory("http://hl7.org/fhir/tag", "http://hl7.org/fhir/tools/tag/test", "Test Tag");
 			added.add(cat);

@@ -78,6 +78,9 @@ import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.ResourceUtilities;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 
@@ -363,11 +366,18 @@ public class ClientUtils {
 		try {
 			if (entity != null) {
 			    instream = entity.getContent();
-			    //String myString = IOUtils.toString(instream, "UTF-8");
+//			    String myString = IOUtils.toString(instream, "UTF-8");
 			    if(contentType.contains(ResourceFormat.RESOURCE_XML.getHeader()) || contentType.contains("text/xml+fhir")) {
 			    	error = (OperationOutcome)getParser(ResourceFormat.RESOURCE_XML.getHeader()).parseGeneral(instream).getResource();
 			    } else {
-			    	feed = getParser(format).parseGeneral(instream).getFeed();
+			    	ResourceOrFeed rf = getParser(format).parseGeneral(instream);
+			    	if (rf.getResource() != null) {
+			    		if (rf.getResource() instanceof OperationOutcome && hasError((OperationOutcome) rf.getResource()))
+			    			error = (OperationOutcome) rf.getResource();
+			    		else
+			    			throw new EFhirClientException("Error unmarshalling feed from Http Response: a resource was returned instread");
+			    	} else
+			    		feed = rf.getFeed();
 			    }
 			    instream.close();
 			}
@@ -379,11 +389,18 @@ public class ClientUtils {
 			try{instream.close();}catch(IOException ioe){/* TODO log error */}
 		}
 		if(error != null) {
-			throw new EFhirClientException("Error unmarshalling feed. Refer to e.getServerErrors() for additional details", error);
+			throw new EFhirClientException("Error unmarshalling feed: "+ResourceUtilities.getErrorDescription(error), error);
 		}
 		return feed;
 	}
 	
+	private static boolean hasError(OperationOutcome oo) {
+		for (OperationOutcomeIssueComponent t : oo.getIssue())
+			if (t.getSeveritySimple() == IssueSeverity.error || t.getSeveritySimple() == IssueSeverity.fatal)
+				return true;
+	  return false;
+  }
+
 	protected static <T extends Resource> AtomEntry<T> buildAtomEntry(HttpResponse response, T resource) {
 		AtomEntry<T> entry = new AtomEntry<T>();
 		String location = null;

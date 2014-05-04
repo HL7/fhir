@@ -106,7 +106,22 @@ public class InstanceValidator extends BaseValidator {
     cache = new ValueSetExpansionCache(valuesets, codesystems, conceptLocator);
   }  
 
-  private void loadValidationResources(String name) throws Exception {
+  public void seeValueSet(String id, ValueSet valueset) {
+  	valuesets.put(id, valueset);
+  	if (valueset.getDefine() != null)
+  		codesystems.put(valueset.getDefine().getSystemSimple(), valueset);  	
+  }
+  
+  public void seeProfile(String id, Profile profile) {
+  	types.put(id, profile);
+  }
+
+  
+  public Map<String, Profile> getTypes() {
+		return types;
+	}
+
+	private void loadValidationResources(String name) throws Exception {
     ZipInputStream zip = new ZipInputStream(new FileInputStream(name));
     ZipEntry ze;
     while ((ze = zip.getNextEntry()) != null) {

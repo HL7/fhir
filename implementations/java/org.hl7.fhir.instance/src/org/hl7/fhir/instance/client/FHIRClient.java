@@ -286,6 +286,7 @@ public interface FHIRClient {
 	 */
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass);
 	public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass);
+	public <T extends Resource> AtomFeed history(Class<T> resourceClass);
 	
 	/**
 	 * Retrieve the update history for all resource types since the specified calendar date.

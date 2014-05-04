@@ -54,6 +54,7 @@ public class SentinelWorker {
 		ini = new IniFile(Utilities.path(getWorkingFolder(), "sentinel.ini"));
 	  // register taggers
 		taggers.add(new TestTagger());
+		taggers.add(new HCSTagger());
   }
 
 	private String getWorkingFileName() {
@@ -89,7 +90,7 @@ public class SentinelWorker {
 		this.reset = reset;
 	}
 
-	public void execute() {
+	public void execute() throws Exception {
 		if (reset) {
 			ini.setStringProperty(server, "lasttime", "", null);
 			ini.setStringProperty(server, "cursor", "", null);
@@ -104,8 +105,7 @@ public class SentinelWorker {
 			client = makeClient();
 			conf = client.getConformanceStatement();
 		} catch (Exception e) {
-			System.out.println("Error connecting to server: "+e.getLocalizedMessage());
-			e.printStackTrace(System.err);
+			throw new Exception("Error connecting to server: "+e.getLocalizedMessage(), e);
 		}
 	  if (conf != null) {
 	  	for (Tagger t : taggers) 
@@ -152,7 +152,7 @@ public class SentinelWorker {
 	  String next = null;
 	  int i = 1;
 	  do {
-	      System.out.println("Downloading Updates (Page "+Integer.toString(i)+")");
+	      System.out.println("Downloading Updates (Page "+Integer.toString(i)+")"+(next != null ? " ("+next+")" : "')"));
 	      AtomFeed feed = null;
 	      if (next != null)
 	        feed = client.fetchFeed(next);
@@ -208,7 +208,7 @@ public class SentinelWorker {
 		List<AtomCategory> added = new ArrayList<AtomCategory>();
 		List<AtomCategory> deleted = new ArrayList<AtomCategory>();
 		for (Tagger t : taggers) 
-			t.process(ae.getResource(), ae.getTags(), added, deleted);
+			t.process(ae, ae.getTags(), added, deleted);
 		if (!added.isEmpty())
 		  client.createTags(added, ae.getResource().getClass(), feed.getLogicalId(ae), feed.getVersionId(ae));
 		if (!deleted.isEmpty())

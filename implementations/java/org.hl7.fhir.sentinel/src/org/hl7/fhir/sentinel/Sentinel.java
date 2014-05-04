@@ -33,7 +33,11 @@ public class Sentinel {
 				}
 				i++;
 			}
-			worker.execute();
+			try {
+	      worker.execute();
+      } catch (Exception e) {
+	      e.printStackTrace();
+      }
 		}
 
 	}
