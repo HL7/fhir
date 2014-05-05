@@ -22,3 +22,8 @@ into the trunk/tools when
 The code in trunk/tools is therefore out of date compared to the 
 specification itself, and you shouldn't use it for anything but the
 publication tooling.
+
+The java package org.hl7.fhir.tools must depend on the copy in /tools.
+The java packages org.hl7.fhir.convertors and org.hl7.fhir.sentinel
+must depend on the copy in /implementations
+
