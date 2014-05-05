@@ -20,6 +20,7 @@
   <WindowWidth>29040</WindowWidth>
   <WindowTopX>5865</WindowTopX>
   <WindowTopY>6870</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -136,7 +137,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -169,7 +169,7 @@
     <Cell><Data ss:Type="String">Coding.primary rule</Data></Cell>
     <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell><Data ss:Type="String">Only one coding in a set can be chosen directly by the user</Data></Cell>
-    <Cell><Data ss:Type="String">codings.collect(primary = true)-&gt;size() &lt; 1</Data></Cell>
+    <Cell><Data ss:Type="String">codings.collect(primary = true)-&gt;size() &lt;= 1</Data></Cell>
     <Cell><Data ss:Type="String">count(f:coding[f:primary/@value='true'])&lt;1</Data></Cell>
    </Row>
   </Table>
@@ -180,11 +180,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
