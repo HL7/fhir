@@ -16,7 +16,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -38,7 +37,7 @@ public class DefinitionParser {
 	public UcumModel parse(String filename) throws Exception {
 		return parse(new FileInputStream(new File(filename)));
 	}
-	
+
 	public UcumModel parse(InputStream stream) throws Exception {
 		XmlPullParserFactory factory = XmlPullParserFactory.newInstance(
 				System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
@@ -46,16 +45,16 @@ public class DefinitionParser {
 		XmlPullParser xpp = factory.newPullParser();
 
 		xpp.setInput(stream, null);
-		
-        int eventType = xpp.next();
-        if (eventType != XmlPullParser.START_TAG)
-        	throw new XmlPullParserException("Unable to process XML document");
-        if (!xpp.getName().equals("root")) 
-        	throw new XmlPullParserException("Unable to process XML document: expected 'root' but found '"+xpp.getName()+"'");
-        DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss' 'Z");
-        Date date = fmt.parse(xpp.getAttributeValue(null, "revision-date").substring(7, 32));        
+
+		int eventType = xpp.next();
+		if (eventType != XmlPullParser.START_TAG)
+			throw new XmlPullParserException("Unable to process XML document");
+		if (!xpp.getName().equals("root")) 
+			throw new XmlPullParserException("Unable to process XML document: expected 'root' but found '"+xpp.getName()+"'");
+		DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss' 'Z");
+		Date date = fmt.parse(xpp.getAttributeValue(null, "revision-date").substring(7, 32));        
 		UcumModel root = new UcumModel(xpp.getAttributeValue(null, "version"), xpp.getAttributeValue(null, "revision"), date);
-        xpp.next();
+		xpp.next();
 		while (xpp.getEventType() != XmlPullParser.END_TAG) {
 			if (xpp.getEventType() == XmlPullParser.TEXT) {
 				if (Utilities.isWhitespace(xpp.getText()))
@@ -96,11 +95,14 @@ public class DefinitionParser {
 		checkAtElement(xpp, "value", context);
 		Decimal val = null;
 		if (xpp.getAttributeValue(null, "value") != null) 
-		try {
-			val = new Decimal(xpp.getAttributeValue(null, "value"));
-		} catch (NumberFormatException e) {
-			throw new XmlPullParserException("Error reading "+context+": "+e.getMessage());
-		}
+			try {
+				if (xpp.getAttributeValue(null, "value").contains("."))
+					val = new Decimal(xpp.getAttributeValue(null, "value"), 24); // unlimited precision for these
+				else
+					val = new Decimal(xpp.getAttributeValue(null, "value"));
+			} catch (NumberFormatException e) {
+				throw new XmlPullParserException("Error reading "+context+": "+e.getMessage());
+			}
 		Value value = new Value(xpp.getAttributeValue(null, "Unit"), xpp.getAttributeValue(null, "UNIT"), val);
 		value.setText(readElement(xpp, "value", context, true));
 		return value;

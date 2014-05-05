@@ -638,8 +638,8 @@
 	<case id="3-119"  value="6.300"    srcUnit="[in_i]"      dstUnit="cm"            outcome="16.0"/> 
 	<case id="3-120" value="6.3"      srcUnit="g.m.s-2.A-2" dstUnit="g.m.C-2"       outcome="6.3"/> 
 	<case id="3-121" value="1"      srcUnit="10*-7.s"       dstUnit="s"       outcome="1e-7"/> 
-	<case id="3-122" value="1"      srcUnit="4.[pi].10*-7.s"  dstUnit="s"       outcome="0.0000012566370614359172953850573533118011536788677597500423283899778369"/> 
-	<case id="3-123" value="1"      srcUnit="4.[pi].10*-7.N"  dstUnit="N"       outcome="1.2566370614359172953850573533118011536788677597500423283899778369e-6"/> 
+	<case id="3-122" value="1"      srcUnit="4.[pi].10*-7.s"  dstUnit="s"       outcome="0.00000125663706143591729538505735331180115367886775975004232838997783692"/> 
+	<case id="3-123" value="1"      srcUnit="4.[pi].10*-7.N"  dstUnit="N"       outcome="1.25663706143591729538505735331180115367886775975004232838997783692e-6"/> 
 	<case id="3-124" value="1"      srcUnit="[mu_0]" dstUnit="g.m.C-2"       outcome="1.2566370614359172953850573533118011536788677597500423283899778369e-3"/> 	
 	<case id="3-125"  value="1"      srcUnit="m[Hg]"  dstUnit="g.s-2.m-1"     outcome="133322000"/>
 	<case id="3-126"  value="1"      srcUnit="S"      dstUnit="g-1.m-2.C2.s"  outcome="0.001"/> 

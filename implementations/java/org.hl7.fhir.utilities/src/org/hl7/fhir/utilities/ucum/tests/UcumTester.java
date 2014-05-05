@@ -14,16 +14,11 @@ package org.hl7.fhir.utilities.ucum.tests;
  ******************************************************************************/
 
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ucum.Decimal;
 import org.hl7.fhir.utilities.ucum.Pair;
 import org.hl7.fhir.utilities.ucum.UcumEssenceService;
-import org.hl7.fhir.utilities.ucum.UcumModel;
 import org.hl7.fhir.utilities.ucum.UcumService;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

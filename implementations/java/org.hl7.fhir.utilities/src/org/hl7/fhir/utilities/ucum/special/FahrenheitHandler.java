@@ -11,8 +11,6 @@
 
 package org.hl7.fhir.utilities.ucum.special;
 
-import java.math.MathContext;
-
 import org.hl7.fhir.utilities.ucum.Decimal;
 
 public class FahrenheitHandler extends SpecialUnitHandler {

@@ -11,8 +11,6 @@
 
 package org.hl7.fhir.utilities.ucum.special;
 
-import java.math.BigDecimal;
-
 import org.hl7.fhir.utilities.ucum.Decimal;
 
 public class CelsiusHandler extends SpecialUnitHandler {

@@ -580,7 +580,8 @@ public class Decimal {
 
 		int prec = 0;
 		if (isWholeNumber() && other.isWholeNumber())
-			prec = Math.max(digits.length(), other.digits.length());
+			// at least the specified precision, and possibly more
+			prec = Math.max(Math.max(digits.length(), other.digits.length()), Math.min(precision, other.precision));
 		else if (isWholeNumber())
 			prec = other.precision;
 		else if (other.isWholeNumber())

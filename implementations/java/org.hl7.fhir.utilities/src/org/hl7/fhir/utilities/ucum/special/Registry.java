@@ -11,7 +11,6 @@
 
 package org.hl7.fhir.utilities.ucum.special;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -11,7 +11,6 @@
 
 package org.hl7.fhir.utilities.ucum;
 
-import java.math.MathContext;
 
 public class Canonical {
 
