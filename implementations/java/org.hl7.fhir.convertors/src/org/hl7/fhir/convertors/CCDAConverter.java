@@ -151,7 +151,7 @@ Review of Systems Section 10187-3 :
 Social History Section 29762-2 :                      List (Observation)                     processSocialHistorySection
 Subjective Section 61150-9: 
 Surgical Drains Section 11537-8 : 
-Vital Signs Section 8716-3 : 
+Vital Signs Section 8716-3 :                          List(Observation)                      processVitalSignsSection
 
 
 MU Sections:
@@ -1141,7 +1141,8 @@ public class CCDAConverter {
 		// The text, if present, SHOULD contain zero or one [0..1] reference (CONF:15943).
 		// The reference, if present, SHOULD contain zero or one [0..1] @value (CONF:15944).
 		// This reference/@value SHALL begin with a '#' and SHALL point to its corresponding narrative (using the approach defined in CDA Release 2, section 4.3.5.1) (CONF:15945).
-		// todo: what? 
+		// todo: put this in narrative if it exists?
+
 		
 		// SHALL contain exactly one [1..1] statusCode (CONF:7303).	This statusCode SHALL contain exactly one [1..1] @code="completed" Completed (CodeSystem: ActStatus 2.16.840.1.113883.5.14 STATIC) (CONF:19119).
 		// ignore

@@ -56,12 +56,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 public class ToolsHelper {
 
-  public static void main(String[] args) {
-//    StringBuilder b = new StringBuilder();
-//    for (String a : args)
-//      b.append(", "+a);
-//    System.err.print("Tool Helper: "+b.toString().substring(2));
-    
+  public static void main(String[] args) {   
     try {
       ToolsHelper self = new ToolsHelper();
       if (args[0].equals("round")) 
