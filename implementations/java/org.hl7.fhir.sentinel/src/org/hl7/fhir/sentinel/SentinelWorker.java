@@ -21,6 +21,7 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Resource;
+import org.hl7.fhir.sentinel.taggers.profile.ProfileTagger;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -53,8 +54,8 @@ public class SentinelWorker {
 	  stop = false;
 		ini = new IniFile(Utilities.path(getWorkingFolder(), "sentinel.ini"));
 	  // register taggers
-		taggers.add(new TestTagger());
-		taggers.add(new HCSTagger());
+		taggers.add(new ProfileTagger());
+//		taggers.add(new HCSTagger());
   }
 
 	private String getWorkingFileName() {
@@ -152,7 +153,7 @@ public class SentinelWorker {
 	  String next = null;
 	  int i = 1;
 	  do {
-	      System.out.println("Downloading Updates (Page "+Integer.toString(i)+")"+(next != null ? " ("+next+")" : "')"));
+	      System.out.println("Downloading Updates (Page "+Integer.toString(i)+")"+(next != null ? " ("+next+")" : ""));
 	      AtomFeed feed = null;
 	      if (next != null)
 	        feed = client.fetchFeed(next);
