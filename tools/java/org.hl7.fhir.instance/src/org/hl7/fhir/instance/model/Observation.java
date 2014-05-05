@@ -77,6 +77,7 @@ public class Observation extends Resource {
     }
 
   public static class ObservationStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -95,6 +96,7 @@ public class Observation extends Resource {
           return ObservationStatus.enteredInError;
         throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObservationStatus.registered)
         return "registered";
@@ -155,6 +157,7 @@ public class Observation extends Resource {
     }
 
   public static class ObservationReliabilityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -175,6 +178,7 @@ public class Observation extends Resource {
           return ObservationReliability.unknown;
         throw new Exception("Unknown ObservationReliability code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObservationReliability.ok)
         return "ok";
@@ -237,6 +241,7 @@ public class Observation extends Resource {
     }
 
   public static class ObservationRelationshiptypesEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -257,6 +262,7 @@ public class Observation extends Resource {
           return ObservationRelationshiptypes.interferedby;
         throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObservationRelationshiptypes.hascomponent)
         return "has-component";
@@ -361,6 +367,7 @@ public class Observation extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("low", "Quantity", "The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.", 0, java.lang.Integer.MAX_VALUE, low));
@@ -451,6 +458,7 @@ public class Observation extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A code specifying the kind of relationship that exists with the target observation.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -879,6 +887,7 @@ public class Observation extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));

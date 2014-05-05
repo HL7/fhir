@@ -69,6 +69,7 @@ public class OperationOutcome extends Resource {
     }
 
   public static class IssueSeverityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class OperationOutcome extends Resource {
           return IssueSeverity.information;
         throw new Exception("Unknown IssueSeverity code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == IssueSeverity.fatal)
         return "fatal";
@@ -236,6 +238,7 @@ public class OperationOutcome extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("severity", "code", "Indicates whether the issue indicates a variation from successful processing.", 0, java.lang.Integer.MAX_VALUE, severity));
@@ -283,6 +286,7 @@ public class OperationOutcome extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("issue", "", "An error, warning or information message that results from a system action.", 0, java.lang.Integer.MAX_VALUE, issue));

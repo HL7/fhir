@@ -36,6 +36,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Age extends Quantity {
 
+      @Override
       public Age copy() {
         Age dst = new Age();
         dst.value = value == null ? null : value.copy();
@@ -46,6 +47,7 @@ public class Age extends Quantity {
         return dst;
       }
 
+      @Override
       protected Age typedCopy() {
         return copy();
       }

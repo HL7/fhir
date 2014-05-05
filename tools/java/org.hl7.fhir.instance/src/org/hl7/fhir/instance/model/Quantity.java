@@ -70,6 +70,7 @@ public class Quantity extends Type {
     }
 
   public static class QuantityComparatorEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,6 +85,7 @@ public class Quantity extends Type {
           return QuantityComparator.greaterThan;
         throw new Exception("Unknown QuantityComparator code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == QuantityComparator.lessThan)
         return "<";
@@ -306,6 +308,7 @@ public class Quantity extends Type {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("value", "decimal", "The value of the measured amount. The value includes an implicit precision in the presentation of the value.", 0, java.lang.Integer.MAX_VALUE, value));
@@ -315,6 +318,7 @@ public class Quantity extends Type {
         childrenList.add(new Property("code", "code", "A computer processable form of the units in some unit representation system.", 0, java.lang.Integer.MAX_VALUE, code));
       }
 
+      @Override
       public Quantity copy() {
         Quantity dst = new Quantity();
         dst.value = value == null ? null : value.copy();
@@ -325,6 +329,7 @@ public class Quantity extends Type {
         return dst;
       }
 
+      @Override
       protected Quantity typedCopy() {
         return copy();
       }

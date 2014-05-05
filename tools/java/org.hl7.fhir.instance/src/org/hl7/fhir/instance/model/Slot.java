@@ -69,6 +69,7 @@ public class Slot extends Resource {
     }
 
   public static class SlotstatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class Slot extends Resource {
           return Slotstatus.bUSYTENTATIVE;
         throw new Exception("Unknown Slotstatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Slotstatus.bUSY)
         return "BUSY";
@@ -404,6 +406,7 @@ public class Slot extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));

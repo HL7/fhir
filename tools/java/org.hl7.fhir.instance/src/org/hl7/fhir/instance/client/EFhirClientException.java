@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.OperationOutcome;
-import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 /**
  * FHIR client exception.

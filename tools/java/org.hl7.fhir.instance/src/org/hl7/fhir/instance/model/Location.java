@@ -66,6 +66,7 @@ public class Location extends Resource {
     }
 
   public static class LocationStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,6 +79,7 @@ public class Location extends Resource {
           return LocationStatus.inactive;
         throw new Exception("Unknown LocationStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == LocationStatus.active)
         return "active";
@@ -112,6 +114,7 @@ public class Location extends Resource {
     }
 
   public static class LocationModeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -122,6 +125,7 @@ public class Location extends Resource {
           return LocationMode.kind;
         throw new Exception("Unknown LocationMode code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == LocationMode.instance)
         return "instance";
@@ -257,6 +261,7 @@ public class Location extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("longitude", "decimal", "Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).", 0, java.lang.Integer.MAX_VALUE, longitude));
@@ -604,6 +609,7 @@ public class Location extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Unique code or number identifying the location to its users.", 0, java.lang.Integer.MAX_VALUE, identifier));

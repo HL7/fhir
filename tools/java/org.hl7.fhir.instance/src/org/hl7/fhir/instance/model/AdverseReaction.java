@@ -69,6 +69,7 @@ public class AdverseReaction extends Resource {
     }
 
   public static class ReactionSeverityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class AdverseReaction extends Resource {
           return ReactionSeverity.minor;
         throw new Exception("Unknown ReactionSeverity code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ReactionSeverity.severe)
         return "severe";
@@ -123,6 +125,7 @@ public class AdverseReaction extends Resource {
     }
 
   public static class ExposureTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -135,6 +138,7 @@ public class AdverseReaction extends Resource {
           return ExposureType.coincidental;
         throw new Exception("Unknown ExposureType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ExposureType.drugadmin)
         return "drugadmin";
@@ -177,6 +181,7 @@ public class AdverseReaction extends Resource {
     }
 
   public static class CausalityExpectationEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -191,6 +196,7 @@ public class AdverseReaction extends Resource {
           return CausalityExpectation.unknown;
         throw new Exception("Unknown CausalityExpectation code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == CausalityExpectation.likely)
         return "likely";
@@ -275,6 +281,7 @@ public class AdverseReaction extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Indicates the specific sign or symptom that was observed.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -438,6 +445,7 @@ public class AdverseReaction extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("date", "dateTime", "Identifies the initial date of the exposure that is suspected to be related to the reaction.", 0, java.lang.Integer.MAX_VALUE, date));
@@ -651,6 +659,7 @@ public class AdverseReaction extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

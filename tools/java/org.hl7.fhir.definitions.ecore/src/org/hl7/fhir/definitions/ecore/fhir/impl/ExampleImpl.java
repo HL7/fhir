@@ -269,7 +269,8 @@ public class ExampleImpl extends EObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getIdentity() {
+	@Override
+  public String getIdentity() {
 		return identity;
 	}
 
@@ -278,7 +279,8 @@ public class ExampleImpl extends EObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIdentity(String newIdentity) {
+	@Override
+  public void setIdentity(String newIdentity) {
 		String oldIdentity = identity;
 		identity = newIdentity;
 		if (eNotificationRequired())
@@ -290,7 +292,8 @@ public class ExampleImpl extends EObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExampleType getType() {
+	@Override
+  public ExampleType getType() {
 		return type;
 	}
 
@@ -299,7 +302,8 @@ public class ExampleImpl extends EObjectImpl implements Example {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(ExampleType newType) {
+	@Override
+  public void setType(ExampleType newType) {
 		ExampleType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())

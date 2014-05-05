@@ -30,7 +30,6 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.text.SimpleDateFormat;
@@ -85,7 +84,6 @@ import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
-import org.hl7.fhir.instance.utils.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -672,10 +670,10 @@ public class PageProcessor implements Logger  {
       if (url.startsWith(prefix)) {
         String name = url.substring(prefix.length()).replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
         if (n.equals(name))
-          return (AtomEntry<ValueSet>) ae;
+          return ae;
         name = ae.getResource().getNameSimple().replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
         if (n.equals(name))
-          return (AtomEntry<ValueSet>) ae;
+          return ae;
       }
     }
     return null;
@@ -749,7 +747,7 @@ public class PageProcessor implements Logger  {
   }
 
   private String genV3CodeSystem(String name) throws Exception {
-    ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v3/"+name).getResource();
+    ValueSet vs = codeSystems.get("http://hl7.org/fhir/v3/"+name).getResource();
     new XmlComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false, "v3:cs:"+name);
     new JsonComposer().compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".json"), vs, false);
@@ -759,7 +757,7 @@ public class PageProcessor implements Logger  {
   }
 
   private String genV3ValueSet(String name) throws Exception {
-    ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
+    ValueSet vs = valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml", folders.dstDir+"v3"+File.separator+"vs"+File.separator+name+File.separator+"v3-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false, "v3:vs:"+name);
@@ -772,7 +770,7 @@ public class PageProcessor implements Logger  {
 
   private String genV2TableVer(String name) throws Exception {
     String[] n = name.split("\\|");
-    ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v2/"+n[0]+"/"+n[1]).getResource();
+    ValueSet vs = codeSystems.get("http://hl7.org/fhir/v2/"+n[0]+"/"+n[1]).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml", folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 3, false, "v2:tbl"+name);
@@ -785,7 +783,7 @@ public class PageProcessor implements Logger  {
   }
 
   private String genV2Table(String name) throws Exception {
-    ValueSet vs = (ValueSet) codeSystems.get("http://hl7.org/fhir/v2/"+name).getResource();
+    ValueSet vs = codeSystems.get("http://hl7.org/fhir/v2/"+name).getResource();
     XmlComposer xml = new XmlComposer();
     xml.compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml"), vs, true);
     cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".xml.html", vs.getNameSimple(), vs.getDescriptionSimple(), 2, false, "v2:tbl"+name);
@@ -2158,7 +2156,7 @@ public class PageProcessor implements Logger  {
   }
   
   private String expandV3ValueSet(String name) throws Exception {
-    ValueSet vs = (ValueSet) valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
+    ValueSet vs = valueSets.get("http://hl7.org/fhir/v3/vs/"+name).getResource();
     return expandVS(vs, "../../../");
   }
   

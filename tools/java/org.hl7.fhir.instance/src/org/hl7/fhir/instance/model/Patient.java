@@ -65,6 +65,7 @@ public class Patient extends Resource {
     }
 
   public static class LinkTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class Patient extends Resource {
           return LinkType.seealso;
         throw new Exception("Unknown LinkType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == LinkType.replace)
         return "replace";
@@ -217,6 +219,7 @@ public class Patient extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between the patient and the contact person.", 0, java.lang.Integer.MAX_VALUE, relationship));
@@ -314,6 +317,7 @@ public class Patient extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("species", "CodeableConcept", "Identifies the high level categorization of the kind of animal.", 0, java.lang.Integer.MAX_VALUE, species));
@@ -399,6 +403,7 @@ public class Patient extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("other", "Resource(Patient)", "The other patient resource that the link refers to.", 0, java.lang.Integer.MAX_VALUE, other));
@@ -818,6 +823,7 @@ public class Patient extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person as a patient.", 0, java.lang.Integer.MAX_VALUE, identifier));

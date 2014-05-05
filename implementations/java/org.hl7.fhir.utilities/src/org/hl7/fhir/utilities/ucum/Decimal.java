@@ -409,11 +409,11 @@ public class Decimal {
 	}
 
 	private int dig(char c) {
-	  return ((int) c) - ((int) '0');
+	  return (c) - ('0');
   }
 
 	private char cdig(int i) {
-	  return (char) (i + ((int) '0'));
+	  return (char) (i + ('0'));
   }
 
 	private Decimal doSubtract(Decimal other)  {

@@ -54,13 +54,15 @@ public class Base64Binary extends PrimitiveType {
 		this.value = value;
 	}
 	
-	public Base64Binary copy() {
+	@Override
+  public Base64Binary copy() {
 		Base64Binary dst = new Base64Binary();
 		dst.value = value;
 		return dst;
 	}
 	
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 

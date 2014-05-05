@@ -61,6 +61,7 @@ public class Procedure extends Resource {
     }
 
   public static class ProcedureRelationshipTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -71,6 +72,7 @@ public class Procedure extends Resource {
           return ProcedureRelationshipType.becauseof;
         throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ProcedureRelationshipType.causedby)
         return "caused-by";
@@ -125,6 +127,7 @@ public class Procedure extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("person", "Resource(Practitioner)", "The practitioner who was involved in the procedure.", 0, java.lang.Integer.MAX_VALUE, person));
@@ -206,6 +209,7 @@ public class Procedure extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The nature of the relationship.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -588,6 +592,7 @@ public class Procedure extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

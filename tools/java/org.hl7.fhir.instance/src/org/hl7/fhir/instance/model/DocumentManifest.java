@@ -65,6 +65,7 @@ public class DocumentManifest extends Resource {
     }
 
   public static class DocumentReferenceStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class DocumentManifest extends Resource {
           return DocumentReferenceStatus.enteredInError;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == DocumentReferenceStatus.current)
         return "current";
@@ -448,6 +450,7 @@ public class DocumentManifest extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("masterIdentifier", "Identifier", "A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));

@@ -53,11 +53,13 @@ public class Date extends PrimitiveType {
 		this.value = value;
 	}
 	
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 
-	public Date copy() {
+	@Override
+  public Date copy() {
 		Date dst = new Date();
 		dst.value = value;
 		return dst;

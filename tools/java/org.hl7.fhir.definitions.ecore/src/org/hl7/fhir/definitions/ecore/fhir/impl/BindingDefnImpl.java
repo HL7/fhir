@@ -350,7 +350,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFullName() {
+	@Override
+  public String getFullName() {
 		return fullName;
 	}
 
@@ -359,7 +360,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFullName(String newFullName) {
+	@Override
+  public void setFullName(String newFullName) {
 		String oldFullName = fullName;
 		fullName = newFullName;
 		if (eNotificationRequired())
@@ -394,7 +396,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getReference() {
+	@Override
+  public String getReference() {
 		return reference;
 	}
 
@@ -403,7 +406,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReference(String newReference) {
+	@Override
+  public void setReference(String newReference) {
 		String oldReference = reference;
 		reference = newReference;
 		if (eNotificationRequired())
@@ -438,7 +442,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DefinedCode> getCode() {
+	@Override
+  public EList<DefinedCode> getCode() {
 		if (code == null) {
 			code = new EObjectContainmentEList<DefinedCode>(DefinedCode.class, this, FhirPackage.BINDING_DEFN__CODE);
 		}
@@ -493,7 +498,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDescription() {
+	@Override
+  public String getDescription() {
 		return description;
 	}
 
@@ -502,7 +508,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDescription(String newDescription) {
+	@Override
+  public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
@@ -514,7 +521,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDefinition() {
+	@Override
+  public String getDefinition() {
 		return definition;
 	}
 
@@ -523,7 +531,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefinition(String newDefinition) {
+	@Override
+  public void setDefinition(String newDefinition) {
 		String oldDefinition = definition;
 		definition = newDefinition;
 		if (eNotificationRequired())
@@ -535,7 +544,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isExample() {
+	@Override
+  public boolean isExample() {
 		return example;
 	}
 
@@ -544,7 +554,8 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExample(boolean newExample) {
+	@Override
+  public void setExample(boolean newExample) {
 		boolean oldExample = example;
 		example = newExample;
 		if (eNotificationRequired())
@@ -556,6 +567,7 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
    * <!-- end-user-doc -->
 	 * @generated
 	 */
+  @Override
   public String getV2Map() {
 		return v2Map;
 	}
@@ -565,6 +577,7 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
    * <!-- end-user-doc -->
 	 * @generated
 	 */
+  @Override
   public void setV2Map(String newV2Map) {
 		String oldV2Map = v2Map;
 		v2Map = newV2Map;
@@ -577,6 +590,7 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
    * <!-- end-user-doc -->
 	 * @generated
 	 */
+  @Override
   public String getV3Map() {
 		return v3Map;
 	}
@@ -586,6 +600,7 @@ public class BindingDefnImpl extends EObjectImpl implements BindingDefn {
    * <!-- end-user-doc -->
 	 * @generated
 	 */
+  @Override
   public void setV3Map(String newV3Map) {
 		String oldV3Map = v3Map;
 		v3Map = newV3Map;

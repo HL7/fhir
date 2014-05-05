@@ -269,7 +269,8 @@ public class FhirFactoryImpl extends EFactoryImpl implements FhirFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveDefn createPrimitiveDefn() {
+	@Override
+  public PrimitiveDefn createPrimitiveDefn() {
 		PrimitiveDefnImpl primitiveDefn = new PrimitiveDefnImpl();
 		return primitiveDefn;
 	}

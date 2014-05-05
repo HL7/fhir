@@ -2,7 +2,6 @@ package org.hl7.fhir.instance.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /*
 Copyright (c) 2011-2014, HL7, Inc

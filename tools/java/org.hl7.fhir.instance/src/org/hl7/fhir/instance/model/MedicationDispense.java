@@ -73,6 +73,7 @@ public class MedicationDispense extends Resource {
     }
 
   public static class MedicationDispenseStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -89,6 +90,7 @@ public class MedicationDispense extends Resource {
           return MedicationDispenseStatus.stopped;
         throw new Exception("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationDispenseStatus.inProgress)
         return "in progress";
@@ -376,6 +378,7 @@ public class MedicationDispense extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility.   This is an identifier assigned outside FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -602,6 +605,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Additional instructions such as 'Swallow with plenty of water' which may or may not be coded.", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
@@ -705,6 +709,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "A code signifying whether a different drug was dispensed from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -895,6 +900,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));

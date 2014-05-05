@@ -65,6 +65,7 @@ public class Alert extends Resource {
     }
 
   public static class AlertStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class Alert extends Resource {
           return AlertStatus.enteredInError;
         throw new Exception("Unknown AlertStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == AlertStatus.active)
         return "active";
@@ -255,6 +257,7 @@ public class Alert extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the alert for external use (outside the FHIR environment).", 0, java.lang.Integer.MAX_VALUE, identifier));

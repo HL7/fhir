@@ -69,6 +69,7 @@ public class Contact extends Type {
     }
 
   public static class ContactSystemEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class Contact extends Type {
           return ContactSystem.url;
         throw new Exception("Unknown ContactSystem code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ContactSystem.phone)
         return "phone";
@@ -131,6 +133,7 @@ public class Contact extends Type {
     }
 
   public static class ContactUseEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -147,6 +150,7 @@ public class Contact extends Type {
           return ContactUse.mobile;
         throw new Exception("Unknown ContactUse code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ContactUse.home)
         return "home";
@@ -309,6 +313,7 @@ public class Contact extends Type {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("system", "code", "Telecommunications form for contact - what communications system is required to make use of the contact.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -317,6 +322,7 @@ public class Contact extends Type {
         childrenList.add(new Property("period", "Period", "Time period when the contact was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
       }
 
+      @Override
       public Contact copy() {
         Contact dst = new Contact();
         dst.system = system == null ? null : system.copy();
@@ -326,6 +332,7 @@ public class Contact extends Type {
         return dst;
       }
 
+      @Override
       protected Contact typedCopy() {
         return copy();
       }

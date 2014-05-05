@@ -36,6 +36,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Distance extends Quantity {
 
+      @Override
       public Distance copy() {
         Distance dst = new Distance();
         dst.value = value == null ? null : value.copy();
@@ -46,6 +47,7 @@ public class Distance extends Quantity {
         return dst;
       }
 
+      @Override
       protected Distance typedCopy() {
         return copy();
       }

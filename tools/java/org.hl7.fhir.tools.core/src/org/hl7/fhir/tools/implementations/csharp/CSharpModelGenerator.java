@@ -250,6 +250,7 @@ public class CSharpModelGenerator extends GenBlock
     
     Collections.sort(sortedElements, new Comparator<ElementDefn>()
       {
+        @Override
         public int compare(ElementDefn e1, ElementDefn e2)
         {
           if(e1.getXmlFormatHint() == XmlFormatHint.ATTRIBUTE) 

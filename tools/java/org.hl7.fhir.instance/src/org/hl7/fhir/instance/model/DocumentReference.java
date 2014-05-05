@@ -65,6 +65,7 @@ public class DocumentReference extends Resource {
     }
 
   public static class DocumentReferenceStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class DocumentReference extends Resource {
           return DocumentReferenceStatus.enteredInError;
         throw new Exception("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == DocumentReferenceStatus.current)
         return "current";
@@ -119,6 +121,7 @@ public class DocumentReference extends Resource {
     }
 
   public static class DocumentRelationshipTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -133,6 +136,7 @@ public class DocumentReference extends Resource {
           return DocumentRelationshipType.appends;
         throw new Exception("Unknown DocumentRelationshipType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == DocumentRelationshipType.replaces)
         return "replaces";
@@ -214,6 +218,7 @@ public class DocumentReference extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "The type of relationship that this document has with anther document.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -322,6 +327,7 @@ public class DocumentReference extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "The type of the service that can be used to access the documents.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -429,6 +435,7 @@ public class DocumentReference extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of a parameter.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -511,6 +518,7 @@ public class DocumentReference extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("event", "CodeableConcept", "This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a 'History and Physical Report' in which the procedure being documented is necessarily a 'History and Physical' act.", 0, java.lang.Integer.MAX_VALUE, event));
@@ -1242,6 +1250,7 @@ public class DocumentReference extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("masterIdentifier", "Identifier", "Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));

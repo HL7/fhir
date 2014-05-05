@@ -30,18 +30,14 @@ package org.hl7.fhir.instance.utils;
   
 */
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import javax.management.StringValueExp;
-
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.model.Address;
-import org.hl7.fhir.instance.model.Address.AddressUse;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Attachment;
@@ -52,7 +48,6 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
-import org.hl7.fhir.instance.model.Contact.ContactUse;
 import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.HumanName;

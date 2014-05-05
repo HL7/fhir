@@ -89,6 +89,7 @@ public class DiagnosticOrder extends Resource {
     }
 
   public static class DiagnosticOrderStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -113,6 +114,7 @@ public class DiagnosticOrder extends Resource {
           return DiagnosticOrderStatus.failed;
         throw new Exception("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == DiagnosticOrderStatus.requested)
         return "requested";
@@ -167,6 +169,7 @@ public class DiagnosticOrder extends Resource {
     }
 
   public static class DiagnosticOrderPriorityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -181,6 +184,7 @@ public class DiagnosticOrder extends Resource {
           return DiagnosticOrderPriority.asap;
         throw new Exception("Unknown DiagnosticOrderPriority code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == DiagnosticOrderPriority.routine)
         return "routine";
@@ -319,6 +323,7 @@ public class DiagnosticOrder extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("status", "code", "The status for the event.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -473,6 +478,7 @@ public class DiagnosticOrder extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -778,6 +784,7 @@ public class DiagnosticOrder extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("subject", "Resource(Patient|Group|Location|Device)", "Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, java.lang.Integer.MAX_VALUE, subject));

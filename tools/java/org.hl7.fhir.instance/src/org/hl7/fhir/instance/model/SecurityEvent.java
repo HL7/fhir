@@ -73,6 +73,7 @@ public class SecurityEvent extends Resource {
     }
 
   public static class SecurityEventActionEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -89,6 +90,7 @@ public class SecurityEvent extends Resource {
           return SecurityEventAction.E;
         throw new Exception("Unknown SecurityEventAction code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SecurityEventAction.C)
         return "C";
@@ -135,6 +137,7 @@ public class SecurityEvent extends Resource {
     }
 
   public static class SecurityEventOutcomeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -149,6 +152,7 @@ public class SecurityEvent extends Resource {
           return SecurityEventOutcome._12;
         throw new Exception("Unknown SecurityEventOutcome code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SecurityEventOutcome._0)
         return "0";
@@ -197,6 +201,7 @@ public class SecurityEvent extends Resource {
     }
 
   public static class NetworkTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -213,6 +218,7 @@ public class SecurityEvent extends Resource {
           return NetworkType._5;
         throw new Exception("Unknown NetworkType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NetworkType._1)
         return "1";
@@ -259,6 +265,7 @@ public class SecurityEvent extends Resource {
     }
 
   public static class ObjectTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -273,6 +280,7 @@ public class SecurityEvent extends Resource {
           return ObjectType._4;
         throw new Exception("Unknown ObjectType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObjectType._1)
         return "1";
@@ -397,6 +405,7 @@ public class SecurityEvent extends Resource {
     }
 
   public static class ObjectRoleEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -451,6 +460,7 @@ public class SecurityEvent extends Resource {
           return ObjectRole._24;
         throw new Exception("Unknown ObjectRole code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObjectRole._1)
         return "1";
@@ -579,6 +589,7 @@ public class SecurityEvent extends Resource {
     }
 
   public static class ObjectLifecycleEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -615,6 +626,7 @@ public class SecurityEvent extends Resource {
           return ObjectLifecycle._15;
         throw new Exception("Unknown ObjectLifecycle code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObjectLifecycle._1)
         return "1";
@@ -863,6 +875,7 @@ public class SecurityEvent extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Identifier for a family of the event.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1140,6 +1153,7 @@ public class SecurityEvent extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
@@ -1256,6 +1270,7 @@ public class SecurityEvent extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "string", "An identifier for the network access point of the user device for the audit event.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1381,6 +1396,7 @@ public class SecurityEvent extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("site", "string", "Logical source location within the healthcare enterprise network.", 0, java.lang.Integer.MAX_VALUE, site));
@@ -1733,6 +1749,7 @@ public class SecurityEvent extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifies a specific instance of the participant object. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1851,6 +1868,7 @@ public class SecurityEvent extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "string", "Name of the property.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1960,6 +1978,7 @@ public class SecurityEvent extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("event", "", "Identifies the name, action type, time, and disposition of the audited event.", 0, java.lang.Integer.MAX_VALUE, event));

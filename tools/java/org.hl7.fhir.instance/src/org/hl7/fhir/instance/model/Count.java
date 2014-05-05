@@ -36,6 +36,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Count extends Quantity {
 
+      @Override
       public Count copy() {
         Count dst = new Count();
         dst.value = value == null ? null : value.copy();
@@ -46,6 +47,7 @@ public class Count extends Quantity {
         return dst;
       }
 
+      @Override
       protected Count typedCopy() {
         return copy();
       }

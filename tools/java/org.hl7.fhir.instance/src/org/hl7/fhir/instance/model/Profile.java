@@ -65,6 +65,7 @@ public class Profile extends Resource {
     }
 
   public static class ResourceProfileStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class Profile extends Resource {
           return ResourceProfileStatus.retired;
         throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResourceProfileStatus.draft)
         return "draft";
@@ -107,6 +109,7 @@ public class Profile extends Resource {
     }
 
   public static class PropertyRepresentationEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -115,6 +118,7 @@ public class Profile extends Resource {
           return PropertyRepresentation.xmlAttr;
         throw new Exception("Unknown PropertyRepresentation code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == PropertyRepresentation.xmlAttr)
         return "xmlAttr";
@@ -149,6 +153,7 @@ public class Profile extends Resource {
     }
 
   public static class ResourceSlicingRulesEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -161,6 +166,7 @@ public class Profile extends Resource {
           return ResourceSlicingRules.openAtEnd;
         throw new Exception("Unknown ResourceSlicingRules code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResourceSlicingRules.closed)
         return "closed";
@@ -199,6 +205,7 @@ public class Profile extends Resource {
     }
 
   public static class ResourceAggregationModeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -211,6 +218,7 @@ public class Profile extends Resource {
           return ResourceAggregationMode.bundled;
         throw new Exception("Unknown ResourceAggregationMode code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResourceAggregationMode.contained)
         return "contained";
@@ -245,6 +253,7 @@ public class Profile extends Resource {
     }
 
   public static class ConstraintSeverityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -255,6 +264,7 @@ public class Profile extends Resource {
           return ConstraintSeverity.warning;
         throw new Exception("Unknown ConstraintSeverity code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConstraintSeverity.error)
         return "error";
@@ -291,6 +301,7 @@ public class Profile extends Resource {
     }
 
   public static class BindingConformanceEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -303,6 +314,7 @@ public class Profile extends Resource {
           return BindingConformance.example;
         throw new Exception("Unknown BindingConformance code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == BindingConformance.required)
         return "required";
@@ -357,6 +369,7 @@ public class Profile extends Resource {
     }
 
   public static class SearchParamTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -377,6 +390,7 @@ public class Profile extends Resource {
           return SearchParamType.quantity;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SearchParamType.number)
         return "number";
@@ -427,6 +441,7 @@ public class Profile extends Resource {
     }
 
   public static class ExtensionContextEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -441,6 +456,7 @@ public class Profile extends Resource {
           return ExtensionContext.extension;
         throw new Exception("Unknown ExtensionContext code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ExtensionContext.resource)
         return "resource";
@@ -624,6 +640,7 @@ public class Profile extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identity", "id", "An Internal id that is used to identify this mapping set when specific mappings are made.", 0, java.lang.Integer.MAX_VALUE, identity));
@@ -857,6 +874,7 @@ public class Profile extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1044,6 +1062,7 @@ public class Profile extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("path", "string", "The path identifies the element and is expressed as a '.'-separated list of ancestor elements, beginning with the name of the resource.", 0, java.lang.Integer.MAX_VALUE, path));
@@ -1190,6 +1209,7 @@ public class Profile extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("discriminator", "id", "Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
@@ -1801,6 +1821,7 @@ public class Profile extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("short", "string", "A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).", 0, java.lang.Integer.MAX_VALUE, short_));
@@ -1978,6 +1999,7 @@ public class Profile extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Name of Data type or Resource.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2199,6 +2221,7 @@ public class Profile extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("key", "id", "Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.", 0, java.lang.Integer.MAX_VALUE, key));
@@ -2407,6 +2430,7 @@ public class Profile extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "A descriptive name for this - can be useful for generating implementation artifacts.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2513,6 +2537,7 @@ public class Profile extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identity", "id", "An internal reference to the definition of a mapping.", 0, java.lang.Integer.MAX_VALUE, identity));
@@ -2724,6 +2749,7 @@ public class Profile extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2926,6 +2952,7 @@ public class Profile extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A unique code (within the profile) used to identify the extension.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -3056,6 +3083,7 @@ public class Profile extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -3619,6 +3647,7 @@ public class Profile extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));

@@ -69,6 +69,7 @@ public class Identifier extends Type {
     }
 
   public static class IdentifierUseEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class Identifier extends Type {
           return IdentifierUse.secondary;
         throw new Exception("Unknown IdentifierUse code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == IdentifierUse.usual)
         return "usual";
@@ -304,6 +306,7 @@ public class Identifier extends Type {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("use", "code", "The purpose of this identifier.", 0, java.lang.Integer.MAX_VALUE, use));
@@ -314,6 +317,7 @@ public class Identifier extends Type {
         childrenList.add(new Property("assigner", "Resource(Organization)", "Organization that issued/manages the identifier.", 0, java.lang.Integer.MAX_VALUE, assigner));
       }
 
+      @Override
       public Identifier copy() {
         Identifier dst = new Identifier();
         dst.use = use == null ? null : use.copy();
@@ -325,6 +329,7 @@ public class Identifier extends Type {
         return dst;
       }
 
+      @Override
       protected Identifier typedCopy() {
         return copy();
       }

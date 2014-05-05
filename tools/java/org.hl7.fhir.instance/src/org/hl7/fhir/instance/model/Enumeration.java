@@ -64,7 +64,8 @@ public class Enumeration<T extends Enum> extends PrimitiveType {
     this.value = value;
   }
   
-	public Enumeration<T> copy() {
+	@Override
+  public Enumeration<T> copy() {
 		Enumeration<T> dst = new Enumeration<T>();
 		dst.value = value;
 		return dst;

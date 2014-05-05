@@ -197,6 +197,7 @@ public class ImagingStudy extends Resource {
     }
 
   public static class ImagingModalityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -275,6 +276,7 @@ public class ImagingStudy extends Resource {
           return ImagingModality.xA;
         throw new Exception("Unknown ImagingModality code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ImagingModality.aR)
         return "AR";
@@ -383,6 +385,7 @@ public class ImagingStudy extends Resource {
     }
 
   public static class InstanceAvailabilityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -397,6 +400,7 @@ public class ImagingStudy extends Resource {
           return InstanceAvailability.uNAVAILABLE;
         throw new Exception("Unknown InstanceAvailability code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == InstanceAvailability.oNLINE)
         return "ONLINE";
@@ -637,6 +641,7 @@ public class ImagingStudy extends Resource {
     }
 
   public static class ModalityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -749,6 +754,7 @@ public class ImagingStudy extends Resource {
           return Modality.xC;
         throw new Exception("Unknown Modality code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Modality.aR)
         return "AR";
@@ -1230,6 +1236,7 @@ public class ImagingStudy extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("number", "integer", "The number of this series in the overall sequence.", 0, java.lang.Integer.MAX_VALUE, number));
@@ -1532,6 +1539,7 @@ public class ImagingStudy extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("number", "integer", "The number of this image in the series.", 0, java.lang.Integer.MAX_VALUE, number));
@@ -2085,6 +2093,7 @@ public class ImagingStudy extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("dateTime", "dateTime", "Date and Time the study took place.", 0, java.lang.Integer.MAX_VALUE, dateTime));

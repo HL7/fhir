@@ -77,6 +77,7 @@ public class Questionnaire extends Resource {
     }
 
   public static class QuestionnaireStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -95,6 +96,7 @@ public class Questionnaire extends Resource {
           return QuestionnaireStatus.amended;
         throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == QuestionnaireStatus.draft)
         return "draft";
@@ -283,6 +285,7 @@ public class Questionnaire extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "CodeableConcept", "Structured name for a section of a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -521,6 +524,7 @@ public class Questionnaire extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "CodeableConcept", "Structured name for the question that identifies this question within the Questionnaire or Group.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -778,6 +782,7 @@ public class Questionnaire extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire as a whole.", 0, java.lang.Integer.MAX_VALUE, status));

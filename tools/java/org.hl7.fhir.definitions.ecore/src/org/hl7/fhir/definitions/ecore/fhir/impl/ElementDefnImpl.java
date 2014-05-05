@@ -368,7 +368,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsModifier() {
+	@Override
+  public boolean isIsModifier() {
 		return isModifier;
 	}
 
@@ -377,7 +378,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIsModifier(boolean newIsModifier) {
+	@Override
+  public void setIsModifier(boolean newIsModifier) {
 		boolean oldIsModifier = isModifier;
 		isModifier = newIsModifier;
 		if (eNotificationRequired())
@@ -533,7 +535,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isPrimitiveContents() {
+	@Override
+  public boolean isPrimitiveContents() {
 		return primitiveContents;
 	}
 
@@ -542,7 +545,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrimitiveContents(boolean newPrimitiveContents) {
+	@Override
+  public void setPrimitiveContents(boolean newPrimitiveContents) {
 		boolean oldPrimitiveContents = primitiveContents;
 		primitiveContents = newPrimitiveContents;
 		if (eNotificationRequired())
@@ -554,7 +558,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XmlFormatHint getXmlFormatHint() {
+	@Override
+  public XmlFormatHint getXmlFormatHint() {
 		return xmlFormatHint;
 	}
 
@@ -563,7 +568,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setXmlFormatHint(XmlFormatHint newXmlFormatHint) {
+	@Override
+  public void setXmlFormatHint(XmlFormatHint newXmlFormatHint) {
 		XmlFormatHint oldXmlFormatHint = xmlFormatHint;
 		xmlFormatHint = newXmlFormatHint == null ? XML_FORMAT_HINT_EDEFAULT : newXmlFormatHint;
 		if (eNotificationRequired())
@@ -575,7 +581,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSummaryItem() {
+	@Override
+  public boolean isSummaryItem() {
 		return summaryItem;
 	}
 
@@ -584,7 +591,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSummaryItem(boolean newSummaryItem) {
+	@Override
+  public void setSummaryItem(boolean newSummaryItem) {
 		boolean oldSummaryItem = summaryItem;
 		summaryItem = newSummaryItem;
 		if (eNotificationRequired())
@@ -640,7 +648,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean containsResource() {
+	@Override
+  public boolean containsResource() {
 		return getType() != null && getType().size() == 1 &&
 				getType().get(0).getName().equals(TypeRef.RESOURCE_TYPE_NAME);
 	}
@@ -650,7 +659,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean isPrimitiveValueElement() {
+	@Override
+  public boolean isPrimitiveValueElement() {
 		return isPrimitiveContents() && getName().equals("value");
 	}
 
@@ -688,7 +698,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TypeRef> getType() {
+	@Override
+  public EList<TypeRef> getType() {
 		if (type == null) {
 			type = new EObjectContainmentEList<TypeRef>(TypeRef.class, this, FhirPackage.ELEMENT_DEFN__TYPE);
 		}
@@ -745,7 +756,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InvariantRef> getInvariant() {
+	@Override
+  public EList<InvariantRef> getInvariant() {
 		if (invariant == null) {
 			invariant = new EObjectContainmentEList<InvariantRef>(InvariantRef.class, this, FhirPackage.ELEMENT_DEFN__INVARIANT);
 		}
@@ -1131,7 +1143,8 @@ public class ElementDefnImpl extends EObjectImpl implements ElementDefn {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Hashtable<String, String> getGeneratorAnnotations()
+	@Override
+  public Hashtable<String, String> getGeneratorAnnotations()
 	{
 		return _generatorAnnotations;
 	}

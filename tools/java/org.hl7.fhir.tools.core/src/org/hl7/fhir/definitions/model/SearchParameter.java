@@ -33,8 +33,6 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 import java.util.Set;
 
-import javax.print.attribute.HashAttributeSet;
-
 public class SearchParameter {
   public enum SearchType {
     composite, // search parameter is a composite of others

@@ -283,7 +283,7 @@ public class FHIRSimpleClientTest {
 	@Test
 	public void testGetHistoryForResourcesOfTypeSinceCalendarDate() {
 		try {
-			Calendar testDate = GregorianCalendar.getInstance();
+			Calendar testDate = Calendar.getInstance();
 			testDate.add(Calendar.MINUTE, -10);
 			Patient patient = buildPatient();
 			AtomEntry<OperationOutcome> createdEntry = testClient.create(Patient.class, patient);
@@ -325,7 +325,7 @@ public class FHIRSimpleClientTest {
 
 	@Test
 	public void testGetHistoryForResourceWithIdSinceCalendarDate() {
-		Calendar testDate = GregorianCalendar.getInstance();
+		Calendar testDate = Calendar.getInstance();
 		testDate.add(Calendar.MINUTE, -10);
 		Patient patient = buildPatient();
 		AtomEntry<OperationOutcome> entry = testClient.create(Patient.class, buildPatient());

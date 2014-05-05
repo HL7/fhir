@@ -35,8 +35,6 @@ import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.Boolean;
 import org.hl7.fhir.utilities.Utilities;
-import java.net.*;
-import java.math.*;
 
 public class XmlComposer extends XmlComposerBase {
 

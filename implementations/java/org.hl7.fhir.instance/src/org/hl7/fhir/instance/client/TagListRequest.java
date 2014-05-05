@@ -35,8 +35,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.AtomCategory;
-import org.hl7.fhir.instance.model.AtomEntry;
-import org.hl7.fhir.instance.model.Resource;
 
 public class TagListRequest {
 	private List<AtomCategory> payload;

@@ -253,7 +253,8 @@ public class TypeRefImpl extends EObjectImpl implements TypeRef {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean isBindable() {
+	@Override
+  public boolean isBindable() {
 		return this.getName().equals("code") ||
 		this.getName().equals("CodeableConcept") ||
 		this.getName().equals("Coding");

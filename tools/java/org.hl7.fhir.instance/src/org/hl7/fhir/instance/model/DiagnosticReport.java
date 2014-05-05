@@ -85,6 +85,7 @@ public class DiagnosticReport extends Resource {
     }
 
   public static class DiagnosticReportStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -107,6 +108,7 @@ public class DiagnosticReport extends Resource {
           return DiagnosticReportStatus.enteredInError;
         throw new Exception("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == DiagnosticReportStatus.registered)
         return "registered";
@@ -199,6 +201,7 @@ public class DiagnosticReport extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("comment", "string", "A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.", 0, java.lang.Integer.MAX_VALUE, comment));
@@ -617,6 +620,7 @@ public class DiagnosticReport extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "CodeableConcept", "A code or name that describes this diagnostic report.", 0, java.lang.Integer.MAX_VALUE, name));

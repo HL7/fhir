@@ -30,7 +30,6 @@ package org.hl7.fhir.convertors;
   
 */
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +42,6 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 public class CDAUtilities {
 

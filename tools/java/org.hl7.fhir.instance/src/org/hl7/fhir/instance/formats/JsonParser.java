@@ -51,6 +51,7 @@ import com.google.gson.JsonArray;
 
 public class JsonParser extends JsonParserBase {
 
+  @Override
   protected void parseElementProperties(JsonObject json, Element element) throws Exception {
     super.parseElementProperties(json, element);
     if (json != null && json.has("extension")) {
@@ -726,6 +727,7 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
+  @Override
   protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {
     parseBackboneProperties(json, res); 
     if (json.has("language"))

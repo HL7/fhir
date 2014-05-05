@@ -148,7 +148,8 @@ public class PrimitiveDefnImpl extends EObjectImpl implements PrimitiveDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPattern() {
+	@Override
+  public String getPattern() {
 		return pattern;
 	}
 
@@ -157,7 +158,8 @@ public class PrimitiveDefnImpl extends EObjectImpl implements PrimitiveDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPattern(String newPattern) {
+	@Override
+  public void setPattern(String newPattern) {
 		String oldPattern = pattern;
 		pattern = newPattern;
 		if (eNotificationRequired())
@@ -169,7 +171,8 @@ public class PrimitiveDefnImpl extends EObjectImpl implements PrimitiveDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getXsdtype() {
+	@Override
+  public String getXsdtype() {
 		return xsdtype;
 	}
 
@@ -178,7 +181,8 @@ public class PrimitiveDefnImpl extends EObjectImpl implements PrimitiveDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setXsdtype(String newXsdtype) {
+	@Override
+  public void setXsdtype(String newXsdtype) {
 		String oldXsdtype = xsdtype;
 		xsdtype = newXsdtype;
 		if (eNotificationRequired())
@@ -190,7 +194,8 @@ public class PrimitiveDefnImpl extends EObjectImpl implements PrimitiveDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
+	@Override
+  public String getName() {
 		return name;
 	}
 
@@ -199,7 +204,8 @@ public class PrimitiveDefnImpl extends EObjectImpl implements PrimitiveDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
+	@Override
+  public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
@@ -211,7 +217,8 @@ public class PrimitiveDefnImpl extends EObjectImpl implements PrimitiveDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Annotations getAnnotations() {
+	@Override
+  public Annotations getAnnotations() {
 		return annotations;
 	}
 
@@ -235,7 +242,8 @@ public class PrimitiveDefnImpl extends EObjectImpl implements PrimitiveDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAnnotations(Annotations newAnnotations) {
+	@Override
+  public void setAnnotations(Annotations newAnnotations) {
 		if (newAnnotations != annotations) {
 			NotificationChain msgs = null;
 			if (annotations != null)

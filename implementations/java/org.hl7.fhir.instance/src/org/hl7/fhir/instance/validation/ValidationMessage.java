@@ -1,11 +1,6 @@
 package org.hl7.fhir.instance.validation;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.Extension;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;

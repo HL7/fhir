@@ -61,6 +61,7 @@ public class Specimen extends Resource {
     }
 
   public static class HierarchicalRelationshipTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -71,6 +72,7 @@ public class Specimen extends Resource {
           return HierarchicalRelationshipType.child;
         throw new Exception("Unknown HierarchicalRelationshipType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == HierarchicalRelationshipType.parent)
         return "parent";
@@ -149,6 +151,7 @@ public class Specimen extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("relationship", "code", "Whether this relationship is to a parent or to a child.", 0, java.lang.Integer.MAX_VALUE, relationship));
@@ -303,6 +306,7 @@ public class Specimen extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("collector", "Resource(Practitioner)", "Person who collected the specimen.", 0, java.lang.Integer.MAX_VALUE, collector));
@@ -416,6 +420,7 @@ public class Specimen extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("description", "string", "Textual description of procedure.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -583,6 +588,7 @@ public class Specimen extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Id for container. There may be multiple; a manufacturer's bar code, lab assigned identifier, etc. The container ID may differ from the specimen id in some circumstances.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -827,6 +833,7 @@ public class Specimen extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Id for specimen.", 0, java.lang.Integer.MAX_VALUE, identifier));

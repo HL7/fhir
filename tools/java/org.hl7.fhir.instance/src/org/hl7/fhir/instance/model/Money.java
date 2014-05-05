@@ -36,6 +36,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Money extends Quantity {
 
+      @Override
       public Money copy() {
         Money dst = new Money();
         dst.value = value == null ? null : value.copy();
@@ -46,6 +47,7 @@ public class Money extends Quantity {
         return dst;
       }
 
+      @Override
       protected Money typedCopy() {
         return copy();
       }

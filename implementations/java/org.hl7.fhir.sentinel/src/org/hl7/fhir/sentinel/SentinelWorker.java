@@ -3,11 +3,8 @@ package org.hl7.fhir.sentinel;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.net.URISyntaxException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.instance.client.FHIRClient;

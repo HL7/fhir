@@ -1,7 +1,6 @@
 package org.hl7.fhir.instance.model;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
@@ -128,7 +127,8 @@ public class DateAndTime {
 	private DateAndTime() {
   }
 
-	public String toString() {
+	@Override
+  public String toString() {
 		StringBuilder b = new StringBuilder();
 		b.append(Utilities.padLeft(java.lang.Integer.toString(year), '0', 4));
 		if (month != 0) {

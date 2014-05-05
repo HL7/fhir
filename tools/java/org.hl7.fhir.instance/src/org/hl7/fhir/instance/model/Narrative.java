@@ -70,6 +70,7 @@ public class Narrative extends Element {
     }
 
   public static class NarrativeStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,6 +85,7 @@ public class Narrative extends Element {
           return NarrativeStatus.empty;
         throw new Exception("Unknown NarrativeStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NarrativeStatus.generated)
         return "generated";
@@ -164,6 +166,7 @@ public class Narrative extends Element {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("status", "code", "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.", 0, java.lang.Integer.MAX_VALUE, status));

@@ -189,7 +189,8 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TypeDefn> getType() {
+	@Override
+  public EList<TypeDefn> getType() {
 		if (type == null) {
 			type = new EObjectContainmentWithInverseEList<TypeDefn>(TypeDefn.class, this, FhirPackage.DEFINITIONS__TYPE, FhirPackage.TYPE_DEFN__SCOPE);
 		}
@@ -247,7 +248,8 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BindingDefn> getBinding() {
+	@Override
+  public EList<BindingDefn> getBinding() {
 		if (binding == null) {
 			binding = new EObjectContainmentWithInverseEList<BindingDefn>(BindingDefn.class, this, FhirPackage.DEFINITIONS__BINDING, FhirPackage.BINDING_DEFN__PARENT);
 		}
@@ -284,7 +286,8 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PrimitiveDefn> getPrimitive() {
+	@Override
+  public EList<PrimitiveDefn> getPrimitive() {
 		if (primitive == null) {
 			primitive = new EObjectContainmentEList<PrimitiveDefn>(PrimitiveDefn.class, this, FhirPackage.DEFINITIONS__PRIMITIVE);
 		}
@@ -351,7 +354,8 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public PrimitiveDefn findPrimitive(String name) {
+	@Override
+  public PrimitiveDefn findPrimitive(String name) {
 		for( PrimitiveDefn primitiveDef : primitive )
 			if( primitiveDef.getName().equals(name))
 				return primitiveDef;
@@ -364,7 +368,8 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<ResourceDefn> getResources() {
+	@Override
+  public EList<ResourceDefn> getResources() {
 		EList<ResourceDefn> result = new BasicEList<ResourceDefn>();
 		
 		for( TypeDefn t : this.getType() )
@@ -394,7 +399,8 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EventDefn> getEvent() {
+	@Override
+  public EList<EventDefn> getEvent() {
 		if (event == null) {
 			event = new EObjectContainmentEList<EventDefn>(EventDefn.class, this, FhirPackage.DEFINITIONS__EVENT);
 		}
@@ -438,7 +444,8 @@ public class DefinitionsImpl extends EObjectImpl implements Definitions {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public TypeDefn resolve(TypeRef ref) {
+	@Override
+  public TypeDefn resolve(TypeRef ref) {
 		return findType(ref.getFullName());
 	}
 

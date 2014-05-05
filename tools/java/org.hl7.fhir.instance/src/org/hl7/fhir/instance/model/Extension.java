@@ -104,6 +104,7 @@ public class Extension extends Element {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "Source of the definition for the extension code - a logical name or a URL.", 0, java.lang.Integer.MAX_VALUE, url));

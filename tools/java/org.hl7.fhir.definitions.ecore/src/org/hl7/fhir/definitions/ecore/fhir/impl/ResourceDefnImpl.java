@@ -135,7 +135,8 @@ public class ResourceDefnImpl extends CompositeTypeDefnImpl implements ResourceD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SearchParameter> getSearch() {
+	@Override
+  public EList<SearchParameter> getSearch() {
 		if (search == null) {
 			search = new EObjectContainmentEList<SearchParameter>(SearchParameter.class, this, FhirPackage.RESOURCE_DEFN__SEARCH);
 		}

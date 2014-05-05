@@ -153,7 +153,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TypeDefn> getType() {
+	@Override
+  public EList<TypeDefn> getType() {
 		if (type == null) {
 			type = new EObjectContainmentWithInverseEList<TypeDefn>(TypeDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__TYPE, FhirPackage.TYPE_DEFN__SCOPE);
 		}
@@ -165,7 +166,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BindingDefn> getBinding() {
+	@Override
+  public EList<BindingDefn> getBinding() {
 		if (binding == null) {
 			binding = new EObjectContainmentWithInverseEList<BindingDefn>(BindingDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__BINDING, FhirPackage.BINDING_DEFN__PARENT);
 		}
@@ -177,7 +179,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ElementDefn> getElement() {
+	@Override
+  public EList<ElementDefn> getElement() {
 		if (element == null) {
 			element = new EObjectContainmentWithInverseEList<ElementDefn>(ElementDefn.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__ELEMENT, FhirPackage.ELEMENT_DEFN__PARENT_TYPE);
 		}
@@ -189,7 +192,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Invariant> getInvariant() {
+	@Override
+  public EList<Invariant> getInvariant() {
 		if (invariant == null) {
 			invariant = new EObjectContainmentEList<Invariant>(Invariant.class, this, FhirPackage.COMPOSITE_TYPE_DEFN__INVARIANT);
 		}
@@ -225,7 +229,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAbstract() {
+	@Override
+  public boolean isAbstract() {
 		return abstract_;
 	}
 
@@ -234,7 +239,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAbstract(boolean newAbstract) {
+	@Override
+  public void setAbstract(boolean newAbstract) {
 		boolean oldAbstract = abstract_;
 		abstract_ = newAbstract;
 		if (eNotificationRequired())
@@ -246,7 +252,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeRef getBaseType() {
+	@Override
+  public TypeRef getBaseType() {
 		return baseType;
 	}
 
@@ -270,7 +277,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBaseType(TypeRef newBaseType) {
+	@Override
+  public void setBaseType(TypeRef newBaseType) {
 		if (newBaseType != baseType) {
 			NotificationChain msgs = null;
 			if (baseType != null)
@@ -290,7 +298,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<ElementDefn> getAllElements() {
+	@Override
+  public EList<ElementDefn> getAllElements() {
 		EList<ElementDefn> result = new BasicEList<ElementDefn>();
 		
 		if( this.getBaseType() != null )
@@ -340,7 +349,8 @@ public class CompositeTypeDefnImpl extends TypeDefnImpl implements CompositeType
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public TypeDefn resolve(TypeRef ref) {
+	@Override
+  public TypeDefn resolve(TypeRef ref) {
 		NameScope outer = this;
 		
 		while( outer.getContainingScope() != null )

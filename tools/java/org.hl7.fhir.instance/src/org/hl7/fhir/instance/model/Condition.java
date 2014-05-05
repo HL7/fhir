@@ -69,6 +69,7 @@ public class Condition extends Resource {
     }
 
   public static class ConditionStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class Condition extends Resource {
           return ConditionStatus.refuted;
         throw new Exception("Unknown ConditionStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConditionStatus.provisional)
         return "provisional";
@@ -119,6 +121,7 @@ public class Condition extends Resource {
     }
 
   public static class ConditionRelationshipTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -129,6 +132,7 @@ public class Condition extends Resource {
           return ConditionRelationshipType.following;
         throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConditionRelationshipType.dueto)
         return "due-to";
@@ -185,6 +189,7 @@ public class Condition extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("summary", "CodeableConcept", "A simple summary of the stage such as 'Stage 3'. The determination of the stage is disease-specific.", 0, java.lang.Integer.MAX_VALUE, summary));
@@ -249,6 +254,7 @@ public class Condition extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A manifestation or symptom that led to the recording of this condition.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -332,6 +338,7 @@ public class Condition extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the structural location.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -434,6 +441,7 @@ public class Condition extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of relationship that this condition has to the related item.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -869,6 +877,7 @@ public class Condition extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

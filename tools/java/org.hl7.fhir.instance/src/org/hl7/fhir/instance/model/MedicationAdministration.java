@@ -75,6 +75,7 @@ public class MedicationAdministration extends Resource {
     }
 
   public static class MedicationAdminStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -91,6 +92,7 @@ public class MedicationAdministration extends Resource {
           return MedicationAdminStatus.stopped;
         throw new Exception("Unknown MedicationAdminStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationAdminStatus.inProgress)
         return "in progress";
@@ -277,6 +279,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("timing[x]", "dateTime|Period", "The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).", 0, java.lang.Integer.MAX_VALUE, timing));
@@ -603,6 +606,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));

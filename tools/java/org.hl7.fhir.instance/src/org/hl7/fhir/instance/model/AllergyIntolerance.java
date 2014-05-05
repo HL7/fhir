@@ -69,6 +69,7 @@ public class AllergyIntolerance extends Resource {
     }
 
   public static class CriticalityEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class AllergyIntolerance extends Resource {
           return Criticality.low;
         throw new Exception("Unknown Criticality code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Criticality.fatal)
         return "fatal";
@@ -123,6 +125,7 @@ public class AllergyIntolerance extends Resource {
     }
 
   public static class SensitivitytypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -135,6 +138,7 @@ public class AllergyIntolerance extends Resource {
           return Sensitivitytype.unknown;
         throw new Exception("Unknown Sensitivitytype code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Sensitivitytype.allergy)
         return "allergy";
@@ -177,6 +181,7 @@ public class AllergyIntolerance extends Resource {
     }
 
   public static class SensitivitystatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -191,6 +196,7 @@ public class AllergyIntolerance extends Resource {
           return Sensitivitystatus.resolved;
         throw new Exception("Unknown Sensitivitystatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Sensitivitystatus.suspected)
         return "suspected";
@@ -498,6 +504,7 @@ public class AllergyIntolerance extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

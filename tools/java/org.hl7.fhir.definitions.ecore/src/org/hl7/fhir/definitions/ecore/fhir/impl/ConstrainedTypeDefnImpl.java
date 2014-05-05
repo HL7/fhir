@@ -80,7 +80,8 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeRef getConstrainedBaseType() {
+	@Override
+  public TypeRef getConstrainedBaseType() {
 		return constrainedBaseType;
 	}
 
@@ -104,7 +105,8 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConstrainedBaseType(TypeRef newConstrainedBaseType) {
+	@Override
+  public void setConstrainedBaseType(TypeRef newConstrainedBaseType) {
 		if (newConstrainedBaseType != constrainedBaseType) {
 			NotificationChain msgs = null;
 			if (constrainedBaseType != null)
@@ -123,7 +125,8 @@ public class ConstrainedTypeDefnImpl extends TypeDefnImpl implements Constrained
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Invariant> getDetail() {
+	@Override
+  public EList<Invariant> getDetail() {
 		if (detail == null) {
 			detail = new EObjectContainmentEList<Invariant>(Invariant.class, this, FhirPackage.CONSTRAINED_TYPE_DEFN__DETAIL);
 		}

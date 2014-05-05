@@ -82,12 +82,14 @@ public class Range extends Type {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("low", "Quantity", "The low limit. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, low));
         childrenList.add(new Property("high", "Quantity", "The high limit. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, high));
       }
 
+      @Override
       public Range copy() {
         Range dst = new Range();
         dst.low = low == null ? null : low.copy();
@@ -95,6 +97,7 @@ public class Range extends Type {
         return dst;
       }
 
+      @Override
       protected Range typedCopy() {
         return copy();
       }

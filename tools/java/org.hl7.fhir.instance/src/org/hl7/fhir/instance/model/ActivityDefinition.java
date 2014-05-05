@@ -81,6 +81,7 @@ public class ActivityDefinition extends Type {
     }
 
   public static class ActivityDefinitionCategoryEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -101,6 +102,7 @@ public class ActivityDefinition extends Type {
           return ActivityDefinitionCategory.other;
         throw new Exception("Unknown ActivityDefinitionCategory code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ActivityDefinitionCategory.diet)
         return "diet";
@@ -328,6 +330,7 @@ public class ActivityDefinition extends Type {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("category", "code", "High-level categorization of the type of activity.", 0, java.lang.Integer.MAX_VALUE, category));
@@ -340,6 +343,7 @@ public class ActivityDefinition extends Type {
         childrenList.add(new Property("details", "string", "This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.", 0, java.lang.Integer.MAX_VALUE, details));
       }
 
+      @Override
       public ActivityDefinition copy() {
         ActivityDefinition dst = new ActivityDefinition();
         dst.category = category == null ? null : category.copy();
@@ -355,6 +359,7 @@ public class ActivityDefinition extends Type {
         return dst;
       }
 
+      @Override
       protected ActivityDefinition typedCopy() {
         return copy();
       }

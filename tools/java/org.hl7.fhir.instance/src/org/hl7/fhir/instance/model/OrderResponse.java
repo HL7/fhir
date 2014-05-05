@@ -89,6 +89,7 @@ public class OrderResponse extends Resource {
     }
 
   public static class OrderOutcomeCodeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -113,6 +114,7 @@ public class OrderResponse extends Resource {
           return OrderOutcomeCode.complete;
         throw new Exception("Unknown OrderOutcomeCode code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == OrderOutcomeCode.pending)
         return "pending";
@@ -369,6 +371,7 @@ public class OrderResponse extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));

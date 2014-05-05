@@ -65,6 +65,7 @@ public class List_ extends Resource {
     }
 
   public static class ListModeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class List_ extends Resource {
           return ListMode.changes;
         throw new Exception("Unknown ListMode code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ListMode.working)
         return "working";
@@ -222,6 +224,7 @@ public class List_ extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("flag", "CodeableConcept", "The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.", 0, java.lang.Integer.MAX_VALUE, flag));
@@ -495,6 +498,7 @@ public class List_ extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the List assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));

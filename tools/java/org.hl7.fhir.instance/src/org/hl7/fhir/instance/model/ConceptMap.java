@@ -65,6 +65,7 @@ public class ConceptMap extends Resource {
     }
 
   public static class ValuesetStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class ConceptMap extends Resource {
           return ValuesetStatus.retired;
         throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetStatus.draft)
         return "draft";
@@ -139,6 +141,7 @@ public class ConceptMap extends Resource {
     }
 
   public static class ConceptEquivalenceEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -163,6 +166,7 @@ public class ConceptMap extends Resource {
           return ConceptEquivalence.disjoint;
         throw new Exception("Unknown ConceptEquivalence code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConceptEquivalence.equal)
         return "equal";
@@ -318,6 +322,7 @@ public class ConceptMap extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "System that defines the concept being mapped.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -464,6 +469,7 @@ public class ConceptMap extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("concept", "uri", "A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.", 0, java.lang.Integer.MAX_VALUE, concept));
@@ -673,6 +679,7 @@ public class ConceptMap extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "System of the target.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -1153,6 +1160,7 @@ public class ConceptMap extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));

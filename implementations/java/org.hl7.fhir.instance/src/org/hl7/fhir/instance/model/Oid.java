@@ -33,11 +33,13 @@ package org.hl7.fhir.instance.model;
  */
 public class Oid extends Uri {
 
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 	
-	public Oid copy() {
+	@Override
+  public Oid copy() {
 		Oid dst = new Oid();
 		dst.value = value;
 		return dst;

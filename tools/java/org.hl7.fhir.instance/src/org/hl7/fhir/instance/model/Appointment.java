@@ -65,6 +65,7 @@ public class Appointment extends Resource {
     }
 
   public static class ParticipantrequiredEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class Appointment extends Resource {
           return Participantrequired.informationonly;
         throw new Exception("Unknown Participantrequired code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Participantrequired.required)
         return "required";
@@ -127,6 +129,7 @@ public class Appointment extends Resource {
     }
 
   public static class ParticipationstatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -145,6 +148,7 @@ public class Appointment extends Resource {
           return Participationstatus.needsaction;
         throw new Exception("Unknown Participationstatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Participationstatus.accepted)
         return "accepted";
@@ -292,6 +296,7 @@ public class Appointment extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Role of participant in the appointment.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -748,6 +753,7 @@ public class Appointment extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

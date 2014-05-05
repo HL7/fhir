@@ -52,11 +52,13 @@ public class Id extends PrimitiveType {
 		this.value = value;
 	}
 	
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 	
-	public Id copy() {
+	@Override
+  public Id copy() {
 		Id dst = new Id();
 		dst.value = value;
 		return dst;

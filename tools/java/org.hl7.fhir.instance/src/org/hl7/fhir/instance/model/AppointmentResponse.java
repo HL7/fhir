@@ -77,6 +77,7 @@ public class AppointmentResponse extends Resource {
     }
 
   public static class ParticipantstatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -95,6 +96,7 @@ public class AppointmentResponse extends Resource {
           return Participantstatus.needsaction;
         throw new Exception("Unknown Participantstatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Participantstatus.accepted)
         return "accepted";
@@ -429,6 +431,7 @@ public class AppointmentResponse extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

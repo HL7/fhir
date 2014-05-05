@@ -77,14 +77,16 @@ public class Integer extends PrimitiveType {
     this.original = original;
   } 
 	
-	public Integer copy() {
+	@Override
+  public Integer copy() {
 		Integer dst = new Integer();
 		dst.value = value;
 		dst.original = original;
 		return dst;
 	}
 	
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 

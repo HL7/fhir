@@ -65,6 +65,7 @@ public class Namespace extends Resource {
     }
 
   public static class NamespaceTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class Namespace extends Resource {
           return NamespaceType.root;
         throw new Exception("Unknown NamespaceType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NamespaceType.codesystem)
         return "codesystem";
@@ -115,6 +117,7 @@ public class Namespace extends Resource {
     }
 
   public static class NamespaceStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -127,6 +130,7 @@ public class Namespace extends Resource {
           return NamespaceStatus.retired;
         throw new Exception("Unknown NamespaceStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NamespaceStatus.proposed)
         return "proposed";
@@ -169,6 +173,7 @@ public class Namespace extends Resource {
     }
 
   public static class NamespaceIdentifierTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -183,6 +188,7 @@ public class Namespace extends Resource {
           return NamespaceIdentifierType.other;
         throw new Exception("Unknown NamespaceIdentifierType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NamespaceIdentifierType.oid)
         return "oid";
@@ -342,6 +348,7 @@ public class Namespace extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "Identifies the unique identifier scheme used for this particular identifier.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -408,6 +415,7 @@ public class Namespace extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "HumanName", "Names of the person who can be contacted.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -793,6 +801,7 @@ public class Namespace extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "Indicates the purpose for the namespace - what kinds of things does it make unique?.", 0, java.lang.Integer.MAX_VALUE, type));

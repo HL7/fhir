@@ -77,6 +77,7 @@ public class MedicationPrescription extends Resource {
     }
 
   public static class MedicationPrescriptionStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -95,6 +96,7 @@ public class MedicationPrescription extends Resource {
           return MedicationPrescriptionStatus.superceded;
         throw new Exception("Unknown MedicationPrescriptionStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationPrescriptionStatus.active)
         return "active";
@@ -344,6 +346,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("text", "string", "Free text dosage instructions for cases where the instructions are too complex to code.", 0, java.lang.Integer.MAX_VALUE, text));
@@ -515,6 +518,7 @@ In some situations, this attribute may be used instead of quantity to identify t
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("medication", "Resource(Medication)", "Identifies the medication that is to be dispensed.  This may be a more specifically defined than the medicationPrescription.medication . This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
@@ -586,6 +590,7 @@ In some situations, this attribute may be used instead of quantity to identify t
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "A code signifying whether a different drug should be dispensed from what was prescribed.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -871,6 +876,7 @@ In some situations, this attribute may be used instead of quantity to identify t
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an erntire workflow process where records have to be tracked through an entire system.", 0, java.lang.Integer.MAX_VALUE, identifier));

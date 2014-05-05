@@ -124,12 +124,14 @@ public class ResourceReference extends Type {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("reference", "string", "A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 0, java.lang.Integer.MAX_VALUE, reference));
         childrenList.add(new Property("display", "string", "Plain text narrative that identifies the resource in addition to the resource reference.", 0, java.lang.Integer.MAX_VALUE, display));
       }
 
+      @Override
       public ResourceReference copy() {
         ResourceReference dst = new ResourceReference();
         dst.reference = reference == null ? null : reference.copy();
@@ -137,6 +139,7 @@ public class ResourceReference extends Type {
         return dst;
       }
 
+      @Override
       protected ResourceReference typedCopy() {
         return copy();
       }

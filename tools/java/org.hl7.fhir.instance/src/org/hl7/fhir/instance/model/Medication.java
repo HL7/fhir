@@ -61,6 +61,7 @@ public class Medication extends Resource {
     }
 
   public static class MedicationKindEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -71,6 +72,7 @@ public class Medication extends Resource {
           return MedicationKind.package_;
         throw new Exception("Unknown MedicationKind code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationKind.product)
         return "product";
@@ -127,6 +129,7 @@ public class Medication extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tables; carton.", 0, java.lang.Integer.MAX_VALUE, form));
@@ -194,6 +197,7 @@ public class Medication extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("item", "Resource(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, java.lang.Integer.MAX_VALUE, item));
@@ -256,6 +260,7 @@ public class Medication extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("container", "CodeableConcept", "The kind of container that this package comes as.", 0, java.lang.Integer.MAX_VALUE, container));
@@ -323,6 +328,7 @@ public class Medication extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("item", "Resource(Medication)", "Identifies one of the items in the package.", 0, java.lang.Integer.MAX_VALUE, item));
@@ -545,6 +551,7 @@ public class Medication extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "string", "The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.", 0, java.lang.Integer.MAX_VALUE, name));

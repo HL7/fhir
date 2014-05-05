@@ -77,13 +77,15 @@ public class Decimal extends Type {
     this.original = original;
   } 
 
-	public Decimal copy() {
+	@Override
+  public Decimal copy() {
 		Decimal dst = new Decimal();
 		dst.value = value;
 		dst.original = original;
 		return dst;
 	}
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 

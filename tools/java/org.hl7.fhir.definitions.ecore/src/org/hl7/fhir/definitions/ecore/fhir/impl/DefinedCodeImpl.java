@@ -285,7 +285,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getComment() {
+	@Override
+  public String getComment() {
 		return comment;
 	}
 
@@ -294,7 +295,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setComment(String newComment) {
+	@Override
+  public void setComment(String newComment) {
 		String oldComment = comment;
 		comment = newComment;
 		if (eNotificationRequired())
@@ -306,7 +308,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDisplay() {
+	@Override
+  public String getDisplay() {
 		return display;
 	}
 
@@ -315,7 +318,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDisplay(String newDisplay) {
+	@Override
+  public void setDisplay(String newDisplay) {
 		String oldDisplay = display;
 		display = newDisplay;
 		if (eNotificationRequired())
@@ -327,7 +331,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSystem() {
+	@Override
+  public String getSystem() {
 		return system;
 	}
 
@@ -336,7 +341,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSystem(String newSystem) {
+	@Override
+  public void setSystem(String newSystem) {
 		String oldSystem = system;
 		system = newSystem;
 		if (eNotificationRequired())
@@ -348,7 +354,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
+	@Override
+  public String getId() {
 		return id;
 	}
 
@@ -357,7 +364,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
+	@Override
+  public void setId(String newId) {
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
@@ -369,7 +377,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getParent() {
+	@Override
+  public String getParent() {
 		return parent;
 	}
 
@@ -378,7 +387,8 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParent(String newParent) {
+	@Override
+  public void setParent(String newParent) {
 		String oldParent = parent;
 		parent = newParent;
 		if (eNotificationRequired())
@@ -390,6 +400,7 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
    * <!-- end-user-doc -->
 	 * @generated
 	 */
+  @Override
   public String getV2Map() {
 		return v2Map;
 	}
@@ -399,6 +410,7 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
    * <!-- end-user-doc -->
 	 * @generated
 	 */
+  @Override
   public void setV2Map(String newV2Map) {
 		String oldV2Map = v2Map;
 		v2Map = newV2Map;
@@ -411,6 +423,7 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
    * <!-- end-user-doc -->
 	 * @generated
 	 */
+  @Override
   public String getV3Map() {
 		return v3Map;
 	}
@@ -420,6 +433,7 @@ public class DefinedCodeImpl extends EObjectImpl implements DefinedCode {
    * <!-- end-user-doc -->
 	 * @generated
 	 */
+  @Override
   public void setV3Map(String newV3Map) {
 		String oldV3Map = v3Map;
 		v3Map = newV3Map;

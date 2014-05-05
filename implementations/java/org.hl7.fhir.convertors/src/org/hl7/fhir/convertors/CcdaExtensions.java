@@ -1,7 +1,5 @@
 package org.hl7.fhir.convertors;
 
-import org.hl7.fhir.instance.model.Factory;
-
 public class CcdaExtensions {
 
 	public final static String BASE = "http://hl7.org/ccda";

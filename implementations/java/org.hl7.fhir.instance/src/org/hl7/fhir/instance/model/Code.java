@@ -52,13 +52,15 @@ public class Code extends PrimitiveType {
 		this.value = value;
 	}
 	
-	public Code copy() {
+	@Override
+  public Code copy() {
 		Code dst = new Code();
 		dst.value = value;
 		return dst;
 	}
 	
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 

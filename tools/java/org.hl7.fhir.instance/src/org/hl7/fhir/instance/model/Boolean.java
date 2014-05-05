@@ -55,13 +55,15 @@ public class Boolean extends PrimitiveType {
 	  this.value = value;
 	}
 
-	public Boolean copy() {
+	@Override
+  public Boolean copy() {
 		Boolean dst = new Boolean();
 		dst.value = value;
 		return dst;
 	}
 	
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 

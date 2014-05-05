@@ -73,6 +73,7 @@ public class Supply extends Resource {
     }
 
   public static class ValuesetSupplyStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -89,6 +90,7 @@ public class Supply extends Resource {
           return ValuesetSupplyStatus.cancelled;
         throw new Exception("Unknown ValuesetSupplyStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetSupplyStatus.requested)
         return "requested";
@@ -131,6 +133,7 @@ public class Supply extends Resource {
     }
 
   public static class ValuesetSupplyDispenseStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -143,6 +146,7 @@ public class Supply extends Resource {
           return ValuesetSupplyDispenseStatus.abandoned;
         throw new Exception("Unknown ValuesetSupplyDispenseStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetSupplyDispenseStatus.inProgress)
         return "in progress";
@@ -382,6 +386,7 @@ public class Supply extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility when the dispense occurs.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -562,6 +567,7 @@ public class Supply extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("kind", "CodeableConcept", "Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.", 0, java.lang.Integer.MAX_VALUE, kind));

@@ -1,6 +1,5 @@
 package org.hl7.fhir.instance.utils;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

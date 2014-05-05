@@ -36,6 +36,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Duration extends Quantity {
 
+      @Override
       public Duration copy() {
         Duration dst = new Duration();
         dst.value = value == null ? null : value.copy();
@@ -46,6 +47,7 @@ public class Duration extends Quantity {
         return dst;
       }
 
+      @Override
       protected Duration typedCopy() {
         return copy();
       }

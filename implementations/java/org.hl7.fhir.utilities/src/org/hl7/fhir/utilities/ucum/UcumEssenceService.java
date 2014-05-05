@@ -79,7 +79,8 @@ public class UcumEssenceService implements UcumService {
 	}
 
 
-	public UcumVersionDetails ucumIdentification() {
+	@Override
+  public UcumVersionDetails ucumIdentification() {
 		return new UcumVersionDetails(model.getRevisionDate(), model.getVersion());
 	}
 	
@@ -87,7 +88,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#getModel()
 	 */
-	public UcumModel getModel() {
+	@Override
+  public UcumModel getModel() {
 		return model;
 	}
 	
@@ -95,7 +97,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#search(org.eclipse.ohf.ucum.model.ConceptKind, java.lang.String, boolean)
 	 */
-	public List<Concept> search(ConceptKind kind, String text, boolean isRegex) {
+	@Override
+  public List<Concept> search(ConceptKind kind, String text, boolean isRegex) {
 		assert checkStringParam(text) : paramError("search", "text", "must not be null or empty");
 		return new Search().doSearch(model, kind, text, isRegex);
 	}
@@ -104,14 +107,16 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#validateUCUM()
 	 */
-	public List<String> validateUCUM() {		
+	@Override
+  public List<String> validateUCUM() {		
 		return new UcumValidator(model, handlers).validate();		
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#getProperties()
 	 */
-	public Set<String> getProperties() {
+	@Override
+  public Set<String> getProperties() {
 		Set<String> result = new HashSet<String>();
 		for (DefinedUnit unit : model.getDefinedUnits()) {
 			result.add(unit.getProperty());
@@ -122,7 +127,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#validate(java.lang.String)
 	 */
-	public String validate(String unit) {
+	@Override
+  public String validate(String unit) {
 		assert unit != null : paramError("validate", "unit", "must not be null");
 		try {
 			new ExpressionParser(model).parse(unit);
@@ -135,7 +141,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#validateInProperty(java.lang.String, java.lang.String)
 	 */
-	public String validateInProperty(String unit, String property) {
+	@Override
+  public String validateInProperty(String unit, String property) {
 		assert checkStringParam(unit) : paramError("validate", "unit", "must not be null or empty");
 		assert checkStringParam(property) : paramError("validateInProperty", "property", "must not be null or empty");
 		try {
@@ -166,7 +173,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#validateCanonicalUnits(java.lang.String, java.lang.String)
 	 */
-	public String validateCanonicalUnits(String unit, String canonical) {
+	@Override
+  public String validateCanonicalUnits(String unit, String canonical) {
 		assert checkStringParam(unit) : paramError("validate", "unit", "must not be null or empty");
 		assert checkStringParam(canonical) : paramError("validateCanonicalUnits", "canonical", "must not be null or empty");
 		try {
@@ -189,7 +197,8 @@ public class UcumEssenceService implements UcumService {
 	 * @return formal description
 	 * @throws Exception 
 	 */
-	public String analyse(String unit) throws Exception {
+	@Override
+  public String analyse(String unit) throws Exception {
 		if (Utilities.noString(unit))
 			return "(unity)";
 		assert checkStringParam(unit) : paramError("analyse", "unit", "must not be null or empty");
@@ -200,7 +209,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#getCanonicalUnits(java.lang.String)
 	 */
-	public String getCanonicalUnits(String unit) throws Exception {
+	@Override
+  public String getCanonicalUnits(String unit) throws Exception {
 		assert checkStringParam(unit) : paramError("getCanonicalUnits", "unit", "must not be null or empty");
 		try {
 			Term term = new ExpressionParser(model).parse(unit);
@@ -214,7 +224,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#getDefinedForms(java.lang.String)
 	 */
-	public List<DefinedUnit> getDefinedForms(String code) throws Exception {
+	@Override
+  public List<DefinedUnit> getDefinedForms(String code) throws Exception {
 		assert checkStringParam(code) : paramError("getDefinedForms", "code", "must not be null or empty");
 		List<DefinedUnit> result = new ArrayList<DefinedUnit>(); 
 		BaseUnit base = model.getBaseUnit(code);
@@ -235,7 +246,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#getCanonicalForm(org.eclipse.ohf.ucum.UcumEssenceService.Pair)
 	 */
-	public Pair getCanonicalForm(Pair value) throws Exception {
+	@Override
+  public Pair getCanonicalForm(Pair value) throws Exception {
 		assert value != null : paramError("getCanonicalForm", "value", "must not be null");
 		assert checkStringParam(value.getCode()) : paramError("getCanonicalForm", "value.code", "must not be null or empty");
 		
@@ -250,7 +262,8 @@ public class UcumEssenceService implements UcumService {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.ucum.UcumServiceEx#convert(java.math.BigDecimal, java.lang.String, java.lang.String)
 	 */
-	public Decimal convert(Decimal value, String sourceUnit, String destUnit) throws Exception {
+	@Override
+  public Decimal convert(Decimal value, String sourceUnit, String destUnit) throws Exception {
 		assert value != null : paramError("convert", "value", "must not be null");
 		assert checkStringParam(sourceUnit) : paramError("convert", "sourceUnit", "must not be null or empty");
 		assert checkStringParam(destUnit) : paramError("convert", "destUnit", "must not be null or empty");
@@ -271,7 +284,8 @@ public class UcumEssenceService implements UcumService {
 		return canValue.divide(dst.getValue());
 	}
 
-	public Pair multiply(Pair o1, Pair o2) throws Exception {
+	@Override
+  public Pair multiply(Pair o1, Pair o2) throws Exception {
 	  Pair res = new Pair(o1.getValue().multiply(o2.getValue()), o1.getCode() +"."+o2.getCode());
 	  return getCanonicalForm(res);
 	}

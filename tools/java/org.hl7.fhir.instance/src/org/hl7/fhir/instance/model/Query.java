@@ -69,6 +69,7 @@ public class Query extends Resource {
     }
 
   public static class QueryOutcomeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class Query extends Resource {
           return QueryOutcome.error;
         throw new Exception("Unknown QueryOutcome code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == QueryOutcome.ok)
         return "ok";
@@ -354,6 +356,7 @@ public class Query extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "uri", "Links response to source query.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -483,6 +486,7 @@ public class Query extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "uri", "Links query and its response(s).", 0, java.lang.Integer.MAX_VALUE, identifier));

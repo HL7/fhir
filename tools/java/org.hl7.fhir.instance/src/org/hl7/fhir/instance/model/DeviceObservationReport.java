@@ -85,6 +85,7 @@ public class DeviceObservationReport extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Describes the compartment.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -149,6 +150,7 @@ public class DeviceObservationReport extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Describes the channel.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -196,6 +198,7 @@ public class DeviceObservationReport extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("observation", "Resource(Observation)", "The data for the metric.", 0, java.lang.Integer.MAX_VALUE, observation));
@@ -338,6 +341,7 @@ public class DeviceObservationReport extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("instant", "instant", "The point in time that the values are reported.", 0, java.lang.Integer.MAX_VALUE, instant));

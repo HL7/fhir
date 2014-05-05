@@ -73,6 +73,7 @@ public class Encounter extends Resource {
     }
 
   public static class EncounterStateEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -89,6 +90,7 @@ public class Encounter extends Resource {
           return EncounterState.cancelled;
         throw new Exception("Unknown EncounterState code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == EncounterState.planned)
         return "planned";
@@ -151,6 +153,7 @@ public class Encounter extends Resource {
     }
 
   public static class EncounterClassEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -173,6 +176,7 @@ public class Encounter extends Resource {
           return EncounterClass.virtual;
         throw new Exception("Unknown EncounterClass code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == EncounterClass.inpatient)
         return "inpatient";
@@ -241,6 +245,7 @@ public class Encounter extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Role of participant in encounter.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -530,6 +535,7 @@ public class Encounter extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("preAdmissionIdentifier", "Identifier", "Pre-admission identifier.", 0, java.lang.Integer.MAX_VALUE, preAdmissionIdentifier));
@@ -616,6 +622,7 @@ public class Encounter extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("bed", "Resource(Location)", "The bed that is assigned to the patient.", 0, java.lang.Integer.MAX_VALUE, bed));
@@ -682,6 +689,7 @@ public class Encounter extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("location", "Resource(Location)", "The location where the encounter takes place.", 0, java.lang.Integer.MAX_VALUE, location));
@@ -1069,6 +1077,7 @@ public class Encounter extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier(s) by which this encounter is known.", 0, java.lang.Integer.MAX_VALUE, identifier));

@@ -31,8 +31,6 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.hl7.fhir.instance.model;
 
-import java.util.Calendar;
-
 /**
  * Primitive type "instant" in FHIR: a value date time with a known timezone
  * @author Grahame
@@ -58,10 +56,12 @@ public class Instant extends PrimitiveType {
 	public void setValue(DateAndTime value) {
 		this.value = value;
 	} 
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
-	public Instant copy() {
+	@Override
+  public Instant copy() {
 		Instant dst = new Instant();
 		dst.value = value;
 		return dst;

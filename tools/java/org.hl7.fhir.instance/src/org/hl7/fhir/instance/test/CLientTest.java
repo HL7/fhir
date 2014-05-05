@@ -1,9 +1,5 @@
 package org.hl7.fhir.instance.test;
 
-import org.hl7.fhir.instance.client.FHIRClient;
-import org.hl7.fhir.instance.client.FHIRSimpleClient;
-import org.hl7.fhir.instance.model.Conformance;
-
 public class CLientTest {
 
 	/**

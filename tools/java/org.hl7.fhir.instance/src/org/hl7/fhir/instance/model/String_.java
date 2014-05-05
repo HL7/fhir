@@ -53,13 +53,15 @@ public class String_ extends PrimitiveType {
 		this.value = value;
 	}
 	
-	public String_ copy() {
+	@Override
+  public String_ copy() {
 		String_ dst = new String_();
 		dst.value = value;
 		return dst;
 	}
 	
-	protected Type typedCopy() {
+	@Override
+  protected Type typedCopy() {
 		return copy();
 	}
 

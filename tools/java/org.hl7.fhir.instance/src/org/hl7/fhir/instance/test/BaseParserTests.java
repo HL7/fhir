@@ -2,7 +2,6 @@ package org.hl7.fhir.instance.test;
 
 import java.text.ParseException;
 
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.DateAndTime;
 
 // probably should be DUnit

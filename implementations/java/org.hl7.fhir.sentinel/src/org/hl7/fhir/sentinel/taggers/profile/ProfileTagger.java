@@ -3,7 +3,6 @@ package org.hl7.fhir.sentinel.taggers.profile;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,29 +10,20 @@ import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.hl7.fhir.instance.client.FHIRClient;
 import org.hl7.fhir.instance.formats.XmlComposer;
-import org.hl7.fhir.instance.model.AtomBase;
 import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Conformance;
-import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.validation.InstanceValidator;
-import org.hl7.fhir.instance.validation.ValidationErrorHandler;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.sentinel.Tagger;
-import org.hl7.fhir.utilities.IniFile;
-import org.hl7.fhir.utilities.Utilities;
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-import org.xmlpull.v1.builder.XmlComment;
 
 public class ProfileTagger implements Tagger {
 

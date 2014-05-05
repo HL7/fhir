@@ -28,8 +28,6 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 package org.hl7.fhir.utilities;
 
-import org.hl7.fhir.utilities.Logger.LogMessageType;
-
 public interface Logger {
   public enum LogMessageType {
      Process, Error, Warning, Hint;

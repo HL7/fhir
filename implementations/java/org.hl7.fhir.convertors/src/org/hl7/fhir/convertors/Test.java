@@ -31,7 +31,6 @@ package org.hl7.fhir.convertors;
 */
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import org.hl7.fhir.instance.formats.JsonComposer;

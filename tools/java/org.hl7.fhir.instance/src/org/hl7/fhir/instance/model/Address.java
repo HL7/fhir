@@ -69,6 +69,7 @@ public class Address extends Type {
     }
 
   public static class AddressUseEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -83,6 +84,7 @@ public class Address extends Type {
           return AddressUse.old;
         throw new Exception("Unknown AddressUse code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == AddressUse.home)
         return "home";
@@ -402,6 +404,7 @@ P.O. Box number, delivery hints, and similar address information.)
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("use", "code", "The purpose of this address.", 0, java.lang.Integer.MAX_VALUE, use));
@@ -414,6 +417,7 @@ P.O. Box number, delivery hints, and similar address information.)
         childrenList.add(new Property("period", "Period", "Time period when address was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
       }
 
+      @Override
       public Address copy() {
         Address dst = new Address();
         dst.use = use == null ? null : use.copy();
@@ -429,6 +433,7 @@ P.O. Box number, delivery hints, and similar address information.)
         return dst;
       }
 
+      @Override
       protected Address typedCopy() {
         return copy();
       }

@@ -65,6 +65,7 @@ public class CarePlan extends Resource {
     }
 
   public static class CarePlanStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class CarePlan extends Resource {
           return CarePlanStatus.completed;
         throw new Exception("Unknown CarePlanStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == CarePlanStatus.planned)
         return "planned";
@@ -119,6 +121,7 @@ public class CarePlan extends Resource {
     }
 
   public static class CarePlanGoalStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -133,6 +136,7 @@ public class CarePlan extends Resource {
           return CarePlanGoalStatus.cancelled;
         throw new Exception("Unknown CarePlanGoalStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == CarePlanGoalStatus.inProgress)
         return "in progress";
@@ -185,6 +189,7 @@ public class CarePlan extends Resource {
     }
 
   public static class CarePlanActivityStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -203,6 +208,7 @@ public class CarePlan extends Resource {
           return CarePlanActivityStatus.cancelled;
         throw new Exception("Unknown CarePlanActivityStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == CarePlanActivityStatus.notStarted)
         return "not started";
@@ -263,6 +269,7 @@ public class CarePlan extends Resource {
     }
 
   public static class CarePlanActivityCategoryEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -283,6 +290,7 @@ public class CarePlan extends Resource {
           return CarePlanActivityCategory.other;
         throw new Exception("Unknown CarePlanActivityCategory code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == CarePlanActivityCategory.diet)
         return "diet";
@@ -352,6 +360,7 @@ public class CarePlan extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care plan.  E.g. 'Primary physician', 'Team coordinator', 'Caregiver', etc.", 0, java.lang.Integer.MAX_VALUE, role));
@@ -518,6 +527,7 @@ public class CarePlan extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("description", "string", "Human-readable description of a specific desired objective of the care plan.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -762,6 +772,7 @@ public class CarePlan extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("goal", "idref", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal));
@@ -1021,6 +1032,7 @@ public class CarePlan extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("category", "code", "High-level categorization of the type of activity in a care plan.", 0, java.lang.Integer.MAX_VALUE, category));
@@ -1330,6 +1342,7 @@ public class CarePlan extends Resource {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this care plan that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

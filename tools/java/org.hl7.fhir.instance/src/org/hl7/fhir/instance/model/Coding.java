@@ -267,6 +267,7 @@ public class Coding extends Type {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("system", "uri", "The identification of the code system that defines the meaning of the symbol in the code.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -277,6 +278,7 @@ public class Coding extends Type {
         childrenList.add(new Property("valueSet", "Resource(ValueSet)", "The set of possible coded values this coding was chosen from or constrained by.", 0, java.lang.Integer.MAX_VALUE, valueSet));
       }
 
+      @Override
       public Coding copy() {
         Coding dst = new Coding();
         dst.system = system == null ? null : system.copy();
@@ -288,6 +290,7 @@ public class Coding extends Type {
         return dst;
       }
 
+      @Override
       protected Coding typedCopy() {
         return copy();
       }

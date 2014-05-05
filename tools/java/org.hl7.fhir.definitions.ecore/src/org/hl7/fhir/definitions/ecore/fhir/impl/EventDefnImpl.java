@@ -182,7 +182,8 @@ public class EventDefnImpl extends EObjectImpl implements EventDefn {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EventUsage> getUsage() {
+	@Override
+  public EList<EventUsage> getUsage() {
 		if (usage == null) {
 			usage = new EObjectContainmentEList<EventUsage>(EventUsage.class, this, FhirPackage.EVENT_DEFN__USAGE);
 		}

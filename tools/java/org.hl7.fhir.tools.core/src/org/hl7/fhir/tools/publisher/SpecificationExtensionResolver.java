@@ -2,7 +2,6 @@ package org.hl7.fhir.tools.publisher;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,8 +9,6 @@ import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.validation.ExtensionLocatorService;
-import org.hl7.fhir.instance.validation.ExtensionLocatorService.ExtensionLocationResponse;
-import org.hl7.fhir.instance.validation.ExtensionLocatorService.Status;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SpecificationExtensionResolver implements ExtensionLocatorService {

@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.hl7.fhir.definitions.ecore.fhir.FhirPackage;
 import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
-import org.hl7.fhir.definitions.ecore.fhir.SearchRepeatMode;
 import org.hl7.fhir.definitions.ecore.fhir.SearchType;
 
 /**
@@ -209,7 +208,8 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getPath() {
+	@Override
+  public EList<String> getPath() {
 		if (path == null) {
 			path = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__PATH);
 		}
@@ -221,7 +221,8 @@ public class SearchParameterImpl extends EObjectImpl implements SearchParameter 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getComposite() {
+	@Override
+  public EList<String> getComposite() {
 		if (composite == null) {
 			composite = new EDataTypeUniqueEList<String>(String.class, this, FhirPackage.SEARCH_PARAMETER__COMPOSITE);
 		}

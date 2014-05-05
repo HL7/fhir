@@ -39,7 +39,6 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Contact;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Factory;
-import org.hl7.fhir.instance.model.Procedure;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.Contact.ContactUse;

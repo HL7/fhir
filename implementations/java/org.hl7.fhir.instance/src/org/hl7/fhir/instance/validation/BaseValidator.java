@@ -1,6 +1,5 @@
 package org.hl7.fhir.instance.validation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;

@@ -65,6 +65,7 @@ public class Conformance extends Resource {
     }
 
   public static class ConformanceStatementStatusEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -77,6 +78,7 @@ public class Conformance extends Resource {
           return ConformanceStatementStatus.retired;
         throw new Exception("Unknown ConformanceStatementStatus code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConformanceStatementStatus.draft)
         return "draft";
@@ -111,6 +113,7 @@ public class Conformance extends Resource {
     }
 
   public static class RestfulConformanceModeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -121,6 +124,7 @@ public class Conformance extends Resource {
           return RestfulConformanceMode.server;
         throw new Exception("Unknown RestfulConformanceMode code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == RestfulConformanceMode.client)
         return "client";
@@ -181,6 +185,7 @@ public class Conformance extends Resource {
     }
 
   public static class TypeRestfulOperationEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -205,6 +210,7 @@ public class Conformance extends Resource {
           return TypeRestfulOperation.searchtype;
         throw new Exception("Unknown TypeRestfulOperation code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == TypeRestfulOperation.read)
         return "read";
@@ -271,6 +277,7 @@ public class Conformance extends Resource {
     }
 
   public static class SearchParamTypeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -291,6 +298,7 @@ public class Conformance extends Resource {
           return SearchParamType.quantity;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SearchParamType.number)
         return "number";
@@ -337,6 +345,7 @@ public class Conformance extends Resource {
     }
 
   public static class SystemRestfulOperationEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -349,6 +358,7 @@ public class Conformance extends Resource {
           return SystemRestfulOperation.historysystem;
         throw new Exception("Unknown SystemRestfulOperation code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SystemRestfulOperation.transaction)
         return "transaction";
@@ -387,6 +397,7 @@ public class Conformance extends Resource {
     }
 
   public static class MessageSignificanceCategoryEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -399,6 +410,7 @@ public class Conformance extends Resource {
           return MessageSignificanceCategory.notification;
         throw new Exception("Unknown MessageSignificanceCategory code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MessageSignificanceCategory.consequence)
         return "Consequence";
@@ -433,6 +445,7 @@ public class Conformance extends Resource {
     }
 
   public static class MessageConformanceEventModeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -443,6 +456,7 @@ public class Conformance extends Resource {
           return MessageConformanceEventMode.receiver;
         throw new Exception("Unknown MessageConformanceEventMode code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MessageConformanceEventMode.sender)
         return "sender";
@@ -475,6 +489,7 @@ public class Conformance extends Resource {
     }
 
   public static class DocumentModeEnumFactory implements EnumFactory {
+    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -485,6 +500,7 @@ public class Conformance extends Resource {
           return DocumentMode.consumer;
         throw new Exception("Unknown DocumentMode code '"+codeString+"'");
         }
+    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == DocumentMode.producer)
         return "producer";
@@ -623,6 +639,7 @@ public class Conformance extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Name software is known by.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -728,6 +745,7 @@ public class Conformance extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("description", "string", "Information about the specific installation that this conformance statement relates to.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -949,6 +967,7 @@ public class Conformance extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.", 0, java.lang.Integer.MAX_VALUE, mode));
@@ -1113,6 +1132,7 @@ public class Conformance extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("cors", "boolean", "Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.", 0, java.lang.Integer.MAX_VALUE, cors));
@@ -1223,6 +1243,7 @@ public class Conformance extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "Mime type for certificate.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1463,6 +1484,7 @@ public class Conformance extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A type of resource exposed via the restful interface.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1582,6 +1604,7 @@ public class Conformance extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Coded identifier of the operation, supported by the system resource.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -1828,6 +1851,7 @@ public class Conformance extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the search parameter used in the interface.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -1943,6 +1967,7 @@ public class Conformance extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A coded identifier of the operation, supported by the system.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2106,6 +2131,7 @@ public class Conformance extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of a query, which is used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2277,6 +2303,7 @@ public class Conformance extends Resource {
           return t;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("endpoint", "uri", "An address to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
@@ -2550,6 +2577,7 @@ public class Conformance extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "A coded identifier of a supported messaging event.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2688,6 +2716,7 @@ public class Conformance extends Resource {
           return this;
         }
 
+        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Mode of this document declaration - whether application is producer or consumer.", 0, java.lang.Integer.MAX_VALUE, mode));
@@ -3293,6 +3322,7 @@ public class Conformance extends Resource {
       return t;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));

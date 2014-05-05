@@ -82,12 +82,14 @@ public class Ratio extends Type {
       return this;
     }
 
+      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("numerator", "Quantity", "The value of the numerator.", 0, java.lang.Integer.MAX_VALUE, numerator));
         childrenList.add(new Property("denominator", "Quantity", "The value of the denominator.", 0, java.lang.Integer.MAX_VALUE, denominator));
       }
 
+      @Override
       public Ratio copy() {
         Ratio dst = new Ratio();
         dst.numerator = numerator == null ? null : numerator.copy();
@@ -95,6 +97,7 @@ public class Ratio extends Type {
         return dst;
       }
 
+      @Override
       protected Ratio typedCopy() {
         return copy();
       }
