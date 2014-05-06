@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2013-10-27T23:44:59Z</LastSaved>
+  <LastSaved>2014-05-06T14:07:52Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,6 @@
   <WindowWidth>18435</WindowWidth>
   <WindowTopX>120</WindowTopX>
   <WindowTopY>8610</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -154,9 +153,14 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s88">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="44" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="47" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="267.75"/>
@@ -193,8 +197,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">10;10</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell><Data ss:Type="String">10;10</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A set of codes drawn from one or more code systems</Data></Cell>
     <Cell><Data ss:Type="String">A value set specifies a set of codes drawn from one or more code systems</Data></Cell>
@@ -229,6 +234,23 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">Not expected to be unique</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">ValueSet.purpose</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Textual description of the intended scope and use</Data></Cell>
+    <Cell><Data ss:Type="String">This should describe “the semantic space&quot; to be included in the value set. This can also describe the approach taken to build the value set. </Data></Cell>
+    <Cell><Data ss:Type="String">Scope</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Any significantly meaningful change in this implies a different value set, rather than a new version.  This item is a key component for the meaning of the value set.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">ValueSet.immutable</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Indicates whether or not any change to the content logical definition may occur</Data></Cell>
+    <Cell><Data ss:Type="String">If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Normally immutability is set to ‘false’, which is the default assumption if it is not populated.  Note that the implication is that if this is set to ‘true’, there may be only one Value Set Version for this Definition. Immutability tends to be set to ‘true’ in one of two cases:&#10;- Where the value set, by the nature of its usage, cannot change.  For example &quot;All specializations of ACT in ActClassCode&quot;&#10;- Where there's no safe way to express the &quot;Purpose&quot; such that someone else could safely make changes to the value set definition&#10;Source workflow control must guarantee that the same URI always yields the same definition&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">ValueSet.publisher</Data></Cell>
@@ -272,7 +294,7 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Human language description of the value set</Data></Cell>
-    <Cell><Data ss:Type="String">A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of </Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Human understandability</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes.</Data></Cell>
@@ -282,8 +304,9 @@
     <Cell><Data ss:Type="String">ValueSet.copyright</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">About the value set or its content</Data></Cell>
-    <Cell><Data ss:Type="String">A copyright statement relating to the value set and/or its contents</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Publishing restrictions for the value set</Data></Cell>
+    <Cell><Data ss:Type="String">A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set</Data></Cell>
+    <Cell><Data ss:Type="String">License,Restrictions</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Frequently, the copyright differs between the value set, and codes that are included. The copyright statement should clearly differentiate between these when required</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -329,11 +352,19 @@
     <Cell><Data ss:Type="String">Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the value set</Data></Cell>
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">ValueSet.stableDate</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Fixed date for the version of all referenced code systems and value sets</Data></Cell>
+    <Cell><Data ss:Type="String">If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">With a defined Stability Date the value set is considered &quot;Static&quot;.  Otherwise, the value set is considered to be &quot;Dynamic&quot; and may have different expansions as underlying code systems and/or value sets evolve</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">10;240</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">10;340</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When value set defines its own codes</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -364,7 +395,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet.define.concept</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="4" ss:StyleID="s71"><Data ss:Type="String">10;360</Data></Cell>
+    <Cell ss:Index="4" ss:StyleID="s71"><Data ss:Type="String">10;460</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Concepts in the code system</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -605,12 +636,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>26</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -618,21 +650,17 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>36</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>0</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -867,7 +895,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1055,7 +1082,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="108"/>
    <Column ss:AutoFitWidth="0" ss:Width="237" ss:Span="1"/>
@@ -1077,6 +1104,12 @@
     <Cell><Data ss:Type="String">valueset-extensions.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Shareable Value Set</Data></Cell>
+    <Cell><Data ss:Type="String">Expresses the basic rules for a value set to be published through the HL7 context</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">valueset-shareable-spreadsheet.xml</Data></Cell>
+    <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1088,7 +1121,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
