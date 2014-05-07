@@ -194,8 +194,6 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
     write("import org.hl7.fhir.instance.model.Integer;\r\n");
     write("import org.hl7.fhir.instance.model.Boolean;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
-    write("import java.net.*;\r\n");
-    write("import java.math.*;\r\n");
     write("\r\n");
     write("public class JsonComposer extends JsonComposerBase {\r\n");
     write("\r\n");
@@ -530,7 +528,6 @@ private String leaf(String tn) {
     write("    else\r\n");
     write("      throw new Exception(\"Unhanded resource type \"+resource.getClass().getName());\r\n");
     write("  }\r\n\r\n");
-    write("  @SuppressWarnings(\"unchecked\")\r\n");
     write("  protected void composeType(String prefix, Type type) throws Exception {\r\n");
     write("    if (type == null)\r\n");
     write("      ;\r\n");

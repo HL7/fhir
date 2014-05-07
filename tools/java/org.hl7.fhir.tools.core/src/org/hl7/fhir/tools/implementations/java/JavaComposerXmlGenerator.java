@@ -239,8 +239,6 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("import org.hl7.fhir.instance.model.Integer;\r\n");
     write("import org.hl7.fhir.instance.model.Boolean;\r\n");
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
-    write("import java.net.*;\r\n");
-    write("import java.math.*;\r\n");
     write("\r\n");
     write("public class XmlComposer extends XmlComposerBase {\r\n");
     write("\r\n");
@@ -501,7 +499,6 @@ public class JavaComposerXmlGenerator extends JavaBaseGenerator {
     write("    else\r\n");
     write("      throw new Exception(\"Unhanded resource type \"+resource.getClass().getName());\r\n");
     write("  }\r\n\r\n");
-    write("  @SuppressWarnings(\"unchecked\")\r\n");
     write("  protected void composeType(String prefix, Type type) throws Exception {\r\n");
     write("    if (type == null)\r\n");
     write("      ;\r\n");

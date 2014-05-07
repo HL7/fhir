@@ -474,10 +474,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
 //    write("    throw new Exception(\"Unknown type \"+type);\r\n");
 //    write("  }\r\n\r\n");
 //
-    write("  private boolean hasTypeName(JsonObject json, String prefix) {\r\n");
-    write("    "+regn.toString());
-    write("    return false;\r\n");
-    write("  }\r\n");
+//    write("  private boolean hasTypeName(JsonObject json, String prefix) {\r\n");
+//    write("    "+regn.toString());
+//    write("    return false;\r\n");
+//    write("  }\r\n");
     
     
     write("}\r\n");

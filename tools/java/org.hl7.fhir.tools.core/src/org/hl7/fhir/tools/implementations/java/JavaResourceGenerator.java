@@ -65,6 +65,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private String classname;
 
+  private String allfields;
+  private long hashSum;
+
+  private String inheritedHash;
+
 
 	public Map<ElementDefn, String> getTypeNames() {
 		return typeNames;
@@ -123,10 +128,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				generateType(e, clss == JavaGenClass.Resource ? JavaGenClass.BackboneElement : JavaGenClass.Structure);
 			}
 
+      allfields = "";
 			for (ElementDefn e : root.getElements()) {
 				if (clss != JavaGenClass.Resource || (!e.getName().equals("extension") && !e.getName().equals("text")))
 					generateField(root, e, "    ");
 			}
+	    write("    private static final long serialVersionUID = "+Long.toString(allfields.hashCode())+"L;\r\n\r\n");
+	    hashSum = hashSum + allfields.hashCode();
 
 			List<ElementDefn> mandatory = new ArrayList<ElementDefn>();
 			generateConstructor(upFirst(name), mandatory, "  ");      
@@ -144,7 +152,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 					generateAccessors(root, e, "    ", upFirst(name));
 			}
 			generateChildrenRegister(root, "    ");
-		}
+		} else
+      write("    private static final long serialVersionUID = "+inheritedHash+"L;\r\n\r\n");
 
 		generateCopy(root, classname, false);
 		if (clss == JavaGenClass.Resource) {
@@ -459,9 +468,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	    write("    public static class "+tn+" extends BackboneElement {\r\n");
 		else
 		  write("    public static class "+tn+" extends Element {\r\n");
+		allfields = "";
 		for (ElementDefn c : e.getElements()) {
 			generateField(e, c, "        ");
 		}
+		write("        private static final long serialVersionUID = "+Long.toString(allfields.hashCode())+"L;\r\n\r\n");
+    hashSum = hashSum + allfields.hashCode();
+
     List<ElementDefn> mandatory = new ArrayList<ElementDefn>();
     generateConstructor(tn, mandatory, "    ");      
     for (ElementDefn c : e.getElements()) {
@@ -646,18 +659,41 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		if (e.unbounded()) {
 		  jdoc(indent, e.getDefinition());
 			if (tn == null && e.usesCompositeType())
-				write(indent+"protected List<"+root.getName()+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+root.getName()+">();\r\n");
-			else
-				write(indent+"protected List<"+tn+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
+				writeWithHash(indent+"protected List<"+root.getName()+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+root.getName()+">();\r\n");
+			else {
+			  writeWithHash(indent+"protected List<"+tn+"> "+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
+	      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+	        List<String> params = e.getTypes().get(0).getParams();
+	        String rn = params.size() == 1 ? params.get(0) : "Resource";
+	        if (rn.equals("Any"))
+	          rn = "Resource";
+	        jdoc(indent, "The actual objects that are the target of the reference ("+e.getDefinition()+")");
+	        writeWithHash(indent+"protected List<"+rn+"> "+getElementName(e.getName(), true)+"Target = new ArrayList<"+rn+">();\r\n");
+	        write("\r\n");
+	      }
+			}
 			write("\r\n");
 		} else {
       jdoc(indent, e.getDefinition());
-			write(indent+"protected "+tn+" "+getElementName(e.getName(), true)+";\r\n");
+      writeWithHash(indent+"protected "+tn+" "+getElementName(e.getName(), true)+";\r\n");
 			write("\r\n");
+      if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+        List<String> params = e.getTypes().get(0).getParams();
+        String rn = params.size() == 1 ? params.get(0) : "Resource";
+        if (rn.equals("Any"))
+          rn = "Resource";
+        jdoc(indent, "The actual object that is the target of the reference ("+e.getDefinition()+")");
+        writeWithHash(indent+"protected "+rn+" "+getElementName(e.getName(), true)+"Target;\r\n");
+        write("\r\n");
+      }
 		}
-
 	}
 
+
+  private void writeWithHash(String string) throws IOException {
+    allfields = allfields + string;
+    write(string);
+  }
 
   private String getSimpleType(String n) {
     if (n.equals("String_"))
@@ -725,6 +761,29 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"  return t;\r\n");
         write(indent+"}\r\n");
         write("\r\n");
+      } else if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+        
+        List<String> params = e.getTypes().get(0).getParams();
+        String rn = params.size() == 1 ? params.get(0) : "Resource";
+        if (rn.equals("Any"))
+          rn = "Resource";
+
+        jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} (The actual objects that are the target of the reference. "+e.getDefinition()+")");
+        write(indent+"public List<"+rn+"> get"+getTitle(getElementName(e.getName(), false))+"Target() { \r\n");
+        write(indent+"  return this."+getElementName(e.getName(), true)+"Target;\r\n");
+        write(indent+"}\r\n");
+        write("\r\n");
+        if (!rn.equals("Resource")) {
+          write("    // syntactic sugar\r\n");
+          jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} (Add an actual object that is the target of the reference. "+e.getDefinition()+")");
+          write(indent+"public "+rn+" add"+getTitle(getElementName(e.getName(), false))+"Target() { \r\n");
+          write(indent+"  "+rn+" r = new "+rn+"();\r\n");
+          write(indent+"  this."+getElementName(e.getName(), true)+"Target.add(r);\r\n");
+          write(indent+"  return r;\r\n");
+          write(indent+"}\r\n");
+          write("\r\n");
+        }
+        
       }
 		} else {
       jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
@@ -766,10 +825,37 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"}\r\n");
 	      write("\r\n");
 			  
+			} else if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {
+			  
+			  List<String> params = e.getTypes().get(0).getParams();
+        String rn = params.size() == 1 ? params.get(0) : "Resource";
+        if (rn.equals("Any"))
+          rn = "Resource";
+	      jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} (The actual object that is the target of the reference. "+e.getDefinition()+")");
+	      write(indent+"public "+rn+" get"+getTitle(getElementName(e.getName(), false))+"Target() { \r\n");
+	      write(indent+"  return this."+getElementName(e.getName(), true)+"Target;\r\n");
+	      write(indent+"}\r\n");
+	      write("\r\n");
+	      jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} (The actual object that is the target of the reference. "+e.getDefinition()+")");
+	      write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"Target("+rn+" value) { \r\n");
+	      write(indent+"  this."+getElementName(e.getName(), true)+"Target = value;\r\n");
+	      write(indent+"  return this;\r\n");
+	      write(indent+"}\r\n");
+	      write("\r\n");
+			  
 			}
 		}
 
 	}
+
+  public long getHashSum() {
+    return hashSum;
+  }
+
+  public void setInheritedHash(String value) {
+    inheritedHash = value;
+    
+  }
 
 
 }

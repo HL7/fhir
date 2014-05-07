@@ -123,6 +123,8 @@ public class SpreadsheetParser {
 			invariants = readInvariants(sheet);
 		
 		sheet = loadSheet("Data Elements");
+		if (sheet == null)
+		  throw new Exception("No Sheet found for Data Elements");
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			processLine(resource, sheet, row, invariants);
 		}
