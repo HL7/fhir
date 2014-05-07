@@ -156,6 +156,7 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
     links.put(json.get("rel").getAsString(), json.get("href").getAsString());    
   }
 
+  @SuppressWarnings("unchecked")
   private <T extends Resource> AtomEntry<T> parseEntry(JsonObject json) throws Exception {
     AtomEntry<T> res = new AtomEntry<T>();
     if (json.has("title") && !json.get("title").isJsonNull())

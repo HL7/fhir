@@ -5,7 +5,9 @@ package org.hl7.fhir.instance.model;
  */
 public class Binary extends Resource {
 
-  @Override
+  private static final long serialVersionUID = -5374982878067063027L;
+
+	@Override
   public ResourceType getResourceType() {
     return ResourceType.Binary;
   }

@@ -87,7 +87,8 @@ public class CDAUtilities {
 		return e;
 	}
 
-	public Element getChild(Element element, String name) throws Exception {
+	@SuppressWarnings("unused") // cause that's a wrong warning
+  public Element getChild(Element element, String name) throws Exception {
 		if (element == null)
 			return null;
 		

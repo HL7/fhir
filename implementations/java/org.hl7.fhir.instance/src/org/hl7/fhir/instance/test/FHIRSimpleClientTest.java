@@ -8,7 +8,6 @@ import static org.junit.Assert.fail;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +54,8 @@ public class FHIRSimpleClientTest {
 	private boolean logResource = true;
 	private boolean useProxy = true;
 	
-	private static void configureForFurore() {
+	@SuppressWarnings("unused")
+  private static void configureForFurore() {
 		connectUrl = "http://spark.furore.com/fhir/";
 		//connectUrl = "http://fhirlab.furore.com/fhir";
 		userAgent = "Spark.Service";
@@ -240,6 +240,7 @@ public class FHIRSimpleClientTest {
 		String entryVersion = getEntryVersion(result);
 		assertEquals("Patient", resourceType);
 		assertNotNull(resourceId);
+		assertNotNull(entryVersion);
 	}
 	
 	@Test
@@ -663,7 +664,8 @@ public class FHIRSimpleClientTest {
 		return conditionCode;
 	}
 	
-	private Condition buildCondition(AtomEntry<Patient> patientEntry) {
+	@SuppressWarnings("unused")
+  private Condition buildCondition(AtomEntry<Patient> patientEntry) {
 		CodeableConcept conditionCode = createCodeableConcept("29530003", "http://snomed.info/id", "Fungal granuloma (disorder)");
 		return buildCondition(patientEntry, conditionCode);
 	}
@@ -755,7 +757,8 @@ public class FHIRSimpleClientTest {
 		return getAtomEntrySelfLink(entry).getResourcePath();
 	}
 	
-	private <T extends Resource> String getResourceId(AtomEntry<T> entry) {
+	@SuppressWarnings("unused")
+  private <T extends Resource> String getResourceId(AtomEntry<T> entry) {
 		return getAtomEntrySelfLink(entry).getId();
 	}
 	

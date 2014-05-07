@@ -38,6 +38,8 @@ import java.util.List;
  */
 public abstract class Resource extends BackboneElement {
 
+  private static final long serialVersionUID = 7866468707983079151L;
+
 	/**
 	 * @return the type of resource that this is (e.g. for switch statements)
 	 */

@@ -15,11 +15,9 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
-import org.hl7.fhir.instance.formats.XmlParser;
 import org.hl7.fhir.instance.model.OperationOutcome;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
-import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.SchemaInputSource;
@@ -79,8 +77,6 @@ public class ValidationEngine {
     doc = builder.parse(new ByteArrayInputStream(source));
 
     outputs.addAll(new InstanceValidator(definitions, null).validateInstance(doc.getDocumentElement(), profile));
-
-    Resource r = new XmlParser().parse(new ByteArrayInputStream(source));
         
     OperationOutcome op = new OperationOutcome();
     for (ValidationMessage vm : outputs) {

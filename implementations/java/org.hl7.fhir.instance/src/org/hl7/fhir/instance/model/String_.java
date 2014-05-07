@@ -34,6 +34,7 @@ package org.hl7.fhir.instance.model;
 
 public class String_ extends PrimitiveType {
 
+  private static final long serialVersionUID = 4115820767194238069L;
 	/**
 	 * The string value
 	 */

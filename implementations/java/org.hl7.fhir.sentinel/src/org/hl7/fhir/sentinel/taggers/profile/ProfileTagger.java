@@ -27,14 +27,11 @@ import org.w3c.dom.Document;
 
 public class ProfileTagger implements Tagger {
 
-	private static final String HL7_PREFIX = "http://hl7.org/fhir/profile";
 	private Map<String, AtomEntry<? extends Resource>> cache = new HashMap<String, AtomEntry<? extends Resource>>();
-	private FHIRClient client;
 	private InstanceValidator validator;
 	
 	@Override
 	public void initialise(FHIRClient client, Conformance conf) throws Exception {
-		this.client = client;
 
 		validator = new InstanceValidator("C:\\work\\org.hl7.fhir\\build\\publish\\validation.zip", null, null);
 

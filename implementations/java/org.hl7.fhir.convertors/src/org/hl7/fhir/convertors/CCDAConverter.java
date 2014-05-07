@@ -241,7 +241,7 @@ public class CCDAConverter {
 			r.getText().setStatusSimple(NarrativeStatus.generated);
 			new NarrativeGenerator("", null, null, null, null, profiles, null).generate(r);
 		}
-		AtomEntry e = new AtomEntry();
+		AtomEntry<Resource> e = new AtomEntry<Resource>();
 		e.setUpdated(DateAndTime.now());
 		e.setResource(r);
 		e.setTitle(title);

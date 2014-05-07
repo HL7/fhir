@@ -276,6 +276,7 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     return res;  
   }
 
+  @SuppressWarnings("unchecked")
   private <T extends Resource> AtomEntry<T> parseEntry(XmlPullParser xpp) throws Exception {
     AtomEntry<T> res = new AtomEntry<T>();
     

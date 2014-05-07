@@ -36,6 +36,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Boolean extends PrimitiveType {
 
+  private static final long serialVersionUID = 2983474044199586731L;
 	/**
 	 * The value of the boolean
 	 */

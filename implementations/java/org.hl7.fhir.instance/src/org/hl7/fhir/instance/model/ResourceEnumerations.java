@@ -2,6 +2,7 @@ package org.hl7.fhir.instance.model;
 
 public class ResourceEnumerations {
 
+  @SuppressWarnings("rawtypes")
   public static EnumFactory getEnumFactory(Class<? extends Enum> clss) {
     if (clss == HumanName.NameUse.class)
       return new HumanName.NameUseEnumFactory();

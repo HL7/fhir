@@ -151,7 +151,7 @@ public class InstanceValidator extends BaseValidator {
   private void readFile(InputStream zip, String name) throws Exception {
     XmlParser xml = new XmlParser();
     AtomFeed f = xml.parseGeneral(zip).getFeed();
-    for (AtomEntry e : f.getEntryList()) {
+    for (AtomEntry<?> e : f.getEntryList()) {
       if (e.getId() == null) {
         System.out.println("unidentified resource "+e.getLinks().get("self")+" in "+name);
       }
@@ -301,7 +301,6 @@ public class InstanceValidator extends BaseValidator {
       return null;
     if (r.getStructure().size() != 1 || !(r.getStructure().get(0).getTypeSimple().equals(localName) || r.getStructure().get(0).getNameSimple().equals(localName)))
       throw new Exception("unexpected profile contents");
-    ProfileStructureComponent s = r.getStructure().get(0);
     return r;
   }
 
@@ -643,31 +642,9 @@ public class InstanceValidator extends BaseValidator {
     // for nothing to check    
   }
 
-  private void checkExtension(String path, ElementComponent elementDefn, ElementComponent context, Element e) {
-    // for now, nothing to check yet
-
-  }
-
-  private void checkResourceReference(String path, Element element, ElementComponent context, boolean b) {
-    // nothing to do yet
-
-  }
-
   private void checkIdentifier(String path, Element element, ElementComponent context) {
 
   }
-
-  private void checkQuantity(List<ValidationMessage> errors, String path, Element element, ElementComponent context, boolean b) {
-    String code = XMLUtil.getNamedChildValue(element,  "code");
-    String system = XMLUtil.getNamedChildValue(element,  "system");
-    String units = XMLUtil.getNamedChildValue(element,  "units");
-
-    if (system != null && code != null) {
-      checkCode(errors, path, code, system, units);
-    }
-
-  }
-
 
   private void checkCoding(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent context) {
     String code = XMLUtil.getNamedChildValue(element,  "code");
@@ -1317,15 +1294,15 @@ public class InstanceValidator extends BaseValidator {
 		return null;
   }
 
-	private String typeCode(List<TypeRefComponent> types) {
-	  StringBuilder b = new StringBuilder();
-	  for (TypeRefComponent t : types) {
-	  	b.append("|"+t.getCodeSimple());	  	
-	  }
-	  if (b.length() > 0)
-	  	return b.substring(1); 
-	  else
-	  	return null;
-  }
+
+	public CheckDisplayOption getCheckDisplay() {
+		return checkDisplay;
+	}
+
+	public void setCheckDisplay(CheckDisplayOption checkDisplay) {
+		this.checkDisplay = checkDisplay;
+	}
+	
+	
 }
 

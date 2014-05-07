@@ -24,7 +24,7 @@ public class Comparison {
 	  return c1.equals(c2);
 	}
 
-	public static <T extends Enum> boolean matches(Enumeration<T> e1, Enumeration<T> e2, MatchProfile profile)  {
+	public static <T extends Enum<?>> boolean matches(Enumeration<T> e1, Enumeration<T> e2, MatchProfile profile)  {
 	  if (e1 == null || e2 == null)
 	  	return false;
 	  return e1.getValue().equals(e2.getValue());

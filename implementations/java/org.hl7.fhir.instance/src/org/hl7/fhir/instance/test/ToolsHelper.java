@@ -94,7 +94,6 @@ public class ToolsHelper {
   public void executeFragments(String[] args) throws Exception {
     try {
       File source = new CSFile(args[1]);
-      File dest = new CSFile(args[2]);
       if (!source.exists())        
         throw new Exception("Source File \""+source.getAbsolutePath()+"\" not found");
       XmlPullParser xpp = loadXml(new FileInputStream(source));

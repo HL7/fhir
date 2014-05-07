@@ -33,6 +33,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Uri extends PrimitiveType {
 	
+  private static final long serialVersionUID = -4774715915772053479L;
 	/**
 	 * any valid URI
 	 */

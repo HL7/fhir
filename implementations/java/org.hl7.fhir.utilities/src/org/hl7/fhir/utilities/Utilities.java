@@ -48,7 +48,7 @@ import net.sf.saxon.TransformerFactoryImpl;
 
 public class Utilities {
 
-	 private static final String TOKEN_REGEX = "^a-z[A-Za-z0-9]*$";
+//	 private static final String TOKEN_REGEX = "^a-z[A-Za-z0-9]*$";
 
 
   /**

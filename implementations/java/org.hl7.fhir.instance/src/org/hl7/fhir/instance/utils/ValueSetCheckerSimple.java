@@ -103,7 +103,7 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
         return codeInDefine(def.getDefine().getConcept(), code, def.getDefine().getCaseSensitiveSimple());
       }
       for (ConceptSetFilterComponent f: vsi.getFilter())
-        throw new Error("not done yet");
+        throw new Error("not done yet: "+f.getValueSimple());
 
       return false;
     } else if (locator.supportsSystem(system)) {
