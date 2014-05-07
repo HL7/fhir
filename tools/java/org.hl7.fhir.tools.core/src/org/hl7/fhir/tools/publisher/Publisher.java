@@ -433,6 +433,7 @@ public class Publisher {
       } else
         b.append(c);
     }
+    r.close();
   }
 
   private void loadValueSets() throws Exception {
