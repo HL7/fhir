@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -69,7 +69,6 @@ public class OperationOutcome extends Resource {
     }
 
   public static class IssueSeverityEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,7 +83,6 @@ public class OperationOutcome extends Resource {
           return IssueSeverity.information;
         throw new Exception("Unknown IssueSeverity code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == IssueSeverity.fatal)
         return "fatal";
@@ -118,6 +116,8 @@ public class OperationOutcome extends Resource {
          * A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
          */
         protected List<String_> location = new ArrayList<String_>();
+
+        private static final long serialVersionUID = -1630124586L;
 
       public OperationOutcomeIssueComponent() {
         super();
@@ -238,7 +238,6 @@ public class OperationOutcome extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("severity", "code", "Indicates whether the issue indicates a variation from successful processing.", 0, java.lang.Integer.MAX_VALUE, severity));
@@ -265,6 +264,8 @@ public class OperationOutcome extends Resource {
      */
     protected List<OperationOutcomeIssueComponent> issue = new ArrayList<OperationOutcomeIssueComponent>();
 
+    private static final long serialVersionUID = 820547604L;
+
     public OperationOutcome() {
       super();
     }
@@ -286,7 +287,6 @@ public class OperationOutcome extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("issue", "", "An error, warning or information message that results from a system action.", 0, java.lang.Integer.MAX_VALUE, issue));

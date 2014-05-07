@@ -78,6 +78,9 @@ import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.OperationOutcome;
+import org.hl7.fhir.instance.model.ResourceUtilities;
+import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.instance.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.instance.model.Resource;
 import org.hl7.fhir.instance.model.ResourceType;
 
@@ -114,6 +117,12 @@ public class ClientUtils {
 	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
 		HttpPost httpPost = new HttpPost(resourceUri);
 		return issueResourceRequest(resourceFormat, httpPost, payload, headers, proxy);
+	}
+	
+	public static TagListRequest issueGetRequestForTagList(URI resourceUri, String resourceFormat, List<Header> headers, HttpHost proxy) {
+		HttpGet httpget = new HttpGet(resourceUri);
+		configureFhirRequest(httpget, resourceFormat);
+		return issueTagListRequest(resourceFormat, httpget, null, headers, proxy);
 	}
 	
 	public static TagListRequest issuePostRequestForTagList(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
@@ -285,6 +294,7 @@ public class ClientUtils {
 	@SuppressWarnings("unchecked")
 	protected static <T extends Resource> T unmarshalResource(HttpResponse response, String format) {
 		T resource = null;
+		OperationOutcome error = null;
 		InputStream instream = null;
 		HttpEntity entity = response.getEntity();
 		if (entity != null && entity.getContentLength() > 0) {
@@ -292,6 +302,9 @@ public class ClientUtils {
 			    instream = entity.getContent();
 //			    System.out.println(writeInputStreamAsString(instream));
 			    resource = (T)getParser(format).parse(instream);
+	    		if (resource instanceof OperationOutcome && hasError((OperationOutcome)resource)) {
+	    			error = (OperationOutcome) resource;
+	    		}
 			} catch(IOException ioe) {
 				throw new EFhirClientException("Error unmarshalling entity from Http Response", ioe);
 			} catch(Exception e) {
@@ -300,12 +313,8 @@ public class ClientUtils {
 				try{instream.close();}catch(IOException ioe){/* TODO log error */}
 			}
 		}
-		if(resource instanceof OperationOutcome) {
-			if(((OperationOutcome) resource).getIssue().size() > 0) {
-				throw new EFhirClientException((OperationOutcome)resource);
-			} else {
-				System.out.println(((OperationOutcome) resource).getText().getDiv().allText());//TODO change to formal logging
-			}
+		if(error != null) {
+			throw new EFhirClientException("Error unmarshalling resource: "+ResourceUtilities.getErrorDescription(error), error);
 		}
 		return resource;
 	}
@@ -319,27 +328,33 @@ public class ClientUtils {
 	@SuppressWarnings("unchecked")
 	protected static List<AtomCategory> unmarshalTagList(HttpResponse response, String format) {
 		InputStream instream = null;
-		
+		OperationOutcome error = null;
+		ResourceOrFeed rf = null;
 		HttpEntity entity = response.getEntity();
 		if (entity != null && entity.getContentLength() > 0) {
 			try {
 			    instream = entity.getContent();
 //			    System.out.println(writeInputStreamAsString(instream));
-			    ResourceOrFeed rf = getParser(format).parseGeneral(instream);
-			    if (rf.getResource() != null)
-						throw new EFhirClientException((OperationOutcome) rf.getResource());
-			    return rf.getTaglist();
+			    rf = getParser(format).parseGeneral(instream);
+			    if (rf.getResource() != null) {
+		    		if (rf.getResource() instanceof OperationOutcome && hasError((OperationOutcome) rf.getResource())) {
+		    			error = (OperationOutcome) rf.getResource();
+		    		} else {
+		    			throw new EFhirClientException("Error unmarshalling tag list from Http Response: a resource was returned instead");
+		    		}
+		    	}
 			} catch(IOException ioe) {
 				throw new EFhirClientException("Error unmarshalling entity from Http Response", ioe);
 			} catch(Exception e) {
 				throw new EFhirClientException("Error parsing response message", e);
 			} finally {
-				try{instream.close();
-			}
-			  catch(IOException ioe){/* TODO log error */}
+				try{instream.close();}catch(IOException ioe){/* TODO log error */}
 			}
 		}
-		return new ArrayList<AtomCategory>(); // just return an empty list TODO: this means the client doesn't know whether a list was returned or not?
+		if(error != null) {
+			throw new EFhirClientException("Error unmarshalling taglists: "+ResourceUtilities.getErrorDescription(error), error);
+		}
+		return rf.getTaglist();
 	}
 	
 	/**
@@ -357,11 +372,20 @@ public class ClientUtils {
 		try {
 			if (entity != null) {
 			    instream = entity.getContent();
-			    //String myString = IOUtils.toString(instream, "UTF-8");
+//			    String myString = IOUtils.toString(instream, "UTF-8");
 			    if(contentType.contains(ResourceFormat.RESOURCE_XML.getHeader()) || contentType.contains("text/xml+fhir")) {
 			    	error = (OperationOutcome)getParser(ResourceFormat.RESOURCE_XML.getHeader()).parseGeneral(instream).getResource();
 			    } else {
-			    	feed = getParser(format).parseGeneral(instream).getFeed();
+			    	ResourceOrFeed rf = getParser(format).parseGeneral(instream);
+			    	if (rf.getResource() != null) {
+			    		if (rf.getResource() instanceof OperationOutcome && hasError((OperationOutcome) rf.getResource())) {
+			    			error = (OperationOutcome) rf.getResource();
+			    		} else {
+			    			throw new EFhirClientException("Error unmarshalling feed from Http Response: a resource was returned instead");
+			    		}
+			    	} else {
+			    		feed = rf.getFeed();
+			    	}
 			    }
 			    instream.close();
 			}
@@ -373,11 +397,18 @@ public class ClientUtils {
 			try{instream.close();}catch(IOException ioe){/* TODO log error */}
 		}
 		if(error != null) {
-			throw new EFhirClientException("Error unmarshalling feed. Refer to e.getServerErrors() for additional details", error);
+			throw new EFhirClientException("Error unmarshalling feed: "+ResourceUtilities.getErrorDescription(error), error);
 		}
 		return feed;
 	}
 	
+	private static boolean hasError(OperationOutcome oo) {
+		for (OperationOutcomeIssueComponent t : oo.getIssue())
+			if (t.getSeveritySimple() == IssueSeverity.error || t.getSeveritySimple() == IssueSeverity.fatal)
+				return true;
+	  return false;
+  }
+
 	protected static <T extends Resource> AtomEntry<T> buildAtomEntry(HttpResponse response, T resource) {
 		AtomEntry<T> entry = new AtomEntry<T>();
 		String location = null;

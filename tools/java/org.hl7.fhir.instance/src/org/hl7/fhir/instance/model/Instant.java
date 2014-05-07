@@ -38,6 +38,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Instant extends PrimitiveType {
 
+  private static final long serialVersionUID = -2336693958779190094L;
 	/**
 	 * The value for the instant
 	 */

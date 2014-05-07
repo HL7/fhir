@@ -28,6 +28,8 @@ public class MessageTest {
 		JsonParser parser = new JsonParser();
 		InputStream is = new ByteArrayInputStream(json.getBytes("UTF-8"));
 		ResourceOrFeed result = parser.parseGeneral(is);
+		if (result.getFeed() == null)
+			throw new Exception("Feed was null");
 	}
 
 }

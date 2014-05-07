@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -53,6 +53,8 @@ public class Substance extends Resource {
          * The amount of the substance.
          */
         protected Quantity quantity;
+
+        private static final long serialVersionUID = -95905434L;
 
       public SubstanceInstanceComponent() {
         super();
@@ -124,7 +126,6 @@ public class Substance extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifier associated with the package/container (usually a label affixed directly).", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -152,6 +153,13 @@ public class Substance extends Resource {
          * Another substance that is a component of this substance.
          */
         protected ResourceReference substance;
+
+        /**
+         * The actual object that is the target of the reference (Another substance that is a component of this substance.)
+         */
+        protected Substance substanceTarget;
+
+        private static final long serialVersionUID = 1192860668L;
 
       public SubstanceIngredientComponent() {
         super();
@@ -192,7 +200,21 @@ public class Substance extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #substance} (The actual object that is the target of the reference. Another substance that is a component of this substance.)
+         */
+        public Substance getSubstanceTarget() { 
+          return this.substanceTarget;
+        }
+
+        /**
+         * @param value {@link #substance} (The actual object that is the target of the reference. Another substance that is a component of this substance.)
+         */
+        public SubstanceIngredientComponent setSubstanceTarget(Substance value) { 
+          this.substanceTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("quantity", "Ratio", "The amount of the ingredient in the substance - a concentration ratio.", 0, java.lang.Integer.MAX_VALUE, quantity));
@@ -227,6 +249,8 @@ public class Substance extends Resource {
      * A substance can be composed of other substances.
      */
     protected List<SubstanceIngredientComponent> ingredient = new ArrayList<SubstanceIngredientComponent>();
+
+    private static final long serialVersionUID = -1020778180L;
 
     public Substance() {
       super();
@@ -320,7 +344,6 @@ public class Substance extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "CodeableConcept", "A code (or set of codes) that identify this substance.", 0, java.lang.Integer.MAX_VALUE, type));

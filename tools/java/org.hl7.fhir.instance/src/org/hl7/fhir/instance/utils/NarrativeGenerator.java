@@ -326,7 +326,7 @@ public class NarrativeGenerator {
     else if (e instanceof org.hl7.fhir.instance.model.Date)
       x.addText(((org.hl7.fhir.instance.model.Date) e).getValue().toHumanDisplay());
     else if (e instanceof Enumeration)
-      x.addText(((Enumeration) e).getValue().toString()); // todo: look up a display name if there is one
+      x.addText(((Enumeration<?>) e).getValue().toString()); // todo: look up a display name if there is one
     else if (e instanceof Boolean)
       x.addText(((Boolean) e).getValue().toString());
     else if (e instanceof CodeableConcept) {
@@ -422,7 +422,7 @@ public class NarrativeGenerator {
       x.addText(name+": "+((org.hl7.fhir.instance.model.Date) e).getValue().toHumanDisplay());
       return true;
     } else if (e instanceof Enumeration) {
-      x.addText(((Enumeration) e).getValue().toString()); // todo: look up a display name if there is one
+      x.addText(((Enumeration<?>) e).getValue().toString()); // todo: look up a display name if there is one
       return true;
     } else if (e instanceof Boolean) {
       if (((Boolean) e).getValue()) {
@@ -486,10 +486,6 @@ public class NarrativeGenerator {
     return false;
   }
 
-  private boolean isDefault(Map<String, String> displayHints, String value) {
-    // TODO Auto-generated method stub
-    return false;
-  }
 
   private Map<String, String> readDisplayHints(ElementComponent defn) throws Exception {
     Map<String, String> hints = new HashMap<String, String>();
@@ -580,7 +576,7 @@ public class NarrativeGenerator {
     if (client == null)
       return null;
     
-    AtomEntry ae = client.read(null, url);
+    AtomEntry<?> ae = client.read(null, url);
     if (ae == null)
       return null;
     else
@@ -1604,7 +1600,9 @@ public class NarrativeGenerator {
     case isa: return " is-a ";
     case isnota: return " is-not-a ";
     case regex: return " matches (by regex) ";
-    
+		case Null: return " ?? ";
+		case in: return " in ";
+		case notIn: return " not in ";
     }
     return null;
   }

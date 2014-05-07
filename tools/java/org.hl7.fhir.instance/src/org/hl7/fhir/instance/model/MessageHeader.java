@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class MessageHeader extends Resource {
     }
 
   public static class ResponseCodeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class MessageHeader extends Resource {
           return ResponseCode.fatalerror;
         throw new Exception("Unknown ResponseCode code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResponseCode.ok)
         return "ok";
@@ -105,6 +103,13 @@ public class MessageHeader extends Resource {
          * Full details of any issues found in the message.
          */
         protected ResourceReference details;
+
+        /**
+         * The actual object that is the target of the reference (Full details of any issues found in the message.)
+         */
+        protected OperationOutcome detailsTarget;
+
+        private static final long serialVersionUID = 902866821L;
 
       public MessageHeaderResponseComponent() {
         super();
@@ -195,7 +200,21 @@ public class MessageHeader extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #details} (The actual object that is the target of the reference. Full details of any issues found in the message.)
+         */
+        public OperationOutcome getDetailsTarget() { 
+          return this.detailsTarget;
+        }
+
+        /**
+         * @param value {@link #details} (The actual object that is the target of the reference. Full details of any issues found in the message.)
+         */
+        public MessageHeaderResponseComponent setDetailsTarget(OperationOutcome value) { 
+          this.detailsTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "id", "The id of the message that this message is a response to.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -238,6 +257,8 @@ public class MessageHeader extends Resource {
          * Identifies the routing target to send acknowledgements to.
          */
         protected Uri endpoint;
+
+        private static final long serialVersionUID = -186111349L;
 
       public MessageSourceComponent() {
         super();
@@ -400,7 +421,6 @@ public class MessageHeader extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Human-readable name for the target system.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -434,9 +454,16 @@ public class MessageHeader extends Resource {
         protected ResourceReference target;
 
         /**
+         * The actual object that is the target of the reference (Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
+         */
+        protected Device targetTarget;
+
+        /**
          * Indicates where the message should be routed to.
          */
         protected Uri endpoint;
+
+        private static final long serialVersionUID = 346560150L;
 
       public MessageDestinationComponent() {
         super();
@@ -499,6 +526,21 @@ public class MessageHeader extends Resource {
         }
 
         /**
+         * @return {@link #target} (The actual object that is the target of the reference. Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
+         */
+        public Device getTargetTarget() { 
+          return this.targetTarget;
+        }
+
+        /**
+         * @param value {@link #target} (The actual object that is the target of the reference. Identifies the target end system in situations where the initial message transmission is to an intermediary system.)
+         */
+        public MessageDestinationComponent setTargetTarget(Device value) { 
+          this.targetTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #endpoint} (Indicates where the message should be routed to.)
          */
         public Uri getEndpoint() { 
@@ -530,7 +572,6 @@ public class MessageHeader extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Human-readable name for the source system.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -584,9 +625,19 @@ public class MessageHeader extends Resource {
     protected ResourceReference enterer;
 
     /**
+     * The actual object that is the target of the reference (The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
+     */
+    protected Practitioner entererTarget;
+
+    /**
      * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.
      */
     protected ResourceReference author;
+
+    /**
+     * The actual object that is the target of the reference (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
+     */
+    protected Practitioner authorTarget;
 
     /**
      * Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.
@@ -594,9 +645,19 @@ public class MessageHeader extends Resource {
     protected ResourceReference receiver;
 
     /**
+     * The actual object that is the target of the reference (Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
+     */
+    protected Resource receiverTarget;
+
+    /**
      * The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.
      */
     protected ResourceReference responsible;
+
+    /**
+     * The actual object that is the target of the reference (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
+     */
+    protected Resource responsibleTarget;
 
     /**
      * Coded indication of the cause for the event - indicates  a reason for the occurance of the event that is a focus of this message.
@@ -607,6 +668,13 @@ public class MessageHeader extends Resource {
      * The actual data of the message - a reference to the root/focus class of the event.
      */
     protected List<ResourceReference> data = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (The actual data of the message - a reference to the root/focus class of the event.)
+     */
+    protected List<Resource> dataTarget = new ArrayList<Resource>();
+
+
+    private static final long serialVersionUID = -1894921749L;
 
     public MessageHeader() {
       super();
@@ -762,6 +830,21 @@ public class MessageHeader extends Resource {
     }
 
     /**
+     * @return {@link #enterer} (The actual object that is the target of the reference. The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
+     */
+    public Practitioner getEntererTarget() { 
+      return this.entererTarget;
+    }
+
+    /**
+     * @param value {@link #enterer} (The actual object that is the target of the reference. The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.)
+     */
+    public MessageHeader setEntererTarget(Practitioner value) { 
+      this.entererTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #author} (The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
      */
     public ResourceReference getAuthor() { 
@@ -773,6 +856,21 @@ public class MessageHeader extends Resource {
      */
     public MessageHeader setAuthor(ResourceReference value) { 
       this.author = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #author} (The actual object that is the target of the reference. The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
+     */
+    public Practitioner getAuthorTarget() { 
+      return this.authorTarget;
+    }
+
+    /**
+     * @param value {@link #author} (The actual object that is the target of the reference. The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.)
+     */
+    public MessageHeader setAuthorTarget(Practitioner value) { 
+      this.authorTarget = value;
       return this;
     }
 
@@ -792,6 +890,21 @@ public class MessageHeader extends Resource {
     }
 
     /**
+     * @return {@link #receiver} (The actual object that is the target of the reference. Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
+     */
+    public Resource getReceiverTarget() { 
+      return this.receiverTarget;
+    }
+
+    /**
+     * @param value {@link #receiver} (The actual object that is the target of the reference. Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.)
+     */
+    public MessageHeader setReceiverTarget(Resource value) { 
+      this.receiverTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
     public ResourceReference getResponsible() { 
@@ -803,6 +916,21 @@ public class MessageHeader extends Resource {
      */
     public MessageHeader setResponsible(ResourceReference value) { 
       this.responsible = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #responsible} (The actual object that is the target of the reference. The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
+     */
+    public Resource getResponsibleTarget() { 
+      return this.responsibleTarget;
+    }
+
+    /**
+     * @param value {@link #responsible} (The actual object that is the target of the reference. The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
+     */
+    public MessageHeader setResponsibleTarget(Resource value) { 
+      this.responsibleTarget = value;
       return this;
     }
 
@@ -838,7 +966,13 @@ public class MessageHeader extends Resource {
       return t;
     }
 
-      @Override
+    /**
+     * @return {@link #data} (The actual objects that are the target of the reference. The actual data of the message - a reference to the root/focus class of the event.)
+     */
+    public List<Resource> getDataTarget() { 
+      return this.dataTarget;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "id", "The identifier of this message.", 0, java.lang.Integer.MAX_VALUE, identifier));

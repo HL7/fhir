@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -63,6 +63,8 @@ public class Organization extends Resource {
          * Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
          */
         protected CodeableConcept gender;
+
+        private static final long serialVersionUID = 2147286938L;
 
       public OrganizationContactComponent() {
         super();
@@ -145,7 +147,6 @@ public class Organization extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("purpose", "CodeableConcept", "Indicates a purpose for which the contact can be reached.", 0, java.lang.Integer.MAX_VALUE, purpose));
@@ -200,6 +201,11 @@ public class Organization extends Resource {
     protected ResourceReference partOf;
 
     /**
+     * The actual object that is the target of the reference (The organization of which this organization forms a part.)
+     */
+    protected Organization partOfTarget;
+
+    /**
      * Contact for the organization for a certain purpose.
      */
     protected List<OrganizationContactComponent> contact = new ArrayList<OrganizationContactComponent>();
@@ -208,11 +214,18 @@ public class Organization extends Resource {
      * Location(s) the organization uses to provide services.
      */
     protected List<ResourceReference> location = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (Location(s) the organization uses to provide services.)
+     */
+    protected List<Location> locationTarget = new ArrayList<Location>();
+
 
     /**
      * Whether the organization's record is still in active use.
      */
     protected Boolean active;
+
+    private static final long serialVersionUID = -789178682L;
 
     public Organization() {
       super();
@@ -336,6 +349,21 @@ public class Organization extends Resource {
     }
 
     /**
+     * @return {@link #partOf} (The actual object that is the target of the reference. The organization of which this organization forms a part.)
+     */
+    public Organization getPartOfTarget() { 
+      return this.partOfTarget;
+    }
+
+    /**
+     * @param value {@link #partOf} (The actual object that is the target of the reference. The organization of which this organization forms a part.)
+     */
+    public Organization setPartOfTarget(Organization value) { 
+      this.partOfTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #contact} (Contact for the organization for a certain purpose.)
      */
     public List<OrganizationContactComponent> getContact() { 
@@ -367,6 +395,23 @@ public class Organization extends Resource {
       ResourceReference t = new ResourceReference();
       this.location.add(t);
       return t;
+    }
+
+    /**
+     * @return {@link #location} (The actual objects that are the target of the reference. Location(s) the organization uses to provide services.)
+     */
+    public List<Location> getLocationTarget() { 
+      return this.locationTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #location} (Add an actual object that is the target of the reference. Location(s) the organization uses to provide services.)
+     */
+    public Location addLocationTarget() { 
+      Location r = new Location();
+      this.locationTarget.add(r);
+      return r;
     }
 
     /**
@@ -405,7 +450,6 @@ public class Organization extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the organization that is used to identify the organization across multiple disparate systems.", 0, java.lang.Integer.MAX_VALUE, identifier));

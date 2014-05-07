@@ -32,15 +32,8 @@ package org.hl7.fhir.instance.model;
  * An element that is a type. Used when the element type in FHIR is a choice of more than one data type
  */
 public abstract class Type extends Element {
-//	private String namedConstraint;
-//
-//	public String getNamedConstraint() {
-//		return namedConstraint;
-//	}
-//
-//	public void setNamedConstraint(String namedConstraint) {
-//		this.namedConstraint = namedConstraint;
-//	}
+
+  private static final long serialVersionUID = 4623040030733049991L;
 
 	public Type copy() {
 		return typedCopy();

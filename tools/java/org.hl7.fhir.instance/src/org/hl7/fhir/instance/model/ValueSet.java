@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class ValueSet extends Resource {
     }
 
   public static class ValuesetStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class ValueSet extends Resource {
           return ValuesetStatus.retired;
         throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetStatus.draft)
         return "draft";
@@ -129,7 +127,6 @@ public class ValueSet extends Resource {
     }
 
   public static class FilterOperatorEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -148,7 +145,6 @@ public class ValueSet extends Resource {
           return FilterOperator.notIn;
         throw new Exception("Unknown FilterOperator code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == FilterOperator.equal)
         return "=";
@@ -186,6 +182,8 @@ public class ValueSet extends Resource {
          * Concepts in the code system.
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
+
+        private static final long serialVersionUID = -765551162L;
 
       public ValueSetDefineComponent() {
         super();
@@ -317,7 +315,6 @@ public class ValueSet extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "URI to identify the code system.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -364,6 +361,8 @@ public class ValueSet extends Resource {
          * Child Concepts (is-a / contains).
          */
         protected List<ValueSetDefineConceptComponent> concept = new ArrayList<ValueSetDefineConceptComponent>();
+
+        private static final long serialVersionUID = 1309528529L;
 
       public ValueSetDefineConceptComponent() {
         super();
@@ -531,7 +530,6 @@ public class ValueSet extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Code that identifies concept.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -570,6 +568,8 @@ public class ValueSet extends Resource {
          * Exclude one or more codes from the value set.
          */
         protected List<ConceptSetComponent> exclude = new ArrayList<ConceptSetComponent>();
+
+        private static final long serialVersionUID = 356024839L;
 
       public ValueSetComposeComponent() {
         super();
@@ -636,7 +636,6 @@ public class ValueSet extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("import", "uri", "Includes the contents of the referenced value set as a part of the contents of this value set.", 0, java.lang.Integer.MAX_VALUE, import_));
@@ -680,6 +679,8 @@ public class ValueSet extends Resource {
          * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.
          */
         protected List<ConceptSetFilterComponent> filter = new ArrayList<ConceptSetFilterComponent>();
+
+        private static final long serialVersionUID = 1973470338L;
 
       public ConceptSetComponent() {
         super();
@@ -802,7 +803,6 @@ public class ValueSet extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "The code system from which the selected codes come from.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -841,6 +841,8 @@ public class ValueSet extends Resource {
          * The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.
          */
         protected Code value;
+
+        private static final long serialVersionUID = 858937144L;
 
       public ConceptSetFilterComponent() {
         super();
@@ -949,7 +951,6 @@ public class ValueSet extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("property", "code", "A code that identifies a property defined in the code system.", 0, java.lang.Integer.MAX_VALUE, property));
@@ -982,6 +983,8 @@ public class ValueSet extends Resource {
          * Codes in the value set.
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
+
+        private static final long serialVersionUID = -812038031L;
 
       public ValueSetExpansionComponent() {
         super();
@@ -1056,7 +1059,6 @@ public class ValueSet extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1096,6 +1098,8 @@ public class ValueSet extends Resource {
          * Codes contained in this concept.
          */
         protected List<ValueSetExpansionContainsComponent> contains = new ArrayList<ValueSetExpansionContainsComponent>();
+
+        private static final long serialVersionUID = 856171675L;
 
       public ValueSetExpansionContainsComponent() {
         super();
@@ -1226,7 +1230,6 @@ public class ValueSet extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "System value for the code.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -1264,6 +1267,16 @@ public class ValueSet extends Resource {
     protected String_ name;
 
     /**
+     * This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
+     */
+    protected String_ purpose;
+
+    /**
+     * If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     */
+    protected Boolean immutable;
+
+    /**
      * The name of the individual or organization that published the value set.
      */
     protected String_ publisher;
@@ -1274,12 +1287,12 @@ public class ValueSet extends Resource {
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.
+     * A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.
      */
     protected String_ description;
 
     /**
-     * A copyright statement relating to the value set and/or its contents.
+     * A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.
      */
     protected String_ copyright;
 
@@ -1304,6 +1317,11 @@ public class ValueSet extends Resource {
     protected DateTime date;
 
     /**
+     * If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
+     */
+    protected Date stableDate;
+
+    /**
      * When value set defines its own codes.
      */
     protected ValueSetDefineComponent define;
@@ -1317,6 +1335,8 @@ public class ValueSet extends Resource {
      * When value set is an expansion.
      */
     protected ValueSetExpansionComponent expansion;
+
+    private static final long serialVersionUID = 73381886L;
 
     public ValueSet() {
       super();
@@ -1434,6 +1454,78 @@ public class ValueSet extends Resource {
     }
 
     /**
+     * @return {@link #purpose} (This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.)
+     */
+    public String_ getPurpose() { 
+      return this.purpose;
+    }
+
+    /**
+     * @param value {@link #purpose} (This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.)
+     */
+    public ValueSet setPurpose(String_ value) { 
+      this.purpose = value;
+      return this;
+    }
+
+    /**
+     * @return This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
+     */
+    public String getPurposeSimple() { 
+      return this.purpose == null ? null : this.purpose.getValue();
+    }
+
+    /**
+     * @param value This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
+     */
+    public ValueSet setPurposeSimple(String value) { 
+      if (value == null)
+        this.purpose = null;
+      else {
+        if (this.purpose == null)
+          this.purpose = new String_();
+        this.purpose.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #immutable} (If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.)
+     */
+    public Boolean getImmutable() { 
+      return this.immutable;
+    }
+
+    /**
+     * @param value {@link #immutable} (If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.)
+     */
+    public ValueSet setImmutable(Boolean value) { 
+      this.immutable = value;
+      return this;
+    }
+
+    /**
+     * @return If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     */
+    public boolean getImmutableSimple() { 
+      return this.immutable == null ? false : this.immutable.getValue();
+    }
+
+    /**
+     * @param value If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     */
+    public ValueSet setImmutableSimple(boolean value) { 
+      if (value == false)
+        this.immutable = null;
+      else {
+        if (this.immutable == null)
+          this.immutable = new Boolean();
+        this.immutable.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #publisher} (The name of the individual or organization that published the value set.)
      */
     public String_ getPublisher() { 
@@ -1487,14 +1579,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.)
+     * @return {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.)
      */
     public String_ getDescription() { 
       return this.description;
     }
 
     /**
-     * @param value {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.)
+     * @param value {@link #description} (A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.)
      */
     public ValueSet setDescription(String_ value) { 
       this.description = value;
@@ -1502,14 +1594,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.
+     * @return A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.
      */
     public String getDescriptionSimple() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.
+     * @param value A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.
      */
     public ValueSet setDescriptionSimple(String value) { 
         if (this.description == null)
@@ -1519,14 +1611,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return {@link #copyright} (A copyright statement relating to the value set and/or its contents.)
+     * @return {@link #copyright} (A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.)
      */
     public String_ getCopyright() { 
       return this.copyright;
     }
 
     /**
-     * @param value {@link #copyright} (A copyright statement relating to the value set and/or its contents.)
+     * @param value {@link #copyright} (A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.)
      */
     public ValueSet setCopyright(String_ value) { 
       this.copyright = value;
@@ -1534,14 +1626,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return A copyright statement relating to the value set and/or its contents.
+     * @return A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.
      */
     public String getCopyrightSimple() { 
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
-     * @param value A copyright statement relating to the value set and/or its contents.
+     * @param value A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.
      */
     public ValueSet setCopyrightSimple(String value) { 
       if (value == null)
@@ -1695,6 +1787,42 @@ public class ValueSet extends Resource {
     }
 
     /**
+     * @return {@link #stableDate} (If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.)
+     */
+    public Date getStableDate() { 
+      return this.stableDate;
+    }
+
+    /**
+     * @param value {@link #stableDate} (If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.)
+     */
+    public ValueSet setStableDate(Date value) { 
+      this.stableDate = value;
+      return this;
+    }
+
+    /**
+     * @return If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
+     */
+    public DateAndTime getStableDateSimple() { 
+      return this.stableDate == null ? null : this.stableDate.getValue();
+    }
+
+    /**
+     * @param value If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.
+     */
+    public ValueSet setStableDateSimple(DateAndTime value) { 
+      if (value == null)
+        this.stableDate = null;
+      else {
+        if (this.stableDate == null)
+          this.stableDate = new Date();
+        this.stableDate.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #define} (When value set defines its own codes.)
      */
     public ValueSetDefineComponent getDefine() { 
@@ -1739,20 +1867,22 @@ public class ValueSet extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("purpose", "string", "This should describe “the semantic space' to be included in the value set. This can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, purpose));
+        childrenList.add(new Property("immutable", "boolean", "If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the value set.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("telecom", "Contact", "Contacts of the publisher to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
-        childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents.", 0, java.lang.Integer.MAX_VALUE, copyright));
+        childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("copyright", "string", "A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("status", "code", "The status of the value set.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "This valueset was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, java.lang.Integer.MAX_VALUE, extensible));
         childrenList.add(new Property("date", "dateTime", "The date that the value set status was last changed.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("stableDate", "date", "If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.", 0, java.lang.Integer.MAX_VALUE, stableDate));
         childrenList.add(new Property("define", "", "When value set defines its own codes.", 0, java.lang.Integer.MAX_VALUE, define));
         childrenList.add(new Property("compose", "", "When value set includes codes from elsewhere.", 0, java.lang.Integer.MAX_VALUE, compose));
         childrenList.add(new Property("expansion", "", "When value set is an expansion.", 0, java.lang.Integer.MAX_VALUE, expansion));
@@ -1763,6 +1893,8 @@ public class ValueSet extends Resource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
+        dst.purpose = purpose == null ? null : purpose.copy();
+        dst.immutable = immutable == null ? null : immutable.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         dst.telecom = new ArrayList<Contact>();
         for (Contact i : telecom)
@@ -1773,6 +1905,7 @@ public class ValueSet extends Resource {
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.extensible = extensible == null ? null : extensible.copy();
         dst.date = date == null ? null : date.copy();
+        dst.stableDate = stableDate == null ? null : stableDate.copy();
         dst.define = define == null ? null : define.copy(dst);
         dst.compose = compose == null ? null : compose.copy(dst);
         dst.expansion = expansion == null ? null : expansion.copy(dst);

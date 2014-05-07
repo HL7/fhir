@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -81,7 +81,6 @@ public class HumanName extends Type {
     }
 
   public static class NameUseEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -102,7 +101,6 @@ public class HumanName extends Type {
           return NameUse.maiden;
         throw new Exception("Unknown NameUse code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NameUse.usual)
         return "usual";
@@ -156,6 +154,8 @@ public class HumanName extends Type {
      * Indicates the period of time when this name was valid for the named person.
      */
     protected Period period;
+
+    private static final long serialVersionUID = -1691515899L;
 
     public HumanName() {
       super();
@@ -356,7 +356,6 @@ public class HumanName extends Type {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("use", "code", "Identifies the purpose for this name.", 0, java.lang.Integer.MAX_VALUE, use));
@@ -368,7 +367,6 @@ public class HumanName extends Type {
         childrenList.add(new Property("period", "Period", "Indicates the period of time when this name was valid for the named person.", 0, java.lang.Integer.MAX_VALUE, period));
       }
 
-      @Override
       public HumanName copy() {
         HumanName dst = new HumanName();
         dst.use = use == null ? null : use.copy();
@@ -389,7 +387,6 @@ public class HumanName extends Type {
         return dst;
       }
 
-      @Override
       protected HumanName typedCopy() {
         return copy();
       }

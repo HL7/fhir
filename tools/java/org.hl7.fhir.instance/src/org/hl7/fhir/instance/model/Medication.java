@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -61,7 +61,6 @@ public class Medication extends Resource {
     }
 
   public static class MedicationKindEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -72,7 +71,6 @@ public class Medication extends Resource {
           return MedicationKind.package_;
         throw new Exception("Unknown MedicationKind code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationKind.product)
         return "product";
@@ -92,6 +90,8 @@ public class Medication extends Resource {
          * Identifies a particular constituent of interest in the product.
          */
         protected List<MedicationProductIngredientComponent> ingredient = new ArrayList<MedicationProductIngredientComponent>();
+
+        private static final long serialVersionUID = 698672741L;
 
       public MedicationProductComponent() {
         super();
@@ -129,7 +129,6 @@ public class Medication extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tables; carton.", 0, java.lang.Integer.MAX_VALUE, form));
@@ -154,9 +153,16 @@ public class Medication extends Resource {
         protected ResourceReference item;
 
         /**
+         * The actual object that is the target of the reference (The actual ingredient - either a substance (simple ingredient) or another medication.)
+         */
+        protected Resource itemTarget;
+
+        /**
          * Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.
          */
         protected Ratio amount;
+
+        private static final long serialVersionUID = 928082101L;
 
       public MedicationProductIngredientComponent() {
         super();
@@ -183,6 +189,21 @@ public class Medication extends Resource {
         }
 
         /**
+         * @return {@link #item} (The actual object that is the target of the reference. The actual ingredient - either a substance (simple ingredient) or another medication.)
+         */
+        public Resource getItemTarget() { 
+          return this.itemTarget;
+        }
+
+        /**
+         * @param value {@link #item} (The actual object that is the target of the reference. The actual ingredient - either a substance (simple ingredient) or another medication.)
+         */
+        public MedicationProductIngredientComponent setItemTarget(Resource value) { 
+          this.itemTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #amount} (Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.)
          */
         public Ratio getAmount() { 
@@ -197,7 +218,6 @@ public class Medication extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("item", "Resource(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, java.lang.Integer.MAX_VALUE, item));
@@ -223,6 +243,8 @@ public class Medication extends Resource {
          * A set of components that go to make up the described item.
          */
         protected List<MedicationPackageContentComponent> content = new ArrayList<MedicationPackageContentComponent>();
+
+        private static final long serialVersionUID = -62466804L;
 
       public MedicationPackageComponent() {
         super();
@@ -260,7 +282,6 @@ public class Medication extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("container", "CodeableConcept", "The kind of container that this package comes as.", 0, java.lang.Integer.MAX_VALUE, container));
@@ -285,9 +306,16 @@ public class Medication extends Resource {
         protected ResourceReference item;
 
         /**
+         * The actual object that is the target of the reference (Identifies one of the items in the package.)
+         */
+        protected Medication itemTarget;
+
+        /**
          * The amount of the product that is in the package.
          */
         protected Quantity amount;
+
+        private static final long serialVersionUID = 1971935074L;
 
       public MedicationPackageContentComponent() {
         super();
@@ -314,6 +342,21 @@ public class Medication extends Resource {
         }
 
         /**
+         * @return {@link #item} (The actual object that is the target of the reference. Identifies one of the items in the package.)
+         */
+        public Medication getItemTarget() { 
+          return this.itemTarget;
+        }
+
+        /**
+         * @param value {@link #item} (The actual object that is the target of the reference. Identifies one of the items in the package.)
+         */
+        public MedicationPackageContentComponent setItemTarget(Medication value) { 
+          this.itemTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #amount} (The amount of the product that is in the package.)
          */
         public Quantity getAmount() { 
@@ -328,7 +371,6 @@ public class Medication extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("item", "Resource(Medication)", "Identifies one of the items in the package.", 0, java.lang.Integer.MAX_VALUE, item));
@@ -365,6 +407,11 @@ public class Medication extends Resource {
     protected ResourceReference manufacturer;
 
     /**
+     * The actual object that is the target of the reference (Describes the details of the manufacturer.)
+     */
+    protected Organization manufacturerTarget;
+
+    /**
      * Medications are either a single administrable product or a package that contains one or more products.
      */
     protected Enumeration<MedicationKind> kind;
@@ -378,6 +425,8 @@ public class Medication extends Resource {
      * Information that only applies to packages (not products).
      */
     protected MedicationPackageComponent package_;
+
+    private static final long serialVersionUID = 1411342864L;
 
     public Medication() {
       super();
@@ -486,6 +535,21 @@ public class Medication extends Resource {
     }
 
     /**
+     * @return {@link #manufacturer} (The actual object that is the target of the reference. Describes the details of the manufacturer.)
+     */
+    public Organization getManufacturerTarget() { 
+      return this.manufacturerTarget;
+    }
+
+    /**
+     * @param value {@link #manufacturer} (The actual object that is the target of the reference. Describes the details of the manufacturer.)
+     */
+    public Medication setManufacturerTarget(Organization value) { 
+      this.manufacturerTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #kind} (Medications are either a single administrable product or a package that contains one or more products.)
      */
     public Enumeration<MedicationKind> getKind() { 
@@ -551,7 +615,6 @@ public class Medication extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "string", "The common/commercial name of the medication absent information such as strength, form, etc.  E.g. Acetaminophen, Tylenol 3, etc.  The fully coordinated name is communicated as the display of Medication.code.", 0, java.lang.Integer.MAX_VALUE, name));

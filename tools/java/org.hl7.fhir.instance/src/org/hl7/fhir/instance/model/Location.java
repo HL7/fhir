@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -66,7 +66,6 @@ public class Location extends Resource {
     }
 
   public static class LocationStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -79,7 +78,6 @@ public class Location extends Resource {
           return LocationStatus.inactive;
         throw new Exception("Unknown LocationStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == LocationStatus.active)
         return "active";
@@ -114,7 +112,6 @@ public class Location extends Resource {
     }
 
   public static class LocationModeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -125,7 +122,6 @@ public class Location extends Resource {
           return LocationMode.kind;
         throw new Exception("Unknown LocationMode code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == LocationMode.instance)
         return "instance";
@@ -150,6 +146,8 @@ public class Location extends Resource {
          * Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
          */
         protected Decimal altitude;
+
+        private static final long serialVersionUID = -1232709324L;
 
       public LocationPositionComponent() {
         super();
@@ -261,7 +259,6 @@ public class Location extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("longitude", "decimal", "Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).", 0, java.lang.Integer.MAX_VALUE, longitude));
@@ -325,6 +322,11 @@ public class Location extends Resource {
     protected ResourceReference managingOrganization;
 
     /**
+     * The actual object that is the target of the reference (The organization that is responsible for the provisioning and upkeep of the location.)
+     */
+    protected Organization managingOrganizationTarget;
+
+    /**
      * active | suspended | inactive.
      */
     protected Enumeration<LocationStatus> status;
@@ -335,9 +337,16 @@ public class Location extends Resource {
     protected ResourceReference partOf;
 
     /**
+     * The actual object that is the target of the reference (Another Location which this Location is physically part of.)
+     */
+    protected Location partOfTarget;
+
+    /**
      * Indicates whether a resource instance represents a specific location or a class of locations.
      */
     protected Enumeration<LocationMode> mode;
+
+    private static final long serialVersionUID = -282813644L;
 
     public Location() {
       super();
@@ -523,6 +532,21 @@ public class Location extends Resource {
     }
 
     /**
+     * @return {@link #managingOrganization} (The actual object that is the target of the reference. The organization that is responsible for the provisioning and upkeep of the location.)
+     */
+    public Organization getManagingOrganizationTarget() { 
+      return this.managingOrganizationTarget;
+    }
+
+    /**
+     * @param value {@link #managingOrganization} (The actual object that is the target of the reference. The organization that is responsible for the provisioning and upkeep of the location.)
+     */
+    public Location setManagingOrganizationTarget(Organization value) { 
+      this.managingOrganizationTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #status} (active | suspended | inactive.)
      */
     public Enumeration<LocationStatus> getStatus() { 
@@ -574,6 +598,21 @@ public class Location extends Resource {
     }
 
     /**
+     * @return {@link #partOf} (The actual object that is the target of the reference. Another Location which this Location is physically part of.)
+     */
+    public Location getPartOfTarget() { 
+      return this.partOfTarget;
+    }
+
+    /**
+     * @param value {@link #partOf} (The actual object that is the target of the reference. Another Location which this Location is physically part of.)
+     */
+    public Location setPartOfTarget(Location value) { 
+      this.partOfTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #mode} (Indicates whether a resource instance represents a specific location or a class of locations.)
      */
     public Enumeration<LocationMode> getMode() { 
@@ -609,7 +648,6 @@ public class Location extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Unique code or number identifying the location to its users.", 0, java.lang.Integer.MAX_VALUE, identifier));

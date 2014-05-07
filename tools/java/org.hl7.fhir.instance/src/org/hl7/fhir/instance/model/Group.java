@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -77,7 +77,6 @@ public class Group extends Resource {
     }
 
   public static class GroupTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -96,7 +95,6 @@ public class Group extends Resource {
           return GroupType.substance;
         throw new Exception("Unknown GroupType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == GroupType.person)
         return "person";
@@ -129,6 +127,8 @@ public class Group extends Resource {
          * If true, indicates the characteristic is one that is NOT held by members of the group.
          */
         protected Boolean exclude;
+
+        private static final long serialVersionUID = 1508824873L;
 
       public GroupCharacteristicComponent() {
         super();
@@ -203,7 +203,6 @@ public class Group extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A code that identifies the kind of trait being asserted.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -260,6 +259,13 @@ public class Group extends Resource {
      * Identifies the resource instances that are members of the group.
      */
     protected List<ResourceReference> member = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (Identifies the resource instances that are members of the group.)
+     */
+    protected List<Resource> memberTarget = new ArrayList<Resource>();
+
+
+    private static final long serialVersionUID = 121382617L;
 
     public Group() {
       super();
@@ -471,7 +477,13 @@ public class Group extends Resource {
       return t;
     }
 
-      @Override
+    /**
+     * @return {@link #member} (The actual objects that are the target of the reference. Identifies the resource instances that are members of the group.)
+     */
+    public List<Resource> getMemberTarget() { 
+      return this.memberTarget;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A unique business identifier for this group.", 0, java.lang.Integer.MAX_VALUE, identifier));

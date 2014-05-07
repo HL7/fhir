@@ -20,7 +20,6 @@ import org.junit.Test;
 
 public class ResourceAddressTest {
 	
-	private ResourceAddress resource;
 	private String basePath = "http://fhir.healthintersections.com.au/open";
 	private String fullNonVersionedPath = "http://fhir.healthintersections.com.au/open/Patient/318";
 	private String fullVersionedPath = "http://fhir.healthintersections.com.au/open/Patient/318/_history/1";
@@ -35,7 +34,6 @@ public class ResourceAddressTest {
 
 	@Before
 	public void setUp() throws Exception {
-		resource = new ResourceAddress("http://fhir.healthintersections.com.au/open");
 	}
 
 	@After

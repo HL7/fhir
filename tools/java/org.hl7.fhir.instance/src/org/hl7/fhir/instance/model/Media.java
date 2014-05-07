@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class Media extends Resource {
     }
 
   public static class MediaTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class Media extends Resource {
           return MediaType.audio;
         throw new Exception("Unknown MediaType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MediaType.photo)
         return "photo";
@@ -116,9 +114,19 @@ public class Media extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (Who/What this Media is a record of.)
+     */
+    protected Resource subjectTarget;
+
+    /**
      * The person who administered the collection of the image.
      */
     protected ResourceReference operator;
+
+    /**
+     * The actual object that is the target of the reference (The person who administered the collection of the image.)
+     */
+    protected Practitioner operatorTarget;
 
     /**
      * The name of the imaging view e.g Lateral or Antero-posterior (AP).
@@ -154,6 +162,8 @@ public class Media extends Resource {
      * The actual content of the media - inline or by direct reference to the media source file.
      */
     protected Attachment content;
+
+    private static final long serialVersionUID = 1448386132L;
 
     public Media() {
       super();
@@ -281,6 +291,21 @@ public class Media extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. Who/What this Media is a record of.)
+     */
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. Who/What this Media is a record of.)
+     */
+    public Media setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #operator} (The person who administered the collection of the image.)
      */
     public ResourceReference getOperator() { 
@@ -292,6 +317,21 @@ public class Media extends Resource {
      */
     public Media setOperator(ResourceReference value) { 
       this.operator = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #operator} (The actual object that is the target of the reference. The person who administered the collection of the image.)
+     */
+    public Practitioner getOperatorTarget() { 
+      return this.operatorTarget;
+    }
+
+    /**
+     * @param value {@link #operator} (The actual object that is the target of the reference. The person who administered the collection of the image.)
+     */
+    public Media setOperatorTarget(Practitioner value) { 
+      this.operatorTarget = value;
       return this;
     }
 
@@ -505,7 +545,6 @@ public class Media extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "Whether the media is a photo (still image), an audio recording, or a video recording.", 0, java.lang.Integer.MAX_VALUE, type));

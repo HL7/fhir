@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class Conformance extends Resource {
     }
 
   public static class ConformanceStatementStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class Conformance extends Resource {
           return ConformanceStatementStatus.retired;
         throw new Exception("Unknown ConformanceStatementStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConformanceStatementStatus.draft)
         return "draft";
@@ -113,7 +111,6 @@ public class Conformance extends Resource {
     }
 
   public static class RestfulConformanceModeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -124,7 +121,6 @@ public class Conformance extends Resource {
           return RestfulConformanceMode.server;
         throw new Exception("Unknown RestfulConformanceMode code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == RestfulConformanceMode.client)
         return "client";
@@ -185,7 +181,6 @@ public class Conformance extends Resource {
     }
 
   public static class TypeRestfulOperationEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -210,7 +205,6 @@ public class Conformance extends Resource {
           return TypeRestfulOperation.searchtype;
         throw new Exception("Unknown TypeRestfulOperation code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == TypeRestfulOperation.read)
         return "read";
@@ -277,7 +271,6 @@ public class Conformance extends Resource {
     }
 
   public static class SearchParamTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -298,7 +291,6 @@ public class Conformance extends Resource {
           return SearchParamType.quantity;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SearchParamType.number)
         return "number";
@@ -345,7 +337,6 @@ public class Conformance extends Resource {
     }
 
   public static class SystemRestfulOperationEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -358,7 +349,6 @@ public class Conformance extends Resource {
           return SystemRestfulOperation.historysystem;
         throw new Exception("Unknown SystemRestfulOperation code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SystemRestfulOperation.transaction)
         return "transaction";
@@ -397,7 +387,6 @@ public class Conformance extends Resource {
     }
 
   public static class MessageSignificanceCategoryEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -410,7 +399,6 @@ public class Conformance extends Resource {
           return MessageSignificanceCategory.notification;
         throw new Exception("Unknown MessageSignificanceCategory code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MessageSignificanceCategory.consequence)
         return "Consequence";
@@ -445,7 +433,6 @@ public class Conformance extends Resource {
     }
 
   public static class MessageConformanceEventModeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -456,7 +443,6 @@ public class Conformance extends Resource {
           return MessageConformanceEventMode.receiver;
         throw new Exception("Unknown MessageConformanceEventMode code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MessageConformanceEventMode.sender)
         return "sender";
@@ -489,7 +475,6 @@ public class Conformance extends Resource {
     }
 
   public static class DocumentModeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -500,7 +485,6 @@ public class Conformance extends Resource {
           return DocumentMode.consumer;
         throw new Exception("Unknown DocumentMode code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == DocumentMode.producer)
         return "producer";
@@ -525,6 +509,8 @@ public class Conformance extends Resource {
          * Date this version of the software released.
          */
         protected DateTime releaseDate;
+
+        private static final long serialVersionUID = 1288763369L;
 
       public ConformanceSoftwareComponent() {
         super();
@@ -639,7 +625,6 @@ public class Conformance extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Name software is known by.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -667,6 +652,8 @@ public class Conformance extends Resource {
          * A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.
          */
         protected Uri url;
+
+        private static final long serialVersionUID = 861760175L;
 
       public ConformanceImplementationComponent() {
         super();
@@ -745,7 +732,6 @@ public class Conformance extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("description", "string", "Information about the specific installation that this conformance statement relates to.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -796,6 +782,8 @@ public class Conformance extends Resource {
          * A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.
          */
         protected List<Uri> documentMailbox = new ArrayList<Uri>();
+
+        private static final long serialVersionUID = 2080191569L;
 
       public ConformanceRestComponent() {
         super();
@@ -967,7 +955,6 @@ public class Conformance extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.", 0, java.lang.Integer.MAX_VALUE, mode));
@@ -1021,6 +1008,8 @@ public class Conformance extends Resource {
          * Certificates associated with security profiles.
          */
         protected List<ConformanceRestSecurityCertificateComponent> certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
+
+        private static final long serialVersionUID = -1683331005L;
 
       public ConformanceRestSecurityComponent() {
         super();
@@ -1132,7 +1121,6 @@ public class Conformance extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("cors", "boolean", "Server adds CORS headers when responding to requests - this enables javascript applications to yuse the server.", 0, java.lang.Integer.MAX_VALUE, cors));
@@ -1166,6 +1154,8 @@ public class Conformance extends Resource {
          * Actual certificate.
          */
         protected Base64Binary blob;
+
+        private static final long serialVersionUID = -1385672262L;
 
       public ConformanceRestSecurityCertificateComponent() {
         super();
@@ -1243,7 +1233,6 @@ public class Conformance extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "Mime type for certificate.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1271,6 +1260,11 @@ public class Conformance extends Resource {
         protected ResourceReference profile;
 
         /**
+         * The actual object that is the target of the reference (A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
+         */
+        protected Profile profileTarget;
+
+        /**
          * Identifies a restful operation supported by the solution.
          */
         protected List<ConformanceRestResourceOperationComponent> operation = new ArrayList<ConformanceRestResourceOperationComponent>();
@@ -1294,6 +1288,8 @@ public class Conformance extends Resource {
          * Additional search parameters for implementations to support and/or make use of.
          */
         protected List<ConformanceRestResourceSearchParamComponent> searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+
+        private static final long serialVersionUID = -2082612240L;
 
       public ConformanceRestResourceComponent() {
         super();
@@ -1348,6 +1344,21 @@ public class Conformance extends Resource {
          */
         public ConformanceRestResourceComponent setProfile(ResourceReference value) { 
           this.profile = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #profile} (The actual object that is the target of the reference. A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
+         */
+        public Profile getProfileTarget() { 
+          return this.profileTarget;
+        }
+
+        /**
+         * @param value {@link #profile} (The actual object that is the target of the reference. A specification of the profile that describes the solution's support for the resource, including any constraints on cardinality, bindings, lengths or other limitations.)
+         */
+        public ConformanceRestResourceComponent setProfileTarget(Profile value) { 
+          this.profileTarget = value;
           return this;
         }
 
@@ -1484,7 +1495,6 @@ public class Conformance extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A type of resource exposed via the restful interface.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1526,6 +1536,8 @@ public class Conformance extends Resource {
          * Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
         protected String_ documentation;
+
+        private static final long serialVersionUID = 1478000140L;
 
       public ConformanceRestResourceOperationComponent() {
         super();
@@ -1604,7 +1616,6 @@ public class Conformance extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Coded identifier of the operation, supported by the system resource.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -1650,6 +1661,8 @@ public class Conformance extends Resource {
          * Chained names supported.
          */
         protected List<String_> chain = new ArrayList<String_>();
+
+        private static final long serialVersionUID = 296524510L;
 
       public ConformanceRestResourceSearchParamComponent() {
         super();
@@ -1851,7 +1864,6 @@ public class Conformance extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the search parameter used in the interface.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -1889,6 +1901,8 @@ public class Conformance extends Resource {
          * Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
         protected String_ documentation;
+
+        private static final long serialVersionUID = 234115255L;
 
       public ConformanceRestOperationComponent() {
         super();
@@ -1967,7 +1981,6 @@ public class Conformance extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A coded identifier of the operation, supported by the system.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2003,6 +2016,8 @@ public class Conformance extends Resource {
          * Identifies which of the parameters for the named query are supported.
          */
         protected List<ConformanceRestResourceSearchParamComponent> parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
+
+        private static final long serialVersionUID = 853016812L;
 
       public ConformanceRestQueryComponent() {
         super();
@@ -2131,7 +2146,6 @@ public class Conformance extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of a query, which is used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2173,6 +2187,8 @@ public class Conformance extends Resource {
          * A description of the solution's support for an event at this end point.
          */
         protected List<ConformanceMessagingEventComponent> event = new ArrayList<ConformanceMessagingEventComponent>();
+
+        private static final long serialVersionUID = -1576769754L;
 
       public ConformanceMessagingComponent() {
         super();
@@ -2303,7 +2319,6 @@ public class Conformance extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("endpoint", "uri", "An address to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
@@ -2357,14 +2372,26 @@ public class Conformance extends Resource {
         protected ResourceReference request;
 
         /**
+         * The actual object that is the target of the reference (Information about the request for this event.)
+         */
+        protected Profile requestTarget;
+
+        /**
          * Information about the response for this event.
          */
         protected ResourceReference response;
 
         /**
+         * The actual object that is the target of the reference (Information about the response for this event.)
+         */
+        protected Profile responseTarget;
+
+        /**
          * Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
          */
         protected String_ documentation;
+
+        private static final long serialVersionUID = 1849031993L;
 
       public ConformanceMessagingEventComponent() {
         super();
@@ -2527,6 +2554,21 @@ public class Conformance extends Resource {
         }
 
         /**
+         * @return {@link #request} (The actual object that is the target of the reference. Information about the request for this event.)
+         */
+        public Profile getRequestTarget() { 
+          return this.requestTarget;
+        }
+
+        /**
+         * @param value {@link #request} (The actual object that is the target of the reference. Information about the request for this event.)
+         */
+        public ConformanceMessagingEventComponent setRequestTarget(Profile value) { 
+          this.requestTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #response} (Information about the response for this event.)
          */
         public ResourceReference getResponse() { 
@@ -2538,6 +2580,21 @@ public class Conformance extends Resource {
          */
         public ConformanceMessagingEventComponent setResponse(ResourceReference value) { 
           this.response = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #response} (The actual object that is the target of the reference. Information about the response for this event.)
+         */
+        public Profile getResponseTarget() { 
+          return this.responseTarget;
+        }
+
+        /**
+         * @param value {@link #response} (The actual object that is the target of the reference. Information about the response for this event.)
+         */
+        public ConformanceMessagingEventComponent setResponseTarget(Profile value) { 
+          this.responseTarget = value;
           return this;
         }
 
@@ -2577,7 +2634,6 @@ public class Conformance extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "A coded identifier of a supported messaging event.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2622,6 +2678,13 @@ public class Conformance extends Resource {
          * A constraint on a resource used in the document.
          */
         protected ResourceReference profile;
+
+        /**
+         * The actual object that is the target of the reference (A constraint on a resource used in the document.)
+         */
+        protected Profile profileTarget;
+
+        private static final long serialVersionUID = -1485733893L;
 
       public ConformanceDocumentComponent() {
         super();
@@ -2716,7 +2779,21 @@ public class Conformance extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #profile} (The actual object that is the target of the reference. A constraint on a resource used in the document.)
+         */
+        public Profile getProfileTarget() { 
+          return this.profileTarget;
+        }
+
+        /**
+         * @param value {@link #profile} (The actual object that is the target of the reference. A constraint on a resource used in the document.)
+         */
+        public ConformanceDocumentComponent setProfileTarget(Profile value) { 
+          this.profileTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Mode of this document declaration - whether application is producer or consumer.", 0, java.lang.Integer.MAX_VALUE, mode));
@@ -2808,6 +2885,11 @@ public class Conformance extends Resource {
      * A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.
      */
     protected List<ResourceReference> profile = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
+     */
+    protected List<Profile> profileTarget = new ArrayList<Profile>();
+
 
     /**
      * A definition of the restful capabilities of the solution, if any.
@@ -2823,6 +2905,8 @@ public class Conformance extends Resource {
      * A document definition.
      */
     protected List<ConformanceDocumentComponent> document = new ArrayList<ConformanceDocumentComponent>();
+
+    private static final long serialVersionUID = -1878231005L;
 
     public Conformance() {
       super();
@@ -3272,6 +3356,23 @@ public class Conformance extends Resource {
     }
 
     /**
+     * @return {@link #profile} (The actual objects that are the target of the reference. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
+     */
+    public List<Profile> getProfileTarget() { 
+      return this.profileTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #profile} (Add an actual object that is the target of the reference. A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
+     */
+    public Profile addProfileTarget() { 
+      Profile r = new Profile();
+      this.profileTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #rest} (A definition of the restful capabilities of the solution, if any.)
      */
     public List<ConformanceRestComponent> getRest() { 
@@ -3322,7 +3423,6 @@ public class Conformance extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this conformance statement when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));

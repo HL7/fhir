@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -73,7 +73,6 @@ public class SecurityEvent extends Resource {
     }
 
   public static class SecurityEventActionEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -90,7 +89,6 @@ public class SecurityEvent extends Resource {
           return SecurityEventAction.E;
         throw new Exception("Unknown SecurityEventAction code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SecurityEventAction.C)
         return "C";
@@ -137,7 +135,6 @@ public class SecurityEvent extends Resource {
     }
 
   public static class SecurityEventOutcomeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -152,7 +149,6 @@ public class SecurityEvent extends Resource {
           return SecurityEventOutcome._12;
         throw new Exception("Unknown SecurityEventOutcome code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SecurityEventOutcome._0)
         return "0";
@@ -201,7 +197,6 @@ public class SecurityEvent extends Resource {
     }
 
   public static class NetworkTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -218,7 +213,6 @@ public class SecurityEvent extends Resource {
           return NetworkType._5;
         throw new Exception("Unknown NetworkType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NetworkType._1)
         return "1";
@@ -265,7 +259,6 @@ public class SecurityEvent extends Resource {
     }
 
   public static class ObjectTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -280,7 +273,6 @@ public class SecurityEvent extends Resource {
           return ObjectType._4;
         throw new Exception("Unknown ObjectType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObjectType._1)
         return "1";
@@ -405,7 +397,6 @@ public class SecurityEvent extends Resource {
     }
 
   public static class ObjectRoleEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -460,7 +451,6 @@ public class SecurityEvent extends Resource {
           return ObjectRole._24;
         throw new Exception("Unknown ObjectRole code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObjectRole._1)
         return "1";
@@ -589,7 +579,6 @@ public class SecurityEvent extends Resource {
     }
 
   public static class ObjectLifecycleEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -626,7 +615,6 @@ public class SecurityEvent extends Resource {
           return ObjectLifecycle._15;
         throw new Exception("Unknown ObjectLifecycle code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObjectLifecycle._1)
         return "1";
@@ -692,6 +680,8 @@ public class SecurityEvent extends Resource {
          * A free text description of the outcome of the event.
          */
         protected String_ outcomeDesc;
+
+        private static final long serialVersionUID = -396992819L;
 
       public SecurityEventEventComponent() {
         super();
@@ -875,7 +865,6 @@ public class SecurityEvent extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Identifier for a family of the event.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -913,6 +902,11 @@ public class SecurityEvent extends Resource {
         protected ResourceReference reference;
 
         /**
+         * The actual object that is the target of the reference (Direct reference to a resource that identifies the participant.)
+         */
+        protected Resource referenceTarget;
+
+        /**
          * Unique identifier for the user actively participating in the event.
          */
         protected String_ userId;
@@ -941,6 +935,8 @@ public class SecurityEvent extends Resource {
          * Logical network location for application activity, if the activity has a network location.
          */
         protected SecurityEventParticipantNetworkComponent network;
+
+        private static final long serialVersionUID = 274270822L;
 
       public SecurityEventParticipantComponent() {
         super();
@@ -980,6 +976,21 @@ public class SecurityEvent extends Resource {
          */
         public SecurityEventParticipantComponent setReference(ResourceReference value) { 
           this.reference = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reference} (The actual object that is the target of the reference. Direct reference to a resource that identifies the participant.)
+         */
+        public Resource getReferenceTarget() { 
+          return this.referenceTarget;
+        }
+
+        /**
+         * @param value {@link #reference} (The actual object that is the target of the reference. Direct reference to a resource that identifies the participant.)
+         */
+        public SecurityEventParticipantComponent setReferenceTarget(Resource value) { 
+          this.referenceTarget = value;
           return this;
         }
 
@@ -1153,7 +1164,6 @@ public class SecurityEvent extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
@@ -1193,6 +1203,8 @@ public class SecurityEvent extends Resource {
          * An identifier for the type of network access point that originated the audit event.
          */
         protected Enumeration<NetworkType> type;
+
+        private static final long serialVersionUID = -725471546L;
 
       public SecurityEventParticipantNetworkComponent() {
         super();
@@ -1270,7 +1282,6 @@ public class SecurityEvent extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "string", "An identifier for the network access point of the user device for the audit event.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1301,6 +1312,8 @@ public class SecurityEvent extends Resource {
          * Code specifying the type of source where event originated.
          */
         protected List<Coding> type = new ArrayList<Coding>();
+
+        private static final long serialVersionUID = 107583831L;
 
       public SecurityEventSourceComponent() {
         super();
@@ -1396,7 +1409,6 @@ public class SecurityEvent extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("site", "string", "Logical source location within the healthcare enterprise network.", 0, java.lang.Integer.MAX_VALUE, site));
@@ -1426,6 +1438,11 @@ public class SecurityEvent extends Resource {
          * Identifies a specific instance of the participant object. The reference should always be version specific.
          */
         protected ResourceReference reference;
+
+        /**
+         * The actual object that is the target of the reference (Identifies a specific instance of the participant object. The reference should always be version specific.)
+         */
+        protected Resource referenceTarget;
 
         /**
          * Object type being audited.
@@ -1467,6 +1484,8 @@ public class SecurityEvent extends Resource {
          */
         protected List<SecurityEventObjectDetailComponent> detail = new ArrayList<SecurityEventObjectDetailComponent>();
 
+        private static final long serialVersionUID = 545577037L;
+
       public SecurityEventObjectComponent() {
         super();
       }
@@ -1498,6 +1517,21 @@ public class SecurityEvent extends Resource {
          */
         public SecurityEventObjectComponent setReference(ResourceReference value) { 
           this.reference = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #reference} (The actual object that is the target of the reference. Identifies a specific instance of the participant object. The reference should always be version specific.)
+         */
+        public Resource getReferenceTarget() { 
+          return this.referenceTarget;
+        }
+
+        /**
+         * @param value {@link #reference} (The actual object that is the target of the reference. Identifies a specific instance of the participant object. The reference should always be version specific.)
+         */
+        public SecurityEventObjectComponent setReferenceTarget(Resource value) { 
+          this.referenceTarget = value;
           return this;
         }
 
@@ -1749,7 +1783,6 @@ public class SecurityEvent extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifies a specific instance of the participant object. The reference should always be version specific.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1793,6 +1826,8 @@ public class SecurityEvent extends Resource {
          * Property value.
          */
         protected Base64Binary value;
+
+        private static final long serialVersionUID = -1973532085L;
 
       public SecurityEventObjectDetailComponent() {
         super();
@@ -1868,7 +1903,6 @@ public class SecurityEvent extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "string", "Name of the property.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -1903,6 +1937,8 @@ public class SecurityEvent extends Resource {
      * Specific instances of data or objects that have been accessed.
      */
     protected List<SecurityEventObjectComponent> object = new ArrayList<SecurityEventObjectComponent>();
+
+    private static final long serialVersionUID = -216029818L;
 
     public SecurityEvent() {
       super();
@@ -1978,7 +2014,6 @@ public class SecurityEvent extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("event", "", "Identifies the name, action type, time, and disposition of the audited event.", 0, java.lang.Integer.MAX_VALUE, event));

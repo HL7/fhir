@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -73,11 +73,23 @@ public class ImmunizationRecommendation extends Resource {
          * Immunization event history that supports the status and recommendation.
          */
         protected List<ResourceReference> supportingImmunization = new ArrayList<ResourceReference>();
+        /**
+         * The actual objects that are the target of the reference (Immunization event history that supports the status and recommendation.)
+         */
+        protected List<Immunization> supportingImmunizationTarget = new ArrayList<Immunization>();
+
 
         /**
          * Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.
          */
         protected List<ResourceReference> supportingPatientInformation = new ArrayList<ResourceReference>();
+        /**
+         * The actual objects that are the target of the reference (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
+         */
+        protected List<Resource> supportingPatientInformationTarget = new ArrayList<Resource>();
+
+
+        private static final long serialVersionUID = -143636358L;
 
       public ImmunizationRecommendationRecommendationComponent() {
         super();
@@ -238,6 +250,23 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
+         * @return {@link #supportingImmunization} (The actual objects that are the target of the reference. Immunization event history that supports the status and recommendation.)
+         */
+        public List<Immunization> getSupportingImmunizationTarget() { 
+          return this.supportingImmunizationTarget;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #supportingImmunization} (Add an actual object that is the target of the reference. Immunization event history that supports the status and recommendation.)
+         */
+        public Immunization addSupportingImmunizationTarget() { 
+          Immunization r = new Immunization();
+          this.supportingImmunizationTarget.add(r);
+          return r;
+        }
+
+        /**
          * @return {@link #supportingPatientInformation} (Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
          */
         public List<ResourceReference> getSupportingPatientInformation() { 
@@ -254,7 +283,13 @@ public class ImmunizationRecommendation extends Resource {
           return t;
         }
 
-        @Override
+        /**
+         * @return {@link #supportingPatientInformation} (The actual objects that are the target of the reference. Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.)
+         */
+        public List<Resource> getSupportingPatientInformationTarget() { 
+          return this.supportingPatientInformationTarget;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("date", "dateTime", "The date the immunization recommendation was created.", 0, java.lang.Integer.MAX_VALUE, date));
@@ -298,6 +333,8 @@ public class ImmunizationRecommendation extends Resource {
          * Date recommendation.
          */
         protected DateTime value;
+
+        private static final long serialVersionUID = -647492960L;
 
       public ImmunizationRecommendationRecommendationDateCriterionComponent() {
         super();
@@ -356,7 +393,6 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Date classification of recommendation - e.g. earliest date to give, latest date to give, etc.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -389,9 +425,16 @@ public class ImmunizationRecommendation extends Resource {
         protected ResourceReference authority;
 
         /**
+         * The actual object that is the target of the reference (Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
+        protected Organization authorityTarget;
+
+        /**
          * One possible path to achieve presumed immunity against a disease - within the context of an authority.
          */
         protected String_ series;
+
+        private static final long serialVersionUID = -732744530L;
 
       public ImmunizationRecommendationRecommendationProtocolComponent() {
         super();
@@ -485,6 +528,21 @@ public class ImmunizationRecommendation extends Resource {
         }
 
         /**
+         * @return {@link #authority} (The actual object that is the target of the reference. Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
+        public Organization getAuthorityTarget() { 
+          return this.authorityTarget;
+        }
+
+        /**
+         * @param value {@link #authority} (The actual object that is the target of the reference. Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
+        public ImmunizationRecommendationRecommendationProtocolComponent setAuthorityTarget(Organization value) { 
+          this.authorityTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #series} (One possible path to achieve presumed immunity against a disease - within the context of an authority.)
          */
         public String_ getSeries() { 
@@ -520,7 +578,6 @@ public class ImmunizationRecommendation extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("doseSequence", "integer", "Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.", 0, java.lang.Integer.MAX_VALUE, doseSequence));
@@ -551,9 +608,16 @@ public class ImmunizationRecommendation extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The patient who is the subject of the profile.)
+     */
+    protected Patient subjectTarget;
+
+    /**
      * Vaccine administration recommendations.
      */
     protected List<ImmunizationRecommendationRecommendationComponent> recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
+
+    private static final long serialVersionUID = -1986363579L;
 
     public ImmunizationRecommendation() {
       super();
@@ -597,6 +661,21 @@ public class ImmunizationRecommendation extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The patient who is the subject of the profile.)
+     */
+    public Patient getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The patient who is the subject of the profile.)
+     */
+    public ImmunizationRecommendation setSubjectTarget(Patient value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #recommendation} (Vaccine administration recommendations.)
      */
     public List<ImmunizationRecommendationRecommendationComponent> getRecommendation() { 
@@ -613,7 +692,6 @@ public class ImmunizationRecommendation extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier assigned to this particular recommendation record.", 0, java.lang.Integer.MAX_VALUE, identifier));

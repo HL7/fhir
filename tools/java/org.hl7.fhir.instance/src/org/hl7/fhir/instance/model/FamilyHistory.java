@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -68,6 +68,8 @@ public class FamilyHistory extends Resource {
          * The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
          */
         protected List<FamilyHistoryRelationConditionComponent> condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
+
+        private static final long serialVersionUID = 482918149L;
 
       public FamilyHistoryRelationComponent() {
         super();
@@ -212,7 +214,6 @@ public class FamilyHistory extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "This will either be a name or a description.  E.g. 'Aunt Susan', 'my cousin with the red hair'.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -258,6 +259,8 @@ public class FamilyHistory extends Resource {
          * An area where general notes can be placed about this specific condition.
          */
         protected String_ note;
+
+        private static final long serialVersionUID = 196636125L;
 
       public FamilyHistoryRelationConditionComponent() {
         super();
@@ -349,7 +352,6 @@ public class FamilyHistory extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -380,6 +382,11 @@ public class FamilyHistory extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The person who this history concerns.)
+     */
+    protected Patient subjectTarget;
+
+    /**
      * Conveys information about family history not specific to individual relations.
      */
     protected String_ note;
@@ -388,6 +395,8 @@ public class FamilyHistory extends Resource {
      * The related person. Each FamilyHistory resource contains the entire family history for a single person.
      */
     protected List<FamilyHistoryRelationComponent> relation = new ArrayList<FamilyHistoryRelationComponent>();
+
+    private static final long serialVersionUID = -1296086010L;
 
     public FamilyHistory() {
       super();
@@ -427,6 +436,21 @@ public class FamilyHistory extends Resource {
      */
     public FamilyHistory setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The person who this history concerns.)
+     */
+    public Patient getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The person who this history concerns.)
+     */
+    public FamilyHistory setSubjectTarget(Patient value) { 
+      this.subjectTarget = value;
       return this;
     }
 
@@ -483,7 +507,6 @@ public class FamilyHistory extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this family history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

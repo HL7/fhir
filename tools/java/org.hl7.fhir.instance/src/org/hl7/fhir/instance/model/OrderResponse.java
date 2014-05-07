@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -89,7 +89,6 @@ public class OrderResponse extends Resource {
     }
 
   public static class OrderOutcomeCodeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -114,7 +113,6 @@ public class OrderResponse extends Resource {
           return OrderOutcomeCode.complete;
         throw new Exception("Unknown OrderOutcomeCode code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == OrderOutcomeCode.pending)
         return "pending";
@@ -149,6 +147,11 @@ public class OrderResponse extends Resource {
     protected ResourceReference request;
 
     /**
+     * The actual object that is the target of the reference (A reference to the order that this is in response to.)
+     */
+    protected Order requestTarget;
+
+    /**
      * The date and time at which this order response was made (created/posted).
      */
     protected DateTime date;
@@ -157,6 +160,11 @@ public class OrderResponse extends Resource {
      * The person, organization, or device credited with making the response.
      */
     protected ResourceReference who;
+
+    /**
+     * The actual object that is the target of the reference (The person, organization, or device credited with making the response.)
+     */
+    protected Resource whoTarget;
 
     /**
      * A reference to an authority policy that is the reason for the response. Usually this is used when the order is rejected, to provide a reason for rejection.
@@ -177,6 +185,13 @@ public class OrderResponse extends Resource {
      * Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.
      */
     protected List<ResourceReference> fulfillment = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
+     */
+    protected List<Resource> fulfillmentTarget = new ArrayList<Resource>();
+
+
+    private static final long serialVersionUID = 834951178L;
 
     public OrderResponse() {
       super();
@@ -217,6 +232,21 @@ public class OrderResponse extends Resource {
      */
     public OrderResponse setRequest(ResourceReference value) { 
       this.request = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #request} (The actual object that is the target of the reference. A reference to the order that this is in response to.)
+     */
+    public Order getRequestTarget() { 
+      return this.requestTarget;
+    }
+
+    /**
+     * @param value {@link #request} (The actual object that is the target of the reference. A reference to the order that this is in response to.)
+     */
+    public OrderResponse setRequestTarget(Order value) { 
+      this.requestTarget = value;
       return this;
     }
 
@@ -268,6 +298,21 @@ public class OrderResponse extends Resource {
      */
     public OrderResponse setWho(ResourceReference value) { 
       this.who = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #who} (The actual object that is the target of the reference. The person, organization, or device credited with making the response.)
+     */
+    public Resource getWhoTarget() { 
+      return this.whoTarget;
+    }
+
+    /**
+     * @param value {@link #who} (The actual object that is the target of the reference. The person, organization, or device credited with making the response.)
+     */
+    public OrderResponse setWhoTarget(Resource value) { 
+      this.whoTarget = value;
       return this;
     }
 
@@ -371,7 +416,13 @@ public class OrderResponse extends Resource {
       return t;
     }
 
-      @Override
+    /**
+     * @return {@link #fulfillment} (The actual objects that are the target of the reference. Links to resources that provide details of the outcome of performing the order. E.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
+     */
+    public List<Resource> getFulfillmentTarget() { 
+      return this.fulfillmentTarget;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -54,14 +54,26 @@ public class Other extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
+     */
+    protected Resource subjectTarget;
+
+    /**
      * Indicates who was responsible for creating the resource instance.
      */
     protected ResourceReference author;
 
     /**
+     * The actual object that is the target of the reference (Indicates who was responsible for creating the resource instance.)
+     */
+    protected Resource authorTarget;
+
+    /**
      * Identifies when the resource was first created.
      */
     protected Date created;
+
+    private static final long serialVersionUID = -1284008922L;
 
     public Other() {
       super();
@@ -120,6 +132,21 @@ public class Other extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
+     */
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. Identifies the patient, practitioner, device or any other resource that is the "focus" of this resoruce.)
+     */
+    public Other setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #author} (Indicates who was responsible for creating the resource instance.)
      */
     public ResourceReference getAuthor() { 
@@ -131,6 +158,21 @@ public class Other extends Resource {
      */
     public Other setAuthor(ResourceReference value) { 
       this.author = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #author} (The actual object that is the target of the reference. Indicates who was responsible for creating the resource instance.)
+     */
+    public Resource getAuthorTarget() { 
+      return this.authorTarget;
+    }
+
+    /**
+     * @param value {@link #author} (The actual object that is the target of the reference. Indicates who was responsible for creating the resource instance.)
+     */
+    public Other setAuthorTarget(Resource value) { 
+      this.authorTarget = value;
       return this;
     }
 
@@ -170,7 +212,6 @@ public class Other extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the resource for business purposes, outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));

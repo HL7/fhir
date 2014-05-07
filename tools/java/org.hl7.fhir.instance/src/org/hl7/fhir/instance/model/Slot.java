@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -69,7 +69,6 @@ public class Slot extends Resource {
     }
 
   public static class SlotstatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,7 +83,6 @@ public class Slot extends Resource {
           return Slotstatus.bUSYTENTATIVE;
         throw new Exception("Unknown Slotstatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Slotstatus.bUSY)
         return "BUSY";
@@ -114,6 +112,11 @@ public class Slot extends Resource {
     protected ResourceReference availability;
 
     /**
+     * The actual object that is the target of the reference (The availability resource that this slot defines an interval of status information.)
+     */
+    protected Availability availabilityTarget;
+
+    /**
      * BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.
      */
     protected Enumeration<Slotstatus> freeBusyType;
@@ -131,7 +134,7 @@ public class Slot extends Resource {
     /**
      * This slot has already been overbooked, appointments are unlikely to be accepted for this time.
      */
-    protected Boolean overboooked;
+    protected Boolean overbooked;
 
     /**
      * Comments on the slot to describe any extended information. Such as custom constraints on the slot.
@@ -142,6 +145,8 @@ public class Slot extends Resource {
      * When this slot was created, or last revised.
      */
     protected DateTime lastModified;
+
+    private static final long serialVersionUID = 2143293374L;
 
     public Slot() {
       super();
@@ -199,6 +204,21 @@ public class Slot extends Resource {
      */
     public Slot setAvailability(ResourceReference value) { 
       this.availability = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #availability} (The actual object that is the target of the reference. The availability resource that this slot defines an interval of status information.)
+     */
+    public Availability getAvailabilityTarget() { 
+      return this.availabilityTarget;
+    }
+
+    /**
+     * @param value {@link #availability} (The actual object that is the target of the reference. The availability resource that this slot defines an interval of status information.)
+     */
+    public Slot setAvailabilityTarget(Availability value) { 
+      this.availabilityTarget = value;
       return this;
     }
 
@@ -299,37 +319,37 @@ public class Slot extends Resource {
     }
 
     /**
-     * @return {@link #overboooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.)
+     * @return {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.)
      */
-    public Boolean getOverboooked() { 
-      return this.overboooked;
+    public Boolean getOverbooked() { 
+      return this.overbooked;
     }
 
     /**
-     * @param value {@link #overboooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.)
+     * @param value {@link #overbooked} (This slot has already been overbooked, appointments are unlikely to be accepted for this time.)
      */
-    public Slot setOverboooked(Boolean value) { 
-      this.overboooked = value;
+    public Slot setOverbooked(Boolean value) { 
+      this.overbooked = value;
       return this;
     }
 
     /**
      * @return This slot has already been overbooked, appointments are unlikely to be accepted for this time.
      */
-    public boolean getOverboookedSimple() { 
-      return this.overboooked == null ? false : this.overboooked.getValue();
+    public boolean getOverbookedSimple() { 
+      return this.overbooked == null ? false : this.overbooked.getValue();
     }
 
     /**
      * @param value This slot has already been overbooked, appointments are unlikely to be accepted for this time.
      */
-    public Slot setOverboookedSimple(boolean value) { 
+    public Slot setOverbookedSimple(boolean value) { 
       if (value == false)
-        this.overboooked = null;
+        this.overbooked = null;
       else {
-        if (this.overboooked == null)
-          this.overboooked = new Boolean();
-        this.overboooked.setValue(value);
+        if (this.overbooked == null)
+          this.overbooked = new Boolean();
+        this.overbooked.setValue(value);
       }
       return this;
     }
@@ -406,7 +426,6 @@ public class Slot extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -415,7 +434,7 @@ public class Slot extends Resource {
         childrenList.add(new Property("freeBusyType", "code", "BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.", 0, java.lang.Integer.MAX_VALUE, freeBusyType));
         childrenList.add(new Property("start", "instant", "Date/Time that the slot is to begin.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the slot is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
-        childrenList.add(new Property("overboooked", "boolean", "This slot has already been overbooked, appointments are unlikely to be accepted for this time.", 0, java.lang.Integer.MAX_VALUE, overboooked));
+        childrenList.add(new Property("overbooked", "boolean", "This slot has already been overbooked, appointments are unlikely to be accepted for this time.", 0, java.lang.Integer.MAX_VALUE, overbooked));
         childrenList.add(new Property("comment", "string", "Comments on the slot to describe any extended information. Such as custom constraints on the slot.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("lastModified", "dateTime", "When this slot was created, or last revised.", 0, java.lang.Integer.MAX_VALUE, lastModified));
       }
@@ -430,7 +449,7 @@ public class Slot extends Resource {
         dst.freeBusyType = freeBusyType == null ? null : freeBusyType.copy();
         dst.start = start == null ? null : start.copy();
         dst.end = end == null ? null : end.copy();
-        dst.overboooked = overboooked == null ? null : overboooked.copy();
+        dst.overbooked = overbooked == null ? null : overbooked.copy();
         dst.comment = comment == null ? null : comment.copy();
         dst.lastModified = lastModified == null ? null : lastModified.copy();
         return dst;

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -48,6 +48,8 @@ public class Immunization extends Resource {
          * Refusal or exemption reasons.
          */
         protected List<CodeableConcept> refusalReason = new ArrayList<CodeableConcept>();
+
+        private static final long serialVersionUID = -945852082L;
 
       public ImmunizationExplanationComponent() {
         super();
@@ -87,7 +89,6 @@ public class Immunization extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("reason", "CodeableConcept", "Reasons why a vaccine was administered.", 0, java.lang.Integer.MAX_VALUE, reason));
@@ -119,9 +120,16 @@ public class Immunization extends Resource {
         protected ResourceReference detail;
 
         /**
+         * The actual object that is the target of the reference (Details of the reaction.)
+         */
+        protected Resource detailTarget;
+
+        /**
          * Self-reported indicator.
          */
         protected Boolean reported;
+
+        private static final long serialVersionUID = 2040782698L;
 
       public ImmunizationReactionComponent() {
         super();
@@ -179,6 +187,21 @@ public class Immunization extends Resource {
         }
 
         /**
+         * @return {@link #detail} (The actual object that is the target of the reference. Details of the reaction.)
+         */
+        public Resource getDetailTarget() { 
+          return this.detailTarget;
+        }
+
+        /**
+         * @param value {@link #detail} (The actual object that is the target of the reference. Details of the reaction.)
+         */
+        public ImmunizationReactionComponent setDetailTarget(Resource value) { 
+          this.detailTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #reported} (Self-reported indicator.)
          */
         public Boolean getReported() { 
@@ -214,7 +237,6 @@ public class Immunization extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("date", "dateTime", "Date of reaction to the immunization.", 0, java.lang.Integer.MAX_VALUE, date));
@@ -249,6 +271,11 @@ public class Immunization extends Resource {
         protected ResourceReference authority;
 
         /**
+         * The actual object that is the target of the reference (Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
+        protected Organization authorityTarget;
+
+        /**
          * One possible path to achieve presumed immunity against a disease - within the context of an authority.
          */
         protected String_ series;
@@ -272,6 +299,8 @@ public class Immunization extends Resource {
          * Provides an explanation as to why a immunization event should or should not count against the protocol.
          */
         protected CodeableConcept doseStatusReason;
+
+        private static final long serialVersionUID = 1350034714L;
 
       public ImmunizationVaccinationProtocolComponent() {
         super();
@@ -364,6 +393,21 @@ public class Immunization extends Resource {
          */
         public ImmunizationVaccinationProtocolComponent setAuthority(ResourceReference value) { 
           this.authority = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #authority} (The actual object that is the target of the reference. Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
+        public Organization getAuthorityTarget() { 
+          return this.authorityTarget;
+        }
+
+        /**
+         * @param value {@link #authority} (The actual object that is the target of the reference. Indicates the authority who published the protocol?  E.g. ACIP.)
+         */
+        public ImmunizationVaccinationProtocolComponent setAuthorityTarget(Organization value) { 
+          this.authorityTarget = value;
           return this;
         }
 
@@ -484,7 +528,6 @@ public class Immunization extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("doseSequence", "integer", "Nominal position in a series.", 0, java.lang.Integer.MAX_VALUE, doseSequence));
@@ -533,6 +576,11 @@ public class Immunization extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The patient to whom the vaccine was to be administered.)
+     */
+    protected Patient subjectTarget;
+
+    /**
      * Indicates if the vaccination was refused.
      */
     protected Boolean refusedIndicator;
@@ -548,9 +596,19 @@ public class Immunization extends Resource {
     protected ResourceReference performer;
 
     /**
+     * The actual object that is the target of the reference (Clinician who administered the vaccine.)
+     */
+    protected Practitioner performerTarget;
+
+    /**
      * Clinician who ordered the vaccination.
      */
     protected ResourceReference requester;
+
+    /**
+     * The actual object that is the target of the reference (Clinician who ordered the vaccination.)
+     */
+    protected Practitioner requesterTarget;
 
     /**
      * Name of vaccine manufacturer.
@@ -558,9 +616,19 @@ public class Immunization extends Resource {
     protected ResourceReference manufacturer;
 
     /**
+     * The actual object that is the target of the reference (Name of vaccine manufacturer.)
+     */
+    protected Organization manufacturerTarget;
+
+    /**
      * The service delivery location where the vaccine administration occurred.
      */
     protected ResourceReference location;
+
+    /**
+     * The actual object that is the target of the reference (The service delivery location where the vaccine administration occurred.)
+     */
+    protected Location locationTarget;
 
     /**
      * Lot number of the  vaccine product.
@@ -601,6 +669,8 @@ public class Immunization extends Resource {
      * Contains information about the protocol(s) under which the vaccine was administered.
      */
     protected List<ImmunizationVaccinationProtocolComponent> vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
+
+    private static final long serialVersionUID = -2019410463L;
 
     public Immunization() {
       super();
@@ -695,6 +765,21 @@ public class Immunization extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The patient to whom the vaccine was to be administered.)
+     */
+    public Patient getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The patient to whom the vaccine was to be administered.)
+     */
+    public Immunization setSubjectTarget(Patient value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #refusedIndicator} (Indicates if the vaccination was refused.)
      */
     public Boolean getRefusedIndicator() { 
@@ -774,6 +859,21 @@ public class Immunization extends Resource {
     }
 
     /**
+     * @return {@link #performer} (The actual object that is the target of the reference. Clinician who administered the vaccine.)
+     */
+    public Practitioner getPerformerTarget() { 
+      return this.performerTarget;
+    }
+
+    /**
+     * @param value {@link #performer} (The actual object that is the target of the reference. Clinician who administered the vaccine.)
+     */
+    public Immunization setPerformerTarget(Practitioner value) { 
+      this.performerTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #requester} (Clinician who ordered the vaccination.)
      */
     public ResourceReference getRequester() { 
@@ -785,6 +885,21 @@ public class Immunization extends Resource {
      */
     public Immunization setRequester(ResourceReference value) { 
       this.requester = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #requester} (The actual object that is the target of the reference. Clinician who ordered the vaccination.)
+     */
+    public Practitioner getRequesterTarget() { 
+      return this.requesterTarget;
+    }
+
+    /**
+     * @param value {@link #requester} (The actual object that is the target of the reference. Clinician who ordered the vaccination.)
+     */
+    public Immunization setRequesterTarget(Practitioner value) { 
+      this.requesterTarget = value;
       return this;
     }
 
@@ -804,6 +919,21 @@ public class Immunization extends Resource {
     }
 
     /**
+     * @return {@link #manufacturer} (The actual object that is the target of the reference. Name of vaccine manufacturer.)
+     */
+    public Organization getManufacturerTarget() { 
+      return this.manufacturerTarget;
+    }
+
+    /**
+     * @param value {@link #manufacturer} (The actual object that is the target of the reference. Name of vaccine manufacturer.)
+     */
+    public Immunization setManufacturerTarget(Organization value) { 
+      this.manufacturerTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #location} (The service delivery location where the vaccine administration occurred.)
      */
     public ResourceReference getLocation() { 
@@ -815,6 +945,21 @@ public class Immunization extends Resource {
      */
     public Immunization setLocation(ResourceReference value) { 
       this.location = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #location} (The actual object that is the target of the reference. The service delivery location where the vaccine administration occurred.)
+     */
+    public Location getLocationTarget() { 
+      return this.locationTarget;
+    }
+
+    /**
+     * @param value {@link #location} (The actual object that is the target of the reference. The service delivery location where the vaccine administration occurred.)
+     */
+    public Immunization setLocationTarget(Location value) { 
+      this.locationTarget = value;
       return this;
     }
 
@@ -984,7 +1129,6 @@ public class Immunization extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A unique identifier assigned to this adverse reaction record.", 0, java.lang.Integer.MAX_VALUE, identifier));

@@ -54,7 +54,8 @@ public class FHIRSimpleClientTest {
 	private boolean logResource = true;
 	private boolean useProxy = true;
 	
-	private static void configureForFurore() {
+	@SuppressWarnings("unused")
+  private static void configureForFurore() {
 		connectUrl = "http://spark.furore.com/fhir/";
 		//connectUrl = "http://fhirlab.furore.com/fhir";
 		userAgent = "Spark.Service";
@@ -70,8 +71,8 @@ public class FHIRSimpleClientTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//configureForHealthIntersection();
-		configureForFurore();
+		configureForHealthIntersection();
+		//configureForFurore();
 		testDateAndTime = new DateAndTime("2008-08-08");
 	}
 
@@ -163,7 +164,7 @@ public class FHIRSimpleClientTest {
 			testClient.setPreferredResourceFormat(ResourceFormat.RESOURCE_JSON);
 			Conformance stmt = testClient.getConformanceStatement(false);
 			assertEquals(userAgent, stmt.getSoftware().getName().getValue());
-			printResourceToSystemOut(stmt, false);
+			printResourceToSystemOut(stmt, true);
 		} catch(Exception e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -239,6 +240,7 @@ public class FHIRSimpleClientTest {
 		String entryVersion = getEntryVersion(result);
 		assertEquals("Patient", resourceType);
 		assertNotNull(resourceId);
+		assertNotNull(entryVersion);
 	}
 	
 	@Test
@@ -247,27 +249,6 @@ public class FHIRSimpleClientTest {
 		AtomEntry<OperationOutcome> result = testClient.create(Patient.class, patientRequest);
 		boolean success = testClient.delete(Patient.class, getEntryId(result));
 		assertTrue(success);
-	}
-	
-	@Test
-	public void testCreateWithErrors() {
-		try {
-			AdverseReaction adverseReaction = new AdverseReaction();
-			adverseReaction.setDateSimple(new DateAndTime("2013-01-10"));
-			AtomEntry<OperationOutcome> result = null;
-			try {
-				result = testClient.create(AdverseReaction.class, adverseReaction);
-			} catch (EFhirClientException e) {
-				assertEquals(1, e.getServerErrors().size());
-				e.printStackTrace();
-			}
-			if(result.getResource() != null && result.getResource().getIssue().size() == 0) {
-				fail();
-			}
-		} catch (ParseException e) {
-			e.printStackTrace();
-			fail();
-		}
 	}
 	
 	@Test
@@ -321,9 +302,25 @@ public class FHIRSimpleClientTest {
 	@Test
 	public void testHistoryForAllResourceTypes() throws Exception {
 		DateAndTime testDate = DateAndTime.now();
-		testDate.add(Calendar.MINUTE, -30);
+		//testDate.add(Calendar.HOUR, -24);
+		Calendar cal = testDate.toCalendar();
+		cal.add(Calendar.HOUR, -24);
+		testDate = new DateAndTime(cal);
 		AtomFeed feed = testClient.history(testDate);
 		assertNotNull(feed);
+		assertTrue(feed.getEntryList().size() > 1);
+	}
+	
+	@Test
+	public void testHistoryForAllResourceTypesWithCount() throws Exception {
+		DateAndTime testDate = DateAndTime.now();
+		testClient.setMaximumRecordCount(5);
+		Calendar cal = testDate.toCalendar();
+		cal.add(Calendar.HOUR, -24);
+		testDate = new DateAndTime(cal);
+		AtomFeed feed = testClient.history(testDate);
+		assertNotNull(feed);
+		System.out.println(feed.getEntryList().size());
 		assertTrue(feed.getEntryList().size() > 1);
 	}
 
@@ -402,6 +399,7 @@ public class FHIRSimpleClientTest {
 			assertNotNull(responseFeed);
 			assert(responseFeed.getEntryList().get(0).getResource() instanceof Patient);
 		}catch(Exception e) {
+			e.printStackTrace();
 			fail();
 		}
 	}
@@ -666,7 +664,8 @@ public class FHIRSimpleClientTest {
 		return conditionCode;
 	}
 	
-	private Condition buildCondition(AtomEntry<Patient> patientEntry) {
+	@SuppressWarnings("unused")
+  private Condition buildCondition(AtomEntry<Patient> patientEntry) {
 		CodeableConcept conditionCode = createCodeableConcept("29530003", "http://snomed.info/id", "Fungal granuloma (disorder)");
 		return buildCondition(patientEntry, conditionCode);
 	}
@@ -758,7 +757,8 @@ public class FHIRSimpleClientTest {
 		return getAtomEntrySelfLink(entry).getResourcePath();
 	}
 	
-	private <T extends Resource> String getResourceId(AtomEntry<T> entry) {
+	@SuppressWarnings("unused")
+  private <T extends Resource> String getResourceId(AtomEntry<T> entry) {
 		return getAtomEntrySelfLink(entry).getId();
 	}
 	

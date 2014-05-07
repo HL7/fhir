@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -69,7 +69,6 @@ public class AllergyIntolerance extends Resource {
     }
 
   public static class CriticalityEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,7 +83,6 @@ public class AllergyIntolerance extends Resource {
           return Criticality.low;
         throw new Exception("Unknown Criticality code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Criticality.fatal)
         return "fatal";
@@ -125,7 +123,6 @@ public class AllergyIntolerance extends Resource {
     }
 
   public static class SensitivitytypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -138,7 +135,6 @@ public class AllergyIntolerance extends Resource {
           return Sensitivitytype.unknown;
         throw new Exception("Unknown Sensitivitytype code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Sensitivitytype.allergy)
         return "allergy";
@@ -181,7 +177,6 @@ public class AllergyIntolerance extends Resource {
     }
 
   public static class SensitivitystatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -196,7 +191,6 @@ public class AllergyIntolerance extends Resource {
           return Sensitivitystatus.resolved;
         throw new Exception("Unknown Sensitivitystatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Sensitivitystatus.suspected)
         return "suspected";
@@ -241,9 +235,19 @@ public class AllergyIntolerance extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The patient who has the allergy or intolerance.)
+     */
+    protected Patient subjectTarget;
+
+    /**
      * Indicates who has responsibility for the record.
      */
     protected ResourceReference recorder;
+
+    /**
+     * The actual object that is the target of the reference (Indicates who has responsibility for the record.)
+     */
+    protected Resource recorderTarget;
 
     /**
      * The substance that causes the sensitivity.
@@ -251,14 +255,31 @@ public class AllergyIntolerance extends Resource {
     protected ResourceReference substance;
 
     /**
+     * The actual object that is the target of the reference (The substance that causes the sensitivity.)
+     */
+    protected Substance substanceTarget;
+
+    /**
      * Reactions associated with the sensitivity.
      */
     protected List<ResourceReference> reaction = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (Reactions associated with the sensitivity.)
+     */
+    protected List<AdverseReaction> reactionTarget = new ArrayList<AdverseReaction>();
+
 
     /**
      * Observations that confirm or refute the sensitivity.
      */
     protected List<ResourceReference> sensitivityTest = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (Observations that confirm or refute the sensitivity.)
+     */
+    protected List<Observation> sensitivityTestTarget = new ArrayList<Observation>();
+
+
+    private static final long serialVersionUID = 943626914L;
 
     public AllergyIntolerance() {
       super();
@@ -441,6 +462,21 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The patient who has the allergy or intolerance.)
+     */
+    public Patient getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The patient who has the allergy or intolerance.)
+     */
+    public AllergyIntolerance setSubjectTarget(Patient value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #recorder} (Indicates who has responsibility for the record.)
      */
     public ResourceReference getRecorder() { 
@@ -456,6 +492,21 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
+     * @return {@link #recorder} (The actual object that is the target of the reference. Indicates who has responsibility for the record.)
+     */
+    public Resource getRecorderTarget() { 
+      return this.recorderTarget;
+    }
+
+    /**
+     * @param value {@link #recorder} (The actual object that is the target of the reference. Indicates who has responsibility for the record.)
+     */
+    public AllergyIntolerance setRecorderTarget(Resource value) { 
+      this.recorderTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #substance} (The substance that causes the sensitivity.)
      */
     public ResourceReference getSubstance() { 
@@ -467,6 +518,21 @@ public class AllergyIntolerance extends Resource {
      */
     public AllergyIntolerance setSubstance(ResourceReference value) { 
       this.substance = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #substance} (The actual object that is the target of the reference. The substance that causes the sensitivity.)
+     */
+    public Substance getSubstanceTarget() { 
+      return this.substanceTarget;
+    }
+
+    /**
+     * @param value {@link #substance} (The actual object that is the target of the reference. The substance that causes the sensitivity.)
+     */
+    public AllergyIntolerance setSubstanceTarget(Substance value) { 
+      this.substanceTarget = value;
       return this;
     }
 
@@ -488,6 +554,23 @@ public class AllergyIntolerance extends Resource {
     }
 
     /**
+     * @return {@link #reaction} (The actual objects that are the target of the reference. Reactions associated with the sensitivity.)
+     */
+    public List<AdverseReaction> getReactionTarget() { 
+      return this.reactionTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #reaction} (Add an actual object that is the target of the reference. Reactions associated with the sensitivity.)
+     */
+    public AdverseReaction addReactionTarget() { 
+      AdverseReaction r = new AdverseReaction();
+      this.reactionTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #sensitivityTest} (Observations that confirm or refute the sensitivity.)
      */
     public List<ResourceReference> getSensitivityTest() { 
@@ -504,7 +587,23 @@ public class AllergyIntolerance extends Resource {
       return t;
     }
 
-      @Override
+    /**
+     * @return {@link #sensitivityTest} (The actual objects that are the target of the reference. Observations that confirm or refute the sensitivity.)
+     */
+    public List<Observation> getSensitivityTestTarget() { 
+      return this.sensitivityTestTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #sensitivityTest} (Add an actual object that is the target of the reference. Observations that confirm or refute the sensitivity.)
+     */
+    public Observation addSensitivityTestTarget() { 
+      Observation r = new Observation();
+      this.sensitivityTestTarget.add(r);
+      return r;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this allergy/intolerance concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

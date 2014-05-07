@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -54,6 +54,11 @@ public class Availability extends Resource {
     protected ResourceReference individual;
 
     /**
+     * The actual object that is the target of the reference (The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.)
+     */
+    protected Resource individualTarget;
+
+    /**
      * The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a "template" for planning outside these dates.
      */
     protected Period planningHorizon;
@@ -67,6 +72,8 @@ public class Availability extends Resource {
      * When this availability was created, or last revised.
      */
     protected DateTime lastModified;
+
+    private static final long serialVersionUID = -1764152897L;
 
     public Availability() {
       super();
@@ -123,6 +130,21 @@ public class Availability extends Resource {
      */
     public Availability setIndividual(ResourceReference value) { 
       this.individual = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #individual} (The actual object that is the target of the reference. The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.)
+     */
+    public Resource getIndividualTarget() { 
+      return this.individualTarget;
+    }
+
+    /**
+     * @param value {@link #individual} (The actual object that is the target of the reference. The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.)
+     */
+    public Availability setIndividualTarget(Resource value) { 
+      this.individualTarget = value;
       return this;
     }
 
@@ -213,7 +235,6 @@ public class Availability extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));

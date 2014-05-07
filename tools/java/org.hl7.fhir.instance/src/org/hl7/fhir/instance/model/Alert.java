@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class Alert extends Resource {
     }
 
   public static class AlertStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class Alert extends Resource {
           return AlertStatus.enteredInError;
         throw new Exception("Unknown AlertStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == AlertStatus.active)
         return "active";
@@ -111,14 +109,26 @@ public class Alert extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The person who this alert concerns.)
+     */
+    protected Patient subjectTarget;
+
+    /**
      * The person or device that created the alert.
      */
     protected ResourceReference author;
 
     /**
+     * The actual object that is the target of the reference (The person or device that created the alert.)
+     */
+    protected Resource authorTarget;
+
+    /**
      * The textual component of the alert to display to the user.
      */
     protected String_ note;
+
+    private static final long serialVersionUID = 1246454451L;
 
     public Alert() {
       super();
@@ -211,6 +221,21 @@ public class Alert extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The person who this alert concerns.)
+     */
+    public Patient getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The person who this alert concerns.)
+     */
+    public Alert setSubjectTarget(Patient value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #author} (The person or device that created the alert.)
      */
     public ResourceReference getAuthor() { 
@@ -222,6 +247,21 @@ public class Alert extends Resource {
      */
     public Alert setAuthor(ResourceReference value) { 
       this.author = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #author} (The actual object that is the target of the reference. The person or device that created the alert.)
+     */
+    public Resource getAuthorTarget() { 
+      return this.authorTarget;
+    }
+
+    /**
+     * @param value {@link #author} (The actual object that is the target of the reference. The person or device that created the alert.)
+     */
+    public Alert setAuthorTarget(Resource value) { 
+      this.authorTarget = value;
       return this;
     }
 
@@ -257,7 +297,6 @@ public class Alert extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the alert for external use (outside the FHIR environment).", 0, java.lang.Integer.MAX_VALUE, identifier));

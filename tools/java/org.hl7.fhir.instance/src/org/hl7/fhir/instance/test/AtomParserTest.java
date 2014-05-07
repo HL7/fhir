@@ -69,6 +69,7 @@ public class AtomParserTest {
 	public void testItem() {
 		ResourceOrFeed r = parseFile(itemPath);
 		Resource p = r.getResource();
+		assertTrue(p != null);
 		//System.out.println("|"+p.getStatusSimple()+"|");
 		//assertTrue(p.getStatusSimple().toString().equals("active"));
 	}
@@ -134,6 +135,7 @@ public class AtomParserTest {
 	public void testFuroreNotPretty() {
 		try {
 			ResourceOrFeed r = parseFile(filepathFurore1NotPretty);
+			assertTrue(r.getFeed() != null || r.getResource() != null);
 		} catch(Exception e) {
 			e.printStackTrace();
 			fail();

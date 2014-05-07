@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -69,7 +69,6 @@ public class Identifier extends Type {
     }
 
   public static class IdentifierUseEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,7 +83,6 @@ public class Identifier extends Type {
           return IdentifierUse.secondary;
         throw new Exception("Unknown IdentifierUse code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == IdentifierUse.usual)
         return "usual";
@@ -127,6 +125,13 @@ public class Identifier extends Type {
      * Organization that issued/manages the identifier.
      */
     protected ResourceReference assigner;
+
+    /**
+     * The actual object that is the target of the reference (Organization that issued/manages the identifier.)
+     */
+    protected Organization assignerTarget;
+
+    private static final long serialVersionUID = 1232091569L;
 
     public Identifier() {
       super();
@@ -306,7 +311,21 @@ public class Identifier extends Type {
       return this;
     }
 
-      @Override
+    /**
+     * @return {@link #assigner} (The actual object that is the target of the reference. Organization that issued/manages the identifier.)
+     */
+    public Organization getAssignerTarget() { 
+      return this.assignerTarget;
+    }
+
+    /**
+     * @param value {@link #assigner} (The actual object that is the target of the reference. Organization that issued/manages the identifier.)
+     */
+    public Identifier setAssignerTarget(Organization value) { 
+      this.assignerTarget = value;
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("use", "code", "The purpose of this identifier.", 0, java.lang.Integer.MAX_VALUE, use));
@@ -317,7 +336,6 @@ public class Identifier extends Type {
         childrenList.add(new Property("assigner", "Resource(Organization)", "Organization that issued/manages the identifier.", 0, java.lang.Integer.MAX_VALUE, assigner));
       }
 
-      @Override
       public Identifier copy() {
         Identifier dst = new Identifier();
         dst.use = use == null ? null : use.copy();
@@ -329,7 +347,6 @@ public class Identifier extends Type {
         return dst;
       }
 
-      @Override
       protected Identifier typedCopy() {
         return copy();
       }

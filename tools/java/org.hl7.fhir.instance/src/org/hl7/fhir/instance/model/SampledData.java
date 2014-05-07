@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -73,6 +73,8 @@ public class SampledData extends Type {
      * A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
      */
     protected String_ data;
+
+    private static final long serialVersionUID = 1739399349L;
 
     public SampledData() {
       super();
@@ -305,7 +307,6 @@ public class SampledData extends Type {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("origin", "Quantity", "The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.", 0, java.lang.Integer.MAX_VALUE, origin));
@@ -317,7 +318,6 @@ public class SampledData extends Type {
         childrenList.add(new Property("data", "string", "A series of data points which are decimal values separated by a single space (character u20). The special values 'E' (error), 'L' (below detection limit) and 'U' (above detection limit) can also be used in place of a decimal value.", 0, java.lang.Integer.MAX_VALUE, data));
       }
 
-      @Override
       public SampledData copy() {
         SampledData dst = new SampledData();
         dst.origin = origin == null ? null : origin.copy();
@@ -330,7 +330,6 @@ public class SampledData extends Type {
         return dst;
       }
 
-      @Override
       protected SampledData typedCopy() {
         return copy();
       }

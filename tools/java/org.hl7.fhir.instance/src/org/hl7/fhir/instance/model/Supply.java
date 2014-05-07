@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -73,7 +73,6 @@ public class Supply extends Resource {
     }
 
   public static class ValuesetSupplyStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -90,7 +89,6 @@ public class Supply extends Resource {
           return ValuesetSupplyStatus.cancelled;
         throw new Exception("Unknown ValuesetSupplyStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetSupplyStatus.requested)
         return "requested";
@@ -133,7 +131,6 @@ public class Supply extends Resource {
     }
 
   public static class ValuesetSupplyDispenseStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -146,7 +143,6 @@ public class Supply extends Resource {
           return ValuesetSupplyDispenseStatus.abandoned;
         throw new Exception("Unknown ValuesetSupplyDispenseStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetSupplyDispenseStatus.inProgress)
         return "in progress";
@@ -185,9 +181,19 @@ public class Supply extends Resource {
         protected ResourceReference suppliedItem;
 
         /**
+         * The actual object that is the target of the reference (Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
+        protected Resource suppliedItemTarget;
+
+        /**
          * The individual responsible for dispensing the medication.
          */
         protected ResourceReference supplier;
+
+        /**
+         * The actual object that is the target of the reference (The individual responsible for dispensing the medication.)
+         */
+        protected Practitioner supplierTarget;
 
         /**
          * The time the dispense event occurred.
@@ -205,9 +211,21 @@ public class Supply extends Resource {
         protected ResourceReference destination;
 
         /**
+         * The actual object that is the target of the reference (Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
+         */
+        protected Location destinationTarget;
+
+        /**
          * Identifies the person who picked up the Supply.
          */
         protected List<ResourceReference> receiver = new ArrayList<ResourceReference>();
+        /**
+         * The actual objects that are the target of the reference (Identifies the person who picked up the Supply.)
+         */
+        protected List<Practitioner> receiverTarget = new ArrayList<Practitioner>();
+
+
+        private static final long serialVersionUID = 1248640970L;
 
       public SupplyDispenseComponent() {
         super();
@@ -310,6 +328,21 @@ public class Supply extends Resource {
         }
 
         /**
+         * @return {@link #suppliedItem} (The actual object that is the target of the reference. Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
+        public Resource getSuppliedItemTarget() { 
+          return this.suppliedItemTarget;
+        }
+
+        /**
+         * @param value {@link #suppliedItem} (The actual object that is the target of the reference. Identifies the medication or substance being dispensed. This is either a link to a resource representing the details of the medication or substance or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+         */
+        public SupplyDispenseComponent setSuppliedItemTarget(Resource value) { 
+          this.suppliedItemTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #supplier} (The individual responsible for dispensing the medication.)
          */
         public ResourceReference getSupplier() { 
@@ -321,6 +354,21 @@ public class Supply extends Resource {
          */
         public SupplyDispenseComponent setSupplier(ResourceReference value) { 
           this.supplier = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #supplier} (The actual object that is the target of the reference. The individual responsible for dispensing the medication.)
+         */
+        public Practitioner getSupplierTarget() { 
+          return this.supplierTarget;
+        }
+
+        /**
+         * @param value {@link #supplier} (The actual object that is the target of the reference. The individual responsible for dispensing the medication.)
+         */
+        public SupplyDispenseComponent setSupplierTarget(Practitioner value) { 
+          this.supplierTarget = value;
           return this;
         }
 
@@ -370,6 +418,21 @@ public class Supply extends Resource {
         }
 
         /**
+         * @return {@link #destination} (The actual object that is the target of the reference. Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
+         */
+        public Location getDestinationTarget() { 
+          return this.destinationTarget;
+        }
+
+        /**
+         * @param value {@link #destination} (The actual object that is the target of the reference. Identification of the facility/location where the Supply was shipped to, as part of the dispense event.)
+         */
+        public SupplyDispenseComponent setDestinationTarget(Location value) { 
+          this.destinationTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #receiver} (Identifies the person who picked up the Supply.)
          */
         public List<ResourceReference> getReceiver() { 
@@ -386,7 +449,23 @@ public class Supply extends Resource {
           return t;
         }
 
-        @Override
+        /**
+         * @return {@link #receiver} (The actual objects that are the target of the reference. Identifies the person who picked up the Supply.)
+         */
+        public List<Practitioner> getReceiverTarget() { 
+          return this.receiverTarget;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #receiver} (Add an actual object that is the target of the reference. Identifies the person who picked up the Supply.)
+         */
+        public Practitioner addReceiverTarget() { 
+          Practitioner r = new Practitioner();
+          this.receiverTarget.add(r);
+          return r;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility when the dispense occurs.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -441,14 +520,26 @@ public class Supply extends Resource {
     protected ResourceReference orderedItem;
 
     /**
+     * The actual object that is the target of the reference (The item that is requested to be supplied.)
+     */
+    protected Resource orderedItemTarget;
+
+    /**
      * A link to a resource representing the person whom the ordered item is for.
      */
     protected ResourceReference patient;
 
     /**
+     * The actual object that is the target of the reference (A link to a resource representing the person whom the ordered item is for.)
+     */
+    protected Patient patientTarget;
+
+    /**
      * Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.
      */
     protected List<SupplyDispenseComponent> dispense = new ArrayList<SupplyDispenseComponent>();
+
+    private static final long serialVersionUID = 487202825L;
 
     public Supply() {
       super();
@@ -536,6 +627,21 @@ public class Supply extends Resource {
     }
 
     /**
+     * @return {@link #orderedItem} (The actual object that is the target of the reference. The item that is requested to be supplied.)
+     */
+    public Resource getOrderedItemTarget() { 
+      return this.orderedItemTarget;
+    }
+
+    /**
+     * @param value {@link #orderedItem} (The actual object that is the target of the reference. The item that is requested to be supplied.)
+     */
+    public Supply setOrderedItemTarget(Resource value) { 
+      this.orderedItemTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #patient} (A link to a resource representing the person whom the ordered item is for.)
      */
     public ResourceReference getPatient() { 
@@ -547,6 +653,21 @@ public class Supply extends Resource {
      */
     public Supply setPatient(ResourceReference value) { 
       this.patient = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #patient} (The actual object that is the target of the reference. A link to a resource representing the person whom the ordered item is for.)
+     */
+    public Patient getPatientTarget() { 
+      return this.patientTarget;
+    }
+
+    /**
+     * @param value {@link #patient} (The actual object that is the target of the reference. A link to a resource representing the person whom the ordered item is for.)
+     */
+    public Supply setPatientTarget(Patient value) { 
+      this.patientTarget = value;
       return this;
     }
 
@@ -567,7 +688,6 @@ public class Supply extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("kind", "CodeableConcept", "Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.", 0, java.lang.Integer.MAX_VALUE, kind));

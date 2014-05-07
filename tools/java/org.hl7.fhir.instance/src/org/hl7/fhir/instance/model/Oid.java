@@ -33,6 +33,8 @@ package org.hl7.fhir.instance.model;
  */
 public class Oid extends Uri {
 
+  private static final long serialVersionUID = -6684415951360862202L;
+
 	@Override
   protected Type typedCopy() {
 		return copy();

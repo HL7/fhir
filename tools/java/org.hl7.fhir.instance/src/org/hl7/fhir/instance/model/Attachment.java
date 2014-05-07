@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -72,6 +72,8 @@ public class Attachment extends Type {
      * A label or set of text to display in place of the data.
      */
     protected String_ title;
+
+    private static final long serialVersionUID = 1845468239L;
 
     public Attachment() {
       super();
@@ -330,7 +332,6 @@ public class Attachment extends Type {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("contentType", "code", "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.", 0, java.lang.Integer.MAX_VALUE, contentType));
@@ -342,7 +343,6 @@ public class Attachment extends Type {
         childrenList.add(new Property("title", "string", "A label or set of text to display in place of the data.", 0, java.lang.Integer.MAX_VALUE, title));
       }
 
-      @Override
       public Attachment copy() {
         Attachment dst = new Attachment();
         dst.contentType = contentType == null ? null : contentType.copy();
@@ -355,7 +355,6 @@ public class Attachment extends Type {
         return dst;
       }
 
-      @Override
       protected Attachment typedCopy() {
         return copy();
       }

@@ -106,7 +106,22 @@ public class InstanceValidator extends BaseValidator {
     cache = new ValueSetExpansionCache(valuesets, codesystems, conceptLocator);
   }  
 
-  private void loadValidationResources(String name) throws Exception {
+  public void seeValueSet(String id, ValueSet valueset) {
+  	valuesets.put(id, valueset);
+  	if (valueset.getDefine() != null)
+  		codesystems.put(valueset.getDefine().getSystemSimple(), valueset);  	
+  }
+  
+  public void seeProfile(String id, Profile profile) {
+  	types.put(id, profile);
+  }
+
+  
+  public Map<String, Profile> getTypes() {
+		return types;
+	}
+
+	private void loadValidationResources(String name) throws Exception {
     ZipInputStream zip = new ZipInputStream(new FileInputStream(name));
     ZipEntry ze;
     while ((ze = zip.getNextEntry()) != null) {
@@ -136,7 +151,7 @@ public class InstanceValidator extends BaseValidator {
   private void readFile(InputStream zip, String name) throws Exception {
     XmlParser xml = new XmlParser();
     AtomFeed f = xml.parseGeneral(zip).getFeed();
-    for (AtomEntry e : f.getEntryList()) {
+    for (AtomEntry<?> e : f.getEntryList()) {
       if (e.getId() == null) {
         System.out.println("unidentified resource "+e.getLinks().get("self")+" in "+name);
       }
@@ -286,7 +301,6 @@ public class InstanceValidator extends BaseValidator {
       return null;
     if (r.getStructure().size() != 1 || !(r.getStructure().get(0).getTypeSimple().equals(localName) || r.getStructure().get(0).getNameSimple().equals(localName)))
       throw new Exception("unexpected profile contents");
-    ProfileStructureComponent s = r.getStructure().get(0);
     return r;
   }
 
@@ -628,31 +642,9 @@ public class InstanceValidator extends BaseValidator {
     // for nothing to check    
   }
 
-  private void checkExtension(String path, ElementComponent elementDefn, ElementComponent context, Element e) {
-    // for now, nothing to check yet
-
-  }
-
-  private void checkResourceReference(String path, Element element, ElementComponent context, boolean b) {
-    // nothing to do yet
-
-  }
-
   private void checkIdentifier(String path, Element element, ElementComponent context) {
 
   }
-
-  private void checkQuantity(List<ValidationMessage> errors, String path, Element element, ElementComponent context, boolean b) {
-    String code = XMLUtil.getNamedChildValue(element,  "code");
-    String system = XMLUtil.getNamedChildValue(element,  "system");
-    String units = XMLUtil.getNamedChildValue(element,  "units");
-
-    if (system != null && code != null) {
-      checkCode(errors, path, code, system, units);
-    }
-
-  }
-
 
   private void checkCoding(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent context) {
     String code = XMLUtil.getNamedChildValue(element,  "code");
@@ -938,15 +930,15 @@ public class InstanceValidator extends BaseValidator {
   		type = focus.getLocalName().substring(tail.length());
   		rule(errors, "structure", path, typeAllowed(type, elementDefn.getDefinition().getType()), "The type '"+type+"' is not allowed at this point (must be one of '"+typeSummary(elementDefn)+")");
   	} else {
-  		if (rule(errors, "struture", path, elementDefn.getDefinition().getType().size() == 1, "Error in profile: type count != 0, but only no type in instance"))
-  			type = elementDefn.getDefinition().getType().get(0).getCodeSimple();
-  		else
+  		if (elementDefn.getDefinition().getType().size() == 1) {
+  			type = elementDefn.getDefinition().getType().size() == 0 ? null : elementDefn.getDefinition().getType().get(0).getCodeSimple();
+  		} else
   			type = null;
   	}
   	// constraints:
   	for (ElementDefinitionConstraintComponent c : elementDefn.getDefinition().getConstraint()) 
   		checkConstraint(errors, path, focus, c);
-  	if (elementDefn.getDefinition().getBinding() != null)
+  	if (elementDefn.getDefinition().getBinding() != null && type != null)
   		checkBinding(errors, path, focus, profile, elementDefn, type);
   	
   	// type specific checking:
@@ -967,14 +959,15 @@ public class InstanceValidator extends BaseValidator {
   			if (children.size() == 0) {
   				// well, there's no children - should there be? 
   				for (ElementComponent defn : childset) {
-  					if (!rule(errors,"required", path, defn.getDefinition().getMinSimple() == 0, "Required Element '"+walker.name()+"' missing"))
+  					if (!rule(errors,"required", path, defn.getDefinition() == null || defn.getDefinition().getMinSimple() == 0, "Required Element '"+walker.name()+"' missing"))
   						break; // no point complaining about missing ones after the first one
   				} 
   			} else if (childset.size() == 1) {
   				// simple case: one possible definition, and one or more children. 
-  				rule(errors, "cardinality", path, childset.get(0).getDefinition().getMaxSimple() == "*" || Integer.parseInt(childset.get(0).getDefinition().getMaxSimple()) >= children.size(), "Too many elements for '"+walker.name()+"'"); // todo: sort out structure
+  				rule(errors, "cardinality", path, childset.get(0).getDefinition().getMaxSimple().equals("*") || Integer.parseInt(childset.get(0).getDefinition().getMaxSimple()) >= children.size(),
+  						"Too many elements for '"+walker.name()+"'"); // todo: sort out structure
   				for (Element child : children) {
-  					checkByProfile(errors, path+"."+childset.get(0).getNameSimple(), child, profile, sc, childset.get(0));
+  					checkByProfile(errors, childset.get(0).getPathSimple(), child, profile, sc, childset.get(0));
   				}
   			} else { 
   				// ok, this is the full case - we have a list of definitions, and a list of candidates for meeting those definitions. 
@@ -988,10 +981,11 @@ public class InstanceValidator extends BaseValidator {
 	  ElementDefinitionBindingComponent bc = elementDefn.getDefinition().getBinding();
 
 	  if (bc != null && bc.getReference() != null && bc.getReference() instanceof ResourceReference) {
+      String url = ((ResourceReference) bc.getReference()).getReferenceSimple();
 	  	ValueSet vs = resolveValueSetReference(profile, (ResourceReference) bc.getReference());
-	  	if (vs == null)
-	  		rule(errors, "structure", path, false, "Cannot check binding on type '"+type+"' as the value set '"+((ResourceReference) bc.getReference()).getReferenceSimple()+"' could not be located");
-	  	else if (type.equals("code"))
+	  	if (vs == null) {
+	      rule(errors, "structure", path, false, "Cannot check binding on type '"+type+"' as the value set '"+url+"' could not be located");
+      } else if (type.equals("code"))
 	  		checkBindingCode(errors, path, focus, vs);
 	  	else if (type.equals("Coding"))
 	  		checkBindingCoding(errors, path, focus, vs);
@@ -1038,6 +1032,8 @@ public class InstanceValidator extends BaseValidator {
 	  for (TypeRefComponent type : types) {
 	  	if (t.equals(Utilities.capitalize(type.getCodeSimple())))
 	  		return true;
+	  	if (t.equals("Resource") && Utilities.capitalize(type.getCodeSimple()).equals("ResourceReference"))
+	  	  return true;
 	  }
 	  return false;
   }
@@ -1298,15 +1294,15 @@ public class InstanceValidator extends BaseValidator {
 		return null;
   }
 
-	private String typeCode(List<TypeRefComponent> types) {
-	  StringBuilder b = new StringBuilder();
-	  for (TypeRefComponent t : types) {
-	  	b.append("|"+t.getCodeSimple());	  	
-	  }
-	  if (b.length() > 0)
-	  	return b.substring(1); 
-	  else
-	  	return null;
-  }
+
+	public CheckDisplayOption getCheckDisplay() {
+		return checkDisplay;
+	}
+
+	public void setCheckDisplay(CheckDisplayOption checkDisplay) {
+		this.checkDisplay = checkDisplay;
+	}
+	
+	
 }
 

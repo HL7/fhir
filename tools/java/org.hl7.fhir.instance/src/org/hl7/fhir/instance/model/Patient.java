@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class Patient extends Resource {
     }
 
   public static class LinkTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class Patient extends Resource {
           return LinkType.seealso;
         throw new Exception("Unknown LinkType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == LinkType.replace)
         return "replace";
@@ -120,6 +118,13 @@ public class Patient extends Resource {
          * Organization on behalf of which the contact is acting or for which the contact is working.
          */
         protected ResourceReference organization;
+
+        /**
+         * The actual object that is the target of the reference (Organization on behalf of which the contact is acting or for which the contact is working.)
+         */
+        protected Organization organizationTarget;
+
+        private static final long serialVersionUID = -384461371L;
 
       public ContactComponent() {
         super();
@@ -219,7 +224,21 @@ public class Patient extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #organization} (The actual object that is the target of the reference. Organization on behalf of which the contact is acting or for which the contact is working.)
+         */
+        public Organization getOrganizationTarget() { 
+          return this.organizationTarget;
+        }
+
+        /**
+         * @param value {@link #organization} (The actual object that is the target of the reference. Organization on behalf of which the contact is acting or for which the contact is working.)
+         */
+        public ContactComponent setOrganizationTarget(Organization value) { 
+          this.organizationTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between the patient and the contact person.", 0, java.lang.Integer.MAX_VALUE, relationship));
@@ -262,6 +281,8 @@ public class Patient extends Resource {
          * Indicates the current state of the animal's reproductive organs.
          */
         protected CodeableConcept genderStatus;
+
+        private static final long serialVersionUID = -549738382L;
 
       public AnimalComponent() {
         super();
@@ -317,7 +338,6 @@ public class Patient extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("species", "CodeableConcept", "Identifies the high level categorization of the kind of animal.", 0, java.lang.Integer.MAX_VALUE, species));
@@ -342,9 +362,16 @@ public class Patient extends Resource {
         protected ResourceReference other;
 
         /**
+         * The actual object that is the target of the reference (The other patient resource that the link refers to.)
+         */
+        protected Patient otherTarget;
+
+        /**
          * The type of link between this patient resource and another patient resource.
          */
         protected Enumeration<LinkType> type;
+
+        private static final long serialVersionUID = 383172000L;
 
       public PatientLinkComponent() {
         super();
@@ -368,6 +395,21 @@ public class Patient extends Resource {
          */
         public PatientLinkComponent setOther(ResourceReference value) { 
           this.other = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #other} (The actual object that is the target of the reference. The other patient resource that the link refers to.)
+         */
+        public Patient getOtherTarget() { 
+          return this.otherTarget;
+        }
+
+        /**
+         * @param value {@link #other} (The actual object that is the target of the reference. The other patient resource that the link refers to.)
+         */
+        public PatientLinkComponent setOtherTarget(Patient value) { 
+          this.otherTarget = value;
           return this;
         }
 
@@ -403,7 +445,6 @@ public class Patient extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("other", "Resource(Patient)", "The other patient resource that the link refers to.", 0, java.lang.Integer.MAX_VALUE, other));
@@ -488,11 +529,21 @@ public class Patient extends Resource {
      * Patient's nominated care provider.
      */
     protected List<ResourceReference> careProvider = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (Patient's nominated care provider.)
+     */
+    protected List<Resource> careProviderTarget = new ArrayList<Resource>();
+
 
     /**
      * Organization that is the custodian of the patient record.
      */
     protected ResourceReference managingOrganization;
+
+    /**
+     * The actual object that is the target of the reference (Organization that is the custodian of the patient record.)
+     */
+    protected Organization managingOrganizationTarget;
 
     /**
      * Link to another patient resource that concerns the same actual person.
@@ -503,6 +554,8 @@ public class Patient extends Resource {
      * Whether this patient record is in active use.
      */
     protected Boolean active;
+
+    private static final long serialVersionUID = 1622992530L;
 
     public Patient() {
       super();
@@ -756,6 +809,13 @@ public class Patient extends Resource {
     }
 
     /**
+     * @return {@link #careProvider} (The actual objects that are the target of the reference. Patient's nominated care provider.)
+     */
+    public List<Resource> getCareProviderTarget() { 
+      return this.careProviderTarget;
+    }
+
+    /**
      * @return {@link #managingOrganization} (Organization that is the custodian of the patient record.)
      */
     public ResourceReference getManagingOrganization() { 
@@ -767,6 +827,21 @@ public class Patient extends Resource {
      */
     public Patient setManagingOrganization(ResourceReference value) { 
       this.managingOrganization = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #managingOrganization} (The actual object that is the target of the reference. Organization that is the custodian of the patient record.)
+     */
+    public Organization getManagingOrganizationTarget() { 
+      return this.managingOrganizationTarget;
+    }
+
+    /**
+     * @param value {@link #managingOrganization} (The actual object that is the target of the reference. Organization that is the custodian of the patient record.)
+     */
+    public Patient setManagingOrganizationTarget(Organization value) { 
+      this.managingOrganizationTarget = value;
       return this;
     }
 
@@ -823,7 +898,6 @@ public class Patient extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person as a patient.", 0, java.lang.Integer.MAX_VALUE, identifier));

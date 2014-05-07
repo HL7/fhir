@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -648,6 +648,7 @@ public class XmlComposer extends XmlComposerBase {
         composeIdentifier("identifier", e);
       composeInteger("priority", element.getPriority());
       composeCode("status", element.getStatus());
+      composeCodeableConcept("type", element.getType());
       composeCodeableConcept("reason", element.getReason());
       composeString("description", element.getDescription());
       composeInstant("start", element.getStart());
@@ -660,7 +661,7 @@ public class XmlComposer extends XmlComposerBase {
       for (Appointment.AppointmentParticipantComponent e : element.getParticipant()) 
         composeAppointmentAppointmentParticipantComponent("participant", e);
       composeResourceReference("lastModifiedBy", element.getLastModifiedBy());
-      composeDateTime("lastModifiedDate", element.getLastModifiedDate());
+      composeDateTime("lastModified", element.getLastModified());
       xml.close(FHIR_NS, name);
     }
   }
@@ -699,7 +700,7 @@ public class XmlComposer extends XmlComposerBase {
       composeInstant("start", element.getStart());
       composeInstant("end", element.getEnd());
       composeResourceReference("lastModifiedBy", element.getLastModifiedBy());
-      composeDateTime("lastModifiedByDate", element.getLastModifiedByDate());
+      composeDateTime("lastModified", element.getLastModified());
       xml.close(FHIR_NS, name);
     }
   }
@@ -3262,7 +3263,7 @@ public class XmlComposer extends XmlComposerBase {
         composeEnumeration("freeBusyType", element.getFreeBusyType(), new Slot.SlotstatusEnumFactory());
       composeInstant("start", element.getStart());
       composeInstant("end", element.getEnd());
-      composeBoolean("overboooked", element.getOverboooked());
+      composeBoolean("overbooked", element.getOverbooked());
       composeString("comment", element.getComment());
       composeDateTime("lastModified", element.getLastModified());
       xml.close(FHIR_NS, name);
@@ -3432,6 +3433,8 @@ public class XmlComposer extends XmlComposerBase {
       composeString("identifier", element.getIdentifier());
       composeString("version", element.getVersion());
       composeString("name", element.getName());
+      composeString("purpose", element.getPurpose());
+      composeBoolean("immutable", element.getImmutable());
       composeString("publisher", element.getPublisher());
       for (Contact e : element.getTelecom()) 
         composeContact("telecom", e);
@@ -3442,6 +3445,7 @@ public class XmlComposer extends XmlComposerBase {
       composeBoolean("experimental", element.getExperimental());
       composeBoolean("extensible", element.getExtensible());
       composeDateTime("date", element.getDate());
+      composeDate("stableDate", element.getStableDate());
       composeValueSetValueSetDefineComponent("define", element.getDefine());
       composeValueSetValueSetComposeComponent("compose", element.getCompose());
       composeValueSetValueSetExpansionComponent("expansion", element.getExpansion());
@@ -3662,7 +3666,6 @@ public class XmlComposer extends XmlComposerBase {
       throw new Exception("Unhanded resource type "+resource.getClass().getName());
   }
 
-  @SuppressWarnings("unchecked")
   protected void composeType(String prefix, Type type) throws Exception {
     if (type == null)
       ;

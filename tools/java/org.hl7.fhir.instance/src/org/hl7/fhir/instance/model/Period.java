@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -47,6 +47,8 @@ public class Period extends Type {
      * The end of the period. If the end of the period is missing, it means that the period is ongoing.
      */
     protected DateTime end;
+
+    private static final long serialVersionUID = -1935473081L;
 
     public Period() {
       super();
@@ -124,14 +126,12 @@ public class Period extends Type {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("start", "dateTime", "The start of the period. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "dateTime", "The end of the period. If the end of the period is missing, it means that the period is ongoing.", 0, java.lang.Integer.MAX_VALUE, end));
       }
 
-      @Override
       public Period copy() {
         Period dst = new Period();
         dst.start = start == null ? null : start.copy();
@@ -139,7 +139,6 @@ public class Period extends Type {
         return dst;
       }
 
-      @Override
       protected Period typedCopy() {
         return copy();
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -61,7 +61,6 @@ public class Procedure extends Resource {
     }
 
   public static class ProcedureRelationshipTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -72,7 +71,6 @@ public class Procedure extends Resource {
           return ProcedureRelationshipType.becauseof;
         throw new Exception("Unknown ProcedureRelationshipType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ProcedureRelationshipType.causedby)
         return "caused-by";
@@ -89,9 +87,16 @@ public class Procedure extends Resource {
         protected ResourceReference person;
 
         /**
+         * The actual object that is the target of the reference (The practitioner who was involved in the procedure.)
+         */
+        protected Practitioner personTarget;
+
+        /**
          * E.g. surgeon, anaethetist, endoscopist.
          */
         protected CodeableConcept role;
+
+        private static final long serialVersionUID = -1680776731L;
 
       public ProcedurePerformerComponent() {
         super();
@@ -113,6 +118,21 @@ public class Procedure extends Resource {
         }
 
         /**
+         * @return {@link #person} (The actual object that is the target of the reference. The practitioner who was involved in the procedure.)
+         */
+        public Practitioner getPersonTarget() { 
+          return this.personTarget;
+        }
+
+        /**
+         * @param value {@link #person} (The actual object that is the target of the reference. The practitioner who was involved in the procedure.)
+         */
+        public ProcedurePerformerComponent setPersonTarget(Practitioner value) { 
+          this.personTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #role} (E.g. surgeon, anaethetist, endoscopist.)
          */
         public CodeableConcept getRole() { 
@@ -127,7 +147,6 @@ public class Procedure extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("person", "Resource(Practitioner)", "The practitioner who was involved in the procedure.", 0, java.lang.Integer.MAX_VALUE, person));
@@ -153,6 +172,13 @@ public class Procedure extends Resource {
          * The related item - e.g. a procedure.
          */
         protected ResourceReference target;
+
+        /**
+         * The actual object that is the target of the reference (The related item - e.g. a procedure.)
+         */
+        protected Resource targetTarget;
+
+        private static final long serialVersionUID = 829932234L;
 
       public ProcedureRelatedItemComponent() {
         super();
@@ -209,7 +235,21 @@ public class Procedure extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #target} (The actual object that is the target of the reference. The related item - e.g. a procedure.)
+         */
+        public Resource getTargetTarget() { 
+          return this.targetTarget;
+        }
+
+        /**
+         * @param value {@link #target} (The actual object that is the target of the reference. The related item - e.g. a procedure.)
+         */
+        public ProcedureRelatedItemComponent setTargetTarget(Resource value) { 
+          this.targetTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The nature of the relationship.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -234,6 +274,11 @@ public class Procedure extends Resource {
      * The person on whom the procedure was performed.
      */
     protected ResourceReference subject;
+
+    /**
+     * The actual object that is the target of the reference (The person on whom the procedure was performed.)
+     */
+    protected Patient subjectTarget;
 
     /**
      * The specific procedure that is performed. Use text if the exact nature of the procedure can't be coded.
@@ -266,6 +311,11 @@ public class Procedure extends Resource {
     protected ResourceReference encounter;
 
     /**
+     * The actual object that is the target of the reference (The encounter during which the procedure was performed.)
+     */
+    protected Encounter encounterTarget;
+
+    /**
      * What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.
      */
     protected String_ outcome;
@@ -274,6 +324,11 @@ public class Procedure extends Resource {
      * This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.
      */
     protected List<ResourceReference> report = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
+     */
+    protected List<DiagnosticReport> reportTarget = new ArrayList<DiagnosticReport>();
+
 
     /**
      * Any complications that occurred during the procedure, or in the immediate post-operative period. These are generally tracked separately from the notes, which typically will describe the procedure itself rather than any 'post procedure' issues.
@@ -294,6 +349,8 @@ public class Procedure extends Resource {
      * Any other notes about the procedure - e.g. the operative notes.
      */
     protected String_ notes;
+
+    private static final long serialVersionUID = 1314586946L;
 
     public Procedure() {
       super();
@@ -334,6 +391,21 @@ public class Procedure extends Resource {
      */
     public Procedure setSubject(ResourceReference value) { 
       this.subject = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The person on whom the procedure was performed.)
+     */
+    public Patient getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The person on whom the procedure was performed.)
+     */
+    public Procedure setSubjectTarget(Patient value) { 
+      this.subjectTarget = value;
       return this;
     }
 
@@ -434,6 +506,21 @@ public class Procedure extends Resource {
     }
 
     /**
+     * @return {@link #encounter} (The actual object that is the target of the reference. The encounter during which the procedure was performed.)
+     */
+    public Encounter getEncounterTarget() { 
+      return this.encounterTarget;
+    }
+
+    /**
+     * @param value {@link #encounter} (The actual object that is the target of the reference. The encounter during which the procedure was performed.)
+     */
+    public Procedure setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #outcome} (What was the outcome of the procedure - did it resolve reasons why the procedure was performed?.)
      */
     public String_ getOutcome() { 
@@ -484,6 +571,23 @@ public class Procedure extends Resource {
       ResourceReference t = new ResourceReference();
       this.report.add(t);
       return t;
+    }
+
+    /**
+     * @return {@link #report} (The actual objects that are the target of the reference. This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
+     */
+    public List<DiagnosticReport> getReportTarget() { 
+      return this.reportTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #report} (Add an actual object that is the target of the reference. This could be a histology result. There could potentially be multiple reports - e.g. if this was a procedure that made multiple biopsies.)
+     */
+    public DiagnosticReport addReportTarget() { 
+      DiagnosticReport r = new DiagnosticReport();
+      this.reportTarget.add(r);
+      return r;
     }
 
     /**
@@ -592,7 +696,6 @@ public class Procedure extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

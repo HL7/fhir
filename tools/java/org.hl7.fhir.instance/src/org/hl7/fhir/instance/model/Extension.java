@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -47,6 +47,8 @@ public class Extension extends Element {
      * Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).
      */
     protected org.hl7.fhir.instance.model.Type value;
+
+    private static final long serialVersionUID = -730688340L;
 
     public Extension() {
       super();
@@ -104,7 +106,6 @@ public class Extension extends Element {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "Source of the definition for the extension code - a logical name or a URL.", 0, java.lang.Integer.MAX_VALUE, url));

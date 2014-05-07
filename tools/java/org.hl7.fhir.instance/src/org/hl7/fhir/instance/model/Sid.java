@@ -29,5 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 package org.hl7.fhir.instance.model;
 
 public class Sid extends Uri {
+
+  private static final long serialVersionUID = 5486832330986493589L;
 	
 }

@@ -86,7 +86,6 @@ public interface FHIRClient {
 		public String getFhirJavaLibRevision();
 		public String getFhirServerVersion();
 		public String getFhirServerSoftware();
-		
   }
 
 	/**
@@ -110,6 +109,19 @@ public interface FHIRClient {
 	 * @throws URISyntaxException
 	 */
 	public void initialize(String baseServiceUrl)  throws URISyntaxException;
+	
+	/**
+	 * 
+	 * Call method to initialize FHIR client. This method must be invoked
+	 * with a valid base server URL prior to using the client.
+	 * 
+	 * Invalid base server URLs will result in a URISyntaxException being thrown.
+	 * 
+	 * @param baseServiceUrl The base service URL
+	 * @param resultCount Maximum size of the result set 
+	 * @throws URISyntaxException
+	 */
+	public void initialize(String baseServiceUrl, int recordCount)  throws URISyntaxException;
 	
 	/**
 	 * Override the default resource format of 'application/fhir+xml'. This format is
@@ -140,6 +152,22 @@ public interface FHIRClient {
 	 * @return
 	 */
 	public String getPreferredFeedFormat();
+	
+	/**
+	 * Returns the maximum record count specified for list operations
+	 * such as search and history.
+	 * 
+	 * @return
+	 */
+	public int getMaximumRecordCount();
+	
+	/**
+	 * Sets the maximum record count for list operations such as history
+	 * and search.
+	 *
+	 * @param recordCount
+	 */
+	public void setMaximumRecordCount(int recordCount);
 	
 	/**
 	 * Method returns a conformance statement for the system queried.
@@ -258,6 +286,7 @@ public interface FHIRClient {
 	 */
 	public <T extends Resource> AtomFeed history(Calendar lastUpdate, Class<T> resourceClass);
 	public <T extends Resource> AtomFeed history(DateAndTime lastUpdate, Class<T> resourceClass);
+	public <T extends Resource> AtomFeed history(Class<T> resourceClass);
 	
 	/**
 	 * Retrieve the update history for all resource types since the specified calendar date.

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -70,7 +70,6 @@ public class Narrative extends Element {
     }
 
   public static class NarrativeStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -85,7 +84,6 @@ public class Narrative extends Element {
           return NarrativeStatus.empty;
         throw new Exception("Unknown NarrativeStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NarrativeStatus.generated)
         return "generated";
@@ -108,6 +106,8 @@ public class Narrative extends Element {
      * The actual narrative content, a stripped down version of XHTML.
      */
     protected XhtmlNode div;
+
+    private static final long serialVersionUID = 1463852859L;
 
     public Narrative() {
       super();
@@ -166,7 +166,6 @@ public class Narrative extends Element {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("status", "code", "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.", 0, java.lang.Integer.MAX_VALUE, status));

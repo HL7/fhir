@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class Namespace extends Resource {
     }
 
   public static class NamespaceTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class Namespace extends Resource {
           return NamespaceType.root;
         throw new Exception("Unknown NamespaceType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NamespaceType.codesystem)
         return "codesystem";
@@ -117,7 +115,6 @@ public class Namespace extends Resource {
     }
 
   public static class NamespaceStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -130,7 +127,6 @@ public class Namespace extends Resource {
           return NamespaceStatus.retired;
         throw new Exception("Unknown NamespaceStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NamespaceStatus.proposed)
         return "proposed";
@@ -173,7 +169,6 @@ public class Namespace extends Resource {
     }
 
   public static class NamespaceIdentifierTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -188,7 +183,6 @@ public class Namespace extends Resource {
           return NamespaceIdentifierType.other;
         throw new Exception("Unknown NamespaceIdentifierType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == NamespaceIdentifierType.oid)
         return "oid";
@@ -222,6 +216,8 @@ public class Namespace extends Resource {
          * Identifies the period of time over which this identifier is considered appropriate to refer to the namespace.  Outside of this window, the identifier might be non-deterministic.
          */
         protected Period period;
+
+        private static final long serialVersionUID = -1352328709L;
 
       public NamespaceUniqueIdComponent() {
         super();
@@ -348,7 +344,6 @@ public class Namespace extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "Identifies the unique identifier scheme used for this particular identifier.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -378,6 +373,8 @@ public class Namespace extends Resource {
          * Identifies the mechanism(s) by which they can be contacted.
          */
         protected List<Contact> telecom = new ArrayList<Contact>();
+
+        private static final long serialVersionUID = -1469576513L;
 
       public NamespaceContactComponent() {
         super();
@@ -415,7 +412,6 @@ public class Namespace extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "HumanName", "Names of the person who can be contacted.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -487,6 +483,13 @@ public class Namespace extends Resource {
      * For namespaces that are retired, indicates the namespace that should be used in their place (if any).
      */
     protected ResourceReference replacedBy;
+
+    /**
+     * The actual object that is the target of the reference (For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
+     */
+    protected Namespace replacedByTarget;
+
+    private static final long serialVersionUID = 1650087846L;
 
     public Namespace() {
       super();
@@ -801,7 +804,21 @@ public class Namespace extends Resource {
       return this;
     }
 
-      @Override
+    /**
+     * @return {@link #replacedBy} (The actual object that is the target of the reference. For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
+     */
+    public Namespace getReplacedByTarget() { 
+      return this.replacedByTarget;
+    }
+
+    /**
+     * @param value {@link #replacedBy} (The actual object that is the target of the reference. For namespaces that are retired, indicates the namespace that should be used in their place (if any).)
+     */
+    public Namespace setReplacedByTarget(Namespace value) { 
+      this.replacedByTarget = value;
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("type", "code", "Indicates the purpose for the namespace - what kinds of things does it make unique?.", 0, java.lang.Integer.MAX_VALUE, type));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -67,6 +67,13 @@ public class Coding extends Type {
      * The set of possible coded values this coding was chosen from or constrained by.
      */
     protected ResourceReference valueSet;
+
+    /**
+     * The actual object that is the target of the reference (The set of possible coded values this coding was chosen from or constrained by.)
+     */
+    protected ValueSet valueSetTarget;
+
+    private static final long serialVersionUID = 895670592L;
 
     public Coding() {
       super();
@@ -267,7 +274,21 @@ public class Coding extends Type {
       return this;
     }
 
-      @Override
+    /**
+     * @return {@link #valueSet} (The actual object that is the target of the reference. The set of possible coded values this coding was chosen from or constrained by.)
+     */
+    public ValueSet getValueSetTarget() { 
+      return this.valueSetTarget;
+    }
+
+    /**
+     * @param value {@link #valueSet} (The actual object that is the target of the reference. The set of possible coded values this coding was chosen from or constrained by.)
+     */
+    public Coding setValueSetTarget(ValueSet value) { 
+      this.valueSetTarget = value;
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("system", "uri", "The identification of the code system that defines the meaning of the symbol in the code.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -278,7 +299,6 @@ public class Coding extends Type {
         childrenList.add(new Property("valueSet", "Resource(ValueSet)", "The set of possible coded values this coding was chosen from or constrained by.", 0, java.lang.Integer.MAX_VALUE, valueSet));
       }
 
-      @Override
       public Coding copy() {
         Coding dst = new Coding();
         dst.system = system == null ? null : system.copy();
@@ -290,7 +310,6 @@ public class Coding extends Type {
         return dst;
       }
 
-      @Override
       protected Coding typedCopy() {
         return copy();
       }

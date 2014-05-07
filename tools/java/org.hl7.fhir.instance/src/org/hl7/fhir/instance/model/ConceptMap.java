@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class ConceptMap extends Resource {
     }
 
   public static class ValuesetStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class ConceptMap extends Resource {
           return ValuesetStatus.retired;
         throw new Exception("Unknown ValuesetStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ValuesetStatus.draft)
         return "draft";
@@ -141,7 +139,6 @@ public class ConceptMap extends Resource {
     }
 
   public static class ConceptEquivalenceEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -166,7 +163,6 @@ public class ConceptMap extends Resource {
           return ConceptEquivalence.disjoint;
         throw new Exception("Unknown ConceptEquivalence code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConceptEquivalence.equal)
         return "equal";
@@ -210,6 +206,8 @@ public class ConceptMap extends Resource {
          * A concept from the target value set that this concept maps to.
          */
         protected List<ConceptMapConceptMapComponent> map = new ArrayList<ConceptMapConceptMapComponent>();
+
+        private static final long serialVersionUID = -129657949L;
 
       public ConceptMapConceptComponent() {
         super();
@@ -322,7 +320,6 @@ public class ConceptMap extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "System that defines the concept being mapped.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -361,6 +358,8 @@ public class ConceptMap extends Resource {
          * Code for a concept in the referenced concept.
          */
         protected Code code;
+
+        private static final long serialVersionUID = -1280222025L;
 
       public OtherConceptComponent() {
         super();
@@ -469,7 +468,6 @@ public class ConceptMap extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("concept", "uri", "A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.", 0, java.lang.Integer.MAX_VALUE, concept));
@@ -512,6 +510,8 @@ public class ConceptMap extends Resource {
          * A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.
          */
         protected List<OtherConceptComponent> product = new ArrayList<OtherConceptComponent>();
+
+        private static final long serialVersionUID = -255926992L;
 
       public ConceptMapConceptMapComponent() {
         super();
@@ -679,7 +679,6 @@ public class ConceptMap extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("system", "uri", "System of the target.", 0, java.lang.Integer.MAX_VALUE, system));
@@ -759,14 +758,26 @@ public class ConceptMap extends Resource {
     protected ResourceReference source;
 
     /**
+     * The actual object that is the target of the reference (The source value set that specifies the concepts that are being mapped.)
+     */
+    protected ValueSet sourceTarget;
+
+    /**
      * The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.
      */
     protected ResourceReference target;
 
     /**
+     * The actual object that is the target of the reference (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
+     */
+    protected ValueSet targetTarget;
+
+    /**
      * Mappings for a concept from the source valueset.
      */
     protected List<ConceptMapConceptComponent> concept = new ArrayList<ConceptMapConceptComponent>();
+
+    private static final long serialVersionUID = 1665422069L;
 
     public ConceptMap() {
       super();
@@ -1129,6 +1140,21 @@ public class ConceptMap extends Resource {
     }
 
     /**
+     * @return {@link #source} (The actual object that is the target of the reference. The source value set that specifies the concepts that are being mapped.)
+     */
+    public ValueSet getSourceTarget() { 
+      return this.sourceTarget;
+    }
+
+    /**
+     * @param value {@link #source} (The actual object that is the target of the reference. The source value set that specifies the concepts that are being mapped.)
+     */
+    public ConceptMap setSourceTarget(ValueSet value) { 
+      this.sourceTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
     public ResourceReference getTarget() { 
@@ -1140,6 +1166,21 @@ public class ConceptMap extends Resource {
      */
     public ConceptMap setTarget(ResourceReference value) { 
       this.target = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #target} (The actual object that is the target of the reference. The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
+     */
+    public ValueSet getTargetTarget() { 
+      return this.targetTarget;
+    }
+
+    /**
+     * @param value {@link #target} (The actual object that is the target of the reference. The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
+     */
+    public ConceptMap setTargetTarget(ValueSet value) { 
+      this.targetTarget = value;
       return this;
     }
 
@@ -1160,7 +1201,6 @@ public class ConceptMap extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this concept map when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));

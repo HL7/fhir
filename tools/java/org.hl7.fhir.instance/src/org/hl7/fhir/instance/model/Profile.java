@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class Profile extends Resource {
     }
 
   public static class ResourceProfileStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class Profile extends Resource {
           return ResourceProfileStatus.retired;
         throw new Exception("Unknown ResourceProfileStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResourceProfileStatus.draft)
         return "draft";
@@ -109,7 +107,6 @@ public class Profile extends Resource {
     }
 
   public static class PropertyRepresentationEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -118,7 +115,6 @@ public class Profile extends Resource {
           return PropertyRepresentation.xmlAttr;
         throw new Exception("Unknown PropertyRepresentation code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == PropertyRepresentation.xmlAttr)
         return "xmlAttr";
@@ -153,7 +149,6 @@ public class Profile extends Resource {
     }
 
   public static class ResourceSlicingRulesEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -166,7 +161,6 @@ public class Profile extends Resource {
           return ResourceSlicingRules.openAtEnd;
         throw new Exception("Unknown ResourceSlicingRules code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResourceSlicingRules.closed)
         return "closed";
@@ -205,7 +199,6 @@ public class Profile extends Resource {
     }
 
   public static class ResourceAggregationModeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -218,7 +211,6 @@ public class Profile extends Resource {
           return ResourceAggregationMode.bundled;
         throw new Exception("Unknown ResourceAggregationMode code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ResourceAggregationMode.contained)
         return "contained";
@@ -253,7 +245,6 @@ public class Profile extends Resource {
     }
 
   public static class ConstraintSeverityEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -264,7 +255,6 @@ public class Profile extends Resource {
           return ConstraintSeverity.warning;
         throw new Exception("Unknown ConstraintSeverity code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConstraintSeverity.error)
         return "error";
@@ -301,7 +291,6 @@ public class Profile extends Resource {
     }
 
   public static class BindingConformanceEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -314,7 +303,6 @@ public class Profile extends Resource {
           return BindingConformance.example;
         throw new Exception("Unknown BindingConformance code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == BindingConformance.required)
         return "required";
@@ -369,7 +357,6 @@ public class Profile extends Resource {
     }
 
   public static class SearchParamTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -390,7 +377,6 @@ public class Profile extends Resource {
           return SearchParamType.quantity;
         throw new Exception("Unknown SearchParamType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == SearchParamType.number)
         return "number";
@@ -441,7 +427,6 @@ public class Profile extends Resource {
     }
 
   public static class ExtensionContextEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -456,7 +441,6 @@ public class Profile extends Resource {
           return ExtensionContext.extension;
         throw new Exception("Unknown ExtensionContext code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ExtensionContext.resource)
         return "resource";
@@ -490,6 +474,8 @@ public class Profile extends Resource {
          * Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
         protected String_ comments;
+
+        private static final long serialVersionUID = 514246768L;
 
       public ProfileMappingComponent() {
         super();
@@ -640,7 +626,6 @@ public class Profile extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identity", "id", "An Internal id that is used to identify this mapping set when specific mappings are made.", 0, java.lang.Integer.MAX_VALUE, identity));
@@ -690,6 +675,8 @@ public class Profile extends Resource {
          * Additional search parameters for implementations to support and/or make use of.
          */
         protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
+
+        private static final long serialVersionUID = -1252612554L;
 
       public ProfileStructureComponent() {
         super();
@@ -874,7 +861,6 @@ public class Profile extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -927,6 +913,8 @@ public class Profile extends Resource {
          * Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource.
          */
         protected ElementDefinitionComponent definition;
+
+        private static final long serialVersionUID = 853411662L;
 
       public ElementComponent() {
         super();
@@ -1062,7 +1050,6 @@ public class Profile extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("path", "string", "The path identifies the element and is expressed as a '.'-separated list of ancestor elements, beginning with the name of the resource.", 0, java.lang.Integer.MAX_VALUE, path));
@@ -1101,6 +1088,8 @@ public class Profile extends Resource {
          * Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
          */
         protected Enumeration<ResourceSlicingRules> rules;
+
+        private static final long serialVersionUID = -1808715996L;
 
       public ElementSlicingComponent() {
         super();
@@ -1209,7 +1198,6 @@ public class Profile extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("discriminator", "id", "Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
@@ -1317,6 +1305,8 @@ public class Profile extends Resource {
          * Identifies a concept from an external specification that roughly corresponds to this element.
          */
         protected List<ElementDefinitionMappingComponent> mapping = new ArrayList<ElementDefinitionMappingComponent>();
+
+        private static final long serialVersionUID = 468958412L;
 
       public ElementDefinitionComponent() {
         super();
@@ -1821,7 +1811,6 @@ public class Profile extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("short", "string", "A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).", 0, java.lang.Integer.MAX_VALUE, short_));
@@ -1894,6 +1883,8 @@ public class Profile extends Resource {
          * If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
          */
         protected List<Enumeration<ResourceAggregationMode>> aggregation = new ArrayList<Enumeration<ResourceAggregationMode>>();
+
+        private static final long serialVersionUID = -1330878106L;
 
       public TypeRefComponent() {
         super();
@@ -1999,7 +1990,6 @@ public class Profile extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Name of Data type or Resource.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2044,6 +2034,8 @@ public class Profile extends Resource {
          * XPath expression of constraint.
          */
         protected String_ xpath;
+
+        private static final long serialVersionUID = -191188023L;
 
       public ElementDefinitionConstraintComponent() {
         super();
@@ -2221,7 +2213,6 @@ public class Profile extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("key", "id", "Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.", 0, java.lang.Integer.MAX_VALUE, key));
@@ -2268,6 +2259,8 @@ public class Profile extends Resource {
          * Points to the value set or external definition that identifies the set of codes to be used.
          */
         protected Type reference;
+
+        private static final long serialVersionUID = 1398404837L;
 
       public ElementDefinitionBindingComponent() {
         super();
@@ -2430,7 +2423,6 @@ public class Profile extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "A descriptive name for this - can be useful for generating implementation artifacts.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2462,6 +2454,8 @@ public class Profile extends Resource {
          * Expresses what part of the target specification corresponds to this element.
          */
         protected String_ map;
+
+        private static final long serialVersionUID = 257647079L;
 
       public ElementDefinitionMappingComponent() {
         super();
@@ -2537,7 +2531,6 @@ public class Profile extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identity", "id", "An internal reference to the definition of a mapping.", 0, java.lang.Integer.MAX_VALUE, identity));
@@ -2578,6 +2571,8 @@ public class Profile extends Resource {
          * Types of resource (if a resource is referenced).
          */
         protected List<Code> target = new ArrayList<Code>();
+
+        private static final long serialVersionUID = -872306768L;
 
       public ProfileStructureSearchParamComponent() {
         super();
@@ -2749,7 +2744,6 @@ public class Profile extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2798,6 +2792,8 @@ public class Profile extends Resource {
          * Definition of the extension and its content.
          */
         protected ElementDefinitionComponent definition;
+
+        private static final long serialVersionUID = -2113262685L;
 
       public ProfileExtensionDefnComponent() {
         super();
@@ -2952,7 +2948,6 @@ public class Profile extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A unique code (within the profile) used to identify the extension.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2991,6 +2986,8 @@ public class Profile extends Resource {
          * A parameter of a named query.
          */
         protected List<ProfileStructureSearchParamComponent> parameter = new ArrayList<ProfileStructureSearchParamComponent>();
+
+        private static final long serialVersionUID = 1319228927L;
 
       public ProfileQueryComponent() {
         super();
@@ -3083,7 +3080,6 @@ public class Profile extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of a query, which is used in the URI from Conformance statements declaring use of the query.  Typically this will also be the name for the _query parameter when the query is called, though in some cases it may be aliased by a server to avoid collisions.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -3182,6 +3178,8 @@ public class Profile extends Resource {
      * Definition of a named query and its parameters and their meaning.
      */
     protected List<ProfileQueryComponent> query = new ArrayList<ProfileQueryComponent>();
+
+    private static final long serialVersionUID = -778681152L;
 
     public Profile() {
       super();
@@ -3647,7 +3645,6 @@ public class Profile extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));

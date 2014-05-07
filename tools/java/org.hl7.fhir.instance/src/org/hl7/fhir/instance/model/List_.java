@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -65,7 +65,6 @@ public class List_ extends Resource {
     }
 
   public static class ListModeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -78,7 +77,6 @@ public class List_ extends Resource {
           return ListMode.changes;
         throw new Exception("Unknown ListMode code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ListMode.working)
         return "working";
@@ -110,6 +108,13 @@ public class List_ extends Resource {
          * A reference to the actual resource from which data was derived.
          */
         protected ResourceReference item;
+
+        /**
+         * The actual object that is the target of the reference (A reference to the actual resource from which data was derived.)
+         */
+        protected Resource itemTarget;
+
+        private static final long serialVersionUID = 2031329135L;
 
       public ListEntryComponent() {
         super();
@@ -224,7 +229,21 @@ public class List_ extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #item} (The actual object that is the target of the reference. A reference to the actual resource from which data was derived.)
+         */
+        public Resource getItemTarget() { 
+          return this.itemTarget;
+        }
+
+        /**
+         * @param value {@link #item} (The actual object that is the target of the reference. A reference to the actual resource from which data was derived.)
+         */
+        public ListEntryComponent setItemTarget(Resource value) { 
+          this.itemTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("flag", "CodeableConcept", "The flag allows the system constructing the list to make one or more statements about the role and significance of the item in the list.", 0, java.lang.Integer.MAX_VALUE, flag));
@@ -262,9 +281,19 @@ public class List_ extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The common subject (or patient) of the resources that are in the list, if there is one.)
+     */
+    protected Resource subjectTarget;
+
+    /**
      * The entity responsible for deciding what the contents of the list were.
      */
     protected ResourceReference source;
+
+    /**
+     * The actual object that is the target of the reference (The entity responsible for deciding what the contents of the list were.)
+     */
+    protected Resource sourceTarget;
 
     /**
      * The date that the list was prepared.
@@ -290,6 +319,8 @@ public class List_ extends Resource {
      * If the list is empty, why the list is empty.
      */
     protected CodeableConcept emptyReason;
+
+    private static final long serialVersionUID = -483434446L;
 
     public List_() {
       super();
@@ -348,6 +379,21 @@ public class List_ extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The common subject (or patient) of the resources that are in the list, if there is one.)
+     */
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The common subject (or patient) of the resources that are in the list, if there is one.)
+     */
+    public List_ setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #source} (The entity responsible for deciding what the contents of the list were.)
      */
     public ResourceReference getSource() { 
@@ -359,6 +405,21 @@ public class List_ extends Resource {
      */
     public List_ setSource(ResourceReference value) { 
       this.source = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #source} (The actual object that is the target of the reference. The entity responsible for deciding what the contents of the list were.)
+     */
+    public Resource getSourceTarget() { 
+      return this.sourceTarget;
+    }
+
+    /**
+     * @param value {@link #source} (The actual object that is the target of the reference. The entity responsible for deciding what the contents of the list were.)
+     */
+    public List_ setSourceTarget(Resource value) { 
+      this.sourceTarget = value;
       return this;
     }
 
@@ -498,7 +559,6 @@ public class List_ extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the List assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));

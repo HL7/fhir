@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -77,7 +77,6 @@ public class AppointmentResponse extends Resource {
     }
 
   public static class ParticipantstatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -96,7 +95,6 @@ public class AppointmentResponse extends Resource {
           return Participantstatus.needsaction;
         throw new Exception("Unknown Participantstatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == Participantstatus.accepted)
         return "accepted";
@@ -125,6 +123,11 @@ public class AppointmentResponse extends Resource {
     protected ResourceReference appointment;
 
     /**
+     * The actual object that is the target of the reference (Parent appointment that this response is replying to.)
+     */
+    protected Appointment appointmentTarget;
+
+    /**
      * Role of participant in the appointment.
      */
     protected List<CodeableConcept> participantType = new ArrayList<CodeableConcept>();
@@ -133,6 +136,11 @@ public class AppointmentResponse extends Resource {
      * A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.
      */
     protected List<ResourceReference> individual = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
+     */
+    protected List<Resource> individualTarget = new ArrayList<Resource>();
+
 
     /**
      * Participation status of the Patient.
@@ -160,9 +168,16 @@ public class AppointmentResponse extends Resource {
     protected ResourceReference lastModifiedBy;
 
     /**
+     * The actual object that is the target of the reference (Who recorded the appointment response.)
+     */
+    protected Resource lastModifiedByTarget;
+
+    /**
      * Date when the response was recorded or last updated.
      */
-    protected DateTime lastModifiedByDate;
+    protected DateTime lastModified;
+
+    private static final long serialVersionUID = -833070985L;
 
     public AppointmentResponse() {
       super();
@@ -207,6 +222,21 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
+     * @return {@link #appointment} (The actual object that is the target of the reference. Parent appointment that this response is replying to.)
+     */
+    public Appointment getAppointmentTarget() { 
+      return this.appointmentTarget;
+    }
+
+    /**
+     * @param value {@link #appointment} (The actual object that is the target of the reference. Parent appointment that this response is replying to.)
+     */
+    public AppointmentResponse setAppointmentTarget(Appointment value) { 
+      this.appointmentTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #participantType} (Role of participant in the appointment.)
      */
     public List<CodeableConcept> getParticipantType() { 
@@ -238,6 +268,13 @@ public class AppointmentResponse extends Resource {
       ResourceReference t = new ResourceReference();
       this.individual.add(t);
       return t;
+    }
+
+    /**
+     * @return {@link #individual} (The actual objects that are the target of the reference. A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.)
+     */
+    public List<Resource> getIndividualTarget() { 
+      return this.individualTarget;
     }
 
     /**
@@ -396,42 +433,56 @@ public class AppointmentResponse extends Resource {
     }
 
     /**
-     * @return {@link #lastModifiedByDate} (Date when the response was recorded or last updated.)
+     * @return {@link #lastModifiedBy} (The actual object that is the target of the reference. Who recorded the appointment response.)
      */
-    public DateTime getLastModifiedByDate() { 
-      return this.lastModifiedByDate;
+    public Resource getLastModifiedByTarget() { 
+      return this.lastModifiedByTarget;
     }
 
     /**
-     * @param value {@link #lastModifiedByDate} (Date when the response was recorded or last updated.)
+     * @param value {@link #lastModifiedBy} (The actual object that is the target of the reference. Who recorded the appointment response.)
      */
-    public AppointmentResponse setLastModifiedByDate(DateTime value) { 
-      this.lastModifiedByDate = value;
+    public AppointmentResponse setLastModifiedByTarget(Resource value) { 
+      this.lastModifiedByTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #lastModified} (Date when the response was recorded or last updated.)
+     */
+    public DateTime getLastModified() { 
+      return this.lastModified;
+    }
+
+    /**
+     * @param value {@link #lastModified} (Date when the response was recorded or last updated.)
+     */
+    public AppointmentResponse setLastModified(DateTime value) { 
+      this.lastModified = value;
       return this;
     }
 
     /**
      * @return Date when the response was recorded or last updated.
      */
-    public DateAndTime getLastModifiedByDateSimple() { 
-      return this.lastModifiedByDate == null ? null : this.lastModifiedByDate.getValue();
+    public DateAndTime getLastModifiedSimple() { 
+      return this.lastModified == null ? null : this.lastModified.getValue();
     }
 
     /**
      * @param value Date when the response was recorded or last updated.
      */
-    public AppointmentResponse setLastModifiedByDateSimple(DateAndTime value) { 
+    public AppointmentResponse setLastModifiedSimple(DateAndTime value) { 
       if (value == null)
-        this.lastModifiedByDate = null;
+        this.lastModified = null;
       else {
-        if (this.lastModifiedByDate == null)
-          this.lastModifiedByDate = new DateTime();
-        this.lastModifiedByDate.setValue(value);
+        if (this.lastModified == null)
+          this.lastModified = new DateTime();
+        this.lastModified.setValue(value);
       }
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -443,7 +494,7 @@ public class AppointmentResponse extends Resource {
         childrenList.add(new Property("start", "instant", "Date/Time that the appointment is to take place.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the appointment is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
         childrenList.add(new Property("lastModifiedBy", "Resource(Practitioner|Patient|RelatedPerson)", "Who recorded the appointment response.", 0, java.lang.Integer.MAX_VALUE, lastModifiedBy));
-        childrenList.add(new Property("lastModifiedByDate", "dateTime", "Date when the response was recorded or last updated.", 0, java.lang.Integer.MAX_VALUE, lastModifiedByDate));
+        childrenList.add(new Property("lastModified", "dateTime", "Date when the response was recorded or last updated.", 0, java.lang.Integer.MAX_VALUE, lastModified));
       }
 
       public AppointmentResponse copy() {
@@ -463,7 +514,7 @@ public class AppointmentResponse extends Resource {
         dst.start = start == null ? null : start.copy();
         dst.end = end == null ? null : end.copy();
         dst.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.copy();
-        dst.lastModifiedByDate = lastModifiedByDate == null ? null : lastModifiedByDate.copy();
+        dst.lastModified = lastModified == null ? null : lastModified.copy();
         return dst;
       }
 

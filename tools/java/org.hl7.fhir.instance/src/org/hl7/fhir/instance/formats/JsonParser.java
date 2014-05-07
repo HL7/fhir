@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -51,7 +51,6 @@ import com.google.gson.JsonArray;
 
 public class JsonParser extends JsonParserBase {
 
-  @Override
   protected void parseElementProperties(JsonObject json, Element element) throws Exception {
     super.parseElementProperties(json, element);
     if (json != null && json.has("extension")) {
@@ -727,7 +726,6 @@ public class JsonParser extends JsonParserBase {
     return res;
   }
 
-  @Override
   protected void parseResourceProperties(JsonObject json, Resource res) throws Exception {
     parseBackboneProperties(json, res); 
     if (json.has("language"))
@@ -901,6 +899,8 @@ public class JsonParser extends JsonParserBase {
       res.setStatus(parseCode(json.get("status").getAsString()));
     if (json.has("_status"))
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatus());
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("reason"))
       res.setReason(parseCodeableConcept(json.getAsJsonObject("reason")));
     if (json.has("description"))
@@ -937,10 +937,10 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("lastModifiedBy"))
       res.setLastModifiedBy(parseResourceReference(json.getAsJsonObject("lastModifiedBy")));
-    if (json.has("lastModifiedDate"))
-      res.setLastModifiedDate(parseDateTime(json.get("lastModifiedDate").getAsString()));
-    if (json.has("_lastModifiedDate"))
-      parseElementProperties(json.getAsJsonObject("_lastModifiedDate"), res.getLastModifiedDate());
+    if (json.has("lastModified"))
+      res.setLastModified(parseDateTime(json.get("lastModified").getAsString()));
+    if (json.has("_lastModified"))
+      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModified());
     return res;
   }
 
@@ -1007,10 +1007,10 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_end"), res.getEnd());
     if (json.has("lastModifiedBy"))
       res.setLastModifiedBy(parseResourceReference(json.getAsJsonObject("lastModifiedBy")));
-    if (json.has("lastModifiedByDate"))
-      res.setLastModifiedByDate(parseDateTime(json.get("lastModifiedByDate").getAsString()));
-    if (json.has("_lastModifiedByDate"))
-      parseElementProperties(json.getAsJsonObject("_lastModifiedByDate"), res.getLastModifiedByDate());
+    if (json.has("lastModified"))
+      res.setLastModified(parseDateTime(json.get("lastModified").getAsString()));
+    if (json.has("_lastModified"))
+      parseElementProperties(json.getAsJsonObject("_lastModified"), res.getLastModified());
     return res;
   }
 
@@ -5519,10 +5519,10 @@ public class JsonParser extends JsonParserBase {
       res.setEnd(parseInstant(json.get("end").getAsString()));
     if (json.has("_end"))
       parseElementProperties(json.getAsJsonObject("_end"), res.getEnd());
-    if (json.has("overboooked"))
-      res.setOverboooked(parseBoolean(json.get("overboooked").getAsBoolean()));
-    if (json.has("_overboooked"))
-      parseElementProperties(json.getAsJsonObject("_overboooked"), res.getOverboooked());
+    if (json.has("overbooked"))
+      res.setOverbooked(parseBoolean(json.get("overbooked").getAsBoolean()));
+    if (json.has("_overbooked"))
+      parseElementProperties(json.getAsJsonObject("_overbooked"), res.getOverbooked());
     if (json.has("comment"))
       res.setComment(parseString(json.get("comment").getAsString()));
     if (json.has("_comment"))
@@ -5781,6 +5781,14 @@ public class JsonParser extends JsonParserBase {
       res.setName(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getName());
+    if (json.has("purpose"))
+      res.setPurpose(parseString(json.get("purpose").getAsString()));
+    if (json.has("_purpose"))
+      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurpose());
+    if (json.has("immutable"))
+      res.setImmutable(parseBoolean(json.get("immutable").getAsBoolean()));
+    if (json.has("_immutable"))
+      parseElementProperties(json.getAsJsonObject("_immutable"), res.getImmutable());
     if (json.has("publisher"))
       res.setPublisher(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
@@ -5815,6 +5823,10 @@ public class JsonParser extends JsonParserBase {
       res.setDate(parseDateTime(json.get("date").getAsString()));
     if (json.has("_date"))
       parseElementProperties(json.getAsJsonObject("_date"), res.getDate());
+    if (json.has("stableDate"))
+      res.setStableDate(parseDate(json.get("stableDate").getAsString()));
+    if (json.has("_stableDate"))
+      parseElementProperties(json.getAsJsonObject("_stableDate"), res.getStableDate());
     if (json.has("define"))
       res.setDefine(parseValueSetValueSetDefineComponent(json.getAsJsonObject("define"), res));
     if (json.has("compose"))
@@ -6240,178 +6252,5 @@ public class JsonParser extends JsonParserBase {
     return null;
   }
 
-  private boolean hasTypeName(JsonObject json, String prefix) {
-        if (json.has(prefix+"Period"))
-      return true;
-    if (json.has(prefix+"Coding"))
-      return true;
-    if (json.has(prefix+"Range"))
-      return true;
-    if (json.has(prefix+"Quantity"))
-      return true;
-    if (json.has(prefix+"Attachment"))
-      return true;
-    if (json.has(prefix+"Ratio"))
-      return true;
-    if (json.has(prefix+"SampledData"))
-      return true;
-    if (json.has(prefix+"Resource"))
-      return true;
-    if (json.has(prefix+"CodeableConcept"))
-      return true;
-    if (json.has(prefix+"Identifier"))
-      return true;
-    if (json.has(prefix+"Age"))
-      return true;
-    if (json.has(prefix+"Count"))
-      return true;
-    if (json.has(prefix+"Money"))
-      return true;
-    if (json.has(prefix+"Distance"))
-      return true;
-    if (json.has(prefix+"Duration"))
-      return true;
-    if (json.has(prefix+"Schedule"))
-      return true;
-    if (json.has(prefix+"Contact"))
-      return true;
-    if (json.has(prefix+"Address"))
-      return true;
-    if (json.has(prefix+"HumanName"))
-      return true;
-    if (json.has(prefix+"AdverseReaction"))
-      return true;
-    if (json.has(prefix+"Alert"))
-      return true;
-    if (json.has(prefix+"AllergyIntolerance"))
-      return true;
-    if (json.has(prefix+"Appointment"))
-      return true;
-    if (json.has(prefix+"AppointmentResponse"))
-      return true;
-    if (json.has(prefix+"Availability"))
-      return true;
-    if (json.has(prefix+"CarePlan"))
-      return true;
-    if (json.has(prefix+"Composition"))
-      return true;
-    if (json.has(prefix+"ConceptMap"))
-      return true;
-    if (json.has(prefix+"Condition"))
-      return true;
-    if (json.has(prefix+"Conformance"))
-      return true;
-    if (json.has(prefix+"Device"))
-      return true;
-    if (json.has(prefix+"DeviceObservationReport"))
-      return true;
-    if (json.has(prefix+"DiagnosticOrder"))
-      return true;
-    if (json.has(prefix+"DiagnosticReport"))
-      return true;
-    if (json.has(prefix+"DocumentManifest"))
-      return true;
-    if (json.has(prefix+"DocumentReference"))
-      return true;
-    if (json.has(prefix+"Encounter"))
-      return true;
-    if (json.has(prefix+"FamilyHistory"))
-      return true;
-    if (json.has(prefix+"Group"))
-      return true;
-    if (json.has(prefix+"ImagingStudy"))
-      return true;
-    if (json.has(prefix+"Immunization"))
-      return true;
-    if (json.has(prefix+"ImmunizationRecommendation"))
-      return true;
-    if (json.has(prefix+"List"))
-      return true;
-    if (json.has(prefix+"Location"))
-      return true;
-    if (json.has(prefix+"Media"))
-      return true;
-    if (json.has(prefix+"Medication"))
-      return true;
-    if (json.has(prefix+"MedicationAdministration"))
-      return true;
-    if (json.has(prefix+"MedicationDispense"))
-      return true;
-    if (json.has(prefix+"MedicationPrescription"))
-      return true;
-    if (json.has(prefix+"MedicationStatement"))
-      return true;
-    if (json.has(prefix+"MessageHeader"))
-      return true;
-    if (json.has(prefix+"Namespace"))
-      return true;
-    if (json.has(prefix+"Observation"))
-      return true;
-    if (json.has(prefix+"OperationOutcome"))
-      return true;
-    if (json.has(prefix+"Order"))
-      return true;
-    if (json.has(prefix+"OrderResponse"))
-      return true;
-    if (json.has(prefix+"Organization"))
-      return true;
-    if (json.has(prefix+"Other"))
-      return true;
-    if (json.has(prefix+"Patient"))
-      return true;
-    if (json.has(prefix+"Practitioner"))
-      return true;
-    if (json.has(prefix+"Procedure"))
-      return true;
-    if (json.has(prefix+"Profile"))
-      return true;
-    if (json.has(prefix+"Provenance"))
-      return true;
-    if (json.has(prefix+"Query"))
-      return true;
-    if (json.has(prefix+"Questionnaire"))
-      return true;
-    if (json.has(prefix+"RelatedPerson"))
-      return true;
-    if (json.has(prefix+"SecurityEvent"))
-      return true;
-    if (json.has(prefix+"Slot"))
-      return true;
-    if (json.has(prefix+"Specimen"))
-      return true;
-    if (json.has(prefix+"Substance"))
-      return true;
-    if (json.has(prefix+"Supply"))
-      return true;
-    if (json.has(prefix+"ValueSet"))
-      return true;
-    if (json.has(prefix+"Integer") || json.has("_"+prefix+"Integer"))
-      return true;
-    if (json.has(prefix+"DateTime") || json.has("_"+prefix+"DateTime"))
-      return true;
-    if (json.has(prefix+"Code") || json.has("_"+prefix+"Code"))
-      return true;
-    if (json.has(prefix+"Date") || json.has("_"+prefix+"Date"))
-      return true;
-    if (json.has(prefix+"Decimal") || json.has("_"+prefix+"Decimal"))
-      return true;
-    if (json.has(prefix+"Uri") || json.has("_"+prefix+"Uri"))
-      return true;
-    if (json.has(prefix+"Id") || json.has("_"+prefix+"Id"))
-      return true;
-    if (json.has(prefix+"Base64Binary") || json.has("_"+prefix+"Base64Binary"))
-      return true;
-    if (json.has(prefix+"Oid") || json.has("_"+prefix+"Oid"))
-      return true;
-    if (json.has(prefix+"String") || json.has("_"+prefix+"String"))
-      return true;
-    if (json.has(prefix+"Boolean") || json.has("_"+prefix+"Boolean"))
-      return true;
-    if (json.has(prefix+"Uuid") || json.has("_"+prefix+"Uuid"))
-      return true;
-    if (json.has(prefix+"Instant") || json.has("_"+prefix+"Instant"))
-      return true;
-    return false;
-  }
 }
 

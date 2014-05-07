@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -77,7 +77,6 @@ public class Questionnaire extends Resource {
     }
 
   public static class QuestionnaireStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -96,7 +95,6 @@ public class Questionnaire extends Resource {
           return QuestionnaireStatus.amended;
         throw new Exception("Unknown QuestionnaireStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == QuestionnaireStatus.draft)
         return "draft";
@@ -136,6 +134,11 @@ public class Questionnaire extends Resource {
         protected ResourceReference subject;
 
         /**
+         * The actual object that is the target of the reference (More specific subject this section's answers are about, details the subject given in Questionnaire.)
+         */
+        protected Resource subjectTarget;
+
+        /**
          * A sub-group within a group. The ordering of groups within this group is relevant.
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
@@ -144,6 +147,8 @@ public class Questionnaire extends Resource {
          * Set of questions within this group. The order of questions within the group is relevant.
          */
         protected List<QuestionComponent> question = new ArrayList<QuestionComponent>();
+
+        private static final long serialVersionUID = -581894231L;
 
       public GroupComponent() {
         super();
@@ -252,6 +257,21 @@ public class Questionnaire extends Resource {
         }
 
         /**
+         * @return {@link #subject} (The actual object that is the target of the reference. More specific subject this section's answers are about, details the subject given in Questionnaire.)
+         */
+        public Resource getSubjectTarget() { 
+          return this.subjectTarget;
+        }
+
+        /**
+         * @param value {@link #subject} (The actual object that is the target of the reference. More specific subject this section's answers are about, details the subject given in Questionnaire.)
+         */
+        public GroupComponent setSubjectTarget(Resource value) { 
+          this.subjectTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #group} (A sub-group within a group. The ordering of groups within this group is relevant.)
          */
         public List<GroupComponent> getGroup() { 
@@ -285,7 +305,6 @@ public class Questionnaire extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "CodeableConcept", "Structured name for a section of a predefined list of questions this questionnaire is responding to.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -340,6 +359,11 @@ public class Questionnaire extends Resource {
         protected ResourceReference options;
 
         /**
+         * The actual object that is the target of the reference (Reference to a valueset containing the possible options.)
+         */
+        protected ValueSet optionsTarget;
+
+        /**
          * Structured answer in the form of a FHIR Resource or datatype.
          */
         protected org.hl7.fhir.instance.model.Type data;
@@ -353,6 +377,8 @@ public class Questionnaire extends Resource {
          * Nested group, containing nested question for this question. The order of groups within the question is relevant.
          */
         protected List<GroupComponent> group = new ArrayList<GroupComponent>();
+
+        private static final long serialVersionUID = -662890731L;
 
       public QuestionComponent() {
         super();
@@ -457,6 +483,21 @@ public class Questionnaire extends Resource {
         }
 
         /**
+         * @return {@link #options} (The actual object that is the target of the reference. Reference to a valueset containing the possible options.)
+         */
+        public ValueSet getOptionsTarget() { 
+          return this.optionsTarget;
+        }
+
+        /**
+         * @param value {@link #options} (The actual object that is the target of the reference. Reference to a valueset containing the possible options.)
+         */
+        public QuestionComponent setOptionsTarget(ValueSet value) { 
+          this.optionsTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #data} (Structured answer in the form of a FHIR Resource or datatype.)
          */
         public org.hl7.fhir.instance.model.Type getData() { 
@@ -524,7 +565,6 @@ public class Questionnaire extends Resource {
           return t;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "CodeableConcept", "Structured name for the question that identifies this question within the Questionnaire or Group.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -572,14 +612,29 @@ public class Questionnaire extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.)
+     */
+    protected Resource subjectTarget;
+
+    /**
      * Person who received the answers to the questions in the Questionnaire and recorded them in the system.
      */
     protected ResourceReference author;
 
     /**
+     * The actual object that is the target of the reference (Person who received the answers to the questions in the Questionnaire and recorded them in the system.)
+     */
+    protected Resource authorTarget;
+
+    /**
      * The person who answered the questions about the subject. Only used when this is not the subject him/herself.
      */
     protected ResourceReference source;
+
+    /**
+     * The actual object that is the target of the reference (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
+     */
+    protected Resource sourceTarget;
 
     /**
      * Structured name for a predefined list of questions this questionnaire is responding to.
@@ -597,9 +652,16 @@ public class Questionnaire extends Resource {
     protected ResourceReference encounter;
 
     /**
+     * The actual object that is the target of the reference (Encounter during which this questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     */
+    protected Encounter encounterTarget;
+
+    /**
      * A group of questions to a possibly similarly grouped set of questions in the questionnaire.
      */
     protected GroupComponent group;
+
+    private static final long serialVersionUID = -805104897L;
 
     public Questionnaire() {
       super();
@@ -691,6 +753,21 @@ public class Questionnaire extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.)
+     */
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.)
+     */
+    public Questionnaire setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #author} (Person who received the answers to the questions in the Questionnaire and recorded them in the system.)
      */
     public ResourceReference getAuthor() { 
@@ -706,6 +783,21 @@ public class Questionnaire extends Resource {
     }
 
     /**
+     * @return {@link #author} (The actual object that is the target of the reference. Person who received the answers to the questions in the Questionnaire and recorded them in the system.)
+     */
+    public Resource getAuthorTarget() { 
+      return this.authorTarget;
+    }
+
+    /**
+     * @param value {@link #author} (The actual object that is the target of the reference. Person who received the answers to the questions in the Questionnaire and recorded them in the system.)
+     */
+    public Questionnaire setAuthorTarget(Resource value) { 
+      this.authorTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #source} (The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
      */
     public ResourceReference getSource() { 
@@ -717,6 +809,21 @@ public class Questionnaire extends Resource {
      */
     public Questionnaire setSource(ResourceReference value) { 
       this.source = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #source} (The actual object that is the target of the reference. The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
+     */
+    public Resource getSourceTarget() { 
+      return this.sourceTarget;
+    }
+
+    /**
+     * @param value {@link #source} (The actual object that is the target of the reference. The person who answered the questions about the subject. Only used when this is not the subject him/herself.)
+     */
+    public Questionnaire setSourceTarget(Resource value) { 
+      this.sourceTarget = value;
       return this;
     }
 
@@ -768,6 +875,21 @@ public class Questionnaire extends Resource {
     }
 
     /**
+     * @return {@link #encounter} (The actual object that is the target of the reference. Encounter during which this questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     */
+    public Encounter getEncounterTarget() { 
+      return this.encounterTarget;
+    }
+
+    /**
+     * @param value {@link #encounter} (The actual object that is the target of the reference. Encounter during which this questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.)
+     */
+    public Questionnaire setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #group} (A group of questions to a possibly similarly grouped set of questions in the questionnaire.)
      */
     public GroupComponent getGroup() { 
@@ -782,7 +904,6 @@ public class Questionnaire extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire as a whole.", 0, java.lang.Integer.MAX_VALUE, status));

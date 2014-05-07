@@ -34,6 +34,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Date extends PrimitiveType {
 
+  private static final long serialVersionUID = 9219236095594689166L;
 	/**
 	 * The value of the date
 	 */

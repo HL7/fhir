@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -69,7 +69,6 @@ public class Query extends Resource {
     }
 
   public static class QueryOutcomeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,7 +83,6 @@ public class Query extends Resource {
           return QueryOutcome.error;
         throw new Exception("Unknown QueryOutcome code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == QueryOutcome.ok)
         return "ok";
@@ -143,6 +141,13 @@ public class Query extends Resource {
          * Resources that are the results of the search.
          */
         protected List<ResourceReference> reference = new ArrayList<ResourceReference>();
+        /**
+         * The actual objects that are the target of the reference (Resources that are the results of the search.)
+         */
+        protected List<Resource> referenceTarget = new ArrayList<Resource>();
+
+
+        private static final long serialVersionUID = 841399625L;
 
       public QueryResponseComponent() {
         super();
@@ -356,7 +361,13 @@ public class Query extends Resource {
           return t;
         }
 
-        @Override
+        /**
+         * @return {@link #reference} (The actual objects that are the target of the reference. Resources that are the results of the search.)
+         */
+        public List<Resource> getReferenceTarget() { 
+          return this.referenceTarget;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "uri", "Links response to source query.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -412,6 +423,8 @@ public class Query extends Resource {
      * If this is a response to a query.
      */
     protected QueryResponseComponent response;
+
+    private static final long serialVersionUID = -1622604040L;
 
     public Query() {
       super();
@@ -486,7 +499,6 @@ public class Query extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "uri", "Links query and its response(s).", 0, java.lang.Integer.MAX_VALUE, identifier));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -94,7 +94,6 @@ public class Schedule extends Type {
     }
 
   public static class EventTimingEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -121,7 +120,6 @@ public class Schedule extends Type {
           return EventTiming.pCV;
         throw new Exception("Unknown EventTiming code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == EventTiming.hS)
         return "HS";
@@ -190,7 +188,6 @@ public class Schedule extends Type {
     }
 
   public static class UnitsOfTimeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -211,7 +208,6 @@ public class Schedule extends Type {
           return UnitsOfTime.a;
         throw new Exception("Unknown UnitsOfTime code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == UnitsOfTime.s)
         return "s";
@@ -261,6 +257,8 @@ public class Schedule extends Type {
          * When to stop repeating the schedule.
          */
         protected DateTime end;
+
+        private static final long serialVersionUID = -1589503088L;
 
       public ScheduleRepeatComponent() {
         super();
@@ -480,7 +478,6 @@ public class Schedule extends Type {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("frequency", "integer", "Indicates how often the event should occur.", 0, java.lang.Integer.MAX_VALUE, frequency));
@@ -513,6 +510,8 @@ public class Schedule extends Type {
      * Identifies a repeating pattern to the intended time periods.
      */
     protected ScheduleRepeatComponent repeat;
+
+    private static final long serialVersionUID = -537139777L;
 
     public Schedule() {
       super();
@@ -550,14 +549,12 @@ public class Schedule extends Type {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("event", "Period", "Identifies specific time periods when the event should occur.", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("repeat", "", "Identifies a repeating pattern to the intended time periods.", 0, java.lang.Integer.MAX_VALUE, repeat));
       }
 
-      @Override
       public Schedule copy() {
         Schedule dst = new Schedule();
         dst.event = new ArrayList<Period>();
@@ -567,7 +564,6 @@ public class Schedule extends Type {
         return dst;
       }
 
-      @Override
       protected Schedule typedCopy() {
         return copy();
       }

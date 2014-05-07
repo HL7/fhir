@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -909,6 +909,7 @@ public class JsonComposer extends JsonComposerBase {
       composeIntegerExtras("priority", element.getPriority(), false);
       composeCodeCore("status", element.getStatus(), false);
       composeCodeExtras("status", element.getStatus(), false);
+      composeCodeableConcept("type", element.getType());
       composeCodeableConcept("reason", element.getReason());
       composeStringCore("description", element.getDescription(), false);
       composeStringExtras("description", element.getDescription(), false);
@@ -933,8 +934,8 @@ public class JsonComposer extends JsonComposerBase {
         closeArray();
       };
       composeResourceReference("lastModifiedBy", element.getLastModifiedBy());
-      composeDateTimeCore("lastModifiedDate", element.getLastModifiedDate(), false);
-      composeDateTimeExtras("lastModifiedDate", element.getLastModifiedDate(), false);
+      composeDateTimeCore("lastModified", element.getLastModified(), false);
+      composeDateTimeExtras("lastModified", element.getLastModified(), false);
     }
   }
 
@@ -995,8 +996,8 @@ public class JsonComposer extends JsonComposerBase {
       composeInstantCore("end", element.getEnd(), false);
       composeInstantExtras("end", element.getEnd(), false);
       composeResourceReference("lastModifiedBy", element.getLastModifiedBy());
-      composeDateTimeCore("lastModifiedByDate", element.getLastModifiedByDate(), false);
-      composeDateTimeExtras("lastModifiedByDate", element.getLastModifiedByDate(), false);
+      composeDateTimeCore("lastModified", element.getLastModified(), false);
+      composeDateTimeExtras("lastModified", element.getLastModified(), false);
     }
   }
 
@@ -4761,8 +4762,8 @@ public class JsonComposer extends JsonComposerBase {
       composeInstantExtras("start", element.getStart(), false);
       composeInstantCore("end", element.getEnd(), false);
       composeInstantExtras("end", element.getEnd(), false);
-      composeBooleanCore("overboooked", element.getOverboooked(), false);
-      composeBooleanExtras("overboooked", element.getOverboooked(), false);
+      composeBooleanCore("overbooked", element.getOverbooked(), false);
+      composeBooleanExtras("overbooked", element.getOverbooked(), false);
       composeStringCore("comment", element.getComment(), false);
       composeStringExtras("comment", element.getComment(), false);
       composeDateTimeCore("lastModified", element.getLastModified(), false);
@@ -4983,6 +4984,10 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("version", element.getVersion(), false);
       composeStringCore("name", element.getName(), false);
       composeStringExtras("name", element.getName(), false);
+      composeStringCore("purpose", element.getPurpose(), false);
+      composeStringExtras("purpose", element.getPurpose(), false);
+      composeBooleanCore("immutable", element.getImmutable(), false);
+      composeBooleanExtras("immutable", element.getImmutable(), false);
       composeStringCore("publisher", element.getPublisher(), false);
       composeStringExtras("publisher", element.getPublisher(), false);
       if (element.getTelecom().size() > 0) {
@@ -5005,6 +5010,8 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanExtras("extensible", element.getExtensible(), false);
       composeDateTimeCore("date", element.getDate(), false);
       composeDateTimeExtras("date", element.getDate(), false);
+      composeDateCore("stableDate", element.getStableDate(), false);
+      composeDateExtras("stableDate", element.getStableDate(), false);
       composeValueSetValueSetDefineComponent("define", element.getDefine());
       composeValueSetValueSetComposeComponent("compose", element.getCompose());
       composeValueSetValueSetExpansionComponent("expansion", element.getExpansion());
@@ -5395,7 +5402,6 @@ public class JsonComposer extends JsonComposerBase {
       throw new Exception("Unhanded resource type "+resource.getClass().getName());
   }
 
-  @SuppressWarnings("unchecked")
   protected void composeType(String prefix, Type type) throws Exception {
     if (type == null)
       ;

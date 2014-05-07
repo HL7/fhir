@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -53,6 +53,13 @@ public class Practitioner extends Resource {
          * Organization that regulates and issues the qualification.
          */
         protected ResourceReference issuer;
+
+        /**
+         * The actual object that is the target of the reference (Organization that regulates and issues the qualification.)
+         */
+        protected Organization issuerTarget;
+
+        private static final long serialVersionUID = -878582183L;
 
       public PractitionerQualificationComponent() {
         super();
@@ -108,7 +115,21 @@ public class Practitioner extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #issuer} (The actual object that is the target of the reference. Organization that regulates and issues the qualification.)
+         */
+        public Organization getIssuerTarget() { 
+          return this.issuerTarget;
+        }
+
+        /**
+         * @param value {@link #issuer} (The actual object that is the target of the reference. Organization that regulates and issues the qualification.)
+         */
+        public PractitionerQualificationComponent setIssuerTarget(Organization value) { 
+          this.issuerTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Coded representation of the qualification.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -167,6 +188,11 @@ public class Practitioner extends Resource {
     protected ResourceReference organization;
 
     /**
+     * The actual object that is the target of the reference (The organization that the practitioner represents.)
+     */
+    protected Organization organizationTarget;
+
+    /**
      * Roles which this practitioner is authorized to perform for the organization.
      */
     protected List<CodeableConcept> role = new ArrayList<CodeableConcept>();
@@ -185,6 +211,11 @@ public class Practitioner extends Resource {
      * The location(s) at which this practitioner provides care.
      */
     protected List<ResourceReference> location = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (The location(s) at which this practitioner provides care.)
+     */
+    protected List<Location> locationTarget = new ArrayList<Location>();
+
 
     /**
      * Qualifications obtained by training and certification.
@@ -195,6 +226,8 @@ public class Practitioner extends Resource {
      * A language the practitioner is able to use in patient communication.
      */
     protected List<CodeableConcept> communication = new ArrayList<CodeableConcept>();
+
+    private static final long serialVersionUID = -1959079809L;
 
     public Practitioner() {
       super();
@@ -348,6 +381,21 @@ public class Practitioner extends Resource {
     }
 
     /**
+     * @return {@link #organization} (The actual object that is the target of the reference. The organization that the practitioner represents.)
+     */
+    public Organization getOrganizationTarget() { 
+      return this.organizationTarget;
+    }
+
+    /**
+     * @param value {@link #organization} (The actual object that is the target of the reference. The organization that the practitioner represents.)
+     */
+    public Practitioner setOrganizationTarget(Organization value) { 
+      this.organizationTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #role} (Roles which this practitioner is authorized to perform for the organization.)
      */
     public List<CodeableConcept> getRole() { 
@@ -414,6 +462,23 @@ public class Practitioner extends Resource {
     }
 
     /**
+     * @return {@link #location} (The actual objects that are the target of the reference. The location(s) at which this practitioner provides care.)
+     */
+    public List<Location> getLocationTarget() { 
+      return this.locationTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #location} (Add an actual object that is the target of the reference. The location(s) at which this practitioner provides care.)
+     */
+    public Location addLocationTarget() { 
+      Location r = new Location();
+      this.locationTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #qualification} (Qualifications obtained by training and certification.)
      */
     public List<PractitionerQualificationComponent> getQualification() { 
@@ -447,7 +512,6 @@ public class Practitioner extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "An identifier that applies to this person in this role.", 0, java.lang.Integer.MAX_VALUE, identifier));

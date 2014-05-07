@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -77,7 +77,6 @@ public class Observation extends Resource {
     }
 
   public static class ObservationStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -96,7 +95,6 @@ public class Observation extends Resource {
           return ObservationStatus.enteredInError;
         throw new Exception("Unknown ObservationStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObservationStatus.registered)
         return "registered";
@@ -157,7 +155,6 @@ public class Observation extends Resource {
     }
 
   public static class ObservationReliabilityEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -178,7 +175,6 @@ public class Observation extends Resource {
           return ObservationReliability.unknown;
         throw new Exception("Unknown ObservationReliability code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObservationReliability.ok)
         return "ok";
@@ -241,7 +237,6 @@ public class Observation extends Resource {
     }
 
   public static class ObservationRelationshiptypesEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -262,7 +257,6 @@ public class Observation extends Resource {
           return ObservationRelationshiptypes.interferedby;
         throw new Exception("Unknown ObservationRelationshiptypes code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ObservationRelationshiptypes.hascomponent)
         return "has-component";
@@ -302,6 +296,8 @@ public class Observation extends Resource {
          * The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.
          */
         protected Range age;
+
+        private static final long serialVersionUID = -1022858860L;
 
       public ObservationReferenceRangeComponent() {
         super();
@@ -367,7 +363,6 @@ public class Observation extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("low", "Quantity", "The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.", 0, java.lang.Integer.MAX_VALUE, low));
@@ -397,6 +392,13 @@ public class Observation extends Resource {
          * A reference to the observation that is related to this observation.
          */
         protected ResourceReference target;
+
+        /**
+         * The actual object that is the target of the reference (A reference to the observation that is related to this observation.)
+         */
+        protected Observation targetTarget;
+
+        private static final long serialVersionUID = -984646850L;
 
       public ObservationRelatedComponent() {
         super();
@@ -458,7 +460,21 @@ public class Observation extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #target} (The actual object that is the target of the reference. A reference to the observation that is related to this observation.)
+         */
+        public Observation getTargetTarget() { 
+          return this.targetTarget;
+        }
+
+        /**
+         * @param value {@link #target} (The actual object that is the target of the reference. A reference to the observation that is related to this observation.)
+         */
+        public ObservationRelatedComponent setTargetTarget(Observation value) { 
+          this.targetTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "A code specifying the kind of relationship that exists with the target observation.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -535,14 +551,29 @@ public class Observation extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The thing the observation is being made about.)
+     */
+    protected Resource subjectTarget;
+
+    /**
      * The specimen that was used when this observation was made.
      */
     protected ResourceReference specimen;
 
     /**
+     * The actual object that is the target of the reference (The specimen that was used when this observation was made.)
+     */
+    protected Specimen specimenTarget;
+
+    /**
      * Who was responsible for asserting the observed value as "true".
      */
     protected List<ResourceReference> performer = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (Who was responsible for asserting the observed value as "true".)
+     */
+    protected List<Resource> performerTarget = new ArrayList<Resource>();
+
 
     /**
      * Guidance on how to interpret the value by comparison to a normal or recommended range.
@@ -553,6 +584,8 @@ public class Observation extends Resource {
      * Related observations - either components, or previous observations, or statements of derivation.
      */
     protected List<ObservationRelatedComponent> related = new ArrayList<ObservationRelatedComponent>();
+
+    private static final long serialVersionUID = -757546248L;
 
     public Observation() {
       super();
@@ -822,6 +855,21 @@ public class Observation extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The thing the observation is being made about.)
+     */
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The thing the observation is being made about.)
+     */
+    public Observation setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #specimen} (The specimen that was used when this observation was made.)
      */
     public ResourceReference getSpecimen() { 
@@ -833,6 +881,21 @@ public class Observation extends Resource {
      */
     public Observation setSpecimen(ResourceReference value) { 
       this.specimen = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #specimen} (The actual object that is the target of the reference. The specimen that was used when this observation was made.)
+     */
+    public Specimen getSpecimenTarget() { 
+      return this.specimenTarget;
+    }
+
+    /**
+     * @param value {@link #specimen} (The actual object that is the target of the reference. The specimen that was used when this observation was made.)
+     */
+    public Observation setSpecimenTarget(Specimen value) { 
+      this.specimenTarget = value;
       return this;
     }
 
@@ -851,6 +914,13 @@ public class Observation extends Resource {
       ResourceReference t = new ResourceReference();
       this.performer.add(t);
       return t;
+    }
+
+    /**
+     * @return {@link #performer} (The actual objects that are the target of the reference. Who was responsible for asserting the observed value as "true".)
+     */
+    public List<Resource> getPerformerTarget() { 
+      return this.performerTarget;
     }
 
     /**
@@ -887,7 +957,6 @@ public class Observation extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));

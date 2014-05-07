@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -47,6 +47,8 @@ public class Range extends Type {
      * The high limit. The boundary is inclusive.
      */
     protected Quantity high;
+
+    private static final long serialVersionUID = -474933350L;
 
     public Range() {
       super();
@@ -82,14 +84,12 @@ public class Range extends Type {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("low", "Quantity", "The low limit. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, low));
         childrenList.add(new Property("high", "Quantity", "The high limit. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, high));
       }
 
-      @Override
       public Range copy() {
         Range dst = new Range();
         dst.low = low == null ? null : low.copy();
@@ -97,7 +97,6 @@ public class Range extends Type {
         return dst;
       }
 
-      @Override
       protected Range typedCopy() {
         return copy();
       }

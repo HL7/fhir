@@ -30,5 +30,7 @@ package org.hl7.fhir.instance.model;
 
 public class Uuid extends Uri {
 
+  private static final long serialVersionUID = -2355185818258961443L;
+
 	
 }

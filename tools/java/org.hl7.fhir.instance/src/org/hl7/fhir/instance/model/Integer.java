@@ -38,6 +38,7 @@ package org.hl7.fhir.instance.model;
  */
 public class Integer extends PrimitiveType {
 
+  private static final long serialVersionUID = -553171308047944356L;
 	/**
 	 * the actual value of the number
 	 */

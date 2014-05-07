@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -69,7 +69,6 @@ public class AdverseReaction extends Resource {
     }
 
   public static class ReactionSeverityEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,7 +83,6 @@ public class AdverseReaction extends Resource {
           return ReactionSeverity.minor;
         throw new Exception("Unknown ReactionSeverity code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ReactionSeverity.severe)
         return "severe";
@@ -125,7 +123,6 @@ public class AdverseReaction extends Resource {
     }
 
   public static class ExposureTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -138,7 +135,6 @@ public class AdverseReaction extends Resource {
           return ExposureType.coincidental;
         throw new Exception("Unknown ExposureType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ExposureType.drugadmin)
         return "drugadmin";
@@ -181,7 +177,6 @@ public class AdverseReaction extends Resource {
     }
 
   public static class CausalityExpectationEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -196,7 +191,6 @@ public class AdverseReaction extends Resource {
           return CausalityExpectation.unknown;
         throw new Exception("Unknown CausalityExpectation code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == CausalityExpectation.likely)
         return "likely";
@@ -220,6 +214,8 @@ public class AdverseReaction extends Resource {
          * The severity of the sign or symptom.
          */
         protected Enumeration<ReactionSeverity> severity;
+
+        private static final long serialVersionUID = -1856198542L;
 
       public AdverseReactionSymptomComponent() {
         super();
@@ -281,7 +277,6 @@ public class AdverseReaction extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Indicates the specific sign or symptom that was observed.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -317,6 +312,13 @@ public class AdverseReaction extends Resource {
          * Substance that is presumed to have caused the adverse reaction.
          */
         protected ResourceReference substance;
+
+        /**
+         * The actual object that is the target of the reference (Substance that is presumed to have caused the adverse reaction.)
+         */
+        protected Substance substanceTarget;
+
+        private static final long serialVersionUID = 520803518L;
 
       public AdverseReactionExposureComponent() {
         super();
@@ -445,7 +447,21 @@ public class AdverseReaction extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #substance} (The actual object that is the target of the reference. Substance that is presumed to have caused the adverse reaction.)
+         */
+        public Substance getSubstanceTarget() { 
+          return this.substanceTarget;
+        }
+
+        /**
+         * @param value {@link #substance} (The actual object that is the target of the reference. Substance that is presumed to have caused the adverse reaction.)
+         */
+        public AdverseReactionExposureComponent setSubstanceTarget(Substance value) { 
+          this.substanceTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("date", "dateTime", "Identifies the initial date of the exposure that is suspected to be related to the reaction.", 0, java.lang.Integer.MAX_VALUE, date));
@@ -481,6 +497,11 @@ public class AdverseReaction extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (The subject of the adverse reaction.)
+     */
+    protected Patient subjectTarget;
+
+    /**
      * If true, indicates that no reaction occurred.
      */
     protected Boolean didNotOccurFlag;
@@ -491,6 +512,11 @@ public class AdverseReaction extends Resource {
     protected ResourceReference recorder;
 
     /**
+     * The actual object that is the target of the reference (Identifies the individual responsible for the information in the reaction record.)
+     */
+    protected Resource recorderTarget;
+
+    /**
      * The signs and symptoms that were observed as part of the reaction.
      */
     protected List<AdverseReactionSymptomComponent> symptom = new ArrayList<AdverseReactionSymptomComponent>();
@@ -499,6 +525,8 @@ public class AdverseReaction extends Resource {
      * An exposure to a substance that preceded a reaction occurrence.
      */
     protected List<AdverseReactionExposureComponent> exposure = new ArrayList<AdverseReactionExposureComponent>();
+
+    private static final long serialVersionUID = -1004725142L;
 
     public AdverseReaction() {
       super();
@@ -579,6 +607,21 @@ public class AdverseReaction extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. The subject of the adverse reaction.)
+     */
+    public Patient getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. The subject of the adverse reaction.)
+     */
+    public AdverseReaction setSubjectTarget(Patient value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #didNotOccurFlag} (If true, indicates that no reaction occurred.)
      */
     public Boolean getDidNotOccurFlag() { 
@@ -626,6 +669,21 @@ public class AdverseReaction extends Resource {
     }
 
     /**
+     * @return {@link #recorder} (The actual object that is the target of the reference. Identifies the individual responsible for the information in the reaction record.)
+     */
+    public Resource getRecorderTarget() { 
+      return this.recorderTarget;
+    }
+
+    /**
+     * @param value {@link #recorder} (The actual object that is the target of the reference. Identifies the individual responsible for the information in the reaction record.)
+     */
+    public AdverseReaction setRecorderTarget(Resource value) { 
+      this.recorderTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #symptom} (The signs and symptoms that were observed as part of the reaction.)
      */
     public List<AdverseReactionSymptomComponent> getSymptom() { 
@@ -659,7 +717,6 @@ public class AdverseReaction extends Resource {
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this reaction that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

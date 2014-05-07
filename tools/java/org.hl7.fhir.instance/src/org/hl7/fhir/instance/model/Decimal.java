@@ -38,6 +38,8 @@ import java.math.BigDecimal;
  */
 public class Decimal extends Type {
 
+  private static final long serialVersionUID = 2006555241525096267L;
+
 	/**
 	 * The actual value of the decimal
 	 */

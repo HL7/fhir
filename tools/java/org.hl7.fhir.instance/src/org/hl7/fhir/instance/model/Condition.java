@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -69,7 +69,6 @@ public class Condition extends Resource {
     }
 
   public static class ConditionStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -84,7 +83,6 @@ public class Condition extends Resource {
           return ConditionStatus.refuted;
         throw new Exception("Unknown ConditionStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConditionStatus.provisional)
         return "provisional";
@@ -121,7 +119,6 @@ public class Condition extends Resource {
     }
 
   public static class ConditionRelationshipTypeEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -132,7 +129,6 @@ public class Condition extends Resource {
           return ConditionRelationshipType.following;
         throw new Exception("Unknown ConditionRelationshipType code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == ConditionRelationshipType.dueto)
         return "due-to";
@@ -152,6 +148,13 @@ public class Condition extends Resource {
          * Reference to a formal record of the evidence on which the staging assessment is based.
          */
         protected List<ResourceReference> assessment = new ArrayList<ResourceReference>();
+        /**
+         * The actual objects that are the target of the reference (Reference to a formal record of the evidence on which the staging assessment is based.)
+         */
+        protected List<Resource> assessmentTarget = new ArrayList<Resource>();
+
+
+        private static final long serialVersionUID = -1698066074L;
 
       public ConditionStageComponent() {
         super();
@@ -189,7 +192,13 @@ public class Condition extends Resource {
           return t;
         }
 
-        @Override
+        /**
+         * @return {@link #assessment} (The actual objects that are the target of the reference. Reference to a formal record of the evidence on which the staging assessment is based.)
+         */
+        public List<Resource> getAssessmentTarget() { 
+          return this.assessmentTarget;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("summary", "CodeableConcept", "A simple summary of the stage such as 'Stage 3'. The determination of the stage is disease-specific.", 0, java.lang.Integer.MAX_VALUE, summary));
@@ -217,6 +226,13 @@ public class Condition extends Resource {
          * Links to other relevant information, including pathology reports.
          */
         protected List<ResourceReference> detail = new ArrayList<ResourceReference>();
+        /**
+         * The actual objects that are the target of the reference (Links to other relevant information, including pathology reports.)
+         */
+        protected List<Resource> detailTarget = new ArrayList<Resource>();
+
+
+        private static final long serialVersionUID = 1835722845L;
 
       public ConditionEvidenceComponent() {
         super();
@@ -254,7 +270,13 @@ public class Condition extends Resource {
           return t;
         }
 
-        @Override
+        /**
+         * @return {@link #detail} (The actual objects that are the target of the reference. Links to other relevant information, including pathology reports.)
+         */
+        public List<Resource> getDetailTarget() { 
+          return this.detailTarget;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "A manifestation or symptom that led to the recording of this condition.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -282,6 +304,8 @@ public class Condition extends Resource {
          * Detailed anatomical location information.
          */
         protected String_ detail;
+
+        private static final long serialVersionUID = -1468883543L;
 
       public ConditionLocationComponent() {
         super();
@@ -338,7 +362,6 @@ public class Condition extends Resource {
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "CodeableConcept", "Code that identifies the structural location.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -369,6 +392,13 @@ public class Condition extends Resource {
          * Target of the relationship.
          */
         protected ResourceReference target;
+
+        /**
+         * The actual object that is the target of the reference (Target of the relationship.)
+         */
+        protected Resource targetTarget;
+
+        private static final long serialVersionUID = -7869756L;
 
       public ConditionRelatedItemComponent() {
         super();
@@ -441,7 +471,21 @@ public class Condition extends Resource {
           return this;
         }
 
-        @Override
+        /**
+         * @return {@link #target} (The actual object that is the target of the reference. Target of the relationship.)
+         */
+        public Resource getTargetTarget() { 
+          return this.targetTarget;
+        }
+
+        /**
+         * @param value {@link #target} (The actual object that is the target of the reference. Target of the relationship.)
+         */
+        public ConditionRelatedItemComponent setTargetTarget(Resource value) { 
+          this.targetTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of relationship that this condition has to the related item.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -470,14 +514,29 @@ public class Condition extends Resource {
     protected ResourceReference subject;
 
     /**
+     * The actual object that is the target of the reference (Indicates the patient who the condition record is associated with.)
+     */
+    protected Patient subjectTarget;
+
+    /**
      * Encounter during which the condition was first asserted.
      */
     protected ResourceReference encounter;
 
     /**
+     * The actual object that is the target of the reference (Encounter during which the condition was first asserted.)
+     */
+    protected Encounter encounterTarget;
+
+    /**
      * Person who takes responsibility for asserting the existence of the condition as part of the electronic record.
      */
     protected ResourceReference asserter;
+
+    /**
+     * The actual object that is the target of the reference (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     */
+    protected Resource asserterTarget;
 
     /**
      * Estimated or actual date the condition/problem/diagnosis was first detected/suspected.
@@ -544,6 +603,8 @@ public class Condition extends Resource {
      */
     protected String_ notes;
 
+    private static final long serialVersionUID = -1164607486L;
+
     public Condition() {
       super();
     }
@@ -588,6 +649,21 @@ public class Condition extends Resource {
     }
 
     /**
+     * @return {@link #subject} (The actual object that is the target of the reference. Indicates the patient who the condition record is associated with.)
+     */
+    public Patient getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} (The actual object that is the target of the reference. Indicates the patient who the condition record is associated with.)
+     */
+    public Condition setSubjectTarget(Patient value) { 
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #encounter} (Encounter during which the condition was first asserted.)
      */
     public ResourceReference getEncounter() { 
@@ -603,6 +679,21 @@ public class Condition extends Resource {
     }
 
     /**
+     * @return {@link #encounter} (The actual object that is the target of the reference. Encounter during which the condition was first asserted.)
+     */
+    public Encounter getEncounterTarget() { 
+      return this.encounterTarget;
+    }
+
+    /**
+     * @param value {@link #encounter} (The actual object that is the target of the reference. Encounter during which the condition was first asserted.)
+     */
+    public Condition setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #asserter} (Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
      */
     public ResourceReference getAsserter() { 
@@ -614,6 +705,21 @@ public class Condition extends Resource {
      */
     public Condition setAsserter(ResourceReference value) { 
       this.asserter = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #asserter} (The actual object that is the target of the reference. Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     */
+    public Resource getAsserterTarget() { 
+      return this.asserterTarget;
+    }
+
+    /**
+     * @param value {@link #asserter} (The actual object that is the target of the reference. Person who takes responsibility for asserting the existence of the condition as part of the electronic record.)
+     */
+    public Condition setAsserterTarget(Resource value) { 
+      this.asserterTarget = value;
       return this;
     }
 
@@ -877,7 +983,6 @@ public class Condition extends Resource {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));

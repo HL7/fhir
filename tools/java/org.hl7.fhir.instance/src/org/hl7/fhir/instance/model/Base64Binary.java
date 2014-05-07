@@ -35,6 +35,7 @@ import org.hl7.fhir.instance.formats.FormatUtilities;
  */
 public class Base64Binary extends PrimitiveType {
 
+  private static final long serialVersionUID = 6170198697716842056L;
 	/**
 	 * The byte content in the base64Binary
 	 */

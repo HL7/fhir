@@ -37,8 +37,9 @@ import java.util.List;
  * 
  * Technically, this is an element that is defined in a resource, and has no assigned type, but defined element children instead 
  */
-public class BackboneElement extends Element {
+public abstract class BackboneElement extends Element {
 
+  private static final long serialVersionUID = 7949281299174185258L;
 	/**
 	 * Modifier extensions
 	 */

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -75,7 +75,6 @@ public class MedicationAdministration extends Resource {
     }
 
   public static class MedicationAdminStatusEnumFactory implements EnumFactory {
-    @Override
     public Enum<?> fromCode(String codeString) throws Exception {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
@@ -92,7 +91,6 @@ public class MedicationAdministration extends Resource {
           return MedicationAdminStatus.stopped;
         throw new Exception("Unknown MedicationAdminStatus code '"+codeString+"'");
         }
-    @Override
     public String toCode(Enum<?> code) throws Exception {
       if (code == MedicationAdminStatus.inProgress)
         return "in progress";
@@ -150,6 +148,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
          * The maximum total quantity of a therapeutic substance that was administered to the patient over the specified period of time. E.g. 1000mg in 24 hours.
          */
         protected Ratio maxDosePerPeriod;
+
+        private static final long serialVersionUID = 1667442570L;
 
       public MedicationAdministrationDosageComponent() {
         super();
@@ -279,7 +279,6 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           return this;
         }
 
-        @Override
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("timing[x]", "dateTime|Period", "The timing schedule for giving the medication to the patient.  This may be a single time point (using dateTime) or it may be a start and end dateTime (Period).", 0, java.lang.Integer.MAX_VALUE, timing));
@@ -323,9 +322,19 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected ResourceReference patient;
 
     /**
+     * The actual object that is the target of the reference (The person or animal to whom the medication was given.)
+     */
+    protected Patient patientTarget;
+
+    /**
      * The individual who was responsible for giving the medication to the patient.
      */
     protected ResourceReference practitioner;
+
+    /**
+     * The actual object that is the target of the reference (The individual who was responsible for giving the medication to the patient.)
+     */
+    protected Practitioner practitionerTarget;
 
     /**
      * The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.
@@ -333,9 +342,19 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected ResourceReference encounter;
 
     /**
+     * The actual object that is the target of the reference (The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.)
+     */
+    protected Encounter encounterTarget;
+
+    /**
      * The original request, instruction or authority to perform the administration.
      */
     protected ResourceReference prescription;
+
+    /**
+     * The actual object that is the target of the reference (The original request, instruction or authority to perform the administration.)
+     */
+    protected MedicationPrescription prescriptionTarget;
 
     /**
      * Set this to true if the record is saying that the medication was NOT administered.
@@ -358,14 +377,26 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     protected ResourceReference medication;
 
     /**
+     * The actual object that is the target of the reference (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     */
+    protected Medication medicationTarget;
+
+    /**
      * The device used in administering the medication to the patient.  E.g. a particular infusion pump.
      */
     protected List<ResourceReference> device = new ArrayList<ResourceReference>();
+    /**
+     * The actual objects that are the target of the reference (The device used in administering the medication to the patient.  E.g. a particular infusion pump.)
+     */
+    protected List<Device> deviceTarget = new ArrayList<Device>();
+
 
     /**
      * Provides details of how much of the medication was administered.
      */
     protected List<MedicationAdministrationDosageComponent> dosage = new ArrayList<MedicationAdministrationDosageComponent>();
+
+    private static final long serialVersionUID = 2062088320L;
 
     public MedicationAdministration() {
       super();
@@ -445,6 +476,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
+     * @return {@link #patient} (The actual object that is the target of the reference. The person or animal to whom the medication was given.)
+     */
+    public Patient getPatientTarget() { 
+      return this.patientTarget;
+    }
+
+    /**
+     * @param value {@link #patient} (The actual object that is the target of the reference. The person or animal to whom the medication was given.)
+     */
+    public MedicationAdministration setPatientTarget(Patient value) { 
+      this.patientTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #practitioner} (The individual who was responsible for giving the medication to the patient.)
      */
     public ResourceReference getPractitioner() { 
@@ -456,6 +502,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      */
     public MedicationAdministration setPractitioner(ResourceReference value) { 
       this.practitioner = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #practitioner} (The actual object that is the target of the reference. The individual who was responsible for giving the medication to the patient.)
+     */
+    public Practitioner getPractitionerTarget() { 
+      return this.practitionerTarget;
+    }
+
+    /**
+     * @param value {@link #practitioner} (The actual object that is the target of the reference. The individual who was responsible for giving the medication to the patient.)
+     */
+    public MedicationAdministration setPractitionerTarget(Practitioner value) { 
+      this.practitionerTarget = value;
       return this;
     }
 
@@ -475,6 +536,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
+     * @return {@link #encounter} (The actual object that is the target of the reference. The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.)
+     */
+    public Encounter getEncounterTarget() { 
+      return this.encounterTarget;
+    }
+
+    /**
+     * @param value {@link #encounter} (The actual object that is the target of the reference. The visit or admission the or other contact between patient and health care provider the medication administration was performed as part of.)
+     */
+    public MedicationAdministration setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #prescription} (The original request, instruction or authority to perform the administration.)
      */
     public ResourceReference getPrescription() { 
@@ -486,6 +562,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
      */
     public MedicationAdministration setPrescription(ResourceReference value) { 
       this.prescription = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #prescription} (The actual object that is the target of the reference. The original request, instruction or authority to perform the administration.)
+     */
+    public MedicationPrescription getPrescriptionTarget() { 
+      return this.prescriptionTarget;
+    }
+
+    /**
+     * @param value {@link #prescription} (The actual object that is the target of the reference. The original request, instruction or authority to perform the administration.)
+     */
+    public MedicationAdministration setPrescriptionTarget(MedicationPrescription value) { 
+      this.prescriptionTarget = value;
       return this;
     }
 
@@ -573,6 +664,21 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     }
 
     /**
+     * @return {@link #medication} (The actual object that is the target of the reference. Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     */
+    public Medication getMedicationTarget() { 
+      return this.medicationTarget;
+    }
+
+    /**
+     * @param value {@link #medication} (The actual object that is the target of the reference. Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
+     */
+    public MedicationAdministration setMedicationTarget(Medication value) { 
+      this.medicationTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #device} (The device used in administering the medication to the patient.  E.g. a particular infusion pump.)
      */
     public List<ResourceReference> getDevice() { 
@@ -587,6 +693,23 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       ResourceReference t = new ResourceReference();
       this.device.add(t);
       return t;
+    }
+
+    /**
+     * @return {@link #device} (The actual objects that are the target of the reference. The device used in administering the medication to the patient.  E.g. a particular infusion pump.)
+     */
+    public List<Device> getDeviceTarget() { 
+      return this.deviceTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #device} (Add an actual object that is the target of the reference. The device used in administering the medication to the patient.  E.g. a particular infusion pump.)
+     */
+    public Device addDeviceTarget() { 
+      Device r = new Device();
+      this.deviceTarget.add(r);
+      return r;
     }
 
     /**
@@ -606,7 +729,6 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       return t;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal IDs (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));

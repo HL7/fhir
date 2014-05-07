@@ -29,14 +29,15 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 /**
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
  */
 public class Duration extends Quantity {
 
-      @Override
+    private static final long serialVersionUID = 1053308848L;
+
       public Duration copy() {
         Duration dst = new Duration();
         dst.value = value == null ? null : value.copy();
@@ -47,7 +48,6 @@ public class Duration extends Quantity {
         return dst;
       }
 
-      @Override
       protected Duration typedCopy() {
         return copy();
       }

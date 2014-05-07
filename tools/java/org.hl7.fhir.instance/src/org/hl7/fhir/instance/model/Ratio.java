@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Apr 28, 2014 16:21+1000 for FHIR v0.1.0
+// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -47,6 +47,8 @@ public class Ratio extends Type {
      * The value of the denominator.
      */
     protected Quantity denominator;
+
+    private static final long serialVersionUID = 479922563L;
 
     public Ratio() {
       super();
@@ -82,14 +84,12 @@ public class Ratio extends Type {
       return this;
     }
 
-      @Override
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("numerator", "Quantity", "The value of the numerator.", 0, java.lang.Integer.MAX_VALUE, numerator));
         childrenList.add(new Property("denominator", "Quantity", "The value of the denominator.", 0, java.lang.Integer.MAX_VALUE, denominator));
       }
 
-      @Override
       public Ratio copy() {
         Ratio dst = new Ratio();
         dst.numerator = numerator == null ? null : numerator.copy();
@@ -97,7 +97,6 @@ public class Ratio extends Type {
         return dst;
       }
 
-      @Override
       protected Ratio typedCopy() {
         return copy();
       }
