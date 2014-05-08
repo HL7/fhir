@@ -104,7 +104,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="68" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="69" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -324,6 +324,9 @@
     <Cell><Data ss:Type="String">Substance</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Subscription</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Supply</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
@@ -400,7 +403,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -408,7 +411,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>33</ActiveRow>
+     <ActiveRow>52</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

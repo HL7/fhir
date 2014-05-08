@@ -1,0 +1,116 @@
+Use case: subscribing to specific lab observations
+
+FHIR offers a REST API that lets clients search for resources on demand. Separately, there is a Messaging API that allows notifications to be "pushed" from one place to another. But neither API provides a clean solution to a common set of real-world "triggering" or notification-type requirements.
+
+For example, let's say Mt. Auburn Hospital's Mother and Infant Unit wants to outsource a small, discrete clinical decision support task to a cloud-hosted service called BiliWatch (fictitious, but modeled after an Intermountain Healthcare clinical decision support module). To manage neonatal hyperbilirubinemia, every time a bilirubin result arrives from the laboratory it should be shared with BiliWatch to ensure that each newborn's levels are trending in a safe direction.
+
+How can BiliWatch get the data it needs? Today I see two possibilities:
+
+Use the REST API to poll for new results at a short interval (minute? hour?)
+Pre-negotiate with Mt. Auburn for some kind of custom data subscription
+While polling works and will often be a very good solution, it can be laggy or network-intensive. This proposal aims to automate #2, so custom subscriptions can be established and managed automatically with well-defined data filters, notification channels, and notification payloads.
+
+A successful solution should also provide access for clients that sit behind a NAT and are not directly reachable by inbound HTTP connections.
+
+Prior art
+
+Standards
+
+There are at least two existing standards that can send subscribers push-style notifications when new entries appear on an Atom feed.
+
+PubSubHubbub (aka PuSH) has the right high-level problem statement ("polling sucks") and solves the general problem of letting clients subscribe to webhook notifications when Atom feeds change. The primary limitation is that PuSH doesn't provide a solution for subscribers that can't host an internet-accessible HTTP server (behind a NAT or firewall, say -- such as a mobile phone).
+
+XMPP PubSub provides an XMPP-based protocol by which subscriptions can be established and notifications published. This protocol works for clients behind a NAT because the client initiates the (long-running) XMPP connection over which notifications can be pushed.
+
+Both PuSH and XMPP PubSub describe an interaction among three roles:
+
+a content publisher
+a subscription manager, and
+the clients who want to receive notifications
+Given the behavior of FHIR search parameters, it would be impossible for a publisher to notify a subscription manager about every possible feed URL that matches a given query (since there are infinite variations) -- which implies that for FHIR, roles #1 and #2 would collapse into a single entity. This means that the standards-based protocols for communicating between #1 and #2 are unhelpful. But the protocol for communicating between #2 and #3 could still be used.
+
+Both PuSH and XMPP PubSub are relevant standards, and a combination of the two (that is to say, offering both side-by-side as alternatives) covers a good portion of the problem space. Certainly enough to solve the minimal problem. Regarding the combination of PuSH and XMPP PubSub: a company called Superfeedr, for example, offers this exact combination as a service to paying subscribers.
+
+I see two principal drawbacks:
+
+These standards expose two entirely distinct client-facing APIs to manage subscriptions. If we want to provide additional notification channels (beyond webhooks and XMPP), this divergence would become increasingly painful.
+
+XMPP is heavy-weight. (As the Superfeedr developer documentation states, "XMPP can be scary".). I'd like us to have the flexibility to explore alternatives like Web Sockets. In any case, since XMPP cannot run entirely within a Web browser, a FHIR server would have to provide some kind of Web Socket-to-XMPP proxy to get notifications all the way back to a browser-based app. This is technically feasible, but undesirably complex.
+
+That said, it's certainly worth exploring this approach (especially PubSubHubbub).
+
+Patterns outside of standards
+
+REST Hooks is a simple set of patterns for subscribing to callbacks when resources in a RESTful API change. It's not a specific implementation guide or standard, but a set of architectural principles and examples. These turn out to have some pretty natural implications for subscriptions in FHIR.
+
+FHIR-specific approach
+
+The proposal relies entirely on FHIR's REST API to manage subscriptions and define filters; and conveys clinical data exclusively through the REST API.
+
+Following aspects of the REST Hooks pattern, here's an example showing how BiliWatch could create a Subscription, asking to be informed each time a new bilirubin observation occurs. Each time a relevant result arrives (or is updated), the hospital's FHIR server will send a callback to a URL specified by the client's subscription.
+
+POST /Subscription
+
+{
+  "resourceType": "Subscription",
+  "search": "/Observation?name=http://loinc.org|1975-2&_format=json",
+  "notification": [{
+    "channel": "restHook",
+    "url": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
+    "header": ["Authorization: Bearer secret-token-abc-123"]
+  }]
+}
+After POSTing the preceding Subscription, the client would parse the Location header and save the new Subscription's FHIR id for use in subsequent operations.
+
+When the client receives a POST to https://biliwatch.com/customers/mount-auburn-miu/on-result, it would re-issue its query to the server, appending &_since=:last (where :last is replaced by the time at which the client last checked). In this way it can fetch all new Observations.
+
+Note that clinical data are conveyed to the client exclusively thorough the REST API, which helps consolidate authorization and authentication logic.
+
+Beyond REST: other notification channels
+
+Subscriptions are created exclusively via the FHIR REST API. But notifications need not occur via REST. Indeed, some clients may be unable to expose an outward-facing HTTP endpoint to receive triggered notifications. For example, a pure client-side Web app or mobile app may want to subscribe to a data feed without polling. This is accomplished with non-REST notification channels.
+
+webSocket notification channel (? maybe)
+
+A client can declare its intention to listen via Web Sockets:
+
+  "notification": [{
+    "channel": "webSocket"
+  }]
+The client would then initiate a Web Socket connection to the server, at a URL advertised in the FHIR server's conformance statement (subscriptions/webSocketUrl). A simple protocol like the following would then be used to listen for notifications:
+
+Client connects a secure Web Socket to the hospital's webSocketUrl.
+
+Client authenticates to server using a server-specified Web socket protocol (e.g. OAuth bearer token presentation).
+
+Client sends a bind :id message over the socket (with id from above). For example, the client might issue: bind Subscription/123).
+
+Server responds with a "bound :id" message to acknowledge.
+
+Server sends a "ping :id" message to notify the client each time a new result is availalbe.
+
+Secure e-mail -- aka Direct Project -- notification channel (? maybe)
+
+We could consider supporting secure e-mail subscriptions. For example...
+
+  "notification": [{
+    "channel": "email",
+    "to": "mt-auburn-results@direct.biliwatch.com",
+    "subject": "A new bilirubin result has arrived!",
+    "body": "Click <a href='http://some-viewer'>here</a> to view",
+    "secureWithDirectProject": true
+  }]
+The server would send a new message for each update.
+
+Unsubscribing
+
+Apps manage subscriptions with the FHIR REST API. A subscription can be altered via PUT or removed via DELETE (i.e. "unsubscribe").
+
+Other features / missing pieces / clarifications
+
+More notification channels (SSL sockets, long-polling support via Comet, SMS/MMS)
+Subscription expiration times/rules/policies
+Batched results with minimum interval time, so apps can say "notify me whenever new results are available but not more than once per second"
+Do we need a way for apps to subscribe specifically to update or delete events?
+Also: clarify semantics of delivery requirements. For example, are these best efforts, or will a server detect failures and retry when a client comes online?
+

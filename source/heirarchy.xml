@@ -143,6 +143,7 @@ todo: compartments
     <page type="resource" resource="MessageHeader"/>
     <page type="resource" resource="OperationOutcome"/>
     <page type="resource" resource="Query"/>
+    <page type="resource" resource="Subscription"/>
     <page type="resource" resource="Conformance"/>
     <page type="resource" resource="Namespace"/>
     <page type="resource" resource="ValueSet"/>
