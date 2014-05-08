@@ -295,14 +295,18 @@ public class Publisher {
       System.out.println("Error running build: " + e.getMessage());
       File f;
       try {
-        f = new File(Utilities.appendSlash(System.getProperty("user.dir")) + "fhir-error-dump.txt");
+        String errorFile = Utilities.appendSlash(System.getProperty("user.dir")) + "fhir-error-dump.txt";
+        f = new File(errorFile);
         PrintStream p = new PrintStream(f);
         e.printStackTrace(p);
-        System.out.println("Stack Trace saved as " + Utilities.appendSlash(args[0]) + " fhir-error-dump.txt");
+        System.out.println("Stack Trace saved as " +  errorFile);
       } catch (IOException e1) {
       }
       if (hasParam(args, "-debug"))
         e.printStackTrace();
+
+      // Error status code set in case of any exception
+      System.exit(1);
     }
   }
 
@@ -416,8 +420,10 @@ public class Publisher {
         if (isGenerate && buildFlags.get("all"))
           produceQA();
         page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
-      } else
+      } else {
         page.log("Didn't publish FHIR due to errors @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
+        throw new Exception("Errors executing build. Details logged.");
+      }
     }
   }
 
