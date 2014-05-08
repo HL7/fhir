@@ -81,6 +81,9 @@
   <item id="FamilyHistory">
     <translation lang="en">FamilyHistory</translation>
   </item>
+  <item id="Subscription">
+    <translation lang="en">Subscription</translation>
+  </item>
   <item id="GeneExpression">
     <translation lang="en">GeneExpression</translation>
   </item>
