@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2013-12-28T21:23:54Z</LastSaved>
+  <LastSaved>2014-05-09T07:17:51Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -138,7 +138,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="29" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="267.75"/>
@@ -177,8 +177,8 @@
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">10;10</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">A statement of relationships from one set of concepts to one or more other concept systems</Data></Cell>
-    <Cell><Data ss:Type="String">A statement of relationships from one set of concepts to one or more other concept systems</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models</Data></Cell>
+    <Cell><Data ss:Type="String">A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -300,103 +300,100 @@
     <Cell><Data ss:Type="String">N/A</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ConceptMap.source</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.source[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(ValueSet)</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Identifies the source value set which is being mapped</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">uri | Resource(ValueSet|Profile)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Identifies the source of the concepts which are being mapped</Data></Cell>
     <Cell><Data ss:Type="String">The source value set that specifies the concepts that are being mapped</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
     <Cell><Data ss:Type="String">Should be a version specific reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">ConceptMap.target</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.target[x]</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(ValueSet)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">uri | Resource(ValueSet|Profile)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Provides context to the mappings</Data></Cell>
     <Cell><Data ss:Type="String">The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">ConceptMap.concept</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s70"><Data ss:Type="String">280;20</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Mappings for a concept from the source valueset</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Mappings for a concept from the source set</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Generally, the ideal is that there would only be one mapping for each concept in the source value set, but a given concept may be mapped mutliple times with different comments or dependencies</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!ConceptMap.concept.name</Data></Cell>
+    <Cell><Data ss:Type="String">!ConceptMap.element.name</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s70"/>
+    <Cell ss:Index="4" ss:StyleID="s70"/>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Name for this concept (if just a group)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Name for this element (optional)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ConceptMap.concept.system</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.codeSystem</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s70"/>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">System that defines the concept being mapped</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Code System (if value set crosses code systems)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ConceptMap.concept.code</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.code</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">!</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies concept being mapped</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies element being mapped</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">ConceptMap.concept.dependsOn</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.dependsOn</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">200;150</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=OtherConcept</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Other concepts required for this mapping (from context)</Data></Cell>
-    <Cell><Data ss:Type="String">A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified concept can be resolved, and it has the specified value</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">=OtherElement</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Other elements required for this mapping (from context)</Data></Cell>
+    <Cell><Data ss:Type="String">A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">ConceptMap.concept.dependsOn.concept</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.dependsOn.element</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Reference to element/field/valueset provides the context</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reference to element/field/valueset mapping depends on</Data></Cell>
     <Cell><Data ss:Type="String">A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ConceptMap.concept.dependsOn.system</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.dependsOn.codeSystem</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">System for a concept in the referenced concept</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Code System (if necessary)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ConceptMap.concept.dependsOn.code</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.dependsOn.code</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">!</Data></Cell>
-    <Cell><Data ss:Type="String">Code for a concept in the referenced concept</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Value of the referenced element</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">ConceptMap.concept.map</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.map</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s70"><Data ss:Type="String">420;120</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A concept from the target value set that this concept maps to </Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Ideally there would only be one map, with equal or equivalent mapping. But multiple maps are allowed for several narrower options, or to assert that other concepts are unmatched</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ConceptMap.concept.map.system</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.map.codeSystem</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">System of the target</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">System of the target (if necessary)</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Should be a version specific reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ConceptMap.concept.map.code</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.map.code</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">!</Data></Cell>
-    <Cell><Data ss:Type="String">Code that identifies the target concept</Data></Cell>
+    <Cell><Data ss:Type="String">Code that identifies the target element</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ConceptMap.concept.map.equivalence</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.map.equivalence</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Yes</Data></Cell>
     <Cell><Data ss:Type="String">code</Data></Cell>
@@ -404,24 +401,18 @@
     <Cell><Data ss:Type="String">equal | equivalent | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ConceptMap.concept.map.comments</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.map.comments</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Description of status/issues in mapping</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell><Data ss:Type="String">ConceptMap.concept.map.product</Data></Cell>
+    <Cell><Data ss:Type="String">ConceptMap.element.map.product</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@ConceptMap.concept.dependsOn</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@ConceptMap.element.dependsOn</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Other concepts that this mapping also produces</Data></Cell>
-    <Cell><Data ss:Type="String">A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">!ConceptMap.concept.concept</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">@ConceptMap.concept</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Mappings for sub concepts</Data></Cell>
+    <Cell><Data ss:Type="String">A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -441,9 +432,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -451,7 +442,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -459,8 +449,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -469,7 +459,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s72" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:Index="3" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="162.75"/>
@@ -485,15 +475,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept.map</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">ConceptMap.element.map</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">If the map is narrower, there SHALL be some comments</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:comments) or ((f:equivalence/@value != 'narrower') and (f:equivalence/@value != 'inexact'))</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept.map</Data></Cell>
-    <Cell><Data ss:Type="String">If a code is provided, a system SHALL be provided</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">exists(f:system) or not(exists(f:code))</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -512,7 +496,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <RangeSelection>R3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -579,28 +564,28 @@
     <Cell><Data ss:Type="String">source</Data></Cell>
     <Cell><Data ss:Type="String">The system for any concepts mapped by this concept map</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.source</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.source[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">target</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.target</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.target[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">system</Data></Cell>
     <Cell><Data ss:Type="String">The system for any destination concepts mapped by this map</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.concept.map.system</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ConceptMap.element.map.codeSystem</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">dependson</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept.dependsOn.concept</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.element.dependsOn.element</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">product</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.concept.map.product.concept</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">ConceptMap.element.map.product.element</Data></Cell>
    </Row>
    <Row ss:Index="24" ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s78"/>
@@ -679,8 +664,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

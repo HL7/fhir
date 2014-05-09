@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
+// Generated on Sat, May 10, 2014 00:15+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -1167,6 +1167,113 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeCommonDataElement(String name, CommonDataElement element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      composeStringCore("identifier", element.getIdentifier(), false);
+      composeStringExtras("identifier", element.getIdentifier(), false);
+      composeStringCore("version", element.getVersion(), false);
+      composeStringExtras("version", element.getVersion(), false);
+      composeStringCore("publisher", element.getPublisher(), false);
+      composeStringExtras("publisher", element.getPublisher(), false);
+      if (element.getTelecom().size() > 0) {
+        openArray("telecom");
+        for (Contact e : element.getTelecom()) 
+          composeContact(null, e);
+        closeArray();
+      };
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new CommonDataElement.ResourceObservationDefStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new CommonDataElement.ResourceObservationDefStatusEnumFactory(), false);
+      }
+      composeDateTimeCore("date", element.getDate(), false);
+      composeDateTimeExtras("date", element.getDate(), false);
+      composeStringCore("name", element.getName(), false);
+      composeStringExtras("name", element.getName(), false);
+      if (element.getCategory().size() > 0) {
+        openArray("category");
+        for (CodeableConcept e : element.getCategory()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.getCode().size() > 0) {
+        openArray("code");
+        for (Coding e : element.getCode()) 
+          composeCoding(null, e);
+        closeArray();
+      };
+      composeStringCore("question", element.getQuestion(), false);
+      composeStringExtras("question", element.getQuestion(), false);
+      composeStringCore("definition", element.getDefinition(), false);
+      composeStringExtras("definition", element.getDefinition(), false);
+      composeStringCore("comments", element.getComments(), false);
+      composeStringExtras("comments", element.getComments(), false);
+      composeStringCore("requirements", element.getRequirements(), false);
+      composeStringExtras("requirements", element.getRequirements(), false);
+      if (element.getSynonym().size() > 0) {
+        openArray("synonym");
+        for (String_ e : element.getSynonym()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getSynonym())) {
+          openArray("_synonym");
+          for (String_ e : element.getSynonym()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      composeCodeCore("type", element.getType(), false);
+      composeCodeExtras("type", element.getType(), false);
+      composeType("example", element.getExample());
+      composeIntegerCore("maxLength", element.getMaxLength(), false);
+      composeIntegerExtras("maxLength", element.getMaxLength(), false);
+      composeCodeableConcept("units", element.getUnits());
+      composeCommonDataElementCommonDataElementBindingComponent("binding", element.getBinding());
+      if (element.getMapping().size() > 0) {
+        openArray("mapping");
+        for (CommonDataElement.CommonDataElementMappingComponent e : element.getMapping()) 
+          composeCommonDataElementCommonDataElementMappingComponent(null, e);
+        closeArray();
+      };
+    }
+  }
+
+  private void composeCommonDataElementCommonDataElementBindingComponent(String name, CommonDataElement.CommonDataElementBindingComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeStringCore("name", element.getName(), false);
+      composeStringExtras("name", element.getName(), false);
+      composeBooleanCore("isExtensible", element.getIsExtensible(), false);
+      composeBooleanExtras("isExtensible", element.getIsExtensible(), false);
+      if (element.getConformance() != null) {
+        composeEnumerationCore("conformance", element.getConformance(), new CommonDataElement.BindingConformanceEnumFactory(), false);
+        composeEnumerationExtras("conformance", element.getConformance(), new CommonDataElement.BindingConformanceEnumFactory(), false);
+      }
+      composeStringCore("description", element.getDescription(), false);
+      composeStringExtras("description", element.getDescription(), false);
+      composeResourceReference("reference", element.getReference());
+      close();
+    }
+  }
+
+  private void composeCommonDataElementCommonDataElementMappingComponent(String name, CommonDataElement.CommonDataElementMappingComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeUriCore("uri", element.getUri(), false);
+      composeUriExtras("uri", element.getUri(), false);
+      composeStringCore("name", element.getName(), false);
+      composeStringExtras("name", element.getName(), false);
+      composeStringCore("comments", element.getComments(), false);
+      composeStringExtras("comments", element.getComments(), false);
+      composeStringCore("map", element.getMap(), false);
+      composeStringExtras("map", element.getMap(), false);
+      close();
+    }
+  }
+
   private void composeComposition(String name, Composition element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -1301,61 +1408,61 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanExtras("experimental", element.getExperimental(), false);
       composeDateTimeCore("date", element.getDate(), false);
       composeDateTimeExtras("date", element.getDate(), false);
-      composeResourceReference("source", element.getSource());
-      composeResourceReference("target", element.getTarget());
-      if (element.getConcept().size() > 0) {
-        openArray("concept");
-        for (ConceptMap.ConceptMapConceptComponent e : element.getConcept()) 
-          composeConceptMapConceptMapConceptComponent(null, e);
+      composeType("source", element.getSource());
+      composeType("target", element.getTarget());
+      if (element.getElement().size() > 0) {
+        openArray("element");
+        for (ConceptMap.ConceptMapElementComponent e : element.getElement()) 
+          composeConceptMapConceptMapElementComponent(null, e);
         closeArray();
       };
     }
   }
 
-  private void composeConceptMapConceptMapConceptComponent(String name, ConceptMap.ConceptMapConceptComponent element) throws Exception {
+  private void composeConceptMapConceptMapElementComponent(String name, ConceptMap.ConceptMapElementComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeUriCore("system", element.getSystem(), false);
-      composeUriExtras("system", element.getSystem(), false);
+      composeUriCore("codeSystem", element.getCodeSystem(), false);
+      composeUriExtras("codeSystem", element.getCodeSystem(), false);
       composeCodeCore("code", element.getCode(), false);
       composeCodeExtras("code", element.getCode(), false);
       if (element.getDependsOn().size() > 0) {
         openArray("dependsOn");
-        for (ConceptMap.OtherConceptComponent e : element.getDependsOn()) 
-          composeConceptMapOtherConceptComponent(null, e);
+        for (ConceptMap.OtherElementComponent e : element.getDependsOn()) 
+          composeConceptMapOtherElementComponent(null, e);
         closeArray();
       };
       if (element.getMap().size() > 0) {
         openArray("map");
-        for (ConceptMap.ConceptMapConceptMapComponent e : element.getMap()) 
-          composeConceptMapConceptMapConceptMapComponent(null, e);
+        for (ConceptMap.ConceptMapElementMapComponent e : element.getMap()) 
+          composeConceptMapConceptMapElementMapComponent(null, e);
         closeArray();
       };
       close();
     }
   }
 
-  private void composeConceptMapOtherConceptComponent(String name, ConceptMap.OtherConceptComponent element) throws Exception {
+  private void composeConceptMapOtherElementComponent(String name, ConceptMap.OtherElementComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeUriCore("concept", element.getConcept(), false);
-      composeUriExtras("concept", element.getConcept(), false);
-      composeUriCore("system", element.getSystem(), false);
-      composeUriExtras("system", element.getSystem(), false);
-      composeCodeCore("code", element.getCode(), false);
-      composeCodeExtras("code", element.getCode(), false);
+      composeUriCore("element", element.getElement(), false);
+      composeUriExtras("element", element.getElement(), false);
+      composeUriCore("codeSystem", element.getCodeSystem(), false);
+      composeUriExtras("codeSystem", element.getCodeSystem(), false);
+      composeStringCore("code", element.getCode(), false);
+      composeStringExtras("code", element.getCode(), false);
       close();
     }
   }
 
-  private void composeConceptMapConceptMapConceptMapComponent(String name, ConceptMap.ConceptMapConceptMapComponent element) throws Exception {
+  private void composeConceptMapConceptMapElementMapComponent(String name, ConceptMap.ConceptMapElementMapComponent element) throws Exception {
     if (element != null) {
       open(name);
       composeBackbone(element);
-      composeUriCore("system", element.getSystem(), false);
-      composeUriExtras("system", element.getSystem(), false);
+      composeUriCore("codeSystem", element.getCodeSystem(), false);
+      composeUriExtras("codeSystem", element.getCodeSystem(), false);
       composeCodeCore("code", element.getCode(), false);
       composeCodeExtras("code", element.getCode(), false);
       if (element.getEquivalence() != null) {
@@ -1366,8 +1473,8 @@ public class JsonComposer extends JsonComposerBase {
       composeStringExtras("comments", element.getComments(), false);
       if (element.getProduct().size() > 0) {
         openArray("product");
-        for (ConceptMap.OtherConceptComponent e : element.getProduct()) 
-          composeConceptMapOtherConceptComponent(null, e);
+        for (ConceptMap.OtherElementComponent e : element.getProduct()) 
+          composeConceptMapOtherElementComponent(null, e);
         closeArray();
       };
       close();
@@ -4888,6 +4995,70 @@ public class JsonComposer extends JsonComposerBase {
     }
   }
 
+  private void composeSubscription(String name, Subscription element) throws Exception {
+    if (element != null) {
+      prop("resourceType", name);
+      composeResourceElements(element);
+      composeStringCore("criteria", element.getCriteria(), false);
+      composeStringExtras("criteria", element.getCriteria(), false);
+      if (element.getContact().size() > 0) {
+        openArray("contact");
+        for (Contact e : element.getContact()) 
+          composeContact(null, e);
+        closeArray();
+      };
+      composeStringCore("reason", element.getReason(), false);
+      composeStringExtras("reason", element.getReason(), false);
+      if (element.getStatus() != null) {
+        composeEnumerationCore("status", element.getStatus(), new Subscription.SubscriptionStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatus(), new Subscription.SubscriptionStatusEnumFactory(), false);
+      }
+      composeStringCore("error", element.getError(), false);
+      composeStringExtras("error", element.getError(), false);
+      composeSubscriptionSubscriptionChannelComponent("channel", element.getChannel());
+      composeInstantCore("end", element.getEnd(), false);
+      composeInstantExtras("end", element.getEnd(), false);
+      if (element.getTag().size() > 0) {
+        openArray("tag");
+        for (Subscription.SubscriptionTagComponent e : element.getTag()) 
+          composeSubscriptionSubscriptionTagComponent(null, e);
+        closeArray();
+      };
+    }
+  }
+
+  private void composeSubscriptionSubscriptionChannelComponent(String name, Subscription.SubscriptionChannelComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      if (element.getType() != null) {
+        composeEnumerationCore("type", element.getType(), new Subscription.SubscriptionChannelTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getType(), new Subscription.SubscriptionChannelTypeEnumFactory(), false);
+      }
+      composeUriCore("url", element.getUrl(), false);
+      composeUriExtras("url", element.getUrl(), false);
+      composeBooleanCore("includePayload", element.getIncludePayload(), false);
+      composeBooleanExtras("includePayload", element.getIncludePayload(), false);
+      composeStringCore("header", element.getHeader(), false);
+      composeStringExtras("header", element.getHeader(), false);
+      close();
+    }
+  }
+
+  private void composeSubscriptionSubscriptionTagComponent(String name, Subscription.SubscriptionTagComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      composeUriCore("scheme", element.getScheme(), false);
+      composeUriExtras("scheme", element.getScheme(), false);
+      composeUriCore("term", element.getTerm(), false);
+      composeUriExtras("term", element.getTerm(), false);
+      composeStringCore("description", element.getDescription(), false);
+      composeStringExtras("description", element.getDescription(), false);
+      close();
+    }
+  }
+
   private void composeSubstance(String name, Substance element) throws Exception {
     if (element != null) {
       prop("resourceType", name);
@@ -5191,6 +5362,8 @@ public class JsonComposer extends JsonComposerBase {
       composeAvailability("Availability", (Availability)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan("CarePlan", (CarePlan)resource);
+    else if (resource instanceof CommonDataElement)
+      composeCommonDataElement("CommonDataElement", (CommonDataElement)resource);
     else if (resource instanceof Composition)
       composeComposition("Composition", (Composition)resource);
     else if (resource instanceof ConceptMap)
@@ -5277,6 +5450,8 @@ public class JsonComposer extends JsonComposerBase {
       composeSlot("Slot", (Slot)resource);
     else if (resource instanceof Specimen)
       composeSpecimen("Specimen", (Specimen)resource);
+    else if (resource instanceof Subscription)
+      composeSubscription("Subscription", (Subscription)resource);
     else if (resource instanceof Substance)
       composeSubstance("Substance", (Substance)resource);
     else if (resource instanceof Supply)
@@ -5304,6 +5479,8 @@ public class JsonComposer extends JsonComposerBase {
       composeAvailability(name, (Availability)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan(name, (CarePlan)resource);
+    else if (resource instanceof CommonDataElement)
+      composeCommonDataElement(name, (CommonDataElement)resource);
     else if (resource instanceof Composition)
       composeComposition(name, (Composition)resource);
     else if (resource instanceof ConceptMap)
@@ -5390,6 +5567,8 @@ public class JsonComposer extends JsonComposerBase {
       composeSlot(name, (Slot)resource);
     else if (resource instanceof Specimen)
       composeSpecimen(name, (Specimen)resource);
+    else if (resource instanceof Subscription)
+      composeSubscription(name, (Subscription)resource);
     else if (resource instanceof Substance)
       composeSubstance(name, (Substance)resource);
     else if (resource instanceof Supply)

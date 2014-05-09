@@ -108,8 +108,8 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.ConceptMap.ConceptEquivalence;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestOperationComponent;
@@ -3483,18 +3483,18 @@ public class Publisher {
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV2Map())) {
         for (String m : c.getV2Map().split(",")) {
-          ConceptMapConceptComponent cc = new ConceptMap.ConceptMapConceptComponent();
-          cc.setSystemSimple(srcCS);
+          ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
+          cc.setCodeSystemSimple(srcCS);
           cc.setCodeSimple(c.getCode());
-          ConceptMapConceptMapComponent map = new ConceptMap.ConceptMapConceptMapComponent();
+          ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
           cc.getMap().add(map);
-          cm.getConcept().add(cc);
+          cm.getElement().add(cc);
           String[] n = m.split("\\(");
           if (n.length > 1)
             map.setCommentsSimple(n[1].substring(0, n[1].length() - 1));
           n = n[0].split("\\.");
           tbls.add(n[0].substring(1));
-          map.setSystemSimple("http://hl7.org/fhir/v2/" + n[0].substring(1));
+          map.setCodeSystemSimple("http://hl7.org/fhir/v2/" + n[0].substring(1));
           map.setCodeSimple(n[1].trim());
           if (n[0].charAt(0) == '=')
             map.setEquivalenceSimple(ConceptEquivalence.equal);
@@ -3567,18 +3567,18 @@ public class Publisher {
     for (DefinedCode c : cd.getCodes()) {
       if (!Utilities.noString(c.getV3Map())) {
         for (String m : c.getV3Map().split(",")) {
-          ConceptMapConceptComponent cc = new ConceptMap.ConceptMapConceptComponent();
-          cc.setSystemSimple(srcCS);
+          ConceptMapElementComponent cc = new ConceptMap.ConceptMapElementComponent();
+          cc.setCodeSystemSimple(srcCS);
           cc.setCodeSimple(c.getCode());
-          ConceptMapConceptMapComponent map = new ConceptMap.ConceptMapConceptMapComponent();
+          ConceptMapElementMapComponent map = new ConceptMap.ConceptMapElementMapComponent();
           cc.getMap().add(map);
-          cm.getConcept().add(cc);
+          cm.getElement().add(cc);
           String[] n = m.split("\\(");
           if (n.length > 1)
             map.setCommentsSimple(n[1].substring(0, n[1].length() - 1));
           n = n[0].split("\\.");
           tbls.add(n[0].substring(1));
-          map.setSystemSimple("http://hl7.org/fhir/v3/" + n[0].substring(1));
+          map.setCodeSystemSimple("http://hl7.org/fhir/v3/" + n[0].substring(1));
           map.setCodeSimple(n[1]);
           if (n[0].charAt(0) == '=')
             map.setEquivalenceSimple(ConceptEquivalence.equal);

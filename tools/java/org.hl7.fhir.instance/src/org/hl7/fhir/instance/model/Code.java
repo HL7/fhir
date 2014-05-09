@@ -49,8 +49,9 @@ public class Code extends PrimitiveType {
 	/**
 	 * @param value The value of the code
 	 */
-	public void setValue(String value) {
+	public Code setValue(String value) {
 		this.value = value;
+		return this;
 	}
 	
 	@Override

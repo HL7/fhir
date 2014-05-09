@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, May 8, 2014 02:50+1000 for FHIR v0.2.1
+// Generated on Sat, May 10, 2014 00:15+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -812,6 +812,69 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
+  private void composeCommonDataElement(String name, CommonDataElement element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeString("identifier", element.getIdentifier());
+      composeString("version", element.getVersion());
+      composeString("publisher", element.getPublisher());
+      for (Contact e : element.getTelecom()) 
+        composeContact("telecom", e);
+      if (element.getStatus() != null)
+        composeEnumeration("status", element.getStatus(), new CommonDataElement.ResourceObservationDefStatusEnumFactory());
+      composeDateTime("date", element.getDate());
+      composeString("name", element.getName());
+      for (CodeableConcept e : element.getCategory()) 
+        composeCodeableConcept("category", e);
+      for (Coding e : element.getCode()) 
+        composeCoding("code", e);
+      composeString("question", element.getQuestion());
+      composeString("definition", element.getDefinition());
+      composeString("comments", element.getComments());
+      composeString("requirements", element.getRequirements());
+      for (String_ e : element.getSynonym()) 
+        composeString("synonym", e);
+      composeCode("type", element.getType());
+      composeType("example", element.getExample());
+      composeInteger("maxLength", element.getMaxLength());
+      composeCodeableConcept("units", element.getUnits());
+      composeCommonDataElementCommonDataElementBindingComponent("binding", element.getBinding());
+      for (CommonDataElement.CommonDataElementMappingComponent e : element.getMapping()) 
+        composeCommonDataElementCommonDataElementMappingComponent("mapping", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeCommonDataElementCommonDataElementBindingComponent(String name, CommonDataElement.CommonDataElementBindingComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeString("name", element.getName());
+      composeBoolean("isExtensible", element.getIsExtensible());
+      if (element.getConformance() != null)
+        composeEnumeration("conformance", element.getConformance(), new CommonDataElement.BindingConformanceEnumFactory());
+      composeString("description", element.getDescription());
+      composeResourceReference("reference", element.getReference());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeCommonDataElementCommonDataElementMappingComponent(String name, CommonDataElement.CommonDataElementMappingComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeUri("uri", element.getUri());
+      composeString("name", element.getName());
+      composeString("comments", element.getComments());
+      composeString("map", element.getMap());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
   private void composeComposition(String name, Composition element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
@@ -898,53 +961,53 @@ public class XmlComposer extends XmlComposerBase {
         composeEnumeration("status", element.getStatus(), new ConceptMap.ValuesetStatusEnumFactory());
       composeBoolean("experimental", element.getExperimental());
       composeDateTime("date", element.getDate());
-      composeResourceReference("source", element.getSource());
-      composeResourceReference("target", element.getTarget());
-      for (ConceptMap.ConceptMapConceptComponent e : element.getConcept()) 
-        composeConceptMapConceptMapConceptComponent("concept", e);
+      composeType("source", element.getSource());
+      composeType("target", element.getTarget());
+      for (ConceptMap.ConceptMapElementComponent e : element.getElement()) 
+        composeConceptMapConceptMapElementComponent("element", e);
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeConceptMapConceptMapConceptComponent(String name, ConceptMap.ConceptMapConceptComponent element) throws Exception {
+  private void composeConceptMapConceptMapElementComponent(String name, ConceptMap.ConceptMapElementComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeUri("system", element.getSystem());
+      composeUri("codeSystem", element.getCodeSystem());
       composeCode("code", element.getCode());
-      for (ConceptMap.OtherConceptComponent e : element.getDependsOn()) 
-        composeConceptMapOtherConceptComponent("dependsOn", e);
-      for (ConceptMap.ConceptMapConceptMapComponent e : element.getMap()) 
-        composeConceptMapConceptMapConceptMapComponent("map", e);
+      for (ConceptMap.OtherElementComponent e : element.getDependsOn()) 
+        composeConceptMapOtherElementComponent("dependsOn", e);
+      for (ConceptMap.ConceptMapElementMapComponent e : element.getMap()) 
+        composeConceptMapConceptMapElementMapComponent("map", e);
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeConceptMapOtherConceptComponent(String name, ConceptMap.OtherConceptComponent element) throws Exception {
+  private void composeConceptMapOtherElementComponent(String name, ConceptMap.OtherElementComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeUri("concept", element.getConcept());
-      composeUri("system", element.getSystem());
-      composeCode("code", element.getCode());
+      composeUri("element", element.getElement());
+      composeUri("codeSystem", element.getCodeSystem());
+      composeString("code", element.getCode());
       xml.close(FHIR_NS, name);
     }
   }
 
-  private void composeConceptMapConceptMapConceptMapComponent(String name, ConceptMap.ConceptMapConceptMapComponent element) throws Exception {
+  private void composeConceptMapConceptMapElementMapComponent(String name, ConceptMap.ConceptMapElementMapComponent element) throws Exception {
     if (element != null) {
       composeElementAttributes(element);
       xml.open(FHIR_NS, name);
       composeBackboneElements(element);
-      composeUri("system", element.getSystem());
+      composeUri("codeSystem", element.getCodeSystem());
       composeCode("code", element.getCode());
       if (element.getEquivalence() != null)
         composeEnumeration("equivalence", element.getEquivalence(), new ConceptMap.ConceptEquivalenceEnumFactory());
       composeString("comments", element.getComments());
-      for (ConceptMap.OtherConceptComponent e : element.getProduct()) 
-        composeConceptMapOtherConceptComponent("product", e);
+      for (ConceptMap.OtherElementComponent e : element.getProduct()) 
+        composeConceptMapOtherElementComponent("product", e);
       xml.close(FHIR_NS, name);
     }
   }
@@ -3350,6 +3413,52 @@ public class XmlComposer extends XmlComposerBase {
     }
   }
 
+  private void composeSubscription(String name, Subscription element) throws Exception {
+    if (element != null) {
+      composeResourceAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeResourceElements(element);
+      composeString("criteria", element.getCriteria());
+      for (Contact e : element.getContact()) 
+        composeContact("contact", e);
+      composeString("reason", element.getReason());
+      if (element.getStatus() != null)
+        composeEnumeration("status", element.getStatus(), new Subscription.SubscriptionStatusEnumFactory());
+      composeString("error", element.getError());
+      composeSubscriptionSubscriptionChannelComponent("channel", element.getChannel());
+      composeInstant("end", element.getEnd());
+      for (Subscription.SubscriptionTagComponent e : element.getTag()) 
+        composeSubscriptionSubscriptionTagComponent("tag", e);
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSubscriptionSubscriptionChannelComponent(String name, Subscription.SubscriptionChannelComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      if (element.getType() != null)
+        composeEnumeration("type", element.getType(), new Subscription.SubscriptionChannelTypeEnumFactory());
+      composeUri("url", element.getUrl());
+      composeBoolean("includePayload", element.getIncludePayload());
+      composeString("header", element.getHeader());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
+  private void composeSubscriptionSubscriptionTagComponent(String name, Subscription.SubscriptionTagComponent element) throws Exception {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.open(FHIR_NS, name);
+      composeBackboneElements(element);
+      composeUri("scheme", element.getScheme());
+      composeUri("term", element.getTerm());
+      composeString("description", element.getDescription());
+      xml.close(FHIR_NS, name);
+    }
+  }
+
   private void composeSubstance(String name, Substance element) throws Exception {
     if (element != null) {
       composeResourceAttributes(element);
@@ -3568,6 +3677,8 @@ public class XmlComposer extends XmlComposerBase {
       composeAvailability("Availability", (Availability)resource);
     else if (resource instanceof CarePlan)
       composeCarePlan("CarePlan", (CarePlan)resource);
+    else if (resource instanceof CommonDataElement)
+      composeCommonDataElement("CommonDataElement", (CommonDataElement)resource);
     else if (resource instanceof Composition)
       composeComposition("Composition", (Composition)resource);
     else if (resource instanceof ConceptMap)
@@ -3654,6 +3765,8 @@ public class XmlComposer extends XmlComposerBase {
       composeSlot("Slot", (Slot)resource);
     else if (resource instanceof Specimen)
       composeSpecimen("Specimen", (Specimen)resource);
+    else if (resource instanceof Subscription)
+      composeSubscription("Subscription", (Subscription)resource);
     else if (resource instanceof Substance)
       composeSubstance("Substance", (Substance)resource);
     else if (resource instanceof Supply)

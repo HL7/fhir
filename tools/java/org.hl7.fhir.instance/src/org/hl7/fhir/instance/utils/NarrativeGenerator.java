@@ -48,6 +48,8 @@ import org.hl7.fhir.instance.model.Coding;
 import org.hl7.fhir.instance.model.Composition;
 import org.hl7.fhir.instance.model.Composition.SectionComponent;
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
+import org.hl7.fhir.instance.model.ConceptMap.OtherElementComponent;
 import org.hl7.fhir.instance.model.Duration;
 import org.hl7.fhir.instance.model.Enumeration;
 import org.hl7.fhir.instance.model.HumanName;
@@ -60,9 +62,9 @@ import org.hl7.fhir.instance.model.PrimitiveType;
 import org.hl7.fhir.instance.model.Quantity;
 import org.hl7.fhir.instance.model.Ratio;
 import org.hl7.fhir.instance.model.ResourceReference;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptComponent;
-import org.hl7.fhir.instance.model.ConceptMap.ConceptMapConceptMapComponent;
-import org.hl7.fhir.instance.model.ConceptMap.OtherConceptComponent;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementComponent;
+import org.hl7.fhir.instance.model.ConceptMap.ConceptMapElementMapComponent;
+import org.hl7.fhir.instance.model.ConceptMap.OtherElementComponent;
 import org.hl7.fhir.instance.model.Conformance;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.instance.model.Conformance.ConformanceRestOperationComponent;
@@ -939,9 +941,9 @@ public class NarrativeGenerator {
 
     XhtmlNode p = x.addTag("p");
     p.addText("Mapping from ");
-    AddVsRef(cm.getSource().getReferenceSimple(), p);
+    AddVsRef(((ResourceReference) cm.getSource()).getReferenceSimple(), p);
     p.addText(" to ");
-    AddVsRef(cm.getTarget().getReferenceSimple(), p);
+    AddVsRef(((ResourceReference) cm.getTarget()).getReferenceSimple(), p);
     
     p = x.addTag("p");
     if (cm.getExperimentalSimple())
@@ -968,9 +970,9 @@ public class NarrativeGenerator {
 
     x.addTag("br");
 
-    if (!cm.getConcept().isEmpty()) {
-      ConceptMapConceptComponent cc = cm.getConcept().get(0);
-      String src = cc.getSystemSimple();
+    if (!cm.getElement().isEmpty()) {
+      ConceptMapElementComponent cc = cm.getElement().get(0);
+      String src = cc.getCodeSystemSimple();
       boolean comments = false;
       boolean ok = cc.getMap().size() == 1;
       Map<String, HashSet<String>> sources = new HashMap<String, HashSet<String>>();
@@ -978,24 +980,24 @@ public class NarrativeGenerator {
       Map<String, HashSet<String>> targets = new HashMap<String, HashSet<String>>();
       targets.put("code", new HashSet<String>());
       if (ok) {
-        String dst = cc.getMap().get(0).getSystemSimple();
-        for (ConceptMapConceptComponent ccl : cm.getConcept()) {
-          ok = ok && src.equals(ccl.getSystemSimple()) && ccl.getMap().size() == 1 && dst.equals(ccl.getMap().get(0).getSystemSimple()) && ccl.getDependsOn().isEmpty() && ccl.getMap().get(0).getProduct().isEmpty();
-          if (ccl.getSystemSimple() != null)
-            sources.get("code").add(ccl.getSystemSimple());
-          for (OtherConceptComponent d : ccl.getDependsOn()) {
-            if (!sources.containsKey(d.getConceptSimple()))
-              sources.put(d.getConceptSimple(), new HashSet<String>());
-            sources.get(d.getConceptSimple()).add(d.getSystemSimple());
+        String dst = cc.getMap().get(0).getCodeSystemSimple();
+        for (ConceptMapElementComponent ccl : cm.getElement()) {
+          ok = ok && src.equals(ccl.getCodeSystemSimple()) && ccl.getMap().size() == 1 && dst.equals(ccl.getMap().get(0).getCodeSystemSimple()) && ccl.getDependsOn().isEmpty() && ccl.getMap().get(0).getProduct().isEmpty();
+          if (ccl.getCodeSystemSimple() != null)
+            sources.get("code").add(ccl.getCodeSystemSimple());
+          for (OtherElementComponent d : ccl.getDependsOn()) {
+            if (!sources.containsKey(d.getElementSimple()))
+              sources.put(d.getElementSimple(), new HashSet<String>());
+            sources.get(d.getElementSimple()).add(d.getCodeSystemSimple());
           }
-          for (ConceptMapConceptMapComponent ccm : ccl.getMap()) {
+          for (ConceptMapElementMapComponent ccm : ccl.getMap()) {
             comments = comments || !Utilities.noString(ccm.getCommentsSimple());
-            if (ccm.getSystemSimple() != null)
-              targets.get("code").add(ccm.getSystemSimple());
-            for (OtherConceptComponent d : ccm.getProduct()) {
-              if (!targets.containsKey(d.getConceptSimple()))
-                targets.put(d.getConceptSimple(), new HashSet<String>());
-              targets.get(d.getConceptSimple()).add(d.getSystemSimple());
+            if (ccm.getCodeSystemSimple() != null)
+              targets.get("code").add(ccm.getCodeSystemSimple());
+            for (OtherElementComponent d : ccm.getProduct()) {
+              if (!targets.containsKey(d.getElementSimple()))
+                targets.put(d.getElementSimple(), new HashSet<String>());
+              targets.get(d.getElementSimple()).add(d.getCodeSystemSimple());
             }
             
           }
@@ -1012,18 +1014,18 @@ public class NarrativeGenerator {
         tr.addTag("td").addTag("b").addText("Destination Code");
         if (comments)
           tr.addTag("td").addTag("b").addText("Comments");
-        for (ConceptMapConceptComponent ccl : cm.getConcept()) {
+        for (ConceptMapElementComponent ccl : cm.getElement()) {
           tr = tbl.addTag("tr");
           XhtmlNode td = tr.addTag("td");
           td.addText(ccl.getCodeSimple());
-          display = getDisplayForConcept(ccl.getSystemSimple(), ccl.getCodeSimple());
+          display = getDisplayForConcept(ccl.getCodeSystemSimple(), ccl.getCodeSimple());
           if (display != null)
             td.addText(" ("+display+")");
-          ConceptMapConceptMapComponent ccm = ccl.getMap().get(0); 
+          ConceptMapElementMapComponent ccm = ccl.getMap().get(0); 
           tr.addTag("td").addText(ccm.getEquivalenceSimple().toString());
           td = tr.addTag("td");
           td.addText(ccm.getCodeSimple());
-          display = getDisplayForConcept(ccm.getSystemSimple(), ccm.getCodeSimple());
+          display = getDisplayForConcept(ccm.getCodeSystemSimple(), ccm.getCodeSimple());
           if (display != null)
             td.addText(" ("+display+")");
           if (comments)
@@ -1067,14 +1069,14 @@ public class NarrativeGenerator {
         if (comments)
           tr.addTag("td");
         
-        for (ConceptMapConceptComponent ccl : cm.getConcept()) {
+        for (ConceptMapElementComponent ccl : cm.getElement()) {
           tr = tbl.addTag("tr");
           td = tr.addTag("td");
           if (sources.get("code").size() == 1) 
             td.addText(ccl.getCodeSimple());
           else
-            td.addText(ccl.getSystemSimple()+" / "+ccl.getCodeSimple());
-          display = getDisplayForConcept(ccl.getSystemSimple(), ccl.getCodeSimple());
+            td.addText(ccl.getCodeSystemSimple()+" / "+ccl.getCodeSimple());
+          display = getDisplayForConcept(ccl.getCodeSystemSimple(), ccl.getCodeSimple());
           if (display != null)
             td.addText(" ("+display+")");
           
@@ -1087,14 +1089,14 @@ public class NarrativeGenerator {
                 td.addText(" ("+display+")");
             }
           }
-          ConceptMapConceptMapComponent ccm = ccl.getMap().get(0); 
+          ConceptMapElementMapComponent ccm = ccl.getMap().get(0); 
           tr.addTag("td").addText(ccm.getEquivalenceSimple().toString());
           td = tr.addTag("td");
           if (targets.get("code").size() == 1) 
             td.addText(ccm.getCodeSimple());
           else
-            td.addText(ccm.getSystemSimple()+" / "+ccm.getCodeSimple());
-          display = getDisplayForConcept(ccm.getSystemSimple(), ccm.getCodeSimple());
+            td.addText(ccm.getCodeSystemSimple()+" / "+ccm.getCodeSimple());
+          display = getDisplayForConcept(ccm.getCodeSystemSimple(), ccm.getCodeSimple());
           if (display != null)
             td.addText(" ("+display+")");
 
@@ -1131,10 +1133,10 @@ public class NarrativeGenerator {
     }
   }
 
-  private String getDisplay(List<OtherConceptComponent> list, String s) {
-    for (OtherConceptComponent c : list) {
-      if (s.equals(c.getConceptSimple()))
-        return getDisplayForConcept(c.getSystemSimple(), c.getCodeSimple());
+  private String getDisplay(List<OtherElementComponent> list, String s) {
+    for (OtherElementComponent c : list) {
+      if (s.equals(c.getElementSimple()))
+        return getDisplayForConcept(c.getCodeSystemSimple(), c.getCodeSimple());
     }
     return null;
   }
@@ -1169,11 +1171,11 @@ public class NarrativeGenerator {
     return s;
   }
 
-  private String getCode(List<OtherConceptComponent> list, String s, boolean withSystem) {
-    for (OtherConceptComponent c : list) {
-      if (s.equals(c.getConceptSimple()))
+  private String getCode(List<OtherElementComponent> list, String s, boolean withSystem) {
+    for (OtherElementComponent c : list) {
+      if (s.equals(c.getElementSimple()))
         if (withSystem)
-          return c.getSystemSimple()+" / "+c.getCodeSimple();
+          return c.getCodeSystemSimple()+" / "+c.getCodeSimple();
         else
           return c.getCodeSimple();
     }
@@ -1224,10 +1226,10 @@ public class NarrativeGenerator {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (AtomEntry<ConceptMap> a : maps.values()) {
-      if (a.getResource().getSource().getReferenceSimple().equals(vs.getIdentifierSimple())) {
+      if (((ResourceReference) a.getResource().getSource()).getReferenceSimple().equals(vs.getIdentifierSimple())) {
         String url = "";
-        if (valueSets.containsKey(a.getResource().getTarget().getReferenceSimple()))
-            url = valueSets.get(a.getResource().getTarget().getReferenceSimple()).getLinks().get("path");
+        if (valueSets.containsKey(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()))
+            url = valueSets.get(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
         mymaps.put(a.getResource(), url);
       }
     }
@@ -1254,10 +1256,10 @@ public class NarrativeGenerator {
     boolean hasExtensions = false;
     Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
     for (AtomEntry<ConceptMap> a : maps.values()) {
-      if (a.getResource().getSource().getReferenceSimple().equals(vs.getIdentifierSimple())) {
+      if (((ResourceReference) a.getResource().getSource()).getReferenceSimple().equals(vs.getIdentifierSimple())) {
         String url = "";
-        if (valueSets.containsKey(a.getResource().getTarget().getReferenceSimple()))
-            url = valueSets.get(a.getResource().getTarget().getReferenceSimple()).getLinks().get("path");
+        if (valueSets.containsKey(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()))
+            url = valueSets.get(((ResourceReference) a.getResource().getTarget()).getReferenceSimple()).getLinks().get("path");
         mymaps.put(a.getResource(), url);
       }
     }
@@ -1372,9 +1374,9 @@ public class NarrativeGenerator {
 
     for (ConceptMap m : mymaps.keySet()) {
       td = tr.addTag("td");
-      List<ConceptMapConceptMapComponent> mappings = findMappingsForCode(c.getCodeSimple(), m);
+      List<ConceptMapElementMapComponent> mappings = findMappingsForCode(c.getCodeSimple(), m);
       boolean first = true;
-      for (ConceptMapConceptMapComponent mapping : mappings) {
+      for (ConceptMapElementMapComponent mapping : mappings) {
         if (!first)
             td.addTag("br");
         first = false;
@@ -1428,9 +1430,9 @@ public class NarrativeGenerator {
     }
     for (ConceptMap m : maps.keySet()) {
       td = tr.addTag("td");
-      List<ConceptMapConceptMapComponent> mappings = findMappingsForCode(c.getCodeSimple(), m);
+      List<ConceptMapElementMapComponent> mappings = findMappingsForCode(c.getCodeSimple(), m);
       boolean first = true;
-      for (ConceptMapConceptMapComponent mapping : mappings) {
+      for (ConceptMapElementMapComponent mapping : mappings) {
       	if (!first)
       		  td.addTag("br");
       	first = false;
@@ -1461,7 +1463,7 @@ public class NarrativeGenerator {
   }
 
 
-  private String getCharForEquivalence(ConceptMapConceptMapComponent mapping) {
+  private String getCharForEquivalence(ConceptMapElementMapComponent mapping) {
 	  switch (mapping.getEquivalenceSimple()) {
 	  case equal : return "=";
 	  case equivalent : return "~";
@@ -1474,10 +1476,10 @@ public class NarrativeGenerator {
 	  }
   }
 
-	private List<ConceptMapConceptMapComponent> findMappingsForCode(String code, ConceptMap map) {
-	  List<ConceptMapConceptMapComponent> mappings = new ArrayList<ConceptMapConceptMapComponent>();
+	private List<ConceptMapElementMapComponent> findMappingsForCode(String code, ConceptMap map) {
+	  List<ConceptMapElementMapComponent> mappings = new ArrayList<ConceptMapElementMapComponent>();
 	  
-  	for (ConceptMapConceptComponent c : map.getConcept()) {
+  	for (ConceptMapElementComponent c : map.getElement()) {
 	  	if (c.getCodeSimple().equals(code)) 
 	  		mappings.addAll(c.getMap());
 	  }

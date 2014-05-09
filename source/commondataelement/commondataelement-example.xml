@@ -4,5 +4,7 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
+  <identifier value="http://test.txt"/>  
   <status value="draft"/>  
+  <type value="string"/>
 </CommonDataElement>

@@ -143,7 +143,7 @@ public abstract class XmlComposerBase extends FormatUtilities implements Compose
       xml.element(ATOM_NS, "link", null);
     }
     if (feed.getTotalResults() != null) {
-    	xml.setDefaultNamespace("http://purl.org/atompub/tombstones/1.0");
+    	xml.setDefaultNamespace("http://a9.com/-/spec/opensearch/1.1/");
     	xml.element("totalResults", feed.getTotalResults().toString());
     	xml.setDefaultNamespace(ATOM_NS);
     }

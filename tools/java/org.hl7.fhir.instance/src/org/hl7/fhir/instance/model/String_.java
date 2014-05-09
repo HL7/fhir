@@ -50,8 +50,9 @@ public class String_ extends PrimitiveType {
 	/**
 	 * @param value the value of the string
 	 */
-	public void setValue(String value) {
+	public String_ setValue(String value) {
 		this.value = value;
+		return this;
 	}
 	
 	@Override

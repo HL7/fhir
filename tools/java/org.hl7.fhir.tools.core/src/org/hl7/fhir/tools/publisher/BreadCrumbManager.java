@@ -329,7 +329,7 @@ public class BreadCrumbManager {
         for (int i = 0; i < path.length; i++) {
           focus = getChild(focus, path[i]);
           if (focus.type == PageType.resource)
-            b.append("        <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
+            b.append("          <li><a href=\""+prefix+focus.getResource().toLowerCase()+".html\">"+focus.getResource()+"</a></li>");
           else
             b.append("        <li><a href=\""+prefix+focus.getFilename()+"\">"+focus.getTitle()+"</a></li>");
         }

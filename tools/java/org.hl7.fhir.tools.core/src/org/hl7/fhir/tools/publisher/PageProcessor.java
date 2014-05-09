@@ -80,6 +80,7 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
@@ -568,7 +569,7 @@ public class PageProcessor implements Logger  {
     List<AtomEntry<ConceptMap>> cmaps = new ArrayList<AtomEntry<ConceptMap>>();
     for (AtomEntry<ConceptMap> e : conceptMaps.values()) {
       ConceptMap cm = e.getResource();
-      if (cm.getSource().getReferenceSimple().equals(id) || cm.getTarget().getReferenceSimple().equals(id))
+      if (((ResourceReference) cm.getSource()).getReferenceSimple().equals(id) || ((ResourceReference) cm.getTarget()).getReferenceSimple().equals(id))
         cmaps.add(e);
     }
     if (cmaps.size() == 0)
@@ -587,10 +588,10 @@ public class PageProcessor implements Logger  {
       for (AtomEntry<ConceptMap> ae : cmaps) {
         ConceptMap cm = ae.getResource();
         b.append(" <tr><td>");
-        if (cm.getSource().getReferenceSimple().equals(id)) {
-          b.append("to <a href=\""+getValueSetRef(prefix, cm.getTarget().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getTarget().getReferenceSimple()));
+        if (((ResourceReference) cm.getSource()).getReferenceSimple().equals(id)) {
+          b.append("to <a href=\""+getValueSetRef(prefix, ((ResourceReference) cm.getTarget()).getReferenceSimple())+"\">"+describeValueSetByRef(((ResourceReference) cm.getTarget()).getReferenceSimple()));
         } else {
-          b.append("from <a href=\""+getValueSetRef(prefix, cm.getSource().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getSource().getReferenceSimple()));
+          b.append("from <a href=\""+getValueSetRef(prefix, ((ResourceReference) cm.getSource()).getReferenceSimple())+"\">"+describeValueSetByRef(((ResourceReference) cm.getSource()).getReferenceSimple()));
         }
         b.append("</a></td><td><a href=\""+prefix+ae.getLinks().get("path")+"\">"+cm.getNameSimple()+"</a></td><td><a href=\""+prefix+Utilities.changeFileExt(ae.getLinks().get("path"), ".xml.html")+"\">XML</a></td><td><a href=\""+prefix+Utilities.changeFileExt(ae.getLinks().get("path"), ".json.html")+"\">JSON</a></td></tr>");
       }
@@ -1642,8 +1643,8 @@ public class PageProcessor implements Logger  {
       String n = sn.substring(23);
       ConceptMap cm = ae.getResource();
       s.append(" <tr><td><a href=\""+ae.getLinks().get("path")+"\">"+cm.getNameSimple()+"</a></td>"+
-          "<td><a href=\""+getValueSetRef("", cm.getSource().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getSource().getReferenceSimple())+"</a></td>"+
-          "<td><a href=\""+getValueSetRef("", cm.getTarget().getReferenceSimple())+"\">"+describeValueSetByRef(cm.getTarget().getReferenceSimple())+"</a></td></tr>\r\n");
+          "<td><a href=\""+getValueSetRef("", ((ResourceReference) cm.getSource()).getReferenceSimple())+"\">"+describeValueSetByRef(((ResourceReference) cm.getSource()).getReferenceSimple())+"</a></td>"+
+          "<td><a href=\""+getValueSetRef("", ((ResourceReference) cm.getTarget()).getReferenceSimple())+"\">"+describeValueSetByRef(((ResourceReference) cm.getTarget()).getReferenceSimple())+"</a></td></tr>\r\n");
     }
     s.append("</table>\r\n");
     return s.toString();

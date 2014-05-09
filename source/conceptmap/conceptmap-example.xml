@@ -18,56 +18,56 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-06-13"/>
-  <source>
+  <sourceResource>
     <reference value="http://hl7.org/fhir/address-use"/>
-  </source>
-  <target>
+  </sourceResource>
+  <targetResource>
     <reference value="http://hl7.org/fhir/v3/AddressUse"/>
-  </target>
-  <concept>
-    <system value="http://hl7.org/fhir/address-use"/>
+  </targetResource>
+  <element>
+    <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="home"/>
     <map>
-      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="H"/>
       <equivalence value="equivalent"/>
     </map>
-  </concept>
-  <concept>
-    <system value="http://hl7.org/fhir/address-use"/>
+  </element>
+  <element>
+    <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="home"/>
     <map>
-      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="H"/>
       <equivalence value="equivalent"/>
     </map>
-  </concept>
-  <concept>
-    <system value="http://hl7.org/fhir/address-use"/>
+  </element>
+  <element>
+    <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="work"/>
     <map>
-      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="WP"/>
       <equivalence value="equivalent"/>
     </map>
-  </concept>
-  <concept>
-    <system value="http://hl7.org/fhir/address-use"/>
+  </element>
+  <element>
+    <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="temp"/>
     <map>
-      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="TMP"/>
       <equivalence value="equivalent"/>
     </map>
-  </concept>
-  <concept>
-    <system value="http://hl7.org/fhir/address-use"/>
+  </element>
+  <element>
+    <codeSystem value="http://hl7.org/fhir/address-use"/>
     <code value="old"/>
     <map>
-      <system value="http://hl7.org/fhir/v3/AddressUse"/>
+      <codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
       <code value="BAD"/>
       <equivalence value="disjoint"/>
       <comments value="In the V3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
     </map>
-  </concept>
+  </element>
 </ConceptMap>

@@ -22,6 +22,7 @@ public enum ResourceType {
     Profile,
     DocumentReference,
     Immunization,
+    Subscription,
     OrderResponse,
     ConceptMap,
     ImagingStudy,
@@ -43,6 +44,7 @@ public enum ResourceType {
     SecurityEvent,
     List,
     DeviceObservationReport,
+    CommonDataElement,
     FamilyHistory,
     Location,
     AllergyIntolerance,
@@ -100,6 +102,8 @@ public enum ResourceType {
       return "documentreference";
     case Immunization:
       return "immunization";
+    case Subscription:
+      return "subscription";
     case OrderResponse:
       return "orderresponse";
     case ConceptMap:
@@ -142,6 +146,8 @@ public enum ResourceType {
       return "list";
     case DeviceObservationReport:
       return "deviceobservationreport";
+    case CommonDataElement:
+      return "commondataelement";
     case FamilyHistory:
       return "familyhistory";
     case Location:
