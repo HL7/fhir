@@ -40,7 +40,7 @@ if it wants).
 An appropriately authorized client can use search and/or history operations
 to see what subscriptions are currently active on the server.
 Once the subscription is no longer desired, the client deletes the 
-subscription from the server
+subscription from the server.
 </p>
 <p>
 The server may retry the notification a fixed number of times and/or

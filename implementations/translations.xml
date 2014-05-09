@@ -42,6 +42,9 @@
   <item id="Claim">
     <translation lang="en">Claim</translation>
   </item>
+  <item id="CommonDataElement">
+    <translation lang="en">CommonDataElement</translation>
+  </item>
   <item id="Composition">
     <translation lang="en">Composition</translation>
   </item>
