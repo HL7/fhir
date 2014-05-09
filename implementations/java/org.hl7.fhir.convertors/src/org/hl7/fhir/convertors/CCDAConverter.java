@@ -46,6 +46,7 @@ import org.hl7.fhir.instance.model.AdverseReaction.ReactionSeverity;
 import org.hl7.fhir.instance.model.AllergyIntolerance.Criticality;
 import org.hl7.fhir.instance.model.AllergyIntolerance.Sensitivitystatus;
 import org.hl7.fhir.instance.model.AllergyIntolerance.Sensitivitytype;
+import org.hl7.fhir.instance.model.AtomCategory;
 import org.hl7.fhir.instance.model.AtomEntry;
 import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.CodeableConcept;
@@ -211,6 +212,7 @@ public class CCDAConverter {
 		feed = new AtomFeed();
 		feed.setUpdated(DateAndTime.now());
 		feed.setId(makeUUIDReference());
+		feed.getTags().add(new AtomCategory("http://hl7.org/fhir/tag", "http://hl7.org/fhir/tag/document", "Document"));
 		
 		// process the header
 		makeDocument();
