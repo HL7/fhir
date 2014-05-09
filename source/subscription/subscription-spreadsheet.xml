@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-05-08T13:35:11Z</LastSaved>
+  <LastSaved>2014-05-09T06:48:09Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -90,7 +90,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="17" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s62" ss:Width="29.25"/>
@@ -99,12 +99,12 @@
    <Column ss:StyleID="s62" ss:Width="27"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="126"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="201.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="253.5"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
+   <Row ss:Height="30" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -122,7 +122,7 @@
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell><Data ss:Type="String">Subscription</Data></Cell>
     <Cell ss:StyleID="s65"/>
     <Cell ss:StyleID="s65"/>
@@ -138,7 +138,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Subscription.criteria</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -153,7 +153,22 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
+    <Cell><Data ss:Type="String">Subscription.contact</Data></Cell>
+    <Cell><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Contact</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Contact details for source (e.g. troubleshooting)</Data></Cell>
+    <Cell><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row>
     <Cell><Data ss:Type="String">Subscription.reason</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -162,12 +177,43 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">Description of why this subscription was created</Data></Cell>
+    <Cell><Data ss:Type="String">Todo</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="Default"/>
     <Cell ss:Index="13" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
+    <Cell><Data ss:Type="String">Subscription.status</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">SubscriptionStatus</Data></Cell>
+    <Cell><Data ss:Type="String">requested | active | error | off</Data></Cell>
+    <Cell><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">Subscription.error</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Latest error note</Data></Cell>
+    <Cell><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="Default"/>
+    <Cell ss:Index="13" ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Subscription.channel</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -181,7 +227,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Subscription.channel.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -189,15 +235,15 @@
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">SubscriptionChannelType</Data></Cell>
-    <Cell><Data ss:Type="String">rest-hook | websocket | email | sms | rest-create | rest-update | message</Data></Cell>
+    <Cell><Data ss:Type="String">rest-hook | websocket | email | sms | message</Data></Cell>
     <Cell><Data ss:Type="String">Todo</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row>
     <Cell><Data ss:Type="String">Subscription.channel.url</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -210,42 +256,56 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="String">Subscription.channel.includePayload</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell><Data ss:Type="String">Include the full resource in the call? </Data></Cell>
+    <Cell><Data ss:Type="String">ToDo</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+   </Row>
+   <Row>
     <Cell><Data ss:Type="String">Subscription.channel.header</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Usage depends on the channel type</Data></Cell>
-    <Cell><Data ss:Type="String">Todo</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Subscription.end</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">instant</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">When to automatically delete the subscription</Data></Cell>
     <Cell><Data ss:Type="String">Todo</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="30">
     <Cell><Data ss:Type="String">Subscription.tag</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">10;180</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">A tag to add to matching resources</Data></Cell>
     <Cell><Data ss:Type="String">Todo</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Subscription.tag.scheme</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The scheme for the tag</Data></Cell>
     <Cell><Data ss:Type="String">Todo</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Subscription.tag.term</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The term for the tag</Data></Cell>
     <Cell><Data ss:Type="String">Todo</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell><Data ss:Type="String">Subscription.tag.description</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -259,7 +319,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -280,8 +339,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -607,10 +666,10 @@
     <Cell><Data ss:Type="String">#subscription-channel-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell><Data ss:Type="String">SubscriptionStatus</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">The status of a subscription</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">#subscription-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s62"/>
@@ -645,7 +704,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -654,12 +713,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="subscription-channel-type">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="8" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="54"/>
    <Column ss:AutoFitWidth="0" ss:Width="69.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="137.25"/>
-   <Row ss:StyleID="s83">
+   <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s83">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
@@ -671,35 +730,25 @@
    <Row>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">rest-hook</Data></Cell>
-    <Cell><Data ss:Type="String">The channel is executed by making an empty post to the URI</Data></Cell>
+    <Cell><Data ss:Type="String">The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">websocket</Data></Cell>
-    <Cell><Data ss:Type="String">The channel is executed by sending a &quot;PING&quot; packet across a web socket connection maintained by the client. The URI identifies the websocket</Data></Cell>
+    <Cell><Data ss:Type="String">The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">email</Data></Cell>
     <Cell><Data ss:Type="String">The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:)</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">sms</Data></Cell>
     <Cell><Data ss:Type="String">The channel is executed by sending an SMS message to the phone number identified in the URL (tel:)</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">rest-create</Data></Cell>
-    <Cell><Data ss:Type="String">The channel is executed by sending the matching resource as a &quot;create&quot; operation (POST). The URI is the FHIR service base</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">rest-update</Data></Cell>
-    <Cell><Data ss:Type="String">The channel is executed by sending the matching resource as an &quot;update&quot; operation (PUT). The URI is the FHIR service base</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">message</Data></Cell>
     <Cell><Data ss:Type="String">The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc) to the application identified in the URI</Data></Cell>
    </Row>
@@ -719,7 +768,59 @@
    <Panes>
     <Pane>
      <Number>3</Number>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="subscription-status">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s83">
+    <Cell><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s80"/>
+   </Row>
+   <Row ss:Height="30">
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">requested</Data></Cell>
+    <Cell><Data ss:Type="String">The client has requested the subscription, and the server has not yet set it up</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">active</Data></Cell>
+    <Cell><Data ss:Type="String">The subscription is active</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
+    <Cell><Data ss:Type="String">The server has an error executing the notification</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">off</Data></Cell>
+    <Cell><Data ss:Type="String">Too many errors have occurred or the subscription has expired</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
      <ActiveRow>1</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+     <RangeSelection>R2C2:R5C2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

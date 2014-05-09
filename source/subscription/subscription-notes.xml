@@ -4,15 +4,11 @@
 <h2>Safety and Security</h2>
 <p>
 Executing each of the channels documented below involves the server
-sending a communication that may involve information from the 
-resource. The rest-hook and web sockets do not include any information
-about the resource, while the rest-create/rest-update and 
-message channels send the entire resource. The amount of information
-sent in email and SMS messages is up to the server.
-</p>
-<p>
-Servers are responsible for ensuring appropriate security is employed
-for each channel. The subscription resource does not address these
+sending a communication that will reveal information about the 
+client and server relatinoship, and, if the entire resource is 
+sent, sensitive clinical information. Servers are responsible
+for ensuring appropriate security is employed for each channel. 
+The subscription resource does not address these
 concerns directly - it is assumed that these are administered by 
 other configuration. For instance, a server might maintain a whitelist 
 of acceptable servers for the rest-create/rest-update methods.
@@ -25,8 +21,10 @@ Direct.
 <h2>Managing Subscriptions and Errors</h2>
 <p>
 A subscription is defined by creating the subscription on the server.
-After POSTing the subscription, the client parses the Location header and 
-saves the new Subscription's logical id for use in subsequent operations.
+When the subscription is created by the client, it sets the status
+to "requested". After POSTing the subscription, the client parses 
+the Location header and saves the new Subscription's logical id for 
+use in subsequent operations.
 </p>
 <p>
 The criteria is subject to the same limitations as the client that
@@ -34,18 +32,23 @@ created it, such as access to patient compartments etc. Note that the
 subscription remains active after the client access tokens expire.
 </p>
 <p>
-An appropriately authorized client can use search and/or history operations
-to see what subscriptions are currently active on the server.
+Once the server has activated the subscription, it sets the status
+to "active" (note: the server can do this as it accepts the resource
+if it wants). 
 </p>
 <p>
+An appropriately authorized client can use search and/or history operations
+to see what subscriptions are currently active on the server.
 Once the subscription is no longer desired, the client deletes the 
 subscription from the server
 </p>
 <p>
-It is entirely at the discretion of the server to choose how to handle 
-delivery failures. The server may retry a fixed number of times and/or
-refer errors to it's own alert logs. If a subscription fails consistently
-a server may choose to automatically delete it.
+The server may retry the notification a fixed number of times and/or
+refer errors to it's own alert logs. If the notification fails, the 
+server should set the status to 'error', and mark the error in the 
+resource. If the notification succeeds, the server should update
+the status to "active again. If a subscription fails consistently 
+a server may choose turn the subscription off.
 </p>
 <p>
 If a subscription nominates a fixed end date, the server automatically
@@ -67,11 +70,12 @@ POST /Subscription
 {
   "resourceType": "Subscription",
   "criteria": "/Observation?name=http://loinc.org|1975-2&amp;_format=json",
-  "channel": [{
+  "channel": {
     "type": "rest-hook",
     "url": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
+    "includeResource": false,
     "header": ["Authorization: Bearer secret-token-abc-123"]
-  }]
+  }
 }
 </pre>
 <p>
@@ -85,10 +89,39 @@ replaced by the time at which the client last checked). In this way it can fetch
 relevent <a href="observation.html">Observations</a>.
 </p>
 <p>
-The data in the resources is only available through the REST API, which helps 
-consolidate authorization and authentication logic. The server must append 
-a header, if one is given, to the POST request that it makes to the client.
+Since includeResource is false, the data in the resources is only available through 
+the REST API, which helps consolidate authorization and authentication logic. The 
+server must append the headers, if any are given, to the POST request that it 
+makes to the client.
 </p>
+<p>
+Alternatively, the server can be asked to send the entire 
+resource to a nominated FHIR end point. This is usually appropriate
+for defining routing rules within a managed eco-system such
+as a healthcare institution. 
+</p>
+
+<pre class="json">
+  "channel": {
+    "type": "rest-hook",
+    "url": "https://internal.acme.com/research/saturn",
+    "includeResource": false
+  }
+</pre>
+
+<p>
+This requests that a server forward a copy of any
+matching resource to the nominated server as an <a href="http.html#update">Update 
+operation</a> using the nominated URL as the <a href="http.html#base">service base</a>. 
+In order to execute this channel, the server must know how 
+to authenticate appropriately with the destination 
+server. This can be done by the client providing 
+an authentication header for the server to use, or 
+alternatively, the server may be specifically configured to be able to use
+the nominated server.
+</p>
+
+
 
 <h3>WebSockets</h3>
 
@@ -105,9 +138,9 @@ A client can declare its intention to listen via Web Sockets:
 </p>
 
 <pre class="json">
-  "channel": [{
+  "channel": {
     "type": "webSocket"
-  }]
+  }
 </pre>
 
 <p>
@@ -129,11 +162,11 @@ A client can register for it's user to receive notifications by
 email:
 
 <pre class="json">
-  "channel": [{
+  "channel": {
     "type": "email",
     "url": "mailto:mt-auburn-results@direct.biliwatch.com",
     "header": "A new bilirubin result has arrived!"
-  }]  
+  }
 </pre>
 
 <p>
@@ -148,40 +181,16 @@ in the rules of the jurisdiction.
 <p>SMS works very similarly:</p>
 
 <pre class="json">
-  "channel": [{
+  "channel": {
     "type": "sms",
     "url": "tel:+1555-345-5555"
-  }]  
+  }
 </pre>
 
-<h3>Rest Creation/Update</h3>
+<h3>Messaging</h3>
 
 <p>
-Alternatively, the server can be asked to send the entire 
-resource to a nominated FHIR end point, either by using 
-a create or an updated operation. This is usually appropriate
-for defining routing rules within a managed eco-system such
-as a healthcare institution. 
+Todo
 </p>
-
-<pre class="json">
-  "channel": [{
-    "type": "rest-update",
-    "url": "https://internal.acme.com/research/saturn"
-  }]  
-</pre>
-
-<p>
-This requests that a server forward a copy of any
-matching resource to the nominated server. In order
-to execute this channel, the server must know how 
-to authenticate appropriately with the destination 
-server. This can be done by the client providing 
-an authentication header for the server to use, or 
-alternatively, the server may be configured to use
-the nominated server.
-</p>
-
-
 
 </div>

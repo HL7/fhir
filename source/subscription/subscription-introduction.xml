@@ -1,31 +1,31 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<p><b>This is a candidate resource not yet approved</b></p>
+<p><b>This is a candidate resource not yet formally proposed (or approved)</b></p>
 
 <div>
 <h2>Scope and Usage</h2>
 <p>
 The subscription reason is used to define a push based subscription 
-to a server. Once a subscription is registered with the server, 
+from a server to another system. Once a subscription is registered with the server, 
 the server checks every resource that is created or updated, and 
 if the resource matches the given criteria, it send a message
 on the defined "channel" so that another system is able 
-to take an appropriate action.
+to take an appropriate action. The server is able to send 
+notifications without any information about the matching
+resource, or with the entire resource.
 </p>
 <p>
 Several different types of channels are supported:
 </p>
 <ul>
- <li><b>rest-hook</b>: An empty post is made to the URL</li>
+ <li><b>rest-hook</b>: A post is made to the URL. If a resource is included, the URL is intepreted as the service base</li>
  <li><b>websocket</b>: An PING message is sent to the designated URI</li>
- <li><b>email</b>: An email notification is send to </li>
- <li><b>rest-create/rest-update</b>: The entire resource is submitted to the URI using a <a href="http.html#create">create</a> or an <a href="http.html#update">update</a> operation</li>
+ <li><b>email/sms</b>: An notification is send to nominated email address or SMS number</li>
  <li><b>message</b>: The resource is sent to the application identified in the URI as a <a href="messaging.html">message</a></li>
 </ul>
 <p>
-See below for further discussion of the various channels. Note that 
-the last two channel methods send the entire resource, and create security 
-concerns that must be managed by the server.
+See below for further discussion of the various channels. Note that sending
+the entire resource creates security concerns that must be managed by the server.
 </p>
 </div>
 

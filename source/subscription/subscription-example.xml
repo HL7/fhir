@@ -7,9 +7,11 @@
 
   <criteria value="/Observation?name=http://loinc.org|1975-2&amp;_format=json"/>
   <reason value="Monitor new neonatal function"/>
+  <status value="requested"/>
   <channel>
     <type value="rest-hook"/>
     <url value="https://biliwatch.com/customers/mount-auburn-miu/on-result"/>
+    <includePayload value="false"/>
     <header value="Authorization: Bearer secret-token-abc-123"/>
   </channel>  
   
