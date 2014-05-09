@@ -772,5 +772,7 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
     </coding>
   </serviceCategory>
   <diagnosticDateTime value="2009-08-07T19:00:00"/>
-
+  <result>
+    <reference value="#org1"/>
+  </result>
 </DiagnosticReport>
