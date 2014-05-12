@@ -28,7 +28,7 @@
     <translation lang="en">Appointment</translation>
   </item>
   <item id="AppointmentResponse">
-    <translation lang="en">Appointment Response</translation>
+    <translation lang="en">AppointmentResponse</translation>
   </item>
   <item id="Availability">
     <translation lang="en">Availability</translation>
@@ -191,6 +191,9 @@
   </item>
   <item id="Questionnaire">
     <translation lang="en">Questionnaire</translation>
+  </item>
+  <item id="QuestionnaireAnswers">
+    <translation lang="en">QuestionnaireAnswers</translation>
   </item>
   <item id="RelatedPerson">
     <translation lang="en">RelatedPerson</translation>
