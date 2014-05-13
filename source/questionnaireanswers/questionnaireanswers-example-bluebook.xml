@@ -1,5 +1,5 @@
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
+<QuestionnaireAnswers xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaireanswers.xsd">
   <!-- Please not that in this questionnaire, the questions are mostly unnamed, that is, the questions are not identified using the <name> element. It will therefore
     be hard to extract useful information in an automated way from this questionnaire. This is, however, quite often the case when modelling existing questionnaires -->
   <text>
@@ -13,53 +13,55 @@
     </div>
   </text>
   <status value="completed"/>
-  <authored value="2013-02-19T14:15:00"/>
   <subject>
     <reference value="http://www.hl7.org/fhir/Patient/1"/>
   </subject>
   <author>
     <reference value="http://www.hl7.org/fhir/Practitioner/1"/>
   </author>
+  <authored value="2013-02-19T14:15:00"/>
   <group>
-    <name>
-      <text value="NSW Government My Personal Health Record, january 2013"/>
-    </name>
+    <title value="NSW Government My Personal Health Record, january 2013"/>
     <!-- Many groups left out of this example -->
     <group>
-      <name>
-        <coding>
-          <code value="6.1"/>
-        </coding>
-        <text value="Birth details"/>
-      </name>
-      <header value="Birth details - To be completed by health professional"/>
+      <title value="Birth details - To be completed by health professional"/>
       <group>
         <question>
           <text value="Name of child" />
-          <answerString value="Cathy Jones" />
+          <answer>
+            <valueString value="Cathy Jones" />
+          </answer>
         </question>
         <question>
           <text value="Sex" />
-          <choice>
-            <code value="f" />
-          </choice>
+          <answer>
+            <valueCoding>
+              <code value="f" />
+            </valueCoding>
+          </answer>
         </question>
       </group>        
       <group>
-        <header value="Neonatal Information"/>
+        <title value="Neonatal Information"/>
         <question>
           <text value="Birth weight (kg)"/>
-          <answerDecimal value="3.25"/>
+          <answer>
+            <valueDecimal value="3.25"/>
+          </answer>
         </question>
         <question>
           <text value="Birth length (cm)"/>
-          <answerDecimal value="44.3"/>
+          <answer>
+            <valueDecimal value="44.3"/>
+          </answer>
         </question>
         <question>
           <text value="Vitamin K given"/>
-          <choice>
-            <code value="INJECTION"/>
-          </choice>
+          <answer>
+            <valueCoding>
+              <code value="INJECTION"/>
+            </valueCoding>
+          </answer>
           <group>
             <extension url="http://example.org/Profile/questionnaire#visibilityCondition">
               <!-- note: this syntax is for demonstration purposes only, will need to be finalized during DSTU --> 
@@ -67,29 +69,39 @@
             </extension>
             <question>
               <text value="1st dose"/>
-              <answerDate value="1972-11-30"/>
+              <answer>
+                <valueDate value="1972-11-30"/>
+              </answer>
             </question>
             <question>
               <text value="2nd dose"/>
-              <answerDate value="1972-12-11"/>
+              <answer>
+                <valueDate value="1972-12-11"/>
+              </answer>
             </question>
           </group>
         </question>
         <question>
           <text value="Hep B given y / n"/>
-          <answerBoolean value="true"/>
+          <answer>
+            <valueBoolean value="true"/>
+          </answer>
           <group>
             <question>
               <text value="Date given"/>
-              <answerDate value="1972-12-04"/>
+              <answer>
+                <valueDate value="1972-12-04"/>
+              </answer>
             </question>
           </group>
         </question>
         <question>
           <text value="Abnormalities noted at birth"/>
-          <answerString value="Already able to speak Chinese"/>
+          <answer>
+            <valueString value="Already able to speak Chinese"/>
+          </answer>
         </question>
       </group>
     </group>
   </group>
-</Questionnaire>
+</QuestionnaireAnswers>

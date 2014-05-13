@@ -1,4 +1,4 @@
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireanswers.xsd">
+<QuestionnaireAnswers xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireanswers.xsd">
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -25,7 +25,7 @@
     </div>
   </text>
   <status value="completed"/>
-  <date value="2013-10-16"/>
+  <authored value="2014-01-21"/>
   <group>
     <title value="Diagnosis NCI Standard Template"/>
     <group>
@@ -54,7 +54,7 @@
         <linkId value="3921053v1.0"/>
         <text value="Primary Site"/>
         <answer>
-          <answerString value="Left Ovary"/>
+          <valueString value="Left Ovary"/>
         </answer>
       </question>
     </group>
@@ -65,11 +65,11 @@
       <question>
         <text value="Diagnosis Time Point"/>
         <answer>
-          <answerCoding>
+          <valueCoding>
             <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
             <code value="3"/>
             <display value="Restaging"/>
-          </answerCoding>
+          </valueCoding>
         </answer>
       </question>
     </group>
@@ -112,4 +112,4 @@
       </question>
     </group>
   </group>
-</Questionnaire>
+</QuestionnaireAnswers>
