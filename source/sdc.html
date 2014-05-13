@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+
+      
+[%settitle Resource Index%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<a name="SDC"> </a> 
+<h2>Structured Data Capture (SDC) Implementation Guide</h2>
+<p>
+This implementation guide is prepared as a U.S. Realm Specfication on behalf ot the 
+<a href="http://www.healthit.gov/newsroom/about-onc">U.S. Office of the National Coordinator (ONC)</a>.
+However, much of the content is likely to be useable in other jurisdictions.  Information that is
+U.S.-specific has therefore been categorized into a single section.
+</p>
+
+<h3>Background</h3>
+<ul>
+  <li><a href="sdc-intro.html">Introduction</a> - How this project came to be and what it's trying to achieve</li>
+  <li><a href="sdc-usecase.html">Use Cases</a> - Specific scenarios supported by the IG</li>
+  <li><a href="http://http://wiki.siframework.org/Structured+Data+Capture+Initiative">Project wiki containing development materials and discussions (for additional background)</a></li>
+</ul>
+
+<h3>Specification</h3>
+<p>
+The <i>SDC FHIR Implementation Guide</i> is built on top of the <a href="index.html">HL7 FHIR</a> standard.  It makes use of the following resources:
+</p>
+<ul>
+  <li><a href="commondataelement.html">CommonDataElement</a> is used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</li>
+  <li><a href="questionnaire.html">Questionnaire</a> is used to define form definitions that may be downloaded for manual and/or automatic population</li>
+  <li><a href="questionnaireanswers.html">QuestionnaireAnswers</a> is used to share instance data captured using questionnaire forms</li>
+</ul>
+<p>
+Additional resources such as <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a> and others are likely to be used in SDC solutions, though
+no SDC-specific profiles have been created for them.  As well, basic aspects of the FHIR protocol, including <a href="http.html">RESTful operations</a>, 
+<a href="datatypes.html">data types</a>, <a href="search.html">search</a>, etc. apply as well.
+<!-- Todo: decide how explicit the list of relevant sections needs to be -->
+</p>
+<p>
+The SDC specification is broken into the following components:
+</p>
+<ul>
+  <li><a href="sdc-interactions.html">Interactions</a> - A listing of the resource operations used to support the SDC implementation guide as well as the definition of a custom service for form auto-population</li>
+  <li><b>SDC profiles</b> - Profiles on the three FHIR resources used to support the IG requirements:
+    <ul>
+      <li><a href="commondataelement-sdc-profile.html">SDC Common Data Element (CDE) Profile</a> - Constraints and extensions for capturing common data elements</li>
+      <li><a href="questionnaire-sdc-profile.html">SDC Questionnaire Profile</a> - Constraints and extensions for capturing form designs</li>
+      <li><a href="questionnaireansswers-sdc-profile.html">SDC Questionnaire Answers Profile</a> - Constraints and extensions for capturing form data instances</li>
+    </ul>
+  </li>
+  <li><a href="sdc-dataelements.html">Data Elements</a> - A set of common data element definitions to be supported and mapped to by compliant systems for use in form auto-population</li>
+</ul>
+
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>

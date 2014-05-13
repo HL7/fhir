@@ -1,0 +1,115 @@
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireanswers.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h1>Diagnosis NCI Standard Template</h1>
+      <h2>Mandatory Diagnosis Questions</h2>
+      <pre>These items must be included when this data is collected for reporting.
+
+  <b>Date of Current Pathologic Diagnosis</b>: 02/18/2003
+  <b>Diagnosis Type</b>                      : Primary Diagnosis__
+  <b>Primary Site</b>                        : Left Ovary
+</pre>
+<h2>Conditional Diagnosis Questions</h2>
+<pre>There are business rules to indicate situations under which these elements should be used on a case report form.
+
+  <b>Diagnosis Time Point</b>: Restaging
+</pre>
+<h2>Optional Diagnosis Conditions</h2>
+<pre>There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included.
+
+  <b>Reviewing Pathologist</b>: Harold Ornada
+  <b>MedDRA Source Code</b>   : __________
+  <b>Assessment Method</b>    : Histological Procedure
+  <b>Tumor Grade</b>          : Moderately Differentiated</pre>
+    </div>
+  </text>
+  <status value="completed"/>
+  <date value="2013-10-16"/>
+  <group>
+    <title value="Diagnosis NCI Standard Template"/>
+    <group>
+      <linkId value="3921053v1.0"/>
+      <title value="Mandatory Diagnosis Questions"/>
+      <text value="These items must be included when this data is collected for reporting."/>
+      <question>
+        <linkId value="3921059v1.0"/>
+        <text value="Date of Current Pathologic Diagnosis"/>
+        <answer>
+          <valueDate value="2003-02-18"/>
+        </answer>
+      </question>
+      <question>
+        <linkId value="3921060v1.0"/>
+        <text value="Diagnosis Type"/>
+        <answer>
+          <valueCoding>
+            <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs"/>
+            <code value="1"/>
+            <display value="Primary Diagnosis"/>
+          </valueCoding>
+        </answer>
+      </question>
+      <question>
+        <linkId value="3921053v1.0"/>
+        <text value="Primary Site"/>
+        <answer>
+          <answerString value="Left Ovary"/>
+        </answer>
+      </question>
+    </group>
+    <group>
+      <linkId value="3921066v1.0"/>
+      <title value="Conditional Diagnosis Questions"/>
+      <text value="There are business rules to indicate situations under which these elements should be used on a case report form."/>
+      <question>
+        <text value="Diagnosis Time Point"/>
+        <answer>
+          <answerCoding>
+            <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+            <code value="3"/>
+            <display value="Restaging"/>
+          </answerCoding>
+        </answer>
+      </question>
+    </group>
+    <group>
+      <linkId value="3921077v1.0"/>
+      <title value="Optional Diagnosis Questions"/>
+      <text value="There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included."/>
+      <question>
+        <linkId value="3921079v1.0"/>
+        <text value="Reviewing Pathologist"/>
+        <answer>
+          <valueString value="Harold Ornada"/>
+        </answer>
+      </question>
+      <question>
+        <linkId value="3921080v1.0"/>
+        <text value="MedDRA disease code"/>
+      </question>
+      <question>
+        <linkId value="3921081v1.0"/>
+        <text value="Assessment Method"/>
+        <answer>
+          <valueCoding>
+            <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921081v1.0-cs"/>
+            <code value="2"/>
+            <display value="Histological Procedure"/>
+          </valueCoding>
+        </answer>
+      </question>
+      <question>
+        <linkId value="3921085v1.0"/>
+        <text value="Tumor grade"/>
+        <answer>
+          <valueCoding>
+            <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921085v1.0-cs"/>
+            <code value="2"/>
+            <display value="Moderately Differentiated"/>
+          </valueCoding>
+        </answer>
+      </question>
+    </group>
+  </group>
+</Questionnaire>

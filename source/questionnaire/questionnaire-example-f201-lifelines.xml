@@ -1,78 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
-    <status value="completed"/>
-    <authored value="2013-06-18T00:00:00+01:00"/>
-    <!--Fictive, only the below answers are non-fictive-->
-    <subject>
-        <reference value="Patient/f201"/>
-        <display value="Roel"/>
-    </subject>
-    <author>
-        <reference value="Practitioner/f201"/>
-    </author>
-    <source>
-        <reference value="Practitioner/f201"/>
-    </source>
-    <name>
-        <coding>
-            <system value="https://lifelines.nl"/>
-            <code value="VL 1-1, 18-65_1.2.2"/>
-            <display value="Lifelines Questionnaire 1 part 1"/>
-        </coding>
-    </name>
-    <identifier>
-        <use value="temp"/>
-        <label value="Roel's VL 1-1, 18-65_1.2.2"/>
-    </identifier>
-
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+<pre>Lifelines Questionnaire 1 part 1
+  1. Do you have allergies?
+  2. General Questions:
+    2.a) What is your gender?
+    2.b) What is your date of birth?
+    2.c) What is your country of birth?
+    2.d) What is your marital status?
+    3. Intoxications:
+      3.a) Do you smoke?
+      3.b) Do you drink alcohol?</pre>
+    </div>
+  </text>
+  <identifier>
+    <use value="temp"/>
+    <label value="Roel's VL 1-1, 18-65_1.2.2"/>
+  </identifier>
+  <status value="published"/>
+  <date value="2010"/>
+  <group>
+    <concept>
+      <system value="https://lifelines.nl"/>
+      <code value="VL 1-1, 18-65_1.2.2"/>
+      <display value="Lifelines Questionnaire 1 part 1"/>
+    </concept>
     <group>
-        <group>
-            <question>
-                <!--Seperate answer-->
-                <text value="Do you have allergies?"/>
-                <answerString value="I am allergic to house dust"/>
-            </question>
-        </group>
-        <group>
-            <!--Answers to general questions-->
-            <header value="General questions"/>
-            <question>
-                <text value="What is your gender?"/>
-                <answerString value="Male"/>
-            </question>
-            <question>
-                <name>
-                    <text value="What is your date of birth?"/>
-                </name>
-                <answerDate value="1960-03-13"/>
-            </question>
-            <question>
-                <name>
-                    <text value="What is your country of birth?"/>
-                </name>
-                <answerString value="The Netherlands"/>
-            </question>
-            <question>
-                <name>
-                    <text value="What is your marital status?"/>
-                </name>
-                <answerString value="married"/>
-            </question>
-        </group>
-
-        <group>
-            <!--Answers to intoxications-->
-            <header value="Intoxications"/>
-
-            <question>
-                <text value="Do you smoke?"/>
-                <answerString value="No"/>
-            </question>
-            <question>
-                <text value="Do you drink alchohol?"/>
-                <answerString value="No, but I used to drink"/>
-            </question>
-        </group>
+      <question>
+        <!--Separate answer-->
+        <text value="Do you have allergies?"/>
+      </question>
     </group>
+    <group>
+      <!--Answers to general questions-->
+      <text value="General questions"/>
+      <question>
+        <text value="What is your gender?"/>
+      </question>
+      <question>
+        <text value="What is your date of birth?"/>
+      </question>
+      <question>
+        <text value="What is your country of birth?"/>
+      </question>
+      <question>
+        <text value="What is your marital status?"/>
+      </question>
+    </group>
+    <group>
+      <!--Answers to intoxications-->
+      <title value="Intoxications"/>
+      <question>
+        <text value="Do you smoke?"/>
+      </question>
+      <question>
+        <text value="Do you drink alchohol?"/>
+      </question>
+    </group>
+  </group>
 </Questionnaire>

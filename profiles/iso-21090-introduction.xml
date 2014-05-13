@@ -1,0 +1,104 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile defines a large number of extensions that reflect capabilities of the <a href="http://www.hl7.org/documentcenter/private/standards/v3/V3_XMLITS_ISODT_R1_2013OCT.zip">ISO 21090</a>
+data types specification that were not included as part of the FHIR core data types specification.  (These capabilities were excluded because it was determined
+that they represented "edge case" capabilities that the majority of existing implementations did not support.
+</p>
+<p>
+At the present time, this profile is incomplete.  It only contains extensions reflecting capabilities that have been explicitly identified as "useful" in the
+context of FHIR.  The set of extensions in this profile will continue to grow over time until eventually all capabilities of the ISO 21090 specification are reflected.
+</p>
+<p>
+For ease of reading, the extensions have been organized based on the underlying data type in the ISO specification.  The applicable FHIR data type(s) are also identified.
+</p>
+<p>
+<b>NOTE:</b> FHIR uses a different architecture than HL7 v3, so some capabilities may not make sense in the FHIR context or may need
+to be used in a different manner.  Where necessary, guidance is included in this profile on any differences in usage.
+</p>
+
+<div>
+<h3>Any (ANY)</h3>
+<p>These extensions may apply to any of the FHIR data types (complex or primitive).  It can also appear on any resource element.</p>
+<h4><a name="nullFlavor"/>nullFlavor</h4>
+<p>
+This extension allows exceptional values to be conveyed, as well as for data to be flagged as "missing" for some reason.
+</p>
+<p>
+In v3, null flavors were often required for data types when particular components were missing.  In the FHIR core specification, there is <b>never</b> an
+automatic requirement to send a null flavor, though profiles may introduce such a requirement.  As well, the need for null flavors is often made
+explicit in the specification by adding relevant null flavors to the value set for coded elements or by introducing a "choice" of data type such that
+either a normal value or a coded special value can be specified.  For example, a resouce might have a <code>quantity[x]</code> element with a type of
+<code>Quantity | code</code> where the value set is limited to TRC, QS or UNK.  In this way, only those null flavors that are relevant to the context are
+included.
+</p>
+<p>Where null flavors are not supported as part of the core specification, extensions can be defined that expose only those null flavors that are relevant.
+This approach is preferred over referencing the full null flavor specification.  (Note that the null flavor code system can be referenced in any value sets.)
+</p>
+</div>
+
+<div>
+<h3>Entity Name (EN)</h3>
+<p>These extensions apply to the <a href="http://www.hl7.org/fhir/datatypes.html#humanname">HumanName</a> data type.</p>
+<ul>
+  <li><a name="name-qualifier"/><b>name-qualifier</b> - This extension to <code><a href="datatypes.html#humanname">HumanName</a>.part</code> allows distinguishing initials, middle names, call-me names and other types of names</li>
+</ul>
+</div>
+
+<div>
+<h3>Parametric Probability Distribution of a Physical Quantity (PPD&lt;PQ&gt;)</h3>
+<p>These extensions provide support for the probability distributions for the <a href="datatypes.html#quantity">Quantity</a> data type.  There are two properties:</p>
+<ul>
+  <li><a name="uncertainty"/><b>uncertainty</b> - Indicates the standard deviation associated with the extended quantity.</li>
+  <li><a name="uncertainty-type"/><b>uncertainty</b> - Identifies the probability distribution associated with the uncertainty of the extended quantity.</li>
+</ul>
+</div>
+
+<div>
+<h3>Address (AD)</h3>
+<p>These extensions provide support for various additional properties of the <a href="datatypes.html#address">Address</a> data type.  There are kinds of properties:</p>
+<ul>
+  <li><a name="address-use"/><b>address-use</b> - Identifies additional usages not supported by the <code>Address.use</code> property</li>
+  <li>Additional address parts not broken out as distinct elements in the <a href="datatypes.html#address">Address</a> data type, including:
+    <ul>
+      <li><a name="address-part-additionalLocator">address-part-additionalLocator</a> - Additional information beyond the street number.  E.g. apartment number</li>
+      <li><a name="address-part-unitID">address-part-unitID</a> - Number of a unit within a building</li>
+      <li><a name="address-part-unitType">address-part-unitType</a> - Type of unit.  E.g. appartment, floor</li>
+      <li><a name="address-part-deliveryAddressLine">address-part-deliveryAddressLine</a> - Delivery to an installation rather than a physical address.  E.g. PO box, depot, station</li>
+      <li><a name="address-part-deliveryInstallationType">address-part-deliveryInstallationType</a> - Lype of delivery site (PO Box, depot, station)</li>
+      <li><a name="address-part-deliveryInstallationArea">address-part-deliveryInstallationArea</a> - The jurisdiction in which the delivery address is located</li>
+      <li><a name="address-part-deliveryInstallationQualifier">address-part-deliveryInstallationQualifier</a> - A number or letter identifying the delivery site.  E.g. Station "A", Rural Route "104" </li>
+      <li><a name="address-part-deliveryMode">address-part-deliveryMode</a> - Type of delivery.  E.g. rural route, post office box</li>
+      <li><a name="address-part-deliveryModeIdentifier">address-part-deliveryModeIdentifier</a> - Routing information such as route number, box number</li>
+      <li><a name="address-part-streetAddressLine">address-part-streetAddressLine</a> - A type of address identifying a building located by street name</li>
+      <li><a name="address-part-houseNumber">address-part-houseNumber</a> - The number of the building on the street</li>
+      <li><a name="address-part-buildingNumberSuffix">address-part-buildingNumberSuffix</a> - The non-numeric portion of a building number.  E.g. "A" in 103A Some Street</li>
+      <li><a name="address-part-postBox">address-part-postBox</a> - A post office box number</li>
+      <li><a name="address-part-houseNumberNumeric">address-part-houseNumberNumeric</a> -The numeric portion of a building number.  E.g. "103" in 103A Some Street</li>
+      <li><a name="address-part-streetName">address-part-streetName</a> - The name of a street (distinct from the building number)</li>
+      <li><a name="address-part-streetNameBase">address-part-streetNameBase</a> - The name of a street excluding type and direction.  E.g. "Main" in Main Street NW</li>
+      <li><a name="address-part-streetNameType">address-part-streetNameType</a> - The type of a street.  E.g. "Street" in Main Street NW</li>
+      <li><a name="address-part-direction">address-part-direction</a> - The direction of a street.  E.g. "NW" in Main Street NW</li>
+      <li><a name="address-part-careOf">address-part-careOf</a> - The name of a person to take receipt at the specified address who is responsible for ensuring final deliver</li>
+      <li><a name="address-part-censusTract">address-part-censusTract</a> - A geographic region delineated for demographic purposes</li>
+      <li><a name="address-part-county">address-part-county</a> - A sub-unit of a state or province</li>
+      <li><a name="address-part-delimiter">address-part-delimiter</a> - A separator such as a carrage return, dash, comma, etc.</li>
+      <li><a name="address-part-precinct">address-part-precinct</a> - A subsection of a municipality</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div>
+<h3>String (ST)</h3>
+<p>These extensions provide support for the probability distributions for the <a href="datatypes.html#string">string</a> data type.  There are two properties:</p>
+<ul>
+  <li><a name="string-translation"/><b>string-translation</b> - Provides an alternate expression of the string in a different language.  (May have more than one occurrence)</li>
+  <li><a name="language"/><b>language</b> - Indicates the language of the extended string.  (May also appear on the string-translation extension)</li>
+</ul>
+</div>
+
+</div>
+</div>

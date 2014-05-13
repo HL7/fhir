@@ -1,0 +1,35 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile defines extensions governing how data elements should be rendered when presented to a user, printed, etc.
+</p>
+<h3>XHTML-based extensions</h3>
+<p>
+These extensions make use of XHTML capabilities to influence the rendering of data elements.  In theory, systems displaying data using a technology
+other than xhtml could parse the information in the style string and attempt to map it to their own internal display syntax.  However, it is likely that 
+not all of the markup instructions would map well.  Support for these extensions by software using mechanisms other than XHTML for rendering is therefore
+unlikely.
+</p>
+<p>
+When generating narrative that includes elements with one of these extensions, the narrative covering these elements SHOULD apply the guidance provided
+by these extensions to how the element appers in the narrative.
+</p>
+<p>
+<b>Note:</b> Implementers should be cautious around the use of sophisticated formatting capabilities.  Not all browsers and other xhtml rendering tools
+support all styles and xhtml capabilities, or at least don't support them well.  This is particularly true for mobile solutions.  Limiting to simple
+capabilities increases the likelihood of interoperability and consistent rendering across devices.
+</p>
+<ul>
+<li><a name="style"/><b>style</b> - (0..1) A string expressing one or more <a href="http://www.w3.org/TR/2002/WD-css-style-attr-20020515">xhtml style</a>
+  values.  This extension can be used on any element (including, in theory, 
+  complex elements containing sub-elements).  It declares one or more xhtml styles that should be declared
+  for the node that is responsible for rendering that element.  These might influence font, color, background, etc.</li>
+<li><a name="markup"/><b>markup</b> - (0..1) A string containing excaped xhtml to use to render the specified string with more complex formatting of some or 
+  all of the content.  This may include tags for text rendering, embedded styles, or even tables or list structures.  The textual content must be the
+  same as that included in the base value of the string.</li>
+</ul>
+</div>
+
+</div>

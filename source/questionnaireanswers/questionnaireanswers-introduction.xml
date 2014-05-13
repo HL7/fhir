@@ -1,0 +1,62 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+<b>QuestionnaireAnswers</b> provides a complete or partial list of answers to a set of questions.  The questions may be included directly or by
+reference to a <a href="questionnaire.html">Questionnaire</a> resource that defines the questions as well as the constraints on the allowed answers.  In
+some cases, both may be provided to provide both formal rules for editing the questionnaire (via link to <a href="questionnaire.html">Questionnaire</a>) as
+well as sufficient local information to allow rendering of the questionnaire.
+</p>
+<p>
+Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
+clinical speciality records. In many systems this data is collected using user-defined screens and forms. Questionnaires record specifics about data capture -
+exactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions are part of the Questionnaire, 
+and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.
+</p>
+<p>
+Examples of Questionnaires include:
+</p>
+<ul>
+  <li>Past medical history (PMH)</li>
+  <li>Family diseases</li>
+  <li>Social history</li>
+  <li>Research questionnaires</li>
+  <li>Quality and evaluation forms</li>
+</ul>
+<p>
+<b>QuestionnaireAnswers</b> can be validated against their corresponding <a href="questionnaire.html">Questionnaire</a> to verify that required
+groups and questions are answered and that answers fit constraints in terms of cardinality, data type, etc.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+The <b>QuestionnaireAnswers</b> resource captures the responses to a questionnaire, while <a href="questionnaire.html">Questionnaire</a> represents
+the definition of the questionnaire form, including what questions are asked, how they're organized and the constraints on the allowed answers.
+</p>
+<p>
+While <a href="observation.html">Observation</a>, with its nested <code>relatedObservation</code> structure, can create complex hierarchies of 
+questions and answers, the focus is different.  First, <a href="observation.html">Observation</a> is used primarily for capturing data elements that
+are "true" observations - lab measurements, vital signs, social asssessments, etc.  On the other hand, <b>QuestionnaireAnswers</b> can be used to capture
+any types of data, including data that would typically map to other resources (<a href="procedure.html">Provedure</a>, <a href="patient.html">Patient</a>,
+<a href="medicationstatement.html">MedicationStatement</a>, etc.)  In addition, the focus of <b>QuestionnaireAnswers</b> includes the specific phrasing
+and organization of the questions.  All data must be explicitly captured as a question.  With <a href="observation.html">Observation</a>, the focus is
+only on the meaning of the answer, not what question was asked (assuming a question was even asked at all).  Additional information such as normal
+ranges, interpretation, date, etc. may also be captured.
+</p>
+</div>
+
+<!--<div>
+<h2>Background and Context</h2>
+<p>
+</p>
+</div>-->
+
+</div>
+
+
+
+
+

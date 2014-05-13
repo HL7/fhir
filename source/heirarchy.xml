@@ -97,7 +97,7 @@ todo: compartments
     <page type="resource" resource="FamilyHistory"/>
     <page type="resource" resource="Condition"/>
     <page type="resource" resource="Procedure"/>
-    <page type="resource" resource="Questionnaire"/>
+    <page type="resource" resource="QuestionnaireAnswers"/>
     <page type="resource" resource="Medication"/>
     <page type="resource" resource="MedicationPrescription"/>
     <page type="resource" resource="MedicationAdministration"/>
@@ -132,9 +132,11 @@ todo: compartments
     <page type="resource" resource="Slot"/>
   </page>
   <page title="Infrastructure" filename="infrastructure.html">
+    <page type="resource" resource="CommonDataElement"/>
     <page type="resource" resource="List"/>
     <page type="resource" resource="Media"/>
     <page type="resource" resource="Other"/>
+    <page type="resource" resource="Questionnaire"/>
     <page type="resource" resource="DocumentReference"/>
     <page type="resource" resource="DocumentManifest"/>
     <page type="resource" resource="Provenance"/>

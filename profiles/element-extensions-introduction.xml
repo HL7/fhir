@@ -1,0 +1,60 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile defines extensions defining additional constraints on data elements.
+</p>
+<p>
+Data elements can be defined in several places.  The extensions defined within this profile may apply
+to most or all of these:
+</p>
+<ul>
+  <li><a href="commondataelement.html">CommonDataElement</a> - defining the characteristics that must hold for an element to be an instance of a particular Common Data Element</li>
+  <li><a href="profile.html">Profile</a>.structure.element.definition - defining the characteristics of the data element when used according to the profile</li>
+  <li><a href="profile.html">Profile</a>.extensionDefn.definition - defining the characteristics of the extension, regardless of where it is used</li>
+  <li><a href="questionnaire.html">Questionnaire</a>.group.question - defining the characteristics of permitted answers</li>
+</ul>
+<p>
+<b>Note:</b> Implementations are not required to reject invalid data.  However, transmitting data that violates one of these extensions would be considered invalid against
+the resource that declared the extension.
+</p>
+
+<div>
+<h3>Length extensions</h3>
+<p>
+These extensions govern the length of most of the simple data types.  Some data types are excluded because their lengths are already fixed and cannot be
+further constrained.
+</p>
+<ul>
+<li><a name="minLength"/><b>minLength</b> - (0..1) Establishes a lower bound for the character length for the element</li>
+<li><a name="maxLength"/><b>minLength</b> - (0..1) Establishes an upper bound for the character length for the element</li>
+</ul>
+</div>
+
+<div>
+<h3>Format extensions</h3>
+<p>
+These extensions govern the appearance of string and string-like simple data types.
+</p>
+<ul>
+<li><a name="regex"/><b>regex</b> - (0..1) Expresses a "regular expression" that computably defines the permitted syntax for a string</li>
+<li><a name="entryFormat"/><b>entryFormat</b> - (0..1) Provides human-readable guidance for the desired syntax for a string</li>
+</ul>
+</div>
+
+<div>
+<h3>Numeric and range extensions</h3>
+<p>
+These extensions govern the allowed range of numeric and date or time data types.
+</p>
+<ul>
+<li><a name="minValue"/><b>minValue</b> - (0..1) Identifies the lowest value allowed for a numeric or date element</li>
+<li><a name="maxValue"/><b>maxValue</b> - (0..1) Identifies the highest value allowed for a numeric or date element</li>
+<li><a name="maxDecimalPlaces"/><b>maxDecimalPlaces</b> - (0..1) Identifies the number of decimal places allowed for decimal elements</li>
+</ul>
+</div>
+
+</div>
+
+</div>

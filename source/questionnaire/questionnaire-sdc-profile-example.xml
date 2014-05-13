@@ -1,0 +1,509 @@
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h1>Diagnosis NCI Standard Template</h1>
+      <h2>Mandatory Diagnosis Questions</h2>
+      <pre>These items must be included when this data is collected for reporting.
+
+  <b>Date of Current Pathologic Diagnosis</b>: __________ (MM/DD/YYYY)
+  <b>Diagnosis Type</b>                      : __
+    (1) Primary Diagnosis
+    (2) Secondary Diagnosis
+    (3) Treatement related secondary malignancy Diagnosis
+    (4) Unknown
+  <b>Primary Site</b>: 
+    ____________________________________________________________________________________________________
+</pre>
+<h2>Conditional Diagnosis Questions</h2>
+<pre>There are business rules to indicate situations under which these elements should be used on a case report form.
+
+  <b>Diagnosis Time Point</b>: __
+    (1) Initial same as Current
+    (2) Disease Progression
+    (3) Restaging
+    (4) First Diagnosis
+    (5) Current Diagnosis
+</pre>
+<h2>Optional Diagnosis Conditions</h2>
+<pre>There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included.
+
+  <b>Reviewing Pathologist</b>: 
+    ____________________________________________________________________________________________________
+  <b>MedDRA Source Code</b>   : __________
+  <b>Assessment Method</b>    : __
+    (1) Cytological Procedure
+    (2) Histological Procedure
+    (3) Histologic and Cytologic Procedure    
+  <b>Tumor Grade</b>          : __    
+    (1) Well Differentiated
+    (2) Moderately Differentiated
+    (3) Poorly Differentiated
+    (4) Undifferentiated
+    (5) Borderline Histologic Grade
+    (6) Grade Cannot be Assessed
+    (7) High Grade
+    (8) Low Grade</pre>
+    </div>
+  </text>
+  <contained>
+    <ValueSet id="3921060v1.0-vs">
+      <name value="TODO - remove this"/>
+      <description value="TODO - remove this"/>
+      <status value="active"/>
+      <define>
+        <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs"/>
+        <concept>
+          <code value="1"/>
+          <display value="Primary Diagnosis"/>
+          <definition value="Occurring first in time or sequence; original; of greatest rank or importance or value.: The investigation, analysis and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation."/>
+        </concept>
+        <concept>
+          <code value="2"/>
+          <display value="Secondary Diagnosis"/>
+          <definition value="Derived as a result of a primary condition; not direct or immediate; of second rank or importance or value.: The investigation, analysis and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation."/>
+        </concept>
+        <concept>
+          <code value="3"/>
+          <display value="Treatment related secondary malignancy Diagnosis"/>
+          <definition value="A disorder characterized by development of a malignancy most probably as a result of treatment for a previously existing malignancy.: The investigation, analysis and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation."/>
+        </concept>
+        <concept>
+          <code value="4"/>
+          <display value="Unknown"/>
+          <definition value="Not known, not observed, not recorded, or refused."/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="3921066v1.0-vs">
+      <name value="TODO - remove this"/>
+      <description value="TODO - remove this"/>
+      <status value="active"/>
+      <define>
+        <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <concept>
+          <code value="1"/>
+          <display value="Initial same as Current"/>
+          <definition value="Initial diagnosis same as current"/>
+        </concept>
+        <concept>
+          <code value="2"/>
+          <display value="Disease Progression"/>
+          <definition value="Cancer that continues to grow or spread."/>
+        </concept>
+        <concept>
+          <code value="3"/>
+          <display value="Restaging"/>
+          <definition value="Two or more adjacent copies of an identical pattern.: The extent of a cancer within the body, especially whether the disease has spread from the original site to other parts of the body."/>
+        </concept>
+        <concept>
+          <code value="4"/>
+          <display value="First Diagnosis"/>
+          <definition value="Preceding all others in time or space or degree.: The investigation, analysis and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation."/>
+        </concept>
+        <concept>
+          <code value="5"/>
+          <display value="Current Diagnosis"/>
+          <definition value="Occurring in or belonging to the present time.: The investigation, analysis and recognition of the presence and nature of disease, condition, or injury from expressed signs and symptoms; also, the scientific determination of any kind; the concise results of such an investigation."/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="3921081v1.0-vs">
+      <name value="TODO - remove this"/>
+      <description value="TODO - remove this"/>
+      <status value="active"/>
+      <define>
+        <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921081v1.0-cs"/>
+        <concept>
+          <code value="1"/>
+          <display value="Cytological Procedure"/>
+          <definition value="Technique or procedure for manipulation of cells and analysis of cell properties and subcellular features."/>
+        </concept>
+        <concept>
+          <code value="2"/>
+          <display value="Histological Procedure"/>
+          <definition value="Technique or procedure used for the study of the microanatomy of tissues and their cellular structure; usually involves microscopic examination of tissue slices."/>
+        </concept>
+        <concept>
+          <!-- Could have handled this by allowing the answer to repeat so both Cytological and Histological could have been selected -->
+          <code value="3"/>
+          <display value="Histologic and Cytologic Procedure"/>
+          <definition value="Pertaining to the combined microscopic physical features of cells and their surrounding extracellular environment in tissues.: The light microscopic study of normal and abnormal cells in fine needle aspirates (FNAs), body cavity fluids, and smears.: Having been established or verified."/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="3921085v1.0-vs">
+      <name value="TODO - remove this"/>
+      <description value="TODO - remove this"/>
+      <status value="active"/>
+      <define>
+        <system value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921085v1.0-cs"/>
+        <concept>
+          <code value="1"/>
+          <display value="Well Differentiated"/>
+          <definition value="Describes tumor cells that generally retain the appearance of normal cells and tend to grow and spread at a slower rate than undifferentiated or poorly differentiated tumor cells."/>
+        </concept>
+        <concept>
+          <code value="2"/>
+          <display value="Moderately Differentiated"/>
+          <definition value="Definition not available.">
+            <!-- Could just omit the definition when this occurs rather than populating it with a fake value -->
+          </definition>
+        </concept>
+        <concept>
+          <code value="3"/>
+          <display value="Poorly Differentiated"/>
+          <definition value="Describes tumor cells that generally have lost most of the appearance of normal cells. They tend to grow and spread."/>
+        </concept>
+        <concept>
+          <code value="4"/>
+          <display value="Undifferentiated"/>
+          <definition value="A term used to describe cells or tissues that do not have specialized (&quot;mature&quot;) structures or functions. Undifferentiated cancer cells often grow and spread quickly."/>
+        </concept>
+        <concept>
+          <code value="5"/>
+          <display value="Borderline Histologic Grade"/>
+          <definition value="Straddling the dividing line between two categories.: The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems."/>
+        </concept>
+        <concept>
+          <code value="6"/>
+          <display value="Grade Cannot be Assessed"/>
+          <definition value="An operation in which a term denies or inverts the meaning of another term or construction.: Having determined the value, significance, or extent of.: The degree of abnormality of cancer cells, a measure of differentiation, the extent to which cancer cells are similar in appearance and function to healthy cells of the same tissue type. The degree of differentiation often relates to the clinical behavior of the particular tumor. Based on the microscopic findings, tumor grade is commonly described by one of four degrees of severity. Histopathologic grade of a tumor may be used to plan treatment and estimate the future course, outcome, and overall prognosis of disease. Certain types of cancers, such as soft tissue sarcoma, primary brain tumors, lymphomas, and breast have special grading systems."/>
+        </concept>
+        <concept>
+          <code value="7"/>
+          <display value="High Grade"/>
+          <definition value="Used to describe tumor samples that exhibit poorly differentiated or undifferentiated cells. They are generally expected to be fast growing and aggressive."/>
+        </concept>
+        <concept>
+          <code value="8"/>
+          <display value="Low Grade"/>
+          <definition value="Used to describe tumor samples that exhibit well to moderately well differentiated cells. They are generally expected to be slow growing and less aggressive."/>
+        </concept>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet id="2.16.840.1.113883.3.26.1-vs">
+      <name value="TODO - remove this"/>
+      <description value="TODO - remove this"/>
+      <status value="active"/>
+      <define>
+        <system value="urn:oid:2.16.840.1.113883.3.26.1"/>
+        <version value="13.11d"/>
+      </define>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ConceptMap id="3921060v1.0-cm">
+      <!-- Note: The mappings are all expressed as having a code of "none", so not really clear on the value of having a mapping . . . -->
+      <name value="TODO - remove"/>
+      <status value="active"/>
+      <sourceResource>
+        <reference value="#3921060v1.0-vs"/>
+      </sourceResource>
+      <targetResource>
+        <reference value="#2.16.840.1.113883.3.26.1-vs"/>
+      </targetResource>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs"/>
+        <code value="1"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs"/>
+        <code value="2"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs"/>
+        <code value="3"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs"/>
+        <code value="4"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+    </ConceptMap>
+  </contained>
+  <contained>
+    <ConceptMap id="3921066v1.0-cm">
+      <!-- Note: The mappings are all expressed as having a code of "none", so not really clear on the value of having a mapping . . . -->
+      <name value="TODO - remove"/>
+      <status value="active"/>
+      <sourceResource>
+        <reference value="#3921066v1.0-vs"/>
+      </sourceResource>
+      <targetResource>
+        <reference value="#2.16.840.1.113883.3.26.1-vs"/>
+      </targetResource>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="1"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="2"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="3"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="4"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="5"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+    </ConceptMap>
+  </contained>
+  <contained>
+    <ConceptMap id="3921081v1.0-cm">
+      <!-- Note: The mappings are all expressed as having a code of "none", so not really clear on the value of having a mapping . . . -->
+      <name value="TODO - remove"/>
+      <status value="active"/>
+      <sourceResource>
+        <reference value="#3921081v1.0-vs"/>
+      </sourceResource>
+      <targetResource>
+        <reference value="#2.16.840.1.113883.3.26.1-vs"/>
+      </targetResource>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="1"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="2"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="3"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+    </ConceptMap>
+  </contained>
+  <contained>
+    <ConceptMap id="3921081v1.0-cm">
+      <!-- Note: The mappings are all expressed as having a code of "none", so not really clear on the value of having a mapping . . . -->
+      <name value="TODO - remove"/>
+      <status value="active"/>
+      <sourceResource>
+        <reference value="#3921081v1.0-vs"/>
+      </sourceResource>
+      <targetResource>
+        <reference value="#2.16.840.1.113883.3.26.1-vs"/>
+      </targetResource>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="1"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="2"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="3"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="4"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="5"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="6"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="7"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+      <element>
+        <codeSystem value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs"/>
+        <code value="8"/>
+        <map>
+          <equivalence value="unmatched"/>
+        </map>
+      </element>
+    </ConceptMap>
+  </contained>
+  <identifier>
+    <system value="http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier"/>
+    <value value="3921052v1.0"/>
+  </identifier>
+  <status value="draft"/>
+  <date value="2013-10-16"/>
+  <publisher value="National Cancer Institute (NCI)"/>  
+  <group>
+    <extension url="http://hl7.org/Profile/questionnaire-extensions#Category">
+      <valueCodeableConcept>
+        <coding>
+          <!-- No system specified -->
+          <code value="CRF"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <title value="Diagnosis NCI Standard Template"/>
+    <group>
+      <linkId value="3921053v1.0"/>
+      <title value="Mandatory Diagnosis Questions"/>
+      <text value="These items must be included when this data is collected for reporting."/>
+      <required value="true"/>
+      <question>
+        <extension url="http://hl7.org/Profile/element-extensions#entryFormat">
+          <valueString value="MM/DD/YYYY"/>
+        </extension>
+        <linkId value="3921059v1.0"/>
+        <text value="Date of Current Pathologic Diagnosis"/>
+        <type value="date"/>
+      </question>
+      <question>
+        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <valueInteger value="40"/>
+        </extension>
+        <linkId value="3921060v1.0"/>
+        <text value="Diagnosis Type"/>
+        <type value="multiple-choice"/>
+        <options>
+          <reference value="#3914869v3914869-vs"/>
+        </options>
+      </question>
+      <question>
+        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <valueInteger value="100"/>
+        </extension>
+        <linkId value="3921053v1.0"/>
+        <text value="Primary Site"/>
+        <type value="string"/>
+        <options>
+          <reference value="#3921060v1.0-vs"/>
+        </options>
+      </question>
+    </group>
+    <group>
+      <linkId value="3921066v1.0"/>
+      <title value="Conditional Diagnosis Questions"/>
+      <text value="There are business rules to indicate situations under which these elements should be used on a case report form."/>
+      <question>
+        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <valueInteger value="25"/>
+        </extension>
+        <text value="Diagnosis Time Point"/>
+        <type value="multiple-choice"/>
+        <options>
+          <reference value="#3921066v1.0-vs"/>
+        </options>
+      </question>
+    </group>
+    <group>
+      <linkId value="3921077v1.0"/>
+      <title value="Optional Diagnosis Questions"/>
+      <text value="There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included."/>
+      <question>
+        <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
+          <valueInteger value="1"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <valueInteger value="100"/>
+        </extension>
+        <linkId value="3921079v1.0"/>
+        <text value="Reviewing Pathologist"/>
+        <type value="string"/>
+      </question>
+      <question>
+        <linkId value="3921080v1.0"/>
+        <text value="MedDRA disease code"/>
+        <type value="integer">
+          <!-- This is listed as an integer, but from a FHIR perspective, that's wrong.  It should be identified as a code from a value set or perhaps a string.  Integers are things you're intended to be able to do math with -->
+        </type>
+      </question>
+      <question>
+        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <valueInteger value="40"/>
+        </extension>
+        <linkId value="3921081v1.0"/>
+        <text value="Assessment Method"/>
+        <type value="multiple-choice"/>
+        <options>
+          <reference value="#3921081v1.0-vs"/>
+        </options>
+      </question>
+      <question>
+        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
+          <valueInteger value="10"/>
+        </extension>
+        <linkId value="3921085v1.0"/>
+        <text value="Tumor grade"/>
+        <type value="multiple-choice"/>
+        <options>
+          <reference value="#3921085v1.0-vs"/>
+        </options>
+      </question>
+    </group>
+  </group>
+</Questionnaire>

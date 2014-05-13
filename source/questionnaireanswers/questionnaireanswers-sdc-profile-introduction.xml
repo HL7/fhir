@@ -1,0 +1,29 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile sets expectations for use of the <a href="questionnaireanswers.html">QuestionnaireAnswers</a> resource within the 
+<a href="http://http://wiki.siframework.org/IHE+SDC+Profile">Structured Data Capture</a> project.  This includes
+identifying which core elements and extensions must be supported.
+</p>
+<p>
+For the purposes of this profile, <i>Supported</i> means that clients SHALL be capable of processing the element/extension and use the information to control the display
+and information capture associated with the <a href="questionnaireanswers.html">QuestionnaireAnswers</a> resource.  It means that servers SHALL be capable of persisting those elements and returning them in response
+to requests.
+</p>
+</div>
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This profile is related to the <a href="questionnaire-sdc-profile.html">SDC Questionnaire Profile</a> which defines the characteristic of a form "design".  This
+profile focuses on the constraints appropriate to capturing the "answer(s)" to a pre-defined form.
+</p>
+</div>
+
+</div>
+
+
+
+
+
