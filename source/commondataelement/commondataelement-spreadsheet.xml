@@ -152,10 +152,10 @@
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R31C19"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R30C19"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="32.25"/>
@@ -592,20 +592,6 @@
     <Cell><Data ss:Type="String">Binds to a value set if this element is coded (code, Coding, CodeableConcept)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">CommonDataElement.binding.name</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Descriptive Name</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A descriptive name for this - can be useful for generating implementation artifacts</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">SHALL be unique within the profile.  If the same name as an imported profile, will override the imported binding (and SHALL be a proper constraint on the imported binding)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">CommonDataElement.binding.isExtensible</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -787,7 +773,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R31C19"
+  <AutoFilter x:Range="R1C1:R30C19"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
