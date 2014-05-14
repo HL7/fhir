@@ -1200,7 +1200,7 @@ public class Publisher {
       checkFragments();
       for (String n : page.getDefinitions().getProfiles().keySet()) {
         page.log(" ...profile " + n, LogMessageType.Process);
-        produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null, null);
+        produceProfile(n, page.getDefinitions().getProfiles().get(n), null, null, null, null);
       }
 
       produceV2();
@@ -2187,7 +2187,7 @@ public class Publisher {
     svg.generate(resource, page.getFolders().dstDir + n + ".svg");
 
     for (RegisteredProfile p : resource.getProfiles())
-      p.setResource(produceProfile(p.getDestFilename(), p.getProfile(), p.getExamplePath(), p.getExample(), resource.getName()));
+      p.setResource(produceProfile(p.getDestFilename(), p.getProfile(), p.getExamplePath(), p.getFilepath(), p.getExample(), resource.getName()));
 
     Profile profile = (Profile) profileFeed.getById("http://hl7.org/fhir/profile/" + resource.getName().toLowerCase()).getResource();
     for (Example e : resource.getExamples()) {
@@ -2589,7 +2589,7 @@ public class Publisher {
     dest.getEntryList().add(e);
   }
 
-  private Profile produceProfile(String filename, ProfileDefn profile, String examplePath, String exampleName, String master) throws Exception {
+  private Profile produceProfile(String filename, ProfileDefn profile, String examplePath, String filePath, String exampleName, String master) throws Exception {
     File tmp = File.createTempFile("tmp", ".tmp");
     tmp.deleteOnExit();
     String title = filename.contains(".") ? filename.substring(0, filename.lastIndexOf(".")) : filename;
@@ -2623,6 +2623,8 @@ public class Publisher {
     String introAndNotesPath = null;
     if (examplePath != null)
       introAndNotesPath = Utilities.getDirectoryForFile(examplePath);
+		else if (exampleName == "")
+			introAndNotesPath = Utilities.getDirectoryForFile(filePath);
     else
       introAndNotesPath = Utilities.path(page.getFolders().rootDir, "profiles");
 
