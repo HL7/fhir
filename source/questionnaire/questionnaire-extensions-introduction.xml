@@ -9,31 +9,42 @@ The core extensions provide HL7 provided extensions to the <a href="questionnair
 
 <div>
 <h2>Background and Context</h2>
-<h3>Questionnaire structure and validation</h3>
+<h3>Questionnaire documentation</h3>
 <p>
-There are two extensions to help with defining the structure of a Questionnaire, especially useful when sending an "empty form" Questionnaire, e.g. a Questionnaire where only the questions are provided.
-such Questionnaires contain the text and descriptions of sections and questions within the sections, and these two extensions provide extra information to a client displaying such
-an empty Questionnaire and make it possible to do basic validation of the input. It is expected that more extensive validation for Questionnaires is added by creating new extensions.
+The <a name="label"/><b>label</b> extension allows the heading number for a group or question to be conveyed from the group title or
+question text.  This permits justification and more advanced formatting.
+</p>
+
+<h3>Repetitions</h3>
+<p>
+There are two extensions that provide precise control over the number of repetitions of a group or the number of answers to a question:
+</p>
+<ul>
+  <li><a name="minOccurs"/><b>minOccurs</b> establishes a minimum number of group repetitions or minimum number of question answers for "required" groups/questions where the minimum number is greater than 1</li>
+  <li><a name="maxOccurs"/><b>minOccurs</b> establishes a maximum number of group repetitions or maximum number of question answers for "repeating" groups/questions where the maximum number is not unlimited</li>
+</ul>
+
+<h3>Defaults</h3>
+<p>
+Some questionnaires may choose to declare defaults (though this can obviously influence data collection and is generally avoided
+for questionnaires used for research purposes).  Two extensions are provided to support this:
 </p>
 <ul>
 <li>
-<b>mayRepeat</b> - This extension may be used on a Questionnaire.group to signal that this group can occur more than once in the instance. Such repeating groups contain Questions that
-may repeat, often shown in a tabular form where each question is a column heading and each repeat a row in a table.
+<a name="defaultValue"/><b>defaultValue</b> - This allows a default answer to be provided for a question.  The default value is typically displayed
+when the questionnaire is initially rendered, giving the user a chance to change it.
 </li>
 <li>
-<b>answerFormat</b> - This extension may be used on Questionnaire.question and indicates the kind of answer expected. The format is either a basic input form (corresponding to the
-FHIR types like string and integer) or an indication that the answer is a coded choice coming from a list of options. In the latter case, the answer may be single- or multiple-choice and
-supplying free text ("Other, please specify...") may also be indicated. This format helps the client to display the correct kind of input method for such a question.
+<a name="defaultAsFixed"/><b>defaultAsFixed</b> - This prevents a user from changing the value of the default value.  It may be used in circumstances where
+a part of the questionnaire is set by context or where it's useful to expose certain data as though it were a question but
+preventing it from being changed.
 </li>
 </ul>
 
-<h3>Other</h3>
-<ul>
-<li>
-<b>omitReason</b> - A code to explicitly indicate why a question on a form was not answered (comparable to some of the ISO 21090 concepts in nullFlavor), i.e. "patient did not
-want to answer", "no matching choice available" etcetera.
-</li>
-</ul>
+<h3>References</h3>
+<a name="cdeReference"/><b>cdeReference</b> allows a question to be linked to the corresponding <a href="commondataelement.html">CommonDataElement</a>
+resource that defines the meaning and allowed answer types for the question.  Note that the question text and any constraints
+must still be explicitly declared.
 </div>
 
 </div>

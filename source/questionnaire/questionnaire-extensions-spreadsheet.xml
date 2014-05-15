@@ -84,20 +84,20 @@
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s73">
-   <Alignment ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s77">
+  <Style ss:ID="s74">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s75">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
@@ -210,20 +210,20 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="13" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="154.5"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="150.75"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="56.25"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="134.25"/>
-   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="114.75"/>
+   <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="134.25" ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="114.75"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="105.75"/>
    <Column ss:StyleID="s70" ss:Width="148.5"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="159" ss:Span="1"/>
-   <Column ss:Index="11" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="213.75"/>
+   <Column ss:Index="12" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="213.75"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="161.25" ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:Index="15" ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s70" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s72">
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -231,6 +231,7 @@
     <Cell><Data ss:Type="String">Context</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
+    <Cell><Data ss:Type="String">Is Modifier</Data></Cell>
     <Cell><Data ss:Type="String">Binding</Data></Cell>
     <Cell><Data ss:Type="String">Short Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -242,78 +243,79 @@
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">category</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire</Data></Cell>
-    <Cell><Data ss:Type="String">0..*</Data></Cell>
-    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">QuestionnaireCategory</Data></Cell>
-    <Cell><Data ss:Type="String">Characteristic for searching/filtering</Data></Cell>
-    <Cell><Data ss:Type="String">A coded usage, purpose, style, target consumer or other characteristic that applies to the questionnaire</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Allows questionnaires of a particular type to easily be found when querying</Data></Cell>
-    <Cell><Data ss:Type="String">./inboundRelationship[typeCode=SUBJ]/source[classCode=LIST, moodCode=EVN]/code</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire</Data></Cell>
-    <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Explanation of content/purpose</Data></Cell>
-    <Cell><Data ss:Type="String">Human-readable explanation of the purpose and type of content within the questionnaire.</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Allows a user to understand a questionnaire without reading through the full thing</Data></Cell>
-    <Cell><Data ss:Type="String">./text</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Decide if this should be rendered when displaying a completed questionnaire or whether this is just for questionnaire designs</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">label</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;</Data></Cell>
     <Cell><Data ss:Type="String">A label for a particular group or question within the questionnaire</Data></Cell>
     <Cell><Data ss:Type="String">These are generally unique within a questionnaire, though this is not guaranteed (some questionnaires may have multiple questions with the same label with logic to control which gets exposed)</Data></Cell>
     <Cell><Data ss:Type="String">Separating the label from the question text allows improved rendering.  Note that if separated from the question, no labeling will be applied by systems that do not understand the extension.</Data></Cell>
     <Cell><Data ss:Type="String">Not supported</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">minOccurs</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">integer</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Minimum repetitions</Data></Cell>
+    <Cell><Data ss:Type="String">The minimum number of times the group must appear or the minimum number of answers for a question - when greater than 1.</Data></Cell>
+    <Cell><Data ss:Type="String">Default assumption for &quot;required&quot; elements is minOccurs=1</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">N/A - MIF rather than RIM level</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">maxOccurs</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">integer</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Maximum repetitions</Data></Cell>
+    <Cell><Data ss:Type="String">The maximum number of times the group must appear or the minimum number of answers for a question - when greater than 1 and not unlimited.</Data></Cell>
+    <Cell><Data ss:Type="String">Only relevant if the element has repeats=true and there's a need to constrain the number of allowed repetitions</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">N/A - MIF rather than RIM level</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">defaultValue</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Initial presumed answer for question</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Initial presumed answer for question</Data></Cell>
     <Cell><Data ss:Type="String">This is the value that should be pre-populated when rendering the questionnaire for user input.</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">In some workflows, having defaults saves time.</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">In some workflows, having defaults saves time.</Data></Cell>
     <Cell><Data ss:Type="String">N/A - MIF rather than RIM level</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">defaultAsFixed</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">defaultAsFixed</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Y</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Treat default as fixed value?</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">If true, the default value is set as a fixed &quot;answer&quot; for the question.</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Allows certain inquestionnaireation to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Y</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Treat default as fixed value?</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">If true, the default value is set as a fixed &quot;answer&quot; for the question.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Allows certain inquestionnaireation to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire.</Data></Cell>
     <Cell><Data ss:Type="String">N/A - MIF rather than RIM level</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:Height="120">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell><Data ss:Type="String">cdeReference</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">Resource(CommonDataElement)</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">Implemented CDE</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Implemented CDE</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the Common Data Element that corresponds to the question text and answer constraints for this question.</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">Flags the question as comparable to other questions mapped to the same CDE.  Also allows systems that have  mapped the CDE to auto-populate or auto-extract information captured for the question.</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Flags the question as comparable to other questions mapped to the same CDE.  Also allows systems that have  mapped the CDE to auto-populate or auto-extract information captured for the question.</Data></Cell>
     <Cell><Data ss:Type="String">./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -368,7 +370,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -398,12 +400,12 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s70"><Data ss:Type="String">QuestionnaireCategory</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Classifications for questionnaires.  Can include such concepts as &quot;intake form&quot;, &quot;opinion survey&quot;, &quot;clinical research questionnaire&quot;, &quot;pediatric&quot;, etc.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MaxOccurs</Data></Cell>
     <Cell><Data ss:Type="String">Flags an element as having unlimited repetitions</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#max-occurs</Data></Cell>
    </Row>
   </Table>

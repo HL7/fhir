@@ -1,4 +1,5 @@
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
+  <language value="en"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -77,7 +78,7 @@
     </ValueSet>
   </contained>
   <contained>
-    <ValueSet id="3921066v1.0-vs">
+    <ValueSet id="3921071v1.0-vs">
       <name value="TODO - remove this"/>
       <description value="TODO - remove this"/>
       <status value="active"/>
@@ -242,7 +243,7 @@
     </ConceptMap>
   </contained>
   <contained>
-    <ConceptMap id="3921066v1.0-cm">
+    <ConceptMap id="3921071v1.0-cm">
       <!-- Note: The mappings are all expressed as having a code of "none", so not really clear on the value of having a mapping . . . -->
       <name value="TODO - remove"/>
       <status value="active"/>
@@ -400,7 +401,7 @@
   <date value="2013-10-16"/>
   <publisher value="National Cancer Institute (NCI)"/>  
   <group>
-    <extension url="http://hl7.org/Profile/questionnaire-extensions#Category">
+    <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#Category">
       <valueCodeableConcept>
         <coding>
           <!-- No system specified -->
@@ -415,8 +416,13 @@
       <text value="These items must be included when this data is collected for reporting."/>
       <required value="true"/>
       <question>
-        <extension url="http://hl7.org/Profile/element-extensions#entryFormat">
+        <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
           <valueString value="MM/DD/YYYY"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+          <valueResource>
+            <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#62667v3.0"/>
+          </valueResource>
         </extension>
         <linkId value="3921059v1.0"/>
         <text value="Date of Current Pathologic Diagnosis"/>
@@ -426,23 +432,30 @@
         <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
           <valueInteger value="40"/>
         </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+          <valueResource>
+            <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914869v1.0"/>
+          </valueResource>
+        </extension>
         <linkId value="3921060v1.0"/>
         <text value="Diagnosis Type"/>
         <type value="multiple-choice"/>
         <options>
-          <reference value="#3914869v3914869-vs"/>
+          <reference value="#3921060v1.0-vs"/>
         </options>
       </question>
       <question>
         <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
           <valueInteger value="100"/>
         </extension>
-        <linkId value="3921053v1.0"/>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+          <valueResource>
+            <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914972v1.0"/>
+          </valueResource>
+        </extension>
+        <linkId value="3921065v1.0"/>
         <text value="Primary Site"/>
         <type value="string"/>
-        <options>
-          <reference value="#3921060v1.0-vs"/>
-        </options>
       </question>
     </group>
     <group>
@@ -453,10 +466,15 @@
         <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
           <valueInteger value="25"/>
         </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+          <valueResource>
+            <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2816923v1.0"/>
+          </valueResource>
+        </extension>
         <text value="Diagnosis Time Point"/>
         <type value="multiple-choice"/>
         <options>
-          <reference value="#3921066v1.0-vs"/>
+          <reference value="#3921071v1.0-vs"/>
         </options>
       </question>
     </group>
@@ -471,11 +489,21 @@
         <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
           <valueInteger value="100"/>
         </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+          <valueResource>
+            <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#64320v3.0"/>
+          </valueResource>
+        </extension>
         <linkId value="3921079v1.0"/>
         <text value="Reviewing Pathologist"/>
         <type value="string"/>
       </question>
       <question>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+          <valueResource>
+            <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004425v4.0"/>
+          </valueResource>
+        </extension>
         <linkId value="3921080v1.0"/>
         <text value="MedDRA disease code"/>
         <type value="integer">
@@ -485,6 +513,11 @@
       <question>
         <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
           <valueInteger value="40"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+          <valueResource>
+            <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914983v1.0"/>
+          </valueResource>
         </extension>
         <linkId value="3921081v1.0"/>
         <text value="Assessment Method"/>
@@ -496,6 +529,11 @@
       <question>
         <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
           <valueInteger value="10"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+          <valueResource>
+            <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2785839v2.0"/>
+          </valueResource>
         </extension>
         <linkId value="3921085v1.0"/>
         <text value="Tumor grade"/>
