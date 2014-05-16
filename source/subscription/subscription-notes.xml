@@ -73,7 +73,7 @@ POST /Subscription
   "channel": {
     "type": "rest-hook",
     "url": "https://biliwatch.com/customers/mount-auburn-miu/on-result",
-    "includeResource": false,
+    "payload": false,
     "header": ["Authorization: Bearer secret-token-abc-123"]
   }
 }
@@ -89,7 +89,7 @@ replaced by the time at which the client last checked). In this way it can fetch
 relevent <a href="observation.html">Observations</a>.
 </p>
 <p>
-Since includeResource is false, the data in the resources is only available through 
+Since payload is false, the data in the resources is only available through 
 the REST API, which helps consolidate authorization and authentication logic. The 
 server must append the headers, if any are given, to the POST request that it 
 makes to the client.
@@ -105,7 +105,7 @@ as a healthcare institution.
   "channel": {
     "type": "rest-hook",
     "url": "https://internal.acme.com/research/saturn",
-    "includeResource": false
+    "payload": false
   }
 </pre>
 

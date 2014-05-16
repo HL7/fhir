@@ -5,13 +5,13 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
 
-  <criteria value="/Observation?name=http://loinc.org|1975-2&amp;_format=json"/>
+  <criteria value="/Observation?name=http://loinc.org|1975-2"/>
   <reason value="Monitor new neonatal function"/>
   <status value="requested"/>
   <channel>
     <type value="rest-hook"/>
     <url value="https://biliwatch.com/customers/mount-auburn-miu/on-result"/>
-    <includePayload value="false"/>
+    <payload value="application/json"/>
     <header value="Authorization: Bearer secret-token-abc-123"/>
   </channel>  
   
