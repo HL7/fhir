@@ -260,7 +260,6 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">integer</Data></Cell>
-    <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Minimum repetitions</Data></Cell>
     <Cell><Data ss:Type="String">The minimum number of times the group must appear or the minimum number of answers for a question - when greater than 1.</Data></Cell>
     <Cell><Data ss:Type="String">Default assumption for &quot;required&quot; elements is minOccurs=1</Data></Cell>
@@ -272,7 +271,6 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">integer</Data></Cell>
-    <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Maximum repetitions</Data></Cell>
     <Cell><Data ss:Type="String">The maximum number of times the group must appear or the minimum number of answers for a question - when greater than 1 and not unlimited.</Data></Cell>
     <Cell><Data ss:Type="String">Only relevant if the element has repeats=true and there's a need to constrain the number of allowed repetitions</Data></Cell>
@@ -281,7 +279,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">defaultValue</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Initial presumed answer for question</Data></Cell>
@@ -295,7 +293,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Treat default as fixed value?</Data></Cell>
@@ -354,7 +352,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -367,11 +365,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

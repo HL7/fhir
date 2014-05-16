@@ -55,7 +55,7 @@
           <system value="http://cancer.questionnaire.org/system/code/questions"/>
           <code value="COMORB"/>
         </concept>
-        <type value="multiple-choice"/>
+        <type value="choice"/>
         <options>
           <reference value="#yesno"/>
         </options>
@@ -71,7 +71,7 @@
               <system value="http://cancer.questionnaire.org/system/code/questions"/>
               <code value="COMORBCAR"/>
             </concept>
-            <type value="multiple-choice"/>
+            <type value="choice"/>
             <options>
               <reference value="#yesno"/>
             </options>
@@ -88,7 +88,7 @@
               <code value="194828000"/>
               <display value="Angina (disorder)"/>
             </concept>
-            <type value="multiple-choice"/>
+            <type value="choice"/>
             <options>
               <reference value="#yesno"/>
             </options>
@@ -99,7 +99,7 @@
               <code value="22298006"/>
               <display value="Myocardial infarction (disorder)"/>
             </concept>
-            <type value="multiple-choice"/>
+            <type value="choice"/>
             <options>
               <reference value="#yesno"/>
             </options>

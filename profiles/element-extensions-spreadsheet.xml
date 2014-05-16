@@ -86,11 +86,6 @@
   <Style ss:ID="s73">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s74">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Metadata">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="21" x:FullColumns="1"
@@ -226,7 +221,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">minLength</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">string;code;id;uri;oid;date;dateTime;decimal;integer;base64binary</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CommonDataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:StyleID="s73"/>
@@ -239,7 +234,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">maxLength</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">string;code;id;uri;oid;date;dateTime;decimal;integer;base64binary</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CommonDataElement;Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">No more than this many characters</Data></Cell>
@@ -251,7 +246,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">regex</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">string;code;id;uri;oid</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CommonDataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Regular expression pattern</Data></Cell>
@@ -262,7 +257,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">entryFormat</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">string;code;id;uri;oid</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CommonDataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">User prompt for format</Data></Cell>
@@ -274,7 +269,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">minValue</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">date;dateTime;decimal;integer</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CommonDataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">date|dateTime|decimal|integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Must be &gt;= this value</Data></Cell>
@@ -286,7 +281,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">maxValue</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">date;dateTime;decimal;integer</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CommonDataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">date|dateTime|decimal|integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Must be &lt;= this value</Data></Cell>
@@ -298,7 +293,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">maxDecimalPlaces</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">decimal</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">CommonDataElement;Questionnaire.group.question;Profile.structure.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Maximum digits after decimal</Data></Cell>
@@ -341,8 +336,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

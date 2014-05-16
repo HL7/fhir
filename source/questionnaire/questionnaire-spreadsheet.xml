@@ -20,7 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>45</WindowTopX>
   <WindowTopY>2085</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -86,6 +86,9 @@
   <Style ss:ID="s70">
    <Alignment ss:Vertical="Top"/>
   </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
+  </Style>
   <Style ss:ID="s73">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
@@ -123,6 +126,14 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
   <Style ss:ID="s80">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
@@ -132,17 +143,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s82">
-   <Alignment ss:Vertical="Top"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-  </Style>
-  <Style ss:ID="s85">
-   <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
@@ -547,7 +547,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -564,7 +564,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -574,11 +573,11 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s85" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s85" ss:Width="14.25"/>
-   <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="162.75" ss:Span="1"/>
-   <Column ss:Index="4" ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="339"/>
-   <Column ss:Index="6" ss:StyleID="s85" ss:Width="249"/>
+   x:FullRows="1" ss:StyleID="s72" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s72" ss:Width="14.25"/>
+   <Column ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="162.75" ss:Span="1"/>
+   <Column ss:Index="4" ss:StyleID="s72" ss:AutoFitWidth="0" ss:Width="339"/>
+   <Column ss:Index="6" ss:StyleID="s72" ss:Width="249"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s64">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -594,7 +593,7 @@
     <Cell><Data ss:Type="String">Groups may either contain questions or groups but not both</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:group) and exists(f:question))</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">UniqueLinkIds</Data></Cell>
     <Cell><Data ss:Type="String">Questionnaire</Data></Cell>
@@ -939,7 +938,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -972,31 +970,31 @@
    <Column ss:Width="14.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="93" ss:Span="1"/>
    <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="299.25"/>
-   <Row>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Id</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Display</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Definition</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">This Questionnaire is not ready for official use.</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">published</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">published</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">This Questionnaire is ready for use.</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">This Questionnaire should no longer be used to gather data.</Data></Cell>
    </Row>
-   <Row ss:Index="7">
+   <Row ss:Index="7" ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s62"/>
    </Row>
   </Table>
@@ -1006,6 +1004,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -1037,7 +1036,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="answer-format">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
    <Column ss:Width="15.75"/>
    <Column ss:Width="108"/>
@@ -1091,23 +1090,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">single-choice</Data></Cell>
-    <Cell><Data ss:Type="String">Answer is a single choice from the options</Data></Cell>
+    <Cell><Data ss:Type="String">choice</Data></Cell>
+    <Cell><Data ss:Type="String">Answer is a choice from a list of options</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="String">multiple-choice</Data></Cell>
-    <Cell><Data ss:Type="String">Answer is one or more choices from the options</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">open-single-choice</Data></Cell>
-    <Cell><Data ss:Type="String">Answer is a single choice from the options or a free-text entry</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">open-multiple-choice</Data></Cell>
-    <Cell><Data ss:Type="String">Answer is one or more choices from the options and/or a free-text entry</Data></Cell>
+    <Cell><Data ss:Type="String">open-choice</Data></Cell>
+    <Cell><Data ss:Type="String">Answer is a choice from a list of options or a free-text entry</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1117,11 +1106,26 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <SplitVertical>2</SplitVertical>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
