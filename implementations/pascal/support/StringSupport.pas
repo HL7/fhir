@@ -183,6 +183,8 @@ Function DescribeBytes(i : int64) : String;
 procedure CommaAdd(var AStr: String; AStrToAdd: String);
 function RemoveQuotes(AStr: String; AUpperCaseString: Boolean = false): String;
 function IsNumericString(st: String): Boolean;
+function RemoveAccents(const aStr: String): String;
+
 
 {$IFDEF FPC}
 Function CharInSet(C: Char; Const CharSet: TCharSet): Boolean;
@@ -1207,6 +1209,14 @@ begin
     end;
 end;
 
+// http://stackoverflow.com/questions/1891196/convert-hi-ansi-chars-to-ascii-equivalent-e-e-in-delphi2007/1892432#1892432
+
+function RemoveAccents(const aStr: String): String;
+type
+  USASCIIString = type AnsiString(20127);//20127 = us ascii
+begin
+  Result := String(USASCIIString(aStr));
+end;
 
 Initialization
   SetLength(UnicodeWhitespaceArray, 26);

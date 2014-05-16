@@ -60,8 +60,8 @@ function GetEmailAddress(contacts : TFhirContactList):String;
 Function RecogniseFHIRResourceName(Const sName : String; out aType : TFhirResourceType): boolean;
 Function RecogniseFHIRResourceManagerName(Const sName : String; out aType : TFhirResourceType): boolean;
 Function RecogniseFHIRFormat(Const sName : String): TFHIRFormat;
-function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream): TFHIRParser; overload;
-function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes): TFHIRParser; overload;
+function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream; policy : TFHIRXhtmlParserPolicy): TFHIRParser; overload;
+function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes; policy : TFHIRXhtmlParserPolicy): TFHIRParser; overload;
 Function FhirGUIDToString(aGuid : TGuid):String;
 function ParseXhtml(lang : String; content : String; policy : TFHIRXhtmlParserPolicy):TFhirXHtmlNode;
 function geTFhirResourceNarrativeAsText(resource : TFhirResource) : String;
@@ -129,8 +129,29 @@ type
     function hint(source, typeCode, path : string; test : boolean; msg : string) : boolean;
   end;
 
+  {$IFNDEF FHIR-DSTU}
+  TFhirConceptMapElementHelper = class helper (TFhirElementHelper) for TFhirConceptMapElement
+  public
+    function system : TFhirUri;
+    function systemST : String;
+  end;
+
+  TFhirConceptMapElementDependsOnHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementDependsOn
+  public
+    function concept : TFhirUri;
+    function conceptST : String;
+  end;
+
+  TFhirConceptMapElementMapHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementMap
+  public
+    function system : TFhirUri;
+    function systemST : String;
+  end;
+  {$ENDIF}
+
 function ZCompressBytes(const s: TBytes): TBytes;
 function ZDecompressBytes(const s: TBytes): TBytes;
+function TryZDecompressBytes(const s: TBytes): TBytes;
 
 implementation
 
@@ -151,19 +172,19 @@ begin
 
 end;
 
-function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes): TFHIRParser;
+function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes; policy : TFHIRXhtmlParserPolicy): TFHIRParser;
 var
   mem : TBytesStream;
 begin
   mem := TBytesStream.Create(content);
   try
-    result := MakeParser(lang, aformat, mem);
+    result := MakeParser(lang, aformat, mem, policy);
   finally
     mem.Free;
   end;
 end;
 
-function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream): TFHIRParser;
+function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream; policy : TFHIRXhtmlParserPolicy): TFHIRParser;
 begin
   if aFormat = ffJSON Then
     result := TFHIRJsonParser.Create(lang)
@@ -173,6 +194,7 @@ begin
     result := TFHIRXmlParser.Create(lang);
   try
     result.source := oContent;
+    result.ParserPolicy := policy;
     result.Parse;
     result.Link;
   finally
@@ -1184,6 +1206,15 @@ begin
   ZCompress(s, result);
 end;
 
+function TryZDecompressBytes(const s: TBytes): TBytes;
+begin
+  try
+    result := ZDecompressBytes(s);
+  except
+    result := s;
+  end;
+end;
+
 function ZDecompressBytes(const s: TBytes): TBytes;
 var
   buffer: Pointer;
@@ -1201,6 +1232,41 @@ begin
   {$ENDIF}
 end;
 
+{ TFhirConceptMapElementHelper }
+
+function TFhirConceptMapElementHelper.system: TFhirUri;
+begin
+  result := codeSystem;
+end;
+
+function TFhirConceptMapElementHelper.systemST: String;
+begin
+  result := codeSystemST;
+end;
+
+{ TFhirConceptMapElementMapHelper }
+
+function TFhirConceptMapElementMapHelper.system: TFhirUri;
+begin
+  result := codeSystem;
+end;
+
+function TFhirConceptMapElementMapHelper.systemST: String;
+begin
+  result := codeSystemST;
+end;
+
+{ TFhirConceptMapElementDependsOnHelper }
+
+function TFhirConceptMapElementDependsOnHelper.concept: TFhirUri;
+begin
+  result := element;
+end;
+
+function TFhirConceptMapElementDependsOnHelper.conceptST: String;
+begin
+  result := elementST;
+end;
 
 end.
 

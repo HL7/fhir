@@ -28,6 +28,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 }
 
+{$IFDEF FHIR-DSTU}
+This is the dev branch of the FHIR code
+{$ENDIF}
+
 {!ignore TFHIRObject}
 {!ignore TFHIRObjectList}
 {!ignore TFHIRAttribute}
@@ -73,7 +77,8 @@ Type
     fcmdUpload, {@enum.value fcmdUpload Manual upload (HL7Connect extension)}
     fcmdGetTags, {@enum.value fcmdGetTags get a list of tags fixed to a resource version, resource, used with a resource type, or used on the system}
     fcmdUpdateTags, {@enum.value fcmdAddTags add to the list of tags attached to a resource or version}
-    fcmdDeleteTags); {@enum.value fcmdDeleteTags delete from the list of tags attached to a resource or version}
+    fcmdDeleteTags, {@enum.value fcmdDeleteTags delete from the list of tags attached to a resource or version}
+    fcmdWebUI); {@enum.value fcmdWebUI Special web interface operations - not a valid FHIR operation}
 
 
 
@@ -105,7 +110,7 @@ Const
   FHIR_NS = 'http://hl7.org/fhir';
   FHIR_TAG_SCHEME = 'http://hl7.org/fhir/tag';
   CODES_TFHIRCommandType : array [TFHIRCommandType] of String = (
-    'Unknown', 'MailBox', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'GetTags', 'UpdateTags', 'DeleteTags');
+    'Unknown', 'MailBox', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'GetTags', 'UpdateTags', 'DeleteTags', 'WebUI');
   CODES_TFHIRHtmlNodeType : array [TFHIRHtmlNodeType] of String = ('Element', 'Text', 'Comment', 'Document');
   CODES_TFHIRFormat : Array [TFHIRFormat] of String = ('AsIs', 'XML', 'JSON', 'XHTML');
   MIMETYPES_TFHIRFormat : Array [TFHIRFormat] of String = ('', 'text/xml+fhir', 'application/json+fhir', 'text/xhtml');
@@ -171,7 +176,7 @@ type
   public
     Destructor Destroy; override;
     function createIterator(bInheritedProperties : Boolean) : TFHIRPropertyIterator;
-    Function PerformQuery(xpath : String):TFHIRObjectList;
+    Function PerformQuery(path : String):TFHIRObjectList;
     property Tag : TAdvObject read FTag write SetTag;
   end;
 
@@ -425,12 +430,15 @@ type
 Implementation
 
 Uses
-  StringSupport;
+  StringSupport,
+  FHIRUtilities,
+  FHIRTypes,
+  FHIRResources;
 
 type
   TFHIRQueryProcessor = class (TAdvObject)
   private
-    FXPath: String;
+    FPath: String;
     FResults: TFHIRObjectList;
     FSource: TFHIRObjectList;
   public
@@ -438,7 +446,7 @@ type
     destructor Destroy; Override;
 
     property source : TFHIRObjectList read FSource;
-    property xpath : String read FXPath write FXPath;
+    property path : String read FPath write FPath;
     procedure execute;
     property results : TFHIRObjectList read FResults;
   end;
@@ -1334,14 +1342,14 @@ begin
   // nothing to add here
 end;
 
-function TFHIRObject.PerformQuery(xpath: String): TFHIRObjectList;
+function TFHIRObject.PerformQuery(path: String): TFHIRObjectList;
 var
   qry : TFHIRQueryProcessor;
 begin
   qry := TFHIRQueryProcessor.create;
   try
     qry.source.Add(self.Link);
-    qry.xpath := xpath;
+    qry.path := path;
     qry.execute;
     result := qry.results.Link;
   finally
@@ -1403,18 +1411,27 @@ var
   src, seg : String;
   i : integer;
   first : boolean;
+  list : TFhirResourceReferenceList;
 begin
-  src := FXPath;
+  src := FPath;
+  if (src = '*') and (FSource[0] is TFHIRResource) then
+  begin
+    list := TFhirResourceReferenceList.Create;
+    try
+      listReferences(FSource[0] as TFHIRResource, list);
+      FResults.AddAll(list);
+    finally
+      list.Free;
+    end;
+  end
+  else
+begin
   first := true;
   while (src <> '') do
   begin
-    StringSplit(src, '/', seg, src);
-    if (pos(':', seg) > 0) then
-      seg := copy(seg, pos(':', seg)+1, $FFF)
-    else if (pos('.', seg) > 0) then
-      seg := copy(seg, pos('.', seg)+1, $FFF);
+      StringSplit(src, '.', seg, src);
     if (not IsValidIdent(seg)) Then
-      raise exception.create('unable to parse xpath "'+FXPath+'"');
+        raise exception.create('unable to parse path "'+FPath+'"');
     FResults.clear;
     if first then
       for i := 0 to FSource.count - 1 Do
@@ -1431,6 +1448,7 @@ begin
       FSource.Free;
       FSource := FResults;
       FResults := TFHIRObjectList.Create;
+      end;
     end;
   end;
 end;

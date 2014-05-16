@@ -544,7 +544,7 @@ Begin
   Begin
     cValue := Result[iLoop];
 
-    If Not CharInSet(cValue, setMIME) Then
+    If Not (CharInSet(cValue, setMIME)) or (cValue = ':') Then
     Begin
       Result[iLoop] := '%';
       Inc(iLoop);
@@ -570,6 +570,9 @@ Begin
   Begin
     cValue := Result[iLoop];
 
+    if cValue = '+' then
+      Result[iLoop] := ' ';
+
     If (cValue = '%') Then
     Begin
       Result[iLoop] := Char(DecodeHexadecimal(AnsiChar(Result[iLoop + 1]), AnsiChar(Result[iLoop + 2])));
@@ -589,7 +592,7 @@ Var
 Begin
 
   // Remove non-alpha characters
-  Result := StringKeep(StringUpper(sValue), setAlphabet);
+  Result := StringKeep(StringUpper(RemoveAccents(sValue)), setAlphabet);
 
   //Remove space and control characters from end
   Result := StringTrimWhitespaceRight(Result);
