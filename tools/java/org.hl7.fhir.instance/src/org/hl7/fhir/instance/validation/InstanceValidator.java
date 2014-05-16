@@ -496,11 +496,15 @@ public class InstanceValidator extends BaseValidator {
 
   private void checkExtensionContext(List<ValidationMessage> errors, String path, ProfileExtensionDefnComponent definition, ElementComponent container, String parentType, String extensionParent) {
 	  if (definition.getContextTypeSimple() == ExtensionContext.datatype) {
-	  	boolean ok = false;
-	  	for (String_ ct : definition.getContext()) 
-	  		if (ct.getValue().equals("*") || ct.getValue().equals(parentType))
-	  				ok = true;
-	  	rule(errors, "structure", path, ok, "This extension is not allowed to be used with the type "+parentType);
+	    if (parentType == null) {
+        rule(errors, "structure", path, false, "This extension is says that's it context is a data type, but is is being used on a complex element which doesn't have a data type");
+	    } else {
+	      boolean ok = false;
+	      for (String_ ct : definition.getContext()) 
+	        if (ct.getValue().equals("*") || ct.getValue().equals(parentType))
+	          ok = true;
+	      rule(errors, "structure", path, ok, "This extension is not allowed to be used with the type "+parentType);
+	    }
 	  } else if (definition.getContextTypeSimple() == ExtensionContext.extension) {
       boolean ok = false;
       for (String_ ct : definition.getContext()) 
