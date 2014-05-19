@@ -11,6 +11,10 @@ The core extensions provide HL7 provided extensions to the <a href="questionnair
 <h2>Background and Context</h2>
 <h3>Questionnaire documentation</h3>
 <p>
+The <a name="category"/><b>category</b> extension allows a questionnaire to be grouped under various headings for discovery and/or
+for navigation of a list of categories.
+</p>
+<p>
 The <a name="label"/><b>label</b> extension allows the heading number for a group or question to be conveyed from the group title or
 question text.  This permits justification and more advanced formatting.
 </p>

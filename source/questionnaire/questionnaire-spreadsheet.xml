@@ -20,7 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>45</WindowTopX>
   <WindowTopY>2085</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -926,7 +926,7 @@
     <Cell><Data ss:Type="String">sdc-questionnaire</Data></Cell>
     <Cell><Data ss:Type="String">Structured Data Capture questionnaire design</Data></Cell>
     <Cell><Data ss:Type="String">questionnaire-sdc-profile-spreadsheet.xml</Data></Cell>
-    <Cell><Data ss:Type="String">questionnaire-sdc-profile.xml</Data></Cell>
+    <Cell><Data ss:Type="String">questionnaire-sdc.xml</Data></Cell>
     <Cell><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">questionnaire-sdc-profile-example.xml</Data></Cell>
    </Row>
@@ -938,6 +938,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -957,7 +958,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1106,7 +1106,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

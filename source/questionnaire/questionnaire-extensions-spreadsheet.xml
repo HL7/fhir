@@ -20,7 +20,6 @@
   <WindowWidth>14880</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>150</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -198,6 +197,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -210,7 +210,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Extensions">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="13" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="14" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s70" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="154.5"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -241,6 +241,18 @@
     <Cell><Data ss:Type="String">v2 Mapping</Data></Cell>
     <Cell><Data ss:Type="String">To Do</Data></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell><Data ss:Type="String">category</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">QuestionnaireCategory</Data></Cell>
+    <Cell><Data ss:Type="String">What kind of questionnaire?</Data></Cell>
+    <Cell><Data ss:Type="String">A code that identifies the questionnaire as falling into a particular group of like questionnaires.  E.g. &quot;Pediatric&quot;, &quot;Admissions&quot;, &quot;Research&quot;, &quot;Demographic&quot;, &quot;Opinion Survey&quot;, etc.</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Allows discovery of questionnaires.  Also allows organization of lists of questionnaires into hierarchies for presentation</Data></Cell>
+    <Cell><Data ss:Type="String">./inboundRelationship[typeCode=SUBJ]/act[classCode=LIST, moodCode=EVN]/code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">label</Data></Cell>
@@ -348,11 +360,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -365,12 +376,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
