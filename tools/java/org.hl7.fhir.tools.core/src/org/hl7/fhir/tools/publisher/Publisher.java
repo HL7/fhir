@@ -3218,7 +3218,7 @@ page.log(" ***Done Test valiation*** questionnaire-example", LogMessageType.Proc
         page.log("  " + m.summary(), typeforSeverity(m.getLevel()));
       abort = abort || m.getLevel().equals(IssueSeverity.error);
     }
-    if (abort)
+//    if (abort)
 //      throw new Exception("Resource Example " + n + " failed instance validation");
   }
 
