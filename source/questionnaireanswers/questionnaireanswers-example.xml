@@ -121,15 +121,17 @@
         </group>
       </question>
     </group>
+    <!-- HISTOPATHOLOGY -->
+    <!-- TODO: decide how to do this
     <group>
-      <!-- HISTOPATHOLOGY -->
+ 
       <group>
         <question>
-<!-- TODO: decide how to do this         <dataResource>
+         <dataResource>
             <reference value="#obs.pt-category"/>
-          </dataResource>-->
+          </dataResource>
         </question>
       </group>
-    </group>
+    </group> -->
   </group>
 </QuestionnaireAnswers>
