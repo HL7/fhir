@@ -3,7 +3,7 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>The value set includes the v3 RoleCode PRN (parent) and all of its specializations.</p>
+      <p>The value set includes the v3 RoleCode PRN (parent), TWIN (twin) and all of their specializations.  It covers the relationships needed to establish genetic pedigree relationships between family members.</p>
     </div>
   </text>
   <name value="Parent Relationship Codes"/>
@@ -12,7 +12,7 @@
     <system value="url"/>
     <value value="http://hl7.org/fhir"/>
   </telecom>
-  <description value="The value set includes the v3 RoleCode PRN (parent) and all of its specializations."/>
+  <description value="The value set includes the v3 RoleCode PRN (parent), TWIN (twin) and all of their specializations.  It covers the relationships needed to establish genetic pedigree relationships between family members."/>
   <status value="draft"/>
   <compose>
     <include>
@@ -21,6 +21,14 @@
             <property value="concept"/>
             <op value="is-a"/>
             <value value="PRN"/>
+        </filter>
+    </include>
+    <include>
+        <system value="http://hl7.org/fhir/v3/RoleCode"/>
+        <filter>
+            <property value="concept"/>
+            <op value="is-a"/>
+            <value value="TWIN"/>
         </filter>
     </include>
   </compose>
