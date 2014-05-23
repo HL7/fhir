@@ -1,4 +1,4 @@
-<translations>
+<translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
   <!--
  This file is for the convenience of implementers, to enable sharing of language translations.
  There is no obligation for any implementer to use the messages contained in this file, but
@@ -169,9 +169,6 @@ NOTE: while translations on Resources are possible they should be used for rende
   </item>
   <item id="Organization">
     <translation lang="en">Organization</translation>
-  </item>
-  <item id="Other">
-    <translation lang="en">Other</translation>
   </item>
   <item id="Other">
     <translation lang="en">Other</translation>
