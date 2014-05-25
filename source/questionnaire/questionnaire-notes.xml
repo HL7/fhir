@@ -60,8 +60,8 @@ mechanisms defined in the specification for linking a Question (or Group) to a s
 <ul>
   <li>The <code>code</code> element on both Group and Question allows an individual question, a group of questions or even the questionnaire as a whole to be associated
   with a pre-defined terminology of questions and question groups such as LOINC or SNOMED</li>
-  <li>The <a href="questionnaire-extensions.html#cdeReference">cdeReference</a> extension allows a question or group to be associated with the
-  <a href="commondataelement.html">CommonDataElement</a> (CDE) resource that formally defines the data element.</li>
+  <li>The <a href="questionnaire-extensions.html#deReference">deReference</a> extension allows a question or group to be associated with the
+  <a href="dataelement.html">DataElement</a> (DE) resource that formally defines the data element.</li>
 </ul>
 <p>
 Linking to formal definitions of a question allows data captured by distinct questionnaires to be compared.  If systems have the necessary mappings to the

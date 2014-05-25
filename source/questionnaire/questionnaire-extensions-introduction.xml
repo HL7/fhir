@@ -46,7 +46,7 @@ preventing it from being changed.
 </ul>
 
 <h3>References</h3>
-<a name="cdeReference"/><b>cdeReference</b> allows a question to be linked to the corresponding <a href="commondataelement.html">CommonDataElement</a>
+<a name="deReference"/><b>deReference</b> allows a question to be linked to the corresponding <a href="dataelement.html">DataElement</a>
 resource that defines the meaning and allowed answer types for the question.  Note that the question text and any constraints
 must still be explicitly declared.
 </div>

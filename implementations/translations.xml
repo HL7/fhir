@@ -53,9 +53,6 @@ NOTE: while translations on Resources are possible they should be used for rende
   <item id="Claim">
     <translation lang="en">Claim</translation>
   </item>
-  <item id="CommonDataElement">
-    <translation lang="en">CommonDataElement</translation>
-  </item>
   <item id="Composition">
     <translation lang="en">Composition</translation>
   </item>
@@ -70,6 +67,9 @@ NOTE: while translations on Resources are possible they should be used for rende
   </item>
   <item id="Coverage">
     <translation lang="en">Coverage</translation>
+  </item>
+  <item id="DataElement">
+    <translation lang="en">DataElement</translation>
   </item>
   <item id="Device">
     <translation lang="en">Device</translation>
@@ -199,6 +199,9 @@ NOTE: while translations on Resources are possible they should be used for rende
   </item>
   <item id="Questionnaire">
     <translation lang="en">Questionnaire</translation>
+  </item>
+  <item id="QuestionnaireAnswers">
+    <translation lang="en">QuestionnaireAnswers</translation>
   </item>
   <item id="RelatedPerson">
     <translation lang="en">RelatedPerson</translation>

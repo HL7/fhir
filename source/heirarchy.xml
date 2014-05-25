@@ -132,7 +132,7 @@ todo: compartments
     <page type="resource" resource="Slot"/>
   </page>
   <page title="Infrastructure" filename="infrastructure.html">
-    <page type="resource" resource="CommonDataElement"/>
+    <page type="resource" resource="DataElement"/>
     <page type="resource" resource="List"/>
     <page type="resource" resource="Media"/>
     <page type="resource" resource="Other"/>
@@ -151,7 +151,6 @@ todo: compartments
     <page type="resource" resource="ValueSet"/>
     <page type="resource" resource="Profile"/>
     <page type="resource" resource="ConceptMap"/>
-    <page type="resource" resource="CommonDataElement"/>
   </page>
 </page>
 </fhir>

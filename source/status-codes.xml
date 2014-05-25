@@ -402,7 +402,7 @@
     <Cell ss:Index="28"><Data ss:Type="String">off</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CommonDataElement.status</Data></Cell>
+    <Cell><Data ss:Type="String">DataElement.status</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:Index="26"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:Index="28"><Data ss:Type="String">retired</Data></Cell>
@@ -416,12 +416,6 @@
    </PageSetup>
    <Unsynced/>
    <Selected/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>28</ActiveRow>
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

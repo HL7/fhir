@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/2005/Atom" xsi:schemaLocation="http://www.w3.org/2005/Atom ../../schema/fhir-atom.xsd">
   <title>Questionnaires</title>
+  <author>
+    <name>HL7</name>
+  </author>
   <id>urn:uuid:this-should-be-a-guid</id>
-  <updated>2014-05-15T17:25:15.000</updated>
+  <updated>2014-05-15T17:25:15Z</updated>
   <entry>
     <title>Some Questionnaire</title>
     <id>urn:uuid:this-should-be-a-guid-too</id>
-    <updated>2014-05-15T17:25:15.000</updated>
+    <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
@@ -669,7 +672,7 @@
                 <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                   <valueInteger value="30"/>
                 </extension>
-                <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+                <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                   <valueResource>
                     <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20substance%20involved"/>
                   </valueResource>
@@ -692,7 +695,7 @@
                     <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                       <valueInteger value="65"/>
                     </extension>
-                    <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+                    <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                       <valueResource>
                         <reference value="http://AHRQ.gov/data_element_identifier#Type%20of%20medication%20involved"/>
                       </valueResource>
@@ -715,7 +718,7 @@
                         <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                           <valueInteger value="500"/>
                         </extension>
-                        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+                        <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                           <valueResource>
                             <reference value="http://AHRQ.gov/data_element_identifier#Compounded%20preparation%20ingredients"/>
                           </valueResource>
@@ -1066,7 +1069,7 @@
   <entry>
     <title>Some Questionnaire</title>
     <id>urn:uuid:this-should-be-a-guid-too</id>
-    <updated>2014-05-15T17:25:15.000</updated>
+    <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
         <text>
@@ -1472,7 +1475,7 @@
   <entry>
     <title>Some Questionnaire</title>
     <id>urn:uuid:this-should-be-a-guid-too</id>
-    <updated>2014-05-15T17:25:15.000</updated>
+    <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
@@ -1830,7 +1833,7 @@
             <text value="These items must be included when this data is collected for reporting."/>
             <required value="true"/>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#62667v3.0"/>
                 </valueResource>
@@ -1843,7 +1846,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="40"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914869v1.0"/>
                 </valueResource>
@@ -1859,7 +1862,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="100"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914972v1.0"/>
                 </valueResource>
@@ -1877,7 +1880,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="25"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2816923v1.0"/>
                 </valueResource>
@@ -1901,7 +1904,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="100"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#64320v3.0"/>
                 </valueResource>
@@ -1911,7 +1914,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004425v4.0"/>
                 </valueResource>
@@ -1924,7 +1927,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="40"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3914983v1.0"/>
                 </valueResource>
@@ -1940,7 +1943,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="10"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2785839v2.0"/>
                 </valueResource>
@@ -1960,7 +1963,7 @@
   <entry>
     <title>Some Questionnaire</title>
     <id>urn:uuid:this-should-be-a-guid-too</id>
-    <updated>2014-05-15T17:25:15.000</updated>
+    <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
@@ -3067,7 +3070,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="13"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200604v3.0"/>
                 </valueResource>
@@ -3086,7 +3089,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="41"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192199v1.0"/>
                 </valueResource>
@@ -3099,7 +3102,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#793v5.1"/>
                 </valueResource>
@@ -3115,7 +3118,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="22"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2192217v2.0"/>
                 </valueResource>
@@ -3136,7 +3139,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="15"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179606v2.0"/>
                 </valueResource>
@@ -3149,7 +3152,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="50"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2865130v1.0"/>
                 </valueResource>
@@ -3165,7 +3168,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="75"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#315v4.0"/>
                 </valueResource>
@@ -3175,7 +3178,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2003745v5.0"/>
                 </valueResource>
@@ -3188,7 +3191,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="6"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200286v1.0"/>
                 </valueResource>
@@ -3201,7 +3204,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="6"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2200284v2.0"/>
                 </valueResource>
@@ -3219,7 +3222,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="44"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2681552v1.0"/>
                 </valueResource>
@@ -3235,7 +3238,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="55"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2001708v5.0"/>
                 </valueResource>
@@ -3251,7 +3254,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="50"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2674076v2.0"/>
                 </valueResource>
@@ -3270,7 +3273,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
                 <valueString value="9999.99"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943243v1.0"/>
                 </valueResource>
@@ -3283,7 +3286,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="25"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188083v2.0"/>
                 </valueResource>
@@ -3303,7 +3306,7 @@
   <entry>
     <title>Some Questionnaire</title>
     <id>urn:uuid:this-should-be-a-guid-too</id>
-    <updated>2014-05-15T17:25:15.000</updated>
+    <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
         <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#category">
@@ -23666,7 +23669,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="84"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3125302v1.1"/>
                 </valueResource>
@@ -23682,7 +23685,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="200"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2188132v1.0"/>
                 </valueResource>
@@ -23698,7 +23701,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2944515v1.0"/>
                 </valueResource>
@@ -23725,7 +23728,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
                 <valueString value="MM/DD/YYYY"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744993v1.0"/>
                 </valueResource>
@@ -23741,7 +23744,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2552398v1.0"/>
                 </valueResource>
@@ -23754,7 +23757,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744948v1.0"/>
                 </valueResource>
@@ -23772,7 +23775,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="22"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179892v2.0"/>
                 </valueResource>
@@ -23788,7 +23791,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="60"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2201348v1.0"/>
                 </valueResource>
@@ -23804,7 +23807,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#entryFormat">
                 <valueString value="DD/MON/YYYY"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2189843v1.0"/>
                 </valueResource>
@@ -23817,7 +23820,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="80"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2943864v1.0"/>
                 </valueResource>
@@ -23836,7 +23839,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="8"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3133353v1.0"/>
                 </valueResource>
@@ -23855,7 +23858,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="10"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#1285v3.0"/>
                 </valueResource>
@@ -23868,7 +23871,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2006851v4.0"/>
                 </valueResource>
@@ -23884,7 +23887,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="7"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179971v1.0"/>
                 </valueResource>
@@ -23903,7 +23906,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2183619v1.0"/>
                 </valueResource>
@@ -23922,7 +23925,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2199908v1.0"/>
                 </valueResource>
@@ -23935,7 +23938,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2585234v1.0"/>
                 </valueResource>
@@ -23945,7 +23948,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2732184v1.0"/>
                 </valueResource>
@@ -23955,7 +23958,7 @@
               <type value="string"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2744943v1.0"/>
                 </valueResource>
@@ -23971,7 +23974,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746280v1.0"/>
                 </valueResource>
@@ -23984,7 +23987,7 @@
               </options>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746301v1.0"/>
                 </valueResource>
@@ -24000,7 +24003,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746311v1.0"/>
                 </valueResource>
@@ -24016,7 +24019,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="33"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2746517v1.0"/>
                 </valueResource>
@@ -24032,7 +24035,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2008418v1.0"/>
                 </valueResource>
@@ -24051,7 +24054,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179615v1.0"/>
                 </valueResource>
@@ -24070,7 +24073,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="200"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#797v5.0"/>
                 </valueResource>
@@ -24091,7 +24094,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2179679v3.0"/>
                 </valueResource>
@@ -24110,7 +24113,7 @@
               <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
                 <valueInteger value="1"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#cdeReference">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#deReference">
                 <valueResource>
                   <reference value="http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#2004106v3.0"/>
                 </valueResource>

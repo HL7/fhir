@@ -20,6 +20,7 @@
   <WindowWidth>29040</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>600</WindowTopY>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -157,7 +158,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="297.75"/>
+   <Column ss:StyleID="s64" ss:Width="171"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="32.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="53.25"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="36"/>
@@ -197,18 +198,19 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">LOINC Mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">To Do</Data><NamedCell
+    <Cell><Data ss:Type="String">11179 Mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">To Do</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">CommonDataElement</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Resource Observation Definition</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Resource data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The formal description of a single piece of information that can be gathered and reported.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -216,26 +218,28 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Often called a clinical template</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">N/A</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Observation[classCode=OBS, moodCode=DEFN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">CommonDataElement.identifier</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Logical id to reference this profile</Data><NamedCell
+    <Cell><Data ss:Type="String">Logical id to reference this data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The identifier that is used to identify this observation definition when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI)</Data><NamedCell
+    <Cell><Data ss:Type="String">The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">./id[use=BUS]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">LOINC_NUM (the code is the identifier)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -244,24 +248,25 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell><Data ss:Type="String">CommonDataElement.version</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.version</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Logical id for this version of the profile</Data><NamedCell
+    <Cell><Data ss:Type="String">Logical id for this version of the data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The identifier that is used to identify this version of the observation definition when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.</Data><NamedCell
+    <Cell><Data ss:Type="String">The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">There may be multiple resource versions of the observation definition that have this same identifier. The resource version id will change for technical reasons, whereas the stated version number needs to be under the author's control</Data><NamedCell
+    <Cell><Data ss:Type="String">There may be multiple resource versions of the data element that have this same identifier. The resource version id will change for technical reasons, whereas the stated version number needs to be under the author's control</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">N/A</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">./id[use=VER]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -270,18 +275,18 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">CommonDataElement.publisher</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.publisher</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Name of the publisher (Organization or individual)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Details of the individual or organization who accepts responsibility for publishing the observation definition</Data><NamedCell
+    <Cell><Data ss:Type="String">Details of the individual or organization who accepts responsibility for publishing the data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Helps establish the &quot;authority/credibility&quot; of the observation definition.  May also allow for contact</Data><NamedCell
+    <Cell><Data ss:Type="String">Helps establish the &quot;authority/credibility&quot; of the data element.  May also allow for contact</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -289,7 +294,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CommonDataElement.telecom</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.telecom</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Contact</Data><NamedCell
@@ -306,34 +311,34 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CommonDataElement.status</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">yes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ResourceCommonDataElementStatus</Data><NamedCell
+    <Cell><Data ss:Type="String">ResourceDataElementStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">draft | active | retired</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The status of the observation definition</Data><NamedCell
+    <Cell><Data ss:Type="String">The status of the data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Allows filtering of observation definitions that are appropriate for use vs. not</Data><NamedCell
+    <Cell><Data ss:Type="String">Allows filtering of data elements that are appropriate for use vs. not</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">STATUS</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">CommonDataElement.date</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.date</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Date for this version of the observation definition</Data><NamedCell
+    <Cell ss:Index="8"><Data ss:Type="String">Date for this version of the data element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The date that this version of the observation definition was published</Data><NamedCell
+    <Cell><Data ss:Type="String">The date that this version of the data element was published</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -341,7 +346,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.name</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -357,7 +362,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">./title</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">LONG_COMMON_NAME</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -366,7 +372,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell><Data ss:Type="String">CommonDataElement.category</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.category</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell
@@ -377,13 +383,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Assist in searching for appropriate observation definitions</Data><NamedCell
+    <Cell><Data ss:Type="String">Assist in searching for appropriate data elements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.code</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Coding</Data><NamedCell
@@ -400,7 +406,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.question</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
@@ -415,7 +421,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.definition</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -436,7 +442,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.comments</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.comments</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -459,7 +465,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">CommonDataElement.requirements</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.requirements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -480,7 +486,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.synonym</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.synonym</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -502,7 +508,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.type</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -526,7 +532,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CommonDataElement.example[x]</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.example[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s67"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -546,7 +552,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CommonDataElement.maxLength</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.maxLength</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -565,7 +571,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CommonDataElement.units</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.units</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -582,7 +588,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">CommonDataElement.binding</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.binding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7" ss:StyleID="s66"><Data ss:Type="String">340;190</Data><NamedCell
@@ -593,7 +599,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">CommonDataElement.binding.isExtensible</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.binding.isExtensible</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">14</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -607,7 +613,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">CommonDataElement.binding.conformance</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.binding.conformance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">14</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -621,7 +627,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">CommonDataElement.binding.description</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.binding.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -633,7 +639,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.binding.reference</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.binding.reference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -649,7 +655,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">CommonDataElement.mapping</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -669,7 +675,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell><Data ss:Type="String">CommonDataElement.mapping.uri</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.mapping.uri</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">26</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -688,7 +694,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">CommonDataElement.mapping.name</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.mapping.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">26</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -706,7 +712,7 @@
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">CommonDataElement.mapping.comments</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.mapping.comments</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
@@ -717,7 +723,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell><Data ss:Type="String">CommonDataElement.mapping.map</Data><NamedCell
+    <Cell><Data ss:Type="String">DataElement.mapping.map</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="4" ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -748,7 +754,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -768,6 +773,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -869,7 +876,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -892,25 +900,25 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s74"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s67"><Data ss:Type="String">CommonDataElement.binding</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s67"><Data ss:Type="String">DataElement.binding</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">provide either a reference or a description (or both)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">(exists(f:referenceUri) or exists(f:referenceResource)) or exists(f:description)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s67"><Data ss:Type="String">CommonDataElement.binding.reference</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s67"><Data ss:Type="String">DataElement.binding.reference</Data></Cell>
     <Cell><Data ss:Type="String">uri SHALL start with http:// or https://, or be an internal reference</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">starts-with(@value, 'http:') or starts-with(@value, 'https:') or  starts-with(@value, '#') </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="Number">14</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s67"><Data ss:Type="String">CommonDataElement.binding</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s67"><Data ss:Type="String">DataElement.binding</Data></Cell>
     <Cell><Data ss:Type="String">Example value sets are always extensible</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(f:conformance/value='example' and f:isExtensible.value='false')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="Number">26</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s67"><Data ss:Type="String">CommonDataElement.mapping</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s67"><Data ss:Type="String">DataElement.mapping</Data></Cell>
     <Cell><Data ss:Type="String">Must have at a name or a uri (or both)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:uri) or exists(f:name)</Data></Cell>
    </Row>
@@ -969,57 +977,57 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">identifier</Data></Cell>
-    <Cell><Data ss:Type="String">The identifier of the observation definition</Data></Cell>
+    <Cell><Data ss:Type="String">The identifier of the data element</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">CommonDataElement.identifier</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">DataElement.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">version</Data></Cell>
-    <Cell><Data ss:Type="String">The version identifier of the observation definition</Data></Cell>
+    <Cell><Data ss:Type="String">The version identifier of the data element</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">CommonDataElement.version</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">DataElement.version</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
-    <Cell><Data ss:Type="String">Name of the observation definition</Data></Cell>
+    <Cell><Data ss:Type="String">Name of the data element</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">CommonDataElement.name</Data></Cell>
+    <Cell><Data ss:Type="String">DataElement.name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">publisher</Data></Cell>
-    <Cell><Data ss:Type="String">Name of the publisher of the observation definition</Data></Cell>
+    <Cell><Data ss:Type="String">Name of the publisher of the data element</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">CommonDataElement.publisher</Data></Cell>
+    <Cell><Data ss:Type="String">DataElement.publisher</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Text search in the description of the observation definition</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Text search in the description of the data element</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">CommonDataElement.definition</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">DataElement.definition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>
-    <Cell><Data ss:Type="String">The current status of the observation definition</Data></Cell>
+    <Cell><Data ss:Type="String">The current status of the data element</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">CommonDataElement.status</Data></Cell>
+    <Cell><Data ss:Type="String">DataElement.status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">The observation definition publication date</Data></Cell>
+    <Cell><Data ss:Type="String">The data element publication date</Data></Cell>
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell><Data ss:Type="String">CommonDataElement.date</Data></Cell>
+    <Cell><Data ss:Type="String">DataElement.date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">code</Data></Cell>
-    <Cell><Data ss:Type="String">A code for the observation definition (server may choose to do subsumption)</Data></Cell>
+    <Cell><Data ss:Type="String">A code for the data element (server may choose to do subsumption)</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">CommonDataElement.code</Data></Cell>
+    <Cell><Data ss:Type="String">DataElement.code</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">category</Data></Cell>
-    <Cell><Data ss:Type="String">A category assigned to the observation definition (server may choose to do subsumption)</Data></Cell>
+    <Cell><Data ss:Type="String">A category assigned to the data element (server may choose to do subsumption)</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell><Data ss:Type="String">CommonDataElement.category</Data></Cell>
+    <Cell><Data ss:Type="String">DataElement.category</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="4" ss:StyleID="s76"/>
@@ -1075,8 +1083,8 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">ResourceCommonDataElementStatus</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">The lifecycle status of a Resource Observation Definition</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ResourceDataElementStatus</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">The lifecycle status of a Resource data element</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">#resource-observation-def-status</Data></Cell>
    </Row>
@@ -1136,18 +1144,18 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">This observation definition is still under development</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">This data element is still under development</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">This observation definition is ready for normal use</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">This data element is ready for normal use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">retired</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">This observation definition has been deprecated, withdrawn or superseded and should no longer be used</Data></Cell>
-    <Cell><Data ss:Type="String">Marking an observation definition as &quot;retired&quot; is an assertion by the profile author/maintainer that the definition should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the definition, but best practice would be to phase its use out</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">This data element has been deprecated, withdrawn or superseded and should no longer be used</Data></Cell>
+    <Cell><Data ss:Type="String">Marking an data element as &quot;retired&quot; is an assertion by the data element author/maintainer that the definition should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the definition, but best practice would be to phase its use out</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1165,7 +1173,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>1</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -1192,9 +1200,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Gender</Data></Cell>
-    <Cell><Data ss:Type="String">Patient gender represented as an observation definition</Data></Cell>
+    <Cell><Data ss:Type="String">Patient gender represented as an data element</Data></Cell>
     <Cell><Data ss:Type="String">gender</Data></Cell>
-    <Cell><Data ss:Type="String">commondataelement-example.xml</Data></Cell>
+    <Cell><Data ss:Type="String">dataelement-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1214,6 +1222,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
