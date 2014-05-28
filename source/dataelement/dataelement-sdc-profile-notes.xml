@@ -1,0 +1,41 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h3>Language and translations</h3>
+<p>
+The ISO 19763 specification permits declaring language on titles, definitions, display names and many other strings.  It also supports
+capturing multiple variants of these strings with distinct languages.  In FHIR, this is supported using the generic
+ISO 21090 <a href="http://hl7.org/Profile/iso21090#ED.translation">ED.language</a> and
+<a href="http://hl7.org/Profile/iso21090#ED.translation">ED.translation</a> extensions.  These can be used on any string where translations
+are needed.
+</p>
+</div>
+
+<h3>Language and translations</h3>
+<p>
+In some environments, it may be necessary for a questionnaire to support multiple languages.  The rendering tool would select the appropriate
+language based on a configuration setting, or perhaps would display all available languages and the user would read the one they are familiar with.
+Systems MAY choose to provide support for identifying language and translations.  If they do, they SHALL do so using the generic language and
+translation extensions FHIR defines based on the ISO21090 data type specification:
+</p>
+<ul>
+  <li><a href="http://hl7.org/Profile/iso21090.html#language">http://hl7.org/Profile/iso21090#language</a> allows the language of a particular (or any other data type) to be identified</li>
+  <li><a href="http://hl7.org/Profile/iso21090.html#string-translation">http://hl7.org/Profile/iso21090#string-translation</a> allows additional repetitions in alternate languages to be communicated.  
+  (The language for each translation would be communicated using the above #language extension)</li>
+</ul>
+<p>
+These extensions can be used on absolutely any string element on <a href="questionnaire.html">Questionnaire</a>, <a href="valueset.html">ValueSet</a>, one of 
+the data types or any other resource.  The base string should be the primary language of the questionnaire.  It is what will be rendered by systems that do
+not support the translation extension or by systems whose language preference is other than one of the languages provided.
+</p>
+<p>
+The ISO 19763 specification permits declaring language on questionnaire titles, descriptions, display names for codesand many other strings.  It also supports
+capturing multiple variants of these strings with distinct languages.  These capabilities can be mirrored using the above extensions.
+</p>
+
+</div>
+
+
+
+
+

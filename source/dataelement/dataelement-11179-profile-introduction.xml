@@ -1,0 +1,27 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile defines extensions that may be useful in exposing data elements from <a href="http://metadata-standards.org/11179">ISO 11179</a>-conformant 
+registries.  The list of extensions is not currently complete - additional extensions would be required to support all required and optional
+11179 elements.  The set of define extensions will increase over time based on implementer interest.  At some point, a full
+profile for 11179-conformant systems may be developed.
+</p>
+<p>
+The list of defined extensions is as follows:
+</p>
+<ul>
+  <li><a name="meaning"></a><b>meaning</b> - Allows a <a href="dataelement.html">DataElement</a> representing an ISO Data_Element to 
+    reference the <a href="dataelement.html">DataElement</a> resource that represents the Concept_Element for that Data_Element</li>
+  <li><a name="objectClass"></a><b>objectClass</b> - specifies the Object_Class for a Concept_Element or the meaning of a Data_Element</li>
+  <li><a name="property"></a><b>property</b> - specifies the Object_Class Property for a Concept_Element or the meaning of a Data_Element</li>
+</ul>
+</div>
+
+</div>
+
+
+
+
+

@@ -1,0 +1,33 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This profile sets expectations for use of the <a href="questionnaire.html">Questionnaire</a> resource within the 
+<a href="http://http://wiki.siframework.org/IHE+SDC+Profile">Structured Data Capture</a> project.  This includes
+identifying which core elements and extensions must be supported.
+</p>
+<p>
+For the purposes of this profile, <i>Supported</i> means that clients SHALL be capable of processing the element/extension and use the information to control the display
+and information capture associated with the <a href="questionnaire.html">Questionnaire</a>.  It means that servers SHALL be capable of persisting those elements and returning them in response
+to requests.
+</p>
+</div>
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This profile relies on the use of a number of other profiles, some required, others available for use "when necessary":
+</p>
+<ul>
+  <li><a href="questionnaire-extensions.html">questionnaire-extensions</a> which defines a number of less common properties for questionnaire, group and question, several of which are mandated for this profile.</li>
+  <li><a href="element-extensions.html">element-extensions</a> which defines extensions describing constraints on the values for data elements.  There are used here to constrain the allowed values for questions.</li>
+  <li><a href="iso-21090.html">iso-21090</a> provides extensions for strings allowing the conveying of language and translation extensions which may be relevant in some environment</li>
+</ul>
+</div>
+
+</div>
+
+
+
+
+
