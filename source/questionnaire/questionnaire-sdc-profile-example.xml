@@ -1327,7 +1327,7 @@
               <required value="true"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#default">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#defaultValue">
                 <valueCoding>
                   <system value="HERF/DE9b-cs"/>
                   <code value="UNK"/>

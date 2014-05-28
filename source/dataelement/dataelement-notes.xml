@@ -3,7 +3,35 @@
 <!-- insert xhtml content here -->
 <h3>ISO 11179</h3>
 <p>
-TODO: explain 11179 conformance
+One of the sources of the <b>DataElement</b> resource definition was the <a href="http://metadata-standards.org/11179/">ISO 11179</a>
+Metadata Registries specification.  It defines a logical model for the classification, identification, naming and registration of 
+Data Elements, Data Element Concepts and their associated Value and Conceptual Domains.</p>
+<p>
+The <b>DataElement</b> resource can be used to represent both Data_Element and Data_Element_Concept in the ISO logical model.
+(The <a href="valueset.html">ValueSet</a> resource provides the details for Value_Domain and Conceptual_Domain for enumerated elements.)
+The determination of whether a <b>DatElement</b> is a Data_Element or Data_ElementConcept is determined by whether the <code>type</code> 
+property is specified - which corresponds to the ISO property Data_Element.domain.datatype which is required for Data_Elements.
+</p>
+<p>
+Unlike the 11179 logical specification, the
+<b>DataElement</b> resource does not require a linkage from data element to a distinct data element concept, though this linkage can
+be established through an extension if desired.  The typical means of identification of the data element concept is expected to instead
+occur through the mapping of the data element to a particular reference model that formally defines the concept.  It is possible this
+reference model could be based on ISO's Object_Class and Property mechanism.  However, mappings to other reference models are also possible,
+for example:
+</p>
+<ul>
+  <li>HL7's <a href="http://www.hl7.org/implement/standards/rim.cfm">Reference Information Model</a></li>
+  <li><a href="http://www.openehr.org/">Open EHR's</a> reference model</li>
+  <li>the <a href="http://bridg.com">BRIDG</a> logical model</li>
+  <li>terminologies such as <a href="http://loinc.org">LOINC</a> or <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED</a></li>
+</ul>
+<p>
+It is possible to create instances that are "conforming", or even "strictly conforming" to the 11179 specification, however doing
+so will require the use of extensions to convey certain properties that are not part of the core resource and data types.  An initial
+starter <a href="dataelement-11179.html">ISO 11179 profile</a> that defines extensions that are relevant to the 
+<a href="dataelement-sdc.html">SDC DataElement</a> profile.  If there is sufficient interest, the existing starter set may be
+enhanced to contain a complete set of extensions and a full 11179 in a future release of the specification.
 </p>
 
 </div>

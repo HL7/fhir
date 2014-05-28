@@ -204,10 +204,12 @@ public class SpecificationTerminologyServices  implements TerminologyServices {
   @Override
   public ValidationResult validateCode(String system, String code, String display) {
     try {
-    if (system.equals("http://snomed.info/sct"))
+      if (system.equals("http://snomed.info/sct"))
         return verifySnomed(code, display);
-    if (system.equals("http://loinc.org"))
-      return verifyLoinc(code, display);
+      if (system.equals("http://loinc.org"))
+        return verifyLoinc(code, display);
+      if (system.startsWith("http://example.org")
+        return null;
     } catch (Exception e) {
       return new ValidationResult(IssueSeverity.error, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
     }

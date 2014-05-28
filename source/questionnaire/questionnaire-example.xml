@@ -26,7 +26,7 @@
       <description value="Captures simple yes-no"/>
       <status value="active"/>
       <define>
-        <system value="http://cancer.questionnaire.org/system/code/yesno"/>
+        <system value="http://example.org/system/code/yesno"/>
         <concept>
           <code value="1"/>
           <display value="Yes"/>
@@ -46,13 +46,13 @@
       <!-- COMORBIDITY -->
       <!-- First main section of the form, questions about comorbidity -->
       <concept>
-        <system value="http://cancer.questionnaire.org/system/code/sections"/>
+        <system value="http://example.org/system/code/sections"/>
         <code value="COMORBIDITY"/>
       </concept>
       <!-- section contains one question: whether there is comorbidity -->
       <question>
         <concept>
-          <system value="http://cancer.questionnaire.org/system/code/questions"/>
+          <system value="http://example.org/system/code/questions"/>
           <code value="COMORB"/>
         </concept>
         <type value="choice"/>
@@ -63,12 +63,12 @@
           <!-- COMORBIDITY/CARDIAL -->
           <!-- Subsection about specific comorbidity: cardial -->
           <concept>
-            <system value="http://cancer.questionnaire.org/system/code/sections"/>
+            <system value="http://example.org/system/code/sections"/>
             <code value="CARDIAL"/>
           </concept>
           <question>
             <concept>
-              <system value="http://cancer.questionnaire.org/system/code/questions"/>
+              <system value="http://example.org/system/code/questions"/>
               <code value="COMORBCAR"/>
             </concept>
             <type value="choice"/>
@@ -79,7 +79,7 @@
           <question>
             <!-- This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code -->
             <concept>
-              <system value="http://cancer.questionnaire.org/system/code/questions"/>
+              <system value="http://example.org/system/code/questions"/>
               <code value="COMCAR00"/>
               <display value="Angina Pectoris"/>
             </concept>
@@ -108,7 +108,7 @@
         <group>
           <!-- COMORBIDITY/VASCULAR -->
           <concept>
-            <system value="http://cancer.questionnaire.org/system/code/sections"/>
+            <system value="http://example.org/system/code/sections"/>
             <code value="VASCULAR"/>
           </concept>
           <!-- Todo: What's supposed to go here? -->
@@ -118,17 +118,17 @@
     <group>
       <!-- HISTOPATHOLOGY -->
       <concept>
-        <system value="http://cancer.questionnaire.org/system/code/sections"/>
+        <system value="http://example.org/system/code/sections"/>
         <code value="HISTOPATHOLOGY"/>
       </concept>
       <group>
         <concept>
-          <system value="http://cancer.questionnaire.org/system/code/sections"/>
+          <system value="http://example.org/system/code/sections"/>
           <code value="ABDOMINAL"/>
         </concept>
         <question>
           <concept>
-            <system value="http://cancer.questionnaire.org/system/code/questions"/>
+            <system value="http://example.org/system/code/questions"/>
             <code value="STADPT"/>
             <display value="pT category"/>
           </concept>

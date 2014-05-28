@@ -2958,15 +2958,15 @@ public class Publisher {
     }
   }
 
-  private void validateLloydXml() throws Exception {
-    LloydErrorHandler err = new LloydErrorHandler(false);
-    LloydResourceResolver res = new LloydResourceResolver(page.getFolders().dstDir);
-    StreamSource[] sources = new StreamSource[1];
-    sources[0] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-atom.xsd"));
-    SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    schemaFactory.setErrorHandler(err);
-    schemaFactory.setResourceResolver(res);
-    Schema schema = schemaFactory.newSchema(sources);
+  private void validateLloydXml(MyErrorHandler err, Schema schema) throws Exception {
+//    LloydErrorHandler err = new LloydErrorHandler(false);
+//    MyResourceResolver res = new MyResourceResolver(page.getFolders().dstDir);
+//    StreamSource[] sources = new StreamSource[1];
+//    sources[0] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-atom.xsd"));
+//    SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+//    schemaFactory.setErrorHandler(err);
+//    schemaFactory.setResourceResolver(res);
+//    Schema schema = schemaFactory.newSchema(sources);
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     factory.setValidating(false);
@@ -2974,11 +2974,11 @@ public class Publisher {
     DocumentBuilder builder = factory.newDocumentBuilder();
     builder.setErrorHandler(err);
     Document doc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + "../source/questionnaire/questionnaire-example.xml"));
-    if (err.getFoundErrors()) {
-      System.out.println("Resource Example failed schema validation");
-    } else {
-    	System.out.println("Validation ok");
-    }
+//    if (err.getFoundErrors()) {
+//      System.out.println("Resource Example failed schema validation");
+//    } else {
+//    	System.out.println("Validation ok");
+//    }
 	}	
 
   public class LloydErrorHandler implements ErrorHandler {
@@ -3014,28 +3014,6 @@ public class Publisher {
     }
   }
 
-  public class LloydResourceResolver implements LSResourceResolver {
-
-    private String dir;
-
-    public LloydResourceResolver(String dir) {
-      this.dir = dir;
-    }
-
-    @Override
-    public LSInput resolveResource(final String type, final String namespaceURI, final String publicId, String systemId, final String baseURI) {
-      try {
-        if (!new CSFile(dir + systemId).exists())
-          return null;
-        return new SchemaInputSource(new CSFileInputStream(new CSFile(dir + systemId)), publicId, systemId, namespaceURI);
-      } catch (Exception e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-        return null;
-      }
-    }
-  }
-
 
   static final String JAXP_SCHEMA_LANGUAGE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
   static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
@@ -3050,7 +3028,8 @@ public class Publisher {
     sources[0] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-all.xsd"));
     sources[1] = new StreamSource(new CSFileInputStream(page.getFolders().dstDir + "fhir-atom.xsd"));
     SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-    schemaFactory.setErrorHandler(new MyErrorHandler(false));
+MyErrorHandler err = new MyErrorHandler(false)
+    schemaFactory.setErrorHandler(err);
     schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));
     Schema schema = schemaFactory.newSchema(sources);
     InstanceValidator validator = new InstanceValidator(page.getFolders().dstDir + "validation.zip", new SpecificationExtensionResolver(
@@ -3059,7 +3038,7 @@ public class Publisher {
     page.log(".... done", LogMessageType.Process);
 
 page.log(" ***Test valiation*** questionnaire-example", LogMessageType.Process);
-validateLloydXml();
+validateLloydXml(err, schema);
 page.log(" ***Done Test valiation*** questionnaire-example", LogMessageType.Process);
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {
