@@ -531,3 +531,26 @@ x-margin-right: 30px;
 	font-weight: regular;
 	opacity: 1;
 }
+
+.heirarchy {
+  border: 0px;
+  padding:0px 4px 0px 4px;
+	font-size: 11px;
+	font-family: verdana;
+	vertical-align: top;
+}
+
+tr.heirarchy {
+  border: 1px #F0F0F0 solid;
+  padding:0px 4px 0px 4px;
+	font-size: 11px;
+	font-family: verdana;
+	vertical-align: top;
+}
+
+img.heirarchy {
+  border: 0px;
+  padding:0px;
+	vertical-align: top;
+  background-color: white;
+}
