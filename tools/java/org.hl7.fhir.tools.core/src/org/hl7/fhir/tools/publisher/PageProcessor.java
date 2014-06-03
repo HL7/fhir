@@ -49,6 +49,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
+import org.hl7.fhir.definitions.generators.specification.ProfileTableGenerator;
+import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
 import org.hl7.fhir.definitions.generators.specification.XmlSpecGenerator;
@@ -1315,6 +1317,13 @@ public class PageProcessor implements Logger  {
       return "";
   }
   
+  
+  private String genResourceTable(ResourceDefn res) throws Exception {
+    ElementDefn e = res.getRoot();
+    ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this);
+    return new XhtmlComposer().compose(gen.generate(e));
+  }
+  
   private String genResourceConstraints(ResourceDefn res) throws Exception {
     ElementDefn e = res.getRoot();
     StringBuilder b = new StringBuilder();
@@ -2549,6 +2558,8 @@ public class PageProcessor implements Logger  {
         src = s1+tx+s3;
       else if (com[0].equals("inv"))
         src = s1+genResourceConstraints(resource)+s3;
+      else if (com[0].equals("resource-table"))
+        src = s1+genResourceTable(resource)+s3;
       else if (com[0].equals("plural"))
         src = s1+Utilities.pluralizeMe(name)+s3;
       else if (com[0].equals("notes")) {
@@ -3000,13 +3011,20 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;      
       else if (com[0].equals("pub-notice"))
-        src = s1 + publicationNotice + s3;      
+        src = s1 + publicationNotice + s3;
+      else if (com[0].equals("profile-table"))
+        src = s1 + generateProfileTable(profile) + s3;      
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.metadata("id")+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String generateProfileTable(ProfileDefn profile) throws Exception {
+    ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this);
+    return new XhtmlComposer().compose(gen.generate(profile));
   }
 
   private boolean isAggregationEndpoint(String name) {

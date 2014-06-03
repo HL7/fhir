@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingStrength;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
@@ -26,7 +27,7 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 
-public class SvgGenerator {
+public class SvgGenerator extends BaseGenerator {
 
   private enum PointKind {
     unknown, left, right, top, bottom;
@@ -133,12 +134,10 @@ public class SvgGenerator {
   private Map<ElementDefn, ClassItem> classes = new HashMap<ElementDefn, ClassItem>();
   private Map<String, ElementDefn> fakes = new HashMap<String, ElementDefn>();
   private List<Link> links = new ArrayList<SvgGenerator.Link>();  
-  private Definitions definitions;
   private double minx = 0;
   private double miny = 0;
   private boolean attributes = true;
   IniFile ini;
-  private PageProcessor page;
 
   public SvgGenerator(PageProcessor page) {
     this.definitions = page.getDefinitions();
@@ -797,11 +796,24 @@ public class SvgGenerator {
         lines.add((lines.size() == 0 ? e.getName()+" : " : ".....")+s.substring(0, i+1));
         s = s.substring(i+1);
       }
-      lines.add(s+" : "+e.describeCardinality()+(e.hasBinding() ? " <<"+e.getBindingName()+">>" : "") );
+      lines.add(s+" : "+e.describeCardinality()+describeBinding(e) );
       return lines.toArray(new String[] {});
     }
     else 
-      return new String[] { e.getName()+" : "+e.typeCode()+" : "+e.describeCardinality()+(e.hasBinding() ? " <<"+e.getBindingName()+">>" : "") };
+      return new String[] { e.getName()+" : "+e.typeCode()+" : "+e.describeCardinality()+describeBinding(e) };
+  }
+
+  private String describeBinding(ElementDefn e) {
+    BindingSpecification b = definitions.getBindingByName(e.getBindingName());
+    if (e.hasBinding() && b.getBinding() != Binding.Unbound) {
+      if (b.getBindingStrength() == BindingStrength.Example)
+        return " « ("+e.getBindingName()+") »";
+      else if (b.getBindingStrength() == BindingStrength.Preferred)
+        return " « "+e.getBindingName()+"+ »";
+      else // if (b.getBindingStrength() == BindingStrength.Required)
+        return " « "+e.getBindingName()+" »";
+    } else
+      return "";
   }
 
   private boolean isAttribute(ElementDefn c) {
@@ -845,13 +857,39 @@ public class SvgGenerator {
       if (prog.done) {
         xml.text(" "+e.describeCardinality());
         if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
-          xml.text(" <<");
-          xml.attribute("xlink:href", getBindingLink(e));
-          xml.open("a");
-          xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
-          xml.text(e.getBindingName());
-          xml.close("a");
-          xml.text(">>");
+          BindingSpecification b = definitions.getBindingByName(e.getBindingName());
+          xml.text(" « ");
+          if (b.getBindingStrength() == BindingStrength.Example) {
+            xml.text("(");
+            xml.attribute("xlink:href", getBindingLink(e));
+            xml.open("a");
+            xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
+            xml.text(e.getBindingName());
+            xml.close("a");
+            xml.text(")");
+          } else if (b.getBindingStrength() == BindingStrength.Preferred) {
+            xml.attribute("xlink:href", getBindingLink(e));
+            xml.open("a");
+            xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
+            xml.text(e.getBindingName());
+            xml.close("a");
+            xml.text("+");
+          } else if (b.getBindingStrength() == BindingStrength.Required) {
+            xml.attribute("xlink:href", getBindingLink(e));
+            xml.open("a");
+            xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
+            //xml.open("b");
+            xml.text(e.getBindingName());
+            //xml.close("b");
+            xml.close("a");
+          } else {
+            xml.attribute("xlink:href", getBindingLink(e));
+            xml.open("a");
+            xml.element("title", definitions.getBindingByName(e.getBindingName()).getDefinition());
+            xml.text(e.getBindingName());
+            xml.close("a");
+          }
+          xml.text(" »");
         }
       }
       xml.close("text");
@@ -898,45 +936,6 @@ public class SvgGenerator {
     }
     xml.text(" 0..1");
     xml.close("text");
-  }
-
-  private String getBindingLink(ElementDefn e) throws Exception {
-    BindingSpecification bs = definitions.getBindingByName(e.getBindingName());
-    if (bs.getBinding() == Binding.Reference)
-      return bs.getReference();      
-    else if (bs.getBinding() == Binding.CodeList)
-      return bs.getReference().substring(1)+".html";
-    else if (bs.getBinding() == Binding.ValueSet) {
-      if (Utilities.noString(bs.getReference())) 
-        return "??";
-      else if (bs.getReference().startsWith("valueset-"))
-        return bs.getReference()+".html";            
-      else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
-        if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-          AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-          return vs.getLinks().get("path").replace(File.separatorChar, '/');
-        } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
-            AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-            return vs.getLinks().get("path").replace(File.separatorChar, '/');
-        } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/"))
-          return bs.getReference().substring(23)+".html";
-        else
-          throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
-      } else
-        return bs.getReference()+".html";            
-    } else if (bs.getBinding() == Binding.Special) {
-      if (bs.getName().equals("MessageEvent"))
-        return "message-events.html";
-      else if (bs.getName().equals("ResourceType"))
-        return "resource-types.html";
-      else if (bs.getName().equals("DataType"))
-        return "data-types.html";
-      else if (bs.getName().equals("FHIRDefinedType"))
-        return "defined-types.html";
-      else 
-        throw new Exception("Unknown special type "+bs.getName());
-    } else 
-      throw new Exception("not handled yet");
   }
 
   

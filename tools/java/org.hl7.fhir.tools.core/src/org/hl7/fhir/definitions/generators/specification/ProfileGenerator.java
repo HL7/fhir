@@ -94,6 +94,7 @@ public class ProfileGenerator {
     if (profile.getSource() != null)
       return profile.getSource();
     Profile p = new Profile();
+    p.setIdentifierSimple("http://hl7.org/fhir/profile/"+profile.metadata("name"));
     p.setName(Factory.newString_(profile.metadata("name")));
     p.setPublisher(Factory.newString_(profile.metadata("author.name")));
     if (profile.hasMetadata("author.reference"))

@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -713,6 +714,9 @@ public class Publisher {
 
   public boolean checkFile(String purpose, String dir, String file, List<String> errors, String category) throws IOException {
     CSFile f = new CSFile(dir + file);
+    if (file.contains("*"))
+      return true;
+    
     if (!f.exists()) {
       errors.add("Unable to find " + purpose + " file " + file + " in " + dir);
       return false;
@@ -766,6 +770,8 @@ public class Publisher {
         checkFile("file", page.getFolders().rootDir, n, errors, "page-" + n);
     }
     if (checkFile("translations", page.getFolders().rootDir + "implementations" + File.separator, "translations.xml", errors, null)) {
+      // schema check
+      checkBySchema(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml", new String[] {page.getFolders().rootDir + "implementations" + File.separator + "translations.xsd"});
       Utilities.copyFile(page.getFolders().rootDir + "implementations" + File.separator + "translations.xml", page.getFolders().dstDir + "translations.xml");
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       DocumentBuilder builder = factory.newDocumentBuilder();
@@ -1134,8 +1140,22 @@ public class Publisher {
           page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n));
         }
       for (String n : page.getIni().getPropertyNames("images")) {
-        Utilities.copyFile(new CSFile(page.getFolders().imgDir + n), new CSFile(page.getFolders().dstDir + n));
-        page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n));
+        if (n.contains("*")) {
+          final String filter = n.replace("?", ".?").replace("*", ".*?");
+          File[] files = new File(page.getFolders().imgDir).listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+              return name.matches(filter);
+            }
+          });
+          for (File f : files) {
+            Utilities.copyFile(f, new CSFile(page.getFolders().dstDir + f.getName()));
+            page.getEpub().registerFile(f.getName(), "Support File", EPubManager.determineType(n));
+          }
+        } else {
+          Utilities.copyFile(new CSFile(page.getFolders().imgDir + n), new CSFile(page.getFolders().dstDir + n));
+          page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n));
+        }
       }
       for (String n : page.getIni().getPropertyNames("files")) {
         Utilities.copyFile(new CSFile(page.getFolders().rootDir + n), new CSFile(page.getFolders().dstDir + page.getIni().getStringProperty("files", n)));
@@ -3019,6 +3039,29 @@ public class Publisher {
   static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
   static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 
+  private void checkBySchema(String fileToCheck, String[] schemaSource) throws Exception {
+    StreamSource[] sources = new StreamSource[schemaSource.length];
+    int i = 0;
+    for (String s : schemaSource) {
+      sources[i] = new StreamSource(new CSFileInputStream(s));
+      i++;
+    }
+    SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+    schemaFactory.setErrorHandler(new MyErrorHandler(false));
+    schemaFactory.setResourceResolver(new MyResourceResolver(page.getFolders().dstDir));
+    Schema schema = schemaFactory.newSchema(sources);
+
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setNamespaceAware(true);
+    factory.setValidating(false);
+    factory.setSchema(schema);
+    DocumentBuilder builder = factory.newDocumentBuilder();
+    MyErrorHandler err = new MyErrorHandler(true);
+    builder.setErrorHandler(err);
+    builder.parse(new CSFileInputStream(new CSFile(fileToCheck)));
+    if (err.getErrors().size() > 0)
+      throw new Exception("File " + fileToCheck + " failed schema validation");
+  }
   private void validateXml() throws Exception {
     if (buildFlags.get("all") && isGenerate)
       produceCoverageWarnings();
@@ -3054,6 +3097,7 @@ page.log(" ***Done Test valiation*** questionnaire-example", LogMessageType.Proc
           page.log(" ...validate " + n, LogMessageType.Process);
           validateXmlFile(schema, n, validator, null);
           if (!Utilities.noString(e.getExample())) {
+            page.log(" ...validate " + e.getExample(), LogMessageType.Process);
             validateXmlFile(schema, Utilities.changeFileExt(e.getExample(), ""), validator, e.getResource()); // validates
                                                                                                               // the
                                                                                                               // example
