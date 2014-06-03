@@ -807,11 +807,11 @@ public class SvgGenerator extends BaseGenerator {
     BindingSpecification b = definitions.getBindingByName(e.getBindingName());
     if (e.hasBinding() && b.getBinding() != Binding.Unbound) {
       if (b.getBindingStrength() == BindingStrength.Example)
-        return " « ("+e.getBindingName()+") »";
+        return " \u00AB ("+e.getBindingName()+") \u00BB";
       else if (b.getBindingStrength() == BindingStrength.Preferred)
-        return " « "+e.getBindingName()+"+ »";
+        return " \u00AB "+e.getBindingName()+"+ \u00BB";
       else // if (b.getBindingStrength() == BindingStrength.Required)
-        return " « "+e.getBindingName()+" »";
+        return " \u00AB "+e.getBindingName()+" \u00BB";
     } else
       return "";
   }
@@ -858,7 +858,7 @@ public class SvgGenerator extends BaseGenerator {
         xml.text(" "+e.describeCardinality());
         if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
           BindingSpecification b = definitions.getBindingByName(e.getBindingName());
-          xml.text(" « ");
+          xml.text(" \u00AB ");
           if (b.getBindingStrength() == BindingStrength.Example) {
             xml.text("(");
             xml.attribute("xlink:href", getBindingLink(e));
@@ -889,7 +889,7 @@ public class SvgGenerator extends BaseGenerator {
             xml.text(e.getBindingName());
             xml.close("a");
           }
-          xml.text(" »");
+          xml.text(" \u00BB");
         }
       }
       xml.close("text");
