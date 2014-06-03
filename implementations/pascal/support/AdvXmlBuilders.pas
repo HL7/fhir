@@ -84,6 +84,7 @@ begin
   mem := TAdvMemoryStream.Create;
   mem.Buffer := buf.Link;
   xml := TAdvXMLFormatter.Create;
+  xml.HasWhitespace := IsPretty;
   xml.Stream := mem.Link;
   xml.AddAttribute('encoding', 'UTF-8');
   xml.ProduceHeader;

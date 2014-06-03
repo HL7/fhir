@@ -62,6 +62,7 @@ Function RecogniseFHIRResourceManagerName(Const sName : String; out aType : TFhi
 Function RecogniseFHIRFormat(Const sName : String): TFHIRFormat;
 function MakeParser(lang : String; aFormat: TFHIRFormat; oContent: TStream; policy : TFHIRXhtmlParserPolicy): TFHIRParser; overload;
 function MakeParser(lang : String; aFormat: TFHIRFormat; content: TBytes; policy : TFHIRXhtmlParserPolicy): TFHIRParser; overload;
+function MakeComposer(lang : string; mimetype : String) : TFHIRComposer;
 Function FhirGUIDToString(aGuid : TGuid):String;
 function ParseXhtml(lang : String; content : String; policy : TFHIRXhtmlParserPolicy):TFhirXHtmlNode;
 function geTFhirResourceNarrativeAsText(resource : TFhirResource) : String;
@@ -142,6 +143,11 @@ type
     function conceptST : String;
   end;
 
+  TFhirConceptMapHelper = class helper (TFhirElementHelper) for TFhirConceptMap
+  public
+    function conceptList : TFhirConceptMapElementList;
+  end;
+
   TFhirConceptMapElementMapHelper = class helper (TFhirElementHelper) for TFhirConceptMapElementMap
   public
     function system : TFhirUri;
@@ -200,6 +206,18 @@ begin
   finally
     result.free;
   end;
+end;
+
+function MakeComposer(lang : string; mimetype : String) : TFHIRComposer;
+begin
+  if mimeType.StartsWith('text/xml') or mimeType.StartsWith('application/xml') or mimeType.StartsWith('application/fhir+xml') or (mimetype = 'xml') then
+    result := TFHIRXmlComposer.Create(lang)
+  else if mimeType.StartsWith('text/json') or mimeType.StartsWith('application/json') or mimeType.StartsWith('application/fhir+json') or (mimetype = 'xml') then
+    result := TFHIRJsonComposer.Create(lang)
+  else if mimeType.StartsWith('text/html') or mimeType.StartsWith('text/xhtml') or mimeType.StartsWith('application/fhir+xhtml') or (mimetype = 'xhtml') then
+    result := TFHIRXhtmlComposer.Create(lang)
+  else
+    raise Exception.Create('Format '+mimetype+' not recognised');
 end;
 
 Function FhirGUIDToString(aGuid : TGuid):String;
@@ -1254,6 +1272,13 @@ end;
 function TFhirConceptMapElementMapHelper.systemST: String;
 begin
   result := codeSystemST;
+end;
+
+{ TFhirConceptMapHelper }
+
+function TFhirConceptMapHelper.conceptList: TFhirConceptMapElementList;
+begin
+  result := elementList;
 end;
 
 { TFhirConceptMapElementDependsOnHelper }

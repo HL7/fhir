@@ -132,11 +132,15 @@ Type
     FOriginal: String;
     FKey: Integer;
     FEmail: String;
-    FToken: String;
+    FInnerToken, FOuterToken: String;
     FNextTokenCheck: TDateTime;
     FUser: TFhirUserStructure;
+    FUseCount: integer;
+    FRights: TStringList;
+    FFirstCreated: TDateTime;
     procedure SetUser(const Value: TFhirUserStructure);
   public
+    Constructor Create; Override;
     destructor Destroy; Override;
     function Link : TFhirSession; overload;
 
@@ -150,12 +154,18 @@ Type
     }
     Property Provider : TFHIRAuthProvider read FProvider write FProvider;
 
-    {@member Token
+   {@member InnerToken
       the OAuth authorization token (Don't change!)
+      This is the OAuth token for the identity server
     }
-    Property Token : String read FToken write FToken;
+    Property InnerToken : String read FInnerToken write FInnerToken;
 
-    {@member Id
+    {@member OuterToken
+      the OAuth authorization token (Don't change!)
+      This is the OAuth token for this server
+    }
+
+    Property OuterToken : String read FOuterToken write FOuterToken;    {@member Id
       OAuth provided user id
     }
     Property Id : String read FId write FId;
@@ -180,6 +190,8 @@ Type
     }
     Property Expires : TDateTime read FExpires write FExpires;
 
+    Property FirstCreated : TDateTime read FFirstCreated;
+
     {@member NextTokenCheck
       When the token is next going to be checked with the OAuth server
     }
@@ -194,6 +206,9 @@ Type
       User resource associated with this session (if a matching one exists)
     }
     Property User : TFhirUserStructure read FUser write SetUser;
+
+    Property useCount : integer read FUseCount write FUseCount;
+    Property rights : TStringList read FRights;
   end;
 
   {@Class TFHIRRequest
@@ -1238,8 +1253,16 @@ end;
 
 { TFhirSession }
 
+constructor TFhirSession.Create;
+begin
+  inherited;
+  FRights := TStringList.Create;
+  FFirstCreated := now;
+end;
+
 destructor TFhirSession.Destroy;
 begin
+  FRights.Free;
   FUser.Free;
   inherited;
 end;

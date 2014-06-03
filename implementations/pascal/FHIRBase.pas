@@ -101,7 +101,7 @@ Type
     fhntComment, {@enum.value fhntComment The node is a comment}
     fhntDocument);{@enum.value fhntDocument The node represents a document (not used in FHIR context)}
 
-  TFHIRAuthProvider = (apNone, apCustom, apFacebook, apGoogle, apHL7);
+  TFHIRAuthProvider = (apNone, apInternal, apFacebook, apGoogle, apHL7);
 
 
   TFHIRXhtmlParserPolicy = (xppAllow, xppDrop, xppReject);

@@ -29,6 +29,7 @@ Type
     FUrl : String;
     FJson : Boolean;
     client : TIdHTTP;
+    ssl : TIdSSLIOHandlerSocketOpenSSL;
     function serialise(resource : TFhirResource):TStream; overload;
     function serialise(batch : TFhirAtomFeed):TStream; overload;
     function makeUrl(tail : String) : String;
@@ -75,10 +76,14 @@ begin
   FUrl := URL;
   FJson := json;
   client := TIdHTTP.create(nil);
+  ssl := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+  client.IOHandler := ssl;
+  ssl.SSLOptions.Mode := sslmClient;
 end;
 
 destructor TFhirClient.destroy;
 begin
+  ssl.Free;
   client.free;
   inherited;
 end;
@@ -276,16 +281,9 @@ end;
 
 function TFhirClient.exchange(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TStream;
 var
-  ssl : TIdSSLContext;
   comp : TFHIRParser;
   ok : boolean;
 begin
-  If StringEquals(Copy(url, 1, 5), 'https') Then
-  Begin
-    { ssl := TIdSSLContext.Create;
-    client.IOHandler := ssl;
-    ssl.Mode := sslmClient;}
-  End;
   if FJson then
   begin
     client.Request.ContentType := 'application/json';
