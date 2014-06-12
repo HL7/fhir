@@ -41,17 +41,17 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s64">
+  <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s65">
+  <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s66">
+  <Style ss:ID="s65">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -61,12 +61,12 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s67">
+  <Style ss:ID="s66">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s69">
+  <Style ss:ID="s68">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -74,10 +74,10 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s70">
+  <Style ss:ID="s69">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s70">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
@@ -85,51 +85,51 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s71">
    <Alignment ss:Vertical="Bottom" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s72">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s77" ss:Parent="s62">
+  <Style ss:ID="s74" ss:Parent="s62">
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s75">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s77">
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s78">
    <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
   </Style>
-  <Style ss:ID="s82">
+  <Style ss:ID="s79">
    <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Table ss:ExpandedColumnCount="21" ss:ExpandedRowCount="20" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s64" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s65" ss:Width="195.75"/>
-   <Column ss:StyleID="s64" ss:Width="29.25"/>
-   <Column ss:StyleID="s64" ss:Width="23.25"/>
-   <Column ss:StyleID="s64" ss:Width="60"/>
-   <Column ss:StyleID="s64" ss:Width="27"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="225"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="138.75"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="170.25"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135.75"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="77.25" ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
-   <Column ss:Index="21" ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="170.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s66">
+   <Column ss:StyleID="s64" ss:Width="195.75"/>
+   <Column ss:StyleID="s63" ss:Width="29.25"/>
+   <Column ss:StyleID="s63" ss:Width="23.25"/>
+   <Column ss:StyleID="s63" ss:Width="60"/>
+   <Column ss:StyleID="s63" ss:Width="27"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="225"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="138.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="170.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="77.25" ss:Span="1"/>
+   <Column ss:Index="12" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="135" ss:Span="1"/>
+   <Column ss:Index="21" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="170.25"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Card.</Data></Cell>
     <Cell><Data ss:Type="String">Inv.</Data></Cell>
@@ -151,10 +151,10 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">Procedure</Data></Cell>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
-    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell><Data ss:Type="String">An action that is performed on a patient</Data></Cell>
@@ -167,19 +167,19 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell><Data ss:Type="String">Procedure.identifier</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
     <Cell><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">External Ids for this procedure</Data></Cell>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">External Ids for this procedure</Data></Cell>
     <Cell><Data ss:Type="String">This records identifiers associated with this procedure that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Need to allow connection to a wider workflow</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s71"><Data ss:Type="String">.id</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="17" ss:StyleID="s69"/>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Need to allow connection to a wider workflow</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s70"><Data ss:Type="String">.id</Data></Cell>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:Index="17" ss:StyleID="s68"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Procedure.subject</Data></Cell>
@@ -257,7 +257,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Period</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">The date the procedure was performed</Data></Cell>
-    <Cell><Data ss:Type="String">The dates over which the procedure was performed. Allows a period to support complex procedures that span more that one date, and also allows for the length of the procedure to be captured.</Data></Cell>
+    <Cell><Data ss:Type="String">The dates over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.effectiveTime</Data></Cell>
     <Cell><Data ss:Type="String">This should be choice of dateTime|Period</Data></Cell>
@@ -319,7 +319,7 @@
     <Cell><Data ss:Type="String">Procedures may be related to other items such as procedures or medications. For example treating wound dehiscence following a previous procedure</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">.outboundRelationship[typeCode=TRIG and target[classCode=PROC, moodCode=EVN]]</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">Procedure.relatedItem.type</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">code</Data></Cell>
@@ -338,7 +338,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">.target</Data></Cell>
     <Cell ss:Index="21"><Data ss:Type="String">Resource(Procedure | Prescription)</Data></Cell>
    </Row>
-   <Row ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">Procedure.notes</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -365,7 +365,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -378,9 +378,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -390,14 +393,14 @@
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s71" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="116.25"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="153"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="204.75"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="198.75"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="188.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
+   <Column ss:Index="2" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="153"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="188.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Context</Data></Cell>
@@ -408,7 +411,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -416,7 +419,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -424,7 +427,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -432,7 +435,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -440,7 +443,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -495,18 +498,18 @@
    <Column ss:AutoFitWidth="0" ss:Width="195.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="33">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Event Code</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Notes</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Request Resources</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Response Resources</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Follow Ups</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Event Code</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Request Resources</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Response Resources</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Follow Ups</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
-    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -547,7 +550,7 @@
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="383.25"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s66">
+   <Row ss:AutoFitHeight="0" ss:Height="15.9375" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
@@ -563,8 +566,8 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">The identity of a patient to list procedures  for</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Procedure.subject</Data></Cell>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Procedure.subject</Data></Cell>
+    <Cell ss:StyleID="s75"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">date</Data></Cell>
@@ -573,112 +576,112 @@
     <Cell><Data ss:Type="String">Procedure.date</Data></Cell>
    </Row>
    <Row ss:Index="6" ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="8" ss:StyleID="s65"/>
+    <Cell ss:Index="8" ss:StyleID="s64"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -725,29 +728,29 @@
    <Column ss:Width="137.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding Name</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Binding</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Binding</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Reference</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">ProcedureRelationshipType</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">The nature of the relationship with this procedure</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ProcedureRelationshipType</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">The nature of the relationship with this procedure</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#procedure-relationship-type</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s63"/>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -791,24 +794,24 @@
    <Column ss:Width="45.75"/>
    <Column ss:Width="197.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Name</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Identity</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Filename</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">Type</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">In Book</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Identity</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Filename</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">In Book</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell><Data ss:Type="String">General</Data></Cell>
     <Cell><Data ss:Type="String">General Procedure Example</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">procedure-example.xml</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">procedure-example.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
     <Cell><Data ss:Type="String">Biopsy</Data></Cell>
     <Cell><Data ss:Type="String">Example of a Biopsy</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">biopsy</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">biopsy</Data></Cell>
     <Cell><Data ss:Type="String">procedure-example-biopsy.xml</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -885,7 +888,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">because-of</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">because-of</Data></Cell>
     <Cell><Data ss:Type="String">This procedure caused the related one to be performed</Data></Cell>
    </Row>
   </Table>
