@@ -21,6 +21,7 @@
   <WindowTopX>1500</WindowTopX>
   <WindowTopY>3615</WindowTopY>
   <TabRatio>705</TabRatio>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -156,7 +157,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="16" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="17" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s65" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s66" ss:AutoFitWidth="0" ss:Width="215.25"/>
@@ -237,6 +238,16 @@
     <Cell ss:Index="13"><Data ss:Type="String">y</Data></Cell>
     <Cell><Data ss:Type="String">participation[typeCode=SBJ].role</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">FamilyHistory.date</Data></Cell>
+    <Cell><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">When history was captured/updated</Data></Cell>
+    <Cell><Data ss:Type="String">The date (and possibly time) when the family history was taken</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">Allows determination of how current the summary is</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">y</Data></Cell>
+    <Cell><Data ss:Type="String">participation[typeCode=AUT].time</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">FamilyHistory.note</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
@@ -314,7 +325,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)&#10;&#10;For age, you'd hang an observation off the role</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">FamilyHistory.relation.note</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -329,7 +340,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition</Data></Cell>
     <Cell><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -359,7 +370,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">.value</Data></Cell>
    </Row>
-   <Row ss:Height="90">
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.outcome</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s69"/>
@@ -375,7 +386,7 @@
     <Cell ss:StyleID="s69"/>
     <Cell><Data ss:Type="String">outboundRelationship[typeCode=OUTC)].target[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION].value</Data></Cell>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.onset[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Age | Range | string</Data></Cell>
@@ -385,7 +396,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;Subject Age at measurement&quot;, value&lt;Diagnosis].value[@xsi:typeCode='TS' or 'IVL_TS']&#10;&#10;Use originalText for string&#10;</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">Define/find appropriate observation code</Data></Cell>
    </Row>
-   <Row ss:Height="75">
+   <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">FamilyHistory.relation.condition.note</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data></Cell>
@@ -407,13 +418,12 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -421,16 +431,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -604,6 +612,11 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">FamilyHistory.subject</Data></Cell>
     <Cell ss:StyleID="s81"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">date</Data></Cell>
+    <Cell><Data ss:Type="String">FamilyHistory.date</Data></Cell>
+   </Row>
    <Row ss:Index="5" ss:AutoFitHeight="0">
     <Cell ss:Index="8" ss:StyleID="s66"/>
    </Row>
@@ -720,6 +733,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -740,7 +754,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -9,6 +9,8 @@
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
   </subject>
+  
+  <date value="2011-03-18"/>
 
   <relation>
 
