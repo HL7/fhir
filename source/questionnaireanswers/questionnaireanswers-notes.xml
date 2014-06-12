@@ -14,7 +14,7 @@ this second case, the linkage between the questions and groups in the two resour
 Observations to model Questionnaires. Such use cases should now utilize the QuestionnaireAnswers Resource instead.</li>
 <li>The Questionnaire's <i>encounter</i> element can be used to link to the encounter during which the Questionnaire was taken. This can be relevant since the
 encounter gives context to the answers and can be used to relate information in the Questionnaire to orders and observations that were done during the same Encounter.</li>
-<li>The order of questions within groups, groups withing groups and groups withing questions in relevant and must be retained for display and capture.</li>
+<li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.</li>
 </ul>
 
 <p>

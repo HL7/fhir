@@ -14,7 +14,7 @@ It explicitly does not try to standardize or streamline exchange of its contents
 constrain its structure and flexibility using profiles to define standardized, reusable forms.</li>
 <li>Because of the lack of explicit support for Questionnaires in HL7v3, HL7 CDA Documents frequently used named sections with
 Observations to model Questionnaires. Such use cases should now utilize the Questionnaire Resource instead.</li>
-<li>The order of questions within groups, groups withing groups and groups withing questions in relevant and must be retained for display and capture.</li>
+<li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.</li>
 </ul>
 
 <a name="qversusr" />
