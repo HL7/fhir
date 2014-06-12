@@ -514,7 +514,7 @@
     <Cell><Data ss:Type="String">CarePlan.activity.detail</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Resource(Procedure|MedicationPrescription|DiagnosticOrder|Encounter)</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Resource(Procedure|MedicationPrescription|DiagnosticOrder|Encounter|Supply)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Activity details defined in specific resource</Data></Cell>
     <Cell><Data ss:Type="String">The details of the proposed activity represented in a specific resource</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Details in a form consistent with other applications and contexts of use</Data></Cell>
@@ -708,7 +708,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -721,9 +721,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1221,7 +1224,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#care-plan-activity-category</Data></Cell>
    </Row>
-   <Row ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s68"><Data ss:Type="String">CarePlanActivityType</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Detailed description of the type of activity.  E.g. What lab test, what procedure, what kind of encounter.</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">unbound</Data></Cell>
