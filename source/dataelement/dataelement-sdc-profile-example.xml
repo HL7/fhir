@@ -114,7 +114,9 @@
       </element>
     </ConceptMap>
   </contained>
-  <identifier value="2179650"/>
+  <identifier>
+    <value value="2179650"/>
+  </identifier>
   <version value="1.0"/>
   <publisher value="DCP"/>
   <status value="active"/>

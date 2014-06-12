@@ -6,24 +6,25 @@
 This resource covers two major use-cases: 
 </p>
 <ol>
-  <li>Definitions of types of observations that may be performed, sometimes referred to as "observation master files"</li>
-  <li>Definitions of "data elements" (DEs) that may be used in questionnaires and profiles and potentially mapped to elements in other resources and profiles</li>
+  <li>Definitions of types of measurements or observations that may requested or performed.  In HL7, these are sometimes referred to as service, test or observation "master files"</li>
+  <li>Definitions of "data elements" (DEs) that may be used in <a href="questionnaire.html">questionnaires</a> (survey instruments and data collection forms) and <a href="profile.html">profiles</a> and potentially mapped to elements in other resources and profiles</li>
 </ol>
 <p>
-The purpose of the first use-case is to allow systems to identify what types of lab orders, diagnostic reports and other types of observations may be requested or
+The purpose of the first use-case is to allow systems to identify what types of lab orders, diagnostic studies and other types of observations may be requested or
 performed within a particular organization or other context.  An ordering practitioner can query for a list of data elements by category name or other
-criteria and identify which, within a set of similar tests, they wish to be performed.
+criteria and identify which, within a set of similar tests, they wish to request to be performed.
 </p>
 <p>
 The focus of the second use-case is standardizing data capture and reporting.  By defining standard names, data capture constraints, questions and other characteristics,
 the data gathered within and across organizations via questionnaires, as part of clinical studies, etc. can be made more consistent.  When designing clinical studies,
 constructing questionnaires, building profiles or performing other tasks that involve determining what data will be captured or exchanged and how, designers can query
 to find pre-defined data element definitions they can leverage or map to.  By encouraging consistency around data element definitions, data types, value sets, string
-lengths and other constraints, data becomes more easily exchangeable and comparible across systems.  This benefits interoperability and clinical research.
+lengths and other constraints, data becomes more easily exchangeable and comparible across systems.  This benefits interoperability and clinical research.  (For more 
+discussion, see the secton on <a href="standardization">standardization</a> below.)
 </p>
 <p>
-The scope covers base capabilities of the ISO 11179 Metadata Registries specification which defines CDEs.  It also covers observation definitions by ontologies such as LOINC.  
-The term "observation" is interpretted in its broadest sense as "any element that might be thought of as the 'value' in a name-value pair".  So it includes such concepts as
+The scope covers base capabilities of the ISO 11179 Metadata Registries specification which defines DEs.  It also covers observation definitions by ontologies such as LOINC.  
+The term "observation" is interpreted in its broadest sense as "any element that might be thought of as the 'value' in a name-value pair".  So it includes such concepts as
 patient gender, practitioner address and other data elements that would not typically be captured using the <a href="observation.html">Observation</a> resource.
 </p>
 </div>
@@ -40,7 +41,7 @@ together in context.  <b>DataElement</b> defines only a single data element and 
 might be the value of an <a href="observation.html">Observation</a>, the answer to a question in a <a href="questionnaire.html">Questionnaire</a>, captured as an element in some
 other resource (<a href="patient.html">Patient</a>, <a href="familyhistory.html">FamilyHistory</a>, etc.) or even used outside FHIR entirely in a CDA document or HL7 v2
 specification.  Authors of <a href="profile.html">Profile</a>s may leverage (and reference) <b>DataElement</b>s when defining the data elements with the Profile.
-(For implementability reasons, the data constraints should still be explictly exposed within the <a href="profile.html">Profile</a> rather than being included "by reference" 
+(For implementability reasons, the data constraints should still be explicitly exposed within the <a href="profile.html">Profile</a> rather than being included "by reference" 
 to the <b>DataElement.)</b>
 </p>
 <p>

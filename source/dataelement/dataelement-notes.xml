@@ -1,6 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
 <h3>ISO 11179</h3>
 <p>
 One of the sources of the <b>DataElement</b> resource definition was the <a href="http://metadata-standards.org/11179/">ISO 11179</a>
@@ -16,7 +15,7 @@ property is specified - which corresponds to the ISO property Data_Element.domai
 Unlike the 11179 logical specification, the
 <b>DataElement</b> resource does not require a linkage from data element to a distinct data element concept, though this linkage can
 be established through an extension if desired.  The typical means of identification of the data element concept is expected to instead
-occur through the mapping of the data element to a particular reference model that formally defines the concept.  It is possible this
+occur through the mapping of the data element to a particular code or reference model that formally defines the concept.  It is possible this
 reference model could be based on ISO's Object_Class and Property mechanism.  However, mappings to other reference models are also possible,
 for example:
 </p>
@@ -32,6 +31,84 @@ so will require the use of extensions to convey certain properties that are not 
 starter <a href="dataelement-11179.html">ISO 11179 profile</a> that defines extensions that are relevant to the 
 <a href="dataelement-sdc.html">SDC DataElement</a> profile.  If there is sufficient interest, the existing starter set may be
 enhanced to contain a complete set of extensions and a full 11179 in a future release of the specification.
+</p>
+
+<h3>Data Elements vs. Terminologies</h3>
+<p>
+Data elements can be thought of as being codes in a code system.  One of their purposes is to define types of observations or questions
+that can be answered.  This function is typically done by code sytems such as <a href="http://loinc.org">LOINC</a> and
+<a href="http://www.ihtsdo.org/snomed-ct/">SNOMED</a>.  It would be possible to treat a registry of data elements using a common
+identifier system/namespace as a code system.  Similarly, data elements can be mapped making use of the <a href="conceptmap">ConceptMap</a>
+resource.
+</p>
+<p>
+In practice, it is generally best to maintain a separate code system whose codes can be referenced in the <code>code</code> element
+of a <b>Data Element</b> rather than to treat the data element identifier itself as a code.  Most systems designed to handle code
+systems will not be able to handle the additional data associated with a data element.  As well, the maintenance and versioning process
+for data elements may not align well with the maintenance and versioning processes for codes.
+</p>
+
+<a name="standardization"/>
+<h3>Standardization through governance and registries</h3>
+<p>
+As noted in the introduction, one of the main purposes for the use of data elements is 'standardization' - gaining consistent
+(and thus comparable) data capture of data in <a href="questionnaire.html">questionnaires</a>, <a href="observation.html">observations</a>
+and within other resources.  However, merely defining data elements is not, in itself, sufficent to improve standardization.  To
+ensure consistency of data, there needs to be several additional things:
+</p>
+<ul>
+  <li>There must be a shared repository of data elements that will be consulted and used by the community where improved interoperability
+    is targeted.  Numerous groups will define and register data elements in a wide variety of repositories for a wide variety of purposes.
+    To improve interoperability, everyone in the target community needs to be working from the same set.</li>
+  <li>There must be governance over the repository of data elements to ensure consistency of granularity and reference structures - those
+    designing questionnaires, profiles, etc. need to be able to find the appropriate data element easily within the repository and there
+    should ideally only be one data element for a given purpose.  If a repository accepts 15 data elements defining different ways of
+    capturing the same piece of information, there will be no improvement in interoperability.</li>
+  <li>There must be incentives or governence processes in place that encourage or require the use of data elements from the shared
+    repository when defining forms, profiles and other structures where improved interoperability is desired.</li>
+  <li>There must be allowance for (and a transition path for) legacy systems that capture data or have existing data that is not in
+    alignment with the approved data elements.</li>
+</ul>
+<p>
+<b>Data Elements</b> are a tool through which improved standardization can be achieved but without adequate processes, they will not
+achieve significant benefit.
+</p>
+
+<h3>Data Element granularity and hierarchy</h3>
+<p>
+Data elements can be defined at a wide variety of granularities.  For example:
+</p>
+<ul>
+  <li>Systolic Blood pressure</li>
+  <li>Systolic Blood pressure (sitting)</li>
+  <li>Systolic Blood pressure (sitting, pressure cuff)</li>
+  <li>Systolic Blood pressure (sitting, pressure cuff) mmHg</li>
+</ul>
+<p>
+Coded data elements can be defined without value sets, with suggested value sets, with required but extensible value sets or with
+completely locked down value sets.  Numeric values can be defined with or without allowed ranges.  String data can be defined
+with or without patterns or lengths.  All are valid data elements.
+</p>
+<p>
+When defining data elements, it's important to decide what level of detail/granularity is appropriate for the intended purpose.
+The tighter the data element is defined, the greater interoperability of the data, however the smaller the set of systems that
+will be able to satisfy the constraints and the larger the number of data elements that will be required to cover a given
+domain.  In some cases, multiple granularities may be appropriate, though this can introduce challenges in ensuring that the
+appropriate granularity is selected for a given use.  As a rule, data elements should be defined as loosely as possible while
+still ensuring that all data captured using the data element will be sufficiently comparable to meet the needs of the group
+defining and using the data elements.  A corollary to this is that data elements defined by one group will not always meet
+the needs of another group, even if they may be covering the same domain.
+</p>
+
+<h3>Comparability and conversion of data elements</h3>
+<p>
+Two pieces of data don't necessarily need to be based on the same data element in order to be comparable or aggregatable.
+As noted above, it's possible for one data element to be a proper subset of another.  In addition, it may be possible to
+convert data from being conformant with one data element to being conformant with another data element.  This coversion
+could be lossless or may involve some loss of semantic precision.  For example, a weight measurement captured in pounds
+can be seamlessly converted to kilograms.  Similarly, coded data captured using one value set can be converted to another
+value set provided mappings are available.  The nature of the mappings would determine whether any loss of semantics
+would occur.
 </p>
 
 </div>
