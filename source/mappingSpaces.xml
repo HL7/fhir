@@ -1,0 +1,104 @@
+<mappingSpaces>
+  <!-- 
+  <space>
+    <url>[the formal URL - should also resolve to a useful document if possible]</url>
+    <columnName>The name for the mapping in the spreadsheet</columnName>
+    <title>The title for the mapping when displayed in the specification</title>
+    <id>the internal id on the page for the spec</id>
+    <preamble>[if necessary, an xhtml preamble for the mapping]</preamble>
+    <sort>[int: The order in which the mappings appear on the mapping page]</sort>
+  </space>
+  -->
+  <space>
+    <url>http://hl7.org/v3</url>
+    <columnName>RIM Mapping</columnName>
+    <title>RIM</title>
+    <id>rim</id>
+    <sort>1</sort>
+  </space>
+  <space>
+    <url>http://loinc.org</url>
+    <columnName>LOINC Code</columnName>
+    <title>LOINC</title>
+    <id>loinc</id>
+    <sort>2</sort>
+  </space>
+  <space>
+    <url>http://snomed.info</url>
+    <columnName>Snomed Code</columnName>
+    <title>SNOMED-CT</title>
+    <id>sct</id>
+    <sort>3</sort>
+  </space>
+  <space>
+    <url>http://hl7.org/v3/cda</url>
+    <columnName>CDA Mapping</columnName>
+    <title>CDA (R2)</title>
+    <id>cda</id>
+    <sort>4</sort>
+  </space>
+  <space>
+    <url>http://hl7.org/v2</url>
+    <columnName>v2 Mapping</columnName>
+    <title>HL7 v2</title>
+    <id>v2</id>
+    <sort>5</sort>
+  </space>
+  <space>
+    <url>http://nema.org/dicom</url>
+    <columnName>DICOM Mapping</columnName>
+    <title>DICOM</title>
+    <id>dicom</id>
+    <sort>6</sort>
+  </space>
+  <space>
+    <url>http://w3.org/vcard</url>
+    <columnName>vCard Mapping</columnName>
+    <title>vCard</title>
+    <id>vcard</id>
+    <sort>7</sort>
+  </space>
+  <space>
+    <url>http://ihe.net/xds</url>
+    <columnName>XDS Mapping</columnName>
+    <title>XDS</title>
+    <id>xds</id>
+    <sort>8</sort>
+  </space>
+  <space>
+    <url>http://www.w3.org/ns/prov</url>
+    <columnName>Prov Mapping</columnName>
+    <title>W3C PROV</title>
+    <id>w3c.prov</id>
+    <preamble>
+     <p>
+      The provenance resource is based on known practices in the
+      HL7 implementation space, particularly those found in the 
+      v2 EVN segment, the v3 ControlAct Wrapper, the CDA header, and 
+      HE ATNA (<a href="http://www.rfc3881.net">RFC 3881</a>).
+      The conceptual model underlying the design is the <a href="http://www.w3.org/2011/prov/wiki/Main_Page">W3C
+      provenance Specification</a>. Though the content and format
+      of the resource is designed to meet specific requirements for FHIR, 
+      all the parts of the resource are formally mapped to the PROV-O
+      specification, and FHIR resources can be transformed to their W3C
+      PROV equivalent.
+     </p>
+    </preamble>
+    <sort>9</sort>
+  </space>
+  <space>
+    <url>http://www.ietf.org/rfc/rfc2445.txt</url>
+    <columnName>iCal Mapping</columnName>
+    <title>iCalendar</title>
+    <id>ical</id>
+    <sort>10</sort>
+  </space>
+  <space>
+    <url>http://www.omg.org/spec/ServD/1.0/</url>
+    <columnName>ServD Mapping</columnName>
+    <title>ServD</title>
+    <id>servd</id>
+    <sort>11</sort>
+  </space>
+  
+</mappingSpaces>
