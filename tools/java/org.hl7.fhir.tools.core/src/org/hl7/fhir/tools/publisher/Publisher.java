@@ -275,9 +275,9 @@ public class Publisher {
   private IniFile cache;
   private WebMaker wm;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     //
-
+   
     Publisher pub = new Publisher();
 
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
@@ -755,6 +755,7 @@ public class Publisher {
       checkFile("required", page.getFolders().srcDir, "footer.html", errors, "all");
       checkFile("required", page.getFolders().srcDir, "template.html", errors, "all");
       checkFile("required", page.getFolders().srcDir, "template-book.html", errors, "all");
+      checkFile("required", page.getFolders().srcDir, "mappingSpaces.xml", errors, "all");
       // Utilities.checkFolder(page.getFolders().dstDir, errors);
 
       if (page.getIni().getPropertyNames("support") != null)
@@ -2198,7 +2199,7 @@ public class Publisher {
     dgen.close();
     String dict = TextFile.fileToString(tmp.getAbsolutePath());
 
-    MappingsGenerator mgen = new MappingsGenerator();
+    MappingsGenerator mgen = new MappingsGenerator(page.getDefinitions());
     mgen.generate(resource);
     String mappings = mgen.getMappings();
     String mappingsList = mgen.getMappingsList();

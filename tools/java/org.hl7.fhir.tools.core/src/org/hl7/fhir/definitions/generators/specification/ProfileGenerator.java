@@ -284,7 +284,7 @@ public class ProfileGenerator {
       type.setCode(Factory.newCode(t.summary()));
       dDst.getType().add(type);
     }
-    for (String mu : ElementDefn.getAllMappingUris()) {
+    for (String mu : definitions.getMapTypes().keySet()) {
       if (dSrc.hasMapping(mu)) {
         addMapping(p, dDst, mu, dSrc.getMapping(mu));
       }
@@ -390,18 +390,9 @@ public class ProfileGenerator {
     }
     // we don't know mustSupport here
     ce.getDefinition().setIsModifier(Factory.newBoolean(e.isModifier()));
-    addMapping(p, ce.getDefinition(), "http://loinc.org", e.getMapping(ElementDefn.LOINC_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://snomed.info", e.getMapping(ElementDefn.SNOMED_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://hl7.org/v3", e.getMapping(ElementDefn.RIM_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://hl7.org/v3/cda", e.getMapping(ElementDefn.CDA_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://hl7.org/v2", e.getMapping(ElementDefn.v2_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://nema.org/dicom", e.getMapping(ElementDefn.DICOM_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://w3.org/vcard", e.getMapping(ElementDefn.vCard_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://www.ietf.org/rfc/rfc2445.txt", e.getMapping(ElementDefn.iCAL_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://www.omg.org/spec/ServD/1.0/", e.getMapping(ElementDefn.ServD_MAPPING));
-    addMapping(p, ce.getDefinition(), "http://ihe.net/xds", e.getMapping(ElementDefn.XDS_MAPPING));
-    addMapping(p, ce.getDefinition(), ElementDefn.PROV_MAPPING, e.getMapping(ElementDefn.PROV_MAPPING));
-
+    for (String n : definitions.getMapTypes().keySet()) {
+      addMapping(p, ce.getDefinition(), n, e.getMapping(n));
+    }
     ToolingExtensions.addDisplayHint(ce.getDefinition(), e.getDisplayHint());
 
     for (String in : e.getInvariants().keySet()) {
@@ -484,13 +475,13 @@ public class ProfileGenerator {
 
   private void addMapping(Profile p, ElementDefinitionComponent definition, String target, String map) {
     if (!Utilities.noString(map)) {
-      String id = MappingsGenerator.idFor(target);
+      String id = definitions.getMapTypes().get(target).getTitle();
       if (!mappingExists(p, id)) {
         ProfileMappingComponent pm = new ProfileMappingComponent();
         p.getMapping().add(pm);
         pm.setIdentitySimple(id);
         pm.setUriSimple(target);
-        pm.setNameSimple(MappingsGenerator.titleFor(target));
+        pm.setNameSimple(definitions.getMapTypes().get(target).getTitle());
       }
       ElementDefinitionMappingComponent m = new Profile.ElementDefinitionMappingComponent();
       m.setIdentitySimple(id);

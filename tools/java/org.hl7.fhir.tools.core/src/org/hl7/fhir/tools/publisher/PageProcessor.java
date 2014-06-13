@@ -977,7 +977,7 @@ public class PageProcessor implements Logger  {
 //    list.addAll(definitions.getTypes().values());
 //    list.addAll(definitions.getInfrastructure().values());
     list.add(definitions.getElementDefn(name));
-    MappingsGenerator maps = new MappingsGenerator();
+    MappingsGenerator maps = new MappingsGenerator(definitions);
     maps.generate(list);
     return maps.getMappings();
   }
@@ -1044,7 +1044,7 @@ public class PageProcessor implements Logger  {
       list.addAll(definitions.getStructures().values());
       list.addAll(definitions.getTypes().values());
       list.addAll(definitions.getInfrastructure().values());
-      MappingsGenerator maps = new MappingsGenerator();
+      MappingsGenerator maps = new MappingsGenerator(definitions);
       maps.generate(list);
       mappings = maps.getMappingsList();
     }

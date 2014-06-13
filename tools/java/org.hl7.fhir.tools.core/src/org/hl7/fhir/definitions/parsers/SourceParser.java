@@ -39,6 +39,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.hl7.fhir.definitions.ecore.fhir.BindingDefn;
 import org.hl7.fhir.definitions.ecore.fhir.CompositeTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
@@ -54,6 +57,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.MappingSpace;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
@@ -77,6 +81,9 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
+import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  * This class parses the master source for FHIR into a single definitions object
@@ -166,6 +173,7 @@ public class SourceParser {
 
 		eCoreParseResults = DefinitionsImpl.build(genDate.getTime(), version);
 
+		loadMappingSpaces();
 		loadGlobalConceptDomains();
 		eCoreParseResults.getBinding().addAll(
 				sortBindings(BindingConverter.buildBindingsFromFhirModel(definitions
@@ -288,6 +296,29 @@ public class SourceParser {
 	}
 
 	
+  private void loadMappingSpaces() throws Exception {
+    try {
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setNamespaceAware(true);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      Document doc = builder.parse(new FileInputStream(Utilities.path(srcDir, "mappingSpaces.xml")));
+      Element e = XMLUtil.getFirstChild(doc.getDocumentElement());
+      while (e != null) {
+        MappingSpace m = new MappingSpace(XMLUtil.getNamedChild(e, "columnName").getTextContent(), XMLUtil.getNamedChild(e, "title").getTextContent(), 
+             XMLUtil.getNamedChild(e, "id").getTextContent(), Integer.parseInt(XMLUtil.getNamedChild(e, "sort").getTextContent()));
+        definitions.getMapTypes().put(XMLUtil.getNamedChild(e, "url").getTextContent(), m);
+        Element p = XMLUtil.getNamedChild(e, "preamble");
+        if (p != null)
+          m.setPreamble(XMLUtil.elementToString(XMLUtil.getFirstChild(p)));
+        e = XMLUtil.getNextSibling(e);
+      }
+    } catch (Exception e) {
+      throw new Exception("Error processing mappingSpaces.xml: "+e.getMessage(), e);
+    }
+    
+  }
+
+
   private void loadStatusCodes() throws FileNotFoundException, Exception {
     XLSXmlParser xml = new XLSXmlParser(new CSFileInputStream(srcDir+"status-codes.xml"), "compartments.xml");
     Sheet sheet = xml.getSheets().get("Status Codes");

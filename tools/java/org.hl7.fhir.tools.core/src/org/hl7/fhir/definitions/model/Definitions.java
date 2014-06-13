@@ -50,6 +50,21 @@ import org.hl7.fhir.instance.model.ValueSet;
  */
 public class Definitions {
 
+  public static final String RIM_MAPPING = "http://hl7.org/v3";
+  public static final String v2_MAPPING = "http://hl7.org/v2";
+  public static final String LOINC_MAPPING = "http://loinc.org";
+  public static final String SNOMED_MAPPING = "http://snomed.info";
+  
+//  public static final String CDA_MAPPING = "";
+//  public static final String v2_MAPPING = "";
+//  public static final String DICOM_MAPPING = "";
+//  public static final String vCard_MAPPING = "";
+//  public static final String XDS_MAPPING = "";
+//  public static final String PROV_MAPPING = "";
+//  public static final String iCAL_MAPPING = "";
+//  public static final String ServD_MAPPING = "";
+
+    
   private Map<String, BindingSpecification> bindings = new HashMap<String, BindingSpecification>();
   private List<BindingSpecification> commonBindings = new ArrayList<BindingSpecification>();
 	private Map<String, DefinedCode> knownResources = new HashMap<String, DefinedCode>();
@@ -76,11 +91,13 @@ public class Definitions {
   private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
   private Map<String, ArrayList<String>> statusCodes = new HashMap<String, ArrayList<String>>();
+  private Map<String, MappingSpace> mapTypes = new HashMap<String, MappingSpace>();
 
   private List<Compartment> compartments = new ArrayList<Compartment>();
   private List<String> pastVersions = new ArrayList<String>();
+
   
-	// Returns the root ElementDefn of a CompositeType or Resource,
+  // Returns the root ElementDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
 	public ElementDefn getElementDefn(String name) throws Exception {
 		ElementDefn root = null;
@@ -312,13 +329,17 @@ public class Definitions {
   public boolean hasPrimitiveType(String name) {
     return primitives.containsKey(name);
   }
-
+  
   public Map<String, ArrayList<String>> getStatusCodes() {
     return statusCodes;
   }
 
   public List<String> getPastVersions() {
     return pastVersions;
+  }
+
+  public Map<String, MappingSpace> getMapTypes() {
+    return mapTypes;
   }
 
   

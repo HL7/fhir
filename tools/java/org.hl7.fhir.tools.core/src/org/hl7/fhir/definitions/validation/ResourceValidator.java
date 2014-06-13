@@ -129,7 +129,7 @@ public class ResourceValidator extends BaseValidator {
 
     rule(errors, "required",  parent.getName(), parent.getRoot().getElements().size() > 0, "A resource must have at least one element in it before the build can proceed"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     
-    String s = parent.getRoot().getMapping(ElementDefn.RIM_MAPPING);
+    String s = parent.getRoot().getMapping(Definitions.RIM_MAPPING);
     warning(errors, "required", parent.getName(), !Utilities.noString(s), "RIM Mapping is required");
 
     checkElement(errors, parent.getName(), parent.getRoot(), parent, null, s == null || !s.equalsIgnoreCase("n/a"));
@@ -302,7 +302,7 @@ public class ResourceValidator extends BaseValidator {
 			}
 		}
 
-    String s = e.getMapping(ElementDefn.RIM_MAPPING);
+    String s = e.getMapping(Definitions.RIM_MAPPING);
     warning(errors, "required", path, !needsRimMapping || !Utilities.noString(s), "RIM Mapping is required");
 
     needsRimMapping = needsRimMapping && !"n/a".equalsIgnoreCase(s) && !Utilities.noString(s);
