@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/dataelement.xsd">
-  <!-- No home for:
-         Data Element: Document Text, Used by Context, Origin, Workflow Status, Short Name
-         Data Element Concept: Anything other than Object Class & Property
-         Value Domain: Short Name, Conceptual Domain Short Name, Origin, Workflow Status
-         Reference Document: Alternate Question Text
-         Classifications: CS Definition, CSI Type -->
   <extension url="http://hl7.org/fhir/Profile/element-constraints#minLength">
     <valueInteger value="1"/>
   </extension>

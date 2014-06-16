@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h3>ISO 11179</h3>
+<h3>Relationship to ISO 11179</h3>
 <p>
 One of the sources of the <b>DataElement</b> resource definition was the <a href="http://metadata-standards.org/11179/">ISO 11179</a>
 Metadata Registries specification.  It defines a logical model for the classification, identification, naming and registration of 

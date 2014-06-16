@@ -1,200 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/dataelement.xsd">
-  <!-- No home for:
-         Data Element: Document Text, Used by Context, Origin, Workflow Status, Short Name
-         Data Element Concept: Anything other than Object Class & Property
-         Value Domain: Short Name, Conceptual Domain Short Name, Origin, Workflow Status
-         Reference Document: Alternate Question Text
-         Classifications: CS Definition, CSI Type -->
-  <extension url="http://hl7.org/fhir/Profile/element-extensions#minLength">
-    <valueInteger value="1"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/Profile/element-extensions#maxLength">
-    <valueInteger value="13"/>
-  </extension>
+<!-- This DataElement is an example reflecting the content of row 15 of the Google document:
+     https://docs.google.com/a/lmckenzie.com/spreadsheets/d/1YJ1Q10Hn_B-Yu-iIxzo28f6PsIfs4_b_-hhXsB64Vl4/edit#gid=1476288095 -->
+<DataElement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir C:\Users\office\Documents\Projects\HL7Generator\FHIR2\build\publish\dataelement.xsd" xmlns="http://hl7.org/fhir">
   <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-        <b>Gender Code</b>: The code representing the gender of a person</p>
-      <table>
-        <tbody>
-          <tr>
-            <th>Code</th>
-            <th>Display</th>
-            <th>Definition</th>
-          </tr>
-          <tr>
-            <td>0</td>
-            <td>Unknown</td>
-            <td>Not known, not observed, not recorded, or refused.</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Male</td>
-            <td>A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both.</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Female</td>
-            <td>A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both.</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Not specified</td>
-            <td>Not specified</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <status value="generated"></status>
+    <div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
   </text>
   <contained>
-    <ValueSet id="2179414">
-      <identifier value="2179414"/>
-      <version value="1.0"/>
-      <name value="Gender Code"/>
-      <description value="All codes representing the gender of a person."/>
-      <status value="active"/>
-      <define>
-        <system value="http://example.org/fhir/2179414"/>
-        <concept>
-          <code value="0"/>
-          <display value="Unknown"/>
-          <definition value="Not known, not observed, not recorded, or refused. "/>
-        </concept>
-        <concept>
-          <code value="1"/>
+    <ValueSet id="de42">
+      <!--
+         Side notes:
+          - "1" is not a valid code system version for AdministrativeGender
+          - The definition and display name for code "UN" is not valid
+        -->
+      <name value="Administrative Gender (HL7 V3)"/>
+      <description value="TODO - remove"/>
+      <status value="draft"/>
+      <compose>
+        <include>
+          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+          <version value="1"/>
+          <code value="M"/>
+        </include>
+        <include>
+          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+          <version value="1"/>
+          <code value="F"/>
+        </include>
+      </compose>
+      <expansion>
+        <timestamp value="2012-10-03T00:00:00"/>
+        <contains>
+          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+          <code value="M"/>
           <display value="Male"/>
-          <definition value="A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both."/>
-        </concept>
-        <concept>
-          <code value="2"/>
+        </contains>
+        <contains>
+          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+          <code value="F"/>
           <display value="Female"/>
-          <definition value="A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both."/>
-        </concept>
-        <concept>
-          <code value="3"/>
-          <display value="Not specified"/>
-          <definition value="Not specified"/>
-        </concept>
-      </define>
+        </contains>
+      </expansion>
     </ValueSet>
   </contained>
-  <contained>
-    <ConceptMap id="2179414-cm">
-      <name value="TODO - remove"/>
-      <status value="active"/>
-      <sourceResource>
-        <reference value="#2179414"/>
-      </sourceResource>
-      <targetUri value="http://ncit.nci.nih.gov"/>
-      <element>
-        <codeSystem value="http://example.org/fhir/2179414"/>
-        <code value="0"/>
-        <map>
-          <code value="C17998"/>
-          <equivalence value="equal"/>
-        </map>
-      </element>
-      <element>
-        <codeSystem value="http://example.org/fhir/2179414"/>
-        <code value="1"/>
-        <map>
-          <code value="C20197"/>
-          <equivalence value="equal"/>
-        </map>
-      </element>
-      <element>
-        <codeSystem value="http://example.org/fhir/2179414"/>
-        <code value="2"/>
-        <map>
-          <code value="C16576"/>
-          <equivalence value="equal"/>
-        </map>
-      </element>
-    </ConceptMap>
-  </contained>
   <identifier>
-    <value value="2179650"/>
+    <system value="http://nlm.nih.gov/some_other_text/data_element_identifier"/>
+    <value value="DE42AHRQ"/>
   </identifier>
-  <version value="1.0"/>
-  <publisher value="DCP"/>
-  <status value="active"/>
-  <name value="Gender Code"/>
+  <version value="1.2"/>
+  <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
+  <telecom>
+    <system value="email"/>
+    <value value="william.munier@ahrq.hhs.gov"/>
+  </telecom>
+  <status value="draft"/>
+  <date value="2012-10-21"/>
+  <name value="Patient Gender"/>
   <category>
     <coding>
-      <system value="http://unknown/FBPP"/>
-      <display value="FBPP Pooled Database"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/PhenX"/>
-      <display value="Demographics"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Eligibility Criteria"/>
-      <display value="Pt. Administrative"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/UAMS Clinical Research"/>
-      <display value="UAMS New CDEs"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/PhenX"/>
-      <display value="Substance Abuse and "/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Category"/>
-      <display value="CSAERS Adverse Event"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/PhenX"/>
-      <display value="Core: Tier 1"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Category"/>
-      <display value="Case Report Forms"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Category"/>
-      <display value="CSAERS Review Set"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Demonstration%20Applications"/>
-      <display value="CIAF"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/NIDA%20CTN%20Usage"/>
-      <display value="Clinical Research"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/NIDA%20CTN%20Usage"/>
-      <display value="Electronic Health Re"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Condition"/>
-      <display value="Barretts Esophagus"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Condition"/>
-      <display value="Bladder Cancer"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Condition"/>
-      <display value="Oral Leukoplakia"/>
-    </coding>
-    <coding>
-      <system value="http://unknown/Condition"/>
-      <display value="Sulindac for Breast"/>
+      <code value="Healthcare Event Reporting Form"/>
+      <!-- Wasn't clear if the above was a code -->
+      <display value="Patient safety event report - hospital: healthcare event reporting form"/>
     </coding>
   </category>
-  <question value="Gender"/>
-  <definition value="The code representing the gender of a person."/>
-  <type value="CodeableConcept"/>
+  <code>
+    <system value="http://loinc.org"/>
+    <code value="72143-1"/>
+    <primary value="true"/>
+  </code>
+  <question value="Patient's Gender"/>
+  <definition value="The patient's documented gender on arrival at the hospital. "/>
+  <requirements value="AHRQ Healthcare Event Reporting Form
+Patient safety event report - hospital: healthcare event reporting form
+(HERF) - version 1.2 [AHRQ]
+https://www.psoppc.org/c/document_library/get_file?uuid=6034c5aa-ad07-4dbe-ab19-0b45fb160683&amp;groupId=10218"/>
+  <type value="dateTime"/>
   <binding>
     <isExtensible value="false"/>
     <conformance value="required"/>
     <valueSet>
-      <reference value="#2179414"/>
+      <reference value="#de42"/>
     </valueSet>
   </binding>
+  <mapping>
+    <extension url="http://hl7.org/fhir/Profile/datelement-11179#objectClass">
+      <valueCoding>
+        <system value="http://snomed.info/sct"/>
+        <code value="116154003"/>
+        <display value="Patient"/>
+      </valueCoding>
+    </extension>
+    <extension url="http://hl7.org/fhir/Profile/datelement-11179#property">
+      <valueCoding>
+        <system value="http://snomed.info/sct"/>
+        <code value="263495000"/>
+        <display value="Gender"/>
+      </valueCoding>
+    </extension>
+    <uri value="http://healthit.gov/sdc/objectclassproperty"/>
+    <name value="Structured Data Capture ObjectClass/Property"/>
+    <map value="http://snomed.info/sct#116154003 | http://snomed.info/sct | 263495000"/>
+  </mapping>
 </DataElement>
