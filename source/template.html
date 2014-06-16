@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE HTML>
 
 
 
@@ -20,23 +20,45 @@
 </p>
 
 <%introduction%>
+
+<%resref%>
+
 <a name="resource"></a>
 <h2>
 Resource Content
 </h2>
-<a name="uml"> </a>
-<%svg%>
-<%resref%>
-
 <a name="def"> </a>
 <a name="<%name%>"> </a>
 <a name="<%title%>"> </a>
-<%xml%>
+
+<div id="uml">
+<a name="uml"> </a>
+<p><b>UML Diagram</b></p>
+ <div id="uml-inner">
+ <%svg%>
+ </div>
+</div>
+
+<div id="tbl">
+<a name="tbl"> </a>
+<p><b>Structure</b></p>
+ <div id="tbl-inner">
+  <%resource-table%>
+ </div>
+</div>
+
+<div id="xml">
+<a name="xml"> </a>
+<p><b>XML Template</b></p>
+ <div id="xml-inner">
+  <%xml%>
+ </div>
+</div>
+
 
 <p>Alternate definitions: <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a>, 
 <a href="<%name%>.profile.xml.html">Resource Profile</a></p>
 
-<%resource-table%>
 
 <a name="tx"> </a>
 <%tx%>

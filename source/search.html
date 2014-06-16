@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE HTML>
 
 
 [%settitle RESTful API%]
@@ -15,15 +15,12 @@
 <h2>Search / Query</h2>
 
 <p>
-One operation that is fundamental to the way FHIR works is to search (find 
-existing resources by filter criteria) or query (more detailed questions
-based on existing data). Search/query operations can span complexity 
-from a simple search based on indexed criteria, through to complex 
-decision support based requests, and finally complex queries that can only be 
-resolved by human intervention. This page documents the FHIR search framework,
-starting with the simple cases, and working through to the full complexity.
-Implementations need only implement the amount of complexity that they 
-require.
+One operation that is fundamental to the way FHIR works is to search (or query).
+Search/Query operations search through an existing set of resources by a set 
+of search criteria supplied as parameters to the search. This page documents 
+the FHIR search framework, starting with the simple cases, and working through 
+to the full complexity. Implementations need only implement the amount of 
+complexity that they require.
 </p>
 <p>
 In the simplest case, a search is executed by performing a GET operation
