@@ -8,8 +8,10 @@ Data Elements, Data Element Concepts and their associated Value and Conceptual D
 <p>
 The <b>DataElement</b> resource can be used to represent both Data_Element and Data_Element_Concept in the ISO logical model.
 (The <a href="valueset.html">ValueSet</a> resource provides the details for Value_Domain and Conceptual_Domain for enumerated elements.)
-The determination of whether a <b>DatElement</b> is a Data_Element or Data_ElementConcept is determined by whether the <code>type</code> 
-property is specified - which corresponds to the ISO property Data_Element.domain.datatype which is required for Data_Elements.
+The determination of whether a <b>DataElement</b>resource instance is an ISO 11179 Data_Element or Data_Element_Concept is determined by 
+whether the <code>type</code> property is specified - which corresponds to the ISO property Data_Element.domain.datatype which is required 
+for Data_Elements.  I.e. If DataElement.type is present, the instance represents a 11179 data element.  If DataElement.type is absent, the
+instance represents a 11179 data element concept.
 </p>
 <p>
 Unlike the 11179 logical specification, the
@@ -38,8 +40,8 @@ enhanced to contain a complete set of extensions and a full 11179 in a future re
 Data elements can be thought of as being codes in a code system.  One of their purposes is to define types of observations or questions
 that can be answered.  This function is typically done by code sytems such as <a href="http://loinc.org">LOINC</a> and
 <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED</a>.  It would be possible to treat a registry of data elements using a common
-identifier system/namespace as a code system.  Similarly, data elements can be mapped making use of the <a href="conceptmap">ConceptMap</a>
-resource.
+identifier system/namespace as a code system.  Similarly, data elements can be mapped to each other (and to codes) in the same manner as 
+codes can be mapped by making use of the <a href="conceptmap">ConceptMap</a> resource.
 </p>
 <p>
 In practice, it is generally best to maintain a separate code system whose codes can be referenced in the <code>code</code> element
@@ -104,7 +106,7 @@ the needs of another group, even if they may be covering the same domain.
 <p>
 Two pieces of data don't necessarily need to be based on the same data element in order to be comparable or aggregatable.
 As noted above, it's possible for one data element to be a proper subset of another.  In addition, it may be possible to
-convert data from being conformant with one data element to being conformant with another data element.  This coversion
+convert data from being conformant with one data element to being conformant with another data element.  This conversion
 could be lossless or may involve some loss of semantic precision.  For example, a weight measurement captured in pounds
 can be seamlessly converted to kilograms.  Similarly, coded data captured using one value set can be converted to another
 value set provided mappings are available.  The nature of the mappings would determine whether any loss of semantics
