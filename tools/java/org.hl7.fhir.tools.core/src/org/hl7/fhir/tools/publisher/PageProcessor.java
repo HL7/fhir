@@ -138,11 +138,11 @@ public class PageProcessor implements Logger  {
   private String id; // technical identifier associated with the page being built
   private EPubManager epub;
   private SpecificationTerminologyServices conceptLocator;
-;
+  private String baseURL = "http://hl7.org/implement/standards/FHIR-Develop/";
   
   public final static String PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px;\">\r\n"+
-          "This is the stable development version of FHIR. There's also a <a href=\"http://hl7.org/fhir\">Current DSTU</a>, and a <a href=\"http://latest.fhir.me/\">Nightly Build</a> (will be incorrect/inconsistent at times).\r\n"+
+          "This is the stable development version of FHIR. There's also a <a href=\"http://hl7.org/fhir\">Current DSTU</a>, and a <a href=\"http://latest.fhir.me/\">Continuous Integration Build</a> (will be incorrect/inconsistent at times).\r\n"+
           "</p>\r\n";
   
 //  private boolean notime;
@@ -292,6 +292,9 @@ public class PageProcessor implements Logger  {
 
 
   public String processPageIncludes(String file, String src, String type, Map<String, String> others) throws Exception {
+    return processPageIncludes(file, src, type, others, file);
+  }
+  public String processPageIncludes(String file, String src, String type, Map<String, String> others, String pagePath) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(file)+"_Page";
     String workingTitle = null;
     int level = 0;
@@ -552,6 +555,12 @@ public class PageProcessor implements Logger  {
         src = s1 + genlevel(level) + s3;  
       else if (com[0].equals("archive"))
         src = s1 + makeArchives() + s3;  
+      else if (com[0].equals("pagePath"))
+        src = s1 + pagePath + s3;  
+      else if (com[0].equals("rellink"))
+        src = s1 + Utilities.URLEncode(pagePath) + s3;  
+      else if (com[0].equals("baseURL"))
+        src = s1 + Utilities.URLEncode(baseURL) + s3;  
       else if (others != null && others.containsKey(com[0]))  
         src = s1 + others.get(com[0]) + s3;  
       else 
@@ -799,7 +808,9 @@ public class PageProcessor implements Logger  {
 
   private String r2Json(ValueSet vs) throws Exception {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-    new JsonComposer().compose(bytes, vs, true);
+    JsonComposer json = new JsonComposer();
+    json.setSuppressXhtml("Snipped for Brevity");
+    json.compose(bytes, vs, true);
     return new String(bytes.toByteArray());
   }
 
@@ -1320,7 +1331,7 @@ public class PageProcessor implements Logger  {
   
   private String genResourceTable(ResourceDefn res) throws Exception {
     ElementDefn e = res.getRoot();
-    ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this);
+    ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this, res.getName()+"-definitions.html");
     return new XhtmlComposer().compose(gen.generate(e));
   }
   
@@ -2471,7 +2482,7 @@ public class PageProcessor implements Logger  {
     return false;
   }
 
-  String processResourceIncludes(String name, ResourceDefn resource, String xml, String tx, String dict, String src, String mappings, String mappingsList, String type) throws Exception {
+  String processResourceIncludes(String name, ResourceDefn resource, String xml, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(name)+"_Page";
     String workingTitle = Utilities.escapeXml(resource.getName());
     
@@ -2592,6 +2603,12 @@ public class PageProcessor implements Logger  {
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("resref"))
         src = s1 + getReferences(resource.getName()) + s3;      
+      else if (com[0].equals("pagePath"))
+        src = s1 + pagePath + s3;  
+      else if (com[0].equals("rellink"))
+        src = s1 + Utilities.URLEncode(pagePath) + s3;  
+      else if (com[0].equals("baseURL"))
+        src = s1 + Utilities.URLEncode(baseURL) + s3;  
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -2904,7 +2921,7 @@ public class PageProcessor implements Logger  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource);
   }
 
-  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master) throws Exception {
+  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master, String pagePath) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
 
     while (src.contains("<%") || src.contains("[%"))
@@ -3014,6 +3031,12 @@ public class PageProcessor implements Logger  {
         src = s1 + publicationNotice + s3;
       else if (com[0].equals("profile-table"))
         src = s1 + generateProfileTable(profile) + s3;      
+      else if (com[0].equals("pagePath"))
+        src = s1 + pagePath + s3;  
+      else if (com[0].equals("rellink"))
+        src = s1 + Utilities.URLEncode(pagePath) + s3;  
+      else if (com[0].equals("baseURL"))
+        src = s1 + Utilities.URLEncode(baseURL) + s3;  
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.metadata("id")+s3;
       } else 
@@ -3023,7 +3046,7 @@ public class PageProcessor implements Logger  {
   }
 
   private String generateProfileTable(ProfileDefn profile) throws Exception {
-    ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this);
+    ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this, profile.metadata("name")+".html");
     return new XhtmlComposer().compose(gen.generate(profile));
   }
 
@@ -3285,6 +3308,14 @@ public class PageProcessor implements Logger  {
 
   public Map<String, Profile> getProfiles() {
     return profiles;
+  }
+
+  public String getBaseURL() {
+    return baseURL;
+  }
+
+  public void setBaseURL(String baseURL) {
+    this.baseURL = !baseURL.endsWith("/") ? baseURL : baseURL + "/";
   }
 
   

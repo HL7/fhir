@@ -38,13 +38,14 @@ public enum ResourceType {
     Medication,
     MessageHeader,
     DocumentManifest,
+    DataElement,
     Availability,
     MedicationAdministration,
+    QuestionnaireAnswers,
     Encounter,
     SecurityEvent,
     List,
     DeviceObservationReport,
-    CommonDataElement,
     FamilyHistory,
     Location,
     AllergyIntolerance,
@@ -134,10 +135,14 @@ public enum ResourceType {
       return "messageheader";
     case DocumentManifest:
       return "documentmanifest";
+    case DataElement:
+      return "dataelement";
     case Availability:
       return "availability";
     case MedicationAdministration:
       return "medicationadministration";
+    case QuestionnaireAnswers:
+      return "questionnaireanswers";
     case Encounter:
       return "encounter";
     case SecurityEvent:
@@ -146,8 +151,6 @@ public enum ResourceType {
       return "list";
     case DeviceObservationReport:
       return "deviceobservationreport";
-    case CommonDataElement:
-      return "commondataelement";
     case FamilyHistory:
       return "familyhistory";
     case Location:

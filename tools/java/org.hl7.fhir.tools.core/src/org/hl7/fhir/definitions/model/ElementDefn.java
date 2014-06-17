@@ -70,6 +70,8 @@ public class ElementDefn {
 	private String committeeNotes;
 	private String condition;
 	private String example;
+	private List<String> tasks = new ArrayList<String>();
+	
 	private String profileName; // only in a profile, for slicing
 	private String discriminator; // when slicing
 	private String profile; // means some profile is applicable to this data type or resource reference
@@ -761,6 +763,10 @@ public class ElementDefn {
 
   public void setDisplayHint(String displayHint) {
     this.displayHint = displayHint;
+  }
+
+  public List<String> getTasks() {
+    return tasks;
   }
 	
 	

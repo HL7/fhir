@@ -1,7 +1,7 @@
 NAME="Continuous Integration Build"
 
 antBuild (){
-  ./publish.sh -name \'$NAME\'
+  ./publish.sh -name \'$NAME\' -url http://hl7-fhir.github.io/
   checkStatus
 }
 

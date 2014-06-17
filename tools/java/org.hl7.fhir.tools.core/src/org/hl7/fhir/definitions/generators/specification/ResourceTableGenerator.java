@@ -10,8 +10,8 @@ import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class ResourceTableGenerator extends TableGenerator {
-  public ResourceTableGenerator(String dest, PageProcessor page) {
-    super(dest, page);
+  public ResourceTableGenerator(String dest, PageProcessor page, String pageName) {
+    super(dest, page, pageName);
   }
 
   public XhtmlNode generate(ElementDefn e) throws Exception {
@@ -24,7 +24,7 @@ public class ResourceTableGenerator extends TableGenerator {
     model.getTitles().add(gen.new Title(null, null, "Description", null, null, 0));
     model.getTitles().add(gen.new Title(null, null, "Constraints", null, null, 0));
     
-    model.getRows().add(genElement(e, gen, true));
+    model.getRows().add(genElement(e, gen, true, e.getName()));
     
     return gen.generate(model);
   }

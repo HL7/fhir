@@ -54,7 +54,7 @@ import com.google.gson.stream.JsonWriter;
  * The two classes are separated to keep generated and manually maintained code apart.
  */
 
-public abstract class JsonComposerBase extends FormatUtilities implements Composer {
+public abstract class JsonComposerBase extends ComposerBase {
 
 	protected JsonWriter json;
 	private boolean htmlPretty;
@@ -67,8 +67,7 @@ public abstract class JsonComposerBase extends FormatUtilities implements Compos
   public void compose(OutputStream stream, Resource resource, boolean pretty) throws Exception {
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
 		JsonWriter writer = new JsonWriter(osw);
-
-        writer.setIndent(pretty ? "  ":"");
+    writer.setIndent(pretty ? "  ":"");
 		writer.beginObject();
 		compose(writer, resource);
 		writer.endObject();
@@ -326,9 +325,13 @@ public abstract class JsonComposerBase extends FormatUtilities implements Compos
 //	}
 //	
 	protected void composeXhtml(String name, XhtmlNode html) throws Exception {
-		XhtmlComposer comp = new XhtmlComposer();
-		comp.setPretty(htmlPretty);
-		prop(name, comp.compose(html));
+		if (!Utilities.noString(xhtmlMessage)) {
+      prop(name, "<div>!-- "+xhtmlMessage+" --></div>");
+		} else {
+		  XhtmlComposer comp = new XhtmlComposer();
+		  comp.setPretty(htmlPretty);
+		  prop(name, comp.compose(html));
+		}
 	}
 
 //	protected void composeBytes(String name, byte[] content) throws Exception {

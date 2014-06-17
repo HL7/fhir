@@ -719,6 +719,12 @@ public class SpreadsheetParser {
 			e = makeFromPath(root.getRoot(), path, row, profileName, true);
 		}
 
+		String tasks = sheet.getColumn(row, "gForge");
+		if (!Utilities.noString(tasks)) {
+		  for (String t : tasks.split(","))
+		    e.getTasks().add(t);
+		}
+		
 		if (e.getName().startsWith("@")) {
 		  e.setName(e.getName().substring(1));
 		  e.setXmlAttribute(true);

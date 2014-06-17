@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, May 10, 2014 00:15+1000 for FHIR v0.2.1
+// Generated on Tue, Jun 17, 2014 07:59+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -3100,6 +3100,11 @@ public class Profile extends Resource {
   }
 
     /**
+     * The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.
+     */
+    protected Uri url;
+
+    /**
      * The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).
      */
     protected String_ identifier;
@@ -3179,16 +3184,49 @@ public class Profile extends Resource {
      */
     protected List<ProfileQueryComponent> query = new ArrayList<ProfileQueryComponent>();
 
-    private static final long serialVersionUID = -778681152L;
+    private static final long serialVersionUID = 263820367L;
 
     public Profile() {
       super();
     }
 
-    public Profile(String_ name, Enumeration<ResourceProfileStatus> status) {
+    public Profile(Uri url, String_ name, Enumeration<ResourceProfileStatus> status) {
       super();
+      this.url = url;
       this.name = name;
       this.status = status;
+    }
+
+    /**
+     * @return {@link #url} (The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.)
+     */
+    public Uri getUrl() { 
+      return this.url;
+    }
+
+    /**
+     * @param value {@link #url} (The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.)
+     */
+    public Profile setUrl(Uri value) { 
+      this.url = value;
+      return this;
+    }
+
+    /**
+     * @return The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.
+     */
+    public String getUrlSimple() { 
+      return this.url == null ? null : this.url.getValue();
+    }
+
+    /**
+     * @param value The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.
+     */
+    public Profile setUrlSimple(String value) { 
+        if (this.url == null)
+          this.url = new Uri();
+        this.url.setValue(value);
+      return this;
     }
 
     /**
@@ -3647,6 +3685,7 @@ public class Profile extends Resource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
+        childrenList.add(new Property("url", "uri", "The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the Profile.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -3667,6 +3706,7 @@ public class Profile extends Resource {
 
       public Profile copy() {
         Profile dst = new Profile();
+        dst.url = url == null ? null : url.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();

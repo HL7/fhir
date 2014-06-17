@@ -29,19 +29,19 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, May 10, 2014 00:15+1000 for FHIR v0.2.1
+// Generated on Tue, Jun 17, 2014 07:59+1000 for FHIR v0.2.1
 
 import java.util.*;
 
 /**
  * The formal description of a single piece of information that can be gathered and reported.
  */
-public class CommonDataElement extends Resource {
+public class DataElement extends Resource {
 
     public enum ResourceObservationDefStatus {
-        draft, // This observation definition is still under development.
-        active, // This observation definition is ready for normal use.
-        retired, // This observation definition has been deprecated, withdrawn or superseded and should no longer be used.
+        draft, // This data element is still under development.
+        active, // This data element is ready for normal use.
+        retired, // This data element has been deprecated, withdrawn or superseded and should no longer be used.
         Null; // added to help the parsers
         public static ResourceObservationDefStatus fromCode(String codeString) throws Exception {
             if (codeString == null || "".equals(codeString))
@@ -138,12 +138,7 @@ public class CommonDataElement extends Resource {
       }
     }
 
-    public static class CommonDataElementBindingComponent extends BackboneElement {
-        /**
-         * A descriptive name for this - can be useful for generating implementation artifacts.
-         */
-        protected String_ name;
-
+    public static class DataElementBindingComponent extends BackboneElement {
         /**
          * If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
@@ -162,59 +157,23 @@ public class CommonDataElement extends Resource {
         /**
          * Points to the value set that identifies the set of codes to be used.
          */
-        protected ResourceReference reference;
+        protected ResourceReference valueSet;
 
         /**
          * The actual object that is the target of the reference (Points to the value set that identifies the set of codes to be used.)
          */
-        protected ValueSet referenceTarget;
+        protected ValueSet valueSetTarget;
 
-        private static final long serialVersionUID = -1979652709L;
+        private static final long serialVersionUID = 1873055942L;
 
-      public CommonDataElementBindingComponent() {
+      public DataElementBindingComponent() {
         super();
       }
 
-      public CommonDataElementBindingComponent(Boolean isExtensible) {
+      public DataElementBindingComponent(Boolean isExtensible) {
         super();
         this.isExtensible = isExtensible;
       }
-
-        /**
-         * @return {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.)
-         */
-        public String_ getName() { 
-          return this.name;
-        }
-
-        /**
-         * @param value {@link #name} (A descriptive name for this - can be useful for generating implementation artifacts.)
-         */
-        public CommonDataElementBindingComponent setName(String_ value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return A descriptive name for this - can be useful for generating implementation artifacts.
-         */
-        public String getNameSimple() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value A descriptive name for this - can be useful for generating implementation artifacts.
-         */
-        public CommonDataElementBindingComponent setNameSimple(String value) { 
-          if (value == null)
-            this.name = null;
-          else {
-            if (this.name == null)
-              this.name = new String_();
-            this.name.setValue(value);
-          }
-          return this;
-        }
 
         /**
          * @return {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.)
@@ -226,7 +185,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value {@link #isExtensible} (If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.)
          */
-        public CommonDataElementBindingComponent setIsExtensible(Boolean value) { 
+        public DataElementBindingComponent setIsExtensible(Boolean value) { 
           this.isExtensible = value;
           return this;
         }
@@ -241,7 +200,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.
          */
-        public CommonDataElementBindingComponent setIsExtensibleSimple(boolean value) { 
+        public DataElementBindingComponent setIsExtensibleSimple(boolean value) { 
             if (this.isExtensible == null)
               this.isExtensible = new Boolean();
             this.isExtensible.setValue(value);
@@ -258,7 +217,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value {@link #conformance} (Indicates the degree of conformance expectations associated with this binding.)
          */
-        public CommonDataElementBindingComponent setConformance(Enumeration<BindingConformance> value) { 
+        public DataElementBindingComponent setConformance(Enumeration<BindingConformance> value) { 
           this.conformance = value;
           return this;
         }
@@ -273,7 +232,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value Indicates the degree of conformance expectations associated with this binding.
          */
-        public CommonDataElementBindingComponent setConformanceSimple(BindingConformance value) { 
+        public DataElementBindingComponent setConformanceSimple(BindingConformance value) { 
           if (value == null)
             this.conformance = null;
           else {
@@ -294,7 +253,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value {@link #description} (Describes the intended use of this particular set of codes.)
          */
-        public CommonDataElementBindingComponent setDescription(String_ value) { 
+        public DataElementBindingComponent setDescription(String_ value) { 
           this.description = value;
           return this;
         }
@@ -309,7 +268,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value Describes the intended use of this particular set of codes.
          */
-        public CommonDataElementBindingComponent setDescriptionSimple(String value) { 
+        public DataElementBindingComponent setDescriptionSimple(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -321,57 +280,55 @@ public class CommonDataElement extends Resource {
         }
 
         /**
-         * @return {@link #reference} (Points to the value set that identifies the set of codes to be used.)
+         * @return {@link #valueSet} (Points to the value set that identifies the set of codes to be used.)
          */
-        public ResourceReference getReference() { 
-          return this.reference;
+        public ResourceReference getValueSet() { 
+          return this.valueSet;
         }
 
         /**
-         * @param value {@link #reference} (Points to the value set that identifies the set of codes to be used.)
+         * @param value {@link #valueSet} (Points to the value set that identifies the set of codes to be used.)
          */
-        public CommonDataElementBindingComponent setReference(ResourceReference value) { 
-          this.reference = value;
+        public DataElementBindingComponent setValueSet(ResourceReference value) { 
+          this.valueSet = value;
           return this;
         }
 
         /**
-         * @return {@link #reference} (The actual object that is the target of the reference. Points to the value set that identifies the set of codes to be used.)
+         * @return {@link #valueSet} (The actual object that is the target of the reference. Points to the value set that identifies the set of codes to be used.)
          */
-        public ValueSet getReferenceTarget() { 
-          return this.referenceTarget;
+        public ValueSet getValueSetTarget() { 
+          return this.valueSetTarget;
         }
 
         /**
-         * @param value {@link #reference} (The actual object that is the target of the reference. Points to the value set that identifies the set of codes to be used.)
+         * @param value {@link #valueSet} (The actual object that is the target of the reference. Points to the value set that identifies the set of codes to be used.)
          */
-        public CommonDataElementBindingComponent setReferenceTarget(ValueSet value) { 
-          this.referenceTarget = value;
+        public DataElementBindingComponent setValueSetTarget(ValueSet value) { 
+          this.valueSetTarget = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "A descriptive name for this - can be useful for generating implementation artifacts.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("isExtensible", "boolean", "If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.", 0, java.lang.Integer.MAX_VALUE, isExtensible));
           childrenList.add(new Property("conformance", "code", "Indicates the degree of conformance expectations associated with this binding.", 0, java.lang.Integer.MAX_VALUE, conformance));
           childrenList.add(new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, java.lang.Integer.MAX_VALUE, description));
-          childrenList.add(new Property("reference", "Resource(ValueSet)", "Points to the value set that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, reference));
+          childrenList.add(new Property("valueSet", "Resource(ValueSet)", "Points to the value set that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, valueSet));
         }
 
-      public CommonDataElementBindingComponent copy(CommonDataElement e) {
-        CommonDataElementBindingComponent dst = new CommonDataElementBindingComponent();
-        dst.name = name == null ? null : name.copy();
+      public DataElementBindingComponent copy(DataElement e) {
+        DataElementBindingComponent dst = new DataElementBindingComponent();
         dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
         dst.conformance = conformance == null ? null : conformance.copy();
         dst.description = description == null ? null : description.copy();
-        dst.reference = reference == null ? null : reference.copy();
+        dst.valueSet = valueSet == null ? null : valueSet.copy();
         return dst;
       }
 
   }
 
-    public static class CommonDataElementMappingComponent extends BackboneElement {
+    public static class DataElementMappingComponent extends BackboneElement {
         /**
          * A URI that identifies the specification that this mapping is expressed to.
          */
@@ -394,11 +351,11 @@ public class CommonDataElement extends Resource {
 
         private static final long serialVersionUID = 884283977L;
 
-      public CommonDataElementMappingComponent() {
+      public DataElementMappingComponent() {
         super();
       }
 
-      public CommonDataElementMappingComponent(String_ map) {
+      public DataElementMappingComponent(String_ map) {
         super();
         this.map = map;
       }
@@ -413,7 +370,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value {@link #uri} (A URI that identifies the specification that this mapping is expressed to.)
          */
-        public CommonDataElementMappingComponent setUri(Uri value) { 
+        public DataElementMappingComponent setUri(Uri value) { 
           this.uri = value;
           return this;
         }
@@ -428,7 +385,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value A URI that identifies the specification that this mapping is expressed to.
          */
-        public CommonDataElementMappingComponent setUriSimple(String value) { 
+        public DataElementMappingComponent setUriSimple(String value) { 
           if (value == null)
             this.uri = null;
           else {
@@ -449,7 +406,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value {@link #name} (A name for the specification that is being mapped to.)
          */
-        public CommonDataElementMappingComponent setName(String_ value) { 
+        public DataElementMappingComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
@@ -464,7 +421,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value A name for the specification that is being mapped to.
          */
-        public CommonDataElementMappingComponent setNameSimple(String value) { 
+        public DataElementMappingComponent setNameSimple(String value) { 
           if (value == null)
             this.name = null;
           else {
@@ -485,7 +442,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.)
          */
-        public CommonDataElementMappingComponent setComments(String_ value) { 
+        public DataElementMappingComponent setComments(String_ value) { 
           this.comments = value;
           return this;
         }
@@ -500,7 +457,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public CommonDataElementMappingComponent setCommentsSimple(String value) { 
+        public DataElementMappingComponent setCommentsSimple(String value) { 
           if (value == null)
             this.comments = null;
           else {
@@ -521,7 +478,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value {@link #map} (Expresses what part of the target specification corresponds to this element.)
          */
-        public CommonDataElementMappingComponent setMap(String_ value) { 
+        public DataElementMappingComponent setMap(String_ value) { 
           this.map = value;
           return this;
         }
@@ -536,7 +493,7 @@ public class CommonDataElement extends Resource {
         /**
          * @param value Expresses what part of the target specification corresponds to this element.
          */
-        public CommonDataElementMappingComponent setMapSimple(String value) { 
+        public DataElementMappingComponent setMapSimple(String value) { 
             if (this.map == null)
               this.map = new String_();
             this.map.setValue(value);
@@ -551,8 +508,8 @@ public class CommonDataElement extends Resource {
           childrenList.add(new Property("map", "string", "Expresses what part of the target specification corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, map));
         }
 
-      public CommonDataElementMappingComponent copy(CommonDataElement e) {
-        CommonDataElementMappingComponent dst = new CommonDataElementMappingComponent();
+      public DataElementMappingComponent copy(DataElement e) {
+        DataElementMappingComponent dst = new DataElementMappingComponent();
         dst.uri = uri == null ? null : uri.copy();
         dst.name = name == null ? null : name.copy();
         dst.comments = comments == null ? null : comments.copy();
@@ -563,17 +520,17 @@ public class CommonDataElement extends Resource {
   }
 
     /**
-     * The identifier that is used to identify this observation definition when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI).
+     * The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.
      */
-    protected String_ identifier;
+    protected Identifier identifier;
 
     /**
-     * The identifier that is used to identify this version of the observation definition when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
+     * The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
     protected String_ version;
 
     /**
-     * Details of the individual or organization who accepts responsibility for publishing the observation definition.
+     * Details of the individual or organization who accepts responsibility for publishing the data element.
      */
     protected String_ publisher;
 
@@ -583,12 +540,12 @@ public class CommonDataElement extends Resource {
     protected List<Contact> telecom = new ArrayList<Contact>();
 
     /**
-     * The status of the observation definition.
+     * The status of the data element.
      */
     protected Enumeration<ResourceObservationDefStatus> status;
 
     /**
-     * The date that this version of the observation definition was published.
+     * The date that this version of the data element was published.
      */
     protected DateTime date;
 
@@ -603,7 +560,7 @@ public class CommonDataElement extends Resource {
     protected List<CodeableConcept> category = new ArrayList<CodeableConcept>();
 
     /**
-     * A code assigned to the data eleent within a particular terminology.
+     * A code assigned to the data element within a particular terminology.
      */
     protected List<Coding> code = new ArrayList<Coding>();
 
@@ -655,87 +612,66 @@ public class CommonDataElement extends Resource {
     /**
      * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
      */
-    protected CommonDataElementBindingComponent binding;
+    protected DataElementBindingComponent binding;
 
     /**
      * Identifies a concept from an external specification that roughly corresponds to this element.
      */
-    protected List<CommonDataElementMappingComponent> mapping = new ArrayList<CommonDataElementMappingComponent>();
+    protected List<DataElementMappingComponent> mapping = new ArrayList<DataElementMappingComponent>();
 
-    private static final long serialVersionUID = 39932803L;
+    private static final long serialVersionUID = 1512979501L;
 
-    public CommonDataElement() {
+    public DataElement() {
       super();
     }
 
-    public CommonDataElement(Enumeration<ResourceObservationDefStatus> status, Code type) {
+    public DataElement(Enumeration<ResourceObservationDefStatus> status, Code type) {
       super();
       this.status = status;
       this.type = type;
     }
 
     /**
-     * @return {@link #identifier} (The identifier that is used to identify this observation definition when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI).)
+     * @return {@link #identifier} (The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.)
      */
-    public String_ getIdentifier() { 
+    public Identifier getIdentifier() { 
       return this.identifier;
     }
 
     /**
-     * @param value {@link #identifier} (The identifier that is used to identify this observation definition when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI).)
+     * @param value {@link #identifier} (The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.)
      */
-    public CommonDataElement setIdentifier(String_ value) { 
+    public DataElement setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
 
     /**
-     * @return The identifier that is used to identify this observation definition when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI).
-     */
-    public String getIdentifierSimple() { 
-      return this.identifier == null ? null : this.identifier.getValue();
-    }
-
-    /**
-     * @param value The identifier that is used to identify this observation definition when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI).
-     */
-    public CommonDataElement setIdentifierSimple(String value) { 
-      if (value == null)
-        this.identifier = null;
-      else {
-        if (this.identifier == null)
-          this.identifier = new String_();
-        this.identifier.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #version} (The identifier that is used to identify this version of the observation definition when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.)
+     * @return {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.)
      */
     public String_ getVersion() { 
       return this.version;
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the observation definition when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.)
+     * @param value {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.)
      */
-    public CommonDataElement setVersion(String_ value) { 
+    public DataElement setVersion(String_ value) { 
       this.version = value;
       return this;
     }
 
     /**
-     * @return The identifier that is used to identify this version of the observation definition when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
+     * @return The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
     public String getVersionSimple() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this version of the observation definition when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
+     * @param value The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
-    public CommonDataElement setVersionSimple(String value) { 
+    public DataElement setVersionSimple(String value) { 
       if (value == null)
         this.version = null;
       else {
@@ -747,31 +683,31 @@ public class CommonDataElement extends Resource {
     }
 
     /**
-     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the observation definition.)
+     * @return {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.)
      */
     public String_ getPublisher() { 
       return this.publisher;
     }
 
     /**
-     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the observation definition.)
+     * @param value {@link #publisher} (Details of the individual or organization who accepts responsibility for publishing the data element.)
      */
-    public CommonDataElement setPublisher(String_ value) { 
+    public DataElement setPublisher(String_ value) { 
       this.publisher = value;
       return this;
     }
 
     /**
-     * @return Details of the individual or organization who accepts responsibility for publishing the observation definition.
+     * @return Details of the individual or organization who accepts responsibility for publishing the data element.
      */
     public String getPublisherSimple() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value Details of the individual or organization who accepts responsibility for publishing the observation definition.
+     * @param value Details of the individual or organization who accepts responsibility for publishing the data element.
      */
-    public CommonDataElement setPublisherSimple(String value) { 
+    public DataElement setPublisherSimple(String value) { 
       if (value == null)
         this.publisher = null;
       else {
@@ -800,31 +736,31 @@ public class CommonDataElement extends Resource {
     }
 
     /**
-     * @return {@link #status} (The status of the observation definition.)
+     * @return {@link #status} (The status of the data element.)
      */
     public Enumeration<ResourceObservationDefStatus> getStatus() { 
       return this.status;
     }
 
     /**
-     * @param value {@link #status} (The status of the observation definition.)
+     * @param value {@link #status} (The status of the data element.)
      */
-    public CommonDataElement setStatus(Enumeration<ResourceObservationDefStatus> value) { 
+    public DataElement setStatus(Enumeration<ResourceObservationDefStatus> value) { 
       this.status = value;
       return this;
     }
 
     /**
-     * @return The status of the observation definition.
+     * @return The status of the data element.
      */
     public ResourceObservationDefStatus getStatusSimple() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of the observation definition.
+     * @param value The status of the data element.
      */
-    public CommonDataElement setStatusSimple(ResourceObservationDefStatus value) { 
+    public DataElement setStatusSimple(ResourceObservationDefStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ResourceObservationDefStatus>();
         this.status.setValue(value);
@@ -832,31 +768,31 @@ public class CommonDataElement extends Resource {
     }
 
     /**
-     * @return {@link #date} (The date that this version of the observation definition was published.)
+     * @return {@link #date} (The date that this version of the data element was published.)
      */
     public DateTime getDate() { 
       return this.date;
     }
 
     /**
-     * @param value {@link #date} (The date that this version of the observation definition was published.)
+     * @param value {@link #date} (The date that this version of the data element was published.)
      */
-    public CommonDataElement setDate(DateTime value) { 
+    public DataElement setDate(DateTime value) { 
       this.date = value;
       return this;
     }
 
     /**
-     * @return The date that this version of the observation definition was published.
+     * @return The date that this version of the data element was published.
      */
     public DateAndTime getDateSimple() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date that this version of the observation definition was published.
+     * @param value The date that this version of the data element was published.
      */
-    public CommonDataElement setDateSimple(DateAndTime value) { 
+    public DataElement setDateSimple(DateAndTime value) { 
       if (value == null)
         this.date = null;
       else {
@@ -877,7 +813,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.)
      */
-    public CommonDataElement setName(String_ value) { 
+    public DataElement setName(String_ value) { 
       this.name = value;
       return this;
     }
@@ -892,7 +828,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
      */
-    public CommonDataElement setNameSimple(String value) { 
+    public DataElement setNameSimple(String value) { 
       if (value == null)
         this.name = null;
       else {
@@ -921,7 +857,7 @@ public class CommonDataElement extends Resource {
     }
 
     /**
-     * @return {@link #code} (A code assigned to the data eleent within a particular terminology.)
+     * @return {@link #code} (A code assigned to the data element within a particular terminology.)
      */
     public List<Coding> getCode() { 
       return this.code;
@@ -929,7 +865,7 @@ public class CommonDataElement extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #code} (A code assigned to the data eleent within a particular terminology.)
+     * @return {@link #code} (A code assigned to the data element within a particular terminology.)
      */
     public Coding addCode() { 
       Coding t = new Coding();
@@ -947,7 +883,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #question} (The default/suggested phrasing to use when prompting a human to capture the data element.)
      */
-    public CommonDataElement setQuestion(String_ value) { 
+    public DataElement setQuestion(String_ value) { 
       this.question = value;
       return this;
     }
@@ -962,7 +898,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value The default/suggested phrasing to use when prompting a human to capture the data element.
      */
-    public CommonDataElement setQuestionSimple(String value) { 
+    public DataElement setQuestionSimple(String value) { 
       if (value == null)
         this.question = null;
       else {
@@ -983,7 +919,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #definition} (Provides a complete explanation of the meaning of the data element for human readability.)
      */
-    public CommonDataElement setDefinition(String_ value) { 
+    public DataElement setDefinition(String_ value) { 
       this.definition = value;
       return this;
     }
@@ -998,7 +934,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value Provides a complete explanation of the meaning of the data element for human readability.
      */
-    public CommonDataElement setDefinitionSimple(String value) { 
+    public DataElement setDefinitionSimple(String value) { 
       if (value == null)
         this.definition = null;
       else {
@@ -1019,7 +955,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #comments} (Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.)
      */
-    public CommonDataElement setComments(String_ value) { 
+    public DataElement setComments(String_ value) { 
       this.comments = value;
       return this;
     }
@@ -1034,7 +970,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
-    public CommonDataElement setCommentsSimple(String value) { 
+    public DataElement setCommentsSimple(String value) { 
       if (value == null)
         this.comments = null;
       else {
@@ -1055,7 +991,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #requirements} (Explains why this element is needed and why it's been constrained as it has.)
      */
-    public CommonDataElement setRequirements(String_ value) { 
+    public DataElement setRequirements(String_ value) { 
       this.requirements = value;
       return this;
     }
@@ -1070,7 +1006,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value Explains why this element is needed and why it's been constrained as it has.
      */
-    public CommonDataElement setRequirementsSimple(String value) { 
+    public DataElement setRequirementsSimple(String value) { 
       if (value == null)
         this.requirements = null;
       else {
@@ -1118,7 +1054,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #type} (The FHIR data type that is the type for this element.)
      */
-    public CommonDataElement setType(Code value) { 
+    public DataElement setType(Code value) { 
       this.type = value;
       return this;
     }
@@ -1133,7 +1069,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value The FHIR data type that is the type for this element.
      */
-    public CommonDataElement setTypeSimple(String value) { 
+    public DataElement setTypeSimple(String value) { 
         if (this.type == null)
           this.type = new Code();
         this.type.setValue(value);
@@ -1150,7 +1086,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #example} (An example value for this element.)
      */
-    public CommonDataElement setExample(org.hl7.fhir.instance.model.Type value) { 
+    public DataElement setExample(org.hl7.fhir.instance.model.Type value) { 
       this.example = value;
       return this;
     }
@@ -1165,7 +1101,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #maxLength} (Indicates the shortest length that SHALL be supported by conformant instances without truncation.)
      */
-    public CommonDataElement setMaxLength(Integer value) { 
+    public DataElement setMaxLength(Integer value) { 
       this.maxLength = value;
       return this;
     }
@@ -1180,7 +1116,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value Indicates the shortest length that SHALL be supported by conformant instances without truncation.
      */
-    public CommonDataElement setMaxLengthSimple(int value) { 
+    public DataElement setMaxLengthSimple(int value) { 
       if (value == -1)
         this.maxLength = null;
       else {
@@ -1201,7 +1137,7 @@ public class CommonDataElement extends Resource {
     /**
      * @param value {@link #units} (Identifies the units of measure in which the data element should be captured or expressed.)
      */
-    public CommonDataElement setUnits(CodeableConcept value) { 
+    public DataElement setUnits(CodeableConcept value) { 
       this.units = value;
       return this;
     }
@@ -1209,14 +1145,14 @@ public class CommonDataElement extends Resource {
     /**
      * @return {@link #binding} (Binds to a value set if this element is coded (code, Coding, CodeableConcept).)
      */
-    public CommonDataElementBindingComponent getBinding() { 
+    public DataElementBindingComponent getBinding() { 
       return this.binding;
     }
 
     /**
      * @param value {@link #binding} (Binds to a value set if this element is coded (code, Coding, CodeableConcept).)
      */
-    public CommonDataElement setBinding(CommonDataElementBindingComponent value) { 
+    public DataElement setBinding(DataElementBindingComponent value) { 
       this.binding = value;
       return this;
     }
@@ -1224,7 +1160,7 @@ public class CommonDataElement extends Resource {
     /**
      * @return {@link #mapping} (Identifies a concept from an external specification that roughly corresponds to this element.)
      */
-    public List<CommonDataElementMappingComponent> getMapping() { 
+    public List<DataElementMappingComponent> getMapping() { 
       return this.mapping;
     }
 
@@ -1232,23 +1168,23 @@ public class CommonDataElement extends Resource {
     /**
      * @return {@link #mapping} (Identifies a concept from an external specification that roughly corresponds to this element.)
      */
-    public CommonDataElementMappingComponent addMapping() { 
-      CommonDataElementMappingComponent t = new CommonDataElementMappingComponent();
+    public DataElementMappingComponent addMapping() { 
+      DataElementMappingComponent t = new DataElementMappingComponent();
       this.mapping.add(t);
       return t;
     }
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this observation definition when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the observation definition when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the observation definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
+        childrenList.add(new Property("identifier", "Identifier", "The identifier that is used to identify this data element when it is referenced in a Profile, Questionnaire or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the data element when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("telecom", "Contact", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
-        childrenList.add(new Property("status", "code", "The status of the observation definition.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("date", "dateTime", "The date that this version of the observation definition was published.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("status", "code", "The status of the data element.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("date", "dateTime", "The date that this version of the data element was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("name", "string", "The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("category", "CodeableConcept", "A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.", 0, java.lang.Integer.MAX_VALUE, category));
-        childrenList.add(new Property("code", "Coding", "A code assigned to the data eleent within a particular terminology.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("code", "Coding", "A code assigned to the data element within a particular terminology.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("question", "string", "The default/suggested phrasing to use when prompting a human to capture the data element.", 0, java.lang.Integer.MAX_VALUE, question));
         childrenList.add(new Property("definition", "string", "Provides a complete explanation of the meaning of the data element for human readability.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("comments", "string", "Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));
@@ -1262,8 +1198,8 @@ public class CommonDataElement extends Resource {
         childrenList.add(new Property("mapping", "", "Identifies a concept from an external specification that roughly corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, mapping));
       }
 
-      public CommonDataElement copy() {
-        CommonDataElement dst = new CommonDataElement();
+      public DataElement copy() {
+        DataElement dst = new DataElement();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
@@ -1291,19 +1227,19 @@ public class CommonDataElement extends Resource {
         dst.maxLength = maxLength == null ? null : maxLength.copy();
         dst.units = units == null ? null : units.copy();
         dst.binding = binding == null ? null : binding.copy(dst);
-        dst.mapping = new ArrayList<CommonDataElementMappingComponent>();
-        for (CommonDataElementMappingComponent i : mapping)
+        dst.mapping = new ArrayList<DataElementMappingComponent>();
+        for (DataElementMappingComponent i : mapping)
           dst.mapping.add(i.copy(dst));
         return dst;
       }
 
-      protected CommonDataElement typedCopy() {
+      protected DataElement typedCopy() {
         return copy();
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.CommonDataElement;
+    return ResourceType.DataElement;
    }
 
 

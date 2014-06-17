@@ -52,7 +52,7 @@ import org.hl7.fhir.utilities.xml.XMLWriter;
  * 
  * The two classes are separated to keep generated and manually maintained code apart.
  */
-public abstract class XmlComposerBase extends FormatUtilities implements Composer {
+public abstract class XmlComposerBase extends ComposerBase  {
 
 	protected IXMLWriter xml;
 	protected boolean htmlPretty;
@@ -292,6 +292,11 @@ public abstract class XmlComposerBase extends FormatUtilities implements Compose
 	}
 
 	protected void composeXhtml(String name, XhtmlNode html) throws Exception {
+    if (!Utilities.noString(xhtmlMessage)) {
+      xml.open(XhtmlComposer.XHTML_NS, name);
+      xml.comment(xhtmlMessage, false);
+      xml.close(XhtmlComposer.XHTML_NS, name);
+    } else {
 		XhtmlComposer comp = new XhtmlComposer();
 		// name is also found in the html and should the same
 		// ? check that
@@ -300,6 +305,7 @@ public abstract class XmlComposerBase extends FormatUtilities implements Compose
 		xml.namespace(XhtmlComposer.XHTML_NS, null);
 		comp.compose(xml, html);
 		xml.setPretty(oldPretty);
+    }
 	}
 
 

@@ -174,12 +174,15 @@ public class ToolsHelper {
     in = new CSFileInputStream(source);
     XmlParser p = new XmlParser();
     ResourceOrFeed rf = p.parseGeneral(in);
-    if (rf.getFeed() != null) {
-      new JsonComposer().compose(new FileOutputStream(dest), rf.getFeed(), false);
-      new JsonComposer().compose(new FileOutputStream(destt), rf.getFeed(), true);
+    JsonComposer json = new JsonComposer();
+		if (rf.getFeed() != null) {
+      json.compose(new FileOutputStream(dest), rf.getFeed(), false);
+      json.setSuppressXhtml("Snipped for Brevity");
+      json.compose(new FileOutputStream(destt), rf.getFeed(), true);
     } else {
-      new JsonComposer().compose(new FileOutputStream(dest), rf.getResource(), false);
-      new JsonComposer().compose(new FileOutputStream(destt), rf.getResource(), true);
+      json.compose(new FileOutputStream(dest), rf.getResource(), false);
+      json.setSuppressXhtml("Snipped for Brevity");
+      json.compose(new FileOutputStream(destt), rf.getResource(), true);
     }
     return TextFile.fileToString(destt.getAbsolutePath());
   }

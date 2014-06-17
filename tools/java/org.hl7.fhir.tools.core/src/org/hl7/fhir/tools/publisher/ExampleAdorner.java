@@ -63,6 +63,12 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         definition.setCoveredByExample(true);
     }
 
+    public ExampleAdornerState(State state, ElementDefn definition, String suppressionMessage) {
+      super(suppressionMessage);
+      this.state = state;
+      this.definition = definition;
+    }
+    
     public State getState() {
       return state;
     }
@@ -149,7 +155,7 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
           return new ExampleAdornerState(State.Unknown, null, "", "");
         if (!e.isBaseResourceElement() && e.typeCode().contains("Resource"))
           return new ExampleAdornerState(State.Reference, e, "", "");
-        else 
+        else
           return new ExampleAdornerState(State.Element, e, "", "");
       } else if (s.getState() == State.Reference) {
         if (node.getLocalName().equals("type"))
@@ -182,7 +188,10 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
         else
           return new ExampleAdornerState(State.Reference, s.getDefinition(), "", "");
       } else // if (s.getState() == State.Unknown) {
-        return new ExampleAdornerState(State.Unknown, null, "", "");
+        if (node.getNamespaceURI().equals("http://www.w3.org/1999/xhtml"))
+          return new ExampleAdornerState(State.Unknown, null, "Snipped for brevity");
+        else
+          return new ExampleAdornerState(State.Unknown, null, "", "");
     }
   }
 

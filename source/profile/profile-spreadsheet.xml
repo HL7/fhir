@@ -76,7 +76,14 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s71">
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F2DCDB" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s72">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
@@ -85,18 +92,26 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s73">
+  <Style ss:ID="s74">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#B8CCE4" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s75">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s74">
+  <Style ss:ID="s76">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s78">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s78">
+  <Style ss:ID="s80">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -105,18 +120,18 @@
     ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s79">
+  <Style ss:ID="s81">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s82">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s81">
+  <Style ss:ID="s83">
    <Alignment ss:Vertical="Top"/>
   </Style>
-  <Style ss:ID="s82">
+  <Style ss:ID="s84">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
@@ -124,36 +139,21 @@
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s83" ss:Parent="s62">
+  <Style ss:ID="s85" ss:Parent="s62">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s97">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior ss:Color="#F2DCDB" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s101">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
-   <Interior ss:Color="#B8CCE4" ss:Pattern="Solid"/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R82C18"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R83C18"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="82" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="19" ss:ExpandedRowCount="83" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="297.75"/>
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="171.75"/>
@@ -199,6 +199,7 @@
     <Cell><Data ss:Type="String">To Do</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Committee Notes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">gForge</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Profile</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -216,6 +217,23 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Often called a clinical template</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">Profile.url</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Literal URL used to reference this profile</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">url, authoritative-url, destination</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">So you can say, in a profile, what the full extensions URLs should be. This is required to allow hosting profiles on multiple different servers, and to allow for the editorial process</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="19"><Data ss:Type="Number">3265</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Profile.identifier</Data><NamedCell
@@ -605,7 +623,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">&#45;-</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -615,12 +633,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">480;330</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Definition of elements in the resource (if no profile)</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Definition of elements in the resource (if no profile)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Captures constraints on each element within the resource</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Captures constraints on each element within the resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -629,7 +647,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.path</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.path</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Name, Identifier &amp; Context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -650,7 +668,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.representation</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.representation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -673,7 +691,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.name</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -697,7 +715,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.slicing</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.slicing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -720,7 +738,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.slicing.discriminator</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.slicing.discriminator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -743,7 +761,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.slicing.ordered</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.slicing.ordered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -762,7 +780,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.slicing.rules</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.slicing.rules</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -783,7 +801,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&#45;-</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -800,7 +818,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.short</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.short</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">(Definiition?)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -814,7 +832,7 @@
     <Cell><Data ss:Type="String">A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">May change the term to provide language more appropriate to the context of the profile or to reflect slicing</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">May change the term to provide language more appropriate to the context of the profile or to reflect slicing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -822,7 +840,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.formal</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.formal</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -845,7 +863,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.comments</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.comments</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Comments</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -867,7 +885,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.requirements</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.requirements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">??</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -888,7 +906,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.synonym</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.synonym</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">keywords</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -910,9 +928,9 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.min</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.min</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Minimum  size of  data element  values?</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Minimum  size of  data element  values?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -921,10 +939,10 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Minimum Cardinality</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">The minimum number of times this element SHALL appear in the instance</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The minimum number of times this element SHALL appear in the instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -933,12 +951,12 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.max</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.max</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">  Maximum  size of  data element  values?</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">  Maximum  size of  data element  values?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="Number">6</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">6</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -946,10 +964,10 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Maximum Cardinality (a number or *)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">The maximum number of times this element is permitted to appear in the instance</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The maximum number of times this element is permitted to appear in the instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -958,7 +976,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.type</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&#45;-</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -982,9 +1000,9 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="195">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.type.code</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.type.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Datatype  of  data element  values </Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Datatype  of  data element  values </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1004,9 +1022,9 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.type.profile</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.type.profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">??</Data><NamedCell
+    <Cell ss:StyleID="s74"><Data ss:Type="String">??</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="Number">8</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1027,7 +1045,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.type.aggregation</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.type.aggregation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1044,7 +1062,7 @@
     <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.nameReference</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.nameReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1064,12 +1082,12 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.value[x]</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.value[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Permissible  data element  value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">2,10</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">2,10</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1086,11 +1104,11 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.example[x]</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.example[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">??</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1106,7 +1124,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.maxLength</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.maxLength</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Maximum  size of  data element  values?</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1128,7 +1146,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.condition</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.condition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Permissible  data element  values </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1144,7 +1162,7 @@
     <Cell ss:Index="13" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.constraint</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.constraint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">??</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1163,7 +1181,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.constraint.key</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.constraint.key</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1181,7 +1199,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.constraint.name</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.constraint.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1198,7 +1216,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.constraint.severity</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.constraint.severity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1218,7 +1236,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.constraint.human</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.constraint.human</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1237,7 +1255,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.constraint.xpath</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.constraint.xpath</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1255,7 +1273,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="180">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.mustSupport</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.mustSupport</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">??</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1275,7 +1293,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="225">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.isModifier</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.isModifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">??</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1295,7 +1313,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.binding</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.binding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Permissible  data element  values </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1309,11 +1327,11 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.binding.name</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.binding.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="Number">11</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">11</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1325,7 +1343,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.binding.isExtensible</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.binding.isExtensible</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1340,7 +1358,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.binding.conformance</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.binding.conformance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1355,7 +1373,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.binding.description</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.binding.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1368,7 +1386,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.binding.reference[x]</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.binding.reference[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1383,7 +1401,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.mapping</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Related  data reference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1393,7 +1411,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">110;500</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Map element to another set of definitions</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Map element to another set of definitions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">Identifies a concept from an external specification that roughly corresponds to this element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1405,7 +1423,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.mapping.identity</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.mapping.identity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1424,7 +1442,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Profile.structure.element.definition.mapping.map</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Profile.structure.element.definition.mapping.map</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1459,7 +1477,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1482,7 +1500,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1505,7 +1523,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1527,7 +1545,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1550,7 +1568,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Note that the elements are sometimes complex elements where logic is required to determine quite how to handle them. E.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1574,7 +1592,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1606,7 +1624,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="Number">5</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="Number">5</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">code</Data><NamedCell
@@ -1629,7 +1647,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1688,7 +1706,7 @@
     <Cell ss:Index="3"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">@Profile.structure.element.definition</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String" x:Ticked="1">@Profile.structure.element.definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">down</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1706,7 +1724,7 @@
     <Cell><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">490;0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1717,7 +1735,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1739,7 +1757,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1761,7 +1779,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1784,7 +1802,7 @@
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s76"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s69"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1824,21 +1842,22 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R82C18"
+  <AutoFilter x:Range="R1C1:R83C18"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="28" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
-   <Column ss:Index="3" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="118.5"/>
-   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="309.75"/>
-   <Column ss:Index="6" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="400.5"/>
+   x:FullRows="1" ss:StyleID="s78" ss:DefaultRowHeight="15">
+   <Column ss:Index="3" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="118.5"/>
+   <Column ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="309.75"/>
+   <Column ss:Index="6" ss:StyleID="s78" ss:AutoFitWidth="0" ss:Width="400.5"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Name</Data></Cell>
@@ -1855,7 +1874,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element.definition.binding</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile.structure.element.definition.binding</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">provide either a reference or a description (or both)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">(exists(f:referenceUri) or exists(f:referenceResource)) or exists(f:description)</Data></Cell>
    </Row>
@@ -1909,31 +1928,31 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element.definition.binding.referenceUri</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile.structure.element.definition.binding.referenceUri</Data></Cell>
     <Cell><Data ss:Type="String">uri SHALL start with http:// or https://</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">starts-with(@value, 'http:') or starts-with(@value, 'https:')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.structure.element.definition.binding</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile.structure.element.definition.binding</Data></Cell>
     <Cell><Data ss:Type="String">Example value sets are always extensible</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(f:Conformance/value='example' and f:isExtensible.value='false')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">Where multiple structures exist with the same type, they SHALL have names</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:structure[not(f:name)]) = count(distinct-values(f:structure[not(f:name)]/f:type/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">16</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">Extension definition codes must be unique</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">count(f:extensionDefn) = count(distinct-values(f:extensionDefn/f:code/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">17</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile</Data></Cell>
     <Cell><Data ss:Type="String">There can't be multiple structures with the same type and name</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">not(exists(for $structure in f:structure return $structure/preceding-sibling::f:structure[f:type/@value=$structure/f:type/@value and f:name/@value = $structure/f:name/@value]))</Data></Cell>
    </Row>
@@ -1987,7 +2006,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">26</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s73"><Data ss:Type="String">Profile.mapping</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s75"><Data ss:Type="String">Profile.mapping</Data></Cell>
     <Cell><Data ss:Type="String">Must have at a name or a uri (or both)</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">exists(f:uri) or exists(f:name)</Data></Cell>
    </Row>
@@ -2057,11 +2076,11 @@
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="13" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="70.5"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="382.5"/>
-   <Column ss:Index="4" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="216.75"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="382.5"/>
+   <Column ss:Index="4" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="216.75"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s80">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
     <Cell><Data ss:Type="String">Type</Data></Cell>
@@ -2071,13 +2090,13 @@
     <Cell><Data ss:Type="String">identifier</Data></Cell>
     <Cell><Data ss:Type="String">The identifier of the profile</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Profile.identifier</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Profile.identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">version</Data></Cell>
     <Cell><Data ss:Type="String">The version identifier of the profile</Data></Cell>
     <Cell><Data ss:Type="String">token</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Profile.version</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Profile.version</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">name</Data></Cell>
@@ -2093,9 +2112,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Text search in the description of the profile</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Text search in the description of the profile</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Profile.description</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Profile.description</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">status</Data></Cell>
@@ -2125,7 +2144,7 @@
     <Cell><Data ss:Type="String">valueset</Data></Cell>
     <Cell><Data ss:Type="String">A vocabulary binding code</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Profile.structure.element.definition.binding.reference[x]</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Profile.structure.element.definition.binding.reference[x]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">type</Data></Cell>
@@ -2133,7 +2152,11 @@
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String">Profile.structure.type</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">url</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">token</Data></Cell>
+    <Cell><Data ss:Type="String">Profile.url</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -2161,7 +2184,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>12</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -2171,12 +2194,12 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s81" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s81" ss:Width="112.5"/>
-   <Column ss:StyleID="s81" ss:Width="303"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="63.75"/>
-   <Column ss:StyleID="s81" ss:Width="123.75"/>
-   <Column ss:StyleID="s81" ss:AutoFitWidth="0" ss:Width="92.25"/>
+   x:FullRows="1" ss:StyleID="s83" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s83" ss:Width="112.5"/>
+   <Column ss:StyleID="s83" ss:Width="303"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="63.75"/>
+   <Column ss:StyleID="s83" ss:Width="123.75"/>
+   <Column ss:StyleID="s83" ss:AutoFitWidth="0" ss:Width="92.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Definition</Data></Cell>
@@ -2187,7 +2210,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">BindingConformance</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Binding conformance for applications</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#binding-conformance</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2199,25 +2222,25 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s69"><Data ss:Type="String">ConstraintSeverity</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">SHALL applications comply with this constraint?</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#constraint-severity</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s74"><Data ss:Type="String">ResourceProfileStatus</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">The lifecycle status of a Resource Profile</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#resource-profile-status</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">ResourceProfileStatus</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">The lifecycle status of a Resource Profile</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">#resource-profile-status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">SlicingRules</Data></Cell>
     <Cell><Data ss:Type="String">How slices are interpreted when evaluating an instance</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#resource-slicing-rules</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s69"><Data ss:Type="String">AggregationMode</Data></Cell>
     <Cell><Data ss:Type="String">How resource references can be aggregated</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">#resource-aggregation-mode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2263,9 +2286,9 @@
  </Worksheet>
  <Worksheet ss:Name="binding-conformance">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="54"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="474.75"/>
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="54"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="474.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
@@ -2328,9 +2351,9 @@
  </Worksheet>
  <Worksheet ss:Name="constraint-severity">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="54"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="474.75"/>
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="54"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="474.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
@@ -2388,10 +2411,10 @@
    <Column ss:Index="2" ss:Width="60"/>
    <Column ss:Width="424.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="309"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s84">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2436,9 +2459,9 @@
  </Worksheet>
  <Worksheet ss:Name="extension-context">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s74" ss:Width="90.75"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="474.75"/>
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:StyleID="s76" ss:Width="90.75"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="474.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Code</Data></Cell>
@@ -2489,13 +2512,13 @@
  </Worksheet>
  <Worksheet ss:Name="Examples">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s74" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="75.75"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="218.25"/>
-   <Column ss:StyleID="s74" ss:Width="83.25"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="201"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="55.5"/>
-   <Column ss:StyleID="s74" ss:AutoFitWidth="0" ss:Width="65.25"/>
+   x:FullRows="1" ss:StyleID="s76" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="75.75"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="218.25"/>
+   <Column ss:StyleID="s76" ss:Width="83.25"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="201"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="55.5"/>
+   <Column ss:StyleID="s76" ss:AutoFitWidth="0" ss:Width="65.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Name</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">Description</Data></Cell>
@@ -2579,10 +2602,10 @@
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="147.75"/>
    <Column ss:Width="424.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="361.5"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s84">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2635,11 +2658,11 @@
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="267"/>
    <Column ss:AutoFitWidth="0" ss:Width="50.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s84">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Parent</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Parent</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2685,11 +2708,11 @@
    <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="71.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="267"/>
    <Column ss:AutoFitWidth="0" ss:Width="50.25"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s82">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s84">
     <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Parent</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Parent</Data></Cell>
     <Cell><Data ss:Type="String">Comments</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

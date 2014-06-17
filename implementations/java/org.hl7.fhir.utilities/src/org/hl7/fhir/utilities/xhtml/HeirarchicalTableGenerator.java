@@ -4,8 +4,12 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +19,10 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
 
 import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
+import org.apache.commons.codec.binary.Base64;
 
-public class HeirarchicalTableGenerator {
+
+public class HeirarchicalTableGenerator  {
 
   public class Piece {
     private String tag;
@@ -112,20 +118,22 @@ public class HeirarchicalTableGenerator {
 
 
   private String dest;
+  private boolean inLineGraphics;
   
   
   public HeirarchicalTableGenerator(String dest) {
     super();
     this.dest = dest;
+    inLineGraphics = true;
   }
 
 
   public XhtmlNode generate(TableModel model) throws Exception {
     checkModel(model);
     XhtmlNode table = new XhtmlNode(NodeType.Element, "table").setAttribute("border", "0").setAttribute("cellspacing", "0").setAttribute("cellpadding", "0");
-    table.setAttribute("class", "heirarchy");
+    table.setAttribute("style", "border: 0px; padding:0px 4px 0px 4px; font-size: 11px; font-family: verdana; vertical-align: top;");
     XhtmlNode tr = table.addTag("tr");
-    tr.setAttribute("class", "heirarchy");
+    tr.setAttribute("style", "border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; font-size: 11px; font-family: verdana; vertical-align: top;");
     for (Title t : model.getTitles()) {
       XhtmlNode tc = renderCell(tr, t, "th", null, null, false);
       if (t.width != 0)
@@ -140,7 +148,7 @@ public class HeirarchicalTableGenerator {
 
   private void renderRow(XhtmlNode table, Row r, int indent, List<Boolean> indents) throws Exception {
     XhtmlNode tr = table.addTag("tr");
-    tr.setAttribute("class", "heirarchy");
+    tr.setAttribute("class", "border: 0px; padding:0px; vertical-align: top; background-color: white;");
     boolean first = true;
     for (Cell t : r.getCells()) {
       renderCell(tr, t, "td", first ? r.getIcon() : null, first ? indents : null, !r.getSubRows().isEmpty());
@@ -233,31 +241,45 @@ public class HeirarchicalTableGenerator {
 
   private String checkExists(List<Boolean> indents, boolean hasChildren) throws Exception {
     StringBuilder b = new StringBuilder();
-    b.append("tbl_bck");
-    for (Boolean i : indents)
-      b.append(i ? "0" : "1");
-    if (hasChildren)
-      b.append("1");
-    else
-      b.append("0");
-    b.append(".png");
-    String file = Utilities.path(dest, b.toString());
-    if (!new File(file).exists()) {
-      BufferedImage bi = new BufferedImage(400, 2, BufferedImage.TYPE_BYTE_BINARY);
-      Graphics2D graphics = bi.createGraphics();
-      graphics.setBackground(Color.WHITE);
-      graphics.clearRect(0, 0, 400, 2);
-      for (int i = 0; i < indents.size(); i++) {
-        if (!indents.get(i))
-          bi.setRGB(12+(i*16), 0, 0);
-      }
+    if (inLineGraphics) {
+      ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+      genImage(indents, hasChildren, bytes);
+      b.append("data: image/png;base64,");
+      byte[] encodeBase64 = Base64.encodeBase64(bytes.toByteArray());
+      b.append(new String(encodeBase64));
+    } else {
+      b.append("tbl_bck");
+      for (Boolean i : indents)
+        b.append(i ? "0" : "1");
       if (hasChildren)
-        bi.setRGB(12+(indents.size()*16), 0, 0);
-      ImageIO.write(bi, "PNG", new File(file));
+        b.append("1");
+      else
+        b.append("0");
+      b.append(".png");
+      String file = Utilities.path(dest, b.toString());
+      if (!new File(file).exists()) {
+        FileOutputStream stream = new FileOutputStream(file);
+        genImage(indents, hasChildren, stream);
+      }
     }
     return b.toString();
   }
-  
+
+
+  private void genImage(List<Boolean> indents, boolean hasChildren, OutputStream stream) throws IOException {
+    BufferedImage bi = new BufferedImage(400, 2, BufferedImage.TYPE_BYTE_BINARY);
+    Graphics2D graphics = bi.createGraphics();
+    graphics.setBackground(Color.WHITE);
+    graphics.clearRect(0, 0, 400, 2);
+    for (int i = 0; i < indents.size(); i++) {
+      if (!indents.get(i))
+        bi.setRGB(12+(i*16), 0, 0);
+    }
+    if (hasChildren)
+      bi.setRGB(12+(indents.size()*16), 0, 0);
+    ImageIO.write(bi, "PNG", stream);
+  }
+
   private void check(boolean check, String message) throws Exception {
     if (!check)
       throw new Exception(message);

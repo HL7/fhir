@@ -90,10 +90,12 @@ public class ProfileGenerator {
     this.definitions = definitions;
   }
 
-  public Profile generate(ProfileDefn profile, String html, GenerationMode mode) throws Exception {
+  public Profile generate(ProfileDefn profile, String url, String html, GenerationMode mode) throws Exception {
     if (profile.getSource() != null)
       return profile.getSource();
     Profile p = new Profile();
+    p.setUrlSimple(url);
+    
     p.setIdentifierSimple("http://hl7.org/fhir/profile/"+profile.metadata("name"));
     p.setName(Factory.newString_(profile.metadata("name")));
     p.setPublisher(Factory.newString_(profile.metadata("author.name")));
@@ -475,7 +477,7 @@ public class ProfileGenerator {
 
   private void addMapping(Profile p, ElementDefinitionComponent definition, String target, String map) {
     if (!Utilities.noString(map)) {
-      String id = definitions.getMapTypes().get(target).getTitle();
+      String id = definitions.getMapTypes().get(target).getId();
       if (!mappingExists(p, id)) {
         ProfileMappingComponent pm = new ProfileMappingComponent();
         p.getMapping().add(pm);

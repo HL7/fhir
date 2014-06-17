@@ -156,6 +156,8 @@ public class NarrativeGenerator {
       generate((Conformance) r);   // Maintainer = Grahame
     } else if (profiles.containsKey(r.getResourceType().toString())) {
       generateByProfile(r, profiles.get(r.getResourceType().toString()), true); // todo: make this manageable externally 
+    } else if (profiles.containsKey("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase())) {
+      generateByProfile(r, profiles.get("http://hl7.org/fhir/profile/"+r.getResourceType().toString().toLowerCase()), true); // todo: make this manageable externally 
     }
   }
   

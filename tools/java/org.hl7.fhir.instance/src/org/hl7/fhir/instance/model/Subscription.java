@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, May 10, 2014 00:15+1000 for FHIR v0.2.1
+// Generated on Tue, Jun 17, 2014 07:59+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -176,23 +176,23 @@ public class Subscription extends Resource {
         /**
          * ToDo.
          */
-        protected Boolean includePayload;
+        protected String_ payload;
 
         /**
          * Usage depends on the channel type.
          */
         protected String_ header;
 
-        private static final long serialVersionUID = 2004727409L;
+        private static final long serialVersionUID = -1450483897L;
 
       public SubscriptionChannelComponent() {
         super();
       }
 
-      public SubscriptionChannelComponent(Enumeration<SubscriptionChannelType> type, Boolean includePayload) {
+      public SubscriptionChannelComponent(Enumeration<SubscriptionChannelType> type, String_ payload) {
         super();
         this.type = type;
-        this.includePayload = includePayload;
+        this.payload = payload;
       }
 
         /**
@@ -264,34 +264,34 @@ public class Subscription extends Resource {
         }
 
         /**
-         * @return {@link #includePayload} (ToDo.)
+         * @return {@link #payload} (ToDo.)
          */
-        public Boolean getIncludePayload() { 
-          return this.includePayload;
+        public String_ getPayload() { 
+          return this.payload;
         }
 
         /**
-         * @param value {@link #includePayload} (ToDo.)
+         * @param value {@link #payload} (ToDo.)
          */
-        public SubscriptionChannelComponent setIncludePayload(Boolean value) { 
-          this.includePayload = value;
+        public SubscriptionChannelComponent setPayload(String_ value) { 
+          this.payload = value;
           return this;
         }
 
         /**
          * @return ToDo.
          */
-        public boolean getIncludePayloadSimple() { 
-          return this.includePayload == null ? false : this.includePayload.getValue();
+        public String getPayloadSimple() { 
+          return this.payload == null ? null : this.payload.getValue();
         }
 
         /**
          * @param value ToDo.
          */
-        public SubscriptionChannelComponent setIncludePayloadSimple(boolean value) { 
-            if (this.includePayload == null)
-              this.includePayload = new Boolean();
-            this.includePayload.setValue(value);
+        public SubscriptionChannelComponent setPayloadSimple(String value) { 
+            if (this.payload == null)
+              this.payload = new String_();
+            this.payload.setValue(value);
           return this;
         }
 
@@ -335,7 +335,7 @@ public class Subscription extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "Todo.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("url", "uri", "Todo.", 0, java.lang.Integer.MAX_VALUE, url));
-          childrenList.add(new Property("includePayload", "boolean", "ToDo.", 0, java.lang.Integer.MAX_VALUE, includePayload));
+          childrenList.add(new Property("payload", "string", "ToDo.", 0, java.lang.Integer.MAX_VALUE, payload));
           childrenList.add(new Property("header", "string", "Usage depends on the channel type.", 0, java.lang.Integer.MAX_VALUE, header));
         }
 
@@ -343,7 +343,7 @@ public class Subscription extends Resource {
         SubscriptionChannelComponent dst = new SubscriptionChannelComponent();
         dst.type = type == null ? null : type.copy();
         dst.url = url == null ? null : url.copy();
-        dst.includePayload = includePayload == null ? null : includePayload.copy();
+        dst.payload = payload == null ? null : payload.copy();
         dst.header = header == null ? null : header.copy();
         return dst;
       }
@@ -354,61 +354,29 @@ public class Subscription extends Resource {
         /**
          * Todo.
          */
-        protected Uri scheme;
+        protected Uri term;
 
         /**
          * Todo.
          */
-        protected Uri term;
+        protected Uri scheme;
 
         /**
          * Todo.
          */
         protected String_ description;
 
-        private static final long serialVersionUID = 1201079001L;
+        private static final long serialVersionUID = 289225799L;
 
       public SubscriptionTagComponent() {
         super();
       }
 
-      public SubscriptionTagComponent(Uri scheme, Uri term) {
+      public SubscriptionTagComponent(Uri term, Uri scheme) {
         super();
-        this.scheme = scheme;
         this.term = term;
+        this.scheme = scheme;
       }
-
-        /**
-         * @return {@link #scheme} (Todo.)
-         */
-        public Uri getScheme() { 
-          return this.scheme;
-        }
-
-        /**
-         * @param value {@link #scheme} (Todo.)
-         */
-        public SubscriptionTagComponent setScheme(Uri value) { 
-          this.scheme = value;
-          return this;
-        }
-
-        /**
-         * @return Todo.
-         */
-        public String getSchemeSimple() { 
-          return this.scheme == null ? null : this.scheme.getValue();
-        }
-
-        /**
-         * @param value Todo.
-         */
-        public SubscriptionTagComponent setSchemeSimple(String value) { 
-            if (this.scheme == null)
-              this.scheme = new Uri();
-            this.scheme.setValue(value);
-          return this;
-        }
 
         /**
          * @return {@link #term} (Todo.)
@@ -439,6 +407,38 @@ public class Subscription extends Resource {
             if (this.term == null)
               this.term = new Uri();
             this.term.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #scheme} (Todo.)
+         */
+        public Uri getScheme() { 
+          return this.scheme;
+        }
+
+        /**
+         * @param value {@link #scheme} (Todo.)
+         */
+        public SubscriptionTagComponent setScheme(Uri value) { 
+          this.scheme = value;
+          return this;
+        }
+
+        /**
+         * @return Todo.
+         */
+        public String getSchemeSimple() { 
+          return this.scheme == null ? null : this.scheme.getValue();
+        }
+
+        /**
+         * @param value Todo.
+         */
+        public SubscriptionTagComponent setSchemeSimple(String value) { 
+            if (this.scheme == null)
+              this.scheme = new Uri();
+            this.scheme.setValue(value);
           return this;
         }
 
@@ -480,15 +480,15 @@ public class Subscription extends Resource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("scheme", "uri", "Todo.", 0, java.lang.Integer.MAX_VALUE, scheme));
           childrenList.add(new Property("term", "uri", "Todo.", 0, java.lang.Integer.MAX_VALUE, term));
+          childrenList.add(new Property("scheme", "uri", "Todo.", 0, java.lang.Integer.MAX_VALUE, scheme));
           childrenList.add(new Property("description", "string", "Todo.", 0, java.lang.Integer.MAX_VALUE, description));
         }
 
       public SubscriptionTagComponent copy(Subscription e) {
         SubscriptionTagComponent dst = new SubscriptionTagComponent();
-        dst.scheme = scheme == null ? null : scheme.copy();
         dst.term = term == null ? null : term.copy();
+        dst.scheme = scheme == null ? null : scheme.copy();
         dst.description = description == null ? null : description.copy();
         return dst;
       }

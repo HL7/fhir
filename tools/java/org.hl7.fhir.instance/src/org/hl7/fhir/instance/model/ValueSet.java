@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, May 10, 2014 00:15+1000 for FHIR v0.2.1
+// Generated on Tue, Jun 17, 2014 07:59+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -1267,12 +1267,12 @@ public class ValueSet extends Resource {
     protected String_ name;
 
     /**
-     * This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
+     * This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
      */
     protected String_ purpose;
 
     /**
-     * If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     * If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
      */
     protected Boolean immutable;
 
@@ -1454,14 +1454,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return {@link #purpose} (This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.)
+     * @return {@link #purpose} (This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.)
      */
     public String_ getPurpose() { 
       return this.purpose;
     }
 
     /**
-     * @param value {@link #purpose} (This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.)
+     * @param value {@link #purpose} (This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.)
      */
     public ValueSet setPurpose(String_ value) { 
       this.purpose = value;
@@ -1469,14 +1469,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
+     * @return This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
      */
     public String getPurposeSimple() { 
       return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value This should describe “the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
+     * @param value This should describe "the semantic space" to be included in the value set. This can also describe the approach taken to build the value set.
      */
     public ValueSet setPurposeSimple(String value) { 
       if (value == null)
@@ -1490,14 +1490,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return {@link #immutable} (If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.)
+     * @return {@link #immutable} (If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.)
      */
     public Boolean getImmutable() { 
       return this.immutable;
     }
 
     /**
-     * @param value {@link #immutable} (If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.)
+     * @param value {@link #immutable} (If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.)
      */
     public ValueSet setImmutable(Boolean value) { 
       this.immutable = value;
@@ -1505,14 +1505,14 @@ public class ValueSet extends Resource {
     }
 
     /**
-     * @return If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     * @return If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
      */
     public boolean getImmutableSimple() { 
       return this.immutable == null ? false : this.immutable.getValue();
     }
 
     /**
-     * @param value If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
+     * @param value If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.
      */
     public ValueSet setImmutableSimple(boolean value) { 
       if (value == false)
@@ -1872,8 +1872,8 @@ public class ValueSet extends Resource {
         childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this value set when it is referenced in a specification, model, design or an instance (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name describing the value set.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("purpose", "string", "This should describe “the semantic space' to be included in the value set. This can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, purpose));
-        childrenList.add(new Property("immutable", "boolean", "If this is set to ‘true’, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
+        childrenList.add(new Property("purpose", "string", "This should describe 'the semantic space' to be included in the value set. This can also describe the approach taken to build the value set.", 0, java.lang.Integer.MAX_VALUE, purpose));
+        childrenList.add(new Property("immutable", "boolean", "If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.", 0, java.lang.Integer.MAX_VALUE, immutable));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the value set.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("telecom", "Contact", "Contacts of the publisher to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("description", "string", "A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.", 0, java.lang.Integer.MAX_VALUE, description));

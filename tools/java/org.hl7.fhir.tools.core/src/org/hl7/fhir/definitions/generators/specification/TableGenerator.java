@@ -8,25 +8,28 @@ import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Piece;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.genImage;
 
 public class TableGenerator extends BaseGenerator {
   protected String dest; 
+  protected String pageName;
   
-  public TableGenerator(String dest, PageProcessor page) {
+  public TableGenerator(String dest, PageProcessor page, String pageName) {
     super();
     this.dest = dest;
     this.definitions = page.getDefinitions();
     this.page = page;
+    this.pageName = pageName;
   }
 
-  protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource) throws Exception {
+  protected Row genElement(ElementDefn e, HeirarchicalTableGenerator gen, boolean resource, String path) throws Exception {
     Row row = gen.new Row();
   
-    row.getCells().add(gen.new Cell(null, null, e.getName(), e.getDefinition(), null));
+    row.getCells().add(gen.new Cell(null, pageName+"#"+path, e.getName(), e.getDefinition(), null));
   
     if (resource) {
       row.getCells().add(gen.new Cell()); 
@@ -135,7 +138,7 @@ public class TableGenerator extends BaseGenerator {
       }
     } else
       for (ElementDefn c : e.getElements())
-        row.getSubRows().add(genElement(c, gen, false));
+        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName()));
     return row;
   }
 }

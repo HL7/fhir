@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="../imports/httpmime-4.2.3.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="../imports/ST4-4.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-codec-1.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

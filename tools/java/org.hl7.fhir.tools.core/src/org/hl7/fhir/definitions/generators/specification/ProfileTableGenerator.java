@@ -20,10 +20,11 @@ import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.hl7.fhir.utilities.xhtml.genImage;
 
 public class ProfileTableGenerator extends TableGenerator {
-  public ProfileTableGenerator(String dest, PageProcessor page) {
-    super(dest, page);
+  public ProfileTableGenerator(String dest, PageProcessor page, String pageName) {
+    super(dest, page, pageName);
   }
 
   public XhtmlNode generate(ProfileDefn p) throws Exception {
@@ -81,7 +82,7 @@ public class ProfileTableGenerator extends TableGenerator {
     r.getCells().add(gen.new Cell());
     
     for (ElementDefn c : res.getRoot().getElements())
-      r.getSubRows().add(genElement(c, gen, false));
+      r.getSubRows().add(genElement(c, gen, false, res.getRoot().getProfileName()));
   }
 
   private void genExtension(HeirarchicalTableGenerator gen, List<Row> rows, ExtensionDefn ext) {

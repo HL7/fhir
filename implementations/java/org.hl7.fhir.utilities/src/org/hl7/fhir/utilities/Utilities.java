@@ -34,6 +34,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
@@ -572,6 +574,15 @@ public class Utilities {
 	  	ok = ok && Character.isWhitespace(s.charAt(i));
 	  return ok;
 	  
+  }
+
+
+  public static String URLEncode(String string) {
+    try {
+      return URLEncoder.encode(string, "UTF-8");
+    } catch (UnsupportedEncodingException e) {
+      throw new Error(e.getMessage());
+    }
   }
   
 }

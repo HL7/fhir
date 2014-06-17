@@ -71,9 +71,9 @@ public class MappingsGenerator {
 		Collections.sort(maps, new Sorter());
 		StringBuilder list = new StringBuilder();
 		for (String m : maps) {
-			list.append("|"+definitions.getMapTypes().get(m).getTitle() + "#"+m);
+			list.append("|"+definitions.getMapTypes().get(m).getTitle() + "#"+definitions.getMapTypes().get(m).getId());
 
-			s.append("<a name=\""+m+"\"> </a><a name=\""+m.toLowerCase()+"\"> </a><h3>Mappings for "+definitions.getMapTypes().get(m).getTitle()+" ("+m+")</h3>");
+			s.append("<a name=\""+m+"\"> </a><a name=\""+definitions.getMapTypes().get(m).getId()+"\"> </a><h3>Mappings for "+definitions.getMapTypes().get(m).getTitle()+" ("+m+")</h3>");
 			s.append(definitions.getMapTypes().get(m).getPreamble());
 			s.append("<table class=\"grid\">\r\n");
 			genElement(s, 0, resource.getRoot(), m, true);
@@ -96,7 +96,7 @@ public class MappingsGenerator {
 		for (String m : maps) {
 			list.append("|"+definitions.getMapTypes().get(m).getTitle() + "#"+m);
       s.append("<a name=\""+m+"\"> </a>\r\n");
-      s.append("<a name=\""+m.toLowerCase()+"\"> </a>\r\n");
+      s.append("<a name=\""+definitions.getMapTypes().get(m).getId()+"\"> </a>\r\n");
 			s.append("<h3>Mappings for "+definitions.getMapTypes().get(m).getTitle()+" ("+m+")</h3>\r\n");
 			s.append("<table class=\"grid\">\r\n");
 			for (ElementDefn e : elements) 

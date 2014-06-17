@@ -94,9 +94,28 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("LOINC Code", null, e.getMapping(Definitions.LOINC_MAPPING));
     tableRow("SNOMED-CT Code", null, e.getMapping(Definitions.SNOMED_MAPPING));
 		tableRow("To Do", null, e.getTodo());
-		
+		if (e.getTasks().size() > 0) {
+	    tableRowNE("gForge Tasks", null, tasks(e.getTasks()));
+		}
 	}
 	
+  private String tasks(List<String> tasks) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (String t : tasks) {
+      if (first)
+        first = false;
+      else
+        b.append(", ");
+      b.append("<a href=\"http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=");
+      b.append(t);
+      b.append("\">");
+      b.append(t);
+      b.append("</a>");
+    }
+    return b.toString();
+  }
+
   private String describeBinding(ElementDefn e) throws Exception {
 
 	  if (!e.hasBinding())

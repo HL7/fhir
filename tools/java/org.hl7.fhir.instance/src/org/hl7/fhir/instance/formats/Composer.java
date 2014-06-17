@@ -45,6 +45,12 @@ import org.hl7.fhir.instance.model.Resource;
  */
 public interface Composer {
 
+  /**
+   * This method is used by the publication tooling to stop the xhrtml narrative being generated. 
+   * It is not valid to use in production use. The tooling uses it to generation json/xml representations in html that are not cluttered by escaped html representations of the html representation
+   */
+  public void setSuppressXhtml(String message);
+  
 	/**
 	 * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
 	 */
