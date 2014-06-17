@@ -555,7 +555,7 @@ public class PageProcessor implements Logger  {
         src = s1 + genlevel(level) + s3;  
       else if (com[0].equals("archive"))
         src = s1 + makeArchives() + s3;  
-      else if (com[0].equals("pagePath"))
+      else if (com[0].equals("pagepath"))
         src = s1 + pagePath + s3;  
       else if (com[0].equals("rellink"))
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
@@ -2603,7 +2603,7 @@ public class PageProcessor implements Logger  {
         src = s1 + publicationNotice + s3;      
       else if (com[0].equals("resref"))
         src = s1 + getReferences(resource.getName()) + s3;      
-      else if (com[0].equals("pagePath"))
+      else if (com[0].equals("pagepath"))
         src = s1 + pagePath + s3;  
       else if (com[0].equals("rellink"))
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
@@ -3031,7 +3031,7 @@ public class PageProcessor implements Logger  {
         src = s1 + publicationNotice + s3;
       else if (com[0].equals("profile-table"))
         src = s1 + generateProfileTable(profile) + s3;      
-      else if (com[0].equals("pagePath"))
+      else if (com[0].equals("pagepath"))
         src = s1 + pagePath + s3;  
       else if (com[0].equals("rellink"))
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
