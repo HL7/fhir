@@ -82,6 +82,10 @@
     <display value="Bubo, NOS"/>
     <display value="Bubo (morphologic abnormality)"/>
   </concept>
+  <concept id="116154003" display="Patient (person)">
+    <display value="Patient"/>
+    <display value="Patient (person)"/>
+  </concept>
   <concept id="119295008" display="Aspirate">
     <display value="Specimen obtained by aspiration"/>
     <display value="Aspirate"/>
@@ -1001,6 +1005,10 @@
     <display value="Renal pelvis, NOS"/>
     <display value="Renal pelvis structure"/>
     <display value="Renal pelvis structure (body structure)"/>
+  </concept>
+  <concept id="263495000" display="Gender (observable entity)">
+    <display value="Gender"/>
+    <display value="Gender (observable entity)"/>
   </concept>
   <concept id="270427003" display="Patient-initiated encounter">
     <display value="Patient-initiated encounter"/>
