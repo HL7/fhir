@@ -76,7 +76,7 @@ public class Example {
       path = tmp;
     }
     
-    if (type != ExampleType.Tool) {//profiles-resources is going to produced later and is a feed
+    if (type == ExampleType.XmlFile || type == ExampleType.CsvFile) {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       factory.setNamespaceAware(true);
       try {

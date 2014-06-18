@@ -60,9 +60,9 @@ public class ProfileTableGenerator extends TableGenerator {
       re.getCells().add(gen.new Cell());
       re.getCells().add(gen.new Cell());
       re.getCells().add(gen.new Cell(null, null, "Extensions defined by this profile", null, null));
-      re.getCells().add(gen.new Cell(null, null, "Namespace: "+p.metadata("extension.uri"), null, null));
+      re.getCells().add(gen.new Cell(null, null, "URL: "+p.metadata("extension.uri"), null, null));
       for (ExtensionDefn ext : p.getExtensions()) {
-        genExtension(gen, re.getSubRows(), ext);
+        genExtension(gen, re.getSubRows(), ext, true);
       }
     }
     
@@ -85,14 +85,24 @@ public class ProfileTableGenerator extends TableGenerator {
       r.getSubRows().add(genElement(c, gen, false, res.getRoot().getProfileName()));
   }
 
-  private void genExtension(HeirarchicalTableGenerator gen, List<Row> rows, ExtensionDefn ext) {
+  private void genExtension(HeirarchicalTableGenerator gen, List<Row> rows, ExtensionDefn ext, boolean root) {
     Row r = gen.new Row();
     rows.add(r);
+    if (ext.getChildren().isEmpty())
+      r.setIcon("icon_extension_simple.png");
+    else
+      r.setIcon("icon_extension_complex.png");
     r.getCells().add(gen.new Cell(null, null, ext.getCode(), null, null));
     r.getCells().add(gen.new Cell(null, null, ext.getDefinition().describeCardinality(), null, null));
     r.getCells().add(gen.new Cell(null, null, ext.getDefinition().typeCode(), null, null));
     r.getCells().add(gen.new Cell(null, null, ext.getDefinition().getShortDefn(), null, null));
-    r.getCells().add(gen.new Cell(null, null, describeExtensionContext(ext), null, null));
+    if (root)
+      r.getCells().add(gen.new Cell(null, null, describeExtensionContext(ext), null, null));
+    else
+      r.getCells().add(gen.new Cell());
+    for (ExtensionDefn child : ext.getChildren()) {
+      genExtension(gen, r.getSubRows(), child, false);
+    }
     
   }
 

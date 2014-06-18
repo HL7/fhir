@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 17, 2014 07:59+1000 for FHIR v0.2.1
+// Generated on Wed, Jun 18, 2014 16:29+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -2793,7 +2793,12 @@ public class Profile extends Resource {
          */
         protected ElementDefinitionComponent definition;
 
-        private static final long serialVersionUID = -2113262685L;
+        /**
+         * Children extensions defined as part of this extension.
+         */
+        protected List<ProfileExtensionDefnComponent> extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
+
+        private static final long serialVersionUID = 1492799232L;
 
       public ProfileExtensionDefnComponent() {
         super();
@@ -2948,6 +2953,23 @@ public class Profile extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #extensionDefn} (Children extensions defined as part of this extension.)
+         */
+        public List<ProfileExtensionDefnComponent> getExtensionDefn() { 
+          return this.extensionDefn;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #extensionDefn} (Children extensions defined as part of this extension.)
+         */
+        public ProfileExtensionDefnComponent addExtensionDefn() { 
+          ProfileExtensionDefnComponent t = new ProfileExtensionDefnComponent();
+          this.extensionDefn.add(t);
+          return t;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A unique code (within the profile) used to identify the extension.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2955,6 +2977,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("contextType", "code", "Identifies the type of context to which the extension applies.", 0, java.lang.Integer.MAX_VALUE, contextType));
           childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
           childrenList.add(new Property("definition", "@Profile.structure.element.definition", "Definition of the extension and its content.", 0, java.lang.Integer.MAX_VALUE, definition));
+          childrenList.add(new Property("extensionDefn", "@Profile.extensionDefn", "Children extensions defined as part of this extension.", 0, java.lang.Integer.MAX_VALUE, extensionDefn));
         }
 
       public ProfileExtensionDefnComponent copy(Profile e) {
@@ -2966,6 +2989,9 @@ public class Profile extends Resource {
         for (String_ i : context)
           dst.context.add(i.copy());
         dst.definition = definition == null ? null : definition.copy(e);
+        dst.extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
+        for (ProfileExtensionDefnComponent i : extensionDefn)
+          dst.extensionDefn.add(i.copy(e));
         return dst;
       }
 

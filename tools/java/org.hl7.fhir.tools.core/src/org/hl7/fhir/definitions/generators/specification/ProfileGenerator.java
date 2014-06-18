@@ -293,6 +293,8 @@ public class ProfileGenerator {
     }
     if (!Utilities.noString(dSrc.getBindingName()))
       dDst.setBinding(generateBinding(dSrc.getBindingName(), p));
+    for (ExtensionDefn child : src.getChildren())
+      dst.getExtensionDefn().add(generateExtensionDefn(child, p));
     return dst;
   }
 

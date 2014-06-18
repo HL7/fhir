@@ -40,7 +40,7 @@ public class DateAndTimeTests {
 		DateAndTime dt = DateAndTime.now();
 		Thread.sleep(1200);
 		DateAndTime dt2 = DateAndTime.now();
-//		assertNotEquals(dt.toString(), dt2.toString());
+		// assertNotEquals(dt.toString(), dt2.toString());
 	}	
 	
 	@Test

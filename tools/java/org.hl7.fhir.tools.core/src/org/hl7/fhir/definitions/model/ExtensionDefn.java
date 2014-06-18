@@ -1,5 +1,8 @@
 package org.hl7.fhir.definitions.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Copyright (c) 2011-2014, HL7, Inc
 All rights reserved.
@@ -42,6 +45,8 @@ public class ExtensionDefn {
   private String code;
   private ContextType type;
   private String context;
+  private List<ExtensionDefn> children = new ArrayList<ExtensionDefn>();
+  
   public ElementDefn getDefinition() {
     return definition;
   }
@@ -65,6 +70,9 @@ public class ExtensionDefn {
   }
   public void setContext(String context) {
     this.context = context;
+  }
+  public List<ExtensionDefn> getChildren() {
+    return children;
   }
   
   

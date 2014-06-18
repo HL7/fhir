@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 17, 2014 07:59+1000 for FHIR v0.2.1
+// Generated on Wed, Jun 18, 2014 16:29+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -560,7 +560,7 @@ public class DataElement extends Resource {
     protected List<CodeableConcept> category = new ArrayList<CodeableConcept>();
 
     /**
-     * A code assigned to the data element within a particular terminology.
+     * A code that provides the meaning for a data element according to a particular terminology.
      */
     protected List<Coding> code = new ArrayList<Coding>();
 
@@ -625,10 +625,9 @@ public class DataElement extends Resource {
       super();
     }
 
-    public DataElement(Enumeration<ResourceObservationDefStatus> status, Code type) {
+    public DataElement(Enumeration<ResourceObservationDefStatus> status) {
       super();
       this.status = status;
-      this.type = type;
     }
 
     /**
@@ -857,7 +856,7 @@ public class DataElement extends Resource {
     }
 
     /**
-     * @return {@link #code} (A code assigned to the data element within a particular terminology.)
+     * @return {@link #code} (A code that provides the meaning for a data element according to a particular terminology.)
      */
     public List<Coding> getCode() { 
       return this.code;
@@ -865,7 +864,7 @@ public class DataElement extends Resource {
 
     // syntactic sugar
     /**
-     * @return {@link #code} (A code assigned to the data element within a particular terminology.)
+     * @return {@link #code} (A code that provides the meaning for a data element according to a particular terminology.)
      */
     public Coding addCode() { 
       Coding t = new Coding();
@@ -1070,9 +1069,13 @@ public class DataElement extends Resource {
      * @param value The FHIR data type that is the type for this element.
      */
     public DataElement setTypeSimple(String value) { 
+      if (value == null)
+        this.type = null;
+      else {
         if (this.type == null)
           this.type = new Code();
         this.type.setValue(value);
+      }
       return this;
     }
 
@@ -1184,7 +1187,7 @@ public class DataElement extends Resource {
         childrenList.add(new Property("date", "dateTime", "The date that this version of the data element was published.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("name", "string", "The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("category", "CodeableConcept", "A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.", 0, java.lang.Integer.MAX_VALUE, category));
-        childrenList.add(new Property("code", "Coding", "A code assigned to the data element within a particular terminology.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("code", "Coding", "A code that provides the meaning for a data element according to a particular terminology.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("question", "string", "The default/suggested phrasing to use when prompting a human to capture the data element.", 0, java.lang.Integer.MAX_VALUE, question));
         childrenList.add(new Property("definition", "string", "Provides a complete explanation of the meaning of the data element for human readability.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("comments", "string", "Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Sat, May 10, 2014 00:15+1000 for FHIR v0.2.1
+// Generated on Wed, Jun 18, 2014 16:29+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -849,7 +849,7 @@ public class CarePlan extends Resource {
           childrenList.add(new Property("prohibited", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.", 0, java.lang.Integer.MAX_VALUE, prohibited));
           childrenList.add(new Property("actionResulting", "Resource(Any)", "Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.", 0, java.lang.Integer.MAX_VALUE, actionResulting));
           childrenList.add(new Property("notes", "string", "Notes about the execution of the activity.", 0, java.lang.Integer.MAX_VALUE, notes));
-          childrenList.add(new Property("detail", "Resource(Procedure|MedicationPrescription|DiagnosticOrder|Encounter)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("detail", "Resource(Procedure|MedicationPrescription|DiagnosticOrder|Encounter|Supply)", "The details of the proposed activity represented in a specific resource.", 0, java.lang.Integer.MAX_VALUE, detail));
           childrenList.add(new Property("simple", "", "A simple summary of details suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, java.lang.Integer.MAX_VALUE, simple));
         }
 

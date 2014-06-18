@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Tue, Jun 17, 2014 07:59+1000 for FHIR v0.2.1
+// Generated on Wed, Jun 18, 2014 16:29+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -591,7 +591,7 @@ public class Questionnaire extends Resource {
             this.linkId.setValue(value);
           }
           return this;
-      }
+        }
 
         /**
          * @return {@link #concept} (Identifies a how this group of questions is known in a particular terminology such as LOINC.)
@@ -774,7 +774,7 @@ public class Questionnaire extends Resource {
          */
         public ValueSet getOptionsTarget() { 
           return this.optionsTarget;
-          }
+        }
 
         /**
          * @param value {@link #options} (The actual object that is the target of the reference. Reference to a valueset containing the possible options.)
@@ -923,7 +923,7 @@ public class Questionnaire extends Resource {
         if (this.version == null)
           this.version = new String_();
         this.version.setValue(value);
-    }
+      }
       return this;
     }
 
@@ -991,7 +991,7 @@ public class Questionnaire extends Resource {
         if (this.date == null)
           this.date = new Date();
         this.date.setValue(value);
-    }
+      }
       return this;
     }
 
@@ -1027,7 +1027,7 @@ public class Questionnaire extends Resource {
         if (this.publisher == null)
           this.publisher = new String_();
         this.publisher.setValue(value);
-    }
+      }
       return this;
     }
 

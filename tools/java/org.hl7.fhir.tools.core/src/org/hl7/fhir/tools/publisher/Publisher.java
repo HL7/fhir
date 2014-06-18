@@ -136,6 +136,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
+import org.hl7.fhir.instance.utils.LoincToDEConvertor;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.InstanceValidator;
@@ -2323,108 +2324,111 @@ public class Publisher {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
+    Document xdoc;
+    String narrative;
+    
     String n = e.getFileTitle();
 
-    if (!e.getPath().exists())
-      throw new Exception("unable to find example file");
 
-    // strip the xsi: stuff. seems to need double processing in order to
-    // delete namespace crap
-    Document xdoc = e.getXml() == null ? builder.parse(new CSFileInputStream(e.getPath())) : e.getXml();
-    XmlGenerator xmlgen = new XmlGenerator();
-    if (xdoc.getDocumentElement().getLocalName().equals("feed"))
-      xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://www.w3.org/2005/Atom", xdoc.getDocumentElement()
-          .getLocalName());
-    else {
-      xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://hl7.org/fhir", xdoc.getDocumentElement()
-          .getLocalName());
-    }
+      if (!e.getPath().exists())
+        throw new Exception("unable to find example file");
 
-    // check the narrative. We generate auto-narrative. If the resource didn't
-    // have it's own original narrative, then we save it anyway
-    // todo: this uses the version of the resource in the generator, not the current one. This needs to be moved to the compiled code when it's stable
-    String narrative;
-    org.hl7.fhir.instance.model.Resource r;
-    try {
-      XmlParser xml = new XmlParser();
-      XhtmlNode combined = new XhtmlNode(NodeType.Element, "div");
-      ResourceOrFeed rf = xml.parseGeneral(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-      boolean wantSave = false;
-      if (rf.getFeed() != null) {
-        for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae : rf.getFeed().getEntryList()) {
-          r = ae.getResource();
-          wantSave = wantSave || (r.getText() == null || r.getText().getDiv() == null);
-          if (true /*(r.getText() == null || r.getText().getDiv() == null) || !web */) {
-            NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, rf.getFeed()));
+      // strip the xsi: stuff. seems to need double processing in order to
+      // delete namespace crap
+      xdoc = e.getXml() == null ? builder.parse(new CSFileInputStream(e.getPath())) : e.getXml();
+      XmlGenerator xmlgen = new XmlGenerator();
+      if (xdoc.getDocumentElement().getLocalName().equals("feed"))
+        xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://www.w3.org/2005/Atom", xdoc.getDocumentElement()
+            .getLocalName());
+      else {
+        xmlgen.generate(xdoc.getDocumentElement(), new CSFile(page.getFolders().dstDir + n + ".xml"), "http://hl7.org/fhir", xdoc.getDocumentElement()
+            .getLocalName());
+      }
+
+      // check the narrative. We generate auto-narrative. If the resource didn't
+      // have it's own original narrative, then we save it anyway
+      // todo: this uses the version of the resource in the generator, not the current one. This needs to be moved to the compiled code when it's stable
+      org.hl7.fhir.instance.model.Resource r;
+      try {
+        XmlParser xml = new XmlParser();
+        XhtmlNode combined = new XhtmlNode(NodeType.Element, "div");
+        ResourceOrFeed rf = xml.parseGeneral(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+        boolean wantSave = false;
+        if (rf.getFeed() != null) {
+          for (AtomEntry<? extends org.hl7.fhir.instance.model.Resource> ae : rf.getFeed().getEntryList()) {
+            r = ae.getResource();
+            wantSave = wantSave || (r.getText() == null || r.getText().getDiv() == null);
+            if (true /*(r.getText() == null || r.getText().getDiv() == null) || !web */) {
+              NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, rf.getFeed()));
+              gen.generate(r);
+            }
+            if (r.getText() != null && r.getText().getDiv() != null) {
+              combined.getChildNodes().add(r.getText().getDiv());
+              combined.addTag("hr");
+            }  
+            if (rf.getFeed().isDocument()) {
+              NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, null));
+              combined = gen.generateDocumentNarrative(rf.getFeed());
+            }
+          }
+          narrative = new XhtmlComposer().compose(combined);
+          if (true /*wantSave*/) {
+            new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), rf.getFeed(), true, true);
+            xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+          }
+          r = null;
+        } else {
+          r = rf.getResource();
+          wantSave = r.getText() == null || r.getText().getDiv() == null;
+          if (wantSave/* || !web */) {
+            NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, null));
             gen.generate(r);
           }
           if (r.getText() != null && r.getText().getDiv() != null) {
-            combined.getChildNodes().add(r.getText().getDiv());
-            combined.addTag("hr");
-          }  
-          if (rf.getFeed().isDocument()) {
-            NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, null));
-            combined = gen.generateDocumentNarrative(rf.getFeed());
-          }
+            narrative = new XhtmlComposer().compose(r.getText().getDiv());
+            if (true /*wantSave*/) {
+              new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), r, true, true);
+              xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
+            }
+          } else
+            narrative = "&lt;-- No Narrative for this resource --&gt;";
         }
-        narrative = new XhtmlComposer().compose(combined);
-        if (true /*wantSave*/) {
-          new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), rf.getFeed(), true, true);
-          xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-        }
+      } catch (Exception ex) {
+        XhtmlNode xhtml = new XhtmlNode(NodeType.Element, "div");
+        xhtml.addTag("p").setAttribute("style", "color: maroon").addText("Error processing narrative: " + ex.getMessage());
+        narrative = new XhtmlComposer().compose(xhtml);
         r = null;
-      } else {
-        r = rf.getResource();
-        wantSave = r.getText() == null || r.getText().getDiv() == null;
-        if (wantSave/* || !web */) {
-          NarrativeGenerator gen = new NarrativeGenerator("", page.getConceptLocator(), page.getCodeSystems(), page.getValueSets(), page.getConceptMaps(), page.getProfiles(), new SpecificationInternalClient(page, null));
-          gen.generate(r);
-        }
-        if (r.getText() != null && r.getText().getDiv() != null) {
-          narrative = new XhtmlComposer().compose(r.getText().getDiv());
-          if (true /*wantSave*/) {
-            new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".xml"), r, true, true);
-            xdoc = builder.parse(new CSFileInputStream(page.getFolders().dstDir + n + ".xml"));
-          }
-        } else
-          narrative = "&lt;-- No Narrative for this resource --&gt;";
       }
-    } catch (Exception ex) {
-      XhtmlNode xhtml = new XhtmlNode(NodeType.Element, "div");
-      xhtml.addTag("p").setAttribute("style", "color: maroon").addText("Error processing narrative: " + ex.getMessage());
-      narrative = new XhtmlComposer().compose(xhtml);
-      r = null;
-    }
 
-    if (r instanceof ValueSet) {
-      ValueSet vs = (ValueSet) r;
-      new ValueSetValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(vs, false);
-      if (vs.getIdentifier() == null)
-        throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
-      if (vs.getDefine() != null) {
+      if (r instanceof ValueSet) {
+        ValueSet vs = (ValueSet) r;
+        new ValueSetValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(vs, false);
+        if (vs.getIdentifier() == null)
+          throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
+        if (vs.getDefine() != null) {
+          AtomEntry ae = new AtomEntry();
+          ae.getLinks().put("self", n + ".html");
+          ae.getLinks().put("path", n + ".html");
+          ae.setResource(vs);
+          page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+        }
+        addToResourceFeed(vs, vs.getIdentifierSimple(), valueSetsFeed);
+        page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
+        if (vs.getDefine() != null)
+          page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
+      } else if (r instanceof ConceptMap) {
+        ConceptMap cm = (ConceptMap) r;
+        new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
+        if (cm.getIdentifier() == null)
+          throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
+        addToResourceFeed(cm, cm.getIdentifierSimple(), conceptMapsFeed);
+        page.getDefinitions().getConceptMaps().put(cm.getIdentifierSimple(), cm);
         AtomEntry ae = new AtomEntry();
         ae.getLinks().put("self", n + ".html");
         ae.getLinks().put("path", n + ".html");
-        ae.setResource(vs);
-        page.getCodeSystems().put(vs.getDefine().getSystemSimple().toString(), ae);
+        ae.setResource(cm);
+        page.getConceptMaps().put(cm.getIdentifierSimple(), ae);
       }
-      addToResourceFeed(vs, vs.getIdentifierSimple(), valueSetsFeed);
-      page.getDefinitions().getValuesets().put(vs.getIdentifierSimple(), vs);
-      if (vs.getDefine() != null)
-        page.getDefinitions().getCodeSystems().put(vs.getDefine().getSystemSimple(), vs);
-    } else if (r instanceof ConceptMap) {
-      ConceptMap cm = (ConceptMap) r;
-      new ConceptMapValidator(page.getDefinitions(), e.getPath().getAbsolutePath()).validate(cm, false);
-      if (cm.getIdentifier() == null)
-        throw new Exception("Value set example " + e.getPath().getAbsolutePath() + " has no identifier");
-      addToResourceFeed(cm, cm.getIdentifierSimple(), conceptMapsFeed);
-      page.getDefinitions().getConceptMaps().put(cm.getIdentifierSimple(), cm);
-      AtomEntry ae = new AtomEntry();
-      ae.getLinks().put("self", n + ".html");
-      ae.getLinks().put("path", n + ".html");
-      ae.setResource(cm);
-      page.getConceptMaps().put(cm.getIdentifierSimple(), ae);
-    }
 
     String json;
     // generate the json version (use the java reference platform)
@@ -2482,6 +2486,17 @@ public class Publisher {
     page.getEpub().registerExternal(n + ".json.html");
     page.getEpub().registerExternal(n + ".xml.html");
 
+  }
+
+  private String buildLoincExample(String filename) throws FileNotFoundException, Exception {
+    LoincToDEConvertor conv = new LoincToDEConvertor();
+    conv.setDefinitions(Utilities.path(page.getFolders().srcDir, "loinc", "loincS.xml"));
+    conv.process();
+    XmlComposer xml = new XmlComposer();
+    xml.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, filename+".xml")), conv.getFeed(), false);
+    JsonComposer json = new JsonComposer();
+    json.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, filename+".json")), conv.getFeed(), false);
+    return "Loinc Narrative";
   }
 
   private void generateProfile(ResourceDefn root, String n, String xmlSpec, GenerationMode mode) throws Exception, FileNotFoundException {

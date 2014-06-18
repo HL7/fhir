@@ -155,7 +155,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		if (profile.getExtensions().size() > 0) {
 			write("<span style=\" color: Gray\">&lt;!-- <span style=\"color: Darkviolet\">Extensions</span> --&gt;</span>\r\n");
 			for (ExtensionDefn ex : profile.getExtensions()) {
-				generateExtension(ex, profile, definitions, profile.getMetadata().get("extension.uri").get(0));
+				generateExtension(ex, profile, definitions, profile.getMetadata().get("extension.uri").get(0), 0);
         write("\r\n");
 			}
 		}
@@ -165,66 +165,79 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		close();
 	}
 
-	private void generateExtension(ExtensionDefn ex, ProfileDefn profile, Definitions definitions, String root)
-			throws Exception {
-	  if (ex.getDefinition().isModifier())
-	    write("&lt;<span style=\"text-decoration: underline\" title=\"" + Utilities.escapeXml(ex.getDefinition().getEnhancedDefinition()) + "\"><b>extension</b></span>&gt;");
+	private void generateExtension(ExtensionDefn ex, ProfileDefn profile, Definitions definitions, String root, int indent) throws Exception {
+	  String n = (indent == 0) ? "extension" : "extension"; // in case contained extensions have a different name
+	  String ind = Utilities.padLeft("", ' ', indent);  
+    if (indent == 0) {
+      write(ind+"<a name=\""+ex.getCode()+"\">&lt;!--</a> ");
+      writeCardinality(ex.getDefinition());
+      write("  ");
+      write("<span style=\"color: navy\">" + Utilities.escapeXml("Context: "+ex.getType().toString()+" = "+ex.getContext()) + "</span>");
+      write(" -->\r\n");
+    }
+
+    if (ex.getDefinition().isModifier())
+	    write(ind+"&lt;<span style=\"text-decoration: underline\" title=\"" + Utilities.escapeXml(ex.getDefinition().getEnhancedDefinition()) + "\"><b>"+n+"</b></span>");
 	  else
-	    write("&lt;<span title=\"" + Utilities.escapeXml(ex.getDefinition().getDefinition()) + "\"><b>extension</b></span>&gt;");
-	  write("<a name=\""+ex.getCode()+"\"> </a>&lt;!-- ");
-	  
-		writeCardinality(ex.getDefinition());
-		write(" ");
-    write("<span style=\"color: navy\">" + Utilities.escapeXml("Context: "+ex.getType().toString()+" = "+ex.getContext()) + "</span>");
-		write(" -->\r\n");
-		write(" &lt;<b>url</b> value=\"<span style=\"color: maroon\">"+ root + "#"+ex.getCode() + "</span>\"/&gt;\r\n");
+	    write(ind+"&lt;<span title=\"" + Utilities.escapeXml(ex.getDefinition().getDefinition()) + "\"><b>"+n+"</b></span>");
+    write(" <b>url</b>=\"<span style=\"color: maroon\">"+ (indent == 0 ? root  : "") + "#"+ ex.getCode() + "</span>\"&gt;");
+    if (indent != 0) {
+      write(ind+"<a name=\""+ex.getCode()+"\"> </a>&lt;!-- ");
+      writeCardinality(ex.getDefinition());
+      write(" -->");
+    }
+    write("\r\n");
+
 //		write(" &lt;<b>definition</b>><span style=\" color: Gray\">&lt;!-- </span> <span style=\"color: brown;\"><b>1..1</b></span> <span style=\"color: darkgreen;\"><a href=\"datatypes.html#uri\">uri</a></span> <span style=\"color: navy\">where registered</span> <span style=\" color: Gray\">--&gt;</span>&lt;/definition>\r\n");
 //		write(" &lt;<b>ref</b>&gt; <span style=\"color: navy\"><span style=\"color: darkgreen;\"><a href=\"references.html#idref\">Ref</a></span> to a "
 //				+ ex.getContext()
 //				+ " ("
 //				+ ex.getType().toString()
-//				+ ")</span>\">  \r\n");
-//		if (ex.getDefinition().isMustUnderstand())
-//			write(" &lt;<b>mustUnderstand</b>>true&lt;/mustUnderstand>\r\n");
-		if (ex.getDefinition().getTypes().size() == 0) {
-      write(" <span title=\"" + Utilities.escapeXml(ex.getDefinition().getDefinition()) + "\">");
-      write("<span style=\" color: Gray\">&lt;!-- </span>");
-      write("<span style=\"color: navy\">"+getExtensionTargetList(ex, profile)+"</span> ");
-      write("<span style=\" color: Gray\">--> </span>");
-      write("</span>\r\n");
-		} else {
-      String t = null; 
-      
-		  String vn = "value[x]";
-		  if (ex.getDefinition().getTypes().size() == 1) {
-        t = ex.getDefinition().typeCode();
-        if (t.startsWith("Resource("))
-          t = "ResourceReference";
-        vn = "value" + upFirst(t);
-		  }
+    //				+ ")</span>\">  \r\n");
+    //		if (ex.getDefinition().isMustUnderstand())
+    //			write(" &lt;<b>mustUnderstand</b>>true&lt;/mustUnderstand>\r\n");
+    if (ex.getChildren().isEmpty()) {
+      if (ex.getDefinition().getTypes().size() == 0 ) {
+        write(" <span title=\"" + Utilities.escapeXml(ex.getDefinition().getDefinition()) + "\">");
+        write("<span style=\" color: Gray\">&lt;!-- </span>");
+        write("<span style=\"color: navy\">"+getExtensionTargetList(ex, profile)+"</span> ");
+        write("<span style=\" color: Gray\">--> </span>");
+        write("</span>\r\n");
+      } else {
+        String t = null; 
 
-		  write(" &lt;<span title=\"" + Utilities.escapeXml(ex.getDefinition().getDefinition()) + "\"><b>" + vn + "</b></span>");
-		  if (ex.getDefinition().getTypes().size() == 1
-		      && definitions.hasElementDefn(t)) {
-		    write("&gt;");
-		    write("<span style=\" color: Gray\">&lt;!-- </span>");
-		    write(" <span style=\"color: brown;\"><b>0..1</b></span> ");
-		    writeTypeLinks(ex.getDefinition(), 0);
-		    write(" <span style=\"color: navy\">"+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</span>");
-		    write(" <span style=\" color: Gray\">--&gt; </span>&lt;/" + vn + ">\r\n");
-		  } else if (ex.getDefinition().getTypes().size() == 1) {
-		    write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>]\"/>");
-		    write("<span style=\" color: Gray\">&lt;!-- </span>");
-		    write("<span style=\"color: navy\">"
-		        + Utilities.escapeXml(ex.getDefinition().getShortDefn())
-		        + "</span>");
-		    write("<span style=\" color: Gray\"> --></span>\r\n");
-		  } else {
-		    write("&gt;");
-		    write("[todo: type and short defn]&lt;/" + vn + ">\r\n");
-		  }
-		}
-		write("&lt;/extension>\r\n");
+        String vn = "value[x]";
+        if (ex.getDefinition().getTypes().size() == 1) {
+          t = ex.getDefinition().typeCode();
+          if (t.startsWith("Resource("))
+            t = "ResourceReference";
+          vn = "value" + upFirst(t);
+        }
+
+        write(ind+"  &lt;<span title=\"" + Utilities.escapeXml(ex.getDefinition().getDefinition()) + "\"><b>" + vn + "</b></span>");
+        if (ex.getDefinition().getTypes().size() == 1
+            && definitions.hasElementDefn(t)) {
+          write("&gt;");
+          write("<span style=\" color: Gray\">&lt;!-- </span>");
+          writeTypeLinks(ex.getDefinition(), 0);
+          write(" <span style=\"color: navy\">"+Utilities.escapeXml(ex.getDefinition().getShortDefn())+"</span>");
+          write(" <span style=\" color: Gray\">--&gt; </span>&lt;/" + vn + ">\r\n");
+        } else if (ex.getDefinition().getTypes().size() == 1) {
+          write(" value=\"[<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>]\"/>");
+          write("<span style=\" color: Gray\">&lt;!-- </span>");
+          write("<span style=\"color: navy\">"
+              + Utilities.escapeXml(ex.getDefinition().getShortDefn())
+              + "</span>");
+          write("<span style=\" color: Gray\"> --></span>\r\n");
+        } else {
+          write("&gt;");
+          write("[todo: type and short defn]&lt;/" + vn + ">\r\n");
+        }
+      }
+    }
+		for (ExtensionDefn child : ex.getChildren())
+		  generateExtension(child, profile, definitions, root, indent+2);
+		write(ind+"&lt;/"+n+">\r\n");
 	}
 
 	private String getExtensionTargetList(ExtensionDefn ex, ProfileDefn profile) {

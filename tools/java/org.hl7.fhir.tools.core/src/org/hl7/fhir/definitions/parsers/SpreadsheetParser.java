@@ -239,8 +239,8 @@ public class SpreadsheetParser {
 				return ExampleType.Tool;
 			if ("xml".equals(s))
 				return ExampleType.XmlFile;
-			if ("csv".equals(s))
-				return ExampleType.CsvFile;
+      if ("csv".equals(s))
+        return ExampleType.CsvFile;
 			throw new Exception("Unknown Example Type '" + s + "': " + getLocation(row));
 		}
 
@@ -514,6 +514,7 @@ public class SpreadsheetParser {
 	}
 
 	public ProfileDefn parseProfile(Definitions definitions) throws Exception {
+	  try {
 		isProfile = true;
 		ProfileDefn p = new ProfileDefn();
 
@@ -556,9 +557,9 @@ public class SpreadsheetParser {
     if (sheet != null) {
       for (int row = 0; row < sheet.rows.size(); row++) {
         if (!sheet.getColumn(row, "Code").startsWith("!"))
-          p.getExtensions().add(processExtension(null,
+          processExtension(null,
             sheet, row, definitions,
-            p.metadata("extension.uri")));
+            p.metadata("extension.uri"), p.getExtensions());
       }
     }
 
@@ -567,6 +568,9 @@ public class SpreadsheetParser {
       p.getBindings().addAll(readBindings(sheet).values());
       
 		return p;
+	  } catch (Exception e) {
+	    throw new Exception("exception parsing "+name, e);
+	  }
 	}
 
 
@@ -586,10 +590,10 @@ public class SpreadsheetParser {
     if (sheet != null) {
       for (int row = 0; row < sheet.rows.size(); row++) {
         if (!sheet.getColumn(row, "Code").startsWith("!"))
-          p.getExtensions().add(processExtension(
+          processExtension(
             resource.getRoot().getElementByName("extensions"),
             sheet, row, definitions,
-            p.metadata("extension.uri")));
+            p.metadata("extension.uri"), p.getExtensions());
       }
     }
     resource.getRoot().setProfileName(n);
@@ -607,7 +611,7 @@ public class SpreadsheetParser {
 						throw new Exception("Example " + name + " has no description parsing " + this.name);
 					File file = new CSFile(folder + sheet.getColumn(row, "Filename"));
 					String type = sheet.getColumn(row, "Type");
-					if (!file.exists() && !"tool".equals(type))
+					if (!file.exists() && !("tool".equals(type) || isSpecialType(type)))
 						throw new Exception("Example " + name + " file '" + file.getAbsolutePath() + "' not found parsing " + this.name);
 					defn.getExamples().add(new Example(name, id, desc, file, 
 							parseExampleType(type, row),
@@ -629,7 +633,12 @@ public class SpreadsheetParser {
 	
 	
 	
-	private void readEvents(Sheet sheet) throws Exception {
+	private boolean isSpecialType(String type) {
+    return false;
+  }
+
+
+  private void readEvents(Sheet sheet) throws Exception {
 		if (sheet != null) {
 			for (int row = 0; row < sheet.rows.size(); row++) {
 				String code = sheet.getColumn(row, "Event Code");
@@ -834,14 +843,12 @@ public class SpreadsheetParser {
 
 
 
-  private ExtensionDefn processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri) throws Exception {
+  private void processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, List<ExtensionDefn> extensionList) throws Exception {
 	  // first, we build the extension definition
 	  org.hl7.fhir.definitions.model.ExtensionDefn ex = new org.hl7.fhir.definitions.model.ExtensionDefn();
 	  ex.setCode(sheet.getColumn(row, "Code"));
     ex.setType(readContextType(sheet.getColumn(row, "Context Type"), row));
     ex.setContext(sheet.getColumn(row, "Context"));
-    if (ex.getType() == ContextType.Extension && ex.getContext().startsWith("#"))
-      ex.setContext(uri+ex.getContext());
 	  ElementDefn exe = new ElementDefn();
 	  exe.setName(sheet.getColumn(row, "Code"));
 	  ex.setDefinition(exe);
@@ -924,8 +931,29 @@ public class SpreadsheetParser {
 	    }
 	    e.getElements().remove(e.getElementByName("extension"));
 	  }
-	  return ex;
+    if (ex.getType() == ContextType.Extension && ex.getContext().startsWith("#")) {
+      ExtensionDefn pex = findExtension(extensionList, ex.getContext().substring(1));
+      if (pex == null)
+        throw new Exception("unable to find extension "+ex.getContext().substring(1));
+      pex.getChildren().add(ex);      
+      ex.setContext(uri+ex.getContext());
+    } else
+	    extensionList.add(ex);
 	}
+
+
+  private ExtensionDefn findExtension(List<ExtensionDefn> extensionList, String name) {
+    for (ExtensionDefn ppex : extensionList) {
+      if (ppex.getCode().equals(name))
+        return ppex;
+      else  {
+        ExtensionDefn pex = findExtension(ppex.getChildren(), name);
+        if (pex != null)
+          return pex;
+      }
+    }
+    return null;
+  }
 
 	private ExtensionDefn.ContextType readContextType(String value, int row) throws Exception {
     if (value.equals("Resource"))
