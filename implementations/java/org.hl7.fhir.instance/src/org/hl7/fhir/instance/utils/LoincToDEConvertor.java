@@ -1,4 +1,4 @@
-package org.hl7.fhir.convertors;
+package org.hl7.fhir.instance.utils;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,9 +14,10 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.Code;
 import org.hl7.fhir.instance.model.CodeableConcept;
 import org.hl7.fhir.instance.model.Coding;
-import org.hl7.fhir.instance.model.CommonDataElement;
+import org.hl7.fhir.instance.model.DataElement;
+import org.hl7.fhir.instance.model.DataElement.ResourceObservationDefStatus;
+import org.hl7.fhir.instance.model.Identifier;
 import org.hl7.fhir.instance.model.String_;
-import org.hl7.fhir.instance.model.CommonDataElement.ResourceObservationDefStatus;
 import org.hl7.fhir.instance.model.Contact;
 import org.hl7.fhir.instance.model.Contact.ContactSystem;
 import org.hl7.fhir.instance.model.DateAndTime;
@@ -26,7 +27,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-public class LoincToCdeConvertor {
+/**
+ * This class converts the LOINC XML representation that the FHIR build tool uses internally to a set of DataElements in an atom feed
+ * 
+ * @author Grahame
+ *
+ */
+public class LoincToDEConvertor {
 
 	// C:\temp\LOINC.xml
 	public static void main(String[] args) throws Exception {
@@ -41,7 +48,7 @@ public class LoincToCdeConvertor {
 			System.out.println("* [definitions] is the file name of a file produced by exporting the main LOINC table from the mdb to XML");
 			System.out.println("");
 		} else {
-			LoincToCdeConvertor exe = new LoincToCdeConvertor();
+			LoincToDEConvertor exe = new LoincToDEConvertor();
 			exe.setDest(args[0]);
 			for (int i = 1; i < args.length; i++) {
 				if (args[i].equals("-defn"))
@@ -84,9 +91,12 @@ public class LoincToCdeConvertor {
 		feed.setAuthorName("FHIR Core Team");
 
 		processLoincCodes();
-		log("Saving...");
-		saveBundle();
+		if (dest != null) {
+			log("Saving...");
+			saveBundle();
+		}
 		log("Done");
+
 	}
 
 	private void log(String string) {
@@ -127,14 +137,17 @@ public class LoincToCdeConvertor {
 				System.out.print(".");
 				String code = col(row, "LOINC_NUM");
 				String comp = col(row, "COMPONENT");
-				AtomEntry<CommonDataElement> ae = new AtomEntry<>();
+				AtomEntry<DataElement> ae = new AtomEntry<DataElement>();
 				ae.setId("http://hl7.org/fhir/commondataelement/loinc-"+code);
 				ae.setTitle("LOINC Code "+code+": "+comp);
 				ae.setPublished(now);
 				ae.setUpdated(now);
 				feed.getEntryList().add(ae);
-				CommonDataElement cde = new CommonDataElement();
-				cde.setIdentifierSimple(ae.getId());
+				DataElement cde = new DataElement();
+				Identifier id = new Identifier();
+				id.setSystemSimple("http://hl7.org/fhir/commondataelement/loinc");
+				id.setValueSimple(code);
+				cde.setIdentifier(id);
 				cde.setPublisherSimple("HL7 FHIR Project Team / LOINC");
 				cde.getTelecom().add(new Contact().setSystemSimple(ContactSystem.url).setValueSimple("http://hl7.org/fhir"));
 				cde.getTelecom().add(new Contact().setSystemSimple(ContactSystem.url).setValueSimple("http://loinc.org"));
@@ -252,4 +265,7 @@ public class LoincToCdeConvertor {
 		cc.getCoding().add(new Coding().setCodeSimple(ucum).setSystemSimple("http://unitsofmeasure.org"));
 		return cc;
 	}
+  public AtomFeed getFeed() {
+    return feed;
+  }
 }
