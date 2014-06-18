@@ -57,12 +57,14 @@
 	<case id="1-112" unit="rad2" valid="true"/>
 	<case id="1-113" unit="m3.kg-1.s-2" valid="true"/>
 	<case id="1-114" unit="4.[pi].10*-7.N/A2" valid="true"/>
-	<!-- test that the parser supports both {} inserts, and unicode characters too, while we're at it -->
-	<case id="1-115" unit="rad2{錠}" valid="true"/>
-	<case id="1-116" unit="{錠}rad2{錠}" valid="true"/>		
-	<case id="1-117" unit="1{錠}" valid="true"/>
-	<case id="1-118" unit="{錠}1" valid="true"/>
-	<case id="1-119" unit="{錠}" valid="true"/>
+	<!-- test that the parser supports both {} inserts, but not unicode characters too, while we're at it -->
+  <case id="1-115" unit="rad2{a}" valid="true"/>
+  <case id="1-115a" unit="rad2{錠}" valid="false"/>
+  <case id="1-116" unit="{a}.rad2{b}" valid="true"/>    
+  <case id="1-116a" unit="{a}rad2{b}" valid="false"/>    
+	<case id="1-117" unit="1{c}" valid="true"/>
+	<case id="1-118" unit="{|}1" valid="false"/>
+	<case id="1-119" unit="{e}" valid="true"/>
 	<case id="1-120" unit="%" valid="true"/>
 	
 	<!-- 
@@ -624,10 +626,10 @@
     <case id="3-105" value="6.3"      srcUnit="s.mm-1"      dstUnit="s.m-1"         outcome="6300"/>
     <case id="3-106" value="6.3"      srcUnit="s.mm-2"      dstUnit="s.m-2"         outcome="6300000"/>
     <case id="3-107" value="6.3"      srcUnit="s.mm-2"      dstUnit="s.m-2"         outcome="6300000"/>
-    <case id="3-108" value="6.3"      srcUnit="s/m/g"       dstUnit="s.m-1.g"       outcome="6.3"/>
-    <case id="3-109" value="6.3"      srcUnit="ms/m/g"      dstUnit="s.m-1.g"       outcome="0.0063"/>
-    <case id="3-110" value="6.3"      srcUnit="s/mm/g"      dstUnit="s.m-1.g"       outcome="6300"/>
-    <case id="3-111" value="6.3"      srcUnit="s/m/mg"      dstUnit="s.m-1.g"       outcome="0.0063"/>
+    <case id="3-108" value="6.3"      srcUnit="s/m/g"       dstUnit="s.m-1.g-1"       outcome="6.3"/>
+    <case id="3-109" value="6.3"      srcUnit="ms/m/g"      dstUnit="s.m-1.g-1"       outcome="0.0063"/>
+    <case id="3-110" value="6.3"      srcUnit="s/mm/g"      dstUnit="s.m-1.g-1"       outcome="6300"/>
+    <case id="3-111" value="6.3"      srcUnit="s/m/mg"      dstUnit="s.m-1.g-1"       outcome="0.0063"/>
     <case id="3-112" value="6.3"      srcUnit="ms/m"        dstUnit="s/m"           outcome="0.0063"/> 
     <case id="3-113" value="6.3"      srcUnit="4.s/m"       dstUnit="s/m"           outcome="25"/>
     <case id="3-114" value="6.30"     srcUnit="4.s/m"       dstUnit="s/m"           outcome="25.2"/>
