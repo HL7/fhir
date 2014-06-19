@@ -159,11 +159,11 @@ public class WebMaker {
     }
 
     for (String n : definitions.sortedResourceNames()) {
-      buildRedirect(n, n.toLowerCase()+".profile.xml.html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"profiles"+File.separator+n);
+      buildRedirect(n, n.toLowerCase()+".profile.xml.html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"Profile"+File.separator+n);
       buildRedirect(n, n.toLowerCase()+".html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n);
       ResourceDefn r = definitions.getResourceByName(n);
       for (RegisteredProfile p : r.getProfiles()) {
-        buildRedirect(n, p.getDestFilenameNoExt()+".html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"profiles"+File.separator+p.getDestFilenameNoExt());
+        buildRedirect(n, p.getDestFilenameNoExt()+".html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"Profile"+File.separator+p.getDestFilenameNoExt());
       }
     }
     

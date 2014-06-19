@@ -94,7 +94,7 @@ public class ProfileGenerator {
     if (profile.getSource() != null)
       return profile.getSource();
     Profile p = new Profile();
-    p.setUrlSimple("http://hl7.org/fhir/profiles/"+ id);
+    p.setUrlSimple("http://hl7.org/fhir/Profile/"+ id);
     p.setName(Factory.newString_(profile.metadata("name")));
     p.setPublisher(Factory.newString_(profile.metadata("author.name")));
     if (profile.hasMetadata("author.reference"))
@@ -378,7 +378,7 @@ public class ProfileGenerator {
             if (param.startsWith("http:"))
               type.setProfileSimple(param);
             else 
-              type.setProfileSimple("http://hl7.org/fhir/profiles/"+param);
+              type.setProfileSimple("http://hl7.org/fhir/Profile/"+param);
             ce.getDefinition().getType().add(type);            
           }
         }

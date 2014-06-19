@@ -99,7 +99,7 @@
     </ValueSet>
   </contained>
 
-  <identifier value="http://hl7.org/fhir/tools/extensions"/>
+  <url value="http://hl7.org/fhir/tools/Profile/extensions"/>
   <name value="Extensions defined by the FHIR build tools"/>
   <publisher value="FHIR Project Team"/>
   <telecom>

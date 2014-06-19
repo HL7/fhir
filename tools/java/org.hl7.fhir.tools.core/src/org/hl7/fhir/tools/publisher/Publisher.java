@@ -590,7 +590,7 @@ public class Publisher {
   private ConformanceRestResourceSearchParamComponent makeSearchParam(Conformance p, String rn, SearchParameter i) {
     ConformanceRestResourceSearchParamComponent result = new Conformance.ConformanceRestResourceSearchParamComponent();
     result.setNameSimple(i.getCode());
-    result.setDefinitionSimple("http://hl7.org/fhir/profiles/" + rn);
+    result.setDefinitionSimple("http://hl7.org/fhir/Profile/" + rn);
     result.setTypeSimple(getSearchParamType(i.getType()));
     result.setDocumentation(Factory.newString_(i.getDescription()));
     i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
@@ -2639,7 +2639,7 @@ public class Publisher {
     validateProfile(profile);
 
     XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), null, "http://hl7.org/fhir/", page);
-    gen.generate(profile, "http://hl7.org/fhir/profiles/"+title);
+    gen.generate(profile, "http://hl7.org/fhir/Profile/"+title);
     gen.close();
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 

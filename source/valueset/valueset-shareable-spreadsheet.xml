@@ -182,8 +182,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s66" ss:HRef="http://hl7.org/fhir/profiles/ValueSet-shareable"><Data
-      ss:Type="String">http://hl7.org/fhir/profiles/ValueSet-shareable</Data></Cell>
+    <Cell ss:StyleID="s66" ss:HRef="http://hl7.org/fhir/Profile/ValueSet-shareable"><Data
+      ss:Type="String">http://hl7.org/fhir/Profile/ValueSet-shareable</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

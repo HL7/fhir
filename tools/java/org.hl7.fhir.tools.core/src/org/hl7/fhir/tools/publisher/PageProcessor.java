@@ -3054,7 +3054,7 @@ public class PageProcessor implements Logger  {
 
   private String generateProfileTable(ProfileDefn profile, String filename) throws Exception {
     ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this, profile.metadata("name")+".html");
-    return new XhtmlComposer().compose(gen.generate(profile, "http://hl7.org/fhir/profiles/"+filename));
+    return new XhtmlComposer().compose(gen.generate(profile, "http://hl7.org/fhir/Profile/"+filename));
   }
 
   private boolean isAggregationEndpoint(String name) {
