@@ -140,7 +140,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     write(" (<span style=\"color: darkgreen\"><a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t)+ ".html#" + t) + "\">" + t + "</a></span>)\"");
   }
 
-  public void generate(ProfileDefn profile) throws Exception {
+  public void generate(ProfileDefn profile, String root) throws Exception {
 		write("<pre class=\"spec\"> <span style=\"float: right\"><a title=\"Documentation for this format\" href=\"formats.html\"><img src=\"help.png\" alt=\"doco\"/></a></span>\r\n");
 
 		if (profile.getResources().size() > 0) {
@@ -155,7 +155,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 		if (profile.getExtensions().size() > 0) {
 			write("<span style=\" color: Gray\">&lt;!-- <span style=\"color: Darkviolet\">Extensions</span> --&gt;</span>\r\n");
 			for (ExtensionDefn ex : profile.getExtensions()) {
-				generateExtension(ex, profile, definitions, profile.getMetadata().get("extension.uri").get(0), 0);
+				generateExtension(ex, profile, definitions, root, 0);
         write("\r\n");
 			}
 		}

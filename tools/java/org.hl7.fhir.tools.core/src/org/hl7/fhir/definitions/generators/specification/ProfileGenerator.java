@@ -90,13 +90,11 @@ public class ProfileGenerator {
     this.definitions = definitions;
   }
 
-  public Profile generate(ProfileDefn profile, String url, String html, GenerationMode mode) throws Exception {
+  public Profile generate(ProfileDefn profile, String id, String html, GenerationMode mode) throws Exception {
     if (profile.getSource() != null)
       return profile.getSource();
     Profile p = new Profile();
-    p.setUrlSimple(url);
-    
-    p.setIdentifierSimple("http://hl7.org/fhir/profile/"+profile.metadata("name"));
+    p.setUrlSimple("http://hl7.org/fhir/profiles/"+ id);
     p.setName(Factory.newString_(profile.metadata("name")));
     p.setPublisher(Factory.newString_(profile.metadata("author.name")));
     if (profile.hasMetadata("author.reference"))
@@ -265,10 +263,18 @@ public class ProfileGenerator {
     dst.setDisplaySimple(src.getDefinition().getShortDefn());
     dst.getContext().add(Factory.newString_(src.getContext()));
     dst.setContextTypeSimple(convertContextType(src.getType()));
-
+    addExtensionElements(dst, src, p, null);
+    return dst;
+  }
+    
+  private void addExtensionElements(ProfileExtensionDefnComponent dst, ExtensionDefn src, Profile p, String path) throws Exception {
     ElementDefn dSrc = src.getDefinition();
     ElementDefinitionComponent dDst = new Profile.ElementDefinitionComponent();
-    dst.setDefinition(dDst);
+    ElementComponent elem = new Profile.ElementComponent();
+    dst.getElement().add(elem);
+    elem.setDefinition(dDst);
+    String thisPath = path == null ? src.getCode() : path+"."+src.getCode();
+    elem.setPathSimple(thisPath);
 
     dDst.setShort(Factory.newString_(dSrc.getShortDefn()));
     dDst.setFormal(Factory.newString_(dSrc.getDefinition()));
@@ -294,8 +300,7 @@ public class ProfileGenerator {
     if (!Utilities.noString(dSrc.getBindingName()))
       dDst.setBinding(generateBinding(dSrc.getBindingName(), p));
     for (ExtensionDefn child : src.getChildren())
-      dst.getExtensionDefn().add(generateExtensionDefn(child, p));
-    return dst;
+      addExtensionElements(dst, child, p, thisPath); 
   }
 
 

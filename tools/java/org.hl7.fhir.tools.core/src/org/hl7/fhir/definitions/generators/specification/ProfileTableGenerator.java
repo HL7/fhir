@@ -27,7 +27,7 @@ public class ProfileTableGenerator extends TableGenerator {
     super(dest, page, pageName);
   }
 
-  public XhtmlNode generate(ProfileDefn p) throws Exception {
+  public XhtmlNode generate(ProfileDefn p, String root) throws Exception {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(dest);
     TableModel model = gen.new TableModel();
     
@@ -37,12 +37,12 @@ public class ProfileTableGenerator extends TableGenerator {
     model.getTitles().add(gen.new Title(null, null, "Description", null, null, 0));
     model.getTitles().add(gen.new Title(null, null, "Constraints", null, null, 0));
     
-    genProfile(gen, model.getRows(), p);
+    genProfile(gen, model.getRows(), p, root);
     
     return gen.generate(model);
   }
 
-  private void genProfile(HeirarchicalTableGenerator gen, List<Row> rows, ProfileDefn p) throws Exception {
+  private void genProfile(HeirarchicalTableGenerator gen, List<Row> rows, ProfileDefn p, String root) throws Exception {
     Row r = gen.new Row();
     rows.add(r);
     r.setIcon("icon_profile.png");
@@ -60,7 +60,7 @@ public class ProfileTableGenerator extends TableGenerator {
       re.getCells().add(gen.new Cell());
       re.getCells().add(gen.new Cell());
       re.getCells().add(gen.new Cell(null, null, "Extensions defined by this profile", null, null));
-      re.getCells().add(gen.new Cell(null, null, "URL: "+p.metadata("extension.uri"), null, null));
+      re.getCells().add(gen.new Cell(null, null, "URL: "+root, null, null));
       for (ExtensionDefn ext : p.getExtensions()) {
         genExtension(gen, re.getSubRows(), ext, true);
       }

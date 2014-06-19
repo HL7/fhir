@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jun 18, 2014 16:29+1000 for FHIR v0.2.1
+// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -2791,24 +2791,18 @@ public class Profile extends Resource {
         /**
          * Definition of the extension and its content.
          */
-        protected ElementDefinitionComponent definition;
+        protected List<ElementComponent> element = new ArrayList<ElementComponent>();
 
-        /**
-         * Children extensions defined as part of this extension.
-         */
-        protected List<ProfileExtensionDefnComponent> extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
-
-        private static final long serialVersionUID = 1492799232L;
+        private static final long serialVersionUID = -1308658505L;
 
       public ProfileExtensionDefnComponent() {
         super();
       }
 
-      public ProfileExtensionDefnComponent(Code code, Enumeration<ExtensionContext> contextType, ElementDefinitionComponent definition) {
+      public ProfileExtensionDefnComponent(Code code, Enumeration<ExtensionContext> contextType) {
         super();
         this.code = code;
         this.contextType = contextType;
-        this.definition = definition;
       }
 
         /**
@@ -2939,34 +2933,19 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #definition} (Definition of the extension and its content.)
+         * @return {@link #element} (Definition of the extension and its content.)
          */
-        public ElementDefinitionComponent getDefinition() { 
-          return this.definition;
-        }
-
-        /**
-         * @param value {@link #definition} (Definition of the extension and its content.)
-         */
-        public ProfileExtensionDefnComponent setDefinition(ElementDefinitionComponent value) { 
-          this.definition = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #extensionDefn} (Children extensions defined as part of this extension.)
-         */
-        public List<ProfileExtensionDefnComponent> getExtensionDefn() { 
-          return this.extensionDefn;
+        public List<ElementComponent> getElement() { 
+          return this.element;
         }
 
     // syntactic sugar
         /**
-         * @return {@link #extensionDefn} (Children extensions defined as part of this extension.)
+         * @return {@link #element} (Definition of the extension and its content.)
          */
-        public ProfileExtensionDefnComponent addExtensionDefn() { 
-          ProfileExtensionDefnComponent t = new ProfileExtensionDefnComponent();
-          this.extensionDefn.add(t);
+        public ElementComponent addElement() { 
+          ElementComponent t = new ElementComponent();
+          this.element.add(t);
           return t;
         }
 
@@ -2976,8 +2955,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("display", "string", "Defined so that applications can use this name when displaying the value of the extension to the user.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("contextType", "code", "Identifies the type of context to which the extension applies.", 0, java.lang.Integer.MAX_VALUE, contextType));
           childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
-          childrenList.add(new Property("definition", "@Profile.structure.element.definition", "Definition of the extension and its content.", 0, java.lang.Integer.MAX_VALUE, definition));
-          childrenList.add(new Property("extensionDefn", "@Profile.extensionDefn", "Children extensions defined as part of this extension.", 0, java.lang.Integer.MAX_VALUE, extensionDefn));
+          childrenList.add(new Property("element", "@Profile.structure.element", "Definition of the extension and its content.", 0, java.lang.Integer.MAX_VALUE, element));
         }
 
       public ProfileExtensionDefnComponent copy(Profile e) {
@@ -2988,10 +2966,9 @@ public class Profile extends Resource {
         dst.context = new ArrayList<String_>();
         for (String_ i : context)
           dst.context.add(i.copy());
-        dst.definition = definition == null ? null : definition.copy(e);
-        dst.extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
-        for (ProfileExtensionDefnComponent i : extensionDefn)
-          dst.extensionDefn.add(i.copy(e));
+        dst.element = new ArrayList<ElementComponent>();
+        for (ElementComponent i : element)
+          dst.element.add(i.copy(e));
         return dst;
       }
 

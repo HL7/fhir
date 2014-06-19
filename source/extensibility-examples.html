@@ -83,21 +83,24 @@ and their associated bindings. In this case, the profile looks like this:
     &lt;code value="participation-agreement" /&gt;
     &lt;contextType value="resource" /&gt;
     &lt;context value="Patient" /&gt;
-    &lt;definition>
-      &lt;short value="Agreed agreement/policy" /&gt;
-      &lt;formal value="A URI that identifies a participation agreement/policy 
-        to which the patient has agreed" /&gt;
-      &lt;comments value="URI is a literal reference to agreement text (html). 
-        Systems SHALL conform to the policies as indicated. 
-        For further information, see the partnership agreement..." /&gt;
-      &lt;min value="1" /&gt;
-      &lt;max value="*" /&gt;
-      &lt;type>
-         &lt;code value="uri" /&gt;
-      &lt;/type>
-      &lt;mustSupport value="true" /&gt;
-      &lt;isModifier value="false" /&gt;
-    &lt;/definition>
+    &lt;element>
+      &lt;path value="participation-agreement"/>
+      &lt;definition>
+        &lt;short value="Agreed agreement/policy" /&gt;
+        &lt;formal value="A URI that identifies a participation agreement/policy 
+          to which the patient has agreed" /&gt;
+        &lt;comments value="URI is a literal reference to agreement text (html). 
+          Systems SHALL conform to the policies as indicated. 
+          For further information, see the partnership agreement..." /&gt;
+        &lt;min value="1" /&gt;
+        &lt;max value="*" /&gt;
+        &lt;type>
+           &lt;code value="uri" /&gt;
+        &lt;/type>
+        &lt;mustSupport value="true" /&gt;
+        &lt;isModifier value="false" /&gt;
+      &lt;/definition>
+    &lt;/element>
   &lt;/extensionDefn>
 
   &lt;!-- snip narrative -->
@@ -283,34 +286,37 @@ and their associated bindings. In this case, the profile looks like this:
     &lt;context value="HumanName.prefix" /&gt;
     &lt;context value="HumanName.family" /&gt;
     &lt;context value="HumanName.suffix" /&gt;
-    &lt;definition>
-      &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
-      &lt;formal value="A set of codes each of which specifies a certain subcategory
-          of the name part in addition to the main name part type" /&gt;
-      &lt;comments value="Used to indicate additional information about the
-             name part and how it should be used" /&gt;
-      &lt;min value="0" /&gt;
-      &lt;max value="*" /&gt;
-      &lt;type>
-         &lt;code value="code" /&gt;
-      &lt;/type>
-      &lt;mustSupport value="false" /&gt;
-      &lt;isModifier value="false" /&gt;
-      &lt;binding&gt;
-        &lt;name value="EntityNamePartQualifier" /&gt;
-        &lt;isExtensible value="codelist" /&gt;
-        &lt;conformance value="required" /&gt;
-        &lt;description value="A set of codes each of which specifies a certain subcategory
+    &lt;element>
+      &lt;path value="name-qualifier"/>
+      &lt;definition>
+        &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
+        &lt;formal value="A set of codes each of which specifies a certain subcategory
             of the name part in addition to the main name part type" /&gt;
-        &lt;referenceResource&gt;
-          &lt;reference value="ValueSet/name-part-qualifier" /&gt;
-        &lt;/referenceResource&gt;
-      &lt;/binding&gt;
-      &lt;mapping>
-         &lt;identity value="RIM" /&gt;
-         &lt;map value="ENXP.qualifier" /&gt;
-      &lt;/mapping>
-    &lt;/definition>
+        &lt;comments value="Used to indicate additional information about the
+               name part and how it should be used" /&gt;
+        &lt;min value="0" /&gt;
+        &lt;max value="*" /&gt;
+        &lt;type>
+           &lt;code value="code" /&gt;
+        &lt;/type>
+        &lt;mustSupport value="false" /&gt;
+        &lt;isModifier value="false" /&gt;
+        &lt;binding&gt;
+          &lt;name value="EntityNamePartQualifier" /&gt;
+          &lt;isExtensible value="codelist" /&gt;
+          &lt;conformance value="required" /&gt;
+          &lt;description value="A set of codes each of which specifies a certain subcategory
+              of the name part in addition to the main name part type" /&gt;
+          &lt;referenceResource&gt;
+            &lt;reference value="ValueSet/name-part-qualifier" /&gt;
+          &lt;/referenceResource&gt;
+        &lt;/binding&gt;
+        &lt;mapping>
+           &lt;identity value="RIM" /&gt;
+           &lt;map value="ENXP.qualifier" /&gt;
+        &lt;/mapping>
+      &lt;/definition>
+    &lt;/element>
   &lt;/extensionDefn>
 
   &lt;!-- snip narrative -->

@@ -41,6 +41,9 @@ import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.RegisteredProfile;
+import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
@@ -158,6 +161,10 @@ public class WebMaker {
     for (String n : definitions.sortedResourceNames()) {
       buildRedirect(n, n.toLowerCase()+".profile.xml.html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"profiles"+File.separator+n);
       buildRedirect(n, n.toLowerCase()+".html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+n);
+      ResourceDefn r = definitions.getResourceByName(n);
+      for (RegisteredProfile p : r.getProfiles()) {
+        buildRedirect(n, p.getDestFilenameNoExt()+".html", folders.rootDir+"temp"+File.separator+"hl7"+File.separator+"web"+File.separator+"profiles"+File.separator+p.getDestFilenameNoExt());
+      }
     }
     
     for (String n : ini.getPropertyNames("redirects")) {

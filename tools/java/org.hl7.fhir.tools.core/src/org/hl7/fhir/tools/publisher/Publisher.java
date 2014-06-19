@@ -2054,7 +2054,7 @@ public class Publisher {
     p.getElements().add(type);
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     String fn = "type-" + c.getCode() + ".profile.xml";
-    Profile rp = pgen.generate(p, "http://hl7.org/fhir/type-"+c.getCode()+"-profile", "<div>Type definition for " + type.getName() + " from <a href=\"http://hl7.org/fhir/datatypes.html#" + type.getName()
+    Profile rp = pgen.generate(p, "type-"+c.getCode()+"-profile", "<div>Type definition for " + type.getName() + " from <a href=\"http://hl7.org/fhir/datatypes.html#" + type.getName()
         + "\">FHIR Specification</a></div>", GenerationMode.Element);
     rp.getStructure().get(0).setNameSimple(c.getCode());
 
@@ -2079,7 +2079,7 @@ public class Publisher {
     p.getElements().add(type);
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
     String fn = "type-" + type.getName() + ".profile.xml";
-    Profile rp = pgen.generate(p, "http://hl7.org/fhir/type-" + type.getName() + ".profile", "<div>Type definition for " + type.getName() + " from <a href=\"http://hl7.org/fhir/datatypes.html#" + type.getName()
+    Profile rp = pgen.generate(p, "type-" + type.getName() + ".profile", "<div>Type definition for " + type.getName() + " from <a href=\"http://hl7.org/fhir/datatypes.html#" + type.getName()
         + "\">FHIR Specification</a></div>", GenerationMode.Element);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, true);
@@ -2511,7 +2511,7 @@ public class Publisher {
     p.getResources().add(root);
     p.putMetadata("requirements", root.getRequirements());
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    Profile rp = pgen.generate(p, "http://hl7.org/fhir/"+ n + ".profile", xmlSpec, mode);
+    Profile rp = pgen.generate(p, n, xmlSpec, mode);
     page.getProfiles().put(root.getName(),  rp);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp, true);
@@ -2616,7 +2616,7 @@ public class Publisher {
     if (dest.getById(id) != null)
       throw new Exception("Attempt to add duplicate value set " + id);
 
-    AtomEntry e = new AtomEntry();
+    AtomEntry<Conformance> e = new AtomEntry<Conformance>();
     e.setId("http://hl7.org/fhir/conformance/" + id);
     e.getLinks().put("self", "http://hl7.org/implement/standards/fhir/conformance/" + id);
     e.setTitle("\"" + id + "\" - to help with system development");
@@ -2639,12 +2639,12 @@ public class Publisher {
     validateProfile(profile);
 
     XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), null, "http://hl7.org/fhir/", page);
-    gen.generate(profile);
+    gen.generate(profile, "http://hl7.org/fhir/profiles/"+title);
     gen.close();
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    Profile p = pgen.generate(profile, "http://hl7.org/fhir/"+ title + ".profile", xml, GenerationMode.Resource);
+    Profile p = pgen.generate(profile, title, xml, GenerationMode.Resource);
     XmlComposer comp = new XmlComposer();
     comp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml"), p, true, false);
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + title + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + title

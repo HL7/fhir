@@ -450,10 +450,10 @@ public class InstanceValidator extends BaseValidator {
     	// two questions 
     	// can this extension be used here?, and is the content of the extension valid?
       checkExtensionContext(errors, path+"[url='"+url+"']", ext.getDefinition(), container, parentType, ((Element) element.getParentNode()).getAttribute("url"));
-      if (ext.getDefinition().getDefinition().getType().size() > 0) { // if 0, then this just contains extensions
-        if (ext.getDefinition().getDefinition().getType().size() > 1) 
+      if (ext.getDefinition().getElement().get(0).getDefinition().getType().size() > 0) { // if 0, then this just contains extensions
+        if (ext.getDefinition().getElement().get(0).getDefinition().getType().size() > 1) 
           throw new Error("exceptions with multiple types are not yet handled");
-        String cs = ext.getDefinition().getDefinition().getType().get(0).getCodeSimple();
+        String cs = ext.getDefinition().getElement().get(0).getDefinition().getType().get(0).getCodeSimple();
         if (cs.contains("("))
           cs = cs.substring(0, cs.indexOf("("));
         String childName = "value"+Utilities.capitalize(cs);
@@ -463,14 +463,14 @@ public class InstanceValidator extends BaseValidator {
           ElementComponent ec = new ElementComponent(); // gimmy up a fake element component for the next call
           ec.setPathSimple(path+"[url='"+url+"']");
           ec.setNameSimple(childName);
-          ec.setDefinition(ext.getDefinition().getDefinition());
+          ec.setDefinition(ext.getDefinition().getElement().get(0).getDefinition());
           if (type != null) 
             validateElement(errors, profile, null, path+"[url='"+url+"']."+childName, ec, null, null, child, "Extension");
           else {
             checkPrimitive(errors, path+"[url='"+url+"']."+childName, cs, ec, child);
             // special: check vocabulary. Mostly, this isn't needed on a code, but it is with extension
             if (cs.equals("code"))  {
-              ElementDefinitionBindingComponent binding = ext.getDefinition().getDefinition().getBinding();
+              ElementDefinitionBindingComponent binding = ext.getDefinition().getElement().get(0).getDefinition().getBinding();
               if (binding != null) {
                 if (warning(errors, "code-unknown", path, binding.getReference() != null && binding.getReference() instanceof ResourceReference, "Binding for "+path+" missing or cannot be processed")) {
                   if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {

@@ -47,6 +47,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.Config;
+import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ProfileTableGenerator;
@@ -191,6 +192,12 @@ public class PageProcessor implements Logger  {
 	  return val;
   }
   
+  private String treeForDt(String dt) throws Exception {
+    DataTypeTableGenerator gen = new DataTypeTableGenerator(folders.dstDir, this, "datatype-definitions.html");
+    return new XhtmlComposer().compose(gen.generate(definitions.getElementDefn(dt)));
+
+  }
+  
   private String xmlForDt(String dt, String pn) throws Exception {
 	  File tmp = File.createTempFile("tmp", ".tmp");
 	  tmp.deleteOnExit();
@@ -315,7 +322,7 @@ public class PageProcessor implements Logger  {
 
       String[] com = s2.split(" ");
       if (com.length == 2 && com[0].equals("dt")) 
-        src = s1+xmlForDt(com[1], file)+tsForDt(com[1])+s3;
+        src = s1+xmlForDt(com[1], file)+treeForDt(com[1])+tsForDt(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
@@ -3030,7 +3037,7 @@ public class PageProcessor implements Logger  {
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;
       else if (com[0].equals("profile-table"))
-        src = s1 + generateProfileTable(profile) + s3;      
+        src = s1 + generateProfileTable(profile, filename) + s3;      
       else if (com[0].equals("pagepath"))
         src = s1 + pagePath + s3;  
       else if (com[0].equals("rellink"))
@@ -3045,9 +3052,9 @@ public class PageProcessor implements Logger  {
     return src;
   }
 
-  private String generateProfileTable(ProfileDefn profile) throws Exception {
+  private String generateProfileTable(ProfileDefn profile, String filename) throws Exception {
     ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this, profile.metadata("name")+".html");
-    return new XhtmlComposer().compose(gen.generate(profile));
+    return new XhtmlComposer().compose(gen.generate(profile, "http://hl7.org/fhir/profiles/"+filename));
   }
 
   private boolean isAggregationEndpoint(String name) {
