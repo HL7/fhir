@@ -41,7 +41,7 @@ Data elements can be thought of as being codes in a code system.  One of their p
 that can be answered.  This function is typically done by code sytems such as <a href="http://loinc.org">LOINC</a> and
 <a href="http://www.ihtsdo.org/snomed-ct/">SNOMED</a>.  It would be possible to treat a registry of data elements using a common
 identifier system/namespace as a code system.  Similarly, data elements can be mapped to each other (and to codes) in the same manner as 
-codes can be mapped by making use of the <a href="conceptmap">ConceptMap</a> resource.
+codes can be mapped by making use of the <a href="conceptmap.html">ConceptMap</a> resource.
 </p>
 <p>
 In practice, it is generally best to maintain a separate code system whose codes can be referenced in the <code>code</code> element

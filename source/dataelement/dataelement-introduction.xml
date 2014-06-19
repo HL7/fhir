@@ -20,7 +20,7 @@ the data gathered within and across organizations via questionnaires, as part of
 constructing questionnaires, building profiles or performing other tasks that involve determining what data will be captured or exchanged and how, designers can query
 to find pre-defined data element definitions they can leverage or map to.  By encouraging consistency around data element definitions, data types, value sets, string
 lengths and other constraints, data becomes more easily exchangeable and comparable across systems.  This benefits interoperability and clinical research.  (For more 
-discussion, see the section on <a href="standardization">standardization</a> below.)
+discussion, see the section on <a href="#standardization">standardization</a> below.)
 </p>
 <p>
 The scope covers base capabilities of the ISO 11179 Metadata Registries specification which defines DEs.  It also covers observation definitions by ontologies such as LOINC.  

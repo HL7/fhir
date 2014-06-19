@@ -10,8 +10,8 @@ import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class ResourceTableGenerator extends TableGenerator {
-  public ResourceTableGenerator(String dest, PageProcessor page, String pageName) {
-    super(dest, page, pageName);
+  public ResourceTableGenerator(String dest, PageProcessor page, String pageName) throws Exception {
+    super(dest, page, pageName.toLowerCase());
   }
 
   public XhtmlNode generate(ElementDefn e) throws Exception {

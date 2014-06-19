@@ -23,9 +23,16 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.genImage;
 
 public class ProfileTableGenerator extends TableGenerator {
-  public ProfileTableGenerator(String dest, PageProcessor page, String pageName) {
+  public ProfileTableGenerator(String dest, PageProcessor page, String pageName) throws Exception {
     super(dest, page, pageName);
   }
+
+  
+  @Override
+  protected boolean dictLinks() {
+    return false;
+  }
+
 
   public XhtmlNode generate(ProfileDefn p, String root) throws Exception {
     HeirarchicalTableGenerator gen = new HeirarchicalTableGenerator(dest);

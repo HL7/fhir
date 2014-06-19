@@ -112,7 +112,7 @@ as a healthcare institution.
 <p>
 This requests that a server forward a copy of any
 matching resource to the nominated server as an <a href="http.html#update">Update 
-operation</a> using the nominated URL as the <a href="http.html#base">service base</a>. 
+operation</a> using the nominated URL as the <a href="http.html#root">service base</a>. 
 In order to execute this channel, the server must know how 
 to authenticate appropriately with the destination 
 server. This can be done by the client providing 

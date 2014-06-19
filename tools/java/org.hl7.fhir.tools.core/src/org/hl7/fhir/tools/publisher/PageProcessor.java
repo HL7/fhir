@@ -193,7 +193,7 @@ public class PageProcessor implements Logger  {
   }
   
   private String treeForDt(String dt) throws Exception {
-    DataTypeTableGenerator gen = new DataTypeTableGenerator(folders.dstDir, this, "datatype-definitions.html");
+    DataTypeTableGenerator gen = new DataTypeTableGenerator(folders.dstDir, this, dt);
     return new XhtmlComposer().compose(gen.generate(definitions.getElementDefn(dt)));
 
   }
@@ -3053,7 +3053,7 @@ public class PageProcessor implements Logger  {
   }
 
   private String generateProfileTable(ProfileDefn profile, String filename) throws Exception {
-    ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this, profile.metadata("name")+".html");
+    ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this, null);
     return new XhtmlComposer().compose(gen.generate(profile, "http://hl7.org/fhir/Profile/"+filename));
   }
 

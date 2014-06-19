@@ -1,9 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+
+<h2>Scope and Usage</h2>
 <p><b>This is a candidate resource not yet formally proposed (or approved)</b></p>
 
-<div>
-<h2>Scope and Usage</h2>
 <p>
 The subscription reason is used to define a push based subscription 
 from a server to another system. Once a subscription is registered with the server, 
@@ -43,7 +44,7 @@ it no longer meets the criteria.
 </p>
 <p>
 The RESTful API describes a polling-based subscription method using
-<a ref="extras.html#bundle">bundles</a> and the <a href="">/history operation</a>. 
+<a href="extras.html#bundle">bundles</a> and the <a href="http.html#history">history operation</a>. 
 This method of polling allows for a much tighter relationship between
 the client and the server, that doesn't involve missing updates and/or 
 deletes. 

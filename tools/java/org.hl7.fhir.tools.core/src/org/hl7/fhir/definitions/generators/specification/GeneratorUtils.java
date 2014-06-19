@@ -89,6 +89,8 @@ public class GeneratorUtils {
       return "extras";
     if (name.equals("Any"))
       return "resourcelist";
+    if (name.equals("*"))
+      return "datatypes";
   	if (name.equals("resourceType"))
   		return "terminologies";
   	return name.toLowerCase();

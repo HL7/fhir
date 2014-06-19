@@ -89,6 +89,7 @@ public class HeirarchicalTableGenerator  {
     private List<Row> subRows = new ArrayList<HeirarchicalTableGenerator.Row>();
     private List<Cell> cells = new ArrayList<HeirarchicalTableGenerator.Cell>();
     private String icon;
+    private String anchor;
     
     public List<Row> getSubRows() {
       return subRows;
@@ -102,6 +103,13 @@ public class HeirarchicalTableGenerator  {
     public void setIcon(String icon) {
       this.icon = icon;
     }
+    public String getAnchor() {
+      return anchor;
+    }
+    public void setAnchor(String anchor) {
+      this.anchor = anchor;
+    }
+    
     
   }
 
@@ -135,7 +143,7 @@ public class HeirarchicalTableGenerator  {
     XhtmlNode tr = table.addTag("tr");
     tr.setAttribute("style", "border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; font-size: 11px; font-family: verdana; vertical-align: top;");
     for (Title t : model.getTitles()) {
-      XhtmlNode tc = renderCell(tr, t, "th", null, null, false);
+      XhtmlNode tc = renderCell(tr, t, "th", null, null, false, null);
       if (t.width != 0)
         tc.setAttribute("style", "width: "+Integer.toString(t.width)+"px");
     }
@@ -151,9 +159,10 @@ public class HeirarchicalTableGenerator  {
     tr.setAttribute("class", "border: 0px; padding:0px; vertical-align: top; background-color: white;");
     boolean first = true;
     for (Cell t : r.getCells()) {
-      renderCell(tr, t, "td", first ? r.getIcon() : null, first ? indents : null, !r.getSubRows().isEmpty());
+      renderCell(tr, t, "td", first ? r.getIcon() : null, first ? indents : null, !r.getSubRows().isEmpty(), first ? r.getAnchor() : null);
       first = false;
     }
+    table.addText("\r\n");
     
     for (int i = 0; i < r.getSubRows().size(); i++) {
       Row c = r.getSubRows().get(i);
@@ -168,7 +177,7 @@ public class HeirarchicalTableGenerator  {
   }
 
 
-  private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, List<Boolean> indents, boolean hasChildren) throws Exception {
+  private XhtmlNode renderCell(XhtmlNode tr, Cell c, String name, String icon, List<Boolean> indents, boolean hasChildren, String anchor) throws Exception {
     XhtmlNode tc = tr.addTag(name);
     tc.setAttribute("class", "heirarchy");
     if (indents != null) {
@@ -209,6 +218,8 @@ public class HeirarchicalTableGenerator  {
           tc.addText(p.getText());
       }
     }
+    if (!Utilities.noString(anchor))
+      tc.addTag("a").setAttribute("name", anchor).addText(" ");
     return tc;
   }
 
