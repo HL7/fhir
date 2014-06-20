@@ -83,14 +83,14 @@ https://www.psoppc.org/c/document_library/get_file?uuid=6034c5aa-ad07-4dbe-ab19-
     </valueSet>
   </binding>
   <mapping>
-    <extension url="http://hl7.org/fhir/Profile/datelement-11179#objectClass">
+    <extension url="http://hl7.org/fhir/Profile/dataelement-11179#objectClass">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
         <code value="116154003"/>
         <display value="Patient"/>
       </valueCoding>
     </extension>
-    <extension url="http://hl7.org/fhir/Profile/datelement-11179#property">
+    <extension url="http://hl7.org/fhir/Profile/dataelement-11179#property">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
         <code value="263495000"/>

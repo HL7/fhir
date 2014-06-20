@@ -3025,6 +3025,11 @@ public class Publisher {
     if (err.getErrors().size() > 0)
       throw new Exception("File " + fileToCheck + " failed schema validation");
   }
+  
+  int errorCount = 0;
+  int warningCount = 0;
+  int informationCount = 0;
+  
   private void validateXml() throws Exception {
     if (buildFlags.get("all") && isGenerate)
       produceCoverageWarnings();
@@ -3089,6 +3094,10 @@ public class Publisher {
       validateXmlFile(schema, "v3-codesystems", validator, null);
     }
     page.saveSnomed();
+
+    page.log("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Hints="+Integer.toString(informationCount), LogMessageType.Error);
+    if (errorCount > 0)
+      throw new Exception("Resource Examples failed instance validation");
 
     page.log("Reference Platform Validation", LogMessageType.Process);
 
@@ -3183,8 +3192,8 @@ public class Publisher {
       for (int i = 0; i < nl.getLength(); i++) {
         Element e = (Element) nl.item(i);
         page.log("  @" + e.getAttribute("location") + ": " + e.getTextContent(), LogMessageType.Error);
+        errorCount++;
       }
-      throw new Exception("Resource Example " + n + " failed invariant validation");
     }
 
     // now, finally, we validate the resource ourselves.
@@ -3193,14 +3202,17 @@ public class Publisher {
     validator.validateInstance(issues, root);
     // if (profile != null)
     // validator.validateInstanceByProfile(issues, root, profile);
-    boolean abort = false;
     for (ValidationMessage m : issues) {
-      if (!m.getLevel().equals(IssueSeverity.information))
+      if (!m.getLevel().equals(IssueSeverity.information) && !m.getLevel().equals(IssueSeverity.warning))
         page.log("  " + m.summary(), typeforSeverity(m.getLevel()));
-      abort = abort || m.getLevel().equals(IssueSeverity.error);
+
+      if (m.getLevel() == IssueSeverity.warning)
+        warningCount++;
+      else if (m.getLevel() == IssueSeverity.information)
+        informationCount++;
+      else 
+        errorCount++;
     }
-//    if (abort)
-//      throw new Exception("Resource Example " + n + " failed instance validation");
   }
 
   private LogMessageType typeforSeverity(IssueSeverity level) {
@@ -3213,8 +3225,9 @@ public class Publisher {
       return LogMessageType.Hint;
     case warning:
       return LogMessageType.Warning;
+    default:
+      return LogMessageType.Error;
     }
-    return LogMessageType.Error;
   }
 
   private void validateRoundTrip(Schema schema, String n) throws Exception {

@@ -1320,11 +1320,11 @@
             </question>
           </group>
           <group>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen">
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.question">
+            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#enableWhen">
+              <extension url="#enableWhen.question">
                 <valueString value="HERF/DE3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.value">
+              <extension url="#enableWhen.answer">
                 <valueCoding>
                   <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
                   <code value="A3"/>
@@ -1344,7 +1344,7 @@
               <required value="true"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#default">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#defaultValue">
                 <valueCoding>
                   <system value="HERF/DE9b-cs"/>
                   <code value="UNK"/>
@@ -1361,11 +1361,11 @@
             </question>
           </group>
           <group>
-            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen">
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.question">
+            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#enableWhen">
+              <extension url="#enableWhen.question">
                 <valueString value="HERF/DE3"/>
               </extension>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.value">
+              <extension url="#enableWhen.answer">
                 <valueCoding>
                   <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
                   <code value="A3"/>

@@ -105,7 +105,7 @@
     ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s80">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
   </Style>
  </Styles>
@@ -331,9 +331,9 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Human readable names for the valueset</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#otherName</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">otherName.name</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
@@ -342,9 +342,9 @@
     <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">This need not be unique. However some use cases require uniqueness within a namespace and therefore best practice would be to make the name unique</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">name-language</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#otherName</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">otherName.language</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
@@ -352,9 +352,9 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">This indicates the language system (e.g. US English) in which the name is expressed</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#otherName</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">otherName.preferred</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
@@ -396,9 +396,9 @@
     <Cell ss:Index="11" ss:StyleID="s74"><Data ss:Type="String">This is likely to be a “point in time” view and should not be considered an authoritative listing of all uses of the value set</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">usage-user</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#usage</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">usage.user</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
@@ -406,9 +406,9 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">This is most likely to be an organization but can be an individual. It would not be a program, that information should be recorded in the Usage.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">usage-use</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#usage</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">usage.use</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
@@ -444,7 +444,7 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">When the value set version should no longer be used</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The date when the value set version is no longer expected to be used to create new content. This is the first date-time when the value set version becomes Inactive, so this value MUST present on all Inactive value set versions. The start Date_time is expected to be as of 0001 UTC of the Expiration Date&#10;</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">The date when the value set version is no longer expected to be used to create new content. This is the first date-time when the value set version becomes Inactive, so this value MUST present on all Inactive value set versions. The start Date_time is expected to be as of 0001 UTC of the Expiration Date&#10;</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">Upon reaching the Expiration Date, the value set Activity Status should be consdiered as inactive. An Inactive value set version may no longer be used to create new content, but it may be used to evaluate content created prior to the Expiration Date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -467,18 +467,18 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Each comment is a time-stamped entry of arbitrary length that is not editable except by anyone in the author group</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">comment-content</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#comment</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">comment.content</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Remarks or other text</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">comment-timestamp</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#comment</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">comment.timestamp</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">instant</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
@@ -503,9 +503,9 @@
     <Cell ss:StyleID="s74"><Data ss:Type="String">Information on changes made to the Value Set Definition over time, and also has a contained audit trail of all such changes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">history-name</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#history</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">history.name</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
@@ -513,45 +513,45 @@
     <Cell ss:Index="11"><Data ss:Type="String">Typically, a value set will have a set of history entries for each maor publication milestone</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">revision</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#history</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s74"/>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Audit of all changes for a history entry</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">revision-date</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#revision</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.date</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">datetime</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Date the change was made</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">revision-id</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#revision</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.id</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Version marker after the change was made</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">revision-author</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#revision</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.author</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Who made the change</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">revision-notes</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">#revision</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">history.revision.notes</Data></Cell>
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
@@ -591,7 +591,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -261,7 +261,9 @@ public class ProfileGenerator {
     ProfileExtensionDefnComponent dst = new Profile.ProfileExtensionDefnComponent();
     dst.setCode(Factory.newCode(src.getCode()));
     dst.setDisplaySimple(src.getDefinition().getShortDefn());
-    dst.getContext().add(Factory.newString_(src.getContext()));
+    for (String c : src.getContext().split(";")) {
+      dst.getContext().add(Factory.newString_(c));
+    }
     dst.setContextTypeSimple(convertContextType(src.getType()));
     addExtensionElements(dst, src, p, null);
     return dst;
@@ -437,6 +439,7 @@ public class ProfileGenerator {
     makeExtensionSlice("modifierExtension", mode, pd, p, c, e, path, containedSlices);
         
     if (mode == GenerationMode.Resource) {
+      c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("language")));
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("text")));
       c.getElement().add(createBaseDefinition(p, path, definitions.getBaseResource().getRoot().getElementByName("contained")));
     }

@@ -70,7 +70,7 @@ public class InstanceValidator extends BaseValidator {
 
     @Override
     public ExtensionLocationResponse locateExtension(String uri) {
-      return new ExtensionLocationResponse(ExtensionLocatorService.Status.Unknown, null, null);
+      return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.Unknown, null, null);
     }
   }
   
@@ -284,7 +284,7 @@ public class InstanceValidator extends BaseValidator {
       Profile p = profile != null ? profile : getProfileForType(elem.getLocalName());
       ProfileStructureComponent s = getStructureForType(p, elem.getLocalName());
       if (rule(errors, "invalid", elem.getLocalName(), s != null, "Unknown Resource Type "+elem.getLocalName())) {
-        validateElement(errors, p, s, path+"/f:"+elem.getLocalName(), s.getElement().get(0), null, null, elem, elem.getLocalName());
+        validateElement(errors, p, s, path+"/f:"+elem.getLocalName(), s.getElement().get(0), null, null, elem, elem.getLocalName(), null);
         if (elem.getLocalName().equals("Query"))
           validateQuery(errors, elem);
       }
@@ -357,7 +357,7 @@ public class InstanceValidator extends BaseValidator {
     return false;
   }
 
-  private void validateElement(List<ValidationMessage> errors, Profile profile, ProfileStructureComponent structure, String path, ElementComponent definition, Profile cprofile, ElementComponent context, Element element, String actualType) throws Exception {
+  private void validateElement(List<ValidationMessage> errors, Profile profile, ProfileStructureComponent structure, String path, ElementComponent definition, Profile cprofile, ElementComponent context, Element element, String actualType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
     // irrespective of what element it is, it cannot be empty
     if (NS_FHIR.equals(element.getNamespaceURI())) {
       rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
@@ -407,6 +407,7 @@ public class InstanceValidator extends BaseValidator {
         if (typeIsPrimitive(type)) 
           checkPrimitive(errors, ci.path(), type, child, ci.element());
         else {
+          ExtensionLocatorService.ExtensionLocationResponse ec = null;
           if (type.equals("Identifier"))
             checkIdentifier(ci.path(), ci.element(), child);
           else if (type.equals("Coding"))
@@ -414,7 +415,7 @@ public class InstanceValidator extends BaseValidator {
           else if (type.equals("CodeableConcept"))
             checkCodeableConcept(errors, ci.path(), ci.element(), profile, child);
           else if (type.equals("Extension"))
-            checkExtension(errors, ci.path(), ci.element(), profile, child, actualType);
+            ec = checkExtension(errors, ci.path(), ci.element(), profile, child, actualType, extensionContext);
 
           if (type.equals("Resource"))
             validateContains(errors, ci.path(), child, definition, ci.element());
@@ -422,13 +423,13 @@ public class InstanceValidator extends BaseValidator {
             Profile p = getProfileForType(type); 
             ProfileStructureComponent r = getStructureForType(p, type);
             if (rule(errors, "structure", ci.path(), r != null, "Unknown type "+type)) {
-              validateElement(errors, p, r, ci.path(), r.getElement().get(0), profile, child, ci.element(), type);
+              validateElement(errors, p, r, ci.path(), r.getElement().get(0), profile, child, ci.element(), type, ec);
             }
           }
         }
       } else {
         if (rule(errors, "structure", path, child != null, "Unrecognised Content "+ci.name()))
-          validateElement(errors, profile, structure, ci.path(), child, null, null, ci.element(), type);
+          validateElement(errors, profile, structure, ci.path(), child, null, null, ci.element(), type, extensionContext);
       }
     }
   }
@@ -441,36 +442,58 @@ public class InstanceValidator extends BaseValidator {
     return b.toString();
   }
 
-  private void checkExtension(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent container, String parentType) throws Exception {
+  private ExtensionLocatorService.ExtensionLocationResponse checkExtension(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent container, String parentType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
     String url = element.getAttribute("url");
-    ExtensionLocatorService.ExtensionLocationResponse ext = extensions.locateExtension(url);
+    ExtensionLocatorService.ExtensionLocationResponse ext;
+    if (url.startsWith("#") && extensionContext != null)
+      ext = extensionContext.clone(url.substring(1));
+    else
+      ext = extensions.locateExtension(url);
+      
     if (ext.getStatus() == Status.NotAllowed) {
     	rule(errors, "structure", path+"[url='"+url+"']", false, "This extension cannot be used here ("+ext.getMessage()+")");
     } else if (ext.getStatus() == Status.Located) {
-    	// two questions 
-    	// can this extension be used here?, and is the content of the extension valid?
-      checkExtensionContext(errors, path+"[url='"+url+"']", ext.getDefinition(), container, parentType, ((Element) element.getParentNode()).getAttribute("url"));
-      if (ext.getDefinition().getElement().get(0).getDefinition().getType().size() > 0) { // if 0, then this just contains extensions
-        if (ext.getDefinition().getElement().get(0).getDefinition().getType().size() > 1) 
+      ElementComponent elementComp = null;
+      // two questions 
+      // 1. can this extension be used here?
+      boolean ok = false;
+      if (url.startsWith("#") && extensionContext != null) {
+        elementComp = getElementByPath(ext.getDefinition(), url.substring(1));
+        ok = rule(errors, "structure", path+"[url='"+url+"']", elementComp != null, "Unknown child path in extension ("+extensionContext.getUrl()+" / "+url+")");
+      } else {
+        elementComp = ext.getDefinition().getElement().get(0);
+        ok = checkExtensionContext(errors, path+"[url='"+url+"']", ext.getDefinition(), container, parentType, ext.getUrl());
+      }
+      // 2. is the content of the extension valid?
+      if (ok && elementComp.getDefinition().getType().size() > 0) { // if 0, then this just contains extensions
+        if (elementComp.getDefinition().getType().size() > 1) 
           throw new Error("exceptions with multiple types are not yet handled");
-        String cs = ext.getDefinition().getElement().get(0).getDefinition().getType().get(0).getCodeSimple();
+        String cs = elementComp.getDefinition().getType().get(0).getCodeSimple();
         if (cs.contains("("))
           cs = cs.substring(0, cs.indexOf("("));
-        String childName = "value"+Utilities.capitalize(cs);
-        Element child = XMLUtil.getNamedChild(element, childName);
-        if (rule(errors, "structure", path+"[url='"+url+"']", child != null, "No Extension value found (looking for '"+childName+"')")) {
+        Element child = XMLUtil.getFirstChild(element);
+        while (child != null && child.getLocalName().equals("extension"))
+          child = XMLUtil.getNextSibling(child);
+        boolean cok = false;
+        if (cs.equals("*")) {
+          cok = rule(errors, "structure", path+"[url='"+url+"']", child != null && child.getLocalName().startsWith("value") && isKnownType(child.getLocalName().substring(5)), "No Extension value found (looking for '*')");
+          cs = child.getLocalName().substring(5);
+        } else {
+          cok = rule(errors, "structure", path+"[url='"+url+"']", child != null && child.getLocalName().startsWith("value") && child.getLocalName().substring(5).equals(Utilities.capitalize(cs)), "No Extension value found (looking for '"+cs+"')");
+        }
+        if (cok) {
           Profile type = types.get(cs);
           ElementComponent ec = new ElementComponent(); // gimmy up a fake element component for the next call
           ec.setPathSimple(path+"[url='"+url+"']");
-          ec.setNameSimple(childName);
-          ec.setDefinition(ext.getDefinition().getElement().get(0).getDefinition());
+          ec.setNameSimple(child.getLocalName());
+          ec.setDefinition(elementComp.getDefinition());
           if (type != null) 
-            validateElement(errors, profile, null, path+"[url='"+url+"']."+childName, ec, null, null, child, "Extension");
+            validateElement(errors, profile, null, path+"[url='"+url+"']."+child.getLocalName(), ec, null, null, child, "Extension", extensionContext);
           else {
-            checkPrimitive(errors, path+"[url='"+url+"']."+childName, cs, ec, child);
+            checkPrimitive(errors, path+"[url='"+url+"']."+child.getLocalName(), cs, ec, child);
             // special: check vocabulary. Mostly, this isn't needed on a code, but it is with extension
             if (cs.equals("code"))  {
-              ElementDefinitionBindingComponent binding = ext.getDefinition().getElement().get(0).getDefinition().getBinding();
+              ElementDefinitionBindingComponent binding = elementComp.getDefinition().getBinding();
               if (binding != null) {
                 if (warning(errors, "code-unknown", path, binding.getReference() != null && binding.getReference() instanceof ResourceReference, "Binding for "+path+" missing or cannot be processed")) {
                   if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
@@ -493,33 +516,49 @@ public class InstanceValidator extends BaseValidator {
         }
       }
     }
+    return ext;
   }
 
-  private void checkExtensionContext(List<ValidationMessage> errors, String path, ProfileExtensionDefnComponent definition, ElementComponent container, String parentType, String extensionParent) {
+  private boolean isKnownType(String code) {
+    return types.get(code.toLowerCase()) != null; 
+  }
+
+  private ElementComponent getElementByPath(ProfileExtensionDefnComponent definition, String path) {
+    for (ElementComponent e : definition.getElement()) {
+      if (e.getPathSimple().equals(path))
+        return e;
+    }
+    return null;
+  }
+
+  private boolean checkExtensionContext(List<ValidationMessage> errors, String path, ProfileExtensionDefnComponent definition, ElementComponent container, String parentType, String extensionParent) {
 	  if (definition.getContextTypeSimple() == ExtensionContext.datatype) {
 	      boolean ok = false;
 	      for (String_ ct : definition.getContext()) 
 	        if (ct.getValue().equals("*") || ct.getValue().equals(parentType))
 	          ok = true;
-	      rule(errors, "structure", path, ok, "This extension is not allowed to be used with the type "+parentType);
+	      return rule(errors, "structure", path, ok, "This extension is not allowed to be used with the type "+parentType);
 	  } else if (definition.getContextTypeSimple() == ExtensionContext.extension) {
       boolean ok = false;
       for (String_ ct : definition.getContext()) 
         if (ct.getValue().equals("*") || ct.getValue().equals(extensionParent))
             ok = true;
-      rule(errors, "structure", path, ok, "This extension is not allowed to be used with the extension '"+extensionParent+"'");
+      return rule(errors, "structure", path, ok, "This extension is not allowed to be used with the extension '"+extensionParent+"'");
 	  } else if (definition.getContextTypeSimple() == ExtensionContext.mapping) {
   		throw new Error("Not handled yet");	  	
 	  } else if (definition.getContextTypeSimple() == ExtensionContext.resource) {
       boolean ok = false;
-      String simplePath = simplifyPath(path);
+      String simplePath = container.getPathSimple();
+//      System.out.println(simplePath);
+      if (simplePath.endsWith(".extension") || simplePath.endsWith(".modifierExtension")) 
+        simplePath = simplePath.substring(0, simplePath.lastIndexOf('.'));
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (String_ ct : definition.getContext()) {
         b.append(ct.getValue());
         if (ct.getValue().equals("*") || ct.getValue().equals(parentType) || simplePath.equals(ct.getValue()) || simplePath.endsWith("."+ct.getValue()))
             ok = true;
       }
-      rule(errors, "structure", path, ok, "This extension is not allowed to be used with the resource "+(parentType == null ? simplePath : parentType)+" (allowed: "+b.toString()+")");
+      return rule(errors, "structure", path, ok, "This extension is not allowed to be used with the resource "+(parentType == null ? simplePath : parentType)+" (allowed: "+b.toString()+")");
 	  } else 
   		throw new Error("Unknown context type");	  	
   }
@@ -537,18 +576,22 @@ public class InstanceValidator extends BaseValidator {
     int j = parts.length - 1;
     while (j > 0 && (parts[j].equals("extension") || parts[j].equals("modifierExtension")))
         j--;
-    while (j > 1 && (parts[j].equals(parts[j-1])))
-      j--;
     StringBuilder b = new StringBuilder();
+    boolean first = true;
     for (int k = i; k <= j; k++) {
-      if (k > i)
-        b.append(".");
-      b.append(parts[k]);
+      if (k == j || !parts[k].equals(parts[k+1])) {
+        if (first)
+          first = false;
+        else
+          b.append(".");
+        b.append(parts[k]);
+      }
     }
     return b.toString();
   }
 
-	private boolean empty(Element element) {
+
+  private boolean empty(Element element) {
     if (element.hasAttribute("value"))
       return false;
     if (element.hasAttribute("id"))

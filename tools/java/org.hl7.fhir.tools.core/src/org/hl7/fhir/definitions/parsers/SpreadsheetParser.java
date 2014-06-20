@@ -846,9 +846,20 @@ public class SpreadsheetParser {
   private void processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, List<ExtensionDefn> extensionList) throws Exception {
 	  // first, we build the extension definition
 	  org.hl7.fhir.definitions.model.ExtensionDefn ex = new org.hl7.fhir.definitions.model.ExtensionDefn();
-	  ex.setCode(sheet.getColumn(row, "Code"));
-    ex.setType(readContextType(sheet.getColumn(row, "Context Type"), row));
-    ex.setContext(sheet.getColumn(row, "Context"));
+	  String name = sheet.getColumn(row, "Code");
+	  String context = null;
+	  if (Utilities.noString(name))
+	    throw new Exception("No code found on Extension");
+	  
+	  if (name.contains(".")) {
+	    context = name.substring(0, name.lastIndexOf("."));
+	    name = name.substring(name.lastIndexOf(".")+1);
+	  }
+	  ex.setCode(name);
+	  if (context == null) {
+      ex.setType(readContextType(sheet.getColumn(row, "Context Type"), row));
+      ex.setContext(sheet.getColumn(row, "Context"));
+	  }
 	  ElementDefn exe = new ElementDefn();
 	  exe.setName(sheet.getColumn(row, "Code"));
 	  ex.setDefinition(exe);
@@ -931,25 +942,25 @@ public class SpreadsheetParser {
 	    }
 	    e.getElements().remove(e.getElementByName("extension"));
 	  }
-    if (ex.getType() == ContextType.Extension && ex.getContext().startsWith("#")) {
-      ExtensionDefn pex = findExtension(extensionList, ex.getContext().substring(1));
+    if (context != null) {
+      ExtensionDefn pex = findExtension(extensionList, context.split("\\."), 0);
       if (pex == null)
-        throw new Exception("unable to find extension "+ex.getContext().substring(1));
+        throw new Exception("unable to find extension "+context);
       pex.getChildren().add(ex);      
       ex.setContext(uri+ex.getContext());
+      ex.setType(ContextType.Extension);
     } else
 	    extensionList.add(ex);
 	}
 
 
-  private ExtensionDefn findExtension(List<ExtensionDefn> extensionList, String name) {
+  private ExtensionDefn findExtension(List<ExtensionDefn> extensionList, String[] names, int cursor) {
     for (ExtensionDefn ppex : extensionList) {
-      if (ppex.getCode().equals(name))
-        return ppex;
-      else  {
-        ExtensionDefn pex = findExtension(ppex.getChildren(), name);
-        if (pex != null)
-          return pex;
+      if (ppex.getCode().equals(names[cursor])) {
+        if (cursor == names.length - 1)
+          return ppex;
+        else 
+          return findExtension(ppex.getChildren(), names, cursor+1);
       }
     }
     return null;

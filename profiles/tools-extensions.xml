@@ -35,7 +35,7 @@
       </tr>
       <tr>
         <td>deprecated</td>
-        <td>ValueSet.define.concept</td>
+        <td>ValueSet.define.concept(.concept)</td>
         <td>boolean</td>
         <td>0..1</td>
         <td>Whether the concept has been deprecated</td>
@@ -182,6 +182,7 @@
     <display value="Dreprecated"/>
     <contextType value="resource"/>
     <context value="ValueSet.define.concept"/>
+    <context value="ValueSet.define.concept.concept"/>
     <element>
       <path value="deprecated"/> 
       <definition>

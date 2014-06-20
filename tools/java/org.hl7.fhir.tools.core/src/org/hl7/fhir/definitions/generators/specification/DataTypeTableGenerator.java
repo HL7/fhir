@@ -10,8 +10,7 @@ import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class DataTypeTableGenerator extends TableGenerator {
-  public DataTypeTableGenerator(String dest, PageProcessor page, String pageName) throws Exception {
-    super(dest, page, "datatype-definitions.html");
+  public DataTypeTableGenerator(String dest, PageProcessor page, String pageName) throws Exception {    super(dest, page, "datatype-definitions.html");
   }
 
   public XhtmlNode generate(ElementDefn e) throws Exception {

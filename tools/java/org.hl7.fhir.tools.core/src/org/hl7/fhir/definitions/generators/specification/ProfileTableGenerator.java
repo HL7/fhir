@@ -110,7 +110,6 @@ public class ProfileTableGenerator extends TableGenerator {
     for (ExtensionDefn child : ext.getChildren()) {
       genExtension(gen, r.getSubRows(), child, false);
     }
-    
   }
 
   private String describeExtensionContext(ExtensionDefn ext) {

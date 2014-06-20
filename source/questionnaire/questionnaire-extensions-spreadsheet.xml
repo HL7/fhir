@@ -257,7 +257,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">label</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;</Data></Cell>
@@ -269,7 +269,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">minOccurs</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Minimum repetitions</Data></Cell>
@@ -280,7 +280,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">maxOccurs</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell><Data ss:Type="String">integer</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Maximum repetitions</Data></Cell>
@@ -291,7 +291,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s74"><Data ss:Type="String">hidden</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -304,7 +304,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s74"><Data ss:Type="String">enableWhen</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group;Questionnaire.group.group;Questionnaire.group.question</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -316,8 +316,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s74"><Data ss:Type="String">enableWhen.question</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">#enableWhen</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -329,8 +329,8 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">enableWhen.answer</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">#enableWhen</Data></Cell>
+    <Cell ss:StyleID="s75"/>
+    <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String" x:Ticked="1">*</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -369,7 +369,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell><Data ss:Type="String">deReference</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
@@ -421,6 +421,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
