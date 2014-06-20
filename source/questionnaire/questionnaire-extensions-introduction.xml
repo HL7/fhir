@@ -28,6 +28,15 @@ There are two extensions that provide precise control over the number of repetit
   <li><a name="maxOccurs"/><b>minOccurs</b> establishes a maximum number of group repetitions or maximum number of question answers for "repeating" groups/questions where the maximum number is not unlimited</li>
 </ul>
 
+<h3>Visibility</h3>
+<p>
+There are two extensions that provide control over whether groups or questions are allowed to be answered and/or displayed to the user:
+</p>
+<ul>
+  <li><a name="enableWhen"/><b>enableWhen</b> indicates that a question or group should only be answerable (and generally visible) when a particular question has a specified answer (or at least has an answer)</li>
+  <li><a name="hidden"/><b>hidden</b> indicates that a question or group should not be displayed to the user at all because the answer is intended for internal use only</li>
+</ul>
+
 <h3>Defaults</h3>
 <p>
 Some questionnaires may choose to declare defaults (though this can obviously influence data collection and is generally avoided

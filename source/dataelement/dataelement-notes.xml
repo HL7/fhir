@@ -102,6 +102,11 @@ defining and using the data elements.  A corollary to this is that data elements
 the needs of another group, even if they may be covering the same domain.
 </p>
 
+<h3>Uniqueness of data elements</h3>
+<p>
+Clem to add section
+</p>
+
 <h3>Comparability and conversion of data elements</h3>
 <p>
 Two pieces of data don't necessarily need to be based on the same data element in order to be comparable or aggregatable.

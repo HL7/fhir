@@ -96,7 +96,7 @@
   <Style ss:ID="s75">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s76">
+  <Style ss:ID="s77">
    <Alignment ss:Vertical="Top"/>
   </Style>
  </Styles>
@@ -288,6 +288,58 @@
     <Cell><Data ss:Type="String">Only relevant if the element has repeats=true and there's a need to constrain the number of allowed repetitions</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">N/A - MIF rather than RIM level</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">hidden</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Don't display to user</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">If true, indicates that the containing group or question should not be displayed to the user for data entry</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Some questionnaires may have questions that represent calculated values or internal &quot;fixed&quot; metadata.  These elements need to be included with the answers, but should not be displayed to the user</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">If a group is hidden, all descendant content of the group is automatically hidden.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">enableWhen</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group; Questionnaire.question</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Only allow data when:</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">If present, indicates that the group or question containing the extension should only be enabled (allow an answer to be present and, in most circumstances, even be visible to the user) when the specified condition is true</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Allows questionnaires to adapt based on answers to prior questions.  E.g. If physical gender is specified as a male, no need to capture pregnancy history.</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">If multiple repetitions of this extension are present, the question or group should be displayed when the condition for *any* of the repetitions is true.  I.e. Treat &quot;enableWhen&quot;s as being joined by an &quot;or&quot; clause.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="120">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">enableWhen.question</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#enableWhen</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Question that must be answered</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">The linkId for the question whose answer must be present in order for the &quot;enable&quot; to be triggered.</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">If multiple questions answers are present for the same question (same linkId), then this refers to the nearest question reachable by tracing first the &quot;ancestor&quot; axis and then the &quot;preceding&quot; axis and then the &quot;following&quot; axis</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">enableWhen.answer</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">#enableWhen</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String" x:Ticked="1">*</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Value question must have</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">If present, then the specified question must match the specified answer for all components present in the enableWhen.answer</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">If not specified, then all that matters is that the specified question has been answered - it does not matter what the answer is.</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="String">defaultValue</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data></Cell>
@@ -305,7 +357,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s75"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Y</Data></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">Treat default as fixed value?</Data></Cell>
@@ -317,7 +369,7 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="120">
+   <Row ss:Height="165">
     <Cell><Data ss:Type="String">deReference</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Questionnaire.group.question</Data></Cell>
@@ -325,20 +377,9 @@
     <Cell><Data ss:Type="String">Resource(DataElement)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Implemented CDE</Data></Cell>
     <Cell><Data ss:Type="String">A reference to the Data Element that corresponds to the question text and answer constraints for this question.</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">Flags the question as comparable to other questions mapped to the same DE.  Also allows systems that have  mapped the DE to auto-populate or auto-extract information captured for the question.</Data></Cell>
+    <Cell><Data ss:Type="String">If a code applies to a question, that code should still be conveyed on the question, even if the same code is also referenced as a DataElement.code in the referenced data element.  This extension must not be used in place of specifying the Questionnaire.group.question.concept element.</Data></Cell>
+    <Cell><Data ss:Type="String">Flags the question as comparable to other questions mapped to the same DE.  Also allows systems that have  mapped the DE to auto-populate or auto-extract information captured for the question.</Data></Cell>
     <Cell><Data ss:Type="String">./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s70"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s70"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s70"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s70"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3" ss:StyleID="s70"/>
@@ -408,7 +449,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s70"><Data ss:Type="String">QuestionnaireCategory</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Classifications for questionnaires.  Can include such concepts as &quot;intake form&quot;, &quot;opinion survey&quot;, &quot;clinical research questionnaire&quot;, &quot;pediatric&quot;, etc.</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MaxOccurs</Data></Cell>

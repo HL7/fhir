@@ -20,7 +20,6 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>45</WindowTopX>
   <WindowTopY>2085</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -480,14 +479,15 @@
     <Cell><Data ss:Type="String">.value[type=LIST_ANY]</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:Height="75">
     <Cell><Data ss:Type="String">QuestionnaireAnswers.group.question.answer.value[x]</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">decimal | integer | boolean | date | string | dateTime | instant | Coding</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String" x:Ticked="1">*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Single-valued answer to the question</Data></Cell>
     <Cell><Data ss:Type="String">Single-valued answer to the question</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">Need to be able to retain a single-valued answer to a question</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">.item</Data></Cell>
+    <Cell><Data ss:Type="String">More complex structures (Attachment, Resource, Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.</Data></Cell>
+    <Cell><Data ss:Type="String">.item</Data></Cell>
     <Cell ss:Index="18" ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -512,12 +512,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -525,7 +526,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -534,7 +534,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>19</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -834,7 +834,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
