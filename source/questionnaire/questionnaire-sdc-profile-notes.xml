@@ -28,13 +28,13 @@ This profile defines a number of extensions that are expected to be specific to 
 (though they are welcome to be used whereever they might be useful).  The specific extensions defined include:
 </p>
 <ul>
-  <li><a name="additionalTitle"/><a name="additionalTitle.value"/><a name="additionalTitle.context"/><b>additionalTitle</b>:
+<!--  <li><a name="additionalTitle"/><a name="additionalTitle.value"/><a name="additionalTitle.context"/><b>additionalTitle</b>:
     Conveys alternate titles for the questionnaire along with the context/purpose for that alternate title</li>
   <li><a name="additionalQuestionnaireDescription"/><a name="additionalQuestionnaireDescription.value"/>
     <a name="additionalQuestionnaireDescription.context"/><b>additionalQuestionnaireDescription</b>: Conveys alternate
     descriptions of the questionnaire intended for use by different consumers along with who the description is for</li>
   <li><a name="securityPrivacy"/><b>securityPrivacy</b>: Information on how completed versions of the questionnaire should
-    be treated from a security/privacy perspective</li>
+    be treated from a security/privacy perspective</li>-->
   <li><a name="endpoint"/><b>endpoint</b>: The base URI of the server to which 
     <a href="questionnaireanswers.html">QuestionnaireAnswers</a> associated with a
     <a href="questionnaire.html">Questionnaire</a> should be sent</li>

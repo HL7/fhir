@@ -8,7 +8,7 @@
   <updated>2014-05-15T17:25:15Z</updated>
   <entry>
     <title>Some Questionnaire</title>
-    <id>urn:uuid:this-should-be-a-guid-too</id>
+    <id>http://Medication#form_identifier/F8/1.2</id>
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
@@ -19,9 +19,6 @@
             </coding>
           </valueCodeableConcept>
         </extension>
-        <modifierExtension url="http://hl7.org/fhir/Profile/questionnaire-sdc#securityPrivacy">
-          <valueString value="Highlighted fields are collected for local facility and PSO use. This information will not be forwarded to the Network of Patient Safety Databases (NPSD)."/>
-        </modifierExtension>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Todo</div>
@@ -631,8 +628,10 @@
           <value value="form_identifier/F8/1.2"/>
         </identifier>
         <status value="published"/>
+        <date value="2012-04-01"/>
         <publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
         <group>
+          <linkId value="root"/>
           <title value="Medication or Other Substance"/>
           <group>
             <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
@@ -679,7 +678,7 @@
                 </extension>
                 <linkId value="Medication/DE270"/>
                 <text value="What type of medication/substance was involved?"/>
-                <type value="choice"/>
+                <type value="open-choice"/>
                 <required value="true"/>
                 <options>
                   <reference value="#d1e551-vs"/>
@@ -702,7 +701,7 @@
                     </extension>
                     <linkId value="Medication/DE273"/>
                     <text value="What type of medication?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <required value="true"/>
                     <options>
                       <reference value="#d1e639-vs"/>
@@ -744,7 +743,7 @@
                     </extension>
                     <linkId value="Medication/DE279"/>
                     <text value="What type of biological product?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <options>
                       <reference value="#d1e910-vs"/>
                     </options>
@@ -753,6 +752,12 @@
                       <required value="false"/>
                       <repeats value="false"/>
                       <question>
+<!--                        <extension url="http://hl7.org/fhir/Profile/element-extensions#minValue">
+                          <valueInteger value="??"/>
+                        </extension>
+                        <extension url="http://hl7.org/fhir/Profile/element-extensions#maxValue">
+                          <valueInteger value="??"/>
+                        </extension>-->
                         <linkId value="Medication/DE282"/>
                         <text value="What was the lot number of the vaccine?"/>
                         <type value="string"/>
@@ -768,7 +773,7 @@
                   <question>
                     <linkId value="Medication/DE285"/>
                     <text value="What type of nutritional product?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <required value="true"/>
                     <options>
                       <reference value="#d1e1125-vs"/>
@@ -779,7 +784,7 @@
               <question>
                 <linkId value="Medication/DE288"/>
                 <text value="Which of the following best characterizes the event?"/>
-                <type value="choice"/>
+                <type value="open-choice"/>
                 <required value="true"/>
                 <options>
                   <reference value="#d1e1558-vs"/>
@@ -788,7 +793,7 @@
               <question>
                 <linkId value="Medication/DE291"/>
                 <text value="What was the incorrect action?"/>
-                <type value="choice"/>
+                <type value="open-choice"/>
                 <options>
                   <reference value="#d1e1746-vs"/>
                 </options>
@@ -799,7 +804,7 @@
                   <question>
                     <linkId value="Medication/DE294"/>
                     <text value="Which best describes the incorrect dose(s)?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <required value="true"/>
                     <options>
                       <reference value="#d1e1863-vs"/>
@@ -813,7 +818,7 @@
                   <question>
                     <linkId value="Medication/DE297"/>
                     <text value="Which best describes the incorrect timing?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <required value="true"/>
                     <options>
                       <reference value="#d1e2109-vs"/>
@@ -827,7 +832,7 @@
                   <question>
                     <linkId value="Medication/DE300"/>
                     <text value="Which best describes the incorrect rate?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <required value="true"/>
                     <options>
                       <reference value="#d1e2272-vs"/>
@@ -841,7 +846,7 @@
                   <question>
                     <linkId value="Medication/DE303"/>
                     <text value="Which best describes the incorrect strength or concentration?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <required value="true"/>
                     <options>
                       <reference value="#d1e2489-vs"/>
@@ -866,7 +871,7 @@
                   <question>
                     <linkId value="Medication/DE309"/>
                     <text value="Was there a documented history of allergies or sensitivities to the medication/substance administered?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <required value="true"/>
                     <options>
                       <reference value="#d1e2768-vs"/>
@@ -880,7 +885,7 @@
                   <question>
                     <linkId value="Medication/DE312"/>
                     <text value="What was the contraindication (potential or actual interaction)?"/>
-                    <type value="choice"/>
+                    <type value="open-choice"/>
                     <required value="true"/>
                     <options>
                       <reference value="#d1e2928-vs"/>
@@ -891,7 +896,7 @@
               <question>
                 <linkId value="Medication/DE315"/>
                 <text value="At what stage in the process did the event originate, regardless of the stage at which it was discovered?"/>
-                <type value="choice"/>
+                <type value="open-choice"/>
                 <required value="true"/>
                 <options>
                   <reference value="#d1e3159-vs"/>
@@ -899,9 +904,9 @@
               </question>
             </group>
             <group>
-              <modifierExtension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
                 <valueInteger value="5"/>
-              </modifierExtension>
+              </extension>
               <linkId value="Medication/SEC02/74078-7"/>
               <text value="Please provide the following medication details for any medications or other substances directly involved in the event."/>
               <repeats value="true"/>
@@ -1007,7 +1012,7 @@
               <question>
                 <linkId value="Medication/DE333"/>
                 <text value="Was this medication/substance prescribed for this patient?"/>
-                <type value="choice"/>
+                <type value="open-choice"/>
                 <required value="true"/>
                 <options>
                   <reference value="#d1e4024-vs"/>
@@ -1016,7 +1021,7 @@
               <question>
                 <linkId value="Medication/DE336"/>
                 <text value="Was this medication/substance given to this patient?"/>
-                <type value="choice"/>
+                <type value="open-choice"/>
                 <required value="true"/>
                 <options>
                   <reference value="#d1e4118-vs"/>
@@ -1028,7 +1033,7 @@
               <question>
                 <linkId value="Medication/DE348"/>
                 <text value="What was the intended route of administration?"/>
-                <type value="choice"/>
+                <type value="open-choice"/>
                 <required value="true"/>
                 <options>
                   <reference value="#d1e4236-vs"/>
@@ -1037,7 +1042,7 @@
               <question>
                 <linkId value="Medication/DE351"/>
                 <text value="What was the actual route of administration (attempted or completed)?"/>
-                <type value="choice"/>
+                <type value="open-choice"/>
                 <required value="true"/>
                 <options>
                   <reference value="#d1e4716-vs"/>
@@ -1068,7 +1073,7 @@
   </entry>
   <entry>
     <title>Some Questionnaire</title>
-    <id>urn:uuid:this-should-be-a-guid-too</id>
+    <id>http://AHRQ.org#identifier/HERF/1.2</id>
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
@@ -1237,6 +1242,7 @@
         </identifier>
         <status value="published"/>
         <group>
+          <linkId value="root"/>
           <title value="Healthcare Event Reporting Form (HERF) Hospital Version 1.2"/>
           <group>
             <extension url="http://hl7.org/fhir/Profile/questionnaire-sdc#specialGroup">
@@ -1273,16 +1279,16 @@
             <question>
               <linkId value="HERF/DE3"/>
               <text value="What is being reported?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <required value="true"/>
               <options>
                 <reference value="#d1e5879-vs"/>
               </options>
             </question>
             <question>
-              <modifierExtension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
                 <valueInteger value="0"/>
-              </modifierExtension>
+              </extension>
               <linkId value="HERF/DE15"/>
               <text value="Briefly describe the event that occurred or unsafe condition"/>
               <type value="string"/>
@@ -1290,9 +1296,9 @@
               <repeats value="true"/>
             </question>
             <question>
-              <modifierExtension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
                 <valueInteger value="0"/>
-              </modifierExtension>
+              </extension>
               <linkId value="HERF/DE18"/>
               <text value="Briefly describe the location where the event occurred or where the unsafe condition exists"/>
               <type value="string"/>
@@ -1300,12 +1306,12 @@
               <repeats value="true"/>
             </question>
             <question>
-              <modifierExtension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#maxOccurs">
                 <valueInteger value="10"/>
-              </modifierExtension>
+              </extension>
               <linkId value="HERF/DE21"/>
               <text value="Which of the following categories are associated with the event or unsafe condition?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <required value="true"/>
               <repeats value="true"/>
               <options>
@@ -1314,6 +1320,17 @@
             </question>
           </group>
           <group>
+            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.question">
+                <valueString value="HERF/DE3"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.value">
+                <valueCoding>
+                  <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
+                  <code value="A3"/>
+                </valueCoding>
+              </extension>
+            </extension>
             <linkId value="HERF/SEC01.1"/>
             <title value="PATIENT INFORMATION (COMPLETE ONLY IF INCIDENT)"/>
             <text value="Please complete the patient identifiers below. Additional patient information is captured on the Patient Information Form (PIF). (When reporting a perinatal incident that affected a mother and a neonate, please complete the patient identifiers below for the mother (Q8 – Q11) and the neonate (Q12 – Q15). Please also complete a separate PIF for the neonate involved.)"/>
@@ -1327,7 +1344,7 @@
               <required value="true"/>
             </question>
             <question>
-              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#defaultValue">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#default">
                 <valueCoding>
                   <system value="HERF/DE9b-cs"/>
                   <code value="UNK"/>
@@ -1344,6 +1361,17 @@
             </question>
           </group>
           <group>
+            <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen">
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.question">
+                <valueString value="HERF/DE3"/>
+              </extension>
+              <extension url="http://hl7.org/fhir/Profile/questionnaire-extensions#displayWhen.value">
+                <valueCoding>
+                  <system value="http://AHRQ.org/form/question_identifier#HERF/DE3-cs"/>
+                  <code value="A3"/>
+                </valueCoding>
+              </extension>
+            </extension>
             <linkId value="HERF/SEC02"/>
             <title value="Patient Information (COMPLETE ONLY IF INCIDENT):"/>
             <text value="Please complete the patient identifiers below. Additional patient information is captured on the Patient Information Form (PIF). (When reporting a perinatal incident that affected a mother and a neonate, please complete the patient identifiers below for the mother (Q8 – Q11) and the neonate (Q12 – Q15). Please also complete a separate PIF for the neonate involved.)"/>
@@ -1367,7 +1395,7 @@
             <question>
               <linkId value="HERF/DE42"/>
               <text value="Patients' Gender"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e6853-vs"/>
               </options>
@@ -1380,7 +1408,7 @@
             <question>
               <linkId value="HERF/Hidden"/>
               <text value="Is this event a perinatal incident that affected a neonate?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e7006-vs"/>
               </options>
@@ -1407,7 +1435,7 @@
                 <question>
                   <linkId value="HERF/DE43"/>
                   <text value="Neonate's Gender"/>
-                  <type value="choice"/>
+                  <type value="open-choice"/>
                   <required value="true"/>
                   <options>
                     <reference value="#d1e7220-vs"/>
@@ -1422,7 +1450,7 @@
             <question>
               <linkId value="HERF/DE33"/>
               <text value="Anonymous Reporter"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e7422-vs"/>
               </options>
@@ -1474,7 +1502,7 @@
   </entry>
   <entry>
     <title>Some Questionnaire</title>
-    <id>urn:uuid:this-should-be-a-guid-too</id>
+    <id>http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier#3921052v1.0/</id>
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
@@ -1826,6 +1854,7 @@
         <date value="2013-10-16"/>
         <publisher value="National Cancer Institute (NCI)"/>
         <group>
+          <linkId value="root"/>
           <title value="Diagnosis NCI Standard Template"/>
           <group>
             <linkId value="3921053v1.0"/>
@@ -1853,7 +1882,7 @@
               </extension>
               <linkId value="3921060v1.0"/>
               <text value="Diagnosis Type"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e8086-vs"/>
               </options>
@@ -1887,7 +1916,7 @@
               </extension>
               <linkId value="3921071v1.0"/>
               <text value="Diagnosis Time Point"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e8407-vs"/>
               </options>
@@ -1934,7 +1963,7 @@
               </extension>
               <linkId value="3921081v1.0"/>
               <text value="Assessment Method"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e8830-vs"/>
               </options>
@@ -1950,7 +1979,7 @@
               </extension>
               <linkId value="3921085v1.0"/>
               <text value="Tumor grade"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e9025-vs"/>
               </options>
@@ -1962,7 +1991,7 @@
   </entry>
   <entry>
     <title>Some Questionnaire</title>
-    <id>urn:uuid:this-should-be-a-guid-too</id>
+    <id>http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier#2674812v4.0/</id>
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
@@ -3057,6 +3086,7 @@
         <date value="2013-03-22"/>
         <publisher value="National Cancer Institute (NCI)"/>
         <group>
+          <linkId value="root"/>
           <title value="Demography NCI Standard Template"/>
           <group>
             <linkId value="3702891v4.0"/>
@@ -3077,7 +3107,7 @@
               </extension>
               <linkId value="3702892v4.0"/>
               <text value="Gender"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e9892-vs"/>
               </options>
@@ -3096,7 +3126,7 @@
               </extension>
               <linkId value="3702904v4.0"/>
               <text value="Race"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e10146-vs"/>
               </options>
@@ -3125,7 +3155,7 @@
               </extension>
               <linkId value="3702898v4.0"/>
               <text value="Ethnicity"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e10593-vs"/>
               </options>
@@ -3159,7 +3189,7 @@
               </extension>
               <linkId value="3702916v4.0"/>
               <text value="Payment Method"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e10923-vs"/>
               </options>
@@ -3229,7 +3259,7 @@
               </extension>
               <linkId value="3702942v4.0"/>
               <text value="Highest Education Level"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e11887-vs"/>
               </options>
@@ -3245,7 +3275,7 @@
               </extension>
               <linkId value="3702952v4.0"/>
               <text value="Country of Birth"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e12384-vs"/>
               </options>
@@ -3261,7 +3291,7 @@
               </extension>
               <linkId value="3702957v4.0"/>
               <text value="Highest Education Level"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e12630-vs"/>
               </options>
@@ -3293,7 +3323,7 @@
               </extension>
               <linkId value="3702985v4.0"/>
               <text value="Marital Status"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e14027-vs"/>
               </options>
@@ -3305,7 +3335,7 @@
   </entry>
   <entry>
     <title>Some Questionnaire</title>
-    <id>urn:uuid:this-should-be-a-guid-too</id>
+    <id>http://nci.nih.gov/xml/owl/cadsr/form/form_design_identifier#3265657v2.0/</id>
     <updated>2014-05-15T17:25:15Z</updated>
     <content type="text/xml">
       <Questionnaire xmlns="http://hl7.org/fhir">
@@ -23659,6 +23689,7 @@
         <date value="2012-08-15"/>
         <publisher value="National Cancer Institute (NCI)"/>
         <group>
+          <linkId value="root"/>
           <title value="Adverse Event/Serious Adverse Event CTCAE v4 NCI Standard Template"/>
           <group>
             <linkId value="3556213v2.0"/>
@@ -23676,7 +23707,7 @@
               </extension>
               <linkId value="3556214v2.0"/>
               <text value="Adverse Event Term (v4.0)"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e14927-vs"/>
               </options>
@@ -23708,7 +23739,7 @@
               </extension>
               <linkId value="3557008v2.0"/>
               <text value="Adverse Event Grade"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e54652-vs"/>
               </options>
@@ -23751,7 +23782,7 @@
               </extension>
               <linkId value="3557021v2.0"/>
               <text value="Was patient hospitalized for toxicity?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e55041-vs"/>
               </options>
@@ -23782,7 +23813,7 @@
               </extension>
               <linkId value="3557032v2.0"/>
               <text value="To what is the AE attributed?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e55265-vs"/>
               </options>
@@ -23827,7 +23858,7 @@
               </extension>
               <linkId value="3557869v2.0"/>
               <text value="MedDRA System Organ Class (SOC)"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e56008-vs"/>
               </options>
@@ -23846,7 +23877,7 @@
               </extension>
               <linkId value="3557050v2.0"/>
               <text value="MedDRA AE Code (CTCAE v4.0)"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e57358-vs"/>
               </options>
@@ -23865,7 +23896,7 @@
               </extension>
               <linkId value="3557842v2.0"/>
               <text value="AE Attribution"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e97042-vs"/>
               </options>
@@ -23894,7 +23925,7 @@
               </extension>
               <linkId value="3557851v2.0"/>
               <text value="Were adverse events assessed during most recent period"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e97392-vs"/>
               </options>
@@ -23913,7 +23944,7 @@
               </extension>
               <linkId value="3557856v2.0"/>
               <text value="Expected? (Yes/No)"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e97594-vs"/>
               </options>
@@ -23932,7 +23963,7 @@
               </extension>
               <linkId value="3557859v2.0"/>
               <text value="Serious?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e97746-vs"/>
               </options>
@@ -23981,7 +24012,7 @@
               </extension>
               <linkId value="3557913v2.0"/>
               <text value="Pre-existing AE?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e98036-vs"/>
               </options>
@@ -24010,7 +24041,7 @@
               </extension>
               <linkId value="3557028v2.0"/>
               <text value="AE Ongoing?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e98234-vs"/>
               </options>
@@ -24026,7 +24057,7 @@
               </extension>
               <linkId value="3557896v2.0"/>
               <text value="Participant Status/Outcome"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e98385-vs"/>
               </options>
@@ -24042,7 +24073,7 @@
               </extension>
               <linkId value="3557906v2.0"/>
               <text value="Adverse Event Condition Pattern"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e98732-vs"/>
               </options>
@@ -24061,7 +24092,7 @@
               </extension>
               <linkId value="3557917v2.0"/>
               <text value="Did event reappear after study agent was reintroduced?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e98928-vs"/>
               </options>
@@ -24101,7 +24132,7 @@
               </extension>
               <linkId value="3556199v2.0"/>
               <text value="Why serious?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e99214-vs"/>
               </options>
@@ -24120,7 +24151,7 @@
               </extension>
               <linkId value="3556209v2.0"/>
               <text value="Dose-Limiting Toxicity?"/>
-              <type value="choice"/>
+              <type value="open-choice"/>
               <options>
                 <reference value="#d1e99668-vs"/>
               </options>
