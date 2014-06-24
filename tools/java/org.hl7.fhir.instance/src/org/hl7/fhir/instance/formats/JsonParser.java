@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -4697,10 +4697,12 @@ public class JsonParser extends JsonParserBase {
       res.setUrl(parseUri(json.get("url").getAsString()));
     if (json.has("_url"))
       parseElementProperties(json.getAsJsonObject("_url"), res.getUrl());
-    if (json.has("identifier"))
-      res.setIdentifier(parseString(json.get("identifier").getAsString()));
-    if (json.has("_identifier"))
-      parseElementProperties(json.getAsJsonObject("_identifier"), res.getIdentifier());
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("version"))
       res.setVersion(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
@@ -4805,6 +4807,10 @@ public class JsonParser extends JsonParserBase {
       res.setType(parseCode(json.get("type").getAsString()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getType());
+    if (json.has("base"))
+      res.setBase(parseUri(json.get("base").getAsString()));
+    if (json.has("_base"))
+      parseElementProperties(json.getAsJsonObject("_base"), res.getBase());
     if (json.has("name"))
       res.setName(parseString(json.get("name").getAsString()));
     if (json.has("_name"))

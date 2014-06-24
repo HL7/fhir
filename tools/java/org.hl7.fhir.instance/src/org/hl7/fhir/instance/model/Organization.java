@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -156,7 +156,7 @@ public class Organization extends Resource {
           childrenList.add(new Property("gender", "CodeableConcept", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         }
 
-      public OrganizationContactComponent copy(Organization e) {
+      public OrganizationContactComponent copy() {
         OrganizationContactComponent dst = new OrganizationContactComponent();
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.name = name == null ? null : name.copy();
@@ -479,7 +479,7 @@ public class Organization extends Resource {
         dst.partOf = partOf == null ? null : partOf.copy();
         dst.contact = new ArrayList<OrganizationContactComponent>();
         for (OrganizationContactComponent i : contact)
-          dst.contact.add(i.copy(dst));
+          dst.contact.add(i.copy());
         dst.location = new ArrayList<ResourceReference>();
         for (ResourceReference i : location)
           dst.location.add(i.copy());

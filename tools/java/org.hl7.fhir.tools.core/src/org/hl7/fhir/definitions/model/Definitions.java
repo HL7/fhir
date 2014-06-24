@@ -69,12 +69,12 @@ public class Definitions {
   private List<BindingSpecification> commonBindings = new ArrayList<BindingSpecification>();
 	private Map<String, DefinedCode> knownResources = new HashMap<String, DefinedCode>();
 	private List<TypeRef> knownTypes = new ArrayList<TypeRef>();
-	private Map<String, DefinedCode> constraints = new HashMap<String, DefinedCode>();
+	private Map<String, ProfiledType> constraints = new HashMap<String, ProfiledType>();
 
 	private Map<String, DefinedCode> primitives = new HashMap<String, DefinedCode>();
-	private Map<String, ElementDefn> types = new HashMap<String, ElementDefn>();
-	private Map<String, ElementDefn> structures = new HashMap<String, ElementDefn>();
-	private Map<String, ElementDefn> infrastructure = new HashMap<String, ElementDefn>();
+	private Map<String, TypeDefn> types = new HashMap<String, TypeDefn>();
+	private Map<String, TypeDefn> structures = new HashMap<String, TypeDefn>();
+	private Map<String, TypeDefn> infrastructure = new HashMap<String, TypeDefn>();
 	private List<String> shared = new ArrayList<String>(); 
 	private Map<String, ResourceDefn> resources = new HashMap<String, ResourceDefn>();
 	private Map<String, ResourceDefn> futureResources = new HashMap<String, ResourceDefn>();
@@ -97,10 +97,10 @@ public class Definitions {
   private List<String> pastVersions = new ArrayList<String>();
 
   
-  // Returns the root ElementDefn of a CompositeType or Resource,
+  // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
-	public ElementDefn getElementDefn(String name) throws Exception {
-		ElementDefn root = null;
+	public TypeDefn getElementDefn(String name) throws Exception {
+		TypeDefn root = null;
 		if (types.containsKey(name))
 			root = types.get(name);
 		if (structures.containsKey(name))
@@ -153,35 +153,25 @@ public class Definitions {
 	// These ConstrainedTypes are found in the fhir.ini
 	// as <constrained>=<base> and the constraints are found
 	// on the "Restrictions" tab of the <base>.
-	public Map<String, DefinedCode> getConstraints() {
+	public Map<String, ProfiledType> getConstraints() {
 		return constraints;
 	}
 
-	
-	private Map<String, Invariant> constraintInvariants = new HashMap<String, Invariant>();
-	
-	// Actually, DefinedCode is not enough to specify constraint
-	// details, this list will hold the invariants.
-	public Map<String, Invariant> getConstraintInvariants() {
-		return constraintInvariants;
-	}
-	
-	
 	// List the CompositeTypes as found under [types] that aren't
 	// ConstrainedTypes.
-	public Map<String, ElementDefn> getTypes() {
+	public Map<String, TypeDefn> getTypes() {
 		return types;
 	}
 
 	// List the CompositeTypes as found under [structures] that aren't
 	// ConstrainedTypes.
-	public Map<String, ElementDefn> getStructures() {
+	public Map<String, TypeDefn> getStructures() {
 		return structures;
 	}
 
 	// List the CompositeTypes as found under [infrastructure] that aren't
 	// ConstrainedTypes.
-	public Map<String, ElementDefn> getInfrastructure() {
+	public Map<String, TypeDefn> getInfrastructure() {
 		return infrastructure;
 	}
 

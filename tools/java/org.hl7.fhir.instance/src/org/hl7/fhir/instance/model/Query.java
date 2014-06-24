@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -381,7 +381,7 @@ public class Query extends Resource {
           childrenList.add(new Property("reference", "Resource(Any)", "Resources that are the results of the search.", 0, java.lang.Integer.MAX_VALUE, reference));
         }
 
-      public QueryResponseComponent copy(Query e) {
+      public QueryResponseComponent copy() {
         QueryResponseComponent dst = new QueryResponseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
@@ -512,7 +512,7 @@ public class Query extends Resource {
         dst.parameter = new ArrayList<Extension>();
         for (Extension i : parameter)
           dst.parameter.add(i.copy());
-        dst.response = response == null ? null : response.copy(dst);
+        dst.response = response == null ? null : response.copy();
         return dst;
       }
 

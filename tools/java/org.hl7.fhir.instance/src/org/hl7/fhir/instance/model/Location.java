@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -266,7 +266,7 @@ public class Location extends Resource {
           childrenList.add(new Property("altitude", "decimal", "Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).", 0, java.lang.Integer.MAX_VALUE, altitude));
         }
 
-      public LocationPositionComponent copy(Location e) {
+      public LocationPositionComponent copy() {
         LocationPositionComponent dst = new LocationPositionComponent();
         dst.longitude = longitude == null ? null : longitude.copy();
         dst.latitude = latitude == null ? null : latitude.copy();
@@ -675,7 +675,7 @@ public class Location extends Resource {
           dst.telecom.add(i.copy());
         dst.address = address == null ? null : address.copy();
         dst.physicalType = physicalType == null ? null : physicalType.copy();
-        dst.position = position == null ? null : position.copy(dst);
+        dst.position = position == null ? null : position.copy();
         dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
         dst.status = status == null ? null : status.copy();
         dst.partOf = partOf == null ? null : partOf.copy();

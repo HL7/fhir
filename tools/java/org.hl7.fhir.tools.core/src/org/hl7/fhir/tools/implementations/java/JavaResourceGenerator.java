@@ -41,6 +41,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -75,7 +76,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		return typeNames;
 	}
 
-	public void generate(ElementDefn root, String name, Map<String, BindingSpecification> conceptDomains, JavaGenClass clss, DefinedCode cd, Date genDate, String version) throws Exception {
+	public void generate(ElementDefn root, String name, Map<String, BindingSpecification> conceptDomains, JavaGenClass clss, ProfiledType cd, Date genDate, String version) throws Exception {
 		typeNames.clear();
 		typeNameStrings.clear();
 		enums.clear();
@@ -109,7 +110,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     else if (clss == JavaGenClass.BackboneElement)
       write("public class "+upFirst(name)+" extends BackboneElement {\r\n");
 		else if (clss == JavaGenClass.Constraint)
-			write("public class "+upFirst(cd.getCode())+" extends "+upFirst(root.getName())+" {\r\n");
+			write("public class "+upFirst(cd.getName())+" extends "+upFirst(root.getName())+" {\r\n");
 	  else if (root.getName().equals("Quantity"))
 			write("public class "+upFirst(name)+" extends Type {\r\n");
 		else
@@ -498,7 +499,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
 	private void generateCopy(ElementDefn e, String tn, boolean owner) throws IOException {
 	  if (owner) {
-      write("      public "+tn+" copy("+classname+" e) {\r\n");
+      write("      public "+tn+" copy() {\r\n");
       write("        "+tn+" dst = new "+tn+"();\r\n");
 	  } else {
       write("      public "+tn+" copy() {\r\n");
@@ -506,17 +507,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	  }
     for (ElementDefn c : e.getElements()) {
       String params = "";
-      if (((c.getElements().size() > 0) || c.typeCode().startsWith("@")) && !definitions.dataTypeIsSharedInfo(c.typeCode()))
-        params = owner ? "e" : "dst";
       String name = getElementName(c.getName(), true);
       if (c.unbounded()) {
         write("        dst."+name+" = new ArrayList<"+typeNames.get(c)+">();\r\n");
         write("        for ("+typeNames.get(c)+" i : "+name+")\r\n");
-        write("          dst."+name+".add(i.copy("+params+"));\r\n");
+        write("          dst."+name+".add(i.copy());\r\n");
       } else {
         if (name.endsWith("[x]"))
           name = name.substring(0, name.length()-3);
-        write("        dst."+name+" = "+name+" == null ? null : "+name+".copy("+params+");\r\n");
+        write("        dst."+name+" = "+name+" == null ? null : "+name+".copy();\r\n");
       }
     }
     write("        return dst;\r\n");
@@ -759,6 +758,14 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"  t.setValue(value);\r\n");
         write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
         write(indent+"  return t;\r\n");
+        write(indent+"}\r\n");
+        write("\r\n");
+        jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
+        write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+"Simple("+getSimpleType(tn)+" value) { \r\n");
+        write(indent+"  for ("+tn+" v : this."+getElementName(e.getName(), true)+")\r\n");
+        write(indent+"    if (v.getValue().equals(value))\r\n");
+        write(indent+"      return true;\r\n");
+        write(indent+"  return false;\r\n");
         write(indent+"}\r\n");
         write("\r\n");
       } else if (e.getTypes().size() == 1 && e.typeCode().startsWith("Resource(")) {

@@ -103,9 +103,8 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 
 	
 	private void scan(ProfileDefn profile, Map<String, BindingSpecification> tx) throws Exception {
-    for (ElementDefn d : profile.getElements()) {
-      scan(d, profile.getMetadata().get("id")+"."+d.getName(), tx);
-    }
+
+
     for (ExtensionDefn ex : profile.getExtensions()) {
       if (ex.getDefinition().hasBinding()) {
         BindingSpecification cd = getConceptDomainByName(tx, ex.getDefinition().getBindingName());

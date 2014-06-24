@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -875,7 +875,7 @@ public class SecurityEvent extends Resource {
           childrenList.add(new Property("outcomeDesc", "string", "A free text description of the outcome of the event.", 0, java.lang.Integer.MAX_VALUE, outcomeDesc));
         }
 
-      public SecurityEventEventComponent copy(SecurityEvent e) {
+      public SecurityEventEventComponent copy() {
         SecurityEventEventComponent dst = new SecurityEventEventComponent();
         dst.type = type == null ? null : type.copy();
         dst.subtype = new ArrayList<CodeableConcept>();
@@ -1176,7 +1176,7 @@ public class SecurityEvent extends Resource {
           childrenList.add(new Property("network", "", "Logical network location for application activity, if the activity has a network location.", 0, java.lang.Integer.MAX_VALUE, network));
         }
 
-      public SecurityEventParticipantComponent copy(SecurityEvent e) {
+      public SecurityEventParticipantComponent copy() {
         SecurityEventParticipantComponent dst = new SecurityEventParticipantComponent();
         dst.role = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : role)
@@ -1187,7 +1187,7 @@ public class SecurityEvent extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.requestor = requestor == null ? null : requestor.copy();
         dst.media = media == null ? null : media.copy();
-        dst.network = network == null ? null : network.copy(e);
+        dst.network = network == null ? null : network.copy();
         return dst;
       }
 
@@ -1288,7 +1288,7 @@ public class SecurityEvent extends Resource {
           childrenList.add(new Property("type", "code", "An identifier for the type of network access point that originated the audit event.", 0, java.lang.Integer.MAX_VALUE, type));
         }
 
-      public SecurityEventParticipantNetworkComponent copy(SecurityEvent e) {
+      public SecurityEventParticipantNetworkComponent copy() {
         SecurityEventParticipantNetworkComponent dst = new SecurityEventParticipantNetworkComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.type = type == null ? null : type.copy();
@@ -1416,7 +1416,7 @@ public class SecurityEvent extends Resource {
           childrenList.add(new Property("type", "Coding", "Code specifying the type of source where event originated.", 0, java.lang.Integer.MAX_VALUE, type));
         }
 
-      public SecurityEventSourceComponent copy(SecurityEvent e) {
+      public SecurityEventSourceComponent copy() {
         SecurityEventSourceComponent dst = new SecurityEventSourceComponent();
         dst.site = site == null ? null : site.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
@@ -1797,7 +1797,7 @@ public class SecurityEvent extends Resource {
           childrenList.add(new Property("detail", "", "Additional Information about the Object.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
-      public SecurityEventObjectComponent copy(SecurityEvent e) {
+      public SecurityEventObjectComponent copy() {
         SecurityEventObjectComponent dst = new SecurityEventObjectComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.reference = reference == null ? null : reference.copy();
@@ -1810,7 +1810,7 @@ public class SecurityEvent extends Resource {
         dst.query = query == null ? null : query.copy();
         dst.detail = new ArrayList<SecurityEventObjectDetailComponent>();
         for (SecurityEventObjectDetailComponent i : detail)
-          dst.detail.add(i.copy(e));
+          dst.detail.add(i.copy());
         return dst;
       }
 
@@ -1909,7 +1909,7 @@ public class SecurityEvent extends Resource {
           childrenList.add(new Property("value", "base64Binary", "Property value.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
-      public SecurityEventObjectDetailComponent copy(SecurityEvent e) {
+      public SecurityEventObjectDetailComponent copy() {
         SecurityEventObjectDetailComponent dst = new SecurityEventObjectDetailComponent();
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
@@ -2024,14 +2024,14 @@ public class SecurityEvent extends Resource {
 
       public SecurityEvent copy() {
         SecurityEvent dst = new SecurityEvent();
-        dst.event = event == null ? null : event.copy(dst);
+        dst.event = event == null ? null : event.copy();
         dst.participant = new ArrayList<SecurityEventParticipantComponent>();
         for (SecurityEventParticipantComponent i : participant)
-          dst.participant.add(i.copy(dst));
-        dst.source = source == null ? null : source.copy(dst);
+          dst.participant.add(i.copy());
+        dst.source = source == null ? null : source.copy();
         dst.object = new ArrayList<SecurityEventObjectComponent>();
         for (SecurityEventObjectComponent i : object)
-          dst.object.add(i.copy(dst));
+          dst.object.add(i.copy());
         return dst;
       }
 

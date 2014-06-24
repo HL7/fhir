@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -135,12 +135,12 @@ public class Medication extends Resource {
           childrenList.add(new Property("ingredient", "", "Identifies a particular constituent of interest in the product.", 0, java.lang.Integer.MAX_VALUE, ingredient));
         }
 
-      public MedicationProductComponent copy(Medication e) {
+      public MedicationProductComponent copy() {
         MedicationProductComponent dst = new MedicationProductComponent();
         dst.form = form == null ? null : form.copy();
         dst.ingredient = new ArrayList<MedicationProductIngredientComponent>();
         for (MedicationProductIngredientComponent i : ingredient)
-          dst.ingredient.add(i.copy(e));
+          dst.ingredient.add(i.copy());
         return dst;
       }
 
@@ -224,7 +224,7 @@ public class Medication extends Resource {
           childrenList.add(new Property("amount", "Ratio", "Specifies how many (or how much) of the items there are in this Medication.  E.g. 250 mg per tablet.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
-      public MedicationProductIngredientComponent copy(Medication e) {
+      public MedicationProductIngredientComponent copy() {
         MedicationProductIngredientComponent dst = new MedicationProductIngredientComponent();
         dst.item = item == null ? null : item.copy();
         dst.amount = amount == null ? null : amount.copy();
@@ -288,12 +288,12 @@ public class Medication extends Resource {
           childrenList.add(new Property("content", "", "A set of components that go to make up the described item.", 0, java.lang.Integer.MAX_VALUE, content));
         }
 
-      public MedicationPackageComponent copy(Medication e) {
+      public MedicationPackageComponent copy() {
         MedicationPackageComponent dst = new MedicationPackageComponent();
         dst.container = container == null ? null : container.copy();
         dst.content = new ArrayList<MedicationPackageContentComponent>();
         for (MedicationPackageContentComponent i : content)
-          dst.content.add(i.copy(e));
+          dst.content.add(i.copy());
         return dst;
       }
 
@@ -377,7 +377,7 @@ public class Medication extends Resource {
           childrenList.add(new Property("amount", "Quantity", "The amount of the product that is in the package.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
-      public MedicationPackageContentComponent copy(Medication e) {
+      public MedicationPackageContentComponent copy() {
         MedicationPackageContentComponent dst = new MedicationPackageContentComponent();
         dst.item = item == null ? null : item.copy();
         dst.amount = amount == null ? null : amount.copy();
@@ -633,8 +633,8 @@ public class Medication extends Resource {
         dst.isBrand = isBrand == null ? null : isBrand.copy();
         dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
         dst.kind = kind == null ? null : kind.copy();
-        dst.product = product == null ? null : product.copy(dst);
-        dst.package_ = package_ == null ? null : package_.copy(dst);
+        dst.product = product == null ? null : product.copy();
+        dst.package_ = package_ == null ? null : package_.copy();
         return dst;
       }
 

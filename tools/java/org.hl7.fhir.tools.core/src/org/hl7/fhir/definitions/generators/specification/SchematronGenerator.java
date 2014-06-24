@@ -69,7 +69,7 @@ public class SchematronGenerator  extends TextStreamWriter {
       return null;
     
     if (definitions.getConstraints().containsKey(tn)) 
-      return definitions.getElementDefn(definitions.getConstraints().get(tn).getComment());
+      return definitions.getElementDefn(definitions.getConstraints().get(tn).getBaseType());
     else
       return definitions.getElementDefn(tn);    
 	}

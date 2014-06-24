@@ -18,6 +18,7 @@ import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.PrimitiveType;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.AtomEntry;
@@ -251,8 +252,8 @@ public class SvgGenerator extends BaseGenerator {
         else
           p = determineMetrics(fake, item, cn, false, cd);        
       } else if (definitions.getConstraints().containsKey(cn)) {
-        DefinedCode cd = definitions.getConstraints().get(cn);
-        ElementDefn ed = definitions.getElementDefn(cd.getComment());
+        ProfiledType cd = definitions.getConstraints().get(cn);
+        ElementDefn ed = definitions.getElementDefn(cd.getBaseType());
         ClassItem parentClss = classes.get(ed);
         ElementDefn fake = new ElementDefn();
         fake.setName(cn);
@@ -654,9 +655,9 @@ public class SvgGenerator extends BaseGenerator {
         else
           links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd), null, null, PointKind.unknown, null, null));        
       } else if (definitions.getConstraints().containsKey(cn)) {
-        DefinedCode cd = definitions.getConstraints().get(cn);
+        ProfiledType cd = definitions.getConstraints().get(cn);
         ElementDefn fake = fakes.get(cn);
-        ClassItem parent = classes.get(definitions.getElementDefn(cd.getComment()));
+        ClassItem parent = classes.get(definitions.getElementDefn(cd.getBaseType()));
         links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, null), null, null, PointKind.unknown, null, null));        
       } else 
         links.add(new Link(item, drawClass(xml, definitions.getElementDefn(cn), false, null, true, cn, null), null, null, PointKind.unknown, null, null));        

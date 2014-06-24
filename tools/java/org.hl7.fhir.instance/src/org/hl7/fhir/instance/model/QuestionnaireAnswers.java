@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -312,7 +312,7 @@ public class QuestionnaireAnswers extends Resource {
           childrenList.add(new Property("question", "", "Set of questions within this group. The order of questions within the group is relevant.", 0, java.lang.Integer.MAX_VALUE, question));
         }
 
-      public GroupComponent copy(QuestionnaireAnswers e) {
+      public GroupComponent copy() {
         GroupComponent dst = new GroupComponent();
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.title = title == null ? null : title.copy();
@@ -320,10 +320,10 @@ public class QuestionnaireAnswers extends Resource {
         dst.subject = subject == null ? null : subject.copy();
         dst.group = new ArrayList<GroupComponent>();
         for (GroupComponent i : group)
-          dst.group.add(i.copy(e));
+          dst.group.add(i.copy());
         dst.question = new ArrayList<QuestionComponent>();
         for (QuestionComponent i : question)
-          dst.question.add(i.copy(e));
+          dst.question.add(i.copy());
         return dst;
       }
 
@@ -470,16 +470,16 @@ public class QuestionnaireAnswers extends Resource {
           childrenList.add(new Property("group", "@QuestionnaireAnswers.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 
-      public QuestionComponent copy(QuestionnaireAnswers e) {
+      public QuestionComponent copy() {
         QuestionComponent dst = new QuestionComponent();
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.text = text == null ? null : text.copy();
         dst.answer = new ArrayList<QuestionAnswerComponent>();
         for (QuestionAnswerComponent i : answer)
-          dst.answer.add(i.copy(e));
+          dst.answer.add(i.copy());
         dst.group = new ArrayList<GroupComponent>();
         for (GroupComponent i : group)
-          dst.group.add(i.copy(e));
+          dst.group.add(i.copy());
         return dst;
       }
 
@@ -489,9 +489,9 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * Single-valued answer to the question.
          */
-        protected Type value;
+        protected org.hl7.fhir.instance.model.Type value;
 
-        private static final long serialVersionUID = -732981989L;
+        private static final long serialVersionUID = -1848069669L;
 
       public QuestionAnswerComponent() {
         super();
@@ -500,24 +500,24 @@ public class QuestionnaireAnswers extends Resource {
         /**
          * @return {@link #value} (Single-valued answer to the question.)
          */
-        public Type getValue() { 
+        public org.hl7.fhir.instance.model.Type getValue() { 
           return this.value;
         }
 
         /**
          * @param value {@link #value} (Single-valued answer to the question.)
          */
-        public QuestionAnswerComponent setValue(Type value) { 
+        public QuestionAnswerComponent setValue(org.hl7.fhir.instance.model.Type value) { 
           this.value = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("value[x]", "decimal|integer|boolean|date|string|dateTime|instant|Coding", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "*", "Single-valued answer to the question.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
-      public QuestionAnswerComponent copy(QuestionnaireAnswers e) {
+      public QuestionAnswerComponent copy() {
         QuestionAnswerComponent dst = new QuestionAnswerComponent();
         dst.value = value == null ? null : value.copy();
         return dst;
@@ -852,7 +852,7 @@ public class QuestionnaireAnswers extends Resource {
         dst.authored = authored == null ? null : authored.copy();
         dst.source = source == null ? null : source.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
-        dst.group = group == null ? null : group.copy(dst);
+        dst.group = group == null ? null : group.copy();
         return dst;
       }
 

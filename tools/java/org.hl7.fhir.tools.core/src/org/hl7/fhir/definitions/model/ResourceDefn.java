@@ -32,6 +32,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.instance.model.Profile;
+
 public class ResourceDefn  {
    private List<Example> examples = new ArrayList<Example>();
    private Map<String, SearchParameter> searchParams = new HashMap<String, SearchParameter>();
@@ -82,14 +84,14 @@ public class ResourceDefn  {
 
 
    
-   private ElementDefn root;   
+   private TypeDefn root;   
    
-   public ElementDefn getRoot()
+   public TypeDefn getRoot()
    {
 	   return root;
    }
    
-   public void setRoot(ElementDefn root)
+   public void setRoot(TypeDefn root)
    {
 	   this.root = root;
    }
@@ -155,6 +157,14 @@ public class ResourceDefn  {
 
   public String getRequirements() {
     return requirements;
+  }
+
+  public Profile getProfile() {
+    return root.getProfile();
+  }
+
+  public void setProfile(Profile profile) {
+    this.root.setProfile(profile);
   }
 
 

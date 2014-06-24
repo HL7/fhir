@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -283,7 +283,7 @@ public class AdverseReaction extends Resource {
           childrenList.add(new Property("severity", "code", "The severity of the sign or symptom.", 0, java.lang.Integer.MAX_VALUE, severity));
         }
 
-      public AdverseReactionSymptomComponent copy(AdverseReaction e) {
+      public AdverseReactionSymptomComponent copy() {
         AdverseReactionSymptomComponent dst = new AdverseReactionSymptomComponent();
         dst.code = code == null ? null : code.copy();
         dst.severity = severity == null ? null : severity.copy();
@@ -470,7 +470,7 @@ public class AdverseReaction extends Resource {
           childrenList.add(new Property("substance", "Resource(Substance)", "Substance that is presumed to have caused the adverse reaction.", 0, java.lang.Integer.MAX_VALUE, substance));
         }
 
-      public AdverseReactionExposureComponent copy(AdverseReaction e) {
+      public AdverseReactionExposureComponent copy() {
         AdverseReactionExposureComponent dst = new AdverseReactionExposureComponent();
         dst.date = date == null ? null : date.copy();
         dst.type = type == null ? null : type.copy();
@@ -739,10 +739,10 @@ public class AdverseReaction extends Resource {
         dst.recorder = recorder == null ? null : recorder.copy();
         dst.symptom = new ArrayList<AdverseReactionSymptomComponent>();
         for (AdverseReactionSymptomComponent i : symptom)
-          dst.symptom.add(i.copy(dst));
+          dst.symptom.add(i.copy());
         dst.exposure = new ArrayList<AdverseReactionExposureComponent>();
         for (AdverseReactionExposureComponent i : exposure)
-          dst.exposure.add(i.copy(dst));
+          dst.exposure.add(i.copy());
         return dst;
       }
 

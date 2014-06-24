@@ -43,38 +43,29 @@ import org.hl7.fhir.definitions.ecore.fhir.TypeRef;
 public class ConstrainedTypeConverter 
 {
 	public static List<ConstrainedTypeDefn> buildConstrainedTypesFromFhirModel( 
-			Collection<org.hl7.fhir.definitions.model.DefinedCode> constrainedTypes,
-			Map<String,org.hl7.fhir.definitions.model.Invariant> invariants )
+			Collection<org.hl7.fhir.definitions.model.ProfiledType> constrainedTypes)
 				throws Exception
 	{
 		List<ConstrainedTypeDefn> result = new ArrayList<ConstrainedTypeDefn>();
 		
-	    for (org.hl7.fhir.definitions.model.DefinedCode constrainedType : constrainedTypes) 
+	    for (org.hl7.fhir.definitions.model.ProfiledType constrainedType : constrainedTypes) 
 	    {
-	    	org.hl7.fhir.definitions.model.Invariant inv = 
-	    			invariants.get(constrainedType.getCode());
-	    	
-	    	if( inv == null )
-	    		throw new Exception( "Invariants missing for constrained type" + constrainedType.getCode());
-	    	
-	    	result.add(buildConstrainedTypeFromFhirModel(constrainedType, inv));
+	    	result.add(buildConstrainedTypeFromFhirModel(constrainedType));
 	    }
 	    
 	    return result;
 	}
 	
-	public static ConstrainedTypeDefn buildConstrainedTypeFromFhirModel( 
-			org.hl7.fhir.definitions.model.DefinedCode constrainedType,
-			org.hl7.fhir.definitions.model.Invariant invariant) throws Exception
+	public static ConstrainedTypeDefn buildConstrainedTypeFromFhirModel(org.hl7.fhir.definitions.model.ProfiledType constrainedType) throws Exception
 	{
 		ConstrainedTypeDefn result = FhirFactory.eINSTANCE.createConstrainedTypeDefn();
 		
 		TypeRef baseType = 
-				TypeRefConverter.buildTypeRefsFromFhirTypeName(constrainedType.getComment());
+				TypeRefConverter.buildTypeRefsFromFhirTypeName(constrainedType.getBaseType());
 		
 		result.setConstrainedBaseType( baseType );
-		result.setName( constrainedType.getCode() );
-		result.setFullName( constrainedType.getCode() );		// for now, constraints can only be global
+		result.setName( constrainedType.getName() );
+		result.setFullName( constrainedType.getName() );		// for now, constraints can only be global
 		
 		Annotations ann = FhirFactory.eINSTANCE.createAnnotations();
 		ann.setDefinition("A constrained type based on " + baseType.getName());
@@ -82,7 +73,7 @@ public class ConstrainedTypeConverter
 		
 		//TODO: This could be multiple invariants, but current Fhir model only allows 1.
 		result.getDetail().add( 
-				CompositeTypeConverter.buildInvariantFromFhirModel(invariant) );
+				CompositeTypeConverter.buildInvariantFromFhirModel(constrainedType.getInvariant()) );
 		
 		return result;
 	}

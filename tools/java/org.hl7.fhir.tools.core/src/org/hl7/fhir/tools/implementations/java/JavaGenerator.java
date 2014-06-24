@@ -56,6 +56,7 @@ import javax.tools.ToolProvider;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.model.Constants;
@@ -158,13 +159,13 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       } else
         jFactoryGen.registerType(n,  root.getName());
     }
-    for (DefinedCode cd : definitions.getConstraints().values()) {
-      ElementDefn root = definitions.getTypes().get(cd.getComment()); 
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(cd.getCode())+".java"), definitions);
-      jgen.setInheritedHash(hashes.get(cd.getComment()));
-      jgen.generate(root, javaClassName(cd.getCode()), definitions.getBindings(), JavaGenClass.Constraint, cd, genDate, version);
-      jFactoryGen.registerType(cd.getCode(), cd.getCode()); 
-      hashes.put(cd.getCode(), Long.toString(jgen.getHashSum()));
+    for (ProfiledType cd : definitions.getConstraints().values()) {
+      ElementDefn root = definitions.getTypes().get(cd.getBaseType()); 
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(cd.getName())+".java"), definitions);
+      jgen.setInheritedHash(hashes.get(cd.getBaseType()));
+      jgen.generate(root, javaClassName(cd.getName()), definitions.getBindings(), JavaGenClass.Constraint, cd, genDate, version);
+      jFactoryGen.registerType(cd.getName(), cd.getName()); 
+      hashes.put(cd.getName(), Long.toString(jgen.getHashSum()));
       jgen.close();
     }
     

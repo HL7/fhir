@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -349,7 +349,7 @@ public class DiagnosticOrder extends Resource {
           childrenList.add(new Property("actor", "Resource(Practitioner|Device)", "The person who was responsible for performing or recording the action.", 0, java.lang.Integer.MAX_VALUE, actor));
         }
 
-      public DiagnosticOrderEventComponent copy(DiagnosticOrder e) {
+      public DiagnosticOrderEventComponent copy() {
         DiagnosticOrderEventComponent dst = new DiagnosticOrderEventComponent();
         dst.status = status == null ? null : status.copy();
         dst.description = description == null ? null : description.copy();
@@ -528,7 +528,7 @@ public class DiagnosticOrder extends Resource {
           childrenList.add(new Property("event", "@DiagnosticOrder.event", "A summary of the events of interest that have occurred as this item of the request is processed.", 0, java.lang.Integer.MAX_VALUE, event));
         }
 
-      public DiagnosticOrderItemComponent copy(DiagnosticOrder e) {
+      public DiagnosticOrderItemComponent copy() {
         DiagnosticOrderItemComponent dst = new DiagnosticOrderItemComponent();
         dst.code = code == null ? null : code.copy();
         dst.specimen = new ArrayList<ResourceReference>();
@@ -538,7 +538,7 @@ public class DiagnosticOrder extends Resource {
         dst.status = status == null ? null : status.copy();
         dst.event = new ArrayList<DiagnosticOrderEventComponent>();
         for (DiagnosticOrderEventComponent i : event)
-          dst.event.add(i.copy(e));
+          dst.event.add(i.copy());
         return dst;
       }
 
@@ -938,10 +938,10 @@ public class DiagnosticOrder extends Resource {
         dst.priority = priority == null ? null : priority.copy();
         dst.event = new ArrayList<DiagnosticOrderEventComponent>();
         for (DiagnosticOrderEventComponent i : event)
-          dst.event.add(i.copy(dst));
+          dst.event.add(i.copy());
         dst.item = new ArrayList<DiagnosticOrderItemComponent>();
         for (DiagnosticOrderItemComponent i : item)
-          dst.item.add(i.copy(dst));
+          dst.item.add(i.copy());
         return dst;
       }
 

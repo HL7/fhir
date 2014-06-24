@@ -42,6 +42,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -96,9 +97,9 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
         regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
     }
 
-    for (DefinedCode n : definitions.getConstraints().values()) {
+    for (ProfiledType n : definitions.getConstraints().values()) {
       generateConstraint(n);
-      regtp.append("    else if (type instanceof "+n.getCode()+")\r\n       compose"+n.getCode()+"(prefix+\""+n.getCode()+"\", ("+n.getCode()+") type);\r\n");
+      regtp.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
     }
     for (ElementDefn n : definitions.getStructures().values()) {
       generate(n, JavaGenClass.Structure);
@@ -283,16 +284,16 @@ public class JavaComposerJsonGenerator extends OutputStreamWriter {
 
   }
 
-  private void generateConstraint(DefinedCode cd) throws Exception {
+  private void generateConstraint(ProfiledType cd) throws Exception {
     typeNames.clear();
     typeNameStrings.clear();
     enums.clear();
     strucs.clear();
     enumNames.clear();
-    context = cd.getCode();
-    ElementDefn n = definitions.getTypes().get(cd.getComment());
+    context = cd.getName();
+    ElementDefn n = definitions.getTypes().get(cd.getBaseType());
     
-    typeNames.put(n, cd.getCode());
+    typeNames.put(n, cd.getName());
     for (ElementDefn e : n.getElements()) {
         scanNestedTypes(n, n.getName(), e);
     }

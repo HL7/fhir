@@ -118,11 +118,6 @@
   <Style ss:ID="s81" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s83" ss:Parent="s62">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Interior/>
-  </Style>
   <Style ss:ID="s84">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
@@ -331,8 +326,7 @@
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Extension</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/Profile/datelement-11179#meaning"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/datelement-11179#meaning</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/dataelement-11179#meaning</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -352,8 +346,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">Extension</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/Profile/element-constraints#minLength"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/element-constraints#minLength</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/element-extensions#minLength</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -373,8 +366,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">Extension</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/Profile/element-constraints#maxLength"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/element-constraints#maxLength</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/element-extensions#maxLength</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -394,8 +386,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">Extension</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/Profile/element-constraints#regex"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/element-constraints#regex</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/element-extensions#regex</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -415,8 +406,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">Extension</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/Profile/element-constraints#entryFormat"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/element-constraints#entryFormat</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/element-extensions#entryFormat</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -436,8 +426,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">Extension</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s83" ss:HRef="http://hl7.org/fhir/Profile/element-constraints#minValue"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/element-constraints#minValue</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/element-extensions#minValue</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -457,8 +446,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">Extension</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s83" ss:HRef="http://hl7.org/fhir/Profile/element-constraints#maxValue"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/element-constraints#maxValue</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/element-extensions#maxValue</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -478,8 +466,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String" x:Ticked="1">Extension</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s83" ss:HRef="http://hl7.org/fhir/Profile/element-constraints#maxDecimalPlaces"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/element-constraints#maxDecimalPlaces</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/element-extensions#maxDecimalPlaces</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -698,8 +685,7 @@
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/Profile/datelement-11179#objectClass"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/datelement-11179#objectClass</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/dataelement-11179#objectClass</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -737,8 +723,7 @@
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s80"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Extension</Data></Cell>
-    <Cell ss:Index="9" ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/Profile/datelement-11179#property"><Data
-      ss:Type="String">http://hl7.org/fhir/Profile/datelement-11179#property</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/Profile/dataelement-11179#property</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -826,7 +811,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -839,12 +824,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>39</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -322,7 +322,7 @@ public class Appointment extends Resource {
           childrenList.add(new Property("status", "code", "Participation status of the Patient.", 0, java.lang.Integer.MAX_VALUE, status));
         }
 
-      public AppointmentParticipantComponent copy(Appointment e) {
+      public AppointmentParticipantComponent copy() {
         AppointmentParticipantComponent dst = new AppointmentParticipantComponent();
         dst.type = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : type)
@@ -913,7 +913,7 @@ public class Appointment extends Resource {
         dst.order = order == null ? null : order.copy();
         dst.participant = new ArrayList<AppointmentParticipantComponent>();
         for (AppointmentParticipantComponent i : participant)
-          dst.participant.add(i.copy(dst));
+          dst.participant.add(i.copy());
         dst.lastModifiedBy = lastModifiedBy == null ? null : lastModifiedBy.copy();
         dst.lastModified = lastModified == null ? null : lastModified.copy();
         return dst;

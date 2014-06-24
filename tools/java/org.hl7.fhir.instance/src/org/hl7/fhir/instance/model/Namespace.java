@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -352,7 +352,7 @@ public class Namespace extends Resource {
           childrenList.add(new Property("period", "Period", "Identifies the period of time over which this identifier is considered appropriate to refer to the namespace.  Outside of this window, the identifier might be non-deterministic.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
-      public NamespaceUniqueIdComponent copy(Namespace e) {
+      public NamespaceUniqueIdComponent copy() {
         NamespaceUniqueIdComponent dst = new NamespaceUniqueIdComponent();
         dst.type = type == null ? null : type.copy();
         dst.value = value == null ? null : value.copy();
@@ -418,7 +418,7 @@ public class Namespace extends Resource {
           childrenList.add(new Property("telecom", "Contact", "Identifies the mechanism(s) by which they can be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
         }
 
-      public NamespaceContactComponent copy(Namespace e) {
+      public NamespaceContactComponent copy() {
         NamespaceContactComponent dst = new NamespaceContactComponent();
         dst.name = name == null ? null : name.copy();
         dst.telecom = new ArrayList<Contact>();
@@ -846,8 +846,8 @@ public class Namespace extends Resource {
         dst.usage = usage == null ? null : usage.copy();
         dst.uniqueId = new ArrayList<NamespaceUniqueIdComponent>();
         for (NamespaceUniqueIdComponent i : uniqueId)
-          dst.uniqueId.add(i.copy(dst));
-        dst.contact = contact == null ? null : contact.copy(dst);
+          dst.uniqueId.add(i.copy());
+        dst.contact = contact == null ? null : contact.copy();
         dst.replacedBy = replacedBy == null ? null : replacedBy.copy();
         return dst;
       }

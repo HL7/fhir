@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -222,7 +222,7 @@ public class MessageHeader extends Resource {
           childrenList.add(new Property("details", "Resource(OperationOutcome)", "Full details of any issues found in the message.", 0, java.lang.Integer.MAX_VALUE, details));
         }
 
-      public MessageHeaderResponseComponent copy(MessageHeader e) {
+      public MessageHeaderResponseComponent copy() {
         MessageHeaderResponseComponent dst = new MessageHeaderResponseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.code = code == null ? null : code.copy();
@@ -430,7 +430,7 @@ public class MessageHeader extends Resource {
           childrenList.add(new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
-      public MessageSourceComponent copy(MessageHeader e) {
+      public MessageSourceComponent copy() {
         MessageSourceComponent dst = new MessageSourceComponent();
         dst.name = name == null ? null : name.copy();
         dst.software = software == null ? null : software.copy();
@@ -579,7 +579,7 @@ public class MessageHeader extends Resource {
           childrenList.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
         }
 
-      public MessageDestinationComponent copy(MessageHeader e) {
+      public MessageDestinationComponent copy() {
         MessageDestinationComponent dst = new MessageDestinationComponent();
         dst.name = name == null ? null : name.copy();
         dst.target = target == null ? null : target.copy();
@@ -994,11 +994,11 @@ public class MessageHeader extends Resource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.event = event == null ? null : event.copy();
-        dst.response = response == null ? null : response.copy(dst);
-        dst.source = source == null ? null : source.copy(dst);
+        dst.response = response == null ? null : response.copy();
+        dst.source = source == null ? null : source.copy();
         dst.destination = new ArrayList<MessageDestinationComponent>();
         for (MessageDestinationComponent i : destination)
-          dst.destination.add(i.copy(dst));
+          dst.destination.add(i.copy());
         dst.enterer = enterer == null ? null : enterer.copy();
         dst.author = author == null ? null : author.copy();
         dst.receiver = receiver == null ? null : receiver.copy();

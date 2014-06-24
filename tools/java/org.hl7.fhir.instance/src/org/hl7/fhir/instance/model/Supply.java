@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -480,7 +480,7 @@ public class Supply extends Resource {
           childrenList.add(new Property("receiver", "Resource(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
         }
 
-      public SupplyDispenseComponent copy(Supply e) {
+      public SupplyDispenseComponent copy() {
         SupplyDispenseComponent dst = new SupplyDispenseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.status = status == null ? null : status.copy();
@@ -707,7 +707,7 @@ public class Supply extends Resource {
         dst.patient = patient == null ? null : patient.copy();
         dst.dispense = new ArrayList<SupplyDispenseComponent>();
         for (SupplyDispenseComponent i : dispense)
-          dst.dispense.add(i.copy(dst));
+          dst.dispense.add(i.copy());
         return dst;
       }
 

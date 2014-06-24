@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -323,14 +323,14 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("concept", "", "Concepts in the code system.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
-      public ValueSetDefineComponent copy(ValueSet e) {
+      public ValueSetDefineComponent copy() {
         ValueSetDefineComponent dst = new ValueSetDefineComponent();
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
         dst.caseSensitive = caseSensitive == null ? null : caseSensitive.copy();
         dst.concept = new ArrayList<ValueSetDefineConceptComponent>();
         for (ValueSetDefineConceptComponent i : concept)
-          dst.concept.add(i.copy(e));
+          dst.concept.add(i.copy());
         return dst;
       }
 
@@ -539,7 +539,7 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("concept", "@ValueSet.define.concept", "Child Concepts (is-a / contains).", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
-      public ValueSetDefineConceptComponent copy(ValueSet e) {
+      public ValueSetDefineConceptComponent copy() {
         ValueSetDefineConceptComponent dst = new ValueSetDefineConceptComponent();
         dst.code = code == null ? null : code.copy();
         dst.abstract_ = abstract_ == null ? null : abstract_.copy();
@@ -547,7 +547,7 @@ public class ValueSet extends Resource {
         dst.definition = definition == null ? null : definition.copy();
         dst.concept = new ArrayList<ValueSetDefineConceptComponent>();
         for (ValueSetDefineConceptComponent i : concept)
-          dst.concept.add(i.copy(e));
+          dst.concept.add(i.copy());
         return dst;
       }
 
@@ -603,6 +603,16 @@ public class ValueSet extends Resource {
         }
 
         /**
+         * @param value {@link #import_} (Includes the contents of the referenced value set as a part of the contents of this value set.)
+         */
+        public boolean hasImportSimple(String value) { 
+          for (Uri v : this.import_)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #include} (Include one or more codes from a code system.)
          */
         public List<ConceptSetComponent> getInclude() { 
@@ -643,17 +653,17 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("exclude", "@ValueSet.compose.include", "Exclude one or more codes from the value set.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
 
-      public ValueSetComposeComponent copy(ValueSet e) {
+      public ValueSetComposeComponent copy() {
         ValueSetComposeComponent dst = new ValueSetComposeComponent();
         dst.import_ = new ArrayList<Uri>();
         for (Uri i : import_)
           dst.import_.add(i.copy());
         dst.include = new ArrayList<ConceptSetComponent>();
         for (ConceptSetComponent i : include)
-          dst.include.add(i.copy(e));
+          dst.include.add(i.copy());
         dst.exclude = new ArrayList<ConceptSetComponent>();
         for (ConceptSetComponent i : exclude)
-          dst.exclude.add(i.copy(e));
+          dst.exclude.add(i.copy());
         return dst;
       }
 
@@ -787,6 +797,16 @@ public class ValueSet extends Resource {
         }
 
         /**
+         * @param value {@link #code} (Specifies a code or concept to be included or excluded. The list of codes is considered ordered, though the order may not have any particular significance.)
+         */
+        public boolean hasCodeSimple(String value) { 
+          for (Code v : this.code)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #filter} (Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.)
          */
         public List<ConceptSetFilterComponent> getFilter() { 
@@ -811,7 +831,7 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter));
         }
 
-      public ConceptSetComponent copy(ValueSet e) {
+      public ConceptSetComponent copy() {
         ConceptSetComponent dst = new ConceptSetComponent();
         dst.system = system == null ? null : system.copy();
         dst.version = version == null ? null : version.copy();
@@ -820,7 +840,7 @@ public class ValueSet extends Resource {
           dst.code.add(i.copy());
         dst.filter = new ArrayList<ConceptSetFilterComponent>();
         for (ConceptSetFilterComponent i : filter)
-          dst.filter.add(i.copy(e));
+          dst.filter.add(i.copy());
         return dst;
       }
 
@@ -958,7 +978,7 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value which is used a regex match on the literal string of the property value.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
-      public ConceptSetFilterComponent copy(ValueSet e) {
+      public ConceptSetFilterComponent copy() {
         ConceptSetFilterComponent dst = new ConceptSetFilterComponent();
         dst.property = property == null ? null : property.copy();
         dst.op = op == null ? null : op.copy();
@@ -1066,13 +1086,13 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("contains", "", "Codes in the value set.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
 
-      public ValueSetExpansionComponent copy(ValueSet e) {
+      public ValueSetExpansionComponent copy() {
         ValueSetExpansionComponent dst = new ValueSetExpansionComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
         for (ValueSetExpansionContainsComponent i : contains)
-          dst.contains.add(i.copy(e));
+          dst.contains.add(i.copy());
         return dst;
       }
 
@@ -1238,14 +1258,14 @@ public class ValueSet extends Resource {
           childrenList.add(new Property("contains", "@ValueSet.expansion.contains", "Codes contained in this concept.", 0, java.lang.Integer.MAX_VALUE, contains));
         }
 
-      public ValueSetExpansionContainsComponent copy(ValueSet e) {
+      public ValueSetExpansionContainsComponent copy() {
         ValueSetExpansionContainsComponent dst = new ValueSetExpansionContainsComponent();
         dst.system = system == null ? null : system.copy();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
         dst.contains = new ArrayList<ValueSetExpansionContainsComponent>();
         for (ValueSetExpansionContainsComponent i : contains)
-          dst.contains.add(i.copy(e));
+          dst.contains.add(i.copy());
         return dst;
       }
 
@@ -1906,9 +1926,9 @@ public class ValueSet extends Resource {
         dst.extensible = extensible == null ? null : extensible.copy();
         dst.date = date == null ? null : date.copy();
         dst.stableDate = stableDate == null ? null : stableDate.copy();
-        dst.define = define == null ? null : define.copy(dst);
-        dst.compose = compose == null ? null : compose.copy(dst);
-        dst.expansion = expansion == null ? null : expansion.copy(dst);
+        dst.define = define == null ? null : define.copy();
+        dst.compose = compose == null ? null : compose.copy();
+        dst.expansion = expansion == null ? null : expansion.copy();
         return dst;
       }
 

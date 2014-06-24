@@ -41,6 +41,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 
@@ -95,11 +96,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       regn.append("    if (json.has(prefix+\""+an+"\"))\r\n      return true;\r\n");
     }
 
-    for (DefinedCode n : definitions.getConstraints().values()) {
+    for (ProfiledType n : definitions.getConstraints().values()) {
       generateConstraint(n);
-      regt.append("    else if (json.has(prefix+\""+n.getCode()+"\"))\r\n      return parse"+n.getCode()+"(json.getAsJsonObject(prefix+\""+n.getCode()+"\"));\r\n");
-      regf.append("    else if (type.equals(\""+n.getCode()+"\"))\r\n      return parse"+n.getCode()+"(xpp);\r\n");
-      regn.append("    if (json.has(prefix+\""+n.getCode()+"\"))\r\n      return true;\r\n");
+      regt.append("    else if (json.has(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json.getAsJsonObject(prefix+\""+n.getName()+"\"));\r\n");
+      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+      regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
     for (ElementDefn n : definitions.getStructures().values()) {
       generate(n, JavaGenClass.Structure);
@@ -272,16 +273,16 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       return name;
   }
 
-  private void generateConstraint(DefinedCode cd) throws Exception {
+  private void generateConstraint(ProfiledType cd) throws Exception {
     typeNames.clear();
     typeNameStrings.clear();
     enums.clear();
     strucs.clear();
     enumNames.clear();
-    context = cd.getCode();
-    ElementDefn n = definitions.getTypes().get(cd.getComment());
+    context = cd.getName();
+    ElementDefn n = definitions.getTypes().get(cd.getBaseType());
     
-    typeNames.put(n, cd.getCode());
+    typeNames.put(n, cd.getName());
     for (ElementDefn e : n.getElements()) {
         scanNestedTypes(n, n.getName(), e);
     }

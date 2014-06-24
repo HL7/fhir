@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -484,7 +484,7 @@ public class Questionnaire extends Resource {
           childrenList.add(new Property("question", "", "Set of questions within this group. The order of questions within the group is relevant.", 0, java.lang.Integer.MAX_VALUE, question));
         }
 
-      public GroupComponent copy(Questionnaire e) {
+      public GroupComponent copy() {
         GroupComponent dst = new GroupComponent();
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.title = title == null ? null : title.copy();
@@ -496,10 +496,10 @@ public class Questionnaire extends Resource {
         dst.repeats = repeats == null ? null : repeats.copy();
         dst.group = new ArrayList<GroupComponent>();
         for (GroupComponent i : group)
-          dst.group.add(i.copy(e));
+          dst.group.add(i.copy());
         dst.question = new ArrayList<QuestionComponent>();
         for (QuestionComponent i : question)
-          dst.question.add(i.copy(e));
+          dst.question.add(i.copy());
         return dst;
       }
 
@@ -813,7 +813,7 @@ public class Questionnaire extends Resource {
           childrenList.add(new Property("group", "@Questionnaire.group", "Nested group, containing nested question for this question. The order of groups within the question is relevant.", 0, java.lang.Integer.MAX_VALUE, group));
         }
 
-      public QuestionComponent copy(Questionnaire e) {
+      public QuestionComponent copy() {
         QuestionComponent dst = new QuestionComponent();
         dst.linkId = linkId == null ? null : linkId.copy();
         dst.concept = new ArrayList<Coding>();
@@ -826,7 +826,7 @@ public class Questionnaire extends Resource {
         dst.options = options == null ? null : options.copy();
         dst.group = new ArrayList<GroupComponent>();
         for (GroupComponent i : group)
-          dst.group.add(i.copy(e));
+          dst.group.add(i.copy());
         return dst;
       }
 
@@ -1065,7 +1065,7 @@ public class Questionnaire extends Resource {
         dst.status = status == null ? null : status.copy();
         dst.date = date == null ? null : date.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
-        dst.group = group == null ? null : group.copy(dst);
+        dst.group = group == null ? null : group.copy();
         return dst;
       }
 

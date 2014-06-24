@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -632,7 +632,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("releaseDate", "dateTime", "Date this version of the software released.", 0, java.lang.Integer.MAX_VALUE, releaseDate));
         }
 
-      public ConformanceSoftwareComponent copy(Conformance e) {
+      public ConformanceSoftwareComponent copy() {
         ConformanceSoftwareComponent dst = new ConformanceSoftwareComponent();
         dst.name = name == null ? null : name.copy();
         dst.version = version == null ? null : version.copy();
@@ -738,7 +738,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("url", "uri", "A base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.", 0, java.lang.Integer.MAX_VALUE, url));
         }
 
-      public ConformanceImplementationComponent copy(Conformance e) {
+      public ConformanceImplementationComponent copy() {
         ConformanceImplementationComponent dst = new ConformanceImplementationComponent();
         dst.description = description == null ? null : description.copy();
         dst.url = url == null ? null : url.copy();
@@ -955,6 +955,16 @@ public class Conformance extends Resource {
           return t;
         }
 
+        /**
+         * @param value {@link #documentMailbox} (A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier "http://hl7.org/fhir/documents/mailbox". Other specifications can declare their own identifier for this purpose.)
+         */
+        public boolean hasDocumentMailboxSimple(String value) { 
+          for (Uri v : this.documentMailbox)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("mode", "code", "Identifies whether this portion of the statement is describing ability to initiate or receive restful operations.", 0, java.lang.Integer.MAX_VALUE, mode));
@@ -966,20 +976,20 @@ public class Conformance extends Resource {
           childrenList.add(new Property("documentMailbox", "uri", "A list of profiles that this server implements for accepting documents in the mailbox. If this list is empty, then documents are not accepted. The base specification has the profile identifier 'http://hl7.org/fhir/documents/mailbox'. Other specifications can declare their own identifier for this purpose.", 0, java.lang.Integer.MAX_VALUE, documentMailbox));
         }
 
-      public ConformanceRestComponent copy(Conformance e) {
+      public ConformanceRestComponent copy() {
         ConformanceRestComponent dst = new ConformanceRestComponent();
         dst.mode = mode == null ? null : mode.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
-        dst.security = security == null ? null : security.copy(e);
+        dst.security = security == null ? null : security.copy();
         dst.resource = new ArrayList<ConformanceRestResourceComponent>();
         for (ConformanceRestResourceComponent i : resource)
-          dst.resource.add(i.copy(e));
+          dst.resource.add(i.copy());
         dst.operation = new ArrayList<ConformanceRestOperationComponent>();
         for (ConformanceRestOperationComponent i : operation)
-          dst.operation.add(i.copy(e));
+          dst.operation.add(i.copy());
         dst.query = new ArrayList<ConformanceRestQueryComponent>();
         for (ConformanceRestQueryComponent i : query)
-          dst.query.add(i.copy(e));
+          dst.query.add(i.copy());
         dst.documentMailbox = new ArrayList<Uri>();
         for (Uri i : documentMailbox)
           dst.documentMailbox.add(i.copy());
@@ -1129,7 +1139,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("certificate", "", "Certificates associated with security profiles.", 0, java.lang.Integer.MAX_VALUE, certificate));
         }
 
-      public ConformanceRestSecurityComponent copy(Conformance e) {
+      public ConformanceRestSecurityComponent copy() {
         ConformanceRestSecurityComponent dst = new ConformanceRestSecurityComponent();
         dst.cors = cors == null ? null : cors.copy();
         dst.service = new ArrayList<CodeableConcept>();
@@ -1138,7 +1148,7 @@ public class Conformance extends Resource {
         dst.description = description == null ? null : description.copy();
         dst.certificate = new ArrayList<ConformanceRestSecurityCertificateComponent>();
         for (ConformanceRestSecurityCertificateComponent i : certificate)
-          dst.certificate.add(i.copy(e));
+          dst.certificate.add(i.copy());
         return dst;
       }
 
@@ -1239,7 +1249,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("blob", "base64Binary", "Actual certificate.", 0, java.lang.Integer.MAX_VALUE, blob));
         }
 
-      public ConformanceRestSecurityCertificateComponent copy(Conformance e) {
+      public ConformanceRestSecurityCertificateComponent copy() {
         ConformanceRestSecurityCertificateComponent dst = new ConformanceRestSecurityCertificateComponent();
         dst.type = type == null ? null : type.copy();
         dst.blob = blob == null ? null : blob.copy();
@@ -1479,6 +1489,16 @@ public class Conformance extends Resource {
         }
 
         /**
+         * @param value {@link #searchInclude} (A list of _include values supported by the server.)
+         */
+        public boolean hasSearchIncludeSimple(String value) { 
+          for (String_ v : this.searchInclude)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #searchParam} (Additional search parameters for implementations to support and/or make use of.)
          */
         public List<ConformanceRestResourceSearchParamComponent> getSearchParam() { 
@@ -1506,13 +1526,13 @@ public class Conformance extends Resource {
           childrenList.add(new Property("searchParam", "", "Additional search parameters for implementations to support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
 
-      public ConformanceRestResourceComponent copy(Conformance e) {
+      public ConformanceRestResourceComponent copy() {
         ConformanceRestResourceComponent dst = new ConformanceRestResourceComponent();
         dst.type = type == null ? null : type.copy();
         dst.profile = profile == null ? null : profile.copy();
         dst.operation = new ArrayList<ConformanceRestResourceOperationComponent>();
         for (ConformanceRestResourceOperationComponent i : operation)
-          dst.operation.add(i.copy(e));
+          dst.operation.add(i.copy());
         dst.readHistory = readHistory == null ? null : readHistory.copy();
         dst.updateCreate = updateCreate == null ? null : updateCreate.copy();
         dst.searchInclude = new ArrayList<String_>();
@@ -1520,7 +1540,7 @@ public class Conformance extends Resource {
           dst.searchInclude.add(i.copy());
         dst.searchParam = new ArrayList<ConformanceRestResourceSearchParamComponent>();
         for (ConformanceRestResourceSearchParamComponent i : searchParam)
-          dst.searchParam.add(i.copy(e));
+          dst.searchParam.add(i.copy());
         return dst;
       }
 
@@ -1622,7 +1642,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
-      public ConformanceRestResourceOperationComponent copy(Conformance e) {
+      public ConformanceRestResourceOperationComponent copy() {
         ConformanceRestResourceOperationComponent dst = new ConformanceRestResourceOperationComponent();
         dst.code = code == null ? null : code.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
@@ -1838,6 +1858,16 @@ public class Conformance extends Resource {
         }
 
         /**
+         * @param value {@link #target} (Types of resource (if a resource is referenced).)
+         */
+        public boolean hasTargetSimple(String value) { 
+          for (Code v : this.target)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #chain} (Chained names supported.)
          */
         public List<String_> getChain() { 
@@ -1864,6 +1894,16 @@ public class Conformance extends Resource {
           return t;
         }
 
+        /**
+         * @param value {@link #chain} (Chained names supported.)
+         */
+        public boolean hasChainSimple(String value) { 
+          for (String_ v : this.chain)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the search parameter used in the interface.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -1874,7 +1914,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("chain", "string", "Chained names supported.", 0, java.lang.Integer.MAX_VALUE, chain));
         }
 
-      public ConformanceRestResourceSearchParamComponent copy(Conformance e) {
+      public ConformanceRestResourceSearchParamComponent copy() {
         ConformanceRestResourceSearchParamComponent dst = new ConformanceRestResourceSearchParamComponent();
         dst.name = name == null ? null : name.copy();
         dst.definition = definition == null ? null : definition.copy();
@@ -1987,7 +2027,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
-      public ConformanceRestOperationComponent copy(Conformance e) {
+      public ConformanceRestOperationComponent copy() {
         ConformanceRestOperationComponent dst = new ConformanceRestOperationComponent();
         dst.code = code == null ? null : code.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
@@ -2154,14 +2194,14 @@ public class Conformance extends Resource {
           childrenList.add(new Property("parameter", "@Conformance.rest.resource.searchParam", "Identifies which of the parameters for the named query are supported.", 0, java.lang.Integer.MAX_VALUE, parameter));
         }
 
-      public ConformanceRestQueryComponent copy(Conformance e) {
+      public ConformanceRestQueryComponent copy() {
         ConformanceRestQueryComponent dst = new ConformanceRestQueryComponent();
         dst.name = name == null ? null : name.copy();
         dst.definition = definition == null ? null : definition.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.parameter = new ArrayList<ConformanceRestResourceSearchParamComponent>();
         for (ConformanceRestResourceSearchParamComponent i : parameter)
-          dst.parameter.add(i.copy(e));
+          dst.parameter.add(i.copy());
         return dst;
       }
 
@@ -2327,14 +2367,14 @@ public class Conformance extends Resource {
           childrenList.add(new Property("event", "", "A description of the solution's support for an event at this end point.", 0, java.lang.Integer.MAX_VALUE, event));
         }
 
-      public ConformanceMessagingComponent copy(Conformance e) {
+      public ConformanceMessagingComponent copy() {
         ConformanceMessagingComponent dst = new ConformanceMessagingComponent();
         dst.endpoint = endpoint == null ? null : endpoint.copy();
         dst.reliableCache = reliableCache == null ? null : reliableCache.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.event = new ArrayList<ConformanceMessagingEventComponent>();
         for (ConformanceMessagingEventComponent i : event)
-          dst.event.add(i.copy(e));
+          dst.event.add(i.copy());
         return dst;
       }
 
@@ -2646,7 +2686,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("documentation", "string", "Guidance on how this event is handled, such as internal system trigger points, business rules, etc.", 0, java.lang.Integer.MAX_VALUE, documentation));
         }
 
-      public ConformanceMessagingEventComponent copy(Conformance e) {
+      public ConformanceMessagingEventComponent copy() {
         ConformanceMessagingEventComponent dst = new ConformanceMessagingEventComponent();
         dst.code = code == null ? null : code.copy();
         dst.category = category == null ? null : category.copy();
@@ -2801,7 +2841,7 @@ public class Conformance extends Resource {
           childrenList.add(new Property("profile", "Resource(Profile)", "A constraint on a resource used in the document.", 0, java.lang.Integer.MAX_VALUE, profile));
         }
 
-      public ConformanceDocumentComponent copy(Conformance e) {
+      public ConformanceDocumentComponent copy() {
         ConformanceDocumentComponent dst = new ConformanceDocumentComponent();
         dst.mode = mode == null ? null : mode.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
@@ -3339,6 +3379,16 @@ public class Conformance extends Resource {
     }
 
     /**
+     * @param value {@link #format} (A list of the formats supported by this implementation.)
+     */
+    public boolean hasFormatSimple(String value) { 
+      for (Code v : this.format)
+        if (v.getValue().equals(value))
+          return true;
+      return false;
+    }
+
+    /**
      * @return {@link #profile} (A list of profiles supported by the system. For a server, "supported by the system" means the system hosts/produces a set of recourses, conformant to a particular profile, and allows its clients to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile.)
      */
     public List<ResourceReference> getProfile() { 
@@ -3458,8 +3508,8 @@ public class Conformance extends Resource {
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
-        dst.software = software == null ? null : software.copy(dst);
-        dst.implementation = implementation == null ? null : implementation.copy(dst);
+        dst.software = software == null ? null : software.copy();
+        dst.implementation = implementation == null ? null : implementation.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
         dst.acceptUnknown = acceptUnknown == null ? null : acceptUnknown.copy();
         dst.format = new ArrayList<Code>();
@@ -3470,13 +3520,13 @@ public class Conformance extends Resource {
           dst.profile.add(i.copy());
         dst.rest = new ArrayList<ConformanceRestComponent>();
         for (ConformanceRestComponent i : rest)
-          dst.rest.add(i.copy(dst));
+          dst.rest.add(i.copy());
         dst.messaging = new ArrayList<ConformanceMessagingComponent>();
         for (ConformanceMessagingComponent i : messaging)
-          dst.messaging.add(i.copy(dst));
+          dst.messaging.add(i.copy());
         dst.document = new ArrayList<ConformanceDocumentComponent>();
         for (ConformanceDocumentComponent i : document)
-          dst.document.add(i.copy(dst));
+          dst.document.add(i.copy());
         return dst;
       }
 

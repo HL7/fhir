@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -91,7 +91,7 @@ public class Order extends Resource {
           childrenList.add(new Property("schedule", "Schedule", "A formal schedule.", 0, java.lang.Integer.MAX_VALUE, schedule));
         }
 
-      public OrderWhenComponent copy(Order e) {
+      public OrderWhenComponent copy() {
         OrderWhenComponent dst = new OrderWhenComponent();
         dst.code = code == null ? null : code.copy();
         dst.schedule = schedule == null ? null : schedule.copy();
@@ -427,7 +427,7 @@ public class Order extends Resource {
         dst.target = target == null ? null : target.copy();
         dst.reason = reason == null ? null : reason.copy();
         dst.authority = authority == null ? null : authority.copy();
-        dst.when = when == null ? null : when.copy(dst);
+        dst.when = when == null ? null : when.copy();
         dst.detail = new ArrayList<ResourceReference>();
         for (ResourceReference i : detail)
           dst.detail.add(i.copy());

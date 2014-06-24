@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -444,7 +444,7 @@ public class MedicationDispense extends Resource {
           childrenList.add(new Property("dosage", "", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
         }
 
-      public MedicationDispenseDispenseComponent copy(MedicationDispense e) {
+      public MedicationDispenseDispenseComponent copy() {
         MedicationDispenseDispenseComponent dst = new MedicationDispenseDispenseComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.status = status == null ? null : status.copy();
@@ -459,7 +459,7 @@ public class MedicationDispense extends Resource {
           dst.receiver.add(i.copy());
         dst.dosage = new ArrayList<MedicationDispenseDispenseDosageComponent>();
         for (MedicationDispenseDispenseDosageComponent i : dosage)
-          dst.dosage.add(i.copy(e));
+          dst.dosage.add(i.copy());
         return dst;
       }
 
@@ -671,7 +671,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time,  e.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
-      public MedicationDispenseDispenseDosageComponent copy(MedicationDispense e) {
+      public MedicationDispenseDispenseDosageComponent copy() {
         MedicationDispenseDispenseDosageComponent dst = new MedicationDispenseDispenseDosageComponent();
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
         dst.timing = timing == null ? null : timing.copy();
@@ -792,7 +792,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           childrenList.add(new Property("responsibleParty", "Resource(Practitioner)", "The person or organization that has primary responsibility for the substitution.", 0, java.lang.Integer.MAX_VALUE, responsibleParty));
         }
 
-      public MedicationDispenseSubstitutionComponent copy(MedicationDispense e) {
+      public MedicationDispenseSubstitutionComponent copy() {
         MedicationDispenseSubstitutionComponent dst = new MedicationDispenseSubstitutionComponent();
         dst.type = type == null ? null : type.copy();
         dst.reason = new ArrayList<CodeableConcept>();
@@ -1061,8 +1061,8 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           dst.authorizingPrescription.add(i.copy());
         dst.dispense = new ArrayList<MedicationDispenseDispenseComponent>();
         for (MedicationDispenseDispenseComponent i : dispense)
-          dst.dispense.add(i.copy(dst));
-        dst.substitution = substitution == null ? null : substitution.copy(dst);
+          dst.dispense.add(i.copy());
+        dst.substitution = substitution == null ? null : substitution.copy();
         return dst;
       }
 

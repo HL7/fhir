@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -634,7 +634,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("comments", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comments));
         }
 
-      public ProfileMappingComponent copy(Profile e) {
+      public ProfileMappingComponent copy() {
         ProfileMappingComponent dst = new ProfileMappingComponent();
         dst.identity = identity == null ? null : identity.copy();
         dst.uri = uri == null ? null : uri.copy();
@@ -650,6 +650,11 @@ public class Profile extends Resource {
          * The Resource or Data type being described.
          */
         protected Code type;
+
+        /**
+         * The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).
+         */
+        protected Uri base;
 
         /**
          * The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).
@@ -676,7 +681,7 @@ public class Profile extends Resource {
          */
         protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
 
-        private static final long serialVersionUID = -1252612554L;
+        private static final long serialVersionUID = 830294223L;
 
       public ProfileStructureComponent() {
         super();
@@ -716,6 +721,42 @@ public class Profile extends Resource {
             if (this.type == null)
               this.type = new Code();
             this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #base} (The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).)
+         */
+        public Uri getBase() { 
+          return this.base;
+        }
+
+        /**
+         * @param value {@link #base} (The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).)
+         */
+        public ProfileStructureComponent setBase(Uri value) { 
+          this.base = value;
+          return this;
+        }
+
+        /**
+         * @return The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).
+         */
+        public String getBaseSimple() { 
+          return this.base == null ? null : this.base.getValue();
+        }
+
+        /**
+         * @param value The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).
+         */
+        public ProfileStructureComponent setBaseSimple(String value) { 
+          if (value == null)
+            this.base = null;
+          else {
+            if (this.base == null)
+              this.base = new Uri();
+            this.base.setValue(value);
+          }
           return this;
         }
 
@@ -864,6 +905,7 @@ public class Profile extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a 'differential' fashion. If there is no base, then the constraints stand alone (snapshot mode).", 0, java.lang.Integer.MAX_VALUE, base));
           childrenList.add(new Property("name", "string", "The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("publish", "boolean", "This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.", 0, java.lang.Integer.MAX_VALUE, publish));
           childrenList.add(new Property("purpose", "string", "Human summary: why describe this resource?.", 0, java.lang.Integer.MAX_VALUE, purpose));
@@ -871,18 +913,19 @@ public class Profile extends Resource {
           childrenList.add(new Property("searchParam", "", "Additional search parameters for implementations to support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
 
-      public ProfileStructureComponent copy(Profile e) {
+      public ProfileStructureComponent copy() {
         ProfileStructureComponent dst = new ProfileStructureComponent();
         dst.type = type == null ? null : type.copy();
+        dst.base = base == null ? null : base.copy();
         dst.name = name == null ? null : name.copy();
         dst.publish = publish == null ? null : publish.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.element = new ArrayList<ElementComponent>();
         for (ElementComponent i : element)
-          dst.element.add(i.copy(e));
+          dst.element.add(i.copy());
         dst.searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
         for (ProfileStructureSearchParamComponent i : searchParam)
-          dst.searchParam.add(i.copy(e));
+          dst.searchParam.add(i.copy());
         return dst;
       }
 
@@ -985,6 +1028,16 @@ public class Profile extends Resource {
         }
 
         /**
+         * @param value {@link #representation} (Codes that define how this element is represented in instances, when the deviation varies from the normal case.)
+         */
+        public boolean hasRepresentationSimple(PropertyRepresentation value) { 
+          for (Enumeration<PropertyRepresentation> v : this.representation)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.)
          */
         public String_ getName() { 
@@ -1059,15 +1112,15 @@ public class Profile extends Resource {
           childrenList.add(new Property("definition", "", "Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource.", 0, java.lang.Integer.MAX_VALUE, definition));
         }
 
-      public ElementComponent copy(Profile e) {
+      public ElementComponent copy() {
         ElementComponent dst = new ElementComponent();
         dst.path = path == null ? null : path.copy();
         dst.representation = new ArrayList<Enumeration<PropertyRepresentation>>();
         for (Enumeration<PropertyRepresentation> i : representation)
           dst.representation.add(i.copy());
         dst.name = name == null ? null : name.copy();
-        dst.slicing = slicing == null ? null : slicing.copy(e);
-        dst.definition = definition == null ? null : definition.copy(e);
+        dst.slicing = slicing == null ? null : slicing.copy();
+        dst.definition = definition == null ? null : definition.copy();
         return dst;
       }
 
@@ -1205,7 +1258,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("rules", "code", "Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.", 0, java.lang.Integer.MAX_VALUE, rules));
         }
 
-      public ElementSlicingComponent copy(Profile e) {
+      public ElementSlicingComponent copy() {
         ElementSlicingComponent dst = new ElementSlicingComponent();
         dst.discriminator = discriminator == null ? null : discriminator.copy();
         dst.ordered = ordered == null ? null : ordered.copy();
@@ -1485,6 +1538,16 @@ public class Profile extends Resource {
         }
 
         /**
+         * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
+         */
+        public boolean hasSynonymSimple(String value) { 
+          for (String_ v : this.synonym)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #min} (The minimum number of times this element SHALL appear in the instance.)
          */
         public Integer getMin() { 
@@ -1695,6 +1758,16 @@ public class Profile extends Resource {
         }
 
         /**
+         * @param value {@link #condition} (A reference to an invariant that may make additional statements about the cardinality or value in the instance.)
+         */
+        public boolean hasConditionSimple(String value) { 
+          for (Id v : this.condition)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #constraint} (Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.)
          */
         public List<ElementDefinitionConstraintComponent> getConstraint() { 
@@ -1833,7 +1906,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("mapping", "", "Identifies a concept from an external specification that roughly corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, mapping));
         }
 
-      public ElementDefinitionComponent copy(Profile e) {
+      public ElementDefinitionComponent copy() {
         ElementDefinitionComponent dst = new ElementDefinitionComponent();
         dst.short_ = short_ == null ? null : short_.copy();
         dst.formal = formal == null ? null : formal.copy();
@@ -1846,7 +1919,7 @@ public class Profile extends Resource {
         dst.max = max == null ? null : max.copy();
         dst.type = new ArrayList<TypeRefComponent>();
         for (TypeRefComponent i : type)
-          dst.type.add(i.copy(e));
+          dst.type.add(i.copy());
         dst.nameReference = nameReference == null ? null : nameReference.copy();
         dst.value = value == null ? null : value.copy();
         dst.example = example == null ? null : example.copy();
@@ -1856,13 +1929,13 @@ public class Profile extends Resource {
           dst.condition.add(i.copy());
         dst.constraint = new ArrayList<ElementDefinitionConstraintComponent>();
         for (ElementDefinitionConstraintComponent i : constraint)
-          dst.constraint.add(i.copy(e));
+          dst.constraint.add(i.copy());
         dst.mustSupport = mustSupport == null ? null : mustSupport.copy();
         dst.isModifier = isModifier == null ? null : isModifier.copy();
-        dst.binding = binding == null ? null : binding.copy(e);
+        dst.binding = binding == null ? null : binding.copy();
         dst.mapping = new ArrayList<ElementDefinitionMappingComponent>();
         for (ElementDefinitionMappingComponent i : mapping)
-          dst.mapping.add(i.copy(e));
+          dst.mapping.add(i.copy());
         return dst;
       }
 
@@ -1990,6 +2063,16 @@ public class Profile extends Resource {
           return t;
         }
 
+        /**
+         * @param value {@link #aggregation} (If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.)
+         */
+        public boolean hasAggregationSimple(ResourceAggregationMode value) { 
+          for (Enumeration<ResourceAggregationMode> v : this.aggregation)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Name of Data type or Resource.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -1997,7 +2080,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggreated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
         }
 
-      public TypeRefComponent copy(Profile e) {
+      public TypeRefComponent copy() {
         TypeRefComponent dst = new TypeRefComponent();
         dst.code = code == null ? null : code.copy();
         dst.profile = profile == null ? null : profile.copy();
@@ -2222,7 +2305,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("xpath", "string", "XPath expression of constraint.", 0, java.lang.Integer.MAX_VALUE, xpath));
         }
 
-      public ElementDefinitionConstraintComponent copy(Profile e) {
+      public ElementDefinitionConstraintComponent copy() {
         ElementDefinitionConstraintComponent dst = new ElementDefinitionConstraintComponent();
         dst.key = key == null ? null : key.copy();
         dst.name = name == null ? null : name.copy();
@@ -2432,7 +2515,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("reference[x]", "uri|Resource(ValueSet)", "Points to the value set or external definition that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, reference));
         }
 
-      public ElementDefinitionBindingComponent copy(Profile e) {
+      public ElementDefinitionBindingComponent copy() {
         ElementDefinitionBindingComponent dst = new ElementDefinitionBindingComponent();
         dst.name = name == null ? null : name.copy();
         dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
@@ -2537,7 +2620,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("map", "string", "Expresses what part of the target specification corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, map));
         }
 
-      public ElementDefinitionMappingComponent copy(Profile e) {
+      public ElementDefinitionMappingComponent copy() {
         ElementDefinitionMappingComponent dst = new ElementDefinitionMappingComponent();
         dst.identity = identity == null ? null : identity.copy();
         dst.map = map == null ? null : map.copy();
@@ -2744,6 +2827,16 @@ public class Profile extends Resource {
           return t;
         }
 
+        /**
+         * @param value {@link #target} (Types of resource (if a resource is referenced).)
+         */
+        public boolean hasTargetSimple(String value) { 
+          for (Code v : this.target)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "The name of the standard or custom search parameter.", 0, java.lang.Integer.MAX_VALUE, name));
@@ -2753,7 +2846,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
-      public ProfileStructureSearchParamComponent copy(Profile e) {
+      public ProfileStructureSearchParamComponent copy() {
         ProfileStructureSearchParamComponent dst = new ProfileStructureSearchParamComponent();
         dst.name = name == null ? null : name.copy();
         dst.type = type == null ? null : type.copy();
@@ -2933,6 +3026,16 @@ public class Profile extends Resource {
         }
 
         /**
+         * @param value {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
+         */
+        public boolean hasContextSimple(String value) { 
+          for (String_ v : this.context)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #element} (Definition of the extension and its content.)
          */
         public List<ElementComponent> getElement() { 
@@ -2958,7 +3061,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("element", "@Profile.structure.element", "Definition of the extension and its content.", 0, java.lang.Integer.MAX_VALUE, element));
         }
 
-      public ProfileExtensionDefnComponent copy(Profile e) {
+      public ProfileExtensionDefnComponent copy() {
         ProfileExtensionDefnComponent dst = new ProfileExtensionDefnComponent();
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
@@ -2968,7 +3071,7 @@ public class Profile extends Resource {
           dst.context.add(i.copy());
         dst.element = new ArrayList<ElementComponent>();
         for (ElementComponent i : element)
-          dst.element.add(i.copy(e));
+          dst.element.add(i.copy());
         return dst;
       }
 
@@ -3090,13 +3193,13 @@ public class Profile extends Resource {
           childrenList.add(new Property("parameter", "@Profile.structure.searchParam", "A parameter of a named query.", 0, java.lang.Integer.MAX_VALUE, parameter));
         }
 
-      public ProfileQueryComponent copy(Profile e) {
+      public ProfileQueryComponent copy() {
         ProfileQueryComponent dst = new ProfileQueryComponent();
         dst.name = name == null ? null : name.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.parameter = new ArrayList<ProfileStructureSearchParamComponent>();
         for (ProfileStructureSearchParamComponent i : parameter)
-          dst.parameter.add(i.copy(e));
+          dst.parameter.add(i.copy());
         return dst;
       }
 
@@ -3108,9 +3211,9 @@ public class Profile extends Resource {
     protected Uri url;
 
     /**
-     * The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).
+     * Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).
      */
-    protected String_ identifier;
+    protected List<Identifier> identifier = new ArrayList<Identifier>();
 
     /**
      * The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
@@ -3187,7 +3290,7 @@ public class Profile extends Resource {
      */
     protected List<ProfileQueryComponent> query = new ArrayList<ProfileQueryComponent>();
 
-    private static final long serialVersionUID = 263820367L;
+    private static final long serialVersionUID = 1629111250L;
 
     public Profile() {
       super();
@@ -3233,39 +3336,20 @@ public class Profile extends Resource {
     }
 
     /**
-     * @return {@link #identifier} (The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).)
+     * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
      */
-    public String_ getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       return this.identifier;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #identifier} (The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).)
+     * @return {@link #identifier} (Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
      */
-    public Profile setIdentifier(String_ value) { 
-      this.identifier = value;
-      return this;
-    }
-
-    /**
-     * @return The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).
-     */
-    public String getIdentifierSimple() { 
-      return this.identifier == null ? null : this.identifier.getValue();
-    }
-
-    /**
-     * @param value The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).
-     */
-    public Profile setIdentifierSimple(String value) { 
-      if (value == null)
-        this.identifier = null;
-      else {
-        if (this.identifier == null)
-          this.identifier = new String_();
-        this.identifier.setValue(value);
-      }
-      return this;
+    public Identifier addIdentifier() { 
+      Identifier t = new Identifier();
+      this.identifier.add(t);
+      return t;
     }
 
     /**
@@ -3689,7 +3773,7 @@ public class Profile extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "The URL at which this profile is (or will be) published, and which is used to reference this profile in extension urls and tag values in operational FHIR systems.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("identifier", "string", "The identifier that is used to identify this profile when it is referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("identifier", "Identifier", "Formal identifier that is used to identify this profile when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the Profile.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("publisher", "string", "Details of the individual or organization who accepts responsibility for publishing the profile.", 0, java.lang.Integer.MAX_VALUE, publisher));
@@ -3710,7 +3794,9 @@ public class Profile extends Resource {
       public Profile copy() {
         Profile dst = new Profile();
         dst.url = url == null ? null : url.copy();
-        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.identifier = new ArrayList<Identifier>();
+        for (Identifier i : identifier)
+          dst.identifier.add(i.copy());
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
@@ -3728,16 +3814,16 @@ public class Profile extends Resource {
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
         dst.mapping = new ArrayList<ProfileMappingComponent>();
         for (ProfileMappingComponent i : mapping)
-          dst.mapping.add(i.copy(dst));
+          dst.mapping.add(i.copy());
         dst.structure = new ArrayList<ProfileStructureComponent>();
         for (ProfileStructureComponent i : structure)
-          dst.structure.add(i.copy(dst));
+          dst.structure.add(i.copy());
         dst.extensionDefn = new ArrayList<ProfileExtensionDefnComponent>();
         for (ProfileExtensionDefnComponent i : extensionDefn)
-          dst.extensionDefn.add(i.copy(dst));
+          dst.extensionDefn.add(i.copy());
         dst.query = new ArrayList<ProfileQueryComponent>();
         for (ProfileQueryComponent i : query)
-          dst.query.add(i.copy(dst));
+          dst.query.add(i.copy());
         return dst;
       }
 

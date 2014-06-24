@@ -36,13 +36,17 @@ import org.hl7.fhir.instance.model.Profile;
 
 public class ProfileDefn {
 
+  // for use within the tool
+  private Profile source;
 
+  // transient loading details, if loaded from a spreadsheet
   private List<ResourceDefn> resources = new ArrayList<ResourceDefn>();
-  private List<ElementDefn> elements = new ArrayList<ElementDefn>();
   private Map<String, ArrayList<String>> metadata = new HashMap<String, ArrayList<String>>();
   private List<ExtensionDefn> extensions = new ArrayList<ExtensionDefn>();
   private List<BindingSpecification> bindings = new ArrayList<BindingSpecification>();
-  private Profile source;
+  
+ 
+  
   
   public Map<String, ArrayList<String>> getMetadata() {
     return metadata;
@@ -53,10 +57,6 @@ public class ProfileDefn {
   }
 
   
-  public List<ElementDefn> getElements() {
-    return elements;
-  }
-
   public String metadata(String name) {
     if (source != null) {
       if ("description".equals(name))
@@ -69,9 +69,9 @@ public class ProfileDefn {
         return source.getStatusSimple().toCode();
       if ("author.name".equals(name))
         return source.getPublisherSimple();
-      if ("id".equals(name))
-        return source.getIdentifierSimple();
-      throw new Error("metadata request for "+name);
+      if ("url".equals(name))
+        return source.getUrlSimple();
+//      throw new Error("metadata request for "+name);
     }
     if (!metadata.containsKey(name))
       return "";
@@ -112,6 +112,12 @@ public class ProfileDefn {
 
   public void setSource(Profile source) {
     this.source = source;
+  }
+
+  public void addMetadata(String name, String value) {
+    ArrayList<String> values = new ArrayList<String>();
+    values.add(value);
+    metadata.put(name, values);
   }
 
 

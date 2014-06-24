@@ -70,10 +70,11 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.hl7.fhir.definitions.Config;
+import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
-import org.hl7.fhir.definitions.generators.specification.ProfileGenerator.GenerationMode;
+import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SchematronGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
@@ -90,14 +91,17 @@ import org.hl7.fhir.definitions.model.EventDefn;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.Example.ExampleType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.SourceParser;
+import org.hl7.fhir.definitions.parsers.SpreadsheetParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
-import org.hl7.fhir.definitions.validation.ProfileValidator;
+import org.hl7.fhir.definitions.validation.OldProfileValidator;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.instance.formats.JsonComposer;
@@ -128,6 +132,7 @@ import org.hl7.fhir.instance.model.Narrative;
 import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
@@ -140,6 +145,7 @@ import org.hl7.fhir.instance.utils.LoincToDEConvertor;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.InstanceValidator;
+import org.hl7.fhir.instance.validation.ProfileValidator;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.tools.implementations.XMLToolsGenerator;
@@ -402,7 +408,13 @@ public class Publisher {
       page.loadLoinc();
 
       prsr.parse(page.getGenDate(), page.getVersion());
-      defineSpecialValues();
+      
+      if (buildFlags.get("all")) {
+        copyStaticContent();
+      }
+      defineSpecialValues();     
+      loadValueSets1();
+      processProfiles();
 
       if (validate()) {
         if (isGenerate) {
@@ -417,9 +429,7 @@ public class Publisher {
           String eCorePath = page.getFolders().dstDir + "ECoreDefinitions.xml";
           generateECore(prsr.getECoreParseResults(), eCorePath);
           produceSpecification(eCorePath);
-        } else {
-          loadValueSets();
-        }
+        } 
         validateXml();
         if (isGenerate && buildFlags.get("all"))
           produceQA();
@@ -429,6 +439,91 @@ public class Publisher {
         throw new Exception("Errors executing build. Details logged.");
       }
     }
+  }
+
+  private void processProfiles() throws Exception {
+    // first, for each type and resource, we build it's master profile
+    for (TypeDefn t : page.getDefinitions().getTypes().values())
+      genTypeProfile(t);
+    for (TypeDefn t : page.getDefinitions().getStructures().values())
+      genTypeProfile(t);
+    for (TypeDefn t : page.getDefinitions().getInfrastructure().values())
+      genTypeProfile(t);
+    
+    for (ResourceDefn r : page.getDefinitions().getResources().values()) { 
+      r.setProfile(new ProfileGenerator(page.getDefinitions()).generate(r, page.getGenDate()));
+      ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
+      r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot()));
+    }
+    
+    for (ProfiledType pt : page.getDefinitions().getConstraints().values()) {
+      genProfiledTypeProfile(pt);
+    }
+    
+    // we have profiles scoped by resources, and stand alone profiles
+    for (ProfileDefn p : page.getDefinitions().getProfiles().values())
+      processProfile(p);
+    for (ResourceDefn r : page.getDefinitions().getResources().values())       
+      for (RegisteredProfile p : r.getProfiles())      
+        processProfile(p.getProfile());
+    
+    // now, validate the profiles
+    for (ProfileDefn p : page.getDefinitions().getProfiles().values())
+      validateProfile(p);
+    for (ResourceDefn r : page.getDefinitions().getResources().values())       
+      for (RegisteredProfile p : r.getProfiles())      
+        validateProfile(p.getProfile());
+  }
+
+  private void validateProfile(ProfileDefn p) throws Exception {
+    ProfileValidator pv = new ProfileValidator();
+    pv.setProfiles(page.getProfiles());
+    List<String> errors = pv.validate(p.getSource());
+    if (errors.size() > 0) {
+      for (String e : errors)
+        page.log(e, LogMessageType.Error);
+      throw new Exception("Error validating " + p.metadata("name"));
+    }
+  }
+
+  private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
+    Profile profile = new ProfileGenerator(page.getDefinitions()).generate(pt, page.getGenDate());
+    page.getProfiles().put(profile.getUrlSimple(), profile);
+    pt.setProfile(profile);
+    // todo: what to do in the narrative?
+  }
+
+  private void genTypeProfile(TypeDefn t) throws Exception {
+    Profile profile = new ProfileGenerator(page.getDefinitions()).generate(t, page.getGenDate());
+    page.getProfiles().put(profile.getUrlSimple(), profile);
+    t.setProfile(profile);
+    DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, null, true);
+    t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
+    t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
+  }
+
+  private void processProfile(ProfileDefn profile) throws Exception {
+    // they've either been loaded from spreadsheets, or from profile declarations
+    // what we're going to do:
+    //  create Profile structures if needed (create differential definitions from spreadsheets)
+    if (profile.getSource() == null) {
+      Profile p = new ProfileGenerator(page.getDefinitions()).generate(profile, profile.metadata("id"));
+      profile.setSource(p);
+      page.getProfiles().put(p.getUrlSimple(), p);
+  }    
+    // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
+    if (profile.getSource().getDate() == null)
+      profile.getSource().setDateSimple(new DateAndTime(page.getGenDate())); 
+
+    //  create snapshot definitions from differentials
+    List<ProfileStructureComponent> snaphots = new ArrayList<Profile.ProfileStructureComponent>();
+//    for (ProfileStructureComponent p : profile.getSource().getStructure()) {
+//      if (p.)
+//    }
+    // 
+    // - validate them all 
+    
   }
 
   private void loadSuppressedMessages(String rootDir) throws Exception {
@@ -446,21 +541,15 @@ public class Publisher {
     r.close();
   }
 
-  private void loadValueSets() throws Exception {
+  private void loadValueSets1() throws Exception {
     buildFeedsAndMaps();
 
-    page.log(" ...vocab", LogMessageType.Process);
+    page.log(" ...vocab #1", LogMessageType.Process);
     analyseV2();
     analyseV3();
     if (isGenerate) {
       generateConformanceStatement(true, "base");
       generateConformanceStatement(false, "base2");
-    }
-    page.log(" ...resource ValueSet", LogMessageType.Process);
-    ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
-    if (isGenerate) {
-      produceResource1(r);
-      produceResource2(r);
     }
     generateCodeSystemsPart1();
     generateValueSetsPart1();
@@ -471,15 +560,25 @@ public class Publisher {
         cd.setReferredValueSet(page.getDefinitions().getValuesets().get(cd.getReference()));
       }
     }
+  }
+
+  private void loadValueSets2() throws Exception {
+    page.log(" ...vocab #2", LogMessageType.Process);
     generateCodeSystemsPart2();
     generateValueSetsPart2();
+    page.log(" ...resource ValueSet", LogMessageType.Process);
+    ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
+    if (isGenerate) {
+      produceResource1(r);
+      produceResource2(r);
+    }
     if (isGenerate) {
       /// regenerate. TODO: this is silly - need to generate before so that xpaths are populated. but need to generate now to fill them properly
       generateConformanceStatement(true, "base");
       generateConformanceStatement(false, "base2");
     }
+    
   }
-
   private void buildFeedsAndMaps() {
     profileFeed = new AtomFeed();
     profileFeed.setId("http://hl7.org/fhir/profile/resources");
@@ -1135,49 +1234,11 @@ public class Publisher {
   private void produceSpec() throws Exception {
     if (buildFlags.get("all")) {
 
-      if (page.getIni().getPropertyNames("support") != null)
-        for (String n : page.getIni().getPropertyNames("support")) {
-          Utilities.copyFile(new CSFile(page.getFolders().srcDir + n), new CSFile(page.getFolders().dstDir + n));
-          page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n));
-        }
-      for (String n : page.getIni().getPropertyNames("images")) {
-        if (n.contains("*")) {
-          final String filter = n.replace("?", ".?").replace("*", ".*?");
-          File[] files = new File(page.getFolders().imgDir).listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-              return name.matches(filter);
-            }
-          });
-          for (File f : files) {
-            Utilities.copyFile(f, new CSFile(page.getFolders().dstDir + f.getName()));
-            page.getEpub().registerFile(f.getName(), "Support File", EPubManager.determineType(n));
-          }
-        } else {
-          Utilities.copyFile(new CSFile(page.getFolders().imgDir + n), new CSFile(page.getFolders().dstDir + n));
-          page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n));
-        }
-      }
-      for (String n : page.getIni().getPropertyNames("files")) {
-        Utilities.copyFile(new CSFile(page.getFolders().rootDir + n), new CSFile(page.getFolders().dstDir + page.getIni().getStringProperty("files", n)));
-        page.getEpub().registerFile(page.getIni().getStringProperty("files", n), "Support File",
-            EPubManager.determineType(page.getIni().getStringProperty("files", n)));
-      }
-
-      page.log("Copy HTML templates", LogMessageType.Process);
-      Utilities.copyDirectory(page.getFolders().rootDir + page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getEpub());
-      TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion=" + page.getVersion() + "." + page.getSvnRevision() + "\r\nversion=" + page.getVersion()
-          + "\r\nrevision=" + page.getSvnRevision() + "\r\ndate=" + new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()),
-          Utilities.path(page.getFolders().dstDir, "version.info"));
-
-      for (String n : page.getDefinitions().getDiagrams().keySet()) {
-        page.log(" ...diagram " + n, LogMessageType.Process);
-        page.getSvgs().put(n, TextFile.fileToString(page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
-      }
-
-      loadValueSets();
+      copyStaticContent();
 
     }
+
+    loadValueSets2();
 
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && wantBuild(rname)) {
@@ -1340,6 +1401,48 @@ public class Publisher {
       page.getEpub().produce();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  private void copyStaticContent() throws IOException, Exception {
+    if (page.getIni().getPropertyNames("support") != null)
+      for (String n : page.getIni().getPropertyNames("support")) {
+        Utilities.copyFile(new CSFile(page.getFolders().srcDir + n), new CSFile(page.getFolders().dstDir + n));
+        page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n));
+      }
+    for (String n : page.getIni().getPropertyNames("images")) {
+      if (n.contains("*")) {
+        final String filter = n.replace("?", ".?").replace("*", ".*?");
+        File[] files = new File(page.getFolders().imgDir).listFiles(new FilenameFilter() {
+          @Override
+          public boolean accept(File dir, String name) {
+            return name.matches(filter);
+          }
+        });
+        for (File f : files) {
+          Utilities.copyFile(f, new CSFile(page.getFolders().dstDir + f.getName()));
+          page.getEpub().registerFile(f.getName(), "Support File", EPubManager.determineType(n));
+        }
+      } else {
+        Utilities.copyFile(new CSFile(page.getFolders().imgDir + n), new CSFile(page.getFolders().dstDir + n));
+        page.getEpub().registerFile(n, "Support File", EPubManager.determineType(n));
+      }
+    }
+    for (String n : page.getIni().getPropertyNames("files")) {
+      Utilities.copyFile(new CSFile(page.getFolders().rootDir + n), new CSFile(page.getFolders().dstDir + page.getIni().getStringProperty("files", n)));
+      page.getEpub().registerFile(page.getIni().getStringProperty("files", n), "Support File",
+          EPubManager.determineType(page.getIni().getStringProperty("files", n)));
+    }
+
+    page.log("Copy HTML templates", LogMessageType.Process);
+    Utilities.copyDirectory(page.getFolders().rootDir + page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getEpub());
+    TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion=" + page.getVersion() + "." + page.getSvnRevision() + "\r\nversion=" + page.getVersion()
+        + "\r\nrevision=" + page.getSvnRevision() + "\r\ndate=" + new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()),
+        Utilities.path(page.getFolders().dstDir, "version.info"));
+
+    for (String n : page.getDefinitions().getDiagrams().keySet()) {
+      page.log(" ...diagram " + n, LogMessageType.Process);
+      page.getSvgs().put(n, TextFile.fileToString(page.getFolders().srcDir + page.getDefinitions().getDiagrams().get(n)));
+    }
   }
 
   /** this is only used when generating xhtml of json **/
@@ -2031,56 +2134,47 @@ public class Publisher {
 
   private void produceBaseProfile() throws Exception {
      
-    for (ElementDefn e : page.getDefinitions().getTypes().values())
+    for (TypeDefn e : page.getDefinitions().getTypes().values())
       produceTypeProfile(e);
-    for (ElementDefn e : page.getDefinitions().getInfrastructure().values())
+    for (TypeDefn e : page.getDefinitions().getInfrastructure().values())
       produceTypeProfile(e);
-    for (ElementDefn e : page.getDefinitions().getStructures().values())
+    for (TypeDefn e : page.getDefinitions().getStructures().values())
       produceTypeProfile(e);
-    for (DefinedCode c : page.getDefinitions().getConstraints().values())
+    for (ProfiledType c : page.getDefinitions().getConstraints().values())
       produceProfiledTypeProfile(c);
   }
 
-  private void produceProfiledTypeProfile(DefinedCode c) throws Exception {
-    ProfileDefn p = new ProfileDefn();
-    p.putMetadata("id", c.getCode());
-    p.putMetadata("name", "Profile for " + c.getCode() + " on " + c.getComment());
-    p.putMetadata("author.name", "FHIR Specification");
-    p.putMetadata("author.ref", "http://hl7.org/fhir");
-    p.putMetadata("description", "Basic Profile for " + c.getCode() + " on " + c.getComment() + " for validation support");
-    p.putMetadata("status", "draft");
-    p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
-    ElementDefn type = page.getDefinitions().getElementDefn(c.getComment());
-    p.getElements().add(type);
-    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    String fn = "type-" + c.getCode() + ".profile.xml";
-    Profile rp = pgen.generate(p, "type-"+c.getCode()+"-profile", "<div>Type definition for " + type.getName() + " from <a href=\"http://hl7.org/fhir/datatypes.html#" + type.getName()
-        + "\">FHIR Specification</a></div>", GenerationMode.Element);
-    rp.getStructure().get(0).setNameSimple(c.getCode());
-
+  private void produceProfiledTypeProfile(ProfiledType pt) throws Exception {
+    String fn = pt.getName() + ".profile.xml";
+    Profile rp = pt.getProfile();
+    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, true);
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + fn), new CSFile(Utilities.path(page.getFolders().dstDir, "examples", fn)));
-    addToResourceFeed(rp, c.getCode().toLowerCase(), typeFeed);
-    cloneToXhtml("type-" + c.getCode() + ".profile", "Profile for " + c.getCode(), false, "profile-instance:type:" + c.getCode());
-    jsonToXhtml("type-" + c.getCode() + ".profile", "Profile for " + c.getCode(), resource2Json(rp), "profile-instance:type:" + c.getCode());
+    addToResourceFeed(rp, pt.getName().toLowerCase(), typeFeed);
+    cloneToXhtml(pt.getName() + ".profile", "Profile for " + pt.getName(), false, "profile-instance:type:" + pt.getName());
+    jsonToXhtml(pt.getName() + ".profile", "Profile for " + pt.getName(), resource2Json(rp), "profile-instance:type:" + pt.getName());
   }
 
-  private void produceTypeProfile(ElementDefn type) throws Exception {
-    ProfileDefn p = new ProfileDefn();
-    p.putMetadata("id", type.getName());
-    p.putMetadata("name", "Basic Profile for " + type.getName());
-    p.putMetadata("author.name", "FHIR Specification");
-    p.putMetadata("author.ref", "http://hl7.org/fhir");
-    p.putMetadata("description", "Basic Profile for " + type.getName() + " for validation support");
-    p.putMetadata("status", "draft");
-    p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
-    p.getElements().add(type);
-    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    String fn = "type-" + type.getName() + ".profile.xml";
-    Profile rp = pgen.generate(p, "type-" + type.getName() + ".profile", "<div>Type definition for " + type.getName() + " from <a href=\"http://hl7.org/fhir/datatypes.html#" + type.getName()
-        + "\">FHIR Specification</a></div>", GenerationMode.Element);
+  private void produceTypeProfile(TypeDefn type) throws Exception {
+//    ProfileDefn p = new ProfileDefn();
+//    p.putMetadata("id", type.getName());
+//    p.putMetadata("name", "Basic Profile for " + type.getName());
+//    p.putMetadata("author.name", "FHIR Specification");
+//    p.putMetadata("author.ref", "http://hl7.org/fhir");
+//    p.putMetadata("description", "Basic Profile for " + type.getName() + " for validation support");
+//    p.putMetadata("status", "draft");
+//    p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
+//    p.getElements().add(type);
+//    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
+//    String fn = "type-" + type.getName() + ".profile.xml";
+//    Profile rp = pgen.generate(p, "type-" + type.getName() + ".profile", "<div>Type definition for " + type.getName() + " from <a href=\"http://hl7.org/fhir/datatypes.html#" + type.getName()
+//        + "\">FHIR Specification</a></div>");
+    
+    String fn = type.getName() + ".profile.xml";
+    Profile rp = type.getProfile();
+    
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + fn), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(fn, ".json")), rp, true);
 
@@ -2088,8 +2182,8 @@ public class Publisher {
     addToResourceFeed(rp, type.getName().toLowerCase(), typeFeed);
     // saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir+ "html"
     // + File.separator + "datatypes.html"));
-    cloneToXhtml("type-" + type.getName() + ".profile", "Profile for " + type.getName(), false, "profile-instance:type:" + type.getName());
-    jsonToXhtml("type-" + type.getName() + ".profile", "Profile for " + type.getName(), resource2Json(rp), "profile-instance:type:" + type.getName());
+    cloneToXhtml(type.getName() + ".profile", "Profile for " + type.getName(), false, "profile-instance:type:" + type.getName());
+    jsonToXhtml(type.getName() + ".profile", "Profile for " + type.getName(), resource2Json(rp), "profile-instance:type:" + type.getName());
   }
 
   protected XmlPullParser loadXml(InputStream stream) throws Exception {
@@ -2185,7 +2279,7 @@ public class Publisher {
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
     xmls.put(n, xml);
-    generateProfile(resource, n, xml, GenerationMode.Resource);
+    generateProfile(resource, n, xml);
   }
 
   private void produceResource2(ResourceDefn resource) throws Exception {
@@ -2287,7 +2381,7 @@ public class Publisher {
     tmp.delete();
     // because we'll pick up a little more information as we process the
     // resource
-    generateProfile(resource, n, xml, GenerationMode.Resource);
+    generateProfile(resource, n, xml);
 
   }
 
@@ -2499,20 +2593,21 @@ public class Publisher {
     return "Loinc Narrative";
   }
 
-  private void generateProfile(ResourceDefn root, String n, String xmlSpec, GenerationMode mode) throws Exception, FileNotFoundException {
-    ProfileDefn p = new ProfileDefn();
-    p.putMetadata("id", root.getName().toLowerCase());
-    p.putMetadata("name", n);
-    p.putMetadata("author.name", "FHIR Project");
-    p.putMetadata("author.ref", "http://hl7.org/fhir");
-    p.putMetadata("description", "Basic Profile. " + root.getRoot().getDefinition());
-    p.putMetadata("status", "draft");
-    p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
-    p.getResources().add(root);
-    p.putMetadata("requirements", root.getRequirements());
-    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    Profile rp = pgen.generate(p, n, xmlSpec, mode);
-    page.getProfiles().put(root.getName(),  rp);
+  private void generateProfile(ResourceDefn root, String n, String xmlSpec) throws Exception, FileNotFoundException {
+//    ProfileDefn p = new ProfileDefn();
+//    p.putMetadata("id", root.getName().toLowerCase());
+//    p.putMetadata("name", n);
+//    p.putMetadata("author.name", "FHIR Project");
+//    p.putMetadata("author.ref", "http://hl7.org/fhir");
+//    p.putMetadata("description", "Basic Profile. " + root.getRoot().getDefinition());
+//    p.putMetadata("status", "draft");
+//    p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
+//    p.getResources().add(root);
+//    p.putMetadata("requirements", root.getRequirements());
+//    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
+//    Profile rp = pgen.generate(p, n, xmlSpec);
+    Profile rp = root.getProfile();
+    page.getProfiles().put(root.getName(), rp);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
     new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.json"), rp, true);
 
@@ -2636,7 +2731,7 @@ public class Publisher {
 
     // you have to validate a profile, because it has to be merged with it's
     // base resource to fill out all the missing bits
-    validateProfile(profile);
+//    validateProfile(profile);
 
     XmlSpecGenerator gen = new XmlSpecGenerator(new FileOutputStream(tmp), null, "http://hl7.org/fhir/", page);
     gen.generate(profile, "http://hl7.org/fhir/Profile/"+title);
@@ -2644,7 +2739,7 @@ public class Publisher {
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    Profile p = pgen.generate(profile, title, xml, GenerationMode.Resource);
+    Profile p = pgen.generate(profile, title, xml);
     XmlComposer comp = new XmlComposer();
     comp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml"), p, true, false);
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + title + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + title
@@ -2770,18 +2865,18 @@ public class Publisher {
     return p;
   }
 
-  private void validateProfile(ProfileDefn profile) throws FileNotFoundException, Exception {
-    for (ResourceDefn c : profile.getResources()) {
-      Profile resource = loadResourceProfile(c.getName());
-      ProfileValidator v = new ProfileValidator();
-      v.setCandidate(c);
-      v.setProfile(resource);
-      v.setTypes(typeFeed);
-      List<String> errors = v.evaluate();
-      if (errors.size() > 0)
-        throw new Exception("Error validating " + profile.metadata("name") + ": " + errors.toString());
-    }
-  }
+//  private void validateProfile(ProfileDefn profile) throws FileNotFoundException, Exception {
+//    for (ResourceDefn c : profile.getResources()) {
+//      Profile resource = loadResourceProfile(c.getName());
+//      ProfileValidator v = new ProfileValidator();
+//      v.setCandidate(c);
+//      v.setProfile(resource);
+//      v.setTypes(typeFeed);
+//      List<String> errors = v.evaluate();
+//      if (errors.size() > 0)
+//        throw new Exception("Error validating " + profile.metadata("name") + ": " + errors.toString());
+//    }
+//  }
 
   // private void produceFutureResource(String n) throws Exception {
   // ElementDefn e = new ElementDefn();
@@ -3199,7 +3294,7 @@ public class Publisher {
     // now, finally, we validate the resource ourselves.
     // the build tool validation focuses on codes and identifiers
     List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-    validator.validateInstance(issues, root);
+    // todo.... validator.validateInstance(issues, root);
     // if (profile != null)
     // validator.validateInstanceByProfile(issues, root, profile);
     for (ValidationMessage m : issues) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -339,7 +339,7 @@ public class Subscription extends Resource {
           childrenList.add(new Property("header", "string", "Usage depends on the channel type.", 0, java.lang.Integer.MAX_VALUE, header));
         }
 
-      public SubscriptionChannelComponent copy(Subscription e) {
+      public SubscriptionChannelComponent copy() {
         SubscriptionChannelComponent dst = new SubscriptionChannelComponent();
         dst.type = type == null ? null : type.copy();
         dst.url = url == null ? null : url.copy();
@@ -485,7 +485,7 @@ public class Subscription extends Resource {
           childrenList.add(new Property("description", "string", "Todo.", 0, java.lang.Integer.MAX_VALUE, description));
         }
 
-      public SubscriptionTagComponent copy(Subscription e) {
+      public SubscriptionTagComponent copy() {
         SubscriptionTagComponent dst = new SubscriptionTagComponent();
         dst.term = term == null ? null : term.copy();
         dst.scheme = scheme == null ? null : scheme.copy();
@@ -787,11 +787,11 @@ public class Subscription extends Resource {
         dst.reason = reason == null ? null : reason.copy();
         dst.status = status == null ? null : status.copy();
         dst.error = error == null ? null : error.copy();
-        dst.channel = channel == null ? null : channel.copy(dst);
+        dst.channel = channel == null ? null : channel.copy();
         dst.end = end == null ? null : end.copy();
         dst.tag = new ArrayList<SubscriptionTagComponent>();
         for (SubscriptionTagComponent i : tag)
-          dst.tag.add(i.copy(dst));
+          dst.tag.add(i.copy());
         return dst;
       }
 

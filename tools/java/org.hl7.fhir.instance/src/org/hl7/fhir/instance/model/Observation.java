@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -371,7 +371,7 @@ public class Observation extends Resource {
           childrenList.add(new Property("age", "Range", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, java.lang.Integer.MAX_VALUE, age));
         }
 
-      public ObservationReferenceRangeComponent copy(Observation e) {
+      public ObservationReferenceRangeComponent copy() {
         ObservationReferenceRangeComponent dst = new ObservationReferenceRangeComponent();
         dst.low = low == null ? null : low.copy();
         dst.high = high == null ? null : high.copy();
@@ -481,7 +481,7 @@ public class Observation extends Resource {
           childrenList.add(new Property("target", "Resource(Observation)", "A reference to the observation that is related to this observation.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
-      public ObservationRelatedComponent copy(Observation e) {
+      public ObservationRelatedComponent copy() {
         ObservationRelatedComponent dst = new ObservationRelatedComponent();
         dst.type = type == null ? null : type.copy();
         dst.target = target == null ? null : target.copy();
@@ -997,10 +997,10 @@ public class Observation extends Resource {
           dst.performer.add(i.copy());
         dst.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
         for (ObservationReferenceRangeComponent i : referenceRange)
-          dst.referenceRange.add(i.copy(dst));
+          dst.referenceRange.add(i.copy());
         dst.related = new ArrayList<ObservationRelatedComponent>();
         for (ObservationRelatedComponent i : related)
-          dst.related.add(i.copy(dst));
+          dst.related.add(i.copy());
         return dst;
       }
 

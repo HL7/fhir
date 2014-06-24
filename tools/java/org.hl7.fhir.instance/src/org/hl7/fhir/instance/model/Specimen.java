@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -179,7 +179,7 @@ public class Specimen extends Resource {
           childrenList.add(new Property("target", "Resource(Specimen)", "The specimen resource that is the target of this relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
-      public SpecimenSourceComponent copy(Specimen e) {
+      public SpecimenSourceComponent copy() {
         SpecimenSourceComponent dst = new SpecimenSourceComponent();
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.target = new ArrayList<ResourceReference>();
@@ -290,6 +290,16 @@ public class Specimen extends Resource {
         }
 
         /**
+         * @param value {@link #comment} (To communicate any details or issues encountered during the specimen collection procedure.)
+         */
+        public boolean hasCommentSimple(String value) { 
+          for (String_ v : this.comment)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #collected} (Time when specimen was collected from subject - the physiologically relevant time.)
          */
         public Type getCollected() { 
@@ -359,7 +369,7 @@ public class Specimen extends Resource {
           childrenList.add(new Property("sourceSite", "CodeableConcept", "Anatomical location from which the specimen should be collected (if subject is a patient). This element is not used for environmental specimens.", 0, java.lang.Integer.MAX_VALUE, sourceSite));
         }
 
-      public SpecimenCollectionComponent copy(Specimen e) {
+      public SpecimenCollectionComponent copy() {
         SpecimenCollectionComponent dst = new SpecimenCollectionComponent();
         dst.collector = collector == null ? null : collector.copy();
         dst.comment = new ArrayList<String_>();
@@ -493,7 +503,7 @@ public class Specimen extends Resource {
           childrenList.add(new Property("additive", "Resource(Substance)", "Material used in the processing step.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
 
-      public SpecimenTreatmentComponent copy(Specimen e) {
+      public SpecimenTreatmentComponent copy() {
         SpecimenTreatmentComponent dst = new SpecimenTreatmentComponent();
         dst.description = description == null ? null : description.copy();
         dst.procedure = procedure == null ? null : procedure.copy();
@@ -685,7 +695,7 @@ public class Specimen extends Resource {
           childrenList.add(new Property("additive", "Resource(Substance)", "Additive associated with the container.", 0, java.lang.Integer.MAX_VALUE, additive));
         }
 
-      public SpecimenContainerComponent copy(Specimen e) {
+      public SpecimenContainerComponent copy() {
         SpecimenContainerComponent dst = new SpecimenContainerComponent();
         dst.identifier = new ArrayList<Identifier>();
         for (Identifier i : identifier)
@@ -962,17 +972,17 @@ public class Specimen extends Resource {
         dst.type = type == null ? null : type.copy();
         dst.source = new ArrayList<SpecimenSourceComponent>();
         for (SpecimenSourceComponent i : source)
-          dst.source.add(i.copy(dst));
+          dst.source.add(i.copy());
         dst.subject = subject == null ? null : subject.copy();
         dst.accessionIdentifier = accessionIdentifier == null ? null : accessionIdentifier.copy();
         dst.receivedTime = receivedTime == null ? null : receivedTime.copy();
-        dst.collection = collection == null ? null : collection.copy(dst);
+        dst.collection = collection == null ? null : collection.copy();
         dst.treatment = new ArrayList<SpecimenTreatmentComponent>();
         for (SpecimenTreatmentComponent i : treatment)
-          dst.treatment.add(i.copy(dst));
+          dst.treatment.add(i.copy());
         dst.container = new ArrayList<SpecimenContainerComponent>();
         for (SpecimenContainerComponent i : container)
-          dst.container.add(i.copy(dst));
+          dst.container.add(i.copy());
         return dst;
       }
 

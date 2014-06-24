@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.PrimitiveType;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -101,7 +102,7 @@ public class XSDBaseGenerator {
       genInfrastructure(e);
     for (ElementDefn e : definitions.getTypes().values())
       genType(e);
-    for (DefinedCode cd : definitions.getConstraints().values())
+    for (ProfiledType cd : definitions.getConstraints().values())
       genConstraint(cd);
     for (ElementDefn e : definitions.getStructures().values())
       genStructure(e);
@@ -223,13 +224,13 @@ public class XSDBaseGenerator {
     write("  </xs:simpleType>\r\n");
   }
 
-  private void genConstraint(DefinedCode cd) throws Exception {
-    write("  <xs:complexType name=\"" + cd.getCode() + "\">\r\n");
+  private void genConstraint(ProfiledType cd) throws Exception {
+    write("  <xs:complexType name=\"" + cd.getName() + "\">\r\n");
     write("    <xs:complexContent>\r\n");
-    write("      <xs:restriction base=\"" + cd.getComment() + "\">\r\n");
+    write("      <xs:restriction base=\"" + cd.getBaseType() + "\">\r\n");
     write("        <xs:sequence>\r\n");
 
-    ElementDefn elem = definitions.getTypes().get(cd.getComment());
+    ElementDefn elem = definitions.getTypes().get(cd.getBaseType());
     for (ElementDefn e : elem.getElements()) {
       if (e.getName().equals("[type]"))
         generateAny(elem, e, null);

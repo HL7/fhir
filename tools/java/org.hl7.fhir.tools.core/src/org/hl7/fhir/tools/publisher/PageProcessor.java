@@ -69,6 +69,7 @@ import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfileDefn;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
@@ -193,7 +194,7 @@ public class PageProcessor implements Logger  {
   }
   
   private String treeForDt(String dt) throws Exception {
-    DataTypeTableGenerator gen = new DataTypeTableGenerator(folders.dstDir, this, dt);
+    DataTypeTableGenerator gen = new DataTypeTableGenerator(folders.dstDir, this, dt, false);
     return new XhtmlComposer().compose(gen.generate(definitions.getElementDefn(dt)));
 
   }
@@ -322,7 +323,7 @@ public class PageProcessor implements Logger  {
 
       String[] com = s2.split(" ");
       if (com.length == 2 && com[0].equals("dt")) 
-        src = s1+xmlForDt(com[1], file)+treeForDt(com[1])+tsForDt(com[1])+s3;
+        src = s1+xmlForDt(com[1], file)+treeForDt(com[1])+profileRef(com[1])+tsForDt(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.constraints")) 
         src = s1+genConstraints(com[1])+s3;
       else if (com.length == 2 && com[0].equals("dt.restrictions")) 
@@ -568,12 +569,72 @@ public class PageProcessor implements Logger  {
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
+      else if (com[0].equals("profilelist"))
+        src = s1 + genProfilelist() + s3;  
       else if (others != null && others.containsKey(com[0]))  
-        src = s1 + others.get(com[0]) + s3;  
+        src = s1 + others.get(com[0]) + s3; 
+      
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genProfilelist() throws Exception {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    b.append("  <tr>\r\n");
+    b.append("    <td><b>Name</b></td>\r\n");
+    b.append("    <td><b>Type</b></td>\r\n");
+    b.append("    <td><b>Usage</b></td>\r\n");
+    b.append("  </tr>\r\n");
+    
+    b.append("  <tr>\r\n");
+    b.append("    <td colspan=\"2\"><b>General</b></td>\r\n");
+    b.append("  </tr>\r\n");
+    List<String> names = new ArrayList<String>();
+    names.addAll(definitions.getProfiles().keySet());
+    Collections.sort(names);
+    for (String s : names) {
+      ProfileDefn p = definitions.getProfiles().get(s);
+      b.append("  <tr>\r\n");
+      b.append("    <td><a href=\""+p.metadata("id")+".html\">"+Utilities.escapeXml(p.getSource().getNameSimple())+"</a></td>\r\n");
+      b.append("    <td>"+describeProfileType(p.getSource())+"</td>\r\n");
+      b.append("    <td>"+Utilities.escapeXml(p.getSource().getDescriptionSimple())+"</td>\r\n");
+      b.append(" </tr>\r\n");
+    }
+    for (String n : definitions.sortedResourceNames()) {
+      ResourceDefn r = definitions.getResourceByName(n);
+      if (!r.getProfiles().isEmpty()) {
+        b.append("  <tr>\r\n");
+        b.append("    <td colspan=\"2\"><b>"+r.getName()+"</b></td>\r\n");
+        b.append("  </tr>\r\n");
+        for (RegisteredProfile p : r.getProfiles()) {
+          b.append("  <tr>\r\n");
+          b.append("    <td><a href=\""+p.getDestFilenameNoExt()+".html\">"+Utilities.escapeXml(p.getName())+"</a></td>\r\n");
+          b.append("    <td>"+describeProfileType(p.getProfile().getSource())+"</td>\r\n");
+          b.append("    <td>"+Utilities.escapeXml(p.getDescription())+"</td>\r\n");
+          b.append(" </tr>\r\n");
+        }
+      }
+    }
+    b.append("</table>\r\n");
+   
+    return b.toString();
+  }
+
+  private String describeProfileType(Profile source) {
+    if (source.getStructure().isEmpty() && source.getQuery().isEmpty())
+      return source.getExtensionDefn().size() == 1 ?  "Extension" : "Extensions";
+    if (source.getExtensionDefn().isEmpty() && source.getQuery().isEmpty())
+      return source.getStructure().size() == 1 ?  "Constraint" : "Constraints";
+    if (source.getStructure().isEmpty() && source.getExtensionDefn().isEmpty())
+      return source.getQuery().size() == 1 ?  "Query" :  "Queries";
+    return "Mixed";
+  }
+
+  private String profileRef(String name) {
+    return "Alternate definitions: Resource Profile (<a href=\""+name+".profile.xml.html\">XML</a>, <a href=\""+name+".profile.json.html\">JSON</a>)";
   }
 
   private String reflink(String name) {
@@ -1338,7 +1399,7 @@ public class PageProcessor implements Logger  {
   
   private String genResourceTable(ResourceDefn res) throws Exception {
     ElementDefn e = res.getRoot();
-    ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this, res.getName()+"-definitions.html");
+    ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this, res.getName()+"-definitions.html", false);
     return new XhtmlComposer().compose(gen.generate(e));
   }
   
@@ -1355,10 +1416,10 @@ public class PageProcessor implements Logger  {
   private String genRestrictions(String name) throws Exception {
     StringBuilder b = new StringBuilder();
     StringBuilder b2 = new StringBuilder();
-    for (DefinedCode c : definitions.getConstraints().values()) {
-      if (c.getComment().equals(name)) {
-        b.append("<a name=\""+c.getCode()+"\"> </a><a name=\""+c.getCode().toLowerCase()+"\"> </a>\r\n");
-        b2.append(" <tr><td>"+c.getCode()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>\r\n");
+    for (ProfiledType c : definitions.getConstraints().values()) {
+      if (c.getBaseType().equals(name)) {
+        b.append("<a name=\""+c.getName()+"\"> </a><a name=\""+c.getName().toLowerCase()+"\"> </a>\r\n");
+        b2.append(" <tr><td>"+c.getName()+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>Profile (<a href=\""+c.getName()+".profile.xml.html\">XML</a>, <a href=\""+c.getName()+".profile.json.html\">JSON</a>)</td></tr>\r\n");
       }
     }
     if (b.length() > 0) 
@@ -2444,6 +2505,8 @@ public class PageProcessor implements Logger  {
         src = s1 + publicationType + s3;      
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;      
+      else if (com[0].equals("profilelist"))
+        src = s1 + genProfilelist() + s3;  
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -3053,7 +3116,7 @@ public class PageProcessor implements Logger  {
   }
 
   private String generateProfileTable(ProfileDefn profile, String filename) throws Exception {
-    ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this, null);
+    ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this, null, false);
     return new XhtmlComposer().compose(gen.generate(profile, "http://hl7.org/fhir/Profile/"+filename));
   }
 

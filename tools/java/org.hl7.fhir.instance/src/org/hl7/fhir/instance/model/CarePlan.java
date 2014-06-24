@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -380,7 +380,7 @@ public class CarePlan extends Resource {
           childrenList.add(new Property("member", "Resource(Practitioner|RelatedPerson|Patient|Organization)", "The specific person or organization who is participating/expected to participate in the care plan.", 0, java.lang.Integer.MAX_VALUE, member));
         }
 
-      public CarePlanParticipantComponent copy(CarePlan e) {
+      public CarePlanParticipantComponent copy() {
         CarePlanParticipantComponent dst = new CarePlanParticipantComponent();
         dst.role = role == null ? null : role.copy();
         dst.member = member == null ? null : member.copy();
@@ -572,7 +572,7 @@ public class CarePlan extends Resource {
           childrenList.add(new Property("concern", "Resource(Condition)", "The identified conditions that this goal relates to - the condition that caused it to be created, or that it is intended to address.", 0, java.lang.Integer.MAX_VALUE, concern));
         }
 
-      public CarePlanGoalComponent copy(CarePlan e) {
+      public CarePlanGoalComponent copy() {
         CarePlanGoalComponent dst = new CarePlanGoalComponent();
         dst.description = description == null ? null : description.copy();
         dst.status = status == null ? null : status.copy();
@@ -667,6 +667,16 @@ public class CarePlan extends Resource {
           t.setValue(value);
           this.goal.add(t);
           return t;
+        }
+
+        /**
+         * @param value {@link #goal} (Internal reference that identifies the goals that this activity is intended to contribute towards meeting.)
+         */
+        public boolean hasGoalSimple(String value) { 
+          for (String_ v : this.goal)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
         }
 
         /**
@@ -853,7 +863,7 @@ public class CarePlan extends Resource {
           childrenList.add(new Property("simple", "", "A simple summary of details suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, java.lang.Integer.MAX_VALUE, simple));
         }
 
-      public CarePlanActivityComponent copy(CarePlan e) {
+      public CarePlanActivityComponent copy() {
         CarePlanActivityComponent dst = new CarePlanActivityComponent();
         dst.goal = new ArrayList<String_>();
         for (String_ i : goal)
@@ -865,7 +875,7 @@ public class CarePlan extends Resource {
           dst.actionResulting.add(i.copy());
         dst.notes = notes == null ? null : notes.copy();
         dst.detail = detail == null ? null : detail.copy();
-        dst.simple = simple == null ? null : simple.copy(e);
+        dst.simple = simple == null ? null : simple.copy();
         return dst;
       }
 
@@ -1168,7 +1178,7 @@ public class CarePlan extends Resource {
           childrenList.add(new Property("details", "string", "This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.", 0, java.lang.Integer.MAX_VALUE, details));
         }
 
-      public CarePlanActivitySimpleComponent copy(CarePlan e) {
+      public CarePlanActivitySimpleComponent copy() {
         CarePlanActivitySimpleComponent dst = new CarePlanActivitySimpleComponent();
         dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
@@ -1536,13 +1546,13 @@ public class CarePlan extends Resource {
           dst.concern.add(i.copy());
         dst.participant = new ArrayList<CarePlanParticipantComponent>();
         for (CarePlanParticipantComponent i : participant)
-          dst.participant.add(i.copy(dst));
+          dst.participant.add(i.copy());
         dst.goal = new ArrayList<CarePlanGoalComponent>();
         for (CarePlanGoalComponent i : goal)
-          dst.goal.add(i.copy(dst));
+          dst.goal.add(i.copy());
         dst.activity = new ArrayList<CarePlanActivityComponent>();
         for (CarePlanActivityComponent i : activity)
-          dst.activity.add(i.copy(dst));
+          dst.activity.add(i.copy());
         dst.notes = notes == null ? null : notes.copy();
         return dst;
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -302,7 +302,7 @@ public class ImmunizationRecommendation extends Resource {
           childrenList.add(new Property("supportingPatientInformation", "Resource(Observation|AdverseReaction|AllergyIntolerance)", "Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.", 0, java.lang.Integer.MAX_VALUE, supportingPatientInformation));
         }
 
-      public ImmunizationRecommendationRecommendationComponent copy(ImmunizationRecommendation e) {
+      public ImmunizationRecommendationRecommendationComponent copy() {
         ImmunizationRecommendationRecommendationComponent dst = new ImmunizationRecommendationRecommendationComponent();
         dst.date = date == null ? null : date.copy();
         dst.vaccineType = vaccineType == null ? null : vaccineType.copy();
@@ -310,8 +310,8 @@ public class ImmunizationRecommendation extends Resource {
         dst.forecastStatus = forecastStatus == null ? null : forecastStatus.copy();
         dst.dateCriterion = new ArrayList<ImmunizationRecommendationRecommendationDateCriterionComponent>();
         for (ImmunizationRecommendationRecommendationDateCriterionComponent i : dateCriterion)
-          dst.dateCriterion.add(i.copy(e));
-        dst.protocol = protocol == null ? null : protocol.copy(e);
+          dst.dateCriterion.add(i.copy());
+        dst.protocol = protocol == null ? null : protocol.copy();
         dst.supportingImmunization = new ArrayList<ResourceReference>();
         for (ResourceReference i : supportingImmunization)
           dst.supportingImmunization.add(i.copy());
@@ -399,7 +399,7 @@ public class ImmunizationRecommendation extends Resource {
           childrenList.add(new Property("value", "dateTime", "Date recommendation.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
-      public ImmunizationRecommendationRecommendationDateCriterionComponent copy(ImmunizationRecommendation e) {
+      public ImmunizationRecommendationRecommendationDateCriterionComponent copy() {
         ImmunizationRecommendationRecommendationDateCriterionComponent dst = new ImmunizationRecommendationRecommendationDateCriterionComponent();
         dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
@@ -586,7 +586,7 @@ public class ImmunizationRecommendation extends Resource {
           childrenList.add(new Property("series", "string", "One possible path to achieve presumed immunity against a disease - within the context of an authority.", 0, java.lang.Integer.MAX_VALUE, series));
         }
 
-      public ImmunizationRecommendationRecommendationProtocolComponent copy(ImmunizationRecommendation e) {
+      public ImmunizationRecommendationRecommendationProtocolComponent copy() {
         ImmunizationRecommendationRecommendationProtocolComponent dst = new ImmunizationRecommendationRecommendationProtocolComponent();
         dst.doseSequence = doseSequence == null ? null : doseSequence.copy();
         dst.description = description == null ? null : description.copy();
@@ -707,7 +707,7 @@ public class ImmunizationRecommendation extends Resource {
         dst.subject = subject == null ? null : subject.copy();
         dst.recommendation = new ArrayList<ImmunizationRecommendationRecommendationComponent>();
         for (ImmunizationRecommendationRecommendationComponent i : recommendation)
-          dst.recommendation.add(i.copy(dst));
+          dst.recommendation.add(i.copy());
         return dst;
       }
 

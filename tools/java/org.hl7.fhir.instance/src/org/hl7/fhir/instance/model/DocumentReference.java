@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -242,7 +242,7 @@ public class DocumentReference extends Resource {
           childrenList.add(new Property("target", "Resource(DocumentReference)", "The target document of this relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
-      public DocumentReferenceRelatesToComponent copy(DocumentReference e) {
+      public DocumentReferenceRelatesToComponent copy() {
         DocumentReferenceRelatesToComponent dst = new DocumentReferenceRelatesToComponent();
         dst.code = code == null ? null : code.copy();
         dst.target = target == null ? null : target.copy();
@@ -353,13 +353,13 @@ public class DocumentReference extends Resource {
           childrenList.add(new Property("parameter", "", "A list of named parameters that is used in the service call.", 0, java.lang.Integer.MAX_VALUE, parameter));
         }
 
-      public DocumentReferenceServiceComponent copy(DocumentReference e) {
+      public DocumentReferenceServiceComponent copy() {
         DocumentReferenceServiceComponent dst = new DocumentReferenceServiceComponent();
         dst.type = type == null ? null : type.copy();
         dst.address = address == null ? null : address.copy();
         dst.parameter = new ArrayList<DocumentReferenceServiceParameterComponent>();
         for (DocumentReferenceServiceParameterComponent i : parameter)
-          dst.parameter.add(i.copy(e));
+          dst.parameter.add(i.copy());
         return dst;
       }
 
@@ -461,7 +461,7 @@ public class DocumentReference extends Resource {
           childrenList.add(new Property("value", "string", "The value of the named parameter.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
-      public DocumentReferenceServiceParameterComponent copy(DocumentReference e) {
+      public DocumentReferenceServiceParameterComponent copy() {
         DocumentReferenceServiceParameterComponent dst = new DocumentReferenceServiceParameterComponent();
         dst.name = name == null ? null : name.copy();
         dst.value = value == null ? null : value.copy();
@@ -546,7 +546,7 @@ public class DocumentReference extends Resource {
           childrenList.add(new Property("facilityType", "CodeableConcept", "The kind of facility where the patient was seen.", 0, java.lang.Integer.MAX_VALUE, facilityType));
         }
 
-      public DocumentReferenceContextComponent copy(DocumentReference e) {
+      public DocumentReferenceContextComponent copy() {
         DocumentReferenceContextComponent dst = new DocumentReferenceContextComponent();
         dst.event = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : event)
@@ -1207,6 +1207,16 @@ public class DocumentReference extends Resource {
     }
 
     /**
+     * @param value {@link #format} (An identifier that identifies that the format and content of the document conforms to additional rules beyond the base format indicated in the mimeType.)
+     */
+    public boolean hasFormatSimple(String value) { 
+      for (Uri v : this.format)
+        if (v.getValue().equals(value))
+          return true;
+      return false;
+    }
+
+    /**
      * @return {@link #size} (The size of the source document this reference refers to in bytes.)
      */
     public Integer getSize() { 
@@ -1393,7 +1403,7 @@ public class DocumentReference extends Resource {
         dst.docStatus = docStatus == null ? null : docStatus.copy();
         dst.relatesTo = new ArrayList<DocumentReferenceRelatesToComponent>();
         for (DocumentReferenceRelatesToComponent i : relatesTo)
-          dst.relatesTo.add(i.copy(dst));
+          dst.relatesTo.add(i.copy());
         dst.description = description == null ? null : description.copy();
         dst.confidentiality = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : confidentiality)
@@ -1406,8 +1416,8 @@ public class DocumentReference extends Resource {
         dst.size = size == null ? null : size.copy();
         dst.hash = hash == null ? null : hash.copy();
         dst.location = location == null ? null : location.copy();
-        dst.service = service == null ? null : service.copy(dst);
-        dst.context = context == null ? null : context.copy(dst);
+        dst.service = service == null ? null : service.copy();
+        dst.context = context == null ? null : context.copy();
         return dst;
       }
 

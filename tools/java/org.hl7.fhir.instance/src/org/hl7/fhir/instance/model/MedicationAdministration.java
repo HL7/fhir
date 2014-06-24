@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -291,7 +291,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that was administered to the patient over the specified period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
-      public MedicationAdministrationDosageComponent copy(MedicationAdministration e) {
+      public MedicationAdministrationDosageComponent copy() {
         MedicationAdministrationDosageComponent dst = new MedicationAdministrationDosageComponent();
         dst.timing = timing == null ? null : timing.copy();
         dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
@@ -766,7 +766,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           dst.device.add(i.copy());
         dst.dosage = new ArrayList<MedicationAdministrationDosageComponent>();
         for (MedicationAdministrationDosageComponent i : dosage)
-          dst.dosage.add(i.copy(dst));
+          dst.dosage.add(i.copy());
         return dst;
       }
 

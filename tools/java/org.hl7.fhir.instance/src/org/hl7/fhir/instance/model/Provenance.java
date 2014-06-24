@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -236,7 +236,7 @@ public class Provenance extends Resource {
           childrenList.add(new Property("display", "string", "Human-readable description of the participant.", 0, java.lang.Integer.MAX_VALUE, display));
         }
 
-      public ProvenanceAgentComponent copy(Provenance e) {
+      public ProvenanceAgentComponent copy() {
         ProvenanceAgentComponent dst = new ProvenanceAgentComponent();
         dst.role = role == null ? null : role.copy();
         dst.type = type == null ? null : type.copy();
@@ -425,13 +425,13 @@ public class Provenance extends Resource {
           childrenList.add(new Property("agent", "@Provenance.agent", "The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.", 0, java.lang.Integer.MAX_VALUE, agent));
         }
 
-      public ProvenanceEntityComponent copy(Provenance e) {
+      public ProvenanceEntityComponent copy() {
         ProvenanceEntityComponent dst = new ProvenanceEntityComponent();
         dst.role = role == null ? null : role.copy();
         dst.type = type == null ? null : type.copy();
         dst.reference = reference == null ? null : reference.copy();
         dst.display = display == null ? null : display.copy();
-        dst.agent = agent == null ? null : agent.copy(e);
+        dst.agent = agent == null ? null : agent.copy();
         return dst;
       }
 
@@ -647,6 +647,16 @@ public class Provenance extends Resource {
     }
 
     /**
+     * @param value {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
+     */
+    public boolean hasPolicySimple(String value) { 
+      for (Uri v : this.policy)
+        if (v.getValue().equals(value))
+          return true;
+      return false;
+    }
+
+    /**
      * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, a piece of software, an inanimate object, an organization, or other entities that may be ascribed responsibility.)
      */
     public List<ProvenanceAgentComponent> getAgent() { 
@@ -743,10 +753,10 @@ public class Provenance extends Resource {
           dst.policy.add(i.copy());
         dst.agent = new ArrayList<ProvenanceAgentComponent>();
         for (ProvenanceAgentComponent i : agent)
-          dst.agent.add(i.copy(dst));
+          dst.agent.add(i.copy());
         dst.entity = new ArrayList<ProvenanceEntityComponent>();
         for (ProvenanceEntityComponent i : entity)
-          dst.entity.add(i.copy(dst));
+          dst.entity.add(i.copy());
         dst.integritySignature = integritySignature == null ? null : integritySignature.copy();
         return dst;
       }

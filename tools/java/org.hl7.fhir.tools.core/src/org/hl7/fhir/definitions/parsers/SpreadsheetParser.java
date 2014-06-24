@@ -55,6 +55,7 @@ import org.hl7.fhir.definitions.model.RegisteredProfile.ProfileInputType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.SearchParameter.SearchType;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.instance.formats.JsonParser;
 import org.hl7.fhir.instance.formats.XmlParser;
@@ -99,7 +100,7 @@ public class SpreadsheetParser {
 	}
 
 
-	public ElementDefn parseCompositeType() throws Exception {
+	public TypeDefn parseCompositeType() throws Exception {
 		isProfile = false;
 		return parseCommonTypeColumns().getRoot();
 	}
@@ -582,9 +583,9 @@ public class SpreadsheetParser {
       throw new Exception("The Profile referred to a tab by the name of '"+n+"', but no tab by the name could be found");
     for (int row = 0; row < sheet.rows.size(); row++) {
       ElementDefn e = processLine(resource, sheet, row, invariants);
-      if (e != null && e.getProfile() != null && e.typeCode().startsWith("Resource(") && e.getProfile().startsWith("#")) 
-        if (!namedSheets.contains(e.getProfile().substring(1)))
-          namedSheets.add(e.getProfile().substring(1));      
+      if (e != null && e.getStatedProfile() != null && e.typeCode().startsWith("Resource(") && e.getStatedProfile().startsWith("#")) 
+        if (!namedSheets.contains(e.getStatedProfile().substring(1)))
+          namedSheets.add(e.getStatedProfile().substring(1));      
     }
     sheet = loadSheet(n + "-Extensions");
     if (sheet != null) {
@@ -713,7 +714,9 @@ public class SpreadsheetParser {
 
     String profileName = isProfile ? sheet.getColumn(row, "Profile Name") : "";
     String discriminator = isProfile ? sheet.getColumn(row, "Discriminator") : "";
-		
+		if (!Utilities.noString(profileName) && Utilities.noString(discriminator) && (path.endsWith(".extension") || path.endsWith(".modifierExtension")))
+		  discriminator = "url";
+		  
 		boolean isRoot = !path.contains(".");
 		
 		if (isRoot) {
@@ -721,9 +724,9 @@ public class SpreadsheetParser {
 				throw new Exception("Definitions in " + getLocation(row)+ " contain two roots: " + path + " in "+ root.getName());
 
 			root.setName(path);
-			e = new ElementDefn();
+			e = new TypeDefn();
 			e.setName(path);
-			root.setRoot(e);
+			root.setRoot((TypeDefn) e);
 		} else {
 			e = makeFromPath(root.getRoot(), path, row, profileName, true);
 		}
@@ -802,7 +805,7 @@ public class SpreadsheetParser {
 		TypeParser tp = new TypeParser();
 		e.getTypes().addAll(tp.parse(t));
 		
-		e.setProfile(sheet.getColumn(row, "Profile"));
+		e.setStatedProfile(sheet.getColumn(row, "Profile"));
 		if (sheet.hasColumn(row, "Concept Domain"))
 			throw new Exception("Column 'Concept Domain' has been retired in "
 					+ path);

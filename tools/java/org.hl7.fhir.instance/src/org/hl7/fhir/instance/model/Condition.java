@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -205,7 +205,7 @@ public class Condition extends Resource {
           childrenList.add(new Property("assessment", "Resource(Any)", "Reference to a formal record of the evidence on which the staging assessment is based.", 0, java.lang.Integer.MAX_VALUE, assessment));
         }
 
-      public ConditionStageComponent copy(Condition e) {
+      public ConditionStageComponent copy() {
         ConditionStageComponent dst = new ConditionStageComponent();
         dst.summary = summary == null ? null : summary.copy();
         dst.assessment = new ArrayList<ResourceReference>();
@@ -283,7 +283,7 @@ public class Condition extends Resource {
           childrenList.add(new Property("detail", "Resource(Any)", "Links to other relevant information, including pathology reports.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
-      public ConditionEvidenceComponent copy(Condition e) {
+      public ConditionEvidenceComponent copy() {
         ConditionEvidenceComponent dst = new ConditionEvidenceComponent();
         dst.code = code == null ? null : code.copy();
         dst.detail = new ArrayList<ResourceReference>();
@@ -368,7 +368,7 @@ public class Condition extends Resource {
           childrenList.add(new Property("detail", "string", "Detailed anatomical location information.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
-      public ConditionLocationComponent copy(Condition e) {
+      public ConditionLocationComponent copy() {
         ConditionLocationComponent dst = new ConditionLocationComponent();
         dst.code = code == null ? null : code.copy();
         dst.detail = detail == null ? null : detail.copy();
@@ -493,7 +493,7 @@ public class Condition extends Resource {
           childrenList.add(new Property("target", "Resource(Condition|Procedure|MedicationAdministration|Immunization|MedicationStatement)", "Target of the relationship.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
-      public ConditionRelatedItemComponent copy(Condition e) {
+      public ConditionRelatedItemComponent copy() {
         ConditionRelatedItemComponent dst = new ConditionRelatedItemComponent();
         dst.type = type == null ? null : type.copy();
         dst.code = code == null ? null : code.copy();
@@ -1020,16 +1020,16 @@ public class Condition extends Resource {
         dst.severity = severity == null ? null : severity.copy();
         dst.onset = onset == null ? null : onset.copy();
         dst.abatement = abatement == null ? null : abatement.copy();
-        dst.stage = stage == null ? null : stage.copy(dst);
+        dst.stage = stage == null ? null : stage.copy();
         dst.evidence = new ArrayList<ConditionEvidenceComponent>();
         for (ConditionEvidenceComponent i : evidence)
-          dst.evidence.add(i.copy(dst));
+          dst.evidence.add(i.copy());
         dst.location = new ArrayList<ConditionLocationComponent>();
         for (ConditionLocationComponent i : location)
-          dst.location.add(i.copy(dst));
+          dst.location.add(i.copy());
         dst.relatedItem = new ArrayList<ConditionRelatedItemComponent>();
         for (ConditionRelatedItemComponent i : relatedItem)
-          dst.relatedItem.add(i.copy(dst));
+          dst.relatedItem.add(i.copy());
         dst.notes = notes == null ? null : notes.copy();
         return dst;
       }

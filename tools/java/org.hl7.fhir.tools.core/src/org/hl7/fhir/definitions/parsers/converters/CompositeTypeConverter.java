@@ -47,7 +47,7 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class CompositeTypeConverter {
 	public static List<CompositeTypeDefn> buildCompositeTypesFromFhirModel(
-			Collection<org.hl7.fhir.definitions.model.ElementDefn> types,
+			Collection<? extends org.hl7.fhir.definitions.model.ElementDefn> types,
 			CompositeTypeDefn scope) throws Exception {
 		List<CompositeTypeDefn> result = new ArrayList<CompositeTypeDefn>();
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -269,7 +269,7 @@ public class Encounter extends Resource {
           childrenList.add(new Property("individual", "Resource(Practitioner|RelatedPerson)", "Persons involved in the encounter other than the patient.", 0, java.lang.Integer.MAX_VALUE, individual));
         }
 
-      public EncounterParticipantComponent copy(Encounter e) {
+      public EncounterParticipantComponent copy() {
         EncounterParticipantComponent dst = new EncounterParticipantComponent();
         dst.type = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : type)
@@ -630,7 +630,7 @@ public class Encounter extends Resource {
           childrenList.add(new Property("reAdmission", "boolean", "Whether this hospitalization is a readmission.", 0, java.lang.Integer.MAX_VALUE, reAdmission));
         }
 
-      public EncounterHospitalizationComponent copy(Encounter e) {
+      public EncounterHospitalizationComponent copy() {
         EncounterHospitalizationComponent dst = new EncounterHospitalizationComponent();
         dst.preAdmissionIdentifier = preAdmissionIdentifier == null ? null : preAdmissionIdentifier.copy();
         dst.origin = origin == null ? null : origin.copy();
@@ -638,7 +638,7 @@ public class Encounter extends Resource {
         dst.period = period == null ? null : period.copy();
         dst.accomodation = new ArrayList<EncounterHospitalizationAccomodationComponent>();
         for (EncounterHospitalizationAccomodationComponent i : accomodation)
-          dst.accomodation.add(i.copy(e));
+          dst.accomodation.add(i.copy());
         dst.diet = diet == null ? null : diet.copy();
         dst.specialCourtesy = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : specialCourtesy)
@@ -728,7 +728,7 @@ public class Encounter extends Resource {
           childrenList.add(new Property("period", "Period", "Period during which the patient was assigned the bed.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
-      public EncounterHospitalizationAccomodationComponent copy(Encounter e) {
+      public EncounterHospitalizationAccomodationComponent copy() {
         EncounterHospitalizationAccomodationComponent dst = new EncounterHospitalizationAccomodationComponent();
         dst.bed = bed == null ? null : bed.copy();
         dst.period = period == null ? null : period.copy();
@@ -816,7 +816,7 @@ public class Encounter extends Resource {
           childrenList.add(new Property("period", "Period", "Time period during which the patient was present at the location.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
-      public EncounterLocationComponent copy(Encounter e) {
+      public EncounterLocationComponent copy() {
         EncounterLocationComponent dst = new EncounterLocationComponent();
         dst.location = location == null ? null : location.copy();
         dst.period = period == null ? null : period.copy();
@@ -1332,17 +1332,17 @@ public class Encounter extends Resource {
         dst.subject = subject == null ? null : subject.copy();
         dst.participant = new ArrayList<EncounterParticipantComponent>();
         for (EncounterParticipantComponent i : participant)
-          dst.participant.add(i.copy(dst));
+          dst.participant.add(i.copy());
         dst.fulfills = fulfills == null ? null : fulfills.copy();
         dst.period = period == null ? null : period.copy();
         dst.length = length == null ? null : length.copy();
         dst.reason = reason == null ? null : reason.copy();
         dst.indication = indication == null ? null : indication.copy();
         dst.priority = priority == null ? null : priority.copy();
-        dst.hospitalization = hospitalization == null ? null : hospitalization.copy(dst);
+        dst.hospitalization = hospitalization == null ? null : hospitalization.copy();
         dst.location = new ArrayList<EncounterLocationComponent>();
         for (EncounterLocationComponent i : location)
-          dst.location.add(i.copy(dst));
+          dst.location.add(i.copy());
         dst.serviceProvider = serviceProvider == null ? null : serviceProvider.copy();
         dst.partOf = partOf == null ? null : partOf.copy();
         return dst;

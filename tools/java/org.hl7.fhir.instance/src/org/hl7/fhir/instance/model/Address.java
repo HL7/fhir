@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -243,6 +243,17 @@ P.O. Box number, delivery hints, and similar address information.)
       t.setValue(value);
       this.line.add(t);
       return t;
+    }
+
+    /**
+     * @param value {@link #line} (This component contains the house number, apartment number, street name, street direction, 
+P.O. Box number, delivery hints, and similar address information.)
+     */
+    public boolean hasLineSimple(String value) { 
+      for (String_ v : this.line)
+        if (v.getValue().equals(value))
+          return true;
+      return false;
     }
 
     /**

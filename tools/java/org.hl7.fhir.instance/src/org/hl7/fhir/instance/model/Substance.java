@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -133,7 +133,7 @@ public class Substance extends Resource {
           childrenList.add(new Property("quantity", "Quantity", "The amount of the substance.", 0, java.lang.Integer.MAX_VALUE, quantity));
         }
 
-      public SubstanceInstanceComponent copy(Substance e) {
+      public SubstanceInstanceComponent copy() {
         SubstanceInstanceComponent dst = new SubstanceInstanceComponent();
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.expiry = expiry == null ? null : expiry.copy();
@@ -221,7 +221,7 @@ public class Substance extends Resource {
           childrenList.add(new Property("substance", "Resource(Substance)", "Another substance that is a component of this substance.", 0, java.lang.Integer.MAX_VALUE, substance));
         }
 
-      public SubstanceIngredientComponent copy(Substance e) {
+      public SubstanceIngredientComponent copy() {
         SubstanceIngredientComponent dst = new SubstanceIngredientComponent();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.substance = substance == null ? null : substance.copy();
@@ -356,10 +356,10 @@ public class Substance extends Resource {
         Substance dst = new Substance();
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
-        dst.instance = instance == null ? null : instance.copy(dst);
+        dst.instance = instance == null ? null : instance.copy();
         dst.ingredient = new ArrayList<SubstanceIngredientComponent>();
         for (SubstanceIngredientComponent i : ingredient)
-          dst.ingredient.add(i.copy(dst));
+          dst.ingredient.add(i.copy());
         return dst;
       }
 

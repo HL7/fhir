@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -153,7 +153,7 @@ public class Procedure extends Resource {
           childrenList.add(new Property("role", "CodeableConcept", "E.g. surgeon, anaethetist, endoscopist.", 0, java.lang.Integer.MAX_VALUE, role));
         }
 
-      public ProcedurePerformerComponent copy(Procedure e) {
+      public ProcedurePerformerComponent copy() {
         ProcedurePerformerComponent dst = new ProcedurePerformerComponent();
         dst.person = person == null ? null : person.copy();
         dst.role = role == null ? null : role.copy();
@@ -256,7 +256,7 @@ public class Procedure extends Resource {
           childrenList.add(new Property("target", "Resource(AdverseReaction|AllergyIntolerance|CarePlan|Condition|DeviceObservationReport|DiagnosticReport|FamilyHistory|ImagingStudy|Immunization|ImmunizationRecommendation|MedicationAdministration|MedicationDispense|MedicationPrescription|MedicationStatement|Observation|Procedure)", "The related item - e.g. a procedure.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
-      public ProcedureRelatedItemComponent copy(Procedure e) {
+      public ProcedureRelatedItemComponent copy() {
         ProcedureRelatedItemComponent dst = new ProcedureRelatedItemComponent();
         dst.type = type == null ? null : type.copy();
         dst.target = target == null ? null : target.copy();
@@ -729,7 +729,7 @@ public class Procedure extends Resource {
           dst.indication.add(i.copy());
         dst.performer = new ArrayList<ProcedurePerformerComponent>();
         for (ProcedurePerformerComponent i : performer)
-          dst.performer.add(i.copy(dst));
+          dst.performer.add(i.copy());
         dst.date = date == null ? null : date.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
@@ -742,7 +742,7 @@ public class Procedure extends Resource {
         dst.followUp = followUp == null ? null : followUp.copy();
         dst.relatedItem = new ArrayList<ProcedureRelatedItemComponent>();
         for (ProcedureRelatedItemComponent i : relatedItem)
-          dst.relatedItem.add(i.copy(dst));
+          dst.relatedItem.add(i.copy());
         dst.notes = notes == null ? null : notes.copy();
         return dst;
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -238,6 +238,16 @@ public class OperationOutcome extends Resource {
           return t;
         }
 
+        /**
+         * @param value {@link #location} (A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
+         */
+        public boolean hasLocationSimple(String value) { 
+          for (String_ v : this.location)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("severity", "code", "Indicates whether the issue indicates a variation from successful processing.", 0, java.lang.Integer.MAX_VALUE, severity));
@@ -246,7 +256,7 @@ public class OperationOutcome extends Resource {
           childrenList.add(new Property("location", "string", "A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.", 0, java.lang.Integer.MAX_VALUE, location));
         }
 
-      public OperationOutcomeIssueComponent copy(OperationOutcome e) {
+      public OperationOutcomeIssueComponent copy() {
         OperationOutcomeIssueComponent dst = new OperationOutcomeIssueComponent();
         dst.severity = severity == null ? null : severity.copy();
         dst.type = type == null ? null : type.copy();
@@ -296,7 +306,7 @@ public class OperationOutcome extends Resource {
         OperationOutcome dst = new OperationOutcome();
         dst.issue = new ArrayList<OperationOutcomeIssueComponent>();
         for (OperationOutcomeIssueComponent i : issue)
-          dst.issue.add(i.copy(dst));
+          dst.issue.add(i.copy());
         return dst;
       }
 

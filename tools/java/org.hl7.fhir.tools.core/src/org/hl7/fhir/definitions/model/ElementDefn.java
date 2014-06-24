@@ -74,7 +74,7 @@ public class ElementDefn {
 	
 	private String profileName; // only in a profile, for slicing
 	private String discriminator; // when slicing
-	private String profile; // means some profile is applicable to this data type or resource reference
+	private String statedProfile; // means some profile is applicable to this data type or resource reference
 	private String value; // only in a profile
 	private String aggregation; // only in a profile
 	private ElementComponent derivation;
@@ -639,12 +639,12 @@ public class ElementDefn {
       return aliases;
     }
 
-    public String getProfile() {
-      return profile;
+    public String getStatedProfile() {
+      return statedProfile;
     }
 
-    public void setProfile(String profile) {
-      this.profile = profile;
+    public void setStatedProfile(String profile) {
+      this.statedProfile = profile;
     }
 
 	public void addMapping(String name, String value) {
@@ -767,6 +767,10 @@ public class ElementDefn {
 
   public List<String> getTasks() {
     return tasks;
+  }
+
+  public boolean hasStatedProfile() {
+    return !Utilities.noString(statedProfile);
   }
 	
 	

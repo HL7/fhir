@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -252,7 +252,7 @@ public class List_ extends Resource {
           childrenList.add(new Property("item", "Resource(Any)", "A reference to the actual resource from which data was derived.", 0, java.lang.Integer.MAX_VALUE, item));
         }
 
-      public ListEntryComponent copy(List_ e) {
+      public ListEntryComponent copy() {
         ListEntryComponent dst = new ListEntryComponent();
         dst.flag = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : flag)
@@ -585,7 +585,7 @@ public class List_ extends Resource {
         dst.mode = mode == null ? null : mode.copy();
         dst.entry = new ArrayList<ListEntryComponent>();
         for (ListEntryComponent i : entry)
-          dst.entry.add(i.copy(dst));
+          dst.entry.add(i.copy());
         dst.emptyReason = emptyReason == null ? null : emptyReason.copy();
         return dst;
       }

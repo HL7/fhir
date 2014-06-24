@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -249,7 +249,7 @@ public class Patient extends Resource {
           childrenList.add(new Property("organization", "Resource(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, java.lang.Integer.MAX_VALUE, organization));
         }
 
-      public ContactComponent copy(Patient e) {
+      public ContactComponent copy() {
         ContactComponent dst = new ContactComponent();
         dst.relationship = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : relationship)
@@ -345,7 +345,7 @@ public class Patient extends Resource {
           childrenList.add(new Property("genderStatus", "CodeableConcept", "Indicates the current state of the animal's reproductive organs.", 0, java.lang.Integer.MAX_VALUE, genderStatus));
         }
 
-      public AnimalComponent copy(Patient e) {
+      public AnimalComponent copy() {
         AnimalComponent dst = new AnimalComponent();
         dst.species = species == null ? null : species.copy();
         dst.breed = breed == null ? null : breed.copy();
@@ -451,7 +451,7 @@ public class Patient extends Resource {
           childrenList.add(new Property("type", "code", "The type of link between this patient resource and another patient resource.", 0, java.lang.Integer.MAX_VALUE, type));
         }
 
-      public PatientLinkComponent copy(Patient e) {
+      public PatientLinkComponent copy() {
         PatientLinkComponent dst = new PatientLinkComponent();
         dst.other = other == null ? null : other.copy();
         dst.type = type == null ? null : type.copy();
@@ -943,8 +943,8 @@ public class Patient extends Resource {
           dst.photo.add(i.copy());
         dst.contact = new ArrayList<ContactComponent>();
         for (ContactComponent i : contact)
-          dst.contact.add(i.copy(dst));
-        dst.animal = animal == null ? null : animal.copy(dst);
+          dst.contact.add(i.copy());
+        dst.animal = animal == null ? null : animal.copy();
         dst.communication = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : communication)
           dst.communication.add(i.copy());
@@ -954,7 +954,7 @@ public class Patient extends Resource {
         dst.managingOrganization = managingOrganization == null ? null : managingOrganization.copy();
         dst.link = new ArrayList<PatientLinkComponent>();
         for (PatientLinkComponent i : link)
-          dst.link.add(i.copy(dst));
+          dst.link.add(i.copy());
         dst.active = active == null ? null : active.copy();
         return dst;
       }

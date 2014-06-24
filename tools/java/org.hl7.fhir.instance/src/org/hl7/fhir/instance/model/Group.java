@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -210,7 +210,7 @@ public class Group extends Resource {
           childrenList.add(new Property("exclude", "boolean", "If true, indicates the characteristic is one that is NOT held by members of the group.", 0, java.lang.Integer.MAX_VALUE, exclude));
         }
 
-      public GroupCharacteristicComponent copy(Group e) {
+      public GroupCharacteristicComponent copy() {
         GroupCharacteristicComponent dst = new GroupCharacteristicComponent();
         dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
@@ -506,7 +506,7 @@ public class Group extends Resource {
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.characteristic = new ArrayList<GroupCharacteristicComponent>();
         for (GroupCharacteristicComponent i : characteristic)
-          dst.characteristic.add(i.copy(dst));
+          dst.characteristic.add(i.copy());
         dst.member = new ArrayList<ResourceReference>();
         for (ResourceReference i : member)
           dst.member.add(i.copy());

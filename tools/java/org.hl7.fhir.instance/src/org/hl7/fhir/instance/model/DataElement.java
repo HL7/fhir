@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -317,7 +317,7 @@ public class DataElement extends Resource {
           childrenList.add(new Property("valueSet", "Resource(ValueSet)", "Points to the value set that identifies the set of codes to be used.", 0, java.lang.Integer.MAX_VALUE, valueSet));
         }
 
-      public DataElementBindingComponent copy(DataElement e) {
+      public DataElementBindingComponent copy() {
         DataElementBindingComponent dst = new DataElementBindingComponent();
         dst.isExtensible = isExtensible == null ? null : isExtensible.copy();
         dst.conformance = conformance == null ? null : conformance.copy();
@@ -508,7 +508,7 @@ public class DataElement extends Resource {
           childrenList.add(new Property("map", "string", "Expresses what part of the target specification corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, map));
         }
 
-      public DataElementMappingComponent copy(DataElement e) {
+      public DataElementMappingComponent copy() {
         DataElementMappingComponent dst = new DataElementMappingComponent();
         dst.uri = uri == null ? null : uri.copy();
         dst.name = name == null ? null : name.copy();
@@ -1044,6 +1044,16 @@ public class DataElement extends Resource {
     }
 
     /**
+     * @param value {@link #synonym} (Identifies additional names by which this element might also be known.)
+     */
+    public boolean hasSynonymSimple(String value) { 
+      for (String_ v : this.synonym)
+        if (v.getValue().equals(value))
+          return true;
+      return false;
+    }
+
+    /**
      * @return {@link #type} (The FHIR data type that is the type for this element.)
      */
     public Code getType() { 
@@ -1229,10 +1239,10 @@ public class DataElement extends Resource {
         dst.example = example == null ? null : example.copy();
         dst.maxLength = maxLength == null ? null : maxLength.copy();
         dst.units = units == null ? null : units.copy();
-        dst.binding = binding == null ? null : binding.copy(dst);
+        dst.binding = binding == null ? null : binding.copy();
         dst.mapping = new ArrayList<DataElementMappingComponent>();
         for (DataElementMappingComponent i : mapping)
-          dst.mapping.add(i.copy(dst));
+          dst.mapping.add(i.copy());
         return dst;
       }
 

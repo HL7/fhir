@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -217,6 +217,16 @@ public class Composition extends Resource {
         }
 
         /**
+         * @param value {@link #mode} (The type of attestation the authenticator offers.)
+         */
+        public boolean hasModeSimple(CompositionAttestationMode value) { 
+          for (Enumeration<CompositionAttestationMode> v : this.mode)
+            if (v.getValue().equals(value))
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #time} (When composition was attested by the party.)
          */
         public DateTime getTime() { 
@@ -289,7 +299,7 @@ public class Composition extends Resource {
           childrenList.add(new Property("party", "Resource(Patient|Practitioner|Organization)", "Who attested the composition in the specified way.", 0, java.lang.Integer.MAX_VALUE, party));
         }
 
-      public CompositionAttesterComponent copy(Composition e) {
+      public CompositionAttesterComponent copy() {
         CompositionAttesterComponent dst = new CompositionAttesterComponent();
         dst.mode = new ArrayList<Enumeration<CompositionAttestationMode>>();
         for (Enumeration<CompositionAttestationMode> i : mode)
@@ -391,7 +401,7 @@ public class Composition extends Resource {
           childrenList.add(new Property("detail", "Resource(Any)", "Full details for the event(s) the composition/documentation consents.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
-      public CompositionEventComponent copy(Composition e) {
+      public CompositionEventComponent copy() {
         CompositionEventComponent dst = new CompositionEventComponent();
         dst.code = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : code)
@@ -584,7 +594,7 @@ public class Composition extends Resource {
           childrenList.add(new Property("section", "@Composition.section", "A nested sub-section within this section.", 0, java.lang.Integer.MAX_VALUE, section));
         }
 
-      public SectionComponent copy(Composition e) {
+      public SectionComponent copy() {
         SectionComponent dst = new SectionComponent();
         dst.title = title == null ? null : title.copy();
         dst.code = code == null ? null : code.copy();
@@ -592,7 +602,7 @@ public class Composition extends Resource {
         dst.content = content == null ? null : content.copy();
         dst.section = new ArrayList<SectionComponent>();
         for (SectionComponent i : section)
-          dst.section.add(i.copy(e));
+          dst.section.add(i.copy());
         return dst;
       }
 
@@ -1059,13 +1069,13 @@ public class Composition extends Resource {
           dst.author.add(i.copy());
         dst.attester = new ArrayList<CompositionAttesterComponent>();
         for (CompositionAttesterComponent i : attester)
-          dst.attester.add(i.copy(dst));
+          dst.attester.add(i.copy());
         dst.custodian = custodian == null ? null : custodian.copy();
-        dst.event = event == null ? null : event.copy(dst);
+        dst.event = event == null ? null : event.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.section = new ArrayList<SectionComponent>();
         for (SectionComponent i : section)
-          dst.section.add(i.copy(dst));
+          dst.section.add(i.copy());
         return dst;
       }
 

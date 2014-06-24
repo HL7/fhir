@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -224,7 +224,7 @@ public class FamilyHistory extends Resource {
           childrenList.add(new Property("condition", "", "The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.", 0, java.lang.Integer.MAX_VALUE, condition));
         }
 
-      public FamilyHistoryRelationComponent copy(FamilyHistory e) {
+      public FamilyHistoryRelationComponent copy() {
         FamilyHistoryRelationComponent dst = new FamilyHistoryRelationComponent();
         dst.name = name == null ? null : name.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
@@ -233,7 +233,7 @@ public class FamilyHistory extends Resource {
         dst.note = note == null ? null : note.copy();
         dst.condition = new ArrayList<FamilyHistoryRelationConditionComponent>();
         for (FamilyHistoryRelationConditionComponent i : condition)
-          dst.condition.add(i.copy(e));
+          dst.condition.add(i.copy());
         return dst;
       }
 
@@ -360,7 +360,7 @@ public class FamilyHistory extends Resource {
           childrenList.add(new Property("note", "string", "An area where general notes can be placed about this specific condition.", 0, java.lang.Integer.MAX_VALUE, note));
         }
 
-      public FamilyHistoryRelationConditionComponent copy(FamilyHistory e) {
+      public FamilyHistoryRelationConditionComponent copy() {
         FamilyHistoryRelationConditionComponent dst = new FamilyHistoryRelationConditionComponent();
         dst.type = type == null ? null : type.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
@@ -567,7 +567,7 @@ public class FamilyHistory extends Resource {
         dst.note = note == null ? null : note.copy();
         dst.relation = new ArrayList<FamilyHistoryRelationComponent>();
         for (FamilyHistoryRelationComponent i : relation)
-          dst.relation.add(i.copy(dst));
+          dst.relation.add(i.copy());
         return dst;
       }
 

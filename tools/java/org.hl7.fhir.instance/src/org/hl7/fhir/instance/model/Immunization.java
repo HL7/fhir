@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -95,7 +95,7 @@ public class Immunization extends Resource {
           childrenList.add(new Property("refusalReason", "CodeableConcept", "Refusal or exemption reasons.", 0, java.lang.Integer.MAX_VALUE, refusalReason));
         }
 
-      public ImmunizationExplanationComponent copy(Immunization e) {
+      public ImmunizationExplanationComponent copy() {
         ImmunizationExplanationComponent dst = new ImmunizationExplanationComponent();
         dst.reason = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : reason)
@@ -244,7 +244,7 @@ public class Immunization extends Resource {
           childrenList.add(new Property("reported", "boolean", "Self-reported indicator.", 0, java.lang.Integer.MAX_VALUE, reported));
         }
 
-      public ImmunizationReactionComponent copy(Immunization e) {
+      public ImmunizationReactionComponent copy() {
         ImmunizationReactionComponent dst = new ImmunizationReactionComponent();
         dst.date = date == null ? null : date.copy();
         dst.detail = detail == null ? null : detail.copy();
@@ -540,7 +540,7 @@ public class Immunization extends Resource {
           childrenList.add(new Property("doseStatusReason", "CodeableConcept", "Provides an explanation as to why a immunization event should or should not count against the protocol.", 0, java.lang.Integer.MAX_VALUE, doseStatusReason));
         }
 
-      public ImmunizationVaccinationProtocolComponent copy(Immunization e) {
+      public ImmunizationVaccinationProtocolComponent copy() {
         ImmunizationVaccinationProtocolComponent dst = new ImmunizationVaccinationProtocolComponent();
         dst.doseSequence = doseSequence == null ? null : doseSequence.copy();
         dst.description = description == null ? null : description.copy();
@@ -1170,13 +1170,13 @@ public class Immunization extends Resource {
         dst.site = site == null ? null : site.copy();
         dst.route = route == null ? null : route.copy();
         dst.doseQuantity = doseQuantity == null ? null : doseQuantity.copy();
-        dst.explanation = explanation == null ? null : explanation.copy(dst);
+        dst.explanation = explanation == null ? null : explanation.copy();
         dst.reaction = new ArrayList<ImmunizationReactionComponent>();
         for (ImmunizationReactionComponent i : reaction)
-          dst.reaction.add(i.copy(dst));
+          dst.reaction.add(i.copy());
         dst.vaccinationProtocol = new ArrayList<ImmunizationVaccinationProtocolComponent>();
         for (ImmunizationVaccinationProtocolComponent i : vaccinationProtocol)
-          dst.vaccinationProtocol.add(i.copy(dst));
+          dst.vaccinationProtocol.add(i.copy());
         return dst;
       }
 

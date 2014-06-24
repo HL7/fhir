@@ -565,8 +565,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       w = w + t.getName().length(); // again, could be wrong if this is an extension, but then it won't wrap
       if (t.isXhtml() || t.getName().equals("list"))
         write(t.getName());
-      else if (t.getName().equals("Extension") && t.getParams().size() == 0 && !Utilities.noString(elem.getProfile()))
-        write("<a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getProfile().substring(1)+"</span></a>");     
+      else if (t.getName().equals("Extension") && t.getParams().size() == 0 && !Utilities.noString(elem.getStatedProfile()))
+        write("<a href=\""+elem.getStatedProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getStatedProfile().substring(1)+"</span></a>");     
       else
         write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(t.getName())
             + ".html#" + t.getName() + "\">" + t.getName()).replace("[", "_").replace("]", "_")
@@ -605,8 +605,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           else if (p.equals("Any")) {
             write("<a href=\"" + "resourcelist.html" + "\">" + p + "</a>");								
           }
-          else if (t.getName().equals("Resource") && t.getParams().size() == 1 && !Utilities.noString(elem.getProfile()))
-            write("<a href=\""+elem.getProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getProfile().substring(1)+"</span></a>");     
+          else if (t.getName().equals("Resource") && t.getParams().size() == 1 && !Utilities.noString(elem.getStatedProfile()))
+            write("<a href=\""+elem.getStatedProfile()+"\"><span style=\"color: DarkViolet\">@"+elem.getStatedProfile().substring(1)+"</span></a>");     
           else
             write("<a href=\"" + (dtRoot + GeneratorUtils.getSrcFile(p)
                 + ".html#" + p).replace("[", "_").replace("]", "_") + "\">" + p + "</a>");

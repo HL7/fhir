@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -93,12 +93,12 @@ public class DeviceObservationReport extends Resource {
           childrenList.add(new Property("channel", "", "Groups together physiological measurement data and derived data.", 0, java.lang.Integer.MAX_VALUE, channel));
         }
 
-      public DeviceObservationReportVirtualDeviceComponent copy(DeviceObservationReport e) {
+      public DeviceObservationReportVirtualDeviceComponent copy() {
         DeviceObservationReportVirtualDeviceComponent dst = new DeviceObservationReportVirtualDeviceComponent();
         dst.code = code == null ? null : code.copy();
         dst.channel = new ArrayList<DeviceObservationReportVirtualDeviceChannelComponent>();
         for (DeviceObservationReportVirtualDeviceChannelComponent i : channel)
-          dst.channel.add(i.copy(e));
+          dst.channel.add(i.copy());
         return dst;
       }
 
@@ -159,12 +159,12 @@ public class DeviceObservationReport extends Resource {
           childrenList.add(new Property("metric", "", "A piece of measured or derived data that is reported by the machine.", 0, java.lang.Integer.MAX_VALUE, metric));
         }
 
-      public DeviceObservationReportVirtualDeviceChannelComponent copy(DeviceObservationReport e) {
+      public DeviceObservationReportVirtualDeviceChannelComponent copy() {
         DeviceObservationReportVirtualDeviceChannelComponent dst = new DeviceObservationReportVirtualDeviceChannelComponent();
         dst.code = code == null ? null : code.copy();
         dst.metric = new ArrayList<DeviceObservationReportVirtualDeviceChannelMetricComponent>();
         for (DeviceObservationReportVirtualDeviceChannelMetricComponent i : metric)
-          dst.metric.add(i.copy(e));
+          dst.metric.add(i.copy());
         return dst;
       }
 
@@ -227,7 +227,7 @@ public class DeviceObservationReport extends Resource {
           childrenList.add(new Property("observation", "Resource(Observation)", "The data for the metric.", 0, java.lang.Integer.MAX_VALUE, observation));
         }
 
-      public DeviceObservationReportVirtualDeviceChannelMetricComponent copy(DeviceObservationReport e) {
+      public DeviceObservationReportVirtualDeviceChannelMetricComponent copy() {
         DeviceObservationReportVirtualDeviceChannelMetricComponent dst = new DeviceObservationReportVirtualDeviceChannelMetricComponent();
         dst.observation = observation == null ? null : observation.copy();
         return dst;
@@ -423,7 +423,7 @@ public class DeviceObservationReport extends Resource {
         dst.subject = subject == null ? null : subject.copy();
         dst.virtualDevice = new ArrayList<DeviceObservationReportVirtualDeviceComponent>();
         for (DeviceObservationReportVirtualDeviceComponent i : virtualDevice)
-          dst.virtualDevice.add(i.copy(dst));
+          dst.virtualDevice.add(i.copy());
         return dst;
       }
 

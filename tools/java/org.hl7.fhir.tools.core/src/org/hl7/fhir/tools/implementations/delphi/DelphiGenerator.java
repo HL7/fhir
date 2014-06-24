@@ -48,6 +48,7 @@ import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.PrimitiveType;
+import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameter;
 import org.hl7.fhir.definitions.model.TypeRef;
@@ -157,7 +158,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       generate(n, "TFhirType", false, false, ClassCategory.Type);
     }
 
-    for (DefinedCode c : definitions.getConstraints().values()) {
+    for (ProfiledType c : definitions.getConstraints().values()) {
       genConstraint(c);
     }
     parserGap();
@@ -1990,7 +1991,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     } else if (tn.equals("Any")) {
       return "Resource";
     } else if (definitions.getConstraints().containsKey(tn)) {
-      return getTypeName(definitions.getConstraints().get(tn).getComment(), complex);
+      return getTypeName(definitions.getConstraints().get(tn).getBaseType(), complex);
     } else {
       return "TFhir"+getTitle(tn);
     }
@@ -2001,16 +2002,16 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     return "pascal";
   }
 
-  public void genConstraint(DefinedCode c) {
-    prsrdefX.append("    function Parse"+c.getCode()+"(element : IXmlDomElement; path : string) : TFhir"+c.getCode()+";\r\n");
-    srlsdefX.append("    procedure Compose"+c.getCode()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getCode()+");\r\n");
-    prsrdefJ.append("    function Parse"+c.getCode()+"(jsn : TJsonObject) : TFhir"+c.getCode()+"; overload;\r\n");
-    srlsdefJ.append("    procedure Compose"+c.getCode()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getCode()+");\r\n");
-    defCodeType.classDefs.add("  TFhir"+c.getCode()+" = TFhir"+c.getComment()+";\r\n");
-    prsrImpl.append("function TFHIRXmlParser.Parse"+c.getCode()+"(element : IXmlDomElement; path : string) : TFhir"+c.getCode()+";\r\nbegin\r\n  result := Parse"+c.getComment()+"(element, path);\r\nend;\r\n\r\n");
-    prsrImpl.append("procedure TFHIRXmlComposer.Compose"+c.getCode()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getCode()+");\r\nbegin\r\n  Compose"+c.getComment()+"(xml, name, elem);\r\nend;\r\n\r\n");
-    prsrImpl.append("function TFHIRJsonParser.Parse"+c.getCode()+"(jsn : TJsonObject) : TFhir"+c.getCode()+";\r\nbegin\r\n  result := Parse"+c.getComment()+"(jsn);\r\nend;\r\n\r\n");
-    prsrImpl.append("procedure TFHIRJsonComposer.Compose"+c.getCode()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getCode()+");\r\nbegin\r\n  Compose"+c.getComment()+"(json, name, elem);\r\nend;\r\n\r\n");
+  public void genConstraint(ProfiledType c) {
+    prsrdefX.append("    function Parse"+c.getName()+"(element : IXmlDomElement; path : string) : TFhir"+c.getName()+";\r\n");
+    srlsdefX.append("    procedure Compose"+c.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getName()+");\r\n");
+    prsrdefJ.append("    function Parse"+c.getName()+"(jsn : TJsonObject) : TFhir"+c.getName()+"; overload;\r\n");
+    srlsdefJ.append("    procedure Compose"+c.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getName()+");\r\n");
+    defCodeType.classDefs.add("  TFhir"+c.getName()+" = TFhir"+c.getBaseType()+";\r\n");
+    prsrImpl.append("function TFHIRXmlParser.Parse"+c.getName()+"(element : IXmlDomElement; path : string) : TFhir"+c.getName()+";\r\nbegin\r\n  result := Parse"+c.getBaseType()+"(element, path);\r\nend;\r\n\r\n");
+    prsrImpl.append("procedure TFHIRXmlComposer.Compose"+c.getName()+"(xml : TXmlBuilder; name : string; elem : TFhir"+c.getName()+");\r\nbegin\r\n  Compose"+c.getBaseType()+"(xml, name, elem);\r\nend;\r\n\r\n");
+    prsrImpl.append("function TFHIRJsonParser.Parse"+c.getName()+"(jsn : TJsonObject) : TFhir"+c.getName()+";\r\nbegin\r\n  result := Parse"+c.getBaseType()+"(jsn);\r\nend;\r\n\r\n");
+    prsrImpl.append("procedure TFHIRJsonComposer.Compose"+c.getName()+"(json : TJSONWriter; name : string; elem : TFhir"+c.getName()+");\r\nbegin\r\n  Compose"+c.getBaseType()+"(json, name, elem);\r\nend;\r\n\r\n");
   }
 
 

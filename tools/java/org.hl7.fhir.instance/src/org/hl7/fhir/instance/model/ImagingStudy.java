@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -1246,7 +1246,7 @@ public class ImagingStudy extends Resource {
           childrenList.add(new Property("instance", "", "A single image taken from a patient.", 0, java.lang.Integer.MAX_VALUE, instance));
         }
 
-      public ImagingStudySeriesComponent copy(ImagingStudy e) {
+      public ImagingStudySeriesComponent copy() {
         ImagingStudySeriesComponent dst = new ImagingStudySeriesComponent();
         dst.number = number == null ? null : number.copy();
         dst.modality = modality == null ? null : modality.copy();
@@ -1259,7 +1259,7 @@ public class ImagingStudy extends Resource {
         dst.dateTime = dateTime == null ? null : dateTime.copy();
         dst.instance = new ArrayList<ImagingStudySeriesInstanceComponent>();
         for (ImagingStudySeriesInstanceComponent i : instance)
-          dst.instance.add(i.copy(e));
+          dst.instance.add(i.copy());
         return dst;
       }
 
@@ -1567,7 +1567,7 @@ public class ImagingStudy extends Resource {
           childrenList.add(new Property("attachment", "Resource(Any)", "A FHIR resource with content for this instance.", 0, java.lang.Integer.MAX_VALUE, attachment));
         }
 
-      public ImagingStudySeriesInstanceComponent copy(ImagingStudy e) {
+      public ImagingStudySeriesInstanceComponent copy() {
         ImagingStudySeriesInstanceComponent dst = new ImagingStudySeriesInstanceComponent();
         dst.number = number == null ? null : number.copy();
         dst.uid = uid == null ? null : uid.copy();
@@ -1889,6 +1889,16 @@ public class ImagingStudy extends Resource {
       t.setValue(value);
       this.modality.add(t);
       return t;
+    }
+
+    /**
+     * @param value {@link #modality} (A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).)
+     */
+    public boolean hasModalitySimple(ImagingModality value) { 
+      for (Enumeration<ImagingModality> v : this.modality)
+        if (v.getValue().equals(value))
+          return true;
+      return false;
     }
 
     /**
@@ -2242,7 +2252,7 @@ public class ImagingStudy extends Resource {
         dst.description = description == null ? null : description.copy();
         dst.series = new ArrayList<ImagingStudySeriesComponent>();
         for (ImagingStudySeriesComponent i : series)
-          dst.series.add(i.copy(dst));
+          dst.series.add(i.copy());
         return dst;
       }
 

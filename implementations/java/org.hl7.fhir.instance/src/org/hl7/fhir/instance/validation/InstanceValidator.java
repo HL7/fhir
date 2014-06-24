@@ -56,7 +56,15 @@ import org.hl7.fhir.instance.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
+import org.w3c.dom.Attr;
+import org.w3c.dom.DOMException;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.TypeInfo;
+import org.w3c.dom.UserDataHandler;
 
 
 /* 
@@ -66,11 +74,99 @@ import org.w3c.dom.Element;
 public class InstanceValidator extends BaseValidator {
   // configuration items
 
+  public abstract class WrapperElement {
+    public abstract WrapperElement getNamedChild(String name);
+    public abstract WrapperElement getFirstChild();
+    public abstract WrapperElement getNextSibling();
+    public abstract String getName();
+    public abstract String getNamedChildValue(String name);
+    public abstract void getNamedChildren(String name, List<WrapperElement> list);
+    public abstract String getAttribute(String name);
+    public abstract void getNamedChildrenWithWildcard(String name, List<WrapperElement> list);
+    public abstract boolean hasAttribute(String name);
+    public abstract Object getNamespace();
+    public abstract String getText();
+  }
+
+  public class DOMWrapperElement extends WrapperElement {
+
+    private Element element;
+
+    public DOMWrapperElement(Element element) {
+      super();
+      this.element = element;
+    }
+
+    @Override
+    public WrapperElement getNamedChild(String name) {
+      Element res = XMLUtil.getNamedChild(element, name);
+      return res == null ? null : new DOMWrapperElement(res);
+    }
+
+    @Override
+    public WrapperElement getFirstChild() {
+      Element res = XMLUtil.getFirstChild(element);
+      return res == null ? null : new DOMWrapperElement(res);
+    }
+
+    @Override
+    public WrapperElement getNextSibling() {
+      Element res = XMLUtil.getNextSibling(element);
+      return res == null ? null : new DOMWrapperElement(res);
+    }
+
+    @Override
+    public String getName() {
+      return element.getLocalName();
+    }
+
+    @Override
+    public String getNamedChildValue(String name) {
+      return XMLUtil.getNamedChildValue(element, name);
+    }
+
+    @Override
+    public void getNamedChildren(String name, List<WrapperElement> list) {
+      List<Element> el = new ArrayList<Element>();
+      XMLUtil.getNamedChildren(element, name, el);
+      for (Element e : el)
+        list.add(new DOMWrapperElement(e));
+    }
+
+    @Override
+    public String getAttribute(String name) {
+      return element.getAttribute(name);
+    }
+
+    @Override
+    public void getNamedChildrenWithWildcard(String name, List<WrapperElement> list) {
+      List<Element> el = new ArrayList<Element>();
+      XMLUtil.getNamedChildrenWithWildcard(element, name, el);
+      for (Element e : el)
+        list.add(new DOMWrapperElement(e));
+    }
+
+    @Override
+    public boolean hasAttribute(String name) {
+      return element.hasAttribute(name);
+    }
+
+    @Override
+    public String getNamespace() {
+      return element.getNamespaceURI();
+    }
+
+    @Override
+    public String getText() {
+      return element.getTextContent();
+    }
+  }
+
   public class NullExtensionResolver implements ExtensionLocatorService {
 
     @Override
     public ExtensionLocationResponse locateExtension(String uri) {
-      return new ExtensionLocationResponse(ExtensionLocatorService.Status.Unknown, null, null);
+      return new ExtensionLocationResponse(uri, ExtensionLocatorService.Status.Unknown, null, null);
     }
   }
   
@@ -176,24 +272,24 @@ public class InstanceValidator extends BaseValidator {
 
 
   public class ChildIterator {
-    private Element parent;
+    private WrapperElement parent;
     private String basePath;
     private int lastCount;
-    private Element child;
+    private WrapperElement child;
 
-    public ChildIterator(String path, Element elem) {
+    public ChildIterator(String path, WrapperElement elem) {
       parent = elem;
       basePath = path;  
     }
 
     public boolean next() {
       if (child == null) { 
-        child = XMLUtil.getFirstChild(parent);
+        child = parent.getFirstChild();
         lastCount = 0;
       } else {
-        String lastName = child.getLocalName();
-        child = XMLUtil.getNextSibling(child);
-        if (child != null && child.getLocalName().equals(lastName)) 
+        String lastName = child.getName();
+        child = child.getNextSibling();
+        if (child != null && child.getName().equals(lastName)) 
           lastCount++;
         else
           lastCount = 0;
@@ -202,17 +298,17 @@ public class InstanceValidator extends BaseValidator {
     }
 
     public String name() {
-      return child.getLocalName();
+      return child.getName();
     }
 
-    public Element element() {
+    public WrapperElement element() {
       return child;
     }
 
     public String path() {
       String sfx = "";
-      Element n = XMLUtil.getNextSibling(child);
-      if (n != null && n.getLocalName().equals(child.getLocalName())) { 
+      WrapperElement n = child.getNextSibling();
+      if (n != null && n.getName().equals(child.getName())) { 
         sfx = "["+Integer.toString(lastCount)+"]";
       }
       return basePath+"/f:"+name()+sfx;
@@ -220,12 +316,19 @@ public class InstanceValidator extends BaseValidator {
   }
 
   public void validateInstance(List<ValidationMessage> errors, Element elem) throws Exception {
+    validateInstance(errors, new DOMWrapperElement(elem));
+  }
+  public void validateInstance(List<ValidationMessage> errors, WrapperElement elem) throws Exception {
     validateInstance(errors, elem, null);  
   }
   
-  public void validateInstance(List<ValidationMessage> errors, Element elem, Profile profile) throws Exception {
-    boolean feedHasAuthor = XMLUtil.getNamedChild(elem, "author") != null;
-    if (elem.getLocalName().equals("feed")) {
+  public void validateInstance(List<ValidationMessage> errors, Element element, Profile profile) throws Exception {
+    validateInstance(errors, new DOMWrapperElement(element), profile);
+  }
+  
+  private void validateInstance(List<ValidationMessage> errors, WrapperElement elem, Profile profile) throws Exception {
+    boolean feedHasAuthor = elem.getNamedChild("author") != null;
+    if (elem.getName().equals("feed")) {
       // for now, if the user specified a profile, and it's a feed, we refuse
       if (rule(errors, "exception", "feed", profile == null, "Cannot validate a feed against a specified profile (TODO: re-assess this)")) {
         ChildIterator ci = new ChildIterator("", elem);
@@ -245,20 +348,23 @@ public class InstanceValidator extends BaseValidator {
       validate(errors, "", elem, profile);
   }
 
-  public List<ValidationMessage> validateInstance(Element elem) throws Exception {
+  public List<ValidationMessage> validateInstance(WrapperElement elem) throws Exception {
     return validateInstance(elem, null);
   }
 
   public List<ValidationMessage> validateInstance(Element elem, Profile profile) throws Exception {
+    return validateInstance(new DOMWrapperElement(elem), profile);
+  }
+  public List<ValidationMessage> validateInstance(WrapperElement elem, Profile profile) throws Exception {
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     validateInstance(errors, elem);      
     return errors;
   }
 
-  private void validateAtomEntry(List<ValidationMessage> errors, String path, Element element, boolean feedHasAuthor) throws Exception {
-    rule(errors, "invalid", path, XMLUtil.getNamedChild(element, "title") != null, "Entry must have a title");
-    rule(errors, "invalid", path, XMLUtil.getNamedChild(element, "updated") != null, "Entry must have a last updated time");
-    rule(errors, "invalid", path, feedHasAuthor || XMLUtil.getNamedChild(element, "author") != null, "Entry must have an author because the feed doesn't");
+  private void validateAtomEntry(List<ValidationMessage> errors, String path, WrapperElement element, boolean feedHasAuthor) throws Exception {
+    rule(errors, "invalid", path, element.getNamedChild("title") != null, "Entry must have a title");
+    rule(errors, "invalid", path, element.getNamedChild("updated") != null, "Entry must have a last updated time");
+    rule(errors, "invalid", path, feedHasAuthor || element.getNamedChild("author") != null, "Entry must have an author because the feed doesn't");
 
 
 
@@ -271,27 +377,27 @@ public class InstanceValidator extends BaseValidator {
       else if (ci.name().equals("link"))
         validateLink(errors, ci.path(), ci.element(), true);
       else if (ci.name().equals("content")) {
-        Element r = XMLUtil.getFirstChild(ci.element());
-        validate(errors, ci.path()+"/f:"+r.getLocalName(), r, null);
+        WrapperElement r = ci.element().getFirstChild();
+        validate(errors, ci.path()+"/f:"+r.getName(), r, null);
       }
     }
   }
 
-  private void validate(List<ValidationMessage> errors, String path, Element elem, Profile profile) throws Exception {
-    if (elem.getLocalName().equals("Binary"))
+  private void validate(List<ValidationMessage> errors, String path, WrapperElement elem, Profile profile) throws Exception {
+    if (elem.getName().equals("Binary"))
       validateBinary(elem);
     else {
-      Profile p = profile != null ? profile : getProfileForType(elem.getLocalName());
-      ProfileStructureComponent s = getStructureForType(p, elem.getLocalName());
-      if (rule(errors, "invalid", elem.getLocalName(), s != null, "Unknown Resource Type "+elem.getLocalName())) {
-        validateElement(errors, p, s, path+"/f:"+elem.getLocalName(), s.getElement().get(0), null, null, elem, elem.getLocalName());
-        if (elem.getLocalName().equals("Query"))
+      Profile p = profile != null ? profile : getProfileForType(elem.getName());
+      ProfileStructureComponent s = getStructureForType(p, elem.getName());
+      if (rule(errors, "invalid", elem.getName(), s != null, "Unknown Resource Type "+elem.getName())) {
+        validateElement(errors, p, s, path+"/f:"+elem.getName(), s.getElement().get(0), null, null, elem, elem.getName(), null);
+        if (elem.getName().equals("Query"))
           validateQuery(errors, elem);
       }
     }
   }
 
-  private void validateQuery(List<ValidationMessage> errors, Element elem) {
+  private void validateQuery(List<ValidationMessage> errors, WrapperElement elem) {
     // TODO - check that parameters match defined ones
     
   }
@@ -316,17 +422,17 @@ public class InstanceValidator extends BaseValidator {
     return types.get(id.toLowerCase());
   }
 
-  private void validateBinary(Element elem) {
+  private void validateBinary(WrapperElement elem) {
     // nothing yet
 
   }
 
-  private void validateTag(String path, Element element, boolean onEntry) {
+  private void validateTag(String path, WrapperElement element, boolean onEntry) {
     // nothing yet
 
   }
 
-  private void validateLink(List<ValidationMessage> errors, String path, Element element, boolean onEntry) {
+  private void validateLink(List<ValidationMessage> errors, String path, WrapperElement element, boolean onEntry) {
     if (rule(errors, "invalid", path, element.hasAttribute("rel"), "Link element has no '@rel'")) {
       String rel = element.getAttribute("rel");
       if (rule(errors, "invalid", path, !Utilities.noString(rel), "Link/@rel is empty")) {
@@ -338,9 +444,9 @@ public class InstanceValidator extends BaseValidator {
     }
   }
 
-  private void validateId(List<ValidationMessage> errors, String path, Element element, boolean onEntry) {
-    if (rule(errors, "invalid", path, !Utilities.noString(element.getTextContent()), "id is empty"))
-      rule(errors, "invalid", path, isAbsoluteUrl(element.getTextContent()), "Id '"+element.getTextContent()+"' is not an absolute URI (must start with http:, https:, urn:, cid:");
+  private void validateId(List<ValidationMessage> errors, String path, WrapperElement element, boolean onEntry) {
+    if (rule(errors, "invalid", path, !Utilities.noString(element.getText()), "id is empty"))
+      rule(errors, "invalid", path, isAbsoluteUrl(element.getText()), "Id '"+element.getText()+"' is not an absolute URI (must start with http:, https:, urn:, cid:");
   }
 
   private boolean isAbsoluteUrl(String url) {
@@ -357,9 +463,9 @@ public class InstanceValidator extends BaseValidator {
     return false;
   }
 
-  private void validateElement(List<ValidationMessage> errors, Profile profile, ProfileStructureComponent structure, String path, ElementComponent definition, Profile cprofile, ElementComponent context, Element element, String actualType) throws Exception {
+  private void validateElement(List<ValidationMessage> errors, Profile profile, ProfileStructureComponent structure, String path, ElementComponent definition, Profile cprofile, ElementComponent context, WrapperElement element, String actualType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
     // irrespective of what element it is, it cannot be empty
-    if (NS_FHIR.equals(element.getNamespaceURI())) {
+    if (NS_FHIR.equals(element.getNamespace())) {
       rule(errors, "invalid", path, !empty(element), "Elements must have some content (@value, @id, extensions, or children elements)");
     }
     Map<String, ElementComponent> children = ProfileUtilities.getChildMap(structure, definition.getPathSimple());
@@ -407,6 +513,7 @@ public class InstanceValidator extends BaseValidator {
         if (typeIsPrimitive(type)) 
           checkPrimitive(errors, ci.path(), type, child, ci.element());
         else {
+          ExtensionLocatorService.ExtensionLocationResponse ec = null;
           if (type.equals("Identifier"))
             checkIdentifier(ci.path(), ci.element(), child);
           else if (type.equals("Coding"))
@@ -414,7 +521,7 @@ public class InstanceValidator extends BaseValidator {
           else if (type.equals("CodeableConcept"))
             checkCodeableConcept(errors, ci.path(), ci.element(), profile, child);
           else if (type.equals("Extension"))
-            checkExtension(errors, ci.path(), ci.element(), profile, child, actualType);
+            ec = checkExtension(errors, ci.path(), ci.element(), profile, child, actualType, extensionContext);
 
           if (type.equals("Resource"))
             validateContains(errors, ci.path(), child, definition, ci.element());
@@ -422,13 +529,13 @@ public class InstanceValidator extends BaseValidator {
             Profile p = getProfileForType(type); 
             ProfileStructureComponent r = getStructureForType(p, type);
             if (rule(errors, "structure", ci.path(), r != null, "Unknown type "+type)) {
-              validateElement(errors, p, r, ci.path(), r.getElement().get(0), profile, child, ci.element(), type);
+              validateElement(errors, p, r, ci.path(), r.getElement().get(0), profile, child, ci.element(), type, ec);
             }
           }
         }
       } else {
         if (rule(errors, "structure", path, child != null, "Unrecognised Content "+ci.name()))
-          validateElement(errors, profile, structure, ci.path(), child, null, null, ci.element(), type);
+          validateElement(errors, profile, structure, ci.path(), child, null, null, ci.element(), type, extensionContext);
       }
     }
   }
@@ -441,36 +548,58 @@ public class InstanceValidator extends BaseValidator {
     return b.toString();
   }
 
-  private void checkExtension(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent container, String parentType) throws Exception {
+  private ExtensionLocatorService.ExtensionLocationResponse checkExtension(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementComponent container, String parentType, ExtensionLocatorService.ExtensionLocationResponse extensionContext) throws Exception {
     String url = element.getAttribute("url");
-    ExtensionLocatorService.ExtensionLocationResponse ext = extensions.locateExtension(url);
+    ExtensionLocatorService.ExtensionLocationResponse ext;
+    if (url.startsWith("#") && extensionContext != null)
+      ext = extensionContext.clone(url.substring(1));
+    else
+      ext = extensions.locateExtension(url);
+      
     if (ext.getStatus() == Status.NotAllowed) {
     	rule(errors, "structure", path+"[url='"+url+"']", false, "This extension cannot be used here ("+ext.getMessage()+")");
     } else if (ext.getStatus() == Status.Located) {
+      ElementComponent elementComp = null;
     	// two questions 
-    	// can this extension be used here?, and is the content of the extension valid?
-      checkExtensionContext(errors, path+"[url='"+url+"']", ext.getDefinition(), container, parentType, ((Element) element.getParentNode()).getAttribute("url"));
-      if (ext.getDefinition().getElement().get(0).getDefinition().getType().size() > 0) { // if 0, then this just contains extensions
-        if (ext.getDefinition().getElement().get(0).getDefinition().getType().size() > 1) 
+      // 1. can this extension be used here?
+      boolean ok = false;
+      if (url.startsWith("#") && extensionContext != null) {
+        elementComp = getElementByPath(ext.getDefinition(), url.substring(1));
+        ok = rule(errors, "structure", path+"[url='"+url+"']", elementComp != null, "Unknown child path in extension ("+extensionContext.getUrl()+" / "+url+")");
+      } else {
+        elementComp = ext.getDefinition().getElement().get(0);
+        ok = checkExtensionContext(errors, path+"[url='"+url+"']", ext.getDefinition(), container, parentType, ext.getUrl());
+      }
+      // 2. is the content of the extension valid?
+      if (ok && elementComp.getDefinition().getType().size() > 0) { // if 0, then this just contains extensions
+        if (elementComp.getDefinition().getType().size() > 1) 
           throw new Error("exceptions with multiple types are not yet handled");
-        String cs = ext.getDefinition().getElement().get(0).getDefinition().getType().get(0).getCodeSimple();
+        String cs = elementComp.getDefinition().getType().get(0).getCodeSimple();
         if (cs.contains("("))
           cs = cs.substring(0, cs.indexOf("("));
-        String childName = "value"+Utilities.capitalize(cs);
-        Element child = XMLUtil.getNamedChild(element, childName);
-        if (rule(errors, "structure", path+"[url='"+url+"']", child != null, "No Extension value found (looking for '"+childName+"')")) {
+        WrapperElement child = element.getFirstChild();
+        while (child != null && child.getName().equals("extension"))
+          child = child.getNextSibling();
+        boolean cok = false;
+        if (cs.equals("*")) {
+          cok = rule(errors, "structure", path+"[url='"+url+"']", child != null && child.getName().startsWith("value") && isKnownType(child.getName().substring(5)), "No Extension value found (looking for '*')");
+          cs = child.getName().substring(5);
+        } else {
+          cok = rule(errors, "structure", path+"[url='"+url+"']", child != null && child.getName().startsWith("value") && child.getName().substring(5).equals(Utilities.capitalize(cs)), "No Extension value found (looking for '"+cs+"')");
+        }
+        if (cok) {
           Profile type = types.get(cs);
           ElementComponent ec = new ElementComponent(); // gimmy up a fake element component for the next call
           ec.setPathSimple(path+"[url='"+url+"']");
-          ec.setNameSimple(childName);
-          ec.setDefinition(ext.getDefinition().getElement().get(0).getDefinition());
+          ec.setNameSimple(child.getName());
+          ec.setDefinition(elementComp.getDefinition());
           if (type != null) 
-            validateElement(errors, profile, null, path+"[url='"+url+"']."+childName, ec, null, null, child, "Extension");
+            validateElement(errors, profile, null, path+"[url='"+url+"']."+child.getName(), ec, null, null, child, "Extension", extensionContext);
           else {
-            checkPrimitive(errors, path+"[url='"+url+"']."+childName, cs, ec, child);
+            checkPrimitive(errors, path+"[url='"+url+"']."+child.getName(), cs, ec, child);
             // special: check vocabulary. Mostly, this isn't needed on a code, but it is with extension
             if (cs.equals("code"))  {
-              ElementDefinitionBindingComponent binding = ext.getDefinition().getElement().get(0).getDefinition().getBinding();
+              ElementDefinitionBindingComponent binding = elementComp.getDefinition().getBinding();
               if (binding != null) {
                 if (warning(errors, "code-unknown", path, binding.getReference() != null && binding.getReference() instanceof ResourceReference, "Binding for "+path+" missing or cannot be processed")) {
                   if (binding.getReference() != null && binding.getReference() instanceof ResourceReference) {
@@ -493,33 +622,49 @@ public class InstanceValidator extends BaseValidator {
         }
       }
     }
+    return ext;
   }
 
-  private void checkExtensionContext(List<ValidationMessage> errors, String path, ProfileExtensionDefnComponent definition, ElementComponent container, String parentType, String extensionParent) {
+  private boolean isKnownType(String code) {
+    return types.get(code.toLowerCase()) != null; 
+  }
+
+  private ElementComponent getElementByPath(ProfileExtensionDefnComponent definition, String path) {
+    for (ElementComponent e : definition.getElement()) {
+      if (e.getPathSimple().equals(path))
+        return e;
+    }
+    return null;
+  }
+
+  private boolean checkExtensionContext(List<ValidationMessage> errors, String path, ProfileExtensionDefnComponent definition, ElementComponent container, String parentType, String extensionParent) {
 	  if (definition.getContextTypeSimple() == ExtensionContext.datatype) {
 	  	boolean ok = false;
 	  	for (String_ ct : definition.getContext()) 
 	  		if (ct.getValue().equals("*") || ct.getValue().equals(parentType))
 	  				ok = true;
-	  	rule(errors, "structure", path, ok, "This extension is not allowed to be used with the type "+parentType);
+	      return rule(errors, "structure", path, ok, "This extension is not allowed to be used with the type "+parentType);
 	  } else if (definition.getContextTypeSimple() == ExtensionContext.extension) {
       boolean ok = false;
       for (String_ ct : definition.getContext()) 
         if (ct.getValue().equals("*") || ct.getValue().equals(extensionParent))
             ok = true;
-      rule(errors, "structure", path, ok, "This extension is not allowed to be used with the extension '"+extensionParent+"'");
+      return rule(errors, "structure", path, ok, "This extension is not allowed to be used with the extension '"+extensionParent+"'");
 	  } else if (definition.getContextTypeSimple() == ExtensionContext.mapping) {
   		throw new Error("Not handled yet");	  	
 	  } else if (definition.getContextTypeSimple() == ExtensionContext.resource) {
       boolean ok = false;
-      String simplePath = simplifyPath(path);
+      String simplePath = container.getPathSimple();
+//      System.out.println(simplePath);
+      if (simplePath.endsWith(".extension") || simplePath.endsWith(".modifierExtension")) 
+        simplePath = simplePath.substring(0, simplePath.lastIndexOf('.'));
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (String_ ct : definition.getContext()) {
         b.append(ct.getValue());
         if (ct.getValue().equals("*") || ct.getValue().equals(parentType) || simplePath.equals(ct.getValue()) || simplePath.endsWith("."+ct.getValue()))
             ok = true;
       }
-      rule(errors, "structure", path, ok, "This extension is not allowed to be used with the resource "+(parentType == null ? simplePath : parentType)+" (allowed: "+b.toString()+")");
+      return rule(errors, "structure", path, ok, "This extension is not allowed to be used with the resource "+(parentType == null ? simplePath : parentType)+" (allowed: "+b.toString()+")");
 	  } else 
   		throw new Error("Unknown context type");	  	
   }
@@ -537,27 +682,31 @@ public class InstanceValidator extends BaseValidator {
     int j = parts.length - 1;
     while (j > 0 && (parts[j].equals("extension") || parts[j].equals("modifierExtension")))
         j--;
-    while (j > 1 && (parts[j].equals(parts[j-1])))
-      j--;
     StringBuilder b = new StringBuilder();
+    boolean first = true;
     for (int k = i; k <= j; k++) {
-      if (k > i)
+      if (k == j || !parts[k].equals(parts[k+1])) {
+        if (first)
+          first = false;
+        else
         b.append(".");
       b.append(parts[k]);
+    }
     }
     return b.toString();
   }
 
-	private boolean empty(Element element) {
+
+  private boolean empty(WrapperElement element) {
     if (element.hasAttribute("value"))
       return false;
     if (element.hasAttribute("id"))
       return false;
     if (element.hasAttribute("xml:id"))
       return false;
-    Element child = XMLUtil.getFirstChild(element);
+    WrapperElement child = element.getFirstChild();
     while (child != null) {
-      if (NS_FHIR.equals(child.getNamespaceURI()))
+      if (NS_FHIR.equals(child.getNamespace()))
         return false;        
     }
     return true;
@@ -585,8 +734,8 @@ public class InstanceValidator extends BaseValidator {
     return path.substring(path.lastIndexOf(".")+1);
   }
 
-  private void validateContains(List<ValidationMessage> errors, String path, ElementComponent child, ElementComponent context, Element element) throws Exception {
-    Element e = XMLUtil.getFirstChild(element);
+  private void validateContains(List<ValidationMessage> errors, String path, ElementComponent child, ElementComponent context, WrapperElement element) throws Exception {
+    WrapperElement e = element.getFirstChild();
     validate(errors, path, e, null);    
   }
 
@@ -609,7 +758,7 @@ public class InstanceValidator extends BaseValidator {
     return false;
   }
 
-  private void checkPrimitive(List<ValidationMessage> errors, String path, String type, ElementComponent context, Element e) {
+  private void checkPrimitive(List<ValidationMessage> errors, String path, String type, ElementComponent context, WrapperElement e) {
     if (type.equals("uri")) {
       rule(errors, "invalid", path, !e.getAttribute("value").startsWith("oid:"), "URI values cannot start with oid:");
       rule(errors, "invalid", path, !e.getAttribute("value").startsWith("uuid:"), "URI values cannot start with uuid:");
@@ -623,14 +772,14 @@ public class InstanceValidator extends BaseValidator {
     // for nothing to check    
   }
 
-  private void checkIdentifier(String path, Element element, ElementComponent context) {
+  private void checkIdentifier(String path, WrapperElement element, ElementComponent context) {
 
   }
 
-  private void checkCoding(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent context) {
-    String code = XMLUtil.getNamedChildValue(element,  "code");
-    String system = XMLUtil.getNamedChildValue(element,  "system");
-    String display = XMLUtil.getNamedChildValue(element,  "display");
+  private void checkCoding(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementComponent context) {
+    String code = element.getNamedChildValue("code");
+    String system = element.getNamedChildValue("system");
+    String display = element.getNamedChildValue("display");
 
     if (system != null && code != null) {
       if (checkCode(errors, path, code, system, display)) 
@@ -695,7 +844,7 @@ public class InstanceValidator extends BaseValidator {
     return false;
   }
 
-  private void checkCodeableConcept(List<ValidationMessage> errors, String path, Element element, Profile profile, ElementComponent context) {
+  private void checkCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement element, Profile profile, ElementComponent context) {
     if (context != null && context.getDefinition().getBinding() != null) {
       ElementDefinitionBindingComponent binding = context.getDefinition().getBinding();
       if (warning(errors, "code-unknown", path, binding != null, "Binding for "+path+" missing (cc)")) {
@@ -708,16 +857,16 @@ public class InstanceValidator extends BaseValidator {
               if (warning(errors, "code-unknown", path, vs != null, "Unable to expand value set for "+describeReference(binding.getReference()))) {
                 boolean found = false;
                 boolean any = false;
-                Element c = XMLUtil.getFirstChild(element);
+                WrapperElement c = element.getFirstChild();
                 while (c != null) {
-                  if (c.getNodeName().equals("coding")) {
+                  if (c.getName().equals("coding")) {
                     any = true;
-                    String system = XMLUtil.getNamedChildValue(c, "system");
-                    String code = XMLUtil.getNamedChildValue(c, "code");
+                    String system = c.getNamedChildValue("system");
+                    String code = c.getNamedChildValue("code");
                     if (system != null && code != null)
                       found = found || codeInExpansion(vs, system, code);
                   }
-                  c = XMLUtil.getNextSibling(c);
+                  c = c.getNextSibling();
                 }
                 if (!any && binding.getConformanceSimple() == BindingConformance.required)
                   warning(errors, "code-unknown", path, found, "No code provided, and value set "+describeReference(binding.getReference())+" ("+vs.getIdentifierSimple()+") is required");
@@ -823,10 +972,14 @@ public class InstanceValidator extends BaseValidator {
   }
 
   public void validateInstanceByProfile(List<ValidationMessage> errors, Element root, Profile profile) throws Exception {
+    validateInstanceByProfile(errors, new DOMWrapperElement(root), profile);
+  }
+  
+  public void validateInstanceByProfile(List<ValidationMessage> errors, WrapperElement root, Profile profile) throws Exception {
     // we assume that the following things are true: 
     // the instance at root is valid against the schema and schematron
     // the instance validator had no issues against the base resource profile
-    if (root.getLocalName().equals("feed")) {
+    if (root.getName().equals("feed")) {
       // throw new Exception("not done yet");
       warning(errors, "invalid", "feed", false, "Validating feeds is not done yet");
     }
@@ -834,17 +987,17 @@ public class InstanceValidator extends BaseValidator {
       // so the first question is what to validate against
       ProfileStructureComponent sc = null;
       for (ProfileStructureComponent s : profile.getStructure()) {
-        if (root.getLocalName().equals(s.getTypeSimple())) {
+        if (root.getName().equals(s.getTypeSimple())) {
           if (sc == null)
             sc = s;
           else
-            throw new Exception("the profile contains multiple matches for the resource "+root.getLocalName()+" and the profile cannot be validated against");
+            throw new Exception("the profile contains multiple matches for the resource "+root.getName()+" and the profile cannot be validated against");
         }
       }
-      if (rule(errors, "invalid", root.getLocalName(), sc != null, "Profile does not allow for this resource")) {
+      if (rule(errors, "invalid", root.getName(), sc != null, "Profile does not allow for this resource")) {
         // well, does it conform to the resource?
         // this is different to the case above because there may be more than one option at each point, and we could conform to any one of them
-        checkByProfile(errors, root.getLocalName(), root, profile, sc, sc.getElement().get(0));
+        checkByProfile(errors, root.getName(), root, profile, sc, sc.getElement().get(0));
       }
     }
   }
@@ -900,7 +1053,7 @@ public class InstanceValidator extends BaseValidator {
 
   }
 
-  private void checkByProfile(List<ValidationMessage> errors, String path, Element focus, Profile profile, ProfileStructureComponent sc, ElementComponent elementDefn) throws Exception {
+  private void checkByProfile(List<ValidationMessage> errors, String path, WrapperElement focus, Profile profile, ProfileStructureComponent sc, ElementComponent elementDefn) throws Exception {
     // we have an element, and the structure that describes it. 
     // we know that's it's valid against the underlying spec - is it valid against this one?
     // in the instance validator above, we assume that schema or schmeatron has taken care of cardinalities, but here, we have no such reliance. 
@@ -908,7 +1061,7 @@ public class InstanceValidator extends BaseValidator {
     String type;
   	if (elementDefn.getPathSimple().endsWith("[x]")) {
   		String tail = elementDefn.getPathSimple().substring(elementDefn.getPathSimple().lastIndexOf(".")+1, elementDefn.getPathSimple().length()-3);
-  		type = focus.getLocalName().substring(tail.length());
+  		type = focus.getName().substring(tail.length());
   		rule(errors, "structure", path, typeAllowed(type, elementDefn.getDefinition().getType()), "The type '"+type+"' is not allowed at this point (must be one of '"+typeSummary(elementDefn)+")");
   	} else {
   		if (elementDefn.getDefinition().getType().size() == 1) {
@@ -934,8 +1087,8 @@ public class InstanceValidator extends BaseValidator {
   			// collect all the slices for the path
   			List<ElementComponent> childset = walker.current();
   			// collect all the elements that match it by name
-  			List<Element> children = new ArrayList<Element>(); 
-  			XMLUtil.getNamedChildrenWithWildcard(focus, walker.name(), children);
+  			List<WrapperElement> children = new ArrayList<WrapperElement>(); 
+  			focus.getNamedChildrenWithWildcard(walker.name(), children);
 
   			if (children.size() == 0) {
   				// well, there's no children - should there be? 
@@ -947,7 +1100,7 @@ public class InstanceValidator extends BaseValidator {
   				// simple case: one possible definition, and one or more children. 
   				rule(errors, "cardinality", path, childset.get(0).getDefinition().getMaxSimple().equals("*") || Integer.parseInt(childset.get(0).getDefinition().getMaxSimple()) >= children.size(),
   						"Too many elements for '"+walker.name()+"'"); // todo: sort out structure
-  				for (Element child : children) {
+  				for (WrapperElement child : children) {
   					checkByProfile(errors, childset.get(0).getPathSimple(), child, profile, sc, childset.get(0));
   				}
   			} else { 
@@ -958,7 +1111,7 @@ public class InstanceValidator extends BaseValidator {
   	}
   }
 
-	private void checkBinding(List<ValidationMessage> errors, String path, Element focus, Profile profile, ElementComponent elementDefn, String type) {
+	private void checkBinding(List<ValidationMessage> errors, String path, WrapperElement focus, Profile profile, ElementComponent elementDefn, String type) {
 	  ElementDefinitionBindingComponent bc = elementDefn.getDefinition().getBinding();
 
 	  if (bc != null && bc.getReference() != null && bc.getReference() instanceof ResourceReference) {
@@ -989,15 +1142,15 @@ public class InstanceValidator extends BaseValidator {
 	   
   }
 
-	private void checkBindingCode(List<ValidationMessage> errors, String path, Element focus, ValueSet vs) {
+	private void checkBindingCode(List<ValidationMessage> errors, String path, WrapperElement focus, ValueSet vs) {
 	  // rule(errors, "exception", path, false, "checkBindingCode not done yet");	  
   }
 
-	private void checkBindingCoding(List<ValidationMessage> errors, String path, Element focus, ValueSet vs) {
+	private void checkBindingCoding(List<ValidationMessage> errors, String path, WrapperElement focus, ValueSet vs) {
 	  // rule(errors, "exception", path, false, "checkBindingCoding not done yet");	  
   }
 
-	private void checkBindingCodeableConcept(List<ValidationMessage> errors, String path, Element focus, ValueSet vs) {
+	private void checkBindingCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement focus, ValueSet vs) {
 	  // rule(errors, "exception", path, false, "checkBindingCodeableConcept not done yet");	  
   }
 
@@ -1019,7 +1172,7 @@ public class InstanceValidator extends BaseValidator {
 	  return false;
   }
 
-	private void checkConstraint(List<ValidationMessage> errors, String path, Element focus, ElementDefinitionConstraintComponent c) throws Exception {
+	private void checkConstraint(List<ValidationMessage> errors, String path, WrapperElement focus, ElementDefinitionConstraintComponent c) throws Exception {
 //		try
 //   	{
 //			XPathFactory xpf = new net.sf.saxon.xpath.XPathFactoryImpl();
@@ -1040,7 +1193,7 @@ public class InstanceValidator extends BaseValidator {
 //		}
   }
 
-	private void checkPrimitiveByProfile(List<ValidationMessage> errors, String path, Element focus, ElementComponent elementDefn) {
+	private void checkPrimitiveByProfile(List<ValidationMessage> errors, String path, WrapperElement focus, ElementComponent elementDefn) {
 		// two things to check - length, and fixed value
 		String value = focus.getAttribute("value");
 		if (elementDefn.getDefinition().getMaxLength() != null) {
@@ -1051,11 +1204,11 @@ public class InstanceValidator extends BaseValidator {
 		}
   }
 
-	private void checkFixedValue(List<ValidationMessage> errors, String path, Element focus, org.hl7.fhir.instance.model.Element fixed, String propName) {
+	private void checkFixedValue(List<ValidationMessage> errors, String path, WrapperElement focus, org.hl7.fhir.instance.model.Element fixed, String propName) {
 		if (fixed == null && focus == null)
 			; // this is all good
 		else if (fixed == null && focus != null)
-	  	rule(errors, "value", path, false, "Unexpected element "+focus.getNodeName());
+	  	rule(errors, "value", path, false, "Unexpected element "+focus.getName());
 		else if (fixed != null && focus == null)
 	  	rule(errors, "value", path, false, "Mising element "+propName);
 		else {
@@ -1115,161 +1268,161 @@ public class InstanceValidator extends BaseValidator {
 	
 			else
 				 rule(errors, "exception", path, false, "Unhandled fixed value type "+fixed.getClass().getName());
-			List<Element> extensions = new ArrayList<Element>();
-			XMLUtil.getNamedChildren(focus, "extension", extensions);
+			List<WrapperElement> extensions = new ArrayList<WrapperElement>();
+			focus.getNamedChildren("extension", extensions);
 			if (fixed.getExtensions().size() == 0) {
 				rule(errors, "value", path, extensions.size() == 0, "No extensions allowed");
 			} else if (rule(errors, "value", path, extensions.size() == fixed.getExtensions().size(), "Extensions count mismatch: expected "+Integer.toString(fixed.getExtensions().size())+" but found "+Integer.toString(extensions.size()))) {
 				for (Extension e : fixed.getExtensions()) {
-					Element ex = getExtensionByUrl(extensions, e.getUrlSimple());
+				  WrapperElement ex = getExtensionByUrl(extensions, e.getUrlSimple());
 					if (rule(errors, "value", path, ex != null, "Extension count mismatch: unable to find extension: "+e.getUrlSimple())) {
-						checkFixedValue(errors, path, XMLUtil.getNextSibling(XMLUtil.getFirstChild(ex)), e.getValue(), "extension.value");
+						checkFixedValue(errors, path, ex.getFirstChild().getNextSibling(), e.getValue(), "extension.value");
 					}
 				}
 			}
 		}
   }
 
-	private void checkAddress(List<ValidationMessage> errors, String path, Element focus, Address fixed) {
-	  checkFixedValue(errors, path+".use", XMLUtil.getNamedChild(focus, "use"), fixed.getUse(), "use");
-	  checkFixedValue(errors, path+".text", XMLUtil.getNamedChild(focus, "text"), fixed.getText(), "text");
-	  checkFixedValue(errors, path+".city", XMLUtil.getNamedChild(focus, "city"), fixed.getCity(), "city");
-	  checkFixedValue(errors, path+".state", XMLUtil.getNamedChild(focus, "state"), fixed.getState(), "state");
-	  checkFixedValue(errors, path+".country", XMLUtil.getNamedChild(focus, "country"), fixed.getCountry(), "country");
-	  checkFixedValue(errors, path+".zip", XMLUtil.getNamedChild(focus, "zip"), fixed.getZip(), "zip");
+	private void checkAddress(List<ValidationMessage> errors, String path, WrapperElement focus, Address fixed) {
+	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUse(), "use");
+	  checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getText(), "text");
+	  checkFixedValue(errors, path+".city", focus.getNamedChild("city"), fixed.getCity(), "city");
+	  checkFixedValue(errors, path+".state", focus.getNamedChild("state"), fixed.getState(), "state");
+	  checkFixedValue(errors, path+".country", focus.getNamedChild("country"), fixed.getCountry(), "country");
+	  checkFixedValue(errors, path+".zip", focus.getNamedChild("zip"), fixed.getZip(), "zip");
 	  
-		List<Element> lines = new ArrayList<Element>();
-		XMLUtil.getNamedChildren(focus,  "line", lines);
+		List<WrapperElement> lines = new ArrayList<WrapperElement>();
+		focus.getNamedChildren( "line", lines);
 		if (rule(errors, "value", path, lines.size() == fixed.getLine().size(), "Expected "+Integer.toString(fixed.getLine().size())+" but found "+Integer.toString(lines.size())+" line elements")) {
 			for (int i = 0; i < lines.size(); i++) 
 				checkFixedValue(errors, path+".coding", lines.get(i), fixed.getLine().get(i), "coding");			
 		}	  
   }
 
-	private void checkContact(List<ValidationMessage> errors, String path, Element focus, Contact fixed) {
-	  checkFixedValue(errors, path+".system", XMLUtil.getNamedChild(focus, "system"), fixed.getSystem(), "system");
-	  checkFixedValue(errors, path+".value", XMLUtil.getNamedChild(focus, "value"), fixed.getValue(), "value");
-	  checkFixedValue(errors, path+".use", XMLUtil.getNamedChild(focus, "use"), fixed.getUse(), "use");
-	  checkFixedValue(errors, path+".period", XMLUtil.getNamedChild(focus, "period"), fixed.getPeriod(), "period");
+	private void checkContact(List<ValidationMessage> errors, String path, WrapperElement focus, Contact fixed) {
+	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystem(), "system");
+	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValue(), "value");
+	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUse(), "use");
+	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriod(), "period");
 	  
   }
 
-	private void checkAttachment(List<ValidationMessage> errors, String path, Element focus, Attachment fixed) {
-	  checkFixedValue(errors, path+".contentType", XMLUtil.getNamedChild(focus, "contentType"), fixed.getContentType(), "contentType");
-	  checkFixedValue(errors, path+".language", XMLUtil.getNamedChild(focus, "language"), fixed.getLanguage(), "language");
-	  checkFixedValue(errors, path+".data", XMLUtil.getNamedChild(focus, "data"), fixed.getData(), "data");
-	  checkFixedValue(errors, path+".url", XMLUtil.getNamedChild(focus, "url"), fixed.getUrl(), "url");
-	  checkFixedValue(errors, path+".size", XMLUtil.getNamedChild(focus, "size"), fixed.getSize(), "size");
-	  checkFixedValue(errors, path+".hash", XMLUtil.getNamedChild(focus, "hash"), fixed.getHash(), "hash");
-	  checkFixedValue(errors, path+".title", XMLUtil.getNamedChild(focus, "title"), fixed.getTitle(), "title");	  
+	private void checkAttachment(List<ValidationMessage> errors, String path, WrapperElement focus, Attachment fixed) {
+	  checkFixedValue(errors, path+".contentType", focus.getNamedChild("contentType"), fixed.getContentType(), "contentType");
+	  checkFixedValue(errors, path+".language", focus.getNamedChild("language"), fixed.getLanguage(), "language");
+	  checkFixedValue(errors, path+".data", focus.getNamedChild("data"), fixed.getData(), "data");
+	  checkFixedValue(errors, path+".url", focus.getNamedChild("url"), fixed.getUrl(), "url");
+	  checkFixedValue(errors, path+".size", focus.getNamedChild("size"), fixed.getSize(), "size");
+	  checkFixedValue(errors, path+".hash", focus.getNamedChild("hash"), fixed.getHash(), "hash");
+	  checkFixedValue(errors, path+".title", focus.getNamedChild("title"), fixed.getTitle(), "title");	  
   }
 
-	private void checkIdentifier(List<ValidationMessage> errors, String path, Element focus, Identifier fixed) {
-	  checkFixedValue(errors, path+".use", XMLUtil.getNamedChild(focus, "use"), fixed.getUse(), "use");
-	  checkFixedValue(errors, path+".label", XMLUtil.getNamedChild(focus, "label"), fixed.getLabel(), "label");
-	  checkFixedValue(errors, path+".system", XMLUtil.getNamedChild(focus, "system"), fixed.getSystem(), "system");
-	  checkFixedValue(errors, path+".value", XMLUtil.getNamedChild(focus, "value"), fixed.getValue(), "value");
-	  checkFixedValue(errors, path+".period", XMLUtil.getNamedChild(focus, "period"), fixed.getPeriod(), "period");
-	  checkFixedValue(errors, path+".assigner", XMLUtil.getNamedChild(focus, "assigner"), fixed.getAssigner(), "assigner");
+	private void checkIdentifier(List<ValidationMessage> errors, String path, WrapperElement focus, Identifier fixed) {
+	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUse(), "use");
+	  checkFixedValue(errors, path+".label", focus.getNamedChild("label"), fixed.getLabel(), "label");
+	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystem(), "system");
+	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValue(), "value");
+	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriod(), "period");
+	  checkFixedValue(errors, path+".assigner", focus.getNamedChild("assigner"), fixed.getAssigner(), "assigner");
   }
 
-	private void checkCoding(List<ValidationMessage> errors, String path, Element focus, Coding fixed) {
-	  checkFixedValue(errors, path+".system", XMLUtil.getNamedChild(focus, "system"), fixed.getSystem(), "system");
-	  checkFixedValue(errors, path+".code", XMLUtil.getNamedChild(focus, "code"), fixed.getCode(), "code");
-	  checkFixedValue(errors, path+".display", XMLUtil.getNamedChild(focus, "display"), fixed.getDisplay(), "display");	  
-	  checkFixedValue(errors, path+".primary", XMLUtil.getNamedChild(focus, "primary"), fixed.getPrimary(), "primary");	  
+	private void checkCoding(List<ValidationMessage> errors, String path, WrapperElement focus, Coding fixed) {
+	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystem(), "system");
+	  checkFixedValue(errors, path+".code", focus.getNamedChild("code"), fixed.getCode(), "code");
+	  checkFixedValue(errors, path+".display", focus.getNamedChild("display"), fixed.getDisplay(), "display");	  
+	  checkFixedValue(errors, path+".primary", focus.getNamedChild("primary"), fixed.getPrimary(), "primary");	  
   }
 
-	private void checkHumanName(List<ValidationMessage> errors, String path, Element focus, HumanName fixed) {
-	  checkFixedValue(errors, path+".use", XMLUtil.getNamedChild(focus, "use"), fixed.getUse(), "use");
-	  checkFixedValue(errors, path+".text", XMLUtil.getNamedChild(focus, "text"), fixed.getText(), "text");
-	  checkFixedValue(errors, path+".period", XMLUtil.getNamedChild(focus, "period"), fixed.getPeriod(), "period");
+	private void checkHumanName(List<ValidationMessage> errors, String path, WrapperElement focus, HumanName fixed) {
+	  checkFixedValue(errors, path+".use", focus.getNamedChild("use"), fixed.getUse(), "use");
+	  checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getText(), "text");
+	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriod(), "period");
 	  
-		List<Element> parts = new ArrayList<Element>();
-		XMLUtil.getNamedChildren(focus,  "family", parts);
+		List<WrapperElement> parts = new ArrayList<WrapperElement>();
+		focus.getNamedChildren( "family", parts);
 		if (rule(errors, "value", path, parts.size() == fixed.getFamily().size(), "Expected "+Integer.toString(fixed.getFamily().size())+" but found "+Integer.toString(parts.size())+" family elements")) {
 			for (int i = 0; i < parts.size(); i++) 
 				checkFixedValue(errors, path+".family", parts.get(i), fixed.getFamily().get(i), "family");			
 		}	  
-		XMLUtil.getNamedChildren(focus,  "given", parts);
+		focus.getNamedChildren( "given", parts);
 		if (rule(errors, "value", path, parts.size() == fixed.getFamily().size(), "Expected "+Integer.toString(fixed.getFamily().size())+" but found "+Integer.toString(parts.size())+" given elements")) {
 			for (int i = 0; i < parts.size(); i++) 
 				checkFixedValue(errors, path+".given", parts.get(i), fixed.getFamily().get(i), "given");			
 		}	  
-		XMLUtil.getNamedChildren(focus,  "prefix", parts);
+		focus.getNamedChildren( "prefix", parts);
 		if (rule(errors, "value", path, parts.size() == fixed.getFamily().size(), "Expected "+Integer.toString(fixed.getFamily().size())+" but found "+Integer.toString(parts.size())+" prefix elements")) {
 			for (int i = 0; i < parts.size(); i++) 
 				checkFixedValue(errors, path+".prefix", parts.get(i), fixed.getFamily().get(i), "prefix");			
 		}	  
-		XMLUtil.getNamedChildren(focus,  "suffix", parts);
+		focus.getNamedChildren( "suffix", parts);
 		if (rule(errors, "value", path, parts.size() == fixed.getFamily().size(), "Expected "+Integer.toString(fixed.getFamily().size())+" but found "+Integer.toString(parts.size())+" suffix elements")) {
 			for (int i = 0; i < parts.size(); i++) 
 				checkFixedValue(errors, path+".suffix", parts.get(i), fixed.getFamily().get(i), "suffix");			
 		}	  
   }
 
-	private void checkCodeableConcept(List<ValidationMessage> errors, String path, Element focus, CodeableConcept fixed) {
-		checkFixedValue(errors, path+".text", XMLUtil.getNamedChild(focus, "text"), fixed.getText(), "text");
-		List<Element> codings = new ArrayList<Element>();
-		XMLUtil.getNamedChildren(focus,  "coding", codings);
+	private void checkCodeableConcept(List<ValidationMessage> errors, String path, WrapperElement focus, CodeableConcept fixed) {
+		checkFixedValue(errors, path+".text", focus.getNamedChild("text"), fixed.getText(), "text");
+		List<WrapperElement> codings = new ArrayList<WrapperElement>();
+		focus.getNamedChildren( "coding", codings);
 		if (rule(errors, "value", path, codings.size() == fixed.getCoding().size(), "Expected "+Integer.toString(fixed.getCoding().size())+" but found "+Integer.toString(codings.size())+" coding elements")) {
 			for (int i = 0; i < codings.size(); i++) 
 				checkFixedValue(errors, path+".coding", codings.get(i), fixed.getCoding().get(i), "coding");			
 		}	  
   }
 
-	private void checkSchedule(List<ValidationMessage> errors, String path, Element focus, Schedule fixed) {
-	  checkFixedValue(errors, path+".repeat", XMLUtil.getNamedChild(focus, "repeat"), fixed.getRepeat(), "value");
+	private void checkSchedule(List<ValidationMessage> errors, String path, WrapperElement focus, Schedule fixed) {
+	  checkFixedValue(errors, path+".repeat", focus.getNamedChild("repeat"), fixed.getRepeat(), "value");
 	  
-		List<Element> events = new ArrayList<Element>();
-		XMLUtil.getNamedChildren(focus,  "event", events);
+		List<WrapperElement> events = new ArrayList<WrapperElement>();
+		focus.getNamedChildren( "event", events);
 		if (rule(errors, "value", path, events.size() == fixed.getEvent().size(), "Expected "+Integer.toString(fixed.getEvent().size())+" but found "+Integer.toString(events.size())+" event elements")) {
 			for (int i = 0; i < events.size(); i++) 
 				checkFixedValue(errors, path+".event", events.get(i), fixed.getEvent().get(i), "event");			
 		}	  
   }
 
-	private void checkPeriod(List<ValidationMessage> errors, String path, Element focus, Period fixed) {
-	  checkFixedValue(errors, path+".start", XMLUtil.getNamedChild(focus, "start"), fixed.getStart(), "start");
-	  checkFixedValue(errors, path+".end", XMLUtil.getNamedChild(focus, "end"), fixed.getEnd(), "end");	  
+	private void checkPeriod(List<ValidationMessage> errors, String path, WrapperElement focus, Period fixed) {
+	  checkFixedValue(errors, path+".start", focus.getNamedChild("start"), fixed.getStart(), "start");
+	  checkFixedValue(errors, path+".end", focus.getNamedChild("end"), fixed.getEnd(), "end");	  
   }
 
-	private void checkRange(List<ValidationMessage> errors, String path, Element focus, Range fixed) {
-	  checkFixedValue(errors, path+".low", XMLUtil.getNamedChild(focus, "low"), fixed.getLow(), "low");
-	  checkFixedValue(errors, path+".high", XMLUtil.getNamedChild(focus, "high"), fixed.getHigh(), "high");	  
+	private void checkRange(List<ValidationMessage> errors, String path, WrapperElement focus, Range fixed) {
+	  checkFixedValue(errors, path+".low", focus.getNamedChild("low"), fixed.getLow(), "low");
+	  checkFixedValue(errors, path+".high", focus.getNamedChild("high"), fixed.getHigh(), "high");	  
 	  
   }
 
-	private void checkRatio(List<ValidationMessage> errors, String path,  Element focus, Ratio fixed) {
-	  checkFixedValue(errors, path+".numerator", XMLUtil.getNamedChild(focus, "numerator"), fixed.getNumerator(), "numerator");
-	  checkFixedValue(errors, path+".denominator", XMLUtil.getNamedChild(focus, "denominator"), fixed.getDenominator(), "denominator");	  
+	private void checkRatio(List<ValidationMessage> errors, String path,  WrapperElement focus, Ratio fixed) {
+	  checkFixedValue(errors, path+".numerator", focus.getNamedChild("numerator"), fixed.getNumerator(), "numerator");
+	  checkFixedValue(errors, path+".denominator", focus.getNamedChild("denominator"), fixed.getDenominator(), "denominator");	  
   }
 
-	private void checkSampledData(List<ValidationMessage> errors, String path, Element focus, SampledData fixed) {
-	  checkFixedValue(errors, path+".origin", XMLUtil.getNamedChild(focus, "origin"), fixed.getOrigin(), "origin");
-	  checkFixedValue(errors, path+".period", XMLUtil.getNamedChild(focus, "period"), fixed.getPeriod(), "period");
-	  checkFixedValue(errors, path+".factor", XMLUtil.getNamedChild(focus, "factor"), fixed.getFactor(), "factor");
-	  checkFixedValue(errors, path+".lowerLimit", XMLUtil.getNamedChild(focus, "lowerLimit"), fixed.getLowerLimit(), "lowerLimit");
-	  checkFixedValue(errors, path+".upperLimit", XMLUtil.getNamedChild(focus, "upperLimit"), fixed.getUpperLimit(), "upperLimit");
-	  checkFixedValue(errors, path+".dimensions", XMLUtil.getNamedChild(focus, "dimensions"), fixed.getDimensions(), "dimensions");
-	  checkFixedValue(errors, path+".data", XMLUtil.getNamedChild(focus, "data"), fixed.getData(), "data");
+	private void checkSampledData(List<ValidationMessage> errors, String path, WrapperElement focus, SampledData fixed) {
+	  checkFixedValue(errors, path+".origin", focus.getNamedChild("origin"), fixed.getOrigin(), "origin");
+	  checkFixedValue(errors, path+".period", focus.getNamedChild("period"), fixed.getPeriod(), "period");
+	  checkFixedValue(errors, path+".factor", focus.getNamedChild("factor"), fixed.getFactor(), "factor");
+	  checkFixedValue(errors, path+".lowerLimit", focus.getNamedChild("lowerLimit"), fixed.getLowerLimit(), "lowerLimit");
+	  checkFixedValue(errors, path+".upperLimit", focus.getNamedChild("upperLimit"), fixed.getUpperLimit(), "upperLimit");
+	  checkFixedValue(errors, path+".dimensions", focus.getNamedChild("dimensions"), fixed.getDimensions(), "dimensions");
+	  checkFixedValue(errors, path+".data", focus.getNamedChild("data"), fixed.getData(), "data");
   }
 
-	private void checkQuantity(List<ValidationMessage> errors, String path, Element focus, Quantity fixed) {
-	  checkFixedValue(errors, path+".value", XMLUtil.getNamedChild(focus, "value"), fixed.getValue(), "value");
-	  checkFixedValue(errors, path+".comparator", XMLUtil.getNamedChild(focus, "comparator"), fixed.getComparator(), "comparator");
-	  checkFixedValue(errors, path+".units", XMLUtil.getNamedChild(focus, "units"), fixed.getUnits(), "units");
-	  checkFixedValue(errors, path+".system", XMLUtil.getNamedChild(focus, "system"), fixed.getSystem(), "system");
-	  checkFixedValue(errors, path+".code", XMLUtil.getNamedChild(focus, "code"), fixed.getCode(), "code");
+	private void checkQuantity(List<ValidationMessage> errors, String path, WrapperElement focus, Quantity fixed) {
+	  checkFixedValue(errors, path+".value", focus.getNamedChild("value"), fixed.getValue(), "value");
+	  checkFixedValue(errors, path+".comparator", focus.getNamedChild("comparator"), fixed.getComparator(), "comparator");
+	  checkFixedValue(errors, path+".units", focus.getNamedChild("units"), fixed.getUnits(), "units");
+	  checkFixedValue(errors, path+".system", focus.getNamedChild("system"), fixed.getSystem(), "system");
+	  checkFixedValue(errors, path+".code", focus.getNamedChild("code"), fixed.getCode(), "code");
   }
 
 	private boolean check(String v1, String v2) {
 	  return v1 == null ? Utilities.noString(v1) : v1.equals(v2);
   }
 
-	private Element getExtensionByUrl(List<Element> extensions, String urlSimple) {
-	  for (Element e : extensions) {
-	  	if (urlSimple.equals(XMLUtil.getNamedChildValue(e, "url")))
+	private WrapperElement getExtensionByUrl(List<WrapperElement> extensions, String urlSimple) {
+	  for (WrapperElement e : extensions) {
+	  	if (urlSimple.equals(e.getNamedChildValue("url")))
 	  		return e;
 	  }
 		return null;

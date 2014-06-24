@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -328,16 +328,16 @@ public class ConceptMap extends Resource {
           childrenList.add(new Property("map", "", "A concept from the target value set that this concept maps to.", 0, java.lang.Integer.MAX_VALUE, map));
         }
 
-      public ConceptMapElementComponent copy(ConceptMap e) {
+      public ConceptMapElementComponent copy() {
         ConceptMapElementComponent dst = new ConceptMapElementComponent();
         dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
         dst.code = code == null ? null : code.copy();
         dst.dependsOn = new ArrayList<OtherElementComponent>();
         for (OtherElementComponent i : dependsOn)
-          dst.dependsOn.add(i.copy(e));
+          dst.dependsOn.add(i.copy());
         dst.map = new ArrayList<ConceptMapElementMapComponent>();
         for (ConceptMapElementMapComponent i : map)
-          dst.map.add(i.copy(e));
+          dst.map.add(i.copy());
         return dst;
       }
 
@@ -475,7 +475,7 @@ public class ConceptMap extends Resource {
           childrenList.add(new Property("code", "string", "Value of the referenced element.", 0, java.lang.Integer.MAX_VALUE, code));
         }
 
-      public OtherElementComponent copy(ConceptMap e) {
+      public OtherElementComponent copy() {
         OtherElementComponent dst = new OtherElementComponent();
         dst.element = element == null ? null : element.copy();
         dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
@@ -688,7 +688,7 @@ public class ConceptMap extends Resource {
           childrenList.add(new Property("product", "@ConceptMap.element.dependsOn", "A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.", 0, java.lang.Integer.MAX_VALUE, product));
         }
 
-      public ConceptMapElementMapComponent copy(ConceptMap e) {
+      public ConceptMapElementMapComponent copy() {
         ConceptMapElementMapComponent dst = new ConceptMapElementMapComponent();
         dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
         dst.code = code == null ? null : code.copy();
@@ -696,7 +696,7 @@ public class ConceptMap extends Resource {
         dst.comments = comments == null ? null : comments.copy();
         dst.product = new ArrayList<OtherElementComponent>();
         for (OtherElementComponent i : product)
-          dst.product.add(i.copy(e));
+          dst.product.add(i.copy());
         return dst;
       }
 
@@ -1196,7 +1196,7 @@ public class ConceptMap extends Resource {
         dst.target = target == null ? null : target.copy();
         dst.element = new ArrayList<ConceptMapElementComponent>();
         for (ConceptMapElementComponent i : element)
-          dst.element.add(i.copy(dst));
+          dst.element.add(i.copy());
         return dst;
       }
 

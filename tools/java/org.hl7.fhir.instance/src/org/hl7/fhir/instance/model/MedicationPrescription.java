@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -360,7 +360,7 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           childrenList.add(new Property("maxDosePerPeriod", "Ratio", "The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time. E.g. 1000mg in 24 hours.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
         }
 
-      public MedicationPrescriptionDosageInstructionComponent copy(MedicationPrescription e) {
+      public MedicationPrescriptionDosageInstructionComponent copy() {
         MedicationPrescriptionDosageInstructionComponent dst = new MedicationPrescriptionDosageInstructionComponent();
         dst.text = text == null ? null : text.copy();
         dst.additionalInstructions = additionalInstructions == null ? null : additionalInstructions.copy();
@@ -548,7 +548,7 @@ In some situations, this attribute may be used instead of quantity to identify t
           childrenList.add(new Property("expectedSupplyDuration", "Duration", "Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last. \nIn some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.", 0, java.lang.Integer.MAX_VALUE, expectedSupplyDuration));
         }
 
-      public MedicationPrescriptionDispenseComponent copy(MedicationPrescription e) {
+      public MedicationPrescriptionDispenseComponent copy() {
         MedicationPrescriptionDispenseComponent dst = new MedicationPrescriptionDispenseComponent();
         dst.medication = medication == null ? null : medication.copy();
         dst.validityPeriod = validityPeriod == null ? null : validityPeriod.copy();
@@ -618,7 +618,7 @@ In some situations, this attribute may be used instead of quantity to identify t
           childrenList.add(new Property("reason", "CodeableConcept", "Indicates the reason for the substitution, or why substitution must or must not be performed.", 0, java.lang.Integer.MAX_VALUE, reason));
         }
 
-      public MedicationPrescriptionSubstitutionComponent copy(MedicationPrescription e) {
+      public MedicationPrescriptionSubstitutionComponent copy() {
         MedicationPrescriptionSubstitutionComponent dst = new MedicationPrescriptionSubstitutionComponent();
         dst.type = type == null ? null : type.copy();
         dst.reason = reason == null ? null : reason.copy();
@@ -1008,9 +1008,9 @@ In some situations, this attribute may be used instead of quantity to identify t
         dst.medication = medication == null ? null : medication.copy();
         dst.dosageInstruction = new ArrayList<MedicationPrescriptionDosageInstructionComponent>();
         for (MedicationPrescriptionDosageInstructionComponent i : dosageInstruction)
-          dst.dosageInstruction.add(i.copy(dst));
-        dst.dispense = dispense == null ? null : dispense.copy(dst);
-        dst.substitution = substitution == null ? null : substitution.copy(dst);
+          dst.dosageInstruction.add(i.copy());
+        dst.dispense = dispense == null ? null : dispense.copy();
+        dst.substitution = substitution == null ? null : substitution.copy();
         return dst;
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -488,7 +488,7 @@ public class Schedule extends Type {
           childrenList.add(new Property("end", "dateTime", "When to stop repeating the schedule.", 0, java.lang.Integer.MAX_VALUE, end));
         }
 
-      public ScheduleRepeatComponent copy(Schedule e) {
+      public ScheduleRepeatComponent copy() {
         ScheduleRepeatComponent dst = new ScheduleRepeatComponent();
         dst.frequency = frequency == null ? null : frequency.copy();
         dst.when = when == null ? null : when.copy();
@@ -560,7 +560,7 @@ public class Schedule extends Type {
         dst.event = new ArrayList<Period>();
         for (Period i : event)
           dst.event.add(i.copy());
-        dst.repeat = repeat == null ? null : repeat.copy(dst);
+        dst.repeat = repeat == null ? null : repeat.copy();
         return dst;
       }
 

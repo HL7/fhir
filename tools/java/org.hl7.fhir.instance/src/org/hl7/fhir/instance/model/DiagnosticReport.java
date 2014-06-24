@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Thu, Jun 19, 2014 12:59+1000 for FHIR v0.2.1
+// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -227,7 +227,7 @@ public class DiagnosticReport extends Resource {
           childrenList.add(new Property("link", "Resource(Media)", "Reference to the image source.", 0, java.lang.Integer.MAX_VALUE, link));
         }
 
-      public DiagnosticReportImageComponent copy(DiagnosticReport e) {
+      public DiagnosticReportImageComponent copy() {
         DiagnosticReportImageComponent dst = new DiagnosticReportImageComponent();
         dst.comment = comment == null ? null : comment.copy();
         dst.link = link == null ? null : link.copy();
@@ -813,7 +813,7 @@ public class DiagnosticReport extends Resource {
           dst.imagingStudy.add(i.copy());
         dst.image = new ArrayList<DiagnosticReportImageComponent>();
         for (DiagnosticReportImageComponent i : image)
-          dst.image.add(i.copy(dst));
+          dst.image.add(i.copy());
         dst.conclusion = conclusion == null ? null : conclusion.copy();
         dst.codedDiagnosis = new ArrayList<CodeableConcept>();
         for (CodeableConcept i : codedDiagnosis)
