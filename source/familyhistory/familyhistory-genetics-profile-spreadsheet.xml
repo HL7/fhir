@@ -9,18 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:17:14Z</Created>
-  <LastSaved>2014-06-19T22:48:03Z</LastSaved>
+  <LastSaved>2014-06-23T08:21:34Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6030</WindowHeight>
+  <WindowHeight>5970</WindowHeight>
   <WindowWidth>15570</WindowWidth>
   <WindowTopX>6225</WindowTopX>
-  <WindowTopY>1425</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <WindowTopY>1485</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -255,9 +255,9 @@
  <Worksheet ss:Name="GeneticPedigreeFamilyHistory">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="=GeneticPedigreeFamilyHistory!R1C1:R48C21" ss:Hidden="1"/>
+    ss:RefersTo="=GeneticPedigreeFamilyHistory!R1C1:R46C21" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="57" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="55" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s71" ss:Width="150"/>
    <Column ss:StyleID="s72" ss:Width="225"/>
@@ -411,56 +411,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">#relationParent</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s74">
-    <Cell><Data ss:Type="String">ParentType</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">!FamilyHistory.relation.extension.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">#relationParent.type</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s74">
-    <Cell><Data ss:Type="String">ParentIdentifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">!FamilyHistory.relation.extension.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">#relationParent.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -943,6 +893,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -962,14 +913,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R48C21"
+  <AutoFilter x:Range="R1C1:R46C21"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -1126,7 +1077,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

@@ -35,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.ValueSet;
 
 /**
@@ -330,6 +331,16 @@ public class Definitions {
 
   public Map<String, MappingSpace> getMapTypes() {
     return mapTypes;
+  }
+
+  public ProfileStructureComponent getSnapShotForType(String type) throws Exception {
+    ResourceDefn r = getResourceByName(type);
+    if (r == null)
+      throw new Exception("unable to find base definition for "+type);
+    for (ProfileStructureComponent s : r.getProfile().getStructure())
+      if (s.getNameSimple().equals("snapshot"))
+        return s;
+    throw new Exception("unable to find snapshot for "+type);
   }
 
   

@@ -25,9 +25,11 @@ public class ProfileValidator {
       for (ElementComponent ec : sc.getElement()) {
         if (ec.getDefinition() != null && !ec.getDefinition().getType().isEmpty() && ec.getDefinition().getType().get(0).getCodeSimple().equals("Extension")) {
           String url = ec.getDefinition().getType().get(0).getProfileSimple();
-          ProfileExtensionDefnComponent defn = getExtensionDefinition(profile, url);
-          if (defn == null)
-            errors.add("Unable to find Extension '"+url+"'");
+          if (!Utilities.noString(url)) {
+            ProfileExtensionDefnComponent defn = getExtensionDefinition(profile, url);
+            if (defn == null)
+              errors.add("Unable to find Extension '"+url+"'");
+          }
         }
       }
     }

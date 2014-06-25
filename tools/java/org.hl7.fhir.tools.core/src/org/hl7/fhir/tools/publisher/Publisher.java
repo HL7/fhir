@@ -143,6 +143,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValueSetDefineConceptComponent;
 import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
 import org.hl7.fhir.instance.utils.LoincToDEConvertor;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.ProfileUtilities;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ProfileValidator;
@@ -508,22 +509,30 @@ public class Publisher {
     // what we're going to do:
     //  create Profile structures if needed (create differential definitions from spreadsheets)
     if (profile.getSource() == null) {
-      Profile p = new ProfileGenerator(page.getDefinitions()).generate(profile, profile.metadata("id"));
+      Profile p = new ProfileGenerator(page.getDefinitions()).generate(profile, profile.metadata("id"), page.getGenDate());
       profile.setSource(p);
       page.getProfiles().put(p.getUrlSimple(), p);
-  }    
-    // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
-    if (profile.getSource().getDate() == null)
-      profile.getSource().setDateSimple(new DateAndTime(page.getGenDate())); 
+    } else {
+      // special case: if the profile itself doesn't claim a date, it's date is the date of this publication
+      if (profile.getSource().getDate() == null)
+        profile.getSource().setDateSimple(new DateAndTime(page.getGenDate()));
+      for (ProfileStructureComponent c : profile.getSource().getStructure()) {
+        if (c.getBase() != null && !hasSnapshot(profile.getSource(), c)) {
+          // cause it probably doesn't, coming from the profile directly
+          ProfileStructureComponent base = page.getDefinitions().getSnapShotForType(c.getTypeSimple());
+          ProfileStructureComponent snapshot = new ProfileUtilities().generateSnapshot(base, c);
+          snapshot.setNameSimple("snapshot");
+          profile.getSource().getStructure().add(snapshot);
+        }
+      }
+    }
+  }
 
-    //  create snapshot definitions from differentials
-    List<ProfileStructureComponent> snaphots = new ArrayList<Profile.ProfileStructureComponent>();
-//    for (ProfileStructureComponent p : profile.getSource().getStructure()) {
-//      if (p.)
-//    }
-    // 
-    // - validate them all 
-    
+  private boolean hasSnapshot(Profile source, ProfileStructureComponent c) {
+    for (ProfileStructureComponent s : source.getStructure())
+      if (s != c && s.getBase() == null && s.getNameSimple().equals(c.getNameSimple()))
+        return true;
+    return false;
   }
 
   private void loadSuppressedMessages(String rootDir) throws Exception {
@@ -2739,7 +2748,7 @@ public class Publisher {
     String xml = TextFile.fileToString(tmp.getAbsolutePath());
 
     ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-    Profile p = pgen.generate(profile, title, xml);
+    Profile p = pgen.generate(profile, title, xml, page.getGenDate());
     XmlComposer comp = new XmlComposer();
     comp.compose(new FileOutputStream(page.getFolders().dstDir + title + ".profile.xml"), p, true, false);
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + title + ".profile.xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + title
@@ -3238,7 +3247,7 @@ public class Publisher {
   private void produceCoverageWarning(String path, ElementDefn e) {
 
     if (!e.isCoveredByExample() && !Utilities.noString(path)) {
-      page.log("The resource path " + path + e.getName() + " is not covered by any example", LogMessageType.Warning);
+//      page.log("The resource path " + path + e.getName() + " is not covered by any example", LogMessageType.Warning);
       page.getQa().notCovered(path + e.getName());
     }
     for (ElementDefn c : e.getElements()) {

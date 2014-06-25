@@ -257,11 +257,11 @@ public class ProfileGenerator {
     return p;
   }
   
-  public Profile generate(ProfileDefn profile, String id) throws Exception {
-    return generate(profile, id, null);
+  public Profile generate(ProfileDefn profile, String id, Calendar genDate) throws Exception {
+    return generate(profile, id, null, genDate);
   }
   
-  public Profile generate(ProfileDefn profile, String id, String html) throws Exception {
+  public Profile generate(ProfileDefn profile, String id, String html, Calendar genDate) throws Exception {
     if (profile.getSource() != null)
       return profile.getSource();
     Profile p = new Profile();
@@ -278,6 +278,8 @@ public class ProfileGenerator {
 
     if (profile.hasMetadata("date"))
       p.setDate(Factory.newDateTime(profile.metadata("date").substring(0, 10)));
+    else
+      p.setDateSimple(new DateAndTime(genDate));
 
     if (profile.hasMetadata("status")) 
       p.setStatusSimple(Profile.ResourceProfileStatus.fromCode(profile.metadata("status")));
@@ -300,6 +302,11 @@ public class ProfileGenerator {
         SearchParameter param = resource.getSearchParams().get(pn);
         makeSearchParam(p, c, resource.getName(), param);
       }
+      // ok, c is the differential. now we make the snapshot
+      ProfileStructureComponent base = definitions.getSnapShotForType(c.getTypeSimple());
+      ProfileStructureComponent snapshot = new ProfileUtilities().generateSnapshot(base, c);
+      snapshot.setNameSimple(c.getNameSimple()+"-snapshot");
+      p.getStructure().add(snapshot);
     }
    
     for (ExtensionDefn ex : profile.getExtensions())
