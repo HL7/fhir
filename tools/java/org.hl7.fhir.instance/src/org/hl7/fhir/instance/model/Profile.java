@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
+// Generated on Thu, Jun 26, 2014 21:02+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -652,12 +652,12 @@ public class Profile extends Resource {
         protected Code type;
 
         /**
-         * The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).
+         * The structure that is the base on which this set of constraints is derived from.
          */
         protected Uri base;
 
         /**
-         * The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).
+         * The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
          */
         protected String_ name;
 
@@ -672,16 +672,21 @@ public class Profile extends Resource {
         protected String_ purpose;
 
         /**
-         * Captures constraints on each element within the resource.
+         * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.
          */
-        protected List<ElementComponent> element = new ArrayList<ElementComponent>();
+        protected ConstraintComponent snapshot;
+
+        /**
+         * A differential view is expressed relative to the base profile - a statement of differences that it applies.
+         */
+        protected ConstraintComponent differential;
 
         /**
          * Additional search parameters for implementations to support and/or make use of.
          */
         protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
 
-        private static final long serialVersionUID = 830294223L;
+        private static final long serialVersionUID = 1266588655L;
 
       public ProfileStructureComponent() {
         super();
@@ -725,14 +730,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #base} (The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).)
+         * @return {@link #base} (The structure that is the base on which this set of constraints is derived from.)
          */
         public Uri getBase() { 
           return this.base;
         }
 
         /**
-         * @param value {@link #base} (The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).)
+         * @param value {@link #base} (The structure that is the base on which this set of constraints is derived from.)
          */
         public ProfileStructureComponent setBase(Uri value) { 
           this.base = value;
@@ -740,14 +745,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).
+         * @return The structure that is the base on which this set of constraints is derived from.
          */
         public String getBaseSimple() { 
           return this.base == null ? null : this.base.getValue();
         }
 
         /**
-         * @param value The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a "differential" fashion. If there is no base, then the constraints stand alone (snapshot mode).
+         * @param value The structure that is the base on which this set of constraints is derived from.
          */
         public ProfileStructureComponent setBaseSimple(String value) { 
           if (value == null)
@@ -761,14 +766,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).)
+         * @return {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).)
          */
         public String_ getName() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).)
+         * @param value {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).)
          */
         public ProfileStructureComponent setName(String_ value) { 
           this.name = value;
@@ -776,14 +781,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).
+         * @return The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
          */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).
+         * @param value The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
          */
         public ProfileStructureComponent setNameSimple(String value) { 
           if (value == null)
@@ -869,20 +874,33 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #element} (Captures constraints on each element within the resource.)
+         * @return {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.)
          */
-        public List<ElementComponent> getElement() { 
-          return this.element;
+        public ConstraintComponent getSnapshot() { 
+          return this.snapshot;
         }
 
-    // syntactic sugar
         /**
-         * @return {@link #element} (Captures constraints on each element within the resource.)
+         * @param value {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.)
          */
-        public ElementComponent addElement() { 
-          ElementComponent t = new ElementComponent();
-          this.element.add(t);
-          return t;
+        public ProfileStructureComponent setSnapshot(ConstraintComponent value) { 
+          this.snapshot = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #differential} (A differential view is expressed relative to the base profile - a statement of differences that it applies.)
+         */
+        public ConstraintComponent getDifferential() { 
+          return this.differential;
+        }
+
+        /**
+         * @param value {@link #differential} (A differential view is expressed relative to the base profile - a statement of differences that it applies.)
+         */
+        public ProfileStructureComponent setDifferential(ConstraintComponent value) { 
+          this.differential = value;
+          return this;
         }
 
         /**
@@ -905,11 +923,12 @@ public class Profile extends Resource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is applied. The constraints specified in this structure are applied to the base in a 'differential' fashion. If there is no base, then the constraints stand alone (snapshot mode).", 0, java.lang.Integer.MAX_VALUE, base));
-          childrenList.add(new Property("name", "string", "The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.element.definition.type.profile).", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is derived from.", 0, java.lang.Integer.MAX_VALUE, base));
+          childrenList.add(new Property("name", "string", "The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("publish", "boolean", "This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.", 0, java.lang.Integer.MAX_VALUE, publish));
           childrenList.add(new Property("purpose", "string", "Human summary: why describe this resource?.", 0, java.lang.Integer.MAX_VALUE, purpose));
-          childrenList.add(new Property("element", "", "Captures constraints on each element within the resource.", 0, java.lang.Integer.MAX_VALUE, element));
+          childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.", 0, java.lang.Integer.MAX_VALUE, snapshot));
+          childrenList.add(new Property("differential", "@Profile.structure.snapshot", "A differential view is expressed relative to the base profile - a statement of differences that it applies.", 0, java.lang.Integer.MAX_VALUE, differential));
           childrenList.add(new Property("searchParam", "", "Additional search parameters for implementations to support and/or make use of.", 0, java.lang.Integer.MAX_VALUE, searchParam));
         }
 
@@ -920,12 +939,55 @@ public class Profile extends Resource {
         dst.name = name == null ? null : name.copy();
         dst.publish = publish == null ? null : publish.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
-        dst.element = new ArrayList<ElementComponent>();
-        for (ElementComponent i : element)
-          dst.element.add(i.copy());
+        dst.snapshot = snapshot == null ? null : snapshot.copy();
+        dst.differential = differential == null ? null : differential.copy();
         dst.searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
         for (ProfileStructureSearchParamComponent i : searchParam)
           dst.searchParam.add(i.copy());
+        return dst;
+      }
+
+  }
+
+    public static class ConstraintComponent extends BackboneElement {
+        /**
+         * Captures constraints on each element within the resource.
+         */
+        protected List<ElementComponent> element = new ArrayList<ElementComponent>();
+
+        private static final long serialVersionUID = -413892939L;
+
+      public ConstraintComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #element} (Captures constraints on each element within the resource.)
+         */
+        public List<ElementComponent> getElement() { 
+          return this.element;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #element} (Captures constraints on each element within the resource.)
+         */
+        public ElementComponent addElement() { 
+          ElementComponent t = new ElementComponent();
+          this.element.add(t);
+          return t;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("element", "", "Captures constraints on each element within the resource.", 0, java.lang.Integer.MAX_VALUE, element));
+        }
+
+      public ConstraintComponent copy() {
+        ConstraintComponent dst = new ConstraintComponent();
+        dst.element = new ArrayList<ElementComponent>();
+        for (ElementComponent i : element)
+          dst.element.add(i.copy());
         return dst;
       }
 
@@ -943,7 +1005,7 @@ public class Profile extends Resource {
         protected List<Enumeration<PropertyRepresentation>> representation = new ArrayList<Enumeration<PropertyRepresentation>>();
 
         /**
-         * The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
+         * The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
          */
         protected String_ name;
 
@@ -1038,14 +1100,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.)
+         * @return {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.)
          */
         public String_ getName() { 
           return this.name;
         }
 
         /**
-         * @param value {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.)
+         * @param value {@link #name} (The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.)
          */
         public ElementComponent setName(String_ value) { 
           this.name = value;
@@ -1053,14 +1115,14 @@ public class Profile extends Resource {
         }
 
         /**
-         * @return The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
+         * @return The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
          */
         public String getNameSimple() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
+         * @param value The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.
          */
         public ElementComponent setNameSimple(String value) { 
           if (value == null)
@@ -1107,7 +1169,7 @@ public class Profile extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("path", "string", "The path identifies the element and is expressed as a '.'-separated list of ancestor elements, beginning with the name of the resource.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("representation", "code", "Codes that define how this element is represented in instances, when the deviation varies from the normal case.", 0, java.lang.Integer.MAX_VALUE, representation));
-          childrenList.add(new Property("name", "string", "The name of this element definition (to refer to it from other element definitions using Profile.structure.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("name", "string", "The name of this element definition (to refer to it from other element definitions using Profile.structure.snapshot.element.definition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("slicing", "", "Indicates that the element is sliced into a set of alternative definitions (there are multiple definitions on a single element in the base resource). The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).", 0, java.lang.Integer.MAX_VALUE, slicing));
           childrenList.add(new Property("definition", "", "Definition of the content of the element to provide a more specific definition than that contained for the element in the base resource.", 0, java.lang.Integer.MAX_VALUE, definition));
         }
@@ -1148,10 +1210,8 @@ public class Profile extends Resource {
         super();
       }
 
-      public ElementSlicingComponent(Id discriminator, Boolean ordered, Enumeration<ResourceSlicingRules> rules) {
+      public ElementSlicingComponent(Enumeration<ResourceSlicingRules> rules) {
         super();
-        this.discriminator = discriminator;
-        this.ordered = ordered;
         this.rules = rules;
       }
 
@@ -1181,9 +1241,13 @@ public class Profile extends Resource {
          * @param value Designates which child element is used to discriminate between the slices when processing an instance. The value of the child element in the instance SHALL completely distinguish which slice the element in the resource matches based on the allowed values for that element in each of the slices.
          */
         public ElementSlicingComponent setDiscriminatorSimple(String value) { 
+          if (value == null)
+            this.discriminator = null;
+          else {
             if (this.discriminator == null)
               this.discriminator = new Id();
             this.discriminator.setValue(value);
+          }
           return this;
         }
 
@@ -1213,9 +1277,13 @@ public class Profile extends Resource {
          * @param value If the matching elements have to occur in the same order as defined in the profile.
          */
         public ElementSlicingComponent setOrderedSimple(boolean value) { 
+          if (value == false)
+            this.ordered = null;
+          else {
             if (this.ordered == null)
               this.ordered = new Boolean();
             this.ordered.setValue(value);
+          }
           return this;
         }
 
@@ -1365,15 +1433,6 @@ public class Profile extends Resource {
         super();
       }
 
-      public ElementDefinitionComponent(String_ short_, String_ formal, Integer min, String_ max, Boolean isModifier) {
-        super();
-        this.short_ = short_;
-        this.formal = formal;
-        this.min = min;
-        this.max = max;
-        this.isModifier = isModifier;
-      }
-
         /**
          * @return {@link #short_} (A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).)
          */
@@ -1400,9 +1459,13 @@ public class Profile extends Resource {
          * @param value A concise definition that  is shown in the generated XML format that summarizes profiles (used throughout the specification).
          */
         public ElementDefinitionComponent setShortSimple(String value) { 
+          if (value == null)
+            this.short_ = null;
+          else {
             if (this.short_ == null)
               this.short_ = new String_();
             this.short_.setValue(value);
+          }
           return this;
         }
 
@@ -1432,9 +1495,13 @@ public class Profile extends Resource {
          * @param value The definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.
          */
         public ElementDefinitionComponent setFormalSimple(String value) { 
+          if (value == null)
+            this.formal = null;
+          else {
             if (this.formal == null)
               this.formal = new String_();
             this.formal.setValue(value);
+          }
           return this;
         }
 
@@ -1573,9 +1640,13 @@ public class Profile extends Resource {
          * @param value The minimum number of times this element SHALL appear in the instance.
          */
         public ElementDefinitionComponent setMinSimple(int value) { 
+          if (value == -1)
+            this.min = null;
+          else {
             if (this.min == null)
               this.min = new Integer();
             this.min.setValue(value);
+          }
           return this;
         }
 
@@ -1605,9 +1676,13 @@ public class Profile extends Resource {
          * @param value The maximum number of times this element is permitted to appear in the instance.
          */
         public ElementDefinitionComponent setMaxSimple(String value) { 
+          if (value == null)
+            this.max = null;
+          else {
             if (this.max == null)
               this.max = new String_();
             this.max.setValue(value);
+          }
           return this;
         }
 
@@ -1846,9 +1921,13 @@ public class Profile extends Resource {
          * @param value If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
          */
         public ElementDefinitionComponent setIsModifierSimple(boolean value) { 
+          if (value == false)
+            this.isModifier = null;
+          else {
             if (this.isModifier == null)
               this.isModifier = new Boolean();
             this.isModifier.setValue(value);
+          }
           return this;
         }
 
@@ -3058,7 +3137,7 @@ public class Profile extends Resource {
           childrenList.add(new Property("display", "string", "Defined so that applications can use this name when displaying the value of the extension to the user.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("contextType", "code", "Identifies the type of context to which the extension applies.", 0, java.lang.Integer.MAX_VALUE, contextType));
           childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
-          childrenList.add(new Property("element", "@Profile.structure.element", "Definition of the extension and its content.", 0, java.lang.Integer.MAX_VALUE, element));
+          childrenList.add(new Property("element", "@Profile.structure.snapshot.element", "Definition of the extension and its content.", 0, java.lang.Integer.MAX_VALUE, element));
         }
 
       public ProfileExtensionDefnComponent copy() {

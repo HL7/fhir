@@ -338,7 +338,7 @@ public class Definitions {
     if (r == null)
       throw new Exception("unable to find base definition for "+type);
     for (ProfileStructureComponent s : r.getProfile().getStructure())
-      if (s.getNameSimple().equals("snapshot"))
+      if (s.getSnapshot() != null)
         return s;
     throw new Exception("unable to find snapshot for "+type);
   }

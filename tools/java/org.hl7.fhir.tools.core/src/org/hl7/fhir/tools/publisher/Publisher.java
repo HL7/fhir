@@ -520,19 +520,14 @@ public class Publisher {
         if (c.getBase() != null && !hasSnapshot(profile.getSource(), c)) {
           // cause it probably doesn't, coming from the profile directly
           ProfileStructureComponent base = page.getDefinitions().getSnapShotForType(c.getTypeSimple());
-          ProfileStructureComponent snapshot = new ProfileUtilities().generateSnapshot(base, c);
-          snapshot.setNameSimple("snapshot");
-          profile.getSource().getStructure().add(snapshot);
+          new ProfileUtilities().generateSnapshot(base, c);
         }
       }
     }
   }
 
   private boolean hasSnapshot(Profile source, ProfileStructureComponent c) {
-    for (ProfileStructureComponent s : source.getStructure())
-      if (s != c && s.getBase() == null && s.getNameSimple().equals(c.getNameSimple()))
-        return true;
-    return false;
+    return c.getSnapshot() != null;
   }
 
   private void loadSuppressedMessages(String rootDir) throws Exception {

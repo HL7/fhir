@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
+// Generated on Thu, Jun 26, 2014 21:02+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -4823,16 +4823,26 @@ public class JsonParser extends JsonParserBase {
       res.setPurpose(parseString(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
       parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurpose());
-    if (json.has("element")) {
-      JsonArray array = json.getAsJsonArray("element");
-      for (int i = 0; i < array.size(); i++) {
-        res.getElement().add(parseProfileElementComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
+    if (json.has("snapshot"))
+      res.setSnapshot(parseProfileConstraintComponent(json.getAsJsonObject("snapshot"), owner));
+    if (json.has("differential"))
+      res.setDifferential(parseProfileConstraintComponent(json.getAsJsonObject("differential"), owner));
     if (json.has("searchParam")) {
       JsonArray array = json.getAsJsonArray("searchParam");
       for (int i = 0; i < array.size(); i++) {
         res.getSearchParam().add(parseProfileProfileStructureSearchParamComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    return res;
+  }
+
+  private Profile.ConstraintComponent parseProfileConstraintComponent(JsonObject json, Profile owner) throws Exception {
+    Profile.ConstraintComponent res = new Profile.ConstraintComponent();
+    parseBackboneProperties(json, res);
+    if (json.has("element")) {
+      JsonArray array = json.getAsJsonArray("element");
+      for (int i = 0; i < array.size(); i++) {
+        res.getElement().add(parseProfileElementComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     return res;

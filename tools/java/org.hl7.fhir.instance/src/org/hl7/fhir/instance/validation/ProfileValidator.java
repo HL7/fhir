@@ -22,18 +22,25 @@ public class ProfileValidator {
     List<String> errors = new ArrayList<String>();
     // first check: extensions must exist
     for (ProfileStructureComponent sc : profile.getStructure()) {
-      for (ElementComponent ec : sc.getElement()) {
-        if (ec.getDefinition() != null && !ec.getDefinition().getType().isEmpty() && ec.getDefinition().getType().get(0).getCodeSimple().equals("Extension")) {
-          String url = ec.getDefinition().getType().get(0).getProfileSimple();
-          if (!Utilities.noString(url)) {
-            ProfileExtensionDefnComponent defn = getExtensionDefinition(profile, url);
-            if (defn == null)
-              errors.add("Unable to find Extension '"+url+"'");
-          }
-        }
+      for (ElementComponent ec : sc.getDifferential().getElement()) {
+        checkExtensions(profile, errors, ec);
+      }
+      for (ElementComponent ec : sc.getSnapshot().getElement()) {
+        checkExtensions(profile, errors, ec);
       }
     }
     return errors;
+  }
+
+  private void checkExtensions(Profile profile, List<String> errors, ElementComponent ec) {
+    if (ec.getDefinition() != null && !ec.getDefinition().getType().isEmpty() && ec.getDefinition().getType().get(0).getCodeSimple().equals("Extension")) {
+      String url = ec.getDefinition().getType().get(0).getProfileSimple();
+      if (!Utilities.noString(url)) {
+        ProfileExtensionDefnComponent defn = getExtensionDefinition(profile, url);
+        if (defn == null)
+          errors.add("Unable to find Extension '"+url+"'");
+      }
+    }
   }
 
   private ProfileExtensionDefnComponent getExtensionDefinition(Profile self, String url) {

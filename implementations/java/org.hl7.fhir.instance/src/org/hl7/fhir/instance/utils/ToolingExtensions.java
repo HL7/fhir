@@ -62,6 +62,15 @@ public class ToolingExtensions {
     return readStringExtension(def, EXT_DISPLAY_HINT);    
   }
 
+  public static void addDisplay(Element def, String hint) throws Exception {
+    if (!Utilities.noString(hint))
+      def.getExtensions().add(Factory.newExtension(EXT_DISPLAY, Factory.newString_(hint), true));   
+  }
+
+  public static String getDisplay(Element def) throws Exception {
+    return readStringExtension(def, EXT_DISPLAY);    
+  }
+
   public static String readStringExtension(Element c, String uri) {
     Extension ex = c.getExtension(uri);
     if (ex == null)

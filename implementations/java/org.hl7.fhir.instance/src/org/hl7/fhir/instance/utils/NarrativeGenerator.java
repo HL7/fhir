@@ -169,7 +169,7 @@ public class NarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("p").addTag("b").addText("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
     try {
-      generateByProfile(r, r, ps.getElement(), ps.getElement().get(0), getChildrenForPath(ps.getElement(), r.getResourceType().toString()), x, r.getResourceType().toString(), showCodeDetails);
+      generateByProfile(r, r, ps.getSnapshot().getElement(), ps.getSnapshot().getElement().get(0), getChildrenForPath(ps.getSnapshot().getElement(), r.getResourceType().toString()), x, r.getResourceType().toString(), showCodeDetails);
     } catch (Exception e) {
       e.printStackTrace();
       x.addTag("p").addTag("b").setAttribute("style", "color: maroon").addText("Exception generating Narrative: "+e.getMessage());
@@ -533,7 +533,7 @@ public class NarrativeGenerator {
       boolean firstElement = true;
       boolean last = false;
       for (Property p : res.children()) {
-        ElementComponent child = getElementDefinition(struc.getElement(), path+"."+p.getName());
+        ElementComponent child = getElementDefinition(struc.getSnapshot().getElement(), path+"."+p.getName());
         if (p.getValues().size() > 0 && p.getValues().get(0) != null && child != null && isPrimitive(child) && includeInSummary(child)) {
           if (firstElement)
             firstElement = false;

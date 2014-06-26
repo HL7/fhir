@@ -152,58 +152,60 @@ will use this resource, a profile on the patient resource is used:
   &lt;name value="iso-21090" /&gt;
   &lt;!-- snip other metadata, narrative -->
   &lt;structure&gt;
+    &lt;differential&gt;
 
-    &lt;!-- first, the patient root element 
-      - can be copy/paste from the base patient profile --&gt;    
-    &lt;element&gt;
-      &lt;path value=&quot;Patient&quot;/&gt;
-      &lt;!-- snip definition --&gt;
-    &lt;/element&gt;
-    
-    &lt;!-- now, the general definition for extensions
-      - can be copy/paste from the base patient profile,
-      with changes for slicing  --&gt;
-    &lt;element&gt;
-      &lt;path value=&quot;Patient.extension&quot;/&gt;
-      &lt;name value=&quot;base extension&quot;/&gt;
-      &lt;!-- we're going to slice the extension element, and 
-        one of the extensions is one we have defined --&gt;
-      &lt;slicing&gt;
-        &lt;!-- extension is always sliced on url --&gt;
-        &lt;discriminator value=&quot;url&quot;/&gt; 
-        &lt;!-- we don't care what the order of any extensions is --&gt;
-        &lt;ordered value=&quot;false&quot;/&gt;
-        &lt;!-- Other extensions are allowed in addition to this one --&gt;
-        &lt;rules value=&quot;open&quot;/&gt;
-      &lt;/slicing&gt;
-      &lt;!-- snip definition --&gt;
-    &lt;/element&gt;
-    
-    &lt;!-- now, the slice that contains our extension --&gt;    
-    &lt;element&gt;
-      &lt;path value=&quot;Patient.extension&quot;/&gt;
-      &lt;definition&gt;
-        &lt;!-- clone information from the extension definition. 
-          duplicative, but this duplication makes it over all simpler --&gt;
-        &lt;short value=&quot;Agreed agreement/policy&quot;/&gt;
-        &lt;formal value=&quot;A URI that identifies a participation agreement/policy 
-        to which the patient has agreed&quot;/&gt;
-        &lt;!--  min has to be 1, since the extension itself has min = 1 --&gt;
-        &lt;min value=&quot;1&quot;/&gt;
-        &lt;max value=&quot;*&quot;/&gt;
-        &lt;type&gt;
-          &lt;!-- obviously it has to be an extension --&gt;
-          &lt;code value=&quot;Extension&quot;/&gt;
-          &lt;!-- and here is the link to the extension definition:
-            this extension has to conform to the rules laid down in it's definition --&gt;
-          &lt;profile value=&quot;http://example.org/phr/documents/fhir/extensions#participation-agreement&quot;/&gt;
-        &lt;/type&gt;
-        &lt;isModifier value=&quot;false&quot;/&gt;
-      &lt;/definition&gt;
-    &lt;/element&gt;
-    
-  &lt;!-- snip the rest of the profile -->
+      &lt;!-- first, the patient root element 
+        - can be copy/paste from the base patient profile --&gt;    
+      &lt;element&gt;
+        &lt;path value=&quot;Patient&quot;/&gt;
+        &lt;!-- snip definition --&gt;
+      &lt;/element&gt;
+      
+      &lt;!-- now, the general definition for extensions
+        - can be copy/paste from the base patient profile,
+        with changes for slicing  --&gt;
+      &lt;element&gt;
+        &lt;path value=&quot;Patient.extension&quot;/&gt;
+        &lt;name value=&quot;base extension&quot;/&gt;
+        &lt;!-- we're going to slice the extension element, and 
+          one of the extensions is one we have defined --&gt;
+        &lt;slicing&gt;
+          &lt;!-- extension is always sliced on url --&gt;
+          &lt;discriminator value=&quot;url&quot;/&gt; 
+          &lt;!-- we don't care what the order of any extensions is --&gt;
+          &lt;ordered value=&quot;false&quot;/&gt;
+          &lt;!-- Other extensions are allowed in addition to this one --&gt;
+          &lt;rules value=&quot;open&quot;/&gt;
+        &lt;/slicing&gt;
+        &lt;!-- snip definition --&gt;
+      &lt;/element&gt;
+      
+      &lt;!-- now, the slice that contains our extension --&gt;    
+      &lt;element&gt;
+        &lt;path value=&quot;Patient.extension&quot;/&gt;
+        &lt;definition&gt;
+          &lt;!-- clone information from the extension definition. 
+            duplicative, but this duplication makes it over all simpler --&gt;
+          &lt;short value=&quot;Agreed agreement/policy&quot;/&gt;
+          &lt;formal value=&quot;A URI that identifies a participation agreement/policy 
+          to which the patient has agreed&quot;/&gt;
+          &lt;!--  min has to be 1, since the extension itself has min = 1 --&gt;
+          &lt;min value=&quot;1&quot;/&gt;
+          &lt;max value=&quot;*&quot;/&gt;
+          &lt;type&gt;
+            &lt;!-- obviously it has to be an extension --&gt;
+            &lt;code value=&quot;Extension&quot;/&gt;
+            &lt;!-- and here is the link to the extension definition:
+              this extension has to conform to the rules laid down in it's definition --&gt;
+            &lt;profile value=&quot;http://example.org/phr/documents/fhir/extensions#participation-agreement&quot;/&gt;
+          &lt;/type&gt;
+          &lt;isModifier value=&quot;false&quot;/&gt;
+        &lt;/definition&gt;
+      &lt;/element&gt;
+      
+    &lt;!-- snip the rest of the profile -->
   
+    &lt;/differential&gt;
   &lt;/structure&gt;
 &lt;/Profile>
 

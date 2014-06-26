@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
+// Generated on Thu, Jun 26, 2014 21:02+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.Integer;
 import org.hl7.fhir.instance.model.DateTime;
@@ -4393,10 +4393,28 @@ public class XmlParser extends XmlParserBase {
         res.setPublish(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
         res.setPurpose(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("element")) {
-        res.getElement().add(parseProfileElementComponent(xpp, owner));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("snapshot")) {
+        res.setSnapshot(parseProfileConstraintComponent(xpp, owner));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("differential")) {
+        res.setDifferential(parseProfileConstraintComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchParam")) {
         res.getSearchParam().add(parseProfileProfileStructureSearchParamComponent(xpp, owner));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    xpp.next();
+    return res;
+  }
+
+  private Profile.ConstraintComponent parseProfileConstraintComponent(XmlPullParser xpp, Profile owner) throws Exception {
+    Profile.ConstraintComponent res = new Profile.ConstraintComponent();
+    parseBackboneAttributes(xpp, res);
+    xpp.next();
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("element")) {
+        res.getElement().add(parseProfileElementComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);

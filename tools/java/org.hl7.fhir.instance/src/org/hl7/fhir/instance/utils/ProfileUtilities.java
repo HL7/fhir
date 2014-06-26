@@ -5,11 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.httpclient.methods.GetMethod;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
+import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.String_;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -21,7 +22,7 @@ public class ProfileUtilities {
   
   public static Map<String, ElementComponent> getChildMap(ProfileStructureComponent structure, String path) {
     HashMap<String, ElementComponent> res = new HashMap<String, Profile.ElementComponent>(); 
-    for (ElementComponent e : structure.getElement()) {
+    for (ElementComponent e : structure.getSnapshot().getElement()) {
       String p = e.getPathSimple();
       if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p)) {
         if (path.length() > p.length())
@@ -45,7 +46,7 @@ public class ProfileUtilities {
   
   public static List<ElementComponent> getChildList(ProfileStructureComponent structure, String path) {
     List<ElementComponent> res = new ArrayList<Profile.ElementComponent>(); 
-    for (ElementComponent e : structure.getElement()) {
+    for (ElementComponent e : structure.getSnapshot().getElement()) {
       String p = e.getPathSimple();
       if (!Utilities.noString(e.getDefinition().getNameReferenceSimple()) && path.startsWith(p)) {
         if (path.length() > p.length())
@@ -72,18 +73,15 @@ public class ProfileUtilities {
    * @return
    * @throws Exception 
    */
-  public ProfileStructureComponent generateSnapshot(ProfileStructureComponent base, ProfileStructureComponent differential) throws Exception {
+  public void generateSnapshot(ProfileStructureComponent base, ProfileStructureComponent derived) throws Exception {
     if (base == null)
       throw new Exception("no base profile provided");
-    if (differential == null) 
-      throw new Exception("no differential profile provided");
-    if (!differential.getTypeSimple().equals(base.getTypeSimple()))
+    if (derived == null) 
+      throw new Exception("no derived structure provided");
+    if (!derived.getTypeSimple().equals(base.getTypeSimple()))
       throw new Exception("Mismatch types between base and snapshot");
       
-    ProfileStructureComponent result = new ProfileStructureComponent();
-    result.setNameSimple(differential.getNameSimple());
-    result.setTypeSimple(differential.getTypeSimple());
-    result.setPublishSimple(differential.getPublishSimple());
+    derived.setSnapshot(new ConstraintComponent());
     
     // so we have two lists - the base list, and the differential list 
     // the differential list is only allowed to include things that are in the base list, but 
@@ -95,15 +93,13 @@ public class ProfileUtilities {
     int diffCursor = 0; // we need a diff cursor because we can only look ahead, in the bound scoped by longer paths
     
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
-    processPaths(result, base, differential, baseCursor, diffCursor, base.getElement().size()-1, differential.getElement().size()-1);
-    
-    return result;
+    processPaths(derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, derived.getDifferential().getElement().size()-1);
   }
 
   /**
    * @throws Exception 
    */
-  private void processPaths(ProfileStructureComponent result, ProfileStructureComponent base, ProfileStructureComponent differential, int baseCursor, int diffCursor, int baseLimit, int diffLimit) throws Exception {
+  private void processPaths(ConstraintComponent result, ConstraintComponent base, ConstraintComponent differential, int baseCursor, int diffCursor, int baseLimit, int diffLimit) throws Exception {
     
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
@@ -159,7 +155,7 @@ public class ProfileUtilities {
     }      
   }
 
-  private List<ElementComponent> getDiffMatches(ProfileStructureComponent context, String path, int start, int end) {
+  private List<ElementComponent> getDiffMatches(ConstraintComponent context, String path, int start, int end) {
     List<ElementComponent> result = new ArrayList<Profile.ElementComponent>();
     for (int i = start; i <= end; i++) {
       if (context.getElement().get(i).getPathSimple().equals(path)) {
@@ -169,7 +165,7 @@ public class ProfileUtilities {
     return result;
   }
 
-  private int findEndOfElement(ProfileStructureComponent context, int cursor) {
+  private int findEndOfElement(ConstraintComponent context, int cursor) {
     int result = cursor;
     String path = context.getElement().get(cursor).getPathSimple()+".";
     while (result < context.getElement().size()- 1 && context.getElement().get(result+1).getPathSimple().startsWith(path))

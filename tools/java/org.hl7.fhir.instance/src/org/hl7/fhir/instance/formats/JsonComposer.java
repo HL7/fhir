@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Mon, Jun 23, 2014 16:30+1000 for FHIR v0.2.1
+// Generated on Thu, Jun 26, 2014 21:02+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -4168,16 +4168,26 @@ public class JsonComposer extends JsonComposerBase {
       composeBooleanExtras("publish", element.getPublish(), false);
       composeStringCore("purpose", element.getPurpose(), false);
       composeStringExtras("purpose", element.getPurpose(), false);
-      if (element.getElement().size() > 0) {
-        openArray("element");
-        for (Profile.ElementComponent e : element.getElement()) 
-          composeProfileElementComponent(null, e);
-        closeArray();
-      };
+      composeProfileConstraintComponent("snapshot", element.getSnapshot());
+      composeProfileConstraintComponent("differential", element.getDifferential());
       if (element.getSearchParam().size() > 0) {
         openArray("searchParam");
         for (Profile.ProfileStructureSearchParamComponent e : element.getSearchParam()) 
           composeProfileProfileStructureSearchParamComponent(null, e);
+        closeArray();
+      };
+      close();
+    }
+  }
+
+  private void composeProfileConstraintComponent(String name, Profile.ConstraintComponent element) throws Exception {
+    if (element != null) {
+      open(name);
+      composeBackbone(element);
+      if (element.getElement().size() > 0) {
+        openArray("element");
+        for (Profile.ElementComponent e : element.getElement()) 
+          composeProfileElementComponent(null, e);
         closeArray();
       };
       close();

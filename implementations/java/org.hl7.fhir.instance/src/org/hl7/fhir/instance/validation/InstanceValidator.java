@@ -390,7 +390,7 @@ public class InstanceValidator extends BaseValidator {
       Profile p = profile != null ? profile : getProfileForType(elem.getName());
       ProfileStructureComponent s = getStructureForType(p, elem.getName());
       if (rule(errors, "invalid", elem.getName(), s != null, "Unknown Resource Type "+elem.getName())) {
-        validateElement(errors, p, s, path+"/f:"+elem.getName(), s.getElement().get(0), null, null, elem, elem.getName(), null);
+        validateElement(errors, p, s, path+"/f:"+elem.getName(), s.getSnapshot().getElement().get(0), null, null, elem, elem.getName(), null);
         if (elem.getName().equals("Query"))
           validateQuery(errors, elem);
       }
@@ -529,7 +529,7 @@ public class InstanceValidator extends BaseValidator {
             Profile p = getProfileForType(type); 
             ProfileStructureComponent r = getStructureForType(p, type);
             if (rule(errors, "structure", ci.path(), r != null, "Unknown type "+type)) {
-              validateElement(errors, p, r, ci.path(), r.getElement().get(0), profile, child, ci.element(), type, ec);
+              validateElement(errors, p, r, ci.path(), r.getSnapshot().getElement().get(0), profile, child, ci.element(), type, ec);
             }
           }
         }
@@ -713,7 +713,7 @@ public class InstanceValidator extends BaseValidator {
   }
 
   private ElementComponent findElement(ProfileStructureComponent structure, String name) {
-    for (ElementComponent c : structure.getElement()) {
+    for (ElementComponent c : structure.getSnapshot().getElement()) {
       if (c.getPathSimple().equals(name)) {
         return c;
       }
@@ -997,7 +997,7 @@ public class InstanceValidator extends BaseValidator {
       if (rule(errors, "invalid", root.getName(), sc != null, "Profile does not allow for this resource")) {
         // well, does it conform to the resource?
         // this is different to the case above because there may be more than one option at each point, and we could conform to any one of them
-        checkByProfile(errors, root.getName(), root, profile, sc, sc.getElement().get(0));
+        checkByProfile(errors, root.getName(), root, profile, sc, sc.getSnapshot().getElement().get(0));
       }
     }
   }
@@ -1018,10 +1018,10 @@ public class InstanceValidator extends BaseValidator {
     }
 
     private void loadMap() {
-      int i = structure.getElement().indexOf(elementDefn) + 1;
+      int i = structure.getSnapshot().getElement().indexOf(elementDefn) + 1;
       String lead = elementDefn.getPathSimple();
-      while (i < structure.getElement().size()) {
-        String name = structure.getElement().get(i).getPathSimple();
+      while (i < structure.getSnapshot().getElement().size()) {
+        String name = structure.getSnapshot().getElement().get(i).getPathSimple();
         if (name.length() <= lead.length()) 
           return; // cause we've got to the end of the possible matches
         String tail = name.substring(lead.length()+1);
@@ -1032,7 +1032,7 @@ public class InstanceValidator extends BaseValidator {
             names.add(tail);
             children.put(tail, list);
           }
-          list.add(structure.getElement().get(i));
+          list.add(structure.getSnapshot().getElement().get(i));
         }
         i++;
       }
