@@ -2824,10 +2824,19 @@ public class Publisher {
     // File umlf = new CSFile(page.getFolders().imgDir+n+".png");
     //
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
-    src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html");
+    src = page.processProfileIncludes(filename, profile, xml, tx, src, exXml, intro, notes, master, title + ".html", null);
     page.getEpub().registerFile(title + ".html", "Profile " + exampleName, EPubManager.XHTML_TYPE);
     TextFile.stringToFile(src, page.getFolders().dstDir + title + ".html");
-    page.getEpub().registerFile(title + ".html", "Profile " + exampleName, EPubManager.XHTML_TYPE);
+    
+    // now, generate a page for each structure definition
+    for (ProfileStructureComponent s : profile.getSource().getStructure()) {
+      String fn = Utilities.changeFileExt(filename, "."+Utilities.getFileNameForName(s.getNameSimple()))+".html";
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-constraint.html");
+      src = page.processProfileIncludes(fn, profile, "", tx, src, exXml, intro, notes, master, title + ".html", s);
+      page.getEpub().registerFile(fn, "Profile " + profile.getSource().getNameSimple()+ " structure " +s.getNameSimple(), EPubManager.XHTML_TYPE);
+      TextFile.stringToFile(src, page.getFolders().dstDir + fn);
+    }
+    
     //
     // src = Utilities.fileToString(page.getFolders().srcDir +
     // "template-print.html").replace("<body>",

@@ -500,25 +500,34 @@ public class ProfileGenerator {
     if (e.typeCode().startsWith("@"))  {
       ce.getDefinition().setNameReferenceSimple(e.typeCode().substring(1));
     } else {
-      for (TypeRef t : e.getTypes())  {
-        // If this is Resource(A|B|C), duplicate the ResourceReference for each
-        if(t.hasParams() && "Resource".equals(t.getName()))
-        {
-          for(String param : t.getParams()) {    
+      if (!Utilities.noString(e.getStatedProfile())) {
+        if (e.getTypes().size() != 1)
+          throw new Exception("mismatched type count");
+        TypeRefComponent type = new Profile.TypeRefComponent();
+        type.setCodeSimple("ResourceReference");
+        type.setProfileSimple(e.getStatedProfile());
+        ce.getDefinition().getType().add(type);
+      } else {
+        for (TypeRef t : e.getTypes())  {
+          // If this is Resource(A|B|C), duplicate the ResourceReference for each
+          if(t.hasParams() && "Resource".equals(t.getName()))
+          {
+            for(String param : t.getParams()) {    
+              TypeRefComponent type = new Profile.TypeRefComponent();
+              type.setCodeSimple("ResourceReference");
+              if (param.startsWith("http:"))
+                type.setProfileSimple(param);
+              else 
+                type.setProfileSimple("http://hl7.org/fhir/Profile/"+param);
+              ce.getDefinition().getType().add(type);
+            }
+          } else {
             TypeRefComponent type = new Profile.TypeRefComponent();
-            type.setCodeSimple("ResourceReference");
-            if (param.startsWith("http:"))
-              type.setProfileSimple(param);
-            else 
-              type.setProfileSimple("http://hl7.org/fhir/Profile/"+param);
-            ce.getDefinition().getType().add(type);            
+            type.setCodeSimple(t.summaryFormal());
+            ce.getDefinition().getType().add(type);
+            if (e.getTypes().size() == 1 && !Utilities.noString(e.getStatedProfile()))
+              type.setProfileSimple(e.getStatedProfile());
           }
-        } else {
-          TypeRefComponent type = new Profile.TypeRefComponent();
-          type.setCodeSimple(t.summaryFormal());
-          ce.getDefinition().getType().add(type);
-          if (e.getTypes().size() == 1 && !Utilities.noString(e.getStatedProfile()))
-            type.setProfileSimple(e.getStatedProfile());
         }
       }
     }

@@ -526,7 +526,7 @@
     <Cell ss:StyleID="s76"/>
     <Cell ss:StyleID="s74"/>
     <Cell ss:StyleID="s74"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">datetime</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s74"><Data ss:Type="String">n</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Date the change was made</Data></Cell>
    </Row>
@@ -591,7 +591,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.HeirarchicalTableGenerator.Piece;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 
@@ -67,6 +68,10 @@ public class HeirarchicalTableGenerator  {
     }
     public List<Piece> getPieces() {
       return pieces;
+    }
+    public Cell addPiece(Piece piece) {
+      pieces.add(piece);
+      return this;
     }
   }
 
@@ -136,6 +141,15 @@ public class HeirarchicalTableGenerator  {
     this.inLineGraphics = inlineGraphics;
   }
 
+  public TableModel initNormalTable() {
+    TableModel model = new TableModel();
+    
+    model.getTitles().add(new Title(null, null, "Name", null, null, 0));
+    model.getTitles().add(new Title(null, null, "Card.", null, null, 0));
+    model.getTitles().add(new Title(null, null, "Type", null, null, 100));
+    model.getTitles().add(new Title(null, null, "Description & Constraints", null, null, 0));
+    return model;
+  }
 
   public XhtmlNode generate(TableModel model) throws Exception {
     checkModel(model);

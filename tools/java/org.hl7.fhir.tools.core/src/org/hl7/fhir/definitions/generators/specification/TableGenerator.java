@@ -87,16 +87,18 @@ public class TableGenerator extends BaseGenerator {
         row.getCells().add(gen.new Cell(null, null, "", null, null));   
       }
     }
-    row.getCells().add(gen.new Cell(null, null, e.getShortDefn(), null, null));
+    Cell cc = gen.new Cell(null, null, e.getShortDefn(), null, null);
+    row.getCells().add(cc);
     
     // constraints
-    Cell cc = gen.new Cell();
-    row.getCells().add(cc);
-  
-    if (isProfiledExtension) 
+    if (isProfiledExtension) {
+      cc.addPiece(gen.new Piece("br"));
       cc.getPieces().add(gen.new Piece(null, e.getStatedProfile(), null));
+    }
     
     if (e.hasBinding() && definitions.getBindingByName(e.getBindingName()) != null && definitions.getBindingByName(e.getBindingName()).getBinding() != Binding.Unbound) {
+      if (cc.getPieces().size() == 1)
+        cc.addPiece(gen.new Piece("br"));
       cc.getPieces().add(gen.new Piece(getBindingLink(e), e.getBindingName(), definitions.getBindingByName(e.getBindingName()).getDefinition()));
       cc.getPieces().add(gen.new Piece(null, " (", null));
       BindingSpecification b = definitions.getBindingByName(e.getBindingName());
@@ -113,8 +115,8 @@ public class TableGenerator extends BaseGenerator {
     }
     for (String name : e.getInvariants().keySet()) {
       Invariant inv = e.getInvariants().get(name);
-      if (!cc.getPieces().isEmpty())
-        cc.getPieces().add(gen.new Piece("br"));
+      if (cc.getPieces().size() == 1)
+        cc.addPiece(gen.new Piece("br"));
       cc.getPieces().add(gen.new Piece(null, inv.getEnglish(), inv.getId()));
     }
     
@@ -149,7 +151,7 @@ public class TableGenerator extends BaseGenerator {
         }
       
         choicerow.getCells().add(gen.new Cell());
-        choicerow.getCells().add(gen.new Cell());
+//        choicerow.getCells().add(gen.new Cell());
         row.getSubRows().add(choicerow);
       }
     } else

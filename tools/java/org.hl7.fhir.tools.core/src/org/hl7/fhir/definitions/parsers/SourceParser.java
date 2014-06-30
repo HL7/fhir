@@ -266,6 +266,7 @@ public class SourceParser {
 		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry);
 		    sparser.setFolder(Utilities.getDirectoryForFile(p.getFilepath()));
 		    p.setProfile(sparser.parseProfile(definitions));
+		    p.getProfile().forceMetadata("id", p.getDestFilenameNoExt());
 		  }
 		}
 	}

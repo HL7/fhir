@@ -84,12 +84,18 @@ import org.hl7.fhir.instance.model.AtomFeed;
 import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Profile;
+import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
+import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
+import org.hl7.fhir.instance.utils.ProfileUtilities;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ExtensionDefinition;
+import org.hl7.fhir.instance.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.instance.utils.ValueSetExpansionCache;
+import org.hl7.fhir.definitions.generators.specification.GeneratorUtils;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -105,7 +111,7 @@ import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class PageProcessor implements Logger  {
+public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
 
   private static final String SIDEBAR_SPACER = "<p>&nbsp;</p>\r\n";
   private List<String> suppressedMessages = new ArrayList<String>();
@@ -1558,6 +1564,25 @@ public class PageProcessor implements Logger  {
     return b.toString();   
   }
 
+  private String profileHeader(String n, String mode) {
+    StringBuilder b = new StringBuilder();
+
+    if (n.endsWith(".xml"))
+      n = n.substring(0, n.length()-4);
+    
+    b.append("<ul class=\"nav nav-tabs\">");
+    
+    b.append(makeHeaderTab("Content", n+".html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
+    b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
+    b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
+    b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
+
+    b.append("</ul>\r\n");
+
+    return b.toString();   
+  }
+
   private String txHeader(String n, String mode) {
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
@@ -2991,7 +3016,7 @@ public class PageProcessor implements Logger  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource);
   }
 
-  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master, String pagePath) throws Exception {
+  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master, String pagePath, ProfileStructureComponent structure) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
 
     while (src.contains("<%") || src.contains("[%"))
@@ -3009,6 +3034,8 @@ public class PageProcessor implements Logger  {
       String[] com = s2.split(" ");
       if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
+      else if (com[0].equals("profileheader"))
+        src = s1+profileHeader(filename, com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("setwiki")) {
@@ -3068,11 +3095,8 @@ public class PageProcessor implements Logger  {
         src = s1+profile.metadata("author.name")+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
-      else if (com[0].equals("profilelist")) {
-        if (profile.getMetadata().containsKey("resource"))
-          src = s1+", and profiles the "+profile.metadata("resource")+" Resource"+s3;
-        else
-          src = s1+s3;
+      else if (com[0].equals("profiledesc")) {
+        src = s1+". "+ProfileUtilities.summarise(profile.getSource(), this)+s3;
       } else if (com[0].equals("tx"))
         src = s1+tx+s3;
       else if (com[0].equals("inv"))
@@ -3099,14 +3123,22 @@ public class PageProcessor implements Logger  {
         src = s1 + publicationType + s3;      
       else if (com[0].equals("pub-notice"))
         src = s1 + publicationNotice + s3;
-      else if (com[0].equals("profile-table"))
-        src = s1 + generateProfileTable(profile, filename) + s3;      
+      else if (com[0].equals("profile-extensions-table"))
+        src = s1 + generateProfileExtensionsTable(profile, filename) + s3;
+      else if (com[0].equals("profile-constraints-links"))
+        src = s1 + generateProfileConstraintLinks(profile, filename) + s3;      
       else if (com[0].equals("pagepath"))
         src = s1 + pagePath + s3;  
+      else if (com[0].equals("profileurl"))
+        src = s1 + profile.getSource().getUrlSimple() + s3;  
       else if (com[0].equals("rellink"))
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
+      else if (com[0].equals("profile-structure-table-diff"))
+        src = s1 + generateProfileStructureTable(profile, structure, true) + s3;      
+      else if (com[0].equals("profile-structure-table"))
+        src = s1 + generateProfileStructureTable(profile, structure, false) + s3;      
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.metadata("id")+s3;
       } else 
@@ -3115,9 +3147,45 @@ public class PageProcessor implements Logger  {
     return src;
   }
 
-  private String generateProfileTable(ProfileDefn profile, String filename) throws Exception {
-    ProfileTableGenerator gen = new ProfileTableGenerator(folders.dstDir, this, null, false);
-    return new XhtmlComposer().compose(gen.generate(profile, "http://hl7.org/fhir/Profile/"+filename));
+  private String generateProfileStructureTable(ProfileDefn profile, ProfileStructureComponent structure, boolean diff) throws Exception {
+    return new XhtmlComposer().compose(new ProfileUtilities().generateTable(structure, diff, folders.dstDir, false, profile.getSource(), this));
+  }
+
+  private String generateProfileConstraintLinks(ProfileDefn profile, String filename) throws Exception {
+    if (profile.getSource().getStructure().isEmpty())
+      return "";
+    
+    StringBuilder b = new StringBuilder();
+    b.append("<p><b>Constraints:</b></p>\r\n");
+    b.append("<table class=\"grid\">\r\n");
+    b.append("<tr>");
+    b.append("<th>Name</th>");
+    b.append("<th>Base</th>");
+    b.append("<th>Purpose</th>");
+    b.append("</tr>");
+    
+    for (ProfileStructureComponent s : profile.getSource().getStructure()) {
+      b.append("<tr>");
+      b.append("<td><a href=\""+Utilities.changeFileExt(filename, "."+Utilities.getFileNameForName(s.getNameSimple()))+".html\">"+Utilities.escapeXml(s.getNameSimple())+"</a></td>");
+      if (s.getBaseSimple().startsWith("http://hl7.org/fhir/Profile/")) {
+        String type = s.getBaseSimple().substring(28);
+        if (hasLinkFor(type)) 
+          b.append("<td><a href=\""+getLinkFor(type)+"\">"+type+"</a></td>");
+        else
+          b.append("<td>"+type+"</td>");
+      } else 
+        b.append("<td><a href=\""+Utilities.escapeXml(s.getBaseSimple())+"\">"+Utilities.escapeXml(s.getBaseSimple())+"</a></td>");
+      b.append("<td>"+Utilities.escapeXml(s.getPurposeSimple())+"</td>");
+      b.append("</tr>");
+    }
+    b.append("</table>\r\n");
+    return b.toString();
+  }
+
+  private String generateProfileExtensionsTable(ProfileDefn profile, String filename) throws Exception {
+    if (profile.getSource().getExtensionDefn().isEmpty())
+      return "";
+    return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities().generateExtensionsTable(profile.getSource(), folders.dstDir, false, this));
   }
 
   private boolean isAggregationEndpoint(String name) {
@@ -3386,6 +3454,45 @@ public class PageProcessor implements Logger  {
 
   public void setBaseURL(String baseURL) {
     this.baseURL = !baseURL.endsWith("/") ? baseURL : baseURL + "/";
+  }
+
+  @Override
+  public boolean isDatatype(String type) {
+    return definitions.hasPrimitiveType(type) || (definitions.hasElementDefn(type) && !definitions.hasResource(type));
+  }
+
+  @Override
+  public boolean hasLinkFor(String type) {
+    return isDatatype(type) || definitions.hasResource(type);
+  }
+
+  @Override
+  public String getLinkFor(String type) throws Exception {
+    if (definitions.hasResource(type)) 
+      return type.toLowerCase()+".html";
+    else 
+      return GeneratorUtils.getSrcFile(type)+".html#"+type;
+  }
+
+  @Override
+  public ExtensionDefinition getExtensionDefinition(Profile profile, String profileReference) {
+    String fn;
+    String code;
+    if (profileReference.startsWith("#")) {
+      code = profileReference.substring(0);
+    } else {
+      String[] path = profileReference.split("#");
+      code = path[1];
+      profile = definitions.getProfileByURL(path[0]);
+    }
+    if (profile != null) {
+      fn = profile.getNameSimple();
+      for (ProfileExtensionDefnComponent t : profile.getExtensionDefn()) {
+        if (t.getCodeSimple().equals(code))
+          return new ExtensionDefinition(fn+".html", t);
+      }
+    }
+    return null;
   }
 
   

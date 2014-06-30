@@ -27,8 +27,8 @@ These extensions govern the length of most of the simple data types.  Some data 
 further constrained.
 </p>
 <ul>
-<li><a name="minLength"/><b>minLength</b> - (0..1) Establishes a lower bound for the character length for the element</li>
-<li><a name="maxLength"/><b>minLength</b> - (0..1) Establishes an upper bound for the character length for the element</li>
+<li><a name="minLength"> </a><b>minLength</b> - (0..1) Establishes a lower bound for the character length for the element</li>
+<li><a name="maxLength"> </a><b>minLength</b> - (0..1) Establishes an upper bound for the character length for the element</li>
 </ul>
 </div>
 
@@ -38,8 +38,8 @@ further constrained.
 These extensions govern the appearance of string and string-like simple data types.
 </p>
 <ul>
-<li><a name="regex"/><b>regex</b> - (0..1) Expresses a "regular expression" that computably defines the permitted syntax for a string</li>
-<li><a name="entryFormat"/><b>entryFormat</b> - (0..1) Provides human-readable guidance for the desired syntax for a string</li>
+<li><a name="regex"> </a><b>regex</b> - (0..1) Expresses a "regular expression" that computably defines the permitted syntax for a string</li>
+<li><a name="entryFormat"> </a><b>entryFormat</b> - (0..1) Provides human-readable guidance for the desired syntax for a string</li>
 </ul>
 </div>
 
@@ -49,9 +49,9 @@ These extensions govern the appearance of string and string-like simple data typ
 These extensions govern the allowed range of numeric and date or time data types.
 </p>
 <ul>
-<li><a name="minValue"/><b>minValue</b> - (0..1) Identifies the lowest value allowed for a numeric or date element</li>
-<li><a name="maxValue"/><b>maxValue</b> - (0..1) Identifies the highest value allowed for a numeric or date element</li>
-<li><a name="maxDecimalPlaces"/><b>maxDecimalPlaces</b> - (0..1) Identifies the number of decimal places allowed for decimal elements</li>
+<li><a name="minValue"> </a><b>minValue</b> - (0..1) Identifies the lowest value allowed for a numeric or date element</li>
+<li><a name="maxValue"> </a><b>maxValue</b> - (0..1) Identifies the highest value allowed for a numeric or date element</li>
+<li><a name="maxDecimalPlaces"> </a><b>maxDecimalPlaces</b> - (0..1) Identifies the number of decimal places allowed for decimal elements</li>
 </ul>
 </div>
 

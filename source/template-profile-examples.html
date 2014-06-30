@@ -11,32 +11,39 @@
 
 <div class="col-9">
 
-<%profileheader base%>
+<%profileheader examples%>
 <h1><%title%></h1>
 <p>
 <%profile.intro%>
 </p>
 <p> 
-This profile was published on <%date%> <%status%> by <%author%> <%profiledesc%>
+This profile was published on <%date%> <%status%> by <%author%> <%profilelist%>
 </p>
 <p>
-The official URL for this profile is <%profileurl%>.
+<%resurl%>
 </p>
 <a name="profile"> </a>
 <h2>
 Content
 </h2>
 
-<%profile-constraints-links%>
+<%profile-table%>
 
-<%profile-extensions-table%>
+<%xml%>
 
 <p>
 This profile as <a href="<%filetitle%>.profile.xml.html">XML</a> or <a href="<%filetitle%>.profile.json.html">JSON</a>.
 </p>
 
+<%tx%>
+
+<%inv%>
+
 <%profile.notes%>.
 
+<h2>Example</h2>
+
+<%example%>
 
 </div>
 

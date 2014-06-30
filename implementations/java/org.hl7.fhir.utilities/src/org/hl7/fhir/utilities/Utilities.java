@@ -584,5 +584,18 @@ public class Utilities {
       throw new Error(e.getMessage());
     }
   }
+
+
+  public static boolean existsInList(String value, String... array) {
+    for (String s : array)
+      if (value.equals(s))
+          return true;
+    return false;
+  }
+
+
+  public static String getFileNameForName(String name) {
+    return name.toLowerCase();
+  }
   
 }

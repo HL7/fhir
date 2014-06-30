@@ -22,11 +22,11 @@ support all styles and xhtml capabilities, or at least don't support them well. 
 capabilities increases the likelihood of interoperability and consistent rendering across devices.
 </p>
 <ul>
-<li><a name="style"/><b>style</b> - (0..1) A string expressing one or more <a href="http://www.w3.org/TR/2002/WD-css-style-attr-20020515">xhtml style</a>
+<li><a name="style"><b>style</b></a> - (0..1) A string expressing one or more <a href="http://www.w3.org/TR/2002/WD-css-style-attr-20020515">xhtml style</a>
   values.  This extension can be used on any element (including, in theory, 
   complex elements containing sub-elements).  It declares one or more xhtml styles that should be declared
   for the node that is responsible for rendering that element.  These might influence font, color, background, etc.</li>
-<li><a name="markup"/><b>markup</b> - (0..1) A string containing excaped xhtml to use to render the specified string with more complex formatting of some or 
+<li><a name="markup"><b>markup</b></a> - (0..1) A string containing excaped xhtml to use to render the specified string with more complex formatting of some or 
   all of the content.  This may include tags for text rendering, embedded styles, or even tables or list structures.  The textual content must be the
   same as that included in the base value of the string.</li>
 </ul>

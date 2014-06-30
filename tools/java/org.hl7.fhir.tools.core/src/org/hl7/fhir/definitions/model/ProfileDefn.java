@@ -98,6 +98,14 @@ public class ProfileDefn {
     a.add(value);
   }
 
+  public void forceMetadata(String name, String value) {
+    if (metadata.containsKey(name))
+      metadata.remove(name);
+    ArrayList<String> a = new ArrayList<String>();
+    metadata.put(name, a);
+    a.add(value);
+  }
+
   public List<ExtensionDefn> getExtensions() {
     return extensions;
   }

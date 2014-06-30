@@ -35,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.instance.model.ConceptMap;
+import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.ValueSet;
 
@@ -341,6 +342,24 @@ public class Definitions {
       if (s.getSnapshot() != null)
         return s;
     throw new Exception("unable to find snapshot for "+type);
+  }
+
+  public String getSourceFile(String type) {
+    return null;
+  }
+
+  public Profile getProfileByURL(String url) {
+    for (ProfileDefn p : profiles.values())
+      if (p.getSource().getUrlSimple().equals(url))
+        return p.getSource();
+    for (ResourceDefn rd : resources.values()) {
+      for (RegisteredProfile p : rd.getProfiles()) {
+        if (p.getProfile().getSource().getUrlSimple().equals(url)) {
+          return p.getProfile().getSource();
+        }
+      }
+    }
+    return null;
   }
 
   
