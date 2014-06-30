@@ -44,6 +44,7 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
 /**
@@ -138,9 +139,11 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
       }
     }
     if (json.has("category") && !json.get("category").isJsonNull()) {
-      JsonObject cat = json.getAsJsonArray("category").get(0).getAsJsonObject();
-      if (cat.has("term") && cat.has("scheme"))
-        res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
+      for (JsonElement t : json.getAsJsonArray("category")) {
+        JsonObject cat = t.getAsJsonObject();
+        if (cat.has("term") && cat.has("scheme"))
+          res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
+      }
     }
     JsonArray array = json.getAsJsonArray("entry");
     if (array != null) {
@@ -181,9 +184,11 @@ public abstract class JsonParserBase extends ParserBase implements Parser {
         res.setAuthorUri(author.get("uri").getAsString());
     }
     if (json.has("category") && !json.get("category").isJsonNull()) {
-      JsonObject cat = json.getAsJsonArray("category").get(0).getAsJsonObject();
-      if (cat.has("term") && cat.has("scheme") && !cat.get("term").isJsonNull() && !cat.get("scheme").isJsonNull())
-        res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
+      for (JsonElement t : json.getAsJsonArray("category")) {
+        JsonObject cat = t.getAsJsonObject();
+        if (cat.has("term") && cat.has("scheme") && !cat.get("term").isJsonNull() && !cat.get("scheme").isJsonNull())
+          res.getTags().add(new AtomCategory(cat.get("scheme").getAsString(), cat.get("term").getAsString(), cat.has("label") ? cat.get("label").getAsString() : null));
+      }
     }
     if (json.has("summary") && !json.get("summary").isJsonNull())
       res.setSummary(new XhtmlParser().parse(json.get("summary").getAsString(), "div").getChildNodes().get(0));
