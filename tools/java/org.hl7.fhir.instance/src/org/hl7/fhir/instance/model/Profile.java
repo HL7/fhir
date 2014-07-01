@@ -659,7 +659,7 @@ public class Profile extends Resource {
         /**
          * The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).
          */
-        protected Id name;
+        protected String_ name;
 
         /**
          * This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.
@@ -768,14 +768,14 @@ public class Profile extends Resource {
         /**
          * @return {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).)
          */
-        public Id getName() { 
+        public String_ getName() { 
           return this.name;
         }
 
         /**
          * @param value {@link #name} (The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).)
          */
-        public ProfileStructureComponent setName(Id value) { 
+        public ProfileStructureComponent setName(String_ value) { 
           this.name = value;
           return this;
         }
@@ -795,7 +795,7 @@ public class Profile extends Resource {
             this.name = null;
           else {
             if (this.name == null)
-              this.name = new Id();
+              this.name = new String_();
             this.name.setValue(value);
           }
           return this;

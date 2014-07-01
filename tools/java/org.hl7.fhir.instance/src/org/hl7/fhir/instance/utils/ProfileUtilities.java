@@ -9,9 +9,11 @@ import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
 import org.hl7.fhir.instance.model.Profile.ElementComponent;
 import org.hl7.fhir.instance.model.Profile.ElementDefinitionComponent;
+import org.hl7.fhir.instance.model.Profile.ElementSlicingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.Profile.ConstraintComponent;
+import org.hl7.fhir.instance.model.Profile.ResourceSlicingRules;
 import org.hl7.fhir.instance.model.Profile.TypeRefComponent;
 import org.hl7.fhir.instance.model.String_;
 import org.hl7.fhir.instance.model.Uri;
@@ -155,14 +157,17 @@ public class ProfileUtilities {
           // ok, the differential slices the item. Let's check our pre-conditions to ensure that this is correct
           if (!unbounded(currentBase.getDefinition())) // query - are you allowed to slice one that doesn't? to be resolved later
             throw new Exception("Attempt to a slice an element that does not repeat"); 
-          if (diffMatches.get(0).getSlicing() == null) // well, the diff has set up a slice, but hasn't defined it. this is an error
+          if (diffMatches.get(0).getSlicing() == null && !isExtension(currentBase)) // well, the diff has set up a slice, but hasn't defined it. this is an error
             throw new Exception("differential does not have a slice"); 
             
           // well, if it passed those preconditions then we slice the dest. 
           // we're just going to accept the differential slicing at face value
           ElementComponent outcome = currentBase.copy();
           updateFromDefinition(outcome, diffMatches.get(0));
-          outcome.setSlicing(diffMatches.get(0).getSlicing().copy());
+          if (diffMatches.get(0).getSlicing() == null) 
+            outcome.setSlicing(makeExtensionSlicing());
+          else            
+            outcome.setSlicing(diffMatches.get(0).getSlicing().copy());
           result.getElement().add(outcome);
 
           // now, for each entry in the diff matches, we're going to process the base item 
@@ -187,6 +192,18 @@ public class ProfileUtilities {
         throw new Exception("not done yet");
       }
     }      
+  }
+
+  private ElementSlicingComponent makeExtensionSlicing() {
+    ElementSlicingComponent slice = new ElementSlicingComponent();
+    slice.setDiscriminatorSimple("url");
+    slice.setOrderedSimple(true);
+    slice.setRulesSimple(ResourceSlicingRules.openAtEnd);
+    return slice;
+  }
+
+  private boolean isExtension(ElementComponent currentBase) {
+    return currentBase.getPathSimple().endsWith(".extension") || currentBase.getPathSimple().endsWith(".modifierExtension");
   }
 
   private List<ElementComponent> getDiffMatches(ConstraintComponent context, String path, int start, int end) {

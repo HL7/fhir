@@ -4162,8 +4162,8 @@ public class JsonComposer extends JsonComposerBase {
       composeCodeExtras("type", element.getType(), false);
       composeUriCore("base", element.getBase(), false);
       composeUriExtras("base", element.getBase(), false);
-      composeIdCore("name", element.getName(), false);
-      composeIdExtras("name", element.getName(), false);
+      composeStringCore("name", element.getName(), false);
+      composeStringExtras("name", element.getName(), false);
       composeBooleanCore("publish", element.getPublish(), false);
       composeBooleanExtras("publish", element.getPublish(), false);
       composeStringCore("purpose", element.getPurpose(), false);

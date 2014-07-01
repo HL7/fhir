@@ -279,6 +279,8 @@ public class SpreadsheetParser {
   private ProfileInputType readProfileInputType(String column) throws Exception {
     if ("spreadsheet".equals(column)) 
       return ProfileInputType.Spreadsheet;
+    if ("profile".equals(column)) 
+      return ProfileInputType.Profile;
     throw new Exception("Unknown value for Profile Filename Type: "+column);
   }
 

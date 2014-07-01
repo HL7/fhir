@@ -2872,7 +2872,7 @@ public class XmlComposer extends XmlComposerBase {
       composeBackboneElements(element);
       composeCode("type", element.getType());
       composeUri("base", element.getBase());
-      composeId("name", element.getName());
+      composeString("name", element.getName());
       composeBoolean("publish", element.getPublish());
       composeString("purpose", element.getPurpose());
       composeProfileConstraintComponent("snapshot", element.getSnapshot());

@@ -4812,7 +4812,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_base"))
       parseElementProperties(json.getAsJsonObject("_base"), res.getBase());
     if (json.has("name"))
-      res.setName(parseId(json.get("name").getAsString()));
+      res.setName(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getName());
     if (json.has("publish"))

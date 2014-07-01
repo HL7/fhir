@@ -48,6 +48,7 @@ import org.hl7.fhir.definitions.ecore.fhir.ConstrainedTypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.PrimitiveDefn;
 import org.hl7.fhir.definitions.ecore.fhir.TypeDefn;
 import org.hl7.fhir.definitions.ecore.fhir.impl.DefinitionsImpl;
+import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.Binding;
 import org.hl7.fhir.definitions.model.Compartment;
@@ -62,6 +63,7 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.RegisteredProfile;
+import org.hl7.fhir.definitions.model.RegisteredProfile.ProfileInputType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.definitions.parsers.converters.BindingConverter;
@@ -85,6 +87,7 @@ import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.xml.sax.Parser;
 
 /**
  * This class parses the master source for FHIR into a single definitions object
@@ -263,9 +266,16 @@ public class SourceParser {
 		
 		for (ResourceDefn r : definitions.getResources().values()) {
 		  for (RegisteredProfile p : r.getProfiles()) {
-		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry);
-		    sparser.setFolder(Utilities.getDirectoryForFile(p.getFilepath()));
-		    p.setProfile(sparser.parseProfile(definitions));
+		    if (p.getType() == ProfileInputType.Spreadsheet) {
+  		    SpreadsheetParser sparser = new SpreadsheetParser(new CSFileInputStream(p.getFilepath()), p.getName(), definitions, srcDir, logger, registry);
+	  	    sparser.setFolder(Utilities.getDirectoryForFile(p.getFilepath()));
+		      p.setProfile(sparser.parseProfile(definitions));
+		    } else if (p.getType() == ProfileInputType.Profile) {
+		      XmlParser prsr = new XmlParser();
+		      Profile profile = (Profile) prsr.parse(new CSFileInputStream(p.getFilepath()));
+		      p.setProfile(ProfileGenerator.wrapProfile(profile));
+		    } else
+		      throw new Exception("Unimplemented profile parser type "+p.getType());
 		    p.getProfile().forceMetadata("id", p.getDestFilenameNoExt());
 		  }
 		}

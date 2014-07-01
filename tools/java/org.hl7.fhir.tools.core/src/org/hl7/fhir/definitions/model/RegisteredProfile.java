@@ -40,7 +40,7 @@ POSSIBILITY OF SUCH DAMAGE.
 public class RegisteredProfile {
 
   public enum ProfileInputType {
-    Spreadsheet;
+    Spreadsheet, Profile;
   }
 
   private String name;

@@ -196,24 +196,24 @@ public class HeirarchicalTableGenerator  {
     XhtmlNode tc = tr.addTag(name);
     tc.setAttribute("class", "heirarchy");
     if (indents != null) {
-      tc.addTag("img").setAttribute("src", srcFor("tbl_spacer.png")).setAttribute("class", "heirarchy").setAttribute("alt", "tree img");
+      tc.addTag("img").setAttribute("src", srcFor("tbl_spacer.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
       tc.setAttribute("style", "vertical-align: top; text-align : left; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url("+checkExists(indents, hasChildren)+")");
       for (int i = 0; i < indents.size()-1; i++) { 
         if (indents.get(i))
-          tc.addTag("img").setAttribute("src", srcFor("tbl_blank.png")).setAttribute("class", "heirarchy").setAttribute("alt", "tree img");
+          tc.addTag("img").setAttribute("src", srcFor("tbl_blank.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
         else
-          tc.addTag("img").setAttribute("src", srcFor("tbl_vline.png")).setAttribute("class", "heirarchy").setAttribute("alt", "tree img");
+          tc.addTag("img").setAttribute("src", srcFor("tbl_vline.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
       }
       if (!indents.isEmpty())
         if (indents.get(indents.size()-1))
-          tc.addTag("img").setAttribute("src", srcFor("tbl_vjoin_end.png")).setAttribute("class", "heirarchy").setAttribute("alt", "tree img");
+          tc.addTag("img").setAttribute("src", srcFor("tbl_vjoin_end.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
         else
-          tc.addTag("img").setAttribute("src", srcFor("tbl_vjoin.png")).setAttribute("class", "heirarchy").setAttribute("alt", "tree img");
+          tc.addTag("img").setAttribute("src", srcFor("tbl_vjoin.png")).setAttribute("class", "heirarchy").setAttribute("alt", ".");
     }
     else
       tc.setAttribute("style", "vertical-align: top; text-align : left; padding:0px 4px 0px 4px");
     if (!Utilities.noString(icon)) {
-      tc.addTag("img").setAttribute("src", srcFor(icon)).setAttribute("class", "heirarchy").setAttribute("style", "background-color: white;").setAttribute("alt", "tree img");
+      tc.addTag("img").setAttribute("src", srcFor(icon)).setAttribute("class", "heirarchy").setAttribute("style", "background-color: white;").setAttribute("alt", ".");
       tc.addText(" ");
     }
     for (Piece p : c.pieces) {

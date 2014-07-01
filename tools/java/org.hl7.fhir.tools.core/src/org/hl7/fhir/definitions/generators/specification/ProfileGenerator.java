@@ -644,5 +644,11 @@ public class ProfileGenerator {
     return ce;
   }
 
+  public static ProfileDefn wrapProfile(Profile profile) {
+    ProfileDefn p = new ProfileDefn();
+    p.setSource(profile);
+    return p;
+  }
+
 
 }

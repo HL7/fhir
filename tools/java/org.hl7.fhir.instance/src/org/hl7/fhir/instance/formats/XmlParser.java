@@ -4388,7 +4388,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("base")) {
         res.setBase(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setName(parseId(xpp));
+        res.setName(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("publish")) {
         res.setPublish(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
