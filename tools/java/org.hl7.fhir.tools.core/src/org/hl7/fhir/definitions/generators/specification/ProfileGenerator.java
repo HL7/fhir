@@ -176,7 +176,7 @@ public class ProfileGenerator {
 
     // now, the snapshot
     ProfileStructureComponent base = getTypeSnapshot(pt.getBaseType());
-    new ProfileUtilities().generateSnapshot(base, cd);
+    new ProfileUtilities().generateSnapshot(base, cd, "http://hl7.org/fhir/Profile/"+pt.getBaseType());
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addTag("h2").addText("Data type "+pt.getName());
@@ -291,7 +291,7 @@ public class ProfileGenerator {
       }
       // ok, c is the differential. now we make the snapshot
       ProfileStructureComponent base = definitions.getSnapShotForType(c.getTypeSimple());
-      new ProfileUtilities().generateSnapshot(base, c);
+      new ProfileUtilities().generateSnapshot(base, c, "http://hl7.org/fhir/Profile/"+c.getTypeSimple());
     }
    
     for (ExtensionDefn ex : profile.getExtensions())

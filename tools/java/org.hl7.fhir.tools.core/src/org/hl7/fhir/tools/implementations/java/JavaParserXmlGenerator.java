@@ -162,14 +162,14 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"text\")) {\r\n"); 
     write("      res.setText(parseNarrative(xpp));\r\n");
     write("    } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"contained\")) {\r\n"); 
-    write("      xpp.next();\r\n");
+    write("      next(xpp);\r\n");
     write("      nextNoWhitespace(xpp);\r\n");
     write("      res.getContained().add(parse(xpp));\r\n");
     write("      if (xpp.getName() == null) {;\r\n");
-    write("        xpp.next();\r\n");
+    write("        next(xpp);\r\n");
     write("      };\r\n");
     write("      if(xpp.getName() != null) {;\r\n");
-    write("        xpp.next();\r\n");
+    write("        next(xpp);\r\n");
     write("      };\r\n");
     write("      nextNoWhitespace(xpp);\r\n");
     write("    } else\r\n");
@@ -186,14 +186,14 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    Enumeration<E> res = new Enumeration<E>();\r\n");
     write("    parseElementAttributes(xpp, res);\r\n");
     write("    res.setValue((E) e.fromCode(xpp.getAttributeValue(null, \"value\")));\r\n");
-    write("    xpp.next();\r\n");
+    write("    next(xpp);\r\n");
     write("    int eventType = nextNoWhitespace(xpp);\r\n");
     write("    while (eventType != XmlPullParser.END_TAG) {\r\n");
     write("      if (!parseElementContent(eventType, xpp, res))\r\n");
     write("        unknownContent(xpp);\r\n");
     write("      eventType = nextNoWhitespace(xpp);\r\n");
     write("    }\r\n");
-    write("    xpp.next();\r\n");
+    write("    next(xpp);\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -211,14 +211,14 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    "+tn+" res = new "+tn+"();\r\n");
     write("    parseElementAttributes(xpp, res);\r\n");
     write("    res.setValue(parse"+upFirst(dc.getCode())+"Primitive(xpp.getAttributeValue(null, \"value\")));\r\n");
-    write("    xpp.next();\r\n");
+    write("    next(xpp);\r\n");
     write("    int eventType = nextNoWhitespace(xpp);\r\n");
     write("    while (eventType != XmlPullParser.END_TAG) {\r\n");
     write("      if (!parseElementContent(eventType, xpp, res))\r\n");
     write("        unknownContent(xpp);\r\n");
     write("      eventType = nextNoWhitespace(xpp);\r\n");
     write("    }\r\n");
-    write("    xpp.next();\r\n");
+    write("    next(xpp);\r\n");
     write("    return res;\r\n");
     write("  }\r\n");
     write("\r\n");
@@ -330,7 +330,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         write("        res.set"+upFirst(getElementName(e.getName(), true))+"Simple(xpp.getAttributeValue(null, \""+e.getName()+"\"));\r\n");        
       }
     }    
-    write("    xpp.next();\r\n");
+    write("    next(xpp);\r\n");
     write("    int eventType = nextNoWhitespace(xpp);\r\n");
     write("    while (eventType != XmlPullParser.END_TAG) {\r\n");
     boolean first = true;
@@ -349,7 +349,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("        unknownContent(xpp);\r\n");
     write("      eventType = nextNoWhitespace(xpp);\r\n");
     write("    }\r\n");
-    write("    xpp.next();\r\n");
+    write("    next(xpp);\r\n");
     write("    return res;\r\n");
     write("  }\r\n\r\n");    
   }
@@ -410,7 +410,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
           write("          res.getExtensions().add(parseExtension(xpp));\r\n");
         else
           write("          res.getExtension().add(parseExtension(xpp));\r\n");
-        write("          xpp.next();\r\n");
+        write("          next(xpp);\r\n");
         write("          eventType = nextNoWhitespace(xpp);\r\n");
         write("        }\r\n");
         write("        if (eventType != XmlPullParser.END_TAG || !xpp.getName().equals(\""+name+"\"))\r\n");

@@ -29,6 +29,7 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 import java.io.BufferedInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,7 @@ import org.hl7.fhir.instance.model.Type;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 /**
@@ -55,21 +57,49 @@ import org.xmlpull.v1.XmlPullParserFactory;
  */
 public abstract class XmlParserBase extends ParserBase implements Parser {
 
+  private boolean parseComments = true;
+  
+	public boolean isParseComments() {
+    return parseComments;
+  }
+
+  public void setParseComments(boolean parseComments) {
+    this.parseComments = parseComments;
+  }
+
+
 	protected XmlPullParser loadXml(InputStream stream) throws Exception {
     BufferedInputStream input = new BufferedInputStream(stream);
     XmlPullParserFactory factory = XmlPullParserFactory.newInstance(System.getProperty(XmlPullParserFactory.PROPERTY_NAME), null);
     factory.setNamespaceAware(true);
     XmlPullParser xpp = factory.newPullParser();
     xpp.setInput(input, "UTF-8");
-    xpp.next();
+    next(xpp);
+    nextNoWhitespace(xpp);
+    comments.clear();
     
     return xpp;
   }
  
+	protected int next(XmlPullParser xpp) throws Exception {
+	  if (parseComments)
+	    return xpp.nextToken();
+	  else
+	    return xpp.next();    
+  }
+
+  private List<String> comments = new ArrayList<String>();
+	
   protected int nextNoWhitespace(XmlPullParser xpp) throws Exception {
     int eventType = xpp.getEventType();
-    while ((eventType == XmlPullParser.TEXT && xpp.isWhitespace()) || (eventType == XmlPullParser.COMMENT))
-      eventType = xpp.next();
+    while ((eventType == XmlPullParser.TEXT && xpp.isWhitespace()) || (eventType == XmlPullParser.COMMENT) 
+        || (eventType == XmlPullParser.CDSECT) || (eventType == XmlPullParser.IGNORABLE_WHITESPACE)
+        || (eventType == XmlPullParser.PROCESSING_INSTRUCTION) || (eventType == XmlPullParser.DOCDECL)) {
+      if (eventType == XmlPullParser.COMMENT) {
+        comments.add(xpp.getText());
+      }
+      eventType = next(xpp);
+    }
     return eventType;
   }
 
@@ -77,17 +107,17 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
 	protected void skipElementWithContent(XmlPullParser xpp)  throws Exception {
   	// when this is called, we are pointing an element that may have content
     while (xpp.getEventType() != XmlPullParser.END_TAG) {
-  		xpp.next();
+  		next(xpp);
     	if (xpp.getEventType() == XmlPullParser.START_TAG) 
     		skipElementWithContent(xpp);
     }
-    xpp.next();
+    next(xpp);
   }
   
   protected void skipEmptyElement(XmlPullParser xpp) throws Exception {
     while (xpp.getEventType() != XmlPullParser.END_TAG) 
-      xpp.next();
-    xpp.next();
+      next(xpp);
+    next(xpp);
   }
 
 	/**
@@ -120,6 +150,10 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     if (xpp.getAttributeValue(null, "id") != null) {
       e.setXmlId(xpp.getAttributeValue(null, "id"));
       idMap.put(e.getXmlId(), e);
+    }
+    if (!comments.isEmpty()) {
+      e.getXmlComments().addAll(comments);
+      comments.clear();
     }
   }
 
@@ -163,6 +197,8 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   public Resource parse(InputStream input) throws Exception {
     XmlPullParser xpp = loadXml(input);
   
+    if (xpp.getNamespace() == null)
+      throw new Exception("This does not appear to be a FHIR resource (no namespace '"+xpp.getNamespace()+"') (@ /) "+Integer.toString(xpp.getEventType()));
     if (!xpp.getNamespace().equals(FHIR_NS))
       throw new Exception("This does not appear to be a FHIR resource (wrong namespace '"+xpp.getNamespace()+"') (@ /)");
     return parseResource(xpp);
@@ -194,14 +230,14 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
     Binary res = new Binary();
     parseElementAttributes(xpp, res);
     res.setContentType(xpp.getAttributeValue(null, "contentType"));
-    int eventType = xpp.next();
+    int eventType = next(xpp);
     if (eventType == XmlPullParser.TEXT) {
       res.setContent(Base64.decodeBase64(xpp.getText().getBytes()));
-      eventType = xpp.next();
+      eventType = next(xpp);
     }
     if (eventType != XmlPullParser.END_TAG)
       throw new Exception("Bad String Structure");
-    xpp.next();
+    next(xpp);
     return res;
   }
 
@@ -215,7 +251,7 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   	List<AtomCategory> res = new ArrayList<AtomCategory>();
     if (!xpp.getName().equalsIgnoreCase("Taglist")) //Seems like Taglist, taglist or TagList is being returned
       throw new Exception("This does not appear to be a tag list (wrong name '"+xpp.getName()+"') (@ /)");
-    xpp.next();
+    next(xpp);
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("category")) {
@@ -342,14 +378,16 @@ public abstract class XmlParserBase extends ParserBase implements Parser {
   }
 
   private String parseString(XmlPullParser xpp) throws Exception {
-    String res = null;
-    if (xpp.next() == XmlPullParser.TEXT) {
-      res = xpp.getText();
-      if (xpp.next() != XmlPullParser.END_TAG)
-        throw new Exception("Bad String Structure");
+    StringBuilder res = new StringBuilder();
+    next(xpp);
+    while (xpp.getEventType() == XmlPullParser.TEXT || xpp.getEventType() == XmlPullParser.IGNORABLE_WHITESPACE || xpp.getEventType() == XmlPullParser.ENTITY_REF) {
+      res.append(xpp.getText());
+      next(xpp);
     }
-    xpp.next();
-    return res;
+    if (xpp.getEventType() != XmlPullParser.END_TAG)
+      throw new Exception("Bad String Structure - parsed "+res.toString()+" now found "+Integer.toString(xpp.getEventType()));
+    next(xpp);
+    return res.length() == 0 ? null : res.toString();
   }
   
   private int parseInt(XmlPullParser xpp) throws Exception {

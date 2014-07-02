@@ -24,6 +24,7 @@ public class HeirarchicalTableGenerator  {
     private String reference;
     private String text;
     private String hint;
+    private String style;
     
     public Piece(String tag) {
       super();
@@ -48,6 +49,23 @@ public class HeirarchicalTableGenerator  {
 
     public String getTag() {
       return tag;
+    }
+
+    public String getStyle() {
+      return style;
+    }
+
+    public Piece setStyle(String style) {
+      this.style = style;
+      return this;
+    }
+
+    public Piece addStyle(String style) {
+      if (this.style != null)
+        this.style = this.style+": "+style;
+      else
+        this.style = style;
+      return this;
     }
 
   }
@@ -218,17 +236,20 @@ public class HeirarchicalTableGenerator  {
     }
     for (Piece p : c.pieces) {
       if (!Utilities.noString(p.getTag())) {
-        tc.addTag(p.getTag());
+        addStyle(tc.addTag(p.getTag()), p);
       } else if (!Utilities.noString(p.getReference())) {
-        XhtmlNode a = tc.addTag("a");
+        XhtmlNode a = addStyle(tc.addTag("a"), p);
         a.setAttribute("href", p.getReference());
         if (!Utilities.noString(p.getHint()))
           a.setAttribute("title", p.getHint());
         a.addText(p.getText());
       } else { 
         if (!Utilities.noString(p.getHint())) {
-          XhtmlNode s = tc.addTag("span");
+          XhtmlNode s = addStyle(tc.addTag("span"), p);
           s.setAttribute("title", p.getHint());
+          s.addText(p.getText());
+        } else if (p.getStyle() != null) {
+          XhtmlNode s = addStyle(tc.addTag("span"), p);
           s.addText(p.getText());
         } else
           tc.addText(p.getText());
@@ -239,6 +260,12 @@ public class HeirarchicalTableGenerator  {
     return tc;
   }
 
+
+  private XhtmlNode addStyle(XhtmlNode node, Piece p) {
+    if (p.getStyle() != null)
+      node.setAttribute("style", p.getStyle());
+    return node;
+  }
 
   private String nmTokenize(String anchor) {
     return anchor.replace("[", "_").replace("]", "_");

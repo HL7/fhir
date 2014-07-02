@@ -283,7 +283,9 @@ public abstract class XmlComposerBase extends ComposerBase  {
 	protected abstract void composeResource(Resource resource) throws Exception;
 
 	protected void composeElementAttributes(Element element) throws Exception {
-		if (element.getXmlId() != null) 
+    for (String comment : element.getXmlComments())
+      xml.comment(comment, false);
+	  if (element.getXmlId() != null) 
 			xml.attribute("id", element.getXmlId());
 	}
 

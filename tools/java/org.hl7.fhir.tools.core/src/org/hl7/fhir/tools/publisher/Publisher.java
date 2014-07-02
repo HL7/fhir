@@ -464,11 +464,12 @@ public class Publisher {
     
     // we have profiles scoped by resources, and stand alone profiles
     for (ProfileDefn p : page.getDefinitions().getProfiles().values())
-      processProfile(p);
+      processProfile(p, p.metadata("id"));
     for (ResourceDefn r : page.getDefinitions().getResources().values())       
       for (RegisteredProfile p : r.getProfiles())      
-        processProfile(p.getProfile());
-    
+        processProfile(p.getProfile(), p.getDestFilenameNoExt());
+                                       
+                                       
     // now, validate the profiles
     for (ProfileDefn p : page.getDefinitions().getProfiles().values())
       validateProfile(p);
@@ -504,7 +505,7 @@ public class Publisher {
     t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
   }
 
-  private void processProfile(ProfileDefn profile) throws Exception {
+  private void processProfile(ProfileDefn profile, String filename) throws Exception {
     // they've either been loaded from spreadsheets, or from profile declarations
     // what we're going to do:
     //  create Profile structures if needed (create differential definitions from spreadsheets)
@@ -519,11 +520,13 @@ public class Publisher {
       for (ProfileStructureComponent c : profile.getSource().getStructure()) {
         if (c.getBase() != null && !hasSnapshot(profile.getSource(), c)) {
           // cause it probably doesn't, coming from the profile directly
-          ProfileStructureComponent base = page.getDefinitions().getSnapShotForType(c.getTypeSimple());
-          new ProfileUtilities().generateSnapshot(base, c);
+          ProfileStructureComponent base = page.getDefinitions().getSnapShotForProfile(c.getBaseSimple());
+          new ProfileUtilities().generateSnapshot(base, c, c.getBaseSimple().split("#")[0]);
         }
+        page.getProfiles().put(profile.getSource().getUrlSimple(), profile.getSource());
       }
     }
+    profile.getSource().setTag("filename", filename);
   }
 
   private boolean hasSnapshot(Profile source, ProfileStructureComponent c) {

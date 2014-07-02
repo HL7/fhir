@@ -3135,6 +3135,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + Utilities.URLEncode(pagePath) + s3;  
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;  
+      else if (com[0].equals("base-link"))
+        src = s1 + baseLink(structure) + s3;  
       else if (com[0].equals("profile-structure-table-diff"))
         src = s1 + generateProfileStructureTable(profile, structure, true) + s3;      
       else if (com[0].equals("profile-structure-table"))
@@ -3145,6 +3147,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String baseLink(ProfileStructureComponent structure) throws Exception {
+    if (structure.getBaseSimple().startsWith("http://hl7.org/fhir/Profile/")) {
+      String name = structure.getBaseSimple().substring(28);
+      if (definitions.hasResource(name))
+        return "<a href=\""+name.toLowerCase()+".html\">"+name+"</a>";
+      else if (definitions.hasElementDefn(name))
+        return "<a href=\""+GeneratorUtils.getSrcFile(name)+"#"+name+".html\">"+name+"</a>";  
+      else
+        return "??"+name;
+    } else {
+      String[] parts = structure.getBaseSimple().split("#");
+      Profile profile = definitions.getProfileByURL(parts[0]);
+      if (profile != null) {
+        if (parts.length == 2) {
+          return "<a href=\""+profile.getTag("filename")+"."+parts[1]+".html\">the structure "+parts[1]+"</a> in <a href=\""+profile.getTag("filename")+".html\">the "+profile.getNameSimple()+" profile</a>";
+        } else {
+          return "<a href=\""+profile.getTag("filename")+".html\">the "+profile.getNameSimple()+" profile</a>";
+        }
+      } else
+        return "<a href=\""+structure.getBaseSimple()+"\">"+structure.getBaseSimple()+"</a>";
+    }
   }
 
   private String generateProfileStructureTable(ProfileDefn profile, ProfileStructureComponent structure, boolean diff) throws Exception {
@@ -3479,7 +3504,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     String fn;
     String code;
     if (profileReference.startsWith("#")) {
-      code = profileReference.substring(0);
+      code = profileReference.substring(1);
     } else {
       String[] path = profileReference.split("#");
       code = path[1];

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-19T11:19:17Z</Created>
-  <LastSaved>2014-06-23T23:21:55Z</LastSaved>
+  <LastSaved>2014-07-02T08:10:09Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,7 @@
   <WindowWidth>9450</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>780</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1894,7 +1895,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1968,7 +1968,7 @@
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.snapshot.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">Binding can only be present for coded elements</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:binding)) or f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity')</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','Extension')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="Number">8</Data></Cell>
@@ -1980,13 +1980,13 @@
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.snapshot.element.definition.type</Data></Cell>
     <Cell><Data ss:Type="String">Aggregation may only be specified if one of the allowed types for the element is a resource</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[starts-with(@value, 'Resource(')])</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[@value = 'ResourceReference'])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">Profile.structure.snapshot.element.definition</Data></Cell>
     <Cell><Data ss:Type="String">Value may only be specified if the type consists of a single repetition that has a type corresponding to one of the primitive data types.</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'value')])) or (count(f:type)=1 and f:type/f:code[substring(@value,1,1)=lower-case(substring(@value,1,1))])</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'value')])) or (count(f:type)=0) or (count(f:type)=1 and f:type/f:code[substring(@value,1,1)=lower-case(substring(@value,1,1))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="Number">12</Data></Cell>
@@ -2120,10 +2120,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -2136,12 +2137,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

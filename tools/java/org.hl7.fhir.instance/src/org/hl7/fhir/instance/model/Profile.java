@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Mon, Jun 30, 2014 21:30+1000 for FHIR v0.2.1
+// Generated on Wed, Jul 2, 2014 15:14+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -686,7 +686,7 @@ public class Profile extends Resource {
          */
         protected List<ProfileStructureSearchParamComponent> searchParam = new ArrayList<ProfileStructureSearchParamComponent>();
 
-        private static final long serialVersionUID = -911790602L;
+        private static final long serialVersionUID = 1266588655L;
 
       public ProfileStructureComponent() {
         super();
@@ -924,7 +924,7 @@ public class Profile extends Resource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The Resource or Data type being described.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("base", "uri", "The structure that is the base on which this set of constraints is derived from.", 0, java.lang.Integer.MAX_VALUE, base));
-          childrenList.add(new Property("name", "id", "The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("name", "string", "The name of this resource constraint statement (to refer to it from other resource constraints - from Profile.structure.snapshot.element.definition.type.profile).", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("publish", "boolean", "This definition of a profile on a structure is published as a formal statement. Some structural definitions might be defined purely for internal use within the profile, and not intended to be used outside that context.", 0, java.lang.Integer.MAX_VALUE, publish));
           childrenList.add(new Property("purpose", "string", "Human summary: why describe this resource?.", 0, java.lang.Integer.MAX_VALUE, purpose));
           childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base profile.", 0, java.lang.Integer.MAX_VALUE, snapshot));

@@ -2,6 +2,7 @@ package org.hl7.fhir.instance.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 /*
 Copyright (c) 2011-2014, HL7, Inc
@@ -31,6 +32,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
+import java.util.Map;
 
 /**
  * The base element as defined in FHIR: an id attribute or property, and extensions. 
@@ -53,6 +55,10 @@ public abstract class Element implements Serializable {
 	 */
   private List<Extension> extensions = new ArrayList<Extension>();
   
+  /** extensions for convenience **/
+  
+  private List<String> xmlComments; // used to allow rough round-tripping of content
+  private Map<String, String> tags; // allow users to add extra information to the class
  
   /**
    * @return xml:id (or "id" in json) - the target id for internal references
@@ -141,8 +147,23 @@ public abstract class Element implements Serializable {
       if (c.getName().equals(name))
         return c;
     return null;
+  }
+
+  public List<String> getXmlComments() {
+    if (xmlComments == null)
+      xmlComments = new ArrayList<String>();
+    return xmlComments;
   }  
   
-
+  public String getTag(String name) {
+    if (tags == null)
+      return null;
+    return tags.get(name);
+  }
   
+  public void setTag(String name, String value) {
+    if (tags == null)
+      tags = new HashMap<String, String>();
+    tags.put(name, value);
+  }
 }

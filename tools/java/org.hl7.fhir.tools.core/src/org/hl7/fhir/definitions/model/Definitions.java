@@ -349,6 +349,8 @@ public class Definitions {
   }
 
   public Profile getProfileByURL(String url) {
+    if (url.contains("#"))
+      url = url.substring(0, url.indexOf('#'));
     for (ProfileDefn p : profiles.values())
       if (p.getSource().getUrlSimple().equals(url))
         return p.getSource();
@@ -360,6 +362,29 @@ public class Definitions {
       }
     }
     return null;
+  }
+
+  public ProfileStructureComponent getSnapShotForProfile(String base) throws Exception {
+    String[] parts = base.split("#");
+    if (parts[0].startsWith("http://hl7.org/fhir/Profile/") && parts.length == 1) {
+      String name = base.substring(28);
+      if (hasType(name) || hasResource(name)) 
+        return getSnapShotForType(name);
+    }
+    Profile p = getProfileByURL(parts[0]);
+    if (p == null)
+      throw new Exception("unable to find base definition for "+base);
+    if (parts.length == 1) {
+      if (p.getStructure().size() != 1)
+        throw new Exception("Profile "+base+" has multiple structures");
+      if (p.getStructure().get(0).getSnapshot() == null)
+        throw new Exception("Profile "+base+" has no snapshot"); // or else we could fill it in? 
+      return p.getStructure().get(0);
+    }
+    for (ProfileStructureComponent s : p.getStructure())
+      if (s.getSnapshot() != null && p.getNameSimple().equals(parts[1]))
+        return s;
+    throw new Exception("Unable to find snapshot for "+base);
   }
 
   
