@@ -11,7 +11,7 @@
         <value value="12.6"/>
         <units value="mmol/l"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="mmol/l"/>
+        <code value="mmol/L"/>
     </valueQuantity>
     <interpretation>
         <coding>
@@ -59,13 +59,13 @@
           <value value="7.1"/>
           <units value="mmol/l"/>
           <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/l"/>
+          <code value="mmol/L"/>
       </low>
       <high>
           <value value="11.2"/>
           <units value="mmol/l"/>
           <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/l"/>
+          <code value="mmol/L"/>
       </high>
     </referenceRange>
 </Observation>
