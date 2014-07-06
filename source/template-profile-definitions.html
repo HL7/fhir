@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 
 
-
+       
+<%settitle Profile {profiletitle} - Definitions%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <%file newheader%>
@@ -12,38 +13,13 @@
 <div class="col-9">
 
 <%profileheader definitions%>
-<h1><%title%></h1>
-<p>
-<%profile.intro%>
-</p>
-<p> 
-This profile was published on <%date%> <%status%> by <%author%> <%profilelist%>
-</p>
-<p>
-<%resurl%>
-</p>
-<a name="profile"> </a>
-<h2>
-Content
-</h2>
+<h2>Profile <%title%> - Mappings</h2>
 
-<%profile-table%>
+<%definitionsonthispage%>
 
-<%xml%>
+<p>Definitions for the <%name%> Profile.</p>
 
-<p>
-This profile as <a href="<%filetitle%>.profile.xml.html">XML</a> or <a href="<%filetitle%>.profile.json.html">JSON</a>.
-</p>
-
-<%tx%>
-
-<%inv%>
-
-<%profile.notes%>.
-
-<h2>Example</h2>
-
-<%example%>
+<%definitions%>
 
 </div>
 

@@ -279,7 +279,7 @@ public class NarrativeGenerator {
   private void addColumnValues(Resource res, XhtmlNode tr, List<ElementComponent> grandChildren, Element v, boolean showCodeDetails, Map<String, String> displayHints) throws Exception {
     for (ElementComponent e : grandChildren) {
       Property p = v.getChildByName(e.getPathSimple().substring(e.getPathSimple().lastIndexOf(".")+1));
-      if (p.getValues().size() == 0 || p.getValues().get(0) == null)
+      if (p == null || p.getValues().size() == 0 || p.getValues().get(0) == null)
         tr.addTag("td").addText(" ");
       else
         renderLeaf(res, p.getValues().get(0), e, tr.addTag("td"), false, showCodeDetails, displayHints);

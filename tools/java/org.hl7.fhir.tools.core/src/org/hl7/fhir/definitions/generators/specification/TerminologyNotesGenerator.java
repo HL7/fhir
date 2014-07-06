@@ -46,7 +46,11 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ExtensionDefn;
 import org.hl7.fhir.definitions.model.ProfileDefn;
 import org.hl7.fhir.instance.model.AtomEntry;
+import org.hl7.fhir.instance.model.Profile.BindingConformance;
+import org.hl7.fhir.instance.model.ResourceReference;
+import org.hl7.fhir.instance.model.Uri;
 import org.hl7.fhir.instance.model.ValueSet;
+import org.hl7.fhir.instance.model.Profile.ElementDefinitionBindingComponent;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -203,6 +207,41 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     }
     write("</table>\r\n<p> </p>\r\n");		
 	}
+
+  public static String describeBinding(ElementDefinitionBindingComponent def, PageProcessor page) throws Exception {
+    if (def.getReference() == null) 
+      return def.getDescriptionSimple();
+    String ref = def.getReference() instanceof Uri ? ((Uri) def.getReference()).asStringValue() : ((ResourceReference) def.getReference()).getReferenceSimple();
+    AtomEntry<ValueSet> vs = page.getValueSets().get(ref);
+    if (vs != null)
+      return def.getDescriptionSimple()+"<br/>"+conf(def)+ "<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">"+vs.getResource().getNameSimple()+"</a>"+confTail(def);
+    if (ref.startsWith("http:") || ref.startsWith("https:"))
+      return def.getDescriptionSimple()+"<br/>"+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);
+    else
+      return def.getDescriptionSimple()+"<br/>"+conf(def)+" ?? Broken Reference to "+ref+" ??"+confTail(def);
+  }
+  
+  private static String confTail(ElementDefinitionBindingComponent def) {
+    if (def.getConformanceSimple() == BindingConformance.preferred || def.getConformanceSimple() == BindingConformance.required && def.getIsExtensibleSimple())
+      return "; other codes may be used where these codes are not suitable";
+    else
+      return "";
+  }
+
+  private static String conf(ElementDefinitionBindingComponent def) {
+    if (def.getConformance() == null)
+      return "For codes, see ";
+    switch (def.getConformanceSimple()) {
+    case example:
+      return "For example codes, see ";
+    case preferred:
+      return "The codes SHOULD be taken from ";
+    case required:
+      return "The codes SHALL be taken from ";
+    default:
+      return "??";
+    }
+  }
 
   public static String describeBinding(BindingSpecification cd, PageProcessor page) throws Exception {
     if (cd.getBinding() == BindingSpecification.Binding.Unbound) 

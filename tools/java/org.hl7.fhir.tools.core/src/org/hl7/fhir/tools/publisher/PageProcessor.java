@@ -30,6 +30,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.text.SimpleDateFormat;
@@ -85,6 +86,7 @@ import org.hl7.fhir.instance.model.ConceptMap;
 import org.hl7.fhir.instance.model.DateAndTime;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileExtensionDefnComponent;
+import org.hl7.fhir.instance.model.Profile.ProfileMappingComponent;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
 import org.hl7.fhir.instance.model.ResourceReference;
 import org.hl7.fhir.instance.model.Uri;
@@ -1576,7 +1578,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Formal Definitions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    b.append(makeHeaderTab("Profiles", n+"-profiles.html", "profiles".equals(mode)));
+    b.append(makeHeaderTab("XML", n+".profile.xml.html", "xml".equals(mode)));
+    b.append(makeHeaderTab("JSON", n+".profile.json.html", "json".equals(mode)));
 
     b.append("</ul>\r\n");
 
@@ -3016,8 +3019,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return loadXmlNotesFromFile(filename, checkHeaders, definition, resource);
   }
 
-  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master, String pagePath, ProfileStructureComponent structure) throws Exception {
+  String processProfileIncludes(String filename, ProfileDefn profile, String xml, String tx, String src, String example, String intro, String notes, String master, String pagePath, ProfileStructureComponent structure, String basefilename) throws Exception {
     String wikilink = "http://wiki.hl7.org/index.php?title=FHIR_"+prepWikiName(filename)+"_Page";
+    String workingTitle = null;
 
     while (src.contains("<%") || src.contains("[%"))
     {
@@ -3035,14 +3039,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       if (com[0].equals("sidebar"))
         src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("profileheader"))
-        src = s1+profileHeader(filename, com.length > 1 ? com[1] : "")+s3;
+        src = s1+profileHeader(basefilename, com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("setwiki")) {
         wikilink = com[1];
         src = s1+s3;
       }
-      else if (com.length != 1)
+      else if (com[0].equals("settitle")) {
+        workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
+        src = s1+s3;
+      }      else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
       else if (com[0].equals("wiki"))
         src = s1+wikilink+s3;
@@ -3065,6 +3072,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("footer3"))
         src = s1+TextFile.fileToString(folders.srcDir + "footer3.html")+s3;
       else if (com[0].equals("title"))
+        src = s1+(workingTitle == null ? Utilities.escapeXml(Utilities.escapeXml(profile.metadata("name"))) : workingTitle)+s3;
+      else if (com[0].equals("profiletitle"))
         src = s1+Utilities.escapeXml(profile.metadata("name"))+s3;
       else if (com[0].equals("filetitle"))
         src = s1+(filename.contains(".") ? filename.substring(0, filename.lastIndexOf(".")) : filename)+s3;
@@ -3138,15 +3147,62 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       else if (com[0].equals("base-link"))
         src = s1 + baseLink(structure) + s3;  
       else if (com[0].equals("profile-structure-table-diff"))
-        src = s1 + generateProfileStructureTable(profile, structure, true) + s3;      
+        src = s1 + generateProfileStructureTable(profile, structure, true, filename) + s3;      
       else if (com[0].equals("profile-structure-table"))
-        src = s1 + generateProfileStructureTable(profile, structure, false) + s3;      
+        src = s1 + generateProfileStructureTable(profile, structure, false, filename) + s3;      
+      else if (com[0].equals("maponthispage"))
+        src = s1+mapOnPageProfile(profile.getSource())+s3;
+      else if (com[0].equals("definitionsonthispage"))
+        src = s1+definitionsOnPageProfile(profile.getSource())+s3;
+      else if (com[0].equals("mappings"))
+        src = s1+mappingsProfile(profile.getSource())+s3;
+      else if (com[0].equals("definitions"))
+        src = s1+definitionsProfile(profile.getSource())+s3;
       else if (com[0].equals("resurl")) {
           src = s1+"The id of this profile is "+profile.metadata("id")+s3;
       } else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
+  }
+
+  private String mappingsProfile(Profile source) {
+    MappingsGenerator m = new MappingsGenerator(definitions);
+    m.generate(source);
+    return m.getMappings();
+  }
+
+  private String definitionsProfile(Profile source) throws Exception {
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    DictHTMLGenerator d = new DictHTMLGenerator(b, this);
+    d.generate(source);
+    return b.toString();
+  }
+
+  private String mapOnPageProfile(Profile source) {
+    if (source.getMapping().size() < 2)
+      return "";
+    StringBuilder b = new StringBuilder();
+    b.append("<div class=\"itoc\">\r\n<p>Mappings:</p>\r\n");
+    for (ProfileMappingComponent map : source.getMapping()) {
+      b.append("<p class=\"link\"><a href=\"#"+map.getIdentitySimple()+"\">"+map.getNameSimple()+"</a></p>");
+    }
+    b.append("</div>\r\n");
+    return b.toString();
+  }
+
+  private String definitionsOnPageProfile(Profile source) {
+    StringBuilder b = new StringBuilder();
+    b.append("<div class=\"itoc\">\r\n<p>Mappings:</p>\r\n");
+    if (!source.getExtensionDefn().isEmpty())
+      b.append("<p class=\"link\"><a href=\"#i0\">Extensions</a></p>");
+    int i = 1;
+    for (ProfileStructureComponent struc : source.getStructure()) {
+      b.append("<p class=\"link\"><a href=\"#i"+Integer.toString(i)+"\">"+struc.getNameSimple()+"</a></p>");
+      i++;
+    }
+    b.append("</div>\r\n");
+    return b.toString();
   }
 
   private String baseLink(ProfileStructureComponent structure) throws Exception {
@@ -3172,8 +3228,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     }
   }
 
-  private String generateProfileStructureTable(ProfileDefn profile, ProfileStructureComponent structure, boolean diff) throws Exception {
-    return new XhtmlComposer().compose(new ProfileUtilities().generateTable(structure, diff, folders.dstDir, false, profile.getSource(), this));
+  private String generateProfileStructureTable(ProfileDefn profile, ProfileStructureComponent structure, boolean diff, String filename) throws Exception {
+    filename = filename.substring(0, filename.indexOf('.'))+"-definitions.html";
+    return new XhtmlComposer().compose(new ProfileUtilities().generateTable(filename, structure, diff, folders.dstDir, false, profile.getSource(), this));
   }
 
   private String generateProfileConstraintLinks(ProfileDefn profile, String filename) throws Exception {
@@ -3210,7 +3267,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   private String generateProfileExtensionsTable(ProfileDefn profile, String filename) throws Exception {
     if (profile.getSource().getExtensionDefn().isEmpty())
       return "";
-    return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities().generateExtensionsTable(profile.getSource(), folders.dstDir, false, this));
+    return "<p><b>Extensions:</b></p>\r\n"+new XhtmlComposer().compose(new ProfileUtilities().generateExtensionsTable(Utilities.changeFileExt(filename, "-definitions.html"), profile.getSource(), folders.dstDir, false, this));
   }
 
   private boolean isAggregationEndpoint(String name) {

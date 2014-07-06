@@ -35,6 +35,7 @@ uses
   Classes,
   AdvStreams,
   AdvVCLStreams,
+  BytesSupport,
   AdvObjects,
   AdvTextFormatters,
   AdvTextExtractors,
@@ -88,9 +89,21 @@ Type
     Property Item[i : integer] : TJsonNode read GetItem write SetItem;
     Property Obj[i : integer] : TJsonObject read GetObj write SetObj; default;
     Property Value[i : integer] : String read GetValue write SetValue;
+
+    function add(value : String): TJsonArray; overload;
+    function add(value : TJsonObject): TJsonArray; overload;
   end;
 
   TJsonNull = class (TJsonNode);
+
+  TJsonBoolean = class (TJsonNode)
+  private
+    FValue: boolean;
+  public
+    Constructor Create(path : String; value : boolean); overload;
+    Function Link : TJsonBoolean; Overload;
+    property value : boolean read FValue write FValue;
+  end;
 
   TJsonValue = class (TJsonNode)
   private
@@ -108,6 +121,12 @@ Type
     function GetString(name: String): String;
     function GetArray(name: String): TJsonArray;
     function GetObject(name: String): TJsonObject;
+    procedure SetString(name: String; const Value: String);
+    function GetBool(name: String): boolean;
+    procedure SetBool(name: String; const Value: boolean);
+    function GetForcedObject(name: String): TJsonObject;
+    procedure SetArray(name: String; const Value: TJsonArray);
+    procedure SetObject(name: String; const Value: TJsonObject);
   public
     constructor Create; override;
     destructor Destroy; override;
@@ -115,9 +134,19 @@ Type
 
     Function has(name : String) : Boolean;
 
-    Property vStr[name : String] : String read GetString; default;
-    Property vArr[name : String] : TJsonArray read GetArray;
-    Property vObj[name : String] : TJsonObject read GetObject;
+    Property str[name : String] : String read GetString write SetString; default;
+    Property bool[name : String] : boolean read GetBool write SetBool;
+    Property arr[name : String] : TJsonArray read GetArray write SetArray;
+    Property obj[name : String] : TJsonObject read GetObject write SetObject;
+
+    // legacy, until the FHIR code is regenerated
+    Property vStr[name : String] : String read GetString write SetString;
+    Property vBool[name : String] : boolean read GetBool write SetBool;
+    Property vArr[name : String] : TJsonArray read GetArray write SetArray;
+    Property vObj[name : String] : TJsonObject read GetObject write SetObject;
+
+    Property forceObj[name : String] : TJsonObject read GetForcedObject;
+    procedure clear(name : String = '');
 
     Property name : String read FName write FName;
     Property properties : TJsonProperties read FProperties;
@@ -161,10 +190,19 @@ Type
     Procedure ValueInArray(value : Double); overload;
     Procedure ValueDateInArray(aValue : TDateTime); overload;
     Procedure ValueNullInArray;
+
+    Procedure WriteObject(name : String; obj : TJsonObject);
+    Procedure WriteObjectInner(obj : TJsonObject);
+    Procedure WriteArray(name : String; arr : TJsonArray);
+
+    class Function write(obj : TJsonObject; pretty : boolean = false) : TBytes; overload;
+    class Function writeStr(obj : TJsonObject; pretty : boolean = false) : String; overload;
+    class Procedure write(stream : TStream; obj : TJsonObject; pretty : boolean = false); overload;
+    class Procedure write(stream : TAdvStream; obj : TJsonObject; pretty : boolean = false); overload;
   End;
 
 
-  TJSONLexType = (jltOpen, jltClose, jltString, jltNumber, jltColon, jltComma, jltOpenArray, jltCloseArray, jltEof, jltNull);
+  TJSONLexType = (jltOpen, jltClose, jltString, jltNumber, jltColon, jltComma, jltOpenArray, jltCloseArray, jltEof, jltNull, jltBoolean);
 
   TJSONLexer = class (TAdvTextExtractor)
   Private
@@ -188,7 +226,7 @@ Type
 
   End;
 
-  TJsonParserItemType = (jpitObject, jpitSimple, jpitArray, jpitEnd, jpitEof, jpitNull);
+  TJsonParserItemType = (jpitObject, jpitSimple, jpitBoolean, jpitArray, jpitEnd, jpitEof, jpitNull);
 
   TJSONParser = class (TAdvObject)
   Private
@@ -218,11 +256,15 @@ Type
     class Function Parse(stream : TAdvStream): TJsonObject; overload;
     class Function Parse(stream : TStream): TJsonObject; overload;
     class Function Parse(b : TBytes): TJsonObject; overload;
+    class Function Parse(s : String): TJsonObject; overload;
   End;
 
 Const
-  Codes_TJsonParserItemType : Array[TJsonParserItemType] of String = ('Object', 'Simple', 'Array', 'End', 'EOF', 'Null');
-  Codes_TJSONLexType : Array[TJSONLexType] of String = ('Open', 'Close', 'String', 'Number', 'Colon', 'Comma', 'OpenArray', 'CloseArray', 'Eof', 'Null');
+  Codes_TJsonParserItemType : Array[TJsonParserItemType] of String = ('Object', 'Simple', 'Boolean', 'Array', 'End', 'EOF', 'Null');
+  Codes_TJSONLexType : Array[TJSONLexType] of String = ('Open', 'Close', 'String', 'Number', 'Colon', 'Comma', 'OpenArray', 'CloseArray', 'Eof', 'Null', 'Boolean');
+
+function JsonBoolToString(b : boolean) : String;
+function JsonStringToBool(s : String) : boolean;
 
 Implementation
 
@@ -396,6 +438,111 @@ begin
   LevelDown;
 end;
 
+class procedure TJSONWriter.write(stream: TAdvStream; obj: TJsonObject; pretty : boolean = false);
+var
+  this : TJSONWriter;
+begin
+  this := TJSONWriter.Create;
+  try
+    this.HasWhitespace := pretty;
+    this.Stream := stream.Link;
+    this.Start;
+    this.writeObjectInner(obj);
+    this.Finish;
+  finally
+    this.Free;
+  end;
+end;
+
+procedure TJSONWriter.WriteArray(name: String; arr: TJsonArray);
+var
+  i : integer;
+  v : TJsonNode;
+begin
+  ValueArray(name);
+  for i := 0 to arr.FItems.Count - 1 do
+  begin
+    v := arr.Fitems[i] as TJsonNode;
+    if v is TJsonArray then
+      WriteArray('', v as TJsonArray)
+    else if v is TJsonNull then
+      ValueNull('')
+    else if v is TJsonValue then
+      Value('', (v as TJsonValue).FValue)
+    else // TJsonObject
+      WriteObject('', v as TJsonObject);
+  end;
+  FinishArray;
+end;
+
+procedure TJSONWriter.WriteObjectInner(obj: TJsonObject);
+var
+  names : TStringList;
+  i : integer;
+  n : String;
+  v : TJsonNode;
+begin
+  names := TStringList.Create;
+  try
+    for i := 0 to obj.properties.Count - 1 do
+      names.add(obj.properties.Keys[i]);
+    names.sort;
+    for n in names do
+    begin
+      v := obj.properties[n] as TJsonNode;
+      if v is TJsonArray then
+        WriteArray(n, v as TJsonArray)
+      else if v is TJsonNull then
+        ValueNull(n)
+      else if v is TJsonValue then
+        Value(n, (v as TJsonValue).FValue)
+      else // TJsonObject
+        WriteObject(n, v as TJsonObject);
+    end;
+  finally
+    names.free;
+  end;
+end;
+
+procedure TJSONWriter.WriteObject(name : String; obj: TJsonObject);
+begin
+  ValueObject(name);
+  WriteObjectInner(obj);
+  FinishObject;
+end;
+
+class function TJSONWriter.writeStr(obj: TJsonObject; pretty: boolean): String;
+begin
+  result := TEncoding.UTF8.GetString(write(obj, pretty));
+end;
+
+class function TJSONWriter.write(obj: TJsonObject; pretty: boolean): TBytes;
+var
+  mem : TBytesStream;
+begin
+  mem := TBytesStream.Create;
+  try
+    write(mem, obj, pretty);
+    result := mem.Bytes;
+    SetLength(result, mem.size);
+  finally
+    mem.Free
+  end;
+end;
+
+class procedure TJSONWriter.write(stream: TStream; obj: TJsonObject; pretty: boolean);
+var
+  s : TAdvVCLStream;
+begin
+  s := TAdvVCLStream.Create;
+  try
+    s.Stream := stream;
+    write(s, obj, pretty);
+  finally
+    s.Free;
+  end;
+end;
+
 procedure TJSONWriter.FinishObject;
 begin
   if FCache <> '' Then
@@ -530,8 +677,8 @@ begin
     ',' : FLexType := jltComma;
     '[' : FLexType := jltOpenArray;
     ']' : FLexType := jltCloseArray;
-    't' : ParseWord('true', ch, jltString);
-    'f' : ParseWord('false', ch, jltString);
+    't' : ParseWord('true', ch, jltBoolean);
+    'f' : ParseWord('false', ch, jltBoolean);
     'n' : ParseWord('null', ch, jltNull);
     '0'..'9' :
       Begin
@@ -642,7 +789,7 @@ end;
 
 function TJSONParser.GetItemValue: String;
 begin
-  if FItemType <> jpitSimple Then
+  if not (FItemType in [jpitBoolean, jpitSimple]) Then
     FLex.JSONError('Attempt to read a simple value, but state is '+Codes_TJsonParserItemType[FItemType]);
 
   result := FItemValue;
@@ -668,7 +815,7 @@ begin
       else
         ParseProperty;
       End;
-    jpitNull, jpitSimple, jpitEnd :
+    jpitNull, jpitSimple, jpitEnd, jpitBoolean :
       Begin
       if FItemType = jpitEnd Then
         FLex.FStates.Delete(0);
@@ -741,6 +888,11 @@ begin
   end;
 end;
 
+class function TJSONParser.Parse(s: String): TJsonObject;
+begin
+  result := Parse(TEncoding.UTF8.GetBytes(s));
+end;
+
 procedure TJSONParser.ParseProperty;
 Begin
   If FLex.FStates.Objects[0] = nil Then
@@ -759,6 +911,12 @@ Begin
     jltString :
       Begin
       FItemType := jpitSimple;
+      FItemValue := FLex.FValue;
+      FLex.Next;
+      End;
+    jltBoolean :
+      Begin
+      FItemType := jpitBoolean;
       FItemValue := FLex.FValue;
       FLex.Next;
       End;
@@ -838,6 +996,8 @@ begin
           Next;
           readObject(child, false);
         end;
+      jpitBoolean :
+        obj.FProperties.Add(ItemName, TJsonBoolean.Create(obj.path+'.'+ItemName, StrToBool(ItemValue)));
       jpitSimple:
         obj.FProperties.Add(ItemName, TJsonValue.Create(obj.path+'.'+ItemName, ItemValue));
       jpitNull:
@@ -1001,6 +1161,18 @@ end;
 
 { TJsonArray }
 
+function TJsonArray.add(value: String): TJsonArray;
+begin
+  FItems.Add(TJsonValue.Create(path+'/'+inttostr(FItems.count), value));
+  result := self;
+end;
+
+function TJsonArray.add(value: TJsonObject): TJsonArray;
+begin
+  FItems.Add(value);
+  result := self;
+end;
+
 constructor TJsonArray.create;
 begin
   inherited Create;
@@ -1088,10 +1260,19 @@ end;
 
 { TJsonObject }
 
+procedure TJsonObject.clear(name: String);
+begin
+  if name = '' then
+    FProperties.Clear
+  else
+    FProperties.DeleteByKey(name);
+end;
+
 constructor TJsonObject.create;
 begin
   inherited Create;
   FProperties := TJsonProperties.Create;
+  FProperties.Forced := true;
 end;
 
 destructor TJsonObject.destroy;
@@ -1116,6 +1297,31 @@ begin
   end
   else
     result := nil;
+end;
+
+function TJsonObject.GetBool(name: String): boolean;
+var
+  node : TJsonNode;
+begin
+  if has(name) then
+  begin
+    node := FProperties[name];
+    if node is TJsonNull then
+      result := false
+    else if node is TJsonBoolean then
+      result := (node as TJsonBoolean).FValue
+    else
+      raise Exception.Create('Found a '+node.ClassName+' looking for a boolean');
+  end
+  else
+    result := false;
+end;
+
+function TJsonObject.GetForcedObject(name: String): TJsonObject;
+begin
+  if not properties.ExistsByKey(name) or not (properties[name] is TJsonObject) then
+    obj[name] := TJsonObject.Create;
+  result := obj[name];
 end;
 
 function TJsonObject.GetObject(name: String): TJsonObject;
@@ -1147,6 +1353,11 @@ begin
       result := TJsonValue(node).FValue
     else if node is TJsonNull then
       result := ''
+    else if node is TJsonBoolean then
+      if (node as TJsonBoolean).FValue then
+        result := 'true'
+      else
+        result := 'false'
     else
       raise Exception.Create('Found a '+node.ClassName+' looking for a string');
   end
@@ -1162,6 +1373,78 @@ end;
 function TJsonObject.Link: TJsonObject;
 begin
   result := TJsonObject(Inherited Link);
+end;
+
+procedure TJsonObject.SetArray(name: String; const Value: TJsonArray);
+begin
+  properties.SetProp(name, value);
+end;
+
+procedure TJsonObject.SetBool(name: String; const Value: boolean);
+var
+  v : TJsonBoolean;
+begin
+  v := TJsonBoolean.Create(path+'/'+name, Value);
+  try
+    properties.SetProp(name, v.Link);
+  finally
+    v.Free;
+  end;
+end;
+
+procedure TJsonObject.SetObject(name: String; const Value: TJsonObject);
+begin
+  properties.SetProp(name, value);
+end;
+
+procedure TJsonObject.SetString(name: String; const Value: String);
+var
+  v : TJsonValue;
+begin
+  v := TJsonValue.Create(path+'/'+name, Value);
+  try
+    properties.SetProp(name, v.Link);
+  finally
+    v.Free;
+  end;
+end;
+
+{ TJsonBoolean }
+
+constructor TJsonBoolean.Create(path: String; value: boolean);
+begin
+  create('path');
+  FValue := value;
+end;
+
+function TJsonBoolean.Link: TJsonBoolean;
+begin
+  result := TJsonBoolean(inherited Link);
+end;
+
+function JsonBoolToString(b : boolean) : String;
+begin
+  if b then
+    result := 'true'
+  else
+    result := 'false';
+
+end;
+
+function JsonStringToBool(s : String) : boolean;
+begin
+  if SameText(s, 'true') then
+    result := true
+  else if SameText(s, 'false') then
+    result := false
+  else if SameText(s, '0') then
+    result := false
+  else if SameText(s, 'no') then
+    result := false
+  else if SameText(s, '') then
+    result := false
+  else
+    result := true;
 end;
 
 End.

@@ -74,7 +74,7 @@ Type
     fcmdConformanceStmt, {@enum.value fcmdConformanceStmt get the conformance statement for the system}
     fcmdTransaction, {@enum.value fcmdTransaction Update or create a set of resources}
     fcmdHistorySystem, {@enum.value fcmdUpdate get updates for the resource type}
-    fcmdUpload, {@enum.value fcmdUpload Manual upload (HL7Connect extension)}
+    fcmdUpload, {@enum.value fcmdUpload Manual upload (Server extension)}
     fcmdGetTags, {@enum.value fcmdGetTags get a list of tags fixed to a resource version, resource, used with a resource type, or used on the system}
     fcmdUpdateTags, {@enum.value fcmdAddTags add to the list of tags attached to a resource or version}
     fcmdDeleteTags, {@enum.value fcmdDeleteTags delete from the list of tags attached to a resource or version}

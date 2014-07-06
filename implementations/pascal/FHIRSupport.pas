@@ -45,6 +45,7 @@ uses
   StringSupport,
   DecimalSupport,
   Parsemap,
+  JWT,
   FHirBase,
   FHirResources,
   FHIRConstants,
@@ -138,7 +139,10 @@ Type
     FUseCount: integer;
     FRights: TStringList;
     FFirstCreated: TDateTime;
+    FJwt : TJWT;
+    FJwtPacked : String;
     procedure SetUser(const Value: TFhirUserStructure);
+    procedure SetJwt(const Value: TJWT);
   public
     Constructor Create; Override;
     destructor Destroy; Override;
@@ -207,8 +211,19 @@ Type
     }
     Property User : TFhirUserStructure read FUser write SetUser;
 
+    {@member JWT
+      The JWT token (Open ID Connect token) associated with this session
+    }
+    Property JWT : TJWT read FJwt write SetJwt;
+
+    {@member JWTPacked
+      The JWT packed and signed using RSA
+    }
+    Property JWTPacked : string read FJWTPacked write FJWTPacked;
+
     Property useCount : integer read FUseCount write FUseCount;
     Property rights : TStringList read FRights;
+    function HasRight(code : String):boolean;
   end;
 
   {@Class TFHIRRequest
@@ -1262,9 +1277,15 @@ end;
 
 destructor TFhirSession.Destroy;
 begin
+  FJwt.free;
   FRights.Free;
   FUser.Free;
   inherited;
+end;
+
+function TFhirSession.HasRight(code: String): boolean;
+begin
+  result :=  Rights.IndexOf(code) > -1;
 end;
 
 function TFhirSession.Link: TFhirSession;
@@ -1272,6 +1293,12 @@ begin
   result := TFhirSession(inherited Link);
 end;
 
+
+procedure TFhirSession.SetJwt(const Value: TJWT);
+begin
+  FJwt.free;
+  FJwt := Value;
+end;
 
 procedure TFhirSession.SetUser(const Value: TFhirUserStructure);
 begin

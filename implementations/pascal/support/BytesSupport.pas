@@ -410,14 +410,14 @@ End;
 Function BytesAdd(bytes1, bytes2 : TBytes) : TBytes;
 Begin
   SetLength(result, length(bytes1) + length(bytes2));
-  move(bytes1, result[0], length(bytes1));
-  move(bytes2, result[length(bytes1)], length(bytes2));
+  move(bytes1[0], result[0], length(bytes1));
+  move(bytes2[0], result[length(bytes1)], length(bytes2));
 End;
 
 Function BytesAdd(bytes : TBytes; byte : TByte) : TBytes;
 Begin
   SetLength(result, length(bytes) + 1);
-  move(bytes, result[0], length(bytes));
+  move(bytes[0], result[0], length(bytes));
   result[length(result)-1] := byte;
 End;
 
