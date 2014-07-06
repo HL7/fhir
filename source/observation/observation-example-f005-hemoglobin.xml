@@ -11,7 +11,7 @@
         <value value="7.2"/>
         <units value="g/dl"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="g/dl"/>
+        <code value="g/dL"/>
     </valueQuantity>
     <interpretation>
         <coding>
@@ -59,13 +59,13 @@
           <value value="7.5"/>
           <units value="g/dl"/>
           <system value="http://unitsofmeasure.org"/>
-          <code value="g/dl"/>
+          <code value="g/dL"/>
       </low>
       <high>
           <value value="10"/>
           <units value="g/dl"/>
           <system value="http://unitsofmeasure.org"/>
-          <code value="g/dl"/>
+          <code value="g/dL"/>
       </high>
     </referenceRange>
 </Observation>
