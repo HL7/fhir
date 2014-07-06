@@ -3,15 +3,15 @@
     <name>
         <coding>
             <system value="http://loinc.org"/>
-            <code value="2339-0"/>
-            <display value="Glucose [Mass/volume] in Blood"/>
+            <code value="15074-8"/>
+            <display value="Glucose [Moles/volume] in Blood"/>
         </coding>
     </name>
     <valueQuantity>
         <value value="6.3"/>
         <units value="mmol/l"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="mmol/l"/>
+        <code value="mmol/L"/>
     </valueQuantity>
     <interpretation>
         <coding>
@@ -59,13 +59,13 @@
           <value value="3.1"/>
           <units value="mmol/l"/>
           <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/l"/>
+          <code value="mmol/L"/>
       </low>
       <high>
           <value value="6.2"/>
           <units value="mmol/l"/>
           <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/l"/>
+          <code value="mmol/L"/>
       </high>
     </referenceRange>
 </Observation>
