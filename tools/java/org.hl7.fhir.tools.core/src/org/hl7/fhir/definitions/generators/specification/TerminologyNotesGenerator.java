@@ -263,20 +263,20 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         return cd.getDescription();
       else if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
         AtomEntry<ValueSet> vs = page.getValueSets().get(cd.getReference());
-        return cd.getDefinition()+" (<a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">Value Set Definition</a>)";
+        return cd.getBindingStrength().toString()+": <a href=\""+vs.getLinks().get("path").replace(File.separatorChar, '/')+"\">Value Set Definition</a> ("+cd.getDefinition()+")";
       } else if (cd.getReferredValueSet() != null)
-        return cd.getDescription()+" (<a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getIdentifierSimple()+"</a>)";
+        return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+".html\">See "+cd.getReferredValueSet().getIdentifierSimple()+"</a> ("+cd.getDefinition()+")";
       else
-      return cd.getDescription()+" (<a href=\""+cd.getReference()+".html\">Value Set Definition</a>)";
+      return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+".html\">Value Set Definition</a> ("+cd.getDefinition()+")";
     }
     if (cd.getBinding() == BindingSpecification.Binding.CodeList) {
       if (Utilities.noString(cd.getReference())) 
-        return cd.getDefinition()+" ("+cd.getDescription()+")";
+        return cd.getBindingStrength().toString()+": "+cd.getDescription()+" ("+cd.getDefinition()+")";
       else
-        return cd.getDefinition()+" (see <a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> for values)";
+        return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> ("+cd.getDefinition()+")";
     }
     if (cd.getBinding() == BindingSpecification.Binding.Reference) {
-      return "see <a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a>";
+      return cd.getBindingStrength().toString()+": <a href=\""+cd.getReference()+"\">"+cd.getDescription()+"</a> ("+cd.getDefinition()+")";
     }
     return "??";
   }

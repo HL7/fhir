@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.model;
   
 */
 
-// Generated on Wed, Jul 2, 2014 15:14+1000 for FHIR v0.2.1
+// Generated on Mon, Jul 7, 2014 07:04+1000 for FHIR v0.2.1
 
 import java.util.*;
 
@@ -297,7 +297,12 @@ public class Observation extends Resource {
          */
         protected Range age;
 
-        private static final long serialVersionUID = -1022858860L;
+        /**
+         * Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
+         */
+        protected String_ text;
+
+        private static final long serialVersionUID = 801418099L;
 
       public ObservationReferenceRangeComponent() {
         super();
@@ -363,12 +368,49 @@ public class Observation extends Resource {
           return this;
         }
 
+        /**
+         * @return {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.)
+         */
+        public String_ getText() { 
+          return this.text;
+        }
+
+        /**
+         * @param value {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.)
+         */
+        public ObservationReferenceRangeComponent setText(String_ value) { 
+          this.text = value;
+          return this;
+        }
+
+        /**
+         * @return Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
+         */
+        public String getTextSimple() { 
+          return this.text == null ? null : this.text.getValue();
+        }
+
+        /**
+         * @param value Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
+         */
+        public ObservationReferenceRangeComponent setTextSimple(String value) { 
+          if (value == null)
+            this.text = null;
+          else {
+            if (this.text == null)
+              this.text = new String_();
+            this.text.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("low", "Quantity", "The value of the low bound of the reference range. If this is omitted, the low bound of the reference range is assumed to be meaningless. E.g. <2.3.", 0, java.lang.Integer.MAX_VALUE, low));
           childrenList.add(new Property("high", "Quantity", "The value of the high bound of the reference range. If this is omitted, the high bound of the reference range is assumed to be meaningless. E.g. >5.", 0, java.lang.Integer.MAX_VALUE, high));
           childrenList.add(new Property("meaning", "CodeableConcept", "Code for the meaning of the reference range.", 0, java.lang.Integer.MAX_VALUE, meaning));
           childrenList.add(new Property("age", "Range", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, java.lang.Integer.MAX_VALUE, age));
+          childrenList.add(new Property("text", "string", "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of 'Negative' or a list or table of 'normals'.", 0, java.lang.Integer.MAX_VALUE, text));
         }
 
       public ObservationReferenceRangeComponent copy() {
@@ -377,6 +419,7 @@ public class Observation extends Resource {
         dst.high = high == null ? null : high.copy();
         dst.meaning = meaning == null ? null : meaning.copy();
         dst.age = age == null ? null : age.copy();
+        dst.text = text == null ? null : text.copy();
         return dst;
       }
 
@@ -960,7 +1003,7 @@ public class Observation extends Resource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("name", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation 'code'.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|Period|SampledData|string", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
+        childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|Attachment|Ratio|dateTime|Period|SampledData|string", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         childrenList.add(new Property("comments", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, java.lang.Integer.MAX_VALUE, comments));
         childrenList.add(new Property("applies[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the 'physiologically relevant time'. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, applies));

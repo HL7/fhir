@@ -20,6 +20,7 @@
   <WindowWidth>10005</WindowWidth>
   <WindowTopX>480</WindowTopX>
   <WindowTopY>90</WindowTopY>
+  <ActiveSheet>6</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1076,7 +1077,6 @@
     <HorizontalResolution>200</HorizontalResolution>
     <VerticalResolution>200</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1651,9 +1651,9 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Profiles">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="3" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="108"/>
+   <Column ss:AutoFitWidth="0" ss:Width="170.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="237"/>
    <Column ss:AutoFitWidth="0" ss:Width="179.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="99"/>
@@ -1680,6 +1680,13 @@
     <Cell><Data ss:Type="String">profile</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">ihc</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ihcPotassiumSCncPtSerPlasBldQnLabObs-profile</Data></Cell>
+    <Cell><Data ss:Type="String">Intermountain Healthcare Serum/Plasma Potassium</Data></Cell>
+    <Cell><Data ss:Type="String">ihc-PotassiumSCncPtSerPlasBldQnLabObs-profile.xml</Data></Cell>
+    <Cell><Data ss:Type="String">profile</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">ihc</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1688,11 +1695,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

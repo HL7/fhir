@@ -29,7 +29,7 @@ package org.hl7.fhir.instance.formats;
   
 */
 
-// Generated on Wed, Jul 2, 2014 15:14+1000 for FHIR v0.2.1
+// Generated on Mon, Jul 7, 2014 07:04+1000 for FHIR v0.2.1
 
 import org.hl7.fhir.instance.model.*;
 import org.hl7.fhir.instance.model.Integer;
@@ -3590,6 +3590,8 @@ public class JsonComposer extends JsonComposerBase {
       composeQuantity("high", element.getHigh());
       composeCodeableConcept("meaning", element.getMeaning());
       composeRange("age", element.getAge());
+      composeStringCore("text", element.getText(), false);
+      composeStringExtras("text", element.getText(), false);
       close();
     }
   }

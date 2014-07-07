@@ -133,6 +133,7 @@ import org.hl7.fhir.instance.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.instance.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.instance.model.Profile;
 import org.hl7.fhir.instance.model.Profile.ProfileStructureComponent;
+import org.hl7.fhir.instance.model.Questionnaire;
 import org.hl7.fhir.instance.model.ValueSet;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.instance.model.ValueSet.ConceptSetFilterComponent;
@@ -144,6 +145,7 @@ import org.hl7.fhir.instance.model.ValueSet.ValuesetStatus;
 import org.hl7.fhir.instance.utils.LoincToDEConvertor;
 import org.hl7.fhir.instance.utils.NarrativeGenerator;
 import org.hl7.fhir.instance.utils.ProfileUtilities;
+import org.hl7.fhir.instance.utils.QuestionnaireBuilder;
 import org.hl7.fhir.instance.utils.ToolingExtensions;
 import org.hl7.fhir.instance.validation.InstanceValidator;
 import org.hl7.fhir.instance.validation.ProfileValidator;
@@ -2388,7 +2390,16 @@ public class Publisher {
     tmp.delete();
     // because we'll pick up a little more information as we process the
     // resource
-    generateProfile(resource, n, xml);
+    Profile p = generateProfile(resource, n, xml);
+    generateQuestionnaire(n, p);
+  }
+
+  private void generateQuestionnaire(String n, Profile p) throws Exception {
+    QuestionnaireBuilder b = new QuestionnaireBuilder();
+    Questionnaire q = b.buildQuestionnaire(p);
+    
+    new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".questionnaire.xml"), q, true, false);
+    new JsonComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".questionnaire.json"), q, true);
 
   }
 
@@ -2600,19 +2611,7 @@ public class Publisher {
     return "Loinc Narrative";
   }
 
-  private void generateProfile(ResourceDefn root, String n, String xmlSpec) throws Exception, FileNotFoundException {
-//    ProfileDefn p = new ProfileDefn();
-//    p.putMetadata("id", root.getName().toLowerCase());
-//    p.putMetadata("name", n);
-//    p.putMetadata("author.name", "FHIR Project");
-//    p.putMetadata("author.ref", "http://hl7.org/fhir");
-//    p.putMetadata("description", "Basic Profile. " + root.getRoot().getDefinition());
-//    p.putMetadata("status", "draft");
-//    p.putMetadata("date", new SimpleDateFormat("yyyy-MM-dd", new Locale("en", "US")).format(new Date()));
-//    p.getResources().add(root);
-//    p.putMetadata("requirements", root.getRequirements());
-//    ProfileGenerator pgen = new ProfileGenerator(page.getDefinitions());
-//    Profile rp = pgen.generate(p, n, xmlSpec);
+  private Profile generateProfile(ResourceDefn root, String n, String xmlSpec) throws Exception, FileNotFoundException {
     Profile rp = root.getProfile();
     page.getProfiles().put(root.getName(), rp);
     new XmlComposer().compose(new FileOutputStream(page.getFolders().dstDir + n + ".profile.xml"), rp, true, false);
@@ -2625,6 +2624,7 @@ public class Publisher {
     saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir + "html" + File.separator + n + ".html"));
     cloneToXhtml(n + ".profile", "Profile for " + n, true, "profile-instance:resource:" + root.getName());
     jsonToXhtml(n + ".profile", "Profile for " + n, resource2Json(rp), "profile-instance:resource:" + root.getName());
+    return rp;
   }
 
   private void saveAsPureHtml(Profile resource, FileOutputStream stream) throws Exception {
